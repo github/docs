@@ -4938,7 +4938,7 @@ with `refs/heads/` (although the input is not required to be fully
 qualified).
 
 The Ref may be specified by its global node ID or by the
-repository nameWithOwner and branch name.
+`repositoryNameWithOwner` and `branchName`.
 
 ### Examples
 
@@ -4946,10 +4946,10 @@ Specify a branch using a global node ID:
 
     { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
 
-Specify a branch using nameWithOwner and branch name:
+Specify a branch using `repositoryNameWithOwner` and `branchName`:
 
     {
-      "nameWithOwner": "github/graphql-client",
+      "repositoryNameWithOwner": "github/graphql-client",
       "branchName": "main"
     }
 """
@@ -10655,7 +10655,7 @@ input EnablePullRequestAutoMergeInput {
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to 'MERGE'
+  The merge method to use. If omitted, defaults to `MERGE`
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -13210,6 +13210,12 @@ enum EnterpriseUserAccountMembershipRole {
   The user is an owner of an organization in the enterprise.
   """
   OWNER
+
+  """
+  The user is not an owner of the enterprise, and not a member or owner of any
+  organizations in the enterprise; only for EMU-enabled enterprises.
+  """
+  UNAFFILIATED
 }
 
 """
@@ -20500,7 +20506,7 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
-  Create a new branch protection rule
+  Update a branch protection rule
   """
   updateBranchProtectionRule(
     """
@@ -20810,6 +20816,16 @@ type Mutation {
   ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
 
   """
+  Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
+  """
+  updateOrganizationWebCommitSignoffSetting(
+    """
+    Parameters for UpdateOrganizationWebCommitSignoffSetting
+    """
+    input: UpdateOrganizationWebCommitSignoffSettingInput!
+  ): UpdateOrganizationWebCommitSignoffSettingPayload
+
+  """
   Updates an existing project.
   """
   updateProject(
@@ -21005,6 +21021,16 @@ type Mutation {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload
+
+  """
+  Sets whether contributors are required to sign off on web-based commits for a repository.
+  """
+  updateRepositoryWebCommitSignoffSetting(
+    """
+    Parameters for UpdateRepositoryWebCommitSignoffSetting
+    """
+    input: UpdateRepositoryWebCommitSignoffSettingInput!
+  ): UpdateRepositoryWebCommitSignoffSettingPayload
 
   """
   Change visibility of your sponsorship and opt in or out of email updates from the maintainer.
@@ -25627,6 +25653,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   viewerIsSponsoring: Boolean!
 
   """
+  Whether contributors are required to sign off on web-based commits for repositories in this organization.
+  """
+  webCommitSignoffRequired: Boolean!
+
+  """
   The organization's public profile URL.
   """
   websiteUrl: URI
@@ -28699,14 +28730,6 @@ enum ProjectNextFieldType {
     )
 
   """
-  Tasks
-  """
-  TASKS
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
-
-  """
   Text
   """
   TEXT
@@ -28718,6 +28741,14 @@ enum ProjectNextFieldType {
   Title
   """
   TITLE
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
+    )
+
+  """
+  Tracks
+  """
+  TRACKS
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
@@ -29756,11 +29787,6 @@ enum ProjectV2FieldType {
   SINGLE_SELECT
 
   """
-  Tasks
-  """
-  TASKS
-
-  """
   Text
   """
   TEXT
@@ -29769,6 +29795,11 @@ enum ProjectV2FieldType {
   Title
   """
   TITLE
+
+  """
+  Tracks
+  """
+  TRACKS
 }
 
 """
@@ -40479,6 +40510,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     last: Int
   ): UserConnection!
+
+  """
+  Whether contributors are required to sign off on web-based commits in this repository.
+  """
+  webCommitSignoffRequired: Boolean!
 }
 
 """
@@ -41824,6 +41860,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The scope of an alert's dependency
   """
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
+  Comment explaining the reason the alert was dismissed
+  """
+  dismissComment: String
 
   """
   The reason the alert was dismissed
@@ -44938,6 +44979,11 @@ input StartRepositoryMigrationInput {
   githubPat: String
 
   """
+  Whether to lock the source repository.
+  """
+  lockSource: Boolean
+
+  """
   The signed URL to access the user-uploaded metadata archive
   """
   metadataArchiveUrl: String
@@ -45805,7 +45851,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     orderBy: TeamRepositoryOrder
 
     """
-    The search string to look for.
+    The search string to look for. Repositories will be returned where the name contains your search string.
     """
     query: String
   ): TeamRepositoryConnection!
@@ -49863,6 +49909,46 @@ type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting
+"""
+input UpdateOrganizationWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization on which to set the web commit signoff setting.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  Enable signoff on web-based commits for repositories in the organization?
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationWebCommitSignoffSetting
+"""
+type UpdateOrganizationWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
+
+  """
+  The organization with the updated web commit signoff setting.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UpdateProjectCard
 """
 input UpdateProjectCardInput {
@@ -50707,6 +50793,46 @@ type UpdateRepositoryPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The updated repository.
+  """
+  repository: Repository
+}
+
+"""
+Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting
+"""
+input UpdateRepositoryWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the repository to update.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  Indicates if the repository should require signoff on web-based commits.
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateRepositoryWebCommitSignoffSetting
+"""
+type UpdateRepositoryWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
 
   """
   The updated repository.
