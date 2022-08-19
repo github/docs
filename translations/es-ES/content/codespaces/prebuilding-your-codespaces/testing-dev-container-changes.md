@@ -14,7 +14,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 
-Any changes you make to the dev container configuration for a prebuild-enabled branch will result in an update to the codespace configuration and the associated prebuild. Por lo tanto, es importante probar estos cambios en un codespace de una rama de prueba antes de confirmar tus cambios en una rama de tu repositorio que se esté utilizando activamente. Esto garantizará que no estás introduciendo cambios importantes para tu equipo.
+Cualquier cambio que hagas a la configuración de contenedor dev para una rama con precompilación habilitada dará como resultado una actualización a la configuración del codespace y a la precompilación asociada. Por lo tanto, es importante probar estos cambios en un codespace de una rama de prueba antes de confirmar tus cambios en una rama de tu repositorio que se esté utilizando activamente. Esto garantizará que no estás introduciendo cambios importantes para tu equipo.
 
 Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
@@ -24,7 +24,7 @@ Para obtener más información, consulta la sección "[Introducción a los conte
 1. En el codespace, extrae una rama de prueba. Para obtener más información, consulta la sección "[Utilizar el control de código fuente en tu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)."
 1. Realiza los cambios requeridos a la configuración del contenedor dev.
 1. Aplica los cambios recompilando el contenedor. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
-1. Cuando todo se vea bien, también recomendamos crear un codespace nuevo desde tu rama de pruebas para garantizar que todo funcione. You can then commit your changes to your repository's default branch, or an active feature branch, triggering an update of the prebuild for that branch.
+1. Cuando todo se vea bien, también recomendamos crear un codespace nuevo desde tu rama de pruebas para garantizar que todo funcione. Entonces, puedes confirmar tus cambios en la rama predeterminada de tu repositorio o en una rama de características activa, lo que activará una actualización de la precompilación para la rama.
 
    {% note %}
 

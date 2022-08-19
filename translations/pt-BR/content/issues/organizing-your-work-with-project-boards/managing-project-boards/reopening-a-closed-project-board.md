@@ -15,7 +15,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-Ao fechar um {% data variables.projects.projects_v1_board %}, qualquer automação de fluxo de trabalho que tenha sido configurada para o {% data variables.projects.projects_v1_board %} será pausada por padrão. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
+Ao fechar um {% data variables.projects.projects_v1_board %}, qualquer automação de fluxo de trabalho que tenha sido configurada para o {% data variables.projects.projects_v1_board %} será pausada por padrão. Para obter mais informações, consulte "[Fechando um {% data variables.product.prodname_project_v1 %}de](/articles/closing-a-project-board)".
 
 Ao reabrir um {% data variables.projects.projects_v1_board %}, você tem a opção de *sincronizar* a automação, que atualiza a posição dos cartões no quadro de acordo com as configurações de automação definidas para o quadro.
 

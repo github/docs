@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
-intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
+title: 'Início Rápido para {% data variables.product.prodname_projects_v2 %}'
+intro: 'Experimente a velocidade, flexibilidade e personalização de {% data variables.product.prodname_projects_v2 %} criando um projeto neste guia interativo.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -14,7 +14,7 @@ topics:
 
 ## Introdução
 
-This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. Neste guia, você irá criar um novo projeto e adicionar um campo personalizado para acompanhar as prioridades das suas tarefas. Você também aprenderá como criar visualizações salvas que ajudem a comunicar as prioridades e o progresso com seus colaboradores.
+Este guia demonstra como usar {% data variables.product.prodname_projects_v2 %} para planejar e acompanhar o trabalho. Neste guia, você irá criar um novo projeto e adicionar um campo personalizado para acompanhar as prioridades das suas tarefas. Você também aprenderá como criar visualizações salvas que ajudem a comunicar as prioridades e o progresso com seus colaboradores.
 
 ## Pré-requisitos
 
@@ -46,7 +46,7 @@ Em seguida, adicione alguns problemas ao seu projeto.
 
 Repita os passos acima algumas vezes para adicionar vários problemas ao seu projeto.
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+Para mais informações e outras formas de adicionar problemas ao seu projeto, ou sobre outros itens que você pode adicionar ao seu projeto, consulte "[Adicionando itens ao seu projeto](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
 
 ## Adicionando rascunhos de problemas ao seu projeto
 
@@ -54,24 +54,24 @@ Em seguida, adicione um rascunho ao seu projeto.
 
 {% data reusables.projects.add-draft-issue %}
 
-## Adding an iteration field
+## Adicionando um campo de iteração
 
-Next, create an iteration field so you can plan and track your work over repeating blocks of time. Iterations can be configured to suit how you and your team works, with customizable lengths and the ability to insert breaks.
+Em seguida, crie um campo de iteração para que você possa planejar e rastrear o seu trabalho ao longo de espaços de tempo que se repetem. As iterações podem ser configuradas para atender ao modo como você e sua equipe trabalham, com comprimentos personalizáveis e a capacidade de inserir pausas.
 
 {% data reusables.projects.new-field %}
-1. Select **Iteration** ![Screenshot showing the iteration option](/assets/images/help/projects-v2/new-field-iteration.png)
-3. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**. ![Screenshot showing the iteration duration](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
+1. Selecionar **Iteração** ![Captura de tela que mostra a opção de iteração](/assets/images/help/projects-v2/new-field-iteration.png)
+3. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**. ![Captura de tela que mostra a duração de iteração](/assets/images/help/projects-v2/iteration-field-duration.png)
+4. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 ## Criando um campo para monitorar a prioridade
 
-Now, create a custom field named `Priority` and containing the values: `High`, `Medium`, or `Low`.
+Agora, crie um campo personalizado denominado `Prioridade` e que cotném os valores: `Alto`, `Médio` ou `Baixo`.
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Below "Options", type the first option, "High". ![Screenshot showing the single select option](/assets/images/help/projects-v2/priority-example.png)
-1. To add additional fields, for "Medium" and "Low", click **Add option**.
-1. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Selecione **Seleção única** ![Captura de tela que mostra a opção de seleção única](/assets/images/help/projects-v2/new-field-single-select.png)
+1. Abaixo de "Opções", digite a primeira opção, "Alta". ![Captura de tela que mostra a opção de seleção única](/assets/images/help/projects-v2/priority-example.png)
+1. Para adicionar outros campos, para "Médio" e "Baixo", clique em **Adicionar opção**.
+1. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/new-field-save.png)
 
 Especifique uma prioridade para todos os problemas no seu projeto.
 
@@ -82,8 +82,8 @@ Especifique uma prioridade para todos os problemas no seu projeto.
 Em seguida, agrupe todos os itens do seu projeto por prioridade para facilitar o foco nos itens de alta prioridade.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**. ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
-1. Click **Priority**. ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
+1. Clique em {% octicon "rows" aria-label="the rows icon" %} **Grupo**. ![Captura de tela que mostra o item de menu do grupo](/assets/images/help/projects-v2/group-menu-item.png)
+1. Clique em **Prioridade**. ![Captura de tela que mostra o menu do grupo](/assets/images/help/projects-v2/group-menu.png)
 
 Agora, transfira os problemas entre grupos para mudar a sua prioridade.
 
@@ -117,7 +117,7 @@ Em seguida, crie uma nova visualização.
 Em seguida, mude para o layout do quadro.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click **Board**. ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
+1. Em "Layout", clique em **Quadro**. ![Captura de tela que mostra as opções de layout](/assets/images/help/projects-v2/table-or-board.png)
 
 ![Prioridades de exemplo](/assets/images/help/projects/example_board.png)
 
@@ -128,9 +128,9 @@ Quando você alterou o layout, o projeto exibiu um indicador para mostrar que a 
 Para indicar o propósito da visão, dê um nome descritivo.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
-1. To save changes, press <kbd>Return</kbd>.
+1. Clique em {% octicon "pencil" aria-label="the pencil icon" %} **Renomear visualização**. ![Captura de tela que mostra o item de menu de renomear](/assets/images/help/projects-v2/rename-view.png)
+1. Digite o novo nome para a sua visualização.
+1. Para salvar as alterações, pressione <kbd>Returnar</kbd>.
 
 ![Prioridades de exemplo](/assets/images/help/projects/project-view-switch.gif)
 
@@ -138,14 +138,14 @@ Para indicar o propósito da visão, dê um nome descritivo.
 
 Por fim, adicione um fluxo de trabalho construído para definir o status como **Todo** quando um item for adicionado ao seu projeto.
 
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu. ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
-1. In the menu, click {% octicon "workflow" aria-label="The workflow icon" %} **Workflows**. ![Screenshot showing the 'Workflows' menu item](/assets/images/help/projects-v2/workflows-menu-item.png)
-1. Em **Fluxos de trabalho padrão**, clique em **Item adicionado ao projeto**. ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
-1. Ao lado de **Quando**, certifique-se de que `problemas` e `pull requests` estejam selecionados. ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
-1. Ao lado de **Definir**, selecione **Status:Todo**. ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
-1. Clique na opção **Desabilitada** para habilitar o fluxo de trabalho. ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+1. Na parte superior direita, clique em {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir o menu. ![Captura de tela que mostra o ícone de menu](/assets/images/help/projects-v2/open-menu.png)
+1. No menu, clique em {% octicon "workflow" aria-label="The workflow icon" %} **Fluxos de trabalho**. ![Captura de tela que mostra o item de menu 'Fluxo de Trabalho'](/assets/images/help/projects-v2/workflows-menu-item.png)
+1. Em **Fluxos de trabalho padrão**, clique em **Item adicionado ao projeto**. ![Captura de tela que mostra os fluxos de trabalho padrão](/assets/images/help/projects-v2/default-workflows.png)
+1. Ao lado de **Quando**, certifique-se de que `problemas` e `pull requests` estejam selecionados. ![Captura de tela que mostra a configuração "quando" para um fluxo de trabalho](/assets/images/help/projects-v2/workflow-when.png)
+1. Ao lado de **Definir**, selecione **Status:Todo**. ![Captura de tela que mostra a configuração "definir" para um fluxo de trabalho](/assets/images/help/projects-v2/workflow-set.png)
+1. Clique na opção **Desabilitada** para habilitar o fluxo de trabalho. ![Captura de tela que mostra a o controle "habilitar" para um fluxo de trabalho](/assets/images/help/projects-v2/workflow-enable.png)
 
 ## Leia mais
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[Adicionando itens ao seu projeto](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[Personalizando uma visualização de](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"

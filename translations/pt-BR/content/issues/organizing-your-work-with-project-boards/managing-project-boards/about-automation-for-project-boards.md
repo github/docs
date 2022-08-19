@@ -43,4 +43,4 @@ Para obter mais informações, consulte "[Acompanhando o progresso no seu {% dat
 
 ## Leia mais
 - "[Configurando automação para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- "[Copiando um {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

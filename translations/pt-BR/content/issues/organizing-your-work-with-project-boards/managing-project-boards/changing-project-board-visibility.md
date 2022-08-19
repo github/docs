@@ -17,11 +17,14 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% tip %}
+{% note %}
 
-**Dica:** Ao se tornar o seu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, os integrantes da organização recebem acesso de leitura por padrão. Você pode dar permissões de gravação ou de administrador a certos integrantes da organização, dando acesso a equipes nas quais estão ou adicionando-os ao {% data variables.projects.projects_v1_board %} como colaborador. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
-{% endtip %}
+* {% data reusables.projects.owners-can-limit-visibility-permissions %}
+* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. Você pode dar permissões de gravação ou de administrador a certos integrantes da organização, dando acesso a equipes nas quais estão ou adicionando-os ao {% data variables.projects.projects_v1_board %} como colaborador. Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
+
+{% endnote %}
 
 1. Acesse o quadro de projeto que você deseja tornar {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.
 {% data reusables.project-management.click-menu %}

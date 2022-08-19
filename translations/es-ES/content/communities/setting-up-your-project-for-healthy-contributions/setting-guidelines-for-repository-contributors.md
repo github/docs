@@ -59,7 +59,7 @@ Puedes crear lineamientos de contribución predeterminados para tu cuenta organi
 Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribución:
 
 - Pautas de contribución del Editor Atom [](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
-- Pautas de contribución de Ruby on Rails [](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
+- Pautas de contribución de Ruby on Rails [](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
 - Pautas de contribución de Open Government [](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Leer más

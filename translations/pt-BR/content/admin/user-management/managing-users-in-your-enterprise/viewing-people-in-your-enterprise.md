@@ -1,6 +1,7 @@
 ---
 title: Visualizar pessoas na sua empresa
 intro: 'Para auditar o acesso à utilização de licença de usuário ou de recursos pertencentes à empresa, os proprietários corporativos podem exibir todos os administradores e integrantes da empresa.'
+permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -20,6 +21,20 @@ shortTitle: Visualizar as pessoas na sua empresa
 Para controlar o acesso aos recursos da sua empresa e gerenciar o uso da licença, você pode ver uma lista de todas as pessoas que têm acesso à sua empresa.
 
 Você pode ver todos os integrantes atuais da empresa e administradores da empresa{% ifversion ghec %}, bem como convites pendentes para se tornarem integrantes e administradores{% endif %}. Para facilitar o consumo destas informações, você pode pesquisar e filtrar as listas.
+
+{% ifversion ghec %}
+
+Se {% data variables.product.prodname_github_connect %} estiver configurado para sua empresa, ao filtrar uma lista de pessoas da sua empresa, irão aplicar-se limitações a seguir.
+
+- O filtro para o status de autenticação de dois fatores (2FA) não mostra pessoas que têm apenas uma conta em uma instância de {% data variables.product.prodname_ghe_server %}.
+- Se você combinar o filtro para contas nas instâncias de {% data variables.product.prodname_ghe_server %} com o filtro para organizações ou o status de 2FA, você não verá nenhum resultado.
+
+Para obter mais informações sobre {% data variables.product.prodname_github_connect %}, consulte os seguintes artigos.
+
+- "[Sobre {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_server %}
+- "[Sobre {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_managed %}
+
+{% endif %}
 
 ## Visualizando os administradores corporativos
 

@@ -17,13 +17,26 @@ shortTitle: Adicionar organizações
 permissions: Enterprise owners can add organizations to an enterprise.
 ---
 
-## Sobre organizações
+## Sobre a adição de organizações à conta corporativa
 
 Sua conta corporativa pode ser proprietária de organizações. Os integrantes da sua empresa podem colaborar em projetos relacionados dentro de uma organização. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-É possível adicionar uma organização nova ou existente às configurações da conta corporativa.
+É possível adicionar novas organizações à conta corporativa. Se você não usar {% data variables.product.prodname_emus %}, você poderá adicionar organizações existentes em {% data variables.product.product_location %} à sua empresa. Não é possível adicionar uma organização existente a partir de um {% data variables.product.prodname_emu_enterprise %} a uma empresa diferente.
 
-Você só pode adicionar organizações dessa forma a uma conta corporativa existente. {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
+{% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
+
+Após adicionar uma organização existente à sua empresa, os recursos da organização permanecerão acessíveis aos integrantes nas mesmas URLs e serão aplicadas as seguintes alterações.
+
+- Os integrantes da organização irão tornar-se integrantes da empresa e {% data variables.product.company_short %} cobrarão à conta corporativa o uso da organização. Você deve garantir que a conta corporativa tenha licenças suficientes para acomodar todos os novos integrantes. Para obter mais informações, consulte "[Sobre a cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+- Os proprietários das empresas podem gerenciar a sua função na organização. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
+- Todazs as políticas aplicadas à empresa irão aplicar-se à organização. Para obter mais informações, consulte "[Sobre as políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
+- Se o SSO SAML estiver configurado para a conta corporativa, a configuração SAML da empresa será aplicada à organização. Se a organização usou o SSO SAML, a configuração da conta corporativa substituirá a configuração da organização. O SCIM não está disponível para contas corporativas, portanto, o SCIM será desabilitado para a organização. Para obter mais informações, consulte "[Configurando logon único SAML para a sua empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)" e "[Alterando a configuração do SAML de uma organização para uma conta corporativa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
+- Se o SAML SSO foi configurado para a organização, tokens de acesso pessoal existentes dos integrantes (PATs) ou chaves SSH autorizadas a acessar os recursos da organização terão a autorização para acessar os mesmos recursos. Para acessar outras organizações pertencentes à empresa, os integrantes devem autorizar o PAT ou a chave. Para mais informações consulte "[Autorizar um token de acesso pessoal para usar com o logon único SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" e "[Autorizar uma chave SSH para uso com o logon único SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+- Se a organização foi conectada a {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %} usando {% data variables.product.prodname_github_connect %}, a adição da organização a uma empresa não atualizará a conexão. As funcionalidades de {% data variables.product.prodname_github_connect %} não funcionarão mais para a organização. Para continuar usando {% data variables.product.prodname_github_connect %}, você deve desabilitar e reabilitar o recurso. Para obter mais informações, consulte os seguintes artigos.
+
+  - "[Gerenciando {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" na documentação de {% data variables.product.prodname_ghe_server %}
+  - "[Gerenciando {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" na documentação de {% data variables.product.prodname_ghe_managed %}
+- Se a organização usou aplicativos de {% data variables.product.prodname_marketplace %} cobrados, a organização pode continuar usando os aplicativos, mas deve pagar o fornecedor diretamente. Para mais informações, entre em contato com o fornecedor do aplicativo.
 
 ## Criar uma organização em sua conta corporativa
 

@@ -27,7 +27,7 @@ versions:
 
 **Note:** You can only configure environments for public repositories. リポジトリをパブリックからプライベートに変換すると、設定された保護ルールや環境のシークレットは無視されるようになり、環境は設定できなくなります。 リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
 
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment)を参照してください。 {% data reusables.enterprise.link-to-ghec-trial %}
+Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. 詳細は「[{% data variables.product.prodname_dotcom %} の製品](/get-started/learning-about-github/githubs-products)」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -72,7 +72,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** To create an environment in a private repository, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
 
 {% endnote %}
 {% endif %}
@@ -99,7 +99,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
    1. Enter the secret value.
    1. [**Add secret（シークレットの追加）**] をクリックします。
 
-REST API を介して環境を作成および設定することもできます。 詳細については、「[環境](/rest/reference/repos#environments)」および「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+REST API を介して環境を作成および設定することもできます。 For more information, see "[Deployment environments](/rest/deployments/environments)," "[GitHub Actions Secrets](/rest/actions/secrets)," and "[Deployment branch policies](/rest/deployments/branch-policies)."
 
 存在しない環境を参照するワークフローを実行すると、参照された名前を持つ環境が作成されます。 新しく作成される環境には、保護ルールやシークレットは設定されていません。 リポジトリのワークフローを編集できる人は、ワークフローファイルを通じて環境を作成できますが、その環境を設定できるのはリポジトリ管理者だけです。
 

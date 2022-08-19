@@ -4,6 +4,8 @@ intro: ライセンス API は、Enterprise ライセンスに関する情報を
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
