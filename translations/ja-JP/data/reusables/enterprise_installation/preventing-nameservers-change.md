@@ -1,5 +1,5 @@
 	{% note %}
     
-    **Note**: The 127.0.0.1 entry is required to be the first entry in the list. Do not remove the 127.0.0.1 entry, add another entry above the 127.0.0.1 entry, or use options that affect the ordering of entries, such as "options rotate".
+    **ノート**: 127.0.0.1のエントリは、リスト中の最初のエントリでなければなりません。 127.0.0.1のエントリを削除したり、127.0.0.1のエントリよりも上に他のエントリを追加したり、"options rotate"のようなエントリの順序に影響するオプションを使用したりしないでください。
     
     {% endnote %}
