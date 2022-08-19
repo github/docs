@@ -38,6 +38,7 @@ You can access contexts using the expression syntax. For more information, see "
 | `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
 | `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
 | `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |
 | `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
 | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). |
@@ -402,6 +403,66 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
+```
+
+## `jobs` context
+
+The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+
+| Property name | Type | Description |
+|---------------|------|-------------|
+| `jobs` | `object` | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. This object contains all the properties listed below.
+| `jobs.<job_id>.result` | `string` | The result of a job in the reusable workflow. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
+| `jobs.<job_id>.outputs` | `object` | The set of outputs of a job in a reusable workflow. |
+| `jobs.<job_id>.outputs.<output_name>` | `string` | The value of a specific output for a job in a reusable workflow. |
+
+### Example contents of the `jobs` context
+
+This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+
+```json
+{
+  example_job: {
+    result: success,
+    outputs: {
+      output1: hello,
+      output2: world
+    }
+  }
+}
+```
+
+### Example usage of the `jobs` context
+
+This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
+jobs:
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=firstword::hello"
+      - id: step2
+        run: echo "::set-output name=secondword::world"
 ```
 
 ## `steps` context
