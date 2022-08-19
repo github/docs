@@ -106,7 +106,7 @@ export const Header = () => {
             {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
             {error !== '404' && (
               <div className="d-inline-block ml-3">
-                <SearchComponent iconSize={16} />
+                <SearchComponent iconSize={16} isHeaderSearch={true} />
               </div>
             )}
           </div>
