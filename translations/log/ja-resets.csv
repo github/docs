@@ -300,14 +300,18 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/access-github-community-exchange.md,broken liquid tags
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/emu-short-summary.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-licensing/verified-domains-license-sync.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/advanced-security-license.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise_user_management/disclaimer-for-git-read-access.md,broken liquid tags
 translations/ja-JP/data/reusables/gated-features/code-scanning.md,Listed in localization-support#489
 translations/ja-JP/data/reusables/getting-started/marketplace.md,broken liquid tags
 translations/ja-JP/data/reusables/large_files/can-include-lfs-objects-archives.md,broken liquid tags
