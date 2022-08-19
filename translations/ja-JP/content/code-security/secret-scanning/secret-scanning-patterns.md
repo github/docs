@@ -21,10 +21,11 @@ redirect_from:
 {% ifversion fpt or ghec %}
 ## About {% data variables.product.prodname_secret_scanning %} patterns
 
-{% data variables.product.product_name %} maintains two different sets of {% data variables.product.prodname_secret_scanning %} patterns:
+{% data variables.product.product_name %} maintains these different sets of {% data variables.product.prodname_secret_scanning %} patterns:
 
 1. **Partner patterns.** Used to detect potential secrets in all public repositories. For details, see "[Supported secrets for partner patterns](#supported-secrets-for-partner-patterns)."
-2. **Advanced security patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} enabled. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}
+2. **Advanced security patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} enabled. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}{% ifversion secret-scanning-push-protection %}
+3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled. For details, see "[Supported secrets for push protection](#supported-secrets-for-push-protection)."{% endif %}
 
 {% ifversion fpt %}
 Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning_GHAS %} on their repositories. For details of these patterns, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security).
@@ -59,6 +60,16 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% data reusables.secret-scanning.partner-secret-list-private-repo %}
 {% endif %}
 
+{% ifversion secret-scanning-push-protection %}
+## Supported secrets for push protection
+
+{% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
+{% data reusables.secret-scanning.secret-list-private-push-protection %}
+
+{% endif %}
 ## Further reading
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"

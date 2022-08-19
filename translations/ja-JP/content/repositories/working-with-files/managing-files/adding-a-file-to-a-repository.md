@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line
   - /github/managing-files-in-a-repository/managing-files-on-github/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/managing-files-using-the-command-line/adding-a-file-to-a-repository-using-the-command-line
+  - /github/managing-large-files/about-large-files-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,7 +22,7 @@ shortTitle: Add a file
 
 ## Adding a file to a repository on {% data variables.product.product_name %}
 
-ブラウザを介してリポジトリに追加できるファイルのサイズは、1 ファイルあたり {% data variables.large_files.max_github_browser_size %}までです。 コマンドラインからは、より大きいサイズのファイルを追加でき、1 ファイルあたり {% data variables.large_files.max_github_size %}までです。 詳しい情報については[コマンドラインを使用してリポジトリにファイルを追加する](#adding-a-file-to-a-repository-using-the-command-line)を参照してください。
+ブラウザを介してリポジトリに追加できるファイルのサイズは、1 ファイルあたり {% data variables.large_files.max_github_browser_size %}までです。 コマンドラインからは、より大きいサイズのファイルを追加でき、1 ファイルあたり {% data variables.large_files.max_github_size %}までです。 詳しい情報については[コマンドラインを使用してリポジトリにファイルを追加する](#adding-a-file-to-a-repository-using-the-command-line)を参照してください。 To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 {% tip %}
 

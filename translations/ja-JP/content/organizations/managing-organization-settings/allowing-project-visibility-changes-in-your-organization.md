@@ -1,19 +1,19 @@
 ---
 title: Organizationでのプロジェクトの可視性の変更の許可
-intro: Organizationのオーナーは、管理権限を持つメンバーに、Organization内のプロジェクトの可視性の調整を許可できます。
+intro: 'Organization owners can allow members with admin permissions to adjust the visibility of {% data variables.projects.projects_v2_and_v1 %} in their organization.'
 versions:
-  feature: projects-v2
+  feature: classic-project-visibility-permissions-or-projects-v2
 topics:
   - Organizations
   - Projects
 shortTitle: プロジェクトの可視性の権限
 allowTitleToDifferFromFilename: true
-permissions: Organization owners can allow project visibility changes for an organization.
+permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
 ---
 
-メンバーがプロジェクトをプライベートからパブリックに変更するのを制限するように、Organizationでのプロジェクトの可視性を変更できる人を制限できます。
+You can restrict who has the ability to change the visibility of {% data variables.projects.projects_v2_and_v1 %} in your organization, such as restricting members from changing {% data variables.projects.projects_v2_and_v1 %} from private to public.
 
-プロジェクトの可視性を変更できるのをOrganizationのオーナーだけに制限したり、プロジェクトの管理権限を持つ人なら誰でも可視性を変更できるようにしたりできます。
+You can limit the ability to change {% data variables.projects.project_v2_and_v1 %} visibility to just organization owners, or you can allow anyone granted admin permissions to change the visibility.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -23,4 +23,8 @@ permissions: Organization owners can allow project visibility changes for an org
 
 ## 参考リンク
 
-- 「[プロジェクトの可視性の管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)」
+{% ifversion projects-v2 %}
+- "[Managing visibility of your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)"
+{%- endif %}{%- ifversion projects-v1 %}
+- 「[{% data variables.product.prodname_project_v1 %}の可視性の変更](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)」
+{% endif %}

@@ -144,7 +144,8 @@ describeIfElasticsearchURL('search middleware', () => {
       sp.set('version', 'xxxxx')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('version')
+      expect(JSON.parse(res.text).error).toMatch("'xxxxx'")
+      expect(JSON.parse(res.text).field).toMatch('version')
     }
     // unrecognized size
     {

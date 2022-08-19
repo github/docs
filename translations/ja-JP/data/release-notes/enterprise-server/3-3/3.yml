@@ -28,3 +28,4 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
     - '現在のLinuxカーネルにあるバグのために、Azureにインストールされ、32以上のCPUコアをプロビジョニングされた{% data variables.product.prodname_ghe_server %} 3.3インスタンスが起動に失敗します。[更新:2022年04月08日]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

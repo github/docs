@@ -1,21 +1,22 @@
 ---
-title: 学生向け開発者パックへの応募
-intro: '学生は {% data variables.product.prodname_student_pack %} に応募できます。これには {% data variables.product.prodname_dotcom %} パートナーからの特典が含まれます。'
+title: Apply to GitHub Global Campus as a student
+intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack
 versions:
   fpt: '*'
-shortTitle: Apply for a student pack
+shortTitle: Apply to Global Campus
 ---
 
 {% data reusables.education.about-github-education-link %}
 
 ## 要件
 
-{% data variables.product.prodname_student_pack %} に適格であるには、以下を満たしていなければなりません:
+To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
 - 高等学校、中等学校、大学、ホームスクールまたはそれに類似した教育機関で、学位を取得できるコースに現在在籍している
 - 学校が発行した検証可能なメールアドレスを持っているか、現在の在学状況を証明するドキュメントをアップロードしている
 - Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
@@ -31,9 +32,9 @@ shortTitle: Apply for a student pack
 
 {% endnote %}
 
-{% data variables.product.prodname_student_pack %}の更新に関する詳しい情報については[期限切れと更新](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)を参照してください。
+For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
 
-## {% data variables.product.prodname_student_pack %} への応募
+## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 3. [Which best describes your academic status?（学業の状況を最もよく述べているのは？）] の下で、[** Student（学生）**] を選択してください。 ![学業の状況を選択](/assets/images/help/education/academic-status-student.png)
@@ -45,7 +46,7 @@ shortTitle: Apply for a student pack
 
 ## 期限切れと更新
 
-{% data variables.product.prodname_student_pack %}アクセスが期限切れになった場合、まだあなたが適格であれば再応募できる場合があります。ただし、弊社のパートナーからの提供されているものの中には更新できないものがあります。 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
 ![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
 
