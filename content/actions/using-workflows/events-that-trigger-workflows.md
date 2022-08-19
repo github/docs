@@ -1067,16 +1067,17 @@ on:
 
 {% endnote %}
 
-{% note %}
-
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
-
-{% endnote %}
-
 Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/releases)" in the REST API documentation.
 
-For example, you can run a workflow when a release has been `published`.
+For example, you can run a workflow whenever a release or a prerelease is published, including if you change a prerelease to a release.
 
+```yaml
+on:
+  release:
+    types: [released, prereleased]
+```
+
+If want to only run a workflow the first time a prerelease or a release is published you do as follows:
 ```yaml
 on:
   release:
