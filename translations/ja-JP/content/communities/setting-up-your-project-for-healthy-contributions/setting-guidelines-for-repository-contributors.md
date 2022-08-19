@@ -59,7 +59,7 @@ You can create default contribution guidelines for your organization{% ifversion
 最初は悩むかもしれませんが、以下のコントリビューションガイドラインの例を役立ててください:
 
 - Atom エディタ [コントリビューションガイドライン](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)。
-- Ruby on Rails [コントリビューションガイドライン](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
+- Ruby on Rails [コントリビューションガイドライン](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
 - オープンガバメント [コントリビューションガイドライン](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## 参考リンク

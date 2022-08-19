@@ -1,6 +1,6 @@
 ---
-title: 教育者または研究者割引の申請が承認されなかったのはなぜですか？
-intro: 教育者または研究者割引の申請が承認されていない一般的な理由を確認し、正常に再申請するためのヒントを学びます。
+title: Why wasn't my application to Global Campus for teachers approved?
+intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
 shortTitle: Application not approved
@@ -41,8 +42,8 @@ shortTitle: Application not approved
 
 ## 学生以外が Student Developer Pack を申請する
 
-教育者や研究者は、[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)に付属のパートナーオファーの対象にはなりません。 再度申し込む際には、ご自身の学術ステータスを説明するものとして必ず [**Faculty**] (教職員) を選択してください。
+Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). 再度申し込む際には、ご自身の学術ステータスを説明するものとして必ず [**Faculty**] (教職員) を選択してください。
 
 ## 参考リンク
 
-- 「[教育者・研究者割引への応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)」
+- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"

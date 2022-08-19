@@ -66,7 +66,7 @@ shortTitle: Your profile README
 - リポジトリがプライベートである。
 - リポジトリ名がユーザ名とマッチしなくなった。
 
-The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. リポジトリをプライベートにする方法については、「[リポジトリの可視性を変更する](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)」を参照してください。
+The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## 参考リンク
 

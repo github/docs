@@ -457,6 +457,8 @@ jobs:
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
+| `runner.debug`      | `string` | {% data reusables.actions.runner-debug-description %}
+
 {%- comment %}
 The `runner.workspace` property is purposefully not documented. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility. | `runner.workspace` | `string` | |
 {%- endcomment %}
@@ -506,7 +508,7 @@ jobs:
 
 ## `secrets` context
 
-The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions. シークレットに関する詳しい情報については「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
+The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 `GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
 
@@ -538,13 +540,13 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
 
-| プロパティ名                  | 種類       | 説明                                                                                                                                                                                                                                                      |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 You can access this context from any job or step in a workflow. This object contains all the properties listed below.                                                                                                      |
-| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)」を参照してください。 |
-| `strategy.job-index`    | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`.                                                                                                                   |
-| `strategy.job-total`    | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                |
-| `strategy.max-parallel` | `string` | `matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)」を参照してください。                                     |
+| プロパティ名                  | 種類       | 説明                                                                                                                                                                                                                                                                          |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 You can access this context from any job or step in a workflow. This object contains all the properties listed below.                                                                                                                          |
+| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index`    | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`.                                                                                                                                       |
+| `strategy.job-total`    | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                                    |
+| `strategy.max-parallel` | `string` | `matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)."                                     |
 
 ### Example contents of the `strategy` context
 
@@ -634,7 +636,7 @@ jobs:
 
 ## `needs`コンテキスト
 
-`needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 ジョブの依存関係の定義に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
+`needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
 | プロパティ名                                             | 種類       | 説明                                                                                                                                                                                                                                           |
 | -------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
