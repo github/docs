@@ -8,6 +8,7 @@ files:
       - '/content/early-access'
       - '/content/site-policy/site-policy-deprecated'
       - '/content/github/index'
+      - '/content/search'
     excluded_target_languages: ['de', 'ko', 'ru']
   - source: /data/**/*.yml
     translation: /translations/%locale%/%original_path%/%original_file_name%

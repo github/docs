@@ -117,6 +117,7 @@ sections:
       notes:
         - |
           依存関係グラフは、GitHub ActionsワークフローのYAMLファイルを検出するようになりました。GitHub Enterprise Serverは、**Insights**タブの依存関係グラフセクションの中にワークフローファイルを表示します。アクションを公開するリポジトリは、リポジトリのホームページの"Used By（利用先）"コントロールからそのアクションに依存しているリポジトリ数を見ることができるようにもなりました。詳しい情報については「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
+           - **ノート**: この機能はGitHub Enterprise Server 3.5.0、3.5.1、3.5.2、3.5.3では利用できませんでした。この機能は3.5.4以降で利用可能です。[更新: 2022年8月16日]
     - 
       heading: Enterpriseのセキュリティ概要のパブリックベータ
       notes:
@@ -200,7 +201,8 @@ sections:
       heading: 却下されたDependabotアラートの再オープン
       notes:
         - |
-          却下されたDependabotアラートを、クローズされたアラートのUIページを通じて再オープンできるようになりました。これはDependabotのPull RequestやGraphQL APIには影響しません。詳しい情報については「[Dependabotアラートについて](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+          却下されたDependabotアラートを、クローズされたアラートのUIページから再オープンできるようになりました。これはDependabot Pull RequestやGraphQL APIには影響しません。詳しい情報については「[Dependabotアラートについて](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)を参照してください。
+           - **ノート**: この機能はGitHub Enterprise Server 3.5.0、3.5.1、3.5.2、3.5.3では利用できませんでした。この機能は3.5.4以降で利用可能です。[更新: 2022年8月16日]
     - 
       heading: DependabotバージョンアップデートのPubサポートのパブリックベータ
       notes:
@@ -260,11 +262,12 @@ sections:
       heading: Pull Requestのトピックブランチを最新に保つ他の方法
       notes:
         - |
-          Pull Requestページの**Update branch（ブランチ更新）**ボタンを使うと、Pull Requestのブランチをベースブランチの最新の変更で更新できます。これは、変更がベースブランチの現在のバージョンと互換性があるかをマージ前に検証するのに役立ちます。2つの拡張によって、ブランチを最貧の状態に保つ方法がさらに増えます。
+          Pull Requestページの**Update branch（ブランチの更新）**ボタンを使うと、Pull Requestのブランチをベースブランチの最新の変更で更新できます。これは、マージの前に変更がベースブランチの現在のバージョンと互換性があるかを検証するのに役立ちます。2つの拡張によって、ブランチを最新の状態に保つ方法が増えました。
 
-          - Pull Requestのトピックブランチがベースブランチよりも古くなってしまっている場合、ベースブランチの最新バージョンでリベースすることによって更新できるようになりました。リベースによって自分のブランチの変更がベースブランチの最新バージョンに適用されるので、マージコミットが作成されないことからブランチは直線的な履歴を持つことになります。リベースによって更新を行うには、**Update Branch（ブランチの更新）**ボタンの隣にあるドロップダウンメニューをクリックし、**Update with rebase（リベースして更新）**をクリックし、続いて**Rebase branch（ブランチをリベース）**をクリックしてください。以前は、**Update branch**は旧来のマージを行い、常にPull Requestのブランチにマージコミットが生じました。この選択肢も引き続き利用できますが、選択をできるようになりました。詳しい情報については「[Pull Requestとベースブランチとの同期を保つ](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)」を参照してください。
+          - Pull Requestのトピックブランチがベースブランチに対して古くなっている場合、ベースブランチの最新バージョンでリベースすることによって更新する選択肢ができました。リベースは、ブランチからの変更をベースブランチの最新バージョンに適用し、マージコミットが生成されないことから直線的な履歴を持つブランチができます。リベースで更新するには、**Update Branch（ブランチの更新）**ボタンの隣にあるドロップダウンメニューをクリックし、**Update with rebase（リベースで更新）**をクリックし、続いて**Rebase branch（ブランチをリベース）**をクリックしてください。以前は、**Update branch（ブランチの更新）**は旧来のマージを行い、Pull Requestブランチに常にマージコミットを残しました。この選択肢も引き続き利用できますが、選択ができるようになりました。詳しい情報については「[Pull Requestとベースブランチとの同期を保つ](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)」を参照してください。
 
-          - 新しいリポジトリ設定によって、Pull Requestのトピックブランチがベースブランチよりも古くなっている場合に**Update branch**ボタンを常に利用できるようにすることができます。以前は、このボタンが利用できるのは**Require branches to be up to date before merging（マージの際にはブランチが最新であることが必須）**ブランチ保護設定が有効化されている場合のみでした。管理もしくはメンテナアクセスを持つ人は、 リポジトリの設定の**Pull Requests**セクションの**Always suggest updating pull request branches（常にPull Requestブランチの更新を提案）**設定を管理できます。詳しい情報については「[Pull Requestブランチの更新提案の管理](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)」を参照してください。
+          - 新しいリポジトリ設定によって、Pull Requestのトピックブランチがベースブランチよりも古くなっている場合に、**Update branch（ブランチの更新）**ボタンが常に利用できるようにすることが可能になりました。以前は、このボタンは**Require branches to be up to date before merging（マージ前にブランチが最新であることが必要）**ブランチ保護設定が有効になっている場合にのみ利用できました。管理もしくはメンテナアクセスを持つ人は、リポジトリ設定の**Pull Requests**セクションから**Always suggest updating pull request branches（Pull Requestブランチの更新を常に提案）**設定を管理できます。詳しい情報については「[Pull Requestブランチの更新提案の管理](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)」を参照してください。
+           - **ノート**: この機能はGitHub Enterprise Server 3.5.0、3.5.1、3.5.2、3.5.3では利用できませんでした。この機能は3.5.4以降で利用可能です。[更新: 2022年8月16日]
     - 
       heading: GitHub PagesサイトのカスタムHTTPヘッダの設定
       notes:
@@ -279,7 +282,8 @@ sections:
       heading: 軽量高コントラストテーマが一般提供になりました
       notes:
         - |
-          前面要素と背景要素間のコントラストが大きい軽量高コントラストテーマが一般提供になりました。詳しい情報については「[テーマ設定の管理](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+          前面と背景要素のコントラストが大きい、明るい高コントラストテーマが一般利用可能になりました。詳しい情報については「[テーマ設定の管理](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+           - **ノート**: この機能はGitHub Enterprise Server 3.5.0、3.5.1、3.5.2、3.5.3では利用できませんでした。この機能は3.5.4以降で利用可能です。[更新: 2022年8月16日]
     - 
       heading: Tag protection rules
       notes:
@@ -346,5 +350,13 @@ sections:
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
-    - '削除されたリポジトリは、90日の保存期間が終了したあとに自動的にディスクから削除されません。[2022年06月08日更新]'
+    - '削除されたリポジトリは、90日の保持期間が終了したあとも自動的にディスクからパージされません。この問題は3.5.1パッチリリースで解決されました。[更新: 2022年6月10日]'
     - '十分にプロビジョニングされていないインスタンスをGitHub Enterprise Server 3.5にアップグレードしたあと、Management Consoleはが_Starting_ screenで停止することがあります。[更新: 2022年6月20日]'
+    - |
+      以下の機能はGitHub Enterprise Server 3.5.0、3.5.1、3.5.2、3.5.3では利用できませんでした。以下の機能は3.5.4以降で利用可能です。[更新: 2022年8月16日]
+
+      - 依存関係グラフのGitHub Actionsワークフローファイルの検出
+      - 却下されたDependabotアラートの再オープン
+      - リポジトリ中のすべてのPull Requestに対する**Update branch（ブランチの更新）**ボタンの有効化
+      - 明るい高コントラストテーマ
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

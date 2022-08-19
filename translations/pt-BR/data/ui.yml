@@ -5,7 +5,7 @@ header:
   github_docs: GitHub Docs
   contact: Contato
   notices:
-    ghae_silent_launch: O GitHub AE está atualmente sob versão limitada. <a href="https://enterprise.github.com/contact">Entre em contato com nossa Equipe de Vendas</a> para saber mais.
+    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate: '# O nome da versão é interpretado antes do texto abaixo por meio de includes/header-notification.html'' está atualmente disponível como candidato da versão. Para obter mais informações, consulte "<a href="/admin/overview/about-upgrades-to-new-releases">Sobre atualizações para novas versões</a>."'''
     localization_complete: We publish frequent updates to our documentation, and translation of this page may still be in progress. For the most current information, please visit the <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: '📣 <b>Não compartilhe</b> esta URL publicamente. Esta página contém conteúdo sobre um recurso de acesso antecipado.'

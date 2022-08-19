@@ -75,11 +75,3 @@ Antes da migração, se um usuário criou um pacote no {% data variables.product
 {% data reusables.enterprise-accounts.packages-tab %}
 1. À direita do número de pacotes para migrar, clique em **Executar novamente a migração**. Durante a migração, {% data variables.product.product_name %} mostrará o progresso nesta página.
 1. Se a migração falhar novamente, comece da etapa 1 e execute a migração novamente.
-
-{% ifversion ghes %}
-
-## Monitorando o tráfego para os registros
-
-Você pode usar o tráfego para o registro Docker e para {% data variables.product.prodname_container_registry %} no painel de monitoramento de {% data variables.product.product_location %}. O gráfico do "Registro de Pacotes de Container do GitHub" pode ajudar você a confirmar que você realizou com sucesso a migração de todas as imagens para {% data variables.product.prodname_container_registry %}. No gráfico, "v1" representa o tráfego para o registro Docker e "v2" representa o tráfego para {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)".
-
-{% endif %}

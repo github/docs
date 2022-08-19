@@ -5,7 +5,7 @@ header:
   github_docs: GitHub Docs
   contact: お問い合わせ
   notices:
-    ghae_silent_launch: GitHub AEは、現在限定リリース中です。詳細については<a href="https://enterprise.github.com/contact">営業チームにお問い合わせ</a>ください。
+    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate: '# バージョン名はincludes/header-notification.htmlを通じて下のテキストの前に表示されます。これは現在リリース候補として利用できます。詳しい情報については「<a href="/admin/overview/about-upgrades-to-new-releases">新しいリリースへのアップグレードについて</a>」を参照してください。'
     localization_complete: We publish frequent updates to our documentation, and translation of this page may still be in progress. For the most current information, please visit the <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: '📣 このURLは公に<b>共有しないで</b>ください。このページには、早期アクセスの機能に関する内容が含まれています。'

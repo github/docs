@@ -12,4 +12,4 @@ versions:
 
 Aprende habilidades comunicativas en público, escritura técnica, liderazgo comunitario y habilidades de desarrollo de software como un Experto en campus de {% data variables.product.prodname_dotcom %}.
 
-To learn more about training programs for student leaders, see "[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)."
+Para aprender más sobre los programas de capacitación para los alumnos líderes, consulta la sección de "[Expertos del campus de {% data variables.product.prodname_dotcom %}](https://education.github.com/students/experts)".

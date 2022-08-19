@@ -4,6 +4,40 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>UpdateOrganizationWebCommitSignoffSettingInput</code> was added</p>",
+          "<p>Type <code>UpdateOrganizationWebCommitSignoffSettingPayload</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryWebCommitSignoffSettingInput</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryWebCommitSignoffSettingPayload</code> was added</p>",
+          "<p>Enum value <code>UNAFFILIATED</code> was added to enum <code>EnterpriseUserAccountMembershipRole</code></p>",
+          "<p>Field <code>updateOrganizationWebCommitSignoffSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateRepositoryWebCommitSignoffSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>webCommitSignoffRequired</code> was added to object type <code>Organization</code></p>",
+          "<p>Enum value <code>TRACKS</code> was added to enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TASKS</code> (deprecated) was removed from enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TRACKS</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>TASKS</code> was removed from enum 'ProjectV2FieldType'</p>",
+          "<p>Field <code>webCommitSignoffRequired</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>dismissComment</code> was added to object type <code>RepositoryVulnerabilityAlert</code></p>",
+          "<p>Input field <code>lockSource</code> was added to input object type <code>StartRepositoryMigrationInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectNextFieldType.TRACKS</code>:<code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2022-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-08-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>slug</code> was added to object type <code>DiscussionCategory</code></p>",
           "<p>Field <code>discussionCategory</code> was added to object type <code>Repository</code></p>"
         ]
