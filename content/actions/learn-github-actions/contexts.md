@@ -38,7 +38,8 @@ You can access contexts using the expression syntax. For more information, see "
 | `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
 | `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
 | `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |
+{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
 | `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
 | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). |
@@ -405,6 +406,8 @@ jobs:
       - run: ./run-tests
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+
 ## `jobs` context
 
 The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
@@ -464,6 +467,8 @@ jobs:
       - id: step2
         run: echo "::set-output name=secondword::world"
 ```
+
+{% endif %}
 
 ## `steps` context
 
