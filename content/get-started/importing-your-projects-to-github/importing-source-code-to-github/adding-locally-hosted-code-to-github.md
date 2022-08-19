@@ -59,6 +59,13 @@ If you have existing source code or repositories stored locally on your computer
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
+   
+   {% warning %}
+
+    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
+
+   {% endwarning %}
+   
   ```shell
   $ git init -b main
   ```
@@ -96,6 +103,13 @@ If you have existing source code or repositories stored locally on your computer
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
+
+   {% warning %}
+
+    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
+
+   {% endwarning %}
+   
   ```shell
   $ git init -b main
   ```
@@ -133,6 +147,13 @@ If you have existing source code or repositories stored locally on your computer
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
+   
+   {% warning %}
+
+    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
+
+   {% endwarning %}
+   
   ```shell
   $ git init -b main
   ```
