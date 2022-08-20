@@ -1,1 +1,1 @@
-People with write-level access to the repository can perform these steps.
+É necessário o acesso de gravação ao repositório é para executar essas etapas.

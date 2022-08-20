@@ -1,1 +1,1 @@
-1. In the left sidebar, click **OAuth Apps**. ![OAuth Apps section](/assets/images/settings/oauth_apps_post2dot12.png)
+1. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_apps %}**。 ![OAuth 应用程序部分](/assets/images/help/settings/developer-settings-oauth-apps.png)

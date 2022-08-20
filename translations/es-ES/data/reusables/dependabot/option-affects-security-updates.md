@@ -1,0 +1,1 @@
+Configurar esta opción también afectará a las solicitudes de extracción para las actualizaciones de seguridad en los archivos de manifiesto de este administrador de paquete, a menos de que utilices `target-branch` para revisar las actualizaciones de versión en una rama diferente a la predeterminada.

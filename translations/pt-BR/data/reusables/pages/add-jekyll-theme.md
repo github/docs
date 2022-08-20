@@ -1,1 +1,1 @@
-You can add a Jekyll theme to your {% data variables.product.prodname_pages %} site to customize the look and feel of your site.
+É possível adicionar um tema do Jekyll ao site do {% data variables.product.prodname_pages %} para personalizar a aparência do seu site.

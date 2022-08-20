@@ -1,0 +1,1 @@
+1. Como alternativa y opción, utiliza la barra lateral a la izquierda para filtrar información por característica de seguridad. On each page, you can use filters that are specific to that feature to fine-tune your search.

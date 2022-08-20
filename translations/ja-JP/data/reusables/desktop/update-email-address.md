@@ -1,1 +1,1 @@
-If the commits you make in {% data variables.product.prodname_desktop %} are associated with the wrong account on {% data variables.product.product_name %}, update the email address in your Git configuration using {% data variables.product.prodname_desktop %}.
+{% data variables.product.prodname_desktop %}で作成したコミットが{% data variables.product.product_name %}上の間違ったアカウントに関連づけられているなら、{% data variables.product.prodname_desktop %}を使ってGitの設定中のメールアドレスを更新してください。

@@ -1,1 +1,1 @@
-1. 左のサイドバーで**Reported content（レポートされた内容）**をクリックしてください。 ![リポジトリ設定サイドバーの"レポートされた内容"](/assets/images/help/repository/repo-settings-reported-content.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Reported content**.

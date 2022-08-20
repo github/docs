@@ -1,15 +1,26 @@
 ---
-title: 从 CircleCI 迁移到 GitHub 操作
-intro: GitHub 操作和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub 操作相对简单。
+title: 从 CircleCI 迁移到 GitHub Actions
+intro: GitHub Actions 和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub Actions 相对简单。
+redirect_from:
+  - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
+shortTitle: 从 CircleCI 迁移
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 简介
+## 简介
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。 CircleCI 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
 
@@ -20,26 +31,28 @@ CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能
 
 更多信息请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)”。
 
-### 主要差异
+## 主要差异
 
 从 CircleCI 迁移时，考虑以下差异：
 
 - CircleCI 的自动测试并行性根据用户指定的规则或历史计时信息自动对测试进行分组。 此功能未内置于 {% data variables.product.prodname_actions %}。
-- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+{% endif %}
 
-### 迁移工作流程和作业
+## 迁移工作流程和作业
 
 CircleCI 在 *config.yml* 文件中定义 `workflows`，允许您配置多个工作流程。 {% data variables.product.product_name %} 对每个工作流程需要一个工作流程文件，因此不要求您声明 `workflows`。 您需要为 *config.yml* 中配置的每个工作流程创建一个新的工作流程文件。
 
 CircleCI 和 {% data variables.product.prodname_actions %} 在配置文件中使用相似的语法配置 `jobs`。 如果在 CircleCI 工作流程中使用 `requires` 配置作业之间的任何依赖项，您可以使用等效的 {% data variables.product.prodname_actions %} `needs` 语法。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
 
-### 将 orbs 迁移到操作
+## 将 orbs 迁移到操作
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都提供在工作流程中重复使用和共享任务的机制。 CircleCI 使用以 YAML 编写的概念 orbs 来提供人们可以在工作流程中重复使用的任务。 {% data variables.product.prodname_actions %} 具有强大而灵活的可重复使用的组件，称为“操作”，您可以使用 JavaScript 文件或 Docker 映像来构建操作。 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.product_name %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
-CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 支持对于重复使用构建矩阵的最常见需求。 有关构建矩阵的更多信息，请参阅“[配置工作流程](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)。
+CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 使用矩阵支持对可重用性的最常见需求。 有关矩阵的详细信息，请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
-### 使用 Docker 映像
+## 使用 Docker 映像
 
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行步骤。
@@ -48,19 +61,28 @@ CircleCI 提供一套具有共同依赖项的预建映像。 这些映像的 `US
 
 建议在迁移到 {% data variables.product.prodname_actions %} 时不使用 CircleCI 的预建映像。 在许多情况下，您可以使用操作来安装需要的附加依赖项。
 
-有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+{% ifversion ghae %}
+有关 Docker 文件系统的更多信息，请参阅“[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”。
 
-有关 {% data variables.product.prodname_dotcom %} 托管的虚拟环境中可用的工具和软件包的更多信息，请参阅“[GitHub 托管的运行器上安装的软件](/actions/reference/software-installed-on-github-hosted-runners)”。
+{% data reusables.actions.self-hosted-runners-software %}
+{% else %}
+For more information about the Docker filesystem, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+有关
 
-### 使用变量和密码
+{% data variables.product.prodname_dotcom %}-hosted runner images, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
+
+## 使用变量和密码
 
 CircleCI 和 {% data variables.product.prodname_actions %} 支持在配置文件中设置环境变量，并使用 CircleCI 或 {% data variables.product.product_name %} UI 创建密码。
 
 更多信息请参阅“[使用环境变量](/actions/configuring-and-managing-workflows/using-environment-variables)”和“[创建和使用加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
 
-### 缓存
+## 缓存
 
 CircleCI 和 {% data variables.product.prodname_actions %} 提供在配置文件中手动缓存文件的方法。
+
+{% ifversion actions-caching %}
 
 下面是每个系统的语法示例：
 
@@ -85,25 +107,29 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} 没有 CircleCI 的 Docker 层缓存（或 DLC）的等效项。
 
-### 在作业之间保持数据
+## 在作业之间保持数据
 
 CircleCI 和 {% data variables.product.prodname_actions %} 提供在作业之间保持数据的机制。
 
@@ -135,10 +161,10 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v2
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
@@ -146,18 +172,18 @@ GitHub Actions
 ...
 
 - name: Download math result for job 1
-  uses: actions/download-artifact@v2
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: homework
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 更多信息请参阅“[使用构件持久化工作流程](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)”。
 
-### 使用数据库和服务容器
+## 使用数据库和服务容器
 
 这两个系统都允许您包括用于数据库、缓存或其他依赖项的其他容器。
 
@@ -230,7 +256,7 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 name: Containers
 
@@ -255,33 +281,33 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem
+
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>
 
 更多信息请参阅“[关于服务容器](/actions/configuring-and-managing-workflows/about-service-containers)”。
 
-### 完整示例
+## 完整示例
 
 下面是一个真实的示例。 左边显示用于 [thoughtbot/administrator](https://github.com/thoughtbot/administrate) 仓库的实际 CircleCI *config.yml*。 右边显示 {% data variables.product.prodname_actions %} 等效项。
 
@@ -381,8 +407,12 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Containers
 
 on: [push]
@@ -409,37 +439,38 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
+      - name: Cache dependencies
+        uses: {% data reusables.actions.action-cache %}
+        with:
+          path: vendor/bundle
+          key: administrate-{% raw %}${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}{% endraw %}
+      - name: Install postgres headers
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>

@@ -1,1 +1,1 @@
-デフォルトでは、すべてのパブリックリポジトリは{% data variables.product.prodname_dotcom %}とSoftware Heritage FoundationやInternet Archiveといった組織との間の、世界中のオープンソースソフトウェアの長期的な保管を行うためのパートナーシップである{% data variables.product.prodname_archive %}に含まれます。
+By default, all public repositories are included in the {% data variables.product.prodname_archive %}, a partnership between {% data variables.product.prodname_dotcom %} and organizations such as Software Heritage Foundation and Internet Archive to ensure the long-term preservation of the world's open source software.

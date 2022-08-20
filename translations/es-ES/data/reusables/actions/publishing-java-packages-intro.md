@@ -1,0 +1,1 @@
+Esta guía te muestra cómo crear un flujo de trabajo que publique paquetes de Java en {% data variables.product.prodname_registry %} y en el Repositorio Central de Maven. Con un solo flujo de trabajo, puedes publicar los paquetes en un solo repositorio o en varios repositorios.

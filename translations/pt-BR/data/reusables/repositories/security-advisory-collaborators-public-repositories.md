@@ -1,1 +1,1 @@
-If you remove a user from a repository or organization and the user is also a collaborator on a security advisory, the user will still have access to the security advisory.
+Se você remover um usuário de um repositório ou organização e o usuário também for colaborador em uma consultoria de segurança, o usuário ainda terá acesso à consultoria de segurança.

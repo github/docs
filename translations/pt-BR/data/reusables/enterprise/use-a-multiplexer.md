@@ -1,1 +1,1 @@
-This command can take some time to finish, so we recommend running the command in a terminal multiplexer like `screen` or `tmux`.
+Este comando pode levar algum tempo para terminar. Portanto, recomendamos executar o comando em um terminal multiplexer como `screen` ou `tmux`.

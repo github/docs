@@ -1,0 +1,1 @@
+Para garantizar que tus acciones de JavaScript son compatibles con todos los ejecutores hospedados en GitHub (Ubuntu, Windows, y macOS), el código empaquetado de JavaScript que escribas debe ser puramente JavaScript y no depender de otros binarios. JavaScript actions run directly on the runner and use binaries that already exist in the runner image.

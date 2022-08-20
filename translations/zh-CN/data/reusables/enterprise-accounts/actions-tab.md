@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-label="The law icon" %} Policies", click **Actions**.
+1. 在“{% octicon "law" aria-label="The law icon" %} Policies（政策）”下，单击 **Actions（操作）**。

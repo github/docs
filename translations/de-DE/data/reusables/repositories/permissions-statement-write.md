@@ -1,1 +1,0 @@
-Personen mit Schreibzugriff auf das Repository können diese Schritte ausführen.

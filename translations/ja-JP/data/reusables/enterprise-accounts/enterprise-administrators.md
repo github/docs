@@ -1,1 +1,1 @@
-現在、Enterpriseアカウントでは2つの管理者ロールが利用できます。Enterpriseオーナーは、そのアカウントに関するすべての設定へのアクセス及び管理ができます。支払いマネージャーは、Enterpriseアカウントの支払い設定にのみアクセス及び管理ができます。 Enterpriseオーナーは、そのEnterpriseアカウントが所有するすべてのOrganiozationについて、すべてのメンバー及び外部コラボレータを見ることもできます。
+{% ifversion fpt or ghec %}現時点では、Enterpriseでは2つの管理ロールが利用できます。EnterpriseオーナーはEnterpriseのすべての設定にアクセス及び管理ができます。支払いマネージャーは、Enterpriseの支払い設定のみアクセス及び管理ができます。 {% endif %}Enterpriseオーナーは、Enterpriseが所有するすべてのOrganizationのすべてのメンバーと外部のコラボレータを見ること{% ifversion fpt or ghec %}も{% endif %}できます。

@@ -1,0 +1,1 @@
+{% data variables.product.company_short %}は{% data variables.product.product_name %}を自己完結した仮想アプライアンスとして配布します。 仮想マシンをプロビジョニングしてアプライアンスをインストールしたあと、そのインスタンスはカスタムのアプリケーションスタックとともにLinuxオペレーティングシステムを動作させます。

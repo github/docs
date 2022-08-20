@@ -1,0 +1,1 @@
+Para ver todas las suscripciones de tu cuenta en {% data variables.product.product_location %}, consulta la sección "[Ver tu fecha de facturación y suscripciones](/articles/viewing-your-subscriptions-and-billing-date)".

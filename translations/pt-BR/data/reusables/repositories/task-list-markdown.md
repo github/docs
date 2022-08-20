@@ -1,9 +1,9 @@
-To create a task list, preface list items with a regular space character followed by `[ ]`. To mark a task as complete, use `[x]`.
+To create a task list, preface list items with a hyphen and space followed by `[ ]`. Para marcar uma tarefa como concluída, use `[x]`.
 
 ```
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
 ```
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Lista de tarefas gerada](/assets/images/help/writing/task-list-rendered-simple.png)

@@ -1,6 +1,6 @@
 {% note %}
 
-**Note:** To access the {% data variables.product.prodname_unfurls %} API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**Observação:** Para acessar a API do {% data variables.product.prodname_unfurls %} durante o período de pré-visualização, você deve fornecer um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Aceitar`:
 
 ```
 application/vnd.github.corsair-preview+json

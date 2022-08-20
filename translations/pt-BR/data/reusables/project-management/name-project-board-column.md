@@ -1,1 +1,1 @@
-1. Under "Column name", type the name of the column you want to create. ![Type column name](/assets/images/help/projects/type-column-name.png)
+1. Em "Nome da coluna", digite o nome da coluna que deseja criar. ![Digite o nome da coluna](/assets/images/help/projects/type-column-name.png)

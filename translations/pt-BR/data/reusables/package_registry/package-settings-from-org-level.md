@@ -1,4 +1,7 @@
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
-2. Under your organization name, click **Packages**. ![Botão de convite de acesso ao contêiner](/assets/images/help/package-registry/org-tab-for-packages.png)
-3. Search for and select your package.
-4. In the top right of your container image's landing page, click **Package settings**. ![Package settings button](/assets/images/help/package-registry/packages-settings-from-package-landing-page.png)
+1. Em {% data variables.product.prodname_dotcom %}, acesse a página principal da sua organização.
+2. No nome da sua organização, clique em **Pacotes**.
+  {% ifversion fpt or ghes > 3.2 or ghec %}
+  ![Packages tab on org landing page](/assets/images/help/package-registry/org-tab-for-packages-with-overview-tab.png)
+  {% else %}
+  ![Packages tab on org landing page](/assets/images/help/package-registry/org-tab-for-packages.png)
+  {% endif %}

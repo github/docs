@@ -1,5 +1,13 @@
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
+
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for private repositories is currently in beta and subject to change. Para solicitar acesso ao beta, [join the waitlist](https://github.com/features/security/advanced-security/signup).
+**Observação:** {% data variables.product.prodname_secret_scanning_caps %} para repositórios pertencentes à organização, está atualmente na versão beta e sujeita a alterações.
 
 {% endnote %}
+
+{% endif %}

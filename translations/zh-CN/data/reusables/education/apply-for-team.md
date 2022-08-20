@@ -1,1 +1,1 @@
-- 申请免费 [{% data variables.product.prodname_team %}](/articles/github-s-products)，允许无限制的用户和私有仓库。 更多信息请参阅“[申请教育者或研究人员折扣](/articles/applying-for-an-educator-or-researcher-discount)”。
+- 申请免费 [{% data variables.product.prodname_team %}](/articles/github-s-products)，允许无限制的用户和私有仓库。 For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."

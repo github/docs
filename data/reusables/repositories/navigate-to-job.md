@@ -1,2 +1,3 @@
-1. In the left sidebar, click the job you want to see.
-  ![List of jobs in left sidebar](/assets/images/help/repository/check-suite-list.png)
+1. Under **Jobs** or in the visualization graph, click the job you want to see.
+
+   ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)

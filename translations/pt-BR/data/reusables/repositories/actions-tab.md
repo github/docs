@@ -1,1 +1,1 @@
-1. Under your repository name, click **Actions**. ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+1. Under your repository name, click {% octicon "play" aria-label="The Play icon" %} **Actions**. ![Aba Ações na navegação principal do repositório](/assets/images/help/repository/actions-tab.png)

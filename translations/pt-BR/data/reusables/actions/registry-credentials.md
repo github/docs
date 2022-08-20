@@ -1,0 +1,1 @@
+Se o registro de contêiner da imagem exigir autenticação para extrair a imagem, você pode usar as funções de `.<job_id>.container.credentials` para definir um `mapa` do `nome de usuário` e `senha`. As credenciais são os mesmos valores que você forneceria para o comando [`login do docker`](https://docs.docker.com/engine/reference/commandline/login/).

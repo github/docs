@@ -1,1 +1,1 @@
-You can use a project board template to create a project board with automation already configured. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards#templates-for-project-boards)".
+You can use a {% data variables.projects.projects_v1_board %} template to create a {% data variables.projects.projects_v1_board %} with automation already configured. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards#templates-for-project-boards)".

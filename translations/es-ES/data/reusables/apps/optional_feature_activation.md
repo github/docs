@@ -1,0 +1,2 @@
+4. En la barra lateral izquierda, haz clic en **Características opcionales**. ![Pestaña de características opcionales](/assets/images/github-apps/optional-features-option.png)
+5. Junto a la característica opcional que quieres habilitar para tu app, haz clic en **Decidir participar**. ![Botón de unirse para habilitar una característica opcional](/assets/images/github-apps/enable-optional-features.png)

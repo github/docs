@@ -1,1 +1,1 @@
-You can submit both an unverified and verified app. This will allow you to launch with a free version of your app. Once GitHub verifies your app, your listing will change from unverified to verified in {% data variables.product.prodname_marketplace %} and GitHub will publish your new pricing plans.
+検証の有無にかかわらず、公開をリクエストできます。 検証なしで公開をリクエストすれば、アプリケーションの無料バージョンを素早く立ち上げることができます。 その後に検証ありで公開をリクエストすれば、検証と財務上のオンボーディングが終わった時点で、リストはMarketplaceのバッジと有料価格プランを含むように更新されます。

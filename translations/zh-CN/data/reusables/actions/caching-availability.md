@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %} caching is only available for repositories hosted on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %} 3.5 and later. 更多信息请参阅“[缓存依赖项以加快工作流程]({% ifversion actions-caching %}{% else %}/free-pro-team@latest{% endif %}/actions/guides/caching-dependencies-to-speed-up-workflows)”。

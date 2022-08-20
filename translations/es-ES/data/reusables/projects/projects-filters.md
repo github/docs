@@ -1,0 +1,8 @@
+- Para filtrar por cualquier coincidencia de valores múltiples (una consulta de tipo OR), separa los valores con una coma. Por ejemplo `label:"good first issue",bug` listará todas las propuestas etiquetadas como `good first issue` o como `bug`.
+- Para filtrar la ausencia de un valor específico, coloca `-` antes de tu filtro. Por ejemplo, `-label:"bug"` mostrará solo elementos que no tengan la etiqueta `bug`.
+- Para filtrar de acuerdo a la ausencia de todos los valores, ingresa `no:` seguido del nombre del campo. Por ejemplo, `no:assignee` solo mostrará los elementos que no tengan un asignado.
+- Para filtrar por estado, ingresa `is:`. Por ejemplo, `is: issue` o `is:open`.
+- Separa los filtros múltiples con un espacio. Por ejemplo, `status:"In progress" -label:"bug" no:assignee` solo mostrará los elementos que tengan un estado de `In progress`, que no tengan la etiqueta `bug` y que no tengan un asignado.
+- Para filtrar por la iteración previa, actual o siguiente de un campo de iteración, utiliza `@previous`, `@current` o `@next`. Por ejemplo, `sprint:@current`.
+- Para filtrar por los elementos asignados al visor, utiliza `@me`. Por ejemplo, `assignee:@me`. Cualquiera que utilice esta vista verá los elementos asignados a sí mismo.
+- Para filtrar los campos de fecha y número, utiliza las consultas de rango `>`, `>=`, `<`, `<=` y `..`. Por ejemplo: `target:2022-03-01..2022-03-15`. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".

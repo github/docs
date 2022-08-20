@@ -1,0 +1,1 @@
+Los resultados de la detección de dependencias que reporta {% data variables.product.product_name %} pueden ser diferentes a aquellos que devuelven otras herramientas. Esto está justificado y es útil el entender cómo {% data variables.product.prodname_dotcom %} determina las dependencias para tu proyecto.

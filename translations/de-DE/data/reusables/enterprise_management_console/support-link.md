@@ -1,1 +1,0 @@
-4. Klicke im oberen rechten Bereich der {% data variables.enterprise.management_console %} auf **Support**. ![Schaltfläche für den Zugriff auf den Bereich „Support“](/assets/images/enterprise/management-console/support-link.png)

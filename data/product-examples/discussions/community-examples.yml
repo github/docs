@@ -1,0 +1,37 @@
+# Images and descriptions are pulled directly from the repo
+
+- repo: vercel/next.js
+  description: The React Framework
+
+- repo: gatsbyjs/gatsby
+  description: Build blazing fast, modern apps and websites with React
+
+- repo: nodejs/node
+  description: Node.js JavaScript runtime ✨🐢🚀✨
+
+- repo: tailwindlabs/tailwindcss
+  description: A utility-first CSS framework for rapid UI development.
+
+- repo: laravel/framework
+  description: Laravel is a web application framework with expressive, elegant syntax.
+
+- repo: prisma/prisma
+  description: Modern database access (ORM alternative) for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB & SQLite
+
+- repo: dotnet/csharplang
+  description: The official repo for the design of the C# programming language
+
+- repo: home-assistant/frontend
+  description: 🍭 Frontend for Home Assistant
+
+- repo: jspsych/jsPsych
+  description: A JavaScript library for creating and running behavioral experiments in a web browser
+
+- repo: adonisjs/core
+  description: 🚀 The Node.js Framework highly focused on developer ergonomics, stability and confidence
+
+- repo: ImageMagick/ImageMagick
+  description: 🧙‍♂️ ImageMagick 7
+
+- repo: react-hook-form/react-hook-form
+  description: 📋 React Hooks for forms validation (Web + React Native)

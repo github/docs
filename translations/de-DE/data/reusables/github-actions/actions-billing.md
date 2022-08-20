@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %} Nutzung ist kostenlos für öffentliche Repositorys. Für private Repositorys erhält jedes {% data variables.product.prodname_dotcom %} Konto eine bestimmte Menge von kostenlosen Minuten und Speicher, abhängig vom Produkt, das mit dem Konto verwendet wird.

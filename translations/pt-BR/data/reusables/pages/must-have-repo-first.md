@@ -1,1 +1,1 @@
-Before you can create your site, you must have a repository for your site on {% data variables.product.product_name %}. If you're not creating your site in an existing repository, see "[Creating a repository for your site](#creating-a-repository-for-your-site)."
+Antes de criar seu site, você deve ter um repositório para seu site no {% data variables.product.product_name %}. Se você não estiver criando o site em um repositório existente, consulte "[Criar um repositório para o site](#creating-a-repository-for-your-site)".

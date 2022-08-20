@@ -1,16 +1,7 @@
-{% if currentVersion == "enterprise-server@2.22" %}
-
-Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)." |{% endif %}
-| 用户许可              |                                                                                                               vCPU |                                                                                                                         内存 |                                                                                                                    附加的存储容量 |  根存储容量 |
-|:----------------- | ------------------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------:| ------:|
-| 试用版、演示版或 10 个轻度用户 |   2{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**4**](#beta-features-in-github-enterprise-server-222){% endif %} |   16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
-| 10-3000           |   4{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**8**](#beta-features-in-github-enterprise-server-222){% endif %} |   32 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**48 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 250 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**300 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
-| 3000-5000         |  8{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**12**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                      64 GB |                                                                                                                     500 GB | 200 GB |
-| 5000-8000         | 12{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**16**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                      96 GB |                                                                                                                     750 GB | 200 GB |
-| 8000-10000+       | 16{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                    1000 GB | 200 GB |
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
-
-If you enable beta features in {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information about the beta features, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22) on the {% data variables.product.prodname_enterprise %} website.{% endif %}
+| 用户许可              | vCPU |     内存 | 附加的存储容量 |  根存储容量 |
+|:----------------- | ----:| ------:| -------:| ------:|
+| 试用版、演示版或 10 个轻度用户 |    4 |  32 GB |  150 GB | 200 GB |
+| 10-3000           |    8 |  48 GB |  300 GB | 200 GB |
+| 3000-5000         |   12 |  64 GB |  500 GB | 200 GB |
+| 5000-8000         |   16 |  96 GB |  750 GB | 200 GB |
+| 8000-10000+       |   20 | 160 GB | 1000 GB | 200 GB |

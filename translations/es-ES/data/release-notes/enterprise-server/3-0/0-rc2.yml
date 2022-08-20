@@ -1,0 +1,26 @@
+---
+date: '2021-01-29'
+release_candidate: true
+deprecated: true
+intro: Las versiones candidatas a lanzamiento deben probarse en ambientes no productivos. Para obtener más información acerca del Programa de Candidatos a Lanzamiento, consulta el [Blog de GitHub](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) o la sección "[Acerca de las mejoras a lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)."
+sections:
+  bugs:
+    - 
+      heading: Correcciones para las propuestas conocidas del Candidato a Lanzamiento 1
+      notes:
+        - Si inhabilitas las GitHub Actions seguido de un intento fallido de configurarlas, entonces no podrás crear el primer usuario y utilizar el aplicativo.
+        - El evento de bitácora de auditoría de "Mensaje obligatorio visto" no se estaba guardando.
+        - '`ghe-config-apply` necesitaba ejecutarse en una réplica durante una configuración inicial antes de que `ghe-repl-setup` pudiera ejecutarse para iniciar la replicación.'
+        - El haberte eliminado como propietario empresarial devolvió un 404.
+    - 
+      heading: Correcciones para otros problemas
+      notes:
+        - Los problemas con las migraciones y mejoras a la versión 3.0.0 se arreglaron.
+        - El versionamiento de utilidades de respaldo ahora funciona para las versiones de candidatos de lanzamiento.
+        - El generar un paquete de soporte dio como resultado un error en las bitácoras del orquestador.
+        - Un restablecimiento grande pudo haber dado como resultado que Redis se quedara sin memoria.
+        - La casilla de verificación para habilitar las GitHub Actions en la consola de administración ahora se puede ver con cualquier método de autenticación.
+        - Las gitHub Actions solo pueden habilitarse si también se configuró el almacenamiento requerido.
+        - '`ghe-repl-status` podría fallar silenciosamente si no está configurada la replicación de MSSQL.'
+  known_issues:
+    - Los problemas conocidos del Candidato a Lanzamiento 1 aún aplican, excluyendo las correcciones de errores listadas.

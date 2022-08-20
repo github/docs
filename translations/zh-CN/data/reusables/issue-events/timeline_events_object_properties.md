@@ -1,1 +1,1 @@
-This events properties do not use the same structure as the [issue event object common properties](#issue-event-object-common-properties). The following properties are returned for this event.
+此事件属性不使用与[议题事件对象通用属性](#issue-event-object-common-properties)相同的结构。 此事件返回以下属性。

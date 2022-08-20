@@ -1,6 +1,6 @@
 # Node Versions
 
-In [development](contributing/development.md) enviroments this site will run on Node.js versions `12 - 14`.
+In [development](contributing/development.md) environments this site will run on Node.js versions `12 - 14`.
 
 In [staging and production](contributing/deployments.md) environments this site runs on Node.js 14, the [Active LTS version](https://nodejs.org/en/about/releases/) from 2020-10-27 to 2021-10-26).
 
@@ -19,8 +19,15 @@ When updating to a new Node.js version, consider the following files:
 
 If you're using macOS, run this command to get the latest:
 
-```
+```sh
 brew upgrade nodenv node-build
+```
+
+If you see a warning like this one, run the suggested command:
+
+```sh
+# You should change the ownership of these directories to your user.
+sudo chown -R $(whoami) /usr/local/sbin
 ```
 
 If you're using another operating system, or did not use Homebrew to install nodenv, see these [upgrade instructions](https://github.com/nodenv/nodenv#installation).

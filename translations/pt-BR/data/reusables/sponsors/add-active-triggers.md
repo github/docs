@@ -1,1 +1,1 @@
-1. To receive updates for the SponsorshipEvent, select **Active**. ![Selecting active events](/assets/images/help/sponsors/webhook-active.png)
+1. Para receber atualizações do Evento de Patrocínio, selecione **ativo**. ![Selecionar eventos ativos](/assets/images/help/sponsors/webhook-active.png)

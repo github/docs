@@ -1,1 +1,0 @@
-Um Geheimnisse mit der REST-API zu erstellen, musst Du Schreibzugriff auf das Repository haben. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/v3/actions/secrets/)."

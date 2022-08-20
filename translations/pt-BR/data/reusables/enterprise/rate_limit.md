@@ -1,3 +1,9 @@
-{% if currentVersion != "free-pro-team@latest" %}
-Observe que os limites mencionados acima são os limites de taxa padrão para uma instância do {% data variables.product.prodname_ghe_server %}. Entre em contato com o administrador do site para confirmar se os limites de taxa estão habilitados e como eles estão configurados.
+{% ifversion ghes %}
+
+{% note %}
+
+**Note**: The following rate limits are the default rate limits for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for {% data variables.product.product_location %}.
+
+{% endnote %}
+
 {% endif %}

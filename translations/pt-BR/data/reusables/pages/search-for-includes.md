@@ -1,1 +1,1 @@
-To troubleshoot, search the file in the error message for `include` to see where you've referenced other files, such as {% raw %}`{% include example_header.html %}`{% endraw %}.
+Para solucionar o problema, pesquise o arquivo `incluir` na mensagem de erro para ver onde você referenciou outros arquivos, como, por exemplo, {% raw %}`{% include example_header.html %}`{% endraw %}.

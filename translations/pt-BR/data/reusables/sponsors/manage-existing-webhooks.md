@@ -1,1 +1,1 @@
-1. To edit an existing webhook, click **Edit**. To remove an existing webhook, click **Delete**. ![Buttons for managing webhook](/assets/images/help/sponsors/webhook-edit-delete-button.png)
+1. Para editar um webhook existente, clique em **Editar**. Para remover um webhook existente, clique em **Excluir**. ![Botões para gerenciar webhook](/assets/images/help/sponsors/webhook-edit-delete-button.png)

@@ -1,1 +1,1 @@
-Activity related to team membership. {% data reusables.webhooks.action_type_desc %} For more information, see the "[team members](/v3/teams/members/)" REST API.
+Atividade relacionada à associação na equipe. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST dos [integrantes da equipe](/rest/reference/teams#members)".

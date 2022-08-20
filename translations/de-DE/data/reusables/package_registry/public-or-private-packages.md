@@ -1,1 +1,0 @@
-Du kannst Pakete in einem öffentlichen Repository (öffentliche Pakete) veröffentlichen, um sie mit allen {% data variables.product.prodname_dotcom %} zu teilen , oder in einem privaten Repository (private Pakete), um sie mit Mitarbeitern oder einer Organisation zu teilen.

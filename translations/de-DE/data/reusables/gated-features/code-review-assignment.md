@@ -1,1 +1,0 @@
-Codereview-Zuweisung ist verfügbar mit {% data variables.product.prodname_team %}{% if currentVersion ver_gt "enterprise-server@2.19" %}, {% data variables.product.prodname_ghe_server %} 2.20+,{% endif %} und {% data variables.product.prodname_ghe_cloud %}. Weiter Informationen findest Du unter „[GitHub Produkte](/articles/githubs-products)."

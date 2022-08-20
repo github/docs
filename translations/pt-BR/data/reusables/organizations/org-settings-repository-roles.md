@@ -1,1 +1,1 @@
-4. Na barra lateral esquerda, clique em **Repository roles** (Funções do repositório). ![Aba de funções do repositório nas configurações da organização](/assets/images/help/organizations/org-settings-repository-roles.png)
+1. In the "Access" section of the sidebar, click **{% octicon "id-badge" aria-label="The ID badge icon" %} Repository roles**.

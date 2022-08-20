@@ -1,0 +1,15 @@
+.fadeLeft {
+  background: linear-gradient(
+    to right,
+    var(--color-canvas-default),
+    transparent
+  );
+}
+
+.fadeRight {
+  background: linear-gradient(
+    to left,
+    var(--color-canvas-default),
+    transparent
+  );
+}

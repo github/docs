@@ -1,3 +1,3 @@
-- **Read（阅读）**，允许人们查看项目板。
-- **Write（写入）**，允许人们查看项目板，链接仓库到项目板，并与项目板交互。 更多信息请参阅“[链接仓库到项目板](/articles/linking-a-repository-to-a-project-board)”。
-- **Admin（管理）**, 允许人们查看项目板，与项目板交互，管理项目板设置，以及管理其他人对项目板的访问。
+- **Read**, which gives people permission to view a {% data variables.projects.projects_v1_board %}.
+- **Write**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, link repositories to a {% data variables.projects.projects_v1_board %}, and interact with a {% data variables.projects.projects_v1_board %}. For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)."
+- **Admin**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, interact with a {% data variables.projects.projects_v1_board %}, manage {% data variables.projects.projects_v1_board %} settings, and manage other people's access to the {% data variables.projects.projects_v1_board %}.

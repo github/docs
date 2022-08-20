@@ -1,1 +1,1 @@
-1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to delete.
+1. アプリケーションの上部で{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch（現在のブランチ）**をクリックし、続いて削除したいブランチをクリックしてください。

@@ -1,22 +1,26 @@
 ---
 title: 库
-intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化 {% data variables.product.prodname_dotcom %} API 的使用方式。'
+intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化您使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的方式。'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
   <img src="/assets/images/gundamcat.png" class="gundamcat" alt="Gundamcat" />
-  <h1>Octokit 风格<br />多样</h1>
+  <h1>Octokit 风格多样</h1>
   <p class="lead">使用官方的 Octokit 库，或者使用任何适用的第三方库。</p>
-  <div class="octokit-links">
-    <div class="octokit-language"><span>Ruby</span> <a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div>
-    <div class="octokit-language"><span>.NET</span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div>
-    <div class="octokit-language"><span>JavaScript</span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div>
+  <div class="octokit-links"><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -24,138 +28,127 @@ versions:
 
 ### Clojure
 
-* [Tentacles][tentacles]
+| 库名称           | 仓库                                                      |
+| ------------- | ------------------------------------------------------- |
+| **Tentacles** | [Raynes/tentacles](https://github.com/Raynes/tentacles) |
 
 ### Dart
 
-* [github.dart][github.dart]
+| 库名称             | 仓库                                                                      |
+| --------------- | ----------------------------------------------------------------------- |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
-* [gh.el][gh.el]
+| 库名称       | 仓库                                            |
+| --------- | --------------------------------------------- |
+| **gh.el** | [sigma/gh.el](https://github.com/sigma/gh.el) |
 
 ### Erlang
 
-* [octo.erl][octo-erl]
+| 库名称          | 仓库                                                      |
+| ------------ | ------------------------------------------------------- |
+| **octo-erl** | [sdepold/octo.erl](https://github.com/sdepold/octo.erl) |
 
 ### Go
 
-* [go-github][]
+| 库名称           | 仓库                                                      |
+| ------------- | ------------------------------------------------------- |
+| **go-github** | [google/go-github](https://github.com/google/go-github) |
 
 ### Haskell
 
-* [github][haskell-github]
+| 库名称                | 仓库                                            |
+| ------------------ | --------------------------------------------- |
+| **haskell-github** | [fpco/Github](https://github.com/fpco/GitHub) |
 
 ### Java
 
-* [GitHub Java API (org.eclipse.egit.github.core)](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) 库是 [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) 的一部分，旨在支持整个 GitHub v3 API。  可在 [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22) 中构建。
-* [GitHub API for Java (org.kohsuke.github)](http://github-api.kohsuke.org/) 定义了 GitHub API 面向对象的表示形式。
-* [JCabi GitHub API](http://github.jcabi.com) 基于 Java7 JSON API (JSR-353)，使用运行时 GitHub stub 简化测试，并涵盖整个 API。
+| 库名称                     | 仓库                                                                  | 更多信息                                                           |
+| ----------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **GitHub API for Java** | [org.kohsuke.github（来自 github-api）](http://github-api.kohsuke.org/) | 定义 GitHub API 的面向对象的表示。                                        |
+| **JCabi GitHub API**    | [github.jcabi.com（个人网站）](http://github.jcabi.com)                   | 基于 JavaScript API (JSR-353)，可简化使用运行时 GitHub stub 的测试，并覆盖整个API。 |
 
 ### JavaScript
 
-* [NodeJS GitHub library][octonode]
-* [gh3 client-side API v3 wrapper][gh3]
-* [GitHub.js wrapper around the GitHub API][github]
-* [Promise-Based CoffeeScript library for the browser or NodeJS][github-client]
+| 库名称                                                   | 仓库                                                                      |
+| ----------------------------------------------------- | ----------------------------------------------------------------------- |
+| **NodeJS GitHub library**                             | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
+| **gh3 client-side API wrapper**                       | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **关于 GitHub API 的 Github.js 包装程序**                    | [michael/github](https://github.com/michael/github)                     |
+| **适用于 Browser 或 NodeJS 的基于 Promise 的 CoffeeScript 库** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 
 ### Julia
 
-* [GitHub.jl][github.jl]
+| 库名称           | 仓库                                                          |
+| ------------- | ----------------------------------------------------------- |
+| **GitHub.jl** | [JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl) |
 
 ### OCaml
 
-* [ocaml-github][ocaml-github]
+| 库名称              | 仓库                                                            |
+| ---------------- | ------------------------------------------------------------- |
+| **ocaml-github** | [mirage/ocaml-github](https://github.com/mirage/ocaml-github) |
 
 ### Perl
 
-* [Pithub][pithub-github] ([CPAN][pithub-cpan])
-* [Net::GitHub][net-github-github] ([CPAN][net-github-cpan])
+| 库名称             | 仓库                                                                    | 库的 metacpan 网站                                          |
+| --------------- | --------------------------------------------------------------------- | ------------------------------------------------------- |
+| **Pithub**      | [plu/Pithub](https://github.com/plu/Pithub)                           | [Pithub CPAN](http://metacpan.org/module/Pithub)        |
+| **Net::GitHub** | [fayland/perl-net-github](https://github.com/fayland/perl-net-github) | [Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub) |
 
 ### PHP
 
-* [GitHub PHP Client][github-php-client]
-* [PHP GitHub API][php-github-api]
-* [GitHub API][github-api]
-* [GitHub Joomla! 包][joomla]
-* [Github Nette Extension][kdyby-github]
-* [GitHub API Easy Access][milo-github-api]
-* [GitHub bridge for Laravel][github-laravel]
-* [PHP5.6|PHP7 Client & WebHook wrapper][flexyproject-githubapi]
+| 库名称                           | 仓库                                                                                |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| **PHP GitHub API**            | [KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)               |
+| **GitHub Joomla! 包**          | [joomla-framework/github-api](https://github.com/joomla-framework/github-api)     |
+| **GitHub bridge for Laravel** | [GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) |
+
+### PowerShell
+
+| 库名称                     | 仓库                                                                                |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| **PowerShellForGitHub** | [microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub) |
 
 ### Python
 
-* [PyGithub][jacquev6_pygithub]
-* [libsaas][libsaas]
-* [github3.py][github3py]
-* [sanction][sanction]
-* [agithub][agithub]
-* [octohub][octohub]
-* [Github-Flask][github-flask]
-* [torngithub][torngithub]
+| 库名称              | 仓库                                                                     |
+| ---------------- | ---------------------------------------------------------------------- |
+| **gidgethub**    | [brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)      |
+| **ghapi**        | [fastai/ghapi](https://github.com/fastai/ghapi)                        |
+| **PyGithub**     | [PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)              |
+| **libsaas**      | [duckboard/libsaas](https://github.com/ducksboard/libsaas)             |
+| **github3.py**   | [sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py)  |
+| **sanction**     | [demianbrecht/sanction](https://github.com/demianbrecht/sanction)      |
+| **agithub**      | [jpaugh/agithub](https://github.com/jpaugh/agithub)                    |
+| **octohub**      | [turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)        |
+| **github-flask** | [github-flask (Official Website)](http://github-flask.readthedocs.org) |
+| **torngithub**   | [jkeylu/torngithub](https://github.com/jkeylu/torngithub)              |
 
 ### Ruby
 
-* [GitHub API Gem][ghapi]
-* [Ghee][ghee]
+| 库名称                | 仓库                                                            |
+| ------------------ | ------------------------------------------------------------- |
+| **GitHub API Gem** | [peter-murach/github](https://github.com/peter-murach/github) |
+| **Ghee**           | [rauhryan/ghee](https://github.com/rauhryan/ghee)             |
+
+### Rust
+
+| 库名称          | 仓库                                                                |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 
-* [Hubcat][hubcat]
-* [Github4s][github4s]
+| 库名称          | 仓库                                                      |
+| ------------ | ------------------------------------------------------- |
+| **Hubcat**   | [softprops/hubcat](https://github.com/softprops/hubcat) |
+| **Github4s** | [47deg/github4s](https://github.com/47deg/github4s)     |
 
 ### Shell
 
-* [ok.sh][ok.sh]
-
-[tentacles]: https://github.com/Raynes/tentacles
-
-[github.dart]: https://github.com/DirectMyFile/github.dart
-
-[gh.el]: https://github.com/sigma/gh.el
-
-[octo-erl]: https://github.com/sdepold/octo.erl
-
-[go-github]: https://github.com/google/go-github
-
-[haskell-github]: https://github.com/fpco/GitHub
-
-[octonode]: https://github.com/pksunkara/octonode
-[gh3]: https://github.com/k33g/gh3
-[github]: https://github.com/michael/github
-[github-client]: https://github.com/philschatz/github-client
-
-[github.jl]: https://github.com/WestleyArgentum/GitHub.jl
-
-[ocaml-github]: https://github.com/mirage/ocaml-github
-
-[net-github-github]: https://github.com/fayland/perl-net-github
-[net-github-cpan]: https://metacpan.org/pod/Net::GitHub
-[pithub-github]: https://github.com/plu/Pithub
-[pithub-cpan]: http://metacpan.org/module/Pithub
-
-[github-php-client]: https://github.com/tan-tan-kanarek/github-php-client
-[php-github-api]: https://github.com/KnpLabs/php-github-api
-[github-api]: https://github.com/yiiext/github-api
-[joomla]: https://github.com/joomla-framework/github-api
-[kdyby-github]: https://github.com/kdyby/github
-[milo-github-api]: https://github.com/milo/github-api
-[github-laravel]: https://github.com/GrahamCampbell/Laravel-GitHub
-[flexyproject-githubapi]: https://github.com/FlexyProject/GitHubAPI
-
-[jacquev6_pygithub]: https://github.com/PyGithub/PyGithub
-[libsaas]: https://github.com/ducksboard/libsaas
-[github3py]: https://github.com/sigmavirus24/github3.py
-[sanction]: https://github.com/demianbrecht/sanction
-[agithub]: https://github.com/jpaugh/agithub "Agnostic GitHub"
-[octohub]: https://github.com/turnkeylinux/octohub
-[github-flask]: http://github-flask.readthedocs.org
-[torngithub]: https://github.com/jkeylu/torngithub
-
-[ghapi]: https://github.com/peter-murach/github
-[ghee]: https://github.com/rauhryan/ghee
-
-[hubcat]: https://github.com/softprops/hubcat
-[github4s]: https://github.com/47deg/github4s
-
-[ok.sh]: https://github.com/whiteinge/ok.sh
+| 库名称       | 仓库                                                    |
+| --------- | ----------------------------------------------------- |
+| **ok.sh** | [whiteinge/ok.sh](https://github.com/whiteinge/ok.sh) |

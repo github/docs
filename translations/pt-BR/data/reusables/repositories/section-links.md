@@ -1,3 +1,3 @@
-You can link directly to a section in a rendered file by hovering over the section heading to expose the link:
+Você pode vincular diretamente a uma seção de um arquivo interpretado, passando o mouse sobre o título da seção para expor o link:
 
-![Section link within the README file for the github/scientist repository](/assets/images/help/repository/readme-links.png)
+![Link da seção no arquivo README para o repositório github/scientist](/assets/images/help/repository/readme-links.png)

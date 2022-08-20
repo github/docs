@@ -1,1 +1,3 @@
-1. "Workflow runs（ワークフローの実行）"の下で、表示させたい実行の名前をクリックしてください。 ![ワークフローの実行の名前](/assets/images/help/repository/run-name.png)
+1. From the list of workflow runs, click the name of the run to see the workflow run summary.
+
+   ![ワークフローの実行の名前](/assets/images/help/repository/run-name.png)

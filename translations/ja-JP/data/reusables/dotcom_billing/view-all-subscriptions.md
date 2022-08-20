@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} アカウントのすべてのプランについて表示するには、「[プランと請求日を表示する](/articles/viewing-your-subscriptions-and-billing-date)」を参照してください。
+{% data variables.product.product_location %}上のアカウントのすべてのプランを見るには、「[プランと支払日の表示](/articles/viewing-your-subscriptions-and-billing-date)」を選択してください。

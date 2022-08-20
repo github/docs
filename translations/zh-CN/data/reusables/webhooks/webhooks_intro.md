@@ -1,1 +1,1 @@
-When configuring a webhook, you can use the UI or API to choose which events will send you payloads. Only subscribing to the specific events you plan on handling limits the number of HTTP requests to your server. You can also subscribe to all current and future events. By default, webhooks are only subscribed to the push event. You can change the list of subscribed events anytime.
+配置 web 挂钩时，您可以使用 UI 或 API 选择哪些事件将向您发送有效负载。 仅订阅您计划处理的特定事件可限制对服务器的 HTTP 请求数。 您也可以订阅所有当前和未来的事件。 默认情况下，web 挂钩只订阅推送事件。 您可以随时更改订阅事件的列表。

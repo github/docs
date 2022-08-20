@@ -1,1 +1,0 @@
-Interne Repositorys sind verfügbar mit {% data variables.product.prodname_ghe_cloud %} und {% data variables.product.prodname_ghe_server %} 2.20+. Weitere Informationen findest Du unter „<a href="/articles/githubs-products" class="dotcom-only">GitHub Produkte</a>."

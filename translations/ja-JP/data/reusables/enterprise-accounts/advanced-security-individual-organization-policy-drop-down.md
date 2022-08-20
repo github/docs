@@ -1,0 +1,1 @@
+1. あるいは、**Allow for selected organizations（選択したOrganizationに対して許可）**を選択した場合、Organizationの右でドロップダウンメニューを選択し、Organizationについて{% data variables.product.prodname_advanced_security %}を許可もしくは非許可してください。 ![Enterpriseアカウント中の個々のOrganizationについてAdvanced Securityポリシーを選択するドロップダウン](/assets/images/help/enterprises/select-advanced-security-individual-organization-policy.png)

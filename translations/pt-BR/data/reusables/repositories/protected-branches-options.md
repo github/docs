@@ -1,1 +1,0 @@
-You can automatically enforce protected branch settings for some or all branches in your repository. Para obter mais informações, consulte "[Configurar branches protegidos](/github/administering-a-repository/configuring-protected-branches)".

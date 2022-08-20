@@ -1,22 +1,25 @@
 name: Triage new issues
+
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
 on:
   issues:
-    types: [reopened, opened]
+    types:
+      - reopened
+      - opened
+
+permissions:
+  issues: write
 
 jobs:
   triage_issues:
-    if: github.repository == 'github/docs'
+    if: ${{ github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
 
     steps:
-    - name: Label new issues with 'triage'
-      uses: rachmari/labeler@v1.0.4
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        add-labels: "triage"
-    - name: Triage to project board
-      uses: rachmari/actions-add-new-issue-to-column@v1.1.1
-      with:
-        action-token: ${{ secrets.GITHUB_TOKEN }}
-        project-url: "https://github.com/github/docs/projects/1"
-        column-name: "Triage"
+      - name: Label new issues with 'triage'
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        with:
+          add-labels: 'triage'

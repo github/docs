@@ -1,0 +1,1 @@
+Para crear secretos para un ambiente en un repositorio de una cuenta personal, debes ser el propietario de dicho repositorio. Para crear secretos para un ambiente en el repositorio de una organización, deberás tener acceso de `administrador`.

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_app %}s devem ter permissão da organização `secrets` para acessar o ponto de extremidade.

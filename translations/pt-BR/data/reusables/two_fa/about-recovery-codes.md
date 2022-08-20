@@ -1,1 +1,1 @@
-When you configure two-factor authentication, you'll download and save your 2FA recovery codes. If you lose access to your phone, you can authenticate to {% data variables.product.product_name %} using your recovery codes.
+Ao configurar a autenticação de dois fatores, você fará o download salvará os seus códigos de recuperação de 2FA. Se você perder o acesso ao seu telefone, você poderá efetuar a autenticação em {% data variables.product.product_name %} usando seus códigos de recuperação.

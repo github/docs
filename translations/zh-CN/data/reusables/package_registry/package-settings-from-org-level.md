@@ -1,4 +1,7 @@
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
-2. Under your organization name, click **Packages**. ![Container access invite button](/assets/images/help/package-registry/org-tab-for-packages.png)
-3. Search for and select your package.
-4. In the top right of your container image's landing page, click **Package settings**. ![Package settings button](/assets/images/help/package-registry/packages-settings-from-package-landing-page.png)
+1. 在 {% data variables.product.prodname_dotcom %} 上，导航到组织的主页面。
+2. 在组织名称下，单击 **Packages（包）**。
+  {% ifversion fpt or ghes > 3.2 or ghec %}
+  ![组织登陆页面上的“包”选项卡](/assets/images/help/package-registry/org-tab-for-packages-with-overview-tab.png)
+  {% else %}
+  ![组织登陆页面上的“包”选项卡](/assets/images/help/package-registry/org-tab-for-packages.png)
+  {% endif %}

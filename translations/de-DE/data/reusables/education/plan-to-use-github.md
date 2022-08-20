@@ -1,1 +1,0 @@
-1. Beschreibe, wie Du {% data variables.product.prodname_dotcom %} verwenden möchtest. ![Feld „Description“ (Beschreibung) zur Angabe, wie Du {% data variables.product.prodname_dotcom %} verwenden möchtest](/assets/images/help/education/purpose-for-github-education.png)

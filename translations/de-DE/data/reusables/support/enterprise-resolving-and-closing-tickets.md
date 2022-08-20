@@ -1,5 +1,0 @@
-{% data variables.contact.enterprise_support %} kann ein Ticket nach einer Erläuterung, Empfehlung, Gebrauchsanweisungen, Workaround-Anweisungen oder durch den Verweis auf einen das Problem adressierenden verfügbaren Release, als gelöst betrachten.
-
-Wenn Du ein eigenes oder nicht unterstütztes Plug-in, Modul oder einen benutzerdefinierten Code verwendest, kann der {% data variables.contact.enterprise_support %} Dich auffordern, das nicht unterstützte Plug-in, Modul oder den Code auszubauen, während er versucht, das Problem zu beheben. Wenn das Problem nach dem Ausbau des nicht unterstützten Plug-ins, Moduls oder des benutzerdefinierten Codes behoben ist, kann der {% data variables.contact.enterprise_support %} das Problem als gelöst betrachten.
-
-Der {% data variables.contact.enterprise_support %} kann Tickets schließen, wenn sie außerhalb des Unterstützungsbereichs liegen oder wenn mehrere Versuche, Dich zu kontaktieren, erfolglos waren. Wenn {% data variables.contact.enterprise_support %} ein Ticket aufgrund fehlender Antwort schließt, kannst Du verlangen, dass {% data variables.contact.enterprise_support %} das Ticket erneut öffnet.

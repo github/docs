@@ -8,7 +8,7 @@ The *path*, *filename*, and *keys* within each YAML file determine what its path
 
 For example, given a file `data/variables/foo/bar.yml`:
 
-```yml
+```yaml
 # multiple short strings in one file
 meaning_of_life: 42
 
@@ -18,7 +18,7 @@ nested:
     too: Yes!
 ```
 
-Its values would be accesible as:
+Its values would be accessible as:
 
 ```
 {% data foo.bar.meaning_of_life %}

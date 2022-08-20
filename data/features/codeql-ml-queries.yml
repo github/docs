@@ -1,0 +1,6 @@
+# Reference: #5604.
+# Documentation for the beta release of CodeQL queries boosted by machine learning
+# to generate experiemental alerts in code scanning.
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -1,1 +1,1 @@
-オープンソースプロジェクトにコントリビュートし、サポートされている地域に専用の銀行口座を持っているOrganizationは、スポンサードOrganizationになることができます。 {% data variables.product.prodname_sponsors %}にまだサポートされていない地域に住んでいる場合は、[{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)の待ちリストに加わってください。
+オープンソースプロジェクトにコントリビュートし、サポートされている地域で法的に活動しているOrganizationは、スポンサードOrganizationになることができます。 Organizationが{% data variables.product.prodname_sponsors %}にまだサポートされていない地域で活動している場合は、[{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)の待ちリストに加わってください。

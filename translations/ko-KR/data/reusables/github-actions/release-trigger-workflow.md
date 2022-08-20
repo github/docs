@@ -1,1 +1,0 @@
-Each time you create a new release on {% data variables.product.prodname_dotcom %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `created` activity type. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release).

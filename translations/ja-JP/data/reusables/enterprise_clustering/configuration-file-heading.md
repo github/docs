@@ -1,1 +1,1 @@
-The cluster configuration file lists each node under a <code>[cluster "<em>HOSTNAME</em>"]</code> heading.
+クラスタ設定ファイルには、各ノードを<code>[cluster "<em>HOSTNAME</em>"]</code>ヘッダの下にリストします。

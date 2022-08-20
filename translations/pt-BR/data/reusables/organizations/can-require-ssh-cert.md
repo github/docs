@@ -1,1 +1,1 @@
-Você pode exigir que os membros usem certificados SSH para acessar os recursos da organização,{% if currentVersion ver_gt "enterprise-server@2.17" %}, a menos que o SSH esteja desativado no seu repositório{% endif %}.
+Você pode exigir que os integrantes usem certificados SSH para acessar os recursos da organização, a menos que o SSH esteja desabilitado no seu repositório.

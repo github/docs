@@ -1,18 +1,20 @@
 ---
 title: Publicar ações no GitHub Marketplace
 intro: 'Você pode publicar ações em {% data variables.product.prodname_marketplace %} e compartilhar as ações que você criou com a comunidade {% data variables.product.prodname_dotcom %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+type: how_to
+shortTitle: Publicar no GitHub Marketplace
 ---
 
 Você deve aceitar os termos de serviço para publicar ações em {% data variables.product.prodname_marketplace %}.
 
-### Sobre a publicação de ações
+## Sobre a publicação de ações
 
 Antes de poder publicar uma ação, você deverá criar uma ação no seu repositório. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
@@ -24,12 +26,12 @@ As ações são publicadas em {% data variables.product.prodname_marketplace %} 
 - Cada repositório deve conter uma ação única.
 - O arquivo de metadados da ação (`action.yml` ou `action.yaml`) deve estar no diretório-raiz do repositório.
 - O `nome` do arquivo de metadados da ação deve ser único.
-  - O `nome` não pode corresponder a um nome de uma ação existente publicado em {% data variables.product.prodname_marketplace %}.
+  - O `nome` não pode corresponder ao nome de uma ação publicado em {% data variables.product.prodname_marketplace %}.
   - O `nome` não pode corresponder a um usuário ou organização em {% data variables.product.prodname_dotcom %}, a menos que o usuário ou o proprietário da organização esteja publicando a ação. Por exemplo, somente {% data variables.product.prodname_dotcom %} a organização pode publicar uma ação denominada `GitHub`.
-  - O `nome` não pode corresponder a uma categoria existente {% data variables.product.prodname_marketplace %}.
+  - O `nome` não pode corresponder a uma categoria {% data variables.product.prodname_marketplace %}.
   - {% data variables.product.prodname_dotcom %} reserva os nomes de recursos {% data variables.product.prodname_dotcom %}.
 
-### Publicar uma ação
+## Publicar uma ação
 
 Você pode adicionar a ação que você criou em {% data variables.product.prodname_marketplace %} identificando-a como uma nova versão e publicando-a.
 
@@ -44,7 +46,7 @@ Para compartilhar uma nova versão e publicar a ação em {% data variables.prod
 1. Marque a sua Ação com uma versão e adicione um título de versão. Isso ajuda as pessoas a saber quais alterações ou recursos estão incluídos na versão. As pessoas verão a versão na página dedicada da ação {% data variables.product.prodname_marketplace %}. ![Marque uma versão](/assets/images/help/repository/marketplace_actions_version.png)
 1. Preencha todos os outros campos e clique em **Publicar versão**. A publicação exige a utilização de uma autenticação de dois fatores. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication/)". ![Publique a versão](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### Remover uma ação de {% data variables.product.prodname_marketplace %}
+## Remover uma ação de {% data variables.product.prodname_marketplace %}
 
 Para remover uma ação publicada de {% data variables.product.prodname_marketplace %}, você deverá atualizar cada versão publicada. Realize as etapas a seguir para cada versão da ação que você publicou em {% data variables.product.prodname_marketplace %}.
 

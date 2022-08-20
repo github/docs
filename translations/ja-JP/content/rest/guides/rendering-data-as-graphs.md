@@ -2,22 +2,26 @@
 title: データをグラフとしてレンダリングする
 intro: D3.jsライブラリとRuby Octokitを使用して、リポジトリからプログラミング言語を視覚化する方法を学びましょう。
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
+ 
 
 
-
-このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 To interact with the {% data variables.product.product_name %} APIやり取りを行うため、ここでは優れたRubyライブラリである[Octokit][Octokit]を使用します。
+このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするために、素晴らしいRubyのライブラリである[Octokit.rb][Octokit]を使います。
 
 まだ[「認証の基本」][basics-of-authentication]ガイドを読んでいない場合は、それを読んでからこの例に取りかかってください。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
 それでは早速始めましょう！
 
-### OAuthアプリケーションの設定
+## OAuthアプリケーションの設定
 
 まず、{% data variables.product.product_name %}で[新しいアプリケーションを登録][new oauth application]します。 コールバックURLは`http://localhost:4567/`と設定してください。 [以前][basics-of-authentication]行ったように、[sinatra-auth-github][sinatra auth github]を使用してRackミドルウェアを実装することにより、APIの認証を処理します。
 
@@ -70,9 +74,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### リポジトリ情報のフェッチ
+## リポジトリ情報のフェッチ
 
-今回は、{% data variables.product.product_name %} APIと通信を行うため、[Octokit Rubyライブラリ][Octokit]を使用します。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
+今回は、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIと通信するために、[RubyのライブラリOctokit][Octokit]を使います。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
 
 Octokit経由のAPIによる認証は簡単です。 ログインとトークンを`Octokit::Client`コンストラクタに渡すだけです。
 
@@ -116,7 +120,7 @@ languages.to_s
 
 ここまではうまくいきましたが、ちょっと取っつきにくいですね。 これらの言語数がどのような分布をしているかを把握するには、視覚化がとても役立つでしょう。 数えたものをD3にフィードし、使用する言語の人気を表す棒グラフを取得しましょう。
 
-### 言語数の視覚化
+## 言語数の視覚化
 
 D3.js (単にD3と表記することもある) は、多様なチャート、グラフ、インタラクティブな視覚化を作成するための包括的なライブラリです。 D3の詳細はこのガイドが扱う範囲を超えていますが、いい入門記事としては、[「D3 for Mortals」][D3 mortals]をご覧ください。
 
@@ -218,11 +222,11 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 
 「D3 for Mortals」のガイドが示すように、これは必ずしもD3の最善の利用法ではありません。 ただ、Octokitと一緒にライブラリを使って、とっても素晴らしいものを作る方法を説明するには役立ちます。
 
-### さまざまなAPI呼び出しの組み合わせ
+## さまざまなAPI呼び出しの組み合わせ
 
 さて、ここで本当のことを言いましょう。リポジトリの`language`属性が識別するのは、「主な」言語として定義されたものだけです。 つまり、複数の言語が混ざったリポジトリでは、コードのバイト数が最も多い言語が主言語とみなされます。
 
-いくつかのAPI呼び出しを組み合わせて、コード全体でどの言語のバイト数が最も多いかを_厳密に_表してみましょう。 コード言語のサイズを視覚化する方法としては、単純な数よりも[ツリーマップ][D3 treemap]を使った方が見栄えがいいでしょう。 次のようなオブジェクトの配列を構築する必要があります。
+いくつかのAPI呼び出しを組み合わせて、コード全体でどの言語のバイト数が最も多いかを_厳密に_表してみましょう。 コーディングに使われている言語のサイズを視覚化する方法としては、単純な数よりも[ツリーマップ][D3 treemap]を使った方が見栄えがいいでしょう。 次のようなオブジェクトの配列を構築する必要があります。
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -231,7 +235,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼びましょう。
+すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼び出しましょう。
 
 ``` ruby
 repos.each do |repo|
@@ -240,7 +244,7 @@ repos.each do |repo|
 end
 ```
 
-そこから、見つかった各言語を"master list"に次々に追加していきます。
+そこから、見つかった各言語を言語のリストに次々に追加していきます。
 
 ``` ruby
 repo_langs.each do |lang, count|
@@ -331,8 +335,8 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 [Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

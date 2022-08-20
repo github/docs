@@ -1,0 +1,1 @@
+5. Debajo de "Límites de interacción temporal", a la derecha del límite del tipo de interacción que quieras configurar, utiliza el menú desplegable de **Habilitar** y luego da clic en la duración que quieras utilizar para tu límite de interacción.

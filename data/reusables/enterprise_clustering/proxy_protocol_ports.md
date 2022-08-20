@@ -1,4 +1,4 @@
-##### PROXY protocol TCP port mappings
+### PROXY protocol TCP port mappings
 
 | Source port | Destination port | Service description |
 | :---: | :---: | :---: |

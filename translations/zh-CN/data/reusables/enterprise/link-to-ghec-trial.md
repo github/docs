@@ -1,0 +1,1 @@
+有关如何免费试用 {% data variables.product.prodname_ghe_cloud %} 的详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 试用版]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)”。

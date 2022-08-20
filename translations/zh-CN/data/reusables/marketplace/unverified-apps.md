@@ -1,1 +1,1 @@
-Unverified apps are only offered with free plans. To list paid plans, you must submit a verified app.
+未经验证的应用程序只能提供免费计划。 要列出付费计划，必须提交经过验证的应用程序。

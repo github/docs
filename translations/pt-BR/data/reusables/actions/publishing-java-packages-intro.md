@@ -1,0 +1,1 @@
+Este guia mostra como criar um fluxo de trabalho que publica pacotes Java no {% data variables.product.prodname_registry %} e no Maven Central Repository. Com um único fluxo de trabalho, você pode publicar pacotes em um único repositório ou em vários repositórios.

@@ -1,0 +1,1 @@
+If {% data variables.product.prodname_actions %} services are temporarily unavailable, then a workflow run is discarded if it has not been queued within 30 minutes of being triggered. For example, if a workflow is triggered and the {% data variables.product.prodname_actions %} services are unavailable for 31 minutes or longer, then the workflow run will not be processed.

@@ -1,1 +1,0 @@
-1. Da clic en **Configurar la integraciòn de la API**. ![Botón "Configurar Integración de API" para la aplicación de Okta](/assets/images/help/saml/okta-configure-api-integration.png)

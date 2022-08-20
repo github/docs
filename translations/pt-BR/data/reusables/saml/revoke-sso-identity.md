@@ -1,1 +1,1 @@
-1. To revoke the linked identity, to the right of the identity, click **Revoke**. ![Revoke button](/assets/images/help/saml/revoke-identity.png)
+1. Para revogar a identidade vinculada, à direita da identidade, clique em **Revogar**. ![Botão de revogar](/assets/images/help/saml/revoke-identity.png)

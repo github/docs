@@ -1,1 +1,1 @@
-パッケージをパブリックリポジトリに公開（パブリックパッケージ）して、{% data variables.product.prodname_dotcom %}の全員と共有したり、プライベートリポジトリに公開（プライベートパッケージ）してコラボレータやOrganizationと共有したりできます。
+You can publish packages in {% ifversion ghae %}an internal{% else %}a public{% endif %} repository ({% ifversion ghae %}internal{% else %}public{% endif %} packages) to share with {% ifversion fpt or ghec %}all of {% data variables.product.prodname_dotcom %}{% else %}everyone on your enterprise{% endif %}, or in a private repository (private packages) to share with collaborators or an organization.

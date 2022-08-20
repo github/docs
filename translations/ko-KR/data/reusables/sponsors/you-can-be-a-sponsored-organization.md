@@ -1,1 +1,0 @@
-Any organization that contributes to an open source project and has a dedicated bank account in a supported region is eligible to become a sponsored organization. If you live in a region that isn't already supported by {% data variables.product.prodname_sponsors %}, join the waitlist at [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

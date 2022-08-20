@@ -1,0 +1,1 @@
+对于开具发票的 {% data variables.product.prodname_enterprise %} 客户，{% data variables.product.company_short %} 通过 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户计费。 每张发票都包含所有付费的 {% data variables.product.prodname_dotcom_the_website %} 服务和任何 {% data variables.product.prodname_ghe_server %} 实例的单笔账单费用。

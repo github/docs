@@ -1,0 +1,1 @@
+Para criar segredos usando a API REST, você deve ter acesso de gravação ao repositório ou acesso de administrador à organização. Para obter mais informações, consulte "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."

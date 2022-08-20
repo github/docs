@@ -1,1 +1,0 @@
-1. Wenn Du dazu aufgefordert wirst, gib Dein {% data variables.enterprise.management_console %}-Passwort ein. ![{% data variables.enterprise.management_console %}-Entsperrbildschirm](/assets/images/enterprise/management-console/unlock-password.png)

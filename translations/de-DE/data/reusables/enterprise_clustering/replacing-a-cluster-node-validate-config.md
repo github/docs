@@ -1,1 +1,0 @@
-1. Führe in der Verwaltungsshell des Knotens mit der geänderten Datei `cluster.conf` den Befehl `ghe-cluster-config-apply` aus. Dadurch wird die Konfigurationsdatei validiert, auf jeden Knoten im Cluster kopiert und der Knoten als offline markiert.

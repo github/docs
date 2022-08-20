@@ -1,1 +1,5 @@
-1. **Get the latest release of {% data variables.product.prodname_ghe_server %} ({% data variables.product.prodname_ghe_server %} の最新リリースを入手) **をクリックします。
+1. 新しいインスタンスで使用したいイメージにアクセスしてください。
+
+   - [リリースノート](/admin/release-notes)にアクセスしてください。
+   - 右のサイドバーで、ダウンロードしたいバージョンをクリックしてください。
+   - **Download {% data variables.product.prodname_ghe_server %} X.X.X**をクリックしてください。

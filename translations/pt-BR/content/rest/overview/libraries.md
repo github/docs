@@ -1,23 +1,26 @@
 ---
 title: Bibliotecas
-intro: 'Você pode usar a biblioteca oficial do Octokit e outras bibliotecas de terceiros para estender e simplificar a forma como você usa a API de {% data variables.product.prodname_dotcom %}.'
+intro: 'Você pode usar a biblioteca oficial do Octokit e outras bibliotecas de terceiros para estender e simplificar como você usa a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
   <img src="/assets/images/gundamcat.png" class="gundamcat" alt="O Gundamcat" />
-  <h1>Octokit comes in<br />
-  many flavors</h1>
+  <h1>O Octokit tem muitos sabores</h1>
   <p class="lead">Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das bibliotecas de terceiros disponíveis.</p>
-  <div class="octokit-links">
-    <div class="octokit-language"><span>Ruby</span> <a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div>
-    <div class="octokit-language"><span>.NET</span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div>
-    <div class="octokit-language"><span>JavaScript</span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div>
+  <div class="octokit-links"><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -25,138 +28,127 @@ versions:
 
 ### Clojure
 
-* [Tentacles][tentacles]
+| Nome da Biblioteca | Repositório                                             |
+| ------------------ | ------------------------------------------------------- |
+| **Tentacles**      | [Raynes/tentacles](https://github.com/Raynes/tentacles) |
 
 ### Dart
 
-* [github.dart][github.dart]
+| Nome da Biblioteca | Repositório                                                             |
+| ------------------ | ----------------------------------------------------------------------- |
+| **github.dart**    | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
-* [gh.el][gh.el]
+| Nome da Biblioteca | Repositório                                   |
+| ------------------ | --------------------------------------------- |
+| **gh.el**          | [sigma/gh.el](https://github.com/sigma/gh.el) |
 
 ### Erlang
 
-* [octo.erl][octo-erl]
+| Nome da Biblioteca | Repositório                                             |
+| ------------------ | ------------------------------------------------------- |
+| **octo-erl**       | [sdepold/octo.erl](https://github.com/sdepold/octo.erl) |
 
 ### Go
 
-* [go-github][]
+| Nome da Biblioteca | Repositório                                             |
+| ------------------ | ------------------------------------------------------- |
+| **go-github**      | [google/go-github](https://github.com/google/go-github) |
 
 ### Haskell
 
-* [github][haskell-github]
+| Nome da Biblioteca | Repositório                                   |
+| ------------------ | --------------------------------------------- |
+| **haskell-github** | [fpco/Github](https://github.com/fpco/GitHub) |
 
 ### Java
 
-* A biblioteca [API do Java do GitHub (org.eclipse.egit.github. min.)](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) faz parte do [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) e visa a suportar toda a API do GitHub v3.  As construções estão disponíveis em [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22).
-* A [API do GitHub para Java (org.kohsuke.github)](http://github-api.kohsuke.org/) define uma representação orientada para objetos da API do GitHub.
-* [A API do JCabi do GitHub](http://github.jcabi.com) é baseada na API do JSON do Java7 (JSR-353), simplifica testes com o stub, em tempo de execução, e abrange toda a API.
+| Nome da Biblioteca          | Repositório                                                          | Mais informações                                                                                                              |
+| --------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **API do GitHub para Java** | [org.kohsuke.github (do github-api)](http://github-api.kohsuke.org/) | define uma representação de objetos orientada à API do GitHub.                                                                |
+| **JCabi GitHub API**        | [github.jcabi.com (Site pessoal)](http://github.jcabi.com)           | é baseado na API JSON Java7 (JSR-353), simplifica testes com uma amostra de tempo de execução do GitHub e abrange toda a API. |
 
 ### JavaScript
 
-* [NodeJS GitHub library][octonode]
-* [gh3 client-side API v3 wrapper][gh3]
-* [GitHub.js wrapper ao redor da GitHub API][github]
-* [Biblioteca CoffeeScript baseada em pomessa para o navegador ou NodeJS][github-client]
+| Nome da Biblioteca                                                        | Repositório                                                             |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **NodeJS GitHub library**                                                 | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
+| **gh3 client-side API wrapper**                                           | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **O wrapper do Github.js sobre a API do GitHub**                          | [michael/github](https://github.com/michael/github)                     |
+| **Biblioteca CoffeeScript baseada no Promise para o navegador ou NodeJS** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 
 ### Julia
 
-* [GitHub.jl][github.jl]
+| Nome da Biblioteca | Repositório                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| **GitHub.jl**      | [JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl) |
 
 ### OCaml
 
-* [ocaml-github][ocaml-github]
+| Nome da Biblioteca | Repositório                                                   |
+| ------------------ | ------------------------------------------------------------- |
+| **ocaml-github**   | [mirage/ocaml-github](https://github.com/mirage/ocaml-github) |
 
 ### Perl
 
-* [Pithub][pithub-github] ([CPAN][pithub-cpan])
-* [Net::GitHub][net-github-github] ([CPAN][net-github-cpan])
+| Nome da Biblioteca | Repositório                                                           | Site metacpan para a biblioteca                         |
+| ------------------ | --------------------------------------------------------------------- | ------------------------------------------------------- |
+| **Pithub**         | [plu/Pithub](https://github.com/plu/Pithub)                           | [Pithub CPAN](http://metacpan.org/module/Pithub)        |
+| **Net::GitHub**    | [fayland/perl-net-github](https://github.com/fayland/perl-net-github) | [Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub) |
 
 ### PHP
 
-* [GitHub PHP Client][github-php-client]
-* [PHP GitHub API][php-github-api]
-* [GitHub API][github-api]
-* [GitHub Joomla! Package][joomla]
-* [Github Nette Extension][kdyby-github]
-* [GitHub API Easy Access][milo-github-api]
-* [GitHub bridge para Laravel][github-laravel]
-* [PHP5.6|PHP7 Client & WebHook wrapper][flexyproject-githubapi]
+| Nome da Biblioteca             | Repositório                                                                       |
+| ------------------------------ | --------------------------------------------------------------------------------- |
+| **PHP GitHub API**             | [KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)               |
+| **GitHub Joomla! Package**     | [joomla-framework/github-api](https://github.com/joomla-framework/github-api)     |
+| **GitHub bridge para Laravel** | [GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) |
+
+### PowerShell
+
+| Nome da Biblioteca      | Repositório                                                                       |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| **PowerShellForGitHub** | [microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub) |
 
 ### Python
 
-* [PyGithub][jacquev6_pygithub]
-* [libsaas][libsaas]
-* [github3.py][github3py]
-* [sanction][sanction]
-* [agithub][agithub]
-* [octohub][octohub]
-* [Github-Flask][github-flask]
-* [torngithub][torngithub]
+| Nome da Biblioteca | Repositório                                                           |
+| ------------------ | --------------------------------------------------------------------- |
+| **gidgethub**      | [brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)     |
+| **ghapi**          | [fastai/ghapi](https://github.com/fastai/ghapi)                       |
+| **PyGithub**       | [PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)             |
+| **libsaas**        | [duckboard/libsaas](https://github.com/ducksboard/libsaas)            |
+| **github3.py**     | [sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) |
+| **sanction**       | [demianbrecht/sanction](https://github.com/demianbrecht/sanction)     |
+| **agithub**        | [jpaugh/agithub](https://github.com/jpaugh/agithub)                   |
+| **octohub**        | [turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)       |
+| **github-flask**   | [github-flask (site oficial)](http://github-flask.readthedocs.org)    |
+| **torngithub**     | [jkeylu/torngithub](https://github.com/jkeylu/torngithub)             |
 
 ### Ruby
 
-* [GitHub API Gem][ghapi]
-* [Ghee][ghee]
+| Nome da Biblioteca | Repositório                                                   |
+| ------------------ | ------------------------------------------------------------- |
+| **GitHub API Gem** | [peter-murach/github](https://github.com/peter-murach/github) |
+| **Ghee**           | [rauhryan/ghee](https://github.com/rauhryan/ghee)             |
+
+### Rust
+
+| Nome da Biblioteca | Repositório                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| **Octocrab**       | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**        | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 
-* [Hubcat][hubcat]
-* [Github4s][github4s]
+| Nome da Biblioteca | Repositório                                             |
+| ------------------ | ------------------------------------------------------- |
+| **Hubcat**         | [softprops/hubcat](https://github.com/softprops/hubcat) |
+| **Github4s**       | [47deg/github4s](https://github.com/47deg/github4s)     |
 
 ### Shell
 
-* [ok.sh][ok.sh]
-
-[tentacles]: https://github.com/Raynes/tentacles
-
-[github.dart]: https://github.com/DirectMyFile/github.dart
-
-[gh.el]: https://github.com/sigma/gh.el
-
-[octo-erl]: https://github.com/sdepold/octo.erl
-
-[go-github]: https://github.com/google/go-github
-
-[haskell-github]: https://github.com/fpco/GitHub
-
-[octonode]: https://github.com/pksunkara/octonode
-[gh3]: https://github.com/k33g/gh3
-[github]: https://github.com/michael/github
-[github-client]: https://github.com/philschatz/github-client
-
-[github.jl]: https://github.com/WestleyArgentum/GitHub.jl
-
-[ocaml-github]: https://github.com/mirage/ocaml-github
-
-[net-github-github]: https://github.com/fayland/perl-net-github
-[net-github-cpan]: https://metacpan.org/pod/Net::GitHub
-[pithub-github]: https://github.com/plu/Pithub
-[pithub-cpan]: http://metacpan.org/module/Pithub
-
-[github-php-client]: https://github.com/tan-tan-kanarek/github-php-client
-[php-github-api]: https://github.com/KnpLabs/php-github-api
-[github-api]: https://github.com/yiiext/github-api
-[joomla]: https://github.com/joomla-framework/github-api
-[kdyby-github]: https://github.com/kdyby/github
-[milo-github-api]: https://github.com/milo/github-api
-[github-laravel]: https://github.com/GrahamCampbell/Laravel-GitHub
-[flexyproject-githubapi]: https://github.com/FlexyProject/GitHubAPI
-
-[jacquev6_pygithub]: https://github.com/PyGithub/PyGithub
-[libsaas]: https://github.com/ducksboard/libsaas
-[github3py]: https://github.com/sigmavirus24/github3.py
-[sanction]: https://github.com/demianbrecht/sanction
-[agithub]: https://github.com/jpaugh/agithub "Agnostic GitHub"
-[octohub]: https://github.com/turnkeylinux/octohub
-[github-flask]: http://github-flask.readthedocs.org
-[torngithub]: https://github.com/jkeylu/torngithub
-
-[ghapi]: https://github.com/peter-murach/github
-[ghee]: https://github.com/rauhryan/ghee
-
-[hubcat]: https://github.com/softprops/hubcat
-[github4s]: https://github.com/47deg/github4s
-
-[ok.sh]: https://github.com/whiteinge/ok.sh
+| Nome da Biblioteca | Repositório                                           |
+| ------------------ | ----------------------------------------------------- |
+| **ok.sh**          | [whiteinge/ok.sh](https://github.com/whiteinge/ok.sh) |

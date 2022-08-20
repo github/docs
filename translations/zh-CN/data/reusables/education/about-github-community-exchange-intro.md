@@ -1,0 +1,1 @@
+{% data variables.product.prodname_community_exchange %} 是 {% data variables.product.prodname_global_campus %} 门户内的学生社区。 作为学生，在这里您可以接触到您的项目，并发现其他需要合作者和维护者的学生仓库。

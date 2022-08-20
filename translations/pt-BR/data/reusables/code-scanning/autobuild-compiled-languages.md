@@ -1,5 +1,1 @@
-For compiled languages like C/C++, C#, and Java, the `autobuild` step in the default workflow attempts to build code before the action performs {% data variables.product.prodname_codeql %} analysis. Ao contrário das outras linguagens compiladas, {% data variables.product.prodname_codeql %} analisa Go sem criar o código.
-
-O processo `autobuild` sempre tenta criar _uma_ linguagem compilada para um repositório. The language automatically selected for analysis is the language with most files.
-
-
+Para as linguagens compiladas compatíveis, você pode usar a ação `autobuild` no {% data variables.product.prodname_codeql_workflow %} para criar o seu código. Isso evita que você tenha que especificar comandos de criação explícitos para C/C++, C#, e Java.

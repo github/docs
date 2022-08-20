@@ -1,1 +1,1 @@
-You can transfer ownership of an OAuth App to another user or organization.
+Você pode transferir a propriedade de um aplicativo OAuth para outro usuário ou organização.

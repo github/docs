@@ -1,14 +1,20 @@
 {
   "schemas": {
     "dotcom": "schema.docs.graphql",
-    "enterprise": "schema.docs-enterprise.graphql"
+    "ghec": "schema.docs.graphql",
+    "ghes": "schema.docs-enterprise.graphql",
+    "ghae": "schema.docs-ghae.graphql"
   },
   "previews": {
     "dotcom": "graphql_previews.yml",
-    "enterprise": "graphql_previews.enterprise.yml"
+    "ghec": "graphql_previews.yml",
+    "ghes": "graphql_previews.enterprise.yml",
+    "ghae": "graphql_previews.ghae.yml"
   },
   "upcomingChanges": {
     "dotcom": "graphql_upcoming_changes.public.yml",
-    "enterprise": "graphql_upcoming_changes.public-enterprise.yml"
+    "ghec": "graphql_upcoming_changes.public.yml",
+    "ghes": "graphql_upcoming_changes.public-enterprise.yml",
+    "ghae": "graphql_upcoming_changes.public-ghae.yml"
   }
 }

@@ -1,0 +1,1 @@
+EnterpriseがOIDC SSOを使用するなら、メンバーがIPアドレスを変更したとき、そして個人アクセストークンもしくはSSHキーが使われたとき、{% data variables.product.prodname_dotcom %}は自動的にIdPの条件付きアクセスポリシー（CAP） IP条件を使用して{% data variables.product.prodname_dotcom %}とのユーザのやりとりを検証します。

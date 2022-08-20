@@ -1,1 +1,0 @@
-Enterprise-Konten sind verfügbar mit {% data variables.product.prodname_ghe_cloud %} und {% data variables.product.prodname_ghe_server %}. {% if currentVersion == "free-pro-team@latest" %}Weitere Informationen findest Du unter „[Über Enterprise-Konten](/articles/about-enterprise-accounts)".{% endif %}

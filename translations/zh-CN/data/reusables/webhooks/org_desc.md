@@ -1,1 +1,1 @@
-`organization` | `object` | Webhook payloads contain the [`organization`](/v3/orgs/#get-an-organization) object when the webhook is configured for an organization or the event occurs from activity in a repository owned by an organization.
+`organization` | `object` | 当为组织配置了 web 挂钩或事件是由于组织所拥有仓库中的活动而发生时，web 挂钩有效负载包含 [`organization`](/rest/reference/orgs#get-an-organization) 对象。

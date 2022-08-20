@@ -1,0 +1,1 @@
+1. Na lista "endereço de e-mail principal", selecione o endereço de e-mail que você gostaria de associar às operações do Git baseadas na web. ![Seleção para endereço de e-mail principal](/assets/images/help/settings/email_primary.png)

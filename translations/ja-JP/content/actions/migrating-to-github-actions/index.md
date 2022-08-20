@@ -1,14 +1,20 @@
 ---
 title: GitHub Actionsへの移行
-intro: '他の継続的インテグレーション（CI）プロバイダから{% data variables.product.prodname_actions %}への移行'
+shortTitle: GitHub Actionsへの移行
+intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+redirect_from:
+  - /actions/migrating-to-github-actions
+  - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
+children:
+  - /migrating-from-azure-pipelines-to-github-actions
+  - /migrating-from-circleci-to-github-actions
+  - /migrating-from-gitlab-cicd-to-github-actions
+  - /migrating-from-jenkins-to-github-actions
+  - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
-
-{% link_in_list /migrating-from-circleci-to-github-actions %}
-{% link_in_list /migrating-from-azure-pipelines-to-github-actions %}
-{% link_in_list /migrating-from-azure-pipelines-to-github-actions %}

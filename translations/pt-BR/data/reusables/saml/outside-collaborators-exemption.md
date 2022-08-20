@@ -1,5 +1,8 @@
 {% note %}
 
-**Note:** Outside collaborators aren't required to authenticate with an IdP to access the resources in an organization with SAML SSO. Para obter mais informações sobre colaboradores externos, consulte "[Níveis de permissão para uma organização](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)".
+**Notas:**
+
+- SAML authentication is not required for organization members to perform read operations such as viewing, cloning, and forking of public resources.
+- SAML authentication is not required for outside collaborators. Para obter mais informações sobre colaboradores externos, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% endnote %}

@@ -4,23 +4,29 @@ intro: '{% data variables.product.prodname_dotcom %} GraphQL API 利用限制防
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
 ## 节点限制
 
-要通过[架构](/v4/guides/intro-to-graphql#schema)验证，所有 GraphQL API v4 [调用](/v4/guides/forming-calls)都必须满足这些标准：
+要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API [调用](/graphql/guides/forming-calls-with-graphql)都必须满足这些标准：
 
-* 客户端必须提供任何[连接](/v4/guides/intro-to-graphql#connection)上的 `first` 或 `last` 参数。
+* 客户端必须提供任何[连接](/graphql/guides/introduction-to-graphql#connection)上的 `first` 或 `last` 参数。
 * `first` 和 `last` 的值必须在 1 至 100 之间。
-* 单个调用请求的[节点](/v4/guides/intro-to-graphql#node)总数不能超过 500,000。
+* 单个调用请求的[节点](/graphql/guides/introduction-to-graphql#node)总数不能超过 500,000。
 
-#### 计算调用中的节点
+### 计算调用中的节点
 
 下面两个示例显示如何计算调用中的节点总数。
 
-1. 简单查询： <pre>query {
+1. 简单查询：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -42,13 +48,17 @@ versions:
     }
   }</pre>
 
-  计算： <pre><span class="redbox">50</span>         = 50 repositories
+  计算：
+
+  <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. 复杂查询： <pre>query {
+2. 复杂查询：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -102,7 +112,9 @@ versions:
     }
   }</code></pre>
 
-  计算： <pre><span class="redbox">50</span>              = 50 repositories
+  计算：
+
+  <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +
@@ -116,38 +128,32 @@ versions:
 
                    = 22,060 total nodes</pre>
 
-### 速率限制
+## 速率限制
 
-GraphQL API v4 限制不同于 REST API v3 的 [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
+GraphQL API 的限制不同于 REST API [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
-API 速率限制为什么不同？ 使用 [GraphQL](/v4/)，一个 GraphQL 调用可替换[多个 REST 调用](/v4/guides/migrating-from-rest/)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
+API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL 调用可替换[多个 REST 调用](/graphql/guides/migrating-from-rest-to-graphql)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
 
-要准确表示查询的服务器成本，GraphQL API v4 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
+要准确表示查询的服务器成本，GraphQL API 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
 
 * 计算公式利用父连接及其子连接上的 `first` 和 `last` 参数预计算 GitHub 系统上的潜在负载，如 MySQL、ElasticSearch 和 Git。
 * 每个连接都有自己的点值。 此点值与调用的其他点数相结合，计入总速率限制分数。
 
-GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
+GraphQL API 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %}，对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
-
-{% endif %}
-
-请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API v4 和 REST API v3 使用的速率限制不同。
+请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API 和 REST API 使用的速率限制不同。
 
 {% note %}
 
-**注**：在我们观察开发者如何使用 GraphQL API v4 时，当前公式和速率限制可能会发生变化。
+**注**：在我们观察开发者如何使用 GraphQL API 时，当前公式和速率限制可能会发生变化。
 
 {% endnote %}
 
-#### 返回调用的速率限制状态
+### 返回调用的速率限制状态
 
-使用 REST API v3，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
+使用 REST API，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
 
-使用 GraphQL API v4，可以通过查询 `rateLimit` 对象上的字段查看速率限制状态。
+使用 GraphQL API，可以通过查询 `rateLimit` 对象上的字段查看速率限制状态。
 
 ```graphql
 query {
@@ -171,7 +177,7 @@ query {
 
 * `resetAt` 字段可返回当前速率限制期限内重置的时间（[UTC 时期秒数](http://en.wikipedia.org/wiki/Unix_time)）。
 
-#### 在运行调用之前计算速率限制分数
+### 在运行调用之前计算速率限制分数
 
 查询 `rateLimit` 对象会返回调用分数，但运行调用需要根据限制进行计算。 为避免这种两难局面，可以在运行之前计算调用分数。 下面的计算方法算出的结果与 `rateLimit { cost }` 返回的成本大致相同。
 
@@ -180,7 +186,7 @@ query {
 
 {% note %}
 
-**注**：GraphQL API v4 的最低调用成本是 **1**，表示单个请求。
+**注**：GraphQL API 的最低调用成本是 **1**，表示单个请求。
 
 {% endnote %}
 

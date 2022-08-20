@@ -1,1 +1,1 @@
-Not supported or managed on the {% data variables.product.prodname_ghe_server %} appliance, but may be supported by the external authentication provider. A aplicação da autenticação de dois fatores em organizações não está disponível.
+Não compatível ou gerenciado no dispositivo de {% data variables.product.prodname_ghe_server %}, mas pode ser compatível pelo provedor de autenticação externo. A aplicação da autenticação de dois fatores em organizações não está disponível.

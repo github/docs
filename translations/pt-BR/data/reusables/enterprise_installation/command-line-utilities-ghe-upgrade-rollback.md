@@ -4,4 +4,4 @@ Ao reverter uma atualização, você deve usar um arquivo de atualização com a
 ghe-upgrade --allow-patch-rollback <em>EARLIER-RELEASE-UPGRADE-PACKAGE</em>.pkg
 ```
 
-A reboot is required after running the command. Reverter não afeta a partição de dados, pois as migrações não são executadas nas versões de patch.
+É necessário reinicializar após a execução do comando. Reverter não afeta a partição de dados, pois as migrações não são executadas nas versões de patch.

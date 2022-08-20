@@ -1,1 +1,1 @@
-4. In the left sidebar, click **Repository roles**. ![Repository roles tab in organization settings](/assets/images/help/organizations/org-settings-repository-roles.png)
+1. 在边栏的“Access（访问）”部分中，单击 **{% octicon "id-badge" aria-label="The ID badge icon" %} Repository roles（仓库角色）**。
