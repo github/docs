@@ -1,8 +1,8 @@
-1. 管理シェルでPGPキーを作成してください。 メールアドレスとキーIDをメモしてください。
+1. In the administrative shell, create a PGP key. Make note of the email address and key ID.
 
     ```bash{:copy}
     gpg --full-generate-key --pinentry-mode=loopback
     ```
 
-    - デフォルトのキータイプと、有効期限のない最小`4096`ビット長を使用してください。
-    - ユーザ名として`web-flow`を使ってください。 
+    - Use the default key type and at least `4096` bits with no expiry.
+    - Use `web-flow` as the username. 

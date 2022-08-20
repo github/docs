@@ -1,5 +1,5 @@
 {% warning %}
 
-**警告:**TLSを設定すると、わずかなダウンタイムが{% data variables.product.product_location %}に生じます。
+**Warning:** Configuring TLS causes a small amount of downtime for {% data variables.product.product_location %}.
 
 {% endwarning %}

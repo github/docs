@@ -21,15 +21,6 @@ export default function Page({ mainContext }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  // The dedicated search results page depends on a working Elasticsearch,
-  // ultimately, but unfortunately, that might not be up and running.
-  // So if that's the case, which might be true in production (Aug 2022)
-  // or on an engineers local development, we basically pretend the
-  // page doesn't exist.
-  if (!process.env.ELASTICSEARCH_URL) {
-    return { notFound: true }
-  }
-
   const req = context.req as any
   const res = context.res as any
 

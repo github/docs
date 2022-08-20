@@ -42,17 +42,17 @@ If you do not need to work with files locally, {% data variables.product.product
 
 1. [Git の最新バージョンをダウンロードしてインストールする](https://git-scm.com/downloads)。
 
-   {% note %}
+{% note %}
 
-   **Note**: If you are using a Chrome OS device, additional set up is required:
+**Note**: If you are using a Chrome OS device, additional set up is required:
 
-   1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+2. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+3. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
 
-   {% endnote %}
+{% endnote %}
 
-1. [Git でユーザ名を設定する](/github/getting-started-with-github/setting-your-username-in-git)。
-1. [Git のコミットメールアドレスを設定する](/articles/setting-your-commit-email-address)。
+2. [Git でユーザ名を設定する](/github/getting-started-with-github/setting-your-username-in-git)。
+3. [Git のコミットメールアドレスを設定する](/articles/setting-your-commit-email-address)。
 
 ## Authenticating with {% data variables.product.prodname_dotcom %} from Git
 

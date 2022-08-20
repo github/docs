@@ -13,6 +13,7 @@ export function SearchError({ error }: Props) {
 
   return (
     <div>
+      {' '}
       <Flash variant="danger" sx={{ margin: '3rem' }}>
         {t('search_error')}
         <br />

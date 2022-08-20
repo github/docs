@@ -1,1 +1,1 @@
-ショートコードはEnterpriseに固有出なければならず、3から8文字の英数字の文字列であり、特殊文字が含まれていてはなりません。
+The short code must be unique to your enterprise, a three-to-eight character alphanumeric string, and contain no special characters.

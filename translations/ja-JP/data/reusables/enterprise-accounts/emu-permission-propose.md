@@ -1,1 +1,1 @@
-{% ifversion ghec %}{% data variables.product.prodname_emu_enterprise %}のメンバーは、所属するEnterpriseの一部であるリポジトリ内の変更だけを提案できます。 {% endif %}
+{% ifversion ghec %} Members of an {% data variables.product.prodname_emu_enterprise %} can only propose changes in repositories that are part of their enterprise. {% endif %}
