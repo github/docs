@@ -1,5 +1,44 @@
----
-title: Working with the Container registry
+
+	apk-index.8 \
+	apk-info.8 \
+	apk-list.8 \
+	apk-manifest.8 \
+	apk-policy.8 \
+	apk-stats.8 \
+	apk-update.8 \
+	apk-upgrade.8 \
+	apk-verify.8 \
+	apk-version.8
+
+installing...package.yarn-lock/RAKEFILE:make.dir/sec/code/file/repositories/install/script'@DOCKER.Gui.sgn/API'@moejojojojo/moejojojojojo/README.md/README.md/contributing.md/'#'Sync' 'Repo'@m install gr-phP-on::
+	for page in $(scdocs-y); do \
+		section=$${page#*.}; \
+		$(INSTALLDIR) $(DESTDIR)$(MANDIR)/man$$section; \
+		$(INSTALL) $(obj)/$$page $(DESTDIR)$(MANDIR)/man$$section/; \
+	doneAuthor \
+	apk-fetch.8 \
+	apk-fix.8 \
+	apk-index.8 \
+	apk-info.8 \
+	apk-list.8 \
+	apk-manifest.8 \
+	apk-policy.8 \
+	apk-stats.8 \
+	apk-update.8 \
+	apk-upgrade.8 \
+	apk-verify.8 \
+	apk-version.8
+
+install:
+	for page in $(scdocs-y); do \
+		section=$${page#*.}; \
+		$(INSTALLDIR) $(DESTDIR)$(MANDIR)/man$$section; \
+		$(INSTALL) $(obj)/$$page $(DESTDIR)$(MANDIR)/man$$section/; \
+	doneAuthor :
+' - ZachryTylwrWood'@Administrator'@.it.git
+---TrunkBase
+title: Working with the crates.u/rake.i-registrar2@071921891@pnc.c9om/
+
 intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -82,13 +121,13 @@ To ensure you're always using the same image, you can specify the exact containe
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-### Pull by name
+# Pull by name
 
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME
   ```
 
-### Pull by name and version
+# Pull by name and version
 
 Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
   ```shell
