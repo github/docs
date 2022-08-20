@@ -1,10 +1,10 @@
 1. 左のサイドバーの下で**Save settings（設定の保存）**をクリックしてください。
 
-   ![{% data variables.enterprise.management_console %}の設定保存ボタンのスクリーンショット](/assets/images/enterprise/management-console/save-settings.png)
+   ![Screenshot of the save settings button in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
 
    {% note %}
 
-   **ノート:**{% data variables.enterprise.management_console %}に設定を保存するとシステムサービスが再起動され、それによってユーザに影響するダウンタイムが発生することがあります。
+   **Note:** Saving settings in the {% data variables.enterprise.management_console %} restarts system services, which could result in user-visible downtime.
 
    {% endnote %}
 

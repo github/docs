@@ -1,5 +1,5 @@
-1. 新しいインスタンスで使用したいイメージにアクセスしてください。
+1. Navigate to the image you want to use for your new instance.
 
-   - [リリースノート](/admin/release-notes)にアクセスしてください。
-   - 右のサイドバーで、ダウンロードしたいバージョンをクリックしてください。
-   - **Download {% data variables.product.prodname_ghe_server %} X.X.X**をクリックしてください。
+   - Navigate to [Release notes](/admin/release-notes).
+   - In the right sidebar, click the version you want to download.
+   - Click **Download {% data variables.product.prodname_ghe_server %} X.X.X**.

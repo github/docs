@@ -1,1 +1,1 @@
-{% ifversion ghec %}{% data variables.product.prodname_emu_enterprise %}のメンバーは、所属するEnteprise内のリポジトリだけを操作できます。 {% endif %}
+{% ifversion ghec %} Members of an {% data variables.product.prodname_emu_enterprise %} can only interact with repositories within their enterprise. {% endif %}
