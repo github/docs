@@ -1,4 +1,6 @@
----
+Access: Private
+Author: ZachryTylerWood
+---base
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
@@ -17,7 +19,7 @@ topics:
   - Permissions
   - Accounts
 shortTitle: Access permissions
----
+---TREE
 
 ## About access permissions on {% data variables.product.prodname_dotcom %}
 
