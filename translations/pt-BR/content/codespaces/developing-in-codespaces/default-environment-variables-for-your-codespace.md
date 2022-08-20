@@ -2,7 +2,6 @@
 title: Variáveis de ambiente padrão para seu codespace
 shortTitle: Variáveis padrão de ambiente
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 intro: 'O {% data variables.product.prodname_dotcom %} define variáveis de ambiente padrão para cada codespace.'
 versions:
   fpt: '*'
