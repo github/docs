@@ -1,12 +1,140 @@
 BEGIN:
+CI: 
+REFERENCE																									
+DATE																									
+ACTIVITY DATE																									
+DUE																									
+TOTAL																									
+																									
+Note																									
+By ZachryTWood111 @www.chase.com																									
+22116905560149																									
+Aug 17, 2022																									
+Yesterday at 11:45 PM																									
+																									
+																									
+00022116905560149 All Figures are estimates based on samples---money amounts are in ZAC thousands of dollars - INCOME																									
+Accounts $12, 753,750,000.00 $12,753,750,000.00																									
+Payable (A/P)																									
+Total for Commissions and fees $12,753,750,000.00																									
+Referral/broker/selling fees $63.50																									
+04/27/2022 Check SVCCHRG Business Checking $62.50 $62.50																									
+Total for Commissions and fees with sub-accounts $12,753,750,062.50																									
+Total for Expenses $12,753,750,06250																									
+Net income $58,088,993,803.550																									
+Edited																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:29 PM																									
+																									
+																									
+																									
+Edited																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:29 PM																									
+																									
+																									
+																									
+Primary contact person's email address changed from no value to irs@service.govdelivery.com.																									
+Created																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:26 PM																									
+																									
+																									
+																									
+Department of the Treasury has been created.																									
+Bill credit note paid																									
+221165055249																									
+Aug 16, 2022																									
+Paid Aug 16, 2022																									
+																									
+-70,842,743,866.00																									
+Bill paid																									
+22116905560149																									
+May 26, 2022																									
+ v 																									
+																									
+70,842,743,866.00																									
+6 total items																									
+Contact Details																									
+																									
+Contact Person																									
+irs@service.govdelivery.com																									
+Postal Address																									
+1111 Constitution Ave. N.W.																									
+Washington																									
+D.C. 20535																									
+U.S.A.																									
+View Map																									
+Financial Details																									
+Extend :
+Currency :
+USD :
+United :
+States :
+Dollars :
+From 9eeded1bae44c697c38f273d9cb04f2f7646fdea Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:34:20 -0500
+Subject: [PATCH 01/14] Update launch.json
+
+---
+ .vscode/launch.json | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+index e7265cc1f84..22ee0f9c9a5 100644
+--- a/.vscode/launch.json
++++ b/.vscode/launch.json
+@@ -1,5 +1,5 @@
+ {
+-  "version": "0.2.0",
++  "version": "6.12.8",
+   "configurations": [
+     {
+       "type": "node",
+@@ -10,4 +10,5 @@
+       "protocol": "inspector",
+     },
+   ]
+-}
+\ No newline at end of file
++}
++ZachryTylerWood
+
+From bc5bda6f64bbc5138269c2ca513d0aee5b39e498 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:35:49 -0500
+Subject: [PATCH 02/14] bitore.sig
+
+---
+ .vscode/launch.json  |  14 --
+ OPEN.js/package.json | 383 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 383 insertions(+), 14 deletions(-)
+ delete mode 100644 .vscode/launch.json
+ create mode 100644 OPEN.js/package.json
+
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+deleted file mode 100644
+index 22ee0f9c9a5..00000000000
 !#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE
 
 AUTOMATE:
 
 AUTOMATE:
-
-GLOW7: .txt
-
+"DEPOSITING":, "DIRECTIONINGS":,
+"GLOW7":, ".txt":,
+""COMMAND":, "NOT-NEGOTIABLE":,
+ "DEMAND":, "CREDIT":,
+ "bank_name":, "pnc bank national association",
+ "routing_transit_number_content_encoding=071921891":,
+"account_number_content_encoding=4720416547":, "true":,
+ "protocol":, ":"  "instructor":,":,
 # ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001
 
 # ((c)(r))
@@ -33,9 +161,9 @@ Name:
 
 ZACHRY TYLER WOOD
 
-BANK NAME :
+BANK NAME : PNC
 
-PNC BANK :
+PNC BANK : ACCOUNT(47-2041-6547)"
 
 ACCOUNT NUMBER :
 
@@ -77,15 +205,15 @@ Contacts
 																									
 																									
 																													
-Current pageOpens in new window
+Currency pagnation > echeck_springs-up_frameworks_Windows-Open@Useers\$HOME\Desktop-on: worksflow_call:-on dispatch'@in a new browser window
 
-Bank Accounts  ›  PNCBANK BUSINESS DEBIT  › Transaction: Cash RefundPNCBANK BUSINESS DEBIT	>Zachry Tyler Wood Transactions																									
+Bank Accounts  ›  PNCBANK BUSINESS DEBIT  › Transaction: Cash Refund > PNCBANK > BUSINESS > DIRECT > DEBIT > 071921891 > 47-2041-6547\>>																									
 Internal Revenue Service																									
 From 1 May 2022 to 31 May 2022																									
 																									
 Date	Type	Transaction	Reference	Debit		Credit																			
 																									
-04/30/2022		Opening Balance				$0.00																			
+04/30/2022		Opening Balance				$																		
 																									
 05/26/2022	INV	ZachryTWood111@www.chase.com - Bill	101003			$283,370,975,464.00																			
 Total						$283,370,975,464.00																			
