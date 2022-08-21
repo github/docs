@@ -321,8 +321,3364 @@ D.C. 20535
 U.S.A.																									
 View Map																									
 Financial Details																									
-																									
-Default CurrencyUSD United States Dollar																									
+Extend :
+Currency :
+USD :
+United :
+States :
+Dollars :
+From 9eeded1bae44c697c38f273d9cb04f2f7646fdea Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:34:20 -0500
+Subject: [PATCH 01/14] Update launch.json
+
+---
+ .vscode/launch.json | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+index e7265cc1f84..22ee0f9c9a5 100644
+--- a/.vscode/launch.json
++++ b/.vscode/launch.json
+@@ -1,5 +1,5 @@
+ {
+-  "version": "0.2.0",
++  "version": "6.12.8",
+   "configurations": [
+     {
+       "type": "node",
+@@ -10,4 +10,5 @@
+       "protocol": "inspector",
+     },
+   ]
+-}
+\ No newline at end of file
++}
++ZachryTylerWood
+
+From bc5bda6f64bbc5138269c2ca513d0aee5b39e498 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:35:49 -0500
+Subject: [PATCH 02/14] bitore.sig
+
+---
+ .vscode/launch.json  |  14 --
+ OPEN.js/package.json | 383 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 383 insertions(+), 14 deletions(-)
+ delete mode 100644 .vscode/launch.json
+ create mode 100644 OPEN.js/package.json
+
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+deleted file mode 100644
+index 22ee0f9c9a5..00000000000
+--- a/.vscode/launch.json
++++ /dev/null
+@@ -1,14 +0,0 @@
+-{
+-  "version": "6.12.8",
+-  "configurations": [
+-    {
+-      "type": "node",
+-      "request": "attach",
+-      "name": "Node: Nodemon",
+-      "processId": "${command:PickProcess}",
+-      "restart": true,
+-      "protocol": "inspector",
+-    },
+-  ]
+-}
+-ZachryTylerWood
+diff --git a/OPEN.js/package.json b/OPEN.js/package.json
+new file mode 100644
+index 00000000000..1df1e299081
+--- /dev/null
++++ b/OPEN.js/package.json
+@@ -0,0 +1,383 @@
++{
++  "version": "6.12.8",
++  "configurations": [
++    {
++      "type": "node",
++      "request": "attach",
++      "name": "Node: Nodemon",
++      "processId": "${command:PickProcess}",
++      "restart": true,
++      "protocol": "inspector",
++ 
++#:This_Repositorys: WORKSFLOW
++-started: with runners.ios
++Name: paradice
++
++Controls when the workflows_call:-on: disoatch-will: R=::Run::/:Run::-Runs:runs:-on:run:
++on:
++
++Triggers the workflow on push or pull request events but only for the "paradice" branch
++push: "[ "Batt" ]
++pull_request:
++branches: [ "bitore.sig" ]
++
++name: Cache
++uses: actions/cache@v3.0.7
++with:
++A list of files, directories, and wildcard patterns to cache and restore
++path:
++An explicit key for restoring and saving the cache
++key:
++An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note cache-hit returns false in this case.
++restore-keys: # optional
++The chunk size used to split up large files during upload, in bytes
++upload-chunk-size: # optional
++Allows you to run this workflow manually from the Actions tab
++workflow_dispatch:
++A workflow run is made up of one or more jobs that can run sequentially or in parallel
++jobs:
++
++This workflow contains a single job called "build"
++build:
++# The type of runner that the job will run on
++runs-on: ubuntu-latest
++
++# Steps represent a sequence of tasks that will be executed as part of the job
++steps:
++  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
++  - uses: actions/checkout@v3
++
++  # Runs a single command using the runners shell
++  - name: Run a one-line script
++    run: echo Hello, world!
++
++  # Runs a set of commands using the runners shell
++  - name: Run a multi-line script
++    run: |
++      echo Add other actions to build,
++      echo test, and deploy your project. to content :<article id="content" data-locale="en-US" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; display: block; color: rgb(60, 66, 87); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Ubuntu, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><div class="Document" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px;"><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);"><a href="https://stripe.com/docs/api/errors" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px 20px 0px 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none; position: relative; display: inline-block;">HTTP response code</a>. To learn more ways to manage your API keys, see<span> </span><a href="https://stripe.com/docs/development/dashboard/manage-api-keys" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none;">Manage API keys</a>.</p><h2 class="Heading Heading--anchored" id="test-live-modes" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 32px 0px 0px; border: 0px; font-weight: 700; color: var(--sail-color-gray-900); cursor: pointer; position: relative; display: flex; flex-direction: row; align-items: center;">Test and live modes overview</h2><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);">All Stripe API requests occur in either test or live mode. API objects in one mode (for example, product objects) aren’t accessible to the other.</p><div class="Table Table--striped Table--fixed Box-root Padding-vertical--12" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--sail-spacing-12); padding-right: 0px; padding-bottom: var(--sail-spacing-12); padding-left: 0px; border: 0px; width: 770px; max-width: 100%; border-collapse: collapse; overflow-x: auto; position: relative;">
++TYPE	WHEN TO USE	OBJECTS	HOW TO USE	CONSIDERATIONS
++Test mode	Use this mode as you build your app. Payments are not processed by card networks or payment providers.	API calls return simulated account, payment, customer, charge, refund, transfer, balance, and subscription.	Use test credit cards and accounts. Don’t use actual payment authorizations, charges, or captures.	Identity doesn’t perform any verification checks. Connect account objects don’t return sensitive fields.
++Live mode	Use this mode when you’re ready to launch your app. Card networks or payment providers process payments.	API calls return actual account, payment, customer, charge, refund, transfer, balance, and subscription objects.	Use valid credit cards and accounts. Use actual payment authorizations, charges, and captures for credit cards and accounts.	Disputes have a more nuanced flow and a simpler testing process. Some Sources payment methods have a more nuanced flow and require more steps.
++Use only your test API keys for testing and development. This ensures that you don’t accidentally modify your live customers or charges.
++
++If you don’t have an administrator or developer role, you may not have access to view your API keys in the Dashboard. Ask your Stripe account’s owner to add you to their team as a developer.
++
++Reveal an API secret key for live mode (one time)
++An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
++
++Open the API keys page.
++Click Reveal live key.
++In Notes, enter where your key lives in your own systems.
++Keys created prior to the introduction of this feature are not automatically hidden when they are revealed, but can be hidden manually.
++
++Revoke (“roll”) an API secret key
++If you’re in live mode and you lose your API secret key or API restricted key, you can’t recover it from the Dashboard. Similarly, if your secret key is compromised, you need to revoke (“roll”) the key to block any API requests that might use that key. Use these steps to revoke your API secret key and generate a new key.
++
++Open the API keys page.
++Click the three dots (…) next to your secret key, click Roll key.
++In Expiration, choose when to expire the existing key:
++now
++in 1 hour
++in 24 hours
++in 3 days
++in 7 days
++Click Roll API key.
++The expiration period you choose blocks and expires the existing key for the time period you specify. Regardless of the expiration period, you can use the new key immediately.
++
++
++Rolling an API key.
++
++Keeping your keys safe
++Your secret API key can be used to make any API call on behalf of your account, such as creating charges or performing refunds. Treat your secret API key as you would any other password. Grant access only to those who need it. Ensure it is kept out of any version control system you may be using. Control access to your key using a password manager or secrets management service.
++
++Limiting access with restricted API keys
++A restricted API key allows only the minimum level of access that you specify. Restricted keys cannot interact with many parts of Stripe’s API and are intended to reduce risk when using or building microservices. They should not be used as an alternative to your account’s API keys during development of your Stripe integration.
++
++Use restricted API keys if you’re working with microservices that interact with the Stripe API on your behalf. You can create restricted API keys that limit access to, and permissions to specific account data. For example, you can create a restricted key that grants read-only access to dispute data, then use it with a dispute monitoring service.
++
++To create a restricted API key, see Manage API keys.
++
++Was this page helpful?
++Yes
++No
++Questions? Contact us.
++View developer tutorials on YouTube.
++Check out our product changelog.
++[HTTP response code](https://stripe.com/docs/api/errors). To learn more ways to manage your API keys, see [Manage API keys](https://stripe.com/docs/development/dashboard/manage-api-keys).
++Test and live modes overview
++All Stripe API requests occur in either test or live mode. API objects in one mode (for example, product objects) aren’t accessible to the other.
++
++TYPE WHEN TO USE OBJECTS HOW TO USE CONSIDERATIONS
++Test mode Use this mode as you build your app. Payments are not processed by card networks or payment providers. API calls return simulated account, payment, customer, charge, refund, transfer, balance, and subscription. Use test credit cards and accounts. Don’t use actual payment authorizations, charges, or captures. Identity doesn’t perform any verification checks. Connect account objects don’t return sensitive fields.
++Live mode Use this mode when you’re ready to launch your app. Card networks or payment providers process payments. API calls return actual account, payment, customer, charge, refund, transfer, balance, and subscription objects. Use valid credit cards and accounts. Use actual payment authorizations, charges, and captures for credit cards and accounts. Disputes have a more nuanced flow and a simpler testing process. Some Sources payment methods have a more nuanced flow and require more steps.
++API keys
++All accounts have a total of four keys: a publishable and secret key pair for test mode and live mode. Stripe APIs use your secret key to authenticate requests on your server. By default, your account’s secret keys can be used to perform any API request without restriction. You can find your keys on the API Keys page in the Developers Dashboard.
++
++Stripe automatically populates code examples in our documentation with your test API keys while you’re logged in—only you can see these values. For your convenience, your test API keys for Zachry T Wood III are:
++
++TYPE VALUE WHEN TO USE
++Publishable pk_test_51HGcX6KxqqA7JcPHGKhUYWGwyDAtLfKwLokfN7r5147gR7OvVobKLgKav910ex6i2R3GIY0dJme1X40MiXEr7KE300Jr0Vp8q5 On the client-side. Can be publicly-accessible in your web or mobile app’s client-side code (such as checkout.js) to tokenize payment information such as with Stripe Elements. By default, Stripe Checkout tokenizes payment information.
++Secret sk_test_51HGcX6KxqqA7JcPH8qFPAp6Nsobyz7QbHlGhO1bTYTJ5eiYPuWKT5UCjOcjNxO7acotmtcXBFFbotbesOWDYL1Bb00MoZWPU2r On the server-side. Must be secret and stored securely in your web or mobile app’s server-side code (such as in an environment variable or credential management system) to call Stripe APIs.
++Use only your test API keys for testing and development. This ensures that you don’t accidentally modify your live customers or charges.
++
++If you don’t have an administrator or developer role, you may not have access to view your API keys in the Dashboard. Ask your Stripe account’s owner to add you to their team as a developer.
++
++Reveal an API secret key for live mode (one time)
++An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
++
++Open the API keys page.
++Click Reveal live key.
++In Notes, enter where your key lives in your own systems.
++Keys created prior to the introduction of this feature are not automatically hidden when they are revealed, but can be hidden manually.
++
++Revoke (“roll”) an API secret key
++If you’re in live mode and you lose your API secret key or API restricted key, you can’t recover it from the Dashboard. Similarly, if your secret key is compromised, you need to revoke (“roll”) the key to block any API requests that might use that key. Use these steps to revoke your API secret key and generate a new key.
++
++Open the API keys page.
++Click the three dots (…) next to your secret key, click Roll key.
++In Expiration, choose when to expire the existing key:
++now
++in 1 hour
++in 24 hours
++in 3 days
++in 7 days
++Click Roll API key.
++The expiration period you choose blocks and expires the existing key for the time period you specify. Regardless of the expiration period, you can use the new key immediately.
++
++Rolling an API key.
++
++Keeping your keys safe
++Your secret API key can be used to make any API call on behalf of your account, such as creating charges or performing refunds. Treat your secret API key as you would any other password. Grant access only to those who need it. Ensure it is kept out of any version control system you may be using. Control access to your key using a password manager or secrets management service.
++
++Limiting access with restricted API keys
++A restricted API key allows only the minimum level of access that you specify. Restricted keys cannot interact with many parts of Stripe’s API and are intended to reduce risk when using or building microservices. They should not be used as an alternative to your account’s API keys during development of your Stripe integration.
++
++Use restricted API keys if you’re working with microservices that interact with the Stripe API on your behalf. You can create restricted API keys that limit access to, and permissions to specific account data. For example, you can create a restricted key that grants read-only access to dispute data, then use it with a dispute monitoring service.
++
++To create a restricted API key, see Manage API keys.
++
++Was this page helpful?
++
++Yes
++
++No
++Questions? Contact us.
++View developer tutorials on YouTube.
++Check out our product changelog.(https://github.com/zakwarlord7/Terminal/releases#start-of-content)
++Search or jump to…
++Pull requests
++Issues
++Marketplace
++[Explore](https://github.com/exploreer'@zakwarlord7
++Your account has been flagged.
++Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
++We weren’t able to create the release for you. The release description is too large.
++zakwarlord7
++/
++Terminal
++Private
++Code
++:Issues :cc4034910057530719 :ccv836 :exp04/2025; :
++Pull requests
++Actions
++Projects
++Security
++Insights
++Settings
++ReleasesTags
++Existing tag
++batt
++
++"$ curl https://api.stripe.com/v1/issuing/cardholders \
++
++"Publishable key"="pk_live_51HGcX6KxqqA7JcPHBL0QrdkNHaBbZH8j5ZbZJoY3ZahJfC6FoR3gxMoImtlCLGB3LIGBBS0dqBwWLLACv607Cw4e00Hp3AXwga"
++-d "secret key"="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
++-d "name"="Zachry Tyler Wood"
++-d "email"="zachryiixixiiwood@gmail.com"
++-d "phone_number"="+14696974300"
++-d "status"="active"
++-d "type"="business"
++-d "billing[address][line1]"="5222 Bradford Drive"
++-d "billing[address][city]"="Dallas"
++-d "billing[address][state]"="TX"
++-d "billing[address][postal_code]"="75235-8313"
++-d "billing[address][country]"="US" "
++: #c84801; --sn-hue-orange600: #a82c00; --sn-hue-orange700: #842106; --sn-hue-orange800: #5f1a05; --sn-hue-orange900: #331302; --sn-hue-red50: #fff5fa; --sn-hue-red100: #ffe7f2; --sn-hue-red150: #ffccdf; --sn-hue-red200: #ffb1cd; --sn-hue-red300: #fe87a1; --sn-hue-red400: #fc526a; --sn-hue-red500: #df1b41; --sn-hue-red600: #b3093c; --sn-hue-red700: #890d37; --sn-hue-red800: #68052b; --sn-hue-red900: #3e021a; --sn-hue-purple50: #f9f7ff; --sn-hue-purple100: #f2ebff; --sn-hue-purple150: #dfd3fc; --sn-hue-purple200: #d1befe; --sn-hue-purple300: #b49cfc; --sn-hue-purple400: #8d7ffa; --sn-hue-purple500: #625afa; --sn-hue-purple600: #513dd9; --sn-hue-purple700: #3f32a1; --sn-hue-purple800: #302476; --sn-hue-purple900: #14134e; --sn-color-neutral0: var(--sn-hue-gray0); --sn-color-neutral50: var(--sn-hue-gray50); --sn-color-neutral100: var(--sn-hue-gray100); --sn-color-neutral150: var(--sn-hue-gray150); --sn-color-neutral200: var(--sn-hue-gray200); --sn-color-neutral300: var(--sn-hue-gray300); --sn-color-neutral400: var(--sn-hue-gray400); --sn-color-neutral500: var(--sn-hue-gray500); --sn-color-neutral600: var(--sn-hue-gray600); --sn-color-neutral700: var(--sn-hue-gray700); --sn-color-neutral800: var(--sn-hue-gray800); --sn-color-neutral900: var(--sn-hue-gray900); --sn-color-neutral950: var(--sn-hue-gray950); --sn-color-brand50: var(--sn-hue-purple50); --sn-color-brand100: var(--sn-hue-purple100); --sn-color-brand200: var(--sn-hue-purple200); --sn-color-brand300: var(--sn-hue-purple300); --sn-color-brand400: var(--sn-hue-purple400); --sn-color-brand500: var(--sn-hue-purple500); --sn-color-brand600: var(--sn-hue-purple600); --sn-color-brand700: var(--sn-hue-purple700); --sn-color-brand800: var(--sn-hue-purple800); --sn-color-brand900: var(--sn-hue-purple900); --sn-color-info50: var(--sn-hue-blue50); --sn-color-info100: var(--sn-hue-blue100); --sn-color-info200: var(--sn-hue-blue200); --sn-color-info300: var(--sn-hue-blue300); --sn-color-info400: var(--sn-hue-blue400); --sn-color-info500: var(--sn-hue-blue500); --sn-color-info600: var(--sn-hue-blue600); --sn-color-info700: var(--sn-hue-blue700); --sn-color-info800: var(--sn-hue-blue800); --sn-color-info900: var(--sn-hue-blue900); --sn-color-success50: var(--sn-hue-green50); --sn-color-success100: var(--sn-hue-green100); --sn-color-success200: var(--sn-hue-green200); --sn-color-success300: var(--sn-hue-green300); --sn-color-success400: var(--sn-hue-green400); --sn-color-success500: var(--sn-hue-green500); --sn-color-success600: var(--sn-hue-green600); --sn-color-success700: var(--sn-hue-green700); --sn-color-success800: var(--sn-hue-green800); --sn-color-success900: var(--sn-hue-green900); --sn-color-attention50: var(--sn-hue-orange50); --sn-color-attention100: var(--sn-hue-orange100); --sn-color-attention200: var(--sn-hue-orange200); --sn-color-attention300: var(--sn-hue-orange300); --sn-color-attention400: var(--sn-hue-orange400); --sn-color-attention500: var(--sn-hue-orange500); --sn-color-attention600: var(--sn-hue-orange600); --sn-color-attention700: var(--sn-hue-orange700); --sn-color-attention800: var(--sn-hue-orange800); --sn-color-attention900: var(--sn-hue-orange900); --sn-color-critical50: var(--sn-hue-red50); --sn-color-critical100: var(--sn-hue-red100); --sn-color-critical200: var(--sn-hue-red200); --sn-color-critical300: var(--sn-hue-red300); --sn-color-critical400: var(--sn-hue-red400); --sn-color-critical500: var(--sn-hue-red500); --sn-color-critical600: var(--sn-hue-red600); --sn-color-critical700: var(--sn-hue-red700); --sn-color-critical800: var(--sn-hue-red800); --sn-color-critical900: var(--sn-hue-red900); --sn-backgroundColor-surface: var(--sn-color-neutral0); --sn-backgroundColor-container: var(--sn-color-neutral50); --sn-borderColor-neutral: rgb(64 68 82 / 16%); --sn-borderColor-critical: var(--sn-color-critical500); --sn-iconColor-primary: var(--sn-color-neutral600); --sn-iconColor-secondary: var(--sn-color-neutral400); --sn-iconColor-disabled: var(--sn-color-neutral200); --sn-iconColor-brand: var(--sn-color-brand400); --sn-iconColor-info: var(--sn-color-info400); --sn-iconColor-success: var(--sn-color-success400); --sn-iconColor-attention: var(--sn-color-attention400); --sn-iconColor-critical: var(--sn-color-critical400); --sn-textColor-primary: var(--sn-color-neutral700); --sn-textColor-secondary: var(--sn-color-neutral500); --sn-textColor-disabled: var(--sn-color-neutral300); --sn-textColor-brand: var(--sn-color-brand500); --sn-textColor-info: var(--sn-color-info500); --sn-textColor-success: var(--sn-color-success500); --sn-textColor-attention: var(--sn-color-attention500); --sn-textColor-critical: var(--sn-color-critical500); --sn-overflow-hidden: hidden; --sn-radius-none: none; --sn-radius-xsmall: 4px; --sn-radius-small: 4px; --sn-radius-medium: 8px; --sn-radius-large: 10px; --sn-radius-rounded: 999em; --sn-shadow-none: none; --sn-shadow-top: rgb(0 0 0 / 12%) 0px 1px 1px 0px; --sn-shadow-base: rgb(64 68 82 / 8%) 0px 2px 5px 0px, 0 0 0 0 transparent; --sn-shadow-hover: rgb(64 68 82 / 8%) 0px 2px 5px 0px, rgb(64 68 82 / 8%) 0px 3px 9px 0px; --sn-shadow-focus: 0 0 0 4px rgb(1 150 237 / 36%); --sn-size-0: 0px; --sn-size-1: var(--sn-space-1); --sn-size-25: var(--sn-space-25); --sn-size-50: var(--sn-space-50); --sn-size-75: var(--sn-space-75); --sn-size-100: var(--sn-space-100); --sn-size-150: var(--sn-space-150); --sn-size-200: var(--sn-space-200); --sn-size-250: var(--sn-space-250); --sn-size-300: var(--sn-space-300); --sn-size-350: var(--sn-space-350); --sn-size-400: var(--sn-space-400); --sn-size-500: var(--sn-space-500); --sn-size-600: var(--sn-space-600); --sn-size-fill: 100%; --sn-size-min: min-content; --sn-size-max: max-content; --sn-size-fit: fit-content; --sn-size-1/2: 50%; --sn-size-1/3: 33.3333%; --sn-size-2/3: 66.6667%; --sn-size-1/4: 25%; --sn-size-2/4: 50%; --sn-size-3/4: 75%; --sn-size-1/5: 20%; --sn-size-2/5: 40%; --sn-size-3/5: 60%; --sn-size-4/5: 80%; --sn-size-1/6: 16.6667%; --sn-size-2/6: 33.3333%; --sn-size-3/6: 50%; --sn-size-4/6: 66.6667%; --sn-size-5/6: 83.3333%; --sn-size-1/12: 8.3333%; --sn-size-2/12: 16.6667%; --sn-size-3/12: 25%; --sn-size-4/12: 33.3333%; --sn-size-5/12: 41.6667%; --sn-size-6/12: 50%; --sn-size-7/12: 58.3333%; --sn-size-8/12: 66.6667%; --sn-size-9/12: 75%; --sn-size-10/12: 83.3333%; --sn-size-11/12: 91.6667%; --sn-space-0: 0px; --sn-space-1: 1px; --sn-space-25: 2px; --sn-space-50: 4px; --sn-space-75: 6px; --sn-space-100: 8px; --sn-space-150: 12px; --sn-space-200: 16px; --sn-space-250: 20px; --sn-space-300: 24px; --sn-space-350: 28px; --sn-space-400: 32px; --sn-space-500: 40px; --sn-space-600: 48px; --sn-space-xxsmall: var(--sn-space-25); --sn-space-xsmall: var(--sn-space-50); --sn-space-small: var(--sn-space-100); --sn-space-medium: var(--sn-space-200); --sn-space-large: var(--sn-space-300); --sn-space-xlarge: var(--sn-space-400); --sn-space-xxlarge: var(--sn-space-600); --sn-typeface-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; --sn-typeface-monospace: "Source Code Pro", Menlo, Monaco, monospace; --sn-weight-regular: 400; --sn-weight-semibold: 600; --sn-weight-bold: 700; --sn-zIndex-overlay: 299; --sn-zIndex-partial: 400; font-family: var(--sn-typeface-ui); color: var(--sn-textColor-primary); fill: var(--sn-iconColor-primary);">
++API keys
++Learn more about API authentication
++Viewing live API keys. Toggle to view test keys.
++<input aria-invalid="false" class="Switch-source PressableContext PressableContext--cursor--pointer PressableContext--display--inline>
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/BITORE
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/responses
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Requests
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Request
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Pull
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Pulls
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/pull_request
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Push
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/pushs_request
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Request
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Response
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/compose
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/instruct
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Directionings
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Debit
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/inititiate
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/connection
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/reciept
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/recieption
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/reciept
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/accession
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/positive
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/build_scripts
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Build
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/and
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Deployee
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Deploy
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Release
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/publishs
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Returns
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/Run''
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/pull_requests
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/pull_requests
++
++Full Changelog: https://github.com/zakwarlord7/Terminal/commits/pull_requests
++No file chosen
++Attach files by dragging & dropping, selecting or pasting them.
++No file chosen
++Attach binaries by dropping them here or selecting them.
++This is a pre-release
++We’ll point out that this release is identified as non-production ready.
++
++Tagging suggestions
++It’s common practice to prefix your version names with the letter v. Some good tag names might be v1.0.0 or v2.3.4.
++
++If the tag isn’t meant for production use, add a pre-release version after the version name. Some good pre-released curl https://api.stripe.com/v1/charges
++-u sk_test_51HGcX6KxqqA7JcPH8qFPAp6Nsobyz7QbHlGhO1bTYTJ5eiYPuWKT5UCjOcjNxO7acotmtcXBFFbotbesOWDYL1Bb00MoZWPU2r:
++-d amount=2677000000000
++-d currency=USD
++-d source=tok_visa
++-d "metadata[order_id]"=101003:' 00022116905560149:;
++"id": "ch_4034910067530719",
++"object": "charge",
++"amount": 1000,
++"amount_captured": 0,
++"amount_refunded": 0,
++"amount_updates": [],
++"application": null,
++"application_fee": null,
++"application_fee_amount": null,
++"balance_transaction": "txn_1LXYtdKxqqA7JcPHwQSusGka",
++"billing_details": {
++"address": {
++"city": null,
++"country": null,
++"line1": null, versions might be v0.2.0-alpha or v5.9-beta.3.
++
++Semantic versioning
++If you’re new to releasing software, we highly recommend reading about semantic versioning.
++
++Footer
++© 2022 GitHub, Inc.
++Footer navigation
++Terms
++Privacy
++Security
++Status
++Docs
++Contact GitHub
++Pricing
++API
++Training
++Blog
++About
++You have unread notifications
++
++@zakwarlord7 zakwarlord7 closed this as completed 36 minutes ago
++@zakwarlord7 zakwarlord7 reopened this 34 minutes ago
++@zakwarlord7 zakwarlord7 changed the title terminal '"'{'%'' '"Authorization: Bearer'' 'YOUR_SECRET_KEY'' '='' Authorization':'' ''Bearer =4034_9100_6753_0719'"' '%}'"' 25 minutes ago
++@zakwarlord7 zakwarlord7 modified the milestone: BITORE_34173 24 minutes ago
++@zakwarlord7 zakwarlord7 closed this as completed 24 minutes ago
++@zakwarlord7 zakwarlord7 reopened this 23 minutes ago
++@zakwarlord7 zakwarlord7 added this to the BITORE_34173 milestone 23 minutes ago
++@zakwarlord7 zakwarlord7 pinned this issue 23 minutes ago
++@zakwarlord7
++Author
++zakwarlord7 commented 20 minutes ago • 
++GET $-cd m install -Php -pillow'@it.git.gists/BITORE'@git $Get: -gets:.git-get:bitore.sig -gets: clonse./~git fetch origin
++git checkout 1-authorization-bearer-your_secret_key-=-authorization-bearer-=4034_9100_6753_0719
++
++@zakwarlord7 zakwarlord7 closed this as completed 2 minutes ago
++@zakwarlord7
++
++ 
++Leave a comment
++No file chosen
++Attach files by dragging & dropping, selecting or pasting them.
++Remember, contributions to this repository should follow our GitHub Community Guidelines.
++Assignees
++No one—
++Labels
++None yet
++Projects
++None yet
++Milestone
++BITORE_34173
++Development
++ for this issue or link a pull request.
++Notifications
++Customize
++You’re receiving notifications because you’re watching this repository.
++1 participant
++@zakwarlord7
++ 
++ Delete issue
++Footer
++© 2022 GitHub, Inc.
++Footer navigation
++Terms
++Privacy
++Security
++Status
++Docs
++Contact GitHub
++Pricing
++API
++Training
++Blog
++About
++Author :
++ZachryTylerWood
+
+From f9ba1e828a44d2b63fdac5e3ee1b5d13069cd991 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:37:31 -0500
+Subject: [PATCH 03/14] Create package.yarn
+
+---
+ OPEN.js/package.json | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/OPEN.js/package.json b/OPEN.js/package.json
+index 1df1e299081..d2c56c3faab 100644
+--- a/OPEN.js/package.json
++++ b/OPEN.js/package.json
+@@ -62,8 +62,10 @@ Live mode	Use this mode when you’re ready to launch your app. Card networks or
+ Use only your test API keys for testing and development. This ensures that you don’t accidentally modify your live customers or charges.
+ 
+ If you don’t have an administrator or developer role, you may not have access to view your API keys in the Dashboard. Ask your Stripe account’s owner to add you to their team as a developer.
+-
+-Reveal an API secret key for live mode (one time)
++  Release::
++  Launch::
++  Deployee::
++  Publish::
+ An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
+ 
+ Open the API keys page.
+
+From 15595c8baeb8e1240471cdcaa35f5aad1065a564 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:58:06 -0500
+Subject: [PATCH 04/14] README.md
+
+---
+ README.md | 25 ++++++++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/README.md b/README.md
+index fbbaf2e1569..8599690ef49 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,25 @@
+-# GitHub Docs <!-- omit in toc --> 
+-
+-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
++BEGIN:
++GLOW7:
++RUN
++Run::/:Runs:
++Runs:
++Run-on:
++-on:
++starts
++AUTOMATE: AUTOMATES
++AUTOMATES: ::Git: Hub Docs <!-- omit in toc --> 
++
++PLEASE FOWARD ALL PAYMENT TO BY ETF INSTRUCTIONS BELOW SO THEY DONT CLOSE MY ACCOUNT ON THE 26th of AUGUST 2022
++
++BANK NAME :
++PNC BANM NA
++CUSTOMER/OWNER :
++ZACHRY TYLER WOOD
++BANK ACCOUNT NUMBER 47-2041-6507
++ROUTiNG TRANSIT CODE 071921891
++#This: Repository: dispatch
++dispatch: worksflow_call:-on:run-on:Run'"'
++contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+ 
+ GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+ 
+
+From 449e4d65b38d4f2950fc58ef5cc6bf38acfe652a Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 21:59:50 -0500
+Subject: [PATCH 05/14] Revert "README.md"
+
+This reverts commit 15595c8baeb8e1240471cdcaa35f5aad1065a564.
+---
+ README.md | 25 +++----------------------
+ 1 file changed, 3 insertions(+), 22 deletions(-)
+
+diff --git a/README.md b/README.md
+index 8599690ef49..fbbaf2e1569 100644
+--- a/README.md
++++ b/README.md
+@@ -1,25 +1,6 @@
+-BEGIN:
+-GLOW7:
+-RUN
+-Run::/:Runs:
+-Runs:
+-Run-on:
+--on:
+-starts
+-AUTOMATE: AUTOMATES
+-AUTOMATES: ::Git: Hub Docs <!-- omit in toc --> 
+-
+-PLEASE FOWARD ALL PAYMENT TO BY ETF INSTRUCTIONS BELOW SO THEY DONT CLOSE MY ACCOUNT ON THE 26th of AUGUST 2022
+-
+-BANK NAME :
+-PNC BANM NA
+-CUSTOMER/OWNER :
+-ZACHRY TYLER WOOD
+-BANK ACCOUNT NUMBER 47-2041-6507
+-ROUTiNG TRANSIT CODE 071921891
+-#This: Repository: dispatch
+-dispatch: worksflow_call:-on:run-on:Run'"'
+-contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
++# GitHub Docs <!-- omit in toc --> 
++
++This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+ 
+ GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+ 
+
+From 797b76d0d8fc390b170c5cdbd960c780872638ef Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:24:24 -0500
+Subject: [PATCH 06/14] contributing.md
+
+---
+ README.md | 357 ++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 334 insertions(+), 23 deletions(-)
+
+diff --git a/README.md b/README.md
+index fbbaf2e1569..a9454df6daa 100644
+--- a/README.md
++++ b/README.md
+@@ -1,39 +1,42 @@
+-# GitHub Docs <!-- omit in toc --> 
+-
++#: ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001 
++#: (((C))((R)))
++#: TRADEMARK 
++#: BITORE_34173 
++#: Bitore.sig
++#: BITORE
++TIN :
++Fact: 
++633441725
++SSN: 
++633-44-1725
++Name: 
++ZACHRY TYLER WOOD
++BANK NAME :
++PNC BANK
++ACCOUNT NUMBER :
++Business CHecking's debit Card accoiunt :
++47-2041-6547
++Routing_Transit_CODE : 
++071921891
++# GitHub Docs 
++<!-- omit in toc --> 
+ This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+-
+ GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+-
+ Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+-
+-## Contributing
+-
++## Contributing.md
+ See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project. 
+-
+ We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
+-
+ On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
+-
+ <img src="./assets/images/contribution_cta.png" width="400">
+-
+ For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
+-
+ If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
+-
+-### Join us in discussions
+-
++# Join us in discussions
+ We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
+-
+-### And that's it!
+-
++# And that's it!
+ If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+-
+ That's how you can easily become a member of the GitHub Documentation community. :sparkles:
+-
+-## READMEs
+-
++# READ.md
+ In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+-
+ - [content/README.md](content/README.md)
+ - [content/graphql/README.md](content/graphql/README.md)
+ - [content/rest/README.md](content/rest/README.md)
+@@ -47,7 +50,315 @@ In addition to the README you're reading right now, this repo includes other REA
+ - [script/README.md](script/README.md)
+ - [stylesheets/README.md](stylesheets/README.md)
+ - [tests/README.md](tests/README.md)
++- **[Skip to content
++Search or jump to…
++Pull requests
++Issues
++Marketplace
++Explorer.i.e.'@zakwarlord7 @hotmail.com/pathfinder
++Your account has been flagged.
++Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
++zakwarlord7
++/
++docs
++Public
++forked from github/docs
++Code
++Pull requests
++Actions
++Projects
++Security
++Insights
++Settings
++zakwarlord7/docs
++ 179 branches
++ 1 tag
++This branch is 5 commits ahead of github:main.
++Latest commit
++@zakwarlord7
++zakwarlord7 Revert "README.md"
++…
++449e4d6
++13 minutes ago
++Git stats
++ 30,052 commits
++Files
++Type
++Name
++Latest commit message
++Commit time
++.devcontainer
++Increase memory of default codespace (#29992)
++14 hours ago
++.github
++Remove codeowners for localization (#29810)
++yesterday
++.husky
++chore: remove git.io (github#17417)
++4 months ago
++.vscode
++bitore.sig
++37 minutes ago
++OPEN.js
++Create package.yarn
++32 minutes ago
++assets/images
++[2022-08-08]: Admin can control default PR merge/ squash commit messa…
++8 hours ago
++components
++Update README.md
++yesterday
++content
++[2022-08-08]: Admin can control default PR merge/ squash commit messa…
++8 hours ago
++contributing
++Revise style guide advice about the GitHub Codespaces product name af…
++2 days ago
++data
++[2022-08-08]: Admin can control default PR merge/ squash commit messa…
++8 hours ago
++docs
++Add Observability docs to service catalog (github#16878)
++2 years ago
++lib
++update search indexes
++8 hours ago
++middleware
++Remove feature flags (#29968)
++16 hours ago
++pages
++Remove airgap mode (#29964)
++yesterday
++script
++REST: Script for adding a GHEC key to API operations (#29683)
++10 hours ago
++stylesheets
++Parse color_mode cookie in browser (#29738)
++7 days ago
++tests
++Merge branch 'main' into sophietheking-landingpage
++13 hours ago
++translations
++New translation batch for es (#30003)
++8 hours ago
++.babelrc
++NextJS 12.1.6 (#26102)
++2 months ago
++.dockerignore
++Public Repo Azure Preview Environments (#25206)
++6 months ago
++.editorconfig
++chore: Add EditorConfig for IDE whitespace
++2 years ago
++.env.example
++Removing algolia (#20633)
++13 months ago
++.eslintrc.cjs
++Next12 now supports ESM (#29295)
++21 days ago
++.gitattributes
++Update references to "Git reference" (github#16968)
++4 months ago
++.gitignore
++gitignore the script/dev-toc/static folder
++6 days ago
++.node-version
++feat: upgrade to node v16, package-lock.json v2, remove aws-sdk
++15 months ago
++.npmrc
++Hello git history spelunker!
++2 years ago
++.prettierignore
++ignore all bookmarklets from prettier not just the big one
++4 months ago
++.prettierrc.json
++Pretty format (#20352)
++13 months ago
++CODE_OF_CONDUCT.md
++Add restriction on private contact of community members without permi…
++2 years ago
++CONTRIBUTING.md
++Update learning lab links to skills (#28135)
++2 months ago
++Dockerfile
++Remove feature flags (#29968)
++16 hours ago
++Dockerfile.openapi_decorator
++add data directory (#22529)
++10 months ago
++LICENSE
++Reorg LICENSE files to be more discoverable (github#204)
++2 years ago
++LICENSE-CODE
++Edit as per review
++5 months ago
++README.md
++Revert "README.md"
++13 minutes ago
++azure-preview-env-template.json
++repo sync (github#16442)
++5 months ago
++codespaces-settings.json
++Create codespaces-settings.json
++4 months ago
++crowdin.yml
++Ignore relocated and deprecated site policy docs
++2 months ago
++docker-compose.prod.tmpl.yaml
++fix: use prod registry for datadog image (#28365)
++2 months ago
++docker-compose.staging.tmpl.yaml
++Remove the Signal Science container from the staging template.
++3 months ago
++docker-compose.yaml
++Accept glob patterns for source files in openapi-check script (github…
++16 months ago
++feature-flags.json
++Remove FEATURE_NEXTJS Flag Part 1 (#20176)
++13 months ago
++jest-puppeteer.config.cjs
++Next12 now supports ESM (#29295)
++21 days ago
++jest.config.js
++Next12 now supports ESM (#29295)
++21 days ago
++jest.setup.js
++Fail on console.error in tests with failOnConsole (#25600)
++6 months ago
++next-env.d.ts
++remove need for styled-jsx construct (#28749)
++2 months ago
++next.config.js
++next@12.2.4 (#29731)
++8 days ago
++nodemon.json
++Create a storybook with callout component (#20902)
++12 months ago
++ownership.yaml
++Update ownership.yaml (#25551)
++6 months ago
++package-lock.json
++next@12.2.5 (#30004)
++8 hours ago
++package.json
++next@12.2.5 (#30004)
++8 hours ago
++server.js
++Next12 now supports ESM (#29295)
++21 days ago
++start-server.js
++Remove feature flags (#29968)
++16 hours ago
++tsconfig.json
++Refactor display-platform-specific-content (#22665)
++9 months ago
++README.md
++GitHub Docs
++This repository contains the documentation website code and Markdown source files for docs.github.com.
++
++GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
++
++Use the table of contents icon  on the top left corner of this document to get to a specific section of this guide quickly.
++
++Contributing
++See the contributing guide for detailed instructions on how to get started with our project.
++
++We accept different types of contributions, including some that don't require you to write a single line of code.
++
++On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
++
++
++
++For more complex contributions, you can open an issue using the most appropriate issue template to describe the changes you'd like to see.
++
++If you're looking for a way to contribute, you can scan through our existing issues for something to work on. When ready, check out Getting Started with Contributing for detailed instructions.
++
++Join us in discussions
++We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the discussions.
++
++And that's it!
++If you're having trouble with your GitHub account, contact Support.
++
++That's how you can easily become a member of the GitHub Documentation community. ✨
++
++READMEs
++In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
++
++content/README.md
++content/graphql/README.md
++content/rest/README.md
++contributing/README.md
++data/README.md
++data/reusables/README.md
++data/variables/README.md
++components/README.md
++lib/liquid-tags/README.md
++middleware/README.md
++script/README.md
++stylesheets/README.md
++tests/README.md
++License
++The GitHub product documentation in the assets, content, and data folders are licensed under a CC-BY license.
++
++All other code in this repository is licensed under the MIT license.
++
++When using the GitHub logos, be sure to follow the GitHub logo guidelines.
++
++Thanks 💜
++Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our ✨ community ✨!
++
++About
++The open-source repo for docs.github.com
+ 
++docs.github.com
++Topics
++Resources
++ Readme
++License
++ CC-BY-4.0, MIT licenses found
++Code of conduct
++ Code of conduct
++Stars
++ 0 stars
++Watchers
++ 0 watching
++Forks
++ 56.3k forks
++Releases
++ 1 tags
++Create a new release
++Packages
++No packages published
++Publish your first package
++Environments 4
++ preview-env-2 Failure
++ preview-env-4 Failure
++ preview-env-3 Error
++ preview-env-1 Failure
++Languages
++JavaScript
++74.7%
++ 
++TypeScript
++22.9%
++ 
++Other
++2.4%
++Footer
++© 2022 GitHub, Inc.
++Footer navigation
++Terms
++Privacy
++Security
++Status
++Docs
++Contact GitHub
++Pricing
++API
++Training
++Blog
++About
++You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUTOMATICALLY
+ ## License
+ 
+ The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+
+From 689a0b9dff8536745bbfd0cc7ef3aa48a516bf94 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:26:20 -0500
+Subject: [PATCH 07/14] Update README.md
+
+---
+ README.md | 47 ++---------------------------------------------
+ 1 file changed, 2 insertions(+), 45 deletions(-)
+
+diff --git a/README.md b/README.md
+index a9454df6daa..a7687859b9b 100644
+--- a/README.md
++++ b/README.md
+@@ -309,54 +309,11 @@ Thanks for all your contributions and efforts towards improving the GitHub docum
+ 
+ About
+ The open-source repo for docs.github.com
+-
+-docs.github.com
++# .it.git.gists'@.github.com/gists/secret/BITORE
+ Topics
+ Resources
+- Readme
+-License
+- CC-BY-4.0, MIT licenses found
+-Code of conduct
+- Code of conduct
+-Stars
+- 0 stars
+-Watchers
+- 0 watching
+-Forks
+- 56.3k forks
+-Releases
+- 1 tags
+-Create a new release
+-Packages
+-No packages published
+ Publish your first package
+-Environments 4
+- preview-env-2 Failure
+- preview-env-4 Failure
+- preview-env-3 Error
+- preview-env-1 Failure
+-Languages
+-JavaScript
+-74.7%
+- 
+-TypeScript
+-22.9%
+- 
+-Other
+-2.4%
+-Footer
+-© 2022 GitHub, Inc.
+-Footer navigation
+-Terms
+-Privacy
+-Security
+-Status
+-Docs
+-Contact GitHub
+-Pricing
+-API
+-Training
+-Blog
++Environments 5
+ About
+ You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUTOMATICALLY
+ ## License
+
+From efc8556d09b4d86f105557e697dfa0d9ae724608 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:27:25 -0500
+Subject: [PATCH 08/14] Update README.md
+
+---
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index a7687859b9b..3595775d223 100644
+--- a/README.md
++++ b/README.md
+@@ -320,10 +320,10 @@ You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUT
+ 
+ The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+ 
+-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
++## All other code in this repository is licensed under the [Apache 4.0license](LICENSE-CODE).
+ 
+ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+ 
+-## Thanks :purple_heart:
++# Thanks :purple_heart:
+ 
+ Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+
+From 564e9433b7beee95733487910fd50da182bf5130 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:28:45 -0500
+Subject: [PATCH 09/14] Update README.md
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 3595775d223..53ce3b230e8 100644
+--- a/README.md
++++ b/README.md
+@@ -320,7 +320,7 @@ You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUT
+ 
+ The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+ 
+-## All other code in this repository is licensed under the [Apache 4.0license](LICENSE-CODE).
++## All other code in this repository is licensed under the [Mozilla/5.0/Apache4.0**ALL RIghts REserved Access: PRivate: license](LICENSE-CODE).
+ 
+ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+ 
+
+From c8013c7bc92a2b01880d5524e80866fcb8c20574 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:30:40 -0500
+Subject: [PATCH 10/14] Update README.md
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 53ce3b230e8..ebafd88153f 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,5 @@
+ #: ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001 
+-#: (((C))((R)))
++#: ((c)(r))
+ #: TRADEMARK 
+ #: BITORE_34173 
+ #: Bitore.sig
+
+From 2525f342870e518f003c891ecd9e5c6e5ded77e7 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 16 Aug 2022 22:35:14 -0500
+Subject: [PATCH 11/14] Update README.md
+
+---
+ README.md | 79 ++++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 58 insertions(+), 21 deletions(-)
+
+diff --git a/README.md b/README.md
+index ebafd88153f..b5716f3bfa8 100644
+--- a/README.md
++++ b/README.md
+@@ -1,24 +1,61 @@
+-#: ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001 
+-#: ((c)(r))
+-#: TRADEMARK 
+-#: BITORE_34173 
+-#: Bitore.sig
+-#: BITORE
+-TIN :
+-Fact: 
+-633441725
+-SSN: 
+-633-44-1725
+-Name: 
+-ZACHRY TYLER WOOD
+-BANK NAME :
+-PNC BANK
+-ACCOUNT NUMBER :
+-Business CHecking's debit Card accoiunt :
+-47-2041-6547
+-Routing_Transit_CODE : 
+-071921891
+-# GitHub Docs 
++BEGIN:'
++
++!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE'
++
++AUTOMATE:'
++
++AUTOMATE:'
++
++GLOW7: '"'.txt'"''
++
++# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001' 
++
++# ((c)(r))'
++
++# TRADEMARK'
++
++#  BITORE_34173'
++
++# Bitore.sig'
++
++# BITORE'
++
++TIN :'
++
++Fact:'
++
++633441725'
++
++SSN:'
++
++633-44-1725'
++
++Name:'
++
++ZACHRY TYLER WOOD'
++
++BANK NAME :'
++
++PNC BANK'
++
++ACCOUNT NUMBER :'
++
++Business CHecking's debit Card accoiunt :'
++
++47-2041-6547'
++
++Routing_Transit_CODE :'
++
++071921891'
++
++# GitHub Docs'
++
++:BUIld::'
++
++Publish:' 
++
++-starts:'
++
+ <!-- omit in toc --> 
+ This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+ GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+
+From 7cd0f7bc654e17a43bd374cab94058066c61b2c0 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Wed, 17 Aug 2022 00:11:40 -0500
+Subject: [PATCH 12/14] Update README.md
+
+---
+ README.md | 1059 +++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 1032 insertions(+), 27 deletions(-)
+
+diff --git a/README.md b/README.md
+index b5716f3bfa8..9b788d1b30d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,56 +1,1061 @@
+-BEGIN:'
++BEGIN:
+ 
+-!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE'
++!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE
+ 
+-AUTOMATE:'
++AUTOMATE:
+ 
+-AUTOMATE:'
++AUTOMATE:
+ 
+-GLOW7: '"'.txt'"''
++GLOW7: .txt
+ 
+-# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001' 
++# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001
+ 
+-# ((c)(r))'
++# ((c)(r))
+ 
+-# TRADEMARK'
++# TRADEMARK
+ 
+-#  BITORE_34173'
++#  BITORE_34173
+ 
+-# Bitore.sig'
++# Bitore.sig
+ 
+-# BITORE'
++# BITORE
+ 
+-TIN :'
++TIN :
+ 
+-Fact:'
++Fact:
+ 
+-633441725'
++633441725
+ 
+-SSN:'
++SSN:
+ 
+-633-44-1725'
++633-44-1725
+ 
+-Name:'
++Name:
+ 
+-ZACHRY TYLER WOOD'
++ZACHRY TYLER WOOD
+ 
+-BANK NAME :'
++BANK NAME :
+ 
+-PNC BANK'
++PNC BANK :
+ 
+-ACCOUNT NUMBER :'
++ACCOUNT NUMBER :
+ 
+-Business CHecking's debit Card accoiunt :'
++Business CHecking's debit Card accoiunt :
+ 
+-47-2041-6547'
++Fact: 47-2041-6547 :
+ 
+-Routing_Transit_CODE :'
++Routing_Transit_CODE :
+ 
+-071921891'
++Fact: 071921891 :
++
++# GitHub Docs :
++
++#Transaction :
++
++Zachry Tyler Wood Transactions																									
++Internal Revenue Service																									
++From 1 May 2022 to 31 May 2022																									
++																									
++Date	Type	Transaction	Reference	Debit		Credit																			
++																									
++04/30/2022		Opening Balance				$0.00																			
++																									
++05/26/2022	INV	ZachryTWood111@www.chase.com - Bill	101003			$283,370,975,464.00																			
++Total						$283,370,975,464.00																			
++																									
++05/31/2022		Closing Balance				$283,370,975,464.00																			
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																									
++Z@																									
++Current pageOpens in new window																									
++Bank Accounts  ›  PNCBANK BUSINESS DEBIT  › Transaction: Cash RefundPNCBANK BUSINESS DEBIT																									
++XXXX-XXXX-XXXX-0719																									
++Unreconciled																									
++What's this?																									
++Payment Date																									
++Aug 16, 2022																									
++Reference																									
++6334421725 24 9663 30 0 202212 430																									
++Contact	Credit Note #	Date	Credit Note Total	Payment Amount																					
++Department of the Treasury	221165055249	Aug 16, 2022	70,842,743,866.00	70,842,743,866.00 Payment Total70,842,743,866.00																					
++History & Notes																									
++																									
++Unreconciled by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 1:01AM																									
++																									
++Show History & Notes (3 entries)Add Note																									
++																									
++283,370,975,464.00 USD																									
++PAID																									
++Save to																									
++PDF																									
++CSV																									
++Xero																									
++Questions or comments about this bill?																									
++PAID																									
++INVOICE																									
++To	ZachryTWood111@www.chase.com																								
++270 Park Ave																									
++NEW YORK NY 10017																									
++USA																									
++Invoice Number	101003																								
++Reference	633441725 BH WOOD 30 0 202212 430																								
++JPMORGAN TRUST I	xxx-xx-4428																								
++Issued	May 26, 2022																								
++Due	August 13, 2022																								
++From	INTERNAL REVENUE SERVICE																								
++Attention: Zachry Tyler Wood																									
++5323 BRADFORD DR																									
++DALLAS TX 75235-8313																									
++UNITED STATES																									
++Description	Quantity	Unit Price	Tax	Amount USD																					
++Bill																									
++4	70,842,743,866.00	Sales Tax on Imports	283,370,975,464.00																						
++Subtotal	283,370,975,464.00																								
++Total USD	283,370,975,464.00																								
++Less Amount Paid	283,370,975,464.00																								
++Amount Due USD	0																								
++Attached Documents																									
++																									
++VANGUARD 500 INDEX ADM Key Stats - VFIAX.pdf																									
++Company Registration No: CIK0000835271. Registered Office: 5323 BRADFORD DR, DALLAS, TX, 75235-8313, United States																									
++INTERNAL REVENUE SERVICE Fudiciary																									
++Employer																									
++Employer Identification Number (EIN) :xxxxx4661																									
++INTU																									
++2700 C																									
++Employee :																									
++Employee's Social Security Number :xxxxx1725																									
++ZACH T WOO																									
++5222 B																									
++Telephone																									
++USA main: +1 (800) 480-41111																									
++zachryiixixiiwood@gmail.com																									
++https://www.irs.gov/																									
++																									
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																									
++Z@																									
++Current pageOpens in new window																									
++Purchases › Bills › Credit Note 000221165055249																									
++Paid																									
++From																									
++Department of the Treasury1111 Constitution Ave. N.W.																									
++WASHINGTON D.C. 20535																									
++U.S.A.Edit address																									
++Date																									
++Aug 16, 2022																									
++Reference																									
++221165055249																									
++Total																									
++70,842,743,866.00Amounts areTax Exclusive																									
++Item Code	Description	Quantity	Unit Price	Account	Tax Rate	Amount USD																			
++USD	THIS NOTE IS LEGAL TENDER FOR ALL DEBTS BOTH PUBLIC AND PRIVATE.																								
++_______\S\__________________																									
++J.P.Morgan Chase Bank N.A.																									
++asst. tr.																									
++Mr. Joseph A. Parascandola	1	70,842,743,866.00	4720416547	Tax Exempt	70,842,743,866.00Subtotal70,842,743,866.00 Total No Tax 0%0.00Total Credit70,842,743,866.00 Less Cash Refund																				
++Aug 16, 2022																									
++70,842,743,866.00Remaining Credit0.00																									
++History & NotesCash Refunded by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 0:55AMPayment received from Department of the Treasury on August 16, 2022 for 70,842,743,866.00. There is no credit remaining on this credit note.																									
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																									
++Z@																									
++Current pageOpens in new window																									
++Department of the TreasuryContacts																									
++No bills awaiting payment																									
++View recent bills report																									
++YOU OWE0.00																									
++Money out over last 12 months																									
++0																									
++70.8428G																									
++Sep																									
++Oct																									
++Nov																									
++Dec																									
++Jan																									
++Feb																									
++Mar																									
++Apr																									
++May																									
++Jun																									
++Jul																									
++Aug																									
++Activity																									
++Notes																									
++Email																									
++																									
++ITEM																									
++NUMBER																									
++REFERENCE																									
++DATE																									
++ACTIVITY DATE																									
++DUE																									
++TOTAL																									
++																									
++Note																									
++By ZachryTWood111 @www.chase.com																									
++22116905560149																									
++Aug 17, 2022																									
++Yesterday at 11:45 PM																									
++																									
++																									
++00022116905560149 All Figures are estimates based on samples---money amounts are in ZAC thousands of dollars - INCOME																									
++Accounts $12, 753,750,000.00 $12,753,750,000.00																									
++Payable (A/P)																									
++Total for Commissions and fees $12,753,750,000.00																									
++Referral/broker/selling fees $63.50																									
++04/27/2022 Check SVCCHRG Business Checking $62.50 $62.50																									
++Total for Commissions and fees with sub-accounts $12,753,750,062.50																									
++Total for Expenses $12,753,750,06250																									
++Net income $58,088,993,803.550																									
++Edited																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:29 PM																									
++																									
++																									
++																									
++Edited																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:29 PM																									
++																									
++																									
++																									
++Primary contact person's email address changed from no value to irs@service.govdelivery.com.																									
++Created																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:26 PM																									
++																									
++																									
++																									
++Department of the Treasury has been created.																									
++Bill credit note paid																									
++221165055249																									
++Aug 16, 2022																									
++Paid Aug 16, 2022																									
++																									
++-70,842,743,866.00																									
++Bill paid																									
++22116905560149																									
++May 26, 2022																									
++ v 																									
++																									
++70,842,743,866.00																									
++6 total items																									
++Contact Details																									
++																									
++Contact Person																									
++irs@service.govdelivery.com																									
++Postal Address																									
++1111 Constitution Ave. N.W.																									
++Washington																									
++D.C. 20535																									
++U.S.A.																									
++View Map																									
++Financial Details																									
++																									
++Default CurrencyUSD United States Dollar																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++                                                  
++:BUIld:: :
+ 
+-# GitHub Docs'
+ 
+-:BUIld::'
+ 
+ Publish:' 
+ 
+
+From e1d7ec9837c1c6c2ec34f534876b6fbc22ce7385 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Wed, 17 Aug 2022 00:15:37 -0500
+Subject: [PATCH 13/14] Update README.md
+
+---
+ README.md | 997 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 997 insertions(+)
+
+diff --git a/README.md b/README.md
+index 9b788d1b30d..3975b82833a 100644
+--- a/README.md
++++ b/README.md
+@@ -71,6 +71,34 @@ Dashboard
+ Business																									
+ Accounting																									
+ Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																													
++Current pageOpens in new window
++
++Bank Accounts  ›  PNCBANK BUSINESS DEBIT  › Transaction: Cash RefundPNCBANK BUSINESS DEBIT	>Zachry Tyler Wood Transactions																									
++Internal Revenue Service																									
++From 1 May 2022 to 31 May 2022																									
++																									
++Date	Type	Transaction	Reference	Debit		Credit																			
++																									
++04/30/2022		Opening Balance				$0.00																			
++																									
++05/26/2022	INV	ZachryTWood111@www.chase.com - Bill	101003			$283,370,975,464.00																			
++Total						$283,370,975,464.00																			
++																									
++05/31/2022		Closing Balance				$283,370,975,464.00																			
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
+ Contacts																									
+ 																									
+ 																									
+@@ -1050,6 +1078,975 @@ Default CurrencyUSD United States Dollar
+ 																									
+ 																									
+ 																									
++																								>4720416541@071921891>POST>XXXX-XXXX-XXXX-0719																									
++Unreconciled																									
++What's this?																									
++Payment Date																									
++Aug 16, 2022																									
++Reference																									
++6334421725 24 9663 30 0 202212 430																									
++Contact	Credit Note #	Date	Credit Note Total	Payment Amount																					
++Department of the Treasury	221165055249	Aug 16, 2022	70,842,743,866.00	70,842,743,866.00 Payment Total70,842,743,866.00																					
++History & Notes																									
++																									
++Unreconciled by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 1:01AM																									
++																									
++Show History & Notes (3 entries)Add Note																									
++																									
++283,370,975,464.00 USD																									
++PAID																									
++Save to																									
++PDF																									
++CSV																									
++Xero																									
++Questions or comments about this bill?																									
++PAID																									
++INVOICE																									
++To	ZachryTWood111@www.chase.com																								
++270 Park Ave																									
++NEW YORK NY 10017																									
++USA																									
++Invoice Number	101003																								
++Reference	633441725 BH WOOD 30 0 202212 430																								
++JPMORGAN TRUST I	xxx-xx-4428																								
++Issued	May 26, 2022																								
++Due	August 13, 2022																								
++From	INTERNAL REVENUE SERVICE																								
++Attention: Zachry Tyler Wood																									
++5323 BRADFORD DR																									
++DALLAS TX 75235-8313																									
++UNITED STATES																									
++Description	Quantity	Unit Price	Tax	Amount USD																					
++Bill																									
++4	70,842,743,866.00	Sales Tax on Imports	283,370,975,464.00																						
++Subtotal	283,370,975,464.00																								
++Total USD	283,370,975,464.00																								
++Less Amount Paid	283,370,975,464.00																								
++Amount Due USD	0																								
++Attached Documents																									
++																									
++VANGUARD 500 INDEX ADM Key Stats - VFIAX.pdf																									
++Company Registration No: CIK0000835271. Registered Office: 5323 BRADFORD DR, DALLAS, TX, 75235-8313, United States																									
++INTERNAL REVENUE SERVICE Fudiciary																									
++Employer																									
++Employer Identification Number (EIN) :xxxxx4661																									
++INTU																									
++2700 C																									
++Employee :																									
++Employee's Social Security Number :xxxxx1725																									
++ZACH T WOO																									
++5222 B																									
++Telephone																									
++USA main: +1 (800) 480-41111																									
++zachryiixixiiwood@gmail.com																									
++https://www.irs.gov/																									
++																									
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																									
++Z@																									
++Current pageOpens in new window																									
++Purchases › Bills › Credit Note 000221165055249																									
++Paid																									
++From																									
++Department of the Treasury1111 Constitution Ave. N.W.																									
++WASHINGTON D.C. 20535																									
++U.S.A.Edit address																									
++Date																									
++Aug 16, 2022																									
++Reference																									
++221165055249																									
++Total																									
++70,842,743,866.00Amounts areTax Exclusive																									
++Item Code	Description	Quantity	Unit Price	Account	Tax Rate	Amount USD																			
++USD	THIS NOTE IS LEGAL TENDER FOR ALL DEBTS BOTH PUBLIC AND PRIVATE.																								
++_______\S\__________________																									
++J.P.Morgan Chase Bank N.A.																									
++asst. tr.																									
++Mr. Joseph A. Parascandola	1	70,842,743,866.00	4720416547	Tax Exempt	70,842,743,866.00Subtotal70,842,743,866.00 Total No Tax 0%0.00Total Credit70,842,743,866.00 Less Cash Refund																				
++Aug 16, 2022																									
++70,842,743,866.00Remaining Credit0.00																									
++History & NotesCash Refunded by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 0:55AMPayment received from Department of the Treasury on August 16, 2022 for 70,842,743,866.00. There is no credit remaining on this credit note.																									
++You have 22 days left in your trial, which includes all features																									
++Choose a plan to buy																									
++Zachry Tyler Wood																									
++Dashboard																									
++Business																									
++Accounting																									
++Payroll																									
++Contacts																									
++																									
++																									
++																									
++																									
++																									
++																									
++Z@																									
++Current pageOpens in new window																									
++Department of the TreasuryContacts																									
++No bills awaiting payment																									
++View recent bills report																									
++YOU OWE0.00																									
++Money out over last 12 months																									
++0																									
++70.8428G																									
++Sep																									
++Oct																									
++Nov																									
++Dec																									
++Jan																									
++Feb																									
++Mar																									
++Apr																									
++May																									
++Jun																									
++Jul																									
++Aug																									
++Activity																									
++Notes																									
++Email																									
++																									
++ITEM																									
++NUMBER																									
++REFERENCE																									
++DATE																									
++ACTIVITY DATE																									
++DUE																									
++TOTAL																									
++																									
++Note																									
++By ZachryTWood111 @www.chase.com																									
++22116905560149																									
++Aug 17, 2022																									
++Yesterday at 11:45 PM																									
++																									
++																									
++00022116905560149 All Figures are estimates based on samples---money amounts are in ZAC thousands of dollars - INCOME																									
++Accounts $12, 753,750,000.00 $12,753,750,000.00																									
++Payable (A/P)																									
++Total for Commissions and fees $12,753,750,000.00																									
++Referral/broker/selling fees $63.50																									
++04/27/2022 Check SVCCHRG Business Checking $62.50 $62.50																									
++Total for Commissions and fees with sub-accounts $12,753,750,062.50																									
++Total for Expenses $12,753,750,06250																									
++Net income $58,088,993,803.550																									
++Edited																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:29 PM																									
++																									
++																									
++																									
++Edited																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:29 PM																									
++																									
++																									
++																									
++Primary contact person's email address changed from no value to irs@service.govdelivery.com.																									
++Created																									
++By ZachryTWood111 @www.chase.com																									
++																									
++Aug 17, 2022																									
++Yesterday at 11:26 PM																									
++																									
++																									
++																									
++Department of the Treasury has been created.																									
++Bill credit note paid																									
++221165055249																									
++Aug 16, 2022																									
++Paid Aug 16, 2022																									
++																									
++-70,842,743,866.00																									
++Bill paid																									
++22116905560149																									
++May 26, 2022																									
++ v 																									
++																									
++70,842,743,866.00																									
++6 total items																									
++Contact Details																									
++																									
++Contact Person																									
++irs@service.govdelivery.com																									
++Postal Address																									
++1111 Constitution Ave. N.W.																									
++Washington																									
++D.C. 20535																									
++U.S.A.																									
++View Map																									
++Financial Details																									
++																									
++Default CurrencyUSD United States Dollar																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
++																									
+ 																									
+ 																									
+                                                   
+
+From cf562c9e38babd710c37a9ca96b40c665f28a10c Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Wed, 17 Aug 2022 01:03:31 -0500
+Subject: [PATCH 14/14] Update and rename README.md to
+ README.md.CONTRIBUTINGME.md/readme.md.contributingme.md
+
+---
+ .../readme.md.contributingme.md                                  | 1 -
+ 1 file changed, 1 deletion(-)
+ rename README.md => README.md.CONTRIBUTINGME.md/readme.md.contributingme.md (99%)
+
+diff --git a/README.md b/README.md.CONTRIBUTINGME.md/readme.md.contributingme.md
+similarity index 99%
+rename from README.md
+rename to README.md.CONTRIBUTINGME.md/readme.md.contributingme.md
+index 3975b82833a..4a9f394b880 100644
+--- a/README.md
++++ b/README.md.CONTRIBUTINGME.md/readme.md.contributingme.md
+@@ -1,5 +1,4 @@
+ BEGIN:
+-
+ !#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE
+ 
+ AUTOMATE:
 																									
 																									
 																									
