@@ -1,0 +1,563 @@
+BEGIN:
+GLOW7:' '.txt'
+'#' This workflow uses actions that are not certified by GitHub.''
+'#' They are provided by a third-party and are governed by''
+'#' separate terms of service, privacy policy, and support''
+'#' documentation.
+'#' <li>zachryiixixiiwood@gmail.com<li>
+'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
+'#' For more information see: https://github.com/denolib/setup-deno''
+# 'name:' Deno''
+'on:''
+  'push:''
+    'branches: '[mainbranch']''
+  'pull_request:''
+    'branches: '[trunk']''
+'jobs:''
+  'test:''
+    'runs-on:' Python.js''
+''#' token:' '$'{'{'('(c')'(r')')'}'}''
+''#' runs a test on Ubuntu', Windows', and', macOS''
+    'strategy:''
+        'deno:' ["v1.x", "nightly"]''
+        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
+    'steps:''
+      '-' 'Name: Ninja.jar/jre
+        'uses: actions/checkout@v1''
+      '- name: Setup Deno''
+        'uses: Deno''
+'Package:''
+        'with:''
+          'deno-version:' '$'{'{linux/cake/kite'}'}''
+'#'tests across multiple Deno versions''
+      '- name: Cache Dependencies''
+        'run: deno cache deps.ts''
+      '- name: Run Tests''
+        'run: deno test''
+'::Build:' sevendre''
+'Return
+' Run''
+
+"login": "octcokit",
+    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+ require'
+require 'json'
+post '/payload' do
+  push = JSON.parse(request.body.read}
+# -loader = :rake
+# -ruby_opts = [Automated updates]
+# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# -deps = [list]
+# -if?=name:(Hash.#:"','")
+# -deps = @name.values.first
+# -name = @name.keys.first
+# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# -define: name=:ci
+dependencies(list):
+# -runs-on:' '[Masterbranch']
+#jobs:
+# -build:
+# -runs-on: ubuntu-latest
+# -steps:
+#   - uses: actions/checkout@v1
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#    - name: Run a multi-line script
+#      run=:name: echo: hello.World!
+#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+# def initialize(name=:test)
+# name = ci
+# libs = Bash
+# pattern = list
+# options = false
+# test_files = pkg.js
+# verbose = true
+# warning = true
+# loader = :rake
+# rb_opts = []
+# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# deps = []
+# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+# deps = @name.values.first
+# name=::rake.gems/.specs_keyscutter
+# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# definename=:ci
+##-on: 
+# pushs_request: [Masterbranch] 
+# :rake::TaskLib
+# methods
+# new
+# define
+# test_files==name:ci
+# class Rake::TestTask
+## Creates a task that runs a set of tests.
+# require "rake/test.task'@ci@travis.yml.task.new do |-v|
+# t.libs << "test"
+# t.test_files = FileList['test/test*.rb']
+# t.verbose = true
+# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+# rake test                           
+# run tests normally
+# rake test TEST=just_one_file.rb     
+# run just one test file.
+# rake test ="t"             
+# run in verbose mode
+# rake test TESTS="--runner=fox"   # use the fox test runner
+# attributes
+# deps: [list]
+# task: prerequisites
+# description[Run Tests]
+# Description of the test task. (default is 'Run tests')
+# libs[BITORE_34173]
+# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+# loader[test]
+# style of test loader to use. Options are:
+# :rake – rust/rake provided tests loading script (default).
+# :test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+# name=: testtask.(default is :test)
+# options[dist]
+# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+# pattern[list]
+# Glob pattern to match test files. (default is 'test/test*.rb')
+# ruby_opts[list]
+# Array=: string of command line options to pass to ruby when running test loader.
+# verbose[false]
+# if verbose test outputs desired:= (default is false)
+# warning[Framework]
+# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
+# access: Public Class Methods
+# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+# Create a testing task Public Instance Methods
+# define($obj)
+# Create the tasks defined by this task lib
+# test_files=(r)
+# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
+((c)(r))
+Skip to content
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+Your review was submitted successfully.
+zakwarlord7
+/
+docs
+Public
+forked from github/docs
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+Settings
+Jump to bottom
+1862 add travis ci migration table #19
+ Closed
+zakwarlord7 wants to merge 23 commits into trunk from 1862-Add-Travis-CI-migration-table
+ Closed
+1862 add travis ci migration table
+#19
+zakwarlord7 wants to merge 23 commits into trunk from 1862-Add-Travis-CI-migration-table
+Conversation 1
+Commits 23
+Checks 0
+Files changed 3
+Conversation
+zakwarlord7
+@zakwarlord7 zakwarlord7 commented 3 minutes ago • 
+Why:
+Closes [issue link]
+
+What's being changed (if available, include any code snippets, screenshots, or gifs):
+Check off the following:
+ I have reviewed my changes in staging (look for the "Automatically generated comment" and click the links in the "Preview" column to view your latest changes).
+ For content changes, I have completed the self-review checklist.
+Writer impact (This section is for GitHub staff members only):
+ This pull request impacts the contribution experience
+ I have added the 'writer impact' label
+ I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
+martin389 and others added 23 commits 2 years ago
+@martin389
+Added initial draft of reference table
+bb62d7b
+@martin389
+Small edit
+2f9ec0c
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+1a56ed1
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+667ec00
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+de9e960
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+88a7e94
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+3f4982e
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+2ea989d
+@chiedo
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+f071f00
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+4499b3d
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+6d64290
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+ec752f4
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+b10a287
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+7542a21
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+07d9c63
+@JamesMGreene
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+898f94f
+@sarahs
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+908d67f
+@martin389
+Fixing merge conflicts
+561368d
+@martin389
+For merge conflict
+089b0db
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+8aeebcc
+@martin389
+Update migrating-from-travis-ci-to-github-actions.md
+83dd496
+@martin389
+Merge branch 'main' into 1862-Add-Travis-CI-migration-table
+adcf1bd
+@zakwarlord7
+Update README.md
+d674cfd
+@zakwarlord7 zakwarlord7 closed this 2 minutes ago
+@zakwarlord7 zakwarlord7 reopened this 2 minutes ago
+@zakwarlord7 zakwarlord7 commented 2 minutes ago
+latest changes.
+
+git pull origin trunk
+Step 2: Switch to the head branch of the pull request.
+
+git checkout 1862-Add-Travis-CI-migration-table
+Step 3: Merge the base branch into the head branch.
+
+git merge trunk
+Step 4: Fix the conflicts and commit the result.
+
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+
+git push
+
+zakwarlord7
+zakwarlord7 reviewed 1 minute ago
+Spammy 
+@zakwarlord7 zakwarlord7 left a comment
+approves- [22/7]
+
+@zakwarlord7 zakwarlord7 commented 1 minute ago
+git pull origin trunk
+git pull origin trunk
+
+@zakwarlord7 zakwarlord7 closed this 1 minute ago
+@zakwarlord7 zakwarlord7 commented 19 seconds ago
+##On:
+CI: Publish
+true
+true
+
+
+
+
+
+Hi! Thanks for your interest in contributing to the GitHub CLI!
+We accept pull requests for bug fixes and features where we've discussed the approach in an issue and given the go-ahead for a community member to work on it. We'd also love to hear about ideas for new features as issues.
+Please do:
+
+Check existing issues to verify that the [bug][bug issues] or [feature request][feature request issues] has not already been submitted.
+Open an issue if things aren't working as expected.
+Open an issue to propose a significant change.
+Open a pull request to fix a bug.
+Open a pull request to fix documentation about a command.
+Open a pull request for any issue labelled [help wanted][hw] or [good first issue][gfi].
+Please avoid:
+Opening pull requests for issues marked needs-design, needs-investigation, or blocked.
+Adding installation instructions specifically for your OS/package manager.
+Opening pull requests for any issue marked core. These issues require additional context from
+the core CLI team at GitHub and any external pull requests will not be accepted.
+Building the project
+Prerequisites:
+
+Go 1.13+ for building the binary
+Go 1.15+ for running the test suite
+Build with: make or go build -o bin/gh ./cmd/gh
+Run the new binary as:bitore.net/user//bin/bash*
+Run tests with: make test or go test ./...
+Submitting a pull request
+Create a new branch: git checkout -b my-branch-name
+Make your change, add tests, and ensure tests pass
+Submit a pull request: gh pr create --web
+Contributions to this project are [released][legal] to the public under the [project's open source license][license].
+Please note that this project adheres to a [Contributor Code of Conduct][code-of-conduct]. By participating in this project you agree to abide by its terms.
+We generate manual pages from source on every release. You do not need to submit pull requests for documentation specifically; manual pages for commands will automatically get updated after your pull requests gets accepted.
+Design guidelines
+You may reference the [CLI Design System][] when suggesting features, and are welcome to use our [Google Docs Template][] to suggest designs.
+
+Resources
+[How to Contribute to OPEN.js][package.yarn]
+[Using Pull Requests][]
+[GitHub Help][Markdown]
+[bug issues]: https://github.com/cli/cli/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+[feature request issues]: https://github.com/cli/cli/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement
+[hw]: https://github.com/cli/cli/labels/help%20wanted
+[gfi]: https://github.com/cli/cli/labels/good%20first%20issue
+[legal]: https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-terms-of-service#6-contributions-under-repository-license
+[license]: ../LICENSE
+[code-of-conduct]: ./CODE-OF-CONDUCT.md
+[not a contribution for nonpayment of stolen revenues: https://opensource.guide/how-to-contribute/
+[Using Pull Requests]: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests
+[GitHub Help]: https://docs.github.com/
+[CLI Design System]: https://primer.style/cli/
+[Google Docs Template]: https://docs.google.com/document/d/1JIRErIUuJ6fTgabiFYfCH3x91pyHuytbfa0QLnTfXKM/edit#heading=h.or54sa47ylpg
+Author: ZachryTylerWood/vscodeBEGIN:
+On::Runs:
+Runs:Run:
+Run-on:
+-on:
+Echo: hello-🌍!-🐛-#-fix/731/,
+"name": "my-electron-app",
+"version": "1.0.0",
+"description": "Hello World!",
+const: "token"''
+token: "((c)(r))"''
+[Volume].]: "[12753750].00]"''
+ITEM_ID: "BITORE_34173"''
+"name": "my-electron-app",
+"version": "0.0.0",
+"description": "Hello World!'@https://git.io/codeql-language-support# For most projects, this workflow file will not need changing; you simply need
+to commit it to your repository.
+CodeQL languages.
+name: "CodeQL"
+'#' This workflow uses actions that are not certified by GitHub.''
+'#' They are provided by a third-party and are governed by''
+'#' separate terms of service, privacy policy, and support''
+'#' documentation.
+'#'
+
+zachryiixixiiwood@gmail.com
+
+'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
+'#' For more information see: https://github.com/denolib/setup-deno''
+'name:' Deno''
+'on:''
+'push:''
+'branches: '[mainbranch']''
+'pull_request:''
+'branches: '[trunk']''
+'jobs:''
+'test:''
+'runs-on:' Python.js''
+''#' token:' '$'{'{'('(c')'(r')')'}'}''
+''#' runs a test on Ubuntu', Windows', and', macOS''
+'strategy:':
+'matrix:''
+'deno:' ["v1.x", "nightly"]''
+'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
+'steps:''
+'- name: Setup repo''
+'uses: actions/checkout@v1''
+'- name: Setup Deno''
+'uses: Deno''
+'Package:''
+'with:''
+'deno-version:' '$'{'{linux/cake/kite'}'}''
+'#'tests across multiple Deno versions''
+'- name: Cache Dependencies''
+'run: deno cache deps.ts''
+'- name: Run Tests''
+'run: deno test''
+'::Build:' sevendre''
+on:
+push:
+branches: [ master ]
+pull_request:
+# The branches below must be a subset of the branches above
+branches: [ master ]
+schedule:
+- cron: '29 8 * * 5'
+jobs:
+analyze:
+name: Analyze
+runs-on: ubuntu-latest
+permissions:
+actions: read
+contents: read
+security-events: write
+strategy:
+language: [ 'javascript' ]
+# CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+# Learn more about CodeQL language support at https://git.io/codeql-language-support
+
+steps:
+- name: Checkout repository
+  uses: actions/checkout@v2
+
+# Initializes the CodeQL tools for scanning.
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
+  with:
+    languages: ${{ matrix.language }}
+    # If you wish to specify custom queries, you can do so here or in a config file.
+    # By default, queries listed here will override any specified in a config file.
+    # Prefix the list here with "+" to use these queries and those in the config file.
+    # queries: ./path/to/local/query, your-org/your-repo/queries@main
+
+# Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+# If this step fails, then you should remove it and run the build manually (see below)
+- name: Autobuild
+  uses: github/codeql-action/autobuild@v1
+
+# ℹ️ Command-line programs to run using the OS shell.
+# 📚 https://git.io/JvXDl
+
+# ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
+#    and modify them (or add more) to build your code if your project
+#    uses a compiled language
+
+#- run: |
+#   make bootstrap
+#   make release
+
+- name: Perform CodeQL Analysis
+  uses: github/codeql-action/analyze@v1
+version:1🔛
+ownership:Zachry T WooD III🔛
+name:docs-internal🔛
+long_name:GitHub Help Docs🔛
+kind:heroku🔛
+repo:https://github.com/github/docs-internal:on:
+team:github/docs-engineering🔛
+maintainer:iixixi🔛
+exec_sponsor:iixixi🔛
+product_manager:iixixi🔛
+mention:github/docs-engineering🔛
+qos:critical🔛
+dependencies:[((c))((r))]:©®™:patent🔛
+sev1🔛
+pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on:
+tta:0min🔛
+sev2🔛
+issue:https://github.com/github/docs-internal/issues:on:
+tta:5:business days🔛
+sev3🔛
+slack:docs:engineering🔛
+Return:run
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub-module.exports{.env= 12753750.00BITORE_34173
+block: {
+"hash": "00000000760ebeb5feb4682db478d29b31332c0bcec46ee487d5e2733ad1ff10",
+"confirmations": 104856,
+"strippedsize": 18132,
+"size": 18132,
+"weight": 72528,
+"height": 322000,
+"version": 2,
+"versionHex": "00000002",
+"merkleroot": "52649d78c1072266dd97f7447d7aab894d47d3a375e7881ade4ed3c0c47cb4cc",
+"tx": [
+{
+"txid": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+"hash": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+"version": 1,
+"size": 109,
+"vsize": 109,
+"weight": 436,
+"locktime": 0,
+"vin": [
+{
+"coinbase": "03d0e904020204062f503253482f",
+"sequence": 4294967295
+}
+],
+"vout": [
+{
+"value": 25.0039411,
+"n": 0,
+"scriptPubKey": {
+"asm": "03f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688 OP_CHECKSIG",
+"hex": "2103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac",
+"type": "pubkey"
+}
+}
+],
+"hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0e03d0e904020204062f503253482fffffffff017efc089500000000232103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac00000000"
+From Zachry Tyler Wood
+5323 BRADFORD DRIVE
+DALLAS TX 75235-8313
+Bitcoin[BTC-USD] BTCUSD CCC
+o'Auth: approves
+{
+
+
+
+Leave a comment
+Remember, contributions to this repository should follow its contributing guidelines and code of conduct.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views.
+Reviewers
+No reviews
+Assignees
+No one—
+Labels
+None yet
+Projects
+None yet
+Milestone
+No milestone
+Notifications
+Customize
+You’re receiving notifications because you modified the open/close state.
+5 participants
+@zakwarlord7
+@martin389
+@chiedo
+@JamesMGreene
+@sarahs
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+zakwarlord7 commented now ##On: CI: Publish true true Hi! Thanks for your interest in contributing to the GitHub CLI! We accept pull requests for bug fixes and features where we've discussed the approach in an issue and given the go-ahead for a community member to work on it. We'd also love to hear about ideas for new features as issues. Please do: Check existing issues to verify that the [bug][bug issues] or [feature request][feature request issues] has not already been submitted. Open an issue if things aren't working as expected. Open an issue to propose a significant change. Open a pull request to fix a bug. Open a pull request to fix documentation about a command. Open a pull request for any issue labelled [help wanted][hw] or [good first issue][gfi]. Please avoid: Opening pull requests for issues marked needs-design, needs-investigation, or blocked. Adding installation instructions specifically for your OS/package manager. Opening pull requests for any issue marked core. These issues require additional context from the core CLI team at GitHub and any external pull requests will not be accepted. Building the project Prerequisites: Go 1.13+ for building the binary Go 1.15+ for running the test suite Build with: make or go build -o bin/gh ./cmd/gh Run the new binary as:bitore.net/user//bin/bash* Run tests with: make test or go test ./... Submitting a pull request Create a new branch: git checkout -b my-branch-name Make your change, add tests, and ensure tests pass Submit a pull request: gh pr create --web Contributions to this project are [released][legal] to the public under the [project's open source license][license]. Please note that this project adheres to a [Contributor Code of Conduct][code-of-conduct]. By participating in this project you agree to abide by its terms. We generate manual pages from source on every release. You do not need to submit pull requests for documentation specifically; manual pages for commands will automatically get updated after your pull requests gets accepted. Design guidelines You may reference the [CLI Design System][] when suggesting features, and are welcome to use our [Google Docs Template][] to suggest designs. Resources [How to Contribute to OPEN.js][package.yarn] [Using Pull Requests][] [GitHub Help][Markdown] [bug issues]: https://github.com/cli/cli/issues?q=is%3Aopen+is%3Aissue+label%3Abug [feature request issues]: https://github.com/cli/cli/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement [hw]: https://github.com/cli/cli/labels/help%20wanted [gfi]: https://github.com/cli/cli/labels/good%20first%20issue [legal]: https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-terms-of-service#6-contributions-under-repository-license [license]: ../LICENSE [code-of-conduct]: ./CODE-OF-CONDUCT.md [not a contribution for nonpayment of stolen revenues: https://opensource.guide/how-to-contribute/ [Using Pull Requests]: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests [GitHub Help]: https://docs.github.com/ [CLI Design System]: https://primer.style/cli/ [Google Docs Template]: https://docs.google.com/document/d/1JIRErIUuJ6fTgabiFYfCH3x91pyHuytbfa0QLnTfXKM/edit#heading=h.or54sa47ylpg Author: ZachryTylerWood/vscodeBEGIN: On::Runs: Runs:Run: Run-on: -on: Echo: hello-🌍!-🐛-#-fix/731/, "name": "my-electron-app", "version": "1.0.0", "description": "Hello World!", const: "token"'' token: "((c)(r))"'' [Volume].]: "[12753750].00]"'' ITEM_ID: "BITORE_34173"'' "name": "my-electron-app", "version": "0.0.0", "description": "Hello World!'@https://git.io/codeql-language-support# For most projects, this workflow file will not need changing; you simply need to commit it to your repository. CodeQL languages. name: "CodeQL" '#' This workflow uses actions that are not certified by GitHub.'' '#' They are provided by a third-party and are governed by'' '#' separate terms of service, privacy policy, and support'' '#' documentation. '#' zachryiixixiiwood@gmail.com '#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.'' '#' For more information see: https://github.com/denolib/setup-deno'' 'name:' Deno'' 'on:'' 'push:'' 'branches: '[mainbranch']'' 'pull_request:'' 'branches: '[trunk']'' 'jobs:'' 'test:'' 'runs-on:' Python.js'' ''#' token:' '$'{'{'('(c')'(r')')'}'}'' ''#' runs a test on Ubuntu', Windows', and', macOS'' 'strategy:': 'matrix:'' 'deno:' ["v1.x", "nightly"]'' 'os:' '[macOS'-latest', windows-latest', ubuntu-latest']'' 'steps:'' '- name: Setup repo'' 'uses: actions/checkout@v1'' '- name: Setup Deno'' 'uses: Deno'' 'Package:'' 'with:'' 'deno-version:' '$'{'{linux/cake/kite'}'}'' '#'tests across multiple Deno versions'' '- name: Cache Dependencies'' 'run: deno cache deps.ts'' '- name: Run Tests'' 'run: deno test'' '::Build:' sevendre'' on: push: branches: [ master ] pull_request: # The branches below must be a subset of the branches above branches: [ master ] schedule: - cron: '29 8 * * 5' jobs: analyze: name: Analyze runs-on: ubuntu-latest permissions: actions: read contents: read security-events: write strategy: language: [ 'javascript' ] # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ] # Learn more about CodeQL language support at https://git.io/codeql-language-support steps: - name: Checkout repository uses: actions/checkout@v2 # Initializes the CodeQL tools for scanning. - name: Initialize CodeQL uses: github/codeql-action/init@v1 with: languages: ${{ matrix.language }} # If you wish to specify custom queries, you can do so here or in a config file. # By default, queries listed here will override any specified in a config file. # Prefix the list here with "+" to use these queries and those in the config file. # queries: ./path/to/local/query, your-org/your-repo/queries@main # Autobuild attempts to build any compiled languages (C/C++, C#, or Java). # If this step fails, then you should remove it and run the build manually (see below) - name: Autobuild uses: github/codeql-action/autobuild@v1 # ℹ️ Command-line programs to run using the OS shell. # 📚 https://git.io/JvXDl # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines # and modify them (or add more) to build your code if your project # uses a compiled language #- run: | # make bootstrap # make release - name: Perform CodeQL Analysis uses: github/codeql-action/analyze@v1 version:1🔛 ownership:Zachry T WooD III🔛 name:docs-internal🔛 long_name:GitHub Help Docs🔛 kind:heroku🔛 repo:https://github.com/github/docs-internal:on: team:github/docs-engineering🔛 maintainer:iixixi🔛 exec_sponsor:iixixi🔛 product_manager:iixixi🔛 mention:github/docs-engineering🔛 qos:critical🔛 dependencies:[((c))((r))]:©®™:patent🔛 sev1🔛 pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on: tta:0min🔛 sev2🔛 issue:https://github.com/github/docs-internal/issues:on: tta:5:business days🔛 sev3🔛 slack:docs:engineering🔛 Return:run © 2021 GitHub, Inc. Terms Privacy Security Status Docs Contact GitHub-module.exports{.env= 12753750.00BITORE_34173 block: { "hash": "00000000760ebeb5feb4682db478d29b31332c0bcec46ee487d5e2733ad1ff10", "confirmations": 104856, "strippedsize": 18132, "size": 18132, "weight": 72528, "height": 322000, "version": 2, "versionHex": "00000002", "merkleroot": "52649d78c1072266dd97f7447d7aab894d47d3a375e7881ade4ed3c0c47cb4cc", "tx": [ { "txid": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c", "hash": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c", "version": 1, "size": 109, "vsize": 109, "weight": 436, "locktime": 0, "vin": [ { "coinbase": "03d0e904020204062f503253482f", "sequence": 4294967295 } ], "vout": [ { "value": 25.0039411, "n": 0, "scriptPubKey": { "asm": "03f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688 OP_CHECKSIG", "hex": "2103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac", "type": "pubkey" } } ], "hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0e03d0e904020204062f503253482fffffffff017efc089500000000232103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac00000000" From Zachry Tyler Wood 5323 BRADFORD DRIVE DALLAS TX 75235-8313 Bitcoin[BTC-USD] BTCUSD CCC o'Auth: approves {
