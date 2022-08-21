@@ -66,7 +66,10 @@ Different contexts are available throughout a workflow run. For example, the `se
 
 In addition, some functions may only be used in certain places. For example, the `hashFiles` function is not available everywhere.
 
-The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere. |{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere. 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+
 | Workflow key               | コンテキスト                     | Special functions          |
 | -------------------------- | -------------------------- | -------------------------- |
 | <code>concurrency</code>  | <code>github, inputs</code>  |                            |
