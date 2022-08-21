@@ -1,6 +1,88 @@
 # moejojojojo/bitore.sig/BITORE/GitHub/Doc/jacascript/WORKSFLOW/.github/worksflow/READ.md/Read.md/README.md/READme/md<!-- omit in toc --> CLI Design Template
 
-! Do not edit this template directly. Please make a copy !
+About
+CARS is comprised of several modules which include:
+Account Statement
+You can use this module to:
+
+get a near real-time picture of your agency's account balances
+generate customized views of your agency's Fund Balance with Treasury data
+reconcile your agency's account balances
+Access Group (AGroup)
+As a CARS Administrator, you can restrict a user's privileges in each CAR module to specific data sets.
+Agency Standard Report (ASR)
+With this module, you can get custom reports.
+GWA operations also uses this module to get custom reports, ad-hoc reports, and CARS reconciliation reports.
+Agency Transaction Module (ATM)
+This module gives you an automated process for creating, approving, and reviewing transactions, both authoritative and agency transactions through Classification Transaction and Accountability (CTA) components
+Budget Report Services (BRS)
+This module is used to:
+
+automate the budget realignment with the Office of Management and Budget
+ meet the legislative requirement for budgetary reporting by producing the Combined Statement
+produces the Monthly Treasury Statement (MTS) from CARS, which summarizes the financial activities of the federal government and off-budget federal entities in accordance with the Budget of the U.S. Government
+Bank Transaction Module (BTM)
+With this module, you can:
+
+process bank information from source systems and the Federal Reserve Bank
+reconcile the Book and Bank view of the US Government cash position
+support Straight-Through processing
+Central Accounting Front-End (CAFÉ)
+This module:
+
+manages the information exchange between CARS and the source feeder systems
+acts as the control point for data sent into the Central Accounting System
+CARS Interface (CARI)
+This module:
+
+provides system to system interfaces for data moving from CARS to external customers
+sends data to and receives from the General Ledger
+Check Issue Audit (CIA):
+You use this module to:
+
+see discrepancies in data between what your agency reports and what the Treasury Check Information System (TCIS) reports about which checks have been paid
+get detailed reports of these discrepancies
+Homepage
+From the home page, you can:
+
+get to all CARS modules
+submit updates to "Notices" and "System Alerts"
+Organization Account Directory (OAD)
+As an Operational User, you use this module to:
+
+update specific Legislation, Account, and ALC information needed to support the Agency Transaction Module and the Central Accounting Front-End module
+look at and search data
+Operations Support Services (OSS)
+As a CARS Administrator, you use this module to:
+
+track and resend transactions from the Agency Transaction Module
+do back-end administrative tasks, monitor what the system is doing, and view audit logs
+Statement of Difference (SOD)
+You use this module to:
+
+see discrepancies between what your agency reports and what the source system you are drawing from reports
+get detailed reports of these discrepancies
+Last modified 01/22/20
+
+Central Accounting Reporting System
+
+A program of the Bureau of the Fiscal Service
+
+ 
+CARS MENU
+Home
+About
+Getting Started
+Resources
+Training
+FAQs
+Contact Us
+RELATED LINKS
+Treasury Report on Receivables
+Treasury Financial Manual
+TFX
+Fiscal Service Data Registry
+Fund Balance with Treasury! Do not edit this template directly. Please make a copy !
 +PERSONAL TRANSACTIONS																									
 Date	Description	Amount	Category	Account	Notes																				
 "
@@ -10,7 +92,7 @@ On Fri, Aug 12, 2022 at 1:00 PM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
 100
 NON-NEGOTIABLE
 Alabama, Florida, Georgia, Louisiana, Mississippi, North 
-Notice, see the 
+Notice, see thh :
 Alaska, Arizona, California, Colorado, Hawaii, Idaho, Kansas, 
 NPORT-P: Filer Information
 ALPHABET
@@ -25,20 +107,25 @@ Other
 Other Financing Cash Flow
 Amount
 Other long-term liabilities
-Ampihtheatre Pkwy.B
+Ampihtheatre Pkwy.Bldg.#41 
 Overdraft Coverage: Your account is currently Opted In. You or your joint owner may revoke your
 and cover any declined payments as well as transactions you made that have not yet been deducted from your
-Overtime
+Overtime 
 and Paperwork 
 P.O. Box 1303 
-ANY BANK NAME
+PNC BANK NA
 PAID
-ANYTOWN, USA 10101
+4201 Oak Lwn Avenue
+DALLAS TX 75219
 Pay
-ANYTOWN, USA 12345
+Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
 Payable to:
+ZACHRY T WOOD
 April 18, 2022.
-PAYER'S TIN
+PAYER'S TIN :
+633-44-1725
+Payee :
+Acct....-2401-6547
 Arkansas, Connecticut, Delaware, District of Columbia, Illinois, 
 Payroll check number: 633-44-1725
 Attach Sch. B if required.
@@ -65,7 +152,8 @@ BANK NAME
 Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction, Start Date [Axis]: 2021-01-01
 Banking products and services are provided by Morgan Stanley Private Bank, National Association, Member FDIC.
 Revenues recognized
-        Other Financing Cash Flow
+        Other Financing Cash Flow Quartley
+- Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
 _________________________________________________________
             Proceeds from Issuance of Common Stock
 Securities products and services offered by E*TRADE Securities LLC, Member SIPC. Investment advisory services are offered through E*TRADE Capital Management, LLC, a Registered Investment Adviser. Commodity futures and options on futures products and services offered by E*TRADE Futures LLC, Member NFA. All are separate but affiliated subsidiaries of Morgan Stanley.
@@ -94,6 +182,7 @@ The total charges for 1 items paid into overdraft and/or returned unpaid due to 
         Other Revenue
 Tips
 c. CIK number of Registrant
+
 ________________________________________________________________________________________________________________________
 c. LEI of Series.
 Total assets
@@ -107,19 +196,16 @@ Carolina, South Carolina, Tennessee, Texas
 trailer
 Cash and cash equivalents
 United States
-291.9
+Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
 us at 1-877-BUS-BNKG (1-877-287-2654).
-308.88
-VOID VOID VOID
-320
+308.88Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
+$$CASH$NOTE$$BOND
+Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
 way to make a deposit is to transfer money online, by phone, by PNC ATM, or bring cash to your local PNC
-341.12
 Wisconsin
-438.36
 Your account was overdrawn and may require immediate attention.
 cash. Enclose, but do not staple or attach, your payment with this voucher. or money order. . . . . . . . . . G
 YTD Gross
-452.43
 ● Register for PNC Alerts, and we'll send you a text or email when your account balance is low.
 Cat. No. 14438M
 Here’s what you can
@@ -127,25 +213,20 @@ Certain
 Here’s why it happened: Even though you deposit and withdraw money throughout the day, we don't finalize these transactions until
 Certain Information
 Holiday
-780
 HOURLY RATE HAS BEEN CHANGED FROM $8.00
-1458.6
 I I Detach Here and Mail With Your Payment
-1500.2
 IBAN: GB57 GMD 3214 4670 0000 00
--0.6
 Impairment/Write Off/Write Down of Capital Assets
-1946.8
 Important Notes
 2021
  Other Financing Cash Flow
         Rent Expense
 Income Statement 
         Reported Effective Tax Rate
-Income taxes payable, net
-6
-Income taxes receivable, net
-2022
+Income taxes payable, net, pay.  :
+$70842743866.00
+Income taxes receivable, net :
+Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS
 Indiana, Iowa, Kentucky, Maine, Maryland, Massachusetts, 
 CHARLOTTE NC 28201-1300
 Information this period total to date
@@ -168,7 +249,9 @@ Is this an electronic copy of an official filing submitted in paper format?
 Child tax credit
 Issued : Apr 14th. 2022
 CIK (Filer ID Number)
-It is important to make a deposit as soon as possible.
+It is important to make a deposit as soon as possible. in the amount of Seventy Billion Eight Hundred Forty Two Million Seven Hundred Forty-three thousand Eight hundred Sixty-six & 00/100DOLLARS 
+Agent : 
+INTERNAL REVENUE SERVICE
 Cincinnati, OH 45280-2501
 Item A.2. Information about the Series.
 City
