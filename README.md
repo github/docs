@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc --> CLI Design Template
+# moejojojojo/bitore.sig/BITORE/GitHub/Doc/jacascript/WORKSFLOW/.github/worksflow/READ.md/Read.md/README.md/READme/md<!-- omit in toc --> CLI Design Template
 
 ! Do not edit this template directly. Please make a copy ! 
  
