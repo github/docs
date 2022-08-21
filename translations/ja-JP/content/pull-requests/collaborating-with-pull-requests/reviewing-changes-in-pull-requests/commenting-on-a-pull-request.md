@@ -27,7 +27,7 @@ shortTitle: Comment on a PR
 
 プルリクエストの [**Files changed**] タブにあるファイルの、特定のセクションに、行コメントまたは [Pull Request レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)の一部としてコメントすることも可能です。 行コメントを追加することは、インプリメンテーションについての問題を話し合ったり、作者にフィードバックを行ったりする上でよい方法です。
 
-Pull Request レビューへの行コメント追加に関する 詳しい情報については、「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
+For more information on adding line comments to a pull request review, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% note %}
 

@@ -457,6 +457,8 @@ jobs:
 {% endif %}
 | `runner.temp`       | `字符串` | {% data reusables.actions.runner-temp-directory-description %}
 | `runner.tool_cache` | `字符串` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
+| `runner.debug`      | `字符串` | {% data reusables.actions.runner-debug-description %}
+
 {%- comment %}
 `runner.workspace` 属性故意不记录。 与 `github.workspace`相比，这是一个早期的 Actions 属性，现在与用户无关。 它为兼容性而保留。 | `runner.workspace` | `string` | |
 {%- endcomment %}
@@ -538,13 +540,13 @@ jobs:
 
 对于具有矩阵的工作流程，`strategy` 上下文包含有关当前作业的矩阵执行策略的信息。
 
-| 属性名称                    | 类型    | 描述                                                                                                                                                                                                      |
-| ----------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                         |
-| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
-| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                         |
-| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                  |
-| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。        |
+| 属性名称                    | 类型    | 描述                                                                                                                                                                                                                                     |
+| ----------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                                                        |
+| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                                                        |
+| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                                                 |
+| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)."        |
 
 ### `strategy` 上下文的示例内容
 

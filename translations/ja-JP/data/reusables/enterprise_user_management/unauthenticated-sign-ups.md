@@ -1,1 +1,1 @@
-By default, people who can access your instance while unauthenticated can create a new personal account on your instance.
+デフォルトでは、未認証でインスタンスにアクセスできる人は、インスタンス上に新しい個人アカウントを作成できます。

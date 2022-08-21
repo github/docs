@@ -1,1 +1,1 @@
-You can read documentation that reflects the features available to you on {% data variables.product.product_name %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% data variables.product.product_name %}で利用できる機能を反映したドキュメンテーションを読むことができます。 詳しい情報については「[{% data variables.product.prodname_docs %}のバージョンについて](/get-started/learning-about-github/about-versions-of-github-docs)」を参照してください。

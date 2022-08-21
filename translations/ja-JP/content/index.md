@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
