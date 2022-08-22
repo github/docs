@@ -32,6 +32,9 @@ search:
   search_error: 尝试执行搜索时出错。
   description: 输入搜索词以在 GitHub 文档中查找。
   label: 搜索 GitHub 文档
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
