@@ -47,17 +47,14 @@ If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials
 
 ## Providing data to track code scanning alerts across runs
 
-<!-- Improve first paragraph to cover all important factors in GitHub's ability to correctly create and track alerts (ruleID, fingerprints, anything else?) -->
 Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the right line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
  
 ### Reporting consistent filepaths
 
-<!-- Explain why this is important and the impact of unstable filepaths (inability to close "fixed" issues automatically, multiple alerts for the same coding pattern?). -->
-The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepaths differ for the same result, each time there is a new analysis a new alert will be created, and the old one will be closed. This will cause having multiple alerts for the same result.
+The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepath differs for the same result, you're not able to close `fixed` issues automatically or you end up having multiple alerts for the issue/problem/code.
 
 ### Including data for fingerprint generation
 
-<!-- Update existing wording to avoid duplicates -- Seems good to me. -->
 {% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
 
 SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
