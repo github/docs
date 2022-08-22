@@ -19,4 +19,10 @@ shortTitle: Configurar el rebase de confirmaciones
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Debajo de {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Solicitudes de cambios"{% else %}"Botón de fusión"{% endif %}, selecciona **Permitir la fusión por rebase**. Esto permite que los colaboradores fusionen una solicitud de extracción al rebasar sus confirmaciones individuales en la rama base. Si también seleccionas otro método de fusión, los colaboradores podrán elegir el tipo de confirmación de fusión al fusionar una solicitud de extracción. {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %} ![Confirmaciones de rebase de solicitudes de extracción](/assets/images/help/repository/pr-merge-rebase.png)
+3. Debajo de {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}"Solicitudes de cambios"{% else %}"Botón de fusión"{% endif %}, selecciona **Permitir la fusión por rebase**. Esto permite que los colaboradores fusionen una solicitud de extracción al rebasar sus confirmaciones individuales en la rama base.
+{% ifversion default-merge-squash-commit-message %}
+ ![Screenshot of Pull Request settings with allow rebase merging checkbox emphasized](/assets/images/help/repository/allow-rebase-merging.png){% endif %}{% ifversion ghes = 3.6  %} ![Screenshot of Pull Request settings with allow rebase merging checkbox emphasized](/assets/images/help/repository/allow-rebase-merging-no-dropdown.png){% endif %}
+ {% ifversion ghes < 3.6  %}
+ ![Confirmaciones de rebase de solicitudes de extracción](/assets/images/help/repository/pr-merge-rebase.png){% endif %}
+
+Si también seleccionas otro método de fusión, los colaboradores podrán elegir el tipo de confirmación de fusión al fusionar una solicitud de extracción. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}

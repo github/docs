@@ -197,15 +197,12 @@ Para ignorar{% ifversion delete-code-scanning-alerts %}ou excluir{% endif %} ale
 {% else %}
   ![Filtrar alertas por regra](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 {% endif %}{% endif %}
-1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar.
-
-![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
-
-1. Revise o alerta e clique em {% ifversion comment-dismissed-code-scanning-alert %}**para ignorar o alerta** e escolher ou digitar um motivo para fechar o alerta. ![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
-{% else %}**Ignorar** e escolher um motivo para fechar o alerta.
-  ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-
+1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar. ![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
+{%- ifversion comment-dismissed-code-scanning-alert %}
+1. Revise o alerta e, em seguida, clique em **Dispensar alerta** e escolha ou digite o motivo para fechar o alerta. ![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
+{%- else %}
+1. Revise o alerta e clique em **Ignorar** e escolha um motivo para fechar o alerta. ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+{%- endif %}
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}

@@ -27,7 +27,7 @@ redirect_from:
 1. En la lista de "Solicitudes de cambios", haz clic en la solicitud de cambios que te gustaría agregar a una cola de fusión.
 
 1. Haz clic en **Fusionar cuando esté lista** para agregar la solicitud de cambios a la cola de fusión. Como alternativa, si eres un administrador, puedes:
-   -  Fusionar la solicitud de cambios directamente seleccionando la opción **Fusionar sin esperar a que se cumplan los requisitos (solo administradores)**, si lo permiten los ajustes de protección de rama, y seguir el flujo estándar. ![Fusionar las opciones de la cola](/assets/images/help/pull_requests/merge-queue-options.png)
+   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow. ![Fusionar las opciones de la cola](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 

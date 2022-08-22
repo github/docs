@@ -26,7 +26,7 @@ topics:
 ページでサポートされている標準的なマークアップや MediaWiki の構文を使ってウィキにリンクを作成できます。 例:
 
 - ページが Markdown でレンダリングされる場合、リンクの構文は `[Link Text](full-URL-of-wiki-page)` です。
-- MediaWiki 構文では、リンクの構文は `[[Link Text|nameofwikipage]]` となります。
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
 ## 画像の追加
 

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** {% data variables.product.prodname_ghe_server %} supports PROXY Protocol V1, which is incompatible with AWS Network Load Balancers. If you use AWS Network Load Balancers with {% data variables.product.prodname_ghe_server %}, do not enable PROXY support.
+**ノート:** {% data variables.product.prodname_ghe_server %}はPROXY Protocol V1をサポートしており、これはAWS Network Load Balancerとは非互換です。 もしもAWS Network Load Balancerを{% data variables.product.prodname_ghe_server %}とともに使うなら、PROXYサポートは有効化しないでください。
 
 {% endnote %}
