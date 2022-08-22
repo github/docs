@@ -3,7 +3,7 @@ import express from 'express'
 import searchVersions from '../../lib/search/versions.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { cacheControlFactory } from '../cache-control.js'
+import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
 import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
 
@@ -12,8 +12,6 @@ const versions = new Set(Object.values(searchVersions))
 const languagesSet = new Set(Object.keys(languages))
 
 const router = express.Router()
-
-const cacheControl = cacheControlFactory(60 * 60 * 24)
 
 const DEFAULT_SIZE = 10
 const MAX_SIZE = 50 // How much you return has a strong impact on performance
@@ -137,7 +135,7 @@ router.get(
       }
     })
     if (process.env.NODE_ENV !== 'development') {
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     res.setHeader('x-search-legacy', 'yes')
@@ -227,7 +225,7 @@ router.get(
       // So the only distinguishing key is the request URL.
       // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
       // cache and hold on to this.
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     // The v1 version of the output matches perfectly what comes out

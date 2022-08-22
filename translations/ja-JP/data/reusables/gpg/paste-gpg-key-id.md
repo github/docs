@@ -1,9 +1,9 @@
-1. To set your primary GPG signing key in Git, paste the text below, substituting in the GPG primary key ID you'd like to use. この例では、GPG キー ID は `3AA5C34371567BD2` です。
+1. プライマリGPG署名キーをGitで設定するには、使用したいGPGプライマリキーIDを置き換えて以下のテキストを貼り付けてください。 この例では、GPG キー ID は `3AA5C34371567BD2` です。
    ```shell
    $ git config --global user.signingkey <em>3AA5C34371567BD2</em>
    ```
 
-   Alternatively, when setting a subkey include the `!` suffix. In this example, the GPG subkey ID is `4BB6D45482678BE3`:
+   あるいは、`!`を含めてサブキーを設定する場合は以下のようにしてください。 この例では、GPGサブキーIDは`4BB6D45482678BE3`です:
    ```shell
    $ git config --global user.signingkey <em>4BB6D45482678BE3</em>!
    ```
