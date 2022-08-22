@@ -98,4 +98,4 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 {% data reusables.saml.external-identity-audit-events %}
 
-For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+詳しい情報については「[OrganizationのAudit logのレビュー](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」を参照してください。

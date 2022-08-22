@@ -71,8 +71,8 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 
 * Reusable workflows can't call other reusable workflows.
 * Reusable workflows stored within a private repository can only be used by workflows within the same repository.
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."
-* The `strategy` property is not supported in any job that calls a reusable workflow.
+* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
+* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
 
 ## Creating a reusable workflow
 
@@ -164,7 +164,36 @@ jobs:
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+{% ifversion actions-reusable-workflow-matrix %}
+## Using a matrix strategy with a reusable workflow
 
+Jobs using the matrix strategy can call a reusable workflow.
+
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+
+### Example matrix strategy with a reusable workflow
+
+This workflow file references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. The workflow file also calls a reusable workflow by using the `uses` keyword.
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow with matrix strategy
+
+on:
+  push:
+
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
+    with:
+      target: ${{ matrix.target }}
+```
+{% endraw %}
+
+{% endif %}
 ## Calling a reusable workflow
 
 You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
@@ -236,7 +265,10 @@ jobs:
 
 ## Using outputs from a reusable workflow
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.
+A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
+
+If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value. 
+That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
 

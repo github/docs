@@ -27,7 +27,7 @@ redirect_from:
 1. 在“Pull Requests（拉取请求）”列表中，单击要添加到合并队列的拉取请求。
 
 1. 单击 **Merge when ready（准备就绪时合并）**将拉取请求添加到合并队列中。 或者，如果您是管理员，则可以：
-   -  如果分支保护设置允许，可直接合并请求，方法是选中 **Merge without waiting for requirements to be met (administrators only)（合并，而无需等待满足要求 [仅限管理员]）**，并遵循标准流程。 ![合并队列选项](/assets/images/help/pull_requests/merge-queue-options.png)
+   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow. ![合并队列选项](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
