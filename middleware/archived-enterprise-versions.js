@@ -69,8 +69,11 @@ const cacheAggressively = (res) => {
 const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which much less than 500ms.
-const timeoutConfiguration = { response: 500 }
+// which much less than 1500ms.
+// We have observed errors of timeout, in production, when it was
+// set to 500ms. Let's try to be very conservative here to avoid
+// unnecessary error reporting.
+const timeoutConfiguration = { response: 1500 }
 
 async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
