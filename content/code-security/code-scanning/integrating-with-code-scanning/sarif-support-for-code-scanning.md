@@ -51,7 +51,7 @@ Each time the results of a new code scan are uploaded, the results are processed
  
 ### Reporting consistent filepaths
 
-The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepath differs for the same result, you're not able to close `fixed` issues automatically or you end up having multiple alerts for the issue/problem/code.
+The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepaths differ for the same result, each time there is a new analysis a new alert will be created, and the old one will be closed. This will cause having multiple alerts for the same result.
 
 ### Including data for fingerprint generation
 
