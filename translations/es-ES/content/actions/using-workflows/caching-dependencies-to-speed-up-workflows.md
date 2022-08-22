@@ -121,7 +121,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -172,12 +172,12 @@ npm-d5ea0750
 
 ### Utilizar la salida de la acción `cache`
 
-Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. Si se suscita una omisión en caché (no se encontró una coincidencia exacta para un caché en la `key` especificada), la salida `cache-hit` se configura en `false`.
+Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
 En el flujo de trabajo del ejemplo anterior, hay un paso que lista el estado de los módulos de nodo si se suscitó una omisión de caché:
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

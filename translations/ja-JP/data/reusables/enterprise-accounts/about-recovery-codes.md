@@ -1,1 +1,1 @@
-If a SAML configuration error or an issue with your identity provider (IdP) prevents you from using SAML SSO, you can use a recovery code to access your enterprise.
+SAMLの設定エラーもしくはアイデンティティプロバイダ（IdP）の問題によってSAML SSOが使えないなら、リカバリコードを使ってEnterpriseにアクセスできます。

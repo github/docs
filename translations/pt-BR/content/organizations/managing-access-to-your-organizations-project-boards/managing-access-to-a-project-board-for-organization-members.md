@@ -1,6 +1,6 @@
 ---
-title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
+title: 'Gerenciando o acesso a um {% data variables.product.prodname_project_v1 %} para os integrantes da organização'
+intro: 'Como proprietário de uma organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode definir um nível de permissão padrão para um {% data variables.projects.projects_v1_board %} para todos os membros da organização.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -18,13 +18,13 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
+Por padrão, os integrantes da organização têm acesso de gravação ao {% data variables.projects.projects_v1_boards %} da sua organização, a menos que os proprietários da organização ou administradores de {% data variables.projects.projects_v1_board %} definam permissões diferentes para {% data variables.projects.projects_v1_boards %} específicos.
 
 ## Configurar um nível referencial de permissão para todos os integrantes da organização
 
 {% tip %}
 
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+**Dica:** Você pode conceder permissões superiores a um integrante da organização para {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 

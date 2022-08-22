@@ -13,6 +13,7 @@ children:
   - /developing-in-a-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
+  - /renaming-a-codespace
   - /deleting-a-codespace
   - /forwarding-ports-in-your-codespace
   - /default-environment-variables-for-your-codespace

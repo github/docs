@@ -1,6 +1,6 @@
 ---
-title: 'Viewing insights from your {% data variables.projects.project_v2 %}'
-shortTitle: Viewing insights
+title: 'Visualizando insights do seu {% data variables.projects.project_v2 %}'
+shortTitle: Visualizando insights
 intro: ...
 versions:
   feature: projects-v2
