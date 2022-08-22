@@ -1,6 +1,9 @@
 import { Client } from '@elastic/elasticsearch'
 
-const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL || 'http://localhost:9200'
+// The reason this is exported is so the middleware endpoints can
+// find out if the environment variable has been set (and is truthy)
+// before attempting to call the main function in this file.
+export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The Dormant Users report is currently in beta and subject to change. During the beta, ongoing improvements to the report download feature may limit its availability.
+**ノート:** 休眠ユーザレポートは現在ベータであり、変更されることがあります。 ベータの期間中、レポートダウンロード機能への継続的な改善により、その可能性が制限されることがあります。
 
 {% endnote %}
