@@ -1,5 +1,6 @@
 import { get } from 'lodash-es'
 
+import FailBot from '../lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
@@ -40,6 +41,13 @@ async function buildMiniTocItems(req) {
 
 export default async function renderPage(req, res, next) {
   const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
   const { page } = context
   const path = req.pagePath || req.path
   browserCacheControl(res)
