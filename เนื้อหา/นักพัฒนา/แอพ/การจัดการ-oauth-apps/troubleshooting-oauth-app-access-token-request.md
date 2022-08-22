@@ -44,7 +44,7 @@ If you provide a `redirect_uri` that doesn't match what you've registered with y
 {
   "error": "redirect_uri_mismatch",
   "error_description": "The redirect_uri MUST match the registered callback URL for this application.",
-  "error_uri": "/apps/managing-oauth-apps/troubleshooting-authorization-request-errors/#redirect-uri-mismatch2"
+  "error_uri": "/apps/managing-oauth-apps/troubleshooting-authorization-request/#redirect-uri-mismatch2"
 }
 ```
 
