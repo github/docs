@@ -1,1 +1,1 @@
-1. Click the **Runner groups** tab.
+1. **Runner groups（ランナーグループ）**タブをクリックしてください。
