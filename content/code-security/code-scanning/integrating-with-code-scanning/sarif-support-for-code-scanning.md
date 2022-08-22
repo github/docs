@@ -47,7 +47,7 @@ If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials
 
 ## Providing data to track code scanning alerts across runs
 
-Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the right line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
+Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
  
 ### Reporting consistent filepaths
 
