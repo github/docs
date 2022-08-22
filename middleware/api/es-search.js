@@ -1,6 +1,9 @@
 import { Client } from '@elastic/elasticsearch'
 
-const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL || 'http://localhost:9200'
+// The reason this is exported is so the middleware endpoints can
+// find out if the environment variable has been set (and is truthy)
+// before attempting to call the main function in this file.
+export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
@@ -123,8 +126,25 @@ export async function getSearchResults({
 }
 
 function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
+  const BOOST_PHRASE = 10.0
+  const BOOST_TITLE = 4.0
+  const BOOST_HEADINGS = 3.0
+  const BOOST_CONTENT = 1.0
+  const BOOST_AND = 2.5
+  // Number doesn't matter so much but just make sure it's
+  // boosted low. Because we only really want this to come into
+  // play if nothing else matches. E.g. a search for `Acions`
+  // which wouldn't find anythig else anyway.
+  const BOOST_FUZZY = 0.1
+
   const matchQueries = []
-  if (query.includes(' ')) {
+
+  // If the query input is multiple words, it's good to know because you can
+  // make the query do `match_phrase` and you can make `match` query
+  // with the `AND` operator (`OR` is the default).
+  const isMultiWordQuery = query.includes(' ') || query.includes('-')
+
+  if (isMultiWordQuery) {
     // If the query contains spaces, prioritize a "match phrase" query
     // beyond a regular "match" query.
     // Basically, that means if you search for 'foo bar' we'd rather
@@ -148,29 +168,38 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
     const matchPhraseStrategy = usePrefixSearch ? 'match_phrase_prefix' : 'match_phrase'
     matchQueries.push(
       ...[
-        { [matchPhraseStrategy]: { title: { boost: 20.0, query } } },
-        { [matchPhraseStrategy]: { headings: { boost: 6.0, query } } },
-        { [matchPhraseStrategy]: { content: { boost: 2.0, query } } },
+        { [matchPhraseStrategy]: { title: { boost: BOOST_PHRASE * BOOST_TITLE, query } } },
+        { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
+        { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
       ]
     )
   }
 
   // Unless the query was something like `"foo bar"` search on each word
-  if (!(query.includes(' ') && query.startsWith('"') && query.endsWith('"'))) {
-    if (usePrefixSearch && !query.includes(' ')) {
+  if (!(isMultiWordQuery && query.startsWith('"') && query.endsWith('"'))) {
+    if (usePrefixSearch && !isMultiWordQuery) {
       matchQueries.push(
         ...[
-          { prefix: { title: { boost: 10.0, value: query } } },
-          { prefix: { headings: { boost: 3.0, value: query } } },
-          { prefix: { content: { boost: 0.5, value: query } } },
+          { prefix: { title: { boost: BOOST_TITLE, value: query } } },
+          { prefix: { headings: { boost: BOOST_HEADINGS, value: query } } },
+          { prefix: { content: { boost: BOOST_CONTENT, value: query } } },
         ]
       )
     } else {
+      if (isMultiWordQuery) {
+        matchQueries.push(
+          ...[
+            { match: { title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' } } },
+            { match: { headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' } } },
+            { match: { content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' } } },
+          ]
+        )
+      }
       matchQueries.push(
         ...[
-          { match: { title: { boost: 10.0, query } } },
-          { match: { headings: { boost: 3.0, query } } },
-          { match: { content: { boost: 0.5, query } } },
+          { match: { title: { boost: BOOST_TITLE, query } } },
+          { match: { headings: { boost: BOOST_HEADINGS, query } } },
+          { match: { content: { boost: BOOST_CONTENT, query } } },
         ]
       )
     }
@@ -183,7 +212,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   if (query.length > fuzzy.minLength && query.length < fuzzy.maxLength) {
     matchQueries.push({
       fuzzy: {
-        title: { value: query },
+        title: { value: query, boost: BOOST_FUZZY },
       },
     })
   }

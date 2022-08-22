@@ -116,7 +116,8 @@ sections:
       heading: La gráfica de dependencias es compatible con GitHub Actions
       notes:
         - |
-          La gráfica de dependencias ahora detecta archivos YAML para los flujos de trabajo de GitHub Actions. GitHub Enterprise Server mostrará los archivos de flujo de trabajo dentro de la sección de gráfica de dependencias de la pestaña **Perspectivas**. Los repositorios que publiquen acciones también podrán ver la cantidad de repositorios que dependen de esa acción desde el control de "Utilizado por" en la página principal del repositorio. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
     - 
       heading: El resumen de seguridad para empresas está en beta público
       notes:
@@ -200,7 +201,8 @@ sections:
       heading: Volver a abrir las alertas descartadas del Dependabot
       notes:
         - |
-          Ahora puedes reabrir las alertas descartadas del Dependabot a través de la página de IU para una alerta cerrada. Esto no afecta a las solicitudes de cambio del Dependabot ni a la API de GraphQL. Para obtener más información, consulta la sección "[Acerca de las alertas del Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
     - 
       heading: La compatibilidad de Pub para las actualizaciones de versión del Dependabot se encuentra en beta público
       notes:
@@ -238,13 +240,13 @@ sections:
       heading: Los eventos de Git en la bitácora de auditoría empresarial
       notes:
         - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
+          Los siguientes eventos relacionados con Git ahora pueden aparecer en la bitácora de auditoría de la empresa. Si habilitas la característica y configuras un periodo de retención de bitácoras de auditoría, los eventos nuevos estarán disponibles para su búsqueda a través de la IU y la API o para exportarlos por JSON o CSV.
 
           - `git.clone`
           - `git.fetch`
           - `git.push`
 
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+          Debido a la gran cantidad de eventos de Git registrados, te recomendamos que monitorees el almacenamiento de archivos de tu instancia y revises tus configuraciones de alertas relacionadas. Para obtener más información, consulta la sección "[Configurar la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)".
     - 
       heading: Mejoras a CODEOWNERS
       notes:
@@ -260,11 +262,12 @@ sections:
       heading: Más formas de mantener actualizada la rama de tema de una solicitud de cambios
       notes:
         - |
-          El botón de **Actualizar rama** en la página de solicitud de cambios te permite actualizar la rama de esta con los últimos cambios de la rama base. Esto es útil para verificar que tus cambios sean compatibles con la versión actual de la rama base antes de fusionar. Dos mejoras ahora te proporcionan más opciones para mantener tu rama actualizada.
+          The **Update branch** button on the pull request page lets you update your pull request's branch with the latest changes from the base branch. This is useful for verifying your changes are compatible with the current version of the base branch before you merge. Two enhancements now give you more ways to keep your branch up-to-date.
 
-          - Cuando la rama de tema de tu solicitud de cambios está desactualizada con la rama base, ahora tienes la opción de actualizarla si rebasas en la última versión de la rama base. El rebase aplica los cambios de tu rama en la versión más reciente de la rama base, lo cuál da como resultado una rama con un historial linear, ya que no se crea ninguna confirmación de fusión. Para actualizar por rebase, haz clic en el menú desplegable junto al botón de **Actualizar rama**, luego en **Actualizar con rebase** y luego en *rebasar rama**, Anteriormente, el botón de **Actualizar rama** realizaba una fusión tradicional que siempre daba como resultado una confirmación de fusión en la rama de tu solicitud de cambios. Esta opción aún sigue disponible, pero ahora tú tienes la elección. para obtener más información, consulta la sección "[Mantener tu solicitud de cambios sincronizada con la rama base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)".
+          - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
 
-          - Un nuevo ajuste de repositorio permite que el botón de **Actualizar rama** siempre esté disponible cuando la rama de tema de una solicitud de cambios no está actualizada con la rama base. Anteriormente, este botón solo estaba disponible cuando el ajuste de protección de rama **Siempre sugerir la actualización de las ramas de las solicitudes de cambio** estaba habilitado. Las personas con acceso de mantenedor o administrativo pueden administrar el ajuste de **Siempre sugerir actualizar las ramas de las solicitudes de cambio** de la sección **Solicitudes de cambio** en los ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar las sugerencias para actualizar las ramas de las solicitudes de cambios](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)".
+          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
     - 
       heading: Configurar los encabezados personalizados de HTTP para los sitios de GitHub Pages
       notes:
@@ -279,7 +282,8 @@ sections:
       heading: El tema claro de contraste alto está disponible en general
       notes:
         - |
-          Ahora está disponible un tema de alto contraste para el público en general, el cual tiene un contraste mayor entre los elementos de fondo y de primer plano. Para obtener más información, consulta la sección "[Administrar los ajustes de tu tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)".
+          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
     - 
       heading: Reglas de protección de etiquetas
       notes:
@@ -290,12 +294,12 @@ sections:
       Ahora es posible que las GitHub Apps carguen activos de lanzamiento.
   changes:
     - |
-      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
+      Los requisitos mínimos de memoria y almacenamiento en raíz aumentaron para GitHub Enterprise Server 2.10 y 3.0 y ahora se ofrecen desde la versión 3.5.0.
 
-        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
-        - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+        - En la versión 2.10, el requisito mínimo para almacenamiento en raíz subió de 80 GB a 200 GB. Desde la versión 3.5.0, las verificaciones preliminares de sistema fallarán si el almacenamiento en raíz es menor a 80 GB.
+        - En la versión 3.0, el requisito mínimo de memoria subió de 16 GB a 32 GB. Desde la versión 3.5.0, las verificaciones preliminares de sistema fallarán si el sistema tiene menos de 28 GB de memoria.
 
-      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+      Para obtener más información, consulta los requisitos mínimos para cada plataforma de despliegue compatible en la sección "[Configurar una instancia de GitHub Enterprise Server](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Actualizado: 2022-06-20]
     - |
       Para utilizar el flujo de autorización de dispositivos para las OAuth y GitHub Apps, debes habilitar la característica manualmente. Este cambio reduce la probabilidad de que se utilicen las apps en ataques de phishing contra los usuarios de GitHub Enterprise Server al asegurarse de que los integradores están consientes de los riesgos y toman decisiones conscientes para apoyar esta forma de autenticación. Si eres propietario o administras una OAuth App o GitHub App y quieres utilizar el flujo de dispositivos, puedes habilitarlo para tu app a través de la página de ajustes de la misma. Las terminales de la API de flujo de dispositivos responderán con el código de estado `400` a las apps que no hayan habilitado esta característica. Para obtener más información consulta la sección "[Autorizar las OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)".
     - |
@@ -345,5 +349,13 @@ sections:
     - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Los servicios de las acciones necesitan reiniciarse después de restablecer un aplicativo de un respaldo que se llevó a un host diferente.
-    - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 patch release. [Updated: 2022-06-10]'
     - 'La consola de administración podría haberse mostrado atascada en la pantalla de _Starting_ después de mejorar una instancia subaprovisionada para GitHub Enterprise Server 3.5. [Actualizado: 2022-06-20]'
+    - |
+      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+
+      - Detection of GitHub Actions workflow files for the dependency graph
+      - Reopening of dismissed Dependabot alerts
+      - Enabling the **Update branch** button for all pull requests in a repository
+      - Light high contrast theme
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

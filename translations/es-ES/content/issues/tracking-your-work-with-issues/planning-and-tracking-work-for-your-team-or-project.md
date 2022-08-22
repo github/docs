@@ -95,20 +95,20 @@ A continuación se encuentra un ejemplo de una etiqueta de `front-end` que cream
 
 {% ifversion projects-v2 %}
 
-You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. Un proyecto es una hoja de cálculo personalizada que se integra con tus propuestas y solicitudes de cambvios en {% data variables.product.prodname_dotcom %} y que se actualiza automáticamente con la información de {% data variables.product.prodname_dotcom %}. Puedes personalziar el diseño si filtras, clasificas y agrupas tus propuestas y solicitudes de cambios. To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
-### Project example
+Puedes utilizar {% data variables.projects.projects_v2 %} en {% data variables.product.prodname_dotcom %} para planear y rastrear el trabajo para tu equipo. Un proyecto es una hoja de cálculo personalizada que se integra con tus propuestas y solicitudes de cambvios en {% data variables.product.prodname_dotcom %} y que se actualiza automáticamente con la información de {% data variables.product.prodname_dotcom %}. Puedes personalziar el diseño si filtras, clasificas y agrupas tus propuestas y solicitudes de cambios. Para iniciar con los proyectos, consulta la sección "[Inicio rápido para los proyectos](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)".
+### Ejemplo de proyecto
 Aquí tienes el diseño de tabla de un proyecto ejemplo, la cual se llenó con propuestas del proyecto Octocat que hemos creado.
 
-![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Ejemplo de diseño de la tabla de proyectos](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 También podemos ver el mismo proyecto como un tablero.
 
-![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Ejemplo de diseño del tablero de proyectos](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes crear tableros de proyecto para presentar trabajo, planes de alto nivel o incluso listas de verificación. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+Puedes {% ifversion projects-v2 %} utilizar el {% else %} utilizar {% endif %} {% data variables.product.prodname_projects_v1 %} en {% data variables.product.prodname_dotcom %} para planear y rastrear tu trabajo o el de tu equipo. Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes crear tableros de proyecto para presentar trabajo, planes de alto nivel o incluso listas de verificación. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 ### Ejemplo del trablero de proyecto
 A continuación, se presenta un tablero de proyecto para nuestro ejemplo del Proyecto Octocat, con la propuesta que creamos y las propuestas más pequeñas en las que lo dividimos agregadas a este.
 
@@ -125,6 +125,6 @@ Ya aprendiste sobre las herramientas que ofrece {% data variables.product.prodna
 - "[Acerca de las propuestas y solicitudes de cambios](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" para aprender más sobre las plantillas de propuestas
 - "[Administrar etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" para aprender cómo crear, editar y borrar etiquetas
 - "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" para aprender más sobre las tareas
-{% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
-{% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}
+{% ifversion projects-v2 %} - "[Acerca de los proyectos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" para aprender más sobre los proyectos
+- "[Personalizar una vista](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" para aprender cómo personalizar las vistas para los proyectos{% endif %}
+{% ifversion projects-v1 %}- "[Acerca de los {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" para aprender cómo manejar los tableros de proyecto{% endif %}

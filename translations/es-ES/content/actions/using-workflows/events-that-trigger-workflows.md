@@ -385,21 +385,21 @@ on:
 
 ### `merge_group`
 
-| Carga del evento Webhook                                                                           | Tipos de actividad | `GITHUB_SHA`           | `GITHUB_REF`           |
-| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| Carga del evento Webhook                                                                           | Tipos de actividad | `GITHUB_SHA`               | `GITHUB_REF`               |
+| -------------------------------------------------------------------------------------------------- | ------------------ | -------------------------- | -------------------------- |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | El SHA del grupo de fusión | La ref del grupo de fusión |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Nota**: {% data reusables.developer-site.multiple_activity_types %} Aunque solo es compatible el tipo de actividad `checks_requested`, especificarlo mantendrá la especificidad de tu flujo de trabajo si se agregan más tipos de actividad en el futuro. Para obtener más información sobre cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+Ejecuta tu flujo de trabajo cuando se agrega una solicitud de cambio a una cola de fusión, lo cual agrega la solicitud de cambios a un grupo de fusión. Para obtener más información, consulta la sección "[Fusionar una solicitud de cambios con una cola de fusión](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando haya ocurrido la actividad `checks_requested`.
 
 ```yaml
 on:
@@ -443,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Ejecuta tu flujo de trabajo cuando alguien sube información a una rama que sea la fuente de publicación de {% data variables.product.prodname_pages %} si {% data variables.product.prodname_pages %} se encuentra habilitado para el repositorio. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." Para obtener información acerca de la API de REST, consulta la sección "[Páginas](/rest/reference/repos#pages)".
+Ejecuta tu flujo de trabajo cuando alguien sube información a una rama que sea la fuente de publicación de {% data variables.product.prodname_pages %} si {% data variables.product.prodname_pages %} se encuentra habilitado para el repositorio. Para obtener más información sobre las fuentes de publicación de {% data variables.product.prodname_pages %}, consulta la sección "[Configurar una fuente de publicación para tu sitio de GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)". Para obtener información acerca de la API de REST, consulta la sección "[Páginas](/rest/reference/repos#pages)".
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento `page_build`.
 
@@ -924,9 +924,9 @@ jobs:
 
 ### `subir`
 
-| Carga del evento Webhook                                                              | Tipos de actividad | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF`           |
-| ------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| [`subir`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Referencia actualizada |
+| Carga del evento Webhook                                                              | Tipos de actividad | `GITHUB_SHA`                                                                                                                                     | `GITHUB_REF`           |
+| ------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| [`subir`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | Cuando borras una rama, el SHA en la ejecución del flujo de trabajo (y sus refs asociados) se revierte a la rama predeterminada del repositorio. | Referencia actualizada |
 
 {% note %}
 

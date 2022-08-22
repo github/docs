@@ -8,7 +8,6 @@ const COOKIE_NAME = '_docs-events'
 const startVisitTime = Date.now()
 
 let initialized = false
-let csrfToken: string | undefined
 let cookieValue: string | undefined
 let pageEventId: string | undefined
 let maxScrollY = 0
@@ -85,8 +84,6 @@ function getMetaContent(name: string) {
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
   const body = {
-    _csrf: csrfToken,
-
     type,
 
     context: {
@@ -273,9 +270,8 @@ function initPrintEvent() {
   })
 }
 
-export default function initializeEvents(xcsrfToken?: string) {
-  csrfToken = xcsrfToken // always update the csrfToken
-  if (initialized || !xcsrfToken) return
+export function initializeEvents() {
+  if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first
   initLinkEvent()

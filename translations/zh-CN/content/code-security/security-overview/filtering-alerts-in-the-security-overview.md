@@ -25,6 +25,10 @@ shortTitle: 筛选警报
 
 可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
 
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
+
 ## 按仓库过滤
 
 在所有组织级别和团队级别视图中可用。

@@ -134,6 +134,10 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       .filter(([key]) => {
         return key === 'guides' || key === 'popular' || key === 'videos'
       })
+      // This is currently only used to filter out videos with a blank title
+      // indicating that the video is not available for the currently selected
+      // version
+      .filter(([, links]: any) => links.every((link: FeaturedLink) => link.title))
       .map(([key, links]: any) => {
         return {
           label:

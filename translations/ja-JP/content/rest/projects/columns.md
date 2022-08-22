@@ -1,8 +1,8 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} columns'
-shortTitle: カラム
+title: '{% data variables.product.prodname_project_v1_caps %}の列'
+shortTitle: 列
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_project_v1 %} columns API lets you create and manage columns on a {% data variables.projects.projects_v1_board %}.'
+intro: '{% data variables.product.prodname_project_v1 %} columns APIを使うと、{% data variables.projects.projects_v1_board %}上の列の作成及び管理ができます。'
 versions:
   fpt: '*'
   ghes: '*'

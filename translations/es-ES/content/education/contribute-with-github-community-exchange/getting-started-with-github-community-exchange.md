@@ -42,4 +42,4 @@ To report an abusive repository: Go to your {% data variables.product.prodname_c
 
 ## Leer más
 
-- "[Acerca de {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"
+- ""[Acerca de {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""

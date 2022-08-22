@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>仮想環境</b></th>
+    <th style="width:35%"><b>ランナーイメージ</b></th>
     <th style="width:25%"><b>YAMLのワークフローラベル</b></th>
     <th style="width:40%"><b>注釈</b></th>
   </tr>
@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04は現在パブリックベータです。
 </td>
 </tr>
 <tr>
@@ -49,12 +48,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[非推奨]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+<code>ubuntu-20.04</code>もしくは<code>ubuntu-22.04</code>に移行。 詳しい情報については<A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">GitHubブログのポスト</A>を参照してください。
 </td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ macOS Catalina 10.15 <sup>[deprecated]</sup>
 
 {% note %}
 
-**ノート:** `-latest`の仮想環境は、{% data variables.product.prodname_dotcom %}が提供している最新の安定版イメージであり、オペレーティングシステムのベンダーから提供されているオペレーティングシステムの最新バージョンではないことがあります。
+**ノート:** `-latest`ランナーイメージは、{% data variables.product.prodname_dotcom %}が提供する最新の安定版イメージであり、オペレーティングシステムのベンダーが提供する最新バージョンのオペレーティングシステムではないことがあります。
 
 {% endnote %}
 

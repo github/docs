@@ -200,7 +200,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | 在存储库中运行的特定工作流程的每次尝试的唯一编号。 对于工作流程运行的第一次尝试，此数字从 1 开始，并随着每次重新运行而递增。 |
 {%- endif %}
-| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
+| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
 
 ### `github` 上下文的示例内容
 
@@ -457,6 +457,8 @@ jobs:
 {% endif %}
 | `runner.temp`       | `字符串` | {% data reusables.actions.runner-temp-directory-description %}
 | `runner.tool_cache` | `字符串` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
+| `runner.debug`      | `字符串` | {% data reusables.actions.runner-debug-description %}
+
 {%- comment %}
 `runner.workspace` 属性故意不记录。 与 `github.workspace`相比，这是一个早期的 Actions 属性，现在与用户无关。 它为兼容性而保留。 | `runner.workspace` | `string` | |
 {%- endcomment %}
@@ -538,13 +540,13 @@ jobs:
 
 对于具有矩阵的工作流程，`strategy` 上下文包含有关当前作业的矩阵执行策略的信息。
 
-| 属性名称                    | 类型    | 描述                                                                                                                                                                                                      |
-| ----------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                         |
-| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
-| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                         |
-| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                  |
-| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。        |
+| 属性名称                    | 类型    | 描述                                                                                                                                                                                                                                     |
+| ----------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                                                        |
+| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                                                        |
+| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                                                 |
+| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)."        |
 
 ### `strategy` 上下文的示例内容
 

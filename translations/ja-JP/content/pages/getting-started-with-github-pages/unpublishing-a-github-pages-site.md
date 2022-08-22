@@ -22,13 +22,13 @@ shortTitle: Pagesサイトの公開取り下げ
 
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+サイトを取り下げると、サイトは利用できなくなります。 既存のリポジトリの設定や内容は影響されません。
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. **{% data variables.product.prodname_pages %}**の下で、**Your site is live at**メッセージの隣の{% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}をクリックしてください。
+1. 表示されたメニューで**Unpublish site（サイトの取り下げ）**を選択してください。
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![サイトの取り下げのドロップダウンメニュー](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 

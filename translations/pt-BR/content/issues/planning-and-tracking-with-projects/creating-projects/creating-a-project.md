@@ -1,6 +1,6 @@
 ---
 title: 'Criar {% data variables.projects.project_v2 %}'
-intro: Learn how to create an organization or user project.
+intro: Aprenda a criar uma organização ou um projeto de usuário.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -12,19 +12,19 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% data variables.product.prodname_projects_v2 %} are an adaptable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you note down. Você pode adicionar campos personalizados e criar visualizações para fins específicos.
+{% data variables.product.prodname_projects_v2 %} são uma coleção adaptável de itens que permanecem atualizados com os dados do {% data variables.product.company_short %}. Seus projetos podem rastrear problemas, pull requests, e ideias que você anotar. Você pode adicionar campos personalizados e criar visualizações para fins específicos.
 
 ## Criando um projeto
 
 ### Criando um projeto de organização
 
-Organization projects can track issues and pull requests from the organization's repositories.
+Os projetos da organização podem rastrear problemas e pull requests nos repositórios da organização.
 
 {% data reusables.projects.create-project %}
 
 ### Criando um projeto de usuário
 
-User projects can track issues and pull requests from the repositories owned by your personal account.
+Projetos de usuário podem rastrear problemas e pull requests nos repositórios pertencentes à sua conta pessoal.
 
 {% data reusables.projects.create-user-project %}
 
@@ -34,6 +34,6 @@ User projects can track issues and pull requests from the repositories owned by 
 
 ## Leia mais
 
-- "[Adding your project to a repository](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[Adicionando seu projeto a um repositório](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
+- "[Adicionando itens ao seu projeto](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[Personalizando uma visualização de](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"

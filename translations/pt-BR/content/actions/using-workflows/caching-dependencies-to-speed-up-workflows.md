@@ -20,7 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou dependências baixadas de uma execução para outra. Por exemplo, as ferramentas de gerenciamento de pacotes e de dependência, como, por exemplo, Maven, Gradle, npm e Yarn mantêm uma cache local de dependências baixadas.
 
-{% ifversion fpt or ghec %}Os trabalhos nos executores hospedados em {% data variables.product.prodname_dotcom %} começam em um ambiente virtual limpo e devem fazer o download das dependências todas as vezes, o que gera uma maior utilização da rede, maior tempo de execução e aumento dos custos. {% endif %}Para ajudar a acelerar o tempo que leva para recriar arquivos como dependências, {% data variables.product.prodname_dotcom %} pode armazenar arquivos em cache que você usa frequentemente em fluxos de trabalho.
+{% ifversion fpt or ghec %} Os trabalhos em executores hospedados em {% data variables.product.prodname_dotcom %} iniciam em uma imagem limpa do executor e devem fazer o download das dependências a cada vez gerando maior utilização de rede, maior tempo de execução e maior custo. {% endif %}Para ajudar a acelerar o tempo que leva para recriar arquivos como dependências, {% data variables.product.prodname_dotcom %} pode armazenar arquivos em cache que você usa frequentemente em fluxos de trabalho.
 
 Para armazenar dependências em cache para um trabalho, você pode usar a ação {% data variables.product.prodname_dotcom %} de [`cache`](https://github.com/actions/cache). A ação cria e restaura um cache identificado por uma chave única. Como alternativa, se você estiver armazenando em cache os gerentes de pacotes listados abaixo, usar suas respectivas ações de setup-* exige uma configuração mínima e irá criar e restaurar caches de dependências para você.
 
@@ -141,7 +141,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -204,14 +204,14 @@ npm-d5ea0750
 
 ### Usando a saída da ação do `cache`
 
-Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. Se houver uma falha de cache (uma correspondência exata para um cache não foi encontrada para a `chave` especificada), o resultado do `cache-hit` será definido como `falso`.
+Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
 No exemplo de fluxo de trabalho acima, há uma etapa que lista o estado dos módulos do Node se ocorrer uma falha de cache:
 
 
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list
@@ -310,6 +310,6 @@ Para informações sobre como alterar as políticas para o limite de tamanho do 
 
 Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. {% ifversion actions-cache-list-delete-apis %}Você pode usar a API para listar e excluir entradas de cache e ver o seu uso de cache.{% elsif actions-cache-management %}Atualmente você pode usar a API para ver seu uso de cache, com mais funcionalidades em atualizações futuras.{% endif %} Para obter mais informações, consulte o "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" na documentação da API REST.
 
-You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+Você também pode instalar uma extensão de {% data variables.product.prodname_cli %} para gerenciar seus caches pela linha de comando. Para obter mais informações sobre a extensão, consulte [a documentação de extensão](https://github.com/actions/gh-actions-cache#readme). Para obter mais informações sobre extensões de {% data variables.product.prodname_cli %}, consulte "[Usando as extensões de CLI do GitHub](/github-cli/github-cli/using-github-cli-extensions)."
 
 {% endif %}

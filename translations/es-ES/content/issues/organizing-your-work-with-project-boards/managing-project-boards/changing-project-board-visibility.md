@@ -17,11 +17,14 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% tip %}
+{% note %}
 
-**Tip:** Cuando hagas a tu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, los miembros de la organización obtendrán acceso de lectura predeterminadamente. Puedes otorgar permisos de escritura o administración a miembros específicos de la organización si les das acceso a los equipos en los que se encuentran, agregándolos al {% data variables.projects.projects_v1_board %} como colaborador. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
-{% endtip %}
+* {% data reusables.projects.owners-can-limit-visibility-permissions %}
+* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. Puedes otorgar permisos de escritura o administración a miembros específicos de la organización si les das acceso a los equipos en los que se encuentran, agregándolos al {% data variables.projects.projects_v1_board %} como colaborador. Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+
+{% endnote %}
 
 1. Navega al tablero del proyecto que quieres hacer {% ifversion ghae %}interno{% else %}público{% endif %} o privado.
 {% data reusables.project-management.click-menu %}

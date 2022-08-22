@@ -6,9 +6,13 @@ versions:
 shortTitle: Expressões matemáticas
 ---
 
+## Sobre a escrita de expressões matemáticas
+
 Para habilitar uma comunicação clara de expressões matemáticas, {% data variables.product.product_name %} é compatível com a matemática formatada LaTeX dentro do Markdown. Para obter mais informações, consulte [LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics) no Wikibooks.
 
 A capacidade de renderização matemática de {% data variables.product.company_short %} usa MathJax; um motor de exibição baseado em JavaScript. O MathJax é compatível com uma ampla variedade de macros de LaTeX e várias extensões de acessibilidade úteis. Para obter mais informações, consulte [a documentação do MathJax](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) e [a documentação de extensões de acessibilidade do MathJax](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
+
+A renderização de expressões matemáticas está disponível em {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}wikis, {% endif %}e arquivos Markdown.
 
 ## Escrevendo expressões inline
 

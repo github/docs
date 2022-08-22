@@ -11,7 +11,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-## Archiving items
+## Archivar elementos
 
 Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto.
 
@@ -23,7 +23,7 @@ Puedes archivar un elemento para mantener el contexto sobre este en el proyecto,
 ## Restaurar los elementos archivados
 
 1. Navegar a tu proyecto.
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu. ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
+1. En la parte superior derecha, haz clic en {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir el menú. ![Captura de pantalla que muestra el icono de menú](/assets/images/help/projects-v2/open-menu.png)
 1. In the menu, click {% octicon "archive" aria-label="The archive icon" %} **Archived items**. ![Screenshot showing the 'Archived items' menu item](/assets/images/help/projects-v2/archived-items-menu-item.png)
 1. Opcionalmente, para filtrar los elementos archivados que se muestran, teclea tu filtro en la caja de texto superior a la lista de elementos. For more information about the available filters, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)." ![Captura de pantalla que muestra un campo para filtrar los elementos archivados](/assets/images/help/issues/filter-archived-items.png)
 1. To the left of each item title, select the items you would like to restore. ![Captura de pantalla que muestra las casillas de verificación junto a los elementos archivados](/assets/images/help/issues/select-archived-item.png)
