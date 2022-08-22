@@ -1,4 +1,4 @@
----
+---ZachryTylerWood/Vscode
 title: Changing the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
 permissions: People with admin permissions to a repository can change the default branch for the repository.
