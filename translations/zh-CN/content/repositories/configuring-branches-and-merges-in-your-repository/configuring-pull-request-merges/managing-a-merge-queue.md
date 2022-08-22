@@ -19,20 +19,8 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-合并队列创建具有特殊前缀的临时分支，以验证拉取请求更改。 然后，拉取请求中的更改将与最新版本的 `base_branch` 以及队列中位于其前面的更改组合。 {% data variables.product.product_name %} 将在 `base_branch` 的分支保护所需的检查通过后，将所有这些更改合并到 `base_branch` 中。
+合并队列创建具有特殊前缀的临时分支，以验证拉取请求更改。 The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} 将在 `base_branch` 的分支保护所需的检查通过后，将所有这些更改合并到 `base_branch` 中。
 
-您可能需要更新持续集成 (CI) 配置，以便在创建组后触发以特殊前缀 `gh-readonly-queue/{base_branch}` 开头的分支名称的构建。
-
-例如，使用 {% data variables.product.prodname_actions %}，每当面向基本分支 `main` 的拉取请求排队等待合并时，都会运行具有以下触发器的工作流程。
-
-```yaml
-on:
-  push:
-    branches:
-    - gh-readonly-queue/main/**
-```
-
-{% data reusables.pull_requests.merge-queue-merging-method %}
 
 有关合并方法的信息，请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
@@ -45,6 +33,24 @@ on:
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+### Triggering merge group checks with {% data variables.product.prodname_actions %}
+
+You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+
+### Triggering merge group checks with other CI providers
+
+With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
 
 ## 管理合并队列
 

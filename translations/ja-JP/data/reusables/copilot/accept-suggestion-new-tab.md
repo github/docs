@@ -1,1 +1,1 @@
-1. To accept a suggestion from the new tab, above the suggestion you want to accept, click **Accept solution**.
+1. 新しいタブからの提案を受け入れるには、受け入れたい提案の上の**Accept solution（ソリューションを受け入れる）**をクリックしてください。

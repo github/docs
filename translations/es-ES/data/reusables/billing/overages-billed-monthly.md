@@ -1,1 +1,1 @@
-Overages are always billed monthly regardless of your billing term (even if your account is otherwise billed annually).
+Los excedentes siempre se facturan mensualmente sin importar tu periodo de facturación (incluso si a tu cuenta se le factura anualmente).

@@ -67,6 +67,8 @@ The following example workflow demonstrates how to build and deploy a Java proje
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy JAR app to Azure Web App
 
 env:

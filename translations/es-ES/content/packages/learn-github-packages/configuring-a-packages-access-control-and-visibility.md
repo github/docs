@@ -16,7 +16,7 @@ shortTitle: Visibilidad & control de accesos
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar la visibilidad y el control de accesos de un paquete por separado desde el repositorio al cual está conectado (o enlazado).
 
-Actualmente, solo puedes utilizar permisos granulares con el {% data variables.product.prodname_container_registry %}. Los permisos granulares no son compatibles en nuestros otros registros de paquetes, tales como el registro de npm.
+Actualmente, solo puedes utilizar permisos granulares con el {% data variables.product.prodname_container_registry %}. Los permisos granulares no son compatibles en nuestros otros registros de paquete, tales como el registro de npm.{% ifversion docker-ghcr-enterprise-migration %} Para obtener más información sobre la migración del {% data variables.product.prodname_container_registry %}, consulta la sección "[Migrarse al {% data variables.product.prodname_container_registry %} desde el registro de Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)".{% endif %}
 
 Para obtener más información sobre los permisos de los paquetes con alcance de repositorio, los alcances relacionados con paquetes para los PAT o para administrar permisos para los flujos de trabajo de tus acciones, consulta la sección "[Acerca de los permisos para los Paquetes de GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)".
 

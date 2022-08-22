@@ -58,12 +58,11 @@ topics:
 
 ### {% data variables.product.prodname_code_scanning_capc %} 结果检查失败
 
-如果 {% data variables.product.prodname_code_scanning %} 结果检查发现严重性为`错误`{% ifversion fpt or ghes > 3.1  or ghae or ghec %}、`严重`或`高`的问题，{% endif %} 检查将失败并在检查结果中报告错误。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
+如果 {% data variables.product.prodname_code_scanning %} 结果检查发现严重性为`错误`、`严重`或`高`的问题， 检查将失败并在检查结果中报告错误。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
 
 ![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}您可以通过指定会导致拉取请求检查失败的严重程度{% ifversion fpt or ghes > 3.1  or ghae or ghec %}和安全严重性{% endif %}来覆盖仓库设置中的默认行为。 更多信息请参阅“[定义导致拉取请求检查失败的严重程度](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
-{% endif %}
+您可以通过指定会导致拉取请求检查失败的严重程度和安全严重程度来覆盖仓库设置中的默认行为。 更多信息请参阅“[定义导致拉取请求检查失败的严重程度](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
 
 ### 其他 {% data variables.product.prodname_code_scanning %} 检查
 
@@ -119,7 +118,7 @@ topics:
 
 关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Dismiss（忽略）**按钮在代码注释和警报摘要中可用。 单击 **Dismiss（忽略）**时，您将被提示选择关闭警报的原因。
 {% ifversion comment-dismissed-code-scanning-alert %}
-![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {% else %}
 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}

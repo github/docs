@@ -99,7 +99,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 
 ## Creating an issue from discussion
 

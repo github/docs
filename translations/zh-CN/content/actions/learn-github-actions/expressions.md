@@ -125,13 +125,21 @@ env:
 
 如果 `search` 包含 `item`，则返回 `true`。 如果 `search` 为数组，此函数在 `item` 为数组中的元素时返回 `true`。 如果 `search` 为字符串，此函数在 `item` 为 `search` 的子字符串时返回 `true`。 此函数不区分大小写。 抛出值到字符串。
 
-#### 使用数组的示例
-
-`contains(github.event.issue.labels.*.name, 'bug')` 返回与事件相关的议题是否带有标签 "bug"。
-
 #### 使用字符串的示例
 
 `contains('Hello world', 'llo')` 返回 `true`.
+
+#### Example using an object filter
+
+`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+
+For more information, see "[Object filters](#object-filters)."
+
+#### Example matching an array of strings
+
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+
+For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -221,7 +229,7 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       - run: build
 ```
@@ -235,7 +243,7 @@ jobs:
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:

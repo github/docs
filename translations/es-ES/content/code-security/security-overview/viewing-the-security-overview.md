@@ -1,11 +1,11 @@
 ---
 title: Ver el resumen de seguridad
 intro: Navegar a las diversas vistas disponibles en el resumen de seguridad
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,8 +18,10 @@ shortTitle: Ver el resumen de seguridad
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
+
+{% data reusables.security-overview.information-varies-GHAS %}
 
 ## Visualizar el resumen de seguridad de una organización
 

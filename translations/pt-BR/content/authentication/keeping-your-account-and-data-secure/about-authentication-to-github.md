@@ -112,8 +112,6 @@ Se você efetuar a autenticação sem {% data variables.product.prodname_cli %},
 
 Para usar um token de acesso pessoal ou chave SSH para acessar recursos pertencentes a uma organização que usa o logon único SAML, você também deve autorizar o token pessoal ou chave SSH. Para mais informações, consulte "[Autorizando um token de acesso pessoal para usar com logon único SAML ](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para usar com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 
 
 ## Formatos de token de {% data variables.product.company_short %}
@@ -128,5 +126,3 @@ Para usar um token de acesso pessoal ou chave SSH para acessar recursos pertence
 | Token de servidor para usuário para {% data variables.product.prodname_github_app %}    | `ghs_`  | "[Autenticar com {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"      |
 | Atualizar token para um {% data variables.product.prodname_github_app %}                | `ghr_`  | "[Atualizar tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)"                                               |
 
-
-{% endif %}

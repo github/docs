@@ -1,6 +1,7 @@
 ---
-title: Aprofundamento nos codespaces
-intro: 'Entender o funcionamento do {% data variables.product.prodname_codespaces %};'
+title: 'Aprofundamento em {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Aprofundamento em {% data variables.product.prodname_codespaces %}'
+intro: 'Entender o funcionamento do {% data variables.product.prodname_github_codespaces %};'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -11,7 +12,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_codespaces %} é um ambiente de desenvolvimento instantâneo e baseado na nuvem que usa um recipiente para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. {% data variables.product.prodname_codespaces %} também é configurável, o que permite que você crie um ambiente de desenvolvimento personalizado para o seu projeto. Ao configurar um ambiente de desenvolvimento personalizado para seu projeto, você pode ter uma configuração de código reproduzível para todos os usuários do seu projeto.
+{% data variables.product.prodname_github_codespaces %} é um ambiente de desenvolvimento instantâneo e baseado na nuvem que usa um recipiente para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. {% data variables.product.prodname_codespaces %} também é configurável, o que permite que você crie um ambiente de desenvolvimento personalizado para o seu projeto. Ao configurar um ambiente de desenvolvimento personalizado para seu projeto, você pode ter uma configuração de código reproduzível para todos os usuários do seu projeto.
 
 ## Criando seu codespace
 
@@ -54,7 +55,7 @@ Uma vez que você estiver conectado ao seu codespace, a sua configuração autom
 
 Se vocÊ quiser usar os hooks do Git no seu codespace, configure os hooks usando os scripts do ciclo de vida do [`devcontainer.json` ](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts) como, por exemplo, `postCreateCommand`. Para obter mais informações, consulte a referência de [`devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) na documentação de {% data variables.product.prodname_vscode_shortname %}.
 
-Se você tiver um repositório de dotfiles público para {% data variables.product.prodname_codespaces %}, você poderá habilitá-lo para uso com novos codespaces. Quando habilitado, seus dotfiles serão clonados para o contêiner e o script de instalação será invocado. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)".
+Se você tiver um repositório de dotfiles público para {% data variables.product.prodname_github_codespaces %}, você poderá habilitá-lo para uso com novos codespaces. Quando habilitado, seus dotfiles serão clonados para o contêiner e o script de instalação será invocado. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)".
 
 Por fim, toda a história do repositório é copiada com um clone completo.
 
@@ -97,7 +98,7 @@ O Git está disponível por padrão no seu codespace. Portanto, você pode confi
 
 ![Executando o status do git no terminal do codespaces](/assets/images/help/codespaces/git-status.png)
 
-Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. No entanto, cada conta pessoal tem um limite de 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
+Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_github_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. No entanto, cada conta pessoal tem um limite de 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
 
 {% note %}
 

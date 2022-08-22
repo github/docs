@@ -1,11 +1,9 @@
 ---
 title: Habilita o inhabilita los debates de GitHub para un repositorio
 intro: 'Puedes utilizar los {% data variables.product.prodname_discussions %} en un repositorio como un lugar para que tu comunidad tenga conversaciones, haga preguntas y publique respuestas sin dimensionar el trabajo en una propuesta.'
-product: '{% data reusables.gated-features.discussions %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Repositories
 redirect_from:

@@ -28,6 +28,8 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - |
       セルフホストランナーを--ephemeral`パラメータ付きで複数レベル（たとえばEnterpriseとOrganizationというように）に登録したあと、ランナーがアイドル状態で停止し、再登録が必要になることがあります。[更新: 2022年6月17日]
+    - '{% data variables.product.prodname_ghe_server %} 3.4にアップグレードしたあと、リリースがリポジトリから失われたように見えることがあります。これは、必要なElasticsearchのインデックスの移行が成功終了していない場合に起こります。'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - 
       heading: GitHub Enterprise Server 3.0の非推奨化

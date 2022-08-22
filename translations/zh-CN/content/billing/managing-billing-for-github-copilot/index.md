@@ -1,7 +1,7 @@
 ---
-title: Managing billing for GitHub Copilot
+title: 管理 GitHub Copilot 的计费
 shortTitle: GitHub Copilot
-intro: 'You can try {% data variables.product.prodname_copilot %} with a free trial before starting your subscription, and modify or cancel your subscription at any time.'
+intro: '在开始订阅之前，您可以通过免费试用版试用 {% data variables.product.prodname_copilot %}，订阅可以随时修改或取消。'
 versions:
   feature: copilot
 children:

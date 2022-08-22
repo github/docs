@@ -45,6 +45,15 @@ Nas conversas do {% data variables.product.product_name %}, as referências a pr
 Se você fizer referência a um problema, pull request ou discussão em uma lista, a referência irá desenrolar-se para mostrar o título e o estado. Para obter mais informações sobre listas de tarefas, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 {% endif %}
 
+## Etiquetas
+Ao fazer referência à URL de uma etiqueta em Markdown, a etiqueta será automaticamente renderizada. Somente etiquetas do mesmo repositório são renderizadas. As URLs apontando para uma etiqueta de um repositório diferente são renderizadas como qualquer [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+
+A URL de uma etiqueta pode ser encontrada acessando a página de etiquetas e clicando em uma etiqueta. Por exemplo, a URL da etiqueta "aprimoramento" em nosso repositório público [](https://github.com/github/docs/) é
+
+```md
+https://github.com/github/docs/labels/enhancement
+```
+
 ## SHAs de commit
 
 As referências em um hash SHA de commit são convertidas automaticamente em links curtos para o commit no {% data variables.product.product_name %}.

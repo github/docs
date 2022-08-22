@@ -22,6 +22,8 @@ Para garantir que você irá ver os detalhes de licença atualizados sobre {% da
 
 Se você não deseja habilitar {% data variables.product.prodname_github_connect %}, você poderá sincronizar manualmente o uso de licença fazendo o upload de um arquivo de {% data variables.product.prodname_ghe_server %} para {% data variables.product.prodname_dotcom_the_website %}.
 
+Ao sincronizar o uso da licença, apenas a ID do usuário e os endereços de e-mail para cada conta de usuário em {% data variables.product.prodname_ghe_server %} serão transmitidos para {% data variables.product.prodname_ghe_cloud %}.
+
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}

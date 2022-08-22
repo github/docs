@@ -137,6 +137,8 @@ Debajo de la llave `env`, cambia el valor de `GKE_CLUSTER` al nombre de tu clús
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and Deploy to GKE
 
 on:

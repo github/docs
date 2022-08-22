@@ -13,7 +13,7 @@ topics:
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 ---
 
-当身份验证配置错误或身份提供程序 (IdP) 问题阻止您使用 SSO 时，您可以使用恢复代码访问您的企业帐户。
+You can use a recovery code to access your enterprise account when an authentication configuration error or an issue with your identity provider (IdP) prevents you from using SSO.
 
 要以这种方式访问您的企业帐户，您必须以前下载并存储了企业的恢复代码。 更多信息请参阅“[下载企业帐户的单点登录恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)”。
 

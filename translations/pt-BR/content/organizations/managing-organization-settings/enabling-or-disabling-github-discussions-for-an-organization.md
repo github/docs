@@ -3,8 +3,7 @@ title: Habilitando ou desabilitando as discussões no GitHub para uma organizaç
 intro: 'Você pode usar o {% data variables.product.prodname_discussions %} em uma organização como um local para a sua organização ter conversas que não são específicas para um único repositório dentro da sua organização.'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Organizations
 shortTitle: Discussões da organização

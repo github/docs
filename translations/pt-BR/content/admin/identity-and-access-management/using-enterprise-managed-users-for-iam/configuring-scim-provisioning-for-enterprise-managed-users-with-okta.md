@@ -85,3 +85,9 @@ Você também pode gerenciar automaticamente a associação da organização ao 
 Ao atribuir aos usuários, você poderá usar o atributo "Funções" no aplicativo de {% data variables.product.prodname_emu_idp_application %} para definir a função de um usuário na sua empresa em {% data variables.product.product_name %}. Para obter mais informações sobre funções, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
 ![Captura de tela que mostra as opções da função para o usuário provisionado do Okta](/assets/images/help/enterprises/okta-emu-user-role.png)
+
+## Desprovisionamento de usuários e grupos
+
+Para remover um usuário ou grupo de {% data variables.product.product_name %}, remova o usuário ou grupo de ambos os campos e a guia "Grupos de push" no Okta. Para usuários, certifique-se de que o usuário seja removido de todos os grupos na aba "Grupos de push".
+
+

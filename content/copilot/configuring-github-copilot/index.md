@@ -3,7 +3,7 @@ title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
 intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 versions:
-  feature: 'copilot'
+  feature: copilot
 topics:
   - Copilot
 children:
@@ -13,3 +13,4 @@ children:
   - /configuring-github-copilot-in-a-jetbrains-ide
   - /configuring-github-copilot-in-neovim
 ---
+

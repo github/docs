@@ -1,6 +1,6 @@
 ---
-title: Organization のプロジェクトボードを無効化
-intro: Organization オーナーは Organization 全体のプロジェクトボードおよび Organization 内にあるリポジトリのプロジェクトボードをオフにできます。
+title: 'Organizationの{% ifversion projects-v2 %}プロジェクト{% else %}プロジェクトボード{% endif %}の無効化'
+intro: 'Organizationのオーナーは、Organizationにおいて{% ifversion projects-v2 %}Organization全体の{% data variables.projects.projects_v2 %}、Organization全体の{% data variables.projects.projects_v1_boards %}、リポジトリレベルの{% data variables.projects.projects_v1_boards %}{% else %}Organization全体のプロジェクトボードとリポジトリのプロジェクトボード{% endif %}をオフにできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -12,12 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: プロジェクトボードの無効化
+shortTitle: プロジェクトの無効化
+allowTitleToDifferFromFilename: true
 ---
 
-Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。
+Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。 {% ifversion projects-v2 %}これらの設定は、{% data variables.projects.projects_v2 %}及び{% data variables.projects.projects_v1_boards %}に適用されます。{% endif %}
 
 Organization 内にあるリポジトリのプロジェクトボードを無効化すると、Organization 内のどのリポジトリでもプロジェクトボードを新たに作成できなくなり、既存の Organization 内にあるリポジトリのプロジェクトボードはそれまでの URL でアクセスできなくなります。 Organization レベルのプロジェクトボードは影響を受けません。
+
 
 プロジェクトボードを無効化すると、タイムラインや[監査ログ](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)でプロジェクトボード情報を見ることができなくなります。
 
@@ -36,7 +38,8 @@ Organization 内にあるリポジトリのプロジェクトボードを無効�
 
 ## 参考リンク
 
-- [プロジェクトボードについて](/articles/about-project-boards)
-- "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"
-- [プロジェクトボードの削除](/articles/deleting-a-project-board)
-- [リポジトリ内のプロジェクトボードを無効化](/articles/disabling-project-boards-in-a-repository)
+{% ifversion projects-v2 %}- 「[{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」{% endif %}
+- [{% data variables.product.prodname_projects_v1 %}について](/articles/about-project-boards)
+- 「[{% data variables.projects.projects_v1_board %}のクローズ](/articles/closing-a-project-board)」
+- 「[{% data variables.projects.projects_v1_board %}の削除](/articles/deleting-a-project-board)」
+- 「[リポジトリでの{% data variables.projects.projects_v1_boards %}の無効化](/articles/disabling-project-boards-in-a-repository)」

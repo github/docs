@@ -55,7 +55,7 @@ Um token com nenhum escopo atribuído só pode acessar informações públicas. 
 8. Clique em **Generate token** (Gerar token). ![Botão Generate token (Gerar token)](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae %}
+   {% elsif ghes or ghae %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)

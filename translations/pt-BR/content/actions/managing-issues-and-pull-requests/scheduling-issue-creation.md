@@ -32,6 +32,8 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Weekly Team Sync
     on:
       schedule:
@@ -40,9 +42,9 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b

@@ -1,1 +1,1 @@
-Activity related to a comment thread on a pull request being marked as resolved or unresolved. {% data reusables.webhooks.action_type_desc %}
+与标记为已解决或未解决的拉取请求上的注释线程相关的活动。 {% data reusables.webhooks.action_type_desc %}

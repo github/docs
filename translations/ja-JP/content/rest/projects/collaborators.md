@@ -1,8 +1,8 @@
 ---
-title: プロジェクトボードのコラボレータ
+title: '{% data variables.product.prodname_project_v1_caps %}のコラボレータ'
 shortTitle: コラボレータ
 allowTitleToDifferFromFilename: true
-intro: Project board collaborators APIを使うと、プロジェクトボード上のコラボレータを管理できます。
+intro: '{% data variables.product.prodname_project_v1 %} collaborators APIを使うと、{% data variables.projects.projects_v1_board %}上のコラボレータを管理できます。'
 versions:
   fpt: '*'
   ghes: '*'

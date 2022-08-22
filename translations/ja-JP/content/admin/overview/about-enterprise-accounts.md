@@ -35,14 +35,14 @@ The enterprise account on {% ifversion ghes %}{% data variables.product.product_
 Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. 詳細は「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
 {% ifversion ghec %}
-Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings.
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. 詳しい情報については「[EnterpriseへのOrganizationの追加](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」を参照してください。
 {% endif %}
 
 Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 {% ifversion ghec %}
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
 
 {% endif %}
 
@@ -82,14 +82,6 @@ For more information about the differences between {% data variables.product.pro
 
 {% endif %}
 
-{% ifversion ghec %}
-
-## {% data variables.product.prodname_emus %}について
-
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
-{% endif %}
-
 ## About billing for your enterprise account
 
 The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion ghec %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}additional paid services for your enterprise{% ifversion ghec %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
@@ -110,7 +102,7 @@ For more information about billing for {% ifversion ghec %}{% data variables.pro
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_enterprise %} offers two deployment options. In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+{% data variables.product.prodname_enterprise %}は、2つのデプロイメントの選択肢を提供します。 In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% endif %}
 

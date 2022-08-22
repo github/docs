@@ -4,6 +4,8 @@ intro: 许可 API 提供有关企业许可的信息。
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

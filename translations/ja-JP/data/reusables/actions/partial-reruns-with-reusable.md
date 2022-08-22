@@ -1,6 +1,6 @@
-Reusable workflows from public repositories can be referenced using a SHA, a release tag, or a branch name. For more information, see ["Calling a reusable workflow"](/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow).
+パブリックリポジトリの再利用可能なワークフローは、SHA、リリースタグ、ブランチ名を使って参照できます。 詳しい情報については[「再利用可能なワークフローの呼び出し」](/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow)を参照してください。
 
-When you re-run a workflow that uses a reusable workflow and the reference is not a SHA, there are some behaviors to be aware of:
+再利用可能なワークフローを使い、その参照がSHAではないワークフローを再実行する場合、注意すべき動作が一部あります。
 
-* Re-running all jobs in a workflow will use the reusable workflow from the specified reference. For more information about re-running all jobs in a workflow, see ["Re-running all the jobs in a workflow"](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow).
-* Re-running failed jobs or a specific job in a workflow will use the reusable workflow from the same commit SHA of the first attempt. For more information about re-running failed jobs in a workflow, see ["Re-running failed jobs in a workflow"](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-failed-jobs-in-a-workflow). For more information about re-running a specific job in a workflow, see ["Re-running a specific job in a workflow"](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-a-specific-job-in-a-workflow).
+* ワークフロー中のすべてのジョブを再実行すると、再利用可能なワークフローを指定された参照から使います。 ワークフロー中のすべてのジョブの再実行に関する詳しい情報については[「ワークフロー中のすべてのジョブの再実行」](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow)を参照してください。
+* 失敗したジョブもしくはワークフロー中の特定のジョブを再実行すると、最初の試行と同じコミットSHAからの再利用可能なワークフローを使います。 ワークフロー中の失敗したジョブの再実行に関する詳しい情報については[「ワークフロー中の失敗したジョブの再実行」](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-failed-jobs-in-a-workflow)を参照してください。 ワークフロー中の特定のジョブの再実行に関する詳しい情報については[「ワークフロー中の特定のジョブの再実行」](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-a-specific-job-in-a-workflow)を参照してください。

@@ -1,12 +1,10 @@
 ---
-title: Organizando seu trabalho com quadros de projetos
-shortTitle: Quadros de projeto
-intro: 'Use os quadros de projetos para gerenciar seu trabalho em {% data variables.product.prodname_dotcom %}'
+title: 'Organizando seu trabalho com {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'Use {% data variables.product.prodname_projects_v1 %} para gerenciar seu trabalho em {% data variables.product.prodname_dotcom %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects

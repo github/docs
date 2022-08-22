@@ -57,7 +57,7 @@ O conjunto de instruções das SSSE3 é necessário porque o {% data variables.p
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Em "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Segurança{% endif %}", clique em **{% data variables.product.prodname_secret_scanning_caps %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. Em "Segurança", clique em **{% data variables.product.prodname_secret_scanning_caps %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Desabilitar {% data variables.product.prodname_secret_scanning %}
@@ -67,5 +67,5 @@ O conjunto de instruções das SSSE3 é necessário porque o {% data variables.p
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Em "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Segurança{% endif %}", desmarque **{% data variables.product.prodname_secret_scanning_caps %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. Em "Segurança", desmarque **{% data variables.product.prodname_secret_scanning_caps %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

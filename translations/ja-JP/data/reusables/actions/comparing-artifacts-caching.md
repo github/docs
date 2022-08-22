@@ -2,5 +2,5 @@
 
 成果物とキャッシングは、{% data variables.product.prodname_dotcom %}にファイルを保存できるようにするので似ていますが、それぞれの機能のユースケースは異なっており、入れ替えて使うことはできません。
 
-- Use caching when you want to reuse files that don't change often between jobs or workflow runs, such as build dependencies from a package management system.
-- Use artifacts when you want to save files produced by a job to view after a workflow run has ended, such as built binaries or build logs. 
+- パッケージ管理システムからのビルドに依存関係など、ジョブやワークフローの実行間で、頻繁に変更されることがないファイルを再利用したい場合にはキャッシュを使ってください。
+- ビルドされたバイナリやビルドログなど、ジョブが生成するファイルを保存して、ワークフローの実行が完了したあとに見たい場合には、成果物を使ってください。 

@@ -1,6 +1,6 @@
-1. When redirected, sign in to your identity provider, then follow the instructions to give consent and install the {% data variables.product.prodname_emu_idp_oidc_application %} application.
+1. リダイレクトされたら、アイデンティティプロバイダにサインインし、{% data variables.product.prodname_emu_idp_oidc_application %}アプリケーションに同意してインストールする指示に従ってください。
    {% warning %}
 
-   **Warning:** You must sign in to Azure AD as a user with global admin rights in order to consent to the installation of the {% data variables.product.prodname_emu_idp_oidc_application %} application.
+   **警告:** {% data variables.product.prodname_emu_idp_oidc_application %}アプリケーションに同意してインストールするには、Azure ADにグローバル管理権限を持つユーザとしてサインインしなければなりません。
 
    {% endwarning %}

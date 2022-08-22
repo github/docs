@@ -1,1 +1,1 @@
-通过单击议题或拉取请求的标题，您可以查看和轻量编辑项目板中的议题和拉取请求。
+You can view and make lightweight edits to issues and pull requests within your {% data variables.projects.projects_v1_board %} by clicking on the issue or pull request's title.

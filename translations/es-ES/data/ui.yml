@@ -5,10 +5,9 @@ header:
   github_docs: GitHub Docs
   contact: Contacto
   notices:
-    ghae_silent_launch: GitHub AE está actualmente en un lanzamiento limitado. Por favor, <a href="https://enterprise.github.com/contact">contacta a nuestro equipo de ventas</a> para conocer más sobre esto.
+    ghae_silent_launch: GitHub AE está actualmente en lanzamiento limitado.
     release_candidate: '# El nombre de la versión se interpreta antes del texto siguiente a través de '' includes/header-notification.html '' se encuentra disponible actualmente como un candidato de lanzamiento. Para obtener más información, consulta la sección "<a href="/admin/overview/about-upgrades-to-new-releases">Acerca de las mejoras para los lanzamientos nuevos</a>".'
-    localization_complete: Frecuentemente publicamos actualizaciones de nuestra documentación. Es posible que la traducción de esta página esté en curso. Para conocer la información más actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>. Si existe un problema con las traducciones en esta página, por favor <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">infórmanos</a>.
-    localization_in_progress: '¡Hola, explorador! Esta página está bajo desarrollo activo o todavía está en la etapa de traducción. Para obtener información más actualizada y precisa, visita nuestra <a id="to-english-doc" href="/en">documentación en inglés</a>.'
+    localization_complete: Publicamos actualizaciones frecuentes a nuestra documentación y la traducción de esta página podría aún estar en curso. Para encontrar la mayoría de la información actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>.
     early_access: '📣 Por favor, <b>no compartas</b> esta URL públicamente. Esta página tiene contenido sobre una característica de acceso temprano.'
     release_notes_use_latest: Por favor, utiliza el lanzamiento más reciente para las últimas correcciones de seguridad, rendimiento y errores.
     #GHES release notes
@@ -33,6 +32,9 @@ search:
   search_error: Ocurrió un error al intentar realizar la búsqueda.
   description: Ingrese un término de búsqueda para encontrarlo en la Documentación de GitHub.
   label: Buscar en los GitHub Docs
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
@@ -96,6 +98,12 @@ products:
       possible_types: Tipos posibles
       preview_notice: Aviso de previsualización
       deprecation_notice: Aviso de depreciación
+      preview_period: Durante el periodo de vista previa, la API podría cambiar sin aviso previo.
+    overview:
+      preview_header: 'Para activar esta vista previa y acceder a los siguientes miembros del modelo, debes proporcionar un tipo de medios personalizado en el encabezado `Accept`:'
+      preview_schema_members: 'Miembros del modelo previstos'
+      announced: Anunciado
+      updates: Actualizaciones
   rest:
     reference:
       default: Predeterminado
@@ -179,7 +187,7 @@ product_landing:
   try_another: Inténtalo con otro archivo o agrega tu ejemplo de código.
   no_result: Lo sentimos, no hay guías que coincidan con tu filtro.
   learn: Aprende cómo agregar un ejemplo de código
-  communities_using_discussions: Comunidades que utilizan debates
+  communities_using_discussions: Comunidades en GitHub.com que utilizan debates
   add_your_community: Agrega tu comunidad
   sponsor_community: Comunidad de GitHub Sponsors
   supported_releases: Lanzamientos compatibles

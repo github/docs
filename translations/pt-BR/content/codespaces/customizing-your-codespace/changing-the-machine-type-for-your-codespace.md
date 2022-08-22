@@ -17,7 +17,7 @@ type: how_to
 
 {% note %}
 
-**Observação:** Você só pode selecionar ou alterar o tipo de máquina se você for integrante de uma organização usando {% data variables.product.prodname_codespaces %} e estiver criando um codespace em um repositório pertencente a essa organização.
+**Observação:** Você só pode selecionar ou alterar o tipo de máquina se você for integrante de uma organização usando {% data variables.product.prodname_github_codespaces %} e estiver criando um codespace em um repositório pertencente a essa organização.
 
 {% endnote %}
 

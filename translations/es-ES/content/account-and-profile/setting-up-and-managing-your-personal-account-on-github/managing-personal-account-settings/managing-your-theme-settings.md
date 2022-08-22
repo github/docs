@@ -4,7 +4,7 @@ intro: 'Puedes administrar la forma en que {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -31,6 +31,15 @@ Puede que quieras utilizar un tema oscuro para reducir el consumo de energía en
    ![Menú desplegable debajo de "Modo del tema" para la selección de las preferencias del tema](/assets/images/help/settings/theme-mode-drop-down-menu.png)
 1. Haz clic en el tema que quieres usar.
     - Si eliges un tema simple, haz clic en un tema.
+
+      {%- ifversion ghes = 3.5 %}
+      {% note %}
+
+      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
+
+      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+      {% endnote %}
+      {%- endif %}
 
       {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - Si eliges seguir tu configuración de sistema, haz clic en un tema de día y de noche.

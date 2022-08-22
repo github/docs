@@ -1,6 +1,6 @@
 ---
 title: Organizations
-intro: 'The Organization Administration API allows you to create organizations on your enterprise.'
+intro: The Organization Administration API allows you to create organizations on your enterprise.
 versions:
   ghes: '*'
   ghae: '*'

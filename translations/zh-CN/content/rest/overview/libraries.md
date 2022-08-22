@@ -74,7 +74,7 @@ topics:
 | 库名称                                                   | 仓库                                                                      |
 | ----------------------------------------------------- | ----------------------------------------------------------------------- |
 | **NodeJS GitHub library**                             | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **gh3 client-side API v3 wrapper**                    | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **gh3 client-side API wrapper**                       | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **关于 GitHub API 的 Github.js 包装程序**                    | [michael/github](https://github.com/michael/github)                     |
 | **适用于 Browser 或 NodeJS 的基于 Promise 的 CoffeeScript 库** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 

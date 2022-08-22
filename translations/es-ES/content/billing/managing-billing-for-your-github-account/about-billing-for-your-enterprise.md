@@ -45,7 +45,11 @@ Puedes ver tu uso actual en tu [Portal de cuenta de Azure](https://portal.azure.
 
 {% ifversion ghec %}
 
-{% data variables.product.company_short %} factura mensualmente por la cantidad total de plazas con licencia para tu organización o cuenta empresarial, así como por cualquier servicio adicional que utilices con {% data variables.product.prodname_ghe_cloud %}, tal como los minutos de {% data variables.product.prodname_actions %}. Para obtener más información sobre la porción de asientos con licencia de tu factura, consulta la sección "[Acerca de los precios por usuario](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
+Cuando utilizas una cuenta de empresa en {% data variables.product.product_location %}, esta es el punto central para toda la facturación de la empresa, incluyendo a las organizaciones que el pertenecen a ella.
+
+Si utilizas {% data variables.product.product_name %} con una organización individual y aún no tienes una cuenta empresarial, puedes crear una y agregar a tu organización. Para obtener más información, consulta la sección "[Crear una cuenta empresarial](/admin/overview/creating-an-enterprise-account)".
+
+{% data variables.product.company_short %} factura mensualmente por la cantidad total de plazas con licencia para tu cuenta empresarial, así como por cualquier servicio adicional que utilice con {% data variables.product.prodname_ghe_cloud %}, tal como los minutos de {% data variables.product.prodname_actions %}. Si utilizas una organización estándar en {% data variables.product.product_name %}, se te facturará a nivel organizacional por todo el uso. Para obtener más información sobre las plazas de licencia de tu factura, consulta la sección "[Acerca de los precios por usuario](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% elsif ghes %}
 

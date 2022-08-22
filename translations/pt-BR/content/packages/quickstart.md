@@ -27,7 +27,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 3. Crie um arquivo `index.js` e adicione um alerta básico que diga "Hello world!"
     {% raw %}
     ```javascript{:copy}
-    alert("Hello, World!");
+    console.log("Hello, World!");
     ```
     {% endraw %}
 4. Inicialize um pacote npm com `npm init`. No assistente de inicialização de pacote, insira seu pacote com o nome: _`@YOUR-USERNAME/YOUR-REPOSITORY`_ e defina o script de teste para `exit 0`. Isto irá gerar um arquivo `package.json` com informações sobre o seu pacote.
@@ -70,10 +70,10 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
           packages: write
-          contents: read{% endif %}
+          contents: read
         steps:
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}

@@ -47,7 +47,7 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 | <kbd>G</kbd> <kbd>P</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | Acesse a aba de **Ações**. Para obter mais informações, consulte "[Sobre ações](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                                                                                                |
-| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | Acesse a aba **Discussões**. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".{% endif %}
 
 ## Edição de código-fonte
@@ -92,8 +92,8 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | Atalho                                                                                                                                                      | Descrição                                                                                                                                                                                                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em negrito                                                                                                                                                                                                               |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para o código ou um comando dentro da linha{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em itálico                                                                                                                                                                                                               |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para o código ou um comando dentro da linha{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para criar um link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Cria um link de Markdown quando aplicado sobre o texto destacado{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -146,7 +146,34 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>Alt</kbd> e clique                              | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla <kbd>Alt</kbd> e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.                                                                                                                       |
 | Clique, em seguida <kbd>Shift</kbd> e clique         | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>Shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)." |
 
-## Quadros de projeto
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navegando em um projeto
+
+| Atalho                                                                          | Descrição                             |
+| ------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Campo de filtro do foco               |
+| <kbd>←</kbd>                                                                    | Mover foco de célula para a esquerda  |
+| <kbd>→</kbd>                                                                    | Mover o foco da célula para a direita |
+| <kbd>↑</kbd>                                                                    | Mover o foco da célula para cima      |
+| <kbd>↓</kbd>                                                                    | Mover o foco da célula para baixo     |
+
+### Manipulando um projeto
+
+| Atalho                                                                                                              | Descrição                                    |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Alternar modo de edição para a célula focada |
+| <kbd>Escape</kbd>                                                                                                   | Cancelar a edição para a célula focada       |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Abrir menu de ações da linha                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | Selecionar item                              |
+| <kbd>Space (Espaço)</kbd>                                                                                           | Abrir o item selecionado                     |
+| <kbd>e</kbd>                                                                                                        | Arquivar itens selecionados                  |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### Mover uma coluna
 
@@ -201,13 +228,12 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## Notificações
 
-| Atalho                        | Descrição            |
-| ----------------------------- | -------------------- |
-| <kbd>E</kbd>                  | Marcar como pronto   |
-| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido |
-| <kbd>Shift</kbd>+<kbd>I</kbd> | Marca como lido      |
-| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura  |
-
+| Atalho                        | Descrição             |
+| ----------------------------- | --------------------- |
+| <kbd>E</kbd>                  | Marcar como concluído |
+| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido  |
+| <kbd>Shift</kbd>+<kbd>I</kbd> | Marcar como lido      |
+| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura   |
 
 ## gráfico de rede
 

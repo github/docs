@@ -2,8 +2,7 @@
 title: O editor github.dev baseado na web
 intro: 'Use o github.dev {% data variables.product.prodname_serverless %} do seu repositório ou pull request para criar e fazer commit das alterações.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: githubdev-editor
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -17,7 +16,7 @@ redirect_from:
 
 {% note %}
 
-**Observação:** O github.dev {% data variables.product.prodname_serverless %} está atualmente em visualização beta. Você pode fornecer feedback [nas nossas discussões](https://github.co/browser-editor-feedback).
+**Observação:** O github.dev {% data variables.product.prodname_serverless %} está atualmente em visualização beta. Você pode fornecer feedback [nas nossas discussões](https://github.com/community/community/discussions/categories/general).
 
 {% endnote %}
 
@@ -35,12 +34,18 @@ O {% data variables.product.prodname_serverless %} é executado inteiramente no 
 
 Você pode abrir qualquer repositório de {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} em qualquer uma das seguintes maneiras:
 
-- Pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
+- Para abrir o repositório na mesma guia do navegador, pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
+
+   Para abrir o repositório em uma nova aba do navegador, mantenha pressionada a tecla shift e pressione `.`.
+
 - Alterando a URL de "github.com" para "github.dev".
+- Ao visualizar um arquivo, use o menu suspenso ao lado de {% octicon "pencil" aria-label="The edit icon" %} e selecione **Abrir no github.dev**.
+
+  ![Menu suspenso do botão editar arquivo](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 
-Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
+Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_github_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
 
 |                        | {% data variables.product.prodname_serverless %}                                                                                                                                                                     | {% data variables.product.prodname_codespaces %}
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
