@@ -1,13 +1,13 @@
 ---
 title: Controlling access to larger runners
-intro: You can use policies to limit access to larger runners that have been added to an organization or enterprise.
+intro: You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.
 versions:
-  feature: 'actions-larger-runners'
+  feature: 'actions-hosted-runners'
 type: tutorial
-shortTitle: Controlling access to larger runners
+shortTitle: Controlling access to {% data variables.actions.hosted_runner %}s
 ---
 
-{% data reusables.actions.larger-runners-beta %}
+{% data reusables.actions.hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

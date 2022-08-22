@@ -64,15 +64,15 @@ The number of jobs you can run concurrently across all repositories in your user
 
 {% data reusables.user-settings.context_switcher %}
 
-{% ifversion actions-larger-runners %} 
+{% ifversion actions-hosted-runners %} 
 
-### Per-minute rates for larger runners
+### Per-minute rates for {% data variables.actions.hosted_runner %}s
 
-{% data variables.product.prodname_dotcom %} offers more powerful hosted runners that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for these larger runners. For more information about hosted runners, see "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)."
+{% data variables.product.prodname_dotcom %} offers more powerful {% data variables.actions.hosted_runner %}s that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information about {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners)."
 
-{% data reusables.billing.billing-larger-runners %}
+{% data reusables.billing.billing-hosted-runners %}
 
-For the public static IP addresses that can be assigned to a hosted runner, there is no additional cost for this configuration.
+For the public static IP addresses that can be assigned to a {% data variables.actions.hosted_runner %}, there is no additional cost for this configuration.
 
 {% endif %}
 
