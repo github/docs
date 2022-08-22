@@ -68,7 +68,7 @@ The number of jobs you can run concurrently across all repositories in your user
 
 ### Per-minute rates for {% data variables.actions.hosted_runner %}s
 
-{% data variables.product.prodname_dotcom %} offers more powerful {% data variables.actions.hosted_runner %}s that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information about {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners)."
+{% data variables.product.prodname_dotcom %} offers more powerful {% data variables.actions.hosted_runner %}s that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
 
 {% data reusables.billing.billing-hosted-runners %}
 
