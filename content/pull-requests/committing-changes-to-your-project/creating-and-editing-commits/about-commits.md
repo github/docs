@@ -1,4 +1,78 @@
----
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@zakwarlord7
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+zakwarlord7 /
+docs
+Public
+forked from github/docs
+
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+
+    Settings
+
+Create config.yml #43
+Merged
+zakwarlord7 merged 1 commit into main from bitore.sig-2
+5 minutes ago
++18 −0
+Conversation 2
+Commits 1
+Checks 0
+Files changed 1
+File filter
+1 / 1 files viewed
+18
+.github/workflows/config.yml
+Viewed
+@@ -0,0 +1,18 @@
+[![.github/workflows/NPC-grunt.yml](https://github.com/zakwarlord7/docs/actions/workflows/NPC-grunt.yml/badge.svg?branch=trunk&event=check_run)](https://github.com/zakwarlord7/docs/actions/workflows/NPC-grunt.yml)Name: ci
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+  
+  Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+
+---mainbranch
 title: About commits
 intro: You can save small groups of meaningful changes as commits.
 redirect_from:
