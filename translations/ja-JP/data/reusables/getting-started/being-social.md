@@ -1,1 +1,1 @@
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information, see "[Be social](/articles/be-social)."
+{% data variables.product.prodname_dotcom %}の各リポジトリは、個人もしくはOrganizationが所有しています。 人、リポジトリ、Organizationとは、{% data variables.product.product_name %}上で接続してフォローすることによってやりとりできます。 詳しい情報については「[ソーシャル機能](/articles/be-social)」を参照してください。
