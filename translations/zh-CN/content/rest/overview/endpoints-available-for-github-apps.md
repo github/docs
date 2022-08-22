@@ -15,4 +15,4 @@ topics:
 shortTitle: GitHub 应用程序启用的端点
 ---
 
-**此页面的内容呈现为 NextJS 页面组件。**
+<!-- The content of this page is rendered as a NextJS page component. -->

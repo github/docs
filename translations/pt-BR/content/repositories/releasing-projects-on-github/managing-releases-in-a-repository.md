@@ -94,7 +94,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
 
 2. Para notificar os usuários que a versão não está pronta para produção e pode ser instável, selecione **This is a pre-release** (Esta é uma versão prévia). ![Caixa de seleção para marcar uma versão como pré-versão](/assets/images/help/releases/prerelease_checkbox.png) 
    
-   {%- ifversion fpt or ghec %}
+   {%- ifversion discussions %}
 
 1. Opcionalmente, se {% data variables.product.prodname_discussions %} estiver habilitado no repositório, selecione **Criar uma discussão para esta versão** e, em seguida, selecione o menu suspenso **Categoria** e clique em uma categoria para a discussão de da versão. ![Caixa de seleção para criar uma discussão de versão e menu suspenso para escolher uma categoria](/assets/images/help/releases/create-release-discussion.png) 
    

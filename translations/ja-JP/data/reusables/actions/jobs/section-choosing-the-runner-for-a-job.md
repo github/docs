@@ -6,7 +6,7 @@
 
 ### {% data variables.product.prodname_dotcom %}ホストランナーの選択
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定された仮想環境の新しいインスタンスで実行されます。
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定されたランナーイメージの新しいインスタンスで実行されます。
 
 利用可能な{% data variables.product.prodname_dotcom %}ホストランナーの種類は以下のとおりです。
 
@@ -18,7 +18,7 @@
 runs-on: ubuntu-latest
 ```
 
-詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」を参照してください。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}

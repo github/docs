@@ -227,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción. Toma en cuenta que los verbos HTTP distinguen entre mayúsculas y minúsculas.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -297,6 +297,18 @@ Los valores de `rel` posibles son:
 | `last`  | La relación del enlace para la última página de resultados.                |
 | `first` | La relación del enlace para la primera parte de los resultados.            |
 | `prev`  | La relación del enlace para la página previa inmediata de resultados.      |
+
+## Exceder el tiempo de espera
+
+Si {% data variables.product.prodname_dotcom %} toma más de 10 segundos en procesar una solicitud de API, {% data variables.product.prodname_dotcom %} finalizará la solicitud y recibirás una respuesta de tiempo de espera excedido como esta:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} se reserva el derecho de cambiar la ventana de tiempo de espera excedido para proteger la velocidad y confiabilidad de la API.
 
 ## Limitación de tasas
 

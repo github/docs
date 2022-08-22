@@ -1,1 +1,1 @@
-- On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Alt</kbd>+<kbd>[</kbd> for the previous suggestion.
+- WindowsまたはLinuxでは、<kbd>Alt</kbd>+<kbd>]</kbd>を押せば次の提案に、<kbd>Alt</kbd>+<kbd>[</kbd>を押せば前の提案に移ります。

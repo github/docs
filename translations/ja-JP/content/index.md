@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
@@ -63,6 +64,7 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:

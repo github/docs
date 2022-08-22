@@ -43,7 +43,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
-|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ## Source code editing
@@ -141,7 +141,34 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
 |Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
 
-## Project boards
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
+|<kbd>←</kbd> | Move cell focus to the left
+|<kbd>→</kbd> | Move cell focus to the right
+|<kbd>↑</kbd> | Move cell focus up
+|<kbd>↓</kbd> | Move cell focus down
+
+### Manipulating a project
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Enter</kbd> | Toggle edit mode for the focused cell
+|<kbd>Escape</kbd> | Cancel editing for the focused cell
+|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
+|<kbd>Space</kbd> | Open selected item
+|<kbd>e</kbd> | Archive selected items
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### Moving a column
 

@@ -15,9 +15,19 @@ shortTitle: Personalizar perfil da organização
 ## Sobre a página de perfil da sua organização
 
 {% ifversion org-profile-pin-private %}
-Você pode personalizar a página de visão geral da sua organização para mostrar o conteúdo dedicado a usuários públicos ou integrantes da organização. Os integrantes da sua organização que estão conectados em {% data variables.product.prodname_dotcom %} são exibidos em uma visualização de integrantes quando visitam a página de perfil da sua organização. Os usuários que não são integrantes da sua organização serão mostrados como público.
+É possível personalizar a página de visão geral da sua organização para mostrar um README e repositórios fixos dedicados a usuários públicos ou integrantes da organização.
 
-![Imagem de uma página de perfil da organização](/assets/images/help/organizations/new_organization_page.png)
+![Imagem de uma página de perfil da organização pública](/assets/images/help/organizations/public_profile.png)
+
+Os integrantes da sua organização que estão conectados em {% data variables.product.prodname_dotcom %} podem selecionar a visualização de `integrante` ou `público` do README e repositórios fixos quando visitam a página de perfil da sua organização.
+
+![Imagem de um alternador de visualização de página de perfil da organização pública](/assets/images/help/organizations/profile_view_switcher_public.png)
+
+A visualização padrão para o `integrante` se um README somente de integrante estiver presente ou, caso contrário, for `público`.
+
+![Imagem de uma página de perfil de organização apenas para integrantes](/assets/images/help/organizations/member_only_profile.png)
+
+Os usuários que não são integrantes da sua organização serão exibidos como uma visualização `pública`.
 
 ### Repositórios fixos
 
@@ -26,6 +36,7 @@ Você pode dar aos usuários acesso fácil a repositórios importantes ou usados
 Apenas os proprietários da organização podem fixar repositórios. Para obter mais informações, consulte "[Fixando repositórios no perfil da sua organização](#pinning-repositories-to-your-organizations-profile)".
 
 ### READMEs do perfil da organização
+
 {% endif %}
 
 Você pode compartilhar informações sobre como se envolver com a sua organização criando um README do perfil da organização para usuários públicos e integrantes da organização. {% data variables.product.prodname_dotcom %} mostra o README do perfil da sua organização na aba "Visão geral" da sua organização.
@@ -53,11 +64,11 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 2. No repositório `.github-private` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
 3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no modo de exibição do integrante do perfil da sua organização.
 
-   ![Imagem do README privado de uma organização](/assets/images/help/organizations/org_member_readme.png)
+   ![Imagem do README somente para integrantes de uma organização](/assets/images/help/organizations/org_member_readme.png)
 
 ## Fixando repositórios no perfil da sua organização
 
-Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. To choose which repositories to pin to your organization's profile, you must be an organization owner.
+Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. Para escolher quais repositórios deseja fixar no perfil da sua organização, você deve ser proprietário da organização.
 
 1. Acesse a página de perfil da sua organização.
 2. Na barra lateral direita da página no link {% octicon "eye" aria-label="The eye octicon" %} "Visualizar como" escolha o perfil **público** ou **integrante** no menu suspenso.

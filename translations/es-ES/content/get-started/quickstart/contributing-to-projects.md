@@ -26,7 +26,17 @@ Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon
 
 1. Navega al proyecto `Spoon-Knife` en https://github.com/octocat/Spoon-Knife.
 2. Haz clic en **Bifurcar**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.png)
-1. {% data variables.product.product_name %} te llevará a tu copia (tu bifurcación) del repositorio Spoon-Knife.
+3. Selecciona a un propietario para el repositorio bifurcado. ![Crear una página de bifurcación nueva con énfasis en el menú desplegable del propietario](/assets/images/help/repository/fork-choose-owner.png)
+4. Predeterminadamente, las bifurcaciones se nombran de la misma forma que sus repositorios padres. Puedes cambiar el nombre de la bifurcación para distinguirla aún más. ![Crear una página de bifurcación nueva con énfasis en el campo de nombre del repositorio](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Opcionalmente, agrega una descripción para tu bifurcación. ![Crear una página de bifurcación nueva con énfasis en el campo de descripción](/assets/images/help/repository/fork-description.png)
+6. Elige si quieres copiar solo la rama predeterminada o todas ellas a la bifurcación nueva. En muchos de los escenarios de bifurcación, tal como cuando se contribuye con proyectos de código abierto, solo necesitas copiar la rama predeterminada. Predeterminadamente, solo se copia la rama predeterminada. ![Opción para copiar solo la rama predeterminada](/assets/images/help/repository/copy-default-branch-only.png)
+7. Haz clic en **Crear bifurcación**. ![Botón enfatizado de crear bifurcación](/assets/images/help/repository/fork-create-button.png)
+
+{% note %}
+
+**Nota:** Si quieres copiar ramas adicionales desde el repositorio padre, puedes hacerlo desde la página de **Ramas**. Para obtener más información, consulta "[Crear y eliminar ramas dentro de tu repositorio](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+{% endnote %}
 
 ## Clonar una bifurcación
 

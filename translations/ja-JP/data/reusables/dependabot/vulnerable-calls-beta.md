@@ -4,7 +4,7 @@
 
 **ノート:**
 
-- The detection of calls to vulnerable functions by {% data variables.product.prodname_dependabot %} is in beta and subject to change.
+- {% data variables.product.prodname_dependabot %}による脆弱性のある関数の呼び出しの検出はベータであり、変更されることがあります。
 
 - {% data reusables.gated-features.dependency-vulnerable-calls %}
 

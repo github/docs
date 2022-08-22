@@ -1,4 +1,4 @@
-To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs.
+{% data variables.product.prodname_copilot %}をJetBrainsで使うには、互換性のあるJetBrains IDEをインストールしていなければなりません。 {% data variables.product.prodname_copilot %}は以下のIDEと互換性があります。
 
 - IntelliJ IDEA (Ultimate, Community, Educational)
 - Android Studio
@@ -16,4 +16,4 @@ To use {% data variables.product.prodname_copilot %} in JetBrains, you must have
 - RubyMine
 - WebStorm
 
-For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
+詳しい情報については[JetBrains IDEs](https://www.jetbrains.com/products/)ツールファインダーを参照してください。

@@ -175,7 +175,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-抄送件可通过电子邮件发送给 legal@support.github.com。
+Courtesy copies may be emailed to legal-support@github.com
 
 请求请尽可能具体，包含以下信息：
 

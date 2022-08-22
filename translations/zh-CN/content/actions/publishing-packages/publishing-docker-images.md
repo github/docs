@@ -69,6 +69,8 @@ Docker Hub 需要的 `build-push-action` 选项包括：
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Publish Docker image
 
 on:
@@ -142,8 +144,11 @@ jobs:
 上述工作流程通过推送到“发行版”分支触发。 它会检出 GitHub 仓库，并使用 `login-action` 登录到 {% data variables.product.prodname_container_registry %}。 然后，它将提取 Docker 映像的标签和标记。 最后，它使用 `build-push-action` 操作来构建映像并在 {% data variables.product.prodname_container_registry %} 上发布。
 
 {% else %}
+
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
 
@@ -193,6 +198,8 @@ jobs:
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
 

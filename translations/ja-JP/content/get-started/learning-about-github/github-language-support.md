@@ -25,7 +25,7 @@ Some {% data variables.product.prodname_dotcom %} products have features that ar
 
 Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 
-Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit the [Community Forum](https://github.community/).
+Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions).
 
 | Language {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}

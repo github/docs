@@ -165,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nós globais do GraphQL
 
-See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+Consulte o guia em "[Usar IDs do nó globais ](/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
 
 ## Erros do cliente
 
@@ -233,7 +233,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação. Note that HTTP verbs are case-sensitive.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -304,6 +304,18 @@ Os valores de `rel` possíveis são:
 | `first`   | A relação de link para a primeira página de resultados.          |
 | `prev`    | A relação de link para a página de resultados anterior imediata. |
 
+## Tempo esgotado
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## Limite de taxa
 
 Os diferentes tipos de solicitações de API para {% data variables.product.product_location %} estão sujeitos a diferentes limites de taxa.
@@ -370,7 +382,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | O número máximo de solicitações que você pode fazer por hora.                                                                                     |
 | `x-ratelimit-remaining` | O número de solicitações restantes na janela de limite de taxa atual.                                                                             |
-| `x-ratelimit-used`      | The number of requests you've made in the current rate limit window.                                                                              |
+| `x-ratelimit-used`      | O número de solicitações que você fez na janela de limite de taxa atual.                                                                          |
 | `x-ratelimit-reset`     | O tempo em que a janela de limite de taxa atual é redefinida em [segundos no tempo de computação de UTC](http://en.wikipedia.org/wiki/Unix_time). |
 
 Se você precisar de outro formato de tempo, qualquer linguagem de programação moderna pode fazer o trabalho. Por exemplo, se você abrir o console em seu navegador, você pode facilmente obter o tempo de redefinição como um objeto de tempo do JavaScript.

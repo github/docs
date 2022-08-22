@@ -1,0 +1,1 @@
+ワークフローをトリガーしたコミットSHA。 The value of this commit SHA depends on the event that triggered the workflow. 詳しい情報については「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows)」 たとえば、`ffac537e6cbbf934b08745a378932722df287a53`です。

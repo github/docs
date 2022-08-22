@@ -56,17 +56,21 @@ La revisión de dependencias se encuentra disponible cuando se habilita la gráf
 
 The following configuration options are available.
 
-| Opción             | Requerido | Uso                                                                                                                                                                                                                                                                       |
-| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fail-on-severity` | Opcional  | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher.                                                              |
-| `allow-licenses`   | Opcional  | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list. |
-| `deny-licenses`    | Opcional  | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.     |
+| Opción             | Requerido | Uso                                                                                                                                                                                                          |
+| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fail-on-severity` | Opcional  | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
 
+{% ifversion dependency-review-action-licenses %}
 {% tip %}
 
 **Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
 {% endtip %}
+{% endif %}
 
 This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
 
@@ -88,6 +92,7 @@ jobs:
         with:
           # Possible values: "critical", "high", "moderate", "low" 
           fail-on-severity: critical
+{% ifversion dependency-review-action-licenses %}
           # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
           # ([String]). Only allow these licenses (optional)
           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
@@ -96,6 +101,7 @@ jobs:
           # ([String]). Block the pull request on these licenses (optional)
           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
           # deny-licenses: LGPL-2.0, BSD-2-Clause
+{% endif %}
 ```
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).

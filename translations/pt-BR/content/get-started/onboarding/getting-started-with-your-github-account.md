@@ -136,7 +136,7 @@ As notificações fornecem atualizações sobre a atividade em {% data variables
 ### 8. Trabalhar com o {% data variables.product.prodname_pages %}
 Você pode usar {% data variables.product.prodname_pages %} para criar e hospedar um site diretamente a partir de um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### 9. Usar {% data variables.product.prodname_discussions %}
 Você pode habilitar {% data variables.product.prodname_discussions %} para o repositório ajudar a criar uma comunidade em torno do seu projeto. Mantenedores, colaboradores e visitantes podem usar discussões para compartilhar anúncios, fazer e responder a perguntas e participar de conversas sobre objetivos. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}

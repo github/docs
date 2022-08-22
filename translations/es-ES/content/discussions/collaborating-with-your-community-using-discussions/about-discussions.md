@@ -2,8 +2,7 @@
 title: Acerca de los debates
 intro: 'Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ Puedes utilizar los debates del repositorio para hablar sobre temas que sean esp
 
 No necesitas cerrar un debate de la misma forma en que cierras una propuesta o una solicitud de cambios.
 
-Si un administrador de repositorio o mantenedor de proyecto habilita los {% data variables.product.prodname_discussions %} para un repositorio, cualquiera que visite el repositorio podrá crear y participar en los debates de este. Si un propietario de organización habilita los {% data variables.product.prodname_discussions %} para esta, cualquiera que pueda ver el repositorio origen puede crear un debate de organización.
+Si un administrador de repositorio o mantenedor de proyecto habilita los {% data variables.product.prodname_discussions %} para un repositorio, cualquiera que tenga acceso a él puede crear y participar en los debates del mismo. Si un propietario de organización habilita los {% data variables.product.prodname_discussions %} para esta, cualquiera que pueda ver el repositorio origen puede crear un debate de organización.
 
 Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Del mismo modo, para los debates organizacionales, el rol de un usuario en el repositorio origen determinará cómo puede interactuar dicho usuario con los debates de la organización. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
@@ -30,7 +29,7 @@ Para obtener más información sobre la administración de debates, consulta la 
 
 ## Acerca de las encuestas
 
-Puedes crear encuestas en la categoría de encuestas para medir el interés en las ideas nuevas y la dirección de los proyectos. Cualquiera con acceso de lectura en tu repositorio puede crear encuestas, votar en ellas y ver sus resultados. Los usuarios que hayan cerrado sesión pueden ver los resultados de las encuestas en los repositorios públicos.
+Puedes crear encuestas en la categoría de encuestas para medir el interés en las ideas nuevas y la dirección de los proyectos. Cualquiera con acceso de lectura a tu repositorio puede crear encuestas, votar en ellas y ver sus resultados.{% ifversion fpt or ghec %} Los usuarios que hayan cerrado sesión pueden ver los resultados de las encuestas en los repositorios públicos.{% endif %}
 
 Las encuestas requieren una pregunta y por lo menos dos opciones. Puedes agregar un máximo de ocho opciones y estas pueden contener un máximo de 128 caracteres.
 
@@ -64,12 +63,12 @@ Puedes destacar los debates que contengan conversaciones importantes, útiles o 
 
 ## Compartir retroalimentación
 
-Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección [debates de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Buscar debates](/search-github/searching-on-github/searching-discussions)"
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
-- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+- "[Moderar los comentarios y las conversaciones](/communities/moderating-comments-and-conversations)"{% ifversion fpt or ghec %}
+- "[Mantenier tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"{% endif %}

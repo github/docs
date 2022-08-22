@@ -2,7 +2,7 @@ date: '2022-06-28'
 sections:
   security_fixes:
     - "**MÉDIO**: Garante que o `github.company.com` e `github-company.com` não sejam avaliados por serviços internos como nomes de host idênticos, impedindo um potencial ataque de segurança do lado do servidor (SSRF)."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - "**BAIXO**: Um invasor pode acessar o Console de Gerenciamento com um ataque de deslocamento de caminho através de HTTP, mesmo se regras de firewall externas bloquearem o acesso ao HTTP."
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
     - Em alguns casos, os administradores do site não foram automaticamente adicionados como proprietários da empresa.
@@ -19,3 +19,4 @@ sections:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

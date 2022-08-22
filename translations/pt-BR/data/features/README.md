@@ -34,7 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
+Você não pode usar o `feature:` para especificar várias versões simultâneas, pois não há compatibilidade. Como alternativa, você pode criar um novo arquivo de versão baseado em recursos com a versão necessária.
 
 ## Aplicação de esquema
 

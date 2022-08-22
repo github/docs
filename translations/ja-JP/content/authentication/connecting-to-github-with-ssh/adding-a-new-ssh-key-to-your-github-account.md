@@ -15,9 +15,20 @@ topics:
 shortTitle: Add a new SSH key
 ---
 
-Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
-* [既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)
-* [新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+## About addition of SSH keys to your account
+
+{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+
+After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+
+## 必要な環境
+
+Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, complete the following steps.
+
+1. Check for existing SSH keys. For more information, see "[Checking for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
+1. Generate a new SSH key and add it to your machine's SSH agent. 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
+
+## Adding a new SSH key to your account
 
 After adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)を参照してください。
 
@@ -45,7 +56,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 4. [**New SSH key**] または [**Add SSH key**] をクリックします。 ![SSH キーボタン](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば個人の Mac を使っている場合、このキーを "Personal MacBook Air" などと呼ぶことが考えられます。
+5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば、個人のMacを使っているなら、このキーを「Personal MacBook Air」とすることができるでしょう。
 6. キーを [Key] フィールドに貼り付けます。 ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
 7. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user-settings.sudo-mode-popup %}
@@ -76,10 +87,10 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 4. [**New SSH key**] または [**Add SSH key**] をクリックします。 ![SSH キーボタン](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば個人の Mac を使っている場合、このキーを "Personal MacBook Air" などと呼ぶことが考えられます。
+5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば、個人のMacを使っているなら、このキーを「Personal MacBook Air」とすることができるでしょう。
 6. キーを [Key] フィールドに貼り付けます。 ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
 7. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
-8. {% data variables.product.product_name %} パスワードの確認を促された場合は、確認します。 ![sudo モードダイアログ](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -108,10 +119,10 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 4. [**New SSH key**] または [**Add SSH key**] をクリックします。 ![SSH キーボタン](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば個人の Mac を使っている場合、このキーを "Personal MacBook Air" などと呼ぶことが考えられます。
+5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば、個人のMacを使っているなら、このキーを「Personal MacBook Air」とすることができるでしょう。
 6. キーを [Key] フィールドに貼り付けます。 ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
 7. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
-8. {% data variables.product.product_name %} パスワードの確認を促された場合は、確認します。 ![sudo モードダイアログ](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -146,5 +157,5 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% ifversion fpt or ghec %}
 ## 参考リンク
 
-- [SAML シングルサインオンで使うためにSSHキーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
+- [SAMLシングルサインオンで使うためにSSHキーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
 {% endif %}

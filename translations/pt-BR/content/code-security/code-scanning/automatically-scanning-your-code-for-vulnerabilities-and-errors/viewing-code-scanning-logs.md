@@ -45,6 +45,12 @@ Para obter informações sobre o {% data variables.product.prodname_codeql_cli %
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
+{% ifversion codeql-action-debug-logging %}
+
+Você poderá ver informações mais detalhadas sobre os erros e alertas do extrator de {% data variables.product.prodname_codeql %} que ocorreram durante a criação do banco de dados, habilitando o log de depuração. Para obter mais informações, consulte "[Solucionando problemas no fluxo de trabalho do CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)".
+
+{% endif %}
+
 ## Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
 
 Esta seção aplica-se à execução de {% data variables.product.prodname_code_scanning %} usando {% data variables.product.prodname_actions %} ({% data variables.product.prodname_codeql %} ou terceiros).

@@ -363,7 +363,7 @@ Cuando ves el archivo en el repositorio, este se procesa como un diagrama de flu
 
 Si tu gráfica no se procesa, verifica que contenga una sintaxis de lenguaje de marcado de Mermaid verificándola con el [Editor de Mermaid](https://mermaid.live/edit).
 
-Si se muestra la gráfica, pero esta no se ve como lo esperabas, puedes crear un [debate de retroalimentación](https://github.com/github/feedback/discussions/categories/general-feedback) nuevo y agregar la etiqueta `mermaid`.
+Si se muestra la gráfica, pero no aparece como lo esperabas, puedes crear un [debate de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/general) nuevo y agregar la etiqueta `Mermaid`.
 
 #### Problemas conocidos
 

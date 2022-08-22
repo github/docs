@@ -74,7 +74,7 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 ### `inputs.<input_id>.required`
 
-**Necessário**: um `booleano` para indicar se a ação exige o parâmetro de entrada. Defina para `true` quando o parâmetro for necessário.
+**Opcional**: um `booleano` para indicar se a ação exige o parâmetro de entrada. Defina para `true` quando o parâmetro for necessário.
 
 ### `inputs.<input_id>.default`
 
@@ -433,7 +433,7 @@ runs:
 
 Para obter mais informações sobre como o `entrypoint` é executado, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
 
-### `post-entrypoint`
+### `runs.post-entrypoint`
 
 **Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.post-if`](#runspost-if).
 
@@ -475,7 +475,7 @@ runs:
 
 ## `branding`
 
-Você pode usar uma cor e o ícone da [Pena](https://feathericons.com/) para criar um selo para personalizar e distinguir a sua ação. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 ### Exemplo: Configurar a marca para uma ação
 

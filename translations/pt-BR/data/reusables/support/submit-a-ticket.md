@@ -27,6 +27,8 @@
     - Etapas para reproduzir o problema
     - Quaisquer circunstâncias especiais relacionadas à descoberta do problema (como a primeira ocorrência ou ocorrência após um evento específico, frequência de ocorrência, impacto comercial do problema e urgência sugerida)
     - Redação exata das mensagens de erro
+{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+
 {%- ifversion ghes %}
 1. Optionally, attach diagnostics files and other files by dragging and dropping, uploading, or pasting from the clipboard.
 {%- endif %}

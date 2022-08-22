@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Entorno virtual</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>Etiqueta de flujo de trabajo YAML</b></th>
     <th style="width:40%"><b>Notas</b></th>
   </tr>
@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 se encuentra actualmente en beta público.
 </td>
 </tr>
 <tr>
@@ -49,12 +48,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. Para obtener más información, consulta <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">esta publicación del blog de GitHub</A>.
 </td>
 </tr>
 <tr>
@@ -84,7 +84,7 @@ macOS Catalina 10.15 <sup>[deprecated]</sup>
 <code>macos-10.15</code>
 </td>
 <td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
+Migra a <code>macOS-11</code> o <code>macOS-12</code>. Para obtener más información, consulta <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">esta publicación del blog de GitHub</A>.
 </td>
 </tr>
 </tbody>
@@ -92,7 +92,7 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% note %}
 
-**Nota:** Los ambientes virtuales `más recientes` son las últimas imágenes estables que proporciona {% data variables.product.prodname_dotcom %} y puede que no sean las versiones más recientes de los sistemas operativos disponibles desde los proveedores de estos.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 

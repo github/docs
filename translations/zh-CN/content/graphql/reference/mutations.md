@@ -18,5 +18,4 @@ topics:
 
 更多信息请参阅“[关于突变](/graphql/guides/forming-calls-with-graphql#about-mutations)。”
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-mutations.json -->
+<!-- Content after this section is automatically generated -->
