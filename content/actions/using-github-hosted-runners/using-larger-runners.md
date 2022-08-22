@@ -23,6 +23,7 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
 - The runner has been assigned the label `16-core-ubuntu`. 
 - Workflow jobs use the `16-core-ubuntu` label in their `runs-on` key to indicate the type of runner they need to execute the job.
+- {% data variables.product.prodname_actions %} checks whether your repository is permitted to send jobs to the runner.
 - The job is then run on the next available instance of the `16-core-ubuntu-runner` runner with that label.
 
 ![Diagram explaining larger runners](/assets/images/larger-runner.png)
