@@ -10,7 +10,6 @@ updates:
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
-
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
@@ -20,10 +19,8 @@ updates:
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
-
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
       interval: weekly
       day: thursday
-
