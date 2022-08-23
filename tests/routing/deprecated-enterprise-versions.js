@@ -116,7 +116,7 @@ describe('recently deprecated redirects', () => {
     // 301 redirects are safe to cache aggressively
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
@@ -214,6 +214,9 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(result.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
   it('returns the expected CSS file', async () => {
