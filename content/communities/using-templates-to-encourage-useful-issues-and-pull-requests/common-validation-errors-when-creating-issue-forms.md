@@ -635,8 +635,6 @@ The template body `key:value` pair can not be empty. For more information about 
 
 The error can be fixed by adding the `body:` section.
 
-The error can also be fixed by deleting the `---` (document separator) between the headers and the `body` section.
-
 ### Example
 
 ```yaml
@@ -649,7 +647,7 @@ body:
     label: "What's wrong?"
 ```
 
-The error can be fixed by removing the `---`:
+In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
 
 ```yaml
 name: Support Request
