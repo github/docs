@@ -101,7 +101,8 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 <p spaces-before="0">{% ifversion github-actions-in-dependency-graph %}</p>
 
 <p spaces-before="0">
-[†] Os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório <code>.github/workflows/` de um repositório a ser reconhecido como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+[†] {% data reusables.enterprise.3-5-missing-feature %} Os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório <code>.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+
 {% endif %}
 
 [‡] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.

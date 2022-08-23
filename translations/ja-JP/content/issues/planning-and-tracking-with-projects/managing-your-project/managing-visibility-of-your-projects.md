@@ -1,7 +1,7 @@
 ---
-title: 'Managing visibility of your {% data variables.projects.projects_v2 %}'
-shortTitle: 'Managing {% data variables.projects.project_v2 %} visibility'
-intro: 'Learn about setting your {% data variables.projects.project_v2 %} to private or public visibility.'
+title: '{% data variables.projects.projects_v2 %}の可視性の管理'
+shortTitle: '{% data variables.projects.project_v2 %}の可視性の管理'
+intro: '{% data variables.projects.project_v2 %}の可視性のプライベートもしくはパブリックへの設定について学んでください。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -16,25 +16,25 @@ permissions: Organization owners can manage the visibility of project boards in 
 
 ## プロジェクトの可視性について
 
-Projects can be public or private. パブリックプロジェクトでは、インターネット上の誰もがプロジェクトを見ることができます。 プライベートプロジェクトでは、最低でも読み取りアクセスを付与されたユーザだけがプロジェクトを見ることができます。
+プロジェクトはパブリックあるいはプライベートにできます。 パブリックプロジェクトでは、インターネット上の誰もがプロジェクトを見ることができます。 プライベートプロジェクトでは、最低でも読み取りアクセスを付与されたユーザだけがプロジェクトを見ることができます。
 
 影響を受けるのはプロジェクトの可視性のみです。プロジェクト上のアイテムを見るには、アイテムが属する得リポジトリに対する必要な権限を持っていなければなりません。 プロジェクトにプライベートリポジトリのアイテムが含まれているなら、そのリポジトリのコラボレータではないユーザは、そのリポジトリのアイテムを見ることはできません。
 
 ![非表示のアイテムを持つプロジェクト](/assets/images/help/projects/hidden-items.png)
 
-Project admins and organization owners can control project visibility. Organization owners can restrict the ability to change project visibility to just organization owners.
+プロジェクトの管理者とOrganizationのオーナーは、プロジェクトの可視性を制御できます。 Organizationのオーナーは、プロジェクトの可視性を変更できるのをOrganizationのオーナーだけに制限できます。
 
-In public and private projects, insights are only visible to users with write permissions for the project.
+パブリック及びプライベートのプロジェクトでは、インサイトはプロジェクトの書き込み権限を持っているユーザだけが見ることができます。
 
 Organizationが所有するプライベートのプロジェクトでは、プロジェクトを現在更新しているユーザのアバターがプロジェクトのUIに表示されます。
 
-プロジェクトの管理者は、プロジェクトに対する書き込み及び管理アクセスの管理と、個々のユーザの読み取りアクセスの制御もできます。 For more information, see "[Managing access to your projects](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+プロジェクトの管理者は、プロジェクトに対する書き込み及び管理アクセスの管理と、個々のユーザの読み取りアクセスの制御もできます。 詳しい情報については「[プロジェクトへのアクセスの管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)」を参照してください。
 
 ## プロジェクトの可視性の変更
 
 {% data reusables.projects.project-settings %}
-1. Next to **Visibility** in the "Danger zone", select **Private** or **Public**. ![Screenshot showing the visibility controls](/assets/images/help/projects-v2/visibility.png)
+1. "Danger zone（危険区域）"の**Visibility（可視性）**の隣で、**Private（プライベート）**もしくは**Public（パブリック）**を選択してください。 ![可視性のコントロールを表示しているスクリーンショット](/assets/images/help/projects-v2/visibility.png)
 
 ## 参考リンク
 
-- [Allowing project visibility changes in your organization](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)
+- [Organizationでのプロジェクトの可視性の変更の許可](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)

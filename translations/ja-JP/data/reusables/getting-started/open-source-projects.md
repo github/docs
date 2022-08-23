@@ -1,4 +1,4 @@
-Contributing to open source projects on {% data variables.product.prodname_dotcom %} can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine. For more information, see "[How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)" in the Open Source Guides.
+{% data variables.product.prodname_dotcom %}上のオープンソースプロジェクトへの貢献は、想像できるいかなるスキルについても学び、教え、経験を積むことができる、やりがいのある方法です。 詳しい情報についてはオープンソースガイドの「[オープンソースに貢献する方法](https://opensource.guide/how-to-contribute/)」を参照してください。
 
-You can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore).{% ifversion fpt or ghec %} For more information, see "[Finding ways to contribute to open source on GitHub](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+過去のコントリビューション、Star、その他のアクティビティに基づく、プロジェクトと優れた最初の課題についてのパーソナライズされた推奨事項を、[Explore](https://github.com/explore)で見つけることができます。{% ifversion fpt or ghec %}詳しい情報については「[GitHubでオープンソースに貢献する方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 {% endif %}

@@ -15,19 +15,19 @@ shortTitle: Personalizar el perfil de una organización
 ## Acerca de la página de perfil de la organización
 
 {% ifversion org-profile-pin-private %}
-You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
+Puedes personalizar la página de resumen de tu organización para que muestre un README y los repositorios fijados y dedicados a los usuarios públicos o a los miembros de la organización.
 
-![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+![Imagen de una página de perfil de organización pública](/assets/images/help/organizations/public_profile.png)
 
-Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
+Los miembros de tu organización que iniciaron sesión en {% data variables.product.prodname_dotcom %} pueden seleccionar una vista de `member` o `public` del README y los repositorios fijos cuando visiten la página de perfil de tu organización.
 
-![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+![Imagen del cambiador de contexto de vista para una página de perfil de una organización pública](/assets/images/help/organizations/profile_view_switcher_public.png)
 
-The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+La vista está predeterminada a `member` si están presente s ya sea un README o los repositorios exclusivos para miembros y, de lo contrario, será `public`.
 
-![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+![Imagen de una página de perfil de una organización exclusiva para miembros](/assets/images/help/organizations/member_only_profile.png)
 
-Users who are not members of your organization will be shown a `public` view.
+Los usuarios que no sean miembros de tu organización tendrán una vista de `public`.
 
 ### Repositorios anclados
 
@@ -64,7 +64,7 @@ Puedes formatear el texto e incluir emojis, imágenes y GIFs en el README del pe
 2. En el repositorio `.github-private` de tu organización, crea un archivo `README.md` en la carpeta `profile`.
 3. Confirma los cambios al archivo `README.md`. El contenido del `README.md` se mostrará en la vista de miembros del perfil de tu organización.
 
-   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
+   ![Imagen de un README de una organización exclusiva para miembros](/assets/images/help/organizations/org_member_readme.png)
 
 ## Fijar repositorios a tu perfil de organización
 

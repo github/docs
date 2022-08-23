@@ -1,5 +1,7 @@
 import express from 'express'
+
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
+import { defaultCacheControl } from './cache-control.js'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/client-side-rest-api-redirects.json'
@@ -15,6 +17,9 @@ router.get('/', function redirects(req, res, next) {
   if (!req.query.hash) {
     return res.status(400).send("Missing 'hash' query string")
   }
+
+  defaultCacheControl(res)
+
   const redirectFrom = `${req.query.path}#${req.query.hash}`
   res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] } || null)
 })

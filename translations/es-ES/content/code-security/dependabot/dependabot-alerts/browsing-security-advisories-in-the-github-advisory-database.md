@@ -100,7 +100,7 @@ La {% data variables.product.prodname_advisory_database %} utiliza los niveles d
 
 {% note %}
 
-También se puede acceder a la base de datos utilizando la API de GraphQL. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[`security_advisory` webhook event](/webhooks/event-payloads/#security_advisory)."
+También se puede acceder a la base de datos utilizando la API de GraphQL. {% ifversion GH-advisory-db-supports-malware %}Predeterminadamente, las consultas devolverán asesorías revisadas por {% data variables.product.company_short %} para las vulnerabilidades de seguridad, a menos de que especifiques `type:malware`.{% endif %} Para obtener más información, consulta el "[evento de webhook `security_advisory`](/webhooks/event-payloads/#security_advisory)".
 
 {% endnote %}
 

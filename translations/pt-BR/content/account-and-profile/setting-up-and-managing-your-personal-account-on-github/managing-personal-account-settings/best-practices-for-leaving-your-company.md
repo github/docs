@@ -20,13 +20,13 @@ Antes de deixar da sua empresa, certifique-se de atualizar as seguintes informa�
 - [Altere o seu endereço de e-mail principal](/articles/changing-your-primary-email-address) do e-mail da empresa para seu e-mail pessoal.
 - [Verifique seu novo endereço de e-mail principal](/articles/verifying-your-email-address).
 - [Altere o nome de usuário no GitHub](/articles/changing-your-github-username) para remover quaisquer referências à sua empresa ou organização, se necessário.
-- If you've enabled two-factor (2FA) authentication for your personl account, make sure that you (not your company) control the 2FA authentication method you have configured. Para obter mais informações, consulte "[Configurar autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
+- Se você habilitou a autenticação de dois fatores (2FA) para sua conta pessoal, certifique-se de que você (não sua empresa) controle o método de autenticação de 2FA que você configurou. Para obter mais informações, consulte "[Configurar autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
 
 ## Saída das organizações
 
 Se você esteve trabalhando com repositórios que pertencem a uma organização, é conveniente [remover a si mesmo como integrante da organização](/articles/removing-yourself-from-an-organization). Caso você seja o proprietário da organização, primeiramente, será preciso [transferir a propriedade da organização](/articles/transferring-organization-ownership) para outra pessoa.
 
-Unless you're using a {% data variables.product.prodname_managed_user %}, you'll still be able to access your personal account, even after leaving the organization. Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
+A menos que você esteja usando {% data variables.product.prodname_managed_user %}, você ainda poderá acessar sua conta pessoal, mesmo depois de sair da organização. Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 ## Remover associações profissionais a repositórios pessoais
 

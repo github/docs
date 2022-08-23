@@ -2,30 +2,58 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, SSRProvider, ThemeProviderProps } from '@primer/react'
+import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
 import { initializeEvents } from 'components/lib/events'
-import experiment from 'components/lib/experiment'
+import { initializeExperiments } from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
-import { useSession } from 'components/hooks/useSession'
+import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
   languagesContext: LanguagesContextT
 }
 
-type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
-
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
-  const { session } = useSession()
+  const { theme } = useTheme()
+
   useEffect(() => {
-    if (session?.csrfToken) {
-      initializeEvents(session.csrfToken)
+    initializeEvents()
+    initializeExperiments()
+  }, [])
+
+  useEffect(() => {
+    // The CSS from primer looks something like this:
+    //
+    //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
+    //       --color-canvas-default: black;
+    //   }
+    //   body {
+    //       background-color: var(--color-canvas-default);
+    //   }
+    //
+    // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
+    // on the body, but on a top-level wrapping `<div>` then the `<body>`
+    // doesn't get the right CSS.
+    // Normally, with Primer you make sure you set these things in the
+    // `<body>` tag and you can use `_document.tsx` for that but that's
+    // only something you can do in server-side rendering. So,
+    // we use a hook to assure that the `<body>` tag has the correct
+    // dataset attribute values.
+    const body = document.querySelector('body')
+    if (body) {
+      // Note, this is the same as setting `<body data-color-mode="...">`
+      // But you can't do `body.dataset['color-mode']` so you use the
+      // camelCase variant and you get the same effect.
+      // Appears Next.js can't modify <body> after server rendering:
+      // https://stackoverflow.com/a/54774431
+      body.dataset.colorMode = theme.css.colorMode
+      body.dataset.darkTheme = theme.css.darkTheme
+      body.dataset.lightTheme = theme.css.lightTheme
     }
-    experiment()
-  }, [session])
+  }, [theme])
 
   return (
     <>
@@ -54,33 +82,20 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
       </Head>
       <SSRProvider>
         <ThemeProvider
-          colorMode={
-            (session?.theme?.colorMode as colorModeAuto['colorMode']) ||
-            ('auto' as colorModeAuto['colorMode'])
-          }
-          dayScheme={session?.theme?.dayTheme || 'light'}
-          nightScheme={session?.theme?.nightTheme || 'dark'}
+          colorMode={theme.component.colorMode}
+          dayScheme={theme.component.dayScheme}
+          nightScheme={theme.component.nightScheme}
+          preventSSRMismatch
         >
-          {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
-          <div
-            data-color-mode={session?.themeCss?.colorMode || 'auto'}
-            data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
-            data-light-theme={session?.themeCss?.dayTheme || 'light'}
-          >
-            <LanguagesContext.Provider value={languagesContext}>
-              <Component {...pageProps} />
-            </LanguagesContext.Provider>
-          </div>
+          <LanguagesContext.Provider value={languagesContext}>
+            <Component {...pageProps} />
+          </LanguagesContext.Provider>
         </ThemeProvider>
       </SSRProvider>
     </>
   )
 }
 
-// Remember, function is only called once if the rendered page can
-// be in-memory cached. But still, the `<MyApp>` component will be
-// executed every time **in the client** if it was the first time
-// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`

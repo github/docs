@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
+title: 'Permissões de {% data variables.product.prodname_project_v1_caps %} de para uma organização'
 intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
@@ -38,6 +38,8 @@ Organization owners and people with admin permissions to a {% data variables.pro
 For example, if an organization owner has given all organization members read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the {% data variables.projects.projects_v1_board %}.
 
 ## {% data variables.projects.projects_v1_board_caps %} visibility
+
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
 {% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
 

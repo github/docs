@@ -754,7 +754,9 @@ describe('URLs by language', () => {
     const $ = await getDOM('/ja/site-policy/github-terms/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
     // This check is true on either the translated version of the page, or when the title is pending translation and is in English.
-    expect($('h1')[0].children[0].data).toMatch(/(GitHub利用規約|GitHub Terms of Service)/)
+    expect($('h1')[0].children[0].data).toMatch(
+      /(GitHub利用規約|GitHub Terms of Service|GitHub のサービス条件)/
+    )
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
@@ -971,8 +973,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
@@ -1005,8 +1006,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers.etag).toBeUndefined()
     expect(res.headers['last-modified']).toBeTruthy()

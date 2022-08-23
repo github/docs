@@ -538,6 +538,7 @@ jobs:
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Linux / macOS     | unspecified   | The default shell on non-Windows platforms. Note that this runs a different command to when `bash` is specified explicitly. If `bash` is not found in the path, this is treated as `sh`.                  | `bash -e {0}`                                   |
 | すべて               | `bash`        | 非Windowsプラットフォームのデフォルトシェルで、`sh`へのフォールバックがあります。 Windowsでbashシェルを指定すると、Windows用Gitに含まれるbashシェルが使用されます。                                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
 | すべて               | `pwsh`        | PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                   | `pwsh -command ". '{0}'"`                       |
 | すべて               | `python`      | Pythonのコマンドを実行します。                                                                                                                                                                                        | `python {0}`                                    |
@@ -793,11 +794,11 @@ strategy:
   fail-fast: false
   matrix:
     node: [13, 14]
-    os: [macos-latest, ubuntu-18.04]
+    os: [macos-latest, ubuntu-latest]
     experimental: [false]
     include:
       - node: 15
-        os: ubuntu-18.04
+        os: ubuntu-latest
         experimental: true
 ```
 {% endraw %}

@@ -16,6 +16,8 @@ permissions: People with maintainer permissions can enable or disable the settin
 
 Se você habilitar a configuração para sempre sugerir a atualização de branches de pull request no repositório, as pessoas com permissões de gravação sempre poderão, na página do pull request, atualizar o branch principal de um pull request quando ele não estiver atualizado com o branch de base. Quando habilitado, a capacidade de atualização só estará disponível quando o branch de base exigir que os branches estejam atualizados antes do merge e que o branch não esteja atualizado. Para obter mais informações, consulte "[Mantendo o seu pull request em sincronia com o branch de base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)".
 
+{% data reusables.enterprise.3-5-missing-feature %}
+
 ## Gerenciando sugestões para atualizar um branch de pull request
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -18,6 +18,8 @@ shortTitle: カスタムドメインの検証
 
 ドメインを検証すると、直接のサブドメインもその検証に含まれます。 たとえば、`github.com`というカスタムドメインが検証されると、`docs.github.com`、`support.github.com`あるいはその他の直接のサブドメインも、乗っ取りから保護されることになります。
 
+{% data reusables.pages.wildcard-dns-warning %}
+
 Organization{% ifversion ghec %}あるいはEnterprise{% endif %}のドメインを検証することもできます。そうすると、「検証済み」バッジがOrganization{% ifversion ghec %}もしくはEnterprise{% endif %}のプロフィールに表示され{% ifversion ghec %}、{% data variables.product.prodname_ghe_cloud %}では検証済みドメインを使ってメールアドレスへの通知を制限できるようになり{% endif %}ます。 詳しい情報については「[Organizationのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」{% ifversion ghec %}及び「[Enterpriseのドメインの検証あるいは承認](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」{% endif %}を参照してください。
 
 ## ユーザサイトのドメインの検証

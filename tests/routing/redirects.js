@@ -9,9 +9,15 @@ import enterpriseServerReleases, {
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+// This is temporary solution until we have certainty in that the
+// dedicated search results page works.
+// In a near future, we won't be needing this and assume it's always
+// true.
+const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(process.env.ELASTICSEARCH_URL)
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -53,16 +59,27 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(302)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-      expect(res.headers.location).toBe(expected)
+      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
+        expect(res.statusCode).toBe(301)
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      } else {
+        expect(res.statusCode).toBe(302)
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      }
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = '/en/enterprise/admin?query=pulls'
-      expect(res.headers.location).toBe(expected)
+      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      } else {
+        const expected = `/en/enterprise/admin?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      }
     })
 
     test('have faq= not converted to query=', async () => {
@@ -71,13 +88,6 @@ describe('redirects', () => {
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
-      expect(res.headers.location).toBe(expected)
-    })
-
-    test('work with redirected search paths', async () => {
-      const res = await get('/en/enterprise/admin/search?utf8=%E2%9C%93&query=pulls')
-      expect(res.statusCode).toBe(301)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 

@@ -212,6 +212,14 @@ These instructions are pertinent to Bash shell commands.
 {% endbash %}
 ```
 
+```
+{% javascript %}
+
+These instructions are pertinent to javascript users.
+
+{% endjavascript %}
+```
+
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ## Reusable and variable strings of text

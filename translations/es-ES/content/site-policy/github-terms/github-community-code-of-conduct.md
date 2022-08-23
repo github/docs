@@ -24,7 +24,7 @@ Nuestra base de usuarios diversa trae perspectivas, ideas y experiencias diferen
 
 ## Compromiso
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in GitHub Community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+Con el mejor interés de fomentar un ambiente abierto y acogedor, como contribuyentes y mantenedores nos comprometemos a que la participación en la Comunidad de GitHub sea una experiencia sin acoso para todos, sin importar la edad, talla, discapacidades, etnicidad, identidad y expresión de género, nivel de experiencia, nacionalidad, apariencia personal, raza, religión o identidad y orientación sexual.
 
 ## Estándares
 

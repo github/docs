@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Codespaces in Visual Studio Code
+title: Usando o GitHub Code no Visual Studio Code
 intro: 'Você pode desenvolver seu codespace diretamente em {% data variables.product.prodname_vscode %}, conectando a extensão de {% data variables.product.prodname_github_codespaces %} à sua conta no {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:

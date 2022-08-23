@@ -14,8 +14,6 @@ export default function trailingSlashes(req, res, next) {
       if (split.length) {
         url += `?${split.join('?')}`
       }
-      // So it can be cached in the CDN
-      res.removeHeader('set-cookie')
       cacheControl(res)
       return res.redirect(301, url)
     }
