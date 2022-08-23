@@ -51,7 +51,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
             ~/.config/nvim/pack/github/start/copilot.vim
   
    - Alternatively, if you use a third-party plugin manager, use the plugin manager to install `github/copilot.vim`. 
-
+1. Visit https://github.com/settings/copilot and complete the required steps.
 
 1. To configure {% data variables.product.prodname_copilot %}, open Neovim and enter the following command.
 
