@@ -173,19 +173,28 @@ topics:
 
 ## クローズされたアラートの表示と更新
 
-{% tip %}
-
-**参考:** 再オープンできるアラートは、以前に却下したものだけです。 既に修復済みのクローズされたアラートは、再オープンできません。
-{% endtip %}
+オープンなすべてのアラートを見ることができ、以前に却下されたアラートを再オープンできます。 既に修復済みのクローズされたアラートは、再オープンできません。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. クローズされたアラートを表示だけするなら、**Closed（クローズ済み）**をクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. 表示もしくは更新したいアラートをクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 既に修正済みのアラートは再オープンできません。 !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. クローズされたアラートを単に表示するには**Closed（クローズ済み）**をクリックしてください。
+
+   {%- ifversion dependabot-bulk-alerts %}
+   !["Closed"オプションを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   !["Closed"オプションを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. 表示もしくは更新したいアラートをクリックしてください。
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![ハイライトされているdependabotアラートを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![ハイライトされているdependabotアラートを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 既に修正済みのアラートは再オープンできません。
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

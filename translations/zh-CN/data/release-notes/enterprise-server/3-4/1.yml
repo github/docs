@@ -55,6 +55,7 @@ sections:
       要解决此问题，您可以执行以下两个操作之一。
       - 通过上传 SAML 元数据的静态副本（不带“WantAssertionsEncrypted”属性）来重新配置 IdP。
       - 复制 SAML 元数据，删除“WantAssertionsEncrypted”属性，将其托管在 Web 服务器上，然后将 IdP 重新配置为指向该 URL。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - 
       heading: 弃用 GitHub Enterprise Server 3.0

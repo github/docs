@@ -85,6 +85,12 @@ Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% end
 {% ifversion streaming-oidc-s3 %}
 #### 使用 OpenID Connect 设置流式传输到 S3
 
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
+
 1. 在 AWS 中，将 {% data variables.product.prodname_dotcom %} OIDC 提供商添加到 IAM。 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
 
    - 对于提供程序 URL，请使用 `https://oidc-configuration.audit-log.githubusercontent.com`。

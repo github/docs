@@ -1,1 +1,1 @@
-Synchronizing {% data variables.product.prodname_dotcom %} repositories with your computer allows you to work locally and push your changes to {% data variables.product.prodname_dotcom %}. For more information, see “[Set up Git](/get-started/quickstart/set-up-git).”
+{% data variables.product.prodname_dotcom %}リポジトリを手元のコンピュータと同期すれば、ローカルで作業を行い変更を{% data variables.product.prodname_dotcom %}にプッシュできるようになります。 詳しい情報については「[Gitのセットアップ](/get-started/quickstart/set-up-git)」を参照してください。

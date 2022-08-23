@@ -1,23 +1,23 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+ユーザは、以下のいずれかのアクティビティを{% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}上で行った場合にアクティブと見なされます。
 
-- Signing into {% data variables.product.product_location %}
+- {% data variables.product.product_location %}へのサインイン
 - リポジトリを作成する
-- Pushing to a repository
-- Being added to a repository
-- Changing the visibility of a repository
+- リポジトリへのプッシュ
+- リポジトリに追加される
+- リポジトリの可視性の変更
 - Issueもしくはプルリクエストの作成
-- Commenting on an issue or pull request
-- Closing or reopening an issue or pull request
-- Applying a label to an issue or pull request, or removing a label
-- Assigning or unassigning an issue or pull request
-- Requesting a review of a pull request, or removing a review request
-- Creating or editing a comment in a pull request review
-- Dismissing a comment in a pull request
-- Synchronizing a pull request
-- Commenting on a commit
-- Publishing a release
-- Pushing to a wiki
+- IssueあるいはPull Requestへのコメント
+- IssueもしくはPull Requestのクローズもしくは再オープン
+- IssueもしくはPull Requestへのラベルの適用、あるいはラベルの削除
+- IssueもしくはPull Requestの割り当てあるいは割り当て解除
+- Pull Requestへのレビューのリクエスト、あるいはレビューリクエストの削除
+- Pull Requestレビューのコメントの作成もしくは編集
+- Pull Requestのコメントの却下
+- Pull Requestの同期
+- コミットへのコメント
+- リリースの公開
+- Wikiへのプッシュ
 - リポジトリを Watch する
-- Starring a repository
+- リポジトリのStar付け
 - リポジトリの削除
-- Accessing resources by using a personal access token or SSH key
+- 個人アクセストークンもしくはSSHキーを使ったリソースへのアクセス
