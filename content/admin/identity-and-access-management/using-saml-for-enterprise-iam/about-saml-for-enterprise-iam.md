@@ -38,7 +38,7 @@ Alternatively, you can provision and manage the accounts of your enterprise memb
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
-After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. 
+After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. SCIM is not available for non-EMU SAML.
 
 If you use Azure AD as your IDP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
