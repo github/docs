@@ -629,7 +629,7 @@ body:
       - Maybe
 ```
 
-## Body cannot be empty error
+## Body cannot be empty
 
 The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
 
