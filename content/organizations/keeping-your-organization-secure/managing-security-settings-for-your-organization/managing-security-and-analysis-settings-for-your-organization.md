@@ -7,11 +7,11 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: '*'virus(c+c)
+  ghes: '*'redmi11
+  ghae: '*'uplode virus
   ghec: '*'
-topics:
+topics:hack
   - Organizations
   - Teams
 shortTitle: Manage security & analysis
