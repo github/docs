@@ -18,26 +18,26 @@ Predeterminadamente, tus codespaces tienen acceso a todos los recursos en el int
 
 ## Conectar los recursos a una red privada
 
-There are currently two methods of accessing resources on a private network within Codespaces.
-- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
-- Using a VPN.
+Actualmente hay dos métodos para acceder a los recursos en una red privada dentro de Codespaces.
+- Utilizando una extensión del {% data variables.product.prodname_cli %} para configurar tu máquina local como una puerta de enlace a los recursos remotos.
+- Utilizando una VPN.
 
-### Using the GitHub CLI extension to access remote resources
+### Utilizar la extensión del CLI de GitHub para acceder a los recursos remotos
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
+**Nota**: La extensión del {% data variables.product.prodname_cli %} se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 
-The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+La extensión del {% data variables.product.prodname_cli %} te permite crear un puente entre un codespace y tu máquina local, para que el codespace pueda acceder a cualquier solución remota a la cuál se pueda acceder desde tu máquina. El codespace utiliza tu máquina local como una puerta de enlace de red para llegar a esos recursos. Para obtener más información, consulta la sección "[Utilizar el {% data variables.product.prodname_cli %} para acceder a los recursos remotos](https://github.com/github/gh-net#codespaces-network-bridge)".
 
 
 
 
 ### Utilizar una VPN para acceder a los recursos detrás de una red privada
 
-As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
+Como alternativa a la extensión del {% data variables.product.prodname_cli %}, puedes utilizar una VPN para acceder a los recursos detrás de una red privada desde dentro de tu codespace.
 
 Te recomendamos herramientas de VPN como [Open VPN](https://openvpn.net/) para acceder a los recursos de una red privada. Para obtener más información, consulta la sección "[Utilizar el cliente de OpenVPN desde GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)".
 

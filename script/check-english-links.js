@@ -28,6 +28,8 @@ const checker = new LinkChecker()
 const root = 'http://localhost:4000'
 const englishRoot = `${root}/en`
 
+const LINKINATOR_LOG_FILE_PATH =
+  process.env.LINKINATOR_LOG_FILE_PATH || path.join(__dirname, '../.linkinator/full.log')
 // When using the peter-evans/create-issue-from-file Action to post an
 // issue comment you might get an error like this:
 //
@@ -105,7 +107,7 @@ main()
 
 async function main() {
   // Clear and recreate a directory for logs.
-  const logFile = path.join(__dirname, '../.linkinator/full.log')
+  const logFile = LINKINATOR_LOG_FILE_PATH
   rimraf.sync(path.dirname(logFile))
   await mkdirp(path.dirname(logFile))
 

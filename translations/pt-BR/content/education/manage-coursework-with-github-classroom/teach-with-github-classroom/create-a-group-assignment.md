@@ -55,7 +55,7 @@ Para uma atividade em grupo, {% data variables.product.prodname_classroom %} nom
 
 ### Escolher um tipo de atividade
 
-Em "Atividade individual ou em grupo", selecione o menu suspenso e, em seguida, clique em **Atividade em grupo**. Você não pode alterar o tipo de atividade depois de criá-la. Se você preferir criar uma atividade individual, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)".
+Em "Atividade individual ou em grupo", selecione o menu suspenso e, em seguida, clique em **Atividade em grupo**. Você não pode alterar o tipo de atividade depois de criá-la. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### Definir equipes para uma atividade
 
@@ -151,6 +151,6 @@ A página de visão geral de atividades exibe informações sobre a aceitação 
 
 ## Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Usar Equipes Existentes atividades em grupo?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) na comunidade de {% data variables.product.prodname_education %}

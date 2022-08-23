@@ -1,25 +1,25 @@
 ---
-title: 'Disabling insights for {% data variables.projects.projects_v2 %} in your organization'
-intro: 'Organization owners can turn off insights for {% data variables.product.prodname_projects_v2 %} in their organization.'
+title: 'Organizationでの{% data variables.projects.projects_v2 %}のインサイトの無効化'
+intro: 'Organizationのオーナーは、自分のOrganizationで{% data variables.product.prodname_projects_v2 %}をオフにできます。'
 versions:
   feature: projects-v2
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
-shortTitle: 'Disable {% data variables.product.prodname_projects_v2 %} insights'
+shortTitle: '{% data variables.product.prodname_projects_v2 %}インサイトの無効化'
 allowTitleToDifferFromFilename: true
 ---
 
-After you disable insights for projects in your organization, it won't be possible to access insights for any projects owned by the organization.
+Organizationのプロジェクトのインサイトを無効化したあとは、Organizationが所有するいずれのプロジェクトでもインサイトにアクセスすることはできなくなります。
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, click **{% octicon "sliders" aria-label="The sliders icon" %} Features**. ![Screenshot showing features menu item](/assets/images/help/projects-v2/features-org-menu.png)
-1. Under "Insights", deselect **Enable Insights for the organization**. ![Screenshot showing Enable Insights for the organization checkbox](/assets/images/help/projects-v2/disable-insights-checkbox.png)
+1. サイドバーで**{% octicon "sliders" aria-label="The sliders icon" %} Features（機能）**をクリックしてください。 ![機能メニューアイコンを表示しているスクリーンショット](/assets/images/help/projects-v2/features-org-menu.png)
+1. "Insights（インサイト）"の下で、**Enable Insights for the organization（Organizationでインサイトを有効化）**の選択を解除してください。 ![Organizationのインサイトの有効化チェックボックスを表示しているスクリーンショット](/assets/images/help/projects-v2/disable-insights-checkbox.png)
 1. [**Save**] をクリックします。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/disable-insights-save.png)
 
 ## 参考リンク
 
 - [{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- "[About insights for {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)"
+- 「[{% data variables.projects.projects_v2 %}のインサイトについて](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」

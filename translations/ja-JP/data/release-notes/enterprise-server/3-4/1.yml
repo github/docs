@@ -55,6 +55,7 @@ sections:
       この問題を回避するためには、以下の2つの方法のいずれかを取ることができます。
       - `WantAssertionsEncrypted`属性なしのSAMLメタデータの静的なコピーをアップロードして、IdPを再設定する。
       - SAMLメタデータをコピーし、`WantAssertionsEncrypted`を削除し、それをWebサーバーでホストして、そのURLを指してIdPを再設定する。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - 
       heading: GitHub Enterprise Server 3.0の非推奨化

@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: 推送保护
+shortTitle: Enable push protection
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -30,11 +30,7 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} 作为推送保护，当前会扫描存储库中查找由以下服务提供商颁发的机密。
-
-{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
-
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
 ## 启用 {% data variables.product.prodname_secret_scanning %} 作为推送保护
 
@@ -58,31 +54,23 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+## Using secret scanning as a push protection from the command line
 
-## 从命令行使用 {% data variables.product.prodname_secret_scanning %} 作为推送保护
-
-当您尝试将受支持的密钥推送到启用了 {% data variables.product.prodname_secret_scanning %} 作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止推送。 您可以从提交中删除机密，也可以按照提供的 URL 进行推送。
+{% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 在命令行上一次最多会显示五个检测到的机密。 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
 
 ![显示当用户尝试将密钥推送到存储库时推送被阻止的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-如果需要从正在推送的分支上的最新提交（即 `HEAD`）以及包含该机密的任何早期提交中删除机密，您可以从 `HEAD` 中删除机密，然后在引入提交和已删除机密的 `HEAD` 的第一个版本之间压缩提交。
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
-{% note %}
+如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。 例如，您可以撤销密钥，并从存储库的提交历史记录中删除密钥。 Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. 更多信息请参阅“[从仓库中删除敏感数据](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)”。
 
-**注意**：
-
-* 如果您的 git 配置支持推送到多个分支，而不仅仅是到默认分支，则您的推送可能会由于推送了其他和意外的引用而被阻止。 更多信息请参阅 Git 文档中的 [`push.default` 选项](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault)。
-* 如果在推送时 {% data variables.product.prodname_secret_scanning %} 超时，{% data variables.product.prodname_dotcom %} 仍将在推送后运行扫描。
-
-{% endnote %}
+{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
 ### 允许推送被阻止的机密
 
 如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。
-
-如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。 例如，您可以撤销密钥，并从存储库的提交历史记录中删除密钥。 更多信息请参阅“[从仓库中删除敏感数据](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)”。
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
@@ -96,9 +84,7 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 {% ifversion secret-scanning-push-protection-web-ui %}
 ## 使用密钥扫描作为 Web UI 的推送保护
 
-当您使用 Web UI 尝试将受支持的密钥提交到启用了机密扫描作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止提交。 您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。
-
-  ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+{% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} 将在 Web UI 中一次仅显示一个检测到的机密。 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
 
@@ -108,7 +94,11 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 
 ### 绕过密钥的推送保护
 
-如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
+
+如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。 更多信息请参阅“[从仓库中删除敏感数据](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)”。
+
+如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 

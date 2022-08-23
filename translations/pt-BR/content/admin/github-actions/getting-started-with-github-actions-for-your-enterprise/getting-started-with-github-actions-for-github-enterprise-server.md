@@ -34,7 +34,8 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 ## Revisar os requisitos de hardware
 
-{%- ifversion ghes %}
+
+{%- ifversion ghes < 3.6 %}
 
 Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho. {% data reusables.actions.minimum-hardware %}
 
@@ -42,6 +43,13 @@ O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fato
 
 {% endif %}
 
+{%- ifversion ghes > 3.5 %}
+
+Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de executores que podem ser configurados sem perda de desempenho. {% data reusables.actions.minimum-hardware %}
+
+A quantidade máxima de executores conectados sem perda de desempenho depende de fatores como duração do trabalho, uso de artefatos, número de repositórios em execução no Actions e quantos trabalhos sua instância está fazendo não relacionado ao Actions. Os testes internos no GitHub demonstraram os objetivos de desempenho a seguir para o GitHub Enterprise Server em uma série de configurações de CPU e memória:
+
+{% endif %}
 
 {%- ifversion ghes = 3.2 %}
 
@@ -79,6 +87,23 @@ A simultaneidade máxima foi medida usando vários repositórios, a duração do
 
 {% endnote %}
 
+{%- endif %}
+
+
+{%- ifversion ghes = 3.6 %}
+
+{% data reusables.actions.hardware-requirements-3.6 %}
+
+{% data variables.product.company_short %} mediu o máximo de executores conectados usando vários repositórios, duração do trabalho de aproximadamente 10 minutos e upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+
+{% note %}
+
+**Notas:**
+
+- A partir de {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documenta os executores conectados em comparação com os trabalhos simultâneos. Os executores conectados representam a maioria dos executores que você pode conectar e esperar utilizar. Além disso, deve-se observar que conectar mais executores do que você pode esperar utilizar pode afetar negativamente o desempenho.
+
+- Começando com o {% data variables.product.prodname_ghe_server %} 3.5, o teste interno de {% data variables.product.company_short %} usa CPUs de terceira geração para refletir melhor uma configuração típica do cliente. Essa alteração na CPU representa uma pequena parte das alterações nos objetivos de desempenho nesta versão de {% data variables.product.prodname_ghe_server %}.
+{% endnote %}
 {%- endif %}
 
 Se você planeja habilitar {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garanta que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".

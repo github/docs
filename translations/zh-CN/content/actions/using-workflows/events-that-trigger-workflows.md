@@ -812,6 +812,8 @@ on:
 
 此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交的上下文中运行。 这样可以防止从拉取请求的头部执行不安全的代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您的工作流程对来自复刻的拉取请求执行标记或评论等操作。 如果需要从拉取请求构建或运行代码，请避免使用此事件。
 
+To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+
 {% warning %}
 
 **警告：** 对于由 `pull_request_target` 事件触发的工作流程，除非指定了 `permissions` 密钥并且工作流程可以访问机密，否则将向 `GITHUB_TOKEN` 授予读/写存储库权限， 即使它是从复刻触发的。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存都与基本分支共享相同的作用域。 为帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。 更多信息请参阅 GitHub 安全实验室网站上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。

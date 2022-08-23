@@ -2,7 +2,6 @@
 title: Variables de ambiente predeterminadas para tu codespace
 shortTitle: Variables de entorno predeterminadas
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 intro: '{% data variables.product.prodname_dotcom %} configura variables de ambiente predeterminadas para cada codespace.'
 versions:
   fpt: '*'

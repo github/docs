@@ -1,4 +1,4 @@
-Para postularte para obtener und escuento de docente o investigador, debes cumplir con los siguientes requisitos.
+Para solicitar los beneficios de docente y el acceso al {% data variables.product.prodname_global_campus %}, primero debes cumplir con los siguientes requisitos.
 
 - Ser educador, miembro de una factultad, o investigador.
 - Tener una dirección de correo electrónico verificable que haya emitido una institución educativa.

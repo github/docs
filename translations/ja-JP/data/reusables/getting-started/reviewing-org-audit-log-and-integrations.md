@@ -1,3 +1,3 @@
-The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the current month and previous six months. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+OrganizationのAudit logを使うと、OrganizationのオーナーはOrganizationのメンバーが当月及び過去6ヶ月に行ったアクションをレビューできます。 詳しい情報については「[OrganizationのAudit logのレビュー](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」を参照してください。
 
-You can also review and configure the permission levels for your organization's installed integrations. For more information, see "[Reviewing your organization's installed integrations](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)."
+Organizationにインストールされたインテグレーションの権限レベルをレビューして設定することもできます。 詳しい情報については「[Organizationにインストールされたインテグレーションのレビュー](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)」を参照してください。
