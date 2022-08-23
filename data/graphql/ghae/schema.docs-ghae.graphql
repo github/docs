@@ -4114,7 +4114,9 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -8866,7 +8868,9 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -12490,7 +12494,9 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -14045,7 +14051,9 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -16646,7 +16654,9 @@ interface Minimizable {
   isMinimized: Boolean!
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -26222,7 +26232,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
