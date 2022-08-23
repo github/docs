@@ -36,13 +36,13 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 - **Private pools**: The {% data variables.actions.hosted_runner %}s use private pools, which helps improves the security of the virtual machine lifecycle. With private pools, only re-imaged machines are allowed to be used within your organization or enterprise. This helps reduce concerns around re-imaged machines leaving artefacts behind. The use of private pools does affect the queue time for {% data variables.actions.hosted_runner %}s.
 
-When using {% data variables.actions.hosted_runner %}s, you can expect to see a longer job queue period than the standard runners that reside in the public pool. This can occur when a job enters the queue to be sent to a runner for processing. Since private pools contain fewer machines than the public pool, it is more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
+When using {% data variables.actions.hosted_runner %}s, you can expect to see a longer job queue period than the standard runners that reside in the public pool. This can occur when a job is queued for processing. Since private pools contain fewer machines than the public pool, it is more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
 
 To help improve these queue times, {% data variables.product.prodname_dotcom %} intends to add experimental support for opting out of private pools. By opting out, your runners may be moved into a public pool, though they may still be privately pooled during the beta phase. This option will be added to the runner configuration UI, when available.
 
 ## Autoscaling {% data variables.actions.hosted_runner %}s
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs -- until reaching the maximum limit you've defined. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
 
 You can set the following scaling option during the runner deployment process:
 
