@@ -1,4 +1,4 @@
----
+ (25.33.59.)redme 11---
 title: Contexts
 shortTitle: Contexts
 intro: You can access context information in workflows and actions.
@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About contexts
+## About contexts 
 
 Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Each context is an object that contains properties, which can be strings or other objects.
 
@@ -146,8 +146,8 @@ You can print the contents of contexts to the log for debugging. The [`toJSON` f
 {% raw %}
 ```yaml{:copy}
 name: Context testing
-on: push
-
+on: push 
+8234086855
 jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
