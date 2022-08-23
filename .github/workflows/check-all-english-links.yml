@@ -73,10 +73,12 @@ jobs:
           cat /tmp/stderr.log
 
       - name: Run script
+        timeout-minutes: 120
         env:
           # The default is 300 which works OK on a fast macbook pro
           # but not so well in Actions.
           LINKINATOR_CONCURRENCY: 100
+          LINKINATOR_LOG_FILE_PATH: linkinator.log
         run: |
           script/check-english-links.js > broken_links.md
 
@@ -88,6 +90,10 @@ jobs:
       #
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
+      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
+        with:
+          name: linkinator_log
+          path: linkinator.log
       - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
         if: ${{ failure() }}
         with:

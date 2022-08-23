@@ -31,6 +31,8 @@ Tipos de tableros de proyecto:
 
 Para crear un {% data variables.projects.projects_v1_board %} de organización, debes ser miembro de ella. Los propietarios de las organizaciones y las personas con permisos administrativos de {% data variables.projects.projects_v1_board %} pueden personalizar el acceso al {% data variables.projects.projects_v1_board %}.
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 Si un {% data variables.projects.projects_v1_board %} perteneciente a una organización incluye propuestas o solicitudes de cambio de un repositorio en el cual no tienes permisos de visualización, la tarjeta se redactará.  Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
 La vista de actividad muestra el historial reciente del {% data variables.projects.projects_v1_board %}, tal como las tarjetas que haya creado alguien o movido entre columnas. Para acceder a la vista actividad, haz clic en **Menú** y desplázate hacia abajo.

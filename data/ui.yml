@@ -36,6 +36,9 @@ search:
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

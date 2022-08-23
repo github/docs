@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
@@ -124,4 +125,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

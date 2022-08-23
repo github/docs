@@ -1,13 +1,13 @@
 {%- ifversion fpt %}
-Dependency review is enabled on public repositories. Dependency review is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+依存関係レビューは、パブリックリポジトリで有効化されています。 依存関係レビューは、{% data variables.product.prodname_ghe_cloud %}を使い、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているOrganizationが所有するプライベートリポジトリでも利用できます。
 
 {%- elsif ghec %}
-依存関係レビューは、パブリックリポジトリに対して{% data variables.product.product_name %}に含まれています。 To use dependency review in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+依存関係レビューは、パブリックリポジトリに対して{% data variables.product.product_name %}に含まれています。 依存関係レビューをOrganizationが所有するプライベートリポジトリで使うには、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っていなければなりません。
 
 {%- elsif ghes %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+依存関係レビューは、{% data variables.product.product_name %}のOrganizationが所有するリポジトリで利用できます。 この機能には、{% data variables.product.prodname_GH_advanced_security %}のライセンスが必要です。
 
 {%- elsif ghae %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+依存関係レビューは、{% data variables.product.product_name %}のOrganizationが所有するリポジトリで利用できます。 これは{% data variables.product.prodname_GH_advanced_security %}の機能です（ベータリリースの期間中は無料）。
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

@@ -2,7 +2,6 @@
 title: 代码空间的默认环境变量
 shortTitle: 默认环境变量
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 intro: '{% data variables.product.prodname_dotcom %} 为每个代码空间设置默认环境变量。'
 versions:
   fpt: '*'

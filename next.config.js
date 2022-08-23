@@ -1,6 +1,8 @@
 import fs from 'fs'
-import frontmatter from 'gray-matter'
 import path from 'path'
+
+import frontmatter from 'gray-matter'
+
 const homepage = path.posix.join(process.cwd(), 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children

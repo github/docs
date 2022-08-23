@@ -433,7 +433,7 @@ runs:
 
 Para obtener más información acerca de cómo se ejecuta el `entrypoint`, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
 
-### `post-entrypoint`
+### `runs.post-entrypoint`
 
 **Opcional** Te permite ejecutar un script de limpieza una vez que se haya completado la acción de `runs.entrypoint`. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción. Ya que {% data variables.product.prodname_actions %} ejecuta el script dentro de un contenedor nuevo utilizando la misma imagen base, el estado de tiempo de ejecución es diferente del contenedor principal de `entrypoint`. Puedes acceder a cualquier estado que necesites, ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `post-entrypoint:` siempre se ejecuta predeterminadamente, pero puedes anular esto utilizando [`runs.post-if`](#runspost-if).
 
@@ -475,7 +475,7 @@ runs:
 
 ## `branding`
 
-Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**Opcional** puedes utilizar un color e icono de [Pluma](https://feathericons.com/) para crear una insignia para personalizar y distinguir tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 ### Ejemplo: Configurar la personalización de una acción
 

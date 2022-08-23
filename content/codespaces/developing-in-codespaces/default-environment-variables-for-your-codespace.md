@@ -2,7 +2,6 @@
 title: Default environment variables for your codespace
 shortTitle: Default environment variables
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each codespace.'
 versions:
   fpt: '*'

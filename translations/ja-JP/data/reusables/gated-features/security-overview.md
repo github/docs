@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-The security overview is available for organizations that use {% data variables.product.prodname_enterprise %}. 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。
+The security overview is available for organizations that use {% data variables.product.prodname_enterprise %}. For more information, see "[GitHub's products](/articles/githubs-products)."
 {% elsif security-overview-displayed-alerts %}
 All organizations and enterprises have a security overview. If you use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghae %}, which is free during the beta release,{% endif %} you will see additional information. {% data reusables.advanced-security.more-info-ghas %}
 {% elsif ghes < 3.7 %}
