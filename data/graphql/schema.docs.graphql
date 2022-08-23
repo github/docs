@@ -4938,7 +4938,7 @@ with `refs/heads/` (although the input is not required to be fully
 qualified).
 
 The Ref may be specified by its global node ID or by the
-repository nameWithOwner and branch name.
+`repositoryNameWithOwner` and `branchName`.
 
 ### Examples
 
@@ -4946,10 +4946,10 @@ Specify a branch using a global node ID:
 
     { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
 
-Specify a branch using nameWithOwner and branch name:
+Specify a branch using `repositoryNameWithOwner` and `branchName`:
 
     {
-      "nameWithOwner": "github/graphql-client",
+      "repositoryNameWithOwner": "github/graphql-client",
       "branchName": "main"
     }
 """
@@ -9775,6 +9775,11 @@ type DiscussionCategory implements Node & RepositoryNode {
   repository: Repository!
 
   """
+  The slug of this category.
+  """
+  slug: String!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -10650,7 +10655,7 @@ input EnablePullRequestAutoMergeInput {
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to 'MERGE'
+  The merge method to use. If omitted, defaults to `MERGE`
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -13205,6 +13210,12 @@ enum EnterpriseUserAccountMembershipRole {
   The user is an owner of an organization in the enterprise.
   """
   OWNER
+
+  """
+  The user is not an owner of the enterprise, and not a member or owner of any
+  organizations in the enterprise; only for EMU-enabled enterprises.
+  """
+  UNAFFILIATED
 }
 
 """
@@ -20495,7 +20506,7 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
-  Create a new branch protection rule
+  Update a branch protection rule
   """
   updateBranchProtectionRule(
     """
@@ -20805,6 +20816,16 @@ type Mutation {
   ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
 
   """
+  Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
+  """
+  updateOrganizationWebCommitSignoffSetting(
+    """
+    Parameters for UpdateOrganizationWebCommitSignoffSetting
+    """
+    input: UpdateOrganizationWebCommitSignoffSettingInput!
+  ): UpdateOrganizationWebCommitSignoffSettingPayload
+
+  """
   Updates an existing project.
   """
   updateProject(
@@ -21000,6 +21021,16 @@ type Mutation {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload
+
+  """
+  Sets whether contributors are required to sign off on web-based commits for a repository.
+  """
+  updateRepositoryWebCommitSignoffSetting(
+    """
+    Parameters for UpdateRepositoryWebCommitSignoffSetting
+    """
+    input: UpdateRepositoryWebCommitSignoffSettingInput!
+  ): UpdateRepositoryWebCommitSignoffSettingPayload
 
   """
   Change visibility of your sponsorship and opt in or out of email updates from the maintainer.
@@ -25331,6 +25362,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -25356,7 +25392,8 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -25614,6 +25651,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   True if the viewer is sponsoring this user/organization.
   """
   viewerIsSponsoring: Boolean!
+
+  """
+  Whether contributors are required to sign off on web-based commits for repositories in this organization.
+  """
+  webCommitSignoffRequired: Boolean!
 
   """
   The organization's public profile URL.
@@ -29815,6 +29857,16 @@ type ProjectV2Item implements Node {
   databaseId: Int
 
   """
+  A specific field value given a field name
+  """
+  fieldValueByName(
+    """
+    The name of the field to return the field value of
+    """
+    name: String!
+  ): ProjectV2ItemFieldValue
+
+  """
   List of field values
   """
   fieldValues(
@@ -33611,6 +33663,87 @@ type PullRequestTemplate {
   The repository the template belongs to
   """
   repository: Repository!
+}
+
+"""
+A threaded list of comments for a given pull request.
+"""
+type PullRequestThread implements Node {
+  """
+  A list of pull request comments associated with the thread.
+  """
+  comments(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Skips the first _n_ elements in the list.
+    """
+    skip: Int
+  ): PullRequestReviewCommentConnection!
+  id: ID!
+
+  """
+  Whether or not the thread has been collapsed (resolved)
+  """
+  isCollapsed: Boolean!
+
+  """
+  Indicates whether this thread was outdated by newer changes.
+  """
+  isOutdated: Boolean!
+
+  """
+  Whether this thread has been resolved
+  """
+  isResolved: Boolean!
+
+  """
+  Identifies the pull request associated with this thread.
+  """
+  pullRequest: PullRequest!
+
+  """
+  Identifies the repository associated with this thread.
+  """
+  repository: Repository!
+
+  """
+  The user who resolved this thread
+  """
+  resolvedBy: User
+
+  """
+  Indicates whether the current viewer can reply to this thread.
+  """
+  viewerCanReply: Boolean!
+
+  """
+  Whether or not the viewer can resolve this thread
+  """
+  viewerCanResolve: Boolean!
+
+  """
+  Whether or not the viewer can unresolve this thread
+  """
+  viewerCanUnresolve: Boolean!
 }
 
 """
@@ -39136,6 +39269,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): DiscussionCategoryConnection!
 
   """
+  A discussion category by slug.
+  """
+  discussionCategory(
+    """
+    The slug of the discussion category to be returned.
+    """
+    slug: String!
+  ): DiscussionCategory
+
+  """
   A list of discussions that have been opened in the repository.
   """
   discussions(
@@ -40367,6 +40510,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     last: Int
   ): UserConnection!
+
+  """
+  Whether contributors are required to sign off on web-based commits in this repository.
+  """
+  webCommitSignoffRequired: Boolean!
 }
 
 """
@@ -41714,6 +41862,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
 
   """
+  Comment explaining the reason the alert was dismissed
+  """
+  dismissComment: String
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -42960,6 +43113,11 @@ The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
   """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
   PHP packages hosted at packagist.org
   """
   COMPOSER
@@ -43672,6 +43830,11 @@ interface Sponsorable {
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -43697,7 +43860,8 @@ interface Sponsorable {
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -44815,6 +44979,11 @@ input StartRepositoryMigrationInput {
   githubPat: String
 
   """
+  Whether to lock the source repository.
+  """
+  lockSource: Boolean
+
+  """
   The signed URL to access the user-uploaded metadata archive
   """
   metadataArchiveUrl: String
@@ -44843,6 +45012,11 @@ input StartRepositoryMigrationInput {
   The Octoshift migration source repository URL.
   """
   sourceRepositoryUrl: URI!
+
+  """
+  The visibility of the imported repository.
+  """
+  targetRepoVisibility: String
 }
 
 """
@@ -45677,7 +45851,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     orderBy: TeamRepositoryOrder
 
     """
-    The search string to look for.
+    The search string to look for. Repositories will be returned where the name contains your search string.
     """
     query: String
   ): TeamRepositoryConnection!
@@ -47699,6 +47873,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  Entry byte size
+  """
+  size: Int!
 
   """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule
@@ -49730,6 +49909,46 @@ type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting
+"""
+input UpdateOrganizationWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization on which to set the web commit signoff setting.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  Enable signoff on web-based commits for repositories in the organization?
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationWebCommitSignoffSetting
+"""
+type UpdateOrganizationWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
+
+  """
+  The organization with the updated web commit signoff setting.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UpdateProjectCard
 """
 input UpdateProjectCardInput {
@@ -50574,6 +50793,46 @@ type UpdateRepositoryPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The updated repository.
+  """
+  repository: Repository
+}
+
+"""
+Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting
+"""
+input UpdateRepositoryWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the repository to update.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  Indicates if the repository should require signoff on web-based commits.
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateRepositoryWebCommitSignoffSetting
+"""
+type UpdateRepositoryWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
 
   """
   The updated repository.
@@ -52050,6 +52309,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -52075,7 +52339,8 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!

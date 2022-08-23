@@ -12,7 +12,7 @@ versions:
 
 {% data variables.product.prodname_desktop %} will also show a system notification when checks fail. For more information on enabling notifications, see "[Configuring notifications in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)."
 
-## Viewing and re-running checks
+## Ver y volver a ejecutar las verificaciones
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}

@@ -24,7 +24,7 @@ Para obtener más información sobre cómo utilizar OIDC con {% data variables.p
 
 ## About using CAP with IP allow lists
 
-We recommend disabling your enterprise account's IP allow list and relying on your IdP's CAP. If you enable IP allow lists for your enterprise and also make use of your IdP's CAP, both the IP allow list and CAP will be enforced. If either restriction rejects a user's IP address, the request fails. For more information about IP allow lists, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+We recommend disabling your enterprise account's IP allow list and relying on your IdP's CAP. If you enable IP allow lists for your enterprise and also make use of your IdP's CAP, both the IP allow list and CAP will be enforced. If either restriction rejects a user's IP address, the request fails. Para obtener más información sobre las listas de IP permitidas, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 ## Considerations for integrations and automations
 

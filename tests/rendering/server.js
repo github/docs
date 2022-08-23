@@ -78,7 +78,7 @@ describe('server', () => {
     ).toBe(0)
   })
 
-  test('renders the Enterprise homepages with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
       `/en/enterprise-server@${enterpriseServerReleases.latest}`,
       '/en/enterprise-cloud@latest',
@@ -129,10 +129,9 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers to bypass pages', async () => {
+  test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('private, no-store')
-    expect(res.headers['surrogate-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
@@ -478,17 +477,16 @@ describe('server', () => {
       expect($('a[href="/en/repositories/working-with-files/managing-files"]').length).toBe(1)
     })
 
-    test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
+    // Any links expressed in Markdown as '.../enterprise-server@latest/...'
+    // should become '.../enterprise-server@<VERSION>/...' when rendered out.
+    test('enterprise-server@latest links get rewritten to include the latest GHE version', async () => {
       const $ = await getDOM(
-        '/en/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise'
+        '/en/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
       )
-      // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
-      // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
-        $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"]`
-        ).length
-      ).toBe(2)
+        $(`a[href="${latestEnterprisePath}/billing/managing-your-license-for-github-enterprise"]`)
+          .length
+      ).toBe(1)
     })
 
     test('dotcom articles on GHE have Enterprise user links', async () => {
@@ -756,7 +754,9 @@ describe('URLs by language', () => {
     const $ = await getDOM('/ja/site-policy/github-terms/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
     // This check is true on either the translated version of the page, or when the title is pending translation and is in English.
-    expect($('h1')[0].children[0].data).toMatch(/(GitHub利用規約|GitHub Terms of Service)/)
+    expect($('h1')[0].children[0].data).toMatch(
+      /(GitHub利用規約|GitHub Terms of Service|GitHub のサービス条件)/
+    )
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
@@ -973,8 +973,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
@@ -1007,8 +1006,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers.etag).toBeUndefined()
     expect(res.headers['last-modified']).toBeTruthy()
@@ -1030,7 +1028,7 @@ describe('static routes', () => {
   it('does not serve repo contents that live outside the /assets directory', async () => {
     expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/server.mjs', { followRedirects: true })).statusCode).toBe(404)
+    expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
   })
 })
 

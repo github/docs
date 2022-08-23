@@ -20,6 +20,4 @@ topics:
 
 詳しい情報については「[実装](/graphql/guides/introduction-to-graphql#implementation)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

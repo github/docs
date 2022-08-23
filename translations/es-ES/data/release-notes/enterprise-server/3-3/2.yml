@@ -29,3 +29,4 @@ sections:
     - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
     - 'Los ajustes de almacenamiento de {% data variables.product.prodname_actions %} no pueden validarse y guardarse en la {% data variables.enterprise.management_console %} cuando se selecciona "Forzar estilo de ruta" y, en su lugar, debe configurarse la utilidad de línea de comando `ghe-actions-precheck`.'
     - 'Las instancias de {% data variables.product.prodname_ghe_server %} 3.3 que se instalan en Azure y se aprovisionan con 32 núcleos de CPU o más no se pudieron lanzar debido a un error presente en el kernel actual de Linux. [Actualizado: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

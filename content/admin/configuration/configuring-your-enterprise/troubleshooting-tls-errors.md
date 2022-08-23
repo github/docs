@@ -49,7 +49,7 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ## Unresponsive installation after uploading a key
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. 
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included. 
 
 ## Certificate validity errors
 

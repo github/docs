@@ -63,7 +63,7 @@ Texto que não é uma citação
 
 ## Citar código
 
-Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre as aspas não será formatado. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
+Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre as aspas não será formatado. Você também pode pressionar o atalho do teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para inserir as barras inversas para um bloco de código em uma linha de Markdown.
 
 ```markdown
 Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
@@ -102,7 +102,7 @@ Aqui estão os modelos de cores atualmente compatíveis.
 
 | Cor | Sintaxe                   | Exemplo                   | Resultado                                                                                                                             |
 | --- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png)                 |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Modelo de cor compartível e interpretado no formato HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png)      |
 | RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Modelo de cor RGB compatível fornecido no formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png)        |
 | HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Modelo de cor com compativilidade renderizado no formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
@@ -117,7 +117,7 @@ Aqui estão os modelos de cores atualmente compatíveis.
 
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Ao selecionar o texto, você poderá colar uma URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} Você também pode criar um hiperlink de Markdown destacando o texto e usando o atalho de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Se você deseja substituir o texto pelo link, use o atalho de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -323,7 +323,7 @@ Você pode adicionar emoji à sua escrita digitando `:EMOJICODE:`.
 
 ![Emoji renderizado](/assets/images/help/writing/emoji-rendered.png)
 
-Typing <kbd>:</kbd> will bring up a list of suggested emoji. A lista será filtrada à medida que você digita. Portanto, assim que encontrar o emoji que estava procurando, pressione **Tab** ou **Enter** para completar o resultado destacado.
+Digitar <kbd>:</kbd> trará à tona uma lista de emojis sugeridos. A lista será filtrada à medida que você digita. Portanto, assim que encontrar o emoji que estava procurando, pressione **Tab** ou **Enter** para completar o resultado destacado.
 
 Para obter uma lista completa dos emojis e códigos disponíveis, confira [a lista de emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 

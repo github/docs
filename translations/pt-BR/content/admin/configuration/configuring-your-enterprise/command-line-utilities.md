@@ -344,6 +344,18 @@ Com `ghe-set-password`, você pode definir uma nova senha para autenticação no
 ghe-set-password <new_password>
 ```
 
+### ghe-setup-network
+
+Este utilitário permite que você configure a interface primária de rede.
+
+Para entrar no modo visual, que irá guiar você por meio das configurações de rede:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Para consultar opções adicionais, use o sinalizador -h.
+
 ### ghe-ssh-check-host-keys
 
 Este utilitário verifica as chaves do host SSH atuais para identificar chaves vazadas conhecidas.
@@ -622,7 +634,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -655,7 +667,7 @@ ghe-repo <em>username</em>/<em>reponame</em>
 
 ### ghe-repo-gc
 
-Este utilitário reempacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
+Este utilitário empacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
 Você pode adicionar o argumento opcional `--prune` para remover objetos inacessíveis do Git que não são referenciados em um branch, tag ou qualquer outra referência. Fazer isso é útil principalmente para remover de imediato [informações confidenciais já eliminadas](/enterprise/user/articles/remove-sensitive-data/).
 
@@ -737,6 +749,20 @@ Este utilitário reescreve o repositório importado. Isso dá a você a oportuni
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## Segurança
+
+### ghe-find-insecure-git-operations
+
+Este utilitário pesquisa os logs da sua instância e identifica operações do Git por SSH que usam algoritmos inseguros ou funções hash, incluindo DSA, RSA-SHA-1, HMAC-SHA-1 e cifras CBC. Você pode usar a saída para ajudar a transição de cada cliente para uma conexão SSH mais segura. Para obter mais informações, consulte [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} e "[Configurando conexões SSH para sua instância](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)".{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## Suporte
 

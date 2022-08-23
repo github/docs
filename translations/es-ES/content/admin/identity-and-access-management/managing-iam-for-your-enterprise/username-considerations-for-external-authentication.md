@@ -76,7 +76,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 {% elsif ghes %}
 When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 {% elsif ghae %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your IdP to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+When you configure SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your IdP to determine the username for the corresponding user account on {% data variables.product.product_name %}. Si el identificador incluye caracteres no compatibles, {% data variables.product.product_name %} normalizará el nombre de usuario de acuerdo con las siguientes reglas.
 {% endif %}
 
 1. El {% data variables.product.product_name %} convertirá en raya cualquier caracter no alfanumérico en el nombre de tu cuenta de usuario. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Nota que los nombres de usuarios normalizados tampoco pueden comenzar o terminar con una raya. Tampoco pueden contener dos rayas seguidas.

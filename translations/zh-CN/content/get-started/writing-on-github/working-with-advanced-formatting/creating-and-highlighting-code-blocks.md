@@ -70,7 +70,7 @@ Look! You can see my backticks.
 {% ifversion mermaid %}
 ## 创建图表
 
-您还可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、geoJSON、topoJSON 和 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
+您还可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、GeoJSON、TopoJSON 和 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
 
 {% endif %}
 ## 延伸阅读

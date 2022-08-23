@@ -45,7 +45,7 @@ In all the search phrases below, replace ORGANIZATION with the name of the organ
 ### Restoring teams
 
 1. To find each team name, search the audit log for `action:team.create org:ORGANIZATION`.
-1. Manually recreate the team. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+1. Manually recreate the team. 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。
 1. To find the members that have been added to each team, search for `action:team.add_member team:"ORGANIZATION/TEAM"`.
 1. Manually re-add the team members. For more information, see "[Adding organization members to a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
 1. To find the repositories that the team was granted access to, search for `action:team.add_repository team:"ORGANIZATION/TEAM"`.

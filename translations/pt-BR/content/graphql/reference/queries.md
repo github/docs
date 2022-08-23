@@ -1,6 +1,6 @@
 ---
 title: Consultas
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
@@ -25,14 +25,4 @@ Para obter mais informações, consulte "[Sobre consultas](/graphql/guides/formi
 
 {% endnote %}
 
-## Conexões
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## Campos
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

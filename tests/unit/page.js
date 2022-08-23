@@ -4,14 +4,12 @@ import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
 import Page from '../../lib/page.js'
-import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import loadSiteData from '../../lib/site-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
 )
@@ -142,18 +140,6 @@ describe('Page class', () => {
       const last = $('a[href]').last()
       expect(last.text()).toBe('Version 3.2')
       expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
-    })
-
-    test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
-      const graphqlVersion =
-        allVersions[`enterprise-server@${enterpriseServerReleases.latest}`].miscVersionName
-      const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
-      expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
-      expect(
-        $(
-          `a[href^="/en/enterprise-server@${enterpriseServerReleases.latest}/graphql/reference/input-objects"]`
-        ).length
-      ).toBeGreaterThan(0)
     })
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {

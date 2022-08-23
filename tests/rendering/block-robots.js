@@ -15,21 +15,10 @@ describe('block robots', () => {
   })
 
   it('allows crawling of generally available localized content', async () => {
-    Object.values(languages)
-      .filter((language) => !language.wip)
-      .forEach((language) => {
-        expect(allowIndex(`/${language.code}`)).toBe(true)
-        expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(true)
-      })
-  })
-
-  it('disallows crawling of WIP localized content', async () => {
-    Object.values(languages)
-      .filter((language) => language.wip)
-      .forEach((language) => {
-        expect(allowIndex(`/${language.code}`)).toBe(false)
-        expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(false)
-      })
+    Object.values(languages).forEach((language) => {
+      expect(allowIndex(`/${language.code}`)).toBe(true)
+      expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(true)
+    })
   })
 
   it('disallows crawling of WIP products', async () => {

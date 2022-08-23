@@ -27,10 +27,6 @@ sections:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - |
-      Ao usar declarações criptografadas do SAML com {% data variables.product.prodname_ghe_server %} 3.4.0 e 3.4.1, um novo atributo do XML `WantAssertionsEncrypted` no `SPSSODescriptor` contém um atributo inválido para metadados do SAML. Os IdPs que consomem este ponto de extremidade de metadados do SAML podem encontrar erros ao validar o esquema XML de metadados SAML. Uma correção estará disponível na próxima atualização de atualização. [Atualizado: 2022-04-11]
-
-      Para contornar esse problema, você pode tomar uma das duas ações a seguir.
-      - Reconfigurar o IdP, fazendo o upload de uma cópia estática dos metadados do SAML sem o atributo `WantAssertionsEncrypted`.
-      - Copiar os metadados do SAML, remover o atributo `WantAssertionsEncrypted`, hospedá-lo em um servidor web e reconfigurar o IdP para apontar para esse URL.
+      Depois de registrar um executor auto-hospedado com o parâmetro `--ephemeral` em mais de um nível (por exemplo, tanto na empresa quanto na organização), o executor pode ficar preso em um estado ocioso e exigir o recadastro. [Atualizado: 2022-06-17]
+    - Depois de atualizar para {% data variables.product.prodname_ghe_server %} 3.4, as versões podem parecer ausentes nos repositórios. Isso pode ocorrer quando as migrações necessárias do índice Elasticsearch não tiverem sido concluídas com sucesso.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

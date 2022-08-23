@@ -1,20 +1,15 @@
-| 提供者           | 支持的密钥             | 密钥类型                                |
-| ------------- | ----------------- | ----------------------------------- |
-| Adafruit IO   | Adafruit IO 密钥    | adafruit_io_key                   |
-| Adobe         | Adobe 设备令牌        | adobe_device_token                |
-| Adobe         | Adobe 服务令牌        | adobe_service_token               |
-| Adobe         | Adobe 短暂访问令牌      | adobe_short_lived_access_token  |
-| Adobe         | Adobe JSON Web 令牌 | adobe_jwt                           |
-| Alibaba Cloud | Alibaba 云访问密钥 ID  | alibaba_cloud_access_key_id     |
-| Alibaba Cloud | Alibaba 云访问密钥机密   | alibaba_cloud_access_key_secret |
+| 提供者           | 支持的密钥                                                            | 密钥类型                                                                     |
+| ------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Adafruit IO   | Adafruit IO 密钥                                                   | adafruit_io_key                                                        |
+| Adobe         | Adobe 设备令牌                                                       | adobe_device_token                                                     |
+| Adobe         | Adobe 服务令牌                                                       | adobe_service_token                                                    |
+| Adobe         | Adobe 短暂访问令牌                                                     | adobe_short_lived_access_token                                       |
+| Adobe         | Adobe JSON Web 令牌                                                | adobe_jwt                                                                |
+| Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Amazon | Amazon OAuth 客户端 ID | amazon_oauth_client_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Amazon | Amazon OAuth 客户端机密 | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS 机密访问密钥 | aws_secret_access_key
+Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS 临时访问密钥 ID | aws_temporary_access_key_id{% endif %} Asana | Asana 个人访问令牌 | asana_personal_access_token Atlassian | Atlassian API 令牌 | atlassian_api_token Atlassian | Atlassian JSON Web 令牌 | atlassian_jwt Atlassian | Bitbucket Server 个人访问令牌 | bitbucket_server_personal_access_token
+Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key{% endif %} Asana | Asana Personal Access Token | asana_personal_access_token Atlassian | Atlassian API Token | atlassian_api_token Atlassian | Atlassian JSON Web Token | atlassian_jwt Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Azure | Azure Active Directory 应用程序密钥 | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
@@ -32,19 +27,15 @@ FullStory | FullStory API 密钥 | fullstory_api_key{% endif %} GitHub | GitHub 
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 GitLab | GitLab 访问令牌 | gitlab_access_token{% endif %} GoCardless | GoCardless Live 访问令牌 | gocardless_live_access_token GoCardless | GoCardless Sandbox 访问令牌 | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Firebase Cloud Messaging Server 密钥 | firebase_cloud_messaging_server_key{% endif %} Google | Google API 密钥 | google_api_key Google | Google Cloud 私钥 ID | google_cloud_private_key_id
+Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %} Google | Google API Key | google_api_key Google | Google Cloud Private Key ID |
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
+Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
+Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Google OAuth 访问令牌 | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Google | Google OAuth 客户端 ID | google_oauth_client_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Google | Google OAuth 客户端密钥 | google_oauth_client_secret{% endif %}
+Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Google OAuth 刷新令牌 | google_oauth_refresh_token{% endif %} Grafana | Grafana API 密钥 | grafana_api_key HashiCorp | Terraform Cloud / Enterprise API 令牌 | terraform_api_token HashiCorp | HashiCorp Vault 批次令牌 | hashicorp_vault_batch_token HashiCorp | HashiCorp Vault 服务令牌 | hashicorp_vault_service_token Hubspot | Hubspot API 密钥 | hubspot_api_key Intercom | Intercom 访问令牌 | intercom_access_token Ionic | Ionic 个人访问令牌 | ionic_personal_access_token Ionic | Ionic 刷新令牌 | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -80,9 +71,11 @@ PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo 验证令牌 | plivo_auth_token{% endif %} Postman | Postman API 密钥 | postman_api_key Proctorio | Proctorio 消费者密钥 | proctorio_consumer_key Proctorio | Proctorio 链接密钥 | proctorio_linkage_key Proctorio | Proctorio 注册密钥 | proctorio_registration_key Proctorio | Proctorio 密钥 | proctorio_secret_key Pulumi | Pulumi 访问令牌 | pulumi_access_token PyPI | PyPI API 令牌 | pypi_api_token
+Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Prefect | Prefect Server API Key | prefect_server_api_key Prefect | Prefect User API Key | prefect_user_api_key{% endif %} Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API 令牌 | redirect_pizza_api_token{% endif %} RubyGems | RubyGems API 密钥 | rubygems_api_key Samsara | Samsara API 令牌 | samsara_api_token Samsara | Samsara OAuth 访问令牌 | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -107,6 +100,8 @@ Supabase | Supabase 服务密钥 | supabase_service_key{% endif %} Tableau | Tab
 Twilio | Twilio 访问令牌 | twilio_access_token{% endif %} Twilio | Twilio Account String 标识 | twilio_account_sid Twilio | Twilio API 密钥 | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Typeform | Typeform 个人访问令牌 | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 WorkOS | WorkOS Production API 密钥 | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

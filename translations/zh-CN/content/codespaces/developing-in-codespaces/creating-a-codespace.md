@@ -2,7 +2,6 @@
 title: 创建代码空间
 intro: 您可以为仓库中的分支创建代码空间以便在线开发。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -21,7 +20,7 @@ shortTitle: 创建代码空间
 
 可以在 {% data variables.product.prodname_dotcom_the_website %} 上、{% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 创建代码空间。 {% data reusables.codespaces.codespaces-are-personal %}
 
-代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %} 更多信息请参阅“[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)”。
+代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %}
 
 
 创建代码空间时，需要执行一些步骤并将您连接到开发环境。
@@ -44,8 +43,6 @@ shortTitle: 创建代码空间
 {% data reusables.codespaces.prebuilds-crossreference %}
 
 ## 访问 {% data variables.product.prodname_github_codespaces %}
-
-{% data reusables.codespaces.availability %}
 
 当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 
@@ -111,7 +108,7 @@ shortTitle: 创建代码空间
          **注：**
 
          * 您可以为选项页面添加书签，以便快速为此存储库和分支创建代码空间。
-         * [https://github.com/codespaces/new](https://github.com/codespaces/new) 页面提供了一种为任何存储库和分支创建代码空间的快速方法。
+         * [https://github.com/codespaces/new](https://github.com/codespaces/new) 页面提供了一种为任何存储库和分支创建代码空间的快速方法。 You can get to this page quickly by typing `codespace.new` into your browser's address bar.
          * 有关 `devcontainer.json` 文件的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)”。
          * 有关计算机类型的详细信息，请参阅“[更改代码空间的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
@@ -138,24 +135,20 @@ shortTitle: 创建代码空间
 gh codespace create 
 ```
 
-系统将提示您选择仓库、分支和计算机类型（如果有多个可用）。
-
-{% note %}
-
-**注意**：目前，{% data variables.product.prodname_cli %} 不允许在创建代码空间时选择开发容器配置。 如果要选择特定的开发容器配置，请使用 {% data variables.product.prodname_dotcom %} Web 界面创建代码空间。 有关更多信息，请单击此页面顶部的“Web browser（Web 浏览器）”选项卡。
-
-{% endnote %}
+You are prompted to choose a repository, a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 或者，您可以使用标志来指定部分或全部选项：
 
 ```shell
-gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
+gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> --devcontainer-path <em>path</em> -m <em>machine-type</em> 
 ```
 
-将 `owner/repo` 替换为仓库标识符。 将 `branch` 替换为您希望在代码空间中最初检出的分支的名称或提交的完整 SHA 哈希。 如果使用 `-r` 标志而不使用 `b` 标志，则将从默认分支创建代码空间。
+In this example, replace `owner/repo` with the repository identifier. 将 `branch` 替换为您希望在代码空间中最初检出的分支的名称或提交的完整 SHA 哈希。 如果使用 `-r` 标志而不使用 `b` 标志，则将从默认分支创建代码空间。
+
+Replace `path` with the path to the dev container configuration file you want to use for the new codespace. If you omit this flag and more than one dev container file is available you will be prompted to choose one from a list. For more information about the dev container configuration file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
 将 `machine-type` 替换为可用计算机类型的有效标识符。 标识符是字符串，例如：`basicLinux32gb` 和 `standardLinux32gb`。 可用的计算机类型取决于仓库、您的个人帐户和您的位置。 如果输入无效或不可用的计算机类型，则错误消息中将显示可用类型。 如果省略此标志，并且有多个计算机类型可用，系统将提示您从列表中选择一个计算机类型。
 
-有关此命令的详细信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_create)。
+For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}

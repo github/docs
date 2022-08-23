@@ -6,7 +6,7 @@ sections:
     - 'Los paquetes de soporte podrían incluir archivos sensibles si es que se habilitaron las {% data variables.product.prodname_actions %}.'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - 'A workflow run may not complete if it uses composite-actions.'
+    - 'Una ejecución de flujo de trabajo podría no completarse si utiliza acciones compuestas.'
     - 'Al habilitar el {% data variables.product.prodname_dependabot %}, un error ocasionó que algunas asesorías de seguridad se leyeran temporalmente como no aplicables.'
     - 'Los procesos de Minio tuvieron un uso alto de CPU si una opción de configuración estuvo presente después de mejorar a {% data variables.product.prodname_ghe_server %}.'
     - 'Se mostraron las opciones para habilitar `TLS 1.0` y `TLS 1.1` en los ajustes de privacidad de la consola de administración a pesar de haber eliminado esas versiones de protocolo que ocurrieron en un lanzamiento anterior.'
@@ -17,13 +17,13 @@ sections:
     - 'En algunas topologías de clúster, no estuvo disponible la información de entrega de webhooks.'
     - 'La gráfica de despliegue de {% data variables.product.prodname_actions %} mostró un error al procesar un job pendiente.'
     - 'La verificación de salud de Elasticsearch no permitió un estado de clúster amarillo al ejecutar las migraciones.'
-    - 'When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.'
+    - 'Cuando se utiliza la [API de migraciones](/rest/reference/migrations), los jobs de exportación en cola no se procesaron.'
     - 'Los repositorios mostraron una pestaña de debates sin funcionalidad en la IU web.'
     - 'Las organizaciones que se crearon como resultado de que un usuario haya transformado su cuenta de usuario en una organización no se agregaron a la cuenta empresarial global.'
     - 'Los jbs de sincronización de usuario de LDAP fallaron al intentar sincronizar claves GPG que se hubieran sincronizado anteriormente.'
     - 'Se eliminaron los enlaces a las páginas inaccesibles.'
     - 'Algunas instancias experimentaron un uso de CPU alto debido a que se estaban poniendo en cola cantidades innecesarias de jobs en segundo plano.'
-    - 'Empty repositories didnt sync correctly to cache servers.'
+    - 'Los repositorios vacíos no se sincronizaron correctamente a los servidores de caché.'
     - 'El agregar a un equipo como revisor para una solicitud de cambios algunas veces muestra la cantidad incorrecta de miembros en un equipo.'
     - 'La terminal de la API de eliminar membrecía de equipo respondió con un error al intentar eliminar a un miembro administrador externamente a través del grupo de SCIM.'
     - 'Una gran cantidad de usuarios inactivos podría ocasionar que falle una configuración de {% data variables.product.prodname_github_connect %}.'
@@ -33,10 +33,10 @@ sections:
     - 'Los límites de conexión almacenados en la memoria de alto rendimiento se incrementaron para adaptarse mejor a las topologías de clústers grandes.'
     - 'La API de la gráfica de dependencias se ejecutó previamente con un puerto definido estáticamente.'
     - 'Se actualizó el conteo de fragmentos de los ajustes de fragmentos de la Elasticsearch relacionada con el clúster.'
-    - 'The [Migrations API](/rest/reference/migrations) now generates exports of repositories.'
+    - 'La [API de migraciones](/rest/reference/migrations) ahora genera exportaciones de repositorios.'
     - 'Cuando se filtraron los miembros de la empresa por rol en la organización en la página de "Personas", el texto de los elementos del menú desplegable se mejoraron.'
     - 'Los roles de equipo de "Clasificación" y "Mantenimiento" se preservan durante las migraciones de repositorios.'
-    - 'Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.'
+    - 'Al utilizar el migrador de ghe o exportar desde GitHub.com, una exportación no incluyó los adjuntos de la solicitud de cambios.'
     - 'Se mejoró el rendimiento para las solicitudes web que hicieron los propietarios de las empresas.'
   known_issues:
     - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
@@ -46,8 +46,9 @@ sections:
     - 'Cuando se habilita la opción "Los usuarios pueden buscar en GitHub.com" con las propuestas de {% data variables.product.prodname_github_connect %}, las propuestas en los repositorios internos y privados no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.'
     - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
     - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
-    - "After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]\n"
+    - "Después de registrar un ejecutor auto-hospedado con el parámetro `--ephemeral` en más de un nivel (por ejemplo, tanto en la empresa como en la organización), el ejecutor podría atorarse en un estado inactivo y requerir un nuevo registro. [Actualizado: 2022-06-17]\n"
     - "Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]\n\nPara darle una solución a este problema, puedes tomar una de las dos acciones siguientes.\n- Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.\n- Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.\n"
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 3.0'
       notes:

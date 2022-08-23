@@ -3,7 +3,7 @@ import { describe, jest, test } from '@jest/globals'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -116,7 +116,7 @@ describe('recently deprecated redirects', () => {
     // 301 redirects are safe to cache aggressively
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
@@ -214,6 +214,9 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(result.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
   it('returns the expected CSS file', async () => {

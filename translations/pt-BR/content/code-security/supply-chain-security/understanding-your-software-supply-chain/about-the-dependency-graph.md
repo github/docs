@@ -73,9 +73,9 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 |                        |           |                       |                               |
 
 {%- ifversion dependency-graph-rust-support %}
-| Cargo
+| Cargo{% ifversion ghes = 3.6 or ghae-issue-7563 %}
 
-<sup>[*]</sup> | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+<sup>[*]</sup>{% endif %} | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` | | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
@@ -92,7 +92,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 {%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% ifversion dependency-graph-rust-support %}
+{% ifversion ghes = 3.6 or ghae-issue-7563 %}
 [*] Para a liberação inicial do suporte ao Rust, o gráfico de dependência não tem os metadados e mapeamentos necessários para detectar dependências transitivas. O gráfico de dependência exibe dependências transitivas, um nível de profundidade, quando são definidas em um arquivo `cargo.lock` . {% data variables.product.prodname_dependabot_alerts %} e {% data variables.product.prodname_dependabot_security_updates %} estão disponíveis para dependências vulneráveis definidas no arquivo</code>Cargo.lock`.
 </p>
 
@@ -101,7 +101,8 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 <p spaces-before="0">{% ifversion github-actions-in-dependency-graph %}</p>
 
 <p spaces-before="0">
-[†] Os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório <code>.github/workflows/` de um repositório a ser reconhecido como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+[†] {% data reusables.enterprise.3-5-missing-feature %} Os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório <code>.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+
 {% endif %}
 
 [‡] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
