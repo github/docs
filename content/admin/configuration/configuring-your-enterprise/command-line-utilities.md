@@ -672,7 +672,7 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
