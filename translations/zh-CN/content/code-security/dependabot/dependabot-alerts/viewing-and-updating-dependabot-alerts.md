@@ -173,19 +173,28 @@ topics:
 
 ## 查看和更新已关闭的警报
 
-{% tip %}
-
-**提示：** 您只能重新打开以前已忽略的警报。 无法重新打开已修复的已关闭警报。
-{% endtip %}
+You can view all open alerts, and you can reopen alerts that have been previously dismissed. 无法重新打开已修复的已关闭警报。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. 要仅查看已关闭的警报，请单击 **Closed（已关闭）**。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. 单击要查看或更新的警报。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. （可选）如果警报已消除，并且您希望重新打开它，请单击 **Reopen（重新打开）**。 无法重新打开已修复的警报。 ![显示"重新打开"按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. 要仅查看已关闭的警报，请单击 **Closed（已关闭）**。
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![显示"已关闭"选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   ![显示"已关闭"选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. Click the alert that you would like to view or update.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. （可选）如果警报已消除，并且您希望重新打开它，请单击 **Reopen（重新打开）**。 无法重新打开已修复的警报。
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   ![显示"重新打开"按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

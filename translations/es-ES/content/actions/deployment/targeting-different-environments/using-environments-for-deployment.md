@@ -99,7 +99,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
    1. Ingresa el valor del secreto.
    1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-También puedes crear y configurar ambientes a través de la API de REST. For more information, see "[Deployment environments](/rest/deployments/environments)," "[GitHub Actions Secrets](/rest/actions/secrets)," and "[Deployment branch policies](/rest/deployments/branch-policies)."
+También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones "[Ambientes de despliegue](/rest/deployments/environments)", "[Secretos de GitHub Actions](/rest/actions/secrets)" y "[Políticas de despliegue de rama](/rest/deployments/branch-policies)".
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 

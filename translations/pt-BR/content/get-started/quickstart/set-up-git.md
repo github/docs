@@ -42,17 +42,17 @@ Se não precisar trabalhar nos arquivos localmente, o {% data variables.product.
 
 1. [Faça download e instale a versão mais recente do Git](https://git-scm.com/downloads).
 
-{% note %}
+   {% note %}
 
-**Observação**: Se você estiver usando um dispositivo do Chrome OS, será necessário configurar adicionalmente:
+   **Observação**: Se você estiver usando um dispositivo do Chrome OS, será necessário configurar adicionalmente:
 
-2. Instale um emulador de terminais como, por exemplo, o Termux da Google Play Store no seu dispositivo Chrome OS.
-3. A partir do emulador de terminal que você instalou, instale o Git. Por exemplo, no Termux, insira `apt install git` e, em seguida, digite `y` quando solicitado.
+   1. Instale um emulador de terminais como, por exemplo, o Termux da Google Play Store no seu dispositivo Chrome OS.
+   1. A partir do emulador de terminal que você instalou, instale o Git. Por exemplo, no Termux, insira `apt install git` e, em seguida, digite `y` quando solicitado.
 
-{% endnote %}
+   {% endnote %}
 
-2. [Configure seu nome de usuário no Git](/github/getting-started-with-github/setting-your-username-in-git).
-3. [Configure seu endereço de e-mail de commit no Git](/articles/setting-your-commit-email-address).
+1. [Configure seu nome de usuário no Git](/github/getting-started-with-github/setting-your-username-in-git).
+1. [Configure seu endereço de e-mail de commit no Git](/articles/setting-your-commit-email-address).
 
 ## Efetuando a autenticação com {% data variables.product.prodname_dotcom %} a partir do Git
 

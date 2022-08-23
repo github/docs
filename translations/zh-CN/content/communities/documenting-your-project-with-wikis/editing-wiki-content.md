@@ -26,7 +26,7 @@ topics:
 您可以使用页面支持的标准标记或使用 MediaWiki 语法在 wiki 中创建链接。 例如：
 
 - 如果您的页面使用 Markdown 渲染，则链接语法为 `[链接文本](wiki 页面的完整 URL)`。
-- 使用 MediaWiki 语法，链接语法为 `[[链接文本|wiki 页面的名称]]`。
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
 ## 添加图像
 

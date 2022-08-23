@@ -15,7 +15,9 @@ If this test is failing...
     add the file name to ALLOW_DOCS_PATHS.
 */
 
-// These are a list of known public repositories in the GitHub organization
+// These are a list of known public repositories in the GitHub organization.
+// The names below on their own, plus the same names ending with '.git', will be accepted.
+// Do not include '.git' in the names below.
 const PUBLIC_REPOS = new Set([
   'actions-oidc-gateway-example',
   'advisory-database',
@@ -43,7 +45,6 @@ const PUBLIC_REPOS = new Set([
   'gitignore',
   'gov-takedowns',
   'haikus-for-codespaces',
-  'hello-world.git',
   'hello-world',
   'help-docs-archived-enterprise-versions',
   'hubot',
@@ -58,6 +59,7 @@ const PUBLIC_REPOS = new Set([
   'roadmap',
   'securitylab',
   'semantic',
+  'ssh_data',
   'site-policy',
   'smimesign',
   'stack-graphs',
@@ -81,7 +83,9 @@ const ALLOW_DOCS_PATHS = [
   'script/toggle-ghae-feature-flags.js',
 ]
 
-const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
+// This regexp will capture the last segment of a GitHub repo name.
+// E.g., it will capture `backup-utils.git` from `https://github.com/github/backup-utils.git`.
+const REPO_REGEXP = /\/\/github\.com\/github\/([\w\-.]+)/gi
 
 const IGNORE_PATHS = [
   '.git',
@@ -129,7 +133,8 @@ describe('check if a GitHub-owned private repository is referenced', () => {
     // the disk I/O is sufficiently small.
     const file = fs.readFileSync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
-      .map(([, repoName]) => repoName)
+      // The referenced repo may or may not end with '.git', so ignore that extension.
+      .map(([, repoName]) => repoName.replace(/\.git$/, ''))
       .filter((repoName) => !PUBLIC_REPOS.has(repoName))
       .filter((repoName) => {
         return !(

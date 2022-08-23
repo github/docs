@@ -15,6 +15,7 @@ import { jest, test, expect } from '@jest/globals'
 
 import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
 import { get } from '../helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -62,7 +63,10 @@ describeIfElasticsearchURL('search middleware', () => {
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
   test('debug search', async () => {
@@ -144,7 +148,8 @@ describeIfElasticsearchURL('search middleware', () => {
       sp.set('version', 'xxxxx')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('version')
+      expect(JSON.parse(res.text).error).toMatch("'xxxxx'")
+      expect(JSON.parse(res.text).field).toMatch('version')
     }
     // unrecognized size
     {

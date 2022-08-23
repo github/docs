@@ -160,6 +160,7 @@ sections:
       Para darle una solución a este problema, puedes tomar una de las dos acciones siguientes.
       - Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.
       - Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - 
       heading: Obsoletización de GitHub Enterprise Server 3.0

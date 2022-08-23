@@ -85,6 +85,12 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
 {% ifversion streaming-oidc-s3 %}
 #### Configurar la transmisión a S3 con OpenID Connect
 
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
+
 1. En AWS, agrega el proveedor de OIDC de {% data variables.product.prodname_dotcom %} para IAM. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
 
    - Para la URL de proveedor, utiliza `https://oidc-configuration.audit-log.githubusercontent.com`.
