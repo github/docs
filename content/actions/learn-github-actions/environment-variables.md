@@ -124,6 +124,8 @@ Any new environment variables you set that point to a location on the filesystem
 
 The default environment variables that {% data variables.product.prodname_dotcom %} sets are available to every step in a workflow. 
 
+{% data reusables.actions.environment-variables-are-fixed %}
+
 We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets environment variables for actions to use in all runner environments.
 
 | Environment variable | Description |
