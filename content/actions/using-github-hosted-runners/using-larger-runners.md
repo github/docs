@@ -36,7 +36,7 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 - **Private pools**: The {% data variables.actions.hosted_runner %}s use private pools, which helps improves the security of the virtual machine lifecycle. With private pools, only re-imaged machines are allowed to be used within your organization or enterprise. This helps reduce concerns around re-imaged machines leaving artefacts behind. The use of private pools does affect the queue time for {% data variables.actions.hosted_runner %}s.
 
-When using {% data variables.actions.hosted_runner %}s, you can expect to see a longer job queue period than the standard runners in the public pool. Once your job is due to run, it enters a queue that submits the job to a runner for processing. Private pools contain fewer machines than the public pool, which makes it more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
+When using {% data variables.actions.hosted_runner %}s, you can expect to see a longer job queue period than the standard runners that reside in the public pool. This can occur when a job enters the queue to be sent to a runner for processing. Since private pools contain fewer machines than the public pool, it is more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
 
 To help improve these queue times, {% data variables.product.prodname_dotcom %} intends to add experimental support for opting out of private pools. By opting out, your runners may be moved into a public pool, though they may still be privately pooled during the beta phase. This option will be added to the runner configuration UI, when available.
 
@@ -121,7 +121,7 @@ jobs:
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. Subsequently, you will need to grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. Subsequently, you must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
 
 - **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
 - **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
@@ -136,8 +136,8 @@ This procedure demonstrates how to configure group permissions at the enterprise
 
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. 
-  - For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
+  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
+  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
 
 {% warning %}
 
