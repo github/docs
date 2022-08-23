@@ -631,12 +631,11 @@ body:
 
 ## Body cannot be empty error
 
-The template body key:value pair must not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
 
+The error can be fixed by adding the `body:` section.
 
-It's possible that the `body:` section is missing, in which case you just need to add it.
-
-It's also possible there is an extra `---` (document separator) between your headers and the `body` section.
+The error can also be fixed by deleting the `---` (document separator) between the headers and the `body` section.
 
 ### Example
 
