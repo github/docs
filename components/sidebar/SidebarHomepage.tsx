@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
+import { memo } from 'react'
 
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 
-export const SidebarHomepage = () => {
+export const SidebarHomepage = memo(() => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { activeProducts, isFPT } = useMainContext()
@@ -20,11 +21,10 @@ export const SidebarHomepage = () => {
               (product) => isFPT || product.versions?.includes(currentVersion) || product.external
             )
             .map((product) => {
-              const href = `${!product.external ? `/${router.locale}` : ''}${
-                product.versions?.includes(currentVersion) && !isFPT
+              const href = `${!product.external ? `/${router.locale}` : ''}${product.versions?.includes(currentVersion) && !isFPT
                   ? `/${currentVersion}/${product.id}`
                   : product.href
-              }`
+                }`
 
               return (
                 <ActionList.Item
@@ -52,4 +52,4 @@ export const SidebarHomepage = () => {
       </li>
     </ul>
   )
-}
+})

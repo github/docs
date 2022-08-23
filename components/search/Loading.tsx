@@ -1,7 +1,7 @@
 import { Spinner } from '@primer/react'
 
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 
 export function Loading() {
   const [showLoading, setShowLoading] = useState(false)
@@ -30,7 +30,7 @@ function ShowSpinner() {
   )
 }
 
-function ShowNothing() {
+const ShowNothing = memo(() => {
   return (
     // The min heigh is based on inspecting what the height became when it
     // does render. Making this match makes the footer to not flicker
@@ -39,4 +39,4 @@ function ShowNothing() {
       {/* Deliberately empty */}
     </div>
   )
-}
+})

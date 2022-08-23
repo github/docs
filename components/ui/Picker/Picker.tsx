@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { ActionList, ActionMenu, Box, Details, Text, useDetails } from '@primer/react'
 import { ArrowRightIcon, ChevronDownIcon, InfoIcon, LinkExternalIcon } from '@primer/octicons-react'
 import cx from 'classnames'
@@ -27,7 +27,7 @@ export function Picker({ variant, defaultText, options }: PickerPropsT) {
   const { getDetailsProps } = useDetails({ closeOnOutsideClick: true })
   const selectedOption = options.find((opt) => opt.selected === true)
 
-  function getFields() {
+  const getFields = useCallback(() => {
     return (
       <ActionList selectionVariant="single">
         {options.map((option) => (
@@ -50,9 +50,9 @@ export function Picker({ variant, defaultText, options }: PickerPropsT) {
         ))}
       </ActionList>
     )
-  }
+  }, [options, open])
 
-  function getInlinePicker() {
+  const getInlinePicker = useCallback(() => {
     return (
       <Details {...getDetailsProps()} className={cx('position-relative details-reset', 'd-block')}>
         <summary
@@ -70,7 +70,7 @@ export function Picker({ variant, defaultText, options }: PickerPropsT) {
         </Box>
       </Details>
     )
-  }
+  }, [getDetailsProps, selectedOption, defaultText, getFields])
 
   return (
     <React.Fragment>

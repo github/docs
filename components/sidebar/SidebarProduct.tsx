@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import cx from 'classnames'
 
 import { Link } from 'components/Link'
@@ -38,7 +38,7 @@ export const SidebarProduct = () => {
 
   const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
 
-  const productSection = () => (
+  const productSection = useMemo(() => (
     <li className="my-3" data-testid="product-sidebar-items">
       <ul className="list-style-none">
         {currentProductTree &&
@@ -76,7 +76,7 @@ export const SidebarProduct = () => {
           })}
       </ul>
     </li>
-  )
+  ), [currentProductTree, hasExactCategory, routePath])
 
   const restSection = () => {
     const conceptualPages = currentProductTree.childPages.filter(
@@ -170,7 +170,7 @@ export const SidebarProduct = () => {
               {productTitle}
             </Link>
           </li>
-          {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection()}
+          {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection}
         </>
       )}
     </ul>

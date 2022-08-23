@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MarkGithubIcon } from '@primer/octicons-react'
 import { useTranslation } from '../hooks/useTranslation'
+import { memo } from 'react'
 
-export const SmallFooter = () => {
+export const SmallFooter = memo(() => {
   const router = useRouter()
   const { t } = useTranslation('footer')
   return (
@@ -60,4 +61,4 @@ export const SmallFooter = () => {
       </ul>
     </div>
   )
-}
+})

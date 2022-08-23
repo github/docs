@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { memo } from 'react'
 import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { Lead } from 'components/ui/Lead'
 
-export function GenericError() {
+export const GenericError = memo(() => {
   return (
     <div className="min-h-screen d-flex flex-column">
       <Head>
@@ -37,9 +38,9 @@ export function GenericError() {
       <SimpleFooter />
     </div>
   )
-}
+})
 
-export const SimpleHeader = () => {
+export const SimpleHeader = memo(() => {
   const router = useRouter()
   return (
     <div className="border-bottom color-border-muted no-print">
@@ -60,9 +61,9 @@ export const SimpleHeader = () => {
       </header>
     </div>
   )
-}
+})
 
-export const SimpleFooter = () => {
+export const SimpleFooter = memo(() => {
   return (
     <footer className="py-6 text-small">
       <div className="container-xl d-flex px-3 px-md-6 flex-justify-center">
@@ -105,4 +106,4 @@ export const SimpleFooter = () => {
       </div>
     </footer>
   )
-}
+})

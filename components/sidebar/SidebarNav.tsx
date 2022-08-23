@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { memo } from 'react'
 import { MarkGithubIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
@@ -7,7 +8,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from './SidebarProduct'
 import { SidebarHomepage } from './SidebarHomepage'
 
-export const SidebarNav = () => {
+export const SidebarNav = memo(() => {
   const router = useRouter()
   const { error, currentProduct } = useMainContext()
   const { t } = useTranslation('header')
@@ -48,4 +49,4 @@ export const SidebarNav = () => {
       </nav>
     </div>
   )
-}
+})

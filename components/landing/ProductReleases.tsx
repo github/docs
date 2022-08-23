@@ -4,8 +4,9 @@ import { useProductLandingContext } from 'components/context/ProductLandingConte
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { useRouter } from 'next/router'
+import { memo } from 'react'
 
-export function ProductReleases() {
+export const ProductReleases = memo(() => {
   const { t } = useTranslation('product_landing')
   const router = useRouter()
   const { enterpriseServerReleases, allVersions } = useMainContext()
@@ -78,4 +79,4 @@ export function ProductReleases() {
       </Link>
     </div>
   )
-}
+})

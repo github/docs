@@ -1,7 +1,9 @@
+import { memo } from 'react'
+
 import { OctocatHeader } from 'components/landing/OctocatHeader'
 import { useTranslation } from 'components/hooks/useTranslation'
 
-export const HomePageHero = () => {
+export const HomePageHero = memo(() => {
   const { t } = useTranslation(['header', 'homepage'])
 
   return (
@@ -19,4 +21,4 @@ export const HomePageHero = () => {
       </div>
     </section>
   )
-}
+})

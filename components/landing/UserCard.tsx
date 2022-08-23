@@ -16,6 +16,7 @@ export const UserCard = ({ user, href }: Props) => {
           src={`https://github.com/${user.username}.png`}
           alt={user.username}
           className="avatar avatar-8 circle"
+          decoding="async"
         />
       </div>
       <div className="flex-auto">

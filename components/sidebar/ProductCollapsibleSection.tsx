@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { useState, SyntheticEvent } from 'react'
+import { useState, SyntheticEvent, useCallback } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 
@@ -18,14 +18,14 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
   const { routePath, defaultOpen, title, page } = props
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
-  const onToggle = (e: SyntheticEvent) => {
+  const onToggle = useCallback((e: SyntheticEvent) => {
     const newIsOpen = (e.target as HTMLDetailsElement).open
     setIsOpen(newIsOpen)
     sendEvent({
       type: EventType.navigate,
       navigate_label: `details ${newIsOpen ? 'open' : 'close'}: ${title}`,
     })
-  }
+  }, [title])
 
   // The lowest level page link displayed in the tree
   const renderTerminalPageLink = (page: ProductTreeNode) => {

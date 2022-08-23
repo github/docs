@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
+import React, { useState, useEffect, useRef, ReactNode, RefObject, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
@@ -68,10 +68,10 @@ export function Search({
 
   const fetchURL = query
     ? `/${USE_LEGACY_SEARCH ? 'api/search/legacy' : 'search'}?${new URLSearchParams({
-        language,
-        version,
-        query,
-      })}`
+      language,
+      version,
+      query,
+    })}`
     : null
 
   const { data: results, error: searchError } = useSWR<SearchResult[], Error>(
@@ -188,14 +188,14 @@ export function Search({
     }
   }
 
-  const SearchResults = (
+  const SearchResults = useMemo(() => (
     <>
       <div
         id="search-results-container"
         className={cx(
           'z-1 pb-5 px-3',
           isHeaderSearch &&
-            'pt-9 color-bg-default color-shadow-medium position-absolute top-0 right-0',
+          'pt-9 color-bg-default color-shadow-medium position-absolute top-0 right-0',
           styles.resultsContainer,
           isHeaderSearch && styles.resultsContainerHeader,
           query || searchError ? 'd-block' : 'd-none',
@@ -233,7 +233,7 @@ export function Search({
         onClick={closeSearch}
       />
     </>
-  )
+  ), [isHeaderSearch, query, searchError, isMobileSearch, inputRef, isLoading, previousResults, closeSearch, debug])
 
   const SearchInput = (
     <div data-testid="search">
@@ -477,10 +477,10 @@ function ShowSearchResults({
                         {breadcrumbs.length === 0
                           ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
                           : breadcrumbs
-                              .split(' / ')
-                              .slice(0, 1)
-                              .join(' ')
-                              .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                            .split(' / ')
+                            .slice(0, 1)
+                            .join(' ')
+                            .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
                       </Label>
                       {debug && (
                         <small className="float-right">
@@ -504,12 +504,12 @@ function ShowSearchResults({
                           breadcrumbs.length === 0
                             ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
                             : {
-                                __html: breadcrumbs
-                                  .split(' / ')
-                                  .slice(0, breadcrumbs.length - 1)
-                                  .join(' / ')
-                                  .replace(/<\/?[^>]+(>|$)/g, ''),
-                              }
+                              __html: breadcrumbs
+                                .split(' / ')
+                                .slice(0, breadcrumbs.length - 1)
+                                .join(' / ')
+                                .replace(/<\/?[^>]+(>|$)/g, ''),
+                            }
                         }
                       />
                     </div>

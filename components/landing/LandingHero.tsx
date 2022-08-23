@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
@@ -9,7 +9,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
-export const LandingHero = () => {
+export const LandingHero = memo(() => {
   const { product_video, shortTitle, title, beta_product, intro, introLinks } =
     useProductLandingContext()
   const { t } = useTranslation('product_landing')
@@ -67,7 +67,7 @@ export const LandingHero = () => {
       )}
     </header>
   )
-}
+})
 
 // Fully Qualified Link - it includes the version and locale in the path if
 // the href is not an external link.
@@ -84,9 +84,8 @@ export const FullLink = ({ href, children, className }: Props) => {
   let linkHref = href
   if (!isExternal) {
     const locale = router.locale || 'en'
-    linkHref = `/${locale}${
-      currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
-    }${href}`
+    linkHref = `/${locale}${currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
+      }${href}`
   }
 
   return (

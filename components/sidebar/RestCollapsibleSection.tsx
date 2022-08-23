@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { useState, useEffect, SyntheticEvent, ReactElement } from 'react'
+import { useState, useEffect, SyntheticEvent, ReactElement, useCallback } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 
@@ -32,20 +32,20 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const [currentAnchor, setCurrentAnchor] = useState('')
   const [visibleAnchor, setVisibleAnchor] = useState('')
 
-  const onToggle = (e: SyntheticEvent) => {
+  const onToggle = useCallback((e: SyntheticEvent) => {
     const newIsOpen = (e.target as HTMLDetailsElement).open
     setIsOpen(newIsOpen)
     sendEvent({
       type: EventType.navigate,
       navigate_label: `details ${newIsOpen ? 'open' : 'close'}: ${title}`,
     })
-  }
+  }, [title])
 
   const miniTocItems =
     router.query.productId === 'rest' ||
-    // These pages need the Article Page mini tocs instead of the Rest Pages
-    router.asPath.includes('/rest/guides') ||
-    router.asPath.includes('/rest/overview')
+      // These pages need the Article Page mini tocs instead of the Rest Pages
+      router.asPath.includes('/rest/guides') ||
+      router.asPath.includes('/rest/overview')
       ? []
       : useAutomatedPageContext().miniTocItems
 
@@ -101,7 +101,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const ConditionalLinkWrapper = ({ condition, wrapper, children }: ConditionalLinkTypes) =>
     condition ? wrapper(children) : children
 
-  const renderRestAnchorLink = (miniTocItem: MiniTocItem) => {
+  const renderRestAnchorLink = useCallback((miniTocItem: MiniTocItem) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
     const isCurrent = visibleAnchor === miniTocAnchor
@@ -133,7 +133,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
         </a>
       </ActionList.Item>
     )
-  }
+  }, [visibleAnchor])
 
   return (
     <details open={defaultOpen} onToggle={onToggle} className="details-reset">

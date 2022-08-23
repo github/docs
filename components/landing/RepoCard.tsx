@@ -16,6 +16,7 @@ export const RepoCard = ({ repo, href }: Props) => {
           src={`https://github.com/${repo.repo.split('/')[0]}.png`}
           alt={repo.repo}
           className="avatar avatar-8"
+          decoding="async"
         />
       </div>
       <div className="flex-auto">
