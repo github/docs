@@ -1037,15 +1037,23 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 - `[]` 括弧内にリストされた、あるいは範囲に含まれる1つのキャラクタにマッチします。 範囲に含めることができるのは`a-z`、`A-Z`、`0-9`のみです。 たとえば、`[0-9a-z]`という範囲は任意の数字もしくは小文字にマッチします。 たとえば`[CB]at`は`Cat`あるいは`Bat`にマッチし、`[1-2]00`は`100`や`200`にマッチします。
 - `!`: パターンの先頭に置くと、肯定のパターンを否定にします。 先頭のキャラクタではない場合は、特別な意味を持ちません。
 
-YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パターンを`*`、`[`、`!`で始める場合、そのパターンをクオートで囲まなければなりません。
+YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パターンを`*`、`[`、`!`で始める場合、そのパターンをクオートで囲まなければなりません。 Also, if you use a [flow sequence](https://yaml.org/spec/1.2.2/#flow-sequences) with a pattern containing `[` and/or `]`, the pattern must be enclosed in quotes.
 
 ```yaml
-# 有効
-- '**/README.md'
+# Valid
+branches:
+  - '**/README.md'
 
-# 無効 - ワークフローの実行を妨げる
-# 解析エラーを作成する
-- **/README.md
+# Invalid - creates a parse error that
+# prevents your workflow from running.
+branches:
+  - **/README.md
+
+# Valid
+branches: [ main, 'release/v[0-9].[0-9]' ]
+
+# Invalid - creates a parse error
+branches: [ main, release/v[0-9].[0-9] ]
 ```
 
 For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
