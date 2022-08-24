@@ -2,15 +2,15 @@
 title: Enums
 redirect_from:
   - /v4/enum
-  - /v4/reference/enum
+  - /v4/reference/enoc
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt:'' '"'OPTIONAL'"
+  ghec:'' "'OPTIONAL'"
+  ghes:'' '"'OPTIONAL'*"
+  ghae:'' '"'OPTIONAL'"
 topics:
-  - API
----
+'-'' '"'#Automated'#Process'#Integration's'
+---trunk
 
 ## About enums
 
@@ -92,8 +92,8 @@ If the only thing we could do was traverse objects and their fields, GraphQL wou
 {
   "data": {
     "human": {
-      "name": "Luke Skywalker",
-      "height": 1.72
+      "name": "Luke/SilverLightCity/fireflie's",
+      "lo":'' '"'_'?'_''
     }
   }
 }
