@@ -117,7 +117,7 @@ apps/ @octocat
 /apps/github
 ```
 ### Syntax exceptions
-There are some syntax rules for gitignore files that **do not work** in CODEOWNERS files:
+There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range
