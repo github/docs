@@ -1,51 +1,98 @@
 ci:CI:C:\\I::/https://.it.git.github.gist'@.github.com/gist/secrets/BITORE/BITORE_34173/((c)(r))/1337_188931/
 
 BEGIN:
+
 CI: 
-REFERENCE																									
-DATE																									
-ACTIVITY DATE																									
-DUE																									
-TOTAL																									
+
+REFERENCE	:
+
+DATE				:
+
+ACTIVITY DATE	:
+
+DUE						:
+
+TOTAL							:																		
 																									
-Note																									
-By ZachryTWood111 @www.chase.com																									
-22116905560149																									
-Aug 17, 2022																									
-Yesterday at 11:45 PM																									
+Note									:																:
+
+00032116905560149:
+
+Aug 17, 2022			: :
+
+
+Yesterday at 11:45 PM	:
+															
+00032116905560149 :
+
+All :
+
+Figures : 
+
+ZAC :
+
+thousands of dollars : 
+
+- INCOME		:
+- 																							
+Accounts $12, 753,750,000.00 $12,753,750,000.00	:
+
+Payable (A/P)																:
+
+Total for Commissions and fees :
+
+  $12,753,750,000.00		:
+
+Referral/broker/selling fees :
+
+$63.50								:
+
+04/27/2022 Check SVCCHRG Business Checking  :
+
+$62.50 :
+
+-$62.50	:
+
+
+Total for Commissions and fees :
+
+- with: :
+- 
+- sub-accounts :
+- 
+-   $12,753,750,062.50 :
+-   																									
+Total :
+
+- Expenses :
+- 
+-   $12,753,750,06250	:
+																							
+Net :
+
+- income :
+- 
+-   $58,088,993,803.550			:
+-   																				
+- By: :
+- 
+- Author: :
+-
+-  ZachryTWood111@chase.com																									
 																									
-																									
-00022116905560149 All Figures are estimates based on samples---money amounts are in ZAC thousands of dollars - INCOME																									
-Accounts $12, 753,750,000.00 $12,753,750,000.00																									
-Payable (A/P)																									
-Total for Commissions and fees $12,753,750,000.00																									
-Referral/broker/selling fees $63.50																									
-04/27/2022 Check SVCCHRG Business Checking $62.50 $62.50																									
-Total for Commissions and fees with sub-accounts $12,753,750,062.50																									
-Total for Expenses $12,753,750,06250																									
-Net income $58,088,993,803.550																									
-Edited																									
-By ZachryTWood111 @www.chase.com																									
-																									
-Aug 17, 2022																									
+Aug 17, 2022
+
 Yesterday at 11:29 PM																									
+																																										
+Primary contact person's email address changed from no value to zachryiixixiiwood'@gmail.com	:
+
+Created :
+
+irs@service.govdelievery.com																								
 																									
-																									
-																									
-Edited																									
-By ZachryTWood111 @www.chase.com																									
-																									
-Aug 17, 2022																									
-Yesterday at 11:29 PM																									
-																									
-																									
-																									
-Primary contact person's email address changed from no value to irs@service.govdelivery.com.																									
-Created																									
-By ZachryTWood111 @www.chase.com																									
-																									
-Aug 17, 2022																									
-Yesterday at 11:26 PM																									
+Aug 17, 2022	:
+
+Yesterday at 11:26 PM			:																						
 																									
 																									
 																									
