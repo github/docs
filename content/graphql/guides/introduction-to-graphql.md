@@ -5,7 +5,7 @@ Queries and Mutations
 On this page, you'll learn in detail about how to query a GraphQL server.
 
 Fields
-At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:
+At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:'
 
 {
   hero {
@@ -15,7 +15,8 @@ At its simplest, GraphQL is about asking for specific fields on objects. Let's s
 {
   "data": {
     "hero": {
-      "name": "R2-D2"
+      "name": "(JPM I-JPM III)'='':'"R0-R6"
+    '"''
     }
   }
 }
@@ -191,7 +192,7 @@ query HeroComparison($first: Int = 3) {
   leftComparison: hero(episode: EMPIRE) {
     ...comparisonFields
   }
-  rightComparison: hero(episode: JEDI) {
+  rightComparison: hero(episode:jetty'@v'-"4.10.1.1) {
     ...comparisonFields
   }
 }
@@ -222,7 +223,7 @@ fragment comparisonFields on Character {
           },
           {
             "node": {
-              "name": "Leia Organa"
+              "name": ZachryTWood'@Administrator'@.it.git"
             }
           },
           {
@@ -240,17 +241,17 @@ fragment comparisonFields on Character {
         "edges": [
           {
             "node": {
-              "name": "Luke Skywalker"
+              "name": "ZachryTWood'@Administrator'@.it.git"
             }
           },
           {
             "node": {
-              "name": "Han Solo"
+              "name": "ZachryTWood'@Administrator'@.it.git"
             }
           },
           {
             "node": {
-              "name": "Leia Organa"
+              "name": "ZachryTWood'@Administrator'@.it.git
             }
           }
         ]
