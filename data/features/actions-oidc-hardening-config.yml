@@ -1,0 +1,5 @@
+# Reference: #7336
+# General versioning for oidc hardening options
+versions:
+  ghec: '*'
+  ghes: '>=3.7'
