@@ -120,6 +120,7 @@ describe('sidebar', () => {
           !directory.includes('rest/guides') &&
           !directory.includes('rest/overview') &&
           !absolute.includes('rest/index.md') &&
+          !absolute.includes('rest/quickstart.md') &&
           !file.includes('README.md')
         ) {
           return contentFiles.push(absolute)

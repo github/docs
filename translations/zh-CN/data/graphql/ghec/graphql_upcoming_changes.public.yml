@@ -575,15 +575,8 @@ upcoming_changes:
     criticality: 重大
     owner: lukewar
   - 
-    location: ProjectNextFieldType.TASKS
-    description: '`TASKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
-    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: 重大
-    owner: lukewar
-  - 
     location: ProjectNextFieldType.TEXT
-    description: '`TEXT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: '“TEXT”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
     reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 重大
@@ -591,6 +584,13 @@ upcoming_changes:
   - 
     location: ProjectNextFieldType.TITLE
     description: '“TITLE”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TRACKS
+    description: '“TRACKS”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
     reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 重大
@@ -990,6 +990,13 @@ upcoming_changes:
   - 
     location: ProjectView.groupBy
     description: '“groupBy”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectView.groupedItems
+    description: '`groupedItems` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 重大

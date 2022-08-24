@@ -1,1 +1,1 @@
-1. To the right of "Manage access", click **Add people** or **Add teams**. !["Teamあるいは人の招待" ボタン](/assets/images/help/repository/manage-access-invite-button.png)
+1. "Manage access（アクセスの管理）"の右で、**Add people（人の追加）**あるいは**Add teams（Teamの追加）**をクリックしてください。 !["Teamあるいは人の招待" ボタン](/assets/images/help/repository/manage-access-invite-button.png)

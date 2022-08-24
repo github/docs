@@ -1,5 +1,5 @@
-You can manage permissions and policies for a number of different actions and features in your organization.
+Organizationの様々なアクションや機能について、権限とポリシーを管理できます。
 
-For example, to protect your organization's data, you can restrict repository creation in your organization. You can also choose to allow or prevent the forking of private repositories owned by your organization. For more information, see "[Restricting repository creation in your organization](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)" and "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+たとえば、Organizationのデータを保護するために、Organizationでのリポジトリの作成を制限できます。 また、Organizationが所有するプライベートリポジトリのフォークを許可したり禁止したりすることもできます。 詳しい情報については「[Organizationでのリポジトリ作成の制限](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)」及び「[Organizationのフォークのポリシーの管理](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
 
-For the full list of settings you can configure for your organization, see "[Managing organization settings](/organizations/managing-organization-settings)."
+Organizationで可能な設定の完全なリストについては「[Organizationの設定の管理](/organizations/managing-organization-settings)」を参照してください。
