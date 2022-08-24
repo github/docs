@@ -80,10 +80,16 @@ export const SidebarProduct = () => {
 
   const restSection = () => {
     const conceptualPages = currentProductTree.childPages.filter(
-      (page) => page.href.includes('guides') || page.href.includes('overview')
+      (page) =>
+        page.href.includes('guides') ||
+        page.href.includes('overview') ||
+        page.href.includes('quickstart')
     )
     const restPages = currentProductTree.childPages.filter(
-      (page) => !page.href.includes('guides') && !page.href.includes('overview')
+      (page) =>
+        !page.href.includes('guides') &&
+        !page.href.includes('overview') &&
+        !page.href.includes('quickstart')
     )
     return (
       <>
@@ -95,6 +101,7 @@ export const SidebarProduct = () => {
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
               const defaultOpen = hasExactCategory ? isActive : false
+
               return (
                 <li
                   key={childPage.href + i}
@@ -102,12 +109,23 @@ export const SidebarProduct = () => {
                   data-is-current-page={isActive && isStandaloneCategory}
                   className={cx('py-1', isActive && 'color-bg-inset')}
                 >
-                  <ProductCollapsibleSection
-                    defaultOpen={defaultOpen}
-                    routePath={routePath}
-                    title={childTitle}
-                    page={childPage}
-                  />
+                  {childPage.href.includes('quickstart') ? (
+                    <Link
+                      href={childPage.href}
+                      className={cx(
+                        'd-block pl-4 pr-5 py-1 color-fg-default text-bold no-underline width-full'
+                      )}
+                    >
+                      {childTitle}
+                    </Link>
+                  ) : (
+                    <ProductCollapsibleSection
+                      defaultOpen={defaultOpen}
+                      routePath={routePath}
+                      title={childTitle}
+                      page={childPage}
+                    />
+                  )}
                 </li>
               )
             })}
