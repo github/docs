@@ -36,8 +36,6 @@ You can grant {% data variables.product.prodname_managed_users %} access to and 
 
 The usernames of your enterprise's {% data variables.product.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-{% data reusables.enterprise-accounts.emu-forks %}
-
 Enterprise owners can audit all of the {% data variables.product.prodname_managed_users %}' actions on {% data variables.product.prodname_dotcom %}. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)."
 
 To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[About enterprises with managed users](#about-enterprises-with-managed-users)."
@@ -75,7 +73,8 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 * {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.product.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.product.prodname_managed_user %} to collaborate.
-* {% data variables.product.prodname_managed_users_caps %} can only own private repositories and {% data variables.product.prodname_managed_users %} can only invite other enterprise members to collaborate on their owned repositories.
+* You can choose whether {% data variables.product.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
+* If you allow {% data variables.product.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
 * {% data variables.product.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
