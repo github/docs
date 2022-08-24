@@ -45,9 +45,9 @@ La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimient
 
 {%- ifversion ghes > 3.5 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
+Los recursos de memoria y CPU disponibles para {% data variables.product.product_location %} determinan la cantidad de ejecutores que se pueden configurar sin pérdida de rendimiento. {% data reusables.actions.minimum-hardware %}
 
-The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Las pruebas internas en GitHub demostraron los siguientes objetivos de rendimiento para GitHub Enterprise Server en un rango de configuraciones de memoria y CPU:
+La cantidad máxima de ejecutores conectados sin pérdida de rendimiento depende de factores tales como la duración de un job, el uso de artefactos, la cantidad de repositorios que ejecutan acciones y qué tantos otros trabajos no relacionados con las acciones realiza tu instancia. Las pruebas internas en GitHub demostraron los siguientes objetivos de rendimiento para GitHub Enterprise Server en un rango de configuraciones de memoria y CPU:
 
 {% endif %}
 
@@ -94,15 +94,15 @@ La simultaneidad máxima se midió utilizando repositorios múltiples, una durac
 
 {% data reusables.actions.hardware-requirements-3.6 %}
 
-{% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
+{% data variables.product.company_short %} midió los ejecutores máximos conectados utilizando repositorios múltiples, la duración de jobs de aproximadamente 10 minutos y cargas de artefactos de 10 MB. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
 
 {% note %}
 
 **Notas:**
 
-- Beginning with {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documents connected runners as opposed to concurrent jobs. Connected runners represents the most runners you can connect and expect to utilize. It should also be noted that connecting more runners than you can expect to utilize can negatively impact performance.
+- Comenzando con {% data variables.product.prodname_ghe_server %} 3.6, los documentos de {% data variables.product.company_short %} conectaron ejecutores a diferencia de los jobs concurrentes. Los ejecutores conectados representan la mayor cantidad de ejecutores que puedes conectar y que se espera utilices. También se debe tomar en cuenta que el conectar más ejecutores de los que esperas utilizar puede impactar el rendimiento negativamente.
 
-- Beginning with {% data variables.product.prodname_ghe_server %} 3.5, {% data variables.product.company_short %}'s internal testing uses 3rd generation CPUs to better reflect a typical customer configuration. Este cambio en el CPU representa una porción pequeña de los cambios a los objetivos de desempeño en esta versión de {% data variables.product.prodname_ghe_server %}.
+- Iniciando con {% data variables.product.prodname_ghe_server %} 3.5, las pruebas internas de {% data variables.product.company_short %} utilizan CPU de tercera generación para reflejar mejor una configuración de usuario habitual. Este cambio en el CPU representa una porción pequeña de los cambios a los objetivos de desempeño en esta versión de {% data variables.product.prodname_ghe_server %}.
 {% endnote %}
 {%- endif %}
 

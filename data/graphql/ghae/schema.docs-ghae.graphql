@@ -4114,7 +4114,9 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -4508,7 +4510,7 @@ with `refs/heads/` (although the input is not required to be fully
 qualified).
 
 The Ref may be specified by its global node ID or by the
-repository nameWithOwner and branch name.
+`repositoryNameWithOwner` and `branchName`.
 
 ### Examples
 
@@ -4516,10 +4518,10 @@ Specify a branch using a global node ID:
 
     { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
 
-Specify a branch using nameWithOwner and branch name:
+Specify a branch using `repositoryNameWithOwner` and `branchName`:
 
     {
-      "nameWithOwner": "github/graphql-client",
+      "repositoryNameWithOwner": "github/graphql-client",
       "branchName": "main"
     }
 """
@@ -8866,7 +8868,9 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -9331,7 +9335,7 @@ input EnablePullRequestAutoMergeInput {
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to 'MERGE'
+  The merge method to use. If omitted, defaults to `MERGE`
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -12490,7 +12494,9 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -14045,7 +14051,9 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -16646,7 +16654,9 @@ interface Minimizable {
   isMinimized: Boolean!
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -17947,7 +17957,7 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
-  Create a new branch protection rule
+  Update a branch protection rule
   """
   updateBranchProtectionRule(
     """
@@ -18237,6 +18247,16 @@ type Mutation {
   ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
 
   """
+  Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
+  """
+  updateOrganizationWebCommitSignoffSetting(
+    """
+    Parameters for UpdateOrganizationWebCommitSignoffSetting
+    """
+    input: UpdateOrganizationWebCommitSignoffSettingInput!
+  ): UpdateOrganizationWebCommitSignoffSettingPayload
+
+  """
   Updates an existing project.
   """
   updateProject(
@@ -18352,6 +18372,16 @@ type Mutation {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload
+
+  """
+  Sets whether contributors are required to sign off on web-based commits for a repository.
+  """
+  updateRepositoryWebCommitSignoffSetting(
+    """
+    Parameters for UpdateRepositoryWebCommitSignoffSetting
+    """
+    input: UpdateRepositoryWebCommitSignoffSettingInput!
+  ): UpdateRepositoryWebCommitSignoffSettingPayload
 
   """
   Updates the state for subscribable subjects.
@@ -22386,6 +22416,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   viewerIsFollowing: Boolean!
 
   """
+  Whether contributors are required to sign off on web-based commits for repositories in this organization.
+  """
+  webCommitSignoffRequired: Boolean!
+
+  """
   The organization's public profile URL.
   """
   websiteUrl: URI
@@ -26197,7 +26232,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -33071,6 +33108,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     last: Int
   ): UserConnection!
+
+  """
+  Whether contributors are required to sign off on web-based commits in this repository.
+  """
+  webCommitSignoffRequired: Boolean!
 }
 
 """
@@ -34326,6 +34368,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The scope of an alert's dependency
   """
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
+  Comment explaining the reason the alert was dismissed
+  """
+  dismissComment: String
 
   """
   The reason the alert was dismissed
@@ -35980,6 +36027,11 @@ input StartRepositoryMigrationInput {
   githubPat: String
 
   """
+  Whether to lock the source repository.
+  """
+  lockSource: Boolean
+
+  """
   The signed URL to access the user-uploaded metadata archive
   """
   metadataArchiveUrl: String
@@ -36847,7 +36899,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     orderBy: TeamRepositoryOrder
 
     """
-    The search string to look for.
+    The search string to look for. Repositories will be returned where the name contains your search string.
     """
     query: String
   ): TeamRepositoryConnection!
@@ -40785,6 +40837,46 @@ type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting
+"""
+input UpdateOrganizationWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization on which to set the web commit signoff setting.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  Enable signoff on web-based commits for repositories in the organization?
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationWebCommitSignoffSetting
+"""
+type UpdateOrganizationWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
+
+  """
+  The organization with the updated web commit signoff setting.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UpdateProjectCard
 """
 input UpdateProjectCardInput {
@@ -41224,6 +41316,46 @@ type UpdateRepositoryPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The updated repository.
+  """
+  repository: Repository
+}
+
+"""
+Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting
+"""
+input UpdateRepositoryWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the repository to update.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  Indicates if the repository should require signoff on web-based commits.
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateRepositoryWebCommitSignoffSetting
+"""
+type UpdateRepositoryWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
 
   """
   The updated repository.

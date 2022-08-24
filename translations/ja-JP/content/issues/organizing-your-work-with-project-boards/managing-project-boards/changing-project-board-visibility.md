@@ -17,11 +17,14 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% tip %}
+{% note %}
 
-**参考::** {% data variables.projects.projects_v1_board %}を{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}にすると、デフォルトではOrganizationのメンバーには読み取りアクセスが付与されます。 Organizationの特定のメンバーに対して、その人が所属するTeamにアクセスを付与するか、その人をコラボレータとして{% data variables.projects.projects_v1_board %}に追加することによって、書き込みあるいは管理権限を付与することができます。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**{% ifversion classic-project-visibility-permissions %}ノート{% else %}ノート{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
-{% endtip %}
+* {% data reusables.projects.owners-can-limit-visibility-permissions %}
+* {% endif %}{% data variables.projects.projects_v1_board %}を{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}にすると、デフォルトではOrganizationのメンバーには読み取りアクセスが付与されます。 Organizationの特定のメンバーに対して、その人が所属するTeamにアクセスを付与するか、その人をコラボレータとして{% data variables.projects.projects_v1_board %}に追加することによって、書き込みあるいは管理権限を付与することができます。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+
+{% endnote %}
 
 1. {% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはプライベートにしたいプロジェクトボードにアクセスしてください。
 {% data reusables.project-management.click-menu %}

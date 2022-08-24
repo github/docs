@@ -15,7 +15,7 @@ shortTitle: 快速入门
 
 {% tip %}
 
-**提示**：如果您是学生，想利用学术折扣，请参阅“[申请学生开发包](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)”。
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
@@ -35,9 +35,9 @@ shortTitle: 快速入门
 
 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/github/getting-started-with-github/types-of-github-accounts)”。
 
-## 申请教育者折扣
+## Applying for teacher benefits
 
-接下来，您将注册从 {% data variables.product.company_short %} 获得服务折扣。 {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -52,6 +52,8 @@ shortTitle: 快速入门
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
+
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
 ## 设置 {% data variables.product.prodname_classroom %}
 

@@ -22,7 +22,7 @@ shortTitle: Agregar un archivo
 
 ## Agregar un archivo a un repositorio en {% data variables.product.product_name %}
 
-Los archivos que agregues a un repositorio mediante un navegador están limitados a {% data variables.large_files.max_github_browser_size %} por archivo. Puedes agregar archivos más grandes, de hasta {% data variables.large_files.max_github_size %} cada uno, mediante la línea de comando. Para obtener más información, consulta "[Agregar un archivo a un repositorio mediante la línea de comando](#adding-a-file-to-a-repository-using-the-command-line)". To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Los archivos que agregues a un repositorio mediante un navegador están limitados a {% data variables.large_files.max_github_browser_size %} por archivo. Puedes agregar archivos más grandes, de hasta {% data variables.large_files.max_github_size %} cada uno, mediante la línea de comando. Para obtener más información, consulta "[Agregar un archivo a un repositorio mediante la línea de comando](#adding-a-file-to-a-repository-using-the-command-line)". Para agregar archivos mayores a {% data variables.large_files.max_github_size %}, debes utilizar {% data variables.large_files.product_name_long %}. Para obtener más información, consulta la sección "[Acerca de los archivos grandes en {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)".
 
 {% tip %}
 

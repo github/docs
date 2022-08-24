@@ -1,3 +1,3 @@
-Teams are groups of organization members that you can create to reflect your company or group's structure with cascading access permissions and mentions. Organization members can send notifications to a team or request reviews, and teams can be visible or secret. 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
+TeamはOrganizationメンバーのグループで、カスケードしたアクセス権限やメンションを持たせて会社やグループの構造を反映させて作成できます。 Organizationのメンバーは、Teamに通知を送ったりレビューをリクエストしたりでき、Teamは見えるようにもシークレットにもできます。 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
-You can create independent teams or have multiple levels of nested teams to reflect your group or company's hierarchy. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+独立したチームを作ることも、グループや会社の階層を反映した複数レベルの入れ子チームを持つこともできます。 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。

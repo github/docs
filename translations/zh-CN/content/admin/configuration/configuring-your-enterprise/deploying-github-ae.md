@@ -20,9 +20,7 @@ After you purchase or start a trial of {% data variables.product.product_name %}
 
 ## Prerequisites
 
-- Before you can deploy {% data variables.product.product_name %}, you must request access from your {% data variables.product.company_short %} account team. {% data variables.product.company_short %} will enable deployment of {% data variables.product.product_name %} for your Azure subscription. If you haven't already purchased {% data variables.product.product_name %}, you can contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a trial.
-
-- You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
 
 ## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
 
