@@ -121,7 +121,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -172,12 +172,12 @@ npm-d5ea0750
 
 ### 使用 `cache` 操作的输出
 
-您可以使用 `cache` 操作的输出来根据缓存命中或错过是否发生来执行某些操作。 如果存在缓存未命中（找不到指定 `key` 的缓存的完全匹配项），则 `cache-hit` 输出将设置为 `false`。
+您可以使用 `cache` 操作的输出来根据缓存命中或错过是否发生来执行某些操作。 When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
 在上面的示例工作流程中，有一个步骤列出了发生缓存未命中时 Node 模块的状态：
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

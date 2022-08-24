@@ -4,9 +4,10 @@ import got from 'got'
 
 import patterns from '../lib/patterns.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import { cacheControlFactory } from './cache-control.js'
 
-const cacheControl = cacheControlFactory(60 * 60 * 24)
+const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
@@ -58,8 +59,12 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
     res.set('content-length', r.headers['content-length'])
     res.set('x-is-archived', 'true')
     res.set('x-robots-tag', 'noindex')
-    // Allow the browser and Fastly to cache these
+
+    // This cache configuration should match what we do for archived
+    // enterprise version URLs that are not assets.
     cacheControl(res)
+    setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+
     return res.send(r.body)
   } catch (err) {
     // Primarly for the developers working on tests that mock

@@ -92,9 +92,10 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 - **Definir limites de interação**: Restrinja temporariamente certos usuários de comentários, problemas de abertura ou criação de pull requests no seu repositório público para aplicar um período de atividade limitada. Para obter mais informações, consulte "[Restringir interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 {%- endif %}
 - **Defina a visualização social**: Adicione uma imagem de identificação ao repositório que aparece nas plataformas de mídia social quando seu repositório é vinculado. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
-- **Faça push commits para branches protegidos**: Faça push para um branch que é marcado como um branch protegido.
+- **Faça push commits para branches protegidos**: Faça push para um branch que é marcado como um branch protegido. Branch protection rules will still apply and could result in a push being rejected.
 - **Crie etiquetas protegidas**: Crie etiquetas que correspondam a uma regra de proteção de tags. Para obter mais informações, consulte "[Configurando regras de proteção de tagsde](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
-- **Excluir tags protegidas**: Excluir tags que correspondam a uma regra de proteção de tags. Para obter mais informações, consulte "[Configurando regras de proteção de tagsde](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
+- **Excluir tags protegidas**: Excluir tags que correspondam a uma regra de proteção de tags. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
+- **Bypass branch protections**: Push to a protected branch without needing to comply with branch protection rules.{% endif %}
 
 ### Segurança
 

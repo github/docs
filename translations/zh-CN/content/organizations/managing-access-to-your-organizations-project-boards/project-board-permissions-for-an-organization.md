@@ -39,6 +39,8 @@ For example, if an organization owner has given all organization members read pe
 
 ## {% data variables.projects.projects_v1_board_caps %} visibility
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 {% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
 
 ## 延伸阅读

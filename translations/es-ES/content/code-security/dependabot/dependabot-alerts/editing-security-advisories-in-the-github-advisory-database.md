@@ -22,7 +22,7 @@ shortTitle: Editar la base de datos de asesorías
 ## Acerca de editar las asesorías en la {% data variables.product.prodname_advisory_database %}
 Las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %} en [github.com/advisories](https://github.com/advisories) se consideran asesorías globales. Cualquiera puede sugerir mejoras en cualquier asesoría de seguridad en la {% data variables.product.prodname_advisory_database %}. Puedes editar o agregar cualquier detalle, incluyendo los ecosistemas adicionales afectados, el nivel de severidad o la descripción de quién se vio impactado. El equipo de selección de {% data variables.product.prodname_security %} revisará las mejoras enviadas y las publicará en la {% data variables.product.prodname_advisory_database %} en caso de que se acepten.
 {% ifversion fpt or ghec %}
-Solo los propietarios y adminsitradores de repositorios pueden editar las asesorías de seguridad a nivel de repositorio. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-security-advisory)."{% endif %}
+Solo los propietarios y adminsitradores de repositorios pueden editar las asesorías de seguridad a nivel de repositorio. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de un repositorio](/code-security/security-advisories/editing-a-security-advisory)".{% endif %}
 
 ## Editar las asesorías en la base de datos de asesorías de GitHub
 
@@ -36,12 +36,12 @@ Solo los propietarios y adminsitradores de repositorios pueden editar las asesor
 También puedes abrir una solicitud de cambios directamente en un archivo de asesoría en el repositorio [github/advisory-database](https://github.com/github/advisory-database). Para obtener más información, consulta los [lineamientos de contribución](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md).
 
 {% ifversion security-advisories-ghes-ghae %}
-## Editing advisories from {% data variables.product.product_location %}
+## Editar asesorías desde {% data variables.product.product_location %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.product.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
+Si tienes habilitado {% data variables.product.prodname_github_connect %} para {% data variables.product.product_location %}, podrás ver asesorías si agregas `/advisories` a la url de la instancia.
 
 1. Navega a `https://HOSTNAME/advisories`.
 2. Selecciona la asesoría de seguridad a la cual te gustaría contribuir.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on Github.com.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}. ![Enlace para sugerir mejoras](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
-4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
+3. En el lado derecho de la página, haz clic en el enlace de **Sugerir mejoras para esta vulnerabilidad en GitHub.com.**. Se abrirá una pestaña nueva con la misma asesoría de seguridad en {% data variables.product.prodname_dotcom_the_website %}. ![Enlace para sugerir mejoras](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
+4. Edita la asesoría siguiendo los pasos del cuatro al seis en la sección anterior "[Editar asesorías en la base de datos de asesorías de GitHub](#editing-advisories-in-the-github-advisory-database)".
 {% endif %}

@@ -12,4 +12,4 @@ versions:
 
 {% data variables.product.prodname_dotcom %}Campus Expertsとして、公の場でのスピーチのスキル、テクニカルライティング、コミュニティのリーダーシップ、ソフトウェア開発のスキルを学んでください。
 
-学生のリーダー及び教師に対するトレーニングプログラムについて詳しく学ぶには、[{% data variables.product.prodname_dotcom %}Campus Experts](https://education.github.com/students/experts)及び[ Campus Advisors](https://education.github.com/teachers/advisors)を参照してください。
+To learn more about training programs for student leaders, see "[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)."

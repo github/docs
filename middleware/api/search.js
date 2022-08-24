@@ -3,17 +3,15 @@ import express from 'express'
 import searchVersions from '../../lib/search/versions.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { cacheControlFactory } from '../cache-control.js'
+import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults } from './es-search.js'
+import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
 const languagesSet = new Set(Object.keys(languages))
 
 const router = express.Router()
-
-const cacheControl = cacheControlFactory(60 * 60 * 24)
 
 const DEFAULT_SIZE = 10
 const MAX_SIZE = 50 // How much you return has a strong impact on performance
@@ -51,8 +49,28 @@ function convertLegacyVersionName(version) {
   return legacyEnterpriseServerVersions[version] || version
 }
 
+function notConfiguredMiddleware(req, res, next) {
+  if (!ELASTICSEARCH_URL) {
+    if (process.env.NODE_ENV === 'production') {
+      // Temporarily, this is OKish. The Docs Engineering team is
+      // currently working on setting up an Elasticsearch cloud
+      // instance that we can use. We don't currently have that,
+      // but this code is running in production. We just don't want
+      // to unnecessarily throw errors when it's actually a known thing.
+      return res.status(500).send('ELASTICSEARCH_URL not been set up yet')
+    }
+    throw new Error(
+      'process.env.ELASTICSEARCH_URL is not set. ' +
+        "If you're working on this locally, add `ELASTICSEARCH_URL=http://localhost:9200` in your .env file"
+    )
+  }
+
+  return next()
+}
+
 router.get(
   '/legacy',
+  notConfiguredMiddleware,
   catchMiddlewareError(async function legacySearch(req, res, next) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
@@ -117,7 +135,7 @@ router.get(
       }
     })
     if (process.env.NODE_ENV !== 'development') {
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     res.setHeader('x-search-legacy', 'yes')
@@ -126,10 +144,20 @@ router.get(
   })
 )
 
+class ValidationError extends Error {}
+
 const validationMiddleware = (req, res, next) => {
   const params = [
     { key: 'query' },
-    { key: 'version', default_: 'dotcom', validate: (v) => versionAliases[v] || allVersions[v] },
+    {
+      key: 'version',
+      default_: 'dotcom',
+      validate: (v) => {
+        if (versionAliases[v] || allVersions[v]) return true
+        const valid = [...Object.keys(versionAliases), ...Object.keys(allVersions)]
+        throw new ValidationError(`'${v}' not in ${valid}`)
+      },
+    },
     { key: 'language', default_: 'en', validate: (v) => v in languages },
     {
       key: 'size',
@@ -160,10 +188,17 @@ const validationMiddleware = (req, res, next) => {
     if (cast) {
       value = cast(value)
     }
-    if (validate && !validate(value)) {
-      return res
-        .status(400)
-        .json({ error: `Not a valid value (${JSON.stringify(value)}) for key '${key}'` })
+    try {
+      if (validate && !validate(value)) {
+        return res
+          .status(400)
+          .json({ error: `Not a valid value (${JSON.stringify(value)}) for key '${key}'` })
+      }
+    } catch (err) {
+      if (err instanceof ValidationError) {
+        return res.status(400).json({ error: err.toString(), field: key })
+      }
+      throw err
     }
     search[key] = value
   }
@@ -179,6 +214,7 @@ const validationMiddleware = (req, res, next) => {
 router.get(
   '/v1',
   validationMiddleware,
+  notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res, next) {
     const { indexName, query, page, size, debug, sort } = req.search
     const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
@@ -189,7 +225,7 @@ router.get(
       // So the only distinguishing key is the request URL.
       // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
       // cache and hold on to this.
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     // The v1 version of the output matches perfectly what comes out

@@ -1,1 +1,1 @@
-To view all the subscriptions for your account on {% data variables.product.product_location %}, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."
+{% data variables.product.product_location %}上のアカウントのすべてのプランを見るには、「[プランと支払日の表示](/articles/viewing-your-subscriptions-and-billing-date)」を選択してください。

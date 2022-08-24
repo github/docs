@@ -1,1 +1,1 @@
-You can invite anyone to be a member of your organization, as long as they have a personal account on {% data variables.product.prodname_dotcom %}. You can also remove members and reinstate former members. For more information, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)."
+{% data variables.product.prodname_dotcom %}に個人アカウントを持っている人なら、誰でもOrganizationのメンバーになってもらうよう招待できます。 メンバーを削除したり、以前のメンバーの復帰もできます。 詳しい情報については「[Organizationのメンバーシップの管理](/organizations/managing-membership-in-your-organization)」を参照してください。
