@@ -1,3 +1,5 @@
+ci:CI:C:\\I::/https://.it.git.github.gist'@.github.com/gist/secrets/BITORE/BITORE_34173/((c)(r))/1337_188931/
+
 BEGIN:
 CI: 
 REFERENCE																									
