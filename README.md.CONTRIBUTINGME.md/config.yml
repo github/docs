@@ -1,4 +1,136 @@
 :BUILD::
+- TD/CTX Participants Agreement
+As of Date: 03-09-2016
+Page 1 of 5
+I. Purpose
+The U.S. Department of the Treasury, Bureau of the Fiscal Service's TreasuryDirect system
+(hereafter referred to as TreasuryDirect) will accept allotments to TreasuryDirect accounts
+through Automated Clearing House (ACH) credit transactions. This agreement specifies the
+terms and conditions that an employer, financial institution, or third-party ACH service provider
+(hereafter referred to as the Sending Organization) must abide by when transmitting these ACH
+transactions to TreasuryDirect using the Corporate Trade Exchange (CTX) format.
+II. Registration
+TreasuryDirect will only accept ACH transactions in the CTX format from a Sending
+Organization that has registered with the Bureau of the Fiscal Service. To register as a CTX
+participant, the Sending Organization must complete and submit the following documents to the
+TreasuryDirect ACH Operational Staff:
+ This TreasuryDirect CTX Participant's Agreement; and
+ The contact information for the Sending Organization's ACH operational area (see
+Section VIII of this agreement).
+Once the TreasuryDirect ACH Operational Staff receives these completed documents, the
+Sending Organization will be assigned a unique CTX Participant's Identification Number. The
+Sending Organization must cite this identification number in the detailed record (i.e. the 6
+record) of every ACH transaction transmitted to TreasuryDirect. TreasuryDirect will reject and
+return to the Sending Organization all ACH transmissions that do not cite this identification
+number or cite an invalid identification number.
+III. Transaction Restrictions
+TreasuryDirect acting as a Receiving Depository Financial Institution (RDFI) will only accept
+the following types of ACH transactions:
+ A Pre-note Credit whose dollar amount is zero (0); or
+ A Credit whose dollar amount is a positive value.
+TreasuryDirect will reject and return to the Sending Organization all ACH transactions that
+originate from outside of our system that contain a debit or a negative credit either in the ACH
+Detail record or embedded addendum record(s). 
+TD/CTX Participants Agreement
+As of Date: 03-09-2016
+Page 2 of 5
+IV. Formatting Requirements
+TreasuryDirect will only accept ACH transaction in CTX format where the embedded
+addendum records (i.e. 7 records) are formatted in accordance with the standards set forth in the
+"TreasuryDirect Corporate Trade Exchange Formatting Standard." ACH transactions that do
+not comply with this standard will be rejected and returned to the Sending Organization.
+TresauryDirect will notify CTX participants whenever this standard is amended. This
+notification will be done no later than two (2) months prior to the implementation of the revised
+standard.
+V. TreasuryDirect Account Restrictions
+TreasuryDirect will use the allotments received through the ACH credit transactions in CTX
+format to purchase a Payroll Zero-Percent Certificate of Indebtedness (Payroll C of I) in each of
+the individual TreasuryDirect accounts specified in the addendum record. A Payroll C of I is a
+U.S. Treasury security registered in the name of the TreasuryDirect account-holder. The
+Payroll C of I does not earn interest, and its purpose is to provide funds to purchase a U.S.
+Savings Bond.
+TreasuryDirect will only accept these allotments when the designated TreasuryDirect account
+meets the following criteria:
+ The account must be an Individual-Primary type of account;
+ The account cannot have a restrictive account hold placed against it; and
+ The Payroll Savings Plan profile within the account must be established.
+TreasuryDirect will reject and return to the Sending Organization the ACH transaction for
+those allotments to TreasuryDirect accounts that:
+ Are not Individual-Primary type of account;
+ Have a restrictive account hold placed against them; or
+ Have not established a Payroll Savings Plan profile.
+VI. Transaction Limits
+The Sending Organization is required to limit the number of individual credit-transactions
+embedded within each individual Detailed ACH record. Specifically, the detailed record of
+each CTX formatted ACH credit will only contain information for a single transaction for one 
+TD/CTX Participants Agreement
+As of Date: 03-09-2016
+Page 3 of 5
+individual TD account. This restriction will limit the number of addendum records embedded
+into the detail record to at most two (2), but most likely one (1) addendum record.
+If the Sending Organization exceeds this limit and one or more of the allotments cannot be
+deposited because of the restrictions cited in Section V, then TreasuryDirect will reject the
+entire Detail record and return it to the Sending Organization.
+VII. Erroneous Transactions
+
+If the Sending Organization determines that it had sent a transaction in error, then the
+organization has the option to report the matter to the TreasuryDirect ACH Operational Staff.
+The TreasuryDirect staff will handle each instance of an erroneously transmitted ACH credit on
+a case-by-case basis. The specific regulations governing this process are cited in Title 31 of the
+Code of Federal Regulations Section 363.
+VIII. Contact Information – Sending Organization
+The Sending Organization is required to provide the TreasuryDirect staff with information on
+how to contact the ACH operational area within the organization. This information must
+include the following:
+ The name of the office responsible for maintaining the organization's ACH operations;
+ The mailing address for this office;
+ The direct telephone number for this office;
+ The direct facsimile telephone number for this office; and
+ After-hours contact instructions.
+We recommend that the Sending Organization include the names of specific contact personnel
+within this organization.
+IX. Contact Information – TreasuryDirect
+The contact information for the TreasuryDirect ACH Operational Staff is cited in the table
+below.
+Mailing Address:
+TreasuryDirect
+PO Box 7015
+Minneapolis, MN 55480-7015
+Direct Telephone Number: 844-284-2676
+Facsimile Telephone Number: 304-480-8575 
+TD/CTX Participants Agreement
+As of Date: 03-09-2016
+Page 4 of 5
+X. Agreement Duration, Notification of Change, and Amendments
+1. This agreement will remain in force and will renew each time the Sending Organization
+transmits an ACH transaction to TreasuryDirect in CTX format.
+2. The Sending Organization agrees to notify TreasuryDirect whenever changes occur
+within its ACH operations. Specifically a change in the Sending Organization's:
+a. name;
+b. American Banking Association Routing Number (ABA/RTN);
+c. Contact information; and
+d. CTX format/version.
+3. TreasuryDirect may amend, revise, or supplement the terms and conditions of this
+agreement at any time.
+XI. Sending Organization's Certification
+I, _________ZACHRY TYLER WOOD_________________________________________, on this date
+______________ZW__ certify with my signature that I have the authority to both act on behalf of
+the Sending Organization whose official company name is
+and whose ABA/RTN is
+ and obligate the Sending Organization to abide by the terms and conditions of this agreement. 
+TD/CTX Participants Agreement
+As of Date: 03-09-2016
+Page 5 of 5
+XII. TreasuryDirect's Acknowledgement
+I, acting on behalf of TreasuryDirect, acknowledge receipt of this agreement and that the
+Sending Organization described above has been registered as a TreasuryDirect/CTX
+Participant.
+Name and Position of TreasuryDirect
+official:
+Signature:
+Date:
+CTX Participant's ID Number assigned:
+ 
 
 ci:CI:C:\\I:":' "https://.it.git.github.gist'@.github.com/gist/secrets/BITORE/BITORE_34173/((c)(r))/1337_188931/"
 
