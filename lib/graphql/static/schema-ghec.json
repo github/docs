@@ -87261,6 +87261,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "createLabelsIfMissing",
+          "description": "<p>Whether to create labels if they don't exist in the target repository (matched by name).</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "issueId",
           "description": "<p>The Node ID of the issue to be transferred.</p>",
           "type": "ID!",
