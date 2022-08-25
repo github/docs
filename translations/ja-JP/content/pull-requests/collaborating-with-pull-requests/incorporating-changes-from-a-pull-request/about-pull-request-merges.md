@@ -16,22 +16,36 @@ topics:
   - Pull requests
 ---
 
+## Merge your commits
+
 {% data reusables.pull_requests.default_merge_option %}
 
-## プルリクエストのコミットのsquashとマージ
+## Squash and merge your commits
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
 ### squash マージのマージメッセージ
 
+{% ifversion default-merge-squash-commit-message %}
+When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
+{% else %}
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 | コミット数   | 概要                                      | 説明                                   |
 | ------- | --------------------------------------- | ------------------------------------ |
 | 単一のコミット | 単一のコミットのコミットメッセージのタイトルと、その後に続くプルリクエスト番号 | 単一のコミットのコミットメッセージの本文テキスト             |
 | 複数のコミット | プルリクエストのタイトルと、その後に続くプルリクエスト番号           | squash されたすべてのコミットのコミットメッセージの日付順のリスト |
+{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+| コミット数   | 概要                                      | 説明                                   |
+| ------- | --------------------------------------- | ------------------------------------ |
+| 単一のコミット | 単一のコミットのコミットメッセージのタイトルと、その後に続くプルリクエスト番号 | 単一のコミットのコミットメッセージの本文テキスト             |
+| 複数のコミット | プルリクエストのタイトルと、その後に続くプルリクエスト番号           | squash されたすべてのコミットのコミットメッセージの日付順のリスト |
+
+{% ifversion default-merge-squash-commit-message %}
+People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+
+{% ifversion ghes = 3.6 %}
 People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
 {% endif %}
 
@@ -43,7 +57,7 @@ People with admin access to a repository can configure the repository to use the
 
 このコミットはベースブランチのみで行われ、head ブランチでは行われないため、2 つのブランチの共通の先祖は変更されません。 head ブランチでの作業を続行し、2 つのブランチ間に新しいプルリクエストを作成すると、プルリクエストには、共通の先祖以降のすべてのコミットが含まれます。これには、前のプルリクエストで squash してマージしたコミットも含まれます。 コンフリクトがない場合は、これらのコミットを安全にマージできます。 ただし、このワークフローでは高確率でマージコンフリクトが発生します。 長時間にわたる head ブランチのプルリクエストを squash してマージし続ける場合は、同じコンフリクトを繰り返し解決する必要があります。
 
-## プルリクエストコミットのリベースとマージ
+## Rebase and merge your commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 

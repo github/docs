@@ -84,7 +84,7 @@ miniTocMaxHeadingLevel: 3
 | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
@@ -98,7 +98,7 @@ miniTocMaxHeadingLevel: 3
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
 {% else %}
@@ -200,7 +200,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | 在存储库中运行的特定工作流程的每次尝试的唯一编号。 对于工作流程运行的第一次尝试，此数字从 1 开始，并随着每次重新运行而递增。 |
 {%- endif %}
-| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
+| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
 
 ### `github` 上下文的示例内容
 

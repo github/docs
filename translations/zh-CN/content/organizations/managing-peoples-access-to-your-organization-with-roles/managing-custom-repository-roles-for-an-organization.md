@@ -92,9 +92,10 @@ redirect_from:
 - **设置交互限制**：暂时限制某些用户在公共存储库中发表评论、打开议题或创建拉取请求，以强制执行一段有限的活动。 更多信息请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
 {%- endif %}
 - **设置社交预览**：将识别图像添加到存储库，该图像在链接存储库时显示在社交媒体平台上。 更多信息请参阅“[自定义仓库的社交媒体审查](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)”。
-- **推送提交到受保护分支**：推送到标记为受保护分支的分支。
+- **推送提交到受保护分支**：推送到标记为受保护分支的分支。 Branch protection rules will still apply and could result in a push being rejected.
 - **创建受保护的标记**：创建与标记保护规则匹配的标记。 更多信息请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
-- **删除受保护的标记**：删除与标记保护规则匹配的标记。 更多信息请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
+- **删除受保护的标记**：删除与标记保护规则匹配的标记。 For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
+- **Bypass branch protections**: Push to a protected branch without needing to comply with branch protection rules.{% endif %}
 
 ### 安全
 

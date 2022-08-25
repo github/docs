@@ -10,7 +10,7 @@
   ![Screenshot showing text fields for the poll's question](/assets/images/help/discussions/new-poll-question.png)
 1. Type at least two options for your poll.
   ![Screenshot showing text fields for the poll's options](/assets/images/help/discussions/new-poll-options.png)
-1. Optionally, to add a extra poll options, click **Add an option**.
+1. Optionally, to add an extra poll option, click **Add an option**.
   ![Screenshot showing "Add an option" button](/assets/images/help/discussions/new-poll-add-option.png)
 1. Click **Start poll**.
   ![Screenshot showing the "Start poll" button](/assets/images/help/discussions/new-poll-start-poll-button.png)

@@ -2,7 +2,6 @@
 title: Criar um codespace
 intro: Você pode criar um codespace para uma branch em um repositório para fazer o desenvolvimento on-line.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -21,7 +20,7 @@ shortTitle: Criar um codespace
 
 Você pode criar um codespace em {% data variables.product.prodname_dotcom_the_website %}, em {% data variables.product.prodname_vscode %}, ou usando {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Os codespaces são associados a um branch específico de um repositório e o repositório não pode estar vazio. {% data reusables.codespaces.concurrent-codespace-limit %} Para obter mais informações, consulte "[Excluir um codespace](/github/developing-online-with-codespaces/deleting-a-codespace)".
+Os codespaces são associados a um branch específico de um repositório e o repositório não pode estar vazio. {% data reusables.codespaces.concurrent-codespace-limit %}
 
 
 Ao criar um codespace, várias etapas acontecem para criar e conectar você ao seu ambiente de desenvolvimento:
@@ -44,8 +43,6 @@ Se você quiser usar hooks do Git para o seu código, você deverá configurar h
 {% data reusables.codespaces.prebuilds-crossreference %}
 
 ## Acesso a {% data variables.product.prodname_github_codespaces %}
-
-{% data reusables.codespaces.availability %}
 
 Quando você tem acesso a {% data variables.product.prodname_github_codespaces %}, você verá uma aba "Codespace" dentro do menu suspenso ** Código de{% octicon "code" aria-label="The code icon" %} ** ao visualizar um repositório.
 

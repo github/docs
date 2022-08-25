@@ -37,20 +37,40 @@ topics:
 
 {% data variables.product.product_name %} 在检测到您的代码库正在使用具有已知安全风险的依赖项时会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
-{% ifversion dependabot-most-important-sort-option %} 默认情况下，{% data variables.product.prodname_dependabot_alerts %} 按重要性顺序显示在 {% data variables.product.prodname_dependabot_alerts %} 选项卡中，但您可以按其他条件对警报进行排序。 {% endif %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}您可以使用 {% data variables.product.prodname_dependabot_alerts %} 选项卡中的下拉菜单对 {% data variables.product.prodname_dependabot_alerts %} 进行排序和过滤，也可以在搜索栏中键入过滤条件作为`键:值`对。 可用的过滤器是存储库（例如 `repo:my-repository`）、包（例如 `package:django`）、生态系统（例如 `ecosystem:npm`）、清单（例如 `manifest:webwolf/pom.xml`）、状态（例如 `is:open`） 以及公告是否有补丁（例如 `has: patch`）。{% ifversion dependabot-alerts-development-label %} 还可以使用 `scope`（例如：`scope:development` 或 `scope:runtime`）筛选具有依赖关系范围数据的警报。 使用 `scope:development`，警报列表将仅显示开发期间使用的依赖项，而不显示生产期间使用的依赖项。{% endif %}
-
 每个 {% data variables.product.prodname_dependabot %} 警报都有一个唯一的数字标识符，{% data variables.product.prodname_dependabot_alerts %} 选项卡列出了每个检测到的漏洞的警报。 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
+You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+
+## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+
+{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. 警报根据其潜在影响、可操作性和相关性进行排名。 我们的优先级计算不断改进，包括 CVSS 分数、依赖范围以及是否为警报找到有漏洞的函数调用等因素。
+
+![带有"最重要"排序”的“排序”下拉列表的屏幕截图](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-filters %}
+
+In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+
+{% endif %}
+
+{% ifversion dependabot-bulk-alerts %}
+  ![{% data variables.product.prodname_dependabot_alerts %} 选项卡中过滤器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
+You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply. ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## 支持的生态系统和依赖范围清单
 
-<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
-列为开发依赖项的包的警报在 {% data variables.product.prodname_dependabot_alerts %} 页上标有 `Development` 标签，并且还可以通过 `scope` 筛选器进行筛选。 ![在警报列表中显示"开发"标签的屏幕截图](/assets/images/help/repository/dependabot-alerts-development-label.png)
+列为开发依赖项的包的警报在 {% data variables.product.prodname_dependabot_alerts %} 页上标有 `Development` 标签，并且还可以通过 `scope` 筛选器进行筛选。
 
-开发范围的包上警报的警报详细信息页显示“标记”部分，其中包含 `Development` 标签。 ![在警报详细信息页面中显示"标记"部分的屏幕截图](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![在警报列表中显示"开发"标签的屏幕截图](/assets/images/help/repository/dependabot-alerts-development-label.png)
+
+开发范围的包上警报的警报详细信息页显示“标记”部分，其中包含 `Development` 标签。
+
+![在警报详细信息页面中显示"标记"部分的屏幕截图](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
@@ -90,23 +110,10 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. （可选）若要筛选警报，请选择 **Repository（仓库）**、**Package（包）**、**Ecosystem（生态系统）**或 **Manifest（清单）**下拉菜单，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 例如 `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} 或 `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}、`has:patch` 或 `scope:development`{% endif %}。 要对警报进行排序，请选择 **Sort（排序）**下拉菜单，然后单击要作为排序依据的选项，或在搜索栏中键入 `sort:`，然后从建议中选择一个选项（例如，`sort:newest`）。
-
-   {% ifversion dependabot-most-important-sort-option %}
-   {% note %}
-
-   **注意：** 默认情况下，{% data variables.product.prodname_dependabot_alerts %} 按重要性排序。 “最重要”排序可帮助您确定要首先关注的 {% data variables.product.prodname_dependabot_alerts %} 的优先级。 警报根据其潜在影响、可操作性和相关性进行排名。 我们的优先级计算不断改进，包括 CVSS 分数、依赖范围以及是否为警报找到有漏洞的函数调用等因素。
-   {% endnote %}
-
-   ![带有"最重要"排序”的“排序”下拉列表的屏幕截图](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-   {% endif %}
-
-   还可以单击警报上的标签以仅显示该类型的警报。{% ifversion dependabot-alerts-development-label %} 例如，单击警报列表中的 `Development` 标签将仅显示与开发中使用的依赖项相关的警报，而不显示与生产中使用的依赖项相关的警报。 有关支持的生态系统列表的信息，请参阅[依赖项范围支持的生态系统和清单](#supported-ecosystems-and-manifests-for-dependency-scope)”。
-
-{% endif %}
+1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. 您还可以在搜索栏中键入过滤条件。 For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
 {%- ifversion dependabot-bulk-alerts %}
   ![{% data variables.product.prodname_dependabot_alerts %} 选项卡中过滤器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 1. 单击要查看的警报。{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
 ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
@@ -156,7 +163,12 @@ topics:
 如果计划大量工作来升级依赖项，或者决定不需要修复警报，则可以忽略警报。 通过忽略已评估的警报，可以更轻松地在新警报出现时对其进行分类。
 
 1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-dependabot-alerts)”（上文）。
-1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% ifversion reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% ifversion reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %}
+{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. Click **Dismiss alert**.
+{% else %}
+   ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
 
 ### 一次忽略多个警报
@@ -185,7 +197,7 @@ You can view all open alerts, and you can reopen alerts that have been previousl
    {%- else %}
    ![显示"已关闭"选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed.png)
    {%- endif %}
-1. Click the alert that you would like to view or update.
+1. 单击要查看或更新的警报。
 
    {%- ifversion dependabot-bulk-alerts %}
    ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)

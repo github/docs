@@ -39,6 +39,8 @@ Organizationのオーナーと{% data variables.projects.projects_v1_board %}の
 
 ## {% data variables.projects.projects_v1_board_caps %}の可視性
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 {% data reusables.project-management.project-board-visibility %}{% data variables.projects.projects_v1_board %}の可視性をプライベートから{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}に変更したり、元に戻したりすることができます。 詳しい情報については「[{% data variables.product.prodname_project_v1 %}の可視性の変更](/articles/changing-project-board-visibility)」を参照してください。
 
 ## 参考リンク

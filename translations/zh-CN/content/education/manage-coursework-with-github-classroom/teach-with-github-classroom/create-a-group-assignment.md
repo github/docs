@@ -55,7 +55,7 @@ redirect_from:
 
 ### 选择作业类型
 
-在“Individual or group assignment（个人或小组作业）”下，选择下拉菜单，然后单击 **Group assignment（小组作业）**。 创建作业后不可更改作业类型。 如果要创建个人作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”。
+在“Individual or group assignment（个人或小组作业）”下，选择下拉菜单，然后单击 **Group assignment（小组作业）**。 创建作业后不可更改作业类型。 If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### 确定作业的团队
 
