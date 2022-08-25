@@ -539,7 +539,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +552,7 @@ body:
 
 O erro pode ser corrigido garantindo que não existam opções duplicadas na matriz de `opções`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -570,7 +570,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +585,7 @@ body:
 
 O erro pode ser corrigido removendo "Nenhum" como opção. Se você deseja que um contribuidor possa indicar que ele não gosta de nenhum desses tipos de tortas, você pode também remover a validação `necessária`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -605,7 +605,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +618,7 @@ body:
 
 O erro pode ser corrigido colocando cada opção incorreta entre aspas, para evitar que sejam processados como valores booleanos.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -627,6 +627,36 @@ body:
       - "Yes"
       - "No"
       - Maybe
+```
+
+## Body cannot be empty
+
+The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+
+The error can be fixed by adding the `body:` section.
+
+### Exemplo
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
 ```
 
 ## Leia mais

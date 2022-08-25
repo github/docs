@@ -20,7 +20,7 @@ shortTitle: 创建 HA 副本
 ## 创建高可用性副本
 
 1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-1. 确保主设备和新的副本设备可以通过端口 122/TCP 和 1194/UDP 相互通信。 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
+1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
 1. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 {% data reusables.enterprise_installation.replica-steps %}
 1. 使用 SSH 连接到副本设备的 IP 地址。

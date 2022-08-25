@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Enable push protection
+shortTitle: Habilitar la protección de subida
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -30,7 +30,7 @@ Si un contribuyente omite un bloque de protección de subida para un secreto, {%
 - agrega un evento de omisión en la bitácora de auditoría.{% ifversion secret-scanning-push-protection-email %}
 - envía una alerta por correo electrónico a los propietarios de la organización, administradores de seguridad y administradores de repositorio con un enlace al secreto relacionado y con la razón por la cual se permitió.{% endif %}
 
-For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+Para obtener información sobre los proveedores de servicios y secretos compatibles para la protección contra subida, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)".
 
 ## Habilitar el {% data variables.product.prodname_secret_scanning %} como una protección contra subidas
 
@@ -54,7 +54,7 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
-## Using secret scanning as a push protection from the command line
+## Utilizar el escaneo de secretos como protección contra subida desde la línea de comandos
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
@@ -62,9 +62,9 @@ Se mostrarán hasta cinco secretos detectados a la vez en la línea de comandos.
 
 ![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos bloqueados de remediación, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Los secretos reales que se expusieron deben revocarse para evitar un acceso no autorizado. Podrías considerar rotar el secreto primero antes de revocarlo. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
@@ -94,7 +94,7 @@ Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimine
 
 ### Saltar la protección contra subidas para un secreto
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos de remediación bloqueados, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)".
 
 Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
