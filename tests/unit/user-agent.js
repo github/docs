@@ -1,4 +1,4 @@
-import parseUserAgent from '../../components/lib/user-agent'
+import { parseUserAgent } from '../../components/lib/user-agent.ts'
 
 describe('parseUserAgent', () => {
   it('android, chrome', () => {

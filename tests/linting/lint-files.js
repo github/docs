@@ -277,6 +277,7 @@ if (!process.env.TEST_TRANSLATION) {
   )
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 } else {
+  // Remove this `else` when removing translations directory B504EDD0
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync(
     'git -c diff.renameLimit=10000 diff --name-only origin/main',
