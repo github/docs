@@ -2,3 +2,8 @@
   ```bash
   $ git config --global user.signingkey 'ssh-ed25519 AAAAC3(...) user@example.com'
   ```
+
+Alternatively, you can add the direct path to your public key if your system does not properly handle adding the content of the key directly.
+  ```bash
+  $ git config --global user.signingkey=/path/to/.ssh/pubkey_filename.pub
+  ```
