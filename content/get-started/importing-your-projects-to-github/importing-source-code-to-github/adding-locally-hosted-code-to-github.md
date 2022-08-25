@@ -58,17 +58,10 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Initialize the local directory as a Git repository.
-   
-   {% warning %}
-
-    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
-
-   {% endwarning %}
-   
-  ```shell
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+  ``` shell
   $ git init -b main
-  ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
   $ git add .
@@ -102,14 +95,10 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Initialize the local directory as a Git repository.
-
-   {% warning %}
-
-    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
-
-   {% endwarning %}
-   
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+  ``` shell
+  $ git init -b main
   ```shell
   $ git init -b main
   ```
@@ -146,13 +135,10 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Initialize the local directory as a Git repository.
-   
-   {% warning %}
-
-    **Warning:**  `-b <branch-name>` flag in following command does not work with git version below *2.28.0*. Use same or above
-
-   {% endwarning %}
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+  ``` shell
+  $ git init -b main
    
   ```shell
   $ git init -b main
