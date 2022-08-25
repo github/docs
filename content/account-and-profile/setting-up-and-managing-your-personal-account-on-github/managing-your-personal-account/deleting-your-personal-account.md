@@ -1,38 +1,53 @@
 ---
 title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.product.product_name %} at any time.'
+intro: 'You can delete your personal account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Delete your personal account
+shortTitle: Delete your account
 ---
-Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted - instead, they'll be associated with our [Ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-{% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+## About deletion of your personal account
 
-If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-For more information, see:
+{% ifversion ghec %}
+
+{% note %}
+
+**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endnote %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+
+If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+
+For more information, see the following articles.
+
 - "[Transferring organization ownership](/articles/transferring-organization-ownership)"
 - "[Deleting an organization account](/articles/deleting-an-organization-account)"
 - "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)"
 
 ## Back up your account data
 
-Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account.
+Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, GitHub cannot restore your content.
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 

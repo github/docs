@@ -243,9 +243,11 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 {% ifversion actions-oidc-hardening-config %}
 ## Customizing the token claims
 
-You can security harden your OIDC configuration by customizing the claims that are included with the JWT. This allows your cloud provider to apply more granular trust conditions when determining whether to grant access to its resources. For example, you can customize the issuer (`iss`) claim to only allow access from a specific enterprise URL, and you can customize the subject (`sub`) value to require that requests originate from a specific repository, reusable workflow, or other source.
+You can security harden your OIDC configuration by customizing the claims that are included with the JWT. This allows your cloud provider to apply more granular trust conditions when determining whether to grant access to its resources. For example, {% ifversion ghec %}you can customize the issuer (`iss`) claim to only allow access from a specific enterprise URL, and {% endif %}you can customize the subject (`sub`) value to require that requests originate from a specific repository, reusable workflow, or other source.
 
 To configure the claim conditions on {% data variables.product.prodname_dotcom %}, you can use the REST API endpoints described in the following sections.
+
+{% ifversion ghec %}
 
 ### Switching to a unique token URL
 
@@ -271,6 +273,8 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
   "iat": 1755351253
 }
 ```
+
+{% endif %}
 
 ### Customizing the subject claims for an organization
 
