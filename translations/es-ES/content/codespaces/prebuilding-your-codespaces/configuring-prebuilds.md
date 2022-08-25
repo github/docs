@@ -40,18 +40,18 @@ Antes de que configures las precompilaciones para tu proyecto, se debe cumplir c
 
    {% note %}
 
-   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds for the same dev container configuration. For example, if you enable prebuilds for a dev container configuration file on the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds for the same dev container configuration.
+   **Nota**: Cualquier rama que se cree de una rama base habilitada para precompilaciones habitualmente también obtendrá precompilaciones para la misma configuración de contenedor dev. Por ejemplo, si habilitas precompilaciones para un archivo de configuración de contenedor dev en la rama predeterminada del repositorio, las ramas basadas en la predeterminada también obtendrán precompilaciones para la misma configuración del contenedor dev en la mayoría de los casos.
 
    {% endnote %}
 
-1. Optionally, in the **Configuration file** drop-down menu that's displayed, choose the `devcontainer.json` configuration file that you want to use for this prebuild. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+1. Opcionalmente, en el menú desplegable de **Archivo de configuración** que se muestra, elige el archivo de configuración `devcontainer.json` que quieras utilizar para esta precompilación. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
 
-   ![The configuration file drop-down menu](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
+   ![El menú desplegable de archivo de configuración](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
 
-1. Choose how you want to automatically trigger updates of the prebuild.
+1. Elige cómo quieres activar actualizaciones automáticamente para la precompilación.
 
-   * **Cada subida** (el ajuste predeterminado) - Con este ajuste, las configuraciones de precompilación se actualizarán en cada subida que se haga a la rama predeterminada. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
-   * **En el cambio de configuración** - Con este ajuste, as configuraciones de precompilación se actualizarán cada que lo hagan los archivos de configuración asociados para cada repositorio y rama en cuestión. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The Actions workflow that updates the prebuild will run less often, so this option will use fewer Actions minutes. Sin embargo, esta opción no garantiza que los cdespaces siempre incluyan dependencias recientemente actualizadas o agregadas, así que estas podrían tener que agregarse o actualizarse manualmente después de que un codespace se haya creado.
+   * **Cada subida** (el ajuste predeterminado) - Con este ajuste, las configuraciones de precompilación se actualizarán en cada subida que se haga a la rama predeterminada. Esto garantizará que los codespaces que se generen de una precompilación siempre contengan la configuración de codespace más reciente, incluyendo cualquier dependencia que se haya actualizado o agregado recientemente.
+   * **En el cambio de configuración** - Con este ajuste, as configuraciones de precompilación se actualizarán cada que lo hagan los archivos de configuración asociados para cada repositorio y rama en cuestión. Esto garantiza que los cambios a los archivos de configuración del contenedor dev para el repositorio se utilicen cuando se genera un codespace desde una precompilación. El flujo de trabajo de acciones que actualiza la precompilación se ejecutará con menor frecuencia, así que esta opción utilizará menos minutos de las acciones. Sin embargo, esta opción no garantiza que los cdespaces siempre incluyan dependencias recientemente actualizadas o agregadas, así que estas podrían tener que agregarse o actualizarse manualmente después de que un codespace se haya creado.
    * **Programado** - Con este ajuste, puedes hacer que tus configuraciones de precompilación se actualicen en un itinerario personalizado que tú defines. Esto puede reducir el consumo de minutos de acciones, sin embargo, con esta opción, pueden crearse codespaces que no utilicen los últimos cambios de configuración de contenedores dev.
 
    ![Las opciones de activación de precompilación](/assets/images/help/codespaces/prebuilds-triggers.png)

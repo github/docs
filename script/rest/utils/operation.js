@@ -237,6 +237,11 @@ async function getBodyParams(schema, topLevel = false) {
     // includes. This allows us to support 3.1 while remaining backwards
     // compatible with 3.0.
     const paramType = Array.isArray(param.type) ? param.type : [param.type]
+    // Supports backwards compatibility for OpenAPI 3.0
+    // In 3.1 a nullable type is part of the param.type array and
+    // the property param.nullable does not exist.
+    if (param.nullable) paramType.push('null')
+
     const additionalPropertiesType = param.additionalProperties
       ? Array.isArray(param.additionalProperties.type)
         ? param.additionalProperties.type
@@ -321,10 +326,6 @@ async function getBodyParams(schema, topLevel = false) {
     if (param.default) {
       paramDecorated.default = param.default
     }
-    // Supports backwards compatibility for OpenAPI 3.0
-    // In 3.1 a nullable type is part of the param.type array and
-    // the property param.nullable does not exist.
-    if (param.nullable) paramDecorated.type('null')
     bodyParametersParsed.push(paramDecorated)
   }
   return bodyParametersParsed
