@@ -88,8 +88,6 @@ Puedes agregar más scripts, preferencias o archivos de configuración a tu repo
 
 Si tu codespace no puede recoger los ajustes de configuración de los dotfiles, consulta la sección "[Solucionar problemas de dotfiles para {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)".
 
-## Otros ajustes disponibles
-
 También puedes personalizar los {% data variables.product.prodname_codespaces %} utilizando [ajustes de {% data variables.product.prodname_codespaces %}](https://github.com/settings/codespaces) adicionales:
 
 - Para habilitar la verificación de GPG, consulta la sección "[Administrar la verificación de GPG para los {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)".

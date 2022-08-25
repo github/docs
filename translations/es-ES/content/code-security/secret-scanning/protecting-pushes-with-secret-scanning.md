@@ -60,17 +60,29 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 
 Se mostrarán hasta cinco secretos detectados a la vez en la línea de comandos. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
-![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+{% ifversion push-protection-custom-link-orgs %}
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos bloqueados de remediación, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Los secretos reales que se expusieron deben revocarse para evitar un acceso no autorizado. Podrías considerar rotar el secreto primero antes de revocarlo. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+
+{% endif %}
+
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
+
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
 ### Permitir que se suba un secreto bloqueado
 
-Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
@@ -86,25 +98,33 @@ Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas s
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-{% data variables.product.prodname_dotcom %} solo mostrará un secreto detectado a la vez en la IU web. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
+{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
-Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimines el secreto, el letrero en la parte superior de la página cambiará y te dirá que ahora puedes confirmar tus cambios.
+{% ifversion push-protection-custom-link-orgs %}
 
-  ![Captura de pantalla que muestra la confirmación en la Iu web después de que se corrigió un secreto](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
+You can remove the secret from the file using the web UI. Una vez que elimines el secreto, el letrero en la parte superior de la página cambiará y te dirá que ahora puedes confirmar tus cambios.
+
+  ![Screenshot showing commit in web ui allowed after secret fixed](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
 ### Saltar la protección contra subidas para un secreto
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos de remediación bloqueados, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)".
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
-Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
 
 1. En el letrero que aparece en la parte superior de la página cuando {% data variables.product.prodname_dotcom %} bloqueó tu confirmación, haz clic en **Saltar protección**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}

@@ -1,39 +1,53 @@
 ---
 title: Deleting your personal account
-intro: 'Puedes borrar tu cuenta personal de {% data variables.product.product_name %} en cualquier momento.'
+intro: 'Puedes borrar tu cuenta personal de {% data variables.product.product_location %} en cualquier momento.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Borrar tu cuenta personal
+shortTitle: Delete your account
 ---
 
-El borrar tu cuenta personal elimina todos los repositorios, bifurcaciones de repositorios privados, wikis, propuestas, solicitudes de cambios y páginas que pertenecen a tu cuenta. {% ifversion fpt or ghec %}No se eliminarán las propuestas ni las solicitudes de extracción que hayas creado ni los comentarios que hayas hecho en repositorios que sean propiedad de otros usuarios. En lugar de eliminarlos, se los asociará con nuestro [Usuario fantasma](https://github.com/ghost).{% else %}No se eliminarán las propuestas ni las solicitudes de extracción que hayas creado ni los comentarios que hayas hecho en repositorios que sean propiedad de otros usuarios.{% endif %}
+## About deletion of your personal account
 
-{% ifversion fpt or ghec %} Dejaremos de cobrarte cuando borras tu cuenta. La dirección asociada con la cuenta se hace disponible para utilizarse con una cuenta diferente en {% data variables.product.product_location %}. Después de 90 días, el nombre de cuenta también pone disponible para que cualquiera con una cuenta nueva lo utilice. {% endif %}
+El borrar tu cuenta personal elimina todos los repositorios, bifurcaciones de repositorios privados, wikis, propuestas, solicitudes de cambios y páginas que pertenecen a tu cuenta. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-Si eres el único propietario de una organización, deberás transferir la propiedad a otra persona o borrar la organización antes de que puedas borrar tu cuenta personal. Si existen otros propietarios en la organización, debes eliminarte de ella antes de que puedas borrar tu cuenta personal.
+{% ifversion ghec %}
 
-Para obtener más información, consulta:
+{% note %}
+
+**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)".
+
+{% endnote %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. La dirección asociada con la cuenta se hace disponible para utilizarse con una cuenta diferente en {% data variables.product.product_location %}. Después de 90 días, el nombre de cuenta también pone disponible para que cualquiera con una cuenta nueva lo utilice. {% endif %}
+
+If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. Si existen otros propietarios en la organización, debes eliminarte de ella antes de que puedas borrar tu cuenta personal.
+
+Para obtener más información, consulta los siguientes artículos.
+
 - "[Transferir la propiedad de la organización](/articles/transferring-organization-ownership)"
 - "[Eliminar una cuenta de la organización](/articles/deleting-an-organization-account)"
 - "[Eliminarte de una organización](/articles/removing-yourself-from-an-organization/)"
 
 ## Copias de seguridad de los datos de tu cuenta
 
-Antes de que borres tu cuenta personal, haz una copia de todos los repositorios, bifurcaciones privadas, wikis, propuestas y solicitudes de cambios que le pertenezcan a tu cuenta.
+Antes de que borres tu cuenta personal, haz una copia de todos los repositorios, bifurcaciones privadas, wikis, propuestas y solicitudes de cambios que le pertenezcan a tu cuenta. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
 {% warning %}
 
-**Advertencia** Una vez que tu cuenta personal se haya borrado, GitHub no podrá restablecer tu contenido.
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 

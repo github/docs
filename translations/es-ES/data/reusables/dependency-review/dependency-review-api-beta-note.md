@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The Dependency Review API is currently in public beta and subject to change.
+**Note**: La API de revisión de dependencias se encuentra actualmente en beta público y está sujeta a cambios.
 
 {% endnote %}

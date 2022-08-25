@@ -11,7 +11,7 @@ versions:
 ---
  
 
-## About the Self-hosted runners API
+## Acerca de la API de ejecutores auto-hospedados
 
 La API de ejecutores auto-hospedados te permite registrar, ver y borrar a los ejecutores auto-hospedados. {% data reusables.actions.about-self-hosted-runners %} Para obtener más información, consulta "[Alojar tus propios ejecutores](/actions/hosting-your-own-runners)".
 

@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Feeds API
+## Acerca de la API de fuentes
 
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+Para ver qué fuentes están disponibles para ti, utiliza la operación [Obtener fuentes](#get-feeds). Entonces, podrás obtener una fuente enviando una solicitud a una de las URL de fuentes.
 
 ### Ejemplo de obtención de un canal de Atom
 
