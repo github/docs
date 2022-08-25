@@ -72,7 +72,7 @@ The number of jobs you can run concurrently across all repositories in your user
 
 {% data reusables.billing.billing-hosted-runners %}
 
-For the public static IP addresses that can be assigned to a {% data variables.actions.hosted_runner %}, there is no additional cost for this configuration.
+There is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}.
 
 {% endif %}
 
