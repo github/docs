@@ -439,6 +439,7 @@ This example `jobs` context contains the result and outputs of a job from a reus
 
 This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
 
+{% raw %}
 ```yaml{:copy}
 name: Reusable workflow
 
@@ -467,6 +468,7 @@ jobs:
       - id: step2
         run: echo "::set-output name=secondword::world"
 ```
+{% endraw %}
 
 {% endif %}
 
