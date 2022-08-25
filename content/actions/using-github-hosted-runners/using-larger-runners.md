@@ -11,9 +11,9 @@ shortTitle: Using {% data variables.actions.hosted_runner %}s
 
 ## Overview of {% data variables.actions.hosted_runner %}s
 
-In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used to process a single job, and once the job has completed the runner's virtual machine is then processed according to your autoscaling needs: the runner is reimaged and only reused within your organisation, or it is shutdown and deleted.
+In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used to process a single job, and once the job has completed, the runner's virtual machine is then processed according to your autoscaling needs: the runner is reimaged and only reused within your organisation, or it is shutdown and deleted.
 
-When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. Your team can use this {% data variables.product.prodname_dotcom %}-hosted compute to run jobs. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
+When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
 
 ## Architectural overview of {% data variables.actions.hosted_runner %}s
 
@@ -32,7 +32,7 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 {% data variables.product.prodname_dotcom %} uses two types of pools to organize and allocate machines:
 
-- **Public pool**: This pool hosts the general 2-core runners. It consists of a general shared pool of machines are used to pick up jobs from any {% data variables.product.prodname_actions %} customer. When that job is complete, those machines are re-imaged and returned to the pool. Since many customers share this pool, there is likely to be an idling re-imaged machine ready to process your job.
+- **Public pool**: This pool hosts the standard 2-core runners. It consists of a general shared pool of machines are used to pick up jobs from any {% data variables.product.prodname_actions %} customer. When that job is complete, those machines are re-imaged and returned to the pool. Since many customers share this pool, there is likely to be an idling re-imaged machine ready to process your job.
 
 - **Private pools**: The {% data variables.actions.hosted_runner %}s use private pools, which helps improves the security of the virtual machine lifecycle. With private pools, only re-imaged machines are allowed to be used within your organization or enterprise. This helps reduce concerns around re-imaged machines leaving artefacts behind. The use of private pools does affect the queue time for {% data variables.actions.hosted_runner %}s.
 
@@ -66,7 +66,7 @@ Runner groups are used to collect sets of identically-configured virtual machine
 
 ### Understanding billing
 
-A {% data variables.actions.hosted_runner %} is billed differently to the standard runners. For more information, see "[Per-minute rates for {% data variables.actions.hosted_runner %}s](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
+Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates for {% data variables.actions.hosted_runner %}s](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
 
@@ -79,7 +79,7 @@ You can add {% data variables.actions.hosted_runner %}s to an enterprise, where 
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see [Managing access to your runners](#managing-access-to-your-runners).
+1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
 
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
@@ -92,7 +92,7 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see [Managing access to your runners](#managing-access-to-your-runners).
+1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
 
 ## Running jobs on your runner
 
@@ -121,7 +121,7 @@ jobs:
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. Subsequently, you must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
 
 - **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
 - **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
