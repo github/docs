@@ -116,8 +116,7 @@ sections:
       heading: La gráfica de dependencias es compatible con GitHub Actions
       notes:
         - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
-            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
+          La gráfica de dependencias ahora detecta archivos YAML para los flujos de trabajo de GitHub Actions. GitHub Enterprise Server mostrará los archivos de flujo de trabajo dentro de la sección de gráfica de dependencias de la pestaña **Perspectivas**. Los repositorios que publiquen acciones también podrán ver la cantidad de repositorios que dependen de esa acción desde el control de "Utilizado por" en la página principal del repositorio. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".  - **Nota**: Esta característica está disponible en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. La característica está disponible en la versión 3.5.4 y posteriores. [Actualizado: 2022-08-16]
     - 
       heading: El resumen de seguridad para empresas está en beta público
       notes:

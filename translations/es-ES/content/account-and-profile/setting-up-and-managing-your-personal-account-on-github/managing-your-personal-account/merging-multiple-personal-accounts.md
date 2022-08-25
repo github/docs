@@ -8,12 +8,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/merging-multiple-personal-accounts
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Fusionar cuentas personales múltiples
+shortTitle: Merge multiple accounts
 ---
 
 {% tip %}
@@ -41,7 +42,7 @@ shortTitle: Fusionar cuentas personales múltiples
 1. [Transfiere cualquier repositorio](/articles/how-to-transfer-a-repository) desde la cuenta que deseas eliminar a la cuenta que deseas mantener. También se transfieren propuestas, solicitudes de extracción y wikis. Verifica que los repositorios existan en la cuenta que deseas mantener.
 2. [Actualiza las URL remotas](/github/getting-started-with-github/managing-remote-repositories) en cualquier clon local de los repositorios que se movieron.
 3. [Elimina la cuenta](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account) que ya no deseas utilizar.
-4. Para atribuir las confirmaciones pasadas a la cuenta nueva, agrega la dirección de correo electrónico que utilizaste para crear dichas confirmaciones a la cuenta que vas a conservar. Para obtener más información, consulta"[¿Por qué mis contribuciones no se muestran en mi perfil?](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+4. Para atribuir las confirmaciones pasadas a la cuenta nueva, agrega la dirección de correo electrónico que utilizaste para crear dichas confirmaciones a la cuenta que vas a conservar. Para obtener más información, consulta "[¿Por qué mis contribuciones no se están mostrando en mi perfil?](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 ## Leer más
 
