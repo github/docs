@@ -42,10 +42,12 @@ export function RestParameterTable({ slug, numPreviews, parameters, bodyParamete
 
         <tbody>
           <ParameterRow
-            name={'accept'}
-            type={'string'}
-            description={`<p>Setting to <code>application/vnd.github+json</code> is recommended.</p>`}
-            isRequired={false}
+            rowParams={{
+              name: 'accept',
+              type: 'string',
+              description: `<p>Setting to <code>application/vnd.github+json</code> is recommended.</p>`,
+              isRequired: false,
+            }}
             slug={slug}
             numPreviews={numPreviews}
           />
@@ -65,12 +67,14 @@ export function RestParameterTable({ slug, numPreviews, parameters, bodyParamete
               </tr>
               {pathParams.map((param, index) => (
                 <ParameterRow
-                  name={param.name}
-                  type={param.schema.type}
-                  description={param.description}
-                  isRequired={param.required}
-                  defaultValue={param.schema.default}
-                  enumValues={param.schema.enum}
+                  rowParams={{
+                    name: param.name,
+                    type: param.schema.type,
+                    description: param.description,
+                    isRequired: param.required,
+                    default: param.schema.default,
+                    enum: param.schema.enum,
+                  }}
                   slug={slug}
                   key={`${index}-${param}`}
                 />
@@ -95,12 +99,14 @@ export function RestParameterTable({ slug, numPreviews, parameters, bodyParamete
 
               {queryParams.map((param, index) => (
                 <ParameterRow
-                  name={param.name}
-                  type={param.schema.type}
-                  description={param.description}
-                  isRequired={param.required}
-                  defaultValue={param.schema.default}
-                  enumValues={param.schema.enum}
+                  rowParams={{
+                    name: param.name,
+                    type: param.schema.type,
+                    description: param.description,
+                    isRequired: param.required,
+                    default: param.schema.default,
+                    enum: param.schema.enum,
+                  }}
                   slug={slug}
                   key={`${index}-${param}`}
                 />
@@ -124,17 +130,7 @@ export function RestParameterTable({ slug, numPreviews, parameters, bodyParamete
               </tr>
 
               {bodyParameters.map((param, index) => (
-                <ParameterRow
-                  name={param.name}
-                  type={param.type}
-                  description={param.description}
-                  isRequired={param.isRequired}
-                  defaultValue={param.default}
-                  enumValues={param.enum}
-                  slug={slug}
-                  childParamsGroups={param.childParamsGroups}
-                  key={`${index}-${param}`}
-                />
+                <ParameterRow rowParams={param} slug={slug} key={`${index}-${param}`} />
               ))}
             </>
           )}
