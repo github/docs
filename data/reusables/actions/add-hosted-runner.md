@@ -6,6 +6,6 @@
     - **Runner size**: Choose a hardware configuration from the drop-down list of available options.
     - **Auto-scaling**: Choose the maximum number of runners that can be active at any time.
     - **Runner group**: Choose the group that your runner will be a member of. This group will host multiple instances of your runner, as they scale up and down to suit demand.
-    - **Networking**: Choose the static IP address range that will be assigned to instances of the hosted runner.
+    - **Networking**: For {% data variables.product.prodname_enterprise %} only: Choose whether a static IP address range will be assigned to instances of the {% data variables.actions.hosted_runner %}. You can use up to 10 static IP addresses in total.
 
 1. Click **Create runner**.
