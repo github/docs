@@ -22,7 +22,10 @@ shortTitle: Verificar el estado de verificación
 1. En {% data variables.product.product_name %}, desplázate hasta la solicitud de extracción.
 {% data reusables.repositories.review-pr-commits %}
 3. Junto al hash de confirmación abreviado de tu confirmación, hay una casilla que te muestra si tu firma de confirmación se verificó{% ifversion fpt or ghec %}, se verificó parcialmente,{% endif %} o si no se verificó. ![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. Para ver información más detallada sobre la firma de confirmación, haz clic en **Verificada**{% ifversion fpt or ghec %}, **Verificada parcialmente**,{% endif %} o **Sin verificar**. ![Confirmación firmada verificada](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
+4. Para ver información más detallada sobre la firma de confirmación, haz clic en **Verificada**{% ifversion fpt or ghec %}, **Verificada parcialmente**,{% endif %} o **Sin verificar**. GPG signed commits will show the ID of the key that was used. ![Verified GPG signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
+{% ifversion ssh-commit-verification %}
+  SSH signed commits will show the signature of the public key that was used. ![Verified SSH signed commit](/assets/images/help/commits/ssh-signed-commit-verified-details.png)
+{% endif %}
 
 ## Comprobar el estado de verificación de firma de la etiqueta
 

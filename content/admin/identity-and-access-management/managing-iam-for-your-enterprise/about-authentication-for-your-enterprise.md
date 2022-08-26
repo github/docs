@@ -82,7 +82,11 @@ These restrictions are unacceptable for some enterprises. To determine whether {
 
 ### Do your developers rely on collaboration outside of your enterprise?
 
-{% data variables.product.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers need to collaborate in repositories outside your enterprise, even private repositories, to complete their work, {% data variables.product.prodname_emus %} may not be right for your enterprise, and SAML SSO may be a better solution.
+{% data variables.product.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers must contribute to both repositories within and outside of your enterprise, including private repositories, {% data variables.product.prodname_emus %} may not be right for your enterprise. SAML SSO may be a better solution.
+
+Some companies maintain repositories within an existing enterprise using SAML SSO on {% data variables.product.product_location %}, and also create an {% data variables.product.prodname_emu_enterprise %}. Developers who contribute to repositories owned by both enterprises from a single workstation must switch between the accounts on {% data variables.product.product_location %} within a single browser, or use a different browser for each account. The developer may also need to customize the workstation's Git configuration to accommodate the two accounts. The complexity of this workflow can increase the risk of mistakenly leaking internal code to the public.
+
+If you decide to create an {% data variables.product.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)."
 
 ### Does your enterprise rely on outside collaborators?
 
