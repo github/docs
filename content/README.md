@@ -358,7 +358,7 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 
 ### Preventing transformations
 
-Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, including the preferred version in the path.
+Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, you should include the preferred version in the path.
 
 ```markdown
 "[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
@@ -388,7 +388,7 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
 
-1. Use the product guides page template by referencing it's `layout: product-guides`
+1. Use the product guides page template by referencing `layout: product-guides` in the frontmatter.
 2. (optional) Include the learning tracks in [`learningTracks`](#learningTracks)
 3. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
