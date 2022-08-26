@@ -38741,6 +38741,11 @@ input TransferIssueInput {
   clientMutationId: String
 
   """
+  Whether to create labels if they don't exist in the target repository (matched by name)
+  """
+  createLabelsIfMissing: Boolean = false
+
+  """
   The Node ID of the issue to be transferred
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])

@@ -20,7 +20,7 @@ redirect_from:
 
 {% warning %}
 
-**Aviso de obsolesencia**: El acceso y ajuste de seguridad que se describen anteriormente ahora son obsoletos y solo se documentan aquí como referencia. Para habilitar un acceso expandido a otros repositorios, agrega los permisos solicitados a tu definición de contenedor dev. Si necesitas más información, consulta la sección "[Administrar el acceso a otros repositorios dentro de tu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
+**Aviso de obsolesencia**: El acceso y ajuste de seguridad que se describen anteriormente ahora son obsoletos y solo se documentan aquí como referencia. Para habilitar el acceso expandido a otros repositorios, agrega los permisos solicitados a tu archivo de configuración de `devcontainer.json`. Si necesitas más información, consulta la sección "[Administrar el acceso a otros repositorios dentro de tu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
 
 {% endwarning %}
 

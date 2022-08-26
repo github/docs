@@ -71,24 +71,28 @@ Si un propietario de empresa deja de permitir que los miembros de ésta creen ci
 
 {% endif %}
 
-## Requerir una política para los permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %} del repositorio
+## Enforcing a policy for base repository permissions
 
-En todas las organizaciones que pertenezcan a tu empresa, puedes configurar un nivel de permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminado{% endif %} de los repositorios (ninguno, lectura, escritura o administración) para los miembros organizacionales o permitir que los propietarios administren el ajuste a nivel de organización.
+Across all organizations owned by your enterprise, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Debajo de "permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %}", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Debajo de "Permisos{% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %}", utiliza el menú desplegable y elige una política.
-  {% ifversion ghec or ghes or ghae %}
-  ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
-  {% else %}
-  ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
-  {% endif %}
+4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. En "Permisos base", usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+
 
 ## Requerir una política para la creación de repositorios
 
-En todas las organizaciones que le pertenecen a tu empresa, puedes permitir que los miembros creen repositorios, restringir la creación de repositorios para los propietarios de la organización o permitir que los propietarios administren los ajustes en el nivel de la organización. Si permites que los miembros creen repositorios, puedes decidir si pueden crear cualquier combinación de repositorios públicos, privados e internos. {% data reusables.repositories.internal-repo-default %} Para obtener más información acerca de los repositorios internos, consulta "[Crear un repositorio interno](/articles/creating-an-internal-repository)".
+En todas las organizaciones que le pertenecen a tu empresa, puedes permitir que los miembros creen repositorios, restringir la creación de repositorios para los propietarios de la organización o permitir que los propietarios administren los ajustes en el nivel de la organización.
+
+If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
+{% endif %}
+
+{% data reusables.repositories.internal-repo-default %} Para obtener más información acerca de los repositorios internos, consulta "[Crear un repositorio interno](/articles/creating-an-internal-repository)".
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -96,18 +100,21 @@ En todas las organizaciones que le pertenecen a tu empresa, puedes permitir que 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. En "Creación de repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% ifversion ghes or ghae or ghec %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
-{% data reusables.enterprise-accounts.repo-creation-types %}
-{% else %}
-6. En "Creación de repositorios", usa el menú desplegable y elige una política.
-
-  ![Menú desplegable con políticas para creación de repositorio](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
-{% endif %}
+{% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
+1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Requerir una política para bifurcar repositorios privados o internos
 
 En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o prohibir la bifurcación de un repositorio privado o interno o permitir a los propietarios administrar la configuración a nivel organizacional para todos los que tengan acceso a éstos.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% note %}
+
+**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -115,14 +122,10 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
 3. Debajo de "Bifurcación de repositorios", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. En "Bifurcación de repositorios", usa el menú desplegable y elige una política.
 
-  ![Menú desplegable con opciones de políticas de bifurcación de repositorios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-{% ifversion innersource-fork-policies %}
+  ![Menú desplegable con opciones de políticas de bifurcación de repositorios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. Si se habilita la bifurcación, puedes especificar en dónde se permite que los usuarios bifurquen repositorios. Revisa la información sobre cómo cambiar el ajuste y elige una política.
 
-    ![Captura de pantalla que muestra la lista de opciones de políticas para bifurcar repositorios](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
-{% endif %}
-
+    ![Captura de pantalla que muestra la lista de opciones de políticas para bifurcar repositorios](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
 
 ## Requerir una política para invitar colaboradores{% ifversion ghec %} externos{% endif %} a los repositorios
 
@@ -140,8 +143,6 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir que lo
   ![Menú desplegable con opciones de política de invitación](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
   {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-
 ## Requerir una política para el nombre de rama predeterminada
 
 Puedes configurar el nombre de rama predeterminada para cualquier repositorio miembro que creen los miembros en todas las organizaciones que pertenezcan a tu empresa. Puedes elegir el requerir un nombre de rama predeterminado a través de todas las organizaciones o permitir a algunas configurar un nombre diferente.
@@ -152,8 +153,6 @@ Puedes configurar el nombre de rama predeterminada para cualquier repositorio mi
 4. Opcionalmente, para requerir el nombre de rama predeterminado para todas las organizaciones en la empresa, selecciona **Requerir en toda la empresa**. ![Casilla de requerir](/assets/images/help/business-accounts/default-branch-name-enforce.png)
 5. Da clic en **Actualizar**. ![Botón de actualizar](/assets/images/help/business-accounts/default-branch-name-update.png)
 
-{% endif %}
-
 ## Requerir una política para los cambios a la visibilidad del repositorio
 
 En todas las organizaciones que pertenezcan a tu empresa, puedes permitir que los miembros con acceso administrativo cambien la visibilidad de un repositorio, restrinjan los cambios de visibilidad del mismo a los propietarios de la organización o que permitan que los propietarios administren el ajuste a nivel organizacional. Cuando no permites que los miembros cambien la visibilidad del repositroio, únicamente los propietarios de la empresa podrán hacerlo.
@@ -163,9 +162,8 @@ Si un propietario de empresa restringió la creación de repositorios en la mism
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. En "Modificar visibilidad del repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+1. En "Modificar visibilidad del repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Debajo de "Repository visibility change" (Cambio de visibilidad de repositorios), usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de visibilidad de repositorios](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
 
 ## Requerir una política para el borrado y transferencia de repositorios
 
