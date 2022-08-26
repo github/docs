@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/converting-a-user-into-an-organization
 intro: You can convert your personal account into an organization. これにより、Organization に属するリポジトリに対して、より細かく権限を設定できます。
 versions:
   fpt: '*'
@@ -66,5 +67,5 @@ You can also convert your personal account directly into an organization. アカ
 
 ## 参考リンク
 - [Team の設定](/articles/setting-up-teams)
-{% ifversion fpt or ghec %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
+{% ifversion fpt or ghec %}- 「[ユーザを Organization に招待する](/articles/inviting-users-to-join-your-organization)」{% endif %}
 - [Organization にアクセスする](/articles/accessing-an-organization)

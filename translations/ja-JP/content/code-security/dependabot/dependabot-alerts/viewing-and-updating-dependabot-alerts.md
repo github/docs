@@ -40,24 +40,24 @@ topics:
 それぞれの{% data variables.product.prodname_dependabot %}アラートは一意の数値識別子を持っており、{% data variables.product.prodname_dependabot_alerts %}タブにはすべての検出された脆弱性に対するアラートがリストされます。 旧来の{% data variables.product.prodname_dependabot_alerts %}は依存関係で脆弱性をグループ化し、依存関係ごとに1つのアラートを生成しました。 旧来の{% data variables.product.prodname_dependabot %}アラートにアクセスすると、そのパッケージでフィルタされた{% data variables.product.prodname_dependabot_alerts %}タブにリダイレクトされます。 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
-You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+ユーザインターフェースで利用できる様々なフィルタとソートのオプションを使って、{% data variables.product.prodname_dependabot_alerts %}をフィルタリング及びソートできます。 詳しい情報については下の「[{% data variables.product.prodname_dependabot_alerts %}の優先順位付け](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)」を参照してください。
 
-## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %}の優先順位付け
 
-{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. アラートは、潜在的な影響、行動可能性、関連性に基づいてランク付けされます。 優先順位の計算は常に改善されており、CSVVスコア、依存関係スコープ、脆弱性のある関数呼び出しがアラートで見つかっているかといった要素を含みます。
+{% data variables.product.company_short %}は{% data variables.product.prodname_dependabot_alerts %}の修正の優先順位付けに役立ちます。 {% ifversion dependabot-most-important-sort-option %}デフォルトでは、{% data variables.product.prodname_dependabot_alerts %}は重要度でソートされます。 "Most important（重要な順）"のソート順は、まず焦点を置くべき{% data variables.product.prodname_dependabot_alerts %}の優先順位付けを助けてくれます。 アラートは、潜在的な影響、行動可能性、関連性に基づいてランク付けされます。 優先順位の計算は常に改善されており、CSVVスコア、依存関係スコープ、脆弱性のある関数呼び出しがアラートで見つかっているかといった要素を含みます。
 
 !["Most important"ソートのあるソートドロップダウンのスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
-In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+検索バーを通じて利用できるフィルタに加えて、アラートリストの上部にあるドロップダウンメニューを使って{% data variables.product.prodname_dependabot_alerts %}をソート及びフィルタリングできます。 検索バーでは、アラートと関連するセキュリティアドバイザリの全文検索もできます。 セキュリティアドバイザリ名または説明の一部を検索して、そのセキュリティアドバイザリに関連するリポジトリ内のアラートを返させることができます。 たとえば`yaml.load() API could execute arbitrary code`を検索すれば、この検索文字列はアドバイザリの説明にあるので「[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)」にリンクされた{% data variables.product.prodname_dependabot_alerts %}が返されます。
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
   ![{% data variables.product.prodname_dependabot_alerts %}タブ中のフィルタ及びソートメニューのスクリーンショット](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply. ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+リストの上部にあるドロップダウンメニューでフィルタを選択し、続いて適用したいフィルタをクリックできます。 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## 依存関係のスコープに対してサポートされているエコシステムとマニフェスト
@@ -110,7 +110,7 @@ You can select a filter in a dropdown menu at the top of the list, then click th
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. 検索バーにフィルタを入力することもできます。 For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
+1. あるいは、アラートをフィルタリングするには、ドロップダウンメニューでフィルタを選択し、続いて適用したいフィルタをクリックしてください。 検索バーにフィルタを入力することもできます。 アラートのフィルタリングとソートに関する詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}の優先順位付け](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)」を参照してください。
 {%- ifversion dependabot-bulk-alerts %}
   ![{% data variables.product.prodname_dependabot_alerts %}タブ中のフィルタ及びソートメニューのスクリーンショット](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
@@ -163,7 +163,12 @@ You can select a filter in a dropdown menu at the top of the list, then click th
 依存関係のアップグレードのための広汎な作業をスケジュールしていたり、アラートを修正する必要はないと判断したりした場合、アラートを却下できます。 すでに評価済みのアラートを却下すると、新しいアラートが現れたときにトリアージしやすくなります。
 
 1. アラートの詳細を表示させます。 詳しい情報については上の「[脆弱性のある依存関係の表示](#viewing-dependabot-alerts)」を参照してください。
-1. "Dismiss（却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。{% ifversion reopen-dependabot-alerts %}却下された未修正のアラートは、後で再度オープンできます。{% endif %} ![[Dismiss] ドロップダウンでアラートを却下する理由を選択する](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. "Dismiss（却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。{% ifversion reopen-dependabot-alerts %}却下された未修正のアラートは、後で再度オープンできます。{% endif %}
+{% ifversion dependabot-alerts-dismissal-comment %}1. あるいは、却下のコメントを追加してください。 却下のコメントはアラートのタイムラインに追加され、監査とレポートの際の正当性として利用できます。 GraphQL APIを使って、コメントの取得や設定ができます。 コメントは`dismissComment`フィールドに含まれます。 詳しい情報については、GraphQL APIドキュメンテーションの「[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)を参照してください。
+   ![却下のコメントを追加するオプション付きで、"Dismiss"ドロップダウンからアラートを却下する方法を示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. **Dismiss alert（アラートを却下）**をクリックしてください。
+{% else %}
+   ![[Dismiss] ドロップダウンでアラートを却下する理由を選択する](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
 
 ### 複数のアラートを一度に却下する
