@@ -1,0 +1,10 @@
+Error after updaing to macOS Monterey:
+
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun.
+
+FIX - run this command on terminal 
+xcode-select --install
+
+If the above doesn't work, run this command on terminal:
+
+sudo xcode-select --reset
