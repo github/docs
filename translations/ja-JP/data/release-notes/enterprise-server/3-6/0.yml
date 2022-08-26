@@ -61,10 +61,10 @@ sections:
 
           -「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」
           -「[EnterpriseのAudit logイベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)」
-          -「[OrganizationのAudit logのレビュー]/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)」
+          -「[OrganizationのAudit logのレビュー](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)」
           -REST APIドキュメンテーションの「[Secret scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)」
         - |
-          GitHub Advanced Securityのライセンスがあるインスタンス上のEnterpriseのオーナーは、EntepriseのカスタムのSecret scanningパターンのdry runを実行でき、すべてのユーザはパターンを編集する際にdry runを実行できます。dry runを行うことによって、パターンがインスタンス全体に与える影響を理解し、公開してアラートを生成する前にパターンを磨き上げることができます。詳しい情報については「Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+          GitHub Advanced Securityのライセンスがあるインスタンス上のEnterpriseのオーナーは、EntepriseのカスタムのSecret scanningパターンのdry runを実行でき、すべてのユーザはパターンを編集する際にdry runを実行できます。dry runを行うことによって、パターンがインスタンス全体に与える影響を理解し、公開してアラートを生成する前にパターンを磨き上げることができます。詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
         - |
           GitHub Advanced Securityのライセンスがあるインスタンス上のユーザは、Secret scanningのアラートを取得する際にREST APIで`sort`及び`direction`パラメータを使い、アラートの`created`あるいは`updated`フィールドに基づいてソートすることができます。この新しいパラメータはインスタンス全体で、あるいは個々のOrganizationあるいはリポジトリで使用できます。詳しい情報については以下のドキュメンテーションを参照してください。
 
@@ -94,7 +94,7 @@ sections:
           インスタンスでGitHub Connectが有効化されているなら、ユーザは[GitHub Advisory Database](https://github.com/advisories)内のセキュリティアドバイザリの改善に貢献できます。貢献するには、アドバイザリの詳細を表示しているときに**Suggest improvements for this vulnerability（この脆弱性に改善を提案）**をクリックしてください。詳しい情報については以下の記事を参照してください。
 
           - 「[GitHub Connectの管理](/admin/configuration/configuring-github-connect/managing-github-connect)」
-          - GitHub Enterprise Cloudのドキュメンテーションの「「GitHub Advisory Database内のセキュリティ脆弱性の閲覧](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)」
+          - GitHub Enterprise Cloudのドキュメンテーションの「[GitHub Advisory Database内のセキュリティ脆弱性の閲覧](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)」
           - GitHub Enterprise Cloudのドキュメンテーションの「[リポジトリのGitHub Security Advisoriesについて](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)」
           - GitHub Enterprise Cloudのドキュメンテーションの「[GitHub Advisory Database中のセキュリティアドバイザリの編集](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)」
     - 
@@ -150,7 +150,7 @@ sections:
         - |
           ユーザは、**Restrict pushes that create matching branches（マッチするブランチを作成するプッシュの制限）**ブランチ保護ルールで、設定された名前のパターンにマッチするブランチの作成をブロックできます。たとえば、リポジトリのデフォルトブランチを`master`から`main`に変更した場合、リポジトリの管理者はそれ以降`master`ブランチの作成やプッシュを防ぐことができます。詳しい情報については「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)」及び[ブランチの保護ルールの管理](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)」を参照してください。
         - |
-          ユーザは、リポジトリの**Branches（ブランチ）**ページから、**New branch（新規ブランチ）**をクリックすることで直接ブランチを作成できます。詳しい情報については「[リポジトリ内でのブランチの作成と削除(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
+          ユーザは、リポジトリの**Branches（ブランチ）**ページから、**New branch（新規ブランチ）**をクリックすることで直接ブランチを作成できます。詳しい情報については「[リポジトリ内でのブランチの作成と削除](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
         - |
           ユーザはオープンなPull Requestに関連づけられたブランチを削除できます。詳しい情報については「[リポジトリ内でのブランチの作成と削除](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
         - |
@@ -173,7 +173,7 @@ sections:
       heading: プルリクエスト
       notes:
         - |
-          Pull Requestの**Files changed（変更されたファイル）**タブにあるファイルツリーを使って、ユーザは変更されたファイルに見ていき、変更のサイズとスコープを理解し、レビューに集中できます。このファイルツリーは、Pull Requestが少なくとも2つのファイルを変更しており、ブラウザのウィンドウが十分に広いときに表示されます。詳しい情報については「[Pull Requestで提案された変更のレビュー(/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」及び「[Pull Requestのファイルのフィルタリング](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
+          Pull Requestの**Files changed（変更されたファイル）**タブにあるファイルツリーを使って、ユーザは変更されたファイルに見ていき、変更のサイズとスコープを理解し、レビューに集中できます。このファイルツリーは、Pull Requestが少なくとも2つのファイルを変更しており、ブラウザのウィンドウが十分に広いときに表示されます。詳しい情報については「[Pull Requestで提案された変更のレビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」及び「[Pull Requestのファイルのフィルタリング](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
         - |
           ユーザは、すべてのsquashマージでPull Requestのタイトルをコミットメッセージとして使うことをデフォルトにできます。詳しい情報については「[Pull Requestのコミットsquashの設定](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)」を参照してください。
     - 

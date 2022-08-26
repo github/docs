@@ -1,39 +1,53 @@
 ---
 title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.product.product_name %} at any time.'
+intro: 'You can delete your personal account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Delete your personal account
+shortTitle: Delete your account
 ---
 
-Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
+## About deletion of your personal account
 
-{% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+{% ifversion ghec %}
 
-詳しい情報については、以下を参照してください。
+{% note %}
+
+**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. 詳しい情報については「[{% data variables.product.prodname_emus %}について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)」を参照してください。
+
+{% endnote %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+
+If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+
+詳しい情報については、次の記事を参照してください。
+
 - "[Organization の所有権の移譲](/articles/transferring-organization-ownership)"
 - "[Organization アカウントの削除](/articles/deleting-an-organization-account)"
 - "[Organization から自分を削除する](/articles/removing-yourself-from-an-organization/)"
 
 ## アカウントデータのバックアップ
 
-Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account.
+Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, GitHub cannot restore your content.
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 
