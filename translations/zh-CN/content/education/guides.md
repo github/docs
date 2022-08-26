@@ -13,14 +13,15 @@ shortTitle: 指南
 
 - [注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Git 和 {% data variables.product.prodname_dotcom %} 快速入门 ](/github/getting-started-with-github/quickstart)
-- [关于学生版 GitHub Education](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)
-- [申请教育者或研究人员折扣](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
-- [申请学生开发包](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
+- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
+- [Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
 
 ## 使用 {% data variables.product.company_short %} 运行软件开发课程
 
 使用 {% data variables.product.prodname_classroom %} 管理课堂，分配和检查学生的工作，并且教授新一代软件开发人员。
 
+- [About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
 - [设置 {% data variables.product.prodname_classroom %} 的基本知识 ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)
 - [使用 Git 和 {% data variables.product.company_short %} 起始作业](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
@@ -35,7 +36,7 @@ shortTitle: 指南
 将 {% data variables.product.prodname_dotcom %} 并入您的教育，并使用与专业人士相同的工具。
 
 - [Git 和 {% data variables.product.prodname_dotcom %} 学习资源](/github/getting-started-with-github/git-and-github-learning-resources)
-- [使用 {% data variables.product.prodname_dotcom %} 做功课](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)
+- [{% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
 - [试用 {% data variables.product.prodname_desktop %}](/desktop)
 - [试用 {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
@@ -44,7 +45,6 @@ shortTitle: 指南
 参与社区，从 {% data variables.product.company_short %} 获得培训，并学习或教授新技能。
 
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
+- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
 - [关于 Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
-- [关于 Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
-- [关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)
 - [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

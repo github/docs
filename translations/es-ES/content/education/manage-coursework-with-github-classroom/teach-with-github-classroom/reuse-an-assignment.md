@@ -9,9 +9,9 @@ shortTitle: Rechazar una tarea
 
 ## Acerca de reutilizar tareas
 
-Puedes reutilizar una tarea grupal o individual existente en cualquier otra aula a la cual tengas acceso, incluyendo aquellas en una organización distinta. También puedes reutilizar tareas múltiples a la vez desde un aula. Si eliges reutilizar una tarea, {% data variables.product.prodname_classroom %} la copiará al aula que elijas. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
+Puedes reutilizar una tarea grupal o individual existente en cualquier otra aula a la cual tengas acceso, incluyendo aquellas en una organización distinta. También puedes reutilizar tareas múltiples a la vez desde un aula. Si eliges reutilizar una tarea, {% data variables.product.prodname_classroom %} la copiará al aula que elijas. Si la tarea utiliza un repositorio en borrador y eliges reutilizarlo en un aula desde una organización diferente, {% data variables.product.prodname_classroom %} creará una copia del repositorio y de su contenido en la organización destino.
 
-The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
+La tarea copiada incluye detalles de esta, tales como el nombre, el repositorio origen, pruebas de autoevaluación y el editor preferido. Puedes editar esta tarea después de que se copió para realizar cambios. No puedes hacer cambios al editor preferido.
 
 ## Reusing an assignment
 

@@ -168,6 +168,7 @@ translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed
 translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
 translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
 translations/es-ES/content/index.md,Listed in localization-support#489
+translations/es-ES/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-issue.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,Listed in localization-support#489
@@ -292,6 +293,7 @@ translations/es-ES/content/repositories/working-with-files/managing-large-files/
 translations/es-ES/content/rest/activity/events.md,broken liquid tags
 translations/es-ES/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/es-ES/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
+translations/es-ES/content/rest/secret-scanning.md,broken liquid tags
 translations/es-ES/content/search-github/searching-on-github/searching-code.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-commits.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,Listed in localization-support#489

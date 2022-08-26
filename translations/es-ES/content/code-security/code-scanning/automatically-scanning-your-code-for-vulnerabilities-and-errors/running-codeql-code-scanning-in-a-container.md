@@ -32,6 +32,12 @@ Si estás configurando el {% data variables.product.prodname_code_scanning %} pa
 
 Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto aplica a cuando utilizas el {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}, el {% data variables.product.prodname_codeql_runner %},{% endif %} o {% data variables.product.prodname_actions %}. Para el {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}o el {% data variables.product.prodname_codeql_runner %}{% endif %}, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% ifversion codeql-runner-supported %} o "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} para obtener más información. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
 
+{% note %}
+
+**Nota:** {% data reusables.code-scanning.non-glibc-linux-support %}
+
+{% endnote %}
+
 ## Dependencias
 
 Es posible que tengas alguna dificultad para ejecutar el {% data variables.product.prodname_code_scanning %} si el contenedor que estás utilizando carece de ciertas dependencias (Por ejemplo, Git debe instalarse y agregarse a la variable PATH). Si encuentras propuestas de dependencias, revisa la lista de software que habitualmente se incluye en las imágenes de los ejecutores de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta los archivos `readme` específicos de la versión en estas ubicaciones:

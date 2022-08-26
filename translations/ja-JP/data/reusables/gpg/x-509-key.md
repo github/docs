@@ -1,5 +1,5 @@
 
-### Git にX.509 キーについて知らせる
+## Git にX.509 キーについて知らせる
 
 GPGではなくS/MIMEを使ってコミットやタグに署名するために、[smimesign](https://github.com/github/smimesign)を使うことができます。
 

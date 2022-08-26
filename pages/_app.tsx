@@ -24,6 +24,37 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
     initializeExperiments()
   }, [])
 
+  useEffect(() => {
+    // The CSS from primer looks something like this:
+    //
+    //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
+    //       --color-canvas-default: black;
+    //   }
+    //   body {
+    //       background-color: var(--color-canvas-default);
+    //   }
+    //
+    // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
+    // on the body, but on a top-level wrapping `<div>` then the `<body>`
+    // doesn't get the right CSS.
+    // Normally, with Primer you make sure you set these things in the
+    // `<body>` tag and you can use `_document.tsx` for that but that's
+    // only something you can do in server-side rendering. So,
+    // we use a hook to assure that the `<body>` tag has the correct
+    // dataset attribute values.
+    const body = document.querySelector('body')
+    if (body) {
+      // Note, this is the same as setting `<body data-color-mode="...">`
+      // But you can't do `body.dataset['color-mode']` so you use the
+      // camelCase variant and you get the same effect.
+      // Appears Next.js can't modify <body> after server rendering:
+      // https://stackoverflow.com/a/54774431
+      body.dataset.colorMode = theme.css.colorMode
+      body.dataset.darkTheme = theme.css.darkTheme
+      body.dataset.lightTheme = theme.css.lightTheme
+    }
+  }, [theme])
+
   return (
     <>
       <Head>
@@ -56,16 +87,9 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
           nightScheme={theme.component.nightScheme}
           preventSSRMismatch
         >
-          {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
-          <div
-            data-color-mode={theme.css.colorMode}
-            data-light-theme={theme.css.lightTheme}
-            data-dark-theme={theme.css.darkTheme}
-          >
-            <LanguagesContext.Provider value={languagesContext}>
-              <Component {...pageProps} />
-            </LanguagesContext.Provider>
-          </div>
+          <LanguagesContext.Provider value={languagesContext}>
+            <Component {...pageProps} />
+          </LanguagesContext.Provider>
         </ThemeProvider>
       </SSRProvider>
     </>

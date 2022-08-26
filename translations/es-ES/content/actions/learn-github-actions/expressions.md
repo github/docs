@@ -125,45 +125,53 @@ env:
 
 Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta función arroja `true` si el `item` es un elemento de la matriz. Si `search` es una cadena, esta función arroja `true` si el `item` es una subcadena de `search`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
-#### Ejemplo usando una matriz
-
-`contains(github.event.issue.labels.*.name, 'bug')` devuelve la información de si la propuesta que está relacionada al evento tiene una etiqueta de "bug" o no.
-
 #### Ejemplo usando una cadena
 
-`contains('Hello world', 'llo')` devuelve `verdadero`.
+`contains('Hello world', 'llo')` arroja `true`.
+
+#### Ejemplo utilizando un filtro de objeto
+
+`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+
+Para obtener más información, consulta la sección "[Filtros de objeto](#object-filters)".
+
+#### Ejemplo empatando un arreglo de secuencias
+
+En vez de escribir `github.event_name == "push" || github.event_name == "pull_request"`, puedes utilizar `contains()` con `fromJson()` para verificar si un arreglo de secuencias contiene un `item`.
+
+Por ejemplo, `contains(fromJson('["push", "pull_request"]'), github.event_name)` devuelve `true` si `github.event_name` es "push" o "pull_request".
 
 ### startsWith
 
 `startsWith( searchString, searchValue )`
 
-Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Devuelve `verdadero` cuando `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 #### Ejemplo
 
-`startsWith('Hello world', 'He')` regresa a `verdadero`.
+`startsWith('Hello world', 'He')` arroja `true`.
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-Arroja `true` si `searchString` termina con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 #### Ejemplo
 
-`endsWith('Hello world', 'He')` devuelve `verdadero`.
+`endsWith('Hello world', 'ld')` arroja `true`.
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables en la `string` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `string`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
+Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
 
 #### Ejemplo
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-Devuelve 'Hello Mona the Octocat'.
+Arroja 'Hello Mona the Octocat'.
 
 #### Ejemplo de evasión de llaves
 
@@ -221,7 +229,7 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       - run: build
 ```
@@ -235,7 +243,7 @@ Este flujo de trabajo utiliza `fromJSON` para convertir las variables de ambient
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:
@@ -272,10 +280,10 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## Funciones de verificación del estado
 
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" y "[Sintaxis de metadatos para las Acciones Compuestas de GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" y "[Sintaxis de metadatos para las Acciones Compuestas de GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 {% else %}
 ## Funciones de verificación
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 {% endif %}
 
 ### success
@@ -303,7 +311,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-Devuelve `verdadero` si se canceló el flujo de trabajo.
+Arroja `true` si se canceló el flujo de trabajo.
 
 #### Ejemplo
 
@@ -354,7 +362,7 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`.
+El filtro `fruits.*.name` arroja la matriz `[ "apple", "orange", "pear" ]`.
 
 También puedes utilizar la sintaxis `*` en un objeto. Por ejemplo, supón que tienes un objeto que se llama `vegetables`.
 

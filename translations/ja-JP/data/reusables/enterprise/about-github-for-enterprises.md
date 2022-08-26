@@ -1,1 +1,1 @@
-For more information about how businesses can use {% data variables.product.company_short %}'s products to support their software development lifecycle, see "[About {% data variables.product.prodname_dotcom %} for enterprises](/admin/overview/about-github-for-enterprises)."
+企業がどのように{% data variables.product.company_short %}の製品を使って自分たちのソフトウェア開発サイクルをサポートできるかということに関する詳しい情報については「[Entepriseの{% data variables.product.prodname_dotcom %}について](/admin/overview/about-github-for-enterprises)」を参照してください。

@@ -59,7 +59,7 @@ shortTitle: 参与指南
 如果您觉得难以着手，以下是参与指南的一些良好示例：
 
 - Atom 编辑器[参与指南](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)。
-- Ruby on Rails [参与指南](https://github.com/rails/rails/blob/master/CONTRIBUTING.md)。
+- Ruby on Rails [参与指南](https://github.com/rails/rails/blob/main/CONTRIBUTING.md)。
 - Open Government [参与指南](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md)。
 
 ## 延伸阅读

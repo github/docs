@@ -2,7 +2,6 @@
 title: codespace を作成する
 intro: リポジトリのブランチの codespace を作成して、オンラインで開発できます。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -21,7 +20,7 @@ shortTitle: Create a codespace
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces はリポジトリの特定のブランチに関連付けられており、リポジトリを空にすることはできません。 {% data reusables.codespaces.concurrent-codespace-limit %}詳しい情報については、「[codespace を削除する](/github/developing-online-with-codespaces/deleting-a-codespace)」を参照してください。
+Codespaces はリポジトリの特定のブランチに関連付けられており、リポジトリを空にすることはできません。 {% data reusables.codespaces.concurrent-codespace-limit %}
 
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
@@ -45,27 +44,22 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 ## Access to {% data variables.product.prodname_github_codespaces %}
 
-{% data reusables.codespaces.availability %}
-
 When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
-You'll have access to codespaces under the following conditions:
+You'll have access to {% data variables.product.prodname_github_codespaces %} under the following conditions:
 
-* You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
-* An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
-* The repository is owned by the organization that has enabled {% data variables.product.prodname_codespaces %}.
+Either all of these are true:
+* You are a member, or outside collaborator, of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
+* The organization owner has allowed you to create codespaces at the organization's expense.
+* The repository for which you want to create a codespace is owned by this organization.
 
-{% note %}
-
-**Note:** Individuals who have already joined the beta with their personal {% data variables.product.prodname_dotcom %} account will not lose access to {% data variables.product.prodname_codespaces %}, however {% data variables.product.prodname_codespaces %} for individuals will continue to remain in beta.
-
-{% endnote %}
-
-Organization owners can allow all members of the organization to create codespaces, limit codespace creation to selected organization members, or disable codespace creation. For more information about managing access to codespaces within your organization, see "[Enable Codespaces for users in your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
+Or both of these are true:
+* You are participating in the beta of {% data variables.product.prodname_codespaces %} for individual users.
+* Either you own the repository for which you want to create a codespace, or it is owned by an organization of which you are either a member or an outside collaborator.
 
 Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
 
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_github_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork.
+Organization owners can specify who can create and use codespaces at the organization's expense. Organization owners can also prevent any codespace usage being charged to the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
 ## codespace を作成する
 

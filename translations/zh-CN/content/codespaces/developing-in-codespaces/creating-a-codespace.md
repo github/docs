@@ -2,7 +2,6 @@
 title: 创建代码空间
 intro: 您可以为仓库中的分支创建代码空间以便在线开发。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -21,7 +20,7 @@ shortTitle: 创建代码空间
 
 可以在 {% data variables.product.prodname_dotcom_the_website %} 上、{% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 创建代码空间。 {% data reusables.codespaces.codespaces-are-personal %}
 
-代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %} 更多信息请参阅“[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)”。
+代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %}
 
 
 创建代码空间时，需要执行一些步骤并将您连接到开发环境。
@@ -44,8 +43,6 @@ shortTitle: 创建代码空间
 {% data reusables.codespaces.prebuilds-crossreference %}
 
 ## 访问 {% data variables.product.prodname_github_codespaces %}
-
-{% data reusables.codespaces.availability %}
 
 当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 

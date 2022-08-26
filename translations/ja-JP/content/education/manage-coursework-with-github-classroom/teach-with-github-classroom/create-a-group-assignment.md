@@ -55,7 +55,7 @@ redirect_from:
 
 ### 課題のタイプを選択する
 
-[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 個人課題を作成する場合は、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」を参照してください。
+[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### 課題のTeamを定義する
 
@@ -151,6 +151,6 @@ The assignment overview page displays information about your assignment acceptan
 
 ## 参考リンク
 
-- 「[教室や研究で{% data variables.product.prodname_dotcom %}を使う](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」
+- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
 - 「[学習管理システムを{% data variables.product.prodname_classroom %}に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)」
 - {% data variables.product.prodname_education %} Communityの、[Using Existing Teams in Group Assignments? (グループ課題における既存チームの使用)](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)

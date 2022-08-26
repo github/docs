@@ -1,19 +1,19 @@
 ---
 title: Organizationでのプロジェクトの可視性の変更の許可
-intro: Organizationのオーナーは、管理権限を持つメンバーに、Organization内のプロジェクトの可視性の調整を許可できます。
+intro: 'Organizationのオーナーは、管理権限を持つメンバーに、Organization内の{% data variables.projects.projects_v2_and_v1 %}の可視性の調整を許可できます。'
 versions:
-  feature: projects-v2
+  feature: classic-project-visibility-permissions-or-projects-v2
 topics:
   - Organizations
   - Projects
 shortTitle: プロジェクトの可視性の権限
 allowTitleToDifferFromFilename: true
-permissions: Organization owners can allow project visibility changes for an organization.
+permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
 ---
 
-メンバーがプロジェクトをプライベートからパブリックに変更するのを制限するように、Organizationでのプロジェクトの可視性を変更できる人を制限できます。
+{% data variables.projects.projects_v2_and_v1 %}をプライベートからパブリックに変更できるメンバーを制限するといったように、Organizationにおいて{% data variables.projects.projects_v2_and_v1 %}の可視性を変更できる人を制限できます。
 
-プロジェクトの可視性を変更できるのをOrganizationのオーナーだけに制限したり、プロジェクトの管理権限を持つ人なら誰でも可視性を変更できるようにしたりできます。
+{% data variables.projects.project_v2_and_v1 %}の可視性を変更できるのをOrganizationオーナーだけに制限したり、あるいは管理権限を付与されている人なら誰でもこの可視性を変更できるように許可したりすることができます。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -23,4 +23,8 @@ permissions: Organization owners can allow project visibility changes for an org
 
 ## 参考リンク
 
-- 「[プロジェクトの可視性の管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)」
+{% ifversion projects-v2 %}
+- 「[{% data variables.projects.projects_v2 %}の可視性の管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)」
+{%- endif %}{%- ifversion projects-v1 %}
+- 「[{% data variables.product.prodname_project_v1 %}の可視性の変更](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)」
+{% endif %}
