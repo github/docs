@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
+title: 'Desabilitando {% ifversion projects-v2 %}projetos{% else %}quadros de projetos{% endif %} na sua organização'
+intro: 'Os proprietários da organização podem desativar {% ifversion projects-v2 %}em toda a organização {% data variables.projects.projects_v2 %}, em toda a organização {% data variables.projects.projects_v1_boards %}, e o nível de repositório {% data variables.projects.projects_v1_boards %}{% else %}quadros de projetos e quadros de projetos de repositórios em toda a organização{% endif %} em uma organização.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -12,11 +12,11 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Disable projects
+shortTitle: Desabilitar projetos
 allowTitleToDifferFromFilename: true
 ---
 
-Após a desabilitação dos quadros de projeto em toda a organização, não é mais possível criar quadros de projeto no nível da organização nem acessar os quadros de projeto no nível de organização já existentes pelas URLs anteriores. Os quadros de projeto em repositórios não são afetados. {% ifversion projects-v2 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}
+Após a desabilitação dos quadros de projeto em toda a organização, não é mais possível criar quadros de projeto no nível da organização nem acessar os quadros de projeto no nível de organização já existentes pelas URLs anteriores. Os quadros de projeto em repositórios não são afetados. {% ifversion projects-v2 %}Estas configurações aplicam-se a {% data variables.projects.projects_v2 %} e {% data variables.projects.projects_v1_boards %}.{% endif %}
 
 Após a desabilitação dos quadros de projeto de repositório em uma organização, não é mais possível criar quadros de projeto em repositórios da organização nem acessar os quadros de projeto já existentes em repositórios da organização pelas URLs anteriores. Os quadros de projeto no nível da organização não são afetados.
 
@@ -38,8 +38,8 @@ Quando você desabilita quadros de projeto, deixa de ver informações relaciona
 
 ## Leia mais
 
-{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
+{% ifversion projects-v2 %}- "[Sobre {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
 - "[Sobre o {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
-- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
-- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"
+- "[Fechando um {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
+- "[Excluindo um {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
+- "[Desabilitando {% data variables.projects.projects_v1_boards %} em um repositório](/articles/disabling-project-boards-in-a-repository)"

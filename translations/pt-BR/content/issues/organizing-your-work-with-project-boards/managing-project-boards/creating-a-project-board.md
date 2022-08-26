@@ -37,7 +37,7 @@ Você também pode configurar automações de fluxo de trabalho para manter seu 
 
 {% data reusables.profile.access_profile %}
 2. No topa da página do seu perfil, na navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -68,7 +68,7 @@ Você também pode configurar automações de fluxo de trabalho para manter seu 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -90,7 +90,7 @@ Você também pode configurar automações de fluxo de trabalho para manter seu 
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}

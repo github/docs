@@ -22,13 +22,13 @@ shortTitle: Cancelar a publicação do site de páginas
 
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+Quando você cancelar a publicação de seu site, o site não estará mais disponível. Todas as configurações de repositório ou o conteúdo não serão afetados.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. Em **{% data variables.product.prodname_pages %}**, ao lado da mensagem **seu site está ativo em**, clique em {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. No menu que será exibido, selecione **Cancelar a publicação do site**.
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![Menu suspenso para cancelar a publicação do site](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
