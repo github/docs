@@ -55,7 +55,8 @@ describe('files', () => {
       .map(path => path.replace('.md', ''))
     for (const path of paths) {
       const res = await get(`/${code}/${path}`)
-      expect(res.statusCode, path).toBe(200)
+      expect(res.statusCode, path).toBeGreaterThanOrEqual(200)
+      expect(res.statusCode, path).toBeLessThanOrEqual(399)
     }
   })
 
