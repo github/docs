@@ -39,8 +39,7 @@ async function getTopLevelOneOfProperty(schema) {
 }
 
 // Gets the body parameters for a given schema recursively.
-export async function getBodyParams(schema, topLevel = false, summary = '', depth = 1) {
-  if (summary && depth > 3) console.log(depth, summary)
+export async function getBodyParams(schema, topLevel = false) {
   const bodyParametersParsed = []
   const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
   const properties = schemaObject.properties || {}
@@ -83,9 +82,7 @@ export async function getBodyParams(schema, topLevel = false, summary = '', dept
         default: param.default,
         childParamsGroups: [],
       }
-      keyParam.childParamsGroups.push(
-        ...(await getBodyParams(param.additionalProperties, false, summary, depth + 1))
-      )
+      keyParam.childParamsGroups.push(...(await getBodyParams(param.additionalProperties, false)))
       childParamsGroups.push(keyParam)
     } else if (paramType && paramType.includes('array')) {
       const arrayType = param.items.type
@@ -93,10 +90,10 @@ export async function getBodyParams(schema, topLevel = false, summary = '', dept
         paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
       }
       if (arrayType === 'object') {
-        childParamsGroups.push(...(await getBodyParams(param.items, false, summary, depth + 1)))
+        childParamsGroups.push(...(await getBodyParams(param.items, false)))
       }
     } else if (paramType && paramType.includes('object')) {
-      childParamsGroups.push(...(await getBodyParams(param, false, summary, depth + 1)))
+      childParamsGroups.push(...(await getBodyParams(param, false)))
     } else if (param && param.oneOf) {
       // get concatenated description and type
       const descriptions = []
