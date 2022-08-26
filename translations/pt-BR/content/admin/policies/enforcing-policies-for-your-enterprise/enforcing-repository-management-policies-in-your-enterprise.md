@@ -71,14 +71,14 @@ Se um proprietário corporativo impedir que os integrantes criem certos tipos de
 
 {% endif %}
 
-## Enforcing a policy for base repository permissions
+## Aplicando uma política para as permissões básicas do repositório
 
-Across all organizations owned by your enterprise, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
+Em todas as organizações pertencentes à sua empresa, você pode definir um nível de permissão básica do repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Em "Permissões básicas", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "Permissões básicas", use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
 
@@ -86,10 +86,10 @@ Across all organizations owned by your enterprise, you can set a base repository
 
 Em todas as organizações pertencentes à sua empresa, é possível permitir que os integrantes criem repositórios, restringir a criação de repositórios a proprietários da organização ou permitir que os proprietários administrem a configuração no nível da organização.
 
-If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
+Se você permitir que os integrantes criem repositórios em suas organizações, você poderá escolher quais tipos de repositórios (públicos, privados e internos) que os integrantes poderão criar.
 
 {% ifversion enterprise-namespace-repo-setting %}
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
+{% ifversion ghec %}Se a empresa usa {% data variables.product.prodname_emus %}, você{% else %}Você{% endif %} também pode impedir que os usuários criem repositórios pertencentes às contas de usuário deles.
 {% endif %}
 
 O {% data reusables.repositories.internal-repo-default %} Para obter mais informações sobre repositórios internos, consulte "[Criar um repositório interno](/articles/creating-an-internal-repository)".
@@ -102,7 +102,7 @@ O {% data reusables.repositories.internal-repo-default %} Para obter mais inform
 5. Em "Repository creation" (Criação de repositório), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
-1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
+1. Opcionalmente, {% ifversion ghec %}se sua empresa usa {% data variables.product.prodname_emus %} e você quer {% endif %}que impeça que os integrantes da empresa criem repositórios pertencentes às suas contas de usuário, Selecione **Bloquear a criação de repositórios de namespace do usuário**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Aplicar uma política para a bifurcação de repositórios internos ou privados
 
@@ -111,7 +111,7 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% ifversion enterprise-namespace-repo-setting %}
 {% note %}
 
-**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
+**Observação:** Se {% ifversion ghec %}sua empresa usa {% data variables.product.prodname_emus %} e {% endif %}sua política de "Criação do repositório" impede que os integrantes corporativos criem repositórios pertencentes às suas contas de usuário, os integrantes não terão permissão para bifurcar um repositório nas contas de usuários, independentemente da política de "bifurcação do repositório".
 
 {% endnote %}
 {% endif %}

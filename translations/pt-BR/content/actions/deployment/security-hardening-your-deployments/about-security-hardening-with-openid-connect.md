@@ -245,7 +245,7 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 {% ifversion actions-oidc-hardening-config %}
 ## Personalizando as reivindicações de token
 
-Você pode garantir a segurança da sua configuração do OIDC personalizando as reivindicações incluídas com a JWT. Isso permite que seu provedor de nuvem aplique mais condições de confiança granular ao determinar se concede acesso a seus recursos. For example, {% ifversion ghec %}you can customize the issuer (`iss`) claim to only allow access from a specific enterprise URL, and {% endif %}you can customize the subject (`sub`) value to require that requests originate from a specific repository, reusable workflow, or other source.
+Você pode garantir a segurança da sua configuração do OIDC personalizando as reivindicações incluídas com a JWT. Isso permite que seu provedor de nuvem aplique mais condições de confiança granular ao determinar se concede acesso a seus recursos. Por exemplo, {% ifversion ghec %}você pode personalizar que o a reivindicação do emissor (`iss`) para apenas permitir acesso a uma URL corporativa específica e {% endif %}é possível personalizar o valor do assunto (`sub`) para exigir que as solicitações sejam originárias de um repositório específico, fluxo de trabalho reutilizável ou outra fonte.
 
 Para configurar as condições de reivindicação em {% data variables.product.prodname_dotcom %}, você pode usar os pontos de extremidade da REST API descritos nas seguintes seções.
 

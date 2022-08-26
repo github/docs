@@ -1,6 +1,6 @@
 ---
 title: Gerenciar configurações de conta de usuário
-intro: 'You can manage settings for your personal account, including your theme, username, default branch, accessibility, and security settings.'
+intro: 'Você pode gerenciar configurações para sua conta pessoal, incluindo seu tema, nome de usuário, branchpadrão, acessibilidade e configurações de segurança.'
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
