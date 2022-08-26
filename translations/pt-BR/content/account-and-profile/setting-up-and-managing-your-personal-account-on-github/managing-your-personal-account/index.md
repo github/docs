@@ -1,7 +1,7 @@
 ---
-title: Managing your personal account
-intro: 'You can manage your personal account on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For example, you can {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}convert an account to an organization{% ifversion fpt or ghec or ghes %}, or delete an account{% endif %}.'
-shortTitle: Manage personal account
+title: Gerenciando sua conta pessoal
+intro: 'Você pode gerenciar sua conta pessoal em {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Por exemplo, você pode {% ifversion fpt or ghec %}gerenciar várias contas, {% endif %}converter uma conta para uma organização{% ifversion fpt or ghec or ghes %}ou excluir uma conta{% endif %}.'
+shortTitle: Gerenciar conta pessoal
 versions:
   fpt: '*'
   ghes: '*'

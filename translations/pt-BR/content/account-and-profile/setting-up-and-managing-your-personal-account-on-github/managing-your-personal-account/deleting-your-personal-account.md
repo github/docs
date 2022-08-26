@@ -14,26 +14,26 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Delete your account
+shortTitle: Excluir sua conta
 ---
 
-## About deletion of your personal account
+## Sobre a exclusão da sua conta pessoal
 
-A exclusão da sua conta pessoal irá remover todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
+A exclusão da sua conta pessoal irá remover todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% ifversion fpt or ghec %}Os problemas e pull requests que você criou e os comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos. Seus recursos e comentários serão associados ao [usuário fantasma](https://github.com/ghost).{% else %}Os problemas e pull requests que você criou e os comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos.{% endif %}
 
 {% ifversion ghec %}
 
 {% note %}
 
-**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)".
+**Observação**: Se sua empresa gerencia sua conta e você efetua o login em {% data variables.product.product_location %} por meio do provedor de identidade da sua empresa (IdP), você não poderá excluir sua conta. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)".
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. O endereço de e-mail associado à conta fica disponível para uso com uma conta diferente no {% data variables.product.product_location %}. Após 90 dias, o nome da conta também fica disponível para qualquer pessoa usar em uma nova conta. {% endif %}
+{% ifversion fpt or ghec %}Ao excluir a sua conta, nós cancelamos a cobrança. O endereço de e-mail associado à conta fica disponível para uso com uma conta diferente no {% data variables.product.product_location %}. Após 90 dias, o nome da conta também fica disponível para qualquer pessoa usar em uma nova conta. {% endif %}
 
-If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. Se houver outros proprietários na organização, você deverá remover-se da organização antes de excluir sua conta pessoal.
+Se você é o único proprietário de uma organização, você deverá transferir a propriedade para outra pessoa ou excluir a organização antes de excluir a sua conta pessoal. Se houver outros proprietários na organização, você deverá remover-se da organização antes de excluir sua conta pessoal.
 
 Para obter mais informações, consulte os seguintes artigos.
 
@@ -43,11 +43,11 @@ Para obter mais informações, consulte os seguintes artigos.
 
 ## Fazer backup dos dados da conta
 
-Antes de excluir sua conta pessoal, faça uma cópia de todos os repositórios, bifurcações privadas, wikis, problemas e pull requests pertencentes à sua conta. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
+Antes de excluir sua conta pessoal, faça uma cópia de todos os repositórios, bifurcações privadas, wikis, problemas e pull requests pertencentes à sua conta. Para obter mais informações, consulte "[Backup de um repositório](/repositories/archiving-a-github-repository/backing-up-a-repository)".
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
+**Aviso:** Após a exclusão da sua conta pessoal, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}dono de uma empresa{% endif %} não poderá restaurar seu conteúdo.
 
 {% endwarning %}
 

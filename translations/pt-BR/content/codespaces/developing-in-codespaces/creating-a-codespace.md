@@ -55,7 +55,7 @@ Ou todos estes são verdadeiros:
 
 Ou ambos são verdadeiros:
 * Você está participando do beta de {% data variables.product.prodname_codespaces %} para usuários individuais.
-* Either you own the repository for which you want to create a codespace, or it is owned by an organization of which you are either a member or an outside collaborator.
+* Ou você possui o repositório para o qual deseja criar um codespace ou ele pertence a uma organização da qual você é integrante ou colaborador externo.
 
 Antes de {% data variables.product.prodname_codespaces %} pode ser usado em uma organização, um proprietário ou gerente de cobrança deverá ter um limite de gastos. Para obter mais informações, consulte "[Sobre limites de gastos para codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)".
 

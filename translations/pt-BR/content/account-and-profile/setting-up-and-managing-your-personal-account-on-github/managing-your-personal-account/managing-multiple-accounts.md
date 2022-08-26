@@ -1,44 +1,44 @@
 ---
-title: Managing multiple accounts
-intro: 'If you use one workstation to contribute to projects for more than one account on {% data variables.product.product_location %}, you can modify your Git configuration to simplify the contribution process.'
+title: Gerenciando várias contas
+intro: 'Se você usa uma estação de trabalho para contribuir com projetos para mais de uma conta em {% data variables.product.product_location %}, você pode modificar sua configuração do Git para simplificar o processo de contribuição.'
 versions:
   feature: multiple-accounts-one-workstation
 topics:
   - Accounts
   - Git
   - GitHub
-shortTitle: Manage multiple accounts
+shortTitle: Gerenciar várias contas
 ---
 
-## About management of multiple accounts
+## Sobre a gestão de múltiplas contas
 
-In some cases, you may need to use multiple accounts on {% data variables.product.product_location %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise.
+Em alguns casos, é possível que você precise usar várias contas em {% data variables.product.product_location %}. Por exemplo, você pode ter uma conta pessoal para contribuições de código aberto, e seu empregador também pode criar e gerenciar uma conta de usuário para você dentro de uma empresa.
 
-You cannot use your {% data variables.product.prodname_managed_user %} to contribute to public projects on {% data variables.product.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+Você não pode usar seu {% data variables.product.prodname_managed_user %} para contribuir para projetos públicos em {% data variables.product.product_location %}, portanto, você deve contribuir para esses recursos usando a sua conta pessoal. Para obter mais informações, consulte "[Sobre  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% elsif ghec %}{% endif %}
 
-If you want to use one workstation to contribute from both accounts, you can simplify contribution with Git by using a mixture of protocols to access repository data, or by using credentials on a per-repository basis.
+Se você quiser usar uma estação de trabalho para contribuir a partir de ambas as contas, você poderá simplificar a contribuição com o Git usando uma mistura de protocolos para acessar os dados do repositório ou usando credenciais em cada repositório.
 
 {% warning %}
 
-**Warning**: Be mindful when you use one workstation to contribute to two separate accounts. Management of two or more accounts can increase the chance of mistakenly leaking internal code to the public.
+**Aviso**: Tenha cuidado quando você usar uma estação de trabalho para contribuir com duas contas separadas. A gestão de duas ou mais contas pode aumentar a possibilidade de fuga de código interno para o público.
 
 {% endwarning %}
 
-If you aren't required to use a {% data variables.product.prodname_managed_user %}, {% data variables.product.company_short %} recommends that you use one personal account for all your work on {% data variables.product.product_location %}. With a single personal account, you can contribute to a combination of personal, open source, or professional projects using one identity. Other people can invite the account to contribute to both individual repositories and repositories owned by an organization, and the account can be a member of multiple organizations or enterprises.
+Se você não tiver de usar um {% data variables.product.prodname_managed_user %}, {% data variables.product.company_short %} recomenda que você use uma conta pessoal para todo seu trabalho em {% data variables.product.product_location %}. Com uma única conta pessoal, você pode contribuir para uma combinação de projetos pessoais, de código aberto ou projetos profissionais usando uma identidade. Outras pessoas podem convidar a conta para contribuir tanto em repositórios individuais quanto em repositórios pertencentes a uma organização, e a conta pode ser integrante de múltiplas organizações ou empresas.
 
-## Contributing to two accounts using HTTPS and SSH
+## Contribuindo para duas contas usando HTTPS e SSH
 
-If you contribute with two accounts from one workstation, you can access repositories by using a different protocol and credentials for each account.
+Se você contribuir com duas contas de uma estação de trabalho, você poderá acessar repositórios usando um protocolo e credenciais diferentes para cada conta.
 
-Git can use either the HTTPS or SSH protocol to access and update data in repositories on {% data variables.product.product_location %}. The protocol you use to clone a repository determines which credentials your workstation will use to authenticate when you access the repository. With this approach to account management, you store the credentials for one account to use for HTTPS connections and upload an SSH key to the other account to use for SSH connections.
+O Git pode usar o protocolo HTTPS ou SSH para acessar e atualizar os dados nos repositórios em {% data variables.product.product_location %}. O protocolo que você usa para clonar um repositório determina quais credenciais sua estação de trabalho usará para efetuar a autenticação quando você acessar o repositório. Com esta abordagem ao gerenciamento de contas, você armazena as credenciais para uma conta usar para conexões HTTPS e faz upload de uma chave SSH na outra conta para conexões SSH.
 
-You can find both the HTTPS or an SSH URLs for cloning a repository on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Clonar um repositório](/repositories/creating-and-managing-repositories/cloning-a-repository)".
+Você pode encontrar ambos URLs HTTPS ou SSH para clonar um repositório em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Clonar um repositório](/repositories/creating-and-managing-repositories/cloning-a-repository)".
 
-For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/authentication/connecting-to-github-with-ssh)."
+Para obter mais informações sobre o uso de SSH para acessar repositórios no {% data variables.product.product_name %}, consulte "[Conectando ao {% data variables.product.prodname_dotcom %} com SSH](/authentication/connecting-to-github-with-ssh)".
 
-## Contributing to multiple accounts using HTTPS and PATs
+## Contribuindo para várias contas usando HTTPS e PATs
 
-Alternatively, if you want to use the HTTPS protocol for both accounts, you can use different personal access tokens (PAT) for each account by configuring Git to store different credentials for each repository.
+Como alternativa, se você quiser usar o protocolo HTTPS para ambas as contas, você pode usar diferentes tokens de acesso pessoal (PAT) para cada conta, configurando o Git para armazenar credenciais diferentes para cada repositório.
 
 {% mac %}
 
@@ -46,7 +46,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 {% data reusables.git.confirm-credential-manager %}
 {% data reusables.git.clear-the-stored-credentials %}
    {% data reusables.git.no-credential-manager %}
-   - If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, enter the following command.
+   - Se a saída for `osxkeychain`, você irá usar o keychain do macOS. Para limpar as credenciais, informe o seguinte comando.
 
      ```shell{:copy}
      git credential-osxkeychain erase https://github.com
@@ -65,7 +65,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 {% data reusables.git.clear-the-stored-credentials %}
    {% data reusables.git.no-credential-manager %}
    {% data reusables.git.clear-stored-gcm-credentials %}
-   - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
+   - Se a saída for `wincred`, você irá usar o Gerenciador de Credenciais do Windows. Para limpar as credenciais, informe o seguinte comando.
 
      ```shell{:copy}
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
@@ -89,16 +89,16 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 
 {% endlinux %}
 
-## Contributing to multiple accounts using SSH and `GIT_SSH_COMMAND`
+## Contribuindo para várias contas usando SSH e `GIT_SSH_COMMAND`
 
-If you want to use the SSH protocol for both accounts, you can use different SSH keys for each account. For more information about using SSH, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/authentication/connecting-to-github-with-ssh)."
+Se você quiser usar o protocolo SSH para ambas as contas, você poderá usar chaves SSH diferentes para cada conta. Para obter mais informações sobre como usar SSH, consulte "[Conectando a {% data variables.product.prodname_dotcom %} com SSH](/authentication/connecting-to-github-with-ssh)".
 
-To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. The function should perform the following steps.
-1. Determine the repository's full name with owner, using a command such as `git config --get remote.origin.url`.
-2. Choose the correct SSH key for authentication.
-3. Modify `GIT_SSH_COMMAND` accordingly. For more information about `GIT_SSH_COMMAND`, see [Environment Variables](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) in the Git documentation.
+To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. A função deve executar as seguintes etapas.
+1. Determine o nome completo do repositório com proprietário, usando um comando como `git config --get remote.origin.url`.
+2. Escolha a chave SSH correta para autenticação.
+3. Modifique `GIT_SSH_COMMAND` apropriadamente. Para obter mais informações sobre `GIT_SSH_COMMAND`, consulte [Variáveis de Ambiente](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) na documentação do Git.
 
-For example, the following command sets the `GIT_SSH_COMMAND` environment variable to specify an SSH command that uses the private key file at **_PATH/TO/KEY/FILE_** for authentication to clone the repository named **_OWNER_**/**_REPOSITORY_** on {% data variables.product.product_location %}.
+Por exemplo, o comando a seguir define a variável de ambiente `GIT_SSH_COMMAND` para especificar um comando SSH que usa o arquivo de chave privada em **_PATH/TO/KEY/FILE_** para autenticação para clonar o repositório denominado **_OWNER_**/**_REPOSITORY_** em {% data variables.product.product_location %}.
 
 <pre>
 GIT_SSH_COMMAND='ssh -i <em>PATH/TO/KEY/FILE</em> -o IdentitiesOnly=yes' git clone git@github.com:<em>OWNER</em>/<em>REPOSITORY</em>
