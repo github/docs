@@ -93,7 +93,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 
 - 要继续了解 {% data variables.product.prodname_actions %}，请参阅“[查找和自定义操作](/actions/learn-github-actions/finding-and-customizing-actions)”。
 {% ifversion fpt or ghec or ghes %}
-- 要了解 {% data variables.product.prodname_actions %} 的计费方式，请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)”。
+- To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)."
 {% endif %}
 
 ## 联系支持

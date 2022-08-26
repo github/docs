@@ -8,12 +8,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/merging-multiple-personal-accounts
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 合并多个个人帐户
+shortTitle: Merge multiple accounts
 ---
 
 {% tip %}

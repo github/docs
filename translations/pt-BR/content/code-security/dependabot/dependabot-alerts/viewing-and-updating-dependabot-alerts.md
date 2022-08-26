@@ -40,24 +40,24 @@ A aba de {% data variables.product.prodname_dependabot_alerts %} do seu reposit�
 Cada alerta de {% data variables.product.prodname_dependabot %} tem um identificador único de número e a aba de {% data variables.product.prodname_dependabot_alerts %} lista um alerta para cada vulnerabilidade detectada. O legado de {% data variables.product.prodname_dependabot_alerts %} agrupou as vulnerabilidades por dependência e gerou um único alerta por dependência. Se você acessar um alerta de legado {% data variables.product.prodname_dependabot %}, você será redirecionado para uma aba de {% data variables.product.prodname_dependabot_alerts %} filtrada para esse pacote. {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
-You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+Você pode filtrar e classificar {% data variables.product.prodname_dependabot_alerts %} usando uma série de filtros e opções de classificação disponíveis na interface do usuário. Para obter mais informações, consulte "[Priorizando {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" abaixo.
 
-## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+## Priorizando {% data variables.product.prodname_dependabot_alerts %}
 
-{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Os alertas são classificados com base no seu impacto potencial, atuabilidade e relevância. O nosso cálculo de priorização está em melhoria constante e inclui fatores como pontuação do CVSS, âmbito de dependência, e se são encontradas chamadas de função vulneráveis para o alerta.
+{% data variables.product.company_short %} ajuda você a priorizar a correção de {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} Por padrão, {% data variables.product.prodname_dependabot_alerts %} são ordenados por importância. A ordenação "mais importante" ajuda você a priorizar na qual {% data variables.product.prodname_dependabot_alerts %} deve se concentrar primeiro. Os alertas são classificados com base no seu impacto potencial, atuabilidade e relevância. O nosso cálculo de priorização está em melhoria constante e inclui fatores como pontuação do CVSS, âmbito de dependência, e se são encontradas chamadas de função vulneráveis para o alerta.
 
 ![Captura de tela da classificação suspensa com a classificação "mais importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
-In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+Além dos filtros disponíveis na barra de pesquisa, você pode ordenar e filtrar {% data variables.product.prodname_dependabot_alerts %} usando os menus suspensos na parte superior da lista de alertas. A barra de pesquisa também permite a pesquisa por texto completo de alertas e consultorias de segurança relacionados. Você pode pesquisar parte de uma consultoria de segurança ou uma descrição para devolver os alertas no seu repositório que estejam relacionados a essa consultoria de segurança. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
   ![Captura de tela dos menus filtro e ordenação na aba de {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply. ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+Você pode selecionar um filtro em um menu suspenso na parte superior da lista e, em seguida, clicar no filtro que gostaria de aplicar. ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## Ecossistemas e manifestos compatíveis com o escopo de dependência
@@ -110,7 +110,7 @@ Para obter mais informações, consulte "[Revisando e corrigindo alertas](#revie
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. Você também pode digitar filtros na barra de pesquisa. For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
+1. Opcionalmente, para filtrar alertas, selecione um filtro no menu suspenso e, em seguida, clique no filtro que deseja aplicar. Você também pode digitar filtros na barra de pesquisa. Para obter mais informações sobre filtragem e classificação dos alertas, consulte "[Prioritizando {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)".
 {%- ifversion dependabot-bulk-alerts %}
   ![Captura de tela dos menus filtro e ordenação na aba de {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
@@ -164,9 +164,9 @@ Se você agendar um extenso trabalho para atualizar uma dependência ou decidir 
 
 1. Ver detalhes de um alerta. Para obter mais informações, consulte "[Visualizando dependências vulneráveis](#viewing-dependabot-alerts)" (acima).
 1. Selecione o menu suspenso "Ignorar" e clique em um motivo para ignorar o alerta.{% ifversion reopen-dependabot-alerts %} Alertas não descartados podem ser reabertos posteriormente.{% endif %}
-{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
-   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
-1. Click **Dismiss alert**.
+{% ifversion dependabot-alerts-dismissal-comment %}1. Opcionalmente, adicione um comentário de dispensa. O comentário de dispensa será adicionado à linha do tempo de alerta e poderá ser usado como justificativa durante a auditoria e a apresentação de relatórios. Você pode recuperar ou definir um comentário usando a API do GraphQL. O comentário está contido no campo `dismissComment` Para obter mais informações, consulte "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" na documentação da API do GraphQL.
+   ![Captura de tela que mostra como ignorar um alerta por meio do menu suspenso "ignorar" com a opção de adicionar um comentário de dispensa](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. Clique **Ignorar alerta**.
 {% else %}
    ![Escolher o motivo para ignorar o alerta a partir do menu suspenso "Ignorar"down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
@@ -185,7 +185,7 @@ Se você agendar um extenso trabalho para atualizar uma dependência ou decidir 
 
 ## Visualizando e atualizando alertas fechados
 
-You can view all open alerts, and you can reopen alerts that have been previously dismissed. Os alertas fechados que já foram corrigidos não podem ser reabertos.
+Você pode visualizar todos os alertas abertos e pode reabrir os alertas que foram ignorados anteriormente. Os alertas fechados que já foram corrigidos não podem ser reabertos.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
