@@ -204,7 +204,7 @@ npm-d5ea0750
 
 ### Usando a saída da ação do `cache`
 
-Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
+Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. Quando uma correspondência exata é encontrada para um cache para a tecla `especificada`, o `cache-hit` é definido como `verdadeiro`.
 
 No exemplo de fluxo de trabalho acima, há uma etapa que lista o estado dos módulos do Node se ocorrer uma falha de cache:
 

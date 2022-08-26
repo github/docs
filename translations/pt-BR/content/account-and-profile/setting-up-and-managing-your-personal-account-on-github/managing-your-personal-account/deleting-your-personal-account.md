@@ -1,39 +1,53 @@
 ---
 title: Excluindo sua conta pessoal
-intro: 'Você pode excluir sua conta pessoal em {% data variables.product.product_name %} a qualquer momento.'
+intro: 'Você pode excluir sua conta pessoal em {% data variables.product.product_location %} a qualquer momento.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Excluir sua conta pessoal
+shortTitle: Delete your account
 ---
 
-A exclusão da sua conta pessoal irá remover todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% ifversion fpt or ghec %} Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos. Em vez disso, eles serão associados ao nosso [usuário fantasma](https://github.com/ghost).{% else %}Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos.{% endif %}
+## About deletion of your personal account
 
-{% ifversion fpt or ghec %} Ao excluir a sua conta, nós paramos de cobrar você. O endereço de e-mail associado à conta fica disponível para uso com uma conta diferente no {% data variables.product.product_location %}. Após 90 dias, o nome da conta também fica disponível para qualquer pessoa usar em uma nova conta. {% endif %}
+A exclusão da sua conta pessoal irá remover todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-Se você é o único proprietário de uma organização, você deverá transferir a propriedade para outra pessoa ou excluir a organização antes de excluir a sua conta pessoal. Se houver outros proprietários na organização, você deverá remover-se da organização antes de excluir sua conta pessoal.
+{% ifversion ghec %}
 
-Para obter mais informações, consulte:
+{% note %}
+
+**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)".
+
+{% endnote %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. O endereço de e-mail associado à conta fica disponível para uso com uma conta diferente no {% data variables.product.product_location %}. Após 90 dias, o nome da conta também fica disponível para qualquer pessoa usar em uma nova conta. {% endif %}
+
+If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. Se houver outros proprietários na organização, você deverá remover-se da organização antes de excluir sua conta pessoal.
+
+Para obter mais informações, consulte os seguintes artigos.
+
 - "[Transferir a propriedade da organização](/articles/transferring-organization-ownership)"
 - "[Excluir uma conta de organização](/articles/deleting-an-organization-account)"
 - "[Remover a si mesmo de uma organização](/articles/removing-yourself-from-an-organization/)"
 
 ## Fazer backup dos dados da conta
 
-Antes de excluir sua conta pessoal, faça uma cópia de todos os repositórios, bifurcações privadas, wikis, problemas e pull requests pertencentes à sua conta.
+Antes de excluir sua conta pessoal, faça uma cópia de todos os repositórios, bifurcações privadas, wikis, problemas e pull requests pertencentes à sua conta. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
 {% warning %}
 
-**Aviso:** Uma vez que excluída a sua conta pessoal, o GitHub não poderá restaurar seu conteúdo.
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 

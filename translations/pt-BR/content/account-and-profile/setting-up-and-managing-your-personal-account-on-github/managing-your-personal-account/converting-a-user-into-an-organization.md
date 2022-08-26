@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/converting-a-user-into-an-organization
 intro: Você pode converter a sua conta pessoal em uma organização. Isso permite permissões mais granulares para repositórios que pertencem à organização.
 versions:
   fpt: '*'
@@ -66,5 +67,5 @@ Você também pode converter sua conta pessoal diretamente em uma organização.
 
 ## Leia mais
 - "[Configurar equipes](/articles/setting-up-teams)"
-{% ifversion fpt or ghec %}- "[Convidar usuários para ingressar na organização](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% ifversion fpt or ghec %}- "[Convidar usuários para participar da sua organização](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Acessar uma organização](/articles/accessing-an-organization)"

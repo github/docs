@@ -22,9 +22,11 @@ O suporte ao CAP é habilitado automaticamente para qualquer {% data variables.p
 
 Para obter mais informações sobre o uso do OIDC com {% data variables.product.prodname_emus %}, consulte "[Configurando o OIDC para usuários gerenciados corporativos](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" e "[Migrando do SAML para o OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
-## Sobre o uso do CAP com listas de permissão de IP
+{% note %}
 
-Recomendamos deasabilitar a lista de permissão da sua conta corporativa e confiar no CAP do seu IdP. Se você habilitar as listas de permissão do IP para sua empresa e também fizer uso do CAP do seu IdP, tanto a lista de permissões de IP quanto o CAP serão aplicados. Se alguma restrição rejeitar o endereço IP de um usuário, ocorrerá uma falha na solicitação. Para obter mais informações sobre a lista de permissão de IP, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
+**Note:** If you use Conditional Access (CA) network location policies in your Azure AD tenant, do not use the IP allow list feature on {% data variables.product.prodname_dotcom_the_website %}, with your enterprise account or with any of the organizations owned by the enterprise. Using both is unsupported and can result in the wrong policy applying. For more information about IP allow lists, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+
+{% endnote %}
 
 ## Considerações para integrações e automações
 
