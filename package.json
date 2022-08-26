@@ -183,7 +183,7 @@
     "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",
     "dev": "cross-env npm start",
-    "index-test-fixtures": "node script/search/index-elasticsearch.js -s tests/content/fixtures/search-indexes -l en -V ghae -V dotcom",
+    "index-test-fixtures": "node script/search/index-elasticsearch.js -s tests/content/fixtures/search-indexes -l en -V ghae -V dotcom --index-prefix tests",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules TEST_TRANSLATION=true jest tests/linting/lint-files.js",
     "prepare": "husky install",
