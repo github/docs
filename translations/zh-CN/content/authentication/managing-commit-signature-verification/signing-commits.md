@@ -1,6 +1,6 @@
 ---
 title: 对提交签名
-intro: 您可以使用 GPG 或 S/MIME 在本地对提交进行签名。
+intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -52,9 +52,5 @@ topics:
 
 ## 延伸阅读
 
-* "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
-* "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-* "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
-* "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 * "[对标记签名](/articles/signing-tags)"

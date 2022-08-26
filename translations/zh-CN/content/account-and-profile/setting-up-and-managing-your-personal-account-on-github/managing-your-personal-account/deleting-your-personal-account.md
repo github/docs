@@ -1,39 +1,53 @@
 ---
 title: 删除个人帐户
-intro: '您可以随时在 {% data variables.product.product_name %} 上删除您的个人帐户。'
+intro: '您可以随时在 {% data variables.product.product_location %} 上删除您的个人帐户。'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/deleting-your-personal-account
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 删除个人帐户
+shortTitle: Delete your account
 ---
 
-删除个人帐户会移除帐户所拥有的所有仓库、私有仓库分支、wiki、议题、拉取请求和页面。 {% ifversion fpt or ghec %} 在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除，而是与我们的[Ghost 用户](https://github.com/ghost)关联。{% else %}在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除。{% endif %}
+## About deletion of your personal account
 
-{% ifversion fpt or ghec %} 当您删除帐户时，我们会停止对您计费。 与该帐户关联的电子邮件地址可用于 {% data variables.product.product_location %} 上不同的帐户。 90 天后，该帐户名称也可供其他任何人用于新帐户。 {% endif %}
+删除个人帐户会移除帐户所拥有的所有仓库、私有仓库分支、wiki、议题、拉取请求和页面。 {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-如果您是组织的唯一所有者，则必须先将所有权转让给其他人或删除该组织，然后才能删除您的个人帐户。 如果组织中有其他所有者，则必须先从组织中删除自己，然后才能删除个人帐户。
+{% ifversion ghec %}
 
-更多信息请参阅：
+{% note %}
+
+**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)”。
+
+{% endnote %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. 与该帐户关联的电子邮件地址可用于 {% data variables.product.product_location %} 上不同的帐户。 90 天后，该帐户名称也可供其他任何人用于新帐户。 {% endif %}
+
+If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. 如果组织中有其他所有者，则必须先从组织中删除自己，然后才能删除个人帐户。
+
+更多信息请参阅以下文章。
+
 - “[转让组织所有权](/articles/transferring-organization-ownership)”
 - “[删除组织帐户](/articles/deleting-an-organization-account)”
 - “[从组织中删除自己](/articles/removing-yourself-from-an-organization/)”
 
 ## 备份帐户数据
 
-在删除个人帐户之前，请复制帐户拥有的所有仓库、私有分支、wiki、议题和拉取请求。
+在删除个人帐户之前，请复制帐户拥有的所有仓库、私有分支、wiki、议题和拉取请求。 For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
 {% warning %}
 
-**警告：**删除个人帐户后，GitHub 无法恢复您的内容。
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 
