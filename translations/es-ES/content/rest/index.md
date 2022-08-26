@@ -3,7 +3,8 @@ title: API de REST de GitHub
 shortTitle: API de REST
 intro: 'Para crear integraciones, recuperar datos y automatizar tus flujos de trabajo, compila con la API de REST de {% data variables.product.prodname_dotcom %}.'
 introLinks:
-  quickstart: /rest/guides/getting-started-with-the-rest-api
+  quickstart: /rest/quickstart
+  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   guides:
     - /rest/guides/getting-started-with-the-rest-api
@@ -31,6 +32,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
   - /overview
   - /guides
   - /actions

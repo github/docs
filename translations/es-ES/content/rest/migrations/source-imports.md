@@ -9,9 +9,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Source imports API
+## Acerca de la API de importaciones de código fuente
 
-{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
+{% data variables.migrations.source_imports_intro %} Una importación de código fuente habitual iniciaría la importación y después (opcionalmente) actualizaría a los autores o a la preferencia para utilizar LFS de Git si existen archivos grandes en la importación. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
 
 Se puede ver un ejemplo más detallado en este diagrama:
 

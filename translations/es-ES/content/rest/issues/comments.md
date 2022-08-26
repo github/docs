@@ -13,8 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issue comments API
+## Acerca de la API de comentarios de propuestas
 
-La API de comentarios en las propuestas es compatible con la administración de comentarios en las propuestas y solicitudes de cambios. {% data reusables.pull_requests.issues-pr-shared-api %} To manage pull request review comments, use the [Pull request review comments API](/rest/pulls/comments) instead.
+La API de comentarios en las propuestas es compatible con la administración de comentarios en las propuestas y solicitudes de cambios. {% data reusables.pull_requests.issues-pr-shared-api %} Para administrar los comentarios de revisión de solicitudes de cambio, utiliza la [API de comentarios de revisión en solicitudes de cambio](/rest/pulls/comments) en su lugar.
 
 {% data reusables.pull_requests.issues-media-types %}
