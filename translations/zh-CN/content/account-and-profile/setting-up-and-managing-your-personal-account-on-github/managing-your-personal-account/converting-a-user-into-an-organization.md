@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/converting-a-user-into-an-organization
 intro: 您可以将个人帐户转换为组织。 这样可以对属于组织的仓库设置更细化的权限。
 versions:
   fpt: '*'

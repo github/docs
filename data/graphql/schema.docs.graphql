@@ -18552,19 +18552,9 @@ enum MigrationSourceType {
   BITBUCKET_SERVER
 
   """
-  A GitHub migration source.
-  """
-  GITHUB
-
-  """
   A GitHub Migration API source.
   """
   GITHUB_ARCHIVE
-
-  """
-  A GitLab migration source.
-  """
-  GITLAB
 }
 
 """

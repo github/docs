@@ -31,6 +31,7 @@ Se você for novo em {% data variables.product.prodname_emus %} e ainda não con
 {% endnote %}
 
 1. Antes de iniciar a migração, inicie sessão no Azure e desabilite o provisionamento no aplicativo de {% data variables.product.prodname_emu_idp_application %} existente.
+1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Azure AD, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account on {% data variables.product.prodname_dotcom_the_website %}, disable the IP allow lists. For more information, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
 1.  Efetue o login em {% data variables.product.prodname_dotcom_the_website %} como usuário de configuração da sua empresa com o nome de usuário **@<em>SHORT-CODE</em>_admin**.
 1. Quando solicitado para continuar com o provedor de identidade, clique em **Usar um código de recuperação** e efetue o login usando um dos códigos de recuperação da empresa.
 {% data reusables.enterprise-accounts.access-enterprise %}
