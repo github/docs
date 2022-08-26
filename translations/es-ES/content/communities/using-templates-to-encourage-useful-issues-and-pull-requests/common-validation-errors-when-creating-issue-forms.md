@@ -539,7 +539,7 @@ En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` repre
 
 ### Ejemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +552,7 @@ body:
 
 El error puede corregirse si garantizas que no habrán elecciones duplicadas en el arreglo `options`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -570,7 +570,7 @@ En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` repre
 
 ### Ejemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +585,7 @@ body:
 
 El error puede corregirse si se elimina "None" de las opciones. Si quieres que un contribuyente pueda indicar que no le parece ninguno de esos tipos de tarta, puedes eliminar adicionalmente la validación `required`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -605,7 +605,7 @@ En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` repre
 
 ### Ejemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +618,7 @@ body:
 
 El error puede corregirse si pones cada opción infractora entre comillas, para prevenir que se procesen como valores booleanos.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -627,6 +627,36 @@ body:
       - "Yes"
       - "No"
       - Maybe
+```
+
+## Body cannot be empty
+
+The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+
+El error se puede corregir agregando la sección `body:`.
+
+### Ejemplo
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+En este ejemplo, el error se puede corregir borrando el `---` (separador de documentos) entre los encabezados y la sección `body`.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
 ```
 
 ## Leer más

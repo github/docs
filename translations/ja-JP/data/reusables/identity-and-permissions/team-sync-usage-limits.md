@@ -1,8 +1,8 @@
 ### 使用制限
 
-There are usage limits for the team synchonization feature.  Exceeding these limits will lead to a degredation in performance and may cause synchronization failures.
+Team同期の機能には使用制限があります。  これらの制限を超過すると、パフォーマンスの低下が生じ、同期に失敗することがあります。
 
-- Maximum number of members in a GitHub team: 5,000
-- Maximum number of members in a GitHub organization: 10,000
-- Maximum number of teams in a GitHub organization: 1,500
+- GitHub Team内の最大メンバー数: 5,000
+- GitHub Organization内の最大メンバー数: 10,000
+- GitHub Organization内のTeamの最大メンバー数: 1,500
 

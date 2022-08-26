@@ -26,7 +26,7 @@ shortTitle: Erros de criação do Jekyll para as páginas
 
 {% note %}
 
-**Observação:** podem ser necessários até 20 minutos para que as alterações no site sejam publicadas após o push delas no {% data variables.product.product_name %}.
+**Observação:** podem ser necessários até 10 minutos para que as alterações no site sejam publicadas após o push delas no {% data variables.product.product_name %}.
 
 {% endnote %}
 

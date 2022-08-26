@@ -55,7 +55,7 @@ Para uma atividade em grupo, {% data variables.product.prodname_classroom %} nom
 
 ### Escolher um tipo de atividade
 
-Em "Atividade individual ou em grupo", selecione o menu suspenso e, em seguida, clique em **Atividade em grupo**. Você não pode alterar o tipo de atividade depois de criá-la. Se você preferir criar uma atividade individual, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)".
+Em "Atividade individual ou em grupo", selecione o menu suspenso e, em seguida, clique em **Atividade em grupo**. Você não pode alterar o tipo de atividade depois de criá-la. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### Definir equipes para uma atividade
 

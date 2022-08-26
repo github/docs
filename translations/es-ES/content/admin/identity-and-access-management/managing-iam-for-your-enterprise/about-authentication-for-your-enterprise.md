@@ -82,7 +82,11 @@ Estas restricciones no son aceptables para algunas empresas. Para determinar si 
 
 ### ¿Tus desarrolladores confían en la colaboración fuera de tu empresa?
 
-{% data variables.product.prodname_managed_users_caps %} solo puede contribuir con los repositorios dentro de tu empresa. Si tus desarrolladores necesitan colaborar en repositorios externos a tu empresa, incluso si estos son privados, para completar su trabajo, {% data variables.product.prodname_emus %} podría no ser lo correcto para tu empresa y el SSO de SAML podría ser una mejor solución.
+{% data variables.product.prodname_managed_users_caps %} solo puede contribuir con los repositorios dentro de tu empresa. If your developers must contribute to both repositories within and outside of your enterprise, including private repositories, {% data variables.product.prodname_emus %} may not be right for your enterprise. SAML SSO may be a better solution.
+
+Some companies maintain repositories within an existing enterprise using SAML SSO on {% data variables.product.product_location %}, and also create an {% data variables.product.prodname_emu_enterprise %}. Developers who contribute to repositories owned by both enterprises from a single workstation must switch between the accounts on {% data variables.product.product_location %} within a single browser, or use a different browser for each account. The developer may also need to customize the workstation's Git configuration to accommodate the two accounts. The complexity of this workflow can increase the risk of mistakenly leaking internal code to the public.
+
+If you decide to create an {% data variables.product.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)".
 
 ### ¿Tu empresa depende de colaboradores externos?
 
@@ -121,7 +125,7 @@ Si utilizas un directorio o proveedor de identidad (IdP) externos para centraliz
 - "[Utilizar LDAP para el IAM empresarial](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
 - "[Utilizar SAML para el IAM empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
-Si eliges utilizar la autenticación externa, también puedes configurar la autenticación reversible para las personas que no tiene una cuenta en tu proveedor de autenticación externo. Por ejemplo, podrías querer otorgar acceso a un usuario máquina o a un contratista. Para obtener más información, consulta la sección "[Permitir la autenticación integrada para los usuarios fuera de tu proveedor](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)".
+Si eliges utilizar la autenticación externa, también puedes configurar la autenticación reversible para las personas que no tiene una cuenta en tu proveedor de autenticación externo. Por ejemplo, podrías querer otorgar acceso a un usuario máquina o a un contratista. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
 
 {% elsif ghae %}
 
