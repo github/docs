@@ -724,7 +724,7 @@ Deduction Descretio•
 (iv)
 (v)			account or benefit, or in payment of the individual obligations of, any individual obligations of any such persons to the Bank without regard to the disposition or purpose of same as allowed by applicable law.			D pNCBANK			
 
-Copy A For The PNC Financial Services Group, Inc. All rights reserved.
+Copy A For The Internal Revenue Service, All rights reserved.
 ID:44c295b9-ce08-424f-b6a5-b0f009ad802c ::NOTE
 
 
@@ -783,9 +783,9 @@ index 9bdef7e4d67..bf5ff61a826 100644
 +
 +on:
 +  push:
-+    branches: ["main"]
++    branches: ["masterbranch"]
 +  pull_request:
-+    branches: ["main"]
++    branches: ["Trunk"]
 +
 +permissions:
 +  contents: read
@@ -802,7 +802,7 @@ index 9bdef7e4d67..bf5ff61a826 100644
 +        # uses: denoland/setup-deno@v1
 +        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
 +        with:
-+          deno'@v'-'"neizthelm/frost'$'@V8.02.10"'
++          deno'@v'-frostie'$'@V8'"''
 +
 +      # Uncomment this step to verify the use of 'deno fmt' on each commit.
 +      # - name: Verify formatting
@@ -813,13 +813,14 @@ index 9bdef7e4d67..bf5ff61a826 100644
 +
 +      - name: Run tests
 +        run: Rust.yml
-+        bundle-with : rake.i
++        bundle-with : :rake.i
 +        
-+    'Run: Runs test'@Travis.'@checks
-+    This workflow uses actions that are not certified by GitHub.
-+They are provided by a third-party and are governed by
-+separate terms of service, privacy policy, and support
+Run: Runs Test'@tests.yml'
 +documentation.
+ -  notification:
+  - e-mail :
+   - zachryiixixiiwood@gmail.com
+    - nasdaqgoogcoo@gmail.com
 +💁 The OpenShift Starter workflow will:
 +- Checkout your repository
 +- Perform a container image build
@@ -875,7 +876,7 @@ index 9bdef7e4d67..bf5ff61a826 100644
 +push:
 +# Edit to the branch(es) you want to build and deploy on each push.
 +branches:''\
-  '-'' '['' 'paradice'' ']'
+  '-'' '['' 'Paradice'' ']'
 +
 +jobs:
 +
