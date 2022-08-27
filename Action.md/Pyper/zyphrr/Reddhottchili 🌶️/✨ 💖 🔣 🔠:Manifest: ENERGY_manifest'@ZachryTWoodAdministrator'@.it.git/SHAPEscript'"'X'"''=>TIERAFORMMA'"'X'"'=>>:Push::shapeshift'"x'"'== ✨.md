@@ -84,8 +84,8 @@ Treasury Financial Manual
 TFX
 Fiscal Service Data Registry
 Fund Balance with Treasury! Do not edit this template directly. Please make a copy !
-+PERSONAL TRANSACTIONS																									
-
++PERSONELEE TRANSPOSE'																									
+DEFINITIATIING...GENRE(CATALOUGEING&RENDERRING-THEN-LINT-AND-TRANSPOSE-REVERSE-CORPORAYE-ACH-DEBIT::)
 Date	Description	Amount	Category	Account	Notes																				
 
 On Fri, Aug 12, 2022 at 1:00 PM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
