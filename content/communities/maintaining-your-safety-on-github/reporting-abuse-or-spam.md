@@ -32,7 +32,11 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 4. Complete the contact form to tell {% data variables.contact.contact_support %} about the user's behavior, then click **Send request**.
 
 ## Reporting an issue or pull request
-***Note: Only owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments. If you still need to report someone's comment, follow the instructions to report a user and include it in the contact form.***
+{% tip %}
+
+**Note:** Only collaborators and people with write access can report content on issues, pull requests, and commits. If you still wish to report someone's comment, follow the instructions to report a user and include it in the contact form.
+
+{% endtip %}
 
 1. Navigate to the issue or pull request you'd like to report.
 2. In the upper-right corner of the issue or pull request, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
