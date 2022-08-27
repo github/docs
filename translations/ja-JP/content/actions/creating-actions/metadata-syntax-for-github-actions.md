@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. 各入力パラメータはキー/値ペアです。  入力パラメータは環境変数として設定されます。 The variable is prefixed with INPUT_ and converted to upper case.
+**Optional**  A `map` of the input parameters defined by the action. 各入力パラメータはキー/値ペアです。 For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:

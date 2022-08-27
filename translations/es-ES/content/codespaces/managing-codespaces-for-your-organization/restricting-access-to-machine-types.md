@@ -43,6 +43,8 @@ Por ejemplo, podrías crear una política en toda la organización, la cual rest
 
 Si agregas una política a nivel organizacional, deberías configurarla en la elección de tipos de máquina más grande que deberá estar disponible para cualquier repositorio de tu organización. Entonces podrás agregar las políticas específicas para los repositorios y así restringir aún más la elección.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Agregar una política para limitar los tipos de máquina disponibles
 
 {% data reusables.profile.access_org %}

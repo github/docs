@@ -75,7 +75,7 @@ Plivo | ID de Autorización de Plivo con Token de Autorización de Plivo | plivo
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
 Prefect | Llave de la API del Servidor de Prefect | prefect_server_api_key Prefect | Llave de la API de Usuario de Prefect | prefect_user_api_key{% endif %} Proctorio | Llave de Consumidor de Proctorio | proctorio_consumer_key Proctorio | Llave de Enlace de Proctorio | proctorio_linkage_key Proctorio | Llave de Registro de Proctorio | proctorio_registration_key Proctorio | Llave de Secreto de Proctorio | proctorio_secret_key Pulumi | Token de Acceso a Pulumi | pulumi_access_token PyPI | Token de la API de PyPI | pypi_api_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
-ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
+ReadMe | Llave de Acceso de la API de ReadMe API | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %} RubyGems | Llave de la API de RubyGems | rubygems_api_key Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth de Samsara | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

@@ -27,7 +27,7 @@ shortTitle: Container registry
 
 {% ifversion ghes > 3.4 %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" e "[Habilitando o isolamento do subdomínio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
+Para usar o {% data variables.product.prodname_container_registry %} em {% data variables.product.product_name %}, o administrador do site deve primeiro configurar {% data variables.product.prodname_registry %} para sua instância **e** habilitar o isolamento do subdomínio. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" e "[Habilitando o isolamento do subdomínio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
 
 {% endif %}
 

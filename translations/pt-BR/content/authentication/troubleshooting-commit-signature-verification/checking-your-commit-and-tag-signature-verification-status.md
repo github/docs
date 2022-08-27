@@ -22,7 +22,10 @@ shortTitle: Verificar status da verificação
 1. No {% data variables.product.product_name %}, navegue até sua pull request.
 {% data reusables.repositories.review-pr-commits %}
 3. Ao lado do hash do commit abreviado do seu commit, há uma caixa que mostra se a assinatura do seu commit foi verificada{% ifversion fpt or ghec %}, parcialmente verificada{% endif %} ou não verificada. ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. Para ver informações mais detalhadas sobre a assinatura de commit, clique em **Verificado**{% ifversion fpt or ghec %}, **Parcialmente verificado**,{% endif %} ou **Não verificado**. ![Commit assinado verificado](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
+4. Para ver informações mais detalhadas sobre a assinatura de commit, clique em **Verificado**{% ifversion fpt or ghec %}, **Parcialmente verificado**,{% endif %} ou **Não verificado**. Os commits do GPG assinados mostrarão o ID da chave que foi usada. ![Commit assinado do GPG verificado](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
+{% ifversion ssh-commit-verification %}
+  Os commits assinados do SSH mostrarão a assinatura da chave pública usada. ![Commit assinado do SSH verificado](/assets/images/help/commits/ssh-signed-commit-verified-details.png)
+{% endif %}
 
 ## Confirmar o status de verificação da assinatura da tag
 

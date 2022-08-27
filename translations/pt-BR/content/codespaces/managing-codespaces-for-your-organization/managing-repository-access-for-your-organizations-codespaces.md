@@ -20,7 +20,7 @@ redirect_from:
 
 {% warning %}
 
-**Observação de depreciação**: A configuração de acesso e segurança descrita abaixo está obsoleta e é documentada aqui apenas por referência. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas à definição do contêiner de desenvolvimento. Para obter mais informações, consulte "[Gerenciar o acesso a outros repositórios dentro de seu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
+**Observação de depreciação**: A configuração de acesso e segurança descrita abaixo está obsoleta e é documentada aqui apenas por referência. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas ao seu arquivo de configuração `devcontainer.json`. Para obter mais informações, consulte "[Gerenciar o acesso a outros repositórios dentro de seu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
 
 {% endwarning %}
 

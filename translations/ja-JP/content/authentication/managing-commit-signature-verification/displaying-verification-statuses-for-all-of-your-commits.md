@@ -19,7 +19,7 @@ redirect_from:
 
 コンピューターでローカルで作業する場合、Git を使用すると、変更の作者とコミッターのアイデンティティを設定できます。 これにより、他のユーザが、自分が作成したコミットとタグが実際に自分によって作成されたものであると確信することが困難になる可能性があります。 この問題を解決するため、コミットとタグに署名することができます。 詳しい情報については、「[コミットに署名する](/github/authenticating-to-github/signing-commits)」および「[タグに署名する](/github/authenticating-to-github/signing-tags)」を参照してください。 {% data variables.product.prodname_dotcom %} は、署名されたコミットとタグに検証ステータスのマークを付けます。
 
-デフォルトでは、コミットとタグは、正常に検証された GPG または S/MIME キーで署名されている場合、「検証済み」としてマークされます。 If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." それ以外の場合、検証ステータスは表示されません。
+By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." それ以外の場合、検証ステータスは表示されません。
 
 ただし、{% data variables.product.prodname_dotcom %} 設定で警戒モードを有効にすることで、他のユーザにコミットとタグに起因するアイデンティティの信頼性を高めることができます。 警戒モードを有効にすると、すべてのコミットとタグに 3 つの検証ステータスのいずれかがマークされます。
 

@@ -1,4 +1,4 @@
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "organization" aria-label="The organization icon" %} Organizations**.
+1. サイドバーの"Access（アクセス）"セクションで、**{% octicon "organization" aria-label="The organization icon" %} Organizations**をクリックしてください。
 {% data reusables.profile.org_settings %}
-1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit-card icon" %} Billing and plans**.
+1. Organizationのオーナーは、サイドバーの"Access（アクセス）"セクションで、**{% octicon "credit-card" aria-label="The credit-card icon" %} Billing and plans（支払いとプラン）**をクリックしてください。

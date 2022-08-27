@@ -36,6 +36,8 @@ Por exemplo, você poderia criar uma política de toda a organização que restr
 
 Se você adicionar uma política para toda a organização, você deverá defini-la como a opção de visibilidade mais branda que estará disponível para qualquer repositório na organização. Em seguida, você pode adicionar políticas específicas ao repositório para restringir ainda mais a escolha.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adicionando uma política para limitar as opções de visibilidade da porta
 
 {% data reusables.profile.access_org %}

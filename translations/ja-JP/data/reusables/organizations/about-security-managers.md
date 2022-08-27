@@ -1,1 +1,1 @@
-Security manager is an organization-level role that organization owners can assign to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.
+セキュリティマネージャーはOrganizationレベルのロールで、OrganizationのオーナーがOrganization内の任意のTeamに割り当てることができます。 このロールが適用されると、Teamの各メンバーにはOrganization全体のセキュリティーアラートと設定の管理権限と、Organization内のすべてのリポジトリへの読み取り権限が付与されます。
