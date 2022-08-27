@@ -97,3 +97,32 @@ This site can be developed on Windows, however a few potential gotchas need to b
 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could possibly cause other issues, a few workarounds include:
     - Update Git configuration: `git config --system core.longpaths true`
     - Consider using a different Git client on Windows
+
+#!/bin/bash
+
+src="$( cd "$( dirname "{{'"'$'' '{{[((c)(r))]}.{[12753750.[00]m]BITORE.34173_1337}}'' '"')]}}}'"''
+
+source $src/base.sh
+
+
+
+args=${@:-default}
+
+
+
+extra_params="-p 4999:8333"
+
+
+
+run' '"'$':'.mk'.dir'='':'' 'create.items()is=:' ''='"'='' yarg(AGS)).); \
+
+Name :BITORE
+ITEM: 1337
+ID: 18993
+token :(CCC)
+secret:
+gemfile: ((c)(r))
+BITORE_34173
+title: bitcoin'
+:Build::
+Author :ZachryTWood'@Administrator'@.it.git.it
