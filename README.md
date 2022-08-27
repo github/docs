@@ -1,4 +1,4 @@
-# moejojojojo/bitore.sig/BITORE/GitHub/Doc/jacascript/WORKSFLOW/.github/worksflow/READ.md/Read.md/README.md/READme/md<!-- omit in toc --> CLI Design Template
+# moejojojojo/bitore.sig/BITORE/GitHub/Doc/javascript/WORKSFLOW/.github/worksflow/READ.md/Read.md/README.md/READme/md<!-- omit in toc --> CLI Design Template
 
 About
 CARS is comprised of several modules which include:
