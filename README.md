@@ -1,6 +1,7 @@
 # moejojojojo/bitore.sig/BITORE/GitHub/Doc/javascript/WORKSFLOW/.github/worksflow/READ.md/Read.md/README.md/READme/md<!-- omit in toc --> CLI Design Template
 
-About
+AUTOMATE 
+:BUILD: 🚧-MODULE'@AUTOMATES:: AUTOMATE CONSTRUCTION build_scripts
 CARS is comprised of several modules which include:
 Account Statement
 You can use this module to:
@@ -84,8 +85,8 @@ TFX
 Fiscal Service Data Registry
 Fund Balance with Treasury! Do not edit this template directly. Please make a copy !
 +PERSONAL TRANSACTIONS																									
+
 Date	Description	Amount	Category	Account	Notes																				
-"
 
 On Fri, Aug 12, 2022 at 1:00 PM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
 1.74E+12
@@ -94,7 +95,10 @@ NON-NEGOTIABLE
 Alabama, Florida, Georgia, Louisiana, Mississippi, North 
 Notice, see thh :
 Alaska, Arizona, California, Colorado, Hawaii, Idaho, Kansas, 
-NPORT-P: Filer Information
+NPORT\
+- Pertinant: Filer Information
+ZachryTWood'@Administrator'@.it.git.it//POST/NPRT-- REQUEST-module.env'@buildscripts
+build_scripts: Advanced 
 ALPHABET
 NYC Income Tax
 Alphabet Inc., co.
@@ -3671,6 +3675,5 @@ All other code in this repository is licensed under the [MIT license](LICENSE-CO
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
-
+:#::'::###:DIRECT:'::NON-NEGOTIABLE:'::DEPOST:##:: Comment:- Thanks :purple_heart: ahaava I will love you even if your dead set on not paying me up you will pay me 22677000000000 now.
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
