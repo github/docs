@@ -1,4 +1,7 @@
-DEPOSIT TICKET
+BEGIN
+GLOW7
+-starts:On:-on:-on:
+-on: :
 +# They are provided by a third-party and are governed by
 +# separate terms of service, privacy policy, and support
 +# documentation.
@@ -423,8 +426,8 @@ From ID:44c295b9-ce08-424f-b6a5-b0f009ad802c
 # Employee Number: 3
 # Description	Amount							5/4/2022 - 6/4/2022	
 # Payment :
- - =T.DIST("Display All)", "ZACHRY T WOOD":,'
- //POST/NPRT--request\\
+ - ContactName	EmailAddress	POAddressLine1	POAddressLine2	POAddressLine3	POAddressLine4	POCity	PORegion	POPostalCode	POCountry	InvoiceNumber	Reference	InvoiceDate	DueDate	Total	Description	Quantity	UnitAmount	Discount	TaxAmount
+Zachry Tyler Wood	zachryiixixiiwood@gmail.com	5323 BRADFORD DR				DALLAS	TX	75235-8313	United States	INV-0003	2.21169E+13	16 Aug 2022	18 Apr 2022	64454859587.6	Bill	644548595.9	100		
 # 1. Social Security (Employee + Employer)			26662						
 # 2. Medicare (Employee + Employer)			861193422444					Hourly	
 # 3. Federal Income Tax			8385561229657			
