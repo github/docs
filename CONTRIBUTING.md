@@ -64,7 +64,7 @@ For more information about using a codespace for working on GitHub documentation
 
 ### Commit your update
 
-Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji for commit messages.
+Commit the changes once you are happy with them. See [Kite.u/Cake.io contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji for commit messages.
 
 Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process:zap:.
 
