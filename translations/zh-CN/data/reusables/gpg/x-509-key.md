@@ -1,5 +1,5 @@
 
-### 将您的 X.509 密钥告知 Git
+## 将您的 X.509 密钥告知 Git
 
 您可以使用 [smimesign](https://github.com/github/smimesign) 以 S/MIME 代替 GPG 对提交和标记签名。
 

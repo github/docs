@@ -32,6 +32,12 @@ topics:
 
 您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 无论您使用的是 {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}、 {% data variables.product.prodname_codeql_runner %}、{% endif %} 还是 {% data variables.product.prodname_actions %}，这都适用。 对于 {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}或 {% data variables.product.prodname_codeql_runner %}{% endif %}，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”{% ifversion codeql-runner-supported %} 或“[在 CI 系统](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)中运行 {% data variables.product.prodname_codeql_runner %}”{% endif %}以了解更多信息。 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
 
+{% note %}
+
+**Note:** {% data reusables.code-scanning.non-glibc-linux-support %}
+
+{% endnote %}
+
 ## 依赖项
 
 如果您使用的容器缺少某些依赖项（例如，Git 必须安装并添加到 PATH 变量），您可能难以运行 {% data variables.product.prodname_code_scanning %}。 If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. 有关更多信息，请在以下位置查看特定于版本的 `readme` 文件：

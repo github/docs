@@ -39,7 +39,7 @@ Service providers can partner with {% data variables.product.company_short %} to
 
 {% ifversion secret-scanning-push-protection %}
 
-You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
 {% endif %}
 

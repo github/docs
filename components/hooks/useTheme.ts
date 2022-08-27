@@ -81,7 +81,8 @@ export function getCssTheme(cookieValue = ''): CssColorTheme {
       darkTheme: filterTheme(dark_theme) || defaultCSSTheme.darkTheme,
     }
   } catch (err) {
-    console.warn("Unable to parse 'color_mode' cookie", err)
+    if (process.env.NODE_ENV === 'development')
+      console.warn("Unable to parse 'color_mode' cookie", err)
     return defaultCSSTheme
   }
 }

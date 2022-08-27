@@ -812,7 +812,7 @@ Executa o fluxo de trabalho quando ocorre uma atividade em no pull request no re
 
 Este evento é executado no contexto da base do pull request, em vez de no contexto do commit de merge, como faz o evento `pull_request`. Isso impede a execução de código inseguro do cabeçalho do pull request que poderia alterar seu repositório ou roubar quaisquer segredos que você usa no fluxo de trabalho. Este evento permite que seu fluxo de trabalho faça coisas como etiquetar ou comentar nos pull requests a partir das bifurcações. Evite usar este evento se você precisar criar ou executar o código a partir do pull request.
 
-To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+Para garantir a segurança do repositório, os branches com nomes que correspondem a certos padrões (como aqueles que parecem similares ao SHAs) podem não acionar fluxos de trabalho com o evento `pull_request_target`.
 
 {% warning %}
 

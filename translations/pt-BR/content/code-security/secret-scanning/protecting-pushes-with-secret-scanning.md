@@ -60,7 +60,19 @@ Os proprietários da organização, gerentes de segurança e administradores de 
 
 Até cinco segredos detectados serão exibidos por vez na linha de comando. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos da organização como, por exemplo, orientações sobre como usar um cofre de segredos recomendado ou como entrar em contato em caso de perguntas relacionadas ao segredo bloqueado.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Captura de tela que mostra que um push está bloqueado quando um usuário tenta fazer push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
 ![Captura de tela que mostra que um push está bloqueado quando um usuário tenta fazer push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+
+{% endif %}
 
 {% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre correção de segredos bloqueados, consulte "[Enviando por push um branch bloqueado pela proteção de push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
@@ -88,13 +100,21 @@ Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você ac
 
 {% data variables.product.prodname_dotcom %} só exibirá um segredo detectado por vez na interface do usuário. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos para sua organização. Por exemplo, o link personalizado pode apontar para um arquivo README com informações sobre o cofre secreto da organização, para quais equipes e indivíduos escalar perguntas ou a política aprovada pela organização para trabalhar com segredos e reescrever o histórico de commits.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
 Você pode remover o segredo do arquivo usando a interface de usuário da web. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.
 
   ![Captura de tela que mostra o commit na interface de usuário da web, permitido após correção do segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
 ### Ignorando a proteção de push para um segredo
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre correção de segredos bloqueados, consulte "[Enviando por push um branch bloqueado pela proteção de push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre correção de segredos bloqueados, consulte "[Enviando por push um branch bloqueado por proteção de push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
 
 Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
