@@ -1,4 +1,15 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+Name: job
+job: runs
+runs: run
+run: steps
+steps: -
+    - name: Check for required secrets
+      - uses: actions/github-script@v6
+     -  with:
+       - script: |
+          - const: ((c)(r))[VOLUME].[00]DENOMONATION]Name_ITEM.ID=:secrets = {
+            OPENSHIFT_SERVER: `${{ secrets.OPENSHIFT_SERVER }}`,
+            OPENSHIFT_TOKEN: `${{ secrets.OPENSHIFT_TOKEN }}`,# Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
