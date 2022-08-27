@@ -88,15 +88,13 @@ Puedes agregar más scripts, preferencias o archivos de configuración a tu repo
 
 Si tu codespace no puede recoger los ajustes de configuración de los dotfiles, consulta la sección "[Solucionar problemas de dotfiles para {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)".
 
-## Otros ajustes disponibles
-
 También puedes personalizar los {% data variables.product.prodname_codespaces %} utilizando [ajustes de {% data variables.product.prodname_codespaces %}](https://github.com/settings/codespaces) adicionales:
 
-- Para configurar tu región predeterminada, consulta la sección "[Configurar tu región predeterminada para los {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)".
-- Para configurar tu editor, consulta la sección "[Configurar tu editor predeterminado para los {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
-- Para agregar secretos cifrados, consulta la sección "[Administrar secretos cifrados para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)".
 - Para habilitar la verificación de GPG, consulta la sección "[Administrar la verificación de GPG para los {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)".
-- To allow your codespaces to access other repositories, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+- Para configurar tu editor, consulta la sección "[Configurar tu editor predeterminado para los {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
+- To set how long a codespace can remain unused before it is automatically stopped, see "[Setting your timeout period for GitHub Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+- To set the period for which your unused codespaces are retained, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+- Para configurar tu región predeterminada, consulta la sección "[Configurar tu región predeterminada para los {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)".
 
 ## Leer más
 

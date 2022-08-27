@@ -31,7 +31,7 @@ Depois que o aluno de {% data variables.product.prodname_global_campus %} for ve
 - Explore e reivindique ofertas para ferramentas grátis no setor a partir do [pacote de desenvolvedor para estudantes](https://education.github.com/pack).
 - Veja os próximos eventos presenciais e virtuais para estudantes, curados por {% data variables.product.prodname_education %} e líderes estudantes.
 - Veja as atividades no [GitHub Classroom](https://classroom.github.com/) com as próximas datas de vencimento.
-- Mantenha-se atualizado sobre o que a comunidade está interessada ao assistir os episódios recentes de [Campus TV](https://www.twitch.tv/githubeducation). Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
+- Mantenha-se atualizado sobre o que a comunidade está interessada ao assistir os episódios recentes de [Campus TV](https://www.twitch.tv/githubeducation). A Campus TV é criada por {% data variables.product.prodname_dotcom %} e líderes da comunidade estudantil e pode ser assistida ao vivo ou sob demanda.
 - Descubra repositórios criados pelos alunos do GitHub Community Exchange. Para obter mais informações, consulte "[Sobre o GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)".
 
 ## Leia mais

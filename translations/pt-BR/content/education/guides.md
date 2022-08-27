@@ -13,15 +13,15 @@ Professores, estudantes e pesquisadores podem usar ferramentas de {% data variab
 
 - [Cadastre-se para uma nova conta de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Git e início rápido de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/quickstart)
-- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
-- [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
-- [Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
+- [Sobre {% data variables.product.prodname_global_campus %} para alunos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
+- [Candidatar-se a {% data variables.product.prodname_global_campus %} como um aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
 
 ## Execute um curso de desenvolvimento de software com {% data variables.product.company_short %}
 
 Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ensinar a nova geração de desenvolvedores de software com {% data variables.product.prodname_classroom %}.
 
-- [About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
+- [Sobre {% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
 - [Fundamentos da configuração de {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)
 - [Use o Git e a atividade iniciante de {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
@@ -36,7 +36,7 @@ Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ens
 Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use as mesmas ferramentas dos profissionais.
 
 - [Git e recursos de aprendizagem de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/git-and-github-learning-resources)
-- [{% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
+- [{% data variables.product.prodname_global_campus %} para alunos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
 - [Experimente {% data variables.product.prodname_desktop %}](/desktop)
 - [Experimente {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
@@ -45,6 +45,6 @@ Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use a
 Participe da comunidade, receba treinamento de {% data variables.product.company_short %}, e aprenda ou ensine novas habilidades.
 
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
-- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Sobre {% data variables.product.prodname_global_campus %} para alunos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
 - [Sobre Especialistas de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [Contribua com o GitHub Community Exchange](/education/contribute-with-github-community-exchange)

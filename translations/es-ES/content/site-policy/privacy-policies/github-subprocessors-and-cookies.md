@@ -18,7 +18,7 @@ Fecha de entrada en vigor: **2 de abril de 2021**
 
 {% note %}
 
-**Note:** Changes to the list of cookies on this page are currently pending.
+**Nota:** Los cambios a la lista de cookies en esta página están pendientes actualmente.
 
 {% endnote %}
 

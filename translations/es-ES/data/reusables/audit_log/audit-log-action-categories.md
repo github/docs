@@ -93,51 +93,51 @@
 {%- ifversion fpt or ghec %}
 | `profile_picture`   | Contains activities related to an organization's profile picture.
 {%- endif %}
-| `project` | Contains activities related to project boards. | `project_field` | Contains activities related to field creation and deletion in a project board. | `project_view` | Contains activities related to view creation and deletion in a project board. | `protected_branch` | Contains activities related to protected branches. | `public_key` | Contains activities related to SSH keys and deploy keys. | `pull_request` | Contains activities related to pull requests. | `pull_request_review` | Contains activities related to pull request reviews. | `pull_request_review_comment` | Contains activities related to pull request review comments. | `repo` | Contains activities related to the repositories owned by an organization.
+| `project` | Contiene actividades relacionadas con los tableros de proyecto. | `project_field` | Contiene actividades relacionadas con la creación y borrado de campos en un tablero de proyecto. | `project_view` | Contiene actividades relacionadas con ver la creación y el borrado de un tablero de proyecto. | `protected_branch` | Contiene actividades relacionadas con ramas protegidas. | `public_key` | Contiene actividades relacionadas con llaves SSH y llaves de despliegue. | `pull_request` | Contiene actividades relacionadas con solicitudes de cambio. | `pull_request_review` | Contiene actividades relacionadas con revisiones de solicitudes de cambios. | `pull_request_review_comment` | Contiene actividades relacionadas con comentarios de revisión en solicitudes de cambio. | `repo` | Contiene actividades relacionadas con los repositorios que le pertenecen a una organización.
 {%- ifversion fpt or ghec %}
-| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  Para obtener más información, consulta la sección "[Acerca de las asesorías de seguridad de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)". | `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data). | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
+| `repository_advisory` | Contiene actividades a nivel de repositorio relacionadas con asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}.  Para obtener más información, consulta la sección "[Acerca de las asesorías de seguridad de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)". | `repository_content_analysis`   | Contiene actividades relacionadas con [habilitar o inhabilitar el uso de datos para un repositorio privado](/articles/about-github-s-use-of-your-data). | `repository_dependency_graph`   | Contiene actividades a nivel de repositorio relacionadas con habilitar o inhabilitar la gráfica de dependencias para un repositorio {% ifversion fpt or ghec %}privado{% endif %}. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {%- endif %}
-| `repository_image` | Contains activities related to images for a repository. | `repository_invitation` | Contains activities related to invitations to join a repository. | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
+| `repository_image` | Contiene actividades relacionadas con imágenes para un repositorio. | `repository_invitation` | Contiene actividades relacionadas con invitaciones para unirse a un repositorio. | `repository_projects_change` | Contiene actividades relacionadas con habilitar proyectos para un repositorio o para todos los repositorios de una organización.
 {%- ifversion ghec or ghes or ghae %}
-| `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
+| `repository_secret_scanning`  | Contiene actividades a nivel de repositorio relacionadas con el escaneo de secretos. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". |{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
+| `repository_secret_scanning_custom_pattern` | Contiene actividades relacionadas con el escaneo de secretos en patrones personalizados de un repositorio. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". |{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contiene actividades relacionadas con el escaneo de secretos en patrones personalizados en un repositorio. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
 {%- endif %}
 {%- ifversion fpt or ghec %}
-| `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
+| `repository_visibility_change` | Contiene actividades relacionadas con permitir que los miembros de una organización cambien las visibilidades de un repositorio para la organización.
 {%- endif %}
-| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+| `repository_vulnerability_alert`   | Contiene actividades relacionadas con las [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 {%- ifversion fpt or ghec %}
-| `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}. | `required_status_check` | Contains activities related to required status checks for protected branches.
+| `repository_vulnerability_alerts` | Contiene actividades de configuración a nivel de repositorio para las {% data variables.product.prodname_dependabot_alerts %}. | `required_status_check` | Contiene actividades relacionadas con verificaciones de estado requeridas para las ramas protegidas.
 {%- endif %}
 {%- ifversion ghec or ghes %}
-| `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
+| `restrict_notification_delivery` | Contiene actividades relacionadas con la restricción de notificaciones por correo electrónico para dominios verificados o aprobados para una empresa.
 {%- endif %}
 {%- ifversion custom-repository-roles %}
-| `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+| `role` | Contiene actividades relacionadas con los [roles de repositorio personalizados](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `secret_scanning`   | Contains organization-level configuration activities for secret scanning in existing repositories. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). | `secret_scanning_new_repos` | Contains organization-level configuration activities for secret scanning for new repositories created in the organization.
+| `secret_scanning`   | Contiene actividades de configuración a nivel organizacional para el escaneo de secretos en los repositorios existentes. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). | `secret_scanning_new_repos` | Contiene actividades de configuración a nivel organizacional para el escaneo de secretos para los repositorios nuevos creados en la organización.
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `security_key` | Contains activities related to security keys registration and removal.
+| `security_key` | Contiene actividades relacionadas con el registro y eliminación de llaves de seguridad.
 {%- endif %}
 {%- ifversion fpt or ghec %}
-| `sponsors`  | Contains events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)").
+| `sponsors`  | Contiene eventos relacionados con botones de patrocinio (consulta la sección "[Mostrar un botón de patrocinio en tu repositorio](/articles/displaying-a-sponsor-button-in-your-repository)").
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `ssh_certificate_authority` | Contains activities related to a SSH certificate authority in an organization or enterprise. | `ssh_certificate_requirement` | Contains activities related to requiring members use SSH certificates to access organization resources.
+| `ssh_certificate_authority` | Contiene actividades relacionadas con la autoridad de certificados SSH en una organización o empresa. | `ssh_certificate_requirement` | Contiene actividades relacionadas con requerir que los miembros utilicen certificados SSH para acceder a los recursos de una organización.
 {%- endif %}
-| `staff` | Contains activities related to a site admin performing an action. | `team` | Contains activities related to teams in an organization. | `team_discussions` | Contains activities related to managing team discussions for an organization.
+| `staff` | Contiene actividades relacionadas con un administrador de sitio que realiza una acción. | `team` | Contiene actividades relacionadas con los equipos en una organización. | `team_discussions` | Contiene actividades relacionadas con administrar los debates de equipo para una organización.
 {%- ifversion ghec %}
-| `team_sync_tenant` | Contains activities related to team synchronization with an IdP for an enterprise or organization.
+| `team_sync_tenant` | Contiene actividades relacionadas con la sincronización de equipo con un IdP para una organización o empresa.
 {%- endif %}
 {%- ifversion fpt or ghes %}
-| `two_factor_authentication` | Contains activities related to two-factor authentication.
+| `two_factor_authentication` | Contiene actividades relacionadas con la autenticación bifactorial.
 {%- endif %}
-| `user` | Contains activities related to users in an enterprise or organization.
+| `user` | Contiene actividades relacionadas con los usuarios en una organización o empresa.
 {%- ifversion ghec or ghes %}
-| `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise.
+| `user_license` | Contiene actividades relacionadas con un usuario que ocupa una plaza de licencia en, y es miembro de, una empresa.
 {%- endif %}
-| `workflows`   | Contains activities related to {% data variables.product.prodname_actions %} workflows.
+| `workflows`   | Contiene actividades relacionadas con los flujos de trabajo de {% data variables.product.prodname_actions %}.

@@ -37,13 +37,6 @@ describe('glossaries', () => {
     })
   })
 
-  test('non-English external glossary is in correct order', async () => {
-    const vals = loadSiteData().ja.site.data.glossaries.external
-    vals.forEach((val, i) => {
-      expect(val.term.localeCompare(vals[i + 1], 'ja')).toBeGreaterThan(0)
-    })
-  })
-
   test('candidates all have a term, but no description', async () => {
     expect(glossaries.candidates.length).toBeGreaterThan(20)
     glossaries.candidates.forEach((entry) => {

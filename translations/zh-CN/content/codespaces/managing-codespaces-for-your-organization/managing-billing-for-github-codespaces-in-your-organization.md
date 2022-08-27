@@ -35,11 +35,15 @@ redirect_from:
 
 ## 禁用或限制 {% data variables.product.prodname_codespaces %}
 
-您可以在组织或存储库中禁用 {% data variables.product.prodname_codespaces %}。 更多信息请参阅“[管理组织的代码空间的存储库访问](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)”。
+You can disable all use of {% data variables.product.prodname_github_codespaces %} that would be billed to your organization. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. 更多信息请参阅“[为组织启用 {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)”。
 
-您还可以限制可以使用 {% data variables.product.prodname_codespaces %} 的单个用户。 更多信息请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
+{% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-您可以限制可用于组织拥有的存储库的计算机类型选择。 这使您可以防止人们使用资源过多的计算机作为其代码空间。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
+You can configure which repositories can be accessed from codespaces created for a particular repository. 更多信息请参阅“[管理代码空间中对其他存储库的访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。
+
+You can limit the choice of types of machine that are available for codespaces created from repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces, and incurring unnecessary charges. 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
+
+You can also restrict how long a codespace can remain unused before it is automatically deleted. This can help to reduce storage costs for {% data variables.product.prodname_codespaces %}. 更多信息请参阅“[限制代码空间的保留期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)”。
 
 ## 删除未使用的代码空间
 
@@ -47,6 +51,6 @@ redirect_from:
 
 {% note %}
 
-**注意：**只有创建代码空间的人才能将其删除。 目前，组织所有者无法删除其组织内创建的代码空间。
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a defined number of days. 更多信息请参阅“[限制代码空间的保留期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)”。 A codespace can only be manually deleted by the person who created the codespace.
 
 {% endnote %}
