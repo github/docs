@@ -1,1 +1,1 @@
-1. Clique na aba {% ifversion fpt or ghes > 3.1 or ghae-next %}**Executores**{% else %}**Executores auto-hospedados **{% endif %}.
+1. Click the {% if currentVersion == "free-pro-team@latest" %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.

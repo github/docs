@@ -6,13 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: Initiate failover to appliance
 ---
 
 フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。
@@ -47,6 +46,6 @@ shortTitle: Initiate failover to appliance
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## 参考リンク
+### 参考リンク
 
 - "[レプリケーション管理のユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

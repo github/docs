@@ -4,9 +4,9 @@ intro: 'Saiba mais sobre as APIs dos {% data variables.product.prodname_dotcom %
 redirect_from:
   - /v3/versions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

@@ -5,7 +5,7 @@ intro: 'Configura a {% data variables.product.prodname_desktop %} para que admin
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /overview
   - /installing-and-authenticating-to-github-desktop

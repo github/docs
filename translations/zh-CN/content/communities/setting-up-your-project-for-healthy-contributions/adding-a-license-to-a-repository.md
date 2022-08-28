@@ -5,11 +5,10 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Community
-shortTitle: 添加许可到仓库
 ---
 
 如果在仓库中包含可检测的许可，仓库的访问者将会在仓库页面顶部看到它。 要阅读整个许可文件，请单击许可名称。
@@ -18,10 +17,10 @@ shortTitle: 添加许可到仓库
 
 开源许可允许其他人在您的仓库中自由使用、更改和分发项目。 有关仓库许可的更多信息，请参阅“[许可仓库](/articles/licensing-a-repository)”。
 
-## 在仓库中包含开源许可
+### 在仓库中包含开源许可
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. 在文件名字段中，输入 *LICENSE* 或 *LICENSE.md*（全大写）。
@@ -36,7 +35,7 @@ shortTitle: 添加许可到仓库
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes or ghae %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -49,6 +48,6 @@ shortTitle: 添加许可到仓库
 
 {% endif %}
 
-## 延伸阅读
+### 延伸阅读
 
 - "[设置仓库贡献者的指导方针](/articles/setting-guidelines-for-repository-contributors)"

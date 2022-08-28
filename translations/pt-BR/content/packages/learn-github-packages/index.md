@@ -9,9 +9,9 @@ redirect_from:
   - /packages/publishing-and-managing-packages
   - /packages/manage-packages
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 children:
   - /introduction-to-github-packages
   - /about-permissions-for-github-packages

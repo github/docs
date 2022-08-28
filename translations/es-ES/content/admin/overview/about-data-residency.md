@@ -2,7 +2,7 @@
 title: Acerca de la residencia de los datos
 intro: 'Puedes elegir la geografía en donde {% data variables.product.product_name %} almacena todos los datos de los clientes de tu empresa.'
 versions:
-  ghae: '*'
+  github-ae: '*'
 type: overview
 topics:
   - Enterprise

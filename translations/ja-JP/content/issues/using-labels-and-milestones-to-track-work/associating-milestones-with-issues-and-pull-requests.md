@@ -1,17 +1,16 @@
 ---
-title: Issue およびPull Requestにマイルストーンを関連付ける
+title: Issue およびプルリクエストにマイルストーンを関連付ける
 intro: 同様の Issue やプルリクエストにマイルストーンを関連付けて、その進捗を追跡しやすくできます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/associating-milestones-with-issues-and-pull-requests
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: マイルストーンへの追加
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -21,12 +20,12 @@ shortTitle: マイルストーンへの追加
 
 {% tip %}
 
-Issue やPull Requestの作業をしながら、[マイルストーンの進捗を追跡](/articles/viewing-your-milestone-s-progress)できます。
+Issue やプルリクエストの作業をしながら、[マイルストーンの進捗を追跡](/articles/viewing-your-milestone-s-progress)できます。
 
 {% endtip %}
 
-## 参考リンク
+### 参考リンク
 
 - [マイルストーンについて](/articles/about-milestones)
-- [IssueやPull Requestのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
-- [マイルストーンによるIssue及びPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
+- [Issueやプルリクエストのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
+- [マイルストーンによるIssue及びプルリクエストのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)

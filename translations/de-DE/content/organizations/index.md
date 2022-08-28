@@ -7,9 +7,9 @@ redirect_from:
   - /categories/setting-up-and-managing-organizations-and-teams
   - /github/setting-up-and-managing-organizations-and-teams
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams

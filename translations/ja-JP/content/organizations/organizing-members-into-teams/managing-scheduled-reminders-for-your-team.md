@@ -5,14 +5,13 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: スケジュールされたリマインダー
 ---
 
-## Team のスケジュールされたリマインダーについて
+### Team のスケジュールされたリマインダーについて
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -20,7 +19,7 @@ shortTitle: スケジュールされたリマインダー
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-## Team のスケジュールされたリマインダーを作成する
+### Team のスケジュールされたリマインダーを作成する
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -44,7 +43,7 @@ shortTitle: スケジュールされたリマインダー
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-## Team のスケジュールされたリマインダーを管理する
+### Team のスケジュールされたリマインダーを管理する
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -55,7 +54,7 @@ shortTitle: スケジュールされたリマインダー
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-## Team のスケジュールされたリマインダーを削除する
+### Team のスケジュールされたリマインダーを削除する
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -64,7 +63,7 @@ shortTitle: スケジュールされたリマインダー
 ![[Scheduled reminders] ボタン](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
-## 参考リンク
+### 参考リンク
 
 - [Organization にスケジュールされたリマインダーを管理する](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)
 - [スケジュールされたリマインダーの管理](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)

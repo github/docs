@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-import fs from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import xMkdirp from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, listMatchingRefs } from '../helpers/git-utils.js'
-import { allVersions } from '../../lib/all-versions.js'
+import allVersions from '../../lib/all-versions.js'
 import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
@@ -14,10 +14,11 @@ import prerenderInputObjects from './utils/prerender-input-objects.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 import loadData from '../../lib/site-data.js'
 
+const mkdirp = xMkdirp.sync
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const dataFilenames = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
+  fs.readFileSync(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
 )
 
 // check for required PAT
@@ -59,24 +60,24 @@ async function main() {
       const safeForPublicPreviews = yaml.load(
         await getRemoteRawContent(previewsPath, graphqlVersion)
       )
-      await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
+      updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
       previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
       // 2. UPDATE UPCOMING CHANGES
       const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-      const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8'))
+      const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
       const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
-      await updateFile(upcomingChangesPath, safeForPublicChanges)
+      updateFile(upcomingChangesPath, safeForPublicChanges)
       upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
 
       // 3. UPDATE SCHEMAS
       // note: schemas live in separate files per version
       const schemaPath = getDataFilepath('schemas', graphqlVersion)
-      const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
+      const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
       const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-      await updateFile(schemaPath, latestSchema)
+      updateFile(schemaPath, latestSchema)
       const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
-      await updateStaticFile(
+      updateStaticFile(
         schemaJsonPerVersion,
         path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
       )
@@ -112,16 +113,10 @@ async function main() {
       }
     }
 
-    await updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-    await updateStaticFile(
-      upcomingChangesJson,
-      path.join(graphqlStaticDir, 'upcoming-changes.json')
-    )
-    await updateStaticFile(
-      prerenderedObjects,
-      path.join(graphqlStaticDir, 'prerendered-objects.json')
-    )
-    await updateStaticFile(
+    updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
+    updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
+    updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+    updateStaticFile(
       prerenderedInputObjects,
       path.join(graphqlStaticDir, 'prerendered-input-objects.json')
     )
@@ -197,13 +192,13 @@ function getVersionType(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }
 
-async function updateFile(filepath, content) {
+function updateFile(filepath, content) {
   console.log(`fetching latest data to ${filepath}`)
-  await mkdirp(path.dirname(filepath))
-  return fs.writeFile(filepath, content, 'utf8')
+  mkdirp(path.dirname(filepath))
+  fs.writeFileSync(filepath, content, 'utf8')
 }
 
-async function updateStaticFile(json, filepath) {
+function updateStaticFile(json, filepath) {
   const jsonString = JSON.stringify(json, null, 2)
-  return updateFile(filepath, jsonString)
+  updateFile(filepath, jsonString)
 }

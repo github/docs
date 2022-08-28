@@ -6,14 +6,13 @@ redirect_from:
   - /categories/search/
   - /categories/searching-for-information-on-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub search
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
-shortTitle: 在 GitHub 上搜索
 ---
 

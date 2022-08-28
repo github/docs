@@ -3,9 +3,9 @@ title: Introdução à pesquisa no GitHub
 redirect_from:
   - /articles/getting-started-with-searching-on-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub search
 children:
@@ -14,6 +14,5 @@ children:
   - /troubleshooting-search-queries
   - /sorting-search-results
   - /enabling-githubcom-repository-search-in-github-enterprise-server
-shortTitle: Iniciar com a pesquisa no GitHub
 ---
 

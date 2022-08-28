@@ -6,11 +6,10 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Cambiar la visbilidad de las perspectivas
 ---
 
 Los propietarios de la organización pueden establecer limitaciones para ver la información de dependencias de la organización. De manera predeterminada, todos los miembros de una organización pueden ver información de la dependencia de la organización.

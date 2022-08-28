@@ -2,10 +2,9 @@
 title: GitHub PackagesとGitHub Actionsについて
 intro: '{% data variables.product.prodname_actions %}ワークフローを通じてパッケージを管理する基礎を学んでください。'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: PackagesとActions
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

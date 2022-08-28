@@ -11,6 +11,9 @@ const productIds = data.children
 module.exports = {
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
+  future: {
+    webpack: 5,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

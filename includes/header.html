@@ -1,0 +1,104 @@
+<div class="border-bottom color-border-secondary no-print">
+  {% unless error == '404' %}
+  {% include header-notification %}
+  {% endunless %}
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full {% if error == '404' %} d-md-none {% endif %}">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="/{{ currentLanguage }}" aria-hidden="true" tabindex="-1">
+        {% octicon "mark-github" height="32" class="color-icon-primary" %}
+      </a>
+      <a href="/{{ currentLanguage }}" class="h4-mktg color-text-primary no-underline no-wrap pl-2">{% data ui.header.github_docs %}</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal color-text-secondary d-md-none">{% data ui.homepage.explore_by_product %}</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton color-text-link py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    {{ productMap[currentProduct].name }}
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="currentColor"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  {% for product in activeProducts %}
+                  <a href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{{ product.href }}"
+                      {% if product.external %}target="_blank"{% endif %} class="d-block py-2
+                      {% if product.id == currentProduct %}color-text-link text-underline active{% elsif product.id == currentProduct.id %}color-text-link text-underline active{% else %}Link--primary no-underline{% endif %}">
+                      {{ product.name }}
+                      {% if product.external %}
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      {% endif %}
+                  </a>
+                  {% endfor %}
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            {% include header-version-switcher %}
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              {% if page.languageVariants.length > 0 and error != '404' and !page.hidden %}
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 color-text-primary" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        {% if languages[page.languageCode].nativeName %}
+                          {{ languages[page.languageCode].nativeName }} ({{ languages[page.languageCode].name }})
+                        {% else %}
+                          {{ languages[page.languageCode].name }}
+                        {% endif %}
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="currentColor"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    {% for languageVariant in page.languageVariants %}
+                      {% unless languages[languageVariant.code].wip %}
+                        <a
+                          href="{{ languageVariant.href }}"
+                          class="d-block py-2 no-underline {% if currentPath == languageVariant.href %}active {% else %}Link--primary{% endif %}"
+                          style="white-space: nowrap"
+                        >
+                          {% if languages[languageVariant.code].nativeName %}
+                            {{ languages[languageVariant.code].nativeName }} ({{ languageVariant.name }})
+                          {% else %}
+                            {{ languageVariant.name }}
+                          {% endif %}
+                        </a>
+                      {% endunless %}
+                    {% endfor %}
+                    </div>
+                  </details>
+                </div>
+              {% endif %}
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              {% if page.relativePath != 'index.md' and error != '404' %}
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                {% include search-form %}
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

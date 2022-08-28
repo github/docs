@@ -6,6 +6,7 @@ versions:
 shortTitle: Find discussions
 ---
 
+{% data reusables.discussions.beta %}
 
 ## Finding discussions
 
@@ -16,6 +17,6 @@ shortTitle: Find discussions
 
 ## Further reading
 
-- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
+- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

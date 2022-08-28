@@ -9,17 +9,13 @@
 | Amazon Web Services (AWS) | Amazon AWS Access Key ID及びSecret Access Key pair    |
 | Atlassian                 | Atlassian API Token                                 |
 | Atlassian                 | Atlassian JSON Web Token                            |
-| Azure                     | Azure Active Directory Application Secret           |
 | Azure                     | Azure DevOps Personal Access Token                  |
 | Azure                     | Azure SAS Token                                     |
 | Azure                     | Azure Service Management Certificate                |
 | Azure                     | Azure SQL Connection String                         |
 | Azure                     | Azure Storage Account Key                           |
-| Checkout.com              | Checkout.com Production Secret Key                  |
-| Checkout.com              | Checkout.com Test Secret Key                        |
 | Clojars                   | Clojars Deploy Token                                |
 | CloudBees CodeShip        | CloudBees CodeShip Credential                       |
-| Contributed Systems       | Contributed Systems Credentials                     |
 | Databricks                | Databricks Access Token                             |
 | Datadog                   | Datadog API Key                                     |
 | Discord                   | Discord Bot Token                                   |
@@ -27,7 +23,6 @@
 | Doppler                   | Doppler Service Token                               |
 | Doppler                   | Doppler CLI Token                                   |
 | Doppler                   | Doppler SCIM Token                                  |
-| Doppler                   | Doppler Audit Token                                 |
 | Dropbox                   | Dropbox Access Token                                |
 | Dropbox                   | Dropbox Short Lived Access Token                    |
 | Dynatrace                 | Dynatrace Access Token                              |
@@ -35,21 +30,17 @@
 | Finicity                  | Finicity App Key                                    |
 | Frame.io                  | Frame.io JSON Web Token                             |
 | Frame.io                  | Frame.io Developer Token                            |
-| GitHub                    | GitHub Personal Access Token                        |
+| GitHub                    | GitHub個人アクセストークン                                    |
 | GitHub                    | GitHub OAuthアクセストークン                                |
 | GitHub                    | GitHub Refreshトークン                                  |
-| GitHub                    | GitHub App Installation Access Token                |
-| GitHub                    | GitHub SSH Private Key                              |
+| GitHub                    | GitHubアプリケーションインストールアクセストークン                        |
+| GitHub                    | GitHub SSH秘密鍵                                       |
 | GoCardless                | GoCardless Live Access Token                        |
 | GoCardless                | GoCardless Sandbox Access Token                     |
 | Google Cloud              | Google API Key                                      |
 | Google Cloud              | Google Cloud Private Key ID                         |
 | Hashicorp Terraform       | Terraform Cloud / Enterprise API Token              |
 | Hubspot                   | Hubspot API Key                                     |
-| Ionic                     | Ionic Personal Access Token                         |
-| Ionic                     | Ionic Refresh Token                                 |
-| Linear                    | Linear API Key                                      |
-| Linear                    | Linear OAuth Access Token                           |
 | Mailchimp                 | Mailchimp API Key                                   |
 | Mailchimp                 | Mandrill API Key                                    |
 | Mailgun                   | Mailgun API Key                                     |
@@ -58,10 +49,7 @@
 | NuGet                     | NuGet API Key                                       |
 | OpenAI                    | OpenAI API Key                                      |
 | Palantir                  | Palantir JSON Web Token                             |
-| PlanetScale               | PlanetScale Database Password                       |
-| PlanetScale               | PlanetScale OAuth Token                             |
-| PlanetScale               | PlanetScale Service Token                           |
-| Plivo                     | Plivo Auth ID and Token                             |
+| Plivo                     | Plivo Auth Token                                    |
 | Postman                   | Postman API Key                                     |
 | Proctorio                 | Proctorio Consumer Key                              |
 | Proctorio                 | Proctorio Linkage Key                               |

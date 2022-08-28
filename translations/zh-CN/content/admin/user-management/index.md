@@ -9,8 +9,8 @@ redirect_from:
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:

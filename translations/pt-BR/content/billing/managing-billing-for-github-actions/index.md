@@ -5,7 +5,7 @@ intro: 'Você pode visualizar seu uso e definir um limite de gastos para {% data
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /about-billing-for-github-actions
   - /viewing-your-github-actions-usage

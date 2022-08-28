@@ -2,9 +2,9 @@
 title: События
 intro: 'Your integrations can subscribe and react to events on {% data variables.product.prodname_dotcom %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Events
 children:

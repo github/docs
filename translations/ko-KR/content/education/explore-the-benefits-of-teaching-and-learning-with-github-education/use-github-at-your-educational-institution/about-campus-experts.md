@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
 
 Learn public speaking skills, technical writing, community leadership, and software development skills as a {% data variables.product.prodname_dotcom %} Campus Expert.

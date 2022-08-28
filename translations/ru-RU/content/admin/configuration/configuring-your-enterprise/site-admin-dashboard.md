@@ -7,8 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
 type: reference
 topics:
   - Enterprise
@@ -17,37 +16,37 @@ topics:
 
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}. ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% ifversion ghes or ghae %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-## Поиск
+### Поиск
 
 Refer to this section of the site admin dashboard to search for users and repositories, and to query the [audit log](#audit-log).
 
 {% else %}
 
-## License info & search
+### License info & search
 
 Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
 
 {% endif %}
-{% ifversion ghes %}
-## {% data variables.enterprise.management_console %}
+
+### {% data variables.enterprise.management_console %}
 
 Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
-{% endif %}
-## Explore
+
+### Explore
 
 Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
 
-## Audit log
+### Audit log
 
-{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
+{% data variables.product.prodname_enterprise %} keeps a running log of audited actions that you can query.
 
 By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
 
 For more information on audit logging in general, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)." For a full list of audited actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
 
-## Reports
+### Reports
 
 If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
@@ -76,7 +75,7 @@ To access the other reports programmatically, replace `all_users` with `active_u
 
 {% endnote %}
 
-### User reports
+#### User reports
 
 |           Клавиша | Description                                                  |
 | -----------------:| ------------------------------------------------------------ |
@@ -95,7 +94,7 @@ To access the other reports programmatically, replace `all_users` with `active_u
 |       `raw_login` | Raw login information (in JSON format)                       |
 |    `2fa_enabled?` | Whether the user has enabled two-factor authentication       |
 
-### Organization reports
+#### Organization reports
 
 |         Клавиша | Description                                                 |
 | ---------------:| ----------------------------------------------------------- |
@@ -109,7 +108,7 @@ To access the other reports programmatically, replace `all_users` with `active_u
 |         `repos` | Number of organization repositories                         |
 | `2fa_required?` | Whether the organization requires two-factor authentication |
 
-### Repository reports
+#### Repository reports
 
 |         Клавиша | Description                                                  |
 | ---------------:| ------------------------------------------------------------ |
@@ -126,16 +125,15 @@ To access the other reports programmatically, replace `all_users` with `active_u
 |         `fork?` | Whether the repository is a fork                             |
 |      `deleted?` | Whether the repository has been deleted                      |
 
-{% ifversion ghes %}
-## Indexing
+### Indexing
 
 GitHub's [code search][] features are powered by [ElasticSearch][]. This section of the site admin dashboard shows you the current status of your ElasticSearch cluster and provides you with several tools to control the behavior of searching and indexing. These tools are split into the following three categories.
 
-### Code search
+#### Code search
 
 This allows you to enable or disable both search and index operations on source code.
 
-### Code search index repair
+#### Code search index repair
 
 This controls how the code search index is repaired. You can
 
@@ -157,37 +155,23 @@ A progress bar shows the current status of a repair job across all of its backgr
 
 You can start a new code-search index repair job at any time. It will use a single CPU as it reconciles the search index with database and Git repository data. To minimize the effects this will have on I/O performance and reduce the chances of operations timing out, try to run a repair job during off-peak hours first. Monitor your system's load averages and CPU usage with a utility like `top`; if you don't notice any significant changes, it should be safe to run an index repair job during peak hours, as well.
 
-### Issues index repair
+#### Issues index repair
 
 This controls how the [Issues][] index is repaired. You can
 
 - enable or disable index repair jobs
 - start a new index repair job
 - reset all index repair state
-{% endif %}
-## Reserved logins
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-For example, the following words are reserved, among others:
-
-- `admin`
-- `корпоративный`
-- `login`
-- `staff`
-- `поддержка`
-
-For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
-
-{% ifversion ghes or ghae %}
-
-## Enterprise overview
+### Enterprise overview
 
 Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
 
 {% endif %}
 
-## Repositories
+### Repositories
 
 This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
 
@@ -195,21 +179,17 @@ This is a list of the repositories on {% data variables.product.product_location
 - [Configuring {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [Archiving and unarchiving repositories](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-## All users
+### All users
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-## Site admins
+### Site admins
 
 Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-## Dormant users
-{% ifversion ghes %}
+### Dormant users
+
 Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
-{% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
 
 - Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
 - Has not generated any activity within that time period.
@@ -217,7 +197,7 @@ Here you can see and suspend all of the inactive users on {% data variables.prod
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[Managing dormant users](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
 
-## Suspended users
+### Suspended users
 
 Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 

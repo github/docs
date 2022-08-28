@@ -4,8 +4,8 @@ intro: 'Learn about the support options available for {% data variables.product.
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:

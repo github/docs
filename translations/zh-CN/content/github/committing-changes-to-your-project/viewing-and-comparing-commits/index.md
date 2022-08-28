@@ -4,13 +4,12 @@ intro: ''
 redirect_from:
   - /articles/viewing-and-comparing-commits
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /commit-branch-and-tag-labels
   - /comparing-commits
   - /differences-between-commit-views
-shortTitle: 查看和比较提交
 ---
 

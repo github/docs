@@ -10,7 +10,7 @@ describe('featuredLinks', () => {
   describe('rendering', () => {
     test('non-TOC pages do not have intro links', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/set-up-git')
-      expect($('[data-testid=article-list]')).toHaveLength(0)
+      expect($('.featured-links')).toHaveLength(0)
     })
 
     test('landing page intro links have expected properties', async () => {
@@ -32,32 +32,27 @@ describe('featuredLinks', () => {
       )
     })
 
-    // Skipped. Docs Engineering issue: 923
-    test.skip('localized intro links link to localized pages', async () => {
+    test('localized intro links link to localized pages', async () => {
       const $ = await getDOM('/ja')
-      const $featuredLinks = $('[data-testid=article-list] a')
+      const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
       expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('h4').text())).toBe(true)
-      // skip for now
-      // expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
+      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
     })
 
     test('Enterprise user intro links have expected values', async () => {
-      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
+      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      console.log($featuredLinks.eq(0).attr('href'))
-      expect($featuredLinks).toHaveLength(9)
+      expect($featuredLinks).toHaveLength(6)
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`
       )
-      expect($featuredLinks.eq(0).children('h4').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h4').text().startsWith('About GitHub Insights')).toBe(
+        true
+      )
       expect(
-        $featuredLinks
-          .eq(0)
-          .children('p')
-          .text()
-          .startsWith("An overview of GitHub's products and pricing plans.")
+        $featuredLinks.eq(0).children('p').text().startsWith('GitHub Insights provides metrics')
       ).toBe(true)
     })
 

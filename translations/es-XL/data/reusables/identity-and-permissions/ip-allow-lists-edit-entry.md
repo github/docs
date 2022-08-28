@@ -1,0 +1,1 @@
+1. Debajo de "Lista de IP permitidas", a la derecha de la entrada que quieres editar, da clic en **Editar**. ![Botón Edit allowed IP address (Editar dirección IP permitida)](/assets/images/help/security/ip-address-edit-button.png)

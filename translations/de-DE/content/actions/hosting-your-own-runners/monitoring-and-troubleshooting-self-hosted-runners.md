@@ -6,25 +6,27 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 defaultPlatform: linux
-shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-## Den Status eines selbst-gehosteten Runners mittels {% data variables.product.prodname_dotcom %} überprüfen
+### Den Status eines selbst-gehosteten Runners mittels {{ site.data.variables.product.prodname_dotcom }} überprüfen
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% ifversion fpt or ghes > 3.1 or ghae-next %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
+1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
+
+    ![Runner-Liste](/assets/images/help/settings/actions-runner-list.png)
 
     Der Status kann einer der folgenden sein:
 
@@ -33,19 +35,19 @@ shortTitle: Monitor & troubleshoot
     * **Offline**: Der Runner ist nicht mit {% data variables.product.product_name %} verbunden. Dies könnte daran liegen, dass der Rechner offline ist, die Anwendung für selbst-gehostete Runner nicht auf dem Rechner läuft, oder die Anwendung für selbst-gehostete Runner kann nicht mit {% data variables.product.product_name %} kommunizieren.
 
 
-## Die Logdateien der Anwendung für selbst-gehostete Runner überprüfen
+### Die Logdateien der Anwendung für selbst-gehostete Runner überprüfen
 
 You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory, and a new one is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
 
 For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
 
-## Logdatei eines Jobs überprüfen
+### Logdatei eines Jobs überprüfen
 
 The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory, and the filename begins with *Worker_*.
 
 {% linux %}
 
-## Den Anwendungs-Dienst für selbst-gehostete Runner mittels journalctl überprüfen
+### Den Anwendungs-Dienst für selbst-gehostete Runner mittels journalctl überprüfen
 
 For Linux-based self-hosted runners running the application using a service, you can use `journalctl` to monitor their real-time activity. The default systemd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>.service`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file. Ein Beispiel:
 
@@ -78,7 +80,7 @@ To view the systemd configuration, you can locate the service file here: `/etc/s
 
 {% mac %}
 
-## Den Anwendungs-Dienst für selbst-gehostete Runner mittels „launchd“ überprüfen
+### Den Anwendungs-Dienst für selbst-gehostete Runner mittels „launchd“ überprüfen
 
 For macOS-based self-hosted runners running the application as a service, you can use `launchctl` to monitor their real-time activity. The default launchd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file in the runner directory:
 
@@ -106,7 +108,7 @@ To view the launchd configuration, you can locate the service file here: `/Users
 
 {% windows %}
 
-## Den Anwendungs-Dienst für selbst-gehostete Runner mittels PowerShell überprüfen
+### Den Anwendungs-Dienst für selbst-gehostete Runner mittels PowerShell überprüfen
 
 For Windows-based self-hosted runners running the application as a service, you can use PowerShell to monitor their real-time activity. The service uses the naming convention `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. You can also find the service's name by checking the _.service_ file in the runner directory:
 
@@ -143,7 +145,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-## Den automatischen Aktualisierungsprozesses überwachen
+### Den automatischen Aktualisierungsprozesses überwachen
 
 We recommend that you regularly check the automatic update process, as the self-hosted runner will not be able to process jobs if it falls below a certain version threshold. The self-hosted runner application automatically updates itself, but note that this process does not include any updates to the operating system or other software; you will need to separately manage these updates.
 
@@ -157,9 +159,9 @@ In addition, you can find more information in the _SelfUpdate_ log files located
 
 {% linux %}
 
-## Fehlerbehebung für Container in selbst-gehosteten Runnern
+### Fehlerbehebung für Container in selbst-gehosteten Runnern
 
-### Überprüfen, ob Docker installiert ist
+#### Überprüfen, ob Docker installiert ist
 
 If your jobs require containers, then the self-hosted runner must be Linux-based and needs to have Docker installed. Check that your self-hosted runner has Docker installed and that the service is running.
 
@@ -178,7 +180,7 @@ If Docker is not installed, then dependent actions will fail with the following 
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-### Die Docker Berechtigungen überprüfen
+#### Die Docker Berechtigungen überprüfen
 
 If your job fails with the following error:
 

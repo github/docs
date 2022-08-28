@@ -1,0 +1,1 @@
+1. Revisa la información de tu nuevo plan e información de facturación, después, da clic en **Emitir cambios de plan**. ![Resumen de tu plan anterior, plan nuevo, e información de facturación, y botón de emitir cambios de plan](/assets/images/help/marketplace/marketplace-issue-plan-changes.png)

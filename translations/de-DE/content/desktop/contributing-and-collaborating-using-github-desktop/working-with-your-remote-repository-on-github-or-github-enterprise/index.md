@@ -4,11 +4,10 @@ intro: 'Während Du Änderungen an Deinem Projekt lokal vornimmst, kannst Du die
 redirect_from:
   - /desktop/contributing-to-projects/working-with-your-remote-repository-on-github-or-github-enterprise
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /creating-an-issue-or-pull-request
   - /viewing-a-pull-request-in-github-desktop
   - /changing-a-remotes-url-from-github-desktop
-shortTitle: Work with your remote repo
 ---
 

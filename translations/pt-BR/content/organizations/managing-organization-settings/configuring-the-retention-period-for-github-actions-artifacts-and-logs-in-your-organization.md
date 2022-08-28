@@ -4,13 +4,12 @@ intro: 'Você pode configurar o período de retenção para artefatos e registro
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '>=3.0'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.23'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Configurar período de retenção
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

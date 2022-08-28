@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace アプリの支払いを管理する
-shortTitle: GitHub Marketplaceアプリケーション
+shortTitle: GitHub Marketplace apps
 intro: '{% data variables.product.prodname_marketplace %} アプリのアップグレード、ダウングレード、キャンセルはいつでもできます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps
@@ -8,7 +8,7 @@ redirect_from:
   - /articles/managing-your-organization-s-apps/
   - /articles/managing-billing-for-github-marketplace-apps
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /about-billing-for-github-marketplace
   - /upgrading-the-billing-plan-for-a-github-marketplace-app

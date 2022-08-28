@@ -1,7 +1,7 @@
 ---
 title: Política de Usuário Falecido do GitHub
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

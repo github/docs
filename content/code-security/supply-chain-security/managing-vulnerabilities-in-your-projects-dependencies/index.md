@@ -1,6 +1,6 @@
 ---
 title: Managing vulnerabilities in your project's dependencies
-intro: 'You can track your repository''s dependencies and receive {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
+intro: 'You can track your repository''s dependencies and receive {% ifversion fpt or ghes > 2.21 %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
   - /articles/updating-your-project-s-dependencies/
   - /articles/updating-your-projects-dependencies/
@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.0'
-  ghae: "issue-4864"
 topics:
   - Repositories
   - Dependabot

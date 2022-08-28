@@ -7,12 +7,11 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: 查看到里程碑的进度
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,7 +23,7 @@ shortTitle: 查看到里程碑的进度
 
 为了更好地管理项目，您可以在里程碑内确定议题或拉取请求的优先级。 更多信息请参阅“[关于里程碑](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)”。
 
-## 延伸阅读
+### 延伸阅读
 
 * "[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[按里程碑过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)"

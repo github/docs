@@ -6,9 +6,9 @@ redirect_from:
   - /articles/managing-access-to-your-organizations-project-boards
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
@@ -19,6 +19,5 @@ children:
   - /managing-an-individuals-access-to-an-organization-project-board
   - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /removing-an-outside-collaborator-from-an-organization-project-board
-shortTitle: 管理项目板访问
 ---
 

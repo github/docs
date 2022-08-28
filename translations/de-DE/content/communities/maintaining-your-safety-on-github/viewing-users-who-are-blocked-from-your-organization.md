@@ -5,10 +5,9 @@ redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Community
-shortTitle: View blocked users in org
 ---
 
 
@@ -17,7 +16,7 @@ shortTitle: View blocked users in org
 {% data reusables.organizations.block_users %}
 5. Überprüfe unter „Blocked users“ (Blockierte Benutzer) die Liste der Benutzer, die in Deiner Organisation gesperrt sind. ![Liste der gesperrten Benutzer](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Einen Benutzer für Deine Organisation blockieren](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)“
 - „[Sperre eines Benutzers für Deine Organisation aufheben](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)“

@@ -7,18 +7,17 @@ redirect_from:
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: Você pode impedir que usuários criem organizações na sua empresa.
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Organizations
   - Policies
-shortTitle: Evitar a criação de organização
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

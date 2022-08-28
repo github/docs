@@ -6,17 +6,16 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
   - High availability
   - Enterprise
   - Infrastructure
-shortTitle: 删除 HA 副本
 ---
 
-## 暂时停止复制
+### 暂时停止复制
 
 1. 如有必要，移除副本的 Geo DNS 条目，使 Geo-replication 副本停止提供用户流量。
 2. 在您希望暂时停止复制的副本上，运行 ghe-repl-stop。
@@ -28,7 +27,7 @@ shortTitle: 删除 HA 副本
   $ ghe-repl-start
   ```
 
-## 永久移除复制
+### 永久移除复制
 
 1. 如有必要，移除副本的 Geo DNS 条目，使 Geo-replication 副本停止提供用户流量。
 2. 在您希望移除复制的副本上，运行 `ghe-repl-stop`。
@@ -40,7 +39,7 @@ shortTitle: 删除 HA 副本
   $ ghe-repl-teardown
   ```
 
-  {% ifversion ghes > 2.22 %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   {% note %}
 
   **注：**如果您已启用 {% data variables.product.prodname_actions %} ，则应取消前一个副本服务器的功能，或更新其 {% data variables.product.prodname_actions %} 配置，以使用不同的外部存储。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。

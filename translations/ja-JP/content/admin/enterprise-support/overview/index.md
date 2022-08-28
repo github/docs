@@ -4,8 +4,8 @@ intro: '{% data variables.product.product_name %}で利用できるサポート�
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:

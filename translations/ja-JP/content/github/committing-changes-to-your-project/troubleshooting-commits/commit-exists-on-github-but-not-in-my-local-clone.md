@@ -5,10 +5,9 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Commit missing in local clone
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 特定のコミットを表示するため、コマンドラインで `git show` を使うと、致命的エラーが発生することがあります。
@@ -30,7 +29,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 * そのコミットが属するブランチが削除されたため、コミットが参照できなくなっている。
 * 誰かがコミットをフォースプッシュで上書きした。
 
-## ローカルのリポジトリが古い
+### ローカルのリポジトリが古い
 
 ローカルのリポジトリがまだコミットを取得していないことも考えられます。 リモートリポジトリからローカルクローンに情報を取得するには、以下のように `git fetch` を使用します:
 
@@ -46,7 +45,7 @@ $ git fetch <em>remote</em>
 
 {% endtip %}
 
-## コミットのあるブランチが削除された
+### コミットのあるブランチが削除された
 
 リポジトリのコラボレーターが、そのコミットを持つブランチを削除した、あるいはブランチにフォースプッシュした場合、見つからないコミットは孤立している (つまり、どの参照からもたどり着けなくなっている) ため、ローカルクローンにフェッチできません。
 
@@ -70,11 +69,11 @@ $ git fetch upstream recover-B
 # ローカルリポジトリへコミットをフェッチ。
 ```
 
-## フォースプッシュは避けましょう
+### フォースプッシュは避けましょう
 
 絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。
 
-## 参考リンク
+### 参考リンク
 
 - [_Pro Git_ ブックの「リモートでの作業」](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - [_Pro Git_ ブックの「データリカバリ」](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

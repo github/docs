@@ -1,8 +1,7 @@
 <div>
   <div>
     <h2 id="{{ item.id }}">
-      <a href="#{{ item.id }}" class="doctocat-link">{% include doctocat-link-icon %}</a>
-      {{- item.name -}}
+      <a href="#{{ item.id }}">{{item.name}}</a>
     </h2>
   {{ item.description }}
   </div>
@@ -10,10 +9,13 @@
   <div>
   {% include graphql-preview %}
   {% include graphql-deprecation %}
+
   {% assign inputFields = item.inputFields %}
   {% assign returnFields = item.returnFields %}
-  {% include graphql-input-fields %} 
+
+  {% include graphql-input-fields %}
+
   {% include graphql-return-fields %}
   </div>
-  <hr />
+  <hr>
 </div>

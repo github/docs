@@ -5,8 +5,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-basic-settings
   - /desktop/installing-and-configuring-github-desktop/configuring-basic-settings
 versions:
-  fpt: '*'
-shortTitle: Configurar los ajustes básicos
+  free-pro-team: '*'
 ---
 
 {% mac %}
@@ -25,6 +24,6 @@ shortTitle: Configurar los ajustes básicos
 
 {% endwindows %}
 
-## Leer más
+### Leer más
 
 - "[Configurar un tema para {% data variables.product.prodname_desktop %}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

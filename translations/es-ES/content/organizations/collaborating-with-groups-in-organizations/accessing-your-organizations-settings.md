@@ -11,16 +11,15 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
 intro: 'La página de los parámetros de la cuenta de la organización brinda varias maneras de administrar la cuenta, como parámetros de facturación, miembros del equipo y repositorio.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Acceder a la configuración de organización
 ---
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
 

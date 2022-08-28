@@ -1,0 +1,3 @@
+- **Read** (Lectura), es el que otorga permiso a las personas para que vean un tablero de proyecto.
+- **Write** (Escritura), es el que otorga permiso a las personas para que vean un tablero de proyecto, vinculen repositorios con un tablero de proyecto e interactúen con un tablero de proyecto. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
+- **Admin** (Administración), es el que otorga permiso a las personas para que vean un tablero de proyecto, interactúen con un tablero de proyecto, administren los parámetros de un tablero de proyecto y administren el acceso de otras personas al tablero de proyecto.

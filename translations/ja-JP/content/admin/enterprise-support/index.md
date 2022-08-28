@@ -4,13 +4,12 @@ intro: 'チケットをオープンし、{% data variables.contact.enterprise_su
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
   - /overview
   - /receiving-help-from-github-support
-shortTitle: Working with support
 ---
 

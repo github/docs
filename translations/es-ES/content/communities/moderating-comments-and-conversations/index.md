@@ -6,9 +6,9 @@ redirect_from:
   - /articles/moderating-comments-and-conversations
   - /github/building-a-strong-community/moderating-comments-and-conversations
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
 children:

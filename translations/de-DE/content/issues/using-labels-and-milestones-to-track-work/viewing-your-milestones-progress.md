@@ -7,12 +7,11 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: View progress to milestone
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,7 +23,7 @@ shortTitle: View progress to milestone
 
 Zur besseren Verwaltung Deines Projekts kannst Du Issues oder Pull Requests in einem Meilenstein priorisieren. Weitere Informationen findest Du unter „[Informationen zu Meilensteinen](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones).“
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 * „[Meilensteine mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests)“
 * „[Issues und Pull Requests nach Meilenstein filtern](/articles/filtering-issues-and-pull-requests-by-milestone)“

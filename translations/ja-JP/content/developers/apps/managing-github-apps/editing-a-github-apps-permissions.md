@@ -6,12 +6,11 @@ redirect_from:
   - /apps/managing-github-apps/editing-a-github-app-s-permissions
   - /developers/apps/editing-a-github-apps-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
-shortTitle: 権限を編集する
 ---
 
 {% note %}

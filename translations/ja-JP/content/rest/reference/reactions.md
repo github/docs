@@ -1,15 +1,13 @@
 ---
 title: リアクション
-intro: Reactions APIを使うと、コメントのリアクションの作成、リスト、削除が行えます。
 redirect_from:
   - /v3/reactions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 ### リアクションタイプ

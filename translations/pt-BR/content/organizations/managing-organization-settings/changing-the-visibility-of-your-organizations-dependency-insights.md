@@ -6,11 +6,10 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Mude a visibilidade da ideia
 ---
 
 Os proprietários da organização podem definir limitações para exibir informações de dependência da organização. Todos os integrantes de uma organização podem exibir informações de dependência da organização por padrão.

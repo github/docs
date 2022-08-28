@@ -6,10 +6,9 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: 'O {% data variables.product.prodname_ghe_cloud %} inclui um tempo de resposta alvo de oito horas para solicitações de suporte prioritárias, de segunda a sexta-feira, em seu fuso horário local.'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Jobs
-shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}

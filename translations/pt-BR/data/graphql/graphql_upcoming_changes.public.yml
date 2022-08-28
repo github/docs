@@ -36,6 +36,13 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
+    location: Query.sponsorsListing
+    description: '`sponsorsListing` será removido. `Sponsorable.sponsorsListing`.'
+    reason: '`Query.sponsorsListing` será removido.'
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: antn
+  - 
     location: Sponsorship.maintainer
     description: '`maintainer` será removido. Use `Sponsorship.sponsorable` em vez disso.'
     reason: '`Sponsorship.maintainer` será removido.'
@@ -114,15 +121,8 @@ upcoming_changes:
     owner: nplasterer
   - 
     location: PackageType.DOCKER
-    description: '`DOCKER` será removido.'
-    reason: O DOCKER será removido deste enum, pois este tipo será transferido para ser usado apenas pela API REST dos pacotes.
+    description: '`DOCKER` will be removed.'
+    reason: DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.
     date: '2021-06-21'
     criticality: breaking
     owner: reybard
-  - 
-    location: ReactionGroup.users
-    description: '`users` será removido. Use o campo `reactors`.'
-    reason: Os reatores agora podem ser mannequins, bots e organizações.
-    date: '2021-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: synthead

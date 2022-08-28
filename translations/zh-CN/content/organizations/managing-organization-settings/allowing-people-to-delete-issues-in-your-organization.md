@@ -5,13 +5,12 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 允许议题删除
 ---
 
 默认情况下，无法从组织的仓库中删除议题。 组织所有者必须先对所有组织的仓库启用此功能。

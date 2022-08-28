@@ -6,10 +6,9 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
-shortTitle: Envie o seu anúncio
 ---
 
 Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.product.prodname_marketplace %}, você poderá enviar o seu aplicativo. Para obter uma visão geral dos requisitos de anúncio de aplicativos, consulte "[Requisitos para anunciar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app)".

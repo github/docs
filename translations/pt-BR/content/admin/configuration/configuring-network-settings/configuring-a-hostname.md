@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise

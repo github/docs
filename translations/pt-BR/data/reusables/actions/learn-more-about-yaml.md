@@ -1,1 +1,1 @@
-Se você é novo no YAML e deseja aprender mais, consulte "[Aprenda YAML em Y minutes](https://learnxinyminutes.com/docs/yaml/)".
+If you're new to YAML and want to learn more, see "[Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)."

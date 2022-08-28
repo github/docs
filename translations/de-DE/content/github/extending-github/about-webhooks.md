@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-webhooks
 intro: 'Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation auftreten.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

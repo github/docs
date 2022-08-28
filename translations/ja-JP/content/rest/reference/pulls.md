@@ -1,24 +1,22 @@
 ---
-title: Pulls
-intro: Pulls APIを使うと、Pull Requestのリスト、表示、編集、作成、さらにはマージまでも行えます。
+title: Pull Request
 redirect_from:
   - /v3/pulls
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
-Pull Request API を使用すると、Pull Requestを一覧表示、編集、作成、マージできます。 Pull Requestのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
+Pull Request API を使用すると、プルリクエストを一覧表示、編集、作成、マージできます。 プルリクエストのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
 
-すべてのPull Requestは Issue ですが、すべての Issue がPull Requestというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/rest/reference/issues) で提供されます。
+すべてのプルリクエストは Issue ですが、すべての Issue がプルリクエストというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/rest/reference/issues) で提供されます。
 
-### Pull Requestのカスタムメディアタイプ
+### プルリクエストのカスタムメディアタイプ
 
-以下がPull Requestでサポートされているメディアタイプです。
+以下がプルリクエストでサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -29,22 +27,24 @@ Pull Request API を使用すると、Pull Requestを一覧表示、編集、作
 
 詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。
 
-diff が破損している場合は、{% data variables.contact.contact_support %} にお問い合わせください。 メッセージにはリポジトリ名とPull Request ID を記載してください。
+<a id="diff-error">
+
+diff が破損している場合は、{% data variables.contact.contact_support %} にお問い合わせください。 メッセージにはリポジトリ名とプルリクエスト ID を記載してください。
 
 ### リンク関係
 
-Pull Requestには以下のリンク関係が含まれる可能性があります。
+プルリクエストには以下のリンク関係が含まれる可能性があります。
 
-| 名前                | 説明                                                                                                                |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `self`            | Pull Requestの API ロケーション。                                                                                         |
-| `html`            | Pull Requestの HTML ロケーション。                                                                                        |
-| `Issue`           | Pull Requestの [Issue](/rest/reference/issues) の API ロケーション。                                                       |
-| `コメント`            | Pull Requestの [Issue コメント](/rest/reference/issues#comments) の API ロケーション。                                         |
-| `review_comments` | Pull Requestの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
-| `review_comment`  | Pull Requestのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
-| `commits`         | Pull Requestの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
-| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
+| 名前                | 説明                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| `self`            | プルリクエストの API ロケーション。                                                                                         |
+| `html`            | プルリクエストの HTML ロケーション。                                                                                        |
+| `Issue`           | プルリクエストの [Issue](/rest/reference/issues) の API ロケーション。                                                       |
+| `コメント`            | プルリクエストの [Issue コメント](/rest/reference/issues#comments) の API ロケーション。                                         |
+| `review_comments` | プルリクエストの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
+| `review_comment`  | プルリクエストのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
+| `commits`         | プルリクエストの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
+| `statuses`        | プルリクエストの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -52,7 +52,7 @@ Pull Requestには以下のリンク関係が含まれる可能性がありま�
 
 ## レビュー
 
-Pull Requestレビューは、Pull Request上のPull Requestレビューコメントのグループで、状態とオプションの本文コメントでグループ化されています。
+プルリクエストレビューは、プルリクエスト上のプルリクエストレビューコメントのグループで、状態とオプションの本文コメントでグループ化されています。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'reviews' %}{% include rest_operation %}{% endif %}
@@ -60,11 +60,11 @@ Pull Requestレビューは、Pull Request上のPull Requestレビューコメ�
 
 ## レビューコメント
 
-Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/git#create-a-commit)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
+プルリクエストレビューコメントは、プルリクエストのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、プルリクエストレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/git#create-a-commit)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
 
-### Pull Requestレビューコメントのカスタムメディアタイプ
+### プルリクエストレビューコメントのカスタムメディアタイプ
 
-以下がPull Requestレビューコメントでサポートされているメディアタイプです。
+以下がプルリクエストレビューコメントでサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -79,7 +79,7 @@ Pull Requestレビューコメントは、Pull Requestのレビュー中に unif
 
 ## レビューリクエスト
 
-Pull Requestの作者、リポジトリのオーナー、およびコラボレータは、リポジトリの書き込みアクセスを持つ人にPull Requestレビューをリクエストできます。 リクエストされたレビュー担当者は、Pull Requestレビューをするようあなたが依頼したという通知を受け取ります。
+プルリクエストの作者、リポジトリのオーナー、およびコラボレータは、リポジトリのんき書き込みアクセスを持つ人にプルリクエストレビューをリクエストできます。 リクエストされたレビュー担当者は、プルリクエストレビューをするようあなたが依頼したという通知を受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'review-requests' %}{% include rest_operation %}{% endif %}

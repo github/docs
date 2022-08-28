@@ -3,9 +3,9 @@ title: Fortschritt in Deinem Projektboard verfolgen
 shortTitle: Tracking projects
 intro: Learn how to track your work on project boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -19,4 +19,3 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
 
-{% data reusables.projects.project_boards_old %}

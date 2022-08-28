@@ -5,8 +5,7 @@ redirect_from:
   - /articles/installing-an-app-in-your-organization
   - /github/customizing-your-github-workflow/installing-an-app-in-your-organization
 versions:
-  fpt: '*'
-shortTitle: 安装应用组织
+  free-pro-team: '*'
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}
@@ -17,7 +16,7 @@ shortTitle: 安装应用组织
 
 {% data reusables.marketplace.free-trials %}
 
-## 在组织中安装 {% data variables.product.prodname_github_app %}
+### 在组织中安装 {% data variables.product.prodname_github_app %}
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -30,7 +29,7 @@ shortTitle: 安装应用组织
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-## 在组织中安装 {% data variables.product.prodname_oauth_app %}
+### 在组织中安装 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -43,7 +42,7 @@ shortTitle: 安装应用组织
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. 检查有关应用程序对您的个人帐户、组织和数据访问权限的信息，然后单击 **Authorize application（授权应用程序）**。
 
-## 延伸阅读
+### 延伸阅读
 
 - "[更新组织的支付方式](/articles/updating-your-organization-s-payment-method)"
 - "[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)"

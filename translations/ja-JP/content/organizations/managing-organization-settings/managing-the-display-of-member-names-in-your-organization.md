@@ -6,13 +6,12 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-display-of-member-names-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: メンバー名の表示の管理
 ---
 
 Organization のオーナーは、Organization 内のメンバー名表示を管理できます。

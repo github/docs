@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/developer-workflow/using-pre-receive-hooks-to-enforce-policy
   - /enterprise/admin/policies/enforcing-policy-with-pre-receive-hooks
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
 children:
@@ -13,6 +13,5 @@ children:
   - /creating-a-pre-receive-hook-environment
   - /creating-a-pre-receive-hook-script
   - /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-shortTitle: 使用预接收挂钩的策略
 ---
 

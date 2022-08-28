@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_actions %} の利用状況を確認�
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /about-billing-for-github-actions
   - /viewing-your-github-actions-usage

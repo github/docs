@@ -5,21 +5,20 @@ redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
-  ghes: '*'
+  enterprise-server: '>=2.22'
 type: how_to
 topics:
   - Enterprise
   - Packages
-shortTitle: Configure package ecosystems
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## 個々のパッケージエコシステムの有効化または無効化
+### 個々のパッケージエコシステムの有効化または無効化
 
 新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
-{% ifversion ghes = 2.22 %}
+{% if currentVersion == "enterprise-server@2.22" %}
 ー
 Dockerで {% data variables.product.prodname_registry %} を使用するには、インスタンスで Subdomain Isolation を有効にする必要があります。 詳しい情報については、「[Subdomain Isolation の有効化](/enterprise/admin/configuration/enabling-subdomain-isolation)」を参照してください。
 {% endif %}
@@ -30,8 +29,8 @@ Dockerで {% data variables.product.prodname_registry %} を使用するには�
 1. [Ecosystem Toggles] の下で、パッケージの種類ごとに [**Enabled**]、[**Read-Only**]、または [**Disabled**] を選択します。 ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
-## 公式 npm レジストリに接続する
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### 公式 npm レジストリに接続する
 
 Enterprise で npm パッケージを有効にしていて、公式の npm レジストリと {% data variables.product.prodname_registry %} npm レジストリへのアクセスを許可する場合は、追加の設定を実行する必要があります。
 
@@ -47,6 +46,6 @@ npm レジストリへのネットワーク接続を許可するには、{% data
 
 {% endif %}
 
-## 次のステップ
+### 次のステップ
 
 次のステップとして、パッケージのホスト URL の TLS 証明書を更新またはアップロードする必要があるかどうかを確認することをお勧めします。 詳しい情報については、「[Enterprise 向けの GitHub Packages を使ってみる](/admin/packages/getting-started-with-github-packages-for-your-enterprise)」を参照してください。

@@ -1,0 +1,1 @@
+Si agregas un archivo de README a la raíz de un repositorio público con el mismo nombre que tu nombre de usuario, dicho README aparecerá automáticamente en tu página de perfil. Puedes editar el README de tu perfil con el Marcado Ampliado de GitHub para crear una sección personalizada en tu perfil.

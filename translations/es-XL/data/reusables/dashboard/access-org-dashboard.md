@@ -1,0 +1,2 @@
+1. Para acceder a la página del tablero de control, en la esquina superior izquierda de cualquier página en {% data variables.product.product_name %}, haz clic en el {% octicon "mark-github" aria-label="The github octocat logo" %}.
+2. En la esquina superior izquierda de la página, haz clic en tu nombre de usuario y usa el menú desplegable para hacer clic en la organización deseada. ![Menú desplegable del interruptor de contexto del tablero de control que muestra diferentes opciones de organización](/assets/images/help/dashboard/dashboard-context-switcher.png)

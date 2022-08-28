@@ -6,12 +6,11 @@ redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-base-branch-of-a-pull-request
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Change the base branch
 ---
 
 {% warning %}
@@ -32,7 +31,7 @@ shortTitle: Change the base branch
 
 {% endtip %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Einen Pull Request erstellen](/articles/creating-a-pull-request)“
 - „[Informationen zu Pull Requests](/articles/about-pull-requests)“

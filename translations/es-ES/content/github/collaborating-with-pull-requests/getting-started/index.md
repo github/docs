@@ -6,9 +6,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/
   - /github/collaborating-with-issues-and-pull-requests/overview
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
   - Issues

@@ -6,14 +6,13 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
   - /admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: 使用控制台设置 IP
 ---
 
 {% note %}

@@ -6,13 +6,12 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Gerenciar acesso individual
 ---
 
 {% note %}
@@ -21,7 +20,7 @@ shortTitle: Gerenciar acesso individual
 
 {% endnote %}
 
-## Conceder a um integrante da organização acesso a um quadro de projeto
+### Conceder a um integrante da organização acesso a um quadro de projeto
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -34,7 +33,7 @@ shortTitle: Gerenciar acesso individual
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Alterar o acesso de um integrante da organização a um quadro de projeto
+### Alterar o acesso de um integrante da organização a um quadro de projeto
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -45,7 +44,7 @@ shortTitle: Gerenciar acesso individual
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Remover o acesso de um integrante da organização a um quadro de projeto
+### Remover o acesso de um integrante da organização a um quadro de projeto
 
 Quando você remove um colaborador de um quadro de projeto, a pessoa ainda pode ter acesso ao quadro com base nas permisões que tem para outras funções. Para remover completamente o acesso ao quadro de projeto, você deve remover o acesso à cada função que a pessoa tem. Por exemplo, uma pessoa pode ter acesso ao quadro de projeto como integrante de uma organização ou equipe. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
 
@@ -58,6 +57,6 @@ Quando você remove um colaborador de um quadro de projeto, a pessoa ainda pode 
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.remove-collaborator %}
 
-## Leia mais
+### Leia mais
 
 - "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)"

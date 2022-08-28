@@ -8,14 +8,12 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -28,7 +26,7 @@ topics:
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. プロジェクトボードの名前と説明を必要に応じて修正し、[**Save project**] をクリックします。 ![プロジェクトボードの名前と説明欄に記入し、[Save project] ボタンをクリックします。](/assets/images/help/projects/edit-project-board-save-button.png)
 
-## 参考リンク
+### 参考リンク
 
 - [プロジェクトボードについて](/articles/about-project-boards)
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

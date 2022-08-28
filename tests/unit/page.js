@@ -3,7 +3,7 @@ import path from 'path'
 import cheerio from 'cheerio'
 import Page from '../../lib/page.js'
 import readJsonFile from '../../lib/read-json-file.js'
-import { allVersions } from '../../lib/all-versions.js'
+import allVersions from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 // import getLinkData from '../../lib/get-link-data.js'
@@ -337,11 +337,13 @@ describe('Page class', () => {
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath: 'authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md',
+        relativePath:
+          'github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en',
       })
-      const expectedPath = '/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port'
+      const expectedPath =
+        '/en/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
@@ -380,6 +382,25 @@ describe('Page class', () => {
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
     })
+
+    test('permalinks for non-GitHub.com products with Enterprise versions', async () => {
+      const page = await Page.init({
+        relativePath:
+          '/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights.md',
+        basePath: path.join(__dirname, '../../content'),
+        languageCode: 'en',
+      })
+      const expectedPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
+      expect(
+        page.permalinks.find(
+          (permalink) =>
+            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`
+        ).href
+      ).toBe(expectedPath)
+      const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
+      expect(pageVersions.length).toBeGreaterThan(1)
+      expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
+    })
   })
 
   describe('learning tracks', () => {
@@ -403,7 +424,6 @@ describe('Page class', () => {
       ])
     })
 
-    // Docs Engineering issue: 970
     it.skip('renders learning tracks that have been defined', async () => {
       // getLinkData.mockImplementation((guides) => { return guides })
       const guides = ['/path/guide1', '/path/guide2']
@@ -487,7 +507,6 @@ describe('Page class', () => {
       expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
     })
 
-    // Docs Engineering issue: 971
     it.skip('renders guides and topics', async () => {
       /* getLinkData.mockImplementation(() => {
         return [{
@@ -555,11 +574,10 @@ describe('Page class', () => {
   })
 
   describe('page.versions frontmatter', () => {
-    // Docs Engineering issue: 972
     test.skip('pages that apply to older enterprise versions', async () => {
       // There are none of these in the content at this time!
     })
-    // Docs Engineering issue: 972
+
     test.skip('pages that apply to newer enterprise versions', async () => {
       // There are none of these in the content at this time!
     })

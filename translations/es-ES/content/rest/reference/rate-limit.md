@@ -1,16 +1,14 @@
 ---
 title: Limite de tasa
-intro: 'Con la API de Límite de Tasa, puedes verificar el estado de límite de tasa actual para varias API de REST.'
 redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 La documentación general de la API de REST describe las [reglas de los límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting). Puedes revisar tu estado actual de límite de tasa en cualquier momento utilizando la API de Límites de Tasa que se describe a continuación.

@@ -3,9 +3,9 @@ title: Comenzar con la seguridad de código
 shortTitle: Empezar
 intro: 'Introducción a la seguridad de código con {% data variables.product.product_name %}.'
 versions:
-  fpt: '*'
-  ghes: '>=3.0'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=3.0'
+  github-ae: '*'
 topics:
   - Repositories
   - Dependencies

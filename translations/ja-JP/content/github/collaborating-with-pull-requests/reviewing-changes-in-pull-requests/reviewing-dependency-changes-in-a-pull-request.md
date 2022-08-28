@@ -1,10 +1,8 @@
 ---
 title: プルリクエスト内の依存関係の変更をレビューする
 intro: プルリクエストに依存関係への変更が含まれている場合は、変更内容の概要と、依存関係に既知の脆弱性があるかどうかを確認できます。
-product: '{% data reusables.gated-features.dependency-review %}'
 versions:
-  fpt: '*'
-  ghes: '>= 3.2'
+  free-pro-team: '*'
 type: how_to
 topics:
   - Pull requests
@@ -15,22 +13,23 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
-shortTitle: Review dependency changes
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% data reusables.dependency-review.beta %}
+{% note %}
 
-## 依存関係のレビューについて
+**注釈:** 依存関係のレビューは現在ベータであり、変更される可能性があります。
+
+{% endnote %}
+
+### 依存関係のレビューについて
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. 詳しい情報については、「[{% data variables.product.prodname_ghe_server %}の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。 {% endif %}
-
 依存関係のレビューでは、「左にシフト」することができます。 提供された予測情報を使用して、本番環境に至る前に脆弱性のある依存関係をキャッチできます。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-## プルリクエスト内の依存関係を確認する
+### プルリクエスト内の依存関係を確認する
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -38,19 +37,19 @@ shortTitle: Review dependency changes
 
 1. プルリクエストに多数のファイルが含まれている場合は、[**File filter**] ドロップダウンメニューを使用して、依存関係を記録しないすべてのファイルを折りたたみます。 これにより、レビューを依存関係の変更に焦点を絞りやすくなります。
 
-   ![ファイルフィルタメニュー](/assets/images/help/pull_requests/file-filter-menu-json.png) The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
-
-  {% note %}
-
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
-
-   {% endnote %}
+   ![ファイルフィルタメニュー](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
 1. マニフェストまたはロックファイルのヘッダの右側で、**リッチ{% octicon "file" aria-label="The rich diff icon" %}** diff ボタンをクリックして依存関係のレビューを表示します。
 
    ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. 依存関係のレビューにリストされている依存関係を確認します。
+  {% note %}
+
+   **注釈:** 依存関係のレビューでは、ソース diff がデフォルトでレンダリングされない大きなロックファイルで何が変更されたかをより明確に確認できます。
+
+   {% endnote %}
+
+1. 依存関係のレビューにリストされている依存関係を確認します。
 
    ![依存関係のレビューにおける脆弱性の警告](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

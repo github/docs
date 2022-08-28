@@ -7,12 +7,11 @@ redirect_from:
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Resolve merge conflicts in Git
 ---
 
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
@@ -23,7 +22,7 @@ shortTitle: Resolve merge conflicts in Git
 
 {% endtip %}
 
-## 競合している行変更のマージ コンフリクト
+### 競合している行変更のマージ コンフリクト
 
 競合している行変更により発生するマージ コンフリクトを解決するには、新しいコミットにどの変更を組み込むかをいくつかの別のブランチから選択する必要があります。
 
@@ -75,7 +74,7 @@ shortTitle: Resolve merge conflicts in Git
 
 これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
-## 削除したファイルのマージコンフリクト
+### 削除したファイルのマージコンフリクト
 
 ある人があるブランチでファイルを削除し、別の人が同じファイルを編集するなどの、ファイルへの変更が競合していることにより発生するマージコンフリクトを解決するには、削除したファイルを削除するか保持するかを新しいコミットで選択する必要があります。
 
@@ -124,7 +123,7 @@ shortTitle: Resolve merge conflicts in Git
 
 これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
-## 参考リンク
+### 参考リンク
 
 - "[マージコンフリクトについて](/articles/about-merge-conflicts)"
 - "[Pull Request をローカルでチェック アウトする](/articles/checking-out-pull-requests-locally/)"

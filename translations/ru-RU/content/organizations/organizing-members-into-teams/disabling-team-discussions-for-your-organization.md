@@ -5,13 +5,12 @@ redirect_from:
   - /articles/disabling-team-discussions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-team-discussions-for-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Disable team discussions
 ---
 
 {% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."

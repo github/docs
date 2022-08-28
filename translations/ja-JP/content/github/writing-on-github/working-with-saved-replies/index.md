@@ -4,15 +4,14 @@ intro: 時間を節約し、一貫したメッセージを配信しているこ�
 redirect_from:
   - /articles/working-with-saved-replies
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /about-saved-replies
   - /creating-a-saved-reply
   - /editing-a-saved-reply
   - /deleting-a-saved-reply
   - /using-saved-replies
-shortTitle: Work with saved replies
 ---
 

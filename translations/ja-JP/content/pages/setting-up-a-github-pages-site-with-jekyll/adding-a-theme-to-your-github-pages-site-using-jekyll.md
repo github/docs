@@ -8,19 +8,18 @@ redirect_from:
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
-shortTitle: Pagesサイトへのテーマの追加
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加できます。
 
 {% data reusables.pages.test-locally %}
 
-## テーマを追加する
+### テーマを追加する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -34,7 +33,7 @@ shortTitle: Pagesサイトへのテーマの追加
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## テーマの CSS をカスタマイズする
+### テーマの CSS をカスタマイズする
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -52,7 +51,7 @@ shortTitle: Pagesサイトへのテーマの追加
   ```
 3. カスタム CSS または Sass (インポートファイルも含む) があれば `@import` 行の直後に追加します。
 
-## テーマの HTML レイアウトをカスタマイズする
+### テーマの HTML レイアウトをカスタマイズする
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -67,6 +66,6 @@ shortTitle: Pagesサイトへのテーマの追加
 7. 先ほどコピーしたデフォルトのレイアウトコンテンツを貼り付けます。
 8. 必要に応じてレイアウトをカスタマイズします。
 
-## 参考リンク
+### 参考リンク
 
 - [新しいファイルの作成](/articles/creating-new-files)

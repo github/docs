@@ -1,1 +1,0 @@
-Para estimar los costos por servicios de consumo, puedes utilizar el calculador de precios de {% data variables.product.prodname_dotcom %}. Para obtener más información, dirígete a https://github.com/pricing/calculator. 

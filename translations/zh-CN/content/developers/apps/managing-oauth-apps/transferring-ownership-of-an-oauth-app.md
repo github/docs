@@ -6,12 +6,11 @@ redirect_from:
   - /apps/managing-oauth-apps/transferring-ownership-of-an-oauth-app
   - /developers/apps/transferring-ownership-of-an-oauth-app
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - OAuth Apps
-shortTitle: 转移所有权
 ---
 
 {% data reusables.user-settings.access_settings %}

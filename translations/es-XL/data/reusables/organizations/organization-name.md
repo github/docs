@@ -1,0 +1,1 @@
+1. Debajo de "Nombre de cuenta{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} de organización{% endif %}", teclea un nombre para tu cuenta de organización. ![Campo para teclear el nombre de organización](/assets/images/help/organizations/new-org-name.png)

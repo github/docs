@@ -2,9 +2,9 @@
 title: Visualizar histórico de implantação
 intro: Veja as implantações atuais e anteriores para o seu repositório.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

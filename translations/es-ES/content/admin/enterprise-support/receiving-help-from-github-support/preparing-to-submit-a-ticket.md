@@ -5,13 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
-shortTitle: Preparar un ticket
 ---
 
 Antes de enviar un ticket, deberías:
@@ -23,7 +22,7 @@ Antes de enviar un ticket, deberías:
 - Determinar si existe un número de ticket en cualquier comunicación con {% data variables.contact.github_support %} que se encuentre en curso.
 - Determinar la mejor persona para ponerse en contacto {% data variables.contact.github_support %}.
 
-## Elegir una persona de contacto
+### Elegir una persona de contacto
 
 Especialmente para los tickets con prioridad {% data variables.product.support_ticket_priority_urgent %}, la persona que contacte a {% data variables.contact.github_support %} deberá:
 

@@ -5,8 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: 克隆 GitHub 仓库
+  free-pro-team: '*'
 ---
 
 {% tip %}

@@ -5,12 +5,11 @@ intro: 'View, sort, and filter the security alerts from across your organization
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
-  ghae: issue-4554
-  ghes: '>3.1'
+  ghae: next
 topics:
   - Security overview
   - Advanced Security
 children:
-  - /about-the-security-overview
+  - /exploring-security-alerts
 ---
 

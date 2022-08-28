@@ -1,14 +1,13 @@
 ---
 title: Importing a Git repository using the command line
-intro: '{% ifversion fpt %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Import repo locally
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Before you start, make sure you know:

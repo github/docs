@@ -4,33 +4,33 @@ redirect_from:
   - /eu-safe-harbor/
   - /articles/global-privacy-practices
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal
 ---
 
-発効日: 2020年7月22日
+Effective date: July 22, 2020
 
-GitHubは、GitHubの[プライバシーについての声明](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)に記載されている高水準のプライバシー保護を、その出生国や地域にかかわらず、世界中すべてのユーザおよびお客様に対して等しく提供しています。当社が提供する通知、選択肢、アカウンタビリティ、セキュリティ、データ完全性、アクセス、および償還の水準をGitHubは誇りにしています。
+GitHub provides the same high standard of privacy protection—as described in GitHub’s [Privacy Statement](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)—to all our users and customers around the world, regardless of their country of origin or location, and GitHub is proud of the level of notice, choice, accountability, security, data integrity, access, and recourse we provide.
 
-またGitHubは、欧州経済領域、英国、スイス (「EU」と総称) から米国へのデータの移転に関する特定の法的枠組みに準拠しています。 GitHubがかかる移転を行う際は、個人情報の伝達に伴うあなたの権利を保護するための法的仕組みとして、標準契約条項に依拠します。 さらにGitHubは、EU-米国プライバシーシールドフレームワークの認証を受けています。 国際的なデータの移転に関する欧州委員会の決定の詳細については、欧州委員会のウェブサイトにある[こちらの記事](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en)を参照してください。
+GitHub also complies with certain legal frameworks relating to the transfer of data from the European Economic Area, the United Kingdom, and Switzerland (collectively, “EU”) to the United States. When GitHub engages in such transfers, GitHub relies on Standard Contractual Clauses as the legal mechanism to help ensure your rights and protections travel with your personal information. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about the European Commission’s decisions on international data transfer, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-## 標準契約条項
+### Standard Contractual Clauses
 
-GitHubは、EUからのデータ転送に対する法的仕組みとして、欧州委員会が承認した標準契約条項 (「SCC」) に依拠しています。 SCCは、個人情報を転送する企業間の契約責任であり、かかるデータのプライバシーとセキュリティを保護するための拘束力を持ちます。 EU外から、欧州連合が個人情報を適切に保護していないと見なす諸国 (米国へのデータ移転の保護を含む) への必要なデータフローを保護するため、GitHubではSCCを採用しました。
+GitHub relies on the European Commission-approved Standard Contractual Clauses (“SCCs”) as a legal mechanism for data transfers from the EU. SCCs are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of such data. GitHub adopted SCCs so that the necessary data flows can be protected when transferred outside the EU to countries which have not been deemed by the European Commission to adequately protect personal data, including protecting data transfers to the United States.
 
-SCCの詳細については、欧州委員会のウェブサイトにある[こちらの記事](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en)を参照してください。
+To learn more about SCCs, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
 
-## プライバシー シールド フレームワーク
+### プライバシー シールド フレームワーク
 
-欧州司法裁判所の判決 (Case C-311/18) に基づいて、GitHubは、個人情報の転送に関する法的根拠としてはEU-米国プライバシーシールドフレームワークに依拠しないものの、EU-米国およびスイス-米国のプライバシーシールドフレームワークの認証を受け、そこに含まれる義務を履行します。
+GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks and the commitments they entail, although GitHub does not rely on the EU-US Privacy Shield Framework as a legal basis for transfers of personal information in light of the judgment of the Court of Justice of the EU in Case C-311/18.
 
-EU-米国およびスイス-米国プライバシーシールドフレームワークはEU、イギリスおよびスイスから米国へ転送されたユーザ個人情報の収集、利用および保持について、米国商務省により定められたものです。 GitHubは、プライバシーシールド原則を遵守することを商務省に証明しています。 当社のベンダーや関連会社が、いずれかのプライバシーシールドフレームワークの原則に反した方法でユーザ個人情報を処理する場合は、損害を発生させた事象について当社に責任がないことを証明しない限り、GitHubが責任を負います。
+The EU-US and Swiss-US Privacy Shield Frameworks are set forth by the US Department of Commerce regarding the collection, use, and retention of User Personal Information transferred from the European Union, the UK, and Switzerland to the United States. GitHubは、プライバシーシールド原則を遵守することを商務省に証明しています。 If our vendors or affiliates process User Personal Information on our behalf in a manner inconsistent with the principles of either Privacy Shield Framework, GitHub remains liable unless we prove we are not responsible for the event giving rise to the damage.
 
-プライバシーシールドフレームワークに基づく認証において、本グローバルプライバシープラクティスとプライバシープライバシーシールド原則の条項の間に何らかの矛盾がある場合、プライバシーシールド原則を優先するものとします。 プライバシーシールプログラムについて詳細を知りたい場合、および、当社の証明を閲覧したい場合、[プライバシーシールドウェブサイト](https://www.privacyshield.gov/)を確認ください。
+For purposes of our certifications under the Privacy Shield Frameworks, if there is any conflict between the terms in these Global Privacy Practices and the Privacy Shield Principles, the Privacy Shield Principles shall govern. プライバシーシールプログラムについて詳細を知りたい場合、および、当社の証明を閲覧したい場合、[プライバシーシールドウェブサイト](https://www.privacyshield.gov/)を確認ください。
 
-プライバシー シールドフレームワークは7つの原則に基づいており、GitHubは以下の方法でこれに準拠しています。
+The Privacy Shield Frameworks are based on seven principles, and GitHub adheres to them in the following ways:
 
 - **通知**
   - 当社は、個人情報を収集する際に、お客様に通知します。
@@ -60,16 +60,16 @@ EU-米国およびスイス-米国プライバシーシールドフレームワ�
   - 当社は、従業員にプライバシーの約束を尊重することを義務付けており、当社のプライバシーポリシーに違反することは、雇用の終了を含む懲戒処分の対象となります。
 
 
-### 紛争解決プロセス
+#### 紛争解決プロセス
 
-当社[プライバシーについての声明](/github/site-policy/github-privacy-statement)の[苦情の解決](/github/site-policy/github-privacy-statement#resolving-complaints)セクションに詳述するように、プライバシーシールドに関連する (または一般的なプライバシーに関連する) 苦情がある場合は、当社にご連絡いただくことをお勧めします。 GitHubで直接解決できない紛争については、EUの個人との紛争解決のために、当社は関係するEUデータ保護機関またはヨーロッパデータ保護機関が設立した委員会と協力することを選択しました。また、スイスの個人との紛争解決のために、スイス連邦データ保護および情報コミッショナー（FDPIC）と協力することを選択しました。 当社からお客様に対して、お客様のデータ保護機関の連絡先を提供することをご希望の場合、当社にご連絡ください。
+As further explained in the [Resolving Complaints](/github/site-policy/github-privacy-statement#resolving-complaints) section of our [Privacy Statement](/github/site-policy/github-privacy-statement), we encourage you to contact us should you have a Privacy Shield-related (or general privacy-related) complaint. For any complaints that cannot be resolved with GitHub directly, we have selected to cooperate with the relevant EU Data Protection Authority, or a panel established by the European data protection authorities, for resolving disputes with EU individuals, and with the Swiss Federal Data Protection and Information Commissioner (FDPIC) for resolving disputes with Swiss individuals. 当社からお客様に対して、お客様のデータ保護機関の連絡先を提供することをご希望の場合、当社にご連絡ください。
 
 さらに、お客様がEUメンバー国の住民の場合、お客様の地元国の監督機関に苦情を申し立てる権利を有します。
 
-### 独立した仲裁者
+#### 独立した仲裁者
 
 一定の制限された状況において、EU、欧州経済領域（EEA）、スイスおよびイギリスの個人は、他の紛争解決方法が成功しなかった場合、最終手段として、拘束力のあるプライバシーシールド仲裁の救済を求めることができます。 解決方法および利用可能性について知りたい場合、詳細は、[プライバシーシールド](https://www.privacyshield.gov/article?id=ANNEX-I-introduction)を参照してください。 仲裁は必須ではありません。お客様が選択した場合に利用できるツールです。
 
-当社は、米国連邦取引委員会（FTC）の管轄下にあります。
+We are subject to the jurisdiction of the US Federal Trade Commission (FTC).
 
 詳細は、「[プライバシーについての声明](/articles/github-privacy-statement/)」を参照してください。
