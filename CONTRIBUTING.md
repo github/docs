@@ -1,13 +1,12 @@
-Zachry Tyler Wood
-5323 BRADFORD DRIVE
-DALLAS TX 75235-8313
-Bitcoin[BTC-USD] BTCUSD CCC
-o'Auth: **approves**From 9e3bbc5dddec4372774611c27c6dc6dfb90cdd12 Mon Sep 17 00:00:00 2001
-From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
- <zachryiixixiiwood@gmail.com>
-Date: Sat, 29 Jan 2022 22:08:46 -0600
-Subject: [PATCH] bitore.sigs
-
+From Zachry Tyler Wood'zachryiixixiiwood@gmail.com'
+5323 BRADFORD DRIVE'
+DALLAS TX 75235-8313'
+Bitcoin[BTC-USD] BTCUSD CCC'
+o'Auth: **approves**From 9e3bbc5dddec4372774611c27c6dc6dfb90cdd12 Mon Sep 17 00:00:00 2001'
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15'
+ <zachryiixixiiwood@gmail.com>'
+Date: Sat, 29 Jan 2022 22:08:46 -0600'
+Subject: [PATCH] bitore.sigs@@-
 By Zachry Wood
 </BUILD_SCRIPT/>
 'RUN::/RUNS::/SCRIPT::/BUILD::/PRESS::/Start::/Run::/WORKFLOW_RUNNER_ACTIONS_EVENT::/START::/COMMAND::/RUNS::/RUNS:RUN
