@@ -1,0 +1,1 @@
+Puedes publicar paquetes en un repositorio público (paquetes públicos) para compartir con todo {% data variables.product.prodname_dotcom %}, o en un repositorio privado (paquetes privados) para compartirlos con colaboradores o con una organización.

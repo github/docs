@@ -6,12 +6,11 @@ redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
   - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Fazer merge de um repositório upstream
 ---
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

@@ -6,14 +6,11 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Enable & test SAML SSO
 ---
-
-## About SAML single sign-on
 
 You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
 
@@ -21,13 +18,7 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-## Enabling and testing SAML single sign-on for your organization
-
-{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
-
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
-
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Prior to enforcing SAML SSO in your organization, ensure that you've set up your identity provider (IdP). For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -54,6 +45,6 @@ For more information about the identity providers (IdPs) that {% data variables.
 11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)." ![Checkbox to require SAML SSO for your organization ](/assets/images/help/saml/saml_require_saml_sso.png)
 12. Click **Save**. ![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
 
-## 더 읽을거리
+### 더 읽을거리
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

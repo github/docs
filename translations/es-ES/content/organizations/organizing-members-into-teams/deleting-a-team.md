@@ -5,9 +5,9 @@ redirect_from:
   - /articles/deleting-a-team
   - /github/setting-up-and-managing-organizations-and-teams/deleting-a-team
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams

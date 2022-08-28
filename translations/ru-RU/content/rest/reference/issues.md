@@ -1,15 +1,13 @@
 ---
 title: Вопросы
-intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
 redirect_from:
   - /v3/issues
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 ### Custom media types for issues

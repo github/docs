@@ -1,19 +1,15 @@
 import { getLiquidConditionalsWithContent } from './get-liquid-conditionals.js'
 import getVersionBlocks from './get-version-blocks.js'
-import { allVersions } from '../../lib/all-versions.js'
-import { Tokenizer } from 'liquidjs'
-const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName)
+import allVersions from '../../lib/all-versions.js'
+const supportedShortVersions = Object.values(allVersions).map(v => v.shortName)
 const updateRangeKeepGhes = 'updateRangeKeepGhes'
 const updateRangeRemoveGhes = 'updateRangeRemoveGhes'
 const removeRangeAndContent = 'removeRangeAndContent'
-const tokenize = (str) => {
-  const tokenizer = new Tokenizer(str)
-  return tokenizer.readTopLevelTokens()
-}
+
 // This module is used by script/enterprise-server-deprecations/remove-version-markup.js to remove
 // and update Liquid conditionals when a GHES release is being deprecated. It is also used by
 // tests/content/remove-liquid-statements.js.
-export default function removeLiquidStatements(content, release, nextOldestRelease, file) {
+export default function removeLiquidStatements (content, release, nextOldestRelease, file) {
   let newContent = content
 
   // Get an array of ifversion blocks with their content included.
@@ -27,11 +23,10 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
   for (const versionBlock of versionBlocks) {
     const actionMap = {}
 
-    versionBlock.isGhesOnly = versionBlock.condArgs.every((arg) => arg.includes('ghes'))
+    versionBlock.isGhesOnly = versionBlock.condArgs.every(arg => arg.includes('ghes'))
     versionBlock.hasSingleRange = versionBlock.ranges.length === 1
-    versionBlock.andGhesRanges = versionBlock.condArgs.filter((arg) => arg.includes('and ghes'))
-    const isSafeToRemoveContent =
-      versionBlock.isGhesOnly && (versionBlock.hasSingleRange || versionBlock.andGhesRanges.length)
+    versionBlock.andGhesRanges = versionBlock.condArgs.filter(arg => arg.includes('and ghes'))
+    const isSafeToRemoveContent = versionBlock.isGhesOnly && (versionBlock.hasSingleRange || versionBlock.andGhesRanges.length)
 
     for (const rangeArgs of versionBlock.ranges) {
       const rangeOperator = rangeArgs[1]
@@ -47,8 +42,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
 
       // Remove Liquid and content in these scenarios, IF AND ONLY IF it's safe to remove content.
       // For example, when there is no other versioning in the conditional.
-      const lessThanNextOldestVersion =
-        rangeOperator === '<' && (releaseNumber === nextOldestRelease || releaseNumber === release)
+      const lessThanNextOldestVersion = rangeOperator === '<' && (releaseNumber === nextOldestRelease || releaseNumber === release)
       const equalsVersionToDeprecate = rangeOperator === '=' && releaseNumber === release
 
       let action
@@ -66,17 +60,18 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
       }
 
       if (action) {
-        actionMap[action] = versionBlock.condArgs.find((arg) => arg.endsWith(rangeArgs.join(' ')))
+        actionMap[action] = versionBlock.condArgs.find(arg => arg.endsWith(rangeArgs.join(' ')))
       }
     }
 
     versionBlock.action = Object.keys(actionMap).length ? actionMap : 'none'
   }
+  
 
   // Create the new content and add it to each block.
   versionBlocks
-    .filter((versionBlock) => versionBlock.action !== 'none')
-    .forEach((versionBlock) => {
+    .filter(versionBlock => versionBlock.action !== 'none')
+    .forEach(versionBlock => {
       const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
 
       // ----- REMOVE RANGE AND CONTENT -----
@@ -89,28 +84,25 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
           // doesn't start at the beginning of a new line, the content before
           // the ifversion tag will be concatenated to the content after the
           // else condition on a single line.
-          const replaceRegex = versionBlock.startTagColumn1
-            ? new RegExp(`${versionBlock.condWithLiquid}[\\S\\s]+?{%-? else -?%}\n?`)
-            : new RegExp(`${versionBlock.condWithLiquid}[\\S\\s]+?{%-? else -?%}`)
+          const replaceRegex = versionBlock.startTagColumn1 
+          ? new RegExp(`${versionBlock.condWithLiquid}[\\S\\s]+?{%-? else -?%}\n?`)
+          : new RegExp(`${versionBlock.condWithLiquid}[\\S\\s]+?{%-? else -?%}`)
 
           versionBlock.newContent = versionBlock.content
             .slice(0, indexOfLastEndif)
             .replace(replaceRegex, '')
 
-          if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
-            versionBlock.newContent = versionBlock.newContent.slice(0, -1)
+          if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n')) versionBlock.newContent = versionBlock.newContent.slice(0, -1)
         }
 
-        // If the block has an elsif, remove the content up to the elsif, and change the elsif to an if (or leave it
-        // an elsif this this block is itself an elsif), leaving the content inside the elsif block as is. The elsif
+        // If the block has an elsif, remove the content up to the elsif, and change the elsif to an if (or leave it 
+        // an elsif this this block is itself an elsif), leaving the content inside the elsif block as is. The elsif 
         // condition is evaluated separately so we don't need to worry about evaluating it here.
         if (versionBlock.hasElsif) {
           const replaceRegex = new RegExp(`${versionBlock.condWithLiquid}[\\S\\s]+?({%-?) elsif`)
 
-          versionBlock.newContent = versionBlock.content.replace(
-            replaceRegex,
-            `$1 ${versionBlock.condKeyword}`
-          )
+          versionBlock.newContent = versionBlock.content
+            .replace(replaceRegex, `$1 ${versionBlock.condKeyword}`)
         }
 
         // For all other scenarios, remove the Liquid and the content.
@@ -118,7 +110,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
           versionBlock.newContent = ''
         }
       }
-
+    
       // ----- UPDATE RANGE AND REMOVE `GHES` -----
       if (versionBlock.action.updateRangeRemoveGhes) {
         // Make the replacement and get the new conditional.
@@ -127,10 +119,8 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
           .replace(/\s\s+/, ' ')
 
         // Update the conditional.
-        versionBlock.newContent = versionBlock.content.replace(
-          versionBlock.condWithLiquid,
-          newCondWithLiquid
-        )
+        versionBlock.newContent = versionBlock.content
+          .replace(versionBlock.condWithLiquid, newCondWithLiquid)
       }
 
       // ----- UPDATE RANGE AND KEEP `GHES` -----
@@ -145,15 +135,11 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        const containsAllSupportedVersions = supportedShortVersions.every((v) =>
-          newCondWithLiquid.includes(v)
-        )
+        const containsAllSupportedVersions = supportedShortVersions.every(v => newCondWithLiquid.includes(v))
 
         if (!containsAllSupportedVersions) {
-          versionBlock.newContent = versionBlock.content.replace(
-            versionBlock.condWithLiquid,
-            newCondWithLiquid
-          )
+          versionBlock.newContent = versionBlock.content
+            .replace(versionBlock.condWithLiquid, newCondWithLiquid)
         }
 
         if (containsAllSupportedVersions) {
@@ -164,52 +150,36 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
           if (!versionBlock.hasElse && !versionBlock.hasElsif) {
             const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
 
-            versionBlock.newContent = versionBlock.newContent.slice(0, indexOfLastEndif)
+            versionBlock.newContent = versionBlock.newContent
+              .slice(0, indexOfLastEndif)
 
-            if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
-              versionBlock.newContent = versionBlock.newContent.slice(0, -1)
+            if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n')) versionBlock.newContent = versionBlock.newContent.slice(0, -1)
           }
 
           // If start tag is on it's own line, remove line ending (\\n?)
-          // and remove white space (//s*) after line ending to
-          // preserve indentation of next line
-          const removeStartTagRegex = versionBlock.startTagColumn1
-            ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`)
-            : new RegExp(`${versionBlock.condWithLiquid}`)
+          // and remove white space (//s*) after line ending to 
+          // preserve indentation of next line 
+          const removeStartTagRegex = versionBlock.startTagColumn1 
+            ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`) 
+            : new RegExp(`${versionBlock.condWithLiquid}`) 
 
           // For ALL scenarios, remove the start tag.
-          versionBlock.newContent = versionBlock.newContent.replace(removeStartTagRegex, '')
+          versionBlock.newContent = versionBlock.newContent
+            .replace(removeStartTagRegex, '')
 
-          // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif),
+          // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif), 
           // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
           if (versionBlock.hasElsif) {
-            versionBlock.newContent = versionBlock.newContent.replace(
-              /({%-) elsif/,
-              `$1 ${versionBlock.condKeyword}`
-            )
+            versionBlock.newContent = versionBlock.newContent
+              .replace(/({%-) elsif/, `$1 ${versionBlock.condKeyword}`)
           }
 
           // If the block has an else, remove the else, its content, and the endif.
           if (versionBlock.hasElse) {
-            let elseStartIndex
-            let ifCondFlag = false
-            // tokenize the content including the nested conditionals to find
-            // the unmatched else tag. Remove content from the start of the
-            // else tag to the end of the content. The tokens return have different
-            // `kind`s and can be liquid tags, HTML, and a variety of things.
-            // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
-            tokenize(versionBlock.newContent)
-              .filter((elem) => elem.kind === 4)
-              .forEach((tag) => {
-                if (tag.name === 'ifversion' || tag.name === 'if') {
-                  ifCondFlag = true
-                } else if (tag.name === 'endif' && ifCondFlag === true) {
-                  ifCondFlag = false
-                } else if (tag.name === 'else' && ifCondFlag === false) {
-                  elseStartIndex = tag.begin
-                }
-              })
-            versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
+            const replaceRegex = /{%-? else -?%}[\S\s]+?{%-? endif -?%}\n?/
+
+            versionBlock.newContent = versionBlock.newContent
+              .replace(replaceRegex, '')
           }
         }
       }
@@ -217,27 +187,28 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
 
   // Now that we have the old and new content attached to each block, make the replacement
   // in the general content and return the updated general content.
-  versionBlocks.forEach((versionBlock) => {
-    if (versionBlock.action !== 'none') {
-      const newBlockContent = versionBlock.newContent.replaceAll(/\n\n\n+?/g, '\n\n')
+  versionBlocks
+    .forEach(versionBlock => {
+      if (versionBlock.action !== 'none') {
+        const newBlockContent = versionBlock.newContent.replaceAll(/\n\n\n+?/g, '\n\n')
 
-      newContent = newContent
-        .replaceAll(versionBlock.content, newBlockContent)
-        .replaceAll(/({%-? ifversion |{%-? elsif )(and|or) /g, '$1') // clean up stray and/ors :/
-        .replaceAll(/\n\n\n+?/g, '\n\n')
-
-      if (file && file.includes('/data/')) {
-        newContent = newContent.trim()
+        newContent = newContent
+          .replaceAll(versionBlock.content, newBlockContent)
+          .replaceAll(/({%-? ifversion |{%-? elsif )(and|or) /g, '$1') // clean up stray and/ors :/
+          .replaceAll(/\n\n\n+?/g, '\n\n')
+        
+        if (file && file.includes('/data/')) {
+          newContent = newContent.trim()
+        }
       }
-    }
-  })
+    })
 
   return newContent
 }
 
 // Hack to use a regex with lastIndexOf.
 // Inspired by https://stackoverflow.com/a/21420210
-function lastIndexOfRegex(str, regex, fromIndex) {
+function lastIndexOfRegex (str, regex, fromIndex) {
   const myStr = fromIndex ? str.substring(0, fromIndex) : str
   const match = myStr.match(regex)
 

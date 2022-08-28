@@ -4,7 +4,7 @@ intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion gha
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 topics:
   - Enterprise
@@ -15,6 +15,6 @@ children:
   - /advanced-configuration-and-troubleshooting
 shortTitle: Manage GitHub Actions
 ---
-
+{% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

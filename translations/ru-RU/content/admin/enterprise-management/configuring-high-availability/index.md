@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability
 intro: '{% data variables.product.prodname_ghe_server %} supports a high availability mode of operation designed to minimize service disruption in the event of hardware failure or major network outage affecting the primary appliance.'
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
 children:
@@ -18,6 +18,5 @@ children:
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica
   - /about-geo-replication
-shortTitle: Configure high availability
 ---
 

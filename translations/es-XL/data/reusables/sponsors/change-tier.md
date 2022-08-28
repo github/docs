@@ -1,0 +1,1 @@
+1. Debajo de "{% data variables.product.prodname_sponsors %}", a la derecha de los colaboradores de código abierto, da clic en {% octicon "triangle-down" aria-label="The down triangle octicon" %} junto a tu cantidad patrocinada y luego da clic en **Cambiar nivel**. ![Botón de cambiar nivel](/assets/images/help/billing/edit-sponsor-billing.png)

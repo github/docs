@@ -6,14 +6,13 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
   - /admin/authentication/changing-authentication-methods
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: overview
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Change authentication methods
 ---
 
 {% data variables.product.product_location %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。

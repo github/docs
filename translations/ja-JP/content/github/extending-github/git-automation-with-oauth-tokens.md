@@ -6,19 +6,18 @@ redirect_from:
   - /articles/git-automation-with-oauth-tokens
 intro: 'OAuthトークンを使用して、自動化されたスクリプトを介して {% data variables.product.product_name %} を操作できます。'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Automate with OAuth tokens
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
-## ステップ 1: OAuth トークンを取得する
+### ステップ 1: OAuth トークンを取得する
 
 アプリケーション設定ページで個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 {% tip %}
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 **参考:**
 - 個人アクセストークンを作成する前に、メールアドレスを確認する必要があります。 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,9 +27,9 @@ shortTitle: Automate with OAuth tokens
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-## ステップ 2: リポジトリをクローンする
+### ステップ 2: リポジトリをクローンする
 
 {% data reusables.command_line.providing-token-as-password %}
 
@@ -42,6 +41,6 @@ shortTitle: Automate with OAuth tokens
 
 {% endwarning %}
 
-## 参考リンク
+### 参考リンク
 
 - 「[OAuth App を認証する](/developers/apps/authorizing-oauth-apps)」

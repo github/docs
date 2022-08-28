@@ -3,10 +3,9 @@ title: Lanzamientos de GitHub Enterprise Server
 intro: 'Documentación para las versiones actualmente compatibles y previamente obsoletizadas de {{ site.data.variables.product.prodname_ghe_server }}.'
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
-shortTitle: Lanzamientos
 ---
 
 ## Actualmente compatibles

@@ -5,8 +5,8 @@ import walk from 'walk-sync'
 import { zip, groupBy } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
-import { fromMarkdown } from 'mdast-util-from-markdown'
-import { visit } from 'unist-util-visit'
+import generateMarkdownAST from 'mdast-util-from-markdown'
+import visit from 'unist-util-visit'
 import readFileAsync from '../../lib/readfile-async.js'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
@@ -18,12 +18,10 @@ import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
-import { allVersions } from '../../lib/all-versions.js'
-import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
+import allVersions from '../../lib/all-versions.js'
+import { supported, next } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
-import semver from 'semver'
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
@@ -366,7 +364,6 @@ describe('lint markdown content', () => {
       isHidden,
       isEarlyAccess,
       isSitePolicy,
-      hasExperimentalAlternative,
       frontmatterErrors,
       frontmatterData,
       ifversionConditionals,
@@ -379,11 +376,10 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterErrors = errors
       frontmatterData = data
-      ast = fromMarkdown(content)
+      ast = generateMarkdownAST(content)
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
-      hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
@@ -425,9 +421,9 @@ describe('lint markdown content', () => {
     })
 
     // We need to support some non-Early Access hidden docs in Site Policy
-    test('hidden docs must be Early Access, Site Policy, or Experimental', async () => {
+    test('hidden docs must be Early Access or Site Policy', async () => {
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy || hasExperimentalAlternative).toBe(true)
+        expect(isEarlyAccess || isSitePolicy).toBe(true)
       }
     })
 
@@ -1106,25 +1102,10 @@ function validateIfversionConditionals(conds) {
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
           )
         }
-        // Check nextNext is one version ahead of next
-        if (!isNextVersion(next, nextNext)) {
-          errors.push(
-            `The nextNext version: "${nextNext} is not one version ahead of the next supported version: "${next}" - check lib/enterprise-server-releases.js`
-          )
-        }
-        // Check that the versions in conditionals are supported
-        // versions of GHES or the first deprecated version. Allowing
-        // the first deprecated version to exist in code ensures
-        // allows us to deprecate the version before removing
-        // the old liquid content.
-        if (
-          !(
-            supported.includes(release) ||
-            release === next ||
-            release === nextNext ||
-            deprecated[0] === release
-          )
-        ) {
+        // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
+        // deprecated versioning. If we deprecate a version before we have a working version of that script,
+        // we can comment out this part of the test temporarily and re-enable it once the script is ready.
+        if (!(supported.includes(release) || release === next)) {
           errors.push(
             `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
           )
@@ -1134,24 +1115,4 @@ function validateIfversionConditionals(conds) {
   })
 
   return errors
-}
-
-function isNextVersion(v1, v2) {
-  const semverNext = semver.coerce(v1)
-  const semverNextNext = semver.coerce(v2)
-  const semverSupported = []
-
-  supported.forEach((el, i) => {
-    semverSupported[i] = semver.coerce(el)
-  })
-  // Check that the next version is the next version from the supported list first
-  const maxVersion = semver.maxSatisfying(semverSupported, '*').raw
-  const nextVersionCheck =
-    semverNext.raw === semver.inc(maxVersion, 'minor') ||
-    semverNext.raw === semver.inc(maxVersion, 'major')
-  return (
-    nextVersionCheck &&
-    (semver.inc(semverNext, 'minor') === semverNextNext.raw ||
-      semver.inc(semverNext, 'major') === semverNextNext.raw)
-  )
 }

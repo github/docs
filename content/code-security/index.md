@@ -47,8 +47,8 @@ topics:
   - Vulnerabilities
 children:
   - /getting-started
-  - /secret-scanning
-  - /code-scanning
+  - /secret-security
+  - /secure-coding
   - /security-advisories
   - /supply-chain-security
   - /security-overview

@@ -1,0 +1,1 @@
+Únicamente verás este evento en las respuestas cuando se [habiliten](/articles/disabling-project-boards-in-a-repository) los tableros de proyecto en el repositorio.

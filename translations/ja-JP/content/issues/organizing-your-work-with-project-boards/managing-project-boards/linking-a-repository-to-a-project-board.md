@@ -6,15 +6,12 @@ redirect_from:
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: ボードへのリポジトリのリンク
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 プロジェクトボードへの書き込み権限があれば誰でも、その Organization またはユーザアカウントが所有するリポジトリをプロジェクトボードにリンクできます。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization/)」または「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards/)」を参照してください。
 
@@ -34,6 +31,6 @@ shortTitle: ボードへのリポジトリのリンク
 
 {% endnote %}
 
-## 参考リンク
+### 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"

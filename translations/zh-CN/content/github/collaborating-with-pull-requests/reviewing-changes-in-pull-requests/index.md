@@ -6,9 +6,9 @@ redirect_from:
   - /articles/reviewing-changes-in-pull-requests
 intro: 打开拉取请求后，您可以审查和讨论一组提议的更改。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 children:
@@ -23,6 +23,5 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: 审查更改
 ---
 

@@ -1,4 +1,4 @@
-{% ifversion fpt or ghes > 3.1 %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
 {% note %}
 

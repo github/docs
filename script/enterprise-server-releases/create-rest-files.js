@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import allVersions from '../../lib/all-versions.js'
+import getOperations from '../rest/utils/get-operations.js'
+
+const dereferencedDir = 'lib/rest/static/dereferenced'
+const decoratedDir = 'lib/rest/static/decorated'
 
 // [start-readme]
 //
@@ -7,15 +15,6 @@
 // Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
 //
 // [end-readme]
-
-import fs from 'fs/promises'
-import path from 'path'
-import program from 'commander'
-import { allVersions } from '../../lib/all-versions.js'
-import getOperations from '../rest/utils/get-operations.js'
-
-const dereferencedDir = 'lib/rest/static/dereferenced'
-const decoratedDir = 'lib/rest/static/decorated'
 
 program
   .description(
@@ -60,13 +59,12 @@ async function main() {
   const newDecoratedFile = path.join(decoratedDir, newDecoratedFilename)
 
   // check that the old files exist
-  let oldDereferencedContent
-  try {
-    oldDereferencedContent = await fs.readFile(oldDereferencedFile, 'utf8')
-  } catch (e) {
+  if (!fs.existsSync(oldDereferencedFile)) {
     console.log(`Error! Can't find ${oldDereferencedFile} for ${oldVersion}.`)
     process.exit(1)
   }
+
+  const oldDereferencedContent = fs.readFileSync(oldDereferencedFile, 'utf8')
 
   // Replace old version with new version
   // (ex: enterprise-server@3.0 -> enterprise-server@3.1)
@@ -74,11 +72,11 @@ async function main() {
   const newDereferenceContent = oldDereferencedContent.replace(regexOldVersion, newVersion)
 
   // Write processed dereferenced schema to disk
-  await fs.writeFile(newDereferencedFile, newDereferenceContent)
+  fs.writeFileSync(newDereferencedFile, newDereferenceContent)
   console.log(`Created ${newDereferencedFile}.`)
 
   const dereferencedSchema = JSON.parse(
-    await fs.readFile(path.join(process.cwd(), newDereferencedFile))
+    fs.readFileSync(path.join(process.cwd(), newDereferencedFile))
   )
 
   // Store all operations in an array of operation objects
@@ -88,6 +86,6 @@ async function main() {
   await Promise.all(operations.map((operation) => operation.process()))
 
   // Write processed operations to disk
-  await fs.writeFile(newDecoratedFile, JSON.stringify(operations, null, 2))
+  fs.writeFileSync(newDecoratedFile, JSON.stringify(operations, null, 2))
   console.log(`Done! Created ${newDecoratedFile}.`)
 }

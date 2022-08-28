@@ -3,40 +3,36 @@ title: Descargar los artefactos del flujo de trabajo
 intro: Puedes descargar artefactos archivados antes de que venzan automáticamente.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Descargar artefactos de flujo de trabajo
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} Predeterminadamente, {% data variables.product.product_name %} almacena las bitácoras de compilación y los artefactos por 90 días, y puedes personalizar este periodo de retención dependiendo del tipo de repositorio. Para obtener más información, consulta la sección "[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".{% endif %}
-{% ifversion ghes = 2.22 %} Las {% data variables.product.product_name %} almacenan las bitácoras y los artefactos por 90 días.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Predeterminadamente, {% data variables.product.product_name %} almacena bitácoras de compilación y artefactos hasta por 90 días y puedes configurar este periodo de retención dependiendo del tipo de repositorio que tengas. Para obtener más información, consulta la sección "[Configurar el periodo de retención para los artefactos y las bitácoras de las GitHub Actions en tu repositorio](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".{% endif %}
+{% if currentVersion == "enterprise-server@2.22" %} Las {% data variables.product.product_name %} almacenan las bitácoras y los artefactos por 90 días.{% endif %}
+
+### Descarga artefactos con la IU de {% data variables.product.prodname_dotcom %}
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
-
-{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Debajo de **Artefactos**, da clic en aquél que quieras descargar.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
     ![Menú desplegable Download artifact (Descargar artefacto)](/assets/images/help/repository/artifact-drop-down-updated.png)
     {% else %}
     ![Menú desplegable Download artifact (Descargar artefacto)](/assets/images/help/repository/artifact-drop-down.png)
     {% endif %}
 
-{% endwebui %}
+### Descarga los artefactos con {% data variables.product.prodname_cli %}
 
-{% cli %}
-
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.actions.actions-cli %}
 
 El {% data variables.product.prodname_cli %} descargará cada artefacto en directorios separados con base en el nombre de dicho artefacto. Si se especifica solo un artefacto individual, este se extraerá en el directorio actual.
 
@@ -63,5 +59,3 @@ Para descargar los artefactos específicos a lo largo de todas las ejecuciones e
 ```shell
 gh run download -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
 ```
-
-{% endcli %}

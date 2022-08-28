@@ -2,8 +2,8 @@
 title: リリースノート
 layout: release-notes
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
   - Upgrades

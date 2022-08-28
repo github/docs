@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-webhooks
 intro: Web 挂钩是一种通知方式，只要仓库或组织上发生特定操作，就会发送通知到外部 web 服务器。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

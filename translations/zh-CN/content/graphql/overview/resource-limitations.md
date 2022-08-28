@@ -4,9 +4,9 @@ intro: '{% data variables.product.prodname_dotcom %} GraphQL API 利用限制防
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

@@ -2,10 +2,9 @@
 title: Acerca de los Paquetes de Github y de Github Actions
 intro: 'Aprende lo básico de administrar paquetes mediante tus flujos de trabajo de {% data variables.product.prodname_actions %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Paquetes & acciones
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

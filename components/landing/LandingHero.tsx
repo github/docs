@@ -7,7 +7,6 @@ import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
-import { Lead } from 'components/ui/Lead'
 
 export const LandingHero = () => {
   const { airGap } = useMainContext()
@@ -23,12 +22,16 @@ export const LandingHero = () => {
   return (
     <header className="d-lg-flex gutter-lg mb-6">
       <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
-        <h1 className="mb-3">
+        <span className="text-mono color-text-secondary">Product</span>
+        <h1 className="mb-3 font-mktg">
           {shortTitle}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        {intro && <Lead>{intro}</Lead>}
+        <div
+          className="lead-mktg color-text-secondary"
+          dangerouslySetInnerHTML={{ __html: intro }}
+        />
 
         {introLinks &&
           Object.entries(introLinks)
@@ -43,7 +46,7 @@ export const LandingHero = () => {
                 <FullLink
                   key={link}
                   href={link}
-                  className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary-matte')}
+                  className={cx('btn-mktg bt-large f4 mt-3 mr-3', i !== 0 && 'btn-outline-mktg')}
                 >
                   {t(key)}
                 </FullLink>

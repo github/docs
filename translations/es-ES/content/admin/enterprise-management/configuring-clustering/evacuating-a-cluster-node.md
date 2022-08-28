@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
   - /admin/enterprise-management/evacuating-a-cluster-node
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
@@ -19,8 +19,8 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
 
 1. Encuentra la `uuid` del nodo con el comando `ghe-config`.
 
-    ```shell
-    $ ghe-config cluster.<em>HOSTNAME</em>.uuid
+    ```
+    $ ghe-config cluster._hostname_.uuid
     ```
 
 2. Deberás supervisar el estado de tu nodo mientras se copian los datos. Idealmente, el nodo no debería estar fuera de línea hasta que se complete la copia. Para supervisar el estado de tu nodo, ejecuta alguno de los siguientes comandos:
@@ -30,11 +30,11 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
     ghe-spokes evac-status
     ```
     Para {% data variables.product.prodname_pages %}
-
-    ```shell
-    echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+    {% raw %}
     ```
-
+    echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
+    ```
+    {% endraw %}
     Para almacenamiento
     ```
     ghe-storage evacuation-status
@@ -43,25 +43,26 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
 3. Una vez que la copia esté completa, puedes evacuar el servicio de almacenamiento. Ejecuta alguno de los siguientes comandos:
 
     Para Git
-
-    ```shell
-    ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+    {% raw %}
     ```
-
+    ghe-spokes server evacuate git-server-<uuid>
+    ```
+    {% endraw %}
     Para {% data variables.product.prodname_pages %}
-
-    ```shell
-    ghe-dpages evacuate pages-server-<em>UUID</em>
+    {% raw %}
     ```
-
+    ghe-dpages evacuate pages-server-<uuid>
+    ```
+    {% endraw %}
     Para almacenamiento, coloca el nodo fuera de línea
-
-    ```shell
-    ghe-storage offline storage-server-<em>UUID</em>
+    {% raw %}
     ```
-
+    ghe-storage offline storage-server-<uuid>
+    ```
+    {% endraw %}
       luego evacúa
-
-    ```shell
-    ghe-storage evacuate storage-server-<em>UUID</em>
+    {% raw %}
     ```
+    ghe-storage evacuate storage-server-<uuid>
+    ```
+    {% endraw %}

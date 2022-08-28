@@ -32,4 +32,4 @@ You can restrict the ability to change repository visibility to organization own
 
 ## Further reading
 
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_desktop %} を設定して、プロ�
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /overview
   - /installing-and-authenticating-to-github-desktop

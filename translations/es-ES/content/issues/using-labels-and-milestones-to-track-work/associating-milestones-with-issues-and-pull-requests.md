@@ -6,12 +6,11 @@ redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Agregar a los hitos
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -25,7 +24,7 @@ A medida que trabajas en las propuestas y las solicitudes de extracción, puedes
 
 {% endtip %}
 
-## Leer más
+### Leer más
 
 - "[Acerca de los hitos](/articles/about-milestones)"
 - "[Crear y editar hitos para propuestas y solicitudes de extracción](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"

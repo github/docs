@@ -24,10 +24,8 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
-
+{% ifversion fpt or ghes > 2.21 or ghae %}
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
-
 {% endif %}
 
 ## Web application flow
@@ -41,7 +39,6 @@ Using the web application flow, the process to identify users on your site is:
 If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
 
 ### 1. Request a user's GitHub identity
-Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -73,11 +70,9 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token. {% ifversion fpt or ghes > 2.21 or ghae %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
-
-Make a request to the following endpoint to receive an access token:
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -93,6 +88,8 @@ Name | Type | Description
 
 #### Response
 
+{% ifversion fpt or ghes > 2.21 or ghae %}
+
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 
 ```json
@@ -105,6 +102,13 @@ By default, the response takes the following form. The response parameters `expi
   "token_type": "bearer"
 }
 ```
+{% else %}
+
+By default, the response takes the following form:
+
+    access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
+
+{% endif %}
 
 ### 3. Your GitHub App accesses the API with the user's access token
 
@@ -119,15 +123,16 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
-
+{% ifversion fpt or ghes > 2.21 or ghae %}
 ## Device flow
 
+{% ifversion ghes < 3.1 %}
 {% note %}
 
 **Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
+{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
@@ -137,6 +142,10 @@ For more information about authorizing users using the device flow, see "[Author
 
 ## Check which installation's resources a user can access
 
+{% ifversion ghes < 2.22 %}
+{% data reusables.pre-release-program.machine-man-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
+{% endif %}
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
 

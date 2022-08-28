@@ -6,12 +6,11 @@ redirect_from:
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Convert admin team
 ---
 
 You can remove the ability for members of legacy admin teams to create repositories by creating a new team for these members, ensuring that the team has necessary access to the organization's repositories, then deleting the legacy admin team.

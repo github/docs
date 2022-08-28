@@ -4,6 +4,6 @@ Por exemplo, você digitaria o seguinte na linha de comando:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repo</em>.git
-Username: <em>your_username</em>
+Username: <code>your_username</code>
 Password: <em>your_token</em>
 ```

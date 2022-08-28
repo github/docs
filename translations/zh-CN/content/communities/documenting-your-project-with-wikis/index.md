@@ -9,9 +9,9 @@ redirect_from:
   - /github/building-a-strong-community/documenting-your-project-with-wikis
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
 children:

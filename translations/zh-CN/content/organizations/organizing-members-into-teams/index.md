@@ -13,9 +13,9 @@ redirect_from:
   - /articles/organizing-members-into-teams
   - /github/setting-up-and-managing-organizations-and-teams/organizing-members-into-teams
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
@@ -35,6 +35,5 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
-shortTitle: 将成员组织成团队
 ---
 

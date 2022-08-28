@@ -5,7 +5,7 @@ intro: 使用 GitHub Desktop 管理项目，创建有意义的提交，并在应
 redirect_from:
   - /desktop/contributing-to-projects
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /adding-and-cloning-repositories
   - /making-changes-in-a-branch
@@ -13,4 +13,3 @@ children:
   - /working-with-your-remote-repository-on-github-or-github-enterprise
   - /keeping-your-local-repository-in-sync-with-github
 ---
-

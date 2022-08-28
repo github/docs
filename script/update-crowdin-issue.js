@@ -1,4 +1,16 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import xGithub from './helpers/github.js'
+import { execSync } from 'child_process'
+
+xDotenv.config()
+const github = xGithub()
+
+// Check for required PAT
+if (!process.env.GITHUB_TOKEN) {
+  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  process.exit(1)
+}
 
 // [start-readme]
 //
@@ -7,19 +19,6 @@
 // 2. Add a comment on the issue with more details.
 //
 // [end-readme]
-
-import dotenv from 'dotenv'
-import Github from './helpers/github.js'
-import { execSync } from 'child_process'
-
-dotenv.config()
-const github = Github()
-
-// Check for required PAT
-if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
-}
 
 const fixableErrorsLog = '~/docs-translation-errors-fixable.txt'
 const parsingErrorsLog = '~/docs-translation-parsing-error.txt'

@@ -4,14 +4,14 @@ redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---
 
-## Sobre escalares
+### Sobre escalares
 
 [Escalares](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars) são valores primitivos: `Int`, `Float`, `String`, `Boolean` ou `ID`.
 

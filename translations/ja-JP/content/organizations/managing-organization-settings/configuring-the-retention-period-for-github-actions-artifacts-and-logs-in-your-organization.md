@@ -4,13 +4,12 @@ intro: 'Organization 内の {% data variables.product.prodname_actions %} アー
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '>=3.0'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.23'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 保持期間の設定
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

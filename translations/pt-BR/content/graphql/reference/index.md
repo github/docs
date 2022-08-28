@@ -4,9 +4,9 @@ intro: 'Veja a documentação de referência para aprender os tipos de dados dis
 redirect_from:
   - /v4/reference
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /queries
   - /mutations

@@ -7,19 +7,18 @@ redirect_from:
   - /admin/user-management/migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  ghes: '*'
+  enterprise-server: '>=2.20'
 type: how_to
 topics:
   - Enterprise
   - Privacy
   - Repositories
   - Security
-shortTitle: Migración de repositorio interno
 ---
 
-## Acerca de los repositorios internos
+### Acerca de los repositorios internos
 
-Los repositorios internos están disponibles desde {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} para obtener más información, consulta la sección"[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+Los repositorios internos están disponibles desde {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} para obtener más información, consulta "[Acerca de la visibilidad en los repositorios](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
 
 En lanzamientos futuros de {% data variables.product.prodname_ghe_server %}, ajustaremos la manera en la que funciona la visibilidad de los repositorios para que los conceptos público, interno y privado tengan un significado uniforme para los desarrolladores de {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}.
 
@@ -37,10 +36,10 @@ La política de creación de repositorios para la instancia cambiará para inhab
 
 El script de migración no tendrá efecto si no tienes el modo privado habilitado.
 
-## Ejecutar la migración
+### Ejecutar la migración
 
 1. Conecta con el shell administrativo. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
-{% ifversion ghes > 2.22 or ghae %}
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 2. Ejecuta el comando de migración.
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
@@ -58,6 +57,6 @@ El script de migración no tendrá efecto si no tienes el modo privado habilitad
 
 Se mostrará el registro de salida en la terminal y quedará en `/tmp/convert_public_ghes_repos_to_internal.log`.
 
-## Leer más
+### Leer más
 
 - "[Habilitar el modo privado](/enterprise/admin/installation/enabling-private-mode)"

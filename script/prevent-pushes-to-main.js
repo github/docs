@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { execSync } from 'child_process'
 
 // [start-readme]
 
@@ -6,8 +7,6 @@
 // If the current branch is main, it will exit unsuccessfully and prevent the push.
 
 // [end-readme]
-
-import { execSync } from 'child_process'
 
 const productionBranch = 'main'
 const currentBranch = execSync('git symbolic-ref --short HEAD', { encoding: 'utf8' }).trim()

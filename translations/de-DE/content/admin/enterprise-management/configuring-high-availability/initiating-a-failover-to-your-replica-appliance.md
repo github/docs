@@ -6,13 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: Initiate failover to appliance
 ---
 
 Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, das Replikat manuell hochzustufen und den Traffic weiterzuleiten. Die Durchschnittszeit beträgt zwischen 2 und 10 Minuten.
@@ -47,6 +46,6 @@ Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, d
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Dienstprogramme zur Replikationsverwaltung](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)“

@@ -6,11 +6,10 @@ redirect_from:
   - /github/teaching-and-learning-with-github-education/using-github-for-your-schoolwork
   - /articles/using-github-for-your-schoolwork
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /about-github-education-for-students
   - /apply-for-a-student-developer-pack
   - /why-wasnt-my-application-for-a-student-developer-pack-approved
-shortTitle: For your schoolwork
 ---
 

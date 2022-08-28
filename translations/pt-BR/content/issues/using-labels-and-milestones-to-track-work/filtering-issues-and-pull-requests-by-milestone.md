@@ -6,12 +6,11 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Filtrar por marco
 ---
 
 {% tip %}
@@ -29,7 +28,10 @@ shortTitle: Filtrar por marco
 3. Selecione **Milestones** (Marcos) para visualizar uma lista de todos os marcos disponíveis para o repositório. ![Botão Milestones (Marcos)](/assets/images/help/issues/issues_milestone_button.png)
 4. Selecione o marco desejado na lista. Na página milestone (marcos), é possível visualizar as informações relevantes, inclusive todos os problemas e pull requests associados a ele. Para obter mais informações, consulte "[Sobre marcos](/articles/about-milestones)".
 
-## Leia mais
+### Leia mais
 
-- "[Filtrando e pesquisando problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[Filtrar problemas e pull requests](/articles/filtering-issues-and-pull-requests)"
+- "[Ordenar problemas e pull requests](/articles/sorting-issues-and-pull-requests)"
+- "[Usar a pesquisa para filtrar problemas e pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"
+- "[Compartilhar filtros](/articles/sharing-filters)"
 - "[Filtrar cartões em um quadro de projeto](/articles/filtering-cards-on-a-project-board)"

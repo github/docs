@@ -25,7 +25,7 @@ module.exports = {
   preset: isBrowser ? 'jest-puppeteer' : undefined,
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',

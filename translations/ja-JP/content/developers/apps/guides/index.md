@@ -4,9 +4,9 @@ intro: '{% data variables.product.prodname_dotcom %} API をアプリケーシ�
 redirect_from:
   - /apps/quickstart-guides
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 children:

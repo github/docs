@@ -6,15 +6,12 @@ redirect_from:
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Reopen project board
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 When you close a project board, any workflow automation that was configured for the project board will pause by default. For more information, see "[Closing a project board](/articles/closing-a-project-board)."
 
@@ -26,6 +23,6 @@ When you reopen a project board, you have the option to *sync* automation, which
     - To reopen your project board and sync automation, click **Reopen and sync project**. ![Select "Reopen and resync project" button](/assets/images/help/projects/reopen-and-sync-project.png)
     - To reopen your project board without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**. ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-## 더 읽을거리
+### 더 읽을거리
 
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"

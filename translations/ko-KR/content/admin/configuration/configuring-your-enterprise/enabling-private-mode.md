@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-private-mode
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Access management

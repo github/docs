@@ -12,7 +12,7 @@ redirect_from:
   - /packages/guides/about-github-container-registry
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 shortTitle: Introduction
 ---

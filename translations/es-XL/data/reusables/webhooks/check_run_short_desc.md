@@ -1,0 +1,1 @@
+Ha ocurrido una actividad de ejecución de verificación. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[ejecuciones de verificación](/v3/checks/runs/)".

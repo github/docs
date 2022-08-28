@@ -9,13 +9,12 @@ redirect_from:
   - /apps/marketplace/selling-your-app/
   - /marketplace/selling-your-app
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
 children:
   - /pricing-plans-for-github-marketplace-apps
   - /billing-customers
   - /receiving-payment-for-app-purchases
-shortTitle: Sell apps on the Marketplace
 ---
 

@@ -33,11 +33,8 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. If your account has existing billing information that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)
-{% data reusables.dotcom_billing.enter-billing-info %}
-1. If your account has an existing payment method that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. If your account has an existing credit card that you want to update, click **New Card**.
+![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ## Updating your organization's payment method
@@ -45,6 +42,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
+
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

@@ -1,7 +1,7 @@
 ---
 title: GitHub Deceased User Policy
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

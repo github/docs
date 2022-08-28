@@ -6,13 +6,12 @@ redirect_from:
   - /articles/setting-your-teams-profile-picture
   - /github/setting-up-and-managing-organizations-and-teams/setting-your-teams-profile-picture
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Team profile picture
 ---
 
 Wenn für ein Team kein Profilbild festgelegt ist, wird stattdessen das Profilbild der Organisation angezeigt.

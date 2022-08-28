@@ -4,9 +4,9 @@ intro: 'La API de GraphQL de {% data variables.product.prodname_dotcom %} cuenta
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

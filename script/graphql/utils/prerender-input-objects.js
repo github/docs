@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import fs from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
 import cheerio from 'cheerio'
 import { liquid } from '../../../lib/render-content/index.js'
 import getMiniTocItems from '../../../lib/get-mini-toc-items.js'
 import rewriteLocalLinks from '../../../lib/rewrite-local-links.js'
 const includes = path.join(process.cwd(), 'includes')
-const inputObjectIncludeFile = await fs.readFile(
+const inputObjectIncludeFile = fs.readFileSync(
   path.join(includes, 'graphql-input-object.html'),
   'utf8'
 )

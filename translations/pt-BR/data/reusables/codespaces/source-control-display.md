@@ -1,3 +1,3 @@
-1. Na barra de atividade, clique na vista **Controle de Origem**.
+1. In the Activity Bar, click the **Source Control** view.
 
-  ![Visualização do controle origem](/assets/images/help/codespaces/codespaces-commit-activity.png)
+  ![Source control view](/assets/images/help/codespaces/codespaces-commit-activity.png)

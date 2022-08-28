@@ -6,13 +6,12 @@ redirect_from:
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Repositories
   - User account
-shortTitle: Recriar contribuições
 ---
 
 Sempre que é enviado para o {% data variables.product.prodname_enterprise %}, o commit é vinculado a uma conta de usuário caso ambos estejam associados ao mesmo endereço de e-mail. No entanto, os commits *não* são vinculados retroativamente quando um usuário registra um endereço de e-mail ou cria uma conta.

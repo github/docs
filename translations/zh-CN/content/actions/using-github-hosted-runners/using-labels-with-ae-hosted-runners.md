@@ -2,11 +2,10 @@
 title: 将标签与 AE 托管的运行器一起使用
 intro: '您可以使用标签以基于其特性来组织 {% data variables.actions.hosted_runner %}。'
 versions:
-  ghae: '*'
-shortTitle: 标识 AE 托管的运行器
+  github-ae: '*'
 ---
 
-{% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 有关如何使用标签将作业路由到特定类型的 {% data variables.actions.hosted_runner %} 的信息，请参阅“[在工作流程中使用 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)”。
 
@@ -17,7 +16,7 @@ shortTitle: 标识 AE 托管的运行器
 
 {% endnote %}
 
-## 查看 {% data variables.actions.hosted_runner %} 的标签
+### 查看 {% data variables.actions.hosted_runner %} 的标签
 {% data reusables.github-actions.hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.hosted-runner-list %}
 {% data reusables.github-actions.hosted-runner-list-group %}

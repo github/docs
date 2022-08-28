@@ -5,16 +5,15 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  fpt: '*'
-  ghes: '*'
-shortTitle: Subversion 客户端支持
+  free-pro-team: '*'
+  enterprise-server: '*'
 ---
 
 GitHub 通过 HTTPS 协议支持 Subversion 客户端。 我们使用 Subversion 网桥将 svn 命令传递给 GitHub。
 
-## GitHub 上支持的 Subversion 功能
+### GitHub 上支持的 Subversion 功能
 
-### 检出
+#### 检出
 
 您首先要进行 Subversion 检出。  由于 Git 克隆将工作目录（您编辑文件的位置）与仓库数据分开，因此工作目录中一次只有一个分支。
 
@@ -45,7 +44,7 @@ Subversion 检出则不同：它们混合工作目录中的仓库数据，因此
   Updated to revision 1.
   ```
 
-### 创建分支
+#### 创建分支
 
 您还可以使用到 GitHub 的 Subversion 网桥创建分支。
 
@@ -77,7 +76,7 @@ $ git fetch
 > * [new branch]    more_awesome -> origin/more_awesome
 ```
 
-### 对 Subversion 进行提交
+#### 对 Subversion 进行提交
 
 添加一些功能并修复一些漏洞后，您想要将这些更改提交到 GitHub。 此工作正如您惯用的 Subversion 一样。 编辑文件，然后使用 `svn commit` 记录您的更改：
 
@@ -100,7 +99,7 @@ $ svn commit -m 'Test coverage for problems'
 > Committed revision 4.
 ```
 
-### 在分支间切换
+#### 在分支间切换
 
 要在分支之间切换，您可能想要从 `trunk` 的检出开始：
 
@@ -114,7 +113,7 @@ $ svn co --depth empty https://github.com/<em>user</em>/<em>repo</em>/trunk
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-## 为 Subversion 提交查找 Git 提交 SHA
+### 为 Subversion 提交查找 Git 提交 SHA
 
 GitHub 的 Subversion 服务器公开每个 Subversion 提交的 Git 提交 sha。
 
@@ -127,6 +126,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 使用此提交 SHA，举例来说，您可以在 GitHub 上查找相应的 Git 提交。
 
-## 延伸阅读
+### 延伸阅读
 
 * “[GitHub 支持的 Subversion 属性](/articles/subversion-properties-supported-by-github)”

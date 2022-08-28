@@ -1,4 +1,4 @@
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 

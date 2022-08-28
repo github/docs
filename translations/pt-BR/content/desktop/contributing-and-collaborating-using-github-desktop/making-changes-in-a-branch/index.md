@@ -4,13 +4,11 @@ intro: 'Faça alterações no projeto usando seu editor de texto favorito, como 
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /managing-branches
   - /committing-and-reviewing-changes-to-your-project
   - /stashing-changes
-  - /viewing-the-branch-history
   - /pushing-changes-to-github
-shortTitle: Fazer alterações em um branch
+  - /viewing-the-branch-history
 ---
-

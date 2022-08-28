@@ -6,11 +6,10 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Change insight visibility
 ---
 
 Organisationsinhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke der Organisation festlegen. Standardmäßig können alle Mitglieder einer Organisation die Abhängigkeiten-Einblicke der Organisation anzeigen.

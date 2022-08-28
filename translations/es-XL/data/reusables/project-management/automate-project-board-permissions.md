@@ -1,0 +1,1 @@
+Para configurar flujos de trabajo automáticos para un tablero de proyecto de un repositorio, debes tener acceso de escritura al mismo. Los miembros y propietarios de una organización pueden configurar flujos de trabajo automáticos en un tablero de proyecto que contemple a toda la organización.

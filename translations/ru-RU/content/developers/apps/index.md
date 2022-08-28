@@ -10,9 +10,9 @@ redirect_from:
   - /apps
   - /v3/integrations
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 children:

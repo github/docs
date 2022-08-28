@@ -1,16 +1,15 @@
 ---
 title: OAuth-App-Zugriffsbeschränkungen für Deine Organisation deaktivieren
-intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
+intro: 'Organisationsinhaber können Einschränkungen für {% data variables.product.prodname_oauth_app %}s aufheben, die Zugriff auf die Ressourcen der Organisation haben.'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization/
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-oauth-app-access-restrictions-for-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Disable OAuth App
 ---
 
 {% danger %}

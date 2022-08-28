@@ -26,9 +26,9 @@ YAML 数据由 `middleware/contextualizers/release-notes.js` 处理和排序，�
 
 ### 布局
 
-The `context` object data is rendered by `components/release-notes`.
+`context` 对象数据由 `layouts/release-notes.html` 和 `includes/enterprise-server-release-notes.html` 渲染。
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
+发行说明页面有自定义设计，在 `stylesheets/release-notes.scss` 中使用 CSS，在 `javascripts/release-notes.js` 中使用客户端 JavaScript。
 
 ### 架构
 

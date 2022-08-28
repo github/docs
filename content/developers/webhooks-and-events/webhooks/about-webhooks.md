@@ -32,4 +32,4 @@ For a complete list of available webhook events and their payloads, see "[Webhoo
 For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#webhooks
+[repo-hooks]: /rest/reference/repos#hooks

@@ -1,10 +1,9 @@
 ---
 title: Cobrança
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 Você pode monitorar suas cobranças e uso de {% data variables.product.prodname_actions %} e de {% data variables.product.prodname_registry %} para um usuário e organização através da API de cobrança.

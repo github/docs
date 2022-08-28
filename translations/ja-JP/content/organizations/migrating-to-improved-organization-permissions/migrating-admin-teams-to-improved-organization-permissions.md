@@ -6,12 +6,11 @@ redirect_from:
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 管理Teamの移行
 ---
 
 デフォルトでは、Organization のすべてのメンバーがリポジトリを作成できます。 [リポジトリ作成権限](/articles/restricting-repository-creation-in-your-organization) を Organization のオーナーに制限しており、Organization がレガシーの Organization の権限構造で作成されていた場合、レガシーの管理者 Team のメンバーも引き続きリポジトリを作成できます。
@@ -28,7 +27,7 @@ shortTitle: 管理Teamの移行
 
 {% endwarning %}
 
-## Organization のレガシーの管理者 Team をすべて移行する
+### Organization のレガシーの管理者 Team をすべて移行する
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -36,7 +35,7 @@ shortTitle: 管理Teamの移行
 1. Organization のレガシーの管理者 Team をレビューし、[**Migrate all teams**] をクリックします。 ![[Migrate all teams] ボタン](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. 移行するチームのメンバーについて起きうる変化についての情報を読んだら、[**Migrate all teams**] をクリックします。 ![移行を確定するボタン](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
-## 1 つの管理者 Team を移行する
+### 1 つの管理者 Team を移行する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

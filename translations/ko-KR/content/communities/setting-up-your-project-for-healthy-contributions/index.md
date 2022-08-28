@@ -7,9 +7,9 @@ redirect_from:
   - /articles/setting-up-your-project-for-healthy-contributions
   - /github/building-a-strong-community/setting-up-your-project-for-healthy-contributions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
 children:

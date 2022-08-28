@@ -8,51 +8,50 @@ redirect_from:
   - /apps/building-github-apps/understanding-rate-limits-for-github-apps
   - /developers/apps/rate-limits-for-github-apps
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
-shortTitle: Límites de tasa
 ---
 
-## Solicitudes de servidor a servidor
+### Solicitudes de servidor a servidor
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
-Se aplicarán límites de tasa diferentes para las solicitudes de servidor a servidor en las {% data variables.product.prodname_github_apps %} si la app se encuentra instalada en organizaciones o repositorios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}.
+Se aplicarán límites de tasa diferentes para las solicitudes de servidor a servidor en las {% data variables.product.prodname_github_app %}s si la app se encuentra instalada en organizaciones o repositorios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}.
 
-### Límites de tasa normales de servidor a servidor
+#### Límites de tasa normales de servidor a servidor
 
 {% endif %}
 
 {% data reusables.apps.api-rate-limits-non-ghec %}
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
-### Límites de tasa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
+#### Límites de tasa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
 
-Las {% data variables.product.prodname_github_apps %} que se instalen en un repositorio de organización que pertenezca a una cuenta de {% data variables.product.prodname_ghe_cloud %} y haga solicitudes de servidor a servidor tiene un límite de tasa de 15,000 solicitudes por hora por organización por instalaciones de la organización o por repositorio por instalaciones de repositorio.
-
-{% endif %}
-
-## Solicitudes de usuario a servidor
-
-Las {% data variables.product.prodname_github_apps %} también pueden actuar [en nombre de un usuario](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps) al hacer solicitudes de usuario a servidor.
-
-{% ifversion fpt %}
-
-Aplicarán límites de tasa para solicitudes de usuario a servidor diferentes a las {% data variables.product.prodname_github_apps %} si la app se instaló en los repositorios u organizaciones que pertenezcan a la cuenta de {% data variables.product.prodname_ghe_cloud %} y el usuario autenticado también pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %}.
-
-### Límites de tasa normales de usuario a servidor
+Las {% data variables.product.prodname_github_app %}s que se instalen en un repositorio de organización que pertenezca a una cuenta de {% data variables.product.prodname_ghe_cloud %} y haga solicitudes de servidor a servidor tiene un límite de tasa de 15,000 solicitudes por hora.
 
 {% endif %}
 
-Las solicitudes de usuario a servidor tienen un límite de tasa de 5,000 solicitudes por hora y por usuario autenticado. Todas las aplicaciones de OAuth que autorizó éste usuario, los tokens de acceso personal que le pertenecen, y las solicitudes que se autenticaron con su{% ifversion ghae %} token{% else %} nombre de usuario y contraseña{% endif %} comparten la misma cuota de 5,000 solicitudes por hora para dicho usuario.
+### Solicitudes de usuario a servidor
 
-{% ifversion fpt %}
+Las {% data variables.product.prodname_github_app %} también pueden actuar [en nombre de un usuario](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps) al hacer solicitudes de usuario a servidor.
 
-### Límites de tasa de usuario a servidor de {% data variables.product.prodname_ghe_cloud %}
+{% if currentVersion == "free-pro-team@latest" %}
+
+Se aplicarán límites de tasa diferentes para las solicitudes de usuario a servidor en las {% data variables.product.prodname_github_app %}s si la app se encuentra instalada en organizaciones o repositorios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %} y el usuario autenticado también pertenece a dicha cuenta de {% data variables.product.prodname_ghe_cloud %}.
+
+#### Límites de tasa normales de usuario a servidor
+
+{% endif %}
+
+Las solicitudes de usuario a servidor tienen un límite de tasa de 5,000 solicitudes por hora y por usuario autenticado. Todas las aplicaciones de OAuth que autorizó éste usuario, los tokens de acceso personal que le pertenecen, y las solicitudes que se autenticaron con su{% if currentVersion == "github-ae@latest" %} token{% else %} nombre de usuario y contraseña{% endif %} comparten la misma cuota de 5,000 solicitudes por hora para dicho usuario.
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### Límites de tasa de usuario a servidor de {% data variables.product.prodname_ghe_cloud %}
 
 Cuando un usuario pertenece a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes de usuario a servidor para los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite de tasa de 15,000 solicitudes por hora y por usuario autenticado. Todas las aplicaciones de OAuth que autorizó este usuario, los tokens de acceso personal que le pertenezcan, y las solicitudes de {% data variables.product.prodname_ghe_cloud %} que se autenticaron con el nombre de usuario y contraseña del mismo, comparten la misma cuota de 5,000 solicitudes por hora para dicho usuario.
 

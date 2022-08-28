@@ -5,13 +5,12 @@ redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 添加协作者
 ---
 
 外部协作者并未明确是组织的成员，但对组织的项目板具有访问权限。

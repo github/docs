@@ -12,8 +12,7 @@ export default function csp(req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
-      prefetchSrc: ["'self'"],
-      connectSrc: ["'self'"],
+      connectSrc: ["'self'", '*.algolia.net', '*.algolianet.com'],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [
         "'self'",
@@ -48,7 +47,7 @@ export default function csp(req, res, next) {
 
   const { requestedVersion } = isArchivedVersion(req)
 
-  // Exception for deprecated Enterprise docs (Node.js era)
+  // Exception for Algolia instantsearch in deprecated Enterprise docs (Node.js era)
   if (
     versionSatisfiesRange(requestedVersion, '<=2.19') &&
     versionSatisfiesRange(requestedVersion, '>2.12')

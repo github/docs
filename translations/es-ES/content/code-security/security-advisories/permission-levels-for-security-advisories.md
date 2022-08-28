@@ -6,16 +6,15 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: reference
 topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
-shortTitle: Niveles de permiso
 ---
 
-## Resumen de permisos
+### Resumen de permisos
 
 {% data reusables.repositories.security-advisory-admin-permissions %} Para obtener más información sobre cómo añadir un colaborador a una asesoría de seguridad, consulta la sección "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)".
 
@@ -33,7 +32,7 @@ shortTitle: Niveles de permiso
 | Cerrar el borrador de la asesoría de seguridad                                                                                                                                                                                                                                                              |                       | X                         |
 | Publicar la asesoría de seguridad (consulta la sección "[Publicar una asesoría de seguridad](/github/managing-security-vulnerabilities/publishing-a-security-advisory)")                                                                                                                                    |                       | X                         |
 
-## Leer más
+### Leer más
 
 - "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"
 - "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

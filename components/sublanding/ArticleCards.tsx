@@ -40,8 +40,7 @@ export const ArticleCards = () => {
 
   return (
     <div>
-      <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
-      <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
+      <form className="mt-2 mb-5 d-flex d-flex">
         <div>
           <label htmlFor="type" className="text-uppercase f6 color-text-secondary d-block">
             {t('filters.type')}
@@ -88,14 +87,6 @@ export const ArticleCards = () => {
         </div>
       </form>
 
-      <div role="status" className="color-text-secondary">
-        {guides.length === 0
-          ? t('guides_found.none')
-          : guides.length === 1
-          ? t('guides_found.one')
-          : t('guides_found.multiple').replace('{n}', guides.length)}
-      </div>
-
       <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {guides.slice(0, numVisible).map((card) => {
           return <ArticleCard key={card.href} card={card} typeLabel={guideTypes[card.type]} />
@@ -109,6 +100,12 @@ export const ArticleCards = () => {
         >
           {t('load_more')}
         </button>
+      )}
+
+      {guides.length === 0 && (
+        <div className="py-4 text-center color-text-secondary">
+          <h4 className="text-normal">{t('no_result')}</h4>
+        </div>
       )}
     </div>
   )

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} podría contactar a los solicitantes o participantes de {% data variables.product.prodname_sponsors %} pidiendo información adicional sobre su perfil o actividad de patrocinio para determinar la elegibilidad de dicho patrocinio o candidatura, o como parte de una investigación para la violación potencial de las condiciones.

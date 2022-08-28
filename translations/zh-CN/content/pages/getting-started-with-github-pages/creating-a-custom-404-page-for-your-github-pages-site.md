@@ -7,12 +7,11 @@ redirect_from:
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
-shortTitle: 创建自定义 404 页面
 ---
 
 {% data reusables.pages.navigate-site-repo %}
@@ -31,6 +30,6 @@ shortTitle: 创建自定义 404 页面
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## 延伸阅读
+### 延伸阅读
 
 - Jekyll 文档中的[前页](http://jekyllrb.com/docs/frontmatter)

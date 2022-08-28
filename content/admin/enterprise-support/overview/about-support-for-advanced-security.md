@@ -37,8 +37,6 @@ If you're uncertain if the issue is out of scope, open a ticket and we're happy 
 
 ## Contacting {% data variables.contact.enterprise_support %}
 
-{% data reusables.support.zendesk-deprecation %}
-
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
 - Installing and using {% data variables.product.prodname_advanced_security %}
 - Identifying and verifying the causes of supported errors
@@ -51,9 +49,21 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
-
-{% data reusables.enterprise_enterprise_support.support-holiday-availability %}
-
+| U.S. holiday                | Date observed       |
+| ---                         | ---                         |
+| New Year's Day              | January 1                   |
+| Martin Luther King, Jr. Day | Third Monday in January     |
+| Presidents' Day             | Third Monday in February    |
+| Memorial Day                | Last Monday in May          |
+| Independence Day            | July 4                      |
+| Labor Day                   | First Monday in September   |
+| Veterans Day                | November 12                 |
+| Thanksgiving Day            | Fourth Thursday in November |
+| Day after Thanksgiving      | Fourth Friday in November   |
+| Christmas Eve               | December 24                 |
+| Christmas Day               | December 25                 |
+| Day after Christmas         | December 28                 |
+| New Year's Eve              | December 31                 |
 
 ## Installing {% data variables.product.prodname_advanced_security %} updates
 

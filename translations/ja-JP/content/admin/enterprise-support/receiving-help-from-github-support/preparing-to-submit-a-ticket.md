@@ -5,13 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
-shortTitle: Prepare a ticket
 ---
 
 チケットをサブミットする前に以下の作業を済ませておいてください。
@@ -23,7 +22,7 @@ shortTitle: Prepare a ticket
 - {% data variables.contact.github_support %} との進行中のやりとりがあれば、既存のチケット番号があるかを確認してください。
 - {% data variables.contact.github_support %} と連絡を取り合うのに適した人を決めてください。
 
-## 担当者の選択
+### 担当者の選択
 
 特にチケットの優先度が {% data variables.product.support_ticket_priority_urgent %} の場合、{% data variables.contact.github_support %} に問い合わせるユーザは、次のことを確認してください。
 

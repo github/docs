@@ -1,5 +1,5 @@
 ---
-title: GitHub Pagesのドキュメンテーション
+title: GitHub Pages Documentation
 shortTitle: GitHub Pages
 intro: '{% data variables.product.product_name %} リポジトリから、ウェブサイトを直接作成できます。'
 redirect_from:
@@ -13,9 +13,9 @@ redirect_from:
   - /github/working-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
 children:

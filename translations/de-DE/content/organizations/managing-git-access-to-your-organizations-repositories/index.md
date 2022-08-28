@@ -7,15 +7,14 @@ redirect_from:
   - /articles/managing-git-access-to-your-organizations-repositories
   - /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
 children:
   - /about-ssh-certificate-authorities
   - /managing-your-organizations-ssh-certificate-authorities
-shortTitle: Manage Git access
 ---
 

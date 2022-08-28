@@ -1,0 +1,144 @@
+/* Search
+------------------------------------------------------------------------------*/
+
+/* Global styles
+Gets applied to both the search input on homepage and in the header nav
+Form and inputs using .ais- prefix gets added by search.js */
+.ais-SearchBox {
+  position: relative;
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-SearchBox-form {
+  width: 100%;
+  display: flex;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  padding: 10px $spacer-2 10px $spacer-5;
+  font-size: 16px;
+  @extend .form-control;
+  background: var(--color-bg-primary) url("/assets/images/octicons/search.svg")
+    no-repeat 6px;
+}
+
+.ais-Hits-item {
+  list-style: none;
+  overflow: hidden;
+
+  &:hover {
+    background: var(--color-auto-blue-0);
+  }
+}
+
+/* activated by search-with-your-keyboard arrow navigation */
+.ais-Hits-item.active {
+  background: var(--color-auto-blue-0);
+}
+
+.search-result-intro {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+mark,
+.ais-Highlight-highlighted {
+  background: none;
+  color: inherit;
+
+  .search-result-title & {
+    color: var(--color-auto-blue-5);
+  }
+
+  .search-result-intro & {
+    border-bottom: 1px solid var(--color-auto-blue-5);
+  }
+
+  .search-result-content & {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-auto-gray-5);
+  }
+}
+
+.search-result-content {
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.search-result-title em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.search-result-intro em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+// Search in header
+header {
+  .ais-SearchBox-form {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(lg) {
+    #search-results-container {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      border-radius: 3px;
+      background: var(--color-bg-primary);
+      box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+      transition: width 0.3s ease-in-out;
+
+      &.js-open {
+        display: block;
+        width: 60vw;
+        max-width: 760px;
+        padding: $spacer-7 $spacer-4 $spacer-4 $spacer-4;
+      }
+
+      .ais-Hits {
+        margin-top: $spacer-4;
+      }
+    }
+
+    // Overlay is only shown on desktop search modal
+    .search-overlay-desktop.js-open {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      display: block;
+      content: " ";
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .ais-SearchBox-input {
+      min-width: $spacer-12 * 2;
+    }
+
+    .ais-SearchBox-input.js-open {
+      width: 55vw;
+      max-width: 710px;
+      position: absolute;
+      right: 0;
+      top: -26px;
+      z-index: 1;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}
+
+#__next .ais-SearchBox-input.js-open {
+  top: 0;
+}

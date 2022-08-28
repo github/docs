@@ -1,24 +1,24 @@
 ---
-title: お亡くなりになったユーザに関するGitHubのポリシー
+title: GitHubユーザの死亡に関するポリシー
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal
 ---
 
-万が一、GitHubのユーザがお亡くなりになった場合は、アカウントのコンテンツに関する取り扱いを決定するため、権限を与えられた個人と協力できます。
+In the event that a GitHub user passes away, we can work with an authorized individual to determine what happens to the account's content.
 
-お亡くなりになったユーザの最近親者、[事前に指定された後継者](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)、その他の権限を与えられた個人 (コラボレータや共同経営者などを含む) で、そのアカウントに関するリクエストを行いたい場合は、https://support.github.com/contactから当社にご連絡ください。 メッセージには、以下の情報をご記入願います。
+If you are next of kin, a [pre-designated successor](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories), or other authorized individual (which could include a collaborator or business partner) of a deceased user and would like to make a request regarding their account, you can reach out to us at https://support.github.com/contact. Please provide the following information in your message:
 
 - 名前
 - 連絡先情報
-- お亡くなりになったアカウント所有者の名前
-- お亡くなりになったアカウント所有者のGitHubユーザ名
-- お亡くなりになったアカウント所有者との関係 (GitHub.comでアカウントの後継者として指定されているかについてもご記入願います)
-- アカウントの後継者として指定されている場合、GitHubアカウントのユーザ名
-- 求めるアクション (パブリックリポジトリの移譲、アカウントの支払いキャンセルなど)
+- Name of the deceased account holder
+- GitHub username of the deceased account holder
+- Your relationship to the deceased account holder (please include whether you have been designated as the account successor on GitHub.com)
+- If designated as account successor, the username of your GitHub account
+- What action you are seeking (e.g. transfer public repositories, cancel billing on account)
 
-リクエストを受領後、お客様のリクエストを処理する適切な権限が当社に与えられていることを確認するため、写真付き身分証明書のコピー、死亡診断書のコピー、お亡くなりになったユーザのアカウントに関して行動する権限が与えられていることを確認する文書などの追加情報を請求する場合があります。
+Once we have received your request, we may follow up with a request for additional information, such as a copy of your photo identification, copy of the death certificate, and documentation confirming you are authorized to act in relation to the deceased user’s account, to verify that we are properly authorized to process your request.
 
-リクエストにおいてお客様が提供する情報については、当社の [プライバシーについての声明](/github/site-policy/github-privacy-statement)に従って収集され、当社はその情報を、当社の法的義務順守および紛争解決に必要な限りにおいてのみ保持するものとします。
+Please note, the information you provide in your request is collected in accordance with our [Privacy Statement](/github/site-policy/github-privacy-statement), and we will retain the information only as necessary to comply with our legal obligations and resolve disputes.

@@ -5,11 +5,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
-  fpt: '*'
-shortTitle: Configure default editor
+  free-pro-team: '*'
 ---
 
-## Supported editors
+### Supported editors
 
 {% data variables.product.prodname_desktop %} supports the following editors.
 
@@ -55,7 +54,7 @@ shortTitle: Configure default editor
 
 {% endwindows %}
 
-## Configuring a default editor
+### Configuring a default editor
 
 {% mac %}
 

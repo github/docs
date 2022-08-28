@@ -1,0 +1,1 @@
+1. Debajo de "Descripción", teclea la descripción de la dirección IP o el rango de ellas que se permitirá. ![Campo clave para agregar un nombre a la dirección IP](/assets/images/help/security/ip-address-name-field.png)

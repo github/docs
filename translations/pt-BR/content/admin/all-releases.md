@@ -3,10 +3,9 @@ title: Versões do GitHub Enterprise Server
 intro: 'Documentação para as versões atualmente compatíveis e obsoletas do {{ site.data.variables.product.prodname_ghe_server }}.'
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
-shortTitle: Versões
 ---
 
 ## Atualmente compatível

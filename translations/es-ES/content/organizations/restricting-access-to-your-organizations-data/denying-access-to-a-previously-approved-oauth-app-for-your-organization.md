@@ -6,11 +6,10 @@ redirect_from:
   - /articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/denying-access-to-a-previously-approved-oauth-app-for-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Negar una App de OAuth
 ---
 
 {% data reusables.profile.access_org %}

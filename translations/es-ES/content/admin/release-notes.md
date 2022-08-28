@@ -2,8 +2,8 @@
 title: Notas de lanzamiento
 layout: release-notes
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
   - Upgrades

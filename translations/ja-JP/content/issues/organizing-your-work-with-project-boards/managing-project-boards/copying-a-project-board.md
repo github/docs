@@ -6,12 +6,10 @@ redirect_from:
   - /articles/copying-a-project-board
   - /github/managing-your-work-on-github/copying-a-project-board
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Pull requests
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 プロジェクトボードをコピーすると、プロジェクトボードのタイトル、説明、自動化の設定を再利用できます。 プロジェクトボードをコピーすることで、同じようなワークフローのために新しいプロジェクトボードを手動で作成するプロセスをなくすことができます。
 

@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-javascript-action
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 type: tutorial
 topics:
@@ -20,6 +20,7 @@ shortTitle: JavaScript action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 

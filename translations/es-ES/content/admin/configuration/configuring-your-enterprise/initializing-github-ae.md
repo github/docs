@@ -2,7 +2,7 @@
 title: Inicializar GitHub AE
 intro: 'Para poner a tu empresa lista para operar, puedes completar la configuración inicial de {% data variables.product.product_name %}.'
 versions:
-  ghae: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -10,27 +10,27 @@ redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
 
-## Acerca de la inicialización
+### Acerca de la inicialización
 
 Antes de que puedas inicializar tue mpresa, debes comprar {% data variables.product.product_name %}. Para obtener más información, contacta a {% data variables.contact.contact_enterprise_sales %}.
 
-{% data reusables.github-ae.initialize-enterprise %} Asegúrate de que la información que proporcionas empate con la información destinada del propietario de la empresa en el IdP. Para obtener más información acerca de los propietarios de las empresas, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
+Después de haber comprado {% data variables.product.product_name %}, te pediremos que proporciones una dirección de correo electrónico y nombre de usuario de la persona que desea inicializar la empresa. Tu administrador de cuenta técnico dedicado en {% data variables.contact.enterprise_support %} creará una cuenta para el propietario de la empresa y le enviará un correo electrónico para ingresar en {% data variables.product.product_name %} y completar la inicialización. Asegúrate de que la información que proporciones empate en el IdP con aquella de quien se pretende sea el propietario. Para obtener más información acerca de los propietarios de las empresas, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% note %}
 
 **Notas**:
 
-- Si la contraseña inicial para {% data variables.product.prodname_ghe_managed %} vence antes de que finalices la instalación, puedes solicitar un restablecimiento de contraseña en cualquier momento desde tu correo electrónico de invitación.
+- If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
 
-- Almacena de forma segura el nombre de usuario y contraseña iniciales para {% data variables.product.prodname_ghe_managed %} en un administrador de contraseñas. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+- Store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
 {% endnote %}
 
 Durante la inicialización, el propietario de la empresa nombrará a tu empresa, configurará el SSO de SAML, creará políticas para todas las organizaciones dentro de la empresa y configurará un contacto de soporte para tus usuarios.
 
-## Prerrequisitos
+### Prerrequisitos
 
-Para comenzar la inicialización, recibirás un correo electrónico de invitación desde {% data variables.product.company_short %}. Antes de que configures {% data variables.product.prodname_ghe_managed %}, revisa los siguientes prerequisitos.
+To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
 
 1. Para inicializar {% data variables.product.product_location %}, debes tener un proveedor de identiddad (IdP) de SAML. {% data reusables.saml.ae-uses-saml-sso %} Para conectar tu IdP a tu empresa durante la inicialización, debes tener tu URL de ID de entidad (SSO) del IdP, URL de ID emisora, y certificado de firma público (cifrado en Base64). Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidades para tu empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)".
@@ -43,13 +43,13 @@ Para comenzar la inicialización, recibirás un correo electrónico de invitaci�
 
 2. {% data reusables.saml.assert-the-administrator-attribute %}
 
-## Iniciar sesión y nombrar a tu empresa
+### Iniciar sesión y nombrar a tu empresa
 
 1. Sigue las instrucciones en tu correo electrónico de bienvenida para llegar a tu empresa.
 2. Teclea tus credenciales debajo de "Cambiar contraseña", luego da clic en **Cambiar contraseña**.
 3. Debajo de "¿Cómo te gustaría llamar a tu cuenta empresarial?", teclea el nombre de la empresa y luego da clic en **Guardar y continuar**. ![Botón de "Guardar y continuar" para nombrar a una empresa](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-## Conectar tu IdP a tu empresa
+### Conectar tu IdP a tu empresa
 
 Para configurar la autenticación para {% data variables.product.product_name %}, debes proporcionar a {% data variables.product.product_name %} los detalles de tu IdP de SAML. {% data variables.product.company_short %} te recomienda utilizar Azure AD como tu IdP. Para obtener más información, consulta la sección "[Configurar la autenticación y el aprovisionamiento con tu proveedor de identidad](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)".
 
@@ -60,7 +60,7 @@ Para configurar la autenticación para {% data variables.product.product_name %}
 1. Da clic en **Probar la configuración de SAML** para garantizar que la información que ingresaste sea correcta. ![Botón de "Probar la configuración de SAML"](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
 1. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración del IdP](/assets/images/enterprise/configuration/ae-save.png)
 
-## Configurar las políticas de tu empresa
+### Configurar las políticas de tu empresa
 
 El configurar políticas pondrá limitaciones para la administración de repositorios y organizaciones en tu empresa. Estas pueden volver a configurarse después del proceso de inicialización.
 
@@ -76,7 +76,7 @@ El configurar políticas pondrá limitaciones para la administración de reposit
 10. Haz clic en **Save (Guardar)** ![Botón de "Guardar" para la configuración de políticas empresariales](/assets/images/enterprise/configuration/ae-save.png)
 11. Opcionalmente, para restablecer todas las selecciones, da clic en "Restablecer a las políticas predeterminadas". ![Enlace para restablecer todas las políticas predeterminadas](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-## Configurar tu contacto de soporte interno
+### Configurar tu contacto de soporte interno
 
 Puedes configurar el método que tus usuarios utilizarán para contactar a tu equipo de soporte interno. Esto puede volver a configurarse después del proceso de inicialización.
 
@@ -84,7 +84,7 @@ Puedes configurar el método que tus usuarios utilizarán para contactar a tu eq
 2. Debajo de "Contacto de soporte interno", selecciona el método para que los usuarios de tu empresa contacten a soporte, a través de una URL o de una dirección de correo electrónico. Posteriormente, teclea la información de contacto para soporte. ![Campo de texto para la URL de contacto de soporte interno](/assets/images/enterprise/configuration/ae-support-link-url.png)
 3. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración del contacto de soporte empresarial](/assets/images/enterprise/configuration/ae-save.png)
 
-## Configurar los ajustes de tu correo electrónico
+### Configurar los ajustes de tu correo electrónico
 
 Una vez que se inicialice, puedes reconfigurar cualquier ajuste después del proceso de inicialización. Para obtener más información, consulta la sección "[Configurar las notificaciones de correo electrónico](/admin/configuration/configuring-email-for-notifications)".
 

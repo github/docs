@@ -36,7 +36,7 @@ Categories are usually organized around a feature or a discrete set of tasks wit
 - Task-based (begins with a gerund)
 - Describes the big-picture purpose or goal of using the feature or product
 - General or high-level enough to scale with future product enhancements
-- Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters
+- Category titles must be 67 characters or shorter
 - Examples
   - [Setting up and managing your GitHub user account](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account)
   - [Installing GitHub Enterprise](https://docs.github.com/en/enterprise-server@3.0/admin/installation)
@@ -54,7 +54,7 @@ Map topics contain at least three articles. When map topics have more than eight
 - Task-based (begins with a gerund)
 - Describes a more specific task within the larger workflow of the category it’s in
 - General or high-level enough to scale with future additions to the product
-- Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters
+- Map topic titles must be 63 characters or shorter
 - Examples
   - [Securing your account with two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)
   - [Setting policies for organizations in your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)
@@ -103,9 +103,9 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production
 - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
-  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
-  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
+  - Category titles: 67 characters
+  - Map topic titles: 63 characters
+  - Article titles: 80 characters, 60 if possible
 
 ### Reusing content
 
@@ -383,7 +383,7 @@ Check the source files and `gated-features` to see how source content is written
 
 ### Permissions statements
 
-Every procedure includes a permissions statement explaining the role required to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
+Every procedure includes a permissions statement explaining the roles or permissions needed to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
 
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
@@ -391,11 +391,9 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 - When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
 - When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
 - Don't include permissions in an article’s intro.
-- Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 - Language to use in a permissions statement:
-  - [ACCOUNT ROLE] can [ACTION].
-  - People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
-  - AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
+  - [ROLE] can [ACTION].
+  - People with [ROLE] permissions for [FEATURE] can [ACTION].
 
 #### Examples of permissions statements
 - Article with separate permissions statements for each procedure: [Upgrading your GitHub subscription](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription)

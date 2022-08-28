@@ -5,15 +5,14 @@ redirect_from:
   - /articles/converting-an-organization-into-a-user
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-into-a-user
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Organizationのユーザへの変換
 ---
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 1. 新しい GitHub ユーザアカウントに[サインアップ](/articles/signing-up-for-a-new-github-account)します。
 2. [ユーザのロールをオーナーに変更](/articles/changing-a-person-s-role-to-owner)します。

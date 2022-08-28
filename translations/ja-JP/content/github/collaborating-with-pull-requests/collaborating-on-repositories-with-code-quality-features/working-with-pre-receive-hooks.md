@@ -6,8 +6,7 @@ redirect_from:
   - /articles/working-with-pre-receive-hooks
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
 versions:
-  ghes: '*'
-shortTitle: pre-receive フック
+  enterprise-server: '*'
 ---
 
 Pre-receive フックは、コントリビューションがリポジトリまたは Organization の方針を確実に満たすために、リポジトリにプッシュされたコードに対してテストを実行します。 コミット内容がテストに合格すると、プッシュはリポジトリに受け入れられます。 コミット内容がテストに合格しなかった場合、プッシュは受け入れられません。

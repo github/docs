@@ -5,13 +5,12 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Issueの削除の許可
 ---
 
 デフォルトでは、Organization 内の Issue は削除できません。 Organization のオーナーは、まず Organization の全リポジトリでこの機能を有効化しなければなりません。

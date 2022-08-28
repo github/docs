@@ -5,8 +5,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
-  fpt: '*'
-shortTitle: 卸载 GitHub Desktop
+  free-pro-team: '*'
 ---
 
 {% mac %}

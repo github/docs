@@ -4,8 +4,8 @@ intro: 'Você pode configurar como os usuários conectam-se a {% data variables.
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:

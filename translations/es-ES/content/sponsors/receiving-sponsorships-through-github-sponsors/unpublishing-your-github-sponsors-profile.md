@@ -2,12 +2,11 @@
 title: Dejar de publicar tu perfil de GitHub Sponsors
 intro: 'Si no tienes ningún patrocinadore, puedes dejar de publicar tu perfil de {% data variables.product.prodname_sponsors %}.'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
-shortTitle: Dejar de publicar tu perfil
 ---
 
 Si tienes patrocinadores, necesitas contactar al Soporte de GitHub para ayudarte a dejar de publicar tu cuenta de {% data variables.product.prodname_sponsors %}.

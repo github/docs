@@ -1,1 +1,1 @@
-1. Clique em **Confirmar a merge**.
+1. Click **Confirm merge**.

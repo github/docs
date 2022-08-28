@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/installation/monitoring-your-github-enterprise-server-appliance
   - /enterprise/admin/enterprise-management/monitoring-your-appliance
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
 children:

@@ -4,13 +4,11 @@ intro: '使用您常用的文本编辑器，如 [Atom](https://atom.io/)，更�
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /managing-branches
   - /committing-and-reviewing-changes-to-your-project
   - /stashing-changes
-  - /viewing-the-branch-history
   - /pushing-changes-to-github
-shortTitle: 在分支中进行更改
+  - /viewing-the-branch-history
 ---
-

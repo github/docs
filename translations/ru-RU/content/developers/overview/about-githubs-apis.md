@@ -4,9 +4,9 @@ intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to exte
 redirect_from:
   - /v3/versions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

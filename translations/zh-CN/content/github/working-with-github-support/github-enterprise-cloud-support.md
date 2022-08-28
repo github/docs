@@ -6,10 +6,9 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} 在您当地时区的周一至周五为优先支持请求提供八小时响应服务。'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Jobs
-shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}

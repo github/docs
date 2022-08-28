@@ -7,10 +7,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
 
-## Sobre a autenticação
+### Sobre a autenticação
 
 Para manter sua conta segura, você deve autenticar antes de usar o {% data variables.product.prodname_desktop %} para acessar os recursos no {% data variables.product.prodname_dotcom %}.
 
@@ -18,7 +18,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-## Autenticando uma conta no {% data variables.product.prodname_dotcom %}
+### Autenticando uma conta no {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
@@ -31,7 +31,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.2fa-in-browser %}
 7. Depois que o {% data variables.product.prodname_dotcom %} autenticar sua conta, siga as instruções para retornar a {% data variables.product.prodname_desktop %}.
 
-## Autenticando uma conta no {% data variables.product.prodname_enterprise %}
+### Autenticando uma conta no {% data variables.product.prodname_enterprise %}
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -45,7 +45,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 
 {% windows %}
 
-## Autenticando uma conta no {% data variables.product.prodname_dotcom %}
+### Autenticando uma conta no {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
@@ -58,8 +58,10 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.2fa-in-browser %}
 7. Depois que o {% data variables.product.prodname_dotcom %} autenticar sua conta, siga as instruções para retornar a {% data variables.product.prodname_desktop %}.
 
-## Autenticando uma conta no {% data variables.product.prodname_enterprise %}
+### Autenticando uma conta no {% data variables.product.prodname_enterprise %}
 
+
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
@@ -69,7 +71,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 
 {% endwindows %}
 
-## Solução de problemas de autenticação
+### Solução de problemas de autenticação
 
 Se o {% data variables.product.prodname_desktop %} encontrar um erro de autenticação, você pode usar mensagens de erro para solucionar problemas.
 
@@ -93,7 +95,7 @@ Para alguns erros, {% data variables.product.prodname_desktop %} enviará a voc�
 
 Revise abaixo as informações de solução de problemas para a mensagem de erro que você encontrar.
 
-### Credenciais inválidas
+#### Credenciais inválidas
 
 ```shell
 Erro: credenciais inválidas
@@ -103,7 +105,7 @@ Este erro significa que há um problema com suas credenciais da conta armazenada
 
 Para solucionar problemas, saia da sua conta no {% data variables.product.prodname_desktop %} e entre novamente.
 
-### Token vazio
+#### Token vazio
 
 ```shell
 info: [ui] [AppStore.withAuthenticatingUser] conta encontrada para o repositório: node - <username> (token vazio)
@@ -113,7 +115,7 @@ Este erro significa que {% data variables.product.prodname_desktop %} não foi p
 
 Para solucionar problemas, saia da sua conta no {% data variables.product.prodname_desktop %} e entre novamente.
 
-### Repositório não encontrado
+#### Repositório não encontrado
 
 ```shell
 fatal: repositório 'https://github.com/<user>/<repo>.git' não encontrado
@@ -125,7 +127,7 @@ Este erro significa que você não tem permissão para acessar o repositório qu
 
 Para solucionar problemas, entre em contato com a pessoa da sua organização que administra as permissões.
 
-### Não foi possível ler a partir do repositório remoto
+#### Não foi possível ler a partir do repositório remoto
 
 ```shell
 git@github.com: Permissão negada (publickey).
@@ -138,7 +140,7 @@ Este erro significa que você não tem uma chave SSH válida configurada.
 
 Para solucionar problemas, consulte "[Gerando uma nova chave SSH e adicionando-a ao agente SSH](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
-### Falha ao clonar
+#### Falha ao clonar
 
 ```shell
 fatal: o clone do 'git@github.com:<user>/<repo>' no caminho do submódulo '<path>' falhou
@@ -157,7 +159,7 @@ Se você não tem uma chave SSH válida configurada, consulte "[Gerando uma nova
 
 {% windows %}
 
-### Não foi possível ler a resposta do AskPass
+#### Não foi possível ler a resposta do AskPass
 
 ```shell
 erro: incapaz de ler a resposta de askpass a partir de '/Users/<path>/GitHub Desktop.app/Contents/Resources/static/ask-pass-trampoline.sh'
@@ -176,5 +178,5 @@ Se o seu nome de usuário do Windows tiver caracteres Unicode estendidos, isso p
 
 {% endwindows %}
 
-## Leia mais
+### Leia mais
 - "[Sobre a autenticação no GitHub](/github/authenticating-to-github/about-authentication-to-github)"

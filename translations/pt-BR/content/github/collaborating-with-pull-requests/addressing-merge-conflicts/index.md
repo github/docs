@@ -5,15 +5,14 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/
   - /articles/addressing-merge-conflicts
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 children:
   - /about-merge-conflicts
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
-shortTitle: Resolver conflitos de merge
 ---
 

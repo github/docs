@@ -4,16 +4,14 @@ intro: 'Formatting like tables, syntax highlighting, and automatic linking allow
 redirect_from:
   - /articles/working-with-advanced-formatting
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /organizing-information-with-tables
   - /creating-and-highlighting-code-blocks
   - /autolinked-references-and-urls
   - /attaching-files
   - /creating-a-permanent-link-to-a-code-snippet
-  - /using-keywords-in-issues-and-pull-requests
-shortTitle: Work with advanced formatting
 ---
 

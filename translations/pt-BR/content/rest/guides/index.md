@@ -5,9 +5,9 @@ redirect_from:
   - /guides/
   - /v3/guides
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 children:

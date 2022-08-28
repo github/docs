@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -6,12 +11,6 @@
 // to rest reference documentation
 //
 // [end-readme]
-
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import walk from 'walk-sync'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const re = /^---\n/gm
 

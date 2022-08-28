@@ -6,12 +6,11 @@ redirect_from:
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/finding-changed-methods-and-functions-in-a-pull-request
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: 方法和函数
 ---
 
 对仓库有读取权限的任何人都可以查看拉取请求的某些文件中函数和方法更改的摘要列表。
@@ -37,7 +36,7 @@ shortTitle: 方法和函数
 
 6. 您将被重定向到所选函数或方法的第一行。 ![查看文件中已更改的函数或方法](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-## 延伸阅读
+### 延伸阅读
 
 - “[关于比较拉取请求中的分支](/articles/about-comparing-branches-in-pull-requests)”
 - "[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)"
