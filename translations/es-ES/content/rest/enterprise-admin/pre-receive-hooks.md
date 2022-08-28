@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Hooks
+title: Ganchos de pre-recepción
 intro: 'La API de Ganchos Pre-recepción te permite crear, listar, actualizar y borrar los ganchos de pre-recepción.'
 versions:
   ghes: '*'

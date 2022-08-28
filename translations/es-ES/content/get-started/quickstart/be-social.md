@@ -57,7 +57,23 @@ From your dashboard, click the drop down menu of your username on the left side 
 
 ![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-### Exploring other projects on {% data variables.product.prodname_dotcom %}
+{% ifversion for-you-feed %}
+
+## Following organizations
+
+{% data reusables.organizations.follow-organizations-beta %}
+
+{% data reusables.organizations.about-following-organizations %}
+
+To follow an organization, in the header of the organization's page, click **Follow**.
+
+![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+
+For more information, see "[Following organizations](/get-started/exploring-projects-on-github/following-organizations)."
+
+{% endif %}
+
+## Exploring other projects on {% data variables.product.prodname_dotcom %}
 
 You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. You can star interesting projects to make them easy to find again later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 

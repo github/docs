@@ -2,7 +2,7 @@
 title: GitHub Actions Permissions
 allowTitleToDifferFromFilename: true
 shortTitle: Permisos
-intro: 'The {% data variables.product.prodname_actions %} Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed to run.'
+intro: 'La API de permisos de {% data variables.product.prodname_actions %} te permite configurar los permisos para cuáles empresas, organizaciones y repositorios pueden ejecutar {% data variables.product.prodname_actions %} y qué acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} pueden ejecutarse.'
 topics:
   - API
 versions:

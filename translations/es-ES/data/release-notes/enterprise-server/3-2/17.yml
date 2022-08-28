@@ -6,7 +6,7 @@ sections:
     - |
       **ALTA**: Las aplicaciones instaladas anteriormente en las cuentas de usuario obtuvieron permiso automáticamente para acceder a una organización en los tokens de acceso en el alcance después de que la cuenta de usuario se transformó en una cuenta de organización. Esta vulnerabilidad se reportó a través del [Programa de Recompensas por Errores de GitHub](https://bounty.github.com).
   bugs:
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+    - Cuando se configuró un umbral de inactividad personalizado para la instancia, el suspender a todos los usuarios inactivos no respetó confiablemente dicho umbral. Para obtener más información sobre la inactividad, consulta la sección "[Administrar a los usuarios inactivos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
