@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import renderContent from '../../../lib/render-content/index.js'
-
 // If there is a oneOf at the top level, then we have to present just one
 // in the docs. We don't currently have a convention for showing more than one
 // set of input parameters in the docs. Having a top-level oneOf is also very
@@ -8,7 +7,6 @@ import renderContent from '../../../lib/render-content/index.js'
 // Currently there aren't very many operations that require this treatment.
 // As an example, the 'Add status check contexts' and 'Set status check contexts'
 // operations have a top-level oneOf.
-
 async function getTopLevelOneOfProperty(schema) {
   if (!schema.oneOf) {
     throw new Error('Schema does not have a requestBody oneOf property defined')
@@ -24,7 +22,6 @@ async function getTopLevelOneOfProperty(schema) {
   const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
   let required = firstOneOfObject.required || []
   let properties = firstOneOfObject.properties || {}
-
   // When all of the oneOf objects have the `type: object` we
   // need to display all of the parameters.
   // This merges all of the properties and required values.
@@ -36,18 +33,16 @@ async function getTopLevelOneOfProperty(schema) {
     properties = firstOneOfObject.properties
   }
   return { properties, required }
-}
+ }
 
-// Gets the body parameters for a given schema recursively.
-export async function getBodyParams(schema, topLevel = false) {
-  const bodyParametersParsed = []
-  const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
-  const properties = schemaObject.properties || {}
+ // Gets the body parameters for a given schema recursively.
+ export async function getBodyParams(schema, topLevel = false) {
+   const bodyParametersParsed = []
+   const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
+   const properties = schemaObject.properties || {}
   const required = schemaObject.required || []
-
   for (const [paramKey, param] of Object.entries(properties)) {
     const paramDecorated = {}
-
     // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
     // will either be a single value or an array of values.
     // This makes type an array regardless of how many values the array
@@ -60,11 +55,9 @@ export async function getBodyParams(schema, topLevel = false) {
         : [param.additionalProperties.type]
       : []
     const childParamsGroups = []
-
     // If the parameter is an array or object there may be child params
     // If the parameter has oneOf or additionalProperties, they need to be
     // recursively read too.
-
     // There are a couple operations with additionalProperties, which allows
     // the api to define input parameters with the type dictionary. These are the only
     // two operations (at the time of adding this code) that use additionalProperties
@@ -79,24 +72,24 @@ export async function getBodyParams(schema, topLevel = false) {
         ),
         isRequired: param.required,
         enum: param.enum,
-        default: param.default,
-        childParamsGroups: [],
-      }
-      keyParam.childParamsGroups.push(...(await getBodyParams(param.additionalProperties, false)))
-      childParamsGroups.push(keyParam)
-    } else if (paramType && paramType.includes('array')) {
-      const arrayType = param.items.type
-      if (arrayType) {
-        paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
-      }
-      if (arrayType === 'object') {
-        childParamsGroups.push(...(await getBodyParams(param.items, false)))
-      }
-    } else if (paramType && paramType.includes('object')) {
-      childParamsGroups.push(...(await getBodyParams(param, false)))
-    } else if (param && param.oneOf) {
-      // get concatenated description and type
-      const descriptions = []
+         default: param.default,
+         childParamsGroups: [],
+       }
+       keyParam.childParamsGroups.push(...(await getBodyParams(param.additionalProperties, false)))
+       childParamsGroups.push(keyParam)
+     } else if (paramType && paramType.includes('array')) {
+       const arrayType = param.items.type
+       if (arrayType) {
+         paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+       }
+       if (arrayType === 'object') {
+         childParamsGroups.push(...(await getBodyParams(param.items, false)))
+       }
+     } else if (paramType && paramType.includes('object')) {
+       childParamsGroups.push(...(await getBodyParams(param, false)))
+     } else if (param && param.oneOf) {
+       // get concatenated description and type
+       const descriptions = []
       for (const childParam of param.oneOf) {
         paramType.push(childParam.type)
         // If there is no parent description, create a description from
@@ -121,7 +114,6 @@ export async function getBodyParams(schema, topLevel = false) {
       const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
       if (!param.description) param.description = oneOfDescriptions
     }
-
     // Supports backwards compatibility for OpenAPI 3.0
     // In 3.1 a nullable type is part of the param.type array and
     // the property param.nullable does not exist.
@@ -144,9 +136,7 @@ export async function getBodyParams(schema, topLevel = false) {
     if (param.default) {
       paramDecorated.default = param.default
     }
-
     bodyParametersParsed.push(paramDecorated)
   }
-
   return bodyParametersParsed
 }
