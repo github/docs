@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
 import { SmallFooter } from 'components/page-footer/SmallFooter'
@@ -10,7 +9,6 @@ import { RestBanner } from 'components/page-header/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useRouter } from 'next/router'
-
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
   const {
@@ -27,7 +25,6 @@ export const DefaultLayout = (props: Props) => {
   const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
-
   return (
     <div className="d-lg-flex">
       <Head>
@@ -37,7 +34,6 @@ export const DefaultLayout = (props: Props) => {
           (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
           <title>{page.fullTitle}</title>
         ) : null}
-
         {/* For Google and Bots */}
         <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
@@ -51,10 +47,8 @@ export const DefaultLayout = (props: Props) => {
             />
           )
         })}
-
         {/* For local site search indexing */}
         {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
-
         {/* For analytics events */}
         {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
@@ -68,7 +62,6 @@ export const DefaultLayout = (props: Props) => {
         {page.type && <meta name="page-type" content={page.type} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
         {status && <meta name="status" content={status.toString()} />}
-
         {/* OpenGraph data */}
         {page.fullTitle && (
           <>
@@ -86,22 +79,21 @@ export const DefaultLayout = (props: Props) => {
       <a href="#main-content" className="sr-only">
         Skip to main content
       </a>
-      <SidebarNav />
-      {/* Need to set an explicit height for sticky elements since we also
-          set overflow to auto */}
-      <div className="flex-column flex-1">
-        <Header />
-        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
-          <DeprecationBanner />
+       <SidebarNav />
+       {/* Need to set an explicit height for sticky elements since we also
+           set overflow to auto */}
+       <div className="flex-column flex-1">
+         <Header />
+         <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+           <DeprecationBanner />
           <RestBanner />
-
           {props.children}
         </main>
         <footer>
           <SupportSection />
           <SmallFooter />
           <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
+            className="position-fixed bottom-0 mb-4 right-0 mr-4"
             ariaLabel={t('scroll_to_top')}
           />
         </footer>
