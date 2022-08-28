@@ -685,29 +685,31 @@ Code "Z" Income under section 409A on a nonqualified Deferred Compensation plan 
 Code "R" Employer's Contribution to MSA : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'					00000				
 Code "S" Employer's Cotribution to Simple Account : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .					00000				
 Code "T" Expenses Incurred for Qualified Adoptions : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .					00000				
-Code "V" Income from exercise of non-statutory stock options : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .					00000				
-Code "AA" Designated Roth Contributions under a Section  401 (k)  Plan : . . . . . . . . . . . . . . . . . . . .					00000				
-Code "BB" Designated Roth Contributions under a Section 403 (b) Plan : . . . . . . . . . . . . . . . . . . . . .					00000				
+Code "V" Income from exercise of non-statutory stock options : . . . . . . . . . . . . . . . . . . . . . . . . .00000				
+Code "AA" Designated Roth Contributions under a Section  401 (k)  Plan : . . . . . . . . . . . . . . . . . . . .00000				
+Code "BB" Designated Roth Contributions under a Section 403 (b) Plan : . . . . . . . . . . . . . . . . . . . . .00000				
 Code "DD" Cost of Employer-Sponsored Health Coverage : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .									
 Code "EE" Designated ROTH Contributions Under a Governmental Section 457 (b) Plan : . . . . . . . . . . . . . . . . . . . . .									
-Code "FF" Permitted benefits under a qualified small employer health reimbursment arrangement : . . . . . . . . . 					00000				
-Code "GG" Income from Qualified Equity Grants Under Section 83 (i) : . . . . . . . . . . . . . . . . . . . . . . $0.00									
-Code "HH" Aggregate Defferals Under section 83(i) Elections as of the Close of the Calendar Year : . . . . . . . 					00000				
-Third Party Sick Pay Indicator : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .					Unanswered				
-Retirement Plan Indicator : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Unanswered								For the period 04/13/2022 to 04/29/2022
+Code "FF" Permitted benefits under a qualified small employer health reimbursment arrangement : . . . . . . . . . 00000				
+Code "GG" Income from Qualified Equity Grants Under Section 83 (i) : . . . . . . . . . . . . . . . . . . . . . . . $0.00									
+Code "HH" Aggregate Defferals Under section 83(i) Elections as of the Close of the Calendar Year : . . . . . . . . 00000				
+Third Party Sick Pay Indicator : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .Unanswered				
+Retirement Plan Indicator : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Unanswered					
+                                                                                  For the period 04/13/2022 to 04/29/2022
 ZACHRY TYLER WOOD
 Primary account number: 47-2041-6547 Page 2 of 3	
-Statutory Employee : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Not Statutory Employee								Reference number	
+Statutory Employee : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Not Statutory Employee	
 W2 Submission Type : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Original								22116905560149	
-W2 WHC SSN Validation Code : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Correct SSN								Reference number	
-								22116905560149	
-								Reference number	
-								22116905560149	
-				Transaction description				on your next statement as a single line item entitled Service
-Waived - New Customer Period	
+W2 WHC SSN Validation Code : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Correct SSN								
+Reference number :
+22116905560149	
+Reference number :	
+22116905560149	
+Transaction description	willon your next statement as a single line item entitled Service
+Waived - show up on 05/02/2022 New Customer Period	
 4/27/2022		Form 1099-G		Returned Item Fee (nsf)					
 Detail of Services Used During Current Period									
-Note: The total charge for the following services will be posted to your account on 05/02/2022 and will appear on your next statement a Charge Period Ending 04/29/2022,									
+Note: The total charge for the following services will be posted to your account on 05/02/2022 and will appear on your next statement a Charge Period Ending 04 and appear as SRVCCHRG 04/29/2022,									
 Description						Volume	Amount		
 Account Maintenance Charge						70846743866	00000	        	
 Total For Services Used This Peiiod						00000	00000		
@@ -722,13 +724,13 @@ Update Your Account Register
 Certified Copy of Resolutionsl
 Authorizations For Accounts And Loans					@PNCBANK				
 (Corporations, Partnerships, Unincorporated Associations, Sole Proprietorships & Other Organizations)								step 2: Add together checks and other deductions listed in your account register but not on your statement.	
-PNC Bank, National Association ("Bank")						Taxpayer I.D. Number (TIN)			C'eck
+PNC Bank, National Association("Bank")						
+Taxpayer I.D. Number (TIN)			
+Check
 Deduction Descretio•
 (iv)
-(v)			account or benefit, or in payment of the individual obligations of, any individual obligations of any such persons to the Bank without regard to the disposition or purpose of same as allowed by applicable law.			D pNCBANK			
-
-Copy A For The Internal Revenue Service, All rights reserved.
-ID:44c295b9-ce08-424f-b6a5-b0f009ad802c ::NOTE
+(account or benefit, or in payment of the individual obligations of, any individual obligations of any such persons to the Bank without regard to the disposition or purpose of same as allowed by applicable law.			
+D'@PNCBANK'@ID:44c295b9-ce08-424f-b6a5-b0f009ad802c ::NOTE
 
 
 
