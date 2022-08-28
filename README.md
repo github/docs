@@ -1,7 +1,8 @@
-BEGIN
+Run::/:BEGIN:
+!/sur/bin/bash/Users/bin/Bash/config.yml/install/grunt.yml/Slate.xml-with: '"pom.YML/Package.json/'"'$':RAKEFILE.IU=: ''='"'='"':mk.dir'"''
 GLOW7
--starts:On:-on:-on:
--on: :
+-starts:-on:-on: "On"
+On::runs-on:' '"Run'"' :
 +# They are provided by a third-party and are governed by
 +# separate terms of service, privacy policy, and support
 +# documentation.
