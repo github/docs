@@ -1,18 +1,20 @@
 ---
 title: Gists
+intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Autenticação
 
-Você pode ler gists públicos {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contém currentVersion %}e criá-los para usuários anônimos sem um token{% else %} de forma anônima, mas você precisa entrar no GitHub para criar gists.{% endif %} Para ler ou escrever gists em nome do usuário, você precisa do escopo OAuth para gists e um token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
+Você pode ler listas públicas {% ifversion ghae or ghes %}e criá-las para usuários anônimos sem um token.{% else %} anonimamente, mas você precisa conectar-se ao GitHub para criar gist.{% endif %} Para ler ou escrever gists em nome de um usuário, você precisa do escopo do OAuth e de um token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 

@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ Você deve resolver todos os conflitos de merge para poder fazer merge de uma pu
 
 ![mensagem de erro de conflito de merge](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### Resolver conflitos de merge
+## Resolver conflitos de merge
 
 Para resolver um conflito de merge, é preciso editar manualmente o arquivo em conflito para selecionar as alterações que deseja manter no merge final. Há duas maneiras diferentes de resolver um conflito de merge:
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### Leia mais
+## Leia mais
 
 - "[Sobre merges de pull request](/articles/about-pull-request-merges/)"
 - "[Sobre pull requests](/articles/about-pull-requests)"

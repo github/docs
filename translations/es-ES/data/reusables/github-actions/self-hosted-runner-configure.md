@@ -1,6 +1,4 @@
-1. Selecciona el sistema operativo y arquitectura de tu máquina de ejecutor auto-hospedado. ![Selecciona el sistema operativo del ejecutor autoalojado](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. La imagen y arquitectura de tu sistema operativo para tu máquina del ejecutor auto-hospedado.
 1. Verás instrucciones que te mostrarán cómo descargar la aplicación del ejecutor e instalarla en tu máquina de ejecutor autoalojado.
 
    Abre un shell en tu máquina de ejecutor autoalojado y ejecuta cada comando del shell en el orden que se muestra.

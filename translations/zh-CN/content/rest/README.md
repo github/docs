@@ -7,4 +7,4 @@
 
   `include` 标记呈现的内容来自 `/lib/rest/static` 目录，由 GitHub 内部的 API 源代码自动生成，不应人工编辑。 更多信息请参阅 [`/lib/rest/README.md`](/lib/rest/README.md)。
 
-  **因此，我们不能接受参与此仓库中的 REST API 参考内容。**
+  **We cannot accept changes to content that is rendered by `include` tags. However, you can open an issue describing the changes you would like to see.**

@@ -6,11 +6,14 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: SAML SSOの有効化とテスト
 ---
+
+## About SAML single sign-on
 
 すべてのメンバーに使用するように強制する必要なく、Organization 内で SAML SSO を有効化できます。 SAML SSO を Organization 内で強制せずに有効化することで、Organization での SAML SSO の導入がスムーズになります。 Organization 内の大半のメンバーが SAML SSO を使用するようになったら、Organization 内で強制化できます。
 
@@ -18,7 +21,13 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Organization で SAML SSO を強制する前に、アイデンティティプロバイダ (IdP) を設定しておいてください。 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
+## Organization 向けの SAML シングルサインオンを有効化してテストする
+
+{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
+
+Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
+
+For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -45,6 +54,6 @@ Organization で SAML SSO を強制する前に、アイデンティティプロ
 11. SAML SSO を強制して、IdP 経由で認証をされていないすべての Organization メンバーを削除するには、[**Require SAML SSO authentication for all members of the _Organization 名_ organization**] を選択します。 SAML SSO の強制化の詳細については、「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。 ![Organization 向けに SAML SSO を強制するためのチェックボックス ](/assets/images/help/saml/saml_require_saml_sso.png)
 12. [**Save**] をクリックします。 ![SAML SSO 設定を保存するためのボタン](/assets/images/help/saml/saml_save.png)
 
-### 参考リンク
+## 参考リンク
 
 - [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)

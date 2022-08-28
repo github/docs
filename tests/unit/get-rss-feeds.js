@@ -1,9 +1,9 @@
 import Parser from 'rss-parser'
 import { getChangelogItems } from '../../lib/changelog.js'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 const parser = new Parser({ timeout: 5000 })
-const rssFeedContent = fs.readFileSync(
+const rssFeedContent = await fs.readFile(
   path.join(process.cwd(), 'tests/fixtures/rss-feed.xml'),
   'utf8'
 )

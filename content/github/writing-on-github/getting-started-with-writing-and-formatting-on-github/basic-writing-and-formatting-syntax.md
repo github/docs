@@ -39,9 +39,9 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 You can quote text with a `>`.
 
 ```markdown
-In the words of Abraham Lincoln:
+Text that is not a quote
 
-> Pardon my French
+> Text that is a quote
 ```
 
 ![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
@@ -87,7 +87,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLS](/articles/autolinked-references-and-urls)."
+**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
 {% endtip %}
 
@@ -98,6 +98,41 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 ## Relative links
 
 {% data reusables.repositories.relative-links %}
+
+## Images
+
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+
+{% tip %}
+
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links. 
+
+{% endtip %}
+
+Here are some examples for using relative links to display an image.
+
+| Context | Relative Link |
+| ------ | -------- |
+| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
+| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png` |
+| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+
+{% note %}
+
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+
+{% endnote %}
+
+For more information, see "[Relative Links](#relative-links)."
+
 
 ## Lists
 
@@ -148,7 +183,7 @@ In this example, you could add a nested list item under the list item `100. Firs
 
 ![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven spaces (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. First list item
@@ -226,6 +261,30 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## Ignoring Markdown formatting
 
 You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
@@ -235,6 +294,14 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 ![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
 
 For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+## Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## Further reading
 

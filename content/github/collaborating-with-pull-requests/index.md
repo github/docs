@@ -22,6 +22,6 @@ children:
   - /addressing-merge-conflicts
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
-shortTitle: Collaborate with PRs
+shortTitle: Collaborate with pull requests
 ---
 

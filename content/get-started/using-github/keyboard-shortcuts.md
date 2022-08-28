@@ -23,7 +23,7 @@ Below is a list of some of the available keyboard shortcuts.
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+|<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
@@ -33,7 +33,7 @@ Below is a list of some of the available keyboard shortcuts.
 |-----------|------------
 |<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
 |<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes > 2.21 %}
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes %}
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt %}
@@ -42,7 +42,8 @@ Below is a list of some of the available keyboard shortcuts.
 ## Source code editing
 
 | Keyboard shortcut | Description
-|-----------|------------
+|-----------|------------{% ifversion fpt %}
+|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
@@ -80,9 +81,12 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae-next or ghes > 3.1 %}
 | <kbd>control e</kbd> or <kbd>command e</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
-| <kbd>control shift p</kbd> or <kbd>command shift p</kbd>| Toggles between the **Write** and **Preview** comment tabs
+| <kbd>control shift p</kbd> or <kbd>command shift p</kbd>| Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 %}
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list
+| <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
 | <kbd>control enter</kbd> | Submits a comment
-| <kbd>control .</kbd> and then <kbd>control [saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt %}
+| <kbd>control .</kbd> and then <kbd>control [saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae-next or ghes > 3.2 %}
+| <kbd>control shift .</kbd> or <kbd>command shift.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt %}
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 | <kbd>r</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
@@ -91,7 +95,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>c</kbd> | Create an issue
-| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)."||
+| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
 |<kbd>u</kbd> | Filter by author
 |<kbd>l</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
 | <kbd>alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."

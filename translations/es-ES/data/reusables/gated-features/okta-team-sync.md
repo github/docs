@@ -1,4 +1,4 @@
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 {% note %}
 

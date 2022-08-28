@@ -5,13 +5,14 @@ redirect_from:
   - /articles/about-githubs-use-of-your-data
 intro: '{% data variables.product.product_name %}はユーザのリポジトリのデータを使い、ユーザを関連するツール、人々、プロジェクト、情報につなげます。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: GitHub's use of your data
 ---
  
-### {% data variables.product.product_name %} によるユーザのデータの利用について
+## {% data variables.product.product_name %} によるユーザのデータの利用について
 
 {% data variables.product.product_name %}は、プロダクト内の一般化された知見を配信するために、メタデータを集約し、コンテンツのパターンをパースします。 パブリックリポジトリからのデータが利用され、リポジトリのオーナーがオプトインを通じて{% data variables.product.product_name %}とデータを共有するよう選択した場合、プライベートリポジトリからのメタデータが使われ、データが集約されます。 プライベートリポジトリのデータの利用をオプトインした場合、その指定されたプライベートリポジトリのリードオンリーの分析が行われます。
 
@@ -23,7 +24,7 @@ topics:
 
 メタデータあるいは集約されたデータを使う大きな新機能は、[{% data variables.product.prodname_dotcom %}blog](https://github.com/blog)でアナウンスします。
 
-### データによるセキュリティの推奨事項の改善
+## データによるセキュリティの推奨事項の改善
 
 データの利用方法の例として、パブリックリポジトリの依存対象のセキュリティの脆弱性を検出し、アラートを出すことができます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
@@ -31,7 +32,7 @@ topics:
 
 {% data variables.product.product_name %}はまた、依存対象のマニフェストに加えられた変更についても知ります。 たとえばあなたが脆弱性のある依存対象をセキュリティアラートを受けた後で安全なバージョンにアップグレードして、他者も同じようにした場合、{% data variables.product.product_name %}はその脆弱性へのパッチの方法を学習し、影響を受けるリポジトリに同じパッチを推奨できます。
 
-### プライバシーとデータ共有
+## プライバシーとデータ共有
 
 プライベートリポジトリのデータはマシンによってスキャンされ、{% data variables.product.product_name %}のスタッフが読むことは決してありません。 弊社の[利用規約](/articles/github-terms-of-service/#3-access)に記載されている場合を除き、人の眼はプライベートリポジトリの内容を見ることはありません。
 

@@ -6,7 +6,7 @@ redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -14,11 +14,12 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Habilitar e inhabilitar las actualizaciones
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
-### Acerca de las actualizaciones de versión para las dependencias
+## Acerca de las actualizaciones de versión para las dependencias
 
 Habilitarás {% data variables.product.prodname_dependabot_version_updates %} mediante la selección de un archivo de configuración de *dependabot.yml* en el directorio `.github` dentro de tu repositorio. El {% data variables.product.prodname_dependabot %} levanta entonces las solicitudes de extracción para mantener actualizadas las dependencias que configures. Para cada dependencia del administrador de paquete que quieras actualizar, debes especificar la ubicación de los archivos de manifiesto de dicho paquete, así como la periodicidad en la que quieres buscar actualizaciones para las dependencias listadas en esos archivos. Para obtener más información sobre habilitar las actualizaciones de seguridad, consulta la sección "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
@@ -26,7 +27,7 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
 
 {% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. Para obtener más información, consulta las secciones "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" y "[Soporte para idiomas de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-language-support)".
 
-### Habilitar las {% data variables.product.prodname_dependabot_version_updates %}
+## Habilitar las {% data variables.product.prodname_dependabot_version_updates %}
 
 {% data reusables.dependabot.create-dependabot-yml %} Para obtener más información, consulta la sección "[Opciones de configuración para las actualziaciones de las dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates)".
 1. Agrega una `version`.
@@ -38,7 +39,7 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
     - `schedule.interval` para especificar qué tan a menudo se debe revisar si hay nuevas versiones.
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
-#### Archivo *dependabot.yml* de ejemplo
+### Archivo *dependabot.yml* de ejemplo
 
 El archivo de ejemplo *dependabot.yml* que se muestra a continuación actualiza dos administradores de paquetes: npm y Docker. Cuando se registra este archivo, el {% data variables.product.prodname_dependabot %} revisa los archivos de manifiesto en la rama predeterminada par ver si hay dependencias desactualizadas. Si encuentra dependencias desactualizadas, levantará solicitudes de extracción contra la rama predeterminada para actualizar estas dependencias.
 
@@ -67,7 +68,7 @@ updates:
 
 En el ejemplo anterior, si las dependencias de Docker estuvieran muy desactualizadas, tal vez quisieras comenzar con una programación de tipo `daily` hasta que las dependencias estén bien actualizadas y, posteriormente, tomar una programación semanal.
 
-#### Habilitar las actualizaciones de versión en las bifurcaciones
+### Habilitar las actualizaciones de versión en las bifurcaciones
 
 Si quieres habilitar las actualizaciones de versión en las bifurcaciones, hay un paso extra que debes tomar. Las actualizaciones de versión no se habilitan automáticamente en las bifurcaciones cuando existe un archivo de configuración *dependabot.yml*. Esto garantiza que los dueños de la bifurcación no habiliten las actualizaciones de versión accidentalmente cuando suben cambios, incluyendo el archivo de configuración *dependabot.yml* del repositorio original.
 
@@ -79,7 +80,7 @@ En una bifurcación, también necesitas habilitar explícitamente el {% data var
 {% data reusables.dependabot.click-dependabot-tab %}
 5. Debajo de "Habilitar el Dependabot", da clic en **Enable Dependabot**.
 
-### Revisar el estado de las actualizaciones de versión
+## Revisar el estado de las actualizaciones de versión
 
 Después de que habilitas las actualizaciones de versión, verás una nueva pestaña de **Dependabot** en la gráfica de dependencias del repositorio. Esta pestaña muestra los administradores de paquetes para los cuales se configuró el monitoreo del {% data variables.product.prodname_dependabot %} y cuándo éste revisó las últimas versiones.
 
@@ -87,7 +88,7 @@ Después de que habilitas las actualizaciones de versión, verás una nueva pest
 
 Para obtener más información, consulta la sección "[Listar las dependencias configuradas para las actualizaciones de versión](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
 
-### Inhabilitar las {% data variables.product.prodname_dependabot_version_updates %}
+## Inhabilitar las {% data variables.product.prodname_dependabot_version_updates %}
 
 Puedes inhabilitar las actualizaciones de versión completamente si eliminas el archivo *dependabot.yml* de tu repositorio. Normalmente, tal vez quieras inhabilitar las actualizaciones temporalmente para una o más dependencias o administradores de paquete.
 
@@ -96,7 +97,7 @@ Puedes inhabilitar las actualizaciones de versión completamente si eliminas el 
 
 Cuando inhabilitas las dependencias, puedes utilizar comodines para empatar con un conjunto de bibliotecas relacionadas. También puedes especificar qué versiones excluir. Esto es particularmente útil si necesitas bloquear actualizaciones en una biblioteca, el trabajo pendiente para apoyar un cambio sustancial en su API, pero quieres quieres obtener cualquier arreglo de seguridad para la versión que utilices.
 
-#### Ejemplo de inhabilitar las actualizaciones de versión para algunas dependencias
+### Ejemplo de inhabilitar las actualizaciones de versión para algunas dependencias
 
 En este archivo de *dependabot.yml* de ejemplo se incluyen ejemplos de las formas diferentes para inhabilitar las actualizaciones en algunas dependencias, mientras que se permite que otras actualizaciones continuen.
 

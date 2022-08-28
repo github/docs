@@ -1,0 +1,8 @@
+@import "@primer/css/layout/index.scss";
+
+.sectionHeading {
+  scroll-margin-top: 280px !important;
+  @include breakpoint(sm) {
+    scroll-margin-top: 200px !important;
+  }
+}

@@ -15,14 +15,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Mejorar el GHES
 ---
 
-### Preparar para una actualización
+## Preparar para una actualización
 
 1. Determina una estrategia de actualización y elige una versión a la que actualizar. Para obtener más información, consulta "[Requisitos de actualización](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 3. Crea una copia de seguridad nueva de tu instancia principal con las {% data variables.product.prodname_enterprise_backup_utilities %}. Para obtener más información, consulta el archivo README.md en [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -36,7 +37,7 @@ topics:
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Tomar una instantánea
+## Tomar una instantánea
 
 Una instantánea es un punto de verificación de una máquina virtual (VM) en un momento en el tiempo. Recomendamos firmemente tomar una instantánea antes de actualizar tu máquina virtual para que si falla una actualización, puedas revertir tu VM nuevamente a la instantánea. Si no estás actualizando a un nuevo lanzamiento de característica, debes tomar una instantánea de VM. Si estás actualizando a un nuevo lanzamiento de patch, puedes adjuntar el disco de datos existente.
 
@@ -62,24 +63,24 @@ Hay dos tipos de instantáneas:
 | VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
 | XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
-### Actualizar con un hotpatch
+## Actualizar con un hotpatch
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} Utilizando la {% data variables.enterprise.management_console %}, puedes instalar un hotpatch de forma inmediata o programar la instalación para más tarde. Puedes utilizar el shell administrativo para instalar un hotpatch con la herramienta `ghe-upgrade`. Para obtener más información, consulta "[Requisitos de actualización](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notas{% else %}Nota{% endif %}**:
+**{% ifversion ghes > 2.22 %}Notas{% else %}Nota{% endif %}**:
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 - Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no puedes actualizarla con un hotpatch.
 
 - {% endif %}No hay disponibilidad para instalar un parche utilizando la {% data variables.enterprise.management_console %} en los ambientes de clúster. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 
-#### Actualizar un aparato único con un hotpatch
+### Actualizar un aparato único con un hotpatch
 
-##### Instalar un hotpatch utilizando la {% data variables.enterprise.management_console %}
+#### Instalar un hotpatch utilizando la {% data variables.enterprise.management_console %}
 
 1. Habilitar actualizaciones automáticas. Para obtener más información, consulta "[Habilitar actualizaciones automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)."
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -90,7 +91,7 @@ Hay dos tipos de instantáneas:
     - Para instalarlo más tarde, selecciona una fecha posterior. ![Menú desplegable de fecha de instalación de hotpatch](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
 5. Da clic en **Instalar**. ![Botón de instalación de hotpatch](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-##### Instalar un hotpatch utilizando un shell administrativo
+#### Instalar un hotpatch utilizando un shell administrativo
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -104,7 +105,7 @@ Hay dos tipos de instantáneas:
   ```
 5. Si se requiere un reinicio para las actualizaciones de kernel, MySQL, Elasticsearch u otros programas, el script de actualización de hotpatch te avisa.
 
-#### Actualizar un aparato que tiene instancias de réplica utilizando un hotpatch
+### Actualizar un aparato que tiene instancias de réplica utilizando un hotpatch
 
 {% note %}
 
@@ -114,11 +115,11 @@ Hay dos tipos de instantáneas:
 
 Los aparatos configurados para alta disponibilidad y de replicación geográfica utilizan instancias de réplica además de las instancias principales. Para actualizar estos aparatos, necesitarás actualizar tanto la instancia principal y todas las instancias de réplica, una a la vez.
 
-##### Actualizar la instancia principal
+#### Actualizar la instancia principal
 
 1. Actualiza la instancia principal siguiendo las instrucciones en "[Instalar un hotpatch utilizando el shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)."
 
-##### Actualizar una instancia de réplica
+#### Actualizar una instancia de réplica
 
 {% note %}
 
@@ -130,11 +131,11 @@ Los aparatos configurados para alta disponibilidad y de replicación geográfica
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
-### Actualizar con un paquete de actualización
+## Actualizar con un paquete de actualización
 
 Al mismo tiempo que puedes utilizar un hotpatch para actualizar al lanzamiento de patch más reciente dentro de una serie de características, debes utilizar un paquete de actualización para actualizar a un lanzamiento de característica más nuevo. Por ejemplo para actualizar de `2.11.10` a `2.12.4` debes utilizar un paquete de actualización ya que están en series de características diferentes. Para obtener más información, consulta "[Requisitos de actualización](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 
-#### Actualizar un aparato único con un paquete de actualización
+### Actualizar un aparato único con un paquete de actualización
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -170,11 +171,11 @@ Al mismo tiempo que puedes utilizar un hotpatch para actualizar al lanzamiento d
 
   {% endnote %}
 
-#### Actualizar un aparato que tiene instancias de réplica utilizando un paquete de actualización
+### Actualizar un aparato que tiene instancias de réplica utilizando un paquete de actualización
 
 Los aparatos configurados para alta disponibilidad y de replicación geográfica utilizan instancias de réplica además de las instancias principales. Para actualizar estos aparatos, necesitarás actualizar tanto la instancia principal y todas las instancias de réplica, una a la vez.
 
-##### Actualizar la instancia principal
+#### Actualizar la instancia principal
 
 {% warning %}
 
@@ -187,7 +188,7 @@ Los aparatos configurados para alta disponibilidad y de replicación geográfica
 3. En la instancia de réplica, o en todas las instancias de réplica si estás ejecutando múltiples instancias de réplica como parte de una replicación geográfica, ejecuta `ghe-repl-stop` para detener la replicación.
 4. Actualiza la instancia primaria siguiendo las instrucciones en "[Actualizar un aparato único con un paquete de actualización](#upgrading-a-single-appliance-with-an-upgrade-package)."
 
-##### Actualizar una instancia de réplica
+#### Actualizar una instancia de réplica
 
 {% note %}
 
@@ -217,22 +218,22 @@ Los aparatos configurados para alta disponibilidad y de replicación geográfica
    {% data reusables.enterprise_installation.replication-status %}
 6. Cuando hayas completado la actualización de la última réplica, y se haya completado la resincronización, deshabilita el modo mantenimiento para que los usuarios puedan utilizar {% data variables.product.product_location %}.
 
-### Restaurar desde una actualización fallida
+## Restaurar desde una actualización fallida
 
 Si una actualización falla o se interrumpe, deberías revertir tu instancia a su estado anterior. El proceso para completar esto depende del tipo de actualización.
 
-#### Revertir un lanzamiento de patch
+### Revertir un lanzamiento de patch
 
 Para volver a lanzar una versión de parche, usa el comando `ghe-upgrade` con el comando `--allow-patch-rollback` switch. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 Para obtener más información, consulta "[Herramientas de línea de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
 
-#### Revertir un lanzamiento de característica
+### Revertir un lanzamiento de característica
 
 Para revertir un lanzamiento de característica, restaura desde una instantánea de VM para garantizar que las particiones raíz y de datos estén en un estado consistente. Para obtener más información, consulta "[Tomar una instantánea](#taking-a-snapshot)."
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Leer más
+{% ifversion ghes > 2.22 %}
+## Leer más
 
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

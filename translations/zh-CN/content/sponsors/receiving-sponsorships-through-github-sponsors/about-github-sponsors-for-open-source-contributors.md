@@ -5,14 +5,15 @@ redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
+shortTitle: 开源贡献者
 ---
 
-### 加入 {% data variables.product.prodname_sponsors %}
+## 加入 {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} 更多信息请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”。
 
@@ -24,13 +25,13 @@ topics:
 
 {% data reusables.sponsors.github-contact-applicants %}
 
-### 赞助级别
+## 赞助级别
 
 {% data reusables.sponsors.tier-details %} 更多信息请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”、“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”和“[管理赞助级别](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”。
 
 最好设置一系列不同的赞助选项，包括每月和一次性等级，使任何人都能轻松地支持您的工作。 特别是，一次性付款使人们能够在不担心他们的财务是否会支持定期付款时间表的情况下奖励您的努力。
 
-### 赞助付款
+## 赞助付款
 
 {% data reusables.sponsors.no-fees %}
 
@@ -38,9 +39,9 @@ topics:
 
 更多信息请参阅“[从 {% data variables.product.prodname_sponsors %} 管理您的付款](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)”。
 
-### 共享关于 {% data variables.product.prodname_sponsors %} 的反馈
+## 共享关于 {% data variables.product.prodname_sponsors %} 的反馈
 
 {% data reusables.sponsors.feedback %}
 
-### 延伸阅读
+## 延伸阅读
 - {% data variables.product.prodname_blog %} 上的“[{% data variables.product.prodname_sponsors %} 团队常见问题](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)”

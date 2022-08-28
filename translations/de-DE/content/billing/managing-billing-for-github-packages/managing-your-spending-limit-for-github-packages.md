@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,9 +14,10 @@ topics:
   - Packages
   - Spending limits
   - User account
+shortTitle: Your spending limit
 ---
 
-### Über Ausgabenlimits für {% data variables.product.prodname_registry %}
+## Über Ausgabenlimits für {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -30,7 +31,7 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Da Du keine Überschreitungen zugelassen hast, wird Dein nächster Versuch, eine Version des Pakets zu veröffentlichen, fehlschlagen. Du wirst keine Rechnung für die Überschreitung um 0,1 GB für diesen Monat erhalten. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-### Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Dein Benutzerkonto verwalten
+## Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Dein Benutzerkonto verwalten
 
 Jeder kann das Ausgabenlimit für {% data variables.product.prodname_registry %} für sein eigenes Benutzerkonto verwalten.
 
@@ -40,16 +41,16 @@ Jeder kann das Ausgabenlimit für {% data variables.product.prodname_registry %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Deine Organisation verwalten
+## Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Deine Organisation verwalten
 
 Organisationsinhaber und Abrechnungsmanager können das Ausgabenlimit von {% data variables.product.prodname_registry %} für eine Organisation verwalten.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Dein Enterprise-Konto verwalten
+## Das Ausgabenlimit für {% data variables.product.prodname_registry %} für Dein Enterprise-Konto verwalten
 
 Enterprise-Inhaber und Abrechnungsmanager können das Ausgabenlimit von {% data variables.product.prodname_registry %} für ein Enterprise-Konto verwalten.
 
@@ -59,3 +60,6 @@ Enterprise-Inhaber und Abrechnungsmanager können das Ausgabenlimit von {% data 
 1. Above "{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**. ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}

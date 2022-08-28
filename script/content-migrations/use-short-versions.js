@@ -5,10 +5,10 @@ import path from 'path'
 import { escapeRegExp } from 'lodash-es'
 import { Tokenizer } from 'liquidjs'
 import frontmatter from '../../lib/read-frontmatter.js'
-import xAllVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import { deprecated, oldestSupported } from '../../lib/enterprise-server-releases.js'
 
-const allVersions = Object.values(xAllVersions)
+const allVersionKeys = Object.values(allVersions)
 const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 
 const walkFiles = (pathToWalk, ext) => {
@@ -62,7 +62,7 @@ async function main() {
           .replace(/>=?2\.19/, '*')
 
         // Find the relevant version from the master list so we can access the short name.
-        const versionObj = allVersions.find(
+        const versionObj = allVersionKeys.find(
           (version) => version.plan === plan || version.shortName === plan
         )
         if (!versionObj) {
@@ -186,7 +186,7 @@ function getLiquidReplacements(content, file) {
           const [plan, release] = opParts[2].slice(1, -1).split('@')
 
           // Find the relevant version from the master list so we can access the short name.
-          const versionObj = allVersions.find((version) => version.plan === plan)
+          const versionObj = allVersionKeys.find((version) => version.plan === plan)
 
           if (!versionObj) {
             console.error(`Couldn't find a version for ${plan} in "${token}" in ${file}`)

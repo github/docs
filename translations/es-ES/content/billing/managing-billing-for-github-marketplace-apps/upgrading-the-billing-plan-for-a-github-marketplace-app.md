@@ -6,21 +6,21 @@ redirect_from:
   - /articles/upgrading-an-app-for-your-personal-account/
   - /articles/upgrading-an-app-for-your-organization/
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Marketplace
   - Organizations
   - Upgrades
   - User account
+shortTitle: Mejorar un plan de facturación
 ---
 
 Cuando subes de categoría una app, a tu método de pago se le cobra un monto prorrateado en función del tiempo restante hasta tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
-### Subir de categoría una app para tu cuenta personal
+## Subir de categoría una app para tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -29,7 +29,7 @@ Cuando subes de categoría una app, a tu método de pago se le cobra un monto pr
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Subir de categoría una app para tu organización
+## Subir de categoría una app para tu organización
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

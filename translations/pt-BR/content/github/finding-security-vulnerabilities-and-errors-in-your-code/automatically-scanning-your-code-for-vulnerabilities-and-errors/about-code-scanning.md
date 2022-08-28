@@ -3,7 +3,7 @@ title: Sobre a varredura de código
 intro: 'Você pode usar {% data variables.product.prodname_code_scanning %} para encontrar vulnerabilidades e erros de segurança no código do seu projeto no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Sobre o {% data variables.product.prodname_code_scanning %}
+## Sobre o {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -27,7 +27,7 @@ Para monitorar os resultados de {% data variables.product.prodname_code_scanning
 
 Para começar com {% data variables.product.prodname_code_scanning %}, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
-### Sobre o {% data variables.product.prodname_codeql %}
+## Sobre o {% data variables.product.prodname_codeql %}
 
 Você pode visualizar e contribuir para as consultas do {% data variables.product.prodname_code_scanning %} no repositório [`github/codeql`](https://github.com/github/codeql). O {% data variables.product.prodname_codeql %} trata o código como dados, permitindo que você encontre possíveis vulnerabilidades em seu código com maior confiança do que os analisadores estáticos tradicionais.
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre os pontos de extremidade da API para {% data
 
 Você pode visualizar e contribuir para as consultas do {% data variables.product.prodname_code_scanning %} no repositório [`github/codeql`](https://github.com/github/codeql). Para obter mais informações, consulte [{% data variables.product.prodname_codeql %} consultas](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) na documentação do {% data variables.product.prodname_codeql %}.
 
-### Ferramentas de varredura de código de terceiros
+## Ferramentas de varredura de código de terceiros
 
 {% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
@@ -47,7 +47,7 @@ Você pode visualizar e contribuir para as consultas do {% data variables.produc
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### Leia mais
+## Leia mais
 
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [Formato de Intercâmbio de Resultados de Análise Estática OASIS (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) no site do Comitê OASIS

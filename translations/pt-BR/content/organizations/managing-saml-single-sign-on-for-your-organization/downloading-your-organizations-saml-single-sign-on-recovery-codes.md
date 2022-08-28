@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Fazer o download de códigos de recuperação SAML
 ---
 
-Os códigos de recuperação não devem ser compartilhados ou distribuídos. É recomendável salvá-los com um gerenciador de senha como [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/).
+Os códigos de recuperação não devem ser compartilhados ou distribuídos. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -29,7 +30,7 @@ Os códigos de recuperação não devem ser compartilhados ou distribuídos. É 
 
 7. Cada código de recuperação só pode ser usado uma vez para recuperar o acesso ao {% data variables.product.product_name %}. O acesso ao {% data variables.product.product_name %} só ficará disponível 24 horas antes de você fazer login usando o login único.
 
-### Leia mais
+## Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Acessar a organização se o provedor de identidade estiver indisponível](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"

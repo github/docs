@@ -6,27 +6,25 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Monitorear & solucionar problemas
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Comprobar el estado de un ejecutor autoalojado utilizando {{ site.data.variables.product.prodname_dotcom }}
+## Comprobar el estado de un ejecutor autoalojado utilizando {{ site.data.variables.product.prodname_dotcom }}
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Debajo de "Ejecutores auto-hospedados", puedes ver una lista de ejecutores registrados, incluyendo su nombre, etiquetas y estado.
-
-    ![Lista de ejecutores](/assets/images/help/settings/actions-runner-list.png)
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Debajo de {% ifversion fpt or ghes > 3.1 or ghae-next %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, puedes ver una lista de ejecutores registrados, incluyendo el nombre, etiquetas y estado del ejecutor.
 
     El estado puede ser uno de los siguientes:
 
@@ -35,19 +33,19 @@ defaultPlatform: linux
     * **Offline (Sin conexión)**: El ejecutor no está conectado a {% data variables.product.product_name %}. Esto puede deberse a que la máquina está fuera de línea, la aplicación del ejecutor autoalojado no se está ejecutando en la máquina o la aplicación del ejecutor autoalojado no se puede comunicar con {% data variables.product.product_name %}.
 
 
-### Revisar los archivos de bitácora de la aplicación del ejecutor auto-hospedado
+## Revisar los archivos de bitácora de la aplicación del ejecutor auto-hospedado
 
 Puedes monitorear el estado de la aplicación del ejecutor auto-hospedado y de sus actividades. Los archivos de bitácora se mantienen en el directorio `_diag`, y se genera uno nuevo cada que se inicia la aplicación. El nombre de archivo comienza con *Runner_*, y le sige una marca de tiempo UTC de cuando se inició la aplicación.
 
 Para obtener registros detallados sobre las ejecuciones de jobs en el flujo de trabajo, consulta la siguiente sección que describe los archivos *Worker_*.
 
-### Revisar el archivo de bitácora de un job
+## Revisar el archivo de bitácora de un job
 
 La aplicación del ejecutor auto-hospedado crea un archivo de bitácora detallado para cada job que procesa. Estos archivos se guardan en el directorio `_diag`, y el nombre de archivo comienza con el prefijo *Worker_*.
 
 {% linux %}
 
-### Utilizar journalctl para revisar el servicio de la aplicación del ejecutor auto-hospedado
+## Utilizar journalctl para revisar el servicio de la aplicación del ejecutor auto-hospedado
 
 Para los ejecutores auto-hospedados basados en Linux que se ejecutan en la aplicación utilizando un servicio, puedes utilizar `journalctl` para monitorear su actividad en tiempo real. El servicio predeterminado basado en systemd utiliza la siguiente convención de nomenclatura: `actions.runner.<org>-<repo>.<runnerName>.service`. Este nombre se trunca si excede los 80 caracteres, así que la manera preferente de encontrar el nombre de un servicio es revisando el archivo _.service_. Por ejemplo:
 
@@ -80,7 +78,7 @@ Para ver la configuración de systemd, puedes ubicar archivo de servicio aquí: 
 
 {% mac %}
 
-### Utilizar launchd para revisar el servicio de la aplicación del ejecutor auto-hospedado
+## Utilizar launchd para revisar el servicio de la aplicación del ejecutor auto-hospedado
 
 Para los ejecutores auto-hospedados basados en macOS que se ejecutan en la aplicación como un servicio, puedes utilizar `launchctl` para monitorear su actividad en tiempo real. El servicio predeterminado basado en launchd utiliza la siguiente convención de nomenclatura: `actions.runner.<org>-<repo>.<runnerName>`. Este nombre se trunca si excede los 80 caracteres, así que la manera preferente de encontrar el nombre del servicio es revisando el archivo _.service_ en el directorio del ejecutor:
 
@@ -108,7 +106,7 @@ Para ver la configuración de launchd, puedes ubicar el archivo del servicio aqu
 
 {% windows %}
 
-### Utilizar PowerShell para revisar el servicio de la aplicación del ejecutor auto-hospedado
+## Utilizar PowerShell para revisar el servicio de la aplicación del ejecutor auto-hospedado
 
 Para los ejecutores auto-hospedados basados en Windows que se ejecuten en la aplicación como servicio, puedes utilizar PowerShell para monitorear su actividad en tiempo real. El servicio utiliza la convención de nomenclatura `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. También puedes encontrar el nombre del servicio si revisas el archivo _.service_ en el directorio del ejecutor:
 
@@ -145,7 +143,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### Monitorear el proceso de actualización automática
+## Monitorear el proceso de actualización automática
 
 Te recomendamos que revises el proceso de actualización automático a menudo, ya que el ejecutor auto-hospedado no podrá procesar jobs si cae debajo de cierto umbral de versiones. La aplicación del ejecutor auto-hospedado se actualiza automáticamente, pero nota que este proceso no incluye ninguna actualización al sistema operativo ni a otro tipo de software; necesitarás administrar estas actualizaciones por separado.
 
@@ -159,9 +157,9 @@ Adicionalmente, puedes encontrar más información en los archivos de bitácora 
 
 {% linux %}
 
-### Solucionar problemas en los contenedores de los ejecutores auto-hospedados
+## Solucionar problemas en los contenedores de los ejecutores auto-hospedados
 
-#### Revisar que se haya instalado Docker
+### Revisar que se haya instalado Docker
 
 Si tus jobs necesitan contenedores, entonces el ejecutor auto-hospedado debe estar basado en Linux y necesita contar con Docker instalado. Revisa que tu ejecutor auto-hospedado tenga Docker instalado y que el servicio se esté ejecutando.
 
@@ -180,7 +178,7 @@ Si no se ha instalado Docker, entonces las acciones dependientes fallarán con l
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-#### Revisar los permisos de Docker
+### Revisar los permisos de Docker
 
 Si tu job falla con el siguiente error:
 

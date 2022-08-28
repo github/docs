@@ -6,14 +6,15 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Incorporar la retroalimentación
 ---
 
-### Aplicar modificaciones sugeridas
+## Aplicar modificaciones sugeridas
 
 Otras personas pueden sugerir modificaciones específicas a tu solicitud de extracción. Puedes aplicar estas modificaciones sugeridas directamente en una solicitud de extracción si tienes acceso de escritura al repositorio. Si la solicitud de extracción se creó desde una bifurcación, y el autor permitió que los mantenedores realicen ediciones, también puedes aplicar las modificaciones sugeridas si tienes acceso de escritura al repositorio ascendente. Para obtener más información, consulte las secciones"[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)" y "[Permitir cambios en una rama de solicitud de extracción creada desde una bifurcación](/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
 
@@ -29,15 +30,15 @@ Cada una de las personas que sugirieron alguna de las modificaciones incluidas e
 4. En el campo de mensaje de confirmación, escribe un mensaje de confirmación corto y significativo que describa la modificación que le hiciste al archivo o los archivos. ![Campo para mensaje de confirmación](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Haz clic en **Commit changes.** (Confirmar modificaciones) ![Botón Commit changes (Confirmar cambios)](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### Volver a solicitar una revisión
+## Volver a solicitar una revisión
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Abrir una propuesta para una sugerencia fuera de alcance
+## Abrir una propuesta para una sugerencia fuera de alcance
 
 Si alguna persona sugiere cambios para tu solicitud de extracción, y los cambios están fuera del alcance de la solicitud de extracción, puedes abrir una propuesta nueva para hacer el seguimiento de los comentarios. Para obtener más información, consulte la sección "[Abrir un informe de problemas desde un comentario](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-### Leer más
+## Leer más
 
 - "[Acerca de las revisiones de solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)"
 - "[Revisar los cambios propuestos en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

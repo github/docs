@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 在本地查看 PR
 ---
 
 {% note %}
@@ -20,23 +21,33 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## 在本地修改活动的拉取请求
 
-**提示**：您也可以使用 {% data variables.product.prodname_cli %} 在本地检出拉取请求。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh pr 检出`](https://cli.github.com/manual/gh_pr_checkout)”。
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### 在本地修改活动的拉取请求
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. 在拉取请求列表中，单击要修改的拉取请求。{% if currentVersion == "free-pro-team@latest" %}
+2. 在拉取请求列表中，单击要修改的拉取请求。{% ifversion fpt %}
 3. 要选择想打开拉取请求的位置，请选择**使用 {% octicon "triangle-down" aria-label="The down triangle icon" %} 打开**下拉列表，然后单击其中一个选项卡。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. 在合并框中，单击**命令行说明**。 按照步骤顺序解决提议的拉取请求。 ![访问命令行拉取请求说明的链接](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. （可选）要在 {% data variables.product.prodname_desktop %} 中查看提议的更改，请单击 **open this in {% data variables.product.prodname_desktop %}（在 GitHub Desktop 中打开）**。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### 在本地修改非活动拉取请求
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+
+```shell
+gh pr checkout <em>pull-request</em>
+```
+
+{% endcli %}
+
+## 在本地修改非活动拉取请求
 
 如果拉取请求的作者对请求无响应或已删除其分叉，该拉取请求还是可以合并。 但是，如果您要对拉取请求进行更改，而其作者又没有响应，则需要执行一些额外步骤来更新拉取请求。
 
@@ -71,7 +82,7 @@ topics:
   ```
 9. 用新分支[创建一个新的拉取请求](/articles/creating-a-pull-request)。
 
-### 错误：无法推送某些 ref
+## 错误：无法推送某些 ref
 
 远程 `refs/pull/` 命名空间为*只读*。 如果尝试在那里推送任何提交，您将看到此错误：
 ```shell

@@ -14,6 +14,8 @@ topics:
 shortTitle: Add outside collaborator
 ---
 
+## About outside collaborators
+
 {% data reusables.organizations.owners-and-admins-can %} add outside collaborators to a repository, unless an organization owner has restricted the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
@@ -23,6 +25,12 @@ If your organization [requires members and outside collaborators to use two-fact
 {% endif %}
 
 {% data reusables.organizations.outside_collaborator_forks %}
+
+{% ifversion fpt %}
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+
+## Adding outside collaborators to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -41,8 +49,3 @@ If your organization [requires members and outside collaborators to use two-fact
 7. Next to the new collaborator's name, choose the appropriate permission level: *Write*, *Read*, or *Admin*.
 ![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
 {% endif %}
-
-## Further reading
-
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

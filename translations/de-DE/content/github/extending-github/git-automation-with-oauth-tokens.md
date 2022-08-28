@@ -6,18 +6,19 @@ redirect_from:
   - /articles/git-automation-with-oauth-tokens
 intro: 'Du kannst OAuth-Tokens einsetzen, um über automatisierte Skripts mit {% data variables.product.product_name %} zu interagieren.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Automate with OAuth tokens
 ---
 
-### Schritt 1: Ein OAuth-Token erhalten
+## Schritt 1: Ein OAuth-Token erhalten
 
 Erstelle ein persönliches Zugriffstoken auf der Einstellungsseite Deiner Anwendung. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 {% tip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 **Tipps:**
 - Du musst Deine E-Mail-Adresse verifizieren, bevor Du ein persönliches Zugriffstoken erstellen kannst. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address).“
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -27,9 +28,9 @@ Erstelle ein persönliches Zugriffstoken auf der Einstellungsseite Deiner Anwend
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-### Schritt 2: Ein Repository klonen
+## Schritt 2: Ein Repository klonen
 
 {% data reusables.command_line.providing-token-as-password %}
 
@@ -41,6 +42,6 @@ Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung
 
 {% endwarning %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

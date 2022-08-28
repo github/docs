@@ -10,6 +10,6 @@ Para verificar o domínio da sua conta corporativa, você deve ter acesso para m
    ```shell
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
-{% data reusables.organizations.continue-verifying-domain %}
+1. Depois de confirmar o seu registro TXT é adicionado ao seu DNS, siga as etapas uma a quatro acima para acessar os domínios aprovados e verificados da conta corporativa.
+{% data reusables.enterprise-accounts.continue-verifying-domain %}
 1. Opcionalmente, depois que o selo "Verificado" estiver visível nos perfis da sua organização, exclua a entrada TXT do registro do DNS no seu serviço de hospedagem de domínio. ![Selo Verified (Verificado)](/assets/images/help/organizations/verified-badge.png)

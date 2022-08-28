@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
@@ -14,9 +14,10 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: 管理 Dependabot PR
 ---
 
-### 关于 {% data variables.product.prodname_dependabot %} 拉取请求
+## 关于 {% data variables.product.prodname_dependabot %} 拉取请求
 
 {% data reusables.dependabot.pull-request-introduction %}
 
@@ -24,7 +25,7 @@ topics:
 
 如果您有多个依赖项要管理，可能会希望为每个包管理器自定义配置，以便拉取请求拥有特定的审查者、受理人和标签。 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-### 查看 {% data variables.product.prodname_dependabot %} 拉取请求
+## 查看 {% data variables.product.prodname_dependabot %} 拉取请求
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -32,11 +33,11 @@ topics:
     - 作者为 [dependabot](https://github.com/dependabot)，即 {% data variables.product.prodname_dependabot %} 使用的自动程序帐户。
     - 默认情况下，它们拥有 `dependencies` 标签。
 
-### 更改 {% data variables.product.prodname_dependabot %} 拉取请求的变基策略
+## 更改 {% data variables.product.prodname_dependabot %} 拉取请求的变基策略
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会自动为拉取请求变基，以解决各种冲突。 如果您喜欢手动处理合并冲突，可以使用 `rebase-strategy` 选项禁用此功能。 详情请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)。”
 
-### 管理带注释命令的 {% data variables.product.prodname_dependabot %} 拉取请求
+## 管理带注释命令的 {% data variables.product.prodname_dependabot %} 拉取请求
 
 {% data variables.product.prodname_dependabot %} 会响应注释中的简单命令。 每个拉取请求都在“{% data variables.product.prodname_dependabot %} 命令和选项”部分下包含您可以用来处理拉取请求的命令（例如：合并、压缩、重新打开、关闭或变基拉取请求）的详细信息。 其目的是让您尽可能轻松地将这些自动生成的拉取请求分类。
 

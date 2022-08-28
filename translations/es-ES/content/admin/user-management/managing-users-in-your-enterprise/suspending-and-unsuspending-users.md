@@ -10,13 +10,14 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'Si un usuario se va o se traslada a un lugar diferente de la empresa, deberías eliminar o modificar su posibilidad de acceder a {% data variables.product.product_location %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: Administrar la suspensión de usuarios
 ---
 
 Puedes suspender las cuentas de usuario de {% data variables.product.prodname_ghe_server %} de aquellos que abandonen la compañía para abrir licencias de usuario en tu licencia de {% data variables.product.prodname_enterprise %} preservando las propuestas, comentarios, repositorios, gists y otros datos que hayan creado. Los usuarios suspendidos no pueden iniciar sesión en tu instancia, y no pueden subir ni extraer un código.
@@ -38,7 +39,7 @@ Antes de suspender administradores del sitio, debes degradarlos a usuarios norma
 
 {% endtip %}
 
-### Suspender un usuario desde el tablero de administrador de usuarios
+## Suspender un usuario desde el tablero de administrador de usuarios
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -48,7 +49,7 @@ Antes de suspender administradores del sitio, debes degradarlos a usuarios norma
 5. En "Suspensión de cuenta", en el cuadro rojo de Zona de peligro, haz clic en **Suspender**. ![Botón Suspender](/assets/images/enterprise/site-admin-settings/suspend.png)
 6. Indica un motivo para suspender al usuario. ![Motivo de suspensión](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### Anular la suspensión de un usuario desde el tablero de administrador de usuarios
+## Anular la suspensión de un usuario desde el tablero de administrador de usuarios
 
 Como cuando se suspende un usuario, anular la suspensión entra en efecto de inmediato. El usuario no será notificado.
 
@@ -60,7 +61,7 @@ Como cuando se suspende un usuario, anular la suspensión entra en efecto de inm
 4. En "Suspensión de cuenta", en el cuadro rojo de Zona de peligro, haz clic en **Anular suspensión**. ![Botón Anular suspensión](/assets/images/enterprise/site-admin-settings/unsuspend.png)
 5. Indica un motivo para anular la suspensión del usuario. ![Motivo de anulación de suspensión](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### Suspender un usuario desde la línea de comandos
+## Suspender un usuario desde la línea de comandos
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Ejecuta [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) con el nombre de usuario a suspender.
@@ -68,7 +69,7 @@ Como cuando se suspende un usuario, anular la suspensión entra en efecto de inm
   $ ghe-user-suspend <em>username</em>
   ```
 
-### Crear un mensaje personalizado para usuarios suspendidos
+## Crear un mensaje personalizado para usuarios suspendidos
 
 Puedes crear un mensaje personalizado que los usuarios suspendidos verán cuando intenten iniciar sesión.
 
@@ -81,7 +82,7 @@ Puedes crear un mensaje personalizado que los usuarios suspendidos verán cuando
 8. Revisar el mensaje presentado. ![Mensaje presentado de usuario suspendido](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### Anular la suspensión de un usuario desde la línea de comandos
+## Anular la suspensión de un usuario desde la línea de comandos
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Ejecuta [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) con el nombre de usuario a anular la suspensión.
@@ -89,5 +90,5 @@ Puedes crear un mensaje personalizado que los usuarios suspendidos verán cuando
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### Leer más
+## Leer más
 - "[Suspender a un usuario](/rest/reference/enterprise-admin#suspend-a-user)"

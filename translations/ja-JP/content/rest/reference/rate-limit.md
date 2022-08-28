@@ -1,14 +1,16 @@
 ---
 title: レート制限
+intro: Rate Limit APIを使うと、様々なREST APIの現在のレート制限のステータスをチェックできます。
 redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 REST API 概要ドキュメンテーションでは、[レート制限のルール](/rest/overview/resources-in-the-rest-api#rate-limiting)について説明しています。 以下で説明する Rate Limit API を使用して、現在のレート制限ステータスをいつでも確認できます。

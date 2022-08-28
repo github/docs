@@ -8,7 +8,9 @@ export const nextHandleRequest = nextApp.getRequestHandler()
 await nextApp.prepare()
 
 function renderPageWithNext(req, res, next) {
-  if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
+  const isNextDataRequest = req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')
+
+  if (isNextDataRequest) {
     return nextHandleRequest(req, res)
   }
 

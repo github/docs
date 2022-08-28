@@ -1,5 +1,5 @@
 ---
-title: Working with the npm registry
+title: Trabalhando com o registro npm
 intro: 'Você pode configurar o npm para publicar pacotes no {% data variables.product.prodname_registry %} e usar pacotes armazenados no {% data variables.product.prodname_registry %} como dependências em um projeto npm.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -9,9 +9,10 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
   - /packages/guides/configuring-npm-for-use-with-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Registro de npm
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -19,40 +20,40 @@ versions:
 
 **Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Limites para versões publicadas do npm
+{% ifversion fpt or ghes > 2.22 or ghae %}
+## Limites para versões publicadas do npm
 
 Se você publicar mais de 1.000 versões de pacote de npm até {% data variables.product.prodname_registry %}, você poderá ver problemas de performance e tempo-limite que ocorrem durante o uso.
 
 No futuro, para melhorar o desempenho do serviço, você não será capaz de publicar mais de 1.000 versões de um pacote em {% data variables.product.prodname_dotcom %}. Todas as versões publicadas antes de atingir esse limite serão legíveis.
 
-Se você atingir este limite, considere excluir versões de pacote ou entre em contato com o suporte para obter ajuda. Quando este limite for aplicado, a nossa documentação será atualizada com uma forma de contornar este limite. Para obter mais informações, consulte "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}" ou "[Entrar em contato com o suporte](/packages/learn-github-packages/about-github-packages#contacting-support)."
+Se você atingir este limite, considere excluir versões de pacote ou entre em contato com o suporte para obter ajuda. Quando este limite for aplicado, a nossa documentação será atualizada com uma forma de contornar este limite. Para obter mais informações, consulte "{% ifversion fpt or ghes > 3.0 %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}" ou "[Entrar em contato com o suporte](/packages/learn-github-packages/about-github-packages#contacting-support)."
 
 {% endif %}
 
-### Autenticar-se no {% data variables.product.prodname_registry %}
+## Autenticar-se no {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Efetuando a autenticação com um token de acesso pessoal
+### Efetuando a autenticação com um token de acesso pessoal
 
 {% data reusables.package_registry.required-scopes %}
 
 Você pode efetuar a autenticação no {% data variables.product.prodname_registry %} com o npm editando seu arquivo *~/.npmrc* por usuário para incluir o seu token de acesso pessoal ou fazer o login no npm na linha de comando usando seu nome de usuário e token de acesso pessoal.
 
-Para efetuar a autenticação adicionando seu token de acesso pessoal ao seu arquivo *~/.npmrc*, edite o arquivo *~/.npmrc* para o seu projeto incluir a seguinte linha, substituindo {% if enterpriseServerVersions contém currentVersion ou currentVersion == "github-ae@latest" %}*HOSTNAME* pelo nome de host de {% data variables.product.product_location %} e {% endif %}*TOKEN* pelo seu token de acesso pessoal. Crie um novo arquivo *~/.npmrc* se um não existir.
+Para efetuar a autenticação adicionando seu token de acesso pessoal ao seu arquivo *~/.npmrc*, edite o arquivo *~/.npmrc* para que o seu projeto inclua a linha a seguir, substituindo {% ifversion ghes or ghae %}*HOSTNAME* pelo nome do host {% data variables.product.product_location %} e {% endif %}*TOKEN* pelo seu token de acesso pessoal. Crie um novo arquivo *~/.npmrc* se um não existir.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```shell
-//{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```shell
@@ -67,19 +68,19 @@ Para efetuar a autenticação conectado no npm, use o comando `npm login` , subs
 
 Se {% data variables.product.prodname_registry %} não é seu registro de pacote padrão para usar npm e você deseja usar o comando `npm audit` , recomendamos que você use o sinalizador `--scope` com o proprietário do pacote quando você efetuar a autenticação no {% data variables.product.prodname_registry %}.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```shell
@@ -90,7 +91,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 ```
 {% endif %}
 
-### Publicar um pacote
+## Publicar um pacote
 
 {% note %}
 
@@ -106,7 +107,7 @@ Você pode publicar vários pacotes no mesmo repositório do {% data variables.p
 
 {% data reusables.package_registry.viewing-packages %}
 
-#### Publicar um pacote usando o arquivo *.npmrc* local
+### Publicar um pacote usando o arquivo *.npmrc* local
 
 Você pode usar um arquivo *.npmrc* para configurar o mapeamento do escopo para o seu projeto. No arquivo *.npmrc*, use a URL e o proprietário da conta de {% data variables.product.prodname_registry %} para que {% data variables.product.prodname_registry %} saiba onde rotear as solicitações de pacotes. O uso de um arquivo *.npmrc* impede que outros desenvolvedores publiquem acidentalmente o pacote no npmjs.org em vez de {% data variables.product.prodname_registry %}.
 
@@ -117,20 +118,20 @@ Você pode usar um arquivo *.npmrc* para configurar o mapeamento do escopo para 
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-#### Publicar um pacote usando o `publishConfig` no arquivo *package.json*
+### Publicar um pacote usando o `publishConfig` no arquivo *package.json*
 
 Você pode usar o elemento `publishConfig` no arquivo *package.json* para especificar o registro onde você quer o pacote publicado. Para obter mais informações, consulte "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" na documentação npm.
 
 1. Edite o arquivo *package.json* do seu pacote e inclua uma entrada `publishConfig`.
-  {% if enterpriseServerVersions contains currentVersion %}
+  {% ifversion ghes %}
   Se sua instância tem o isolamento de subdomínio habilitado:
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
-  {% if enterpriseServerVersions contains currentVersion %}
+  {% ifversion ghes %}
   Se sua instância tem o isolamento de subdomínio desabilitado:
    ```shell
    "publishConfig": {
@@ -141,7 +142,7 @@ Você pode usar o elemento `publishConfig` no arquivo *package.json* para especi
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-### Publicar vários pacotes no mesmo repositório
+## Publicar vários pacotes no mesmo repositório
 
 Para publicar vários pacotes no mesmo repositório, você pode incluir a URL do repositório do {% data variables.product.prodname_dotcom %} no campo `repositório` do arquivo *package.json* para cada pacote.
 
@@ -150,16 +151,20 @@ Para garantir que a URL do repositório esteja correta, substitua REPOSITÓRIO p
 O {% data variables.product.prodname_registry %} corresponderá ao repositório baseado na URL, em vez de ser baseado no nome do pacote.
 
 ```shell
-"repository":"https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
-### Instalar um pacote
+## Instalar um pacote
 
 Você pode instalar pacotes do {% data variables.product.prodname_registry %} adicionando os pacotes como dependências no arquivo *package.json* para o seu projeto. Para obter mais informações sobre como usar um pacote *package.json* no projeto, consulte "[Trabalhar com package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" na documentação npm.
 
 Por padrão, você pode adicionar pacotes a partir de uma organização. Para obter mais informações, consulte [Instalar pacotes de outras organizações](#installing-packages-from-other-organizations)."
 
-Você também precisa adicionar o arquivo *.npmrc* ao seu projeto para que todas as solicitações de instalação passem pelo {% data variables.product.prodname_registry %}. Ao encaminhar todas as solicitações através de {% data variables.product.prodname_registry %}, você pode usar pacotes com escopo e sem escopo de *npmjs.com*. Para obter mais informações, consulte "[npm-scope](https://docs.npmjs.com/misc/scope)" na documentação npm.
+You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+
+{% ifversion ghae %}
+By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.
+{% endif %}
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
@@ -185,20 +190,20 @@ Você também precisa adicionar o arquivo *.npmrc* ao seu projeto para que todas
   $ npm install
   ```
 
-#### Instalar pacotes de outras organizações
+### Instalar pacotes de outras organizações
 
-Por padrão, você só pode usar pacotes do {% data variables.product.prodname_registry %} de uma organização. Se você deseja encaminhar solicitações de pacotes para várias organizações e usuários, você pode adicionar linhas adicionais ao seu arquivo *.npmrc* substituindo {% if enterpriseServerVersions contém currentVersion ou currentVersion == "github-ae@latest" %}*HOSTNAME* pelo nome de host de {% data variables.product.product_location %} e {% endif %}*OWNER* pelo nome do usuário ou da organização que é dono do repositório que contém o seu projeto.
+Por padrão, você só pode usar pacotes do {% data variables.product.prodname_registry %} de uma organização. Se você deseja encaminhar solicitações de pacotes para várias organizações e usuários, você pode adicionar linhas adicionais ao seu arquivo *.npmrc* substituindo {% ifversion ghes or ghae %}*HOSTNAME* pelo nome do host {% data variables.product.product_location %} e {% endif %}*OWNER* pelo nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```shell
@@ -207,12 +212,12 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 ```
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Usando o registro oficial do NPM
+{% ifversion ghes > 2.22 %}
+## Usando o registro oficial do NPM
 
 {% data variables.product.prodname_registry %} permite que você acesse o registro oficial do NPM no `registry.npmjs.com`, caso seu administrador de {% data variables.product.prodname_ghe_server %} tenha habilitado esta funcionalidade. Para obter mais informações, consulte [Conectar ao registro oficial do NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
 
-### Leia mais
+## Leia mais
 
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"

@@ -6,10 +6,11 @@ redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 2FA 和 SAML 单点登录
 ---
 
 双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低成员的 {% data variables.product.product_name %} 帐户被盗的可能性。 有关 2FA 的更多信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
@@ -21,6 +22,6 @@ topics:
 - 使用单点登录访问组织
 - 使用授权用于 API 或 Git 访问的令牌，并使用单点登录授权令牌
 
-### 延伸阅读
+## 延伸阅读
 
 - "[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)"

@@ -4,7 +4,7 @@ shortTitle: インテグレーション
 intro: 'データを SARIF ファイルとしてアップロードすることで、サードパーティーのコード解析ツールを{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_code_scanning %} と統合できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

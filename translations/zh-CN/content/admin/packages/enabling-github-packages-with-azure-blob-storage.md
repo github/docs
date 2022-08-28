@@ -2,9 +2,10 @@
 title: 使用 Azure Blob 存储启用 GitHub Packages
 intro: '以 Azure Blob 存储作为外部存储设置 {% data variables.product.prodname_registry %} 。'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
+shortTitle: 使用 Azure 启用包
 ---
 
 {% warning %}
@@ -16,11 +17,11 @@ topics:
 
 {% endwarning %}
 
-### 基本要求
+## 基本要求
 
 在 {% data variables.product.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，您必须准备 Azure Blob 桶。 要准备 Azure Blob 存储桶，我们建议您在官方 [Azure Blob 存储文档站点](https://docs.microsoft.com/en-us/azure/storage/blobs/)查阅官方 Azure Blob 存储文档。
 
-### 使用 Azure Blob 存储启用 {% data variables.product.prodname_registry %}
+## 使用 Azure Blob 存储启用 {% data variables.product.prodname_registry %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -30,6 +31,6 @@ topics:
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-### 后续步骤
+## 后续步骤
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

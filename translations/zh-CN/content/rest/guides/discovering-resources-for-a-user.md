@@ -5,11 +5,12 @@ redirect_from:
   - /guides/discovering-resources-for-a-user/
   - /v3/guides/discovering-resources-for-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: 为用户发现资源
 ---
 
  
@@ -18,13 +19,13 @@ topics:
 
 为了与 {% data variables.product.product_name %} API 进行交互，我们将使用 [Octokit.rb][octokit.rb]。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
-### 入门指南
+## 入门指南
 
 在完成以下示例之前，您应该阅读[“身份验证基础知识”][basics-of-authentication]指南（如果尚未阅读）。 下面的示例假定您[已注册 OAuth 应用程序][register-oauth-app]，并且您的[应用程序具有用户的 OAuth 令牌][make-authenticated-request-for-user]。
 
-### 发现您的应用程序能够为用户访问的仓库
+## 发现您的应用程序能够为用户访问的仓库
 
-用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% if currentVersion != "github-ae@latest" %}公共{% else %}内部{% endif %}仓库。
+用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% ifversion not ghae %}公共{% else %}内部{% endif %}仓库。
 
 [OAuth 作用域][scopes]和[组织应用程序策略][oap]决定了您的应用程序可以为用户访问其中哪些仓库。 使用下面的工作流程来发现这些仓库。
 
@@ -61,7 +62,7 @@ client.repositories.each do |repository|
 end
 ```
 
-### 发现您的应用程序能够为用户访问的组织
+## 发现您的应用程序能够为用户访问的组织
 
 应用程序可以为用户执行各种与组织相关的任务。 要执行这些任务，应用程序需要具有足够权限的 [OAuth 授权][scopes]。 例如，`read:org` 作用域允许您[列出团队][list-teams]，`user` 作用域允许您[公开用户的组织成员身份][publicize-membership]。 一旦用户将其中一个或多个作用域授予您的应用程序，您就可以获取用户的组织。
 
@@ -89,7 +90,7 @@ client.organizations.each do |organization|
 end
 ```
 
-#### 返回用户的所有组织成员资格
+### 返回用户的所有组织成员资格
 
 如果您从头到尾阅读了文档，您可能会注意到一种[允许列出用户的公共组织成员身份的 API 方法][list-public-orgs]。 大多数应用程序应避免使用这种 API 方法。 此方法仅返回用户的公共组织成员身份，而不会返回其私有组织成员身份。
 

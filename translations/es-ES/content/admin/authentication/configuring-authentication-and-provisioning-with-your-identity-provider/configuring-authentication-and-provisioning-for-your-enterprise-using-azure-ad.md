@@ -5,7 +5,7 @@ intro: 'Puedes utilizar un inquilino en Azure Active Directory (Azure AD) como p
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,7 +17,7 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
 ---
 
-### Acerca de la autenticación y el aprovisionamiento de usuarios con Azure AD
+## Acerca de la autenticación y el aprovisionamiento de usuarios con Azure AD
 
 Azure Active Directory (Azure AD) es un servicio de Microsoft que te permite administrar centralmente las cuentas de usuario y el acceso a las aplicaciones web. Para obtener más información, consult ala sección [¿Qué es Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) en los Documentos de Microsoft.
 
@@ -32,7 +32,7 @@ Después de que habilitas el SSO de SAML y de SCIM para {% data variables.produc
 
 Para obtener más información acerca de la administración de identidades y de accesos para tu empresa en {% data variables.product.product_location %}, consulta la sección "[Administrar la identidad y el acceso para tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)". Para obtener más información sobre cómo sincronizar equipos con grupos de IdP, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
 
-### Prerrequisitos
+## Prerrequisitos
 
 Para configurar la autenticación y el aprovisionamiento de usuarios para {% data variables.product.product_name %} utilizando Azure AD, debes tener una cuenta y un inquilino en Azure AD. Para obtener más información, consulta el [Sitio Web de Azure AD](https://azure.microsoft.com/free/active-directory) y el [Inicio rápido: Creación de un inquilino en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) en los Documentos de Microsoft.
 
@@ -40,9 +40,9 @@ Para configurar la autenticación y el aprovisionamiento de usuarios para {% dat
 
 {% data reusables.saml.create-a-machine-user %}
 
-### Configurar la autenticación y el aprovisionamiento de usuarios con Azure AD
+## Configurar la autenticación y el aprovisionamiento de usuarios con Azure AD
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. En Azure AD, agrega {% data variables.product.ae_azure_ad_app_link %} a tu inquilino y configura el inicio de sesión único. Para obtener más información, consulta la sección [Tutorial: Integración del inicio de sesión único (SSO) de Active Directory con {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) en los documentos de Microsoft.
 

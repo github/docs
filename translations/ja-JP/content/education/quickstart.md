@@ -3,10 +3,11 @@ title: GitHub Educatorsのクイックスタート
 intro: 'およそ15分で、教師は割引を適用して{% data variables.product.company_short %}に取りかかり、トレーニングを受け、ツールを獲得し、{% data variables.product.prodname_classroom %}を使用してソフトウェア開発のコースで学生用のクラスルームを作成できます。'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: クイックスタート
 ---
 
-### はじめに
+## はじめに
 
 ソフトウェア開発コースで教える教育者は、{% data variables.product.prodname_education %}からの割引、パートナーシップ、トレーニング、およびツールを活用して、重要なスキルを学生に対して効果的に教えることができます。
 
@@ -18,7 +19,7 @@ versions:
 
 {% endtip %}
 
-### {% data variables.product.product_name %}でアカウントを作成する
+## {% data variables.product.product_name %}でアカウントを作成する
 
 まず、{% data variables.product.product_name %}で無料ユーザアカウントを作成する必要があります。
 
@@ -34,7 +35,7 @@ versions:
 
 詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/github/getting-started-with-github/types-of-github-accounts)」を参照してください。"
 
-### 教育者割引に応募する
+## 教育者割引に応募する
 
 次に、{% data variables.product.company_short %}からの割引およびサービスにサインアップします。 {% data reusables.education.educator-requirements %}
 
@@ -52,7 +53,7 @@ versions:
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### {% data variables.product.prodname_classroom %}をセットアップする
+## {% data variables.product.prodname_classroom %}をセットアップする
 
 ユーザアカウントとOrganizationアカウントがあれば、{% data variables.product.prodname_classroom %}に取りかかる準備が整っています。 {% data variables.product.prodname_classroom %}の使用は無料です。 課題の追跡および管理、課題の自動採点、および学生へのフィードバックを行うことができます。
 
@@ -68,7 +69,7 @@ versions:
 
 1. [**Authorize github**] をクリックします。 ![Organization用の [Authorize] ボタン](/assets/images/help/classroom/setup-click-authorize-github.png)
 
-### クラスルームを作成する
+## クラスルームを作成する
 
 {% data reusables.classroom.about-classrooms %}
 
@@ -76,7 +77,7 @@ versions:
 1. [**Create your first classroom**] または [**New classroom**] をクリックします。
 {% data reusables.classroom.guide-create-new-classroom %}
 
-### 次のステップ
+## 次のステップ
 
 クラスルームが作成できました。これで{% data variables.product.product_name %}と{% data variables.product.prodname_classroom %}を使ってコースを充実させる準備が整いました！  🎉
 

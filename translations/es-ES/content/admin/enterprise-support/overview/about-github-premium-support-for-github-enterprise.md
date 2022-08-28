@@ -5,11 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Soporte premium para Enterprise
 ---
 
 {% note %}
@@ -24,7 +25,7 @@ topics:
 
 {% endnote %}
 
-### Acerca de {% data variables.contact.premium_support %}
+## Acerca de {% data variables.contact.premium_support %}
 
 Además de todos los beneficios de {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} ofrece:
   - Soporte técnico por escrito, en inglés, a través del portal de soporte de 24 horas al día, 7 días a la semana.
@@ -42,7 +43,7 @@ Además de todos los beneficios de {% data variables.contact.enterprise_support 
 
 {% data reusables.support.contacting-premium-support %}
 
-### Horas de operación
+## Horas de operación
 
 {% data variables.contact.premium_support %} está disponible 24 horas al día, 7 días a la semana.
 
@@ -52,22 +53,22 @@ Además de todos los beneficios de {% data variables.contact.enterprise_support 
 
 Debes instalar la versión mínima compatible del {% data variables.product.prodname_ghe_server %}, conforme a la sección Versiones compatibles del acuerdo de licencia aplicable, dentro de los 90 días posteriores a realizar el pedido del {% data variables.contact.premium_support %}.
 
-### Asignar una prioridad a un ticket de soporte
+## Asignar una prioridad a un ticket de soporte
 
 Cuando contactas a {% data variables.contact.premium_support %}, puedes escoger una de cuatro prioridades para el ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o{% data variables.product.support_ticket_priority_low %}.
 
 - [Prioridades de tickets para {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
 - [Prioridades de tickets para {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
 
-#### Prioridades de tickets para {% data variables.product.prodname_ghe_cloud %}
+### Prioridades de tickets para {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.support.ghec-premium-priorities %}
 
-#### Prioridades de tickets para {% data variables.product.prodname_ghe_server %}
+### Prioridades de tickets para {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-### Resolver y cerrar tickets de soporte
+## Resolver y cerrar tickets de soporte
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

@@ -1,18 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import frontmatter from '../lib/read-frontmatter.js'
-import walk from 'walk-sync'
-import slash from 'slash'
-import GithubSlugger from 'github-slugger'
-import { XmlEntities } from 'html-entities'
-import loadSiteData from '../lib/site-data.js'
-import renderContent from '../lib/render-content/index.js'
-
-const slugger = new GithubSlugger()
-const entities = new XmlEntities()
-
-const contentDir = path.join(process.cwd(), 'content')
 
 // [start-readme]
 //
@@ -25,6 +11,20 @@ const contentDir = path.join(process.cwd(), 'content')
 // **This script is not currently supported on Windows.**
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import frontmatter from '../lib/read-frontmatter.js'
+import walk from 'walk-sync'
+import slash from 'slash'
+import GithubSlugger from 'github-slugger'
+import { decode } from 'html-entities'
+import loadSiteData from '../lib/site-data.js'
+import renderContent from '../lib/render-content/index.js'
+
+const slugger = new GithubSlugger()
+
+const contentDir = path.join(process.cwd(), 'content')
 
 // TODO fix path separators in the redirect
 if (process.platform.startsWith('win')) {
@@ -49,7 +49,7 @@ async function main() {
 
     const title = await renderContent(data.title, { site: siteData }, { textOnly: true })
     slugger.reset()
-    const expectedSlug = slugger.slug(entities.decode(title))
+    const expectedSlug = slugger.slug(decode(title))
 
     // If the directory name already matches the expected slug, bail out now
     if (categoryDirName === expectedSlug) continue

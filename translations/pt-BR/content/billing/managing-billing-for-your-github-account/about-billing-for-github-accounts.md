@@ -11,16 +11,16 @@ redirect_from:
   - /articles/organization-billing-plans/
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Accounts
   - Discounts
   - Fundamentals
   - Upgrades
+shortTitle: Sobre a cobrança
 ---
 
 Para obter mais informações sobre os produtos disponíveis para sua conta, consulte "[Produtos do {% data variables.product.product_name %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.
@@ -29,8 +29,12 @@ Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou faz
 
 É possível comprar outros recursos e produtos com suas informações de pagamento existentes do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
+{% data reusables.user_settings.context_switcher %}
+
 {% tip %}
 
 **Dica:** o {% data variables.product.prodname_dotcom %} tem programas para estudantes e docentes acadêmicos, que incluem descontos acadêmicos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
+
+

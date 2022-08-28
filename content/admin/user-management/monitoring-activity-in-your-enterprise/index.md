@@ -1,6 +1,6 @@
 ---
 title: Monitoring activity in your enterprise
-intro: 'You can view activity by leveraging dashboards and logs in your enterprise.'
+intro: You can view activity by leveraging dashboards and logs in your enterprise.
 redirect_from:
   - /enterprise/admin/installation/monitoring-activity-on-your-github-enterprise-server-instance
   - /enterprise/admin/user-management/monitoring-activity-in-your-enterprise

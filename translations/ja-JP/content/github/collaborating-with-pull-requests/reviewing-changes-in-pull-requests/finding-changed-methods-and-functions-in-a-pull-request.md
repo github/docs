@@ -6,11 +6,12 @@ redirect_from:
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/finding-changed-methods-and-functions-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Methods & functions
 ---
 
 リポジトリへの読み取りアクセスがあるユーザなら誰でも、プルリクエストの特定のファイル内の機能とメソッドの変更の概要リストを確認できます。
@@ -36,7 +37,7 @@ topics:
 
 6. 選択した機能やメソッドの最初の行にリダイレクトされます。 ![変更されたファイル内の機能とメソッドの表示](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[プルリクエスト内のブランチの比較について](/articles/about-comparing-branches-in-pull-requests)」
 - 「[プルリクエストをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」

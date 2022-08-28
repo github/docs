@@ -5,11 +5,12 @@ redirect_from:
   - /articles/removing-a-billing-manager-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-billing-manager-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Remove billing manager
 ---
 
 {% warning %}

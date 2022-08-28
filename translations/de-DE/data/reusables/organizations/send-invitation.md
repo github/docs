@@ -1,1 +1,1 @@
-1. Click {% if currentVersion == "free-pro-team@latest" %}**Send invitation**{% else %}**Add member**{% endif %}.
+1. Klicke {% ifversion fpt %}**Send invitation** (Einladung senden){% else %}**Add member** (Mitglied hinzufügen){% endif %}.

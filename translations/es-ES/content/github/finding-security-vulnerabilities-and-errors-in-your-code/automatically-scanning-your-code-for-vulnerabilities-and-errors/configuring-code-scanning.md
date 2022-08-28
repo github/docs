@@ -3,9 +3,9 @@ title: Configurar el escaneo de código
 intro: 'Puedes configurar la forma en que {% data variables.product.prodname_dotcom %} escanea el código en tu proyecto para encontrar vulnerabilidades y errores.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Acerca de la configuración de {% data variables.product.prodname_code_scanning %}
+## Acerca de la configuración de {% data variables.product.prodname_code_scanning %}
 
 Puedes ejecutar el {% data variables.product.prodname_code_scanning %} en {% data variables.product.product_name %}, utilizando las {% data variables.product.prodname_actions %}, o desde tu sistema de integración contínua (IC), si utilizas el {% data variables.product.prodname_codeql_runner %}. Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)". Para obtener más información acerca del {% data variables.product.prodname_codeql_runner %}, consulta la sección [Ejecutar el {% data variables.product.prodname_code_scanning %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
@@ -29,7 +29,7 @@ Antes de que puedas configurar el {% data variables.product.prodname_code_scanni
 
 El análisis de {% data variables.product.prodname_codeql %} es tan solo un tipo de {% data variables.product.prodname_code_scanning %} que puedes hacer en {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %} en {% data variables.product.prodname_dotcom_the_website %} contiene otros flujos de trabajo del {% data variables.product.prodname_code_scanning %} que puedes utilizar. Los ejemplos específicos que se muestran en este artículo se relacionan con el archivo de {% data variables.product.prodname_codeql_workflow %}.
 
-### Editing a code scanning workflow
+## Editing a code scanning workflow
 
 {% data variables.product.prodname_dotcom %} guarda los archivos de flujo de trabajo en el directorio de _.github/workflows_ de tu repositorio. Puedes encontrar un flujo de trabajo que hayas agregado si buscas su nombre de archivo. For example, the default workflow file for CodeQL code scanning is called `codeql-analysis.yml`.
 
@@ -39,23 +39,23 @@ El análisis de {% data variables.product.prodname_codeql %} es tan solo un tipo
 
 Para obtener más información acerca de cómo editar los archivos de flujo de trabajo, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-### Configurar la frecuencia
+## Configurar la frecuencia
 
 Puedes escanear código con cierta programación o cuando ocurren eventos específicos en un repositorio.
 
 Escanear el código en cada carga al repositorio, y cada vez que se crea una solicitud de extracción, previene que los desarrolladores introduzcan vulnerabilidades y errores nuevos en dicho código. Escanear el código con una programación definida te informará de las últimas vulnerabilidades y errores que {% data variables.product.company_short %}, los investigadores de seguridad, y la comunidad descubren, aún cuando los desarrolladores no estén manteniendo el repositorio activamente.
 
-#### Escanear cuando se carga información
+### Escanear cuando se carga información
 
 Si utilizas el flujo de trabajo predeterminado, el {% data variables.product.prodname_code_scanning %} escaneará el código en tu repositorio una vez por semana, adicionalmente a los escaneos activados por los eventos. Para ajustar este programa, edita el valor `cron` en el flujo de trabajo. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)".
 
-#### Escanear las solicitudes de extracción
+### Escanear las solicitudes de extracción
 
 El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza el evento `pull_request` para activar un escaneo de código sobre las solilcitudes de cambios que se dirigen a la rama predeterminada. El evento `pull_request` no se activa si se abrió la solicitud de cambios desde una bifurcación privada.
 
 Para obtener más información acerca del evento `pull_request`, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
-#### Evitar escaneos innecesarios en las solicitudes de cambios
+### Evitar escaneos innecesarios en las solicitudes de cambios
 
 Puede que quieras evitar que se active un escaneo de código en solicitudes de cambio específicas que se dirijan a la rama predeterminada, independientemente de los archivos que se hayan cambiado. Puedes configurar esto si especificas `on:pull_request:paths-ignore` o `on:pull_request:paths` en el flujo de trabajo de {% data variables.product.prodname_code_scanning %}. Por ejemplo, si los únicos cambios en una solicitud de cambios se hacen en archivos con las extensiones `.md` o `.txt`, puedes utilizar el siguiente arreglo de `paths-ignore`.
 
@@ -81,7 +81,7 @@ on:
 
 Para obtener más información acerca de utilizar `on:pull_request:paths-ignore` y `on:pull_request:paths` para determinar cuando se ejecutará un flujo de trabajo para una solicitud de cambios, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
 
-#### Escanear de forma pre-programada
+### Escanear de forma pre-programada
 
 El flujo de trabajo del {% data variables.product.prodname_code_scanning %} utiliza el evento `pull_request` para activar un escaneo de código en la confirmación `HEAD` de una solicitud de extracción. Para ajustar este programa, edita el valor `cron` en el flujo de trabajo. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)".
 
@@ -91,7 +91,7 @@ El flujo de trabajo del {% data variables.product.prodname_code_scanning %} util
 
 {% endnote %}
 
-#### Ejemplo
+### Ejemplo
 
 El siguiente ejemplo muestra un {% data variables.product.prodname_codeql_workflow %} para un repositorio particular que tiene una rama predeterminada que se llama `main` y una protegida que se llama `protected`.
 
@@ -110,7 +110,7 @@ Este flujo de trabajo escanea:
 * Cada solicitud de cambios a la rama predeterminada
 * La rama predeterminada cada martes a las 7:40 UTC
 
-### Especificar un sistema operativo
+## Especificar un sistema operativo
 
 Si tu código requiere un sistema operativo específico para compilar, puedes configurarlo en tu flujo de trabajo. Edita el valor de `jobs.analyze.runs-on` para especificar el sistema operativo para la máquina que ejecuta tus acciones de {% data variables.product.prodname_code_scanning %}. Se especifica el sistema operativo usando una etiqueta adecuada como el segundo elemento en una matriz de dos elementos, después de `self-hosted`.
 
@@ -125,7 +125,7 @@ jobs:
 
 Debes asegurarte de que Git esté en la variable PATH en tus ejecutores auto-hospedados.
 
-### Cambiar los lenguajes que se analizan
+## Cambiar los lenguajes que se analizan
 
 El {% data variables.product.prodname_codeql %} del {% data variables.product.prodname_code_scanning %} detecta automáticamente el código que se escribe en los lenguajes compatibles.
 
@@ -155,8 +155,8 @@ Si tu flujo de trabajo no contiene una matriz que se llame `language`, entonces 
   with:
     languages: cpp, csharp, python
 ```
-{% if currentVersion == "free-pro-team@latest" %}
-### Analizar las dependencias de Python
+{% ifversion fpt %}
+## Analizar las dependencias de Python
 
 Para los ejecutores hospedados en GitHub que utilicen solo Linux, el {% data variables.product.prodname_codeql_workflow %} intentarà instalar automàticamente las dependencias de Python para dar màs resultados para el anàlisis de CodeQL. Puedes controlar este comportamiento si especificas el paràmetro `setup-python-dependencies` para la acciòn que el paso "Initialize CodeQL" llama. Predeterminadamente, este paràmetro se configura como `true`:
 
@@ -170,7 +170,7 @@ Como alternativa, puedes instalar las dependencias de Python manualmente en cual
 jobs:
   CodeQL-Build:
 
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -201,7 +201,7 @@ jobs:
 ```
 {% endif %}
 
-### Ejecutar consultas adicionales
+## Ejecutar consultas adicionales
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -235,7 +235,7 @@ En el siguiente ejemplo, el símbolo `+` se asegura de que las consultas adicion
 ```
 {% endraw %}
 
-### Utilizar una herramienta de escaneo de código de terceros
+## Utilizar una herramienta de escaneo de código de terceros
 
 Como alternativa para especificar qué consultas se ejecutarán en un archivo de flujo de trabajo, puedes hacer esto en un archivo de configuración diferente. También puedes utilizar un archivo de configuración para inhabilitar las consultas predeterminadas y para especificar qué directorios escanear durante el análisis.
 
@@ -261,7 +261,7 @@ with:
 
 Los ajustes en el archivo de configuración se escriben en formato YAML.
 
-#### Especificar consultas adicionales
+### Especificar consultas adicionales
 
 Puedes especificar consultas adicionales en una matriz de `queries`. Cada elemento de la matriz contiene un parámetro de `uses` con un valor que identifica un archivo de consulta simple, un directorio que contiene los archivos de consulta, o un archivo de suite de definiciones de una consulta.
 
@@ -276,11 +276,11 @@ Opcionalmente, puedes otorgar un nombre a cada elemento de la matriz, como se mu
 
 Para obtener más información acerca de las consultas adicionales, puedes ver la siguiente sección "[Ejecutar consultas adicionales](#running-additional-queries)".
 
-#### Inhabilitar las consultas predeterminadas
+### Inhabilitar las consultas predeterminadas
 
 Si solo quieres ejecutar consultas personalizadas, puedes inhabilitar las consultas de seguridad predeterminadas si agregas `disable-default-queries: true` a tu archivo de configuración.
 
-#### Especificar directorios para escanear
+### Especificar directorios para escanear
 
 Para los lenguajes interpretados compatibles con {% data variables.product.prodname_codeql %} (Python y JavaScript/TypeScript), puedes restringir el {% data variables.product.prodname_code_scanning %} para los archivos que estén en directorios específicos si agregas una matriz de `paths` al archivo de configuración. Puedes excluir del análisis los archivos en los directorios específicos si agregas un arreglo de `paths-ignore`.
 
@@ -306,16 +306,16 @@ Para los lenguajes compilados, si quieres limitar el {% data variables.product.p
 
 Puedes analizar rápidamente partes pequeñas de un monorepo cuando modificas el código en directorios específicos. Necesitarás tanto excluir los directorios en tus pasos de compilación como utilizar las palabras clave `paths-ignore` y `paths` para [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) en tu archivo de flujo de trabajo.
 
-#### Ejemplos de archivos de configuración
+### Ejemplos de archivos de configuración
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configurar {% data variables.product.prodname_code_scanning %} para los lenguajes compilados
+## Configurar {% data variables.product.prodname_code_scanning %} para los lenguajes compilados
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} Para obtener más información acerca de cómo configurar el {% data variables.product.prodname_codeql %} del {% data variables.product.prodname_code_scanning %} para los lenguajes compilados, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages)".
 
-### Puedes escribir un archivo de configuración para {% data variables.product.prodname_code_scanning %}.
+## Puedes escribir un archivo de configuración para {% data variables.product.prodname_code_scanning %}.
 
 {% data variables.product.prodname_dotcom %} puede mostrar los datos de análisis de código que se generan externamente con una herramienta de terceros. Puedes mostrar el análisis de código de una herramienta de terceros en {{ site.data.variables.product.prodname_dotcom }} su agregas la acción `upload-sarif` en tu flujo de trabajo. Para obtener más información, consulta la sección "[Cargar un archivo SARIF a GitHub](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)".

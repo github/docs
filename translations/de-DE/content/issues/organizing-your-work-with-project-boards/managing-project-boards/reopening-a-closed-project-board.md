@@ -6,12 +6,15 @@ redirect_from:
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Reopen project board
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Wenn Du ein Projektboard schließt, wird jede für das Projektboard konfigurierte Workflow-Automatisierung standardmäßig angehalten. Weitere Informationen findest Du unter „[Ein Projektboard schließen](/articles/closing-a-project-board).“
 
@@ -23,6 +26,6 @@ Beim erneuten Öffnen eines Projektboards kannst Du die Automatisierung *synchro
     - Zum erneuten Öffnen Deines Projektboards bei gleichzeitiger Synchronisierung der Automatisierung klicke auf **Reopen and sync project** (Projekt erneut öffnen und synchronisieren). ![Schaltfläche für die Auswahl "Reopen and resync project" (Projekt erneut öffnen und synchronisieren)](/assets/images/help/projects/reopen-and-sync-project.png)
     - Zum erneuten Öffnen Deines Projektboards ohne Synchronisierung der Automatisierung klicke im Dropdownmenü „Reopen“ (Erneut öffnen) auf **Reopen only** (Nur erneut öffnen). Klicke dann auf **Reopen only** (Nur erneut öffnen). ![Dropdownmenü „Reopen closed project board" (Erneutes Öffnen eines geschlossenen Projektboards)](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Automatisierung für Projektboards konfigurieren](/articles/configuring-automation-for-project-boards)“

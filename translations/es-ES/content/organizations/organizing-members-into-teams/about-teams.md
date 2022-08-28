@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,7 +24,7 @@ Para obtener más información, consulta:
 
 ![Imagen de la mención a un equipo](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 También puedes usar la sincronización LDAP para sincronizar los roles del equipo y los miembros del equipo de {% data variables.product.product_location %} con tus grupos de LDAP establecidos. Esto te permite establecer un control de acceso para usuarios basado en roles desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro de {% data variables.product.product_location %}. Para obtener más información, consulta "[Activar sincronización LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 
@@ -32,11 +32,11 @@ También puedes usar la sincronización LDAP para sincronizar los roles del equi
 
 {% data reusables.organizations.team-synchronization %}
 
-### Visibilidad del equipo
+## Visibilidad del equipo
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Paginas del equipo
+## Paginas del equipo
 
 Cada equipo tiene su propia página dentro de una organización. En la página de un equipo, puedes ver los miembros del equipo, los equipos hijo y los repositorios del equipo. Los propietarios de la organización y los mantenedores del equipo pueden acceder a los parámetros del equipo y actualizar la foto de perfil y la descripción del equipo desde la página del equipo.
 
@@ -44,7 +44,7 @@ Los miembros de la organización pueden crear y participar en debates con el equ
 
 ![Página del equipo que enumera los miembros del equipo y los debates](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### Equipos anidados
+## Equipos anidados
 
 Puedes reflejar la jerarquía de tu grupo o empresa dentro de tu organización de {% data variables.product.product_name %} con varios niveles de equipos anidados. Un equipo padre puede tener varios equipos hijo, mientras que cada equipo hijo solo tiene un equipo padre. No puedes anidar equipos secretos.
 
@@ -62,7 +62,7 @@ Puedes elegir un padre cuando creas el equipo o puedes mover un equipo más tard
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Prepararse para anidar equipos en tu organización
+## Prepararse para anidar equipos en tu organización
 
 Si tu organización ya tiene equipos existentes, deberías auditar los permisos de acceso a los repositorios de cada equipo antes de anidar equipos por arriba o por debajo del mismo. También deberías considerar la nueva estructura que te gustaría implementar para tu organización.
 
@@ -73,7 +73,7 @@ En la parte superior de la jerarquía del equipo, deberías otorgar permisos de 
 3. Crear todos los equipos nuevos que quieras, elegir un padre para cada equipo nuevo y otorgarles acceso a los repositorios.
 4. Agregar las personas directamente a los equipos.
 
-### Leer más
+## Leer más
 
 - "[Crear un equipo](/articles/creating-a-team)"
 - "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

@@ -20,7 +20,7 @@ For more information on products with per-user pricing, see "[{% data variables.
 
 ## How many licenses do I need for my organization?
 
-Organization owners and members each fill a license. If you've sent a pending invitation to a prospective organization member, the invitation will fill a license. {% data reusables.organizations.org-invite-expiration %}
+Organization owners and members each fill a license. If you've sent a pending invitation to a prospective organization member, the invitation will fill a license. {% data reusables.organizations.org-invite-scim %}
 
 Outside collaborators and bot accounts will count toward your organization's total of paid licenses if they are given access to a private repository.
 

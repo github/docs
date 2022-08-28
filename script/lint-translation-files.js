@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { execSync } from 'child_process'
 
 // [start-readme]
 //
@@ -7,6 +6,8 @@ import { execSync } from 'child_process'
 // errors in translated files and run script/reset-translated-file.js on them.
 //
 // [end-readme]
+
+import { execSync } from 'child_process'
 
 const parsingErrorsLog = '~/docs-translation-parsing-error.txt'
 const renderErrorsLog = '~/docs-translation-rendering-error.txt'

@@ -6,13 +6,14 @@ redirect_from:
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
+shortTitle: Limitar las interacciones en un repositorio
 ---
 
-### Acerca de los límites de interacción temporales
+## Acerca de los límites de interacción temporales
 
 {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,7 +23,7 @@ topics:
 
 También puedes habilitar los límites de actividad en todos los repositorios que pertenecen a tu cuenta de usuario o a una organización. Si se habilita un límite a lo largo de la organización o del usuario, no podrás limitar la actividad para los repositorios individuales que pertenezcan a la cuenta. Para obtener más información, consulta las secciones "[Limitar las interacciones para tu cuenta de usuario](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" y "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
 
-### Limitar las interacciones en tu repositorio
+## Limitar las interacciones en tu repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -31,7 +32,7 @@ También puedes habilitar los límites de actividad en todos los repositorios qu
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
-### Leer más
+## Leer más
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)"

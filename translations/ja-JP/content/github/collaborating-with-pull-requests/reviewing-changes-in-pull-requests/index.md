@@ -6,9 +6,9 @@ redirect_from:
   - /articles/reviewing-changes-in-pull-requests
 intro: Pull Request が公開された後に、提案された一連の変更をレビューしたり議論したりできます。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 children:
@@ -23,5 +23,6 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
+shortTitle: 変更をレビュー
 ---
 

@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
@@ -14,9 +14,10 @@ topics:
   - Organizations
   - Spending limits
   - User account
+shortTitle: Actionsの利用上限
 ---
 
-### {% data variables.product.prodname_actions %} の利用上限について
+## {% data variables.product.prodname_actions %} の利用上限について
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -30,7 +31,7 @@ $0 以外の利用上限を設定すると、直ちに現在の支払い期間�
 
 超過を有効にしていないため、次にワークフローの成果物を作成しようとしても失敗します。 その月の0.1GBの超過分について請求書は発行されません。 ただし、超過分を有効にすると、最初の請求には、現在の支払いサイクルの既存の超過分 0.1GB と、発生した追加の超過分が含まれます。
 
-### ユーザアカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
+## ユーザアカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
 
 自身のユーザアカウントに対する {% data variables.product.prodname_actions %} の利用上限は、誰でも管理できます。
 
@@ -40,22 +41,26 @@ $0 以外の利用上限を設定すると、直ちに現在の支払い期間�
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Organizationの {% data variables.product.prodname_actions %} に対する利用上限を管理する
+## Organizationの {% data variables.product.prodname_actions %} に対する利用上限を管理する
 
 Organization の {% data variables.product.prodname_actions %} については、Organizationのオーナーと支払いマネージャーが利用上限を管理できます。
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Enterprise アカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
+## Enterprise アカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
 
 Enterprise アカウントの {% data variables.product.prodname_actions %} の利用上限は、Enterprise オーナーと支払いマネージャーが管理できます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Above "{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**. ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+1. ""[{% data variables.product.prodname_actions %} and Packages monthly usage]"の上で、[**Spending Limit（利用上限）**]をクリックしてください。 ![利用上限タブ](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}

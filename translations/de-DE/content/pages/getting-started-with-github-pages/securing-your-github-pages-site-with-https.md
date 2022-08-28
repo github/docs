@@ -6,14 +6,15 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Secure site with HTTPS
 ---
 
 Personen mit Administratorberechtigungen für ein Repository können HTTPS für eine {% data variables.product.prodname_pages %}-Website erzwingen.
 
-### Informationen zu HTTPS und {% data variables.product.prodname_pages %}
+## Informationen zu HTTPS und {% data variables.product.prodname_pages %}
 
 Alle {% data variables.product.prodname_pages %}-Websites, auch Websites, die korrekt mit einer benutzerdefinierten Domäne konfiguriert sind, unterstützen HTTPS und die Erzwingung von HTTPS. Weitere Informationen findest Du unter „[Informationen zu benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)“ und „[Fehlerbehebung bei benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors).“
 
@@ -21,14 +22,20 @@ Alle {% data variables.product.prodname_pages %}-Websites, auch Websites, die ko
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### HTTPS für Deine {% data variables.product.prodname_pages %}-Website erzwingen
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
+
+## HTTPS für Deine {% data variables.product.prodname_pages %}-Website erzwingen
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. Wählen Sie unter „{% data variables.product.prodname_pages %}“ die Option **Enforce HTTPS** (HTTPS erzwingen). ![Kontrollkästchen „Enforce HTTPS“ (HTTPS erzwingen)](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### Probleme bei gemischten Inhalten beheben
+## Probleme bei gemischten Inhalten beheben
 
 Wenn Sie für Ihre {% data variables.product.prodname_pages %}-Website HTTPS aktivieren, die HTML Ihrer Website aber noch Bilder, CSS oder JavaScript über HTTP referenziert, stellt Ihre Website *gemischte Inhalte* bereit. In diesem Fall ist Deine Website möglicherweise weniger sicher und das Laden dieser Objekte bereitet eventuell Probleme.
 
@@ -46,7 +53,7 @@ Objekte befinden sich meist in den folgenden Speicherorten:
 
 {% endtip %}
 
-#### Beispiele für referenzierte Objekte in einer HTML-Datei
+### Beispiele für referenzierte Objekte in einer HTML-Datei
 
 | Objekt-Typ |                                                       HTTP                                                       |                                                       HTTPS                                                        |
 |:----------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|

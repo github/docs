@@ -5,10 +5,11 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: Solicitar el archivo de cuentas
 ---
 
 {% data variables.product.product_name %} almacena metadatos del repositorio y del perfil desde tu actividad de cuenta personal. Puedes exportar tus datos de cuenta personal a través de los parámetros {% data variables.product.prodname_dotcom_the_website %} o con la API de migración de usuarios.
@@ -23,7 +24,7 @@ Si tu sistema operativo no puede descomprimir el archivo `tar.gz` de forma nativ
 
 El archivo `tar.gz` generado refleja los datos almacenados en el momento que comenzaste la exportación de datos.
 
-### Descargar un archivo de datos de tu cuenta personal
+## Descargar un archivo de datos de tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -32,7 +33,7 @@ El archivo `tar.gz` generado refleja los datos almacenados en el momento que com
 5. Haz clic en el enlace de descarga de tu correo electrónico y vuelve a ingresar tu contraseña, si se te solicita.
 6. Serás redirigido a un archivo `tar.gz` que podrás descargar.
 
-### Eliminar acceso a un archivo de datos de tu cuenta personal
+## Eliminar acceso a un archivo de datos de tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

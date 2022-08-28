@@ -140,13 +140,13 @@ If you hit a rate limit, it's expected that you back off from making requests an
 
 You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
 
-## Dealing with abuse rate limits
+## Dealing with secondary rate limits
 
-[Abuse rate limits](/rest/overview/resources-in-the-rest-api#abuse-rate-limits) are another way we ensure the API's availability.
+[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
 * Make authenticated requests, or use your application's client ID and secret. Unauthenticated
-  requests are subject to more aggressive abuse rate limiting.
+  requests are subject to more aggressive secondary rate limiting.
 * Make requests for a single user or client ID serially. Do not make requests for a single user
   or client ID concurrently.
 * If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user

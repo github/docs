@@ -1,23 +1,24 @@
 import { difference } from 'lodash-es'
 import { getJSON } from '../helpers/supertest.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
-import xAllVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import webhookPayloads from '../../lib/webhooks'
 import { jest } from '@jest/globals'
 
-const allVersions = Object.values(xAllVersions)
-const payloadVersions = allVersions.map((v) => v.miscVersionName)
+const allVersionValues = Object.values(allVersions)
+
+const payloadVersions = allVersionValues.map((v) => v.miscVersionName)
 
 // grab some values for testing
-const nonEnterpriseDefaultPayloadVersion = allVersions.find(
+const nonEnterpriseDefaultPayloadVersion = allVersionValues.find(
   (version) => version.nonEnterpriseDefault
 ).miscVersionName
 
-const latestGhesPayloadVersion = allVersions.find(
+const latestGhesPayloadVersion = allVersionValues.find(
   (version) => version.currentRelease === latest
 ).miscVersionName
 
-const ghaePayloadVersion = allVersions.find(
+const ghaePayloadVersion = allVersionValues.find(
   (version) => version.plan === 'github-ae'
 ).miscVersionName
 

@@ -35,7 +35,7 @@ If an organization member was removed from the organization because they did not
 {% endif %}
 
 {% ifversion fpt %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}
+If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
 {% endif %}
 
 ## Reinstating a former member of your organization

@@ -350,11 +350,6 @@ The issue or pull request was locked.
 
 ### Event object properties
 
-{% ifversion ghes < 2.22 %}
-{% data reusables.pre-release-program.sailor-v-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
-
 {% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
 
@@ -669,11 +664,6 @@ The issue was unlocked.
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
 ### Event object properties
-
-{% ifversion ghes < 2.22 %}
-{% data reusables.pre-release-program.sailor-v-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.

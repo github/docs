@@ -5,8 +5,9 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Jiraの統合
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -20,7 +21,7 @@ versions:
 9. [**Organization owned applications**] で、[Client ID] と [Client Secret] の値を確認します。 ![クライアント ID とクライアントシークレット](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user_settings.jira_help_docs %}
 
-### 参考リンク
+## 参考リンク
 
 - [「JIRA を個人プロジェクトに統合する」](/articles/integrating-jira-with-your-personal-projects)
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Jira Cloud を GitHub に接続する</a> (Atlassian ドキュメント)

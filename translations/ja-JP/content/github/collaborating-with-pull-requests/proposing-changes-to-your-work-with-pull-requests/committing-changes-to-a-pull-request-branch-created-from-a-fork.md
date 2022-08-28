@@ -6,11 +6,12 @@ redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Commit to PR branch from fork
 ---
 
 プルリクエストのブランチが以下の条件を満たす場合にのみ、コミットを実行できます:
@@ -86,6 +87,6 @@ topics:
 
 新しいコミットが、{% data variables.product.product_location %} の元のプルリクエストに反映されます。
 
-### 参考リンク
+## 参考リンク
 
 - [フォークについて](/articles/about-forks)

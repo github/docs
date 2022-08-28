@@ -7,11 +7,12 @@ redirect_from:
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Resolver los conflictos de fusión en Git
 ---
 
 Los conflictos de fusión ocurren cuando se hacen cambios contrapuestos en la misma línea de un archivo o cuando una persona edita un archivo y otra persona borra el mismo archivo. Para obtener más información, consulta "[Acerca de los conflictos de fusión](/articles/about-merge-conflicts/)".
@@ -22,7 +23,7 @@ Los conflictos de fusión ocurren cuando se hacen cambios contrapuestos en la mi
 
 {% endtip %}
 
-### Conflictos de fusión de cambios de líneas contrapuestos
+## Conflictos de fusión de cambios de líneas contrapuestos
 
 Para resolver un conflicto de fusión causado por cambios de líneas contrapuestos, debes decidir qué cambios incorporar desde las diferentes ramas de una confirmación nueva.
 
@@ -74,7 +75,7 @@ Por ejemplo, si usted y otra persona editaron el archivo _styleguide.md_ en las 
 
 Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
 
-### Conflictos de fusión de archivos eliminados
+## Conflictos de fusión de archivos eliminados
 
 Para resolver un conflicto de fusión causado por cambios contrapuestos en un archivo, cuando una persona elimina un archivo en una rama y otra persona edita el mismo archivo, debes decidir si eliminar o conservar el archivo eliminado en una confirmación nueva.
 
@@ -123,7 +124,7 @@ Por ejemplo, si editaste un archivo, como *README.md*, y otra persona eliminó e
 
 Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
 
-### Leer más
+## Leer más
 
 - "[Acerca de los conflictos de fusión](/articles/about-merge-conflicts)"
 - "[Revisar las solicitudes de extracción de forma local](/articles/checking-out-pull-requests-locally/)"

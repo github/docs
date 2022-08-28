@@ -4,8 +4,8 @@ intro: 'Conoce las opciones de soporte disponibles para {% data variables.produc
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

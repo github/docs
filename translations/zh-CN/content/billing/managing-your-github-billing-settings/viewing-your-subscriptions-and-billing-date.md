@@ -10,27 +10,28 @@ redirect_from:
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Organizations
   - User account
+shortTitle: 订阅和计费日期
 ---
 
-### 查找个人帐户的下一个结算日期
+## 查找个人帐户的下一个结算日期
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### 查找组织的下一个结算日期
+## 查找组织的下一个结算日期
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于 {% data variables.product.product_name %} 帐户的计费](/articles/about-billing-for-github-accounts)"

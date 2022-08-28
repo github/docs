@@ -4,7 +4,7 @@ intro: 'Se você criar ferramentas que integram-se ao {% data variables.product.
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 ---

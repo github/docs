@@ -4,7 +4,7 @@ shortTitle: CI におけるトラブルシューティング
 intro: '{% data variables.product.prodname_codeql_runner %} で問題が生じている場合、ここに掲載されているヒントを使ってトラブルを解決できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -13,11 +13,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### `init` コマンドに時間がかかりすぎる
+## `init` コマンドに時間がかかりすぎる
 
 {% data variables.product.prodname_codeql_runner %} は、コードのビルドと解析を行う前に、{% data variables.product.prodname_codeql %} CLI と {% data variables.product.prodname_codeql %} ライブラリを含んでいる {% data variables.product.prodname_codeql %} バンドルへのアクセス権が必要です。
 
@@ -26,7 +26,7 @@ redirect_from:
 
 この自動ダウンロードを回避するには、{% data variables.product.prodname_codeql %} バンドルをマシンに手動でダウンロードし、`init` コマンドの `--codeql-path` フラグでパスを指定します。
 
-### ビルド中にコードが見つからない
+## ビルド中にコードが見つからない
 
 {% data variables.product.prodname_codeql_runner %} の `analyze` コマンドで、`No source code was seen during the build` というエラーが出て失敗する場合、{% data variables.product.prodname_codeql %} がコードをモニターできなかったことを示しています。 このようなエラーが発生する理由として、次のようなものがあります。
 

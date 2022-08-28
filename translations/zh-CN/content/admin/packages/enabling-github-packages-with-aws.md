@@ -2,9 +2,10 @@
 title: 使用 AWS 启用 GitHub Packages
 intro: '以 AWS 作为外部存储设置 {% data variables.product.prodname_registry %} 。'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: 使用 AWS 启用包
 ---
 
 {% warning %}
@@ -16,7 +17,7 @@ topics:
 
 {% endwarning %}
 
-### 基本要求
+## 基本要求
 
 在 {% data variables.product.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，您必须准备 AWS 存储桶。 为了准备您的 AWS 存储桶，我们建议在 [AWS 文档](https://docs.aws.amazon.com/index.html)中查阅官方 AWS 文档。
 
@@ -29,20 +30,20 @@ topics:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### 使用 AWS 外部存储启用 {% data variables.product.prodname_registry %}
+## 使用 AWS 外部存储启用 {% data variables.product.prodname_registry %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 1. 在“AWS Service URL（AWS 服务 URL）”下，请为存储桶的区域键入S3 端点 URL。 ![AWS 服务 URL 字段](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
 1. 在“AWS S3 Bucket（AWS S3 存储桶）”下，键入您想要用来存储软件包工件的 S3 存储桶。 ![AWS S3 存储桶字段](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
 1. 在“AWS S3 Access Key（AWS S3 访问密钥）”下，键入 S3 的访问密钥。 ![AWS S3 访问密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
 1. 在“AWS S3 Secret Key（AWS S3 密码密钥”下，请输入 S3 的密码密钥。 ![AWS S3 密码密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
 1. 在“AWS S3 Region（AWS S3 区域）”下，键入 S3 的区域。 ![AWS S3 区域字段](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
 {% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 1. 在“Packages Storage（包存储）”下，选择 **Amazon S3** 并输入您的存储桶详细信息：
     - **AWS 服务 URL：**存储桶的服务 URL。 例如，如果您的 S3 存储桶是在 `us-west-2 region` 中创建的，则此值应为 `https://s3.us-west-2.amazonaws.com`。
 
@@ -57,6 +58,6 @@ topics:
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### 后续步骤
+## 后续步骤
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

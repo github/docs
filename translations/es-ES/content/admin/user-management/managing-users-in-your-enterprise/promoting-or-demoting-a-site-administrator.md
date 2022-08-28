@@ -7,13 +7,14 @@ redirect_from:
   - /admin/user-management/promoting-or-demoting-a-site-administrator
 intro: 'Los administradores del sitio pueden promover cualquier cuenta de usuarios normales a un administrador del sitio, así como degradar a otros administradores del sitio a usuarios normales.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - User account
   - Enterprise
+shortTitle: Administrar a los administradores
 ---
 
 {% tip %}
@@ -24,7 +25,7 @@ topics:
 
 Para obtener información sobre cómo promover un usuario a un propietario de la organización, consulta la sección `ghe-org-admin-promote` de "[Utilidades de línea de comandos](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)".
 
-### Promover un usuario desde los parámetros de empresa
+## Promover un usuario desde los parámetros de empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -32,7 +33,7 @@ Para obtener información sobre cómo promover un usuario a un propietario de la
 5. En la esquina superior derecha de la página, haz clic en **Agregar propietario**. ![Botón para agregar un administrador](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. En el campo Buscar, escribe el nombre del usuario y haz clic en **Agregar**. ![Campo de búsqueda para agregar un administrador](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
-### Degradar un administrador del sitio desde los parámetros de empresa
+## Degradar un administrador del sitio desde los parámetros de empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -41,7 +42,7 @@ Para obtener información sobre cómo promover un usuario a un propietario de la
 
 1. En los resultados de búsqueda, encuentra el nombre de usuario de la persona que quieres bajar de rango y luego utiliza el menú desplegable de {% octicon "gear" %} y selecciona **Eliminar propietario**. ![Eliminar de la opción de empresa](/assets/images/help/business-accounts/demote-admin-button.png)
 
-### Promover un usuario desde la línea de comandos
+## Promover un usuario desde la línea de comandos
 
 1. [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) en tu aparato.
 2. Ejecuta [ghe-user-promote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-promote) con el nombre de usuario a promover.
@@ -49,7 +50,7 @@ Para obtener información sobre cómo promover un usuario a un propietario de la
   $ ghe-user-promote <em>username</em>
   ```
 
-### Degradar un administrador del sitio desde la línea de comandos
+## Degradar un administrador del sitio desde la línea de comandos
 
 1. [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) en tu aparato.
 2. Ejecuta [ghe-user-demote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-demote) con el nombre de usuario a degradar.

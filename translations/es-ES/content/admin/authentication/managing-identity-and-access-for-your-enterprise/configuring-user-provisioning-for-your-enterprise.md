@@ -5,7 +5,7 @@ intro: 'Puedes configurar el Sistema para la Administración de Identidad entre 
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,13 +17,13 @@ redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
 
-### Acerca del aprovisionamiento de usuarios para tu empresa
+## Acerca del aprovisionamiento de usuarios para tu empresa
 
 {% data reusables.saml.ae-uses-saml-sso %} Para obtener más información, consulta la sección "[Configurar el incio de sesión único de SAML para tu empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% data reusables.scim.after-you-configure-saml %} Para obtener más información acerca del SCIM, consulta la sección [Sistema para la Administración de Identidad entre Dominios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) en el sitio web de IETF.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 Configurar el aprovisionamiento le permite a tu IdP comunicarse con {% data variables.product.product_location %} cuando asignas o desasignas la aplicación para {% data variables.product.product_name %} a un usuario en tu IdP. Cuando asignas la aplicación, tu IdP pedirá que {% data variables.product.product_location %} cree una cuenta y enviará un correo electrónico de incorporación al usuario. Cuando desasignas la aplicación, tu IdP se comunicará con {% data variables.product.product_name %} para invalidad cualquier sesión de SAML e inhabilitar la cuenta del miembro.
 
@@ -33,15 +33,15 @@ La aplicación de aprovisionamiento en tu IdP se comunica con {% data variables.
 
 {% endif %}
 
-### Proveedores de identidad compatibles
+## Proveedores de identidad compatibles
 
 {% data reusables.scim.supported-idps %}
 
 Cuando configuras el aprovisionamiento de usuarios con un IdP compatible, también puedes asignar o desasignar la aplicación para {% data variables.product.product_name %} a grupos de usuarios. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
 
-### Prerrequisitos
+## Prerrequisitos
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 Para aprovisionar y desaprovisionar automáticamente el acceso a {% data variables.product.product_location %} desde tu IdP, primero debes configurar el SSO de SAML cuando inicializas {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 
@@ -49,9 +49,9 @@ Debes tener acceso administrativo en tu IdP para configurar la aplicación para 
 
 {% endif %}
 
-### Habilitar el aprovisionamiento de usuarios para tu empresa
+## Habilitar el aprovisionamiento de usuarios para tu empresa
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. Mientras tengas una sesión activa en {% data variables.product.product_location %} como propietario de empresa, crea un token de acceso personal con el alcance **admin:enterprise**. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
   {% note %}
@@ -81,9 +81,9 @@ Debes tener acceso administrativo en tu IdP para configurar la aplicación para 
 
   La aplicación en tu IdP requiere dos valores para aprovisionar o desaprovisionar las cuentas de usuario en {% data variables.product.product_location %}.
 
-  | Valor              | Otros nombres                           | Descripción                                                                                                           | Ejemplo                                           |
-  |:------------------ |:--------------------------------------- |:--------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------- |
-  | URL                | URL de inquilino                        | URL para la API de aprovisionamiento de SCIM para tu empresa en {% data variables.product.prodname_ghe_managed %}   | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre>                         |
-  | Secreto compartido | Token de acceso personal, token secreto | Toekn para que la aplicación en tu IdP realice las tareas de aprovisionamiento en nombre de un propietario de empresa | Token de acceso personal que creaste en el paso 1 |
+  | Valor              | Otros nombres                           | Descripción                                                                                                           | Ejemplo                                                            |
+  |:------------------ |:--------------------------------------- |:--------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+  | URL                | URL de inquilino                        | URL para la API de aprovisionamiento de SCIM para tu empresa en {% data variables.product.prodname_ghe_managed %}   | <nobr>`{% data variables.product.api_url_pre %}/scim/v2</nobr>` |
+  | Secreto compartido | Token de acceso personal, token secreto | Toekn para que la aplicación en tu IdP realice las tareas de aprovisionamiento en nombre de un propietario de empresa | Token de acceso personal que creaste en el paso 1                  |
 
 {% endif %}

@@ -38,12 +38,6 @@ upcoming_changes:
     date: '2020-01-01T00:00:00+00:00'
     criticality: breaking
     owner: tambling
-  - location: Sponsorship.maintainer
-    description: '`maintainer` will be removed. Use `Sponsorship.sponsorable` instead.'
-    reason: '`Sponsorship.maintainer` will be removed.'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: antn
   - location: EnterprisePendingMemberInvitationEdge.isUnlicensed
     description: '`isUnlicensed` will be removed.'
     reason: All pending members consume a license
@@ -80,12 +74,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
-  - location: Sponsorship.sponsor
-    description: '`sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead.'
-    reason: '`Sponsorship.sponsor` will be removed.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nholden
   - location: EnterpriseMemberEdge.isUnlicensed
     description: '`isUnlicensed` will be removed.'
     reason: All members consume a license

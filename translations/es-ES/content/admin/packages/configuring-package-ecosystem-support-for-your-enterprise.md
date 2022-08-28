@@ -5,20 +5,21 @@ redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Packages
+shortTitle: Configurar los ecosistemas de paquetes
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### Habilitar o inhabilitar los ecosistemas de paquetes individuales
+## Habilitar o inhabilitar los ecosistemas de paquetes individuales
 
 Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistema que hayas habilitado previamente como **Solo lectura**, mientras aún permites que los paquetes existentes se descarguen.
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 Para utilizar
 el {% data variables.product.prodname_registry %} con Docker, debes tener habilitado el aislamiento de subdominios para tu instancia. Para obtener más información, consulta la sección "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)".
 {% endif %}
@@ -29,8 +30,8 @@ el {% data variables.product.prodname_registry %} con Docker, debes tener habili
 1. Debajo de "Alternación de ecosistema", para cada tipo de paquete, selecciona **Enabled**, **Read-Only**, o **Disabled**. ![Alternación de ecosistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Conectarse al registro oficial de npm
+{% ifversion ghes = 3.0 or ghes > 3.0 %}
+## Conectarse al registro oficial de npm
 
 Si habilitaste los paquetes de npm en tu empresa y quieres permitir el acceso tanto al registro oficial de npm como al registro de npm del {% data variables.product.prodname_registry %}, entonces debes realizar algunas configuraciones adicionales.
 
@@ -46,6 +47,6 @@ Nota que las conexiones a `registry.npmjs.com` atraviesan por la red de Cloudfla
 
 {% endif %}
 
-### Pasos siguientes
+## Pasos siguientes
 
 Como paso siguiente, te recomendamos verificar si necesitas actualizar o cargar un certificado TLS para tu URL de hospedaje de paquetes. Para obtener más información, consulta la sección "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".

@@ -3,15 +3,20 @@ title: Alterar a visibilidade do site do GitHub Pages
 intro: Você pode gerenciar o controle de acesso no seu site de projeto publicando o site publicamente ou privadamente.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: Alterar a visibilidade do site
 ---
 
-### Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
+## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
-Se o seu site de projeto for publicado de um repositório privado ou interno, pertencente a uma organização que usa {% data variables.product.prodname_ghe_cloud %}, você poderá gerenciar o controle de acesso para o site. Com controle de acesso, você pode optar por publicar o site publicamente para qualquer pessoa na internet ou em particular para pessoas com acesso de leitura ao seu repositório. Um site publicado de forma privada pode ser usado para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+With access control for {% data variables.product.prodname_pages %}, you can restrict access to your {% data variables.product.prodname_pages %} site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+
+If your enterprise uses {% data variables.product.prodname_emus %}, all {% data variables.product.prodname_pages %} sites are privately published. For more information about {% data variables.product.prodname_emus %}, see "[About  {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your sites privately or publicly to anyone on the internet. Access control is available for project sites that are published from a private or internal repository that are owned by the organization. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 Os sites publicados em particular estão disponíveis em um subdomínio diferente dos sites publicados em modo público. Isso garante que seu site do {% data variables.product.prodname_pages %} esteja seguro a partir do momento em que for publicado:
 
@@ -22,7 +27,7 @@ Você pode visualizar o subdomínio único do site na aba páginas das configura
 
 Para usar um domínio mais curto e mais memorável no seu site privado de {% data variables.product.prodname_pages %}, você pode configurar um domínio personalizado. Para obter mais informações, consulte "[Configurar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site)""
 
-### Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}
+## Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

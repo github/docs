@@ -8,8 +8,9 @@ redirect_from:
   - /packages/manage-packages/deleting-a-package
   - /packages/guides/deleting-a-container-image
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
+  fpt: '*'
+  ghes: '>=3.1'
+shortTitle: パッケージの削除と復元
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -25,7 +26,7 @@ versions:
 {% note %}
 
 **注釈:**
-- パッケージのいずれかのパージョンでダウンロード数が25を超えている場合は、パブリックパッケージを削除できません。 この場合は、[GitHubサポート](https://support.github.com/contact)までお問い合わせください。
+- パッケージのいずれかのパージョンでダウンロード数が25を超えている場合は、パブリックパッケージを削除できません。 この場合は、[GitHubサポート](https://support.github.com/contact?tags=docs-packages)までお問い合わせください。
 - パブリックパッケージを削除する場合、そのパッケージに依存するプロジェクトを破壊する可能性があることに注意してください。
 
 {% endnote %}
@@ -36,15 +37,13 @@ versions:
 
 ## パッケージAPIのサポート
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 REST APIを使用してパッケージを管理できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 
 {% endif %}
 
-リポジトリから権限とアクセス権を継承するパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_registry %} GraphQL APIは、パッケージ名前空間に`https://ghcr.io/OWNER/PACKAGE-NAME`を使用するコンテナやDockerイメージをサポートしていません。 GraphQLのサポートに関する詳しい情報については、「[GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
-
-{% data reusables.package_registry.container-registry-beta %}
+リポジトリから権限とアクセス権を継承するパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。{% ifversion fpt %}{% data variables.product.prodname_registry %} GraphQL APIは、パッケージ名前空間に`https://ghcr.io/OWNER/PACKAGE-NAME`を使用するコンテナやDockerイメージをサポートしていません。 GraphQLのサポートに関する詳しい情報については、「[GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
 
 {% endif %}
 
@@ -58,21 +57,14 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 - maven
 - Gradle
 - NuGet
-- `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`のDockerイメージ
+{% ifversion not fpt %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-`https://ghcr.io/OWNER/PACKAGE-NAME`に保存されたコンテナやDockerイメージなど、リポジトリとは別に個別の権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。
+`https://ghcr.io/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。
  <!--PLACEHOLDER - once packages restructuring is done this is a good place to link to the access control and visibility article.-->
 
-{% data reusables.package_registry.container-registry-beta %}
-
 {% endif %}
-
-
-## {% data variables.product.prodname_actions %}でパッケージのバージョン削除を自動化する
-
-{% data variables.product.company_short %}が作成した公式のアクションを使用して、パッケージのバージョン削除を自動化できます。 このアクションはactionsリポジトリまたは{% data variables.product.prodname_marketplace %}上で使用でき、リポジトリのスコープが付いたパッケージでのみ動作します。 詳しい情報については、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/delete-package-versions)または[actionsリポジトリ](https://github.com/actions/delete-package-versions)の「Delete Package Versions」アクションを参照してください。
 
 ## パッケージのバージョンを削除する
 
@@ -91,7 +83,7 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 GraphQLは、`ghcr.io`にあるコンテナやDockerイメージではサポートされていません。
 {% endif %}<!--PLACEHOLDER for when API link is live:  For full support, use the REST API. For more information, see the "\[{% data variables.product.prodname_registry %} API\](/rest/reference/packages)." -->GraphQL APIの`deletePackageVersion`ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo`スコープを持つトークンを使わなければなりません。 トークンに関する詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 
@@ -111,12 +103,10 @@ HOSTNAME/graphql
 
 GraphQLを使用してパッケージ全体を直接削除することはできませんが、パッケージのすべてのバージョンを削除すれば、パッケージは{% data variables.product.product_name %}上に表示されなくなります。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージのバージョンを削除する
 
 `ghcr.io`にあるDockerイメージなどで、 {% data variables.product.prodname_dotcom %}上のユーザのスコープが付いたパッケージの、特定のバージョンを削除するには、以下のステップに従ってください。 パッケージ全体を削除するには、「[{% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する](#deleting-an-entire-user-scoped-package-on-github)」を参照してください。
-
-{% data reusables.package_registry.container-registry-beta %}
 
 パッケージのバージョンを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
@@ -129,8 +119,6 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 ### GitHub上でOrganizationのスコープが付いたパッケージのバージョンを削除する
 
 `ghcr.io`にあるDockerイメージなどで、{% data variables.product.prodname_dotcom %}上のOrganizationのスコープが付いたパッケージの、特定のバージョンを削除するには、以下のステップに従ってください。 パッケージ全体を削除するには、「[{% data variables.product.prodname_dotcom %}上でOrganizationのスコープが付いたパッケージ全体を削除する](#deleting-an-entire-organization-scoped-package-on-github)」を参照してください。
-
-{% data reusables.package_registry.container-registry-beta %}
 
 パッケージのバージョンを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
@@ -153,7 +141,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 4. [Danger Zone] の下にある [**Delete this package**] をクリックします。
 5. 確認メッセージを読み、パッケージ名を入力してから、[**I understand, delete this package.**] をクリックします。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する
 
 パッケージを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
@@ -184,9 +172,9 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 たとえば、リポジトリ`octo-repo-owner/octo-repo`のスコープが付いていた、`octo-package`という名前のrubygemパッケージを削除した場合、パッケージ名前空間`rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` がまだ使用可能で、かつ30日間が経過していない場合にのみ、そのパッケージを復元できます。
 
 また、次の権限要件のいずれかを満たす必要もあります。
-  - リポジトリのスコープが付いたパッケージ: 削除したパッケージを所有するリポジトリの管理者権限。
+  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt %}
   - ユーザアカウントのスコープが付いたパッケージ: ユーザアカウントが削除したパッケージを所有している。
-  - Organizationのスコープが付いたパッケージ: 削除したパッケージ内の、パッケージを所有するOrganizationの管理者権限。
+  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
 
 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
@@ -194,7 +182,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 
 ### Organization内のパッケージを復元する
 
-パッケージが所有するリポジトリにあったか、詳細なアクセス権限が設定されていて、所属するOrganizationアカウントのスコープが付いていた場合、削除されたパッケージをOrganizationアカウント設定から復元できます。
+You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 Organizationでパッケージを復元できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
@@ -204,6 +192,8 @@ Organizationでパッケージを復元できるユーザを確認するには�
 4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
+{% ifversion fpt %}
+
 ### ユーザアカウントのスコープが付いたパッケージを復元する
 
 パッケージが所有するリポジトリにあったか、ユーザアカウントのスコープが付いていた場合、削除されたパッケージをユーザアカウント設定から復元できます。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
@@ -212,6 +202,8 @@ Organizationでパッケージを復元できるユーザを確認するには�
 2. 左側にある [**Packages**] をクリックします。
 4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+
+{% endif %}
 
 ### パッケージのバージョンを復元する
 

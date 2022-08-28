@@ -5,13 +5,13 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
   - /articles/about-organizations-for-resellers/
   - /articles/about-organizations-for-procurement-companies
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Organizations
+shortTitle: Informationen zu Organisationen
 ---
 
 Um auf eine Organisation zugreifen zu können, muss sich jedes Mitglied bei seinem persönlichen Benutzerkonto anmelden.
@@ -21,7 +21,7 @@ Organisationsmitglieder können verschiedene Rollen haben, beispielsweise *Inhab
 - **Inhaber** haben vollen administrativen Zugriff auf eine Organisation und deren Inhalte.
 - **Abrechnungsmanager** können die Abrechnungseinstellungen verwalten und haben keinen Zugriff auf Organisationsinhalte. Abrechnungsmanager werden in der Liste der Organisationsmitglieder nicht angezeigt.
 
-### Zahlungen und Preise für Organisationen
+## Zahlungen und Preise für Organisationen
 
 Wir unterbreiten keine Angebote für die Preisgestaltung für Organisationen. Du kannst unsere veröffentlichten Preise für [Organisationen](https://github.com/pricing) und [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/) einsehen. Wir gewähren keine Rabatte für Beschaffungsunternehmen oder Verlängerungsaufträge.
 
@@ -31,7 +31,7 @@ Wir akzeptieren Zahlungen per Kreditkarte und PayPal. Wir akzeptieren keine Zahl
 
 Für einen einfacheren und effizienteren Einkauf empfehlen wir Beschaffungsunternehmen, eine jährliche Abrechnung für die Organisationen ihrer Kunden einzurichten.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Eine Organisation im Namen eines Kunden gründen und bezahlen](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)“
 - „[Eine bezahlte Organisation Ihres Kunden hoch- oder herabstufen](/articles/upgrading-or-downgrading-your-client-s-paid-organization)“

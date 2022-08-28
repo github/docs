@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
   - /admin/enterprise-management/increasing-storage-capacity
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
   - Storage
+shortTitle: 增加存储容量
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 随着更多的用户加入 {% data variables.product.product_location %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
 
-### 要求与建议
+## 要求与建议
 
 {% note %}
 
@@ -27,11 +28,11 @@ topics:
 
 {% endnote %}
 
-#### 最低要求
+### 最低要求
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-### 增加数据分区大小
+## 增加数据分区大小
 
 1. 使用虚拟平台工具调整现有用户卷磁盘大小。
 {% data reusables.enterprise_installation.ssh-into-instance %}
@@ -45,7 +46,7 @@ topics:
   $ ghe-storage-extend
   ```
 
-### 使用新设备增加根分区大小
+## 使用新设备增加根分区大小
 
 1. 使用版本与当前设备相同的较大根磁盘来设置新的 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 2. 关闭当前设备：
@@ -55,7 +56,7 @@ topics:
 3. 使用虚拟平台工具将数据磁盘从当前设备中拆下。
 4. 将数据磁盘安装到根磁盘较大的新设备上。
 
-### 使用现有设备增加根分区大小
+## 使用现有设备增加根分区大小
 
 {% warning %}
 
@@ -75,11 +76,10 @@ topics:
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. 作为根用户，使用您选择的文本编辑器，编辑 _/etc/fstab_ 文件， 更改 `/` 挂载点的 UUID 指向新根驱动器的 UUID。 您可以使用命令 `sudo lsblk -f` 获取新根驱动器的 UUID。
-5. 关闭设备：
+4. 关闭设备：
   ```shell
   $ sudo poweroff
   ```
-6. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
-7. 启动设备。
-8. 确保系统服务正常运行，然后释放维护模式。 更多信息请参阅“[启用和排定维护模式](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+5. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
+6. 启动设备。
+7. 确保系统服务正常运行，然后释放维护模式。 更多信息请参阅“[启用和排定维护模式](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。

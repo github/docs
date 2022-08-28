@@ -4,9 +4,9 @@ intro: '了解 {% data variables.product.prodname_dotcom %} 的 API 以扩展和
 redirect_from:
   - /v3/versions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

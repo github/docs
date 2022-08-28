@@ -7,12 +7,15 @@ redirect_from:
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add notes to board
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -27,7 +30,7 @@ Wenn Du eine URL für einen Issue, einen Pull Request oder ein anderes Projektbo
 
 ![Projektboard-Tickets mit der Vorschau eines Issues und ein weiteres Projektboard](/assets/images/help/projects/note-with-summary-card.png)
 
-### Hinweise zu einem Projektboard hinzufügen
+## Hinweise zu einem Projektboard hinzufügen
 
 1. Navigiere zu dem Projektboard, zu dem Du Hinweise hinzufügen möchtest.
 2. Klicken Sie in der Spalte, in der Sie einen Hinweis hinzufügen möchten, auf {% octicon "plus" aria-label="The plus icon" %}. ![Pluszeichen-Symbol im Spalten-Header](/assets/images/help/projects/add-note-button.png)
@@ -39,7 +42,7 @@ Wenn Du eine URL für einen Issue, einen Pull Request oder ein anderes Projektbo
 
   {% endtip %}
 
-### Einen Hinweis in einen Issue umwandeln
+## Einen Hinweis in einen Issue umwandeln
 
 Wenn Du einen Hinweis erstellt hast und feststellst, dass er für Deine Anforderungen nicht ausreicht, kannst Du den Hinweis in einen Issue umwandeln.
 
@@ -59,14 +62,14 @@ Wenn Du einen Hinweis in einen Issue umwandelst, wird der Inhalt des Hinweises a
 6. Klicke auf **Convert to issue** (In Issue umwandeln).
 7. Der Hinweis wird automatisch in einen Issue umgewandelt. Im Projektboard wird das neue Issue-Ticket an derselben Stelle angezeigt wie zuvor der Hinweis.
 
-### Einen Hinweis bearbeiten und entfernen
+## Einen Hinweis bearbeiten und entfernen
 
 1. Navigiere zu dem Hinweis, den Du bearbeiten oder entfernen möchtest.
 {% data reusables.project-management.project-note-more-options %}
 3. Um den Inhalt des Hinweises zu bearbeiten, klicke auf **Edit note** (Hinweis bearbeiten). ![Schaltfläche „Edit note“ (Hinweis bearbeiten)](/assets/images/help/projects/edit-note.png)
 4. Um den Inhalt des Hinweises zu löschen, klicke auf **Delete note** (Hinweis löschen). ![Schaltfläche „Delete note“ (Hinweis löschen)](/assets/images/help/projects/delete-note.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Ein Projektboard erstellen](/articles/creating-a-project-board)“

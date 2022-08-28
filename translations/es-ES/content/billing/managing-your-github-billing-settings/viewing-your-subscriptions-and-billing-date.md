@@ -10,27 +10,28 @@ redirect_from:
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Organizations
   - User account
+shortTitle: Suscripciones & fecha de facturación
 ---
 
-### Encontrar la próxima fecha de facturación de tu cuenta personal
+## Encontrar la próxima fecha de facturación de tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Encontrar la próxima fecha de facturación de tu organización
+## Encontrar la próxima fecha de facturación de tu organización
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"

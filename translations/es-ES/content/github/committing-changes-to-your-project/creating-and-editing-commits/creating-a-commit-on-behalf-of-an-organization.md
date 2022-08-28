@@ -5,7 +5,8 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: En nombre de una organización
 ---
 
 {% note %}
@@ -25,7 +26,7 @@ Para crear confirmaciones en nombre de una organización:
 
 Las organizaciones pueden usar el correo electrónico `name@organization.com` como punto de contacto público para los esfuerzos de código abierto que se hagan.
 
-### Crear confirmaciones con un distintivo `on-behalf-of` en la línea de comando
+## Crear confirmaciones con un distintivo `on-behalf-of` en la línea de comando
 
 1. Teclea tu mensaje de confirmación y una descripción corta y significativa sobre tus cambios. Después de tu descripción de la confirmación, en vez de cerrar las comillas, agrega dos líneas vacías.
   ```shell
@@ -50,7 +51,7 @@ Las organizaciones pueden usar el correo electrónico `name@organization.com` co
 
 El nuevo mensaje de confirmación y el distintivo aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-### Crear confirmaciones con un distintivo `on-behalf-of` en {% data variables.product.product_name %}
+## Crear confirmaciones con un distintivo `on-behalf-of` en {% data variables.product.product_name %}
 
 Una vez que hayas realizado los cambios en un archivo usando el editor web en {% data variables.product.product_name %}, puedes crear una confirmación en nombre de tu organización agregando una introducción `on-behalf-of:` al mensaje de confirmación.
 
@@ -63,10 +64,9 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {%
 
 La confirmación, el mensaje y el distintivo nuevos aparecerán en {% data variables.product.product_location %}.
 
-### Leer más
+## Leer más
 
 - "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Ver un resumen de la actividad del repositorio](/articles/viewing-a-summary-of-repository-activity)"
 - "[Ver los colaboradores de un proyecto](/articles/viewing-a-projects-contributors)"
 - "[Cambiar un mensaje de confirmación](/articles/changing-a-commit-message)"

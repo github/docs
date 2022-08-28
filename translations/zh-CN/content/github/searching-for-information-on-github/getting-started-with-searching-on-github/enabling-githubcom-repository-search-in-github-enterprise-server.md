@@ -8,10 +8,11 @@ redirect_from:
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - GitHub search
+shortTitle: 启用搜索 GitHub.com
 ---
 
 如果使用 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_dotcom_the_website %}，并且 {% data variables.product.prodname_ghe_server %} 站点管理员已启用私有仓库的 {% data variables.product.prodname_github_connect %} 和 {% data variables.product.prodname_unified_search %}，则可以在关联的组织中搜索指定的私有仓库。

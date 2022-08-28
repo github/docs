@@ -45,20 +45,27 @@ out a test coverage report, so you can see what files are in need of tests.
 npm run test-watch
 ```
 
-### Testing individual files
+### Running individual tests
 
-If you're making changes to a specific file and don't want to run the entire
-test suite, you can pass an argument to the `jest` testing tool:
+You can run specific tests in one of these two ways:
 
 ```sh
-jest __tests__/page.js
+# The TEST_NAME can be a filename, partial filename, or path to a file or directory
+npm test -- <TEST_NAME>
+
+NODE_OPTIONS=--experimental-vm-modules npx jest tests/unit
 ```
 
-The argument doesn't have to be a fully qualified file path. It can also be a
-portion of a filename:
+### Failed Local Tests
+
+If the tests fail locally with an error like this:
+
+`Could not find a production build in the '/Users/username/repos/docs-internal/.next' directory.`
+
+You may need to run this before every test run:
 
 ```sh
-jest page # runs tests on __tests__/page.js and __tests__/pages.js
+npx next build
 ```
 
 ### Linting
@@ -69,26 +76,3 @@ run the linter:
 ```sh
 npm run lint
 ```
-
-### Broken link test
-
-This test checks all internal links and image references in the English site. To run it locally (takes about 60 seconds):
-
-```sh
-npx jest links-and-images
-```
-
-It checks images, anchors, and links for every **version** of every **page**.
-
-It reports five types of problems:
-
-1. **Broken image references**
-   - Example: `/assets/images/foo.png` where `foo.png` doesn't exist.
-2. **Broken same-page anchors**
-   - Example: `#foo` where the page does not have a heading `Foo`.
-3. **Broken links due to page not found**
-   - Example: `/github/using-git/foo` where there is no `foo.md` file at that path.
-4. **Broken links due to versioning**
-   - Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
-5. **Broken anchors on links**
-   - Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.

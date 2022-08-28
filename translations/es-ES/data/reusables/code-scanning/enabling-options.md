@@ -17,7 +17,7 @@
     </td>
   </tr>
 </table>
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{%- ifversion fpt or ghes > 3.0 or ghae-next %}
 |
 {% data variables.product.prodname_codeql %} | Utilizando {% data variables.product.prodname_actions %} (Consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando acciones](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)") o ejecutando el análisis de {% data variables.product.prodname_codeql %} en un sistema de integración contínua (IC) de terceros (consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)").
 {%- else %}

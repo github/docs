@@ -1,13 +1,15 @@
 ---
 title: 搜索
+intro: '{% data variables.product.product_name %} 搜索 API 允许您高效地搜索特定项目。'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
@@ -48,7 +50,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax/)”。
+有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### 查询长度限制
 

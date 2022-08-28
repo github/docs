@@ -2,7 +2,7 @@ import cx from 'classnames'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { ArticleList } from './ArticleList'
+import { ArticleList } from 'components/landing/ArticleList'
 
 export const FeaturedArticles = () => {
   const { featuredArticles = [], whatsNewChangelog, changelogUrl } = useProductLandingContext()
@@ -19,7 +19,6 @@ export const FeaturedArticles = () => {
           >
             <ArticleList
               title={section.label}
-              titleVariant="large"
               viewAllHref={section.viewAllHref}
               articles={section.articles}
             />
@@ -31,7 +30,6 @@ export const FeaturedArticles = () => {
         <div className={cx('col-12 mb-4 mb-lg-0 col-lg-4')}>
           <ArticleList
             title={t('whats_new')}
-            titleVariant="large"
             viewAllHref={changelogUrl}
             articles={(whatsNewChangelog || []).map((link) => {
               return {

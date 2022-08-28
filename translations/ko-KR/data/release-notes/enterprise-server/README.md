@@ -26,9 +26,9 @@ The YAML data is processed and sorted by `middleware/contextualizers/release-not
 
 ### Layouts
 
-The `context` object data is rendered by `layouts/release-notes.html` and `includes/enterprise-server-release-notes.html`.
+The `context` object data is rendered by `components/release-notes`.
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss` and client-side JavaScript in `javascripts/release-notes.js`.
+The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
 
 ### Schema
 

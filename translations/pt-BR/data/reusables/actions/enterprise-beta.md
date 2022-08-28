@@ -1,4 +1,4 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 {% note %}
 
 **Observação:** {% data variables.product.prodname_actions %} estava disponível para {% data variables.product.prodname_ghe_server %} 2.22 como um beta limitado. O beta terminou. {% data variables.product.prodname_actions %} está agora geralmente disponível em {% data variables.product.prodname_ghe_server %} 3.0 ou posterior. Para obter mais informações, consulte as observações sobre a versão [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes).

@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
-import walk from 'walk-sync'
-import { escapeRegExp, last } from 'lodash-es'
-import yaml from 'js-yaml'
-import patterns from '../../lib/patterns.js'
 
 // [start-readme]
 //
@@ -13,6 +6,14 @@ import patterns from '../../lib/patterns.js'
 // updates the data and image paths to either include `early-access` or remove it.
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import walk from 'walk-sync'
+import { escapeRegExp, last } from 'lodash-es'
+import yaml from 'js-yaml'
+import patterns from '../../lib/patterns.js'
 
 const earlyAccessContent = path.posix.join(process.cwd(), 'content/early-access')
 const earlyAccessData = path.posix.join(process.cwd(), 'data/early-access')

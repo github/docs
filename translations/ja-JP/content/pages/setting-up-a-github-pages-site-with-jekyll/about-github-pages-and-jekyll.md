@@ -20,14 +20,15 @@ redirect_from:
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: GitHub PagesとJekyll
 ---
 
-### Jekyllについて
+## Jekyllについて
 
 Jekyllは、{% data variables.product.prodname_pages %}に組み込まれている静的サイトジェネレータで、ビルドプロセスを容易化できます。 JekyllはMarkdownおよびHTMLファイルを取り込み、選択したレイアウトに基づいて、完成された静的ウェブサイトを作成します。 Jekyllは、Markdownと、サイトに動的コンテンツを読み込むテンプレート言語のLiquidをサポートします。 詳しい情報については、[Jekyll](https://jekyllrb.com/)を参照してください。
 
@@ -35,7 +36,7 @@ Windows は、Jekyll を公式にはサポートしていません。 詳しい�
 
 {% data variables.product.prodname_pages %} ではJekyllを使用することをおすすめします。 お好みに応じて、別の静的サイトジェネレータを使用することも、ローカルまたは別のサーバーにおけるビルドプロセスをカスタマイズすることもできます。 詳しい情報については「[{% data variables.product.prodname_pages %}について](/articles/about-github-pages#static-site-generators)」を参照してください。
 
-### {% data variables.product.prodname_pages %}サイトでJekyllを設定する
+## {% data variables.product.prodname_pages %}サイトでJekyllを設定する
 
 *_config.yml*ファイルを編集することにより、サイトのテーマやプラグインなど、Jekyllの設定のほとんどを設定できます。 詳しい情報については、Jekyllのドキュメンテーションの「[Configuration](https://jekyllrb.com/docs/configuration/)」を参照してください。
 
@@ -56,30 +57,30 @@ kramdown:
 
 デフォルトでは、Jekyllでは以下に当てはまるファイルやフォルダをビルドしません。
 - `/node_modules`または`/vendor`と名付けられたフォルダ内にあるもの
-- start with `_`, `.`, or `#`
+- `_`, `.`, or `#`ではじまるもの
 - 次の文字で終わるもの: `~`
 - 設定ファイルの`exclude`設定で除外されているもの
 
-以上に当てはまるファイルをJekyllで処理したい場合、設定ファイルで`includes`設定を利用できます。
+If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
 
-### フロントマター
+## フロントマター
 
 {% data reusables.pages.about-front-matter %}
 
 ポストまたはページに`site.github`を追加して、あらゆるリポジトリリファレンスメタデータをサイトに追加できます。 詳しい情報については、Jekyllメタデータドキュメンテーションの「[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)」を参照してください。
 
-### テーマ
+## テーマ
 
 {% data reusables.pages.add-jekyll-theme %}詳しい情報については、Jekyllドキュメンテーションの「[Themes](https://jekyllrb.com/docs/themes/)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data variables.product.prodname_dotcom %} のサイトに、サポートされているテーマを追加できます。 詳しい情報については、{% data variables.product.prodname_pages %} サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」および「[テーマ選択画面を使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)」を参照してください。
 
-{% data variables.product.prodname_dotcom %} にホストされている他のオープンソース Jekyll テーマを使用する場合は、テーマを手動で追加できます。{% else %}テーマを手動でサイトに追加できます。{% endif %}詳しい情報については、{% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} にホストされているテーマ](https://github.com/topics/jekyll-theme)と、{% else %}{% data variables.product.prodname_pages %}サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」、および{% endif %}「[Jekyllを使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
+{% data variables.product.prodname_dotcom %}にホストされている他のオープンソースJekyllテーマを使用する場合は、テーマを手動で追加できます。{% else %}テーマを手動でサイトに追加できます。{% endif %}詳細については、{% ifversion fpt %}[ {% data variables.product.prodname_dotcom %}にホストされているテーマ](https://github.com/topics/jekyll-theme)と、{% else %}{% data variables.product.prodname_pages %}サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」、および{% endif %}「[Jekyllを使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
 
 テーマのファイルを編集することで、テーマのデフォルトを上書きできます。 詳しい情報については、テーマのドキュメンテーションおよびJekyllドキュメンテーションの「[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)」を参照してください。
 
-### プラグイン
+## プラグイン
 
 Jekyllプラグインをダウンロードまたは作成すると、サイトでJekyllの機能を拡張できます。 たとえば、[jemoji](https://github.com/jekyll/jemoji)プラグインを使うと、{% data variables.product.prodname_dotcom %}っぽい絵文字を、{% data variables.product.prodname_dotcom %}で使うのと同じように、サイトの任意のページで使用できます。 詳細については、Jekyllのドキュメンテーションで「[プラグイン](https://jekyllrb.com/docs/plugins/)」を参照してください。
 
@@ -106,7 +107,7 @@ Jekyllプラグインをダウンロードまたは作成すると、サイト�
 
 {% data variables.product.prodname_pages %}は、サポートされていないプラグインを使用してサイトをビルドすることはできません。 サポートされていないプラグインを使用するには、ローカルでサイトを生成してから、サイトの静的ファイルを{% data variables.product.product_name %}にプッシュできます。
 
-### 構文の強調表示
+## 構文の強調表示
 
 サイトを読みやすくするには、{% data variables.product.product_name %}で強調表示されるのと同じように、{% data variables.product.prodname_pages %}サイトでコードスニペットを強調表示します。 {% data variables.product.product_name %}における構文の強調表示については、「[コードブロックの作成と強調表示](/articles/creating-and-highlighting-code-blocks)」を参照してください。
 
@@ -126,6 +127,6 @@ kramdown:
 $ rougify style github > style.css
 ```
 
-### サイトをローカルでビルドする
+## サイトをローカルでビルドする
 
 {% data reusables.pages.test-locally %}

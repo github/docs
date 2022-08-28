@@ -11,6 +11,7 @@ children:
   - /sponsoring-an-open-source-contributor
   - /managing-your-sponsorship
   - /attributing-sponsorships-to-your-organization
+  - /paying-for-github-sponsors-by-invoice
 shortTitle: Sponsor contributors
 ---
 

@@ -6,11 +6,12 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - OAuth Apps
+shortTitle: Solucionar los problemas de la solicitud de token
 ---
 
 {% note %}
@@ -19,7 +20,7 @@ topics:
 
 {% endnote %}
 
-### Credenciales de cliente incorrectas
+## Credenciales de cliente incorrectas
 
 Si la client\_id y/o el client\_secret que pasas son incorrectos, recibirás este error como respuesta.
 
@@ -33,7 +34,7 @@ Si la client\_id y/o el client\_secret que pasas son incorrectos, recibirás est
 
 Para resolver este error, asegúrate de que tienes las credenciales correctas para tu {% data variables.product.prodname_oauth_app %}. Revisa dos veces la `client_id` y el `client_secret` para asegurarte de que sean correctos y de que se pasen correctamente en {% data variables.product.product_name %}.
 
-### Redirigir una discordancia de URI
+## Redirigir una discordancia de URI
 
 Si proporcionas una `redirect_uri` que no empate con lo que registraste con tu {% data variables.product.prodname_oauth_app %}, recibirás este mensaje de error:
 
@@ -47,7 +48,7 @@ Si proporcionas una `redirect_uri` que no empate con lo que registraste con tu {
 
 Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coincida con lo que registraste o dejar este parámetro para utilizar aquél predeterminado que se registró con tu aplicación.
 
-### Código de verificación incorrecto
+## Código de verificación incorrecto
 
 ```json
 {

@@ -133,6 +133,13 @@ sections:
     - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - 升级以前运行过 2.13 版本但未运行 2.14 版本的实例，会导致与 `AddRepositoryIdToCheckRuns` 数据转换相关的数据库迁移错误。
+    - |
+      在从 3.0.x 升级到 3.1.x后，GitHub Actions 可能会导致错误：“执行此工作流程时发生意外错误。 要解决这个问题，请连接到管理外壳 (ssh)并运行：
+      ```
+      ghe-actions-console -s actions -c "队列-ServiceJob -JobId 4DB1F4F-19FD-40E0-A253-91288813DE8B"
+      ```
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
   deprecations:
     - 
       heading: GitHub Enterprise Server 2.20 的弃用

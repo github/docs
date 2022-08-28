@@ -6,19 +6,24 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 使用 SAML SSO 的 IAM
 ---
 
-### 关于 SAML SSO
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
+## 关于 SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
-配置 SAML SSO 后，{% data variables.product.prodname_dotcom %} 组织的成员将继续登录到他们在 {% data variables.product.prodname_dotcom %} 上的用户帐户。 当成员访问组织内使用 SAML SSO 的资源时，{% data variables.product.prodname_dotcom %} 会将该成员重定向到 IdP 进行身份验证。 身份验证成功后，IdP 将该成员重定向回 {% data variables.product.prodname_dotcom %}，然后成员可以访问组织的资源。
+{% data reusables.saml.saml-accounts %}
 
-组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[为企业帐户中的组织启用 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
+组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+
+{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,19 +37,19 @@ topics:
 
 成员第一次使用 SAML SSO 访问您的组织时，{% data variables.product.prodname_dotcom %} 会自动创建一条记录，以链接您的组织、成员的 {% data variables.product.prodname_dotcom %} 帐户以及成员在 IdP 上的帐户。 您可以查看和撤销组织成员或企业帐户关联的 SAML 身份、活动的会话以及授权的凭据。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)”和“[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)”。
 
-如果成员在创建新的仓库时使用 SAML SSO 会话登录，则该仓库的默认可见性为私密。 否则，默认可见性为公开。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
+如果成员在创建新的仓库时使用 SAML SSO 会话登录，则该仓库的默认可见性为私密。 否则，默认可见性为公开。 For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 组织成员还必须具有活动的 SAML 会话才可授权 {% data variables.product.prodname_oauth_app %}。 您可以联系 {% data variables.contact.contact_support %} 选择退出此要求。 {% data variables.product.product_name %} 不建议退出此要求，因为它会使您的组织面临更高的帐户接管风险和潜在的数据丢失风险。
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### 支持的 SAML 服务
+## 支持的 SAML 服务
 
 {% data reusables.saml.saml-supported-idps %}
 
-有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 {% data reusables.scim.enterprise-account-scim %} 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
 
-### 使用 SAML SSO 添加成员到组织
+## 使用 SAML SSO 添加成员到组织
 
 在启用 SAML SSO 后，可通过多种方式向组织添加新成员。 组织所有者可在 {% data variables.product.product_name %} 上或使用 API 手动邀请新成员。 更多信息请参阅“[邀请用户加入组织](/articles/inviting-users-to-join-your-organization)”和“[成员](/rest/reference/orgs#add-or-update-organization-membership)”。
 
@@ -56,7 +61,7 @@ topics:
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于双重身份验证和 SAML 单点登录](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

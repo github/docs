@@ -1,6 +1,7 @@
 ---
 title: Managing encrypted secrets for your codespaces
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 redirect_from:
@@ -11,10 +12,11 @@ topics:
   - Codespaces
   - Developer
   - Security
+  - Secret store
 shortTitle: Encrypted secrets
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 
 ## About encrypted secrets for {% data variables.product.prodname_codespaces %}
@@ -78,3 +80,7 @@ You can update the value of an existing secret, and you can change which reposit
   !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Read the warning, then click **OK**.
   ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Further Reading
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

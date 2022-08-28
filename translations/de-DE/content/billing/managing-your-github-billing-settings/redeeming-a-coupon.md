@@ -7,10 +7,9 @@ redirect_from:
   - /articles/redeeming-a-coupon-for-your-personal-account/
   - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Discounts
@@ -25,13 +24,13 @@ topics:
 
 Gutscheine können nicht auf bezahlte Pläne für {% data variables.product.prodname_marketplace %}-Apps angewendet werden.
 
-### Gutschein für Dein persönliches Konto einlösen
+## Gutschein für Dein persönliches Konto einlösen
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. Klicke unter „Redeem your coupon“ (Gutschein einlösen) neben dem Benutzernamen Deines *persönlichen* Kontos auf **Choose** (Auswählen). ![Schaltfläche „Choose“ (Auswählen)](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-### Gutschein für Deine Organisation einlösen
+## Gutschein für Deine Organisation einlösen
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

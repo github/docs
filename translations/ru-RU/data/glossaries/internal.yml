@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. Программное обеспечение для шифрования, которое можно использовать для шифрования (и расшифровки) файлов, содержащих конфиденциальные данные
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and decrypt) files that contain sensitive data
 - 
   term: Ключ GPG
   description: Ключ шифрования, используемый с GPG.

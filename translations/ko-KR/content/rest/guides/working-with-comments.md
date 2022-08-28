@@ -5,9 +5,9 @@ redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -18,7 +18,7 @@ For any Pull Request, {% data variables.product.product_name %} provides three k
 
 Each of these types of comments goes through a different portion of the {% data variables.product.product_name %} API. In this guide, we'll explore how you can access and manipulate each one. For every example, we'll be using [this sample Pull Request made][sample PR] on the "octocat" repository. As always, samples can be found in [our platform-samples repository][platform-samples].
 
-### Pull Request Comments
+## Pull Request Comments
 
 To access comments on a Pull Request, you'll go through [the Issues API][issues]. This may seem counterintuitive at first. But once you understand that a Pull Request is just an Issue with code, it makes sense to use the Issues API to create comments on a Pull Request.
 
@@ -44,7 +44,7 @@ end
 
 Here, we're specifically calling out to the Issues API to get the comments (`issue_comments`), providing both the repository's name (`octocat/Spoon-Knife`), and the Pull Request ID we're interested in (`1176`). After that, it's simply a matter of iterating through the comments to fetch information about each one.
 
-### Pull Request Comments on a Line
+## Pull Request Comments on a Line
 
 Within the diff view, you can start a discussion on a particular aspect of a singular change made within the Pull Request. These comments occur on the individual lines within a changed file. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
 
@@ -70,7 +70,7 @@ end
 
 You'll notice that it's incredibly similar to the example above. The difference between this view and the Pull Request comment is the focus of the conversation. A comment made on a Pull Request should be reserved for discussion or ideas on the overall direction of the code. A comment made as part of a Pull Request review should deal specifically with the way a particular change was implemented within a file.
 
-### Commit Comments
+## Commit Comments
 
 The last type of comments occur specifically on individual commits. For this reason, they make use of [the commit comment API][commit comment API].
 

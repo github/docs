@@ -1,12 +1,13 @@
 ---
 title: In einem Codespace entwickeln
 intro: 'Du kannst einen Codespace auf {% data variables.product.product_name %} eröffnen und dann mithilfe der {% data variables.product.prodname_vscode %}-Funktionen entwickeln.'
-permissions: Anyone can develop in a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,9 +15,9 @@ topics:
   - Developer
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### About development with {% data variables.product.prodname_codespaces %}
+## About development with {% data variables.product.prodname_codespaces %}
 
 {% data variables.product.prodname_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -32,24 +33,28 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} Weitere Informationen findest Du unter „[Fehlerbehebung Deines Codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)."
+{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
 
-#### Personalizing your codespace
+### Personalizing your codespace
 
 {% data reusables.codespaces.about-personalization %} Weitere Informationen findest Du unter „[{% data variables.product.prodname_codespaces %} für Dein Konto personalisieren](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)."
 
 {% data reusables.codespaces.apply-devcontainer-changes %} Weitere Informationen findest du unter „[{% data variables.product.prodname_codespaces %} für Dein Projekt konfigurieren](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
 
-#### Running your app from a codespace
+### Running your app from a codespace
 {% data reusables.codespaces.about-port-forwarding %} For more information, see "[Forwarding ports in your codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)."
 
-#### Committing your changes
+### Committing your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Navigating to an existing codespace
+### Using the Command Palette
+
+The Command Palette allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the Command Palette in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)."
+
+## Navigating to an existing codespace
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. Klicke auf den Namen des Codespace, in dem Du entwickeln möchtest. ![Name des Codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to the repository in which it was made and selecting **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
+Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.

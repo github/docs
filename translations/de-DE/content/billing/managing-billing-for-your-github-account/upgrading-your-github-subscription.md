@@ -18,19 +18,19 @@ redirect_from:
   - /articles/adding-seats-to-your-organization/
   - /articles/upgrading-your-github-billing-plan/
   - /articles/upgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Troubleshooting
   - Upgrades
   - User account
+shortTitle: Upgrade your subscription
 ---
 
-### Abonnement Deines persönlichen Kontos heraufstufen
+## Abonnement Deines persönlichen Kontos heraufstufen
 
 Du kannst Dein persönliches Konto von {% data variables.product.prodname_free_user %} auf {% data variables.product.prodname_pro %} heraufstufen, um erweiterte Code-Review-Werkzeuge für private Repositorys zu erhalten. {% data reusables.gated-features.more-info %}
 
@@ -40,10 +40,11 @@ Du kannst Dein persönliches Konto von {% data variables.product.prodname_free_u
 2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
+{% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Abonnement Deiner Organisation heraufstufen
+## Abonnement Deiner Organisation heraufstufen
 
 Du kannst Deine Organisation von {% data variables.product.prodname_free_team %} für eine Organisation auf {% data variables.product.prodname_team %} heraufstufen, um auf erweiterte Werkzeuge für Zusammenarbeit und Management für Teams zuzugreifen, oder Dein Unternehmen auf {% data variables.product.prodname_ghe_cloud %} heraufstufen für zusätzliche Sicherheits-, Compliance- und Bereitstellungskontrollen. {% data reusables.gated-features.more-info-org-products %}
 
@@ -58,13 +59,13 @@ Du kannst Deine Organisation von {% data variables.product.prodname_free_team %}
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-#### Nächste Schritte für Organisationen mit {% data variables.product.prodname_ghe_cloud %}
+### Nächste Schritte für Organisationen mit {% data variables.product.prodname_ghe_cloud %}
 
 Nach dem Heraufstufen Deiner Organisation auf {% data variables.product.prodname_ghe_cloud %} kannst Du die Identitäts- und Zugriffsverwaltung für Deine Organisation einrichten. Weitere Informationen finden Sie unter „[SAML Single Sign-On für Ihre Organisation verwalten](/organizations/managing-saml-single-sign-on-for-your-organization)“.
 
 Wenn Du ein Enterprise-Konto mit {% data variables.product.prodname_ghe_cloud %} benutzen möchtest, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/articles/about-enterprise-accounts).“
 
-### Benutzer zu Deiner Organisation hinzufügen
+## Benutzer zu Deiner Organisation hinzufügen
 
 Wenn Du zusätzlichen Benutzern den Zugriff auf die privaten Repositorys Deiner {% data variables.product.prodname_team %}-Organisation geben möchtest, kannst Du jederzeit zusätzliche Benutzer erwerben.
 
@@ -73,7 +74,7 @@ Wenn Du zusätzlichen Benutzern den Zugriff auf die privaten Repositorys Deiner 
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### Deine Organisation von der Repository-abhängigen auf die benutzerabhängige Preisgestaltung umstellen
+## Deine Organisation von der Repository-abhängigen auf die benutzerabhängige Preisgestaltung umstellen
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} Weitere Informationen findest Du unter „[Über benutzerabhängige Preise](/articles/about-per-user-pricing)."
 
@@ -85,11 +86,11 @@ Wenn Du zusätzlichen Benutzern den Zugriff auf die privaten Repositorys Deiner 
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Fehlerbehebung eines 500er-Fehlers beim Heraufstufen
+## Fehlerbehebung eines 500er-Fehlers beim Heraufstufen
 
 {% data reusables.dotcom_billing.500-error %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)“
 - „[Wie wirkt sich das Herauf- oder Herabstufen auf den Abrechnungsprozess aus?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)“

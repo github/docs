@@ -6,18 +6,19 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
   - Enterprise
   - Organizations
   - User account
+shortTitle: 查看 Actions 使用情况
 ---
 
 还可以查看单个工作流程运行的计费作业执行分钟数。 更多信息请参阅“[查看作业执行时间](/actions/managing-workflow-runs/viewing-job-execution-time)”。
 
-### 查看用户帐户的 {% data variables.product.prodname_actions %} 使用情况
+## 查看用户帐户的 {% data variables.product.prodname_actions %} 使用情况
 
 任何人都可以查看自己用户帐户的 {% data variables.product.prodname_actions %} 使用情况。
 
@@ -27,7 +28,7 @@ topics:
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### 查看组织的 {% data variables.product.prodname_actions %} 使用情况
+## 查看组织的 {% data variables.product.prodname_actions %} 使用情况
 
 组织所有者和帐单管理员可查看组织的 {% data variables.product.prodname_actions %} 使用情况。 对于由企业帐户管理的组织，只有组织所有者可以在组织的帐单页面中查看 {% data variables.product.prodname_actions %} 使用情况。
 
@@ -36,7 +37,7 @@ topics:
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### 查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况
+## 查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况
 
 企业所有者和帐单管理员可查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况。
 

@@ -1,1 +1,1 @@
-1. Under "Configure security and analysis features", find "{% data variables.product.prodname_GH_advanced_security %}."
+1. Debajo de "Configurar las características de seguridad y análisis", encuentra "{% data variables.product.prodname_GH_advanced_security %}".

@@ -112,7 +112,7 @@ _Search_
 - [`GET /search/topics`](/rest/reference/search#search-topics)
 - [`GET /search/users`](/rest/reference/search#search-users)
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ### Permission on "actions"
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
@@ -142,11 +142,11 @@ _Search_
 - [`POST /orgs/:org/repos`](/rest/reference/repos#create-an-organization-repository) (:write)
 - [`PATCH /repos/:owner/:repo`](/rest/reference/repos#update-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo`](/rest/reference/repos#delete-a-repository) (:write)
-{% ifversion fpt -%}
 - [`GET /repos/:owner/:repo/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository) (:read)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository) (:write)
+{% ifversion fpt or ghes -%}
 - [`POST /repos/:owner/:repo/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-a-repository) (:write)
 - [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)
 {% endif -%}
@@ -874,7 +874,6 @@ _Teams_
 - [`PATCH /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#update-a-secret-scanning-alert) (:write)
 {% endif %}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ### Permission on "security events"
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
@@ -894,9 +893,8 @@ _Teams_
 {% ifversion fpt or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
-{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes %}
 ### Permission on "self-hosted runners"
 - [`GET /orgs/:org/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-organization) (:read)
 - [`POST /orgs/:org/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-an-organization) (:write)

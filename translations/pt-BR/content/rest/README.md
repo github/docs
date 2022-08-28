@@ -7,4 +7,4 @@ O diretório `/content/rest` é onde fica a documentação da API REST do GitHub
 
   O conteúdo processados com as tags `include` é fornecido no diretório `/lib/rest/static`, que é gerado automaticamente a partir do código fonte da API internamente no GitHub e não deve ser editado por uma pessoa. Para obter mais informações, consulte [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **Como resultado, não podemos aceitar contribuições para o conteúdo de referência da API REST neste repositório.**
+  **We cannot accept changes to content that is rendered by `include` tags. However, you can open an issue describing the changes you would like to see.**

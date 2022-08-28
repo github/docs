@@ -36,7 +36,7 @@ const changedFiles = execSync('git diff --name-only HEAD').toString()
 if (changedFiles !== '') {
   console.log(`These files were changed:\n${changedFiles}`)
   console.log(
-    `🚧⚠️ Your decorated and dereferenced schema files don't match. Ensure you're using decorated and dereferenced schemas from the automatically created pull requests by the 'github-openapi-bot' user. For more information, see 'script/rest/README.md'. 🛑`
+    `🚧⚠️ Your decorated and dereferenced schema files don't match. Ensure you're using decorated and dereferenced schemas from the automatically created pull requests by the 'github-openapi-bot' user. \n\n If this test is failing after updates to the script/rest directory, run script/rest/update-files.js --decorate-only to re-generate the decorated files from the existing dereferenced files and check those in. \n\n If this test is failing after an update to a package, check the changes the new package makes to the decorated files by running script/rest/update-files.js --decorate-only. If the changes are small style changes that don't impact the overall experience, check the updated decorated file in. Otherwise, more work may be needed to be compatible with the updated package. \n\n For more information, see 'script/rest/README.md'. 🛑`
   )
   process.exit(1)
 }

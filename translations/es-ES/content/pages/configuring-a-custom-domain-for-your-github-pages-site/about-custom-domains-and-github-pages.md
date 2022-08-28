@@ -9,12 +9,13 @@ redirect_from:
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Dominios personalizados en GitHub Pages
 ---
 
-### Dominios personalizados compatibles
+## Dominios personalizados compatibles
 
 {% data variables.product.prodname_pages %} trabaja con dos tipos de dominios: subdominios y dominios apex. Para conocer un lista de los dominios personalizados compatibles, consulta "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)".
 
@@ -30,23 +31,23 @@ Recomendamos siempre usar un subdominio `www`, incluso si también usas un domin
 
 Después de que configuras un dominio personalizado para un usuario o sitio de organización, el dominio personalizado reemplazará a la porción de `<user>.github.io` o `<organization>.github.io` de la URL para cualquier sitio de proyecto que pertenezca a la cuenta que no haya configurado un dominio personalizado. Por ejemplo, si el dominio personalizado para tu sitio de usuario es `www.octocat.com`, y tienes un sitio de proyecto sin un dominio personalizado configurado que se publica desde un repositorio denominado `octo-project`, el sitio {% data variables.product.prodname_pages %} para ese repositorio estará disponible en `www.octocat.com/octo-project`.
 
-### Uso de un subdominio para tu sitio {% data variables.product.prodname_pages %}
+## Uso de un subdominio para tu sitio {% data variables.product.prodname_pages %}
 
 Un subdominio es la parte de una URL antes del dominio raíz. Puedes configurar tu subdominio como `www` o como una sección distinta de tu sitio, como `blog.example.com`.
 
 Los subdominios se configuran con un registro `CNAME` a través de su proveedor DNS. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)".
 
-#### Subdominios `www`
+### Subdominios `www`
 
 Un subdominio `www` es el tipo de subdominio más usado comúnmente. Por ejemplo, `www.example.com` incluue un subdominio `www`.
 
 Los subdominios `www` son el tipo de dominio personalizado m ás estable porque los subdominios `www` no están afectados por los cambios en las direcciones IP de los servidores de {% data variables.product.product_name %}.
 
-#### Subdominios personalizados
+### Subdominios personalizados
 
 Un subdominio personalizado es un tipo de subdominio que no utiliza la variante estándar de `www`. Los subdominios personalizados se utilizan principalmente cuando se necesitan dos secciones distintas de su sitio. Por ejemplo, puedes crear un sitio llamado `blog.example.com` y personalizar esa sección independientemente de `www.example.com`.
 
-### Uso de un dominio apex para tu sitio {% data variables.product.prodname_pages %}
+## Uso de un dominio apex para tu sitio {% data variables.product.prodname_pages %}
 
 Un dominio apex es un dominio personalizado que no contiene un subdominio, como `ejemplo.com`. Los dominios apex también son conocidos como dominios apex base, vacíos, desnudos, o de zona.
 
@@ -54,7 +55,7 @@ Un dominio apex está configurado con un registro `A`, `ALIAS` o `ANAME` a trav�
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} Para obtener más información, consulta la sección "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)".
 
-### Actualizar dominios personalizados cuando tu sitio de {% data variables.product.prodname_pages %} está inhabilitado
+## Actualizar dominios personalizados cuando tu sitio de {% data variables.product.prodname_pages %} está inhabilitado
 
 Si tu sitio {% data variables.product.prodname_pages %} no está habilitado pero tiene configurado un dominio personalizado, inmediatamente deberías actualizar o eliminar tus registros de DNS para evitar el riesgo de una adquisición de dominio. La configuración de tu dominio personalizado con tu proveedor DNS mientras tu sitio está inhabilitado, podría hacer que alguien más aloje un sitio en un o de tus subdominios. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
@@ -63,6 +64,6 @@ Existen algunos motivos por los que tu sitio pueda estar inhabilitado automátic
 - Si bajaste de categoría de {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, todos los sitios de {% data variables.product.prodname_pages %} que se publicaron actualmente desde repositorios privados en tu cuenta quedarán sin publicar. Para obtener más información, consulta "[Bajar de categoría tu plan de facturación de {% data variables.product.prodname_dotcom %}](/articles/downgrading-your-github-billing-plan)".
 - Si transfieres a un repositorio privado a una cuenta personal que está usando {% data variables.product.prodname_free_user %}, el repositorio perderá acceso a la función de {% data variables.product.prodname_pages %}, y el sitio de {% data variables.product.prodname_pages %} actualmente publicado, quedará sin publicar. Para obtener más información, consulta "[Transferir un repositorio](/articles/transferring-a-repository)".
 
-### Leer más
+## Leer más
 
 - "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

@@ -6,14 +6,15 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Site seguro com HTTPS
 ---
 
 Pessoas com permissões de administrador para um repositório podem exigir HTTPS para um site do {% data variables.product.prodname_pages %}.
 
-### Sobre HTTPS e o {% data variables.product.prodname_pages %}
+## Sobre HTTPS e o {% data variables.product.prodname_pages %}
 
 Todos os sites do {% data variables.product.prodname_pages %}, incluindo os sites corretamente configurados com um domínio personalizado, permitem exigir HTTPS e HTTPS. Para obter mais informações sobre domínios personalizados, consulte "[Sobre domínios personalizados e o {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" e "[Solucionar problemas de domínios personalizados e do {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)".
 
@@ -21,14 +22,20 @@ Todos os sites do {% data variables.product.prodname_pages %}, incluindo os site
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### Exigir HTTPS para o site do {% data variables.product.prodname_pages %}
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
+
+## Exigir HTTPS para o site do {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. No "{% data variables.product.prodname_pages %}," selecione **Enforce HTTPS** (Exigir HTTPS). ![Caixa de seleção Enforce HTTPS (Exigir HTTPS)](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### Resolver problemas com conteúdo misto
+## Resolver problemas com conteúdo misto
 
 Se você habilitar HTTPS para seu site do {% data variables.product.prodname_pages %}, mas o HTML do site ainda fizer referência a imagens, CSS ou JavaScript por HTTP, significa que seu site está fornecendo *conteúdo misto*. O fornecimento de conteúdo misto pode tornar o site menos seguro e causar problemas no carregamento de arquivos.
 
@@ -46,7 +53,7 @@ Os ativos geralmente são encontrados nos seguintes locais:
 
 {% endtip %}
 
-#### Exemplos de ativos referenciados em um arquivo HTML
+### Exemplos de ativos referenciados em um arquivo HTML
 
 | Tipo de ativo |                                                         HTTP                                                         |                                                         HTTPS                                                          |
 |:-------------:|:--------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------:|

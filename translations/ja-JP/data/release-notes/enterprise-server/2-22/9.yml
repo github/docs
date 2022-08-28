@@ -25,9 +25,10 @@ sections:
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - |
       ログのローテーションが新しいログファイルへの移行をサービスに通知するのに失敗し、古いログファイルが使われ続け、最終的にルートディスクの領域が枯渇してしまうことがあります。
-      この問題を緩和し、回避するために、以下のコマンドを[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行するか、 [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us)あるいは[GitHub Premium Support](https://premium.githubsupport.com/)に連絡して支援を求めてください。
+      この問題を緩和し、回避するために、以下のコマンドを[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行するか、 [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us)に連絡して支援を求めてください。
 
       ```
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
       sudo /usr/sbin/logrotate -f /etc/logrotate.conf
       ```
+    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'

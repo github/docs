@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - 2FA
@@ -13,6 +13,7 @@ topics:
   - Organizations
   - Policies
   - Security
+shortTitle: Require 2FA
 ---
 
 LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
@@ -21,7 +22,7 @@ LDAP またはビルトイン認証を使用している場合、{% data variabl
 
 詳しい情報については「[2 要素認証について](/github/authenticating-to-github/about-two-factor-authentication)」を参照してください。
 
-### 2 要素認証実施にあたっての要件
+## 2 要素認証実施にあたっての要件
 
 Organizationのメンバーと外部のコラボレータに2FAの利用を求める前に、自分自身の個人アカウントで[2要素認証を有効化](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/)してください。
 
@@ -43,7 +44,7 @@ Organizationのメンバーと外部のコラボレータに2FAの利用を求�
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
 
-### Organization から削除された人々を表示する
+## Organization から削除された人々を表示する
 
 2 要素認証義務に従わなかったために Organization から自動的に削除された人々を見るには、検索フィールドで `reason:two_factor_requirement_non_compliance` を使って [Audit log を検索](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/)します。
 
@@ -58,11 +59,11 @@ Organizationのメンバーと外部のコラボレータに2FAの利用を求�
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 5. [**Search**] をクリックします。
 
-### 削除されたメンバーと外部コラボレーターを Organization に復帰できるようにする
+## 削除されたメンバーと外部コラボレーターを Organization に復帰できるようにする
 
 2要素認証の利用の要求を有効化したときにOrganizationから削除されたメンバーあるいは外部のコラボレータがいれば、その人たちには削除されたことを知らせるメールが届きます。 そうなった場合には、彼らは個人アカウントで2FAを有効化し、OrganizationのオーナーにOrganizationへのアクセスを求めなければなりません。
 
-### 参考リンク
+## 参考リンク
 
 - [Organization中のユーザが2FAを有効化しているかの表示](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)
 - [2要素認証（2FA）でアカウントをセキュアにする](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)

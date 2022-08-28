@@ -6,12 +6,13 @@ redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: リポジトリ管理ポリシーの設定
 ---
 
 コードオーナーは、Organization 内のリポジトリについて、削除や移譲の権限を設定できます。

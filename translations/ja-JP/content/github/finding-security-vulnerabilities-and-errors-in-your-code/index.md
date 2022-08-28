@@ -3,7 +3,7 @@ title: コード内のセキュリティの脆弱性とエラーを検出する
 shortTitle: 脆弱性とコードエラーの検出
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

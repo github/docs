@@ -6,12 +6,13 @@ redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Configurar la política de administración del repositorio
 ---
 
 Los propietarios pueden configurar permisos para eliminar o transferir repositorios en una organización.

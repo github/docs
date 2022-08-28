@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 比较分支
 ---
 
 {% note %}
@@ -20,13 +21,13 @@ topics:
 {% endnote %}
 
 您可以在 Files changed（更改的文件）选项卡的拉取请求中查看提议的更改。
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![拉取请求文件已更改选项卡](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 无需查看提交本身，您可以查看提议的更改，因为它们在拉取请求合并后就会出现在文件中。 这些文件在 Files changed（更改的文件）选项卡中按字母数字顺序显示。 添加的文件以绿色显示，前缀 `+` 号，而删除的内容以红色显示，前缀 `-` 号。
 
-### 差异视图选项
+## 差异视图选项
 
 {% tip %}
 
@@ -48,7 +49,7 @@ topics:
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### 三点和两点 Git 差异比较
+## 三点和两点 Git 差异比较
 
 默认情况下，{% data variables.product.prodname_dotcom %} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
 
@@ -62,11 +63,11 @@ topics:
 
 有关用于比较更改的 Git 命令的更多信息，请参阅 _Pro Git_ 书籍网站中的“[Git 差异选项](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)”。
 
-### 差异不显示的原因
-- 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[在仓库中查看内容和差异的限制](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)”。
+## 差异不显示的原因
+- 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)”。
 - 您的文件与仓库的 *.gitattributes* 文件中的规则匹配，默认会阻止该文件显示。 更多信息请参阅“[自定义更改的文件在 GitHub 中如何显示](/articles/customizing-how-changed-files-appear-on-github)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于拉取请求](/articles/about-pull-requests)"
 - "[关于复刻](/articles/about-forks)"

@@ -9,12 +9,13 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Solucionar problemas de un dominio personalizado
 ---
 
-### Errores _CNAME_
+## Errores _CNAME_
 
 Los dominios personalizados se almacenan en un archivo _CNAME_ en la raíz de tu fuente de publicación. Puedes agregar o actualizar este archivo a través de la configuración del repositorio o manualmente. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
@@ -27,13 +28,16 @@ Luego, asegúrate de que el archivo _CNAME_ tenga el formato correcto.
 - El archivo _CNAME_ debe contener únicamente el nombre del dominio. Por ejemplo, `www.example.com`, `blog.example.com`, o `example.com`.
 - El nombre de dominio debe ser único a lo largo de todos los sitios de {% data variables.product.prodname_pages %}. Por ejemplo, si el archivo _CNAME_ de otro repositorio contiene `example.com`, no puedes usar `example.com` en el archivo _CNAME_ para tu repositorio.
 
-### Error de configuración DNS
+## Error de configuración DNS
 
 Si tienes problemas para apuntar el dominio predeterminado para tu sitio a tu dominio personalizado, contáctate con tu proveedor DNS.
 
-También puedes probar si los registros DNS de tu dominio personalizado están configurados correctamente. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+También puedes utilizar uno de los siguientes métodos para probar si los registros de DNS de tus dominios personalizados están configurados correctamente:
 
-### Nombres de dominios personalizados que no son compatibles
+- Una herramienta de CLI tal como `dig`. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- Una herramienta de búsqueda de DNS en línea.
+
+## Nombres de dominios personalizados que no son compatibles
 
 Si tu dominio personalizado no es compatible, puede que debas cambiar tu dominio a un dominio compatible. También te puedes contactar con tu proveedor DNS para ver si ofrece servicios de reenvío para los nombres de dominio.
 
@@ -48,7 +52,7 @@ Asegúrate de que en tu sitio no ocurra lo siguiente:
 
 Para obtener una lista de dominios personalizados que son compatibles, consulta "[Acerca de los dominios personalizados y de las {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)".
 
-### Errores HTTPS
+## Errores HTTPS
 
 A los sitios {% data variables.product.prodname_pages %} que utilizan dominios personalizados que no están configurados de manera correcta con _CNAME_, `ALIAS`, `ANAME` o registros DNS `A` se puede acceder por HTTPS. Para obtener más información, consulta "[Asegurar tu sitio de {% data variables.product.prodname_pages %} con HTTPS](/articles/securing-your-github-pages-site-with-https)".
 
@@ -56,10 +60,10 @@ Puede tardar hasta una hora que tu sitio se vuelva disponible a través de HTTPS
 
 Si estás usando registros de Autorización de la Autoridad de Certificación (CAA), debe existir al menos un registro CAA con el valor `letsencrypt.org` para que tu sitio sea accesible a través de HTTPS. Para obtener más información, consulta "[Autorización de la Autoridad de Certificado (CAA)](https://letsencrypt.org/docs/caa/)" en la documentación de Let's Encrypt.
 
-### Formato de URL en Linux
+## Formato de URL en Linux
 
 Si la URL de tu sitio contiene un nombre de usuario o nombre de organización que comienza o termina con un guion, o que contiene guiones consecutivos, las personas que naveguen con Linux recibirán un error del servidor cuando traten de visitar tu sitio. Para corregir esto, cambia tu nombre de usuario de {% data variables.product.product_name %} y elimina cualquier caracter que no sea alfanumérico. Para obtener más información, consulta [Cambiar tu {% data variables.product.prodname_dotcom %} nombre de usuario](/articles/changing-your-github-username/)"
 
-### Caché del navegador
+## Caché del navegador
 
 Si has cambiado o eliminado recientemente tu dominio personalizado y no puedes acceder a la URL nueva en tu navegador, puede que debas limpiar el caché de tu navegador para llegar a la URL nueva. Para obtener más información acerca de limpiar tu caché, consulta la documentación de tu navegador.

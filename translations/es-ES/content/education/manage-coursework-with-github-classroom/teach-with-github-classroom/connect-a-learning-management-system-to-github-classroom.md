@@ -2,7 +2,7 @@
 title: Conectar un sistema de administración de aprendizaje a GitHub Classroom
 intro: 'Puedes configurar un sistema de administración de aprendizaje (LMS) que cumpla con LTI para conectarte a {% data variables.product.prodname_classroom %} y que puedas importar un registro de alumno para tu aula.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,17 +11,18 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Conectar un LMS
 ---
 
-### Acerca de la configuración de tu LMS
+## Acerca de la configuración de tu LMS
 
 Puedes conectar un sistema de administración de aprendizaje (LMS) a {% data variables.product.prodname_classroom %} y {% data variables.product.prodname_classroom %} puede importar los identificadores de un registro de alumno desde éste. Para conectar tu LMS a {% data variables.product.prodname_classroom %}, debes ingresar sus credenciales de configuración en éste.
 
-### Prerrequisitos
+## Prerrequisitos
 
 Para configurar un LMS para que se conecte con {% data variables.product.prodname_classroom %}, primero debes crear un aula. Para obtener más información, consulta la sección "[Administrar las aulas](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)".
 
-### LMS compatibles
+## LMS compatibles
 
 {% data variables.product.prodname_classroom %} es compatible conla importación de datos de registros de alumnos desde los LMS que implementen estándares de Interoperabilidad de Herramientas de Aprendizaje (LTI).
 
@@ -39,7 +40,7 @@ Utilizar LTI ayuda a mantener tu información segura y protegida. LTI es un prot
 
 Actualmente, {% data variables.product.prodname_classroom %} no es compatible para importar datos de registro de alumnos desde Blackboard o Brightspace.
 
-### Generar credenciales de configuración para tu aula
+## Generar credenciales de configuración para tu aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -51,7 +52,7 @@ Actualmente, {% data variables.product.prodname_classroom %} no es compatible pa
 1. Lee sobre cómo conectar tu LMS y luego da clic en **Conectar al _LMS_**.
 1. Copia la "Llave de consumidor", "Secreto compartido", y "URL de lanzamiento" para la conexión al aula. ![Copiar credenciales](/assets/images/help/classroom/classroom-copy-credentials.png)
 
-### Configurar un LMS genérico
+## Configurar un LMS genérico
 
 Debes configurar los ajustes de privacidad para que tu LMS permita que las herramientas externas reciban información del registro de alumnos.
 
@@ -62,7 +63,7 @@ Debes configurar los ajustes de privacidad para que tu LMS permita que las herra
     - Secreto compartido
     - URL de lanzamiento (a menudo se le llama "URL de herramienta" o similar)
 
-### Configurar Canvas
+## Configurar Canvas
 
 Puedes configurar {% data variables.product.prodname_classroom %} como una app externa para que Canvas importe los datos de la lista de alumnos a tu aula. Para obtener más información acerca de Canvas, consulta el [Sitio web de Canvas](https://www.instructure.com/canvas/).
 
@@ -92,7 +93,7 @@ Puedes configurar {% data variables.product.prodname_classroom %} como una app e
 1. En la barra lateral izquierda, da clic en **Principal**.
 1. Para solicitar a Canvas que envíe un correo electrónico de confirmación, en la barra lateral izquierda, da clic en **GitHub Classroom**. Sigue las instrucciones en el correo electrónico para concluir la vinculación de {% data variables.product.prodname_classroom %}.
 
-### Configurar Moodle
+## Configurar Moodle
 
 Puedes configurar a {% data variables.product.prodname_classroom %} como una actividad para Moodle para importar datos del registro de alumnos a tu aula. Para obtener más información acerca de Moodle, consulta el [Sitio web de Moodle](https://moodle.org).
 
@@ -126,11 +127,11 @@ Debes utilizar Moodle versión 3.0 o superior.
 1. En la parte inferior de la página, da clic en **Guardar y regresar al curso**.
 1. Navega a donde sea que elijas mostrar tu {% data variables.product.prodname_classroom %} y da dlic en la actividad {% data variables.product.prodname_classroom %}.
 
-### Importar un registro de alumnos desde tu LMS
+## Importar un registro de alumnos desde tu LMS
 
 Para obtener más información acerca de importar el registro de alumnos de tu LMS en {% data variables.product.prodname_classroom %}, consulta la sección "[Administrar aulas](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)".
 
-### Desconectar tu LMS
+## Desconectar tu LMS
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

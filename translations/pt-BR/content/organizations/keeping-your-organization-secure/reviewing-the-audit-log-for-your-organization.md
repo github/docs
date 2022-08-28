@@ -1,14 +1,14 @@
 ---
 title: Reviewing the audit log for your organization
 intro: 'The audit log allows organization admins to quickly review the actions performed by members of your organization. It includes details such as who performed the action, what the action was, and when it was performed.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

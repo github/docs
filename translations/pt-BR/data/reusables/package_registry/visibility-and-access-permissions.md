@@ -1,5 +1,5 @@
-{% if currentVersion == "free-pro-team@latest" %}
-If you have admin permissions to a container image, you can set the access permissions for the container image to private or public. As imagens públicas permitem acesso anônimo e podem ser carregadas sem autenticação ou login via CLI.
+{% ifversion fpt %}
+Se você tiver permissões de administrador para a imagem de um contêiner, você poderá definir as permissões de acesso para a imagem do contêiner como privada ou pública. As imagens públicas permitem acesso anônimo e podem ser carregadas sem autenticação ou login via CLI.
 
 Como administrador, você também pode conceder permissões de acesso para uma imagem contêiner separada das permissões que você configurou nos níveis da organização e repositório.
 

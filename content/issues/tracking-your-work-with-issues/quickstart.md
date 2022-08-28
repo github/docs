@@ -19,7 +19,7 @@ This guide demonstrates how to use {% data variables.product.prodname_github_iss
 
 ## Prerequisites
 
-To create an issue, you need a repository. You can use an existing repository that you have write access to, or you can create a new repository. The repository must have issues enabled. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)." For more information about enabling issues if they are disabled in your repository, see "[Disabling issues](/github/administering-a-repository/managing-repository-settings/disabling-issues)."
+To create an issue, you need a repository. You can use an existing repository that you have write access to, or you can create a new repository. {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)." For more information about enabling issues if they are disabled in your repository, see "[Disabling issues](/github/administering-a-repository/managing-repository-settings/disabling-issues)."
 
 ## Opening a blank issue
 

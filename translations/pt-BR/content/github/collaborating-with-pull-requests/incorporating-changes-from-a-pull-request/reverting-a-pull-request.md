@@ -6,18 +6,18 @@ redirect_from:
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### Sobre a reversão de uma pull request
+## Sobre a reversão de uma pull request
 
 Reverter uma pull request no {% data variables.product.product_name %} cria uma nova pull request que contém uma reversão do commit de merge da pull request original presente no merge.
 
-### Reverter uma pull request
+## Reverter uma pull request
 
 {% note %}
 

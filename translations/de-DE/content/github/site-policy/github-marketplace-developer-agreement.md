@@ -3,7 +3,7 @@ title: GitHub Marketplace-Entwicklervereinbarung
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -11,9 +11,9 @@ topics:
 
 **DIESE BESTIMMUNGEN UND BEDINGUNGEN (DIE "VEREINBARUNG") REGELN IHRE TEILNAHME AM GITHUB MARKETPLACE-PROGRAMM. DURCH DIE ANMELDUNG ZUR TEILNAHME AM MARKETPLACE-PROGRAMM ODER DURCH KLICKEN AUF "ICH AKZEPTIERE" UNTEN BESTÄTIGEN SIE, DASS SIE DIESE VEREINBARUNG VERSTANDEN HABEN UND DASS SIE ALLE IHRE BESTIMMUNGEN UND BEDINGUNGEN AKZEPTIEREN.  WENN SIE DIESE VEREINBARUNG IM NAMEN EINES UNTERNEHMENS ODER EINER ANDEREN JURISTISCHEN PERSON ABSCHLIEßEN, VERSICHERN SIE, DASS SIE RECHTLICH BEFUGT SIND, DIE PERSON AN DIESE VEREINBARUNG ZU BINDEN. IN DIESEM FALL BEDEUTET "SIE" DIE PERSON, DIE SIE VERTRETEN.**
 
-Effective Date: January 1, 2021
+Effective Date: August 24, 2021
 
-### 1.  DEFINITIONEN
+## 1.   DEFINITIONEN
 
 Großgeschriebene Begriffe, die in dieser Vereinbarung verwendet werden und hierin nicht definiert sind, haben die Bedeutung, die in den GitHub-Nutzungsbedingungen unter [https://docs.github.com/articles/github-terms-of-service](/articles/github-terms-of-service) (die "Bedingungen" oder "Nutzungsbedingungen") festgelegt ist.
 
@@ -37,7 +37,7 @@ Großgeschriebene Begriffe, die in dieser Vereinbarung verwendet werden und hier
 
 „Nutzungsdaten“ bezeichnet den Marketplace betreffende Daten, die im Zusammenhang mit der Nutzung des GitHub Marketplace und der Lizenzierung von Entwicklerprodukten generiert werden, wie unter anderem Nutzungsstatistiken und aggregierte Verkaufsdaten. Nutzungsdaten enthalten keine Bank- und Zahlungsinformationen und schließen diese ausdrücklich aus.
 
-### 2.  ZWECK UND LIZENZERTEILUNG
+## 2.   ZWECK UND LIZENZERTEILUNG
 
 **2.1** Diese Vereinbarung legt die Geschäftsbedingungen fest, nach denen Entwickler Angebote auf dem GitHub Marketplace zum Kauf von Entwicklerprodukten durch Endbenutzer und zur Verwendung in Verbindung mit GitHub.com veröffentlichen können.  Diese Vereinbarung gilt für Entwicklerprodukte, die kostenlos vertrieben werden, und für Entwicklerprodukte, für die Endbenutzern eine Gebühr berechnet wird.  Der Entwickler erklärt sich damit einverstanden, den GitHub Marketplace ausschließlich für Zwecke zu nutzen, die durch diese Vereinbarung zulässig sind oder anderweitig durch geltendes Recht erlaubt sind.  Zwischen GitHub und dem Entwickler ist der Entwickler allein für Entwicklerprodukte verantwortlich.
 
@@ -51,7 +51,7 @@ Großgeschriebene Begriffe, die in dieser Vereinbarung verwendet werden und hier
 
 **2.6** Der Entwickler erkennt an und stimmt zu, dass GitHub berechtigt ist, den Namen, die Adresse und andere Kontaktdaten des Entwicklers an Dritte weiterzugeben, die in angemessener Weise und nach alleiniger Entscheidung von GitHub behaupten, dass der Entwickler nicht alle erforderlichen geistigen Eigentumsrechte an den Produkten des Entwicklers besitzt.
 
-### 3.  BESCHRÄNKUNGEN UND VERANTWORTLICHKEITEN
+## 3.   BESCHRÄNKUNGEN UND VERANTWORTLICHKEITEN
 
 Ungeachtet der in Abschnitt 2, Zweck und Lizenzerteilung, oben dargelegten Anforderungen erkennt der Entwickler an und stimmt zu, dass seine Nutzung des Marketplace und die Teilnahme am Programm ausdrücklich von der Einhaltung dieser Vereinbarung durch den Entwickler abhängig ist, insbesondere von den in diesem Abschnitt 3 dargelegten Beschränkungen und Compliance-Anforderungen.
 
@@ -90,7 +90,7 @@ Ungeachtet der in Abschnitt 2, Zweck und Lizenzerteilung, oben dargelegten Anfor
 
 **3.8** Diese Vereinbarung hindert keine der Parteien daran, Anwendungen zu entwickeln bzw. zu veröffentlichen, die mit den Anwendungen der anderen Partei vergleichbar sind oder anderweitig miteinander konkurrieren.
 
-### 4.  ENTFERNEN VON INHALTEN (TAKEDOWNS)
+## 4.   ENTFERNEN VON INHALTEN (TAKEDOWNS)
 
 **4.1** Ihre entfernten Inhalte Takedowns. Sie können Ihre Angebote durch schriftliche Mitteilung an GitHub dreißig (30) Tage vor dem ersten Tag des folgenden Kalendermonats aus dem zukünftigen Vertrieb über den Marketplace entfernen, aber Sie müssen diese Vereinbarung für alle über den Marketplace vertriebenen Angebote einhalten, insbesondere, was die Bedingungen für Rückerstattungen betrifft. Wenn Sie Ihr Angebot von einer zukünftigen Bereitstellung über den Marketplace entfernen, hat dies keine Auswirkungen auf (a) die Lizenzrechte von Endbenutzern, die Ihr Angebot zuvor erworben oder installiert haben, oder auf (b) Ihre Verpflichtung zur Bereitstellung oder Unterstützung von Angeboten, die zuvor von Benutzern erworben oder installiert wurden.
 
@@ -129,7 +129,7 @@ Für den Fall, dass Ihr Angebot zwangsläufig entfernt wird, weil es fehlerhaft 
 
 **4.4** Entfernen (Takedowns) von Endbenutzern. Wenn ein Endnutzer Ihr Entwicklerprodukt in einer Weise verwendet, die gegen die Bedingungen verstößt, haben wir das Recht, den Zugriff dieses Endbenutzers auf das Entwicklerprodukt ohne jegliche Haftung Ihnen gegenüber auszusetzen oder zu kündigen.
 
-### 5.  ZUSICHERUNGEN, GARANTIEN UND VEREINBARUNGEN
+## 5.   ZUSICHERUNGEN, GARANTIEN UND VEREINBARUNGEN
 
 **5.1** Entwickler versichert und garantiert, dass er alle Benutzer solcher Entwickleranwendungen darüber informiert hat, dass ihre Kontodaten außerhalb der Service- und Entwicklerbedingungen übertragen werden und Entwickler die Privatsphäre, Sicherheit oder Integrität dieser Kontodaten kontrollieren. Der Entwickler versichert ferner und garantiert, dass, soweit die Anwendungen des Entwicklers Kontodaten speichern, verarbeiten oder übertragen, weder Entwickler noch Entwickleranwendung, ohne entsprechende vorherige Zustimmung des Benutzers oder außer in dem nach geltendem Recht erforderlichen Umfang,
 - (i) den Inhalt der Kontodaten in einer Weise ändern, die die Integrität der Kontodaten beeinträchtigt;
@@ -142,7 +142,7 @@ Für den Fall, dass Ihr Angebot zwangsläufig entfernt wird, weil es fehlerhaft 
 
 **5.4** HAFTUNGSAUSSCHLUSS. ALLE ASPEKTE DES MARKETPLACE UND DES GITHUB-API, EINSCHLIESSLICH ALLER SERVER- UND NETZWERKKOMPONENTEN, WERDEN "OHNE MÄNGELGEWÄHR" UND "OHNE VERFÜGBARKEITSGEWÄHR" ZUR VERFÜGUNG GESTELLT, OHNE JEGLICHE GARANTIEN JEGLICHER ART, IM GRÖßTMÖGLICHEN GESETZLICH ZULÄSSIGEN UMFANG, UND GITHUB SCHLIESST AUSDRÜCKLICH JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIEN AUS, DARUNTER, ABER NICHT BESCHRÄNKT AUF STILLSCHWEIGENDE GARANTIEN DER MARKTGÄNGIGKEIT, DES TITELS, DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG.  DER ENTWICKLER NIMMT ZUR KENNTNIS, DASS GITHUB KEINE GARANTIE DAFÜR ÜBERNIMMT, DASS DER MARKETPLACE ODER DAS GITHUB-API UNUNTERBROCHEN, ZEITGERECHT, SICHER, FEHLERFREI ODER FREI VON VIREN, MALWARE ODER WÜRMERN IST (AUCH BEKANNT ALS COMPUTERCODE ODER ANDERE TECHNOLOGIE, DIE SPEZIELL DARAUF AUSGELEGT IST, SOFTWARE, HARDWARE, COMPUTERSYSTEME ODER NETZWERKE ZU STÖREN, ZU DEAKTIVIEREN ODER ZU SCHÄDIGEN), UND DASS KEINE INFORMATIONEN ODER RATSCHLÄGE, DIE DER ENTWICKLER VON GITHUB ODER ÜBER DEN MARKETPLACE ODER DIE GITHUB-API ERHALTEN HAT, EINE GARANTIE BEGRÜNDEN, DIE NICHT AUSDRÜCKLICH IN DIESEN BEDINGUNGEN ANGEGEBEN IST.  GITHUB IST NICHT VERANTWORTLICH FÜR UND SCHLIEßT AUSDRÜCKLICH JEGLICHE HAFTUNG FÜR JEGLICHE UNBEFUGTE NUTZUNG VON ENTWICKLERPRODUKTEN AUSSERHALB DES MARKETPLACE AUS.
 
-### 6.  PREISE UND ZAHLUNGSBEDINGUNGEN
+## 6.   PREISE UND ZAHLUNGSBEDINGUNGEN
 
 **6.1** GitHub fungiert als Vertragspartner für Entwicklerprodukte, die von Endbenutzern über den Marketplace gekauft werden.
 
@@ -152,19 +152,19 @@ Für den Fall, dass Ihr Angebot zwangsläufig entfernt wird, weil es fehlerhaft 
 
 **6.4** Sie leisten den Support für Ihr Entwicklerprodukt. Sie sind allein verantwortlich für den Support und die Wartung Ihrer Entwicklerprodukte und alle Beschwerden über Ihre Entwicklerprodukte. Ihre Support-Kontaktinformationen werden auf jeder Anwendungs-Detailseite angezeigt und den Benutzern zu Kundensupport-Zwecken zur Verfügung gestellt. Das Versäumnis, angemessenen Support für Ihre Entwicklerprodukte zu bieten, kann dazu führen, dass das Produkt weniger sichtbar ist oder in einigen Fällen vom Marketplace oder von einem anderen Ort auf GitHub.com entfernt wird, wo zuvor gekaufte oder heruntergeladene Entwicklerprodukte im Namen der Benutzer gespeichert werden.
 
-### 7.  EIGENTUM
+## 7.   EIGENTUM
 
 Vorbehaltlich der in dieser Vereinbarung ausdrücklich festgelegten beschränkten Lizenzen werden in dieser Vereinbarung keiner Partei die geistigen Eigentumsrechte der anderen Partei an ihren Markenfunktionen oder anderen Technologien übertragen oder abgetreten, und es werden in dieser Vereinbarung keiner Partei die geistigen Eigentumsrechte der anderen Partei übertragen oder abgetreten.
 
-### 8.  HAFTUNGSBESCHRÄNKUNG
+## 8.   HAFTUNGSBESCHRÄNKUNG
 
 UNTER KEINEN UMSTÄNDEN UND UNTER KEINER RECHTLICHEN GRUNDLAGE (SEI ES VERTRAGLICH, DURCH UNERLAUBTE HANDLUNG, FAHRLÄSSIGKEIT ODER ANDERWEITIG) HAFTEN GITHUB ODER SEINE VERBUNDENEN UNTERNEHMEN, LEITENDEN ANGESTELLTEN, GESCHÄFTSFÜHRER, MITARBEITER, VERTRETER ODER LIEFERANTEN GEGENÜBER DEM ENTWICKLER ODER EINEM DRITTEN IM RAHMEN DIESER VEREINBARUNG FÜR INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE, FOLGE-, STRAF- ODER ÄHNLICHE SCHÄDEN, EINSCHLIESSLICH ENTGANGENER GEWINNE, UMSATZ- ODER GESCHÄFTSVERLUSTE, VERLORENE DATEN, BETRIEBSUNTERBRECHUNG ODER ANDERE VERLUSTE, DIE DEM ENTWICKLER ODER DRITTEN IM ZUSAMMENHANG MIT DIESER VEREINBARUNG ENTSTEHEN, UNABHÄNGIG DAVON, OB DER ENTWICKLER AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE ODER DIESE HÄTTE VORHERSEHEN KÖNNEN; UNGEACHTET ANDERSLAUTENDER BESTIMMUNGEN IN DIESER VEREINBARUNG DARF DIE GESAMTHAFTUNG VON GITHUB GEGENÜBER DEM ENTWICKLER ODER EINER DRITTEN PARTEI, DIE SICH AUS DIESER VEREINBARUNG ERGIBT, MAXIMAL DIE AUSGABEN FÜR SECHS (6) MONATE BETRAGEN.
 
-### 9.  SCHADLOSHALTUNG
+## 9.   SCHADLOSHALTUNG
 
 **9. 1** Der Entwickler erklärt sich damit einverstanden, GitHub, seine verbundenen Unternehmen und deren jeweilige Direktoren, leitenden Angestellten, Mitarbeiter und Vertreter im größtmöglichen gesetzlich zulässigen Umfang zu verteidigen, zu entschädigen und gegenüber jeglichen Ansprüchen, Klagen, Prozessen oder Verfahren sowie jeglichen Verlusten, Haftungen, Schäden, Kosten und Ausgaben (einschließlich angemessener Anwaltsgebühren) schadlos zu halten, die sich aus oder im Zusammenhang mit (a) der Nutzung des Marketplace durch den Entwickler unter Verletzung dieser Vereinbarung, der Nutzungsbedingungen oder geltender Gesetze oder Bestimmungen ergeben; (b) Entwicklerprodukten, die Urheberrechte, Warenzeichen, Geschäftsgeheimnisse, Patente oder andere geistige Eigentumsrechte Dritter verletzen; (c) dem Verlust oder der Offenlegung von Daten oder persönlichen Informationen durch Entwicklerprodukte; und (d) der EULA (oder den Nutzungsbedingungen) des Entwicklers.
 
-### 10. KÜNDIGUNG
+## 10.  KÜNDIGUNG
 
 **10.1**    Diese Vereinbarung gilt bis zur Kündigung durch eine der Parteien, wie unten dargelegt.
 
@@ -176,37 +176,37 @@ UNTER KEINEN UMSTÄNDEN UND UNTER KEINER RECHTLICHEN GRUNDLAGE (SEI ES VERTRAGLI
 
 **10.5**    Die Verpflichtungen in den Abschnitten 2, 3, 4, 5, 8, 9 und 12-18 gelten auch nach Ablauf oder Kündigung dieser Vereinbarung.
 
-### 11. ÄNDERUNG
+## 11.  ÄNDERUNG
 
 Der Entwickler erkennt an und stimmt zu, dass GitHub diese Vereinbarung, den Marketplace, das GitHub-API, die allgemeinen API-Richtlinien, die GitHub-Datenschutzrichtlinie, die GitHub-Entwicklerprogramm-Nutzungsbedingungen und die GitHub.com-Nutzungsbedingungen von Zeit zu Zeit ändern kann (eine "Änderung"). Alle Änderungen werden dem Entwickler über den Marketplace, die GitHub-Website unter www.GitHub.com oder durch eine direkte Kommunikation von GitHub mitgeteilt. Der Entwickler erkennt ferner an und stimmt zu, dass diese Änderungen jederzeit und ohne Ankündigung an den Entwickler durchgeführt werden können. Der Entwickler muss innerhalb von fünfundvierzig (45) Tagen ab dem Datum der ersten Ankündigung einer oder mehrerer Änderungen (oder innerhalb eines kürzeren Zeitraums, der in der Ankündigung der Änderung(en) angegeben ist) (der "Konformitätszeitraum") mit diesen Modifikationen übereinstimmen, indem er die aktuellste Version des GitHub API in der aktuellsten Version der Entwicklerprodukte implementiert und verwendet und alle Änderungen an den Entwicklerprodukten vornimmt, die aufgrund dieser Modifikation(en) erforderlich sein können. Der Entwickler erkennt an, dass eine Änderung nachteilige Auswirkungen auf die Produkte des Entwicklers haben kann, insbesondere auf die Art und Weise, in der Anwendungen mit dem GitHub-API kommunizieren. GitHub übernimmt keine Haftung gegenüber Entwicklern oder Endbenutzern in Bezug auf solche Änderungen oder nachteilige Auswirkungen, die sich aus solchen Änderungen ergeben. Wenn der Entwickler nach Ablauf des Konformitätszeitraums weiterhin auf den Marketplace oder das GitHub API zugreift oder diese nutzt, gilt dies als verbindliche Annahme der betreffenden Änderung(en).
 
-### 12. ZUWEISUNG; VOLLSTÄNDIGE VEREINBARUNG; REVISIONEN
+## 12.  ZUWEISUNG; VOLLSTÄNDIGE VEREINBARUNG; REVISIONEN
 
 **12.1** Ohne vorherige schriftliche Zustimmung von GitHub darf der Entwickler weder direkt noch indirekt, per Gesetz oder anderweitig, diese Vereinbarung oder die Rechte des Entwicklers unter dieser Vereinbarung ganz oder teilweise abtreten oder die Erfüllung der Pflichten des Entwicklers unter dieser Vereinbarung delegieren.  Die in dieser Vereinbarung gewährten Rechte können von GitHub ohne vorherige Zustimmung des Entwicklers zugewiesen oder übertragen werden.  Darüber hinaus kann GitHub seine Verantwortlichkeiten oder Verpflichtungen aus dieser Vereinbarung ohne Zustimmung des Entwicklers delegieren.
 
 **12.2**    Diese Vereinbarung stellt zusammen mit den Nutzungsbedingungen die gesamte Vereinbarung zwischen den Parteien in Bezug auf den Gegenstand dieser Vereinbarung dar. Das Versäumnis von GitHub, zu irgendeinem Zeitpunkt eine Bestimmung dieser Vereinbarung durchzusetzen, stellt keinen Verzicht auf diese Bestimmung oder auf eine andere Bestimmung dieser Vereinbarung dar.
 
-### 13. SALVATORISCHE KLAUSEL
+## 13.  SALVATORISCHE KLAUSEL
 
 Wird eine Bestimmung dieser Vereinbarung von einem zuständigen Gericht für nicht durchsetzbar befunden, so wird diese Bestimmung vom Gericht geändert und so ausgelegt, dass die ursprüngliche Bestimmung im größtmöglichen gesetzlich zulässigen Umfang am besten erfüllt wird, wobei die übrigen Bestimmungen dieser Vereinbarung in Kraft bleiben.
 
-### 14. VERHÄLTNIS DER PARTEIEN
+## 14. VERHÄLTNIS DER PARTEIEN
 
 Die Parteien sind unabhängige Vertragspartner. Mit dieser Vereinbarung entstehen keine Partnerschaften, Franchise-, Joint Ventures-, Agentur-, Treuhand- oder Beschäftigungsverhältnisse zwischen den Parteien.  Der Entwickler stimmt zu, dass jedes Mitglied der Unternehmensgruppe, zu welcher GitHub gehört, ein Drittbegünstigter dieser Vereinbarung ist und dass diese anderen Unternehmen berechtigt sind, jede Bestimmung dieser Vereinbarung, die einen Vorteil oder ein Recht zugunsten von GitHub gewährt, direkt durchzusetzen und sich auf diese zu berufen.  Keine anderen Personen, Unternehmen oder juristischen Personen dürfen Drittbegünstigte der Vereinbarung sein.
 
-### 15. BENACHRICHTIGUNGEN
+## 15. BENACHRICHTIGUNGEN
 
 Alle Benachrichtigungen, die GitHub dem Entwickler im Rahmen dieser Vereinbarung übermitteln muss, können schriftlich (i) mittels eines landesweit anerkannten Nachtzustelldienstes ("Kurier") oder per US-Post an die vom Entwickler bei GitHub angegebene Kontakt-Postanschrift oder (ii) per E-Mail an die vom Entwickler angegebene E-Mail-Adresse zugestellt werden. mail to the contact mailing address provided by Developer to GitHub; or (ii) electronic mail to the electronic mail address provided by Developer. Der Entwickler muss GitHub schriftlich per Kurier oder U.S.-Post unter folgender Adresse benachrichtigen: GitHub, Inc., Attn: Legal Department, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 USA. Mail to the following address: GitHub, Inc., Attn: Legal Department, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 USA. Alle Benachrichtigungen gelten unmittelbar nach der Zustellung per E-Mail oder, falls anderweitig zugestellt, nach Erhalt oder, falls dies früher erfolgt, zwei (2) Werktage nach Übergabe an die Post oder an einen Kurierdienst, wie oben zulässig, als zugestellt.
 
-### 16. GELTENDES RECHT
+## 16. GELTENDES RECHT
 
 Diese Vereinbarung unterliegt den Gesetzen des Staates Kalifornien, ohne Rücksicht auf Kollisionsnormen. Der Entwickler erklärt sich hiermit ausdrücklich damit einverstanden, sich der ausschließlichen persönlichen Gerichtsbarkeit der Bundes- und Staatsgerichte des Staates Kalifornien, San Francisco County, zu unterwerfen, um alle Streitigkeiten im Zusammenhang mit dieser Vereinbarung beizulegen.  Ungeachtet des Vorstehenden ist GitHub berechtigt, Unterlassungsansprüche oder andere dringende Rechtsbehelfe in jeder Gerichtsbarkeit geltend zu machen.
 
-### 17. EXPORTBESCHRÄNKUNGEN
+## 17. EXPORTBESCHRÄNKUNGEN
 
 ENTWICKLERPRODUKTE, DIE ÜBER DEN MARKETPLACE VERTRIEBEN WERDEN, KÖNNEN EXPORTKONTROLLEN ODER -BESCHRÄNKUNGEN DURCH DIE VEREINIGTEN STAATEN ODER ANDERE LÄNDER ODER TERRITORIEN UNTERLIEGEN.  DER ENTWICKLER VERPFLICHTET SICH, ALLE ANWENDBAREN US-AMERIKANISCHEN UND INTERNATIONALEN EXPORTGESETZE UND -VORSCHRIFTEN EINZUHALTEN.  DIESE GESETZE KÖNNEN BESCHRÄNKUNGEN BEZÜGLICH DESTINATIONEN, INHALT UND/ODER ENDBENUTZER UMFASSEN.
 
-### 18.  NUTZUNGSDATEN
+## 18.  NUTZUNGSDATEN
 Um Marketplace zu betreiben und zu verbessern, kann GitHub Nutzungsdaten von Marketplace und dem GitHub API oder von anderen Orten sammeln, an denen zuvor gekaufte oder heruntergeladene Entwicklerprodukte im Namen der Endbenutzer von GitHub gespeichert werden.  Die Nutzungsdaten werden in Übereinstimmung mit den zum damaligen Zeitpunkt geltenden Datenschutzrichtlinien von GitHub aufbewahrt.  In begrenztem Umfang können die Nutzungsdaten nach alleinigem Ermessen von GitHub zur Nutzung durch den Entwickler bereitgestellt werden.
 
 # Nachtrag 1: Datenschutz-Nachtrag
@@ -238,7 +238,7 @@ Dieser Datenschutz-Nachtrag (dieser "Nachtrag") ist Bestandteil der GitHub Marke
    - ii. Der Entwickler darf die geschützten Daten nur für die begrenzten und spezifischen Zwecke der Bereitstellung seiner Dienste für den Endbenutzer verarbeiten und an Dritte weitergeben, wie in seiner Vereinbarung mit dem Endbenutzer beschrieben, es sei denn, der Endbenutzer stimmt einer anderen Verwendung zu.
 - c. Datenqualität und Proportionalität. Der Entwickler muss die personenbezogenen Daten stets korrekt und auf dem neuesten Stand halten.
 - d. Sicherheit. Der Entwickler muss alle vertretbaren und für die Risiken angemessenen Sicherheitsmaßnahmen ergreifen, unter anderem gegen versehentliche oder unrechtmäßige Vernichtung, versehentlichen Verlust, Veränderung, unbefugte Offenlegung und unbefugten Zugriff, die durch die Verarbeitung personenbezogener Daten entstehen.
-- e. Datenaufbewahrung und -löschung. Auf vertretbare Anfrage von GitHub, es sei denn, gesetzlich verboten Der Entwickler muss alle Persönlichen Informationen und verwandten Daten an allen Orten zurückgeben oder vernichten, an denen sie gespeichert werden, nachdem sie für die begrenzten und bestimmten Zwecke, für die sie gesammelt wurden, nicht mehr benötigt werden. Der Entwickler muss über Prozesse zur Informationsvernichtung verfügen oder solche entwickeln, die die Sicherheitsanforderungen von GitHub in Abschnitt 3.8 der Vereinbarung erfüllen.
+- e. Datenaufbewahrung und -löschung. Auf vertretbare Anfrage von GitHub, es sei denn, gesetzlich verboten Der Entwickler muss alle Persönlichen Informationen und verwandten Daten an allen Orten zurückgeben oder vernichten, an denen sie gespeichert werden, nachdem sie für die begrenzten und bestimmten Zwecke, für die sie gesammelt wurden, nicht mehr benötigt werden.
 - f. Unterverarbeitung und Weiterübermittlung Der Entwickler haftet für die Weiterübermittlung geschützter Daten an seine Unterverarbeiter. In the event that Developer must transfer the Protected Data to a third party, or Developer installs, uses, or enables third party services to process the Protected Data on Developer’s behalf, Developer must ensure that the third party will provide at least the same level of privacy protection as is required herein.
 
 **A1-5. Nutzung geschützter Daten**
@@ -249,9 +249,7 @@ Dieser Datenschutz-Nachtrag (dieser "Nachtrag") ist Bestandteil der GitHub Marke
 
 **A1-6. Compliance (Gesetzeskonformität)**
 
-- a. Der Entwickler muss angemessenen Anfragen bezüglich seiner Praktiken zum Datenschutz und zur Datennutzung wie folgt nachkommen:
-   - i. Der Entwickler stellt auf Anfrage seine Datenschutzerklärung, seine Datenschutzrichtlinie, seinen Datenschutzhinweis oder ähnliche Unterlagen zur Verfügung. Der Entwickler gibt darüber hinaus alle relevanten Compliance-Berichte einschließlich solcher zur Einhaltung des Datenschutz-Schutzschilds bekannt.
-   - ii. Der Entwickler erfüllt die Verpflichtungen zur Informationssicherheit und -prüfung gemäß Abschnitt 3.7 der GitHub Marketplace-Entwicklervereinbarung.
+Der Entwickler stellt auf Anfrage seine Datenschutzerklärung, seine Datenschutzrichtlinie, seinen Datenschutzhinweis oder ähnliche Unterlagen zur Verfügung. Der Entwickler gibt darüber hinaus alle relevanten Compliance-Berichte einschließlich solcher zur Einhaltung des Datenschutz-Schutzschilds bekannt.
 
 **A1-7. Kündigung**
 

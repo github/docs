@@ -5,11 +5,12 @@ redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: GitHub APIが有効なエンドポイント
 ---
 
 {% data variables.product.prodname_github_app %} を使用してエンドポイントにアクセスするには、インストールアクセストークンを使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_github_apps %} で認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。

@@ -7,29 +7,29 @@ redirect_from:
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
 {% data reusables.pull_requests.default_merge_option %}
 
-### Combinar y fusionar las confirmaciones de cambios de tus solicitudes de extracción
+## Combinar y fusionar las confirmaciones de cambios de tus solicitudes de extracción
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-#### Mensaje de fusión para una fusión de combinación
+### Mensaje de fusión para una fusión de combinación
 
-Cuando combinas y fusionas, {% data variables.product.prodname_dotcom %} genera un mensaje de confirmación que puedes cambiar si así lo deseas. El mensaje predeterminado depende de si la solicitud de extracción contiene varias confirmaciones o solo una.
+Cuando combinas y fusionas, {% data variables.product.prodname_dotcom %} genera un mensaje de confirmación que puedes cambiar si así lo deseas. El mensaje predeterminado depende de si la solicitud de extracción contiene varias confirmaciones o solo una. No incluímos a las confirmaciones de fusión al contar la cantidad total de confirmaciones.
 
 | Cantidad de confirmaciones | Resumen                                                                                                              | Descripción                                                                                               |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | Una confirmación           | El título del mensaje de confirmación para la confirmación única, seguido de el número de la solicitud de extracción | El cuerpo de texto del mensaje de la confirmación para la confirmación única                              |
 | Más de una confirmación    | El título de la solicitud de extracción, seguido por el número de dicha solicitud                                    | Un listado de los mensajes de confirmación para todas las confirmaciones combinadas, en orden cronológico |
 
-#### Combinar y fusionar una rama extensa
+### Combinar y fusionar una rama extensa
 
 Si planeas seguir trabajando en la [rama principal](/github/getting-started-with-github/github-glossary#head-branch) de una solicitud de extracción después de que ésta se fusiona, te recomendamos no combinarla y fusionarla.
 
@@ -37,7 +37,7 @@ Cuando creas una solicitud de extracción, {% data variables.product.prodname_do
 
 Ya que esta confirmación se realizó únicamente en la rama base y no en la principal, el ancestro común de las dos ramas permanece sin cambios. Si sigues trabajando en la rama principal, entonces crea una solicitud de extracción nueva entre las dos ramas, la solicitud de extracción incluirá todas las confirmaciones que se hayan realizado desde el ancestro común, incluyendo aquellas que combinaste y fusionaste en la solicitud de extracción previa. Si no hay conflictos, puedes fusionar estas confirmaciones con seguridad. Sin embargo, este flujo de trabajo hace que los conflictos de fusión sean más probables. Si sigues combinando y fusionando las solicitudes de extracción para una rama principal extensa, tendrás que resolver los mismos conflictos repetidamente.
 
-### Cambiar de base y fusionar las confirmaciones de cambios de tus solicitudes de extracción
+## Cambiar de base y fusionar las confirmaciones de cambios de tus solicitudes de extracción
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
@@ -53,7 +53,7 @@ Si aún quieres cambiar de base las confirmaciones, pero no puedes cambiar de ba
 
 Cualquiera con permisos de escritura en el repositorio, entonces puede [fusionar los cambios](/articles/merging-a-pull-request/) usando el botón Cambiar de base y fusionar en {% data variables.product.product_location %}.
 
-### Leer más
+## Leer más
 
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests/)"
 - "[Abordar conflictos de fusión](/articles/addressing-merge-conflicts)"

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.0'
+  ghae: "issue-4864"
 topics:
   - Dependabot
   - Dependencies

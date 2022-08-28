@@ -7,8 +7,8 @@ redirect_from:
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,9 +16,10 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Auditar usuarios
 ---
 
-### Acceder al registro de auditoría
+## Acceder al registro de auditoría
 
 El tablero de bitácoras de auditoría te proporciona una presentación visual de los datos de auditoría a lo largo de tu empresa.
 
@@ -30,7 +31,7 @@ El tablero de bitácoras de auditoría te proporciona una presentación visual d
 
 Dentro del mapa, puedes usar panorámica y zoom para ver eventos en todo el mundo. Mantén el puntero sobre un país para ver un recuento rápido de los eventos de ese país.
 
-### Buscar eventos a través de tu empresa
+## Buscar eventos a través de tu empresa
 
 La bitácora de auditoría lista la siguiente información sobre las acciones que se llevan a cabo dentro de tu empresa:
 
@@ -50,7 +51,7 @@ La bitácora de auditoría lista la siguiente información sobre las acciones qu
 
 {% endwarning %}
 
-#### Búsqueda basada en el repositorio
+### Búsqueda basada en el repositorio
 
 El calificador `repo` limita las acciones a un repositorio específico que le pertenece a tu organización. Por ejemplo:
 
@@ -60,7 +61,7 @@ El calificador `repo` limita las acciones a un repositorio específico que le pe
 
 Debes incluir el nombre de tu organización dentro del calificador `repo`; si buscas solo `repo:our-repo` no funcionará.
 
-#### Búsqueda basada en el usuario
+### Búsqueda basada en el usuario
 
 El calificador `actor` examina eventos basados en el miembro de tu organización que realizó la acción. Por ejemplo:
 
@@ -70,7 +71,7 @@ El calificador `actor` examina eventos basados en el miembro de tu organización
 
 Solo puedes usar un nombre de usuario {% data variables.product.product_name %}, no el nombre real de un individuo.
 
-#### Búsqueda basada en la organización
+### Búsqueda basada en la organización
 
 El calificador `org` limita las acciones a una organización específica. Por ejemplo:
 
@@ -78,7 +79,7 @@ El calificador `org` limita las acciones a una organización específica. Por ej
 * `org:my-org action:team` encuentra todos los eventos del equipo realizados dentro de la organización `my-org`.
 * `-org:my-org` excluye todos los eventos que ocurrieron para la organización `my-org`.
 
-#### Búsqueda basada en la acción realizada
+### Búsqueda basada en la acción realizada
 
 El calificador `action` busca los eventos específicos, agrupados dentro de categorías. Para obtener más información sobre los eventos asociados con estas categorías, consulta la sección "[Acciones auditadas](/admin/user-management/audited-actions)".
 
@@ -99,7 +100,7 @@ Cada categoría tiene un conjunto de eventos asociados con los que puedes filtra
 * `action:team.create` encuentra todos los eventos donde se creó un equipo.
 * `-action:billing.change_email` excluye todos los eventos donde se modificó el correo electrónico de facturación.
 
-#### Búsqueda basada en la ubicación
+### Búsqueda basada en la ubicación
 
 El calificador `country` filtra las acciones por el país de origen.
 - Puedes utilizar un código corto de dos letras del país o el nombre completo.
@@ -108,7 +109,7 @@ El calificador `country` filtra las acciones por el país de origen.
   * `country:Mexico` encuentra todos los eventos ocurridos en México.
   * `country:"United States"` encuentra todos los eventos que ocurrieron en Estados Unidos.
 
-#### Búsqueda basada en la fecha de acción
+### Búsqueda basada en la fecha de acción
 
 El calificador `created` filtra las acciones por la fecha en la que ocurrieron.
 - Define fechas usando el formato `YYYY-MM-DD`-- es decir, año, seguido del mes, seguido del día.

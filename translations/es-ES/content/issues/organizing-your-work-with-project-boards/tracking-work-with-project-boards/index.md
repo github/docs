@@ -3,9 +3,9 @@ title: Rastrear el progreso en tu tablero de proyecto
 shortTitle: Rastrear proyectos
 intro: Aprende cómo rastrear tu trabajo en los tableros de proyecto
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects
@@ -19,3 +19,4 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

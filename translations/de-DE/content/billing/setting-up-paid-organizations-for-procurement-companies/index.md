@@ -8,7 +8,7 @@ redirect_from:
   - /articles/setting-up-and-paying-for-organizations-for-procurement-companies/
   - /articles/setting-up-paid-organizations-for-procurement-companies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-organizations-for-procurement-companies
   - /creating-and-paying-for-an-organization-on-behalf-of-a-client

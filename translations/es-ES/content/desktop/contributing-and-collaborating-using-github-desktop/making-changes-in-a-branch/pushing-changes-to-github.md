@@ -7,10 +7,10 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Acerca de cargar cambios a {% data variables.product.prodname_dotcom %}
+## Acerca de cargar cambios a {% data variables.product.prodname_dotcom %}
 
 Cuando cargas cambios, envías los cambios confirmados en tu repositorio local al repositorio remoto en {% data variables.product.prodname_dotcom %}. Si cambias tu proyecto localmente y quieres que otros tengan acceso a los cambios, deberás cargar los cambios a {% data variables.product.prodname_dotcom %}.
 
@@ -18,7 +18,7 @@ Antes de cargar los cambios, debes actualizar tu rama local para que incluya cua
 
 {% data reusables.desktop.protected-branches %}
 
-### Cargar cambios a {% data variables.product.prodname_dotcom %}
+## Cargar cambios a {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
@@ -35,6 +35,6 @@ Si configuras a {% data variables.large_files.product_name_long %} para rastrear
 2. Si {% data variables.product.prodname_desktop %} te pide traer las confirmaciones nuevas de la rama remota, da clic en **Recuperar**. ![El botón de recuperar](/assets/images/help/desktop/fetch-newer-commits.png)
 3. Opcionalmente, da clic en **Crear Solicitud de Extracción** para abrir una solicitud de extracción y colaborar en tus cambios. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" ![El botón de crear solicitud de extracción](/assets/images/help/desktop/create-pull-request.png)
 
-### Leer más
+## Leer más
 - "[Cargar](/github/getting-started-with-github/github-glossary/#push)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Confirmar y revisar los cambios hechos a tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)"

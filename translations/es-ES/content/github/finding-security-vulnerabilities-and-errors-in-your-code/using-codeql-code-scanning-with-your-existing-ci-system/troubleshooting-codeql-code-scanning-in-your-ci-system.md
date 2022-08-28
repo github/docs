@@ -4,7 +4,7 @@ shortTitle: Solucionar problemas en tu IC
 intro: 'Si estás teniendo problemas con el {% data variables.product.prodname_codeql_runner %}, puedes solucionarlos si utilizas estos tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -13,11 +13,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### El comando `init` tarda demasiado
+## El comando `init` tarda demasiado
 
 Antes de que el {% data variables.product.prodname_codeql_runner %} pueda compilar y analizar código, necesita tener acceso al paquete de {% data variables.product.prodname_codeql %}, el cual contiene el CLI y las bibliotecas de {% data variables.product.prodname_codeql %}.
 
@@ -25,7 +25,7 @@ Cuando utilizas el {% data variables.product.prodname_codeql_runner %} por prime
 
 Para evitar esta descarga automática, puedes descargar manualmente el paquete de {% data variables.product.prodname_codeql %} a tu máquina ye specifica la ruta utilizando el marcador de `--codeql-path` del comando `init`.
 
-### No se encontró código durante la compilación
+## No se encontró código durante la compilación
 
 Si el comando `analyze` para el {% data variables.product.prodname_codeql_runner %} falla con un error de `No source code was seen during the build`, esto indica que {% data variables.product.prodname_codeql %} no pudo monitorear tu código. Hay muchas razones que podrían explicar esta falla.
 

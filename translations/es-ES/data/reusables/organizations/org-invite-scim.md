@@ -1,0 +1,1 @@
+Las invitaciones pendientes caducarán después de 7 días. Esto restablecerá cualquier licencia sin reclamar. Si el Sistema para la Administración de Identidades de Dominio Cruzado (SCIM) genera una invitación, esta no vencerá.

@@ -1,14 +1,14 @@
 ---
 title: Proteger sua organização
-intro: 'Os proprietários de organizações têm vários recursos disponíveis para ajudá-los a proteger seus projetos e dados. Se você for o proprietário de uma organização, você deverá revisar regularmente o log de auditoria da sua organização{% if currentVersion != "github-ae@latest" %}, status de 2FA do integrante{% endif %} e as configurações do aplicativo para garantir que não ocorra nenhuma atividade não autorizada ou maliciosa.'
+intro: 'Os proprietários de organizações têm vários recursos disponíveis para ajudá-los a proteger seus projetos e dados. Se você for o proprietário de uma organização, você deverá revisar regularmente o log de auditoria da sua organização{% ifversion not ghae %}, status de 2FA do integrante{% endif %} e as configurações do aplicativo para garantir que não ocorra nenhuma atividade não autorizada ou maliciosa.'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information/
   - /articles/keeping-your-organization-secure
   - /github/setting-up-and-managing-organizations-and-teams/keeping-your-organization-secure
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -21,5 +21,6 @@ children:
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
   - /reviewing-your-organizations-installed-integrations
+shortTitle: Segurança da organização
 ---
 

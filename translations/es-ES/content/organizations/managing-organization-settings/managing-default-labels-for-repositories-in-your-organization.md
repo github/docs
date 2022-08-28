@@ -5,23 +5,24 @@ redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-default-labels-for-repositories-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar las etiquetas predeterminadas
 ---
 
 Los propietarios de la organización pueden administrar las etiquetas predeterminadas para los repositorios de la organización.
 
 Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de tu organización, pero luego cualquier usuario con acceso de escritura al repositorio puede editar o eliminar las etiquetas de ese repositorio. Agregar, editar o eliminar una etiqueta predeterminada no agrega, edita o elimina la etiqueta de los repositorios existentes.
 
-### Crear una etiqueta predeterminada
+## Crear una etiqueta predeterminada
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -32,11 +33,11 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### Editar una etiqueta predeterminada
+## Editar una etiqueta predeterminada
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -47,11 +48,11 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### Eliminar una etiqueta predeterminada
+## Eliminar una etiqueta predeterminada
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -59,6 +60,6 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de las etiquetas](/articles/about-labels)"

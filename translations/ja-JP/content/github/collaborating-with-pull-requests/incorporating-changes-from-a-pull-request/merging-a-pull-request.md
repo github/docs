@@ -6,14 +6,14 @@ redirect_from:
   - /articles/merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/merging-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### プルリクエストのマージについて
+## プルリクエストのマージについて
 
 プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 デフォルトでは、head ブランチがベースブランチとコンフリクトしていない限り、どのプルリクエストもいつでもマージできます。 ただし、プルリクエストを特定のブランチにマージできるタイミングには制限がある場合があります。 たとえば、必須のステータスチェックに合格した場合にのみ、プルリクエストをデフォルトブランチにマージできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
 
@@ -23,19 +23,26 @@ topics:
 
 ドラフトのプルリクエストをマージすることはできません。 ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)」を参照してください。
 
-{% data reusables.pull_requests.automatically-delete-branches %}
+プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるようにリポジトリを設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
+
+{% note %}
+
+**注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
+
+{% endnote %}
+
+プルリクエストは [`--no-ff` オプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使用してマージされますが、[squash またはリベースされたコミット](/articles/about-pull-request-merges)は例外で、fast-forward オプションを使用してマージされます。
+
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 トピックブランチでの変更を上流ブランチにマージしたくなければ、マージせずに[プルリクエストをクローズする](/articles/closing-a-pull-request)ことができます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## プルリクエストをマージする
 
-**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### {% data variables.product.prodname_dotcom %} でプルリクエストをマージする
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
@@ -65,22 +72,29 @@ topics:
 6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
 6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
 
-プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるようにリポジトリを設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
+{% endwebui %}
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-   {% note %}
+{% cli %}
 
-   **注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-   詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
+{% data reusables.cli.cli-learn-more %}
 
-   {% endnote %}
-   {% endif %}
+To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
-プルリクエストは [`--no-ff` オプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使用してマージされますが、[squash またはリベースされたコミット](/articles/about-pull-request-merges)は例外で、fast-forward オプションを使用してマージされます。
+```shell
+gh pr merge <em>pull-request</em>
+```
 
-{% data reusables.pull_requests.close-issues-using-keywords %}
+Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
-### 参考リンク
+Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+
+```shell
+gh pr merge 523 --squash --body "my squash commit" --delete-branch
+```
+
+{% endcli %}
+
+## 参考リンク
 
 - [Pull Request を元に戻す](/articles/reverting-a-pull-request)
 - 「[{% data variables.product.prodname_desktop %} を使用してブランチを同期する](/desktop/guides/contributing-to-projects/syncing-your-branch/)」

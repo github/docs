@@ -5,7 +5,7 @@ intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
 permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Acerca de la carga de archivos SARIF para {% data variables.product.prodname_code_scanning %}
+## Acerca de la carga de archivos SARIF para {% data variables.product.prodname_code_scanning %}
 
 {% data variables.product.prodname_dotcom %} crea alertas de {% data variables.product.prodname_code_scanning %} en un repositorio utilizando información de los archivos de Formato de Intercambio para Resultados de Análisis Estático (SARIF). El archivo SARIF puede generarse desde una herramienta de análisis compatible con SARIF que ejecutes en el mismo flujo de trabajo de {% data variables.product.prodname_actions %} que utilizaste para cargar el archivo. Como alternativa, cuando se genere el archivo como un artefacto fuera de tu repositorio, puedes cargar el archivo SARIF directamente a algún repositorio y utilizar el flujo de trabajo para subir este archivo. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 
@@ -32,7 +32,7 @@ Puedes cargar los resultados utilizando {% data variables.product.prodname_actio
 
 {% data reusables.code-scanning.not-available %}
 
-### Cargar un análisis de {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_actions %}
+## Cargar un análisis de {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_actions %}
 
 Para cargar un archivo SARIF de terceros a {% data variables.product.prodname_dotcom %}, necesitarás un flujo de trabajo de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" y "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
@@ -44,7 +44,7 @@ Si tu archivo SARIF no incluye `partialFingerprints`, la acción `upload-sarif` 
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### Ejemplo de flujo de trabajo para los archivos SARIF generados fuera de un repositorio
+### Ejemplo de flujo de trabajo para los archivos SARIF generados fuera de un repositorio
 
 Puedes crear un nuevo flujo de trabajo que cargue archivos SARIF después de que los confirmes en tu repositorio. Esto es útil cuando el archivo SARIF se genera como un artefacto fuera de tu repositorio.
 
@@ -66,7 +66,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -80,7 +80,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-#### Ejemplo de flujo de trabajo que ejecuta la herramienta de análisis ESLint
+### Ejemplo de flujo de trabajo que ejecuta la herramienta de análisis ESLint
 
 Si generas tu archivo SARIF de terceros como parte de un flujo de trabajo de integración contínua (IC), puedes agregar la acción `upload-sarif` como un paso después de ejecutar tus pruebas de IC. Si aún no tienes un flujo de trabajo de IC, puedes crearlo utilizando una plantilla de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
@@ -100,7 +100,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -118,7 +118,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-### Leer más
+## Leer más
 
 - "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
 - "[Visualizar tu historial de flujos de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)"

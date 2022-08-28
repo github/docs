@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/container-guides-for-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /working-with-the-container-registry

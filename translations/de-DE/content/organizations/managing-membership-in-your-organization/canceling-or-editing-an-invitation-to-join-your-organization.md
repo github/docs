@@ -5,10 +5,11 @@ redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Cancel or edit invitation
 ---
 
 {% data reusables.profile.access_org %}
@@ -22,9 +23,9 @@ topics:
     - Um die Einladung des Benutzers zu bearbeiten, wähle eine andere Rolle oder ein anderes Team aus. Klicke dann auf **Update invitation** (Einladung aktualisieren).
     - Um die Einladung des Benutzers abzubrechen, klicke auf **Cancel invitation** (Einladung abbrechen).
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - „[Benutzer zum Beitritt zu Deiner Organisation einladen](/articles/inviting-users-to-join-your-organization)“
 {% endif %}
 - „[Organisationsmitglieder zu einem Team hinzufügen](/articles/adding-organization-members-to-a-team)“

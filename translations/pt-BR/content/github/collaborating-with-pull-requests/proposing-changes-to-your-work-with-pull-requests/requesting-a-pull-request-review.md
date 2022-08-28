@@ -6,16 +6,17 @@ redirect_from:
   - /articles/requesting-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Solicitar revisão de PR
 ---
 
 Proprietários e colaboradores de um repositório pertencente a uma conta de usuário podem atribuir revisões de pull requests. Os integrantes da organização com permissões de triagem em um repositório podem atribuir uma revisão de pull request.
 
-Os proprietários e colaboradores podem atribuir uma revisão de pull request a qualquer pessoa que recebeu explicitamente [acesso de leitura](/articles/access-permissions-on-github) em um repositório pertencente a um usuário. Os integrantes da organização podem atribuir uma revisão de pull request para qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se você solicitou uma revisão de uma equipe e a atribuição de código estiver habilitada, será solicitado que integrantes específicos e a equipe sejam removidos como revisores. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Os proprietários e colaboradores podem atribuir uma revisão de pull request a qualquer pessoa que recebeu explicitamente [acesso de leitura](/articles/access-permissions-on-github) em um repositório pertencente a um usuário. Os integrantes da organização podem atribuir uma revisão de pull request para qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. {% ifversion fpt or ghae or ghes %}Se você solicitar uma revisão de uma equipe e a atribuição de revisão de código estiver ativada, integrantes específicos serão solicitados e a equipe será removida como revisora. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 
@@ -33,6 +34,6 @@ Você pode solicitar uma revisão para uma pessoa específica ou sugerida. Os re
 6. Opcionalmente, se souber o nome da pessoa ou da equipe da qual deseja a revisão, clique em **Reviewers** (Revisores) e insira o nome de usuário da pessoa ou o nome da equipe para a qual deseja solicitar a revisão das alterações. Clique no nome da equipe ou no nome de usuário para solicitar a revisão. ![Campo para inserir um nome de usuário do revisor e menu com nome do revisor](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
 7. Depois que a pull request for revisada e você fizer as alterações necessárias, você poderá solicitar que ela seja revisada novamente por um revisor. Navegue até **Reviewers** na barra lateral direita e clique em {% octicon "sync" aria-label="The sync icon" %} ao lado do nome do revisor desejado. ![Ícone de sincronização de re-revisão na barra lateral direita](/assets/images/help/pull_requests/request-re-review.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre revisões de solicitação pull](/articles/about-pull-request-reviews)"

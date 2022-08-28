@@ -10,17 +10,18 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: Configurar GitHub Pages
 ---
 
-### Habilitar los sitios públicos para {% data variables.product.prodname_pages %}
+## Habilitar los sitios públicos para {% data variables.product.prodname_pages %}
 
-{% if enterpriseServerVersions contains currentVersion %}Si se habilita el modo privado en tu empresa, el{% else %}El {% endif %}público en general no podrá acceder a los sitios de {% data variables.product.prodname_pages %} que se hospeden en tu empresa a menos de que habilites los sitios públicos.
+{% ifversion ghes %}Si se habilita el modo privado en tu empresa, el{% else %}El {% endif %}público en general no podrá acceder a los sitios de {% data variables.product.prodname_pages %} que se hospeden en tu empresa a menos de que habilites los sitios públicos.
 
 {% warning %}
 
@@ -28,13 +29,13 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Selecciona **Public Pages** (Páginas públicas). ![Casilla de verificación para habilitar páginas públicas](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -42,19 +43,19 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Inhabilitar {% data variables.product.prodname_pages %} para tu empresa
+## Inhabilitar {% data variables.product.prodname_pages %} para tu empresa
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Si el aislamiento de subdominios está inhabilitado en tu empresa, también debes inhabilitar las {% data variables.product.prodname_pages %} para protegerte de vulnerabilidades de seguridad potenciales. Para obtener más información, consulta la sección "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)".
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Anula la selección de **Enable Pages** (Habilitar páginas). ![Casilla de verificación para inhabilitar {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -62,8 +63,8 @@ Si el aislamiento de subdominios está inhabilitado en tu empresa, también debe
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Leer más
+{% ifversion ghes %}
+## Leer más
 
 - "[Habilitar el modo privado](/admin/configuration/enabling-private-mode)"
 {% endif %}

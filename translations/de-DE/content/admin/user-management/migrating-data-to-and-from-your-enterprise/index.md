@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations/overview
   - /enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -17,5 +17,6 @@ children:
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
   - /importing-data-from-third-party-version-control-systems
+shortTitle: Migration for an enterprise
 ---
 

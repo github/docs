@@ -1,21 +1,23 @@
 ---
 title: Organizações
+intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Bloquear usuários
 
 O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer quaisquer chamadas de bloqueio para uma organização. Caso contrário, a resposta retornará `HTTP 404`.
@@ -40,7 +42,9 @@ O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer
 
 ## Webhooks
 
-Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. Assinar esses eventos viabiliza a construção de integrações que reagem aos eventos em {% data variables.product.product_name %}. Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
 ### Escopos & Restrições
 

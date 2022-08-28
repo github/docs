@@ -31,7 +31,7 @@ describe('<head>', () => {
     ).toBe(true)
     // HTML intro
     expect(
-      $('div.lead-mktg')
+      $('[data-testid="lead"]')
         .html()
         .startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>')
     )

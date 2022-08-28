@@ -6,19 +6,20 @@ redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage SSH authorities
 ---
 
 Organisationsinhaber können die SSH-Zertifizierungsstellen (CA) einer Organisation verwalten.
 
 Du kannst festlegen, dass Mitglieder mithilfe der von Dir bereitgestellten SSH-Zertifikate auf die Repositorys Deiner Organisation zugreifen können, indem Du Deiner Organisation eine SSH-Zertifizierungsstelle hinzufügst. {% data reusables.organizations.can-require-ssh-cert %} Weitere Informationen findest Du unter „[Informationen zu SSH-Zertifizierungsstellen](/articles/about-ssh-certificate-authorities).“
 
-### Eine SSH-Zertifizierungsstelle hinzufügen
+## Eine SSH-Zertifizierungsstelle hinzufügen
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -28,7 +29,7 @@ Du kannst festlegen, dass Mitglieder mithilfe der von Dir bereitgestellten SSH-Z
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-### Eine SSH-Zertifizierungsstelle löschen
+## Eine SSH-Zertifizierungsstelle löschen
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

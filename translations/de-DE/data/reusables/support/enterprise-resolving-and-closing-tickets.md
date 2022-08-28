@@ -1,4 +1,4 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% if currentVersion == "github-ae@latest" %}or {% endif %} workaround instructions{% if enterpriseServerVersions contains currentVersion %}, or by advising you of an available release that addresses the issue{% endif %}.
+{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% ifversion ghae %}or {% endif %} workaround instructions{% ifversion ghes %}, or by advising you of an available release that addresses the issue{% endif %}.
 
 Wenn Du ein eigenes oder nicht unterstütztes Plug-in, Modul oder einen benutzerdefinierten Code verwendest, kann der {% data variables.contact.enterprise_support %} Dich auffordern, das nicht unterstützte Plug-in, Modul oder den Code auszubauen, während er versucht, das Problem zu beheben. Wenn das Problem nach dem Ausbau des nicht unterstützten Plug-ins, Moduls oder des benutzerdefinierten Codes behoben ist, kann der {% data variables.contact.enterprise_support %} das Problem als gelöst betrachten.
 

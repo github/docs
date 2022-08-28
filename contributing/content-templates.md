@@ -16,8 +16,12 @@ Use the [content model](/contributing/content-model.md#conceptual) for full inst
 ```
 ---
 title: About [subject]
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: overview
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -51,8 +55,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Nouns describing your subject
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: reference
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -86,8 +94,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Start with a gerund
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: how_to
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -121,7 +133,11 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Quickstart title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
+type: quick_start
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -170,8 +186,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Tutorial title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ optional product callout }}'
+type: tutorial
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -233,8 +253,12 @@ Use the [tutorial content model](hhttps://github.com/github/docs/blob/main/contr
 ```
 ---
 title: Guide title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ site.data.reusables.gated-features.actions }}'
+type: tutorial
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 

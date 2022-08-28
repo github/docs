@@ -5,20 +5,21 @@ redirect_from:
   - /guides/traversing-with-pagination/
   - /v3/guides/traversing-with-pagination
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: ページネーション付きのトラバース
 ---
-
- 
 
 {% data variables.product.product_name %} APIは、開発者が消費するための膨大な情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
 
-このガイドでは、{% data variables.product.product_name %} Search APIを呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+このガイドでは、 Search APIを呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
-### ページネーションの基本
+{% data reusables.rest-api.dotcom-only-guide-note %}
+
+## ページネーションの基本
 
 はじめに、ページネーションされたアイテムの受け取りについて、いくつかの事実を知っておくことが重要です。
 
@@ -26,10 +27,10 @@ topics:
 2. 受け取るアイテムの数は指定できます (最大 100 まで)。
 3. ただし、技術的な理由により、すべてのエンドポイントが同じ動作をするわけではありません。 たとえば、[イベント](/rest/reference/activity#events)では受け取るアイテム数の最大値を設定できません。 特定のエンドポイントにおけるページネーションされた結果の処理方法については、必ずドキュメントをお読みください。
 
-ページネーションに関する情報は、API呼び出しの[リンクヘッダ](http://tools.ietf.org/html/rfc5988)に記載されています。 たとえば、検索APIにcurlでリクエストを行って、Mozilla プロジェクトで `addClass`というフレーズを何回使っているか調べましょう。
+ページネーションに関する情報は、API呼び出しの[リンクヘッダ](https://datatracker.ietf.org/doc/html/rfc5988)に記載されています。 たとえば、検索APIにcurlでリクエストを行って、Mozilla プロジェクトで `addClass`というフレーズを何回使っているか調べましょう。
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
 `-I`パラメータは、実際のコンテンツではなくヘッダのみを扱うことを示します。 結果を調べると、Linkヘッダの中に以下のような情報があることに気付くでしょう。
@@ -41,12 +42,12 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 提供されたこのリンク関係に**常に**依存しましょう。 URLを推測したり、自分で構築したりしないでください。
 
-#### ページ間の移動
+### ページ間の移動
 
 さて、受信するページ数がわかったので、ページを移動して結果の利用を開始できます。 これを行うには、`page`パラメータを渡します。 デフォルトでは、 `page`は常に`1`から始まります。 14ページまでジャンプして、どうなるか見てみましょう。
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 ここでもう一度リンクヘッダを見てみます。
@@ -58,12 +59,12 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 予想通り`rel="next"`は15で、`rel="last"`は34のままです。 しかし今度は少し情報が増えています。`rel="first"`は、、_最初_のページのURLを示しています。さらに重要なこととして、`rel="prev"`は前のページのページ番号を示しています。 この情報を用いて、APIの呼び出しでリストの最初、前、次、最後にユーザがジャンプできるUIを構築できるでしょう。
 
-#### 受け取るアイテム数の変更
+### 受け取るアイテム数の変更
 
 `per_page`パラメータを渡すことで、各ページが返すアイテム数を最大100まで指定できます。 `addClass`について50アイテムを要求してみましょう。
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 ヘッダのレスポンスに何が起こるかに注目してください。
@@ -73,7 +74,7 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 ご想像の通り、`rel="last"`情報には、最後のページが20になったと書かれています。 これは、結果のページごとに、より多くの情報を要求しているからです。
 
-### 情報の取得
+## 情報の取得
 
 ページネーションを扱うためだけに低レベルのcurlを呼び出したくはないでしょうから、上記で説明したことをすべて行うような、ちょっとしたRubyスクリプトを書いてみましょう。
 
@@ -142,7 +143,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-### ページネーションリンクの作成
+## ページネーションリンクの作成
 
 通常、ページネーションの目的は可能なすべての結果を連結することではなく、以下のようなナビゲーションを生成することです。
 

@@ -20,14 +20,15 @@ redirect_from:
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: GitHub Pages & Jekyll
 ---
 
-### 关于 Jekyll
+## 关于 Jekyll
 
 Jekyll 是一个静态站点生成器，内置 {% data variables.product.prodname_pages %} 支持和简化的构建过程。 Jekyll 使用 Markdown 和 HTML 文件，并根据您选择的布局创建完整静态网站。 Jekyll 支持 Markdown 和 Lick，这是一种可在网站上加载动态内容的模板语言。 更多信息请参阅 [Jekyll](https://jekyllrb.com/)。
 
@@ -35,7 +36,7 @@ Windows 并未正式支持 Jekyll。 更多信息请参阅 Jekyll 文档中的�
 
 我们建议将 Jekyll 用于 {% data variables.product.prodname_pages %}。 如果您喜欢，可以使用其他静态站点生成器或者在本地或其他服务器上自定义构建过程。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)”。
 
-### 在 {% data variables.product.prodname_pages %} 网站中配置 Jekyll
+## 在 {% data variables.product.prodname_pages %} 网站中配置 Jekyll
 
 您可以通过编辑 *_config.yml* 文件来配置大多数 Jekyll 设置，例如网站的主题和插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。
 
@@ -60,26 +61,26 @@ kramdown:
 - 结尾为 `~`
 - 被配置文件中的 `exclude` 设置排除
 
-如果您想要 Jekyll 处理其中任何文件，可以使用配置文件中的 `includes` 设置。
+If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
 
-### 前页附属资料
+## 前页附属资料
 
 {% data reusables.pages.about-front-matter %}
 
 您可以添加 `site.github` 到帖子或页面，以将任何仓库引用元数据添加到您的网站。 更多信息请参阅 Jekyll 元数据文档中的“[使用`site.github`](https://jekyll.github.io/github-metadata/site.github/)”。
 
-### 主题
+## 主题
 
 {% data reusables.pages.add-jekyll-theme %} 更多信息请参阅 Jekyll 文档中的“[主题](https://jekyllrb.com/docs/themes/)”。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 您可以在 {% data variables.product.prodname_dotcom %} 上添加支持的主题到站点。 更多信息请参阅 {% data variables.product.prodname_pages %} 站点上“[支持的主题](https://pages.github.com/themes/)"和"[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)”。
 
-要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
+要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% ifversion fpt %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
 
 您可以通过编辑主题文件来覆盖任何主题的默认值。 更多信息请参阅您的主题文档和 Jekyll 文档中的“[覆盖主题默认值](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)“。
 
-### 插件
+## 插件
 
 您可以下载或创建 Jekyll 插件，以便为您的网站扩展 Jekyll 的功能。 例如， [jemoji](https://github.com/jekyll/jemoji) 插件允许您在站点的任何页面上使用 {% data variables.product.prodname_dotcom %} 风格的表情符号，就像在 {% data variables.product.prodname_dotcom %} 上使用一样。 更多信息请参阅 Jekyll 文档中的“[插件](https://jekyllrb.com/docs/plugins/)”。
 
@@ -106,7 +107,7 @@ kramdown:
 
 {% data variables.product.prodname_pages %} 无法使用不支持的插件构建网站。 如果想使用不支持的插件，请在本地生成网站，然后将网站的静态文件推送到 {% data variables.product.product_name %}。
 
-### 语法突显
+## 语法突显
 
 为了使网站更容易读取，代码片段在 {% data variables.product.prodname_pages %} 上突显，就像在 {% data variables.product.product_name %} 上突显一样。 有关在 {% data variables.product.product_name %} 上突显语法的更多信息，请参阅“[创建和突显代码块](/articles/creating-and-highlighting-code-blocks)”。
 
@@ -126,6 +127,6 @@ kramdown:
 $ rougify style github > style.css
 ```
 
-### 本地构建网站
+## 本地构建网站
 
 {% data reusables.pages.test-locally %}

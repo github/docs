@@ -8,18 +8,19 @@ redirect_from:
   - /github/working-with-github-pages/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Set Markdown processor
 ---
 
 People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.
 
-{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own extended [CommonMark](https://commonmark.org/) processor, which is used to render {% data variables.product.prodname_dotcom %} Flavored Markdown throughout {% data variables.product.product_name %}. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
+{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own Markdown processor, which is used to render [{% data variables.product.prodname_dotcom %} Flavored Markdown (GFM)](https://github.github.com/gfm/) throughout {% data variables.product.product_name %}. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
 
-You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our CommonMark processor will always match the results you see on {% data variables.product.product_name %}.
+You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our GFM processor will always match the results you see on {% data variables.product.product_name %}.
 
 {% data reusables.pages.navigate-site-repo %}
 2. In your repository, browse to the *_config.yml* file.
@@ -30,7 +31,7 @@ You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### 더 읽을거리
+## 더 읽을거리
 
 - [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)

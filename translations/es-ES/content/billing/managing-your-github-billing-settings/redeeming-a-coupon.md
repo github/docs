@@ -7,10 +7,9 @@ redirect_from:
   - /articles/redeeming-a-coupon-for-your-personal-account/
   - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Discounts
@@ -25,13 +24,13 @@ topics:
 
 No puedes aplicar cupones a planes pagos de {% data variables.product.prodname_marketplace %} apps.
 
-### Canjear un cupón para tu cuenta personal
+## Canjear un cupón para tu cuenta personal
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. En "Redeem your coupon" (Canjear tu cupón), haz clic en **Choose** (Elegir) al lado del nombre de usuario de tu cuenta *personal*. ![Botón Choose (Elegir)](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-### Canjear un cupón para tu organización
+## Canjear un cupón para tu organización
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

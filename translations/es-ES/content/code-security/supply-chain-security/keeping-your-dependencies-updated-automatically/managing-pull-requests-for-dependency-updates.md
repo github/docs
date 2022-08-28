@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
@@ -14,9 +14,10 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Administrar las solicitudes de cambios del Dependabot
 ---
 
-### Acerca de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
+## Acerca de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}
 
@@ -24,7 +25,7 @@ Cuando el {% data variables.product.prodname_dependabot %} levanta una solicitud
 
 Si tienes muchas dependencias para administrar, tal vez quieras personalizar la configuración para cada administrador de paquete y que así, las solicitudes de extracción tengan revisores, asignados, y etiquetas específicos. Para obtener más información, consulta la sección "[Personalizar actualizaciones de dependencias](/github/administering-a-repository/customizing-dependency-updates)".
 
-### Visualizar las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
+## Visualizar las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -32,27 +33,27 @@ Si tienes muchas dependencias para administrar, tal vez quieras personalizar la 
     - El autor es [dependabot](https://github.com/dependabot), la cuenta bot que utiliza la app del {% data variables.product.prodname_dependabot %}.
     - Predeterminadamente, tienen la etiqueta `dependencies`.
 
-### Cambiar la estrategia de rebase para las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
+## Cambiar la estrategia de rebase para las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de extracción para resolver cualquier conflicto. Si prefieres manejar los conflictos de fusión manualmente, puedes inhabilitar esta opción utilizando la opción de `rebase-strategy`. Para obtener más detalles, consulta la sección "[Opciones de configuración para actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)".
 
-### Administrar las solicitudes de extracción del {% data variables.product.prodname_dependabot %} con comandos de comentario
+## Administrar las solicitudes de extracción del {% data variables.product.prodname_dependabot %} con comandos de comentario
 
-El {% data variables.product.prodname_dependabot %} responde a comandos simples en los comentarios. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. El objetivo es facilitar tanto como sea posible el que se pueda clasificar automáticamente las solicitudes de extracción generadas.
+El {% data variables.product.prodname_dependabot %} responde a comandos simples en los comentarios. Cada solicitud de cambios contiene detalles de los comandos que puedes utilizar para procesarla (por ejemplo: para fusionarla, combinarla, reabrirla, cerrarla o rebasarla) bajo la sección de "comandos y opciones del {% data variables.product.prodname_dependabot %}". El objetivo es facilitar tanto como sea posible el que se pueda clasificar automáticamente las solicitudes de extracción generadas.
 
-You can use any of the following commands on a {% data variables.product.prodname_dependabot %} pull request.
+Puedes utilizar cualquiera de los siguientes comandos en una solicitud de cambios del {% data variables.product.prodname_dependabot %}.
 
-- `@dependabot cancel merge` cancels a previously requested merge.
-- `@dependabot close` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from recreating that pull request. You can achieve the same result by closing the pull request manually.
-- `@dependabot ignore this dependency` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this dependency (unless you reopen the pull request or upgrade to the suggested version of the dependency yourself).
-- `@dependabot ignore this major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this major version (unless you reopen the pull request or upgrade to this major version yourself).
-- `@dependabot ignore this minor version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this minor version (unless you reopen the pull request or upgrade to this minor version yourself).
-- `@dependabot merge` merges the pull request once your CI tests have passed.
-- `@dependabot rebase` rebases the pull request.
-- `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
-- `@dependabot reopen` reopens the pull request if the pull request is closed.
-- `@dependabot squash and merge` squashes and merges the pull request once your CI tests have passed.
+- `@dependabot cancel merge` cancela una fusión previamente solicitada.
+- `@dependabot close` cierra la solicitud de cambios y previene que el {% data variables.product.prodname_dependabot %} vuelva a crearla. Puedes lograr el mismo resultado si cierras la solicitud de cambios manualmente.
+- `@dependabot ignore this dependency` cierra la solicitud de cambios y previene que {% data variables.product.prodname_dependabot %} cree más solicitudes de cambios para esta dependencia (a menos de que vuelvas a abrir la solicitud de cambios para mejorarla a la versión sugerida de la dependencia tú mismo).
+- `@dependabot ignore this major version` cierra la solicitud de cambios y previene que el {% data variables.product.prodname_dependabot %} cree más solicitudes de cambio para esta versión mayor (a menos de que vuelvas a abrir la solicitud de cambios o de que tú mismo mejores a esta versión mayor).
+- `@dependabot ignore this minor version` cierra la solicitud de cambios y previene que el {% data variables.product.prodname_dependabot %} cree más solicitudes de cambio para esta versión menor (a menos de que vuelvas a abrir la solicitud de cambios o que tú mismo mejores a esta versión menor).
+- `@dependabot merge` fusiona la solicitud de cambios una vez que tus pruebas de IC hayan pasado.
+- `@dependabot rebase` rebasa la solicitud de cambios.
+- `@dependabot recreate` vuelve a crear la solicitud de cambios, sobreescribiendo cualquier edición que se le haya hecho.
+- `@dependabot reopen` vuelve a abrir la solicitud de cambios si es que se había cerrado.
+- `@dependabot squash and merge` combina y fusiona la solicitud de cambios una vez que hayan pasado tus pruebas de IC.
 
-{% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
+El {% data variables.product.prodname_dependabot %} reaccionará con un emoji de "pulgares arriba" para reconocer el comando y podrá responder con un comentario de la solicitud de cambios. Si bien el {% data variables.product.prodname_dependabot %} a menudo responde rápidamente, algunos comandos podrían tardar varios minutos para completarse si el {% data variables.product.prodname_dependabot %} está ocupado procesando otras actualizaciones o comandos.
 
 Si ejecutas cualquiera de los comandos para ignorar las dependencias o las versiones, el {% data variables.product.prodname_dependabot %} almacena las preferencias para el repositorio centralmente. Si bien esta es una solución rápida, para aquellos repositorios con más de un colaborador, es mejor definir explícitamente las dependencias y versiones a ignorar en el archivo de configuración. Esto hace que todos los colaboradores puedan ver más fácilmente por qué una dependencia en particular no se está actualizando automáticamente. Para obtener más información, consulta la sección "[Opciones de configuración para las actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)".

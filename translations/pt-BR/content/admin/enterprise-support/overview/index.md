@@ -4,8 +4,8 @@ intro: 'Saiba mais sobre as opções de suporte disponíveis para {% data variab
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

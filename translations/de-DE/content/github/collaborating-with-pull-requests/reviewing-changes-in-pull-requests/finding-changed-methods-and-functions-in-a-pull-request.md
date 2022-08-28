@@ -6,11 +6,12 @@ redirect_from:
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/finding-changed-methods-and-functions-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Methods & functions
 ---
 
 Jeder, der Lesezugriff auf ein Repository hat, kann eine zusammenfassende Liste der Funktions- und Methodenänderungen in bestimmten Dateien eines Pull Requests anzeigen.
@@ -36,7 +37,7 @@ Die zusammenfassende Liste der Methoden und Funktionen wird aus den folgenden un
 
 6. Du wirst zur ersten Zeile der von Dir ausgewählten Funktion oder Methode weitergeleitet. ![Geänderte Funktion oder Methode in Dateien anzeigen](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zum Vergleich von Branches in einem Pull Request](/articles/about-comparing-branches-in-pull-requests)“
 - „[Dateien in einem Pull Request nach Dateityp filtern](/articles/filtering-files-in-a-pull-request)“

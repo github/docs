@@ -2,6 +2,7 @@
 title: Setting up your C# (.NET) project for Codespaces
 shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.codespaces %}'
 intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
@@ -11,34 +12,33 @@ topics:
   - Codespaces
 ---
 
-{% data reusables.codespaces.release-stage %}
+
 
 ## Introduction
 
 This guide shows you how to set up your C# (.NET) project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
-### Prerequisites 
+### Prerequisites
 
 - You should have an existing C# (.NET) project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/dotnet-quickstart.
 - You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
 
 ## Step 1: Open your project in a codespace
 
-1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
-  
-  ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png) 
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
-2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
+  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
+
+You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed.
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
-## Step 2: Add a dev container to your codespace from a template  
+## Step 2: Add a dev container to your codespace from a template
 
 The default codespaces container comes with the latest .NET version and common tools preinstalled. However, we encourage you to set up a custom container so you can tailor the tools and scripts that run as part of codespace creation to your project's needs and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
@@ -71,7 +71,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 	"name": "C# (.NET)",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"args": { 
+		"args": {
 			// Update 'VARIANT' to pick a .NET Core version: 2.1, 3.1, 5.0
 			"VARIANT": "5.0",
 			// Options
@@ -101,7 +101,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
 	//    * macOS/Linux terminal:
 	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	// 
+	//
 	// 2. Uncomment these 'remoteEnv' lines:
 	//    "remoteEnv": {
 	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
@@ -166,17 +166,17 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 
 You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
 
-## Step 3: Modify your devcontainer.json file 
+## Step 3: Modify your devcontainer.json file
 
 With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and restore your project dependencies when your codespace launches.
 
-1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it. 
+1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it.
 
-  !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
+  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. Update your the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
-   
-  ```json{:copy} 
+
+  ```json{:copy}
   "extensions": [
 		  "ms-dotnettools.csharp",
 		  "streetsidesoftware.code-spell-checker",
@@ -185,7 +185,7 @@ With your dev container added and a basic understanding of what everything does,
 
 3. Uncomment the `postCreateCommand` to restore dependencies as part of the codespace setup process.
 
-  ```json{:copy} 
+  ```json{:copy}
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "dotnet restore",
   ```
@@ -195,22 +195,22 @@ With your dev container added and a basic understanding of what everything does,
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
 5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
-   
-    ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png) 
-   
+
+    ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png)
+
 ## Step 4: Run your application
 
 In the previous section, you used the `postCreateCommand` to install a set of packages via the `dotnet restore` command. With our dependencies now installed, we can run our application.
 
 1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses. 
+2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
 
   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## Step 5: Commit your changes
 
-{% data reusables.codespaces.committing-link-to-procedure %} 
+{% data reusables.codespaces.committing-link-to-procedure %}
 
 ## Next steps
 

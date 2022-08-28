@@ -8,7 +8,7 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot-version-updates
   - /code-security/supply-chain-security/about-dependabot-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot
@@ -16,9 +16,10 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Actualizaciones de versión del dependabot
 ---
 
-### Acerca de {% data variables.product.prodname_dependabot_version_updates %}
+## Acerca de {% data variables.product.prodname_dependabot_version_updates %}
 
 El {% data variables.product.prodname_dependabot %} hace el esfuerzo de mantener tus dependencias. Puedes utilizarlo para garantizar que tu repositorio se mantenga automáticamente con los últimos lanzamientos de los paquetes y aplicaciones de los que depende.
 
@@ -32,7 +33,7 @@ Si habilitas las actualizaciones de seguridad, el {% data variables.product.prod
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### Frecuencia de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
+## Frecuencia de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
 
 Tú eres quien especifica qué tan a menudo se revisa cada ecosistema para encontrar nuevas versiones en el archivo de configuración: diario, semanalmente, o mensualmente.
 
@@ -40,7 +41,7 @@ Tú eres quien especifica qué tan a menudo se revisa cada ecosistema para encon
 
 Si habilitaste las actualizaciones de seguridad, algunas veces verás solicitudes de extracción adicionales para actualizaciones de seguridad. Esto se activa con una alerta del {% data variables.product.prodname_dependabot %} para una dependencia en tu rama predeterminada. El {% data variables.product.prodname_dependabot %} levanta automáticamente una solicitud de extracción para actualizar la dependencia vulnerable.
 
-### Repositorios y ecosistemas compatibles
+## Repositorios y ecosistemas compatibles
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
 
 Puedes configurar las actualizaciones de versión para los repositorios que contengan un manifiesto de dependencias o un archivo fijado para alguno de los administradores de paquetes compatibles. Para algunos administradores de paquetes, también puedes configurar la delegación a proveedores para las dependencias. Para obtener más información, consulta la sección "[Opciones de configuración para las actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)".
@@ -57,6 +58,6 @@ El {% data variables.product.prodname_dependabot %} no es compatible con depende
 
 Si tu repositorio ya utiliza una integración para la administración de dependencias, necesitarás inhabilitarlo antes de habilitar el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulta la sección "[Acerca de las integraciones](/github/customizing-your-github-workflow/about-integrations)".
 
-### Acerca de las notificaciones para las actualizaciones de versión del {% data variables.product.prodname_dependabot %}
+## Acerca de las notificaciones para las actualizaciones de versión del {% data variables.product.prodname_dependabot %}
 
 Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las actualizaciones de versión del {% data variables.product.prodname_dependabot %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

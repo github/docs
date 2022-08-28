@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-network-settings
 intro: 'Configure o {% data variables.product.prodname_ghe_server %} com os nomes de host e servidores de nomes DNS obrigatórios na sua rede. Você também pode configurar um servidor proxy ou regras de firewall. Para fins administrativos e de usuário, é preciso permitir o acesso a determinadas portas.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -23,5 +23,6 @@ children:
   - /configuring-built-in-firewall-rules
   - /network-ports
   - /using-github-enterprise-server-with-a-load-balancer
+shortTitle: Definir as configurações de rede
 ---
 

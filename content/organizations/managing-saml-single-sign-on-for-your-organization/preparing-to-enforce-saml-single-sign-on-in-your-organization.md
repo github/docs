@@ -13,9 +13,7 @@ topics:
 shortTitle: Prepare to enforce SAML SSO
 ---
 
-When you enforce SAML single sign-on in your organization, members that haven't authenticated via your identity provider (IdP) will be removed from the organization and will receive an email notifying them about the removal.
-
-Before enforcing SAML SSO in your organization, you should review organization membership, enable SAML SSO, and review organization members' SAML access. For more information, see the following.
+{% data reusables.saml.when-you-enforce %} Before enforcing SAML SSO in your organization, you should review organization membership, enable SAML SSO, and review organization members' SAML access. For more information, see the following.
 
 | Task | More information |
 | :- | :- |

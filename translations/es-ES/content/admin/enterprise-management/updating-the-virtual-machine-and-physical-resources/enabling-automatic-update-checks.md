@@ -6,11 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Habilitar las verificaciones de actualización automáticas
 ---
 
 Cuando un paquete de actualizaciones se descarga automáticamente para {% data variables.product.product_location %}, recibirás un mensaje informándote que puedes actualizar el {% data variables.product.prodname_ghe_server %}. Descarga de paquetes para el directorio `/var/lib/ghe-updates` en {% data variables.product.product_location %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)."

@@ -5,13 +5,13 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
+shortTitle: Renovar una organización de pago
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -22,7 +22,7 @@ topics:
 
 {% endtip %}
 
-### Actualizar la tarjeta de crédito de tu organización
+## Actualizar la tarjeta de crédito de tu organización
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

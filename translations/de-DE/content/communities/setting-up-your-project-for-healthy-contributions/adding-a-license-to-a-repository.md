@@ -5,10 +5,11 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Community
+shortTitle: Add a license to a repo
 ---
 
 Wenn Du eine nachweisbare Lizenz in Dein Repository einfügst, wird sie den Benutzern, die Dein Repository besuchen, oben auf der Repository-Seite angezeigt. Um die gesamte Lizenzdatei zu lesen, klicke auf den Namen der Lizenz.
@@ -17,10 +18,10 @@ Wenn Du eine nachweisbare Lizenz in Dein Repository einfügst, wird sie den Benu
 
 Open-Source-Lizenzen ermöglichen es anderen, das Projekt in Deinem Repository kostenlos zu verwenden, zu ändern und zu verteilen. Weitere Informationen zu Repository-Lizenzen findest Du unter „[Ein Repository lizenzieren](/articles/licensing-a-repository).“
 
-### Eine Open-Source-Lizenz zu Deinem Repository hinzufügen
+## Eine Open-Source-Lizenz zu Deinem Repository hinzufügen
 
 <!--Dotcom version uses the license tool-->
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. Gib im Feld für den Dateinamen *LICENSE* oder *LICENSE.md* (in Großbuchstaben) ein.
@@ -35,7 +36,7 @@ Open-Source-Lizenzen ermöglichen es anderen, das Projekt in Deinem Repository k
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -48,6 +49,6 @@ Open-Source-Lizenzen ermöglichen es anderen, das Projekt in Deinem Repository k
 
 {% endif %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Richtlinien für Repository-Mitarbeiter festlegen](/articles/setting-guidelines-for-repository-contributors)“

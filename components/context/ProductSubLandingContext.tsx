@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 export type FeaturedTrack = {
   trackName: string
+  trackProduct: string
   title: string
   description: string
   guides?: Array<{ href: string; page?: { type: string }; title: string; intro: string }>
@@ -47,14 +48,14 @@ export const getProductSubLandingContextFromRequest = (req: any): ProductSubLand
     title: req.context.productMap[req.context.currentProduct].name,
     featuredTrack: page.featuredTrack
       ? {
-          ...pick(page.featuredTrack, ['title', 'description', 'trackName']),
+          ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'trackProduct']),
           guides: (page.featuredTrack?.guides || []).map((guide: any) => {
             return pick(guide, ['title', 'intro', 'href', 'page.type'])
           }),
         }
       : null,
     learningTracks: (page.learningTracks || []).map((track: any) => ({
-      ...pick(track, ['title', 'description', 'trackName']),
+      ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
       guides: (track.guides || []).map((guide: any) => {
         return pick(guide, ['title', 'intro', 'href', 'page.type'])
       }),

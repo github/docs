@@ -3,7 +3,7 @@ title: GitHub Registered Developer Agreement
 redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

@@ -1,0 +1,38 @@
+---
+- 
+  #Images and descriptions are pulled directly from the repo
+  repo: vercel/next.js
+  description: Reactフレームワーク
+- 
+  repo: gatsbyjs/gatsby
+  description: モダンなアプリケーションやWebサイトをReactで高速に構築
+- 
+  repo: nodejs/node
+  description: Node.js JavaScriptランタイム ✨🐢🚀✨
+- 
+  repo: tailwindlabs/tailwindcss
+  description: 高速なUI開発のためのユーティリティファーストなCSSフレームワーク
+- 
+  repo: laravel/framework
+  description: Laravelは、表現力のあるエレガントな構文を持つWebアプリケーションフレームワークです。
+- 
+  repo: prisma/prisma
+  description: Node.js & TypeScriptのためのモダンなデータベースアクセス（ORMの代替） | PostgreSQL, MySQL, MariaDB & SQLite
+- 
+  repo: dotnet/csharplang
+  description: 'C#プログラミング言語の設計のための公式リポジトリ'
+- 
+  repo: home-assistant/frontend
+  description: '🍭 ホームアシスタントのためのフロントエンド'
+- 
+  repo: jspsych/jsPsych
+  description: Webブラウザ内で動作実験を作成して実行するためのJaavScriptライブラリ
+- 
+  repo: adonisjs/core
+  description: '🚀 The Node.jsフレームワークは、開発者の人間工学、安定性、信頼性に強く焦点を置いています'
+- 
+  repo: ImageMagick/ImageMagick
+  description: '🧙‍♂️ ImageMagick 7'
+- 
+  repo: react-hook-form/react-hook-form
+  description: '📋 フォーム検証のためのReactフック(Web + React Native)'

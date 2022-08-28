@@ -7,12 +7,14 @@ redirect_from:
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -26,7 +28,7 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Ein Benutzer-Projektboard erstellen
+## Ein Benutzer-Projektboard erstellen
 
 {% data reusables.profile.access_profile %}
 2. Klicke in der Hauptnavigation oben auf Deiner Profilseite auf {% octicon "project" aria-label="The project board icon" %} **Projects** (Projekte). ![Registerkarte „Projects“ (Projekte)](/assets/images/help/projects/user-projects-tab.png)
@@ -45,7 +47,7 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Ein organisationsweites Projektboard erstellen
+## Ein organisationsweites Projektboard erstellen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -65,7 +67,7 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Ein Repository-Projektboard erstellen
+## Ein Repository-Projektboard erstellen
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Klicke unter dem Namen des Repositorys auf {% octicon "project" aria-label="The project board icon" %} **Projects** (Projekte). ![Registerkarte „Projects“ (Projekte)](/assets/images/help/projects/repo-tabs-projects.png)
@@ -82,10 +84,10 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
-- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% if currentVersion == "free-pro-team@latest" %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Ein Projektboard schließen](/articles/closing-a-project-board)“
 - „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards)“

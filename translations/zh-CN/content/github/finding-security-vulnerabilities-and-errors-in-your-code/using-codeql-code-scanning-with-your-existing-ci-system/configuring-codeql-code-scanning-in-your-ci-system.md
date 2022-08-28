@@ -3,9 +3,9 @@ title: 在 CI 系统中配置 CodeQL 代码扫描
 shortTitle: 在 CI 中配置
 intro: '您可以配置 {% data variables.product.prodname_codeql_runner %} 如何扫描项目中的代码并将结果上传到 {% data variables.product.prodname_dotcom %}。'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -14,11 +14,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### 关于在 CI 系统中配置 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}
+## 关于在 CI 系统中配置 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}
 
 要将 {% data variables.product.prodname_code_scanning %} 集成到 CI 系统中，您可以使用 {% data variables.product.prodname_codeql_runner %}。 更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”。
 
@@ -33,7 +33,7 @@ $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 
 要自定义 {% data variables.product.prodname_codeql_runner %} 扫描代码的方式，您可以使用 `--languages` 和 `--queries` 等标志，也可以在单独的配置文件中指定自定义设置。
 
-### 扫描拉取请求
+## 扫描拉取请求
 
 每当创建拉取请求时扫描代码可防止开发者在代码中引入新的漏洞和错误。
 
@@ -49,7 +49,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### 覆盖自动语言检测
+## 覆盖自动语言检测
 
 {% data variables.product.prodname_codeql_runner %} 自动检测并扫描用支持的语言编写的代码。
 
@@ -63,7 +63,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### 运行额外查询
+## 运行额外查询
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -80,7 +80,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### 使用第三方代码扫描工具
+## 使用第三方代码扫描工具
 
 您可以在单独的配置文件中指定自定义设置，而不向 {% data variables.product.prodname_codeql_runner %} 命令传递额外信息。
 
@@ -94,11 +94,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### 配置文件示例
+### 配置文件示例
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### 为编译语言配置 {% data variables.product.prodname_code_scanning %}
+## 为编译语言配置 {% data variables.product.prodname_code_scanning %}
 
 对于编译语言 C/C++、C# 和 Java，{% data variables.product.prodname_codeql %} 在分析之前构建代码。 {% data reusables.code-scanning.analyze-go %}
 
@@ -112,7 +112,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 如果 `autobuild` 命令无法构建您的代码，您可以在 `init` 与 `analyze` 步骤之间手动运行构建步骤。 更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)”。
 
-### 将 {% data variables.product.prodname_code_scanning %} 数据上传到 {% data variables.product.prodname_dotcom %}
+## 将 {% data variables.product.prodname_code_scanning %} 数据上传到 {% data variables.product.prodname_dotcom %}
 
 默认情况下，当您运行 `analyze` 命令时，{% data variables.product.prodname_codeql_runner %} 上传来自 {% data variables.product.prodname_code_scanning %} 的结果。 您也可以使用 `upload` 命令单独上传 SARIF 文件。
 
@@ -120,11 +120,11 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 - 如果您上传到拉取请求，例如 `--ref refs/pull/42/merge` 或 `--ref refs/pull/42/head`，则结果在拉取请求检查中显示为警报。 更多信息请参阅“[对拉取请求中的代码扫描警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”。
 - 如果您上传到分支，例如 `--ref refs/heads/my-branch`，则结果将显示在仓库的 **Security（安全）**选项卡中。 更多信息请参阅“[管理仓库的代码扫描警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-### {% data variables.product.prodname_codeql_runner %} 命令引用
+## {% data variables.product.prodname_codeql_runner %} 命令引用
 
 {% data variables.product.prodname_codeql_runner %} 支持以下命令和标志。
 
-#### `init`
+### `init`
 
 为每种要分析的语言初始化 {% data variables.product.prodname_codeql_runner %} 并创建 {% data variables.product.prodname_codeql %} 数据库。
 
@@ -143,7 +143,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                        |    | 无. 打印更详细的输出。                                                                                                                        |
 | `-h`, `--help`                   |    | 无. 显示命令的帮助。                                                                                                                         |
 
-#### `autobuild`
+### `autobuild`
 
 尝试为编译语言 C/C++、C# 和 Java 构建代码。 对于这些语言，{% data variables.product.prodname_codeql %} 在分析之前构建代码。 在 `init` 与 `analyze` 步骤之间运行 `autobuild`。
 
@@ -154,7 +154,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                   |    | 无. 打印更详细的输出。                                                                       |
 | `-h`, `--help`              |    | 无. 显示命令的帮助。                                                                        |
 
-#### `analyze`
+### `analyze`
 
 分析 {% data variables.product.prodname_codeql %} 数据库中的代码并将结果上传到 {% data variables.product.product_name %}。
 
@@ -175,7 +175,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                          |    | 无. 打印更详细的输出。                                                                                                                                             |
 | `-h`, `--help`                     |    | 无. 显示命令的帮助。                                                                                                                                              |
 
-#### `上传`
+### `上传`
 
 将 SARIF 文件上传到 {% data variables.product.product_name %}。
 

@@ -7,12 +7,14 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以拖放或使用键盘快捷键对列中的卡片重新排序，在不同列之间移动卡片，以及更改列的顺序。
 
@@ -26,7 +28,7 @@ topics:
 - **组织范围的项目板**可以包含属于组织的任何仓库中的议题和拉取请求。  {% data reusables.project-management.link-repos-to-project-board %}更多信息请参阅“[将仓库链接到项目板](/articles/linking-a-repository-to-a-project-board)”。
 - **仓库项目板**范围是单一仓库中的议题和拉取请求。 它们也可包含引用其他仓库中议题和拉取请求的注释。
 
-### 创建和查看项目板
+## 创建和查看项目板
 
 要为组织创建项目板，您必须是组织成员。 组织所有者以及具有项目板管理员权限的人员可以自定义对项目板的访问权限。
 
@@ -44,7 +46,7 @@ topics:
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### 项目板模板
+## 项目板模板
 
 您可以使用模板快速设置新的项目板。 在使用模板创建项目板时，新板将包含列以及具有项目板使用提示的卡。 您也可以选择已配置自动化的模板。
 
@@ -61,10 +63,10 @@ topics:
 
 {% data reusables.project-management.copy-project-boards %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建项目板](/articles/creating-a-project-board)"
-- “[编辑项目板](/articles/editing-a-project-board)”{% if currentVersion == "free-pro-team@latest" %}
+- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"

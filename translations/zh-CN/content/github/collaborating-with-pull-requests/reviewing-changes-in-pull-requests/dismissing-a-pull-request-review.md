@@ -6,11 +6,12 @@ redirect_from:
   - /articles/dismissing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 忽略 PR 审查
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -24,7 +25,7 @@ topics:
 4. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Dismiss review（忽略审查）**。 ![合并框中的烤肉串图标](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. 输入忽略审查的原因，然后单击 **Dismiss review（忽略审查）**。 ![忽略审查按钮](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于拉取请求审查](/articles/about-pull-request-reviews)”
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"

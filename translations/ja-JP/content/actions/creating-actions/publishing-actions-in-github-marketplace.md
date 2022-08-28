@@ -7,19 +7,18 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
+shortTitle: Publish in GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
 
-### アクションの公開について
+## アクションの公開について
 
 アクションを公開できるようになるには、リポジトリ中でアクションを作成しなければなりません。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
-{% data variables.product.prodname_marketplace %}へのアクションの公開を計画しているなら、リポジトリにはアクションに必要なメタデータファイル、コード、ファイルだけが含まれているようにしなければなりません。 アクションのために1つのリポジトリを作成すれば、単一のユニットでコードのタグ付け、リリース、パッケージができます。 {% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_marketplace %}ページ上のアクションのメタデータも利用します。
+{% data variables.product.prodname_marketplace %}へのアクションの公開を計画しているなら、リポジトリにはアクションに必要なメタデータファイル、コード、ファイルだけが含まれているようにしなければなりません。 Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_marketplace %}ページ上のアクションのメタデータも利用します。
 
 アクションは{% data variables.product.prodname_marketplace %}に即座に公開され、以下の要求を満たしていれば{% data variables.product.prodname_dotcom %}によってレビューされません。
 
@@ -32,7 +31,7 @@ type: how_to
   - `name`は既存の{% data variables.product.prodname_marketplace %}のカテゴリとマッチしてはならない。
   - {% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom %}の機能の名前を予約している。
 
-### アクションの公開
+## アクションの公開
 
 作成したアクションは、新しいリリースとしてタグ付けして公開することによって、{% data variables.product.prodname_marketplace %}に追加できます。
 
@@ -47,7 +46,7 @@ type: how_to
 1. アクションにバージョンでタグ付けして、リリースタイトルを追加してください。 これで、そのリリースに含まれる変更や機能が分かりやすくなります。 このバージョンは、アクションの専用の{% data variables.product.prodname_marketplace %}ページに表示されます。 ![バージョンのタグ付け](/assets/images/help/repository/marketplace_actions_version.png)
 1. 他のすべてのフィールドに記入して、**Publish release（リリースの公開）**をクリックしてください。 公開をするには、2要素認証を使っていなければなりません。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication/)」を参照してください。 ![リリースを公開する](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### {% data variables.product.prodname_marketplace %}からのアクションの削除
+## {% data variables.product.prodname_marketplace %}からのアクションの削除
 
 {% data variables.product.prodname_marketplace %}から公開されたアクションを削除するには、それぞれの公開リリースを更新しなければなりません。 以下のステップを、{% data variables.product.prodname_marketplace %}に公開したアクションの各リリースに対して行ってください。
 

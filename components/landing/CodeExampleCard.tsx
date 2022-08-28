@@ -1,6 +1,6 @@
 import { RepoIcon } from '@primer/octicons-react'
 import { CodeExample } from 'components/context/ProductLandingContext'
-import { TruncateLines } from 'components/TruncateLines'
+import { TruncateLines } from 'components/ui/TruncateLines'
 
 type Props = {
   example: CodeExample
@@ -13,7 +13,7 @@ export const CodeExampleCard = ({ example }: Props) => {
       href={`https://github.com/${example.href}`}
     >
       <div className="p-4">
-        <h4>{example.title}</h4>
+        <h4 dangerouslySetInnerHTML={{ __html: example.title }} />
         <p className="mt-2 mb-4 color-text-tertiary">{example.description}</p>
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {

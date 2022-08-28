@@ -1,4 +1,4 @@
-{%- if currentVersion == "github-ae@latest" %}
+{%- ifversion ghae %}
 1. 在 *pom.xml* 文件的 `plugins` 元素中，添加 [checksum-maven-plugin](http://checksum-maven-plugin.nicoulaj.net/index.html) 插件，并配置插件发送至少 SHA-256 校验和。
     ```xml
     <plugins>

@@ -6,17 +6,18 @@ redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Team maintainer permissions
 ---
 
 {% data reusables.organizations.team_maintainers_can %}
 
-### Ein Organisationsmitglied zum Team-Betreuer ernennen
+## Ein Organisationsmitglied zum Team-Betreuer ernennen
 
 Bevor Du ein Organisationsmitglied zum Team-Betreuer ernennen kannst, muss die Person Mitglied des Teams sein.
 

@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// This script lists all local image files, sorted by their dimensions.
+//
+// [end-readme]
+
 import { fileURLToPath } from 'url'
 import path from 'path'
 import walk from 'walk-sync'
@@ -8,12 +15,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const imagesPath = path.join(__dirname, '../assets/images')
 const imagesExtensions = ['.jpg', '.jpeg', '.png', '.gif']
-
-// [start-readme]
-//
-// This script lists all local image files, sorted by their dimensions.
-//
-// [end-readme]
 
 const images = chain(walk(imagesPath, { directories: false }))
   .filter((relativePath) => {

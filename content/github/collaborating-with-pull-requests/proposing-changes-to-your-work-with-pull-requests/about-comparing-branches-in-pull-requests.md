@@ -63,7 +63,7 @@ If you want to simulate a two-dot diff in a pull request and see a comparison be
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[Limits for viewing content and diffs in a repository](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)."
+- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
 - Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
 
 ## Further reading

@@ -4,7 +4,7 @@ redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _这些条款适用于非企业客户。 它们也适用于在 2021 年 1 月 4 日之前许可 GitHub 产品的企业客户。 在此日期之后购买 GitHub 产品的企业客户将被定向至 https://www.github.com/enterprise-legal 了解当前条款。_

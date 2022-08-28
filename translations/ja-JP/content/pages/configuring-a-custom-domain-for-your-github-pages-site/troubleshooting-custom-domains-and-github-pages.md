@@ -9,12 +9,13 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: カスタムドメインのトラブルシューティング
 ---
 
-### _CNAME_ エラー
+## _CNAME_ エラー
 
 カスタムドメインは、公開ソースのルートにある _CNAME_ ファイルに保存されます。 このファイルは、リポジトリ設定を通じて、あるいは手動で追加または更新することができます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
@@ -27,13 +28,16 @@ topics:
 - _CNAME_ ファイルにはドメイン名のみが含まれている必要があります。 たとえば、`www.example.com`、`blog.example.com`、`example.com` などです。
 - ドメイン名は、すべての {% data variables.product.prodname_pages %} サイトで一意である必要があります。 たとえば、別のリポジトリの _CNAME_ ファイルに `example.com` が含まれている場合、自分のリポジトリの _CNAME_ ファイルに `example.com` を使用することはできません。
 
-### DNS の設定ミス
+## DNS の設定ミス
 
 デフォルトドメインをカスタムドメインにポイントすることに問題がある場合は、DNS プロバイダに連絡してください。
 
-カスタムドメインの DNS レコードを正しく設定しているかどうかも確認できます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
-### サポートされていないカスタムドメイン名
+- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- An online DNS lookup tool.
+
+## サポートされていないカスタムドメイン名
 
 カスタムドメインがサポートされていない場合、使用しているドメインをサポートされているドメインに変更しなければならないかもしれません。 DNSプロバイダに問い合わせて、ドメイン名の転送サービスを提供しているかどうかを確認することもできます。
 
@@ -42,13 +46,13 @@ topics:
 - 複数の `www` サブドメインを使用している。 たとえば、`www.example.com` と`www.anotherexample.com` の両方など。
 - Apex ドメインとカスタムサブドメインの両方を使用している。 たとえば、`example.com` と`docs.example.com` の両方など。
 
-  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)」を参照してください。
+  例外は`www`サブドメインです。 正しく設定されていれば、`www`サブドメインは自動的にApexドメインにリダイレクトされます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)」を参照してください。
 
 {% data reusables.pages.wildcard-dns-warning %}
 
 サポートされているカスタムサブドメインのリストは、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)」を参照してください。
 
-### HTTPS エラー
+## HTTPS エラー
 
 _CNAME_、`ALIAS`、`ANAME` や `A` DNS レコードで適切に設定されたカスタムドメインを使っている {% data variables.product.prodname_pages %} サイトは、HTTPS でアクセスできます。 詳しい情報については[HTTPSで{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)を参照してください。
 
@@ -56,10 +60,10 @@ _CNAME_、`ALIAS`、`ANAME` や `A` DNS レコードで適切に設定された�
 
 Certification Authority Authorization (CAA) レコードの使用を選択した場合、HTTPS 経由でサイトにアクセスするには、値が `letsencrypt.org` の CAA レコードが少なくとも 1 つ存在している必要があります。 詳しい情報については、Let's Encrypt ドキュメンテーションの「[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)」を参照してください。
 
-### Linux での URL フォーマット
+## Linux での URL フォーマット
 
 サイトのURLに、先頭か最後がダッシュのユーザ名もしくは Organization 名が含まれていたり、連続するダッシュが含まれていたりすると、Linux でブラウズするユーザがそのサイトにアクセスしようとするとサーバーエラーを受け取ることになります。 これを修正するには、{% data variables.product.product_name %}のユーザ名から非英数字を取り除くよう変更してください。 詳細は「[{% data variables.product.prodname_dotcom %} ユーザ名を変更する](/articles/changing-your-github-username/)」を参照してください。
 
-### ブラウザのキャッシュ
+## ブラウザのキャッシュ
 
 最近カスタムドメインを変更または削除し、ブラウザで新しい URL にアクセスできない場合は、ブラウザのキャッシュを削除してから新しい URL にアクセスすることが必要になる場合があります。 キャッシュの削除についての詳しい情報については、ブラウザのドキュメントを参照してください。

@@ -2,7 +2,7 @@
 title: Enabling GitHub Packages with AWS
 intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 shortTitle: Enable Packages with AWS

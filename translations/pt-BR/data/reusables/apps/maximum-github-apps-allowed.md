@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}Um usuário ou organização pode ter até 100 aplicativos GitHub.{% endif %}
+{% ifversion fpt %}um usuário ou organização pode ter até 100 aplicativos no GitHub Apps.{% endif %}

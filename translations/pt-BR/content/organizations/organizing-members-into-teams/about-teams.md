@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,7 +24,7 @@ Para obter mais informações, consulte:
 
 ![Imagem de uma menção de equipe](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 Você também pode usar a sincronização LDAP para sincronizar os integrantes e funções da equipe da {% data variables.product.product_location %} com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 
@@ -32,11 +32,11 @@ Você também pode usar a sincronização LDAP para sincronizar os integrantes e
 
 {% data reusables.organizations.team-synchronization %}
 
-### Visibilidade da equipe
+## Visibilidade da equipe
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Páginas da equipe
+## Páginas da equipe
 
 Cada equipe tem sua própria página em uma organização. Na página de uma equipe, é possível exibir integrantes da equipe, equipes secundárias e os repositórios da equipe. Os proprietários da organização e os mantenedores de equipe podem acessar as configurações da equipe, bem como atualizar a descrição e a foto de perfil da equipe na página da equipe.
 
@@ -44,7 +44,7 @@ Os integrantes da organização podem criar e participar de discussões com a eq
 
 ![Página da equipe listando integrantes e discussões da equipe](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### Equipes aninhadas
+## Equipes aninhadas
 
 Você pode refletir seu grupo ou a hierarquia da empresa na sua organização do {% data variables.product.product_name %} com vários níveis de equipes aninhadas. Uma equipe principal pode ter várias equipes secundárias, enquanto cada equipe secundária tem apenas uma equipe principal. Não é possível aninhar equipes secretas.
 
@@ -62,7 +62,7 @@ Você pode escolher uma principal quando criar a equipe ou pode mover uma equipe
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Preparar para aninhar equipes em sua organização
+## Preparar para aninhar equipes em sua organização
 
 Se a sua organização já tiver equipes, você deverá auditar as permissões de acesso ao repositório de cada equipe antes de aninhar equipes acima ou abaixo dela. Também é preciso considerar a nova estrutura que deseja implementar para a organização.
 
@@ -73,7 +73,7 @@ No topo da hierarquia da equipe, você deve fornecer às equipes principais perm
 3. Crie qualquer equipe nova que desejar, escolha uma principal para cada equipe nova e forneça a ela acesso ao repositório
 4. Adicione pessoas diretamente às equipes
 
-### Leia mais
+## Leia mais
 
 - "[Criar uma equipe](/articles/creating-a-team)"
 - "[Adicionar integrantes da organização a uma equipe](/articles/adding-organization-members-to-a-team)"

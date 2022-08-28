@@ -20,7 +20,7 @@ topics:
 - Signing in to {% data variables.product.product_name %}.
 - Commenting on issues and pull requests.
 - Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% ifversion ghes > 2.21 or ghae %}
+- Pushing commits.{% ifversion ghes or ghae %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
 ## Viewing dormant users
@@ -47,7 +47,7 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

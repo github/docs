@@ -1,0 +1,22 @@
+---
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Attaching very large images or animated GIFs to images or pull requests would fail.
+    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
+    - 'Custom pre-receive hooks that used a bash subshell would return an error: `No such file or directory`.'
+    - Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.
+    - Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.
+    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
+    - When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.
+    - When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

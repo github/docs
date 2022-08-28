@@ -1,0 +1,3 @@
+Puedes designar un "mantenedor de equipo" para administrar los ajustes y debates del equipo, entre otros privilegios. Para obtener más información, consulta la sección "[Otorgar permisos de "mantenedor de equipo" a un miembro de la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)".
+
+Puedes administrar las tareas de revisión de código para tu equipo, cambiar la visibilidad de los equipos, administrar los recordatorios programados para tus equipos y más en los ajustes de equipo. Para obtener más información, consulta la sección "[Organizar miembros en equipos](/organizations/organizing-members-into-teams)".

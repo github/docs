@@ -5,23 +5,24 @@ redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 提交和审核更改
 ---
 
-### 关于提交
+## 关于提交
 
 {% data reusables.commits.about-commits %} 您也可以在您协作的任何提交上添加一名合作作者。
 
 {% data reusables.desktop.update-email-address %} 更多信息请参阅“[为 GitHub Desktop 配置 Git](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)”。
 
-### 选择一个分支并进行更改
+## 选择一个分支并进行更改
 
 1. [创建新分支](/desktop/guides/contributing-to-projects/managing-branches)，或者单击工具栏中的 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**并从列表中选择现有分支。
 
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 选择如何显示差异
+## 选择如何显示差异
 
 您可以更改差异在 {% data variables.product.prodname_desktop %} 中的显示方式，以适应您的审核需求。
 
@@ -37,7 +38,7 @@ versions:
 
 ![扩展差异视图](/assets/images/help/desktop/expand-diff-view.png)
 
-### 选择要包含在提交中的更改
+## 选择要包含在提交中的更改
 
 在文本编辑器中更改文件并本地保存后，您会在 {% data variables.product.prodname_desktop %} 中看到更改。
 
@@ -54,7 +55,7 @@ versions:
 
   ![选中要提交的文件旁边的复选框](/assets/images/help/desktop/commit-some.png)
 
-#### 创建部分提交
+### 创建部分提交
 
 如果一个文件包含多处更改，但只有部分更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
 
@@ -62,12 +63,12 @@ versions:
 
   ![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
 
-### 放弃更改
+## 放弃更改
 如果您有不想保留的未提交更改，可以放弃这些更改。 这将从计算机上的文件中删除更改。 您可以放弃一个或多个文件中所有未提交的更改，也可以丢弃添加的特定行。
 
 丢弃的更改保存在回收站中带日期的文件中。 在回收站清空之前，您可以恢复丢弃的更改。
 
-#### 丢弃一个或多个文件中的更改
+### 丢弃一个或多个文件中的更改
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -77,7 +78,7 @@ versions:
 
   ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### 丢弃一行或多行中的更改
+### 丢弃一行或多行中的更改
 您可以丢弃一个或多个未提交的已更改行。
 
 {% note %}
@@ -95,20 +96,20 @@ versions:
   ![在确认对话框中丢弃一组添加的行](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 编写提交消息并推送更改
+## 编写提交消息并推送更改
 
 对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。 如果协作处理了某个提交，也可以将提交归于多个作者。
 
 {% note %}
 
-**注**：{% data reusables.desktop.tags-push-with-commits %} 更多信息请参阅“[管理标记](/desktop/contributing-to-projects/managing-tags)。”
+**注**：{% data reusables.desktop.tags-push-with-commits %} 更多信息请参阅“[管理标记](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)。”
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![提交消息字段](/assets/images/help/desktop/commit-message.png)
-2. （可选）要将某个提交归于另一个作者，请单击合作作者图标并输入要包含的用户名。
+1. （可选）要将某个提交归于另一个作者，请单击合作作者图标并输入要包含的用户名。
 
   ![添加合作作者到提交消息](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}

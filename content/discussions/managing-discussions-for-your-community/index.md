@@ -9,4 +9,3 @@ children:
   - /managing-categories-for-discussions-in-your-repository
   - /moderating-discussions
 ---
-{% data reusables.discussions.beta %}

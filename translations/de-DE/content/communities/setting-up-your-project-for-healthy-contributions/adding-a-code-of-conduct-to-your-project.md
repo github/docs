@@ -5,9 +5,10 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Add a code of conduct
 ---
 
 Ein *Verhaltenskodex* definiert die Standards für die Interaktion in einer Community. Er signalisiert, dass in dieser integrativen Umgebung alle Beiträge respektiert werden. Außerdem beschreibt er Verfahren für die Problembehandlung bei Schwierigkeiten zwischen Mitgliedern Deiner Projekt-Community. Weitere Informationen dazu, warum ein Verhaltenskodex Standards und Erwartungen für die Interaktion in einer Community festlegt, findest Du in den [Open-Source-Leitfäden](https://opensource.guide/code-of-conduct/).
@@ -21,7 +22,7 @@ You can add a code of conduct to your project by using a template or manually cr
 
 Du kannst einen Standard-Verhaltenskodex für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-### Einen Verhaltenskodex über eine Vorlage hinzufügen
+## Einen Verhaltenskodex über eine Vorlage hinzufügen
 
 {% data variables.product.product_name %} bietet Vorlagen für gängige Verhaltenskodizes. So können Sie rasch einen Verhaltenskodex zu Ihrem Projekt hinzufügen.
 
@@ -37,7 +38,7 @@ Du kannst einen Standard-Verhaltenskodex für Deine Organisation oder Dein Benut
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Einen Verhaltenskodex manuell hinzufügen
+## Einen Verhaltenskodex manuell hinzufügen
 
 If the code of conduct you want to use isn't available in the provided templates, you can manually add a code of conduct.
 

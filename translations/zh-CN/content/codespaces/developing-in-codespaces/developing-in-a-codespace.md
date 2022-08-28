@@ -1,12 +1,13 @@
 ---
 title: 在代码空间中开发
 intro: '您可以在 {% data variables.product.product_name %} 上打开代码空间，然后使用 {% data variables.product.prodname_vscode %} 的功能进行开发。'
-permissions: Anyone can develop in a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,9 +15,9 @@ topics:
   - Developer
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### 关于 {% data variables.product.prodname_codespaces %} 的开发
+## 关于 {% data variables.product.prodname_codespaces %} 的开发
 
 {% data variables.product.prodname_codespaces %} 为您提供 {% data variables.product.prodname_vscode %} 的完整开发体验。 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -32,24 +33,28 @@ topics:
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} 更多信息请参阅“[代码空间故障排除](/github/developing-online-with-codespaces/troubleshooting-your-codespace)”。
+{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
 
-#### 个性化代码空间
+### 个性化代码空间
 
 {% data reusables.codespaces.about-personalization %} 更多信息请参阅“[个性化您帐户的 {% data variables.product.prodname_codespaces %}](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)”。
 
 {% data reusables.codespaces.apply-devcontainer-changes %} 更多信息请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)”。
 
-#### 从代码空间运行应用程序
+### 从代码空间运行应用程序
 {% data reusables.codespaces.about-port-forwarding %} 更多信息请参阅“[代码空间中的转发端口](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)”。
 
-#### 提交更改
+### 提交更改
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### 导航到现有代码空间
+### 使用命令调色板
+
+命令调色板允许您访问并管理 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode %} 的许多功能。 更多信息请参阅“[在 {% data variables.product.prodname_codespaces %} 中使用命令调色板](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)”。
+
+## 导航到现有代码空间
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. 单击您要在其中开发的代码空间的名称。 ![代码空间的名称](/assets/images/help/codespaces/click-name-codespace.png)
 
-或者，您可以通过导航到创建代码空间的仓库并选择 **{% octicon "codespaces" aria-label="The codespaces icon" %} 代码空间**来查看仓库的任何活动代码空间。
+Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.

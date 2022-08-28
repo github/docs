@@ -7,12 +7,13 @@ redirect_from:
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Move a team
 ---
 
 Organisationsinhaber können das übergeordnete Team jedes Teams ändern. Team-Betreuer können das übergeordnete Team eines Teams ändern, wenn sie sowohl im untergeordneten als auch im übergeordneten Team Betreuer sind. Team-Betreuer ohne Betreuer-Berechtigungen im untergeordneten Team können das Hinzufügen eines übergeordneten oder untergeordneten Teams anfordern. Weitere Informationen findest Du unter „[Hinzufügen oder Ändern eines übergeordneten Teams anfordern](/articles/requesting-to-add-or-change-a-parent-team)“ und „[Hinzufügen eines untergeordneten Teams anfordern](/articles/requesting-to-add-a-child-team).“
@@ -37,6 +38,6 @@ Organisationsinhaber können das übergeordnete Team jedes Teams ändern. Team-B
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Klicke auf **Confirm new parent team** (Neues übergeordnetes Team bestätigen). ![Modales Feld mit Informationen zu den Änderungen an den Berechtigungen für den Repositoryzugriff](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Teams](/articles/about-teams)“

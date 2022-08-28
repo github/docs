@@ -1,13 +1,15 @@
 ---
 title: Buscar
+intro: 'La API de búsqueda de {% data variables.product.product_name %} te permite buscar el elemento específico eficientemente.'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
@@ -48,7 +50,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas, o para que excluyan resultados, consulta "[Entender la sintaxis de búsqueda](/articles/understanding-the-search-syntax/)".
+Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitaciones sobre la longitud de la consulta
 

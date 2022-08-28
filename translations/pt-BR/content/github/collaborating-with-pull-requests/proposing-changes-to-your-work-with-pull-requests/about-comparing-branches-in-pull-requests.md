@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comparar branches
 ---
 
 {% note %}
@@ -20,13 +21,13 @@ topics:
 {% endnote %}
 
 É possível exibir alterações propostas em uma pull request na guia Files changed (Arquivos alterados).
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![Guia Files changed (Arquivos alterados) da pull request](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 Em vez de exibir os commits em si, você pode ver as alterações propostas como elas aparecerão nos arquivos assim que a pull request passar pelo merge. Os arquivos aparecem em ordem alfabética na guia Files changed (Arquivos alterados). As adições aos arquivos aparecem em verde e são precedidas por um sinal de `+`, enquanto o conteúdo que foi removido aparece em vermelho e é precedido por um sinal de `-`.
 
-### Opções de exibição de diff
+## Opções de exibição de diff
 
 {% tip %}
 
@@ -48,7 +49,7 @@ Para simplificar a revisão das alterações em um pull request extenso, é poss
 
   ![Menu suspenso File filter (Filtro de arquivo)](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### Comparações de diff do Git de três pontos e dois pontos
+## Comparações de diff do Git de três pontos e dois pontos
 
 Por padrão, as pull requests no {% data variables.product.prodname_dotcom %} mostram um diff de três pontos ou uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch base.
 
@@ -62,11 +63,11 @@ Se desejar simular um diff de dois pontos em uma pull request e ver uma compara�
 
 Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no site do livro do _Pro Git_.
 
-### Motivos pelos quais os diffs não serão exibidos
-- Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Limites para exibição de conteúdo e diffs em um repositório](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)".
+## Motivos pelos quais os diffs não serão exibidos
+- Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)".
 - Seu arquivo corresponde a uma regra no arquivo *.gitattributes* do repositório para impedir esse arquivo de ser exibido por padrão. Para obter mais informações, consulte "[Personalizar como os arquivos alterados aparecem no GitHub](/articles/customizing-how-changed-files-appear-on-github)".
 
-### Leia mais
+## Leia mais
 
 - "[Sobre pull requests](/articles/about-pull-requests)"
 - "[Sobre bifurcações](/articles/about-forks)"

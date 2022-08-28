@@ -6,9 +6,9 @@ redirect_from:
   - /guides/automating-deployments-to-integrators/
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -29,7 +29,7 @@ Se você ainda não tiver, certifique-se de [fazer o download do ngrok][ngrok] e
 
 Observação: você pode baixar o código-fonte completo para este projeto [no repositório de amostra de plataforma][platform samples].
 
-### Escrever o seu servidor
+## Escrever o seu servidor
 
 Vamos escrever um aplicativo rápido do Sinatra para provar que nossas conexões locais estão funcionando. Vamos começar com isso:
 
@@ -76,7 +76,7 @@ O que está acontecendo? Cada evento que {% data variables.product.product_name 
 
 Para testar esta validação de conceito, faça algumas alterações em um branch no repositório de testes, abra um pull request e faça o merge. Seu servidor deve responder de acordo!
 
-### Trabalhando com implantações
+## Trabalhando com implantações
 
 Como já temos o servidor configurado, o código que está sendo revisado e nosso pull request mesclado, queremos que nosso projeto seja implantado.
 
@@ -136,13 +136,13 @@ Vamos dividir o que está acontecendo. Uma nova implantação é criada por `sta
 
 Após a conclusão da implantação, definimos o status para `sucesso`.
 
-### Conclusão
+## Conclusão
 
-No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. O fluxo básico é essencialmente o mesmo que o servidor que construímos acima. No GitHub, nós:
+No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. A common flow is essentially the same as the server we've built above:
 
-* Esperamos por uma resposta no estado da CI
-* Se o código for verde, fazemos o merge do pull request
-* O Heaven recebe o código mesclado e o implementa nos nossos servidores de produção e treinamento
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
 * Enquanto isso, o Heaven também notifica todos sobre a criação por meio do [Hubot][hubot] que aguarda nas nossas salas de bate-papo
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].

@@ -4,14 +4,14 @@ intro: '了解最近和即将发生的 {% data variables.product.prodname_dotcom
 redirect_from:
   - /v4/breaking_changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于重大变更
+## 关于重大变更
 
 重大变更是指可能需要集成商采取行动的任何变更。 我们将这些变更分为两类：
 
@@ -23,7 +23,7 @@ topics:
 我们将在更改 GraphQL 架构前至少三个月宣布即将发生的重大变更，以便给集成商预留进行必要调整的时间。 变更在季度第一天（1 月 1 日、4 月 1 日、7 月 1 日或 10 月 1 日）生效。 例如，如果我们在 1 月 15 日宣布变更，将在 7 月 1 日执行。
 
 {% for date in graphql.upcomingChangesForCurrentVersion %}
-### 安排在 {{ date[0] }} 进行变更
+## 安排在 {{ date[0] }} 进行变更
 
 {% for change in date[1] %}
 <ul>

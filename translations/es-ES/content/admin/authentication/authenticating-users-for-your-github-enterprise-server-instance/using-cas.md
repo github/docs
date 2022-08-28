@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
-intro: 'CAS es un protocolo de inicio de sesión único (SSO) para varias aplicaciones web. Una cuenta de usuario de CAS no ocupa una licencia de usuario de {% if currentVersion ver_gt "enterprise-server@2.16" %}{% else %}plaza{% endif %} hasta que el usuario inicie sesión.'
+intro: 'CAS es un protocolo de inicio de sesión único (SSO) para varias aplicaciones web. Una cuenta de usuario CAS no usa un {% ifversion ghes %}asiento{% else %}de licencia de usuario{% endif %} hasta que el usuario inicia sesión.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Consideraciones sobre el nombre de usuario con CAS
+## Consideraciones sobre el nombre de usuario con CAS
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -29,7 +29,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### Atributos de CAS
+## Atributos de CAS
 
 Están disponibles los siguientes atributos.
 
@@ -37,7 +37,7 @@ Están disponibles los siguientes atributos.
 | ------------------- | --------- | ------------------------------------------------------------------------ |
 | `nombre de usuario` | Requerido | El nombre de usuario {% data variables.product.prodname_ghe_server %}. |
 
-### Configurar CAS
+## Configurar CAS
 {% warning %}
 
 **Advertencia:** Antes de configurar CAS en {% data variables.product.product_location %}, ten en cuenta que los usuarios no podrán usar sus nombres de usuario ni contraseñas CAS para autenticar las solicitudes de API o las operaciones Git a través de HTTP/HTTPS. En cambio, será necesario que [creen un token de acceso](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).

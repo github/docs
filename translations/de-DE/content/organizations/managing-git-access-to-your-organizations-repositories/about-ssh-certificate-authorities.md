@@ -6,21 +6,22 @@ redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: SSH certificate authorities
 ---
 
 Ein SSH-Zertifikat ist ein Mechanismus, mit dem ein SSH-Schlüssel einen anderen SSH-Schlüssel signieren kann. Wenn Du eine SSH-Zertifizierungsstelle (CA) verwendest, um den Mitgliedern Deiner Organisation signierte SSH-Zertifikate bereitzustellen, kannst Du die Zertifizierungsstelle zu Deinem Enterprise-Konto oder Deiner Organisation hinzufügen, damit die Organisationsmitglieder mit ihren Zertifikaten auf die Ressourcen der Organisation zugreifen können. Weitere Informationen findest Du unter „[SSH-Zertifizierungsstellen Deiner Organisation verwalten](/articles/managing-your-organizations-ssh-certificate-authorities).“
 
-Wenn Du eine SSH-Zertifizierungsstelle zu Deiner Organisation oder Deinem Enterprise-Konto hinzugefügt hast, kannst Du mit der Zertifizierungsstelle Client-SSH-Zertifikate für Organisationsmitglieder signieren. Organisationsmitglieder können mit den signierten Zertifikaten mit Git auf die Repositorys Deiner Organisation (und nur auf diese) zugreifen. You can require that members use SSH certificates to access organization resources.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Enforcing security settings in your enterprise account](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)."{% endif %}
+Wenn Du eine SSH-Zertifizierungsstelle zu Deiner Organisation oder Deinem Enterprise-Konto hinzugefügt hast, kannst Du mit der Zertifizierungsstelle Client-SSH-Zertifikate für Organisationsmitglieder signieren. Organisationsmitglieder können mit den signierten Zertifikaten mit Git auf die Repositorys Deiner Organisation (und nur auf diese) zugreifen. Du kannst vorschreiben, dass die Mitglieder SSH-Zertifikate für den Zugriff auf die Organisationsressourcen verwenden müssen.{% ifversion fpt %} Weitere Informationen findest Du unter „[Sicherheitseinstellungen für Organisationen in Deinem Enterprise-Konto erzwingen](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)“.{% endif %}
 
 Du kannst beispielsweise ein internes System einrichten, das jeden Morgen ein neues Zertifikat für Deine Entwickler herausgibt. Die Entwickler können mit ihrem aktuellen Zertifikat in den Repositorys Ihrer Organisation auf {% data variables.product.product_name %} arbeiten. Am Ende des Tages läuft das Zertifikat automatisch ab. So werden Deine Repositorys geschützt, falls das Zertifikat zu einem späteren Zeitpunkt kompromittiert wird.
 
-Beim Herausgeben der einzelnen Zertifikate musst Du eine Erweiterung hinzufügen, die festlegt, für welchen {% data variables.product.product_name %}-Benutzer das Zertifikat gedacht ist. Sie können z. B. den OpenSSH-Befehl `ssh-keygen` verwenden und dabei _KEY-IDENTITY_ durch Ihre Schlüssel-Identität und _USERNAME_ einen {% data variables.product.product_name %}-Benutzernamen ersetzen.
+Beim Herausgeben der einzelnen Zertifikate musst Du eine Erweiterung hinzufügen, die festlegt, für welchen {% data variables.product.product_name %}-Benutzer das Zertifikat gedacht ist. Sie können z. B. den OpenSSH-Befehl `ssh-keygen` verwenden und dabei _KEY-IDENTITY_ durch Ihre Schlüssel-Identität und _USERNAME_ einen {% data variables.product.product_name %}-Benutzernamen ersetzen. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
@@ -38,7 +39,7 @@ Mit der Erweiterung `source-address` schränkst Du die IP-Adressen ein, von dene
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> -O source-address=<em>COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES</em> ./user-key.pub
 ```
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Organisationsmitglieder können ihre signierten Zertifikate selbst dann zur Authentifizierung nutzen, wenn Sie SAML Single Sign-On erzwingen. Sofern Sie die Verwendung von SSH-Zertifikaten nicht vorschreiben, können Organisationsmitglieder auch weiterhin andere Authentifizierungsmethoden verwenden, um mit Git auf die Ressourcen Ihrer Organisation zuzugreifen, z. B. ihren Benutzernamen und ihr Passwort, persönliche Zugriffstoken und ihre eigenen SSH-Schlüssel.
 

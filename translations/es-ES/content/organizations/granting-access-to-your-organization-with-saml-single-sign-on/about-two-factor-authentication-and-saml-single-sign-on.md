@@ -6,10 +6,11 @@ redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 2FA & Inicio de sesión único de SAML
 ---
 
 La autenticación de dos factores (2FA) ofrece una autenticación básica para los miembros de la organización. Al activar la 2FA, los administradores de la organización limitan la probabilidad de que la cuenta de {% data variables.product.product_name %} de un miembro se vea comprometida. Para obtener más información, consulta "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)".
@@ -21,6 +22,6 @@ Si tanto la 2FA como SAML SSO están activados, los miembros de la organización
 - Usar el inicio de sesión único para acceder a la organización.
 - Usar un token autorizado para el acceso a Git o a la API y usar el inicio de sesión único para autorizar el token.
 
-### Leer más
+## Leer más
 
 - "[Implementar el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)"

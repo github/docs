@@ -1,15 +1,16 @@
 ---
 title: 密码扫描合作伙伴计划
 intro: '作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，通过密码扫描保护您的密码令牌格式，该扫描将搜索意外提交的密码格式，并且可以发送到服务提供者的验证端点。'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+shortTitle: 秘密扫描
 ---
 
 {% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。 作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
@@ -20,15 +21,15 @@ topics:
 
 本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划。
 
-### {% data variables.product.prodname_secret_scanning %} 流程
+## {% data variables.product.prodname_secret_scanning %} 流程
 
-##### {% data variables.product.prodname_secret_scanning %} 如何在公共仓库中工作
+#### {% data variables.product.prodname_secret_scanning %} 如何在公共仓库中工作
 
 下图总结了在公共仓库中进行 {% data variables.product.prodname_secret_scanning %} 并将任何匹配项发送到服务提供者的验证端点的流程。
 
 ![显示扫描密码并向服务提供者的验证端点发送匹配项的流程图](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} 流程")
 
-### 在 {% data variables.product.prodname_dotcom %} 上加入 {% data variables.product.prodname_secret_scanning %} 计划
+## 在 {% data variables.product.prodname_dotcom %} 上加入 {% data variables.product.prodname_secret_scanning %} 计划
 
 1. 联系 {% data variables.product.prodname_dotcom %} 以启动流程。
 1. 识别要扫描的相关密码，并创建正则表达式来捕获它们。
@@ -37,13 +38,13 @@ topics:
 1. 在密码警报服务中实施密码撤销和用户通知。
 1. 提供误报的反馈（可选）。
 
-#### 联系 {% data variables.product.prodname_dotcom %} 以启动流程
+### 联系 {% data variables.product.prodname_dotcom %} 以启动流程
 
 要启动注册流程，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
 您将收到有关 {% data variables.product.prodname_secret_scanning %} 计划的详细信息，您需要同意 {% data variables.product.prodname_dotcom %} 的参与条款才能继续。
 
-#### 识别您的密码并创建正则表达式
+### 识别您的密码并创建正则表达式
 
 要扫描您的密码，{% data variables.product.prodname_dotcom %} 需要您要包含在 {% data variables.product.prodname_secret_scanning %} 计划中的每个密码的以下信息：
 
@@ -53,11 +54,11 @@ topics:
 
 将此信息发送到 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
-#### 创建密码警报服务
+### 创建密码警报服务
 
 在您提供给我们的 URL 上创建一个可访问互联网的公共 HTTP 端点。 在公共仓库中找到正则表达式的匹配项时，{% data variables.product.prodname_dotcom %} 将发送 HTTP `POST` 消息到您的端点。
 
-##### 发送到端点的 POST 示例
+#### 发送到端点的 POST 示例
 
 ```http
 POST / HTTP/2
@@ -68,7 +69,7 @@ GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681
 GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
 
 消息正文是一个 JSON 数组，其中包含一个或多个具有以下内容的对象。 找到多个匹配项时，{% data variables.product.prodname_dotcom %} 可能发送一条包含多个密码匹配项的消息。 您的端点应该能够在不超时的情况下处理包含大量匹配项的请求。
@@ -77,7 +78,7 @@ Content-Length: 0123
 * **类型**：您提供的用于识别正则表达式的唯一名称。
 * **URL**：在其中找到匹配项的公共提交 URL。
 
-#### 在密码警报服务中实施签名验证
+### 在密码警报服务中实施签名验证
 
 我们强烈建议您在密码警报服务中实施签名验证，以确保您收到的消息确实来自 {% data variables.product.prodname_dotcom %}，而不是恶意消息。
 
@@ -322,11 +323,11 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-#### 在密码警报服务中实施密码撤销和用户通知
+### 在密码警报服务中实施密码撤销和用户通知
 
 对于公共仓库中的 {% data variables.product.prodname_secret_scanning %}，您可以增强密码警报服务，以撤销泄露的密码并通知受影响的用户。 如何在密码警报服务中实现此功能取决于您，但我们建议您考虑 {% data variables.product.prodname_dotcom %}向您发送的公开和泄露示警消息所涉及的任何密码。
 
-#### 提供误报的反馈
+### 提供误报的反馈
 
 我们在合作伙伴响应中收集有关检测到的各个密码有效性的反馈。 如果您愿意参与，请发送电子邮件到 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 

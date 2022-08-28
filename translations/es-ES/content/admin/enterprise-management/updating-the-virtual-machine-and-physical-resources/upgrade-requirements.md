@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -24,7 +24,7 @@ topics:
 
 {% endnote %}
 
-### Recomendaciones
+## Recomendaciones
 
 - Incluye tantas nuevas actualizaciones como sea posible en tu proceso de actualización. Por ejemplo, en lugar de actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.supported[1] }} a {{ enterpriseServerReleases.latest }}, podrías actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.latest }}.
 - Si estás varias versiones desactualizado, actualiza {% data variables.product.product_location %} tanto como sea posible con cada paso de tu proceso de actualización. Utilizar la versión más reciente posible en cada actualización te permite aprovechar las mejoras de desempeño y las correcciones de errores. Por ejemplo, podrías actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.8 a 2.10, pero actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.9 a 2.10 utiliza una versión posterior en el segundo paso.
@@ -32,7 +32,7 @@ topics:
 - Utiliza una instancia de preparación para probar los pasos de actualización. Para obtener más información, consulta "[Configurar una instancia de preparación](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
 - Cuando ejecutas varias mejoras, espera por lo menos 24 horas entre las mejoras a las características para permitir que se completen totalmente las migraciones de datos y actualizaciones de las tareas que se ejecutan en segundo plano.
 
-### Requisitos
+## Requisitos
 
 - Debes actualizar desde una característica de lanzamiento que sea **como máximo** dos lanzamientos anteriores. Por ejemplo, para actualizar a {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, debes estar en {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} o {{ enterpriseServerReleases.supported[2] }}.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
@@ -46,6 +46,6 @@ Utiliza el número para estimar la cantidad de espacio de disco que los registro
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Pasos siguientes
+## Pasos siguientes
 
 Después de revisar estas recomendaciones y requisitos, puedes actualizar el {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."

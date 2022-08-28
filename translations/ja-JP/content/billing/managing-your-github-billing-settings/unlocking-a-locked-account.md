@@ -10,23 +10,23 @@ redirect_from:
   - /articles/unlocking-a-locked-personal-account/
   - /articles/unlocking-a-locked-organization-account/
   - /articles/unlocking-a-locked-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - User account
+shortTitle: ロックされたアカウント
 ---
 
 Organization の支払い方法をアップデートして支払いステータスを回復することで、アカウントのロックを解除しアクセスできるようになります。 ロックされたモードで経過した時間の分については、お支払いを請求いたしません。
 
 パブリックリポジトリで同じ高度な機能を使い続けるために、Organization を{% data variables.product.prodname_free_team %} にダウングレードすることができます。 詳細は「[{% data variables.product.product_name %} プランのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)」を参照してください。
 
-### 支払いの拒否による Organization 機能のロック解除
+## 支払いの拒否による Organization 機能のロック解除
 
 支払いの拒否により Organization の高度な機能ロックされた場合、支払い情報をアップデートして、新しく認められた支払いを開始する必要があります。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
 

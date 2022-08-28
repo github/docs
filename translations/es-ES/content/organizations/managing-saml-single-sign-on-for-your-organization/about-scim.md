@@ -6,11 +6,13 @@ redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
 Si usas [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) en tu organización, puedes implementar SCIM para agregar, administrar y eliminar el acceso de los miembros de la organización a {% data variables.product.product_name %}. Por ejemplo, un administrador puede desaprovisionar a un miembro de la organización usando el SCIM y eliminar automáticamente el miembro de la organización.
 
@@ -21,9 +23,9 @@ Estos proveedores de identidad son compatibles con la API de SCIM de {% data var
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} Para obtener más información, consulta la sección "[Acerca de el aprovisionamiento de usuarios en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".
+{% data reusables.scim.enterprise-account-scim %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Conectar tu proveedor de identidad a tu organización](/articles/connecting-your-identity-provider-to-your-organization)"

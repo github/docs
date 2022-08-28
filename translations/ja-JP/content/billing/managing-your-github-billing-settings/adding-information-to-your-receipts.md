@@ -12,15 +12,15 @@ redirect_from:
   - /articles/how-can-i-add-extra-information-to-my-organization-s-receipts/
   - /articles/adding-information-to-your-organization-s-receipts/
   - /articles/adding-information-to-your-receipts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-information-to-your-receipts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Receipts
   - User account
+shortTitle: 領収書への追加
 ---
 
 領収書には、{% data variables.product.prodname_dotcom %} プランと合わせて[他の有料の機能や製品](/articles/about-billing-on-github)のプランが含まれます。
@@ -31,14 +31,14 @@ topics:
 
 {% endwarning %}
 
-### 個人アカウントの領収書への情報の追加
+## 個人アカウントの領収書への情報の追加
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-### Organization の領収書への情報の追加
+## Organization の領収書への情報の追加
 
 {% note %}
 
