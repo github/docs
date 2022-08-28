@@ -26,6 +26,14 @@ The push protection feature of {% data variables.product.prodname_secret_scannin
 
 {% endtip %}
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Organization admins can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
 ## Resolving a blocked push on the command line
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}

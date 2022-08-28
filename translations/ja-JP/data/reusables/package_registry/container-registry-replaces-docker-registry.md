@@ -1,1 +1,1 @@
-The {% data variables.product.prodname_container_registry %} replaces {% data variables.product.company_short %}'s Docker registry.
+{% data variables.product.prodname_container_registry %}は{% data variables.product.company_short %}のDockerレジストリを置き換えます。

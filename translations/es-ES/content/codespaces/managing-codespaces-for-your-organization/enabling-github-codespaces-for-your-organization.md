@@ -39,7 +39,7 @@ To allow people to create codespaces for which your organization will be billed,
 {% endnote %}
 {% endif %}
 
-Predeterminadamente, un codespace solo puede acceder al repositorio desde el cual se creó. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+Predeterminadamente, un codespace solo puede acceder al repositorio desde el cual se creó. Si quieres que los codesapces en tu organización puedan acceder a otros repositorios en ella a los cuales tenga acceso el creador del codespace, consulta la sección "[Administrar el acceso de los repositorios a los codespaces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)".
 
 ## Choose who can create codespaces that are billed to your organization
 
@@ -57,7 +57,7 @@ Predeterminadamente, un codespace solo puede acceder al repositorio desde el cua
 
    {% note %}
 
-   **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. Para obtener más información sobre cómo administrar colaboradores externos, consulta la sección "[Acerca de los colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
+   **Nota:** Cuando seleccionas **Todos los miembros y colaboradores externos**, todos los colaboradores externos que se hayan agregado a los repositorios específicos pueden crear y utilizar {% data variables.product.prodname_codespaces %} para dichos repositorios y se facturará a tu organización por dicho uso. Para obtener más información sobre cómo administrar colaboradores externos, consulta la sección "[Acerca de los colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
 
    {% endnote %}
 

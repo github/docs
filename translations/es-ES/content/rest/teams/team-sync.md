@@ -1,6 +1,6 @@
 ---
 title: Sincronización de equipos
-intro: 'The Team synchronization API allows you to manage connections between {% data variables.product.product_name %} teams and external identity provider (IdP) groups.'
+intro: 'La API de sincronización de equipos te permite administrar las conexiones entre los equipos de {% data variables.product.product_name %} y los grupos de proveedores de identidad (IdP) externos.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +10,7 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Team synchronization API
+## Acerca de la API de sincronización
 
 Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste. El token que utilizas para autenticarte también necesitará autorizarse para su uso con tu proveedor IdP (SSO). Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para su uso con una organización que tiene inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".
 

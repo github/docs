@@ -15,17 +15,3 @@ topics:
 ---
 
 Existem duas versões estáveis da API do GitHub: a [API REST](/rest) e a [API do GraphQL](/graphql).
-
-## Versões obsoletas
-
-### beta
-
-A API beta tornou-se obsoleta em 22 de abril de 2014.
-
-### v2
-
-Removemos o suporte à API v2 em 12 de Junho de 2012.
-
-### v1
-
-Removemos o suporte à API v1 em 12 de Junho de 2012.

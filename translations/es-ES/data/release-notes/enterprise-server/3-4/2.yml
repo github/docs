@@ -11,10 +11,10 @@ sections:
     - 'Los índices de Elastisearch podrían duplicarse durante la mejora de un paquete debido a que el servicio de `elasticsearch-upgrade` se ejecutó varias veces en paralelo.'
     - 'Los servidores de caché del repositorio pudieron servir datos de ubicaciones fuera del caché, incluso cuando los datos estuvieron disponibles en la ubicación del caché local.'
     - 'Cuando conviertes una cuenta de usuario en una organización, si dicha cuenta fue propietaria de la cuenta empresarial de {% data variables.product.prodname_ghe_server %}, la organización convertida se mostró incorrectamente en la lista de propietarios de la empresa.'
-    - 'The `/stafftools/users/ip_addresses/:address` page responded with a `500 Internal Server Error` when attempting to display the page for an IPv6 address.'
+    - 'La página `/stafftools/users/ip_addresses/:address` respondió con un `500 Internal Server Error` cuando se intentó mostrar la página para una dirección IPv6.'
     - 'El crear un token de OAuth de personificación utilizando la API de REST de administración de empresas dio como resultado un error cuando una integración que coincidió con la ID de aplicación de OAuth ya existía.'
   changes:
-    - 'Added support for replica domain names that are more than 63 characters.'
+    - 'Se agregó compatibilidad para los nombres de dominio de réplica que tienen más de 63 caracteres.'
     - 'Los errores de configuración que detienen una ejecución de aplicación de configuraciones ahora son el producto de la terminal adicionalmente a la bitácora de configuración.'
     - 'Si se habilitaron las características de {% data variables.product.prodname_GH_advanced_security %} en tu instancia, el rendimiento de los jobs en segundo plano mejoró al procesar los lotes para las contribuciones de repositorio.'
   known_issues:

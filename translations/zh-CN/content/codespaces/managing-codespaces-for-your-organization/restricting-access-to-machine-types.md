@@ -43,6 +43,8 @@ topics:
 
 如果添加组织范围的策略，则应将其设置为可用于组织中任何存储库的最大计算机类型选择范围。 然后，您可以添加特定于存储库的策略以进一步限制选择。
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## 添加策略以限制可用的计算机类型
 
 {% data reusables.profile.access_org %}

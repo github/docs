@@ -41,11 +41,11 @@ shortTitle: Criar um site do GitHub Pages
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-1. Create the entry file for your site. {% data variables.product.prodname_pages %} will look for an `index.html`, `index.md`, or `README.md` file as the entry file for your site.
+1. Criar o arquivo de entrada para o seu site. {% data variables.product.prodname_pages %} procurará um arquivo `index.html`, `index.md` ou `LEIAME.md` como arquivo de postagem do seu site.
 
-   {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
+   {% ifversion pages-custom-workflow %}Se sua fonte de publicação for um branch e uma psata, o arquivo de entrada deverá estar no nível superior da pasta de origem no branch de origem. Por exemplo, se a fonte de publicação for a pasta `/docs` no branch </code>principal`, o arquivo de postagem deverá estar localizado na pasta <code>/docs` em um branch denominado `principal`.
 
-   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
+   Se sua fonte de publicação for um fluxo de trabalho de {% data variables.product.prodname_actions %}, o artefato de que você implantar deverá incluir o arquivo de entrada no nível superior do artefato. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}

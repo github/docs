@@ -26,7 +26,7 @@ shortTitle: Jekyll build errors for Pages
 
 {% note %}
 
-**Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+**Note:** It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 {% endnote %}
 

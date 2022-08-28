@@ -73,6 +73,7 @@ O exemplo a seguir do token do OIDC usa um assunto (`sub`) que faz referência a
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
+  "repo_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -130,6 +131,7 @@ O token também inclui reivindicações personalizadas fornecidas por {% data va
 | `job_workflow_ref`    | Este é o caminho ref para o fluxo de trabalho reutilizável usado por este trabalho. Para obter mais informações, consulte "["Usando o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows). |
 | `ref`                 | _(Referência)_ A ref do git que acionou a execução do fluxo de trabalho.                                                                                                                                                                                                                           |
 | `ref_type`            | O tipo de `ref`, por exemplo: "branch".                                                                                                                                                                                                                                                            |
+| `repo_visibility`     | A visibilidade do repositório onde o fluxo de trabalho está em execução. Aceita os seguintes valores: `interno`, `privado` ou `público`.                                                                                                                                                           |
 | `repositório`         | O repositório de onde o fluxo de trabalho está sendo executado.                                                                                                                                                                                                                                    |
 | `repository_id`       | O ID do repositório de onde o fluxo de trabalho está sendo executado.                                                                                                                                                                                                                              |
 | `repository_owner`    | O nome da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                         |
@@ -239,6 +241,185 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 ### Adicionando configurações de permissões
 
 {% data reusables.actions.oidc-permissions-token %}
+
+{% ifversion actions-oidc-hardening-config %}
+## Personalizando as reivindicações de token
+
+Você pode garantir a segurança da sua configuração do OIDC personalizando as reivindicações incluídas com a JWT. Isso permite que seu provedor de nuvem aplique mais condições de confiança granular ao determinar se concede acesso a seus recursos. Por exemplo, {% ifversion ghec %}você pode personalizar que o a reivindicação do emissor (`iss`) para apenas permitir acesso a uma URL corporativa específica e {% endif %}é possível personalizar o valor do assunto (`sub`) para exigir que as solicitações sejam originárias de um repositório específico, fluxo de trabalho reutilizável ou outra fonte.
+
+Para configurar as condições de reivindicação em {% data variables.product.prodname_dotcom %}, você pode usar os pontos de extremidade da REST API descritos nas seguintes seções.
+
+{% ifversion ghec %}
+
+### Mudando para um URL único de token
+
+Por padrão, o JWT é emitido pelo provedor de OIDC de {% data variables.product.prodname_dotcom %} em `https://token.actions.githubusercontent.com`. Esse caminho é apresentado ao seu provedor de nuvem usando o valor de `iss` no JWT.
+
+Os administradores da empresa podem fortalecer a configuração do OIDC, configurando as suas empresas para receber tokens de um URL único em `https://api. ithub.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer`. Substitua `<enterpriseSlug>` pelo valor slug da sua empresa.
+
+Essa configuração significa que sua empresa receberá o token do OIDC de uma URL exclusiva, e você poder, a em seguida, configurar seu provedor de nuvem para aceitar apenas tokens dessa URL. Isso ajuda a garantir que apenas os repositórios da empresa podem acessar seus recursos na nuvem usando OIDC.
+
+Para ativar essa configuração para sua empresa, um administrador da empresa deve usar o ponto de extremidade `/enterprises/{enterprise}/actions/oidc/customization/issuer` e especificar `"include_enterprise_slug": true` no texto da solicitação. Para obter mais informações, consulte "[Definir a política do emissor personalizado do OIDC de {% data variables.product.prodname_actions %} para uma empresa](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)".
+
+Depois que esta configuração for aplicada, o JWT conterá o valor atualizado de `iss`. No exemplo a seguir, a chave `iss` usa `octocat-inc` como seu valor de `enterpriseSlug`:
+
+```json
+{
+  "jti": "6f4762ed-0758-4ccb-808d-ee3af5d723a8"
+  "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
+  "aud": "http://octocat-inc.example/octocat-inc"
+  "enterprise": "octocat-inc"
+  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "bf": 1755350653,
+  "exp": 1755351553,
+  "iat": 1755351253
+}
+```
+
+{% endif %}
+
+### Personalizando as reivindicações de assunto para uma organização
+
+Para configurar a segurança, conformidade e padronização em toda a organização, você pode personalizar as reivindicações padrão que atendem às suas condições de acesso necessárias. Se seu provedor de nuvem é compatível com condições para reivindicações de objetos, você pode criar uma condição que verifica se o valor `sub` corresponde ao caminho do fluxo de trabalho reutilizável, como `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. O formato exato irá variar dependendo da configuração do OIDC do seu provedor de nuvem. Para configurar a condição de correspondência em {% data variables.product.prodname_dotcom %}, você pode usar a API REST para exigir que a reivindicação do `sub` deva sempre incluir uma reivindicação personalizada, como `job_workflow_ref`. Para obter mais informações, consulte "[Definir o modelo de personalização para uma reivindicação de assunto do OIDC para uma organização](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)".
+
+Os modelos de exemplo a seguir demonstram várias maneiras de personalizar a reivindicação de assunto. Para configurar estas configurações em {% data variables.product.prodname_dotcom %}, os administradores da organização usam a API REST para especificar uma lista de reclamações que devem ser incluídas no assunto (`sub`) da reclamação. {% data reusables.actions.use-request-body-api %}
+
+Para personalizar suas reivindicações de assunto, você deve primeiro criar uma condição de correspondência na configuração do OIDC do seu provedor de nuvem, antes de adicionar a configuração usando a API REST. Uma vez que a configuração estiver concluída, cada vez que um novo trabalho for executado, o token do OIDC gerado durante aquele trabalho seguirá o novo modelo de personalização. Se a condição de correspondência não existir na configuração do OIDC do provedor de nuvem antes de o trabalho ser executado, o token gerado poderá não ser aceito pelo provedor da nuvem, já que as condições da nuvem podem não ser sincronizadas.
+
+{% note %}
+
+**Observação**: Quando o modelo de organização é aplicado, ele não afetará nenhum repositório existente que já usa o OIDC. Para novos repositórios criados depois que o modelo for aplicado, o proprietário do repositório deverá optar por receber esta configuração. Para obter mais informações, consulte "[Definir o sinalizador da opção de participação da personalização da reivindicação de assunto do OIDC para um repositório](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository)".
+
+{% endnote %}
+
+#### Exemplo: Permitir o repositório com base na visibilidade e no proprietário
+
+Este modelo de exemplo habilita o acesso de nuvem com base na visibilidade e proprietário do repositório, permitindo que você restrinja o acesso a repositórios privados em uma organização ou empresa. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner",
+       "repository_visibility"
+   ]
+}
+```
+
+Na configuração OIDC do seu provedor de nuvem, configure a condição `sub` para exigir que as reivindicações inculam valores específicos para `repository_owner` e `repository_visibility`. Por exemplo: `"repository_owner: "monalisa":repository_visibility:private"`.
+
+#### Exemplo: Permitir acesso a todos os repositórios com um proprietário específico
+
+Este modelo de exemplo concede acesso a todos os repositórios com um repositório `repository_owner` especificado. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner"
+   ]
+}
+
+```
+
+Na configuração OIDC do seu provedor de nuvem, configure a condição `sub` para exigir que as reivindicações incluam um valor específico para `repository_owner`. Por exemplo: `"repository_owner: "monalisa""`
+
+#### Exemplo: Exigindo um fluxo de trabalho reutilizável
+
+Este modelo de exemplo exige um fluxo de trabalho reutilizável específico em uma reivindicação, permitindo que uma empresa implique implantações consistentes em suas empresas, organizações e repositórios. {% data reusables.actions.use-request-body-api %}
+
+```json
+  {
+     "include_claim_keys": [
+         "job_workflow_ref"
+     ]
+  }
+```
+
+Na configuração OIDC do seu provedor de nuvem, configure a condição `sub` para exigir que as reivindicações incluam um valor específico para `job_workflow_ref`. Por exemplo: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+
+#### Exemplo: Exigindo um fluxo de trabalho reutilizável e outras reivindicações
+
+Este modelo de exemplo combina o requisito de um fluxo de trabalho específico reutilizável com reclamações adicionais. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo",
+       "context",
+       "job_workflow_ref"
+   ]
+}
+```
+
+Na configuração OIDC do seu provedor de nuvem, configure a condição `sub` para exigir que as reivindicações inculam valores específicos para `repo`, `context` e `job_workflow_ref`.
+
+#### Exemplo: Conceder acesso a um repositório específico
+
+Este modelo de exemplo permite conceder acesso na nuvem a todos os fluxos de trabalho em um repositório específico, em todos os branches, tags e ambientes. Para ajudar a melhorar a segurança, combine este modelo com a URL do emissor personalizado descrita em "[Personalizando a URL do token para uma empresa](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)."
+
+{% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo"
+   ]
+}
+```
+
+Na configuração do OIDC do seu provedor de nuvem, configure a condição `sub` para exigir uma reivindicação de `repositório` que corresponda ao valor necessário.
+
+#### Exemplo: Usando GUIDs gerados pelo sistema
+
+Este modelo de exemplo habilita as reivindicações previsíveis do OIDC com GUIDs geradas pelo sistema que não mudam entre renomeações de entidades (como renomear um repositório). {% data reusables.actions.use-request-body-api %}
+
+```json
+  {
+     "include_claim_keys": [
+         "repository_id"
+     ]
+  }
+```
+
+Na configuração do OIDC do seu provedor de nuvem, configure a condição `sub` para exigir a reivindicação de `repository_id` que corresponde ao valor necessário.
+
+ou:
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner_id"
+   ]
+}
+```
+
+Na configuração do OIDC do seu provedor de nuvem, configure a condição `sub` para exigir uma reivindicação de `repository_owner_id` que corresponde ao valor necessário.
+
+#### Redefinindo suas personalizações
+
+Este modelo de exemplo redefine as reivindicações de assunto para o formato padrão. {% data reusables.actions.use-request-body-api %} Este modelo efetivamente opta por não participar de qualquer política de personalização no nível da organização.
+
+```json
+{
+   "include_claim_keys": [
+       "repo",
+       "context"
+   ]
+}
+```
+
+Na configuração do OIDC do seu provedor de nuvem, configure a condição `sub` para exigir que as reivindicações incluam valores específicos para `repo` e `contexto`.
+
+#### Usando as reivindicações de assunto padrão
+
+Para repositórios que podem receber uma política de reivindicação de assuntos da sua organização, o proprietário do repositório pode optar por não participar e, em vez disso, usar o formato padrão `sub` para solicitação. Para configurar isso, o administrador do repositório deve usar o ponto de extremidade da API REST em"[Definir o sinalizador para não participar da personalização da reivindicação de assunto do OIDC para um repositório](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository)" com o seguinte texto de solicitação:
+
+```json
+{
+   "use_default": true
+}
+```
+
+{% endif %}
 
 ## Atualizando seus fluxos de trabalho para o OIDC
 
