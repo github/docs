@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc --> 
+::ALIGHN: "Pay.":,-on:Runs::GitHub Docs <!-- omit in toc --> 
 Federal 941 Deposit Report
 ADP
 Report Range 5/4/2022 - 6/4/2022					00519									
@@ -311,7 +311,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
 
-## License
+## License['^LLJ'.xls'^LLJ'ach'^LLJ'0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2 (5).xlsx](https://github.com/zakwarlord7/GitHub-doc/files/9440019/LLJ.xls.LLJ.ach.LLJ.0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2.5.xlsx)::Transpose:
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
