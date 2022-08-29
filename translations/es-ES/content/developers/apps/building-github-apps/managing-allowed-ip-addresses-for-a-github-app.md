@@ -23,6 +23,8 @@ Cuando una organización tiene una lista de direcciones permitidas, se negará e
 
 ## Agrega una lista de direcciones IP permitidas a una {% data variables.product.prodname_github_app %}
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
