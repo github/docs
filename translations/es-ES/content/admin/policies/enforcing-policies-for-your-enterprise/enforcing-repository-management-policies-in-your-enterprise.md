@@ -111,7 +111,7 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
 {% ifversion enterprise-namespace-repo-setting %}
 {% note %}
 
-**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
+**Nota:** Si {% ifversion ghec %}tu empresa utiliza {% data variables.product.prodname_emus %} y {% endif %} tu política de "Creación de repositorios" previene que los miembros de las empresas creen repositorios que le pertenezcan a sus cuentas de usuario, no se permitirá que dichos miembros bifurquen un repositorio en sus cuentas de usuario, sin importar tu política de "Bifurcación de repositorios".
 
 {% endnote %}
 {% endif %}

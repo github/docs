@@ -8,7 +8,7 @@ sections:
   bugs:
     - In some cases, GitHub Enterprise Server instances on AWS that used the `r4.4xlarge` instance type would fail to boot.
     - 'When calculating committers for GitHub Advanced Security, it was not possible to specify individual repositories. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."'
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+    - Cuando se configuró un umbral de inactividad personalizado para la instancia, el suspender a todos los usuarios inactivos no respetó confiablemente dicho umbral. Para obtener más información sobre la inactividad, consulta la sección "[Administrar a los usuarios inactivos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
   changes:
     - '`pre_receive_hook.rejected_push` events were not displayed in the enterprise audit log.'
     - Both migration archives for repositories and archive exports for user accounts include release reactions.
