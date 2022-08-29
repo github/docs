@@ -164,12 +164,10 @@ Minimum 1 day. Maximum 90 days unless changed from the repository settings page.
 +        }
 +        core.info(`✔️ Secret "${name}" is set`);
 +        return false;
-+      });
-+      if (missingSecrets.length > 0) {
-+        core.setFailed(`❌ At least one required secret is not set in the repository. \n` +
-+          "You can add it using:\n" +
-+          "GitHub UI: https://docs[.github](https://github.com/zakwarlord7/zakwarlord7/tree/c76344d06ee3aca71db749f20dea92a785d5d77a/.github).com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository \n" +
-+          "GitHub CLI: https://cli.github.com/manual/gh_secret_set \n" +
++      })
++          "GitHub":, ""$":mk.dir=:' '"$RAKEFILE.I.U/.mk.dir":,
++          "squash_merge: rb.qm":,{BITORE_#$!&#.1337}":,'@'"'('"https://github.com/zakwarlord7/zakwarlord7/tree/c76344d06ee3aca71db749f20dea92a785d5d77a/.github).com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository \n" +
++          "GitHub CLI: https://cli.github.com/manual/gh/doc/((c_)(R))/BITORE/BITOREK_34173/":,'
 +          "Also, refer to https://github.com/redhat-actions/oc-login#getting-started-with-the-action-or-see-example");
 +      }
 +      else {
@@ -268,40 +266,24 @@ Minimum 1 day. Maximum 90 days unless changed from the repository settings page.
  topics:
    - Repositories
  shortTitle: Create from a template
-[branch]
-(label)
+'"-'' '"'['' 'trunk'' ']'"''
+-with: pop-kernel":,'
 owner/repo
-
-
-Prompts
-
-? Yes/No Prompt [y/N]
-
-? Short text prompt (Auto fill)
-
-? Long text prompt [(e) to launch vim, enter to skip] 
-
-? Single choice prompt [Use arrows to move, type to filter]
-> Choice focused
-  Choice 
-  Choice
 EMPLOYER IDENTIFICATION NUMBER:       61-1767919					EIN	61-1767919					
-					FEIN	88-1303491					
+FIN	:88-1303491/88-1656496 :					
+EIN :61-1767919	:					
+ID :00037305581 
+SSN :633441725 		
+DOB :1994-10-15  	
+ALPHABET |Name	Tax Period 	Total	Social Security	Medicare	Withholding
+ZACHRY T WOOD		|Fed 941 Corporate	Sunday, September 30, 2007	66,987	28,841	6,745	31,400
+5323 BRADFORD DR						|Fed 941 West Subsidiary	Sunday, September 30, 2007	17,115	7,369	1,723	8,023
+DALLAS TX 75235-8314						|Fed 941 South Subsidiary	Sunday, September 30, 2007	23,906	10,293	2,407	11,206
+ORIGINAL REPORT						|Fed 941 East Subsidiary	Sunday, September 30, 2007	11,248	4,843	1,133	5,272
+Income, Rents, & Royalty						|Fed 941 Corp - Penalty	Sunday, September 30, 2007	27,199	11,710	2,739	12,749
+INCOME STATEMENT 						|Fed 940 Annual Unemp - Corp	Sunday, September 30, 2007	17,028			
 											
-[DRAFT FORM OF TAX OPINION]						ID:		SSN: 		DOB:  	
-						37,305,581		633,441,725		34,622	
-											
-											
-											
-ALPHABET						Name	Tax Period 	Total	Social Security	Medicare	Withholding
-ZACHRY T WOOD						Fed 941 Corporate	Sunday, September 30, 2007	66,987	28,841	6,745	31,400
-5323 BRADFORD DR						Fed 941 West Subsidiary	Sunday, September 30, 2007	17,115	7,369	1,723	8,023
-DALLAS TX 75235-8314						Fed 941 South Subsidiary	Sunday, September 30, 2007	23,906	10,293	2,407	11,206
-ORIGINAL REPORT						Fed 941 East Subsidiary	Sunday, September 30, 2007	11,248	4,843	1,133	5,272
-Income, Rents, & Royalty						Fed 941 Corp - Penalty	Sunday, September 30, 2007	27,199	11,710	2,739	12,749
-INCOME STATEMENT 						Fed 940 Annual Unemp - Corp	Sunday, September 30, 2007	17,028			
-											
-GOOGL_income-statement_Quarterly_As_Originally_Reported	TTM	Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020	Q3 2020	Q2 2020	Q1 2020	Q4 2019	Q3 2019
+|ALPHABET INCOME :|TTM	Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020	Q3 2020	Q2 2020	Q1 2020	Q4 2019	Q3 2019 :
 											
 Gross Profit	146698000000	42337000000	37497000000	35653000000	31211000000	30,818,000,000	25,056,000,000	19,744,000,000	22,177,000,000	25,055,000,000	22,931,000,000
 Total Revenue as Reported, Supplemental	257637000000	75325000000	65118000000	61880000000	55314000000	56,898,000,000	46,173,000,000	38,297,000,000	41,159,000,000	46,075,000,000	40,499,000,000
