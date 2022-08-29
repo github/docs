@@ -23,6 +23,10 @@ updates:
 
   - package-ecosystem: 'docker'
     directory: '/'
-    schedule:
-      interval: weekly
-      day: thursday
+    schedule: autoupdateFor Paperwork Reduction Act Notice, see the seperate Instructions.
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+
+      interval: daily : every -3 sec
+      
+ 
