@@ -95,7 +95,7 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Running jobs on your runner
 
-Once your runner has been been defined, you can update your workflows to send jobs to the runner for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
+Once your runner type has been been defined, you can update your workflows to send jobs to the runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
 
 ```yaml
 name: learn-github-actions
