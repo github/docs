@@ -1,6 +1,6 @@
 ---
-title: Administrar el acceso a un tablero de proyecto para los miembros de una organización
-intro: 'Como propietario de la organización o administrador de un tablero de proyecto, puedes configurar un nivel de permiso predeterminado para un tablero de proyecto para todos los miembros de la organización.'
+title: 'Administrar el acceso a un {% data variables.product.prodname_project_v1 %} para los miembros de la organización'
+intro: 'Como propietario de organización o administrador de {% data variables.projects.projects_v1_board %}, puedes configurar un nivel de permisos predeterminado para un {% data variables.projects.projects_v1_board %} para todos los miembros de una organización.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -13,21 +13,25 @@ topics:
   - Organizations
   - Teams
 shortTitle: Administrar el acceso para miembros
+allowTitleToDifferFromFilename: true
 ---
 
-Por defecto, los miembros de una organización tienen acceso de escritura a sus tableros de proyecto de la organización excepto que los propietarios de la organización o los administradores de un tablero de proyecto configuren permisos diferentes para tableros de proyecto específicos.
+{% data reusables.projects.project_boards_old %}
+
+Predeterminadamente, los miembros de las organizaciones tienen acceso de escritura a los {% data variables.projects.projects_v1_boards %} de estas, a menos de que los propietarios de ellas o los administradores de {% data variables.projects.projects_v1_board %} configuren permisos diferentes para los {% data variables.projects.projects_v1_boards %} específicos.
 
 ## Configurar un nivel de permiso base para todos los miembros de la organización
 
 {% tip %}
 
-**Sugerencia:** Puedes darle a un miembro de la organización mayores permisos a un tablero de proyecto. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+**Tip:** Puedes darle a un miembro de una organización permisos superiores para un {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -36,6 +40,6 @@ Por defecto, los miembros de una organización tienen acceso de escritura a sus 
 
 ## Leer más
 
-- "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Administrar el acceso de equipo a un tablero de proyecto de una organización](/articles/managing-team-access-to-an-organization-project-board)"
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[Administrar el acceso de un individuo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Administrar el acceso del equipo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"

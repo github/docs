@@ -1,6 +1,6 @@
 ---
-title: 管理个人对组织项目板的访问
-intro: 作为组织所有者或项目板管理员，您可以管理个别成员对组织拥有的项目板的访问。
+title: '管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问'
+intro: '作为组织所有者或 {% data variables.projects.projects_v1_board %} 管理员，您可以管理单个成员对组织拥有的 {% data variables.projects.projects_v1_board %} 的访问。'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -14,19 +14,23 @@ topics:
   - Organizations
   - Teams
 shortTitle: 管理个人访问
+allowTitleToDifferFromFilename: true
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**注：** {% data reusables.project-management.cascading-permissions %} 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+**注意：** {% data reusables.project-management.cascading-permissions %} 更多信息请参阅“[{% data variables.product.prodname_project_v1_caps %} 组织的权限](/articles/project-board-permissions-for-an-organization)”。
 
 {% endnote %}
 
-## 授予组织成员对项目板的访问
+## 授予组织成员对 {% data variables.projects.projects_v1_board %} 的访问
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -35,24 +39,26 @@ shortTitle: 管理个人访问
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## 更改组织成员对项目板的访问
+## 更改组织成员对 {% data variables.projects.projects_v1_board %} 的访问
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## 删除组织成员对项目板的访问
+## 移除组织成员对 {% data variables.projects.projects_v1_board %} 的访问权限
 
-从项目板删除协作者时，根据他们其他角色的权限，他们可能仍然保有对项目板的访问权限。 要完全删除个人对项目板的访问权限，必须删除其每个角色的访问权限。 例如，某个人可能对项目板具有组织成员或团队成员的访问权限。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+从 {% data variables.projects.projects_v1_board %} 删除协作者时，根据他们其他角色的权限，他们可能仍然保有对项目板的访问权限。 要完全删除个人对 {% data variables.projects.projects_v1_board %} 的访问权限，必须删除其每个角色的访问权限。 例如，某个人可能对 {% data variables.projects.projects_v1_board %} 具有组织成员或团队成员的访问权限。 For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -61,4 +67,4 @@ shortTitle: 管理个人访问
 
 ## 延伸阅读
 
-- "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

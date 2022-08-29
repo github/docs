@@ -71,7 +71,7 @@ Para comunicar la responsabilidad, puedes asignar la propeusta a un miembro de t
 
 ## Agregar la propuesta a un proyecto
 
-Puedes agregar la propuesta a un proyecto existente. {% ifversion fpt or ghec %}Si estás utilizando proyectos (beta), también puedes llenar los metadatos del proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
+Puedes agregar la propuesta a un proyecto existente{% ifversion projects-v2 %} y poblar los metadatos para el proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta la sección {% ifversion projects-v2 %}"[Acerca de los proyectos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".{% else %}"[Organizar tu trabajo con los tableros de proyecto](/issues/organizing-your-work-with-project-boards)".{% endif %}
 
 ![propuesta con proyectos](/assets/images/help/issues/issue-project.png)
 
@@ -97,5 +97,5 @@ Puedes utilizar las propuestas para una amplia gama de propósitos. Por ejemplo:
 Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_github_issues %}:
 
 - Para aprender más sobre las propuestas, consulta la sección "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
-- Para aprender sobre cómo pueden ayudarte los proyectos para planear y hacer rastres, consulta la sección {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" o la sección{% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
+- Para aprender más sobre cómo pueden ayudarte los proyectos con la planeación y el rastreo, consulta la sección {% ifversion projects-v2 %}"[Acerca de los proyectos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".{% else %}"[Organizar tu trabajo con los tableros de proyecto](/issues/organizing-your-work-with-project-boards)".{% endif %}
 - Para aprender más sobre cómo utilizar las plantillas de propuestas{% ifversion fpt or ghec %} y emitir formatos{% endif %} para motivar a los contribuyentes a proporcionar información específica, consulta la sección "[Utilizar las plantillas para motivar las propuestas y solicitudes de cambios útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".

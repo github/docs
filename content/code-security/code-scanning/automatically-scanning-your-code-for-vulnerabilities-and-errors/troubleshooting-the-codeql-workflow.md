@@ -3,6 +3,7 @@ title: Troubleshooting the CodeQL workflow
 shortTitle: Troubleshoot CodeQL workflow
 intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
@@ -47,7 +48,29 @@ To produce more detailed logging output, you can enable step debug logging. For 
 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %} by setting a debug configuration flag. Modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
+The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow. 
+
+These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
+
+{% endif %}
+
+{% ifversion codeql-action-debug-logging %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)." 
+
+You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -55,10 +78,6 @@ You can obtain artifacts to help you debug {% data variables.product.prodname_co
   with:
     debug: true
 ```
-
-The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow. 
-
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} code scanning. If you contact GitHub support, they might ask for this data.
 
 {% endif %}
 
@@ -74,10 +93,10 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    analyze:
       permissions:
         security-events: write
-        actions: read{% endif %}
+        actions: read
       ...
       strategy:
         fail-fast: false
@@ -167,7 +186,6 @@ The artifact will contain an archived copy of the source files scanned by {% dat
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-
 ## Extraction errors in the database
 
 The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file. 
@@ -180,7 +198,6 @@ However, if you see extractor errors in the overwhelming majority of files that 
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 {% endif %}
-
 
 ## The build takes too long
 

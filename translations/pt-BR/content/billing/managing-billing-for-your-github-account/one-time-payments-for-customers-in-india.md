@@ -23,7 +23,7 @@ O regulamento aplica-se a todas as transações recorrentes, incluindo:
 - Compras de e{% data variables.product.prodname_marketplace %}
 - Transações de {% data variables.product.prodname_sponsors %}
 - Compras de grandes armazenamento de arquivos do Git
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, e consumo de {% data variables.product.prodname_codespaces %}
+- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, e consumo de {% data variables.product.prodname_github_codespaces %}
 
 A fim de minimizar as interrupções, os pagamentos recorrentes para os nossos clientes afetados foram pausados no dia 29 de outubro de 2021 de 2021. Os recursos e serviços pagos permaneceram disponíveis para os clientes afetados pelo regulamento do RBI.
 

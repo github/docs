@@ -1,13 +1,12 @@
 ---
-title: 'Using concurrency, expressions, and a test matrix'
-shortTitle: 'Using concurrency, expressions, and a test matrix'
-intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+title: 'Utilizar concurrencia, expresiones y una matriz de pruebas'
+shortTitle: 'Utilizar concurrencia, expresiones y una matriz de pruebas'
+intro: 'Cómo utilizar características avanzadas de {% data variables.product.prodname_actions %} para la integración continua (IC).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
   ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
@@ -15,21 +14,15 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
-- [Ejemplo de flujo de trabajo](#example-workflow)
-- [Understanding the example](#understanding-the-example)
-- [Pasos siguientes](#next-steps)
-
 ## Resumen de ejemplo
 
 {% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it tests your code using a matrix of test combinations with `npm test`.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Diagrama de resumen de los pasos del flujo de trabajo](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
-## Features used in this example
+## Características utilizadas en este ejemplo
 
 {% data reusables.actions.example-table-intro %}
 
@@ -41,7 +34,7 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Ejecutar el job en ejecutores diferentes, dependiendo del repositorio: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
 | Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -76,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -218,15 +211,15 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## Cómo entender el ejemplo
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>Código</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:40%"><b>Explicación</b></th>
   </tr>
 </thead>
 <tbody>
@@ -251,7 +244,7 @@ on:
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+La palabra clave `on` te permite definir los eventos que se activan cuando se ejecuta el flujo de trabajo. Puedes definir eventos múltiples aquí. Para obtener más información, consulta la sección "[Activar un flujo de trabajo](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)".
 </td>
 </tr>
 <tr>
@@ -275,7 +268,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 </td>
 <td>
 
-Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+Agrega el evento `pull_request` para que el flujo de trabajo se ejecute automáticamente cada que se cree o actualice una solicitud de cambios. Para obtener más información, consulta [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -284,12 +277,12 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `gh-readonly-queue/main/**`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. Para obtener más información, consulta [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -303,7 +296,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifica los permisos predeterminados que se otorgan al `GITHUB_TOKEN`. Esto variará dependiendo de las necesidades de tu flujo de trabajo. Para obtener más información, consulta la sección "[Asignar permisos a los jobs](/actions/using-jobs/assigning-permissions-to-jobs)".
 </td>
 </tr>
 <tr>
@@ -317,7 +310,7 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Crea un grupo de concurrencia para los eventos específicos y utiliza el operador `||` para definir los valores de reserva. Para obtener más información, consulta la sección "[Utilizar concurrencia](/actions/using-jobs/using-concurrency)".
 </td>
 </tr>
 <tr>
@@ -329,7 +322,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 </td>
 <td>
 
-Cancels any currently running job or workflow in the same concurrency group.
+Cancela cualquier job o flujo de trabajo concurrentes en el mismo grupo de concurrencia.
 </td>
 </tr>
 <tr>
@@ -341,7 +334,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+Agrupa todos los jobs que se ejecutan en el archivo de flujo de trabajo.
 </td>
 </tr>
 <tr>
@@ -365,7 +358,7 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configura el job para ejecutarse en un ejecutor hospedado en {% data variables.product.prodname_dotcom %} o en un ejecutor auto-hospedado, dependiendo del repositorio que ejecuta el flujo de trabajo. En este ejemplo, el job se ejecutará en un ejecutor auto-hospedado si se nombra al repositorio `docs-internal` y está dentro de la organización `github`. Si el repositorio no empata con esta ruta, entonces se ejecutará en un ejecutor `ubuntu-latest` hospedado por {% data variables.product.prodname_dotcom %}. Para obtener más información sobre estas opciones, consulta la sección "[Elegir el ejecutor para un job](/actions/using-jobs/choosing-the-runner-for-a-job)".
 </td>
 </tr>
 <tr>
@@ -435,7 +428,7 @@ Creates a matrix named `test-group`, with an array of test groups. These values 
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `test` job. Each job in a workflow has its own `steps` section.
+Groups together all the steps that will run as part of the `test` job. Cada job en un flujo de trabajo tiene su propia sección de `steps`.
 </td>
 </tr>
 <tr>
@@ -451,7 +444,7 @@ Groups together all the steps that will run as part of the `test` job. Each job 
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. Esta es una acción que revisa tu repositorio y lo descarga al ejecutor, lo que te permite ejecutar acciones contra tu código (tales como las herramientas de prueba). Debes utilizar la acción de verificación cada que tu flujo de trabajo se ejecute contra el código del repositorio o cada que estés utilizando una acción definida en el repositorio. Some extra options are provided to the action using the `with` key.
+La palabra clave `uses` le indica al job recuperar la acción llamada `actions/checkout`. Esta es una acción que revisa tu repositorio y lo descarga al ejecutor, lo que te permite ejecutar acciones contra tu código (tales como las herramientas de prueba). Debes utilizar la acción de verificación cada que tu flujo de trabajo se ejecute contra el código del repositorio o cada que estés utilizando una acción definida en el repositorio. Some extra options are provided to the action using the `with` key.
 </td>
 </tr>
 <tr>
@@ -559,7 +552,7 @@ This step runs a command to check out LFS objects from the repository.
 </td>
 <td>
 
-This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
+This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. Este ejemplo se fija a una versión específica de la acción utilizando el SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
 </td>
 </tr>
 <tr>
@@ -589,7 +582,7 @@ This step runs a shell command that uses an output from the previous step to cre
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
+Este paso utiliza la acción `actions/setup-node` para instalar la versión especificada del paquete de software `node` en el ejecutor, lo cuál te da acceso al comando `npm`.
 </td>
 </tr>
 <tr>

@@ -26,7 +26,17 @@ Este tutorial usa [o projeto Spoon-Knife](https://github.com/octocat/Spoon-Knife
 
 1. Acecsse o projeto `Spoon-Knife` em https://github.com/octocat/Spoon-Knife.
 2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
-1. {% data variables.product.product_name %} irá direcionar você para sua cópia (sua bifurcação) do repositório Spoon-Knife.
+3. Selecione um proprietário para o repositório bifurcado. ![Crie uma nova página de bifurcação com o menu suspenso do proprietário destacado](/assets/images/help/repository/fork-choose-owner.png)
+4. Por padrão, as bifurcações recebem os mesmos nomes dos seus repositórios principais. Você pode mudar o nome da bifurcação para distingui-lo ainda mais. ![Criar uma nova página de bifurcação com o campo de nome do repositório enfatizado](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Opcionalmente, adicione uma descrição da sua bifurcação. ![Criar uma nova página de bifurcação com o campo de descrição destacado](/assets/images/help/repository/fork-description.png)
+6. Escolha se deseja copiar apenas a branch padrão ou todos os branches para a nova bifurcação. Para muitos cenários de bifurcação, como contribuir para projetos de código aberto, você só precisa copiar o branch padrão. Por padrão, apenas o branch padrão é copiado. ![Opção para copiar apenas o branch padrão](/assets/images/help/repository/copy-default-branch-only.png)
+7. Clique em **Criar bifurcação**. ![Botão criar bifurcação destacado](/assets/images/help/repository/fork-create-button.png)
+
+{% note %}
+
+**Observação:** Se você deseja copiar branches adicionais a partir do repositório principao, você pode fazer isso na página **Branches**. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+{% endnote %}
 
 ## Clonando uma bifurcação
 
@@ -81,7 +91,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Fazendo e enviando por push as alterações
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). Você pode, por exemplo, alterar o texto em `index.html` para adicionar o seu nome de usuário do GitHub.
+Faça algumas alterações no projeto usando o seu editor de texto favorito, como [Visual Studio Code](https://code.visualstudio.com). Você pode, por exemplo, alterar o texto em `index.html` para adicionar o seu nome de usuário do GitHub.
 
 Quando estiver pronto para enviar suas alterações, teste e faça commit das suas alterações. `git add .` informa ao Git que você deseja incluir todas as alterações no próximo commit. `git commit` tira um instantâneo dessas alterações.
 
@@ -147,7 +157,7 @@ O {% data variables.product.product_name %} levará você a uma página que most
 
 ## Gerenciando feedback
 
-Os pull requests são uma área de discussão. Neste caso, o Octocat está muito ocupado e provavelmente não irá fazer merge das suas alterações. Para outros projetos, não se ofenda se o proprietário do projeto rejeitar o seu pull request ou pedir mais informações sobre o porquê de a alteração ter sido feita. Pode até ser que o proprietário do projeto não faça o merge do seu pull request e isso está perfeitamente bem. Your copy will exist in infamy on the Internet. E quem sabe - talvez alguém que você nunca conheceu, considere as suas alterações muito mais valiosas do que o projeto original.
+Os pull requests são uma área de discussão. Neste caso, o Octocat está muito ocupado e provavelmente não irá fazer merge das suas alterações. Para outros projetos, não se ofenda se o proprietário do projeto rejeitar o seu pull request ou pedir mais informações sobre o porquê de a alteração ter sido feita. Pode até ser que o proprietário do projeto não faça o merge do seu pull request e isso está perfeitamente bem. Sua cópiaterá má fama na internet. E quem sabe - talvez alguém que você nunca conheceu, considere as suas alterações muito mais valiosas do que o projeto original.
 
 ## Encontrando projetos
 

@@ -27,7 +27,7 @@ If you publish over 1,000 npm package versions to {% data variables.product.prod
 
 In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see {% ifversion fpt or ghec or ghes > 3.1 or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" or {% endif %}"[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
+If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
@@ -94,7 +94,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 
 {% endnote %}
 
-By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the name field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can add a summary for the package listing page by including a *README.md* file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
+By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the name field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. If you're running [npm v8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) or later, you can add a summary for the package listing page by including a *README.md* file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
 
 You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the *package.json* file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
 

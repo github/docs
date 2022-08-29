@@ -1,5 +1,5 @@
-To identify any constraints with concurrency or queuing, you can check how many jobs are currently being processed on the {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+並行またはキューイングに関する制約を特定するには、OrganizationもしくはEnterprise内の{% data variables.product.prodname_dotcom %}ホストランナーでいくつのジョブが現在処理されているかを調べることができます。
 
-![Screenshot of a list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+![アクティブジョブのリストのスクリーンショット](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-For more information, see "[Monitoring your current jobs](/actions/using-github-hosted-runners/monitoring-your-current-jobs)."
+詳しい情報については「[現在のジョブのモニタリング](/actions/using-github-hosted-runners/monitoring-your-current-jobs)」を参照してください。

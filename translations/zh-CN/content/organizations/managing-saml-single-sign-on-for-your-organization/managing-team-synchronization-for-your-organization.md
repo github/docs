@@ -74,7 +74,7 @@ Okta 团队同步要求已为您的组织设置了具有 Okta 的 SAML 和 SCIM�
 
 如果组织成员没有链接的 SCIM 身份，则团队同步将无法按预期工作，并且可能不会按预期在团队中添加或删除用户。 如果这些用户中的任何一个缺少 SCIM 链接身份，则需要重新预配它们。
 
-有关预配缺少 SCIM 链接身份的用户的帮助，请参阅“[身份和访问管理疑难解答](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)”。
+有关预配缺少 SCIM 链接身份的用户的帮助，请参阅“[组织的身份和访问管理疑难解答](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 

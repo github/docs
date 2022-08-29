@@ -44,7 +44,7 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       $ ghe-repl-status -vv
       ```
 
-4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
+4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. Isto também colocará automaticamente o nó primário no modo de manutenção se ele for acessível.
   ```shell
   $ ghe-repl-promote
   ```

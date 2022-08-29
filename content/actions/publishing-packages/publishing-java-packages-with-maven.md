@@ -73,7 +73,6 @@ With this configuration, you can create a workflow that publishes your package t
 
 In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -143,10 +142,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -180,10 +179,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository

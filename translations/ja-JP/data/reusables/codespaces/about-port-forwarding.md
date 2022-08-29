@@ -1,1 +1,1 @@
-アプリケーションのテストとデバッグのために、codespace中のポートをフォワードできます。 You can also manage the port protocol and share the port within your organization or publicly.
+アプリケーションのテストとデバッグのために、codespace中のポートをフォワードできます。 ポートプロトコルを管理し、Organization内で、もしくはパブリックにポートを共有することもできます。

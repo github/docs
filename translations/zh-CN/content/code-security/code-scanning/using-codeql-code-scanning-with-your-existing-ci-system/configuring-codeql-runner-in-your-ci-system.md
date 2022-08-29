@@ -184,9 +184,8 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--no-upload`                        |    | 无. 阻止 {% data variables.product.prodname_codeql_runner %} 将结果上传到 {% data variables.product.product_name %}。                                            |
 | `--output-dir`                       |    | 存储输出 SARIF 文件的目录。 默认在临时文件目录中。                                                                                                                            |
 | `--ram`                              |    | 运行查询时要使用的内存量。 默认使用所有可用的内存。                                                                                                                               |
-| <nobr>`--no-add-snippets`</nobr>   |    | 无. 从 SARIF 输出排除代码片段。 |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-| <nobr>`--category`<nobr>             |    | 用于此分析的 SARIF 结果文件中要包含的类别。 类别可用于区分同一工具和提交的多次分析，但是在不同语言或代码的不同部分进行。 此值将显示在 SARIF v2.1.0 的 `<run>.automationDetails.id` 属性中。 
-{% endif %}
+| <nobr>`--no-add-snippets`</nobr>   |    | 无. 从 SARIF 输出排除代码片段。                                                                                                                                     |
+| <nobr>`--category`<nobr>             |    | 用于此分析的 SARIF 结果文件中要包含的类别。 类别可用于区分同一工具和提交的多次分析，但是在不同语言或代码的不同部分进行。 此值将显示在 SARIF v2.1.0 的 `<run>.automationDetails.id` 属性中。                           |
 | `--threads`                          |    | 运行查询时要使用的线程数。 默认使用所有可用的核心。                                                                                                                               |
 | `--temp-dir`                         |    | 存储临时文件的目录。 默认值为 `./codeql-runner`。                                                                                                                       |
 | `--debug`                            |    | 无. 打印更详细的输出。                                                                                                                                             |

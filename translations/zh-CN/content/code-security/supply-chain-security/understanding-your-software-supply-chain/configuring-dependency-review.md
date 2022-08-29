@@ -49,26 +49,30 @@ topics:
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## Configuring the {% data variables.product.prodname_dependency_review_action %}
+## 配置 {% data variables.product.prodname_dependency_review_action %}
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-The following configuration options are available.
+以下是可用的配置选项：
 
-| 选项                 | 必选 | 用法                                                                                                                                                                                                                                                                        |
-| ------------------ | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fail-on-severity` | 可选 | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher.                                                              |
-| `allow-licenses`   | 可选 | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list. |
-| `deny-licenses`    | 可选 | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.     |
+| 选项                 | 必选 | 用法                                                                    |
+| ------------------ | -- | --------------------------------------------------------------------- |
+| `fail-on-severity` | 可选 | 定义严重性级别的阈值（`低`、`中`、`高`、`严重`）。</br>对于引入指定严重性级别或更高级别的漏洞的任何拉取请求，该操作都将失败。 |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
 
+{% ifversion dependency-review-action-licenses %}
 {% tip %}
 
-**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
+**提示：**  `allow-licenses` 和 `deny-licenses` 选项是互斥的。
 
 {% endtip %}
+{% endif %}
 
-This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
+此 {% data variables.product.prodname_dependency_review_action %} 示例文件说明了如何使用这些配置选项。
 
 ```yaml{:copy}
 name: 'Dependency Review'
@@ -88,6 +92,7 @@ jobs:
         with:
           # Possible values: "critical", "high", "moderate", "low" 
           fail-on-severity: critical
+{% ifversion dependency-review-action-licenses %}
           # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
           # ([String]). Only allow these licenses (optional)
           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
@@ -96,7 +101,8 @@ jobs:
           # ([String]). Block the pull request on these licenses (optional)
           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
           # deny-licenses: LGPL-2.0, BSD-2-Clause
+{% endif %}
 ```
 
-For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+有关配置选项的更多详细信息，请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme)。
 {% endif %}

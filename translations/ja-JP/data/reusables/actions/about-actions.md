@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %} is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
+{% data variables.product.prodname_actions %}は継続的インテグレーション及び継続的デリバリ（CI/CD）プラットフォームで、ビルド、テスト、デプロイメントのパイプラインを自動化できるようになります。

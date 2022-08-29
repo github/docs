@@ -1,11 +1,9 @@
 ---
 title: 启用或禁用仓库的 GitHub 讨论
 intro: '您可以将存储库中的 {% data variables.product.prodname_discussions %} 用作社区进行对话、提出问题和发布答案的位置，而无需界定议题的范围。'
-product: '{% data reusables.gated-features.discussions %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Repositories
 redirect_from:

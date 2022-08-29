@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: The workflow will also receive the inputs in the `github.event.inputs` context. The information in the `inputs` context and `github.event.inputs` context is identical except that the `inputs` context preserves Boolean values as Booleans instead of converting them to strings.
+**ノート**: ワークフローは`github.event.inputs`コンテキスト内の入力も受け取ります。 `inputs`コンテキストと`github.event.inputs`コンテキスト内の情報は、`inputs`コンテキストが論理値の値を文字列に変換せずに論理値のままで保持することを除けば、同一です。
 
 {% endnote %}
 {% endif %}

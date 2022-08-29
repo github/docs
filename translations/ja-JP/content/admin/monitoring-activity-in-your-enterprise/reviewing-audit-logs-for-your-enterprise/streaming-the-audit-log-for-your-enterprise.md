@@ -3,7 +3,7 @@ title: Streaming the audit log for your enterprise
 intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## About audit log streaming
 
 To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
@@ -24,11 +32,11 @@ To help protect your intellectual property and maintain compliance for your orga
 
 The benefits of streaming audit data include:
 
-* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.
-* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.
+* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
-Enterprise owners can set up, pause, or delete a stream at any time. The stream exports the audit data for all of the organizations in your enterprise.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## Setting up audit log streaming
 
@@ -42,6 +50,16 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 
 ### Setting up streaming to Amazon S3
 
+{% ifversion streaming-oidc-s3 %}
+You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+
+- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
+- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+
+#### Setting up streaming to S3 with access keys
+{% endif %}
+
 To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the the AWS documentation. Make sure to block public access to the bucket to protect your audit log information.
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
@@ -52,22 +70,82 @@ To set up audit log streaming from {% data variables.product.prodname_dotcom %} 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Amazon S3**.
+{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. Under "Authentication", click **Access keys**.
 
-   ![Choose Amazon S3 from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Configure the stream settings.
 
-1. On the configuration page, enter:
-   * The name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   * Your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   * Your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-s3.png)
-
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Amazon S3 endpoint.
-
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
-
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+{% ifversion streaming-oidc-s3 %}
+#### Setting up streaming to S3 with OpenID Connect
+
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
+
+1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+
+   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - For "Audience", use `sts.amazonaws.com`.
+1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
+
+   ```
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+               "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+      ]
+   }
+   ```
+   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
+1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+
+   - Add the permissions policy you created above to allow writes to the bucket.
+   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+     ```
+     "Condition": {
+        "StringEquals": {
+           "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
+           "oidc-configuration.audit-log.githubusercontent.com:sub": "https://github.com/ENTERPRISE"
+         }
+      }
+      ```
+   - Make note of the Amazon Resource Name (ARN) of the created role.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+{% data reusables.audit_log.streaming-choose-s3 %}
+1. Under "Authentication", click **OpenID Connect**.
+
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Configure the stream settings.
+
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
+{% endif %}
 
 ### Setting up streaming to Azure Blob Storage
 
@@ -106,7 +184,7 @@ To configure the stream in {% data variables.product.prodname_dotcom %} you need
 
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
 
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -149,7 +227,7 @@ You need two pieces of information about your event hub: its instance name and t
 
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -205,9 +283,10 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 1. Leave the **Enable SSL verification** check box selected.
 
     Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint. ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint. ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## Pausing audit log streaming
 
 Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.product_location %} and are then exported when you unpause the stream.
@@ -220,6 +299,7 @@ Pausing the stream allows you to perform maintenance on the receiving applicatio
 1. A confirmation message is displayed. Click **Pause stream** to confirm.
 
 When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
+{% endif %}
 
 ## Deleting the audit log stream
 

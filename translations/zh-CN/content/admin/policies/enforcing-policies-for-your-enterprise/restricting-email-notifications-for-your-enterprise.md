@@ -4,7 +4,7 @@ intro: 您可以通过限制成员可以接收有关企业所属组织活动的�
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
 topics:

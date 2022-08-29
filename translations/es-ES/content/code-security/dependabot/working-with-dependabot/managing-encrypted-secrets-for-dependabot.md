@@ -34,7 +34,7 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
 {% endraw %}
 
-For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
+Para obtener más información, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)".
 
 ### Nombrar tus secretos
 

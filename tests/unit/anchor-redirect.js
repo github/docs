@@ -1,5 +1,7 @@
 import { describe, expect } from '@jest/globals'
+
 import { get } from '../helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import clientSideRedirects from '../../lib/redirects/static/client-side-rest-api-redirects.json'
 
 describe('anchor-redirect middleware', () => {
@@ -40,5 +42,16 @@ describe('anchor-redirect middleware', () => {
     const res = await get('/anchor-redirect?' + sp)
     const { to } = JSON.parse(res.text)
     expect(to).toBe(undefined)
+  })
+  test('reasonably aggressive cache-control headers', async () => {
+    const sp = new URLSearchParams()
+    sp.set('path', 'foo')
+    sp.set('hash', 'bar')
+    const res = await get('/anchor-redirect?' + sp)
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 })

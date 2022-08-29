@@ -40,12 +40,12 @@ O comando `dig`, que pode ser usado para verificar a configuração correta dos 
 
 ## Configurando um subdomínio
 
-Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www.example.com` ou `blog.example.com`, você deve adicionar seu domínio nas configurações do repositório, o que criará um arquivo CNAME no repositório do seu site. Em seguida, configure um registro CNAME com seu provedor DNS.
+Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www.example.com` ou `blog.example.com`, você deve adicionar seu domínio nas configurações do repositório. Em seguida, configure um registro CNAME com seu provedor DNS.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-subdomain.png)
+4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Se você estiver publicando seu site a partir de um branch, isso irá criar um commit que adiciona um arquivo `CNAME` à raiz do seu branch de origem. Se você publicar o seu site com um fluxo de trabalho de {% data variables.product.prodname_actions %} personalizado, não será criado nenhum arquivo `CNAME`. Para obter mais informações sobre a fonte de publicação, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)". ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-subdomain.png)
 5. Navegue até o provedor DNS e crie um registro `CNAME` que aponte seu subdomínio para o domínio padrão do seu site. Por exemplo, se você quiser usar o subdomínio `www.example.com` para seu site de usuário, crie um registro `CNAME` que aponte `www.example.com` para `<user>.github.io`. Se você desejar usar o subdomínio `www.anotherexample.com` no seu site da organização, crie um registro `CNAME` que aponte `www. notherexample.com` para `<organization>.github.io`. O registro `CNAME` sempre deve apontar para `<user>.github.io` ou `<organization>.github.io`, excluindo o nome do repositório. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
@@ -63,14 +63,14 @@ Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www
 
 ## Configurando um domínio apex
 
-Para configurar um domínio apex, como `example.com`, você deve configurar um arquivo</em> CNAME_ no seu repositório de {% data variables.product.prodname_pages %} e pelo menos um `ALIAS`, `ANAME` ou um registro `A` com seu provedor DNS.</p>
+Para configurar um domínio apex, como o `example.com`, você deve configurar um domínio personalizado nas configurações do repositório e pelo menos um `ALIAS`, `ANAME` ou registro `A` com o seu provedor DNS.
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} Para obter mais informações, consulte "[Configurar um subdomínio](#configuring-a-subdomain)".
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
+4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Se você estiver publicando seu site a partir de um branch, isso irá criar um commit que adiciona um arquivo `CNAME` à raiz do seu branch de origem. Se você publicar o seu site com um fluxo de trabalho de {% data variables.product.prodname_actions %} personalizado, não será criado nenhum arquivo `CNAME`. Para obter mais informações sobre a fonte de publicação, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)". ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
 5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. Você também pode criar registros de `AAAA` para suporte ao IPv6. {% data reusables.pages.contact-dns-provider %}
     - Para criar um registro `ALIAS` ou `ANAME`, aponte o domínio apex para o domínio padrão do seu site. {% data reusables.pages.default-domain-information %}
     - Para criar registros `A`, aponte seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.

@@ -3,6 +3,7 @@ title: CodeQL ワークフローのトラブルシューティング
 shortTitle: CodeQLワークフローのトラブルシューティング
 intro: '{% data variables.product.prodname_code_scanning %} で問題が生じている場合、ここに掲載されている問題解決のためのヒントを使ってトラブルを解決できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
@@ -47,7 +48,28 @@ topics:
 
 ## {% data variables.product.prodname_codeql %}のデバッグ成果物の作成
 
-デバッグ設定フラグを設定すれば、{% data variables.product.prodname_codeql %}のデバッグに役立つ成果物を取得できます。 {% data variables.product.prodname_codeql %}ワークフローファイルの`init`ステップを修正して、`debug: true`と設定してください。
+{% data variables.product.prodname_codeql %}のデバッグに役立てるために、成果物を取得できます。 デバッグ成果物は、`debug-artifacts`という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %}ログ、{% data variables.product.prodname_codeql %}データベース（群）、ワークフローが生成したSARIFファイル（群）が含まれます。
+
+これらの成果物は、{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}の問題をデバッグするために役立ちます。 GitHubのサポートに連絡すると、このデータを求められることがあります。
+
+{% endif %}
+
+{% ifversion codeql-action-debug-logging %}
+
+### デバッグロギングを有効にしてジョブを再実行することによって、{% data variables.product.prodname_codeql %}のデバッグ用の成果物を作成する
+
+デバッグロギングを有効化して、ジョブを再実行することにより、{% data variables.product.prodname_codeql %}のデバッグ用成果物を作成できます。 {% data variables.product.prodname_actions %}ワークフロー及びジョブの再実行に関する詳しい情報については「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」を参照してください。
+
+**Enable debug logging（デバッグロギングを有効化）**を確実に選択してください。 このオプションは、実行に対するランナーの診断ロギングとステップデバッグロギングを有効化します。 そうすれば、さらなる調査のために`debug-artifacts`をダウンロードできるようになります。 {% data variables.product.prodname_codeql %}のデバッグ用成果物をジョブの再実行によって作成する際に、ワークフローを修正する必要はありません。
+
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+### ワークフローのフラグを利用した{% data variables.product.prodname_codeql %}のデバッグ用成果物の作成
+
+{% data variables.product.prodname_codeql %}のデバッグ用成果物は、ワークフローのフラグを使って作成できます。 そのためには、{% data variables.product.prodname_codeql_workflow %}ファイルの`init`ステップを変更し、`debug: true`を設定しなければなりません。
 
 ```yaml
 - name: Initialize CodeQL
@@ -55,10 +77,6 @@ topics:
   with:
     debug: true
 ```
-
-デバッグ成果物は、`debug-artifacts`という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %}ログ、{% data variables.product.prodname_codeql %}データベース（群）、ワークフローが生成したSARIFファイル（群）が含まれます。
-
-これらの成果物は、{% data variables.product.prodname_codeql %} Code scanningの問題のデバッグに役立ちます。 GitHubのサポートに連絡すると、このデータを求められることがあります。
 
 {% endif %}
 
@@ -74,10 +92,10 @@ topics:
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    analyze:
       permissions:
         security-events: write
-        actions: read{% endif %}
+        actions: read
       ...
       strategy:
         fail-fast: false
@@ -166,7 +184,6 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-
 ## データベース中の抽出エラー
 
 {% data variables.product.prodname_codeql %}チームは、すべてのそー祖ファイルが確実にスキャンできるようにするため、重要な抽出エラーに取り組んでいます。 とはいえ、{% data variables.product.prodname_codeql %}の抽出部は、データベースの生成時にエラーを生成する事があります。 {% data variables.product.prodname_codeql %}は、データベースの生成の間に生成された抽出エラーと警告に関する情報を、ログファイル中に提供します。 抽出の診断情報は、全体的なデータベースの健全性を示します。 ほとんどの抽出部のエラーは、分析に大きな影響を与えません。 少数の抽出部のエラーは健全なもので、通常は良好な分析状況を示します。
@@ -178,7 +195,6 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 {% data variables.product.prodname_codeql %} の `autobuild` 機能は、ヒューリスティックスを使用してリポジトリにコードをビルドしますが、このアプローチでは、リポジトリの分析が不完全になることがあります。 たとえば、単一のリポジトリに複数の `build.sh` コマンドが存在する場合、`autobuild` ステップはコマンドの 1 つしか実行しないため、分析が完了しない場合があります。 これを解決するには、`autobuild` ステップを、分析するすべてのソースコードをビルドするビルドステップに置き換えます。 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 {% endif %}
-
 
 ## ビルドに時間がかかりすぎる
 
@@ -232,7 +248,7 @@ GitHubがホストするLinuxを使用したランナーでは、{% data variabl
 
 ## エラー:「ディスク不足」または「メモリ不足」
 
-非常に大きなプロジェクトでは、{% data variables.product.prodname_codeql %}がランナーのディスクあるいはメモリを使い切ってしまうことがあります。
+非常に大きいプロジェクトの場合、{% data variables.product.prodname_codeql %}はランナーのディスクもしくはメモリを使い切ってしまうかもしれません。
 {% ifversion fpt or ghec %}ホストされた{% data variables.product.prodname_actions %}ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう{% data variables.contact.contact_support %}に連絡してください。
 {% else %}この問題が生じたら、ランナー上のメモリを増やしてみてください。{% endif %}
 

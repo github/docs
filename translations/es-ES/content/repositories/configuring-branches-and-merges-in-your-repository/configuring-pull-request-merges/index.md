@@ -13,6 +13,7 @@ topics:
   - Repositories
 children:
   - /about-merge-methods-on-github
+  - /configuring-commit-merging-for-pull-requests
   - /configuring-commit-squashing-for-pull-requests
   - /configuring-commit-rebasing-for-pull-requests
   - /managing-a-merge-queue

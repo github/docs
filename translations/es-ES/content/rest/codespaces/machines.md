@@ -1,8 +1,8 @@
 ---
-title: Codespaces machines
+title: Máquinas de codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Máquinas
-intro: 'The Codespaces machines API allows a user to determine which machine types are available to create a codespace, either on a given repository or as an authenticated user.'
+intro: 'La API de máquinas de codespaces permite que un usuario determine qué tipos de máquina están disponibles para crear un codespace, ya sea en un repositorio específico o como un usuario autenticado.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Codespaces machines API
+## Acerca de la API de máquinas de Codespaces
 
 La API de máquinas de codespaces permite que un usuario determine qué tipos de máquina están disponibles para crear un codespace, ya sea en un repositorio específico o como un usuario autenticado. Para obtener más información, consulta la sección "[Acerca de los tipos de máquina](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)".
 

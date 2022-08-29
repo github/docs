@@ -1,11 +1,11 @@
 ---
 title: 筛选安全性概述中的警报
 intro: 使用筛选器查看特定类别的警报
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,12 +18,16 @@ shortTitle: 筛选警报
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## 关于筛选安全性概述
 
-可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
+可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
+
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
 
 ## 按仓库过滤
 

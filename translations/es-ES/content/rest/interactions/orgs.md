@@ -1,7 +1,7 @@
 ---
-title: Organization interactions
+title: Interacciones de organización
 shortTitle: Organización
-intro: 'The Organization interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization''s public repositories.'
+intro: 'La API de interacciones de organización permite que los propietarios de la organización restrinjan temporalmente qué tipo de usuarios pueden comentar, abrir propuestas o crear solicitudes de cambios en los repositorios públicos de dicha organización.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +11,7 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Organization interactions API
+## Acerca de la API de interacciones de organización
 
 La API de interacciones de organización permite que los propietarios de la organización restrinjan temporalmente qué tipo de usuarios pueden comentar, abrir propuestas o crear solicitudes de cambios en los repositorios públicos de dicha organización. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
 

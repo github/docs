@@ -77,18 +77,23 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Adicionar endereços IP permitidos
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ### Permitindo acesso de {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ### Habilitar endereços IP permitidos
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -98,6 +103,8 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Editar endereços IP permitidos
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -105,6 +112,18 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Clique em **Atualizar**.
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+### Verificando se um endereço IP é permitido
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ### Excluir endereços IP permitidos
 

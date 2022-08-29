@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Proteção por push
+shortTitle: Habilitar proteção de push
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -24,9 +24,13 @@ shortTitle: Proteção por push
 
 Até agora, {% data variables.product.prodname_secret_scanning_GHAS %} verifica segredos _após_ um push e alerta usuários de segredos expostos. {% data reusables.secret-scanning.push-protection-overview %}
 
-{% data variables.product.prodname_secret_scanning_caps %} como proteção por push atualmente verifica repositórios de segredos emitidos pelos seguintes prestadores de serviços.
+Se um contribuidor ignorar um bloco de proteção push para um segredo, {% data variables.product.prodname_dotcom %}:
+- gera um alerta.
+- cria um alerta na guia "Segurança" do repositório.
+- adiciona o evento de bypass ao log de auditoria.{% ifversion secret-scanning-push-protection-email %}
+- envia um alerta de e-mail para os proprietários da organização, gerentes de segurança e administradores do repositório, com um link para o segredo relacionado e a razão pela qual ele foi permitido.{% endif %}
 
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+Para obter informações sobre segredos e prestadores de serviço suportados pela proteção de push, consulte "[Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection). "
 
 ## Habilitando {% data variables.product.prodname_secret_scanning %} como uma proteção por push
 
@@ -50,33 +54,39 @@ Os proprietários da organização, gerentes de segurança e administradores de 
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+## Usando a digitalização de segredo dcomo uma proteção de push da linha de comando
 
-## Usando {% data variables.product.prodname_secret_scanning %} como proteção por push da linha de comando
-
-Ao tentar enviar um segredo compatível para um repositório ou organização com {% data variables.product.prodname_secret_scanning %} como uma proteção push habilitada, o {% data variables.product.prodname_dotcom %} bloqueará o push. Você pode remover o segredo do seu commit ou seguir um URL fornecido para permitir o push.
+{% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 Até cinco segredos detectados serão exibidos por vez na linha de comando. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos da organização como, por exemplo, orientações sobre como usar um cofre de segredos recomendado ou como entrar em contato em caso de perguntas relacionadas ao segredo bloqueado.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Captura de tela que mostra que um push está bloqueado quando um usuário tenta fazer push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
 ![Captura de tela que mostra que um push está bloqueado quando um usuário tenta fazer push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-Se você precisar remover o segredo do seu último commit (ou seja, `HEAD`) no branch pressionado e quaisquer commits anteriores que contenham o segredo, você poderá remover o segredo de `HEAD` e, em seguida, fazer a combinação por squash dos commits entre quando o commit foi introduzido e a primeira versão do `HEAD` para a qual o segredo foi removido.
+{% endif %}
 
-{% note %}
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre correção de segredos bloqueados, consulte "[Enviando por push um branch bloqueado pela proteção de push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
-**Atenção**:
+Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Por exemplo, você pode revogar o segredo e remover o segredo do histórico de commit do repositório. Os verdadeiros segredos que foram expostos devem ser revogados para evitar o acesso não autorizado. Você pode considerar primeiro girar o segredo antes de revogá-lo. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
-* Se sua configuração do git é compatível com pushes para vários branches, e não apenas para o branch padrão, seu push pode ser bloqueado devido a novos refs indesejados. Para obter mais informações, consulte as opções [`push.default`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) na documentação do Git.
-* Se {% data variables.product.prodname_secret_scanning %} vencer em um push, {% data variables.product.prodname_dotcom %} ainda executará uma digitalização após o push.
-
-{% endnote %}
+{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
 ### Permitindo que um segredo bloqueado seja enviado por push
 
 Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido.
 
-Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Por exemplo, você pode revogar o segredo e remover o segredo do histórico de commit do repositório. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
-
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+{% data reusables.secret-scanning.push-protection-allow-email %}
 
 1. Acesse o URL retornado por {% data variables.product.prodname_dotcom %} quando seu push foi bloqueado. ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
@@ -86,11 +96,17 @@ Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, voc
 {% ifversion secret-scanning-push-protection-web-ui %}
 ## Usando a digitalização de segredo como uma proteção de push da interface de usuário web
 
-Ao usar a interface de usuário web para tentar confirmar um segredo suportado para um repositório ou organização com digitalização de segredo como uma proteção de push habilitada {% data variables.product.prodname_dotcom %} bloqueará o commit. Você verá um banner no topo da página com informações sobre a localização do segredo, e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.
-
-  ![Captura de tela que mostra o commit na interface de usuário da web bloqueado devido à proteção de push da digitalização de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+{% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} só exibirá um segredo detectado por vez na interface do usuário. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
+
+{% ifversion push-protection-custom-link-orgs %}
+
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos para sua organização. Por exemplo, o link personalizado pode apontar para um arquivo README com informações sobre o cofre secreto da organização, para quais equipes e indivíduos escalar perguntas ou a política aprovada pela organização para trabalhar com segredos e reescrever o histórico de commits.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
 
 Você pode remover o segredo do arquivo usando a interface de usuário da web. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.
 
@@ -98,9 +114,15 @@ Você pode remover o segredo do arquivo usando a interface de usuário da web. D
 
 ### Ignorando a proteção de push para um segredo
 
-Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido. Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre correção de segredos bloqueados, consulte "[Enviando por push um branch bloqueado por proteção de push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
+
+Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+
+Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+{% data reusables.secret-scanning.push-protection-allow-email %}
 
 Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
 

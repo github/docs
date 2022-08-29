@@ -39,11 +39,14 @@ Cuando se bloquea al {% data variables.product.prodname_dependabot %} y no puede
 
 ![Vista de las {% data variables.product.prodname_dependabot_alerts %} que muestra un enlace a una solicitud de cambios](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-Hay tres razones por las cuales una alerta pudiera no tener un enlace a una solicitud de cambios:
+Hay muchas razones por las cuales una alerta podría no contar con un enlace de solicitud de cambios:
 
-1. No se han habilitado las {% data variables.product.prodname_dependabot_security_updates %} en el repositorio.
-1. La alerta es para una dependencia transitoria o indirecta que no se definió explícitamente en un archivo de bloqueo.
-1. Un error bloqueó al {% data variables.product.prodname_dependabot %} y éste no puede crear una solicitud de cambios.
+1. No están habilitadas las {% data variables.product.prodname_dependabot_security_updates %} para el repositorio.
+{% ifversion GH-advisory-db-supports-malware %}
+1. La alerta es para malware y no hay una versión segura del paquete.
+{% endif %}
+1. La alerta es para una dependencia transitoria o indirecta que no se define explícitamente en un archivo de bloqueo.
+1. Un error bloqueó al {% data variables.product.prodname_dependabot %} e impidió que creara una solicitud de cambios.
 
 Si existe un error que bloqueó al {% data variables.product.prodname_dependabot %} y éste no puede crear una solicitud de cambios, puedes mostrar los detalles del error si das clic en la alerta.
 
@@ -97,7 +100,7 @@ Si una actualización de seguridad excede el tiempo de espera, puedes reducir la
 
 Hay un límite en la cantidad de solicitudes de cambios abiertas que el {% data variables.product.prodname_dependabot %} puede generar. Cuando se llega a éste límite, no se podrán abrir más solicitudes de cambios y se reportará este error. La mejor forma de resolver este error es revisar y fusionar algunas de las solicitudes de cambios abiertas.
 
-Hay límites separados para las solicitudes de cambios de actualización de seguridad y de versión, y esto es para que aquellas de actualización de versión no bloqueen la creación de las de actualización de seguridad. El límite para las solicitudes de cambios de actualizaciones de seguridad es de 10. Predeterminadamente, el límite para las actualizaciones de versión es de 5, pero puedes cambiar ésto utilizando el parámetro `open-pull-requests-limit` en el archivo de configuración. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)."
+Hay límites separados para las solicitudes de cambios de actualización de seguridad y de versión, y esto es para que aquellas de actualización de versión no bloqueen la creación de las de actualización de seguridad. El límite para las solicitudes de cambios de actualizaciones de seguridad es de 10. Predeterminadamente, el límite para las actualizaciones de versión es de 5, pero puedes cambiar ésto utilizando el parámetro `open-pull-requests-limit` en el archivo de configuración. Para obtener más información, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)".
 
 La mejor forma de resolver este error es fusionar o cerrar algunas de las solicitudes de cambios existentes y activar una solicitud de cambios nueva manualmente. Para obtener más información, consulta la sección "[Activar una solicitud de cambios del {% data variables.product.prodname_dependabot %} manualmente](#triggering-a-dependabot-pull-request-manually)".
 
@@ -125,5 +128,5 @@ Si desbloqueas al {% data variables.product.prodname_dependabot %}, puedes activ
 
 ## Leer más
 
-- "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
+- "[Solucionar problemas de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
 - "[Solucionar problemas en la detección de dependencias vulnerables](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"

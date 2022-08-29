@@ -1,6 +1,6 @@
 ---
-title: Adicionar um colaborador externo a um quadro de projeto em sua organização
-intro: 'Como um proprietário da organização ou administrador do quadro de projeto, você pode adicionar um colaborador externo e personalizar as permissões dele em um quadro de projeto.'
+title: 'Adicionar um colaborador externo a um {% data variables.product.prodname_project_v1 %} na sua organização'
+intro: 'Como proprietário da organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode adicionar um colaborador externo e personalizar suas permissões a um {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
@@ -13,13 +13,17 @@ topics:
   - Organizations
   - Teams
 shortTitle: Adicionar um colaborador
+allowTitleToDifferFromFilename: true
 ---
 
-Um colaborador externo é uma pessoa que não é explicitamente um integrante da sua organização, mas tem permissões para um quadro de projeto em sua organização.
+{% data reusables.projects.project_boards_old %}
+
+Um colaborador externo é uma pessoa que não é explicitamente integrante da sua organização, mas que tem permissões para um {% data variables.projects.projects_v1_board %} na sua organização.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}

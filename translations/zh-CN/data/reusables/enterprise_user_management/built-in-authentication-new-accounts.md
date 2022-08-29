@@ -1,1 +1,1 @@
-When you use built-in authentication for {% data variables.product.product_location %}, each person creates a personal account from an invitation or by signing up.
+当您对 {% data variables.product.product_location %} 使用内置身份验证时，每个人都会通过邀请或注册创建个人帐户。

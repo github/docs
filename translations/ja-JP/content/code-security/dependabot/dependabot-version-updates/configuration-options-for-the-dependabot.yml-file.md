@@ -33,7 +33,7 @@ shortTitle: dependabot.ymlの設定
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion ghes = 3.5 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
 ## *dependabot.yml*ファイルの設定オプション
 
@@ -415,7 +415,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-デフォルトでは、{% data variables.product.prodname_dependabot %} は、バージョン更新に対して最大 5 つのプルリクエストをオープンします。 5 つのプルリクエストがオープンになると、オープンになっているリクエストの一部をマージまたはクローズするまで、新しいリクエストはブロックされます。オープンになっているリクエストの一部をマージまたはクローズしたら、その後の更新で新しいプルリクエストを開くことができます。 この制限を変更するには、`open-pull-requests-limit` を使用します。 これは、パッケージマネージャーのバージョン更新を一時的に無効にする簡単な方法としても使用できます。
+デフォルトでは、{% data variables.product.prodname_dependabot %} は、バージョン更新に対して最大 5 つのプルリクエストをオープンします。 {% data variables.product.prodname_dependabot %}からのオープンなPull Requestが5つあると、それらのオープンなリクエストからマージもしくはクローズされたものが出てくるまでは、{% data variables.product.prodname_dependabot %}は新しいリクエストをオープンしません。 この制限を変更するには、`open-pull-requests-limit` を使用します。 これは、パッケージマネージャーのバージョン更新を一時的に無効にする簡単な方法としても使用できます。
 
 このオプションはセキュリティアップデートに影響を与えません。セキュリティアップデートには、10 件のオープンプルリクエストの内部制限があります。
 
@@ -774,6 +774,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**ノート:** Azure Container Registry (ACR)はサポートされていません。
+
+{% endnote %}
+
 `docker-registry` タイプは、ユーザ名とパスワードをサポートします。
 
 {% raw %}
@@ -974,8 +980,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

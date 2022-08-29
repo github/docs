@@ -1,1 +1,1 @@
-1. After you have successfully verified the endpoint, click **Save**.
+1. エンドポイントの検証に成功したら、**Save（保存）**をクリックしてください。

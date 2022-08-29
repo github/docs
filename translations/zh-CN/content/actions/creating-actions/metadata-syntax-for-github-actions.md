@@ -74,7 +74,7 @@ inputs:
 
 ### `inputs.<input_id>.required`
 
-**必要** 表示操作是否需要输入参数的 `boolean`。 当参数为必要时设置为 `true`。
+**Optional** A `boolean` to indicate whether the action requires the input parameter. 当参数为必要时设置为 `true`。
 
 ### `inputs.<input_id>.default`
 
@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。  输入参数被设置为环境变量。 该变量的前缀为 INPUT_，并转换为大写。
+**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。 For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **可选**  防止在步骤失败时操作失败。 设置为 `true` 以允许在此步骤失败时通过操作。
+
+{% endif %}
 
 ## 用于 Docker 容器操作的 `runs`
 
@@ -429,7 +433,7 @@ runs:
 
 有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
 
-### `post-entrypoint`
+### `runs.post-entrypoint`
 
 **可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`runs.post-if`](#runspost-if) 覆盖该设置。
 
@@ -471,7 +475,7 @@ runs:
 
 ## `branding`
 
-您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
+**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
 
 ### 示例：为操作配置品牌宣传
 
@@ -664,254 +668,249 @@ branding:
 <td>eye</td>
 </tr>
 <tr>
-<td>facebook</td>
 <td>快进</td>
 <td>feather</td>
 <td>file-minus</td>
+<td>file-plus</td>
 </tr>
 <tr>
-<td>file-plus</td>
 <td>file-text</td>
 <td>文件</td>
 <td>film</td>
+<td>filter</td>
 </tr>
 <tr>
-<td>filter</td>
 <td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
+<td>folder</td>
 </tr>
 <tr>
-<td>folder</td>
 <td>gift</td>
 <td>git-branch</td>
 <td>git-commit</td>
+<td>git-merge</td>
 </tr>
 <tr>
-<td>git-merge</td>
 <td>git-pull-request</td>
 <td>globe</td>
 <td>grid</td>
+<td>hard-drive</td>
 </tr>
 <tr>
-<td>hard-drive</td>
 <td>哈希</td>
 <td>headphones</td>
 <td>heart</td>
+<td>help-circle</td>
 </tr>
 <tr>
-<td>help-circle</td>
 <td>home</td>
 <td>image</td>
 <td>inbox</td>
+<td>info</td>
 </tr>
 <tr>
-<td>info</td>
 <td>italic</td>
 <td>layers</td>
 <td>layout</td>
+<td>life-buoy</td>
 </tr>
 <tr>
-<td>life-buoy</td>
 <td>link-2</td>
 <td>link</td>
 <td>list</td>
+<td>loader</td>
 </tr>
 <tr>
-<td>loader</td>
 <td>lock</td>
 <td>log-in</td>
 <td>log-out</td>
+<td>mail</td>
 </tr>
 <tr>
-<td>mail</td>
 <td>map-pin</td>
 <td>map</td>
 <td>maximize-2</td>
+<td>maximize</td>
 </tr>
 <tr>
-<td>maximize</td>
 <td>menu</td>
 <td>message-circle</td>
 <td>message-square</td>
+<td>mic-off</td>
 </tr>
 <tr>
-<td>mic-off</td>
 <td>mic</td>
 <td>minimize-2</td>
 <td>minimize</td>
+<td>minus-circle</td>
 </tr>
 <tr>
-<td>minus-circle</td>
 <td>minus-square</td>
 <td>minus</td>
 <td>monitor</td>
+<td>moon</td>
 </tr>
 <tr>
-<td>moon</td>
 <td>more-horizontal</td>
 <td>more-vertical</td>
 <td>move</td>
+<td>music</td>
 </tr>
 <tr>
-<td>music</td>
 <td>navigation-2</td>
 <td>navigation</td>
 <td>octagon</td>
+<td>package</td>
 </tr>
 <tr>
-<td>package</td>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
+<td>percent</td>
 </tr>
 <tr>
-<td>percent</td>
 <td>phone-call</td>
 <td>phone-forwarded</td>
 <td>phone-incoming</td>
+<td>phone-missed</td>
 </tr>
 <tr>
-<td>phone-missed</td>
 <td>phone-off</td>
 <td>phone-outgoing</td>
 <td>phone</td>
+<td>pie-chart</td>
 </tr>
 <tr>
-<td>pie-chart</td>
 <td>play-circle</td>
 <td>play</td>
 <td>plus-circle</td>
+<td>plus-square</td>
 </tr>
 <tr>
-<td>plus-square</td>
 <td>plus</td>
 <td>pocket</td>
 <td>power</td>
+<td>printer</td>
 </tr>
 <tr>
-<td>printer</td>
 <td>radio</td>
 <td>refresh-ccw</td>
 <td>refresh-cw</td>
+<td>repeat</td>
 </tr>
 <tr>
-<td>repeat</td>
 <td>倒回</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
+<td>rss</td>
 </tr>
 <tr>
-<td>rss</td>
 <td>save</td>
 <td>scissors</td>
 <td>search</td>
+<td>send</td>
 </tr>
 <tr>
-<td>send</td>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
+<td>share</td>
 </tr>
 <tr>
-<td>share</td>
 <td>shield-off</td>
 <td>shield</td>
 <td>shopping-bag</td>
+<td>shopping-cart</td>
 </tr>
 <tr>
-<td>shopping-cart</td>
 <td>shuffle</td>
 <td>边栏</td>
 <td>skip-back</td>
+<td>skip-forward</td>
 </tr>
 <tr>
-<td>skip-forward</td>
 <td>slash</td>
 <td>sliders</td>
 <td>smartphone</td>
+<td>speaker</td>
 </tr>
 <tr>
-<td>speaker</td>
 <td>square</td>
 <td>星标</td>
 <td>stop-circle</td>
+<td>sun</td>
 </tr>
 <tr>
-<td>sun</td>
 <td>sunrise</td>
 <td>sunset</td>
 <td>tablet</td>
+<td>标记</td>
 </tr>
 <tr>
-<td>标记</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
+<td>thumbs-down</td>
 </tr>
 <tr>
-<td>thumbs-down</td>
 <td>thumbs-up</td>
 <td>toggle-left</td>
 <td>toggle-right</td>
+<td>trash-2</td>
 </tr>
 <tr>
-<td>trash-2</td>
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
+<td>triangle</td>
 </tr>
 <tr>
-<td>triangle</td>
 <td>truck</td>
 <td>tv</td>
 <td>type</td>
+<td>umbrella</td>
 </tr>
 <tr>
-<td>umbrella</td>
 <td>underline</td>
 <td>unlock</td>
 <td>upload-cloud</td>
+<td>上传</td>
 </tr>
 <tr>
-<td>上传</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
+<td>user-x</td>
 </tr>
 <tr>
-<td>user-x</td>
 <td>用户</td>
 <td>用户</td>
 <td>video-off</td>
+<td>video</td>
 </tr>
 <tr>
-<td>video</td>
 <td>voicemail</td>
 <td>volume-1</td>
 <td>volume-2</td>
+<td>volume-x</td>
 </tr>
 <tr>
-<td>volume-x</td>
 <td>volume</td>
 <td>查看</td>
 <td>wifi-off</td>
+<td>wifi</td>
 </tr>
 <tr>
-<td>wifi</td>
 <td>wind</td>
 <td>x-circle</td>
 <td>x-square</td>
+<td>x</td>
 </tr>
 <tr>
-<td>x</td>
 <td>zap-off</td>
 <td>zap</td>
 <td>zoom-in</td>
-</tr>
-<tr>
 <td>zoom-out</td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
 </table>

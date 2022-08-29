@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -381,6 +381,34 @@ on:
     types: [created, deleted]
 ```
 
+{% ifversion fpt or ghec  %}
+
+### `merge_group`
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+{% note %}
+
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+{% endnote %}
+
+Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+
+For example, you can run a workflow when the `checks_requested` activity has occurred.
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+
+```
+
+{% endif %}
 ### `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -415,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 For example, you can run a workflow when the `page_build` event occurs.
 
@@ -447,7 +475,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +513,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +551,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -569,7 +597,7 @@ on:
 
 {% note %}
 
-**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first. 
+**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
 
 Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
 
@@ -612,7 +640,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -625,7 +653,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -670,7 +698,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -784,6 +812,8 @@ Runs your workflow when activity on a pull request in the workflow's repository 
 
 This event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
 
+To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+
 {% warning %}
 
 **Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
@@ -809,7 +839,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -822,7 +852,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -867,7 +897,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -898,7 +928,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | Commit pushed, unless deleting a branch (when it's the default branch) | Updated ref |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
 {% note %}
 
@@ -921,6 +951,12 @@ on:
   push
 ```
 
+{% note %}
+
+**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+
+{% endnote %}
+
 #### Running your workflow only when a push to specific branches occurs
 
 You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
@@ -930,7 +966,7 @@ For example, this workflow will run when someone pushes to `main` or to a branch
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'main'
       - 'releases/**'
 ```
@@ -942,7 +978,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -952,14 +988,14 @@ on:
 
 #### Running your workflow only when a push of specific tags occurs
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags or are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 For example, this workflow will run when someone pushes a tag that starts with `v1.`.
 
 ```yaml
 on:
   push:
-    tags:        
+    tags:
       - v1.**
 ```
 
@@ -983,7 +1019,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -1007,7 +1043,7 @@ on:
 
 Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
-For example, you can run a workflow when a package has been `published`.
+For example, you can run a workflow when a new package version has been `published`.
 
 ```yaml
 on:
@@ -1243,29 +1279,29 @@ You can configure custom-defined input properties, default input values, and req
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties. 
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning' 
+        default: 'warning'
         type: choice
         options:
         - info
         - warning
-        - debug 
+        - debug
       tags:
         description: 'Test scenario tags'
-        required: false 
+        required: false
         type: boolean
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
 jobs:
   log-the-inputs:
@@ -1416,7 +1452,7 @@ jobs:
   upload:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
       - name: Save PR number
         env:
           PR_NUMBER: {% raw %}${{ github.event.number }}{% endraw %}

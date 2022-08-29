@@ -2,7 +2,6 @@
 title: Desenvolver em um codespace
 intro: 'Você pode abrir um codespace em {% data variables.product.product_name %} e, em seguida, desenvolver usando os recursos do {% data variables.product.prodname_vscode %}.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
@@ -19,9 +18,9 @@ shortTitle: Desenvolver em um codespace
 
  
 
-## Sobre o desenvolvimento com {% data variables.product.prodname_codespaces %}
+## Sobre o desenvolvimento com {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} fornece a você a experiência completa de desenvolvimento de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} fornece a você a experiência completa de desenvolvimento de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 
@@ -41,7 +40,7 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 
 ### Personalizando seu codespace
 
-{% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)".
+{% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
 {% data reusables.codespaces.apply-devcontainer-changes %} Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
 

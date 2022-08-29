@@ -20,36 +20,17 @@ miniTocMaxHeadingLevel: 3
 
 Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dependencias descargadas de una ejecución a otra. Por ejemplo, las herramientas de administración de paquetes y dependencias como Maven, Gradle, npm y Yarn mantienen una caché local de las dependencias descargadas.
 
-{% ifversion fpt or ghec %} Los jobs en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} inician en un ambiente virtual limpio y deben descargar dependencias en cada ocasión, lo que provoca que una mayor utilización de red, un tiempo de ejecución más largo y un costo incrementado. {% endif %}Para ayudar a agilizar el tiempo que toma el recrear archivos como dependencias, {% data variables.product.prodname_dotcom %} puede almacenar los archivos en caché que utilizas frecuentemente en los flujos de trabajo.
+{% ifversion fpt or ghec %} Los jobs en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} inician en una imagen limpia de un ejecutor y deben descargar dependencias en cada ocasión, ocasionando una utilización de red aumentada, un tiempo de ejecución mayor y un costo incrementado. {% endif %}Para ayudar a agilizar el tiempo que toma el recrear archivos como dependencias, {% data variables.product.prodname_dotcom %} puede almacenar los archivos en caché que utilizas frecuentemente en los flujos de trabajo.
 
 Para almacenar las dependencias en caché para un job, puedes utilizar la {% data variables.product.prodname_dotcom %}acción de [cache`` de ](https://github.com/actions/cache). La acción crea y restablece un caché identificado con una llave única. Como alternativa, si estás almacenando los siguientes administradores de paquetes en caché, el utilizar sus acciones respectivas de setup-* requiere de una configuración mínima y creará y restablecerá los cachés de dependencia para ti.
 
-<table>
-<thead>
-  <tr>
-    <th>Administradores de paquetes</th>
-    <th>acción de setup-* para almacenar en caché</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| Administradores de paquetes | acción de setup-* para almacenar en caché                                                  |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm             | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry         | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven               | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems                    | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`                 | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -140,7 +121,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -191,12 +172,12 @@ npm-d5ea0750
 
 ### Utilizar la salida de la acción `cache`
 
-Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. Si se suscita una omisión en caché (no se encontró una coincidencia exacta para un caché en la `key` especificada), la salida `cache-hit` se configura en `false`.
+Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. Cuando se encuentra una coincidencia exacta para un caché para la `key` especificada, la salida `cache-hit` se configura como `true`.
 
 En el flujo de trabajo del ejemplo anterior, hay un paso que lista el estado de los módulos de nodo si se suscitó una omisión de caché:
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list
@@ -257,7 +238,7 @@ Por ejemplo, si una solicitud de cambios contiene una rama de `feature` y apunta
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
 
 {% data reusables.actions.cache-eviction-process %}
 
@@ -269,6 +250,8 @@ Para obtener más información sobre cómo cambiar las políticas del límite de
 
 ## Administrar los cachés
 
-Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. En la actualidad, puedes utilizar la API para ver tu uso de caché y esperamos tener más funcionalidades en las siguientes actualizaciones. Para obtener más información, consulta la sección "[Acciones](/rest/reference/actions#cache)" en la documentación de la API de REST.
+Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. {% ifversion actions-cache-list-delete-apis %}Puedes utilizar la API para listar y borrar entradas de caché y ver tu uso de caché.{% elsif actions-cache-management %}En la actualidad, puedes utilizar la API para ver tu uso de caché y esperar más funcionalidades en las actualizaciones futuras.{% endif %} Para obtener más información, consulta la sección "[Caché de {% data variables.product.prodname_actions %}](/rest/actions/cache)" en la documentación de la API de REST.
+
+También puedes instalar una extensión del {% data variables.product.prodname_cli %} para administrar tus cachés desde la línea de comandos. Para obtener más información sobre la extensión, consulta la [documentación de la extensión](https://github.com/actions/gh-actions-cache#readme). Para obtener más información sobre las extensiones del {% data variables.product.prodname_cli %}, consulta la sección "[Utilizar las extensiones del CLI de GitHub](/github-cli/github-cli/using-github-cli-extensions)".
 
 {% endif %}

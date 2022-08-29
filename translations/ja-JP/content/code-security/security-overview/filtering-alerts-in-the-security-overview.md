@@ -1,11 +1,11 @@
 ---
 title: セキュリティの概要でのアラートのフィルタリング
 intro: 特定カテゴリのアラートを表示させるためのフィルタの利用
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,12 +18,16 @@ shortTitle: アラートのフィルタリング
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## セキュリティの概要のフィルタリングについて
 
-アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
+アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析がOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
+
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
 
 ## リポジトリでフィルタリング
 

@@ -23,7 +23,7 @@ topics:
 
 ## Sobre a segurança da cadeia de suprimentos no GitHub
 
-Com o uso acelerado de código aberto, a maioria dos projetos depende de centenas de dependências de código aberto. Isso coloca um problema de segurança: e se as dependências que você estiver usando forem vulneráveis? Você poderia colocar os seus usuários em risco de ataque da cadeia de suprimentos. One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
+Com o uso acelerado de código aberto, a maioria dos projetos depende de centenas de dependências de código aberto. Isso coloca um problema de segurança: e se as dependências que você estiver usando forem vulneráveis? Você poderia colocar os seus usuários em risco de ataque da cadeia de suprimentos. Uma das coisas mais importantes que você pode fazer para proteger sua cadeia de suprimentos é corrigir suas dependências vulneráveis{% ifversion GH-advisory-db-supports-malware %} e substituir qualquer malware{% endif %}.
 
 Você adiciona dependências diretamente à sua cadeia de suprimentos ao especificá-las em um arquivo de manifesto ou um arquivo de bloqueio. As dependências também podem ser incluídas transitoriamente, ou seja, até mesmo se você não especificar uma dependência em particular, mas a sua dependência a usa, portanto, você também depende dessa dependência.
 
@@ -31,7 +31,7 @@ Você adiciona dependências diretamente à sua cadeia de suprimentos ao especif
 
 As funcionalidades da cadeia de suprimentos em {% data variables.product.product_name %} são:
 - **Gráfico de dependências**
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}- **Revisão de Dependência**{% endif %}
+- **Revisão de dependência**
 - **{% data variables.product.prodname_dependabot_alerts %} **
 {% ifversion fpt or ghec or ghes > 3.2 %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
@@ -39,20 +39,14 @@ As funcionalidades da cadeia de suprimentos em {% data variables.product.product
 
 O gráfico de dependências é fundamental para fornecer segurança da cadeia de suprimentos. O gráfico de dependências identifica todas as dependências a montante e as dependências públicas a jusante de um repositório ou pacote. É possível ver as dependências e algumas de suas propriedades, como informações de vulnerabilidade, no gráfico de dependências do repositório.
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 As outras funcionalidades da cadeia de suprimentos em {% data variables.product.prodname_dotcom %} dependem das informações fornecidas pelo gráfico de dependências.
 
 - A revisão de dependências usa o gráfico de dependências para identificar mudanças de dependências e ajuda você a entender o impacto de segurança dessas alterações ao revisar pull requests.
-- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} is detected.
+- {% data variables.product.prodname_dependabot %} faz referência curzadas dos dados de dependência fornecidos pelo gráfico de dependência com a lista de avisos publicados no {% data variables.product.prodname_advisory_database %}, digitaliza as suas dependências e gera {% data variables.product.prodname_dependabot_alerts %} quando uma potencial vulnerabilidade {% ifversion GH-advisory-db-supports-malware %}ou{% endif %} de malware é detectado.
 {% ifversion fpt or ghec or ghes > 3.2 %}- {% data variables.product.prodname_dependabot_security_updates %} usa o gráfico de dependências e  {% data variables.product.prodname_dependabot_alerts %} para ajudar você a atualizar dependências com vulnerabilidades conhecidas no seu repositório.
 
 {% data variables.product.prodname_dependabot_version_updates %} não usa o gráfico de dependências e confia na versão semântica das dependências. {% data variables.product.prodname_dependabot_version_updates %} ajuda você a manter suas dependências atualizadas, mesmo quando elas não têm nenhuma vulnerabilidade.
 {% endif %}
-{% endif %}
-
-{% ifversion ghes < 3.2 %}
-{% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
- {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 Para oter guias sobre as práticas recomendadas de segurança da cadeia de suprimentos de ponta a ponta, incluindo a proteção de contas pessoais, código e processos de compilação, consulte "[Protegendo sua cadeia de suprimentos de ponta a ponta](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)".
@@ -74,7 +68,6 @@ Para gerar o gráfico de dependência, {% data variables.product.company_short %
 
 Para obter mais informações sobre o gráfico de dependências, consulte "[Sobre o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### O que é revisão de dependências
 
 A revisão de dependências ajuda os revisores e colaboradores a entenderem as mudanças de dependência e seu impacto de segurança em cada pull request.
@@ -83,8 +76,6 @@ A revisão de dependências ajuda os revisores e colaboradores a entenderem as m
 - Você pode ver a revisão de dependências para um pull request mostrando o diff avançado na aba**Arquivos alterados**.
 
 Para obter mais informações sobre a análise de dependências, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".
-
-{% endif %}
 
 ### O que é o Dependabot
 
@@ -100,14 +91,14 @@ O termo "{% data variables.product.prodname_dependabot %}" engloba as seguintes 
 
 #### Quais são os alertas do Dependabot
 
-{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}.
+{% data variables.product.prodname_dependabot_alerts %} destaca repositórios afetados por uma vulnerabilidade recém-descoberta com base no gráfico de dependência e no {% data variables.product.prodname_advisory_database %}, que contém avisos para vulnerabilidades conhecidas{% ifversion GH-advisory-db-supports-malware %} e{% endif %}de malware.
 
-- {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
+- {% data variables.product.prodname_dependabot %} realiza uma digitalização para detectar dependências inseguras e envia {% data variables.product.prodname_dependabot_alerts %} quando:
 {% ifversion fpt or ghec %}
-   - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
+   - Um novo aviso é adicionado ao {% data variables.product.prodname_advisory_database %}.{% else %}
    - São sincronizados novos dados de consultoria com {% data variables.product.product_location %} a cada hora a partir de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
    - O gráfico de dependências para as alterações no repositório.
-- {% data variables.product.prodname_dependabot_alerts %} são exibidos {% ifversion fpt or ghec or ghes > 3.0 %} na aba **Segurança** do repositório e{% endif %} no gráfico de dependências do repositório. O alerta inclui {% ifversion fpt or ghec or ghes > 3.0 %} um link para o arquivo afetado no projeto, e {% endif %}informações sobre uma versão fixa.
+- {% data variables.product.prodname_dependabot_alerts %} são exibidos {% ifversion fpt or ghec or ghes %} na aba **Segurança** do repositório e{% endif %} no gráfico de dependências do repositório. O alerta inclui {% ifversion fpt or ghec or ghes %} um link para o arquivo afetado no projeto, e {% endif %}informações sobre uma versão fixa.
 
 Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)".
 
@@ -138,7 +129,7 @@ Para obter mais informações sobre {% data variables.product.prodname_dependabo
 Repositórios públicos:
 - **Gráfico de dependência**—habilitado por padrão e não pode ser desabilitado.
 - **Revisão de dependência**—habilitado por padrão e não pode ser desabilitado.
-- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. {% data variables.product.prodname_dotcom %} detects insecure dependencies and displays information in the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Os proprietários do repositório ou pessoas com acesso de administrador podem habilitar {% data variables.product.prodname_dependabot_alerts %}. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Gerenciando as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
+- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. {% data variables.product.prodname_dotcom %} detecta dependências inseguras e exibe informações no gráfico de dependência, mas não gera {% data variables.product.prodname_dependabot_alerts %} por padrão. Os proprietários do repositório ou pessoas com acesso de administrador podem habilitar {% data variables.product.prodname_dependabot_alerts %}. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Gerenciando as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
 
 Repositórios privados:
 - **Gráfico de dependência**—não habilitado por padrão. O recurso pode ser habilitado pelos administradores do repositório. Para obter mais informações, consulte "[Explorar as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".

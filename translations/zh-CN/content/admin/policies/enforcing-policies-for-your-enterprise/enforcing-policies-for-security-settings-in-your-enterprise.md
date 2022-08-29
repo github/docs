@@ -41,7 +41,7 @@ shortTitle: 安全设置策略
 
 - 当您需要为企业进行双重身份验证时，不使用 2FA 的企业拥有的所有组织中的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并失去对其仓库的访问权限。 他们还会失去对组织私有仓库的复刻的访问权限。 如果他们在从您的组织中删除后的三个月内为其帐户启用双重身份验证，您可以恢复其访问权限和设置。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 - 为其帐户禁用 2FA 的企业拥有的任何组织中的任何组织所有者、成员、帐单管理员或外部协作者在您启用所需的双重身份验证后将自动从组织中删除。
-- 如果您是某个要求双重身份验证的企业的唯一所有者，则在不为企业禁用双重身份验证要求的情况下，您将无法为用户帐户禁用 2FA。
+- If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
 
 {% endwarning %}
 
@@ -77,18 +77,23 @@ shortTitle: 安全设置策略
 
 ### 添加允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ### 允许 {% data variables.product.prodname_github_apps %} 访问
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ### 启用允许的 IP 地址
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -98,6 +103,8 @@ shortTitle: 安全设置策略
 
 ### 编辑允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -105,6 +112,18 @@ shortTitle: 安全设置策略
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. 单击 **Update（更新）**。
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+### Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ### 删除允许的 IP 地址
 

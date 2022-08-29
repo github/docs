@@ -7,19 +7,12 @@ versions:
   ghes: '>= 3.5'
   ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [示例概述](#example-overview)
-- [此示例中使用的功能](#features-used-in-this-example)
-- [示例工作流程](#example-workflow)
-- [了解示例](#understanding-the-example)
-- [后续步骤](#next-steps)
 
 ## 示例概述
 
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -76,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -222,7 +215,7 @@ jobs:
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>代码</b></th>
@@ -284,12 +277,12 @@ on:
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-添加 'push' 事件，以便每次将提交推送到与筛选器 'gh-readonly-queue/main/**' 匹配的分支时，工作流程都会自动运行。 更多信息请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. 更多信息请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
 </td>
 </tr>
 <tr>

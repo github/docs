@@ -25,7 +25,7 @@ versions:
 
 アクションは、 環境変数を設定する、他のアクションに利用される値を出力する、デバッグメッセージを出力ログに追加するなどのタスクを行うため、ランナーマシンとやりとりできます。
 
-ほとんどのワークフローコマンドは特定の形式で `echo` コマンドを使用しますが、他のワークフローコマンドはファイルへの書き込みによって呼び出されます。 詳しい情報については、「[環境ファイル](#environment-files)」を参照してください。
+ほとんどのワークフローコマンドは特定の形式で `echo` コマンドを使用しますが、他のワークフローコマンドはファイルへの書き込みによって呼び出されます。 For more information, see "[Environment files](#environment-files)."
 
 ### サンプル
 
@@ -622,6 +622,12 @@ steps:
 {value}
 {delimiter}
 ```
+
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
 
 #### サンプル
 

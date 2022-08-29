@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
+  - /enterprise/admin/guides/installation/about-upgrade-requirements
 versions:
   ghes: '*'
 type: reference
@@ -47,8 +48,6 @@ topics:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 MySQLの監査ログで必要なディスク容量の概算には、この数字を使用します。 スクリプトは、インポートの進行中に空きディスク容量も監視します。 この数字を監視しておくと、空きディスク容量が、移行に必要なディスク容量に近い場合に特に便利です。
-
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ## 次のステップ
 

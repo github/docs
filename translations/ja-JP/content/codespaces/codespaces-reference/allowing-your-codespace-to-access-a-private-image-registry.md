@@ -1,6 +1,6 @@
 ---
 title: codespace がプライベートイメージレジストリにアクセスできるようにする
-intro: 'シークレットを使用して、{% data variables.product.prodname_codespaces %} がプライベートイメージレジストリにアクセスできるようにすることができます'
+intro: 'シークレットを使用して、{% data variables.product.prodname_github_codespaces %} がプライベートイメージレジストリにアクセスできるようにすることができます'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,15 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: プライベートイメージレジストリ
 ---
 
-## About private image registries and {% data variables.product.prodname_codespaces %}
+## About private image registries and {% data variables.product.prodname_github_codespaces %}
 
 A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
 
-{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
+{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_github_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
 
 ## Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry
 
-{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_github_codespaces %} to consume devcontainer container images.
+{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_codespaces %} to consume devcontainer container images.
 
 For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
@@ -52,13 +52,13 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. これらのシークレットが見つかった場合、{% data variables.product.prodname_codespaces %} はレジストリを codespace 内で使用できるようにします。
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. これらのシークレットが見つかった場合、{% data variables.product.prodname_github_codespaces %} はレジストリを codespace 内で使用できるようにします。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-シークレットは、ユーザ、リポジトリ、または Organization レベルで保存できるため、異なる Codespaces 間で安全に共有できます。 When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. 詳しい情報については、「[Codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」および「[Codespaces のリポジトリと Organization の暗号化されたシークレットを管理する](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)」を参照してください。
+シークレットは、ユーザ、リポジトリ、または Organization レベルで保存できるため、異なる Codespaces 間で安全に共有できます。 When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
 If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.
 

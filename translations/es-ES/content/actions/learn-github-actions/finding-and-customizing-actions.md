@@ -155,7 +155,7 @@ steps:
 
 ### Utilizar SHAs
 
-Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utiliza run valor completo del SHA de la confirmación y no un valor abreviado. {% endif %}Este ejemplo apunta al SHA de una acción:
+Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. Debes utilizar un valor SHA completo de la confirmación y no un valor abreviado. Este ejemplo apunta al SHA de una acción:
 
 ```yaml
 steps:

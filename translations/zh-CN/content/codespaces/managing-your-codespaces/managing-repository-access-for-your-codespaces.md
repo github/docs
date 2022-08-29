@@ -2,7 +2,7 @@
 title: 管理对代码空间中其他存储库的访问
 allowTitleToDifferFromFilename: true
 shortTitle: 存储库访问
-intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的仓库。'
+intro: '您可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -16,7 +16,7 @@ redirect_from:
 
 ## 概览
 
-默认情况下，会为代码空间分配一个令牌，范围限定为从中创建代码空间的存储库。 更多信息请参阅“[{% data variables.product.prodname_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-codespaces#authentication)”。 如果您的项目需要其他存储库的其他权限，则可以在 `devcontainer.json` 文件中配置此权限，并确保其他协作者具有正确的权限集。
+默认情况下，会为代码空间分配一个令牌，范围限定为从中创建代码空间的存储库。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)”。 如果您的项目需要其他存储库的其他权限，则可以在 `devcontainer.json` 文件中配置此权限，并确保其他协作者具有正确的权限集。
 
 当 `devcontainer.json` 文件中列出权限时，作为创建该存储库的代码空间的一部分，系统将提示您查看并授权其他权限。 授权列出的权限后，{% data variables.product.prodname_github_codespaces %} 将记住您的选择，并且不会提示您进行授权，除非 `devcontainer.json` 文件中的权限发生更改。
 
@@ -29,7 +29,7 @@ redirect_from:
 
 ## 设置其他存储库权限
 
-1. 您可以为 `devcontainer.json` 文件中的 {% data variables.product.prodname_github_codespaces %} 配置存储库权限。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 有关详细信息，请参阅“[将开发容器添加到项目](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
+1. 您可以为 `devcontainer.json` 文件中的 {% data variables.product.prodname_codespaces %} 配置存储库权限。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 有关详细信息，请参阅“[将开发容器添加到项目](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
 
 1. 编辑 `devcontainer.json` 文件，将存储库名称和所需的权限添加到 `repositories` 对象：
 
@@ -105,7 +105,7 @@ redirect_from:
 
 ## 授权请求的权限
 
-如果在 `devcontainer.json` 文件中定义了其他存储库权限，则在为此存储库创建代码空间时，系统将提示您查看并选择性地授权这些权限。 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_github_codespaces %} 不会重新提示您。
+If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_codespaces %} 不会重新提示您。
 
 ![请求的权限页面](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
@@ -117,7 +117,7 @@ redirect_from:
 
 {% warning %}
 
-**弃用说明**：现在不推荐使用个人帐户设置的 {% data variables.product.prodname_codespaces %} 部分中的访问和安全设置。 要启用对其他存储库的扩展访问权限，请将请求的权限添加到代码空间的开发容器定义中，如上所述。
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. 要启用对其他存储库的扩展访问权限，请将请求的权限添加到代码空间的开发容器定义中，如上所述。
 
 {% endwarning %}
 
@@ -132,7 +132,3 @@ redirect_from:
 1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问您拥有的其他仓库。 对于您要允许其代码空间访问您拥有的其他仓库的所有仓库重复此操作。
 
   !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
-
-## 延伸阅读
-
-- "[管理组织的代码空间的存储库访问](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"

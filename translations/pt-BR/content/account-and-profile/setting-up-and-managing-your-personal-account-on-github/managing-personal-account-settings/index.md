@@ -1,6 +1,6 @@
 ---
 title: Gerenciar configurações de conta de usuário
-intro: 'Você pode alterar várias configurações de sua conta pessoal, inclusive alterar seu nome de usuário e excluir sua conta.'
+intro: 'Você pode gerenciar configurações para sua conta pessoal, incluindo seu tema, nome de usuário, branchpadrão, acessibilidade e configurações de segurança.'
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -19,9 +19,6 @@ children:
   - /managing-your-theme-settings
   - /managing-your-tab-size-rendering-preference
   - /changing-your-github-username
-  - /merging-multiple-personal-accounts
-  - /converting-a-user-into-an-organization
-  - /deleting-your-personal-account
   - /permission-levels-for-a-personal-account-repository
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
@@ -29,7 +26,6 @@ children:
   - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-personal-accounts-project-boards
   - /integrating-jira-with-your-personal-projects
-  - /best-practices-for-leaving-your-company
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: Configurações de conta pessoal
 ---

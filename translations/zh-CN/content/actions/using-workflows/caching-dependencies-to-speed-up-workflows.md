@@ -20,36 +20,17 @@ miniTocMaxHeadingLevel: 3
 
 工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 {% endif %}为帮助加快重新创建诸如依赖项的文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的文件。
+{% ifversion fpt or ghec %} Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean runner image and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. {% endif %}为帮助加快重新创建诸如依赖项的文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的文件。
 
 要缓存作业的依赖项，可以使用 {% data variables.product.prodname_dotcom %} 的 [`cache` 操作](https://github.com/actions/cache)。 该操作将创建并还原由唯一键标识的缓存。 或者，如果要缓存下面列出的包管理器，则使用其各自的 setup-* 操作时需要的配置最少，并且将为您创建和还原依赖项缓存。
 
-<table>
-<thead>
-  <tr>
-    <th>包管理器</th>
-    <th>用于缓存的 setup-* 操作</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| 包管理器                | 用于缓存的 setup-* 操作                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -140,7 +121,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -191,12 +172,12 @@ npm-d5ea0750
 
 ### 使用 `cache` 操作的输出
 
-您可以使用 `cache` 操作的输出来根据缓存命中或错过是否发生来执行某些操作。 如果存在缓存未命中（找不到指定 `key` 的缓存的完全匹配项），则 `cache-hit` 输出将设置为 `false`。
+您可以使用 `cache` 操作的输出来根据缓存命中或错过是否发生来执行某些操作。 When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
 在上面的示例工作流程中，有一个步骤列出了发生缓存未命中时 Node 模块的状态：
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list
@@ -269,6 +250,8 @@ restore-keys: |
 
 ## 管理缓存
 
-您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 目前，您可以使用 API 来查看缓存使用情况，并期望在未来的更新中提供更多功能。 更多信息请参阅 REST API 文档中的“[操作](/rest/reference/actions#cache)”。
+您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 {% ifversion actions-cache-list-delete-apis %}您可以使用 API 列出和删除缓存条目，并查看缓存使用情况。{% elsif actions-cache-management %}目前，您可以使用 API 查看缓存使用情况，预计在将来的更新中会有更多的功能。{% endif %} 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 缓存](/rest/actions/cache)”REST API 文档。
+
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
 
 {% endif %}

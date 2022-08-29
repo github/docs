@@ -1,1 +1,1 @@
-| Referencing secrets in a workflow: | [Secrets](/actions/security-guides/encrypted-secrets)|
+| ワークフロー内のシークレットを参照します: | [Secrets](/actions/security-guides/encrypted-secrets)|

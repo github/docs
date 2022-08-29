@@ -30,3 +30,12 @@ sections:
     - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 release. [Updated: 2022-06-10]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'
+    - |
+      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+
+      - Detection of GitHub Actions workflow files for the dependency graph
+      - Reopening of dismissed Dependabot alerts
+      - Enabling the **Update branch** button for all pull requests in a repository
+      - Light high contrast theme
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

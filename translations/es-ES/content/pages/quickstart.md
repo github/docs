@@ -26,11 +26,12 @@ Esta guía te mostrará cómo crear un sitio de usuario en `username.github.io`.
 1. Ingresa `username.github.io` como nombre de repositorio. Reemplaza a `username` con tu nombre de usuario de {% data variables.product.prodname_dotcom %}. Por ejemplo, si tu nombre de usuario es `octocat`, el nombre de repositorio debería ser `octocat.github.io`. ![Campo de nombre de repositorio](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Haz clic en **Elige un tema**. ![Elija un botón del tema](/assets/images/help/pages/choose-theme.png)
-2. Se abrirá el selector de temas. Busca en los temas disponibles y luego haz clic en **Seleccionar tema** para seleccionar alguno de ellos. Puedes cambiar tu tema más adelante sin problema, así que, si no estás seguro, solo elige uno para comenzar. ![Opciones de temas y botón Select theme (Seleccionar tema)](/assets/images/help/pages/select-theme.png)
-3. Después de que seleccionas un tema, el archivo `README.md` de tu repositorio se abrirá en el editor de archivos. El archivo `README.md` es donde escribirás el contenido de tu sitio. Puedes editar el archivo o mantener el contenido predeterminado por el momento.
-4. Cuando terminas de editar el archivo, haz clic en **Confirmar los cambios**.
-5. Visita `username.github.io` para ver tu sitio web nuevo. **Nota:** Es posible que tome hasta 20 minutos la publicación de los cambios en tu sitio luego de que subes los cambios a {% data variables.product.product_name %}.
+1. Debajo de "Compilación y despliegue", debajo de "Fuente", selecciona **Desplegar desde una rama**.
+1. Debajo de "Compilación y despliegue", debajo de "Rama", utiliza los menús desplegables de **Ninguna** o de **Rama** y selecciona una fuente de publicación.
+
+   ![Menú desplegable para seleccionar una fuente de publicación](/assets/images/help/pages/publishing-source-drop-down.png)
+1. Opcionalmente, abre el archivo `README.md` de tu repositorio. El archivo `README.md` es donde escribirás el contenido de tu sitio. Puedes editar el archivo o mantener el contenido predeterminado por el momento.
+1. Visita `username.github.io` para ver tu sitio web nuevo. **Nota:** Es posible que tome hasta 10 minutos la publicación de los cambios en tu sitio luego de que subes los cambios a {% data variables.product.product_name %}.
 
 ## Cambiar el título y la descripción
 

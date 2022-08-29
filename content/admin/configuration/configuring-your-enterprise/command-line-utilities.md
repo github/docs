@@ -23,10 +23,6 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
-{% ifversion ghes %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
-{% endif %}
-
 ```shell
 # Sets a message that's visible to everyone
 $ ghe-announce -s MESSAGE
@@ -36,7 +32,23 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghe-announce-dismiss %}
+To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+```shell
+# Sets a user-dismissible message that's visible to everyone
+$ ghe-announce -d -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message, which was user dismissible: MESSAGE
+```
+{% endif %}
+
+{% ifversion ghes %}
+You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
+{% endif %}
+
+{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -276,33 +288,6 @@ Use this command to immediately unlock the {% data variables.enterprise.manageme
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
-
-This utility can help identify whether the Resque server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Resque:
-
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
-
-If you suspect Resque is failing, contact {% data variables.contact.contact_ent_support %} for help.
-
-With this command, you can also pause or resume jobs in the queue.
-
-```shell
-$ ghe-resque-info
-# lists queues and the number of currently queued jobs
-$ ghe-resque-info -p <em>QUEUE</em>
-# pauses the specified queue
-$ ghe-resque-info -r <em>QUEUE</em>
-# resumes the specified queue
-```
-{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -357,6 +342,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ```shell
 ghe-set-password <new_password>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Use the -h flag for additional options.
 
 ### ghe-ssh-check-host-keys
 
@@ -636,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -675,7 +672,7 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
@@ -751,6 +748,20 @@ This utility rewrites the imported repository. This gives you a chance to rename
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## Security
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## Support
 

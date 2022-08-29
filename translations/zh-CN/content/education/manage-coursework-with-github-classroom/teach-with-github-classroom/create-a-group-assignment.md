@@ -55,7 +55,7 @@ redirect_from:
 
 ### 选择作业类型
 
-在“Individual or group assignment（个人或小组作业）”下，选择下拉菜单，然后单击 **Group assignment（小组作业）**。 创建作业后不可更改作业类型。 如果要创建个人作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”。
+在“Individual or group assignment（个人或小组作业）”下，选择下拉菜单，然后单击 **Group assignment（小组作业）**。 创建作业后不可更改作业类型。 If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### 确定作业的团队
 
@@ -151,6 +151,6 @@ redirect_from:
 
 ## 延伸阅读
 
-- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
 - "[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - {% data variables.product.prodname_education %} 社区中的[在小组作业中使用现有团队吗？](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)

@@ -1,9 +1,9 @@
 ---
 title: 管理组织代码空间的存储库访问
 shortTitle: 存储库访问
-intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的组织仓库。'
+intro: '您可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的组织仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
+permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,13 +20,13 @@ redirect_from:
 
 {% warning %}
 
-**弃用说明**：访问和安全设置现已弃用。 要启用对其他存储库的扩展访问权限，请将请求的权限添加到开发容器定义中。 更多信息请参阅“[管理代码空间中对其他存储库的访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your `devcontainer.json` configuration file. 更多信息请参阅“[管理代码空间中对其他存储库的访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。
 
 {% endwarning %}
 
 默认情况下，代码空间只能访问创建它的仓库。 当您为组织拥有的存储库启用访问和安全性时，为该存储库创建的任何代码空间也将对组织拥有的所有其他存储库具有读取权限，并且代码空间创建者具有访问权限。 如果要限制代码空间可以访问的存储库，可以将其限制为创建代码空间的存储库或特定存储库。 您应该只对您信任的仓库启用访问和安全。
 
-要管理组织中的哪些用户可以使用 {% data variables.product.prodname_codespaces %}，请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
+To manage which users in your organization can use {% data variables.product.prodname_github_codespaces %}, see "[Enabling GitHub Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

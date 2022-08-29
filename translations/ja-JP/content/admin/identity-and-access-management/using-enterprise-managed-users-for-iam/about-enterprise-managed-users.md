@@ -36,8 +36,6 @@ You can grant {% data variables.product.prodname_managed_users %} access to and 
 
 The usernames of your enterprise's {% data variables.product.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-{% data reusables.enterprise-accounts.emu-forks %}
-
 Enterprise owners can audit all of the {% data variables.product.prodname_managed_users %}' actions on {% data variables.product.prodname_dotcom %}. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)."
 
 To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[About enterprises with managed users](#about-enterprises-with-managed-users)."
@@ -66,7 +64,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 {% data variables.product.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.product.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community. These visibility and access restrictions for users and content apply to all requests, including API requests.
 
-* {% data variables.product.prodname_managed_users %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.product.prodname_managed_users %} be invited to other enterprises.
+* {% data variables.product.prodname_managed_users_caps %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.product.prodname_managed_users %} be invited to other enterprises.
 * Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
 * {% data variables.product.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
@@ -75,12 +73,13 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 * {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.product.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.product.prodname_managed_user %} to collaborate.
-* {% data variables.product.prodname_managed_users_caps %} can only own private repositories and {% data variables.product.prodname_managed_users %} can only invite other enterprise members to collaborate on their owned repositories.
+* You can choose whether {% data variables.product.prodname_managed_users %} are able to create repositories owned by their user accounts. 詳しい情報については、「[Enterprise でのリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)」を参照してください。
+* If you allow {% data variables.product.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
 * {% data variables.product.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)」を参照してください。
 
-## Getting started with {% data variables.product.prodname_emus %}
+## {% data variables.product.prodname_emus %}を使い始める
 
 Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.
 
@@ -96,7 +95,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
   {% endnote %}
 
-3. After you log in to your setup user, get started by configuring {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+3. After you log in as the setup user, we recommend enabling two-factor authentication. 詳しい情報については、「[2 要素認証を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」を参照してください。
+
+1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
   {% ifversion oidc-for-emu %}
 
@@ -110,6 +111,8 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 4. Once you have configured SSO, you can configure SCIM provisioning. SCIM is how your identity provider will provision and manage member accounts and teams on {% data variables.product.prodname_dotcom_the_website %}. For more information on configuring SCIM provisioning, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
 
 5. Once authentication and provisioning are configured, you can start provisioning members and managing teams. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+
+If members of your enterprise must use one workstation to contribute to repositories on {% data variables.product.product_location %} from both a  {% data variables.product.prodname_managed_user %} and a personal account, you can provide support. For more information, see "[Supporting developers with multiple user accounts on {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)."
 
 ## {% data variables.product.prodname_managed_user %} として認証を行う
 
@@ -129,4 +132,10 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
 
-The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}.
+The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
+
+## Supporting developers with multiple user accounts on {% data variables.product.product_location %}
+
+People on your team may need to contribute to resources on {% data variables.product.product_location %} that are outside of your {% data variables.product.prodname_emu_enterprise %}. For example, you may wish to maintain a separate enterprise for your company's open source projects. Because a {% data variables.product.prodname_managed_user %} cannot contribute to public resources, users will need to maintain a separate, personal account for this work.
+
+People who must contribute from two user accounts on {% data variables.product.product_location %} using one workstation can configure Git to simplify the process. For more information, see "[Managing multiple accounts](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."

@@ -31,16 +31,12 @@ shortTitle: 配置 DNS 服务器
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. 要编辑域名服务器，请输入：
+2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)”。
 
   ```shell
-  sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
 
-{% data reusables.enterprise_installation.preventing-nameservers-change %}
-
-3. 附加任何 `nameserver` 条目，然后保存文件。
-4. 验证变更后，请保存文件。
 5. 要向 {% data variables.product.product_location %} 添加新的域名服务器条目，请运行以下命令：
 
   ```shell

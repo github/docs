@@ -1,3 +1,3 @@
-1. In the Okta Dashboard, expand the **Applications** menu, then click **Applications**.
+1. 在 Okta 仪表板中，展开 **Applications（应用程序）**菜单，然后单击 **Applications（应用程序）**。
 
-  !["Applications" menu navigation](/assets/images/help/saml/okta-ae-add-application.png)
+  !["应用程序"菜单导航](/assets/images/help/saml/okta-ae-add-application.png)

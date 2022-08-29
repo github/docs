@@ -1,9 +1,11 @@
 ---
 title: License
-intro: 'The License API provides information on your Enterprise license.'
+intro: The License API provides information on your Enterprise license.
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -1,1 +1,1 @@
-The <code>macos-latest</code> YAML workflow label currently uses the macOS 10.15 virtual environment.
+<code>macos-latest</code> YAMLワークフローラベルは、現在macOS 10.15のランナーイメージを使用します。

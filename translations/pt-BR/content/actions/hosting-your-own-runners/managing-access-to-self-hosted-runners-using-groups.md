@@ -67,7 +67,7 @@ Os grupos de executores de {% data reusables.actions.runner-group-assign-policy-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Em {% ifversion ghes > 3.1 or ghae %}"Executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %}, clique em **Adicionar novo** e, em seguida, **Novo grupo**.
+1. Em {% ifversion ghes or ghae %}"Executores"{% endif %}, clique em **Adicionar novo** e, em seguida, em **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
@@ -204,7 +204,7 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 2. Selecione o menu suspenso **Grupo do executor**.
 3. Em "Transferir executor para o grupo", escolha um grupo de destino para o executor.
 {% elsif ghae or ghes < 3.4 %}
-1. Na seção {% ifversion ghes > 3.1 or ghae %}"Grupos de executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %} da página de configurações, localize o grupo atual do executor que deseja mover e expandir a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. Na seção "Grupos de executores" de {% ifversion ghes or ghae %}{% endif %} na página de configurações. localize o grupo atual do executor que você deseja transferir e expanda a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. Marque a caixa de seleção ao lado do executor auto-hospedado e, em seguida, clique em **Mover para o grupo** para ver os destinos disponíveis. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. Para mover o executor, clique no grupo de destino. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -213,16 +213,11 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 
 Os executores auto-hospedados são retornados automaticamente ao grupo-padrão quando seu grupo é removido.
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. Na lista de grupos, à direita do grupo que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. Para remover o grupo, clique em **Remover grupo**.
 3. Revise os avisos de confirmação e, em seguida, clique em **Remover este grupo de executores**.
-{% elsif ghes < 3.2 %}
-1. Na seção "Executores auto-hospedados" da página de configurações, localize o grupo que você deseja excluir e clique no botão {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} . ![Exibir configurações do grupo de executores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
-1. Para remover o grupo, clique em **Remover grupo**. ![Exibir configurações do grupo de executores](/assets/images/help/settings/actions-org-runner-group-remove.png)
-
-1. Revise os avisos de confirmação e, em seguida, clique em **Remover este grupo de executores**.
 {% endif %}
 {% endif %}

@@ -32,7 +32,10 @@ topics:
 
 默认情况下，每个分支保护规则都禁止强制推送到匹配的分支并阻止删除匹配的分支。 您可以选择禁用这些限制并启用其他分支保护设置。
 
-默认情况下，分支保护规则的限制不适用于对仓库具有管理员权限的人。 您也可以选择包括管理员。
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+默认情况下，分支保护规则的限制不适用于对仓库具有管理员权限的人。 You can optionally choose to include administrators, too.{% endif %}
 
 {% data reusables.repositories.branch-rules-example %} 关于分支名称模式的更多信息，请参阅“[管理分支保护规则](/github/administering-a-repository/managing-a-branch-protection-rule)”。
 
@@ -43,8 +46,7 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
+- [合并前需要对话解决](#require-conversation-resolution-before-merging)
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -53,7 +55,7 @@ topics:
 {%- ifversion required-deployments %}
 - [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
 {%- endif %}
-- [包括管理员](#include-administrators)
+{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
 - [允许删除](#allow-deletions)
@@ -103,11 +105,9 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 合并前需要对话解决
 
 在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
-{% endif %}
 
 ### 要求签名提交
 
@@ -127,7 +127,7 @@ remote: error: Changes have been requested.
 
 {% endnote %}
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
+如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地 {% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
 
 {% ifversion fpt or ghec %} 有关合并方法的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
 
@@ -152,9 +152,15 @@ remote: error: Changes have been requested.
 
 您可以要求先将更改成功部署到特定环境，然后才能合并分支。 例如，可以使用此规则确保在更改合并到默认分支之前，将更改成功部署到过渡环境。
 
-### 包括管理员
+{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+### Include administrators{% endif %}
 
-默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository.
+
+You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 You can enable this setting to include administrators in your protected branch rules.{% endif %}
 
 ### 限制谁可以推送到匹配的分支
 

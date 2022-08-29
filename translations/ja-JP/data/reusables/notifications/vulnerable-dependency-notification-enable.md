@@ -1,3 +1,3 @@
-{% ifversion fpt or ghes > 3.1 or ghec %}
-To receive notifications about {% data variables.product.prodname_dependabot_alerts %} on repositories, you need to watch these repositories, and subscribe to receive "All Activity" notifications or configure custom settings to include "Security alerts." For more information, see "[Configuring your watch settings for an individual repository](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+{% ifversion fpt or ghes or ghec %}
+リポジトリの{% data variables.product.prodname_dependabot_alerts %}に関する通知を受け取るには、それらのリポジトリをWatchし、"All Activity"通知を受信するようサブスクライブするか、"Security alerts"を含めるようにカスタム設定をしてください。 詳しい情報については「[個々のリポジトリのWatchの設定](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}

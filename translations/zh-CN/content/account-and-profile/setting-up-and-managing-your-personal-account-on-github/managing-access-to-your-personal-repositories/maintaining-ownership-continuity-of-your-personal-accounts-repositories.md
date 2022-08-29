@@ -36,4 +36,4 @@ shortTitle: 所有权连续性
 3. 要邀请继承者，在“Successor settings（继承者设置）”下开始输入用户名、全名或电子邮件地址，然后单击出现的姓名。 ![继承者邀请搜索字段](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. 单击 **Add successor（添加继承者）**。
 {% data reusables.user-settings.sudo-mode-popup %}
-5. 您邀请的用户将被列为“Pending（待定）”，直到他们同意成为您的继承者。 ![待定继承者邀请](/assets/images/help/settings/settings-pending-successor.png)
+6. 您邀请的用户将被列为“Pending（待定）”，直到他们同意成为您的继承者。 ![待定继承者邀请](/assets/images/help/settings/settings-pending-successor.png)

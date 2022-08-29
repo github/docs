@@ -1,23 +1,23 @@
 
-When using the `push` event, you can configure a workflow to run on specific branches or tags.
+使用 `push` 事件时，您可以将工作流程配置为在特定分支或标签上运行。
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+如果要包括分支名称模式，或者要同时包含和排除分支名称模式，请使用 `branches` 筛选器。 只需要排除分支名称模式时，请使用 `branches-ignore` 过滤器。 不能同时对工作流程中的同一事件使用 `branches` 和 `branches-ignore` 筛选器。
 
-Use the `tags` filter when you want to include tag name patterns or when you want to both include and exclude tag names patterns. Use the `tags-ignore` filter when you only want to exclude tag name patterns. You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow.
+如果要包括分支名称模式，或者要同时包含和排除分支名称模式，请使用 `tags` 筛选器。 当您只想排除标记名称模式时，请使用 `tags-ignore` 筛选器。 不能同时对工作流程中的同一事件使用 `tags` 和 `tags-ignore` 筛选器。
 
-If you define only `tags`/`tags-ignore` or only `branches`/`branches-ignore`, the workflow won't run for events affecting the undefined Git ref. If you define neither  `tags`/`tags-ignore` or `branches`/`branches-ignore`, the workflow will run for events affecting either branches or tags. If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+如果只定义 `tags`/`tags-ignore` 或只定义 `branches`/`branches-ignore`，则影响未定义 Git ref 的事件不会触发工作流程运行。 如果未定义 `tags`/`tags-ignore` 或 `branches`/`branches-ignore`，则工作流程将针对影响分支或标记的事件运行。 如果同时定义 `branches`/`branches-ignore` 和 [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)，则工作流程仅在同时满足两个筛选器时才会运行。
 
-`branches`、`branches-ignore`、`tags` 和 `tags-ignore` 关键词接受使用 `*`、`**`、`+`、`?`、`!` 等字符匹配多个分支或标记名称的 glob 模式。 If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+`branches`、`branches-ignore`、`tags` 和 `tags-ignore` 关键词接受使用 `*`、`**`、`+`、`?`、`!` 等字符匹配多个分支或标记名称的 glob 模式。 如果名称包含其中任一字符，而您想要逐字匹配，则需要使用 `\` *转义*每个特殊字符。 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
 #### 示例：包括分支和标记
 
-在 `branches` 和 `tags` 中定义的模式根据 Git ref 的名称进行评估。 For example, the following workflow would run whenever there is a `push` event to:
+在 `branches` 和 `tags` 中定义的模式根据 Git ref 的名称进行评估。 例如，每当有 `push` 事件时，就会运行以下工作流程：
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
+- 名为 `main` 的分支 (`refs/heads/main`)
+- 名为 `mona/octocat` 的分支 (`refs/heads/mona/octocat`)
+- 名称以 `releases/` 开头的分支，如 `releases/10` (`refs/heads/releases/10`)
+- 名为 `v2` 的标记 (`refs/tags/v2`)
+- 名称以 `v1.`开头的标记，如 `v1.9.1` (`refs/tags/v1.9.1`)
 
 ```yaml
 on:
@@ -33,14 +33,14 @@ on:
       - v1.*
 ```
 
-#### Example: Excluding branches and tags
+#### 示例：不包括分支和标记
 
-When a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. 在 `branches` 和 `tags` 中定义的模式根据 Git ref 的名称进行评估。 For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
+当模式与 `branches-ignore` or `tags-ignore` 模式匹配时，工作流程不会运行。 在 `branches` 和 `tags` 中定义的模式根据 Git ref 的名称进行评估。 例如，每当存在 `push` 事件时，都会运行以下工作流程，除非 `push` 事件是：
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
+- 名为 `mona/octocat` 的分支 (`refs/heads/mona/octocat`)
+- 名称与 `releases/**-alpha` 匹配的分支，如 `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- 名为 `v2` 的标记 (`refs/tags/v2`)
+- 名称以 `v1.`开头的标记，如 `v1.9` (`refs/tags/v1.9`)
 
 ```yaml
 on:
@@ -55,11 +55,11 @@ on:
       - v1.*
 ```
 
-#### Example: Including and excluding branches and tags
+#### 示例：包括和排除分支和标记
 
-You can't use `branches` and `branches-ignore` to filter the same event in a single workflow. Similarly, you can't use `tags` and `tags-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch or tag patterns for a single event, use the `branches` or `tags` filter along with the `!` character to indicate which branches or tags should be excluded.
+不能使用 `branches` 和 `branches-ignore` 来筛选单个工作流程中的同一事件。 同样，您不能使用 `tags` 和 `tags-ignore` 在单个工作流程中筛选同一事件。 如果要同时包含和排除单个事件的分支模式，请使用 `branches` 或 `tags` 筛选器与 `!` 字符指示应排除哪些分支或标记。
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead. Similarly, if you define a tag with the `!` character, you must also define at least one tag without the `!` character. If you only want to exclude tags, use `tags-ignore` instead.
+如果使用 `!` 字符定义分支，还必须定义至少一个不带 `!` 字符的分支。 如果只想排除分支，请改用 `paths-ignore`。 类似地，如果使用 `!` 字符定义标记，还必须定义至少一个不带 `!` 字符的标记。 如果只想排除标记，请改用 `paths-ignore`。
 
 您定义模式事项的顺序。
 

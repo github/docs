@@ -36,5 +36,5 @@ The person you invite to be your successor must have a {% data variables.product
    ![Successor invitation search field](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. Click **Add successor**.
 {% data reusables.user-settings.sudo-mode-popup %}
-5. The user you've invited will be listed as "Pending" until they agree to become your successor.
+6. The user you've invited will be listed as "Pending" until they agree to become your successor.
    ![Pending successor invitation](/assets/images/help/settings/settings-pending-successor.png)

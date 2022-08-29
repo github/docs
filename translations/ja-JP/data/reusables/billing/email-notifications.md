@@ -1,5 +1,5 @@
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90% and 100% of your account's included usage and when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit.
+メール通知は、使用量がアカウントに含まれる使用量の50%、75%、90%、100%に達したとき、及びアカウントの利用上限の50%、75%、90%、100%に達したときに、アカウントのオーナーと支払いマネージャーに送信されます。
 
-You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+これらの通知は、**Spending Limit（利用上限）** ページの下部にアクセスしていつでも無効化できます。
 
 ![支払いのメール通知設定のスクリーンショット](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)

@@ -51,7 +51,4 @@ jobs:
           # Set filtered to only these so it doesn't run for too long.
           LANGUAGE: en
           VERSION: free-pro-team@latest
-          # Because the overload protection runs in NODE_ENV==production
-          # and it can break the sync-search.
-          DISABLE_OVERLOAD_PROTECTION: true
         run: npm run sync-search

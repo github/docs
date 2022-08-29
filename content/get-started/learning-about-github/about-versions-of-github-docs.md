@@ -47,6 +47,10 @@ In a wide browser window, the word "Enterprise" immediately follows the {% data 
 
 ![Screenshot of address bar and {% data variables.product.prodname_ghe_server %} header in a browser](/assets/images/help/docs/header-ghes.png)
 
+You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
+
+![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}, with the version highlighted](/assets/images/help/docs/ghes-version-in-footer.png)
+
 ### {% data variables.product.prodname_ghe_managed %}
 
 If you access {% data variables.product.prodname_dotcom %} at `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_managed %}.

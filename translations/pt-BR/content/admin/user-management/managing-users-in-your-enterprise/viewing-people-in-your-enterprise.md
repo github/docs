@@ -1,6 +1,7 @@
 ---
 title: Visualizar pessoas na sua empresa
 intro: 'Para auditar o acesso à utilização de licença de usuário ou de recursos pertencentes à empresa, os proprietários corporativos podem exibir todos os administradores e integrantes da empresa.'
+permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -21,9 +22,27 @@ Para controlar o acesso aos recursos da sua empresa e gerenciar o uso da licenç
 
 Você pode ver todos os integrantes atuais da empresa e administradores da empresa{% ifversion ghec %}, bem como convites pendentes para se tornarem integrantes e administradores{% endif %}. Para facilitar o consumo destas informações, você pode pesquisar e filtrar as listas.
 
+{% ifversion ghec %}
+
+Se {% data variables.product.prodname_github_connect %} estiver configurado para sua empresa, ao filtrar uma lista de pessoas da sua empresa, irão aplicar-se limitações a seguir.
+
+- O filtro para o status de autenticação de dois fatores (2FA) não mostra pessoas que têm apenas uma conta em uma instância de {% data variables.product.prodname_ghe_server %}.
+- Se você combinar o filtro para contas nas instâncias de {% data variables.product.prodname_ghe_server %} com o filtro para organizações ou o status de 2FA, você não verá nenhum resultado.
+
+Para obter mais informações sobre {% data variables.product.prodname_github_connect %}, consulte os seguintes artigos.
+
+- "[Sobre {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_server %}
+- "[Sobre {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_managed %}
+
+{% endif %}
+
 ## Visualizando os administradores corporativos
 
 Você pode visualizar todos os atuais proprietários da empresa{% ifversion ghec %} e gerentes de cobrança{% endif %} para a sua empresa.{% ifversion enterprise-membership-view-improvements %} Você pode ver informações úteis sobre cada administrador{% ifversion ghec %} e filtrar a lista por função{% endif %}.{% endif %} Você pode encontrar uma pessoa específica pesquisando o nome de usuário ou nome de exibição.
+
+{% ifversion ghes > 3.5 %}
+Os proprietários de empresas cujas contas são suspensas são incluídos na lista de administradores da empresa e identificados como suspensos. Você deve considerar rebaixar todos proprietários suspensos que você vir. Para obter mais informações, consulte "[Promover ou rebaixar administradores de site](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)".
+{% endif %}
 
 {% ifversion not ghae %}
 Você também pode remover um administrador. Para mais informações. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
@@ -64,7 +83,6 @@ Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, 
 
 {% endif %}
 
-
 {% ifversion ghec %}
 ## Visualizando convites pendentes
 
@@ -92,7 +110,6 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-
 ## Visualizando integrantes suspensos em um {% data variables.product.prodname_emu_enterprise %}
 
 Se sua empresa usa {% data variables.product.prodname_emus %}, você também pode visualizar usuários suspensos. Os usuários suspensos são integrantes que foram desprovisionados depois que o aplicativo de {% data variables.product.prodname_emu_idp_application %} cancelou ou excluiu sua atribuição do provedor de identidade. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)".
@@ -107,7 +124,7 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, você também pod
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 ## Visualizando os integrantes sem um endereço de e-mail de um domínio verificado
 
 Você pode visualizar uma lista de integrantes da sua empresa que não têm um endereço de e-mail a partir de um domínio verificado associado à sua conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.

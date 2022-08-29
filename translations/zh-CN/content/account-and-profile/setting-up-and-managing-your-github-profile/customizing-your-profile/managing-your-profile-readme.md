@@ -56,7 +56,7 @@ shortTitle: 您的个人资料自述文件
 
   生成的自述文件用模板预先填充，为您创建个人资料自述文件提供一些启发。 ![带有预填充模板的自述文件](/assets/images/help/repository/personal-repository-readme-template.png)
 
-有关所有可用表情符号及其代码的摘要，请参阅“[表情符号备忘清单](http://www.emoji-cheat-sheet.com/)” 。
+有关所有可用表情符号及其代码的摘要，请参阅“[表情符号备忘清单](https://www.webfx.com/tools/emoji-cheat-sheet/)” 。
 
 ## 删除个人资料自述文件
 
@@ -66,7 +66,7 @@ shortTitle: 您的个人资料自述文件
 - 该仓库为私有仓库。
 - 仓库名称不再与您的用户名匹配。
 
-您选择的方法取决于您的需求，但如果您不确定，我们建议您将仓库设为私有。 有关如何将仓库设为私有的步骤，请参阅[“更改仓库的可见性”](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)。
+您选择的方法取决于您的需求，但如果您不确定，我们建议您将仓库设为私有。 For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## 延伸阅读
 
