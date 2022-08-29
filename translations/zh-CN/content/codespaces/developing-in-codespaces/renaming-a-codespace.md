@@ -27,7 +27,9 @@ To find the display name of a codespace:
 
   ![Screenshot of the Remote Explorer in VS Code](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
+{% indented_data_reference reusables.codespaces.remote-explorer spaces=2 %}
 - In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+
 ### Permanent codespace names
 
 In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. 例如： `octocat-myrepo-gmc7`。 You can't change this name.

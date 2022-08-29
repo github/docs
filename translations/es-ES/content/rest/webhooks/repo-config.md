@@ -1,5 +1,5 @@
 ---
-title: Repository Webhook Configuration
+title: Configuración de webhook de repositorio
 intro: ''
 versions:
   fpt: '*'

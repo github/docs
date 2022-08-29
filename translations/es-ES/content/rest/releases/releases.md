@@ -1,6 +1,6 @@
 ---
 title: Lanzamientos
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.'
+intro: 'La API de lanzamientos te permite crear, modificar y borrar los lanzamientos y activos de lanzamiento.'
 versions:
   fpt: '*'
   ghes: '*'

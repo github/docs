@@ -29,11 +29,11 @@ topics:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Genera un par de la llave GPG. Ya que existen varias versiones de GPG, puede que necesites consultar la [_página man_](https://en.wikipedia.org/wiki/Man_page) relevante para encontrar el comando adecuado para la generación de llaves. Tu llave debe utilizar RSA.
     - Si estás usando una versión 2.1.17 o superior, copia el siguiente texto para generar un par de la llave GPG.
-      ```shell
+      ```shell{:copy}
       $ gpg --full-generate-key
       ```
     - Si no estás usando la versión 2.1.17 ni una superior, el comando `gpg --full-generate-key` no funciona. Copia el siguiente texto y continúa con el paso 6.
-      ```shell
+      ```shell{:copy}
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
 4. En el prompt, especifica la clase de llave que quieres, o presiona `Enter` para aceptar lo predeterminado.
@@ -52,10 +52,10 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 10. Pega el siguiente texto sustituyendo el ID de la llave GPG que deseas usar. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
-  ```shell
-  $ gpg --armor --export <em>3AA5C34371567BD2</em>
-  # Prints the GPG key ID, in ASCII armor format
-  ```
+ ```shell{:copy}
+ $ gpg --armor --export <em>3AA5C34371567BD2</em>
+ # Prints the GPG key ID, in ASCII armor format
+ ```
 11. Copia tu llave GPG, comenzando con `-----BEGIN PGP PUBLIC KEY BLOCK-----` y terminando con `-----END PGP PUBLIC KEY BLOCK-----`.
 12. [Agrega la llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 

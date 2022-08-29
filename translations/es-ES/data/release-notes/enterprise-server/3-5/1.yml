@@ -32,10 +32,10 @@ sections:
     - 'Los repositorios borrados no se purgarán del disco automáticamente después de que finalice el periodo de retención de 90 días. Esta propuesta se resolvió en el lanzamiento 3.5.1. [Actualizado: 2022-06-10]'
     - 'La consola de administración podría haberse mostrado atascada en la pantalla de _Starting_ después de mejorar una instancia subaprovisionada para GitHub Enterprise Server 3.5. [Actualizado: 2022-06-20]'
     - |
-      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+      Las siguientes características no estuvieron disponibles para los usuarios en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. Las características están disponibles en la versión 2.5.4 y posterior. [Actualizado: 2022-08-16]
 
-      - Detection of GitHub Actions workflow files for the dependency graph
-      - Reopening of dismissed Dependabot alerts
-      - Enabling the **Update branch** button for all pull requests in a repository
-      - Light high contrast theme
+      - Detección de archivos de flujo de GitHub Actions para la gráfica de dependencias
+      - Reapertura de las alertas descartadas del Dependabot
+      - Habilitar el botón **Actualizar rama** para todas las solicitudes de cambio en un repositorio
+      - Tema claro de alto contraste
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

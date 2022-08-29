@@ -21,6 +21,6 @@ ReadMe | Llave de Acceso de la API de ReadMe API | readmeio_api_access_token{% e
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %} Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth a Samsara | samsara_oauth_access_token SendGrid | Llave de la API de SendGrid | sendgrid_api_key Sendinblue | Llave de la API de Sendinblue | sendinblue_api_key Sendinblue | Llave SMTP de Sendinblue | sendinblue_smtp_key Shippo | Token de la API en Vivo de Shippo | shippo_live_api_token Shopify | Secreto Compartido de la Aplicación de Shopify | shopify_app_shared_secret Shopify | Token de Acceso a Shopify | shopify_access_token Slack | Token de la API de Slack | slack_api_token Stripe | Llave Secreta de la API en Vivo de Stripe | stripe_api_key Tencent Cloud | ID Secreta de la Nube de Tencent | tencent_cloud_secret_id Typeform | Token de Acceso Personal a Typeform | typeform_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
-Uniwise | WISEflow API Key | wiseflow_api_key{% endif %} WorkOS | WorkOS Production API Key | workos_production_api_key
+Uniwise | Llave de la API de WISEflow | wiseflow_api_key{% endif %} WorkOS | Llave de la API de Producción de WorkOS | workos_production_api_key
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
 Zuplo | Llave de la API de Consumidor de Zuplo | zuplo_consumer_api_key{% endif %}

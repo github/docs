@@ -87,7 +87,7 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
 
 {% note %}
 
-**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+**Nota:** La transmisión a Amazon S3 con OpenID Connect se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 

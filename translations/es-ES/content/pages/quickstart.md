@@ -30,7 +30,7 @@ Esta guía te mostrará cómo crear un sitio de usuario en `username.github.io`.
 1. Debajo de "Compilación y despliegue", debajo de "Rama", utiliza los menús desplegables de **Ninguna** o de **Rama** y selecciona una fuente de publicación.
 
    ![Menú desplegable para seleccionar una fuente de publicación](/assets/images/help/pages/publishing-source-drop-down.png)
-1. Optionally, open the `README.md` file of your repository. El archivo `README.md` es donde escribirás el contenido de tu sitio. Puedes editar el archivo o mantener el contenido predeterminado por el momento.
+1. Opcionalmente, abre el archivo `README.md` de tu repositorio. El archivo `README.md` es donde escribirás el contenido de tu sitio. Puedes editar el archivo o mantener el contenido predeterminado por el momento.
 1. Visita `username.github.io` para ver tu sitio web nuevo. **Nota:** Es posible que tome hasta 10 minutos la publicación de los cambios en tu sitio luego de que subes los cambios a {% data variables.product.product_name %}.
 
 ## Cambiar el título y la descripción

@@ -1,5 +1,5 @@
 ---
-title: Git tags
+title: Etiquetas de Git
 shortTitle: Etiquetas
 allowTitleToDifferFromFilename: true
 intro: 'The Git tags API lets you read and write tag objects to your Git database on {% data variables.product.product_name %}.'
