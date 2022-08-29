@@ -39,7 +39,7 @@ Você pode acessar contextos usando a sintaxe da expressão. Para obter mais inf
 | `env`            | `objeto` | Contém variáveis de ambiente definidas em um fluxo de trabalho, trabalho ou etapa. Para obter mais informações, consulte o contexto [`env`](#env-context). |
 | `trabalho`       | `objeto` | Informações sobre o trabalho atualmente em execução. Para obter mais informações, consulte [contexto `trabalho`](#job-context).                            |
 {%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-| `jobs` | `object` | Para apenas para fluxos de trabalho reutilizáveis, contém saídas de trabalhos do fluxo de trabalho reutilizável. For more information, see [`jobs` context](#jobs-context). |{% endif %} | `steps` | `object` | Information about the steps that have been run in the current job. Para obter mais informações, consulte [contexto `etapas`](#steps-context). | | `runner` | `object` | Information about the runner that is running the current job. Para obter mais informações, consulte [`runner` context](#runner-context). | | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. Para obter mais informações, consulte o contexto [`segredos`](#secrets-context). | | `strategy` | `object` | Information about the matrix execution strategy for the current job. Para obter mais informações, consulte o contexto [`estratégia`](#strategy-context). | | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. Para obter mais informações, consulte o contexto [`matriz`](#matrix-context). | | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. Para obter mais informações, consulte o contexto [`needs`](#needs-context). |
+| `jobs` | `object` | Para apenas para fluxos de trabalho reutilizáveis, contém saídas de trabalhos do fluxo de trabalho reutilizável. Para obter mais informações, consulte [contexto `trabalhos`](#jobs-context). |{% endif %} | `steps` | `object` | Informações sobre as etapas que foram executadas no trabalho atual. Para obter mais informações, consulte [contexto `etapas`](#steps-context). | | `runner` | `object` | Informações sobre o executor que está executando o trabalho atual. Para obter mais informações, consulte [`runner` context](#runner-context). | | `segredos` | `objeto` | Contém os nomes e valores dos segredos que estão disponíveis para uma execução de fluxo de trabalho. Para obter mais informações, consulte o contexto [`segredos`](#secrets-context). | | `strategy` | `object` | Informações sobre a estratégia de execução da matriz para o trabalho atual. Para obter mais informações, consulte o contexto [`estratégia`](#strategy-context). | | `strategy` | `object` | Contém as propriedades da matriz definidas no fluxo de trabalho que se aplicam ao trabalho atual. Para obter mais informações, consulte o contexto [`matriz`](#matrix-context). | | `needs` | `object` | Contém os resultados de todos os trabalhos que são definidos como uma dependência do trabalho atual. Para obter mais informações, consulte o contexto [`needs`](#needs-context). |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 | `entradas` | `objeto` | Contém as entradas de {% ifversion actions-unified-inputs %} reutilizável ou um fluxo de travalho acionado {% endif %} manualmente. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
 
@@ -388,20 +388,20 @@ jobs:
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 
-## `jobs` context
+## contexto `trabalhos`
 
-The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)".
+O contexto `trabalhos` só está disponível em fluxos de trabalho reutilizáveis e só pode ser usado para definir saídas para um fluxo de trabalho reutilizável. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)".
 
-| Nome da propriedade                               | Tipo     | Descrição                                                                                                                                                            |
-| ------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `jobs`                                            | `objeto` | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. Este objeto contém todas as propriedades listadas abaixo. |
-| `jobs.<job_id>.result`                      | `string` | The result of a job in the reusable workflow. Os valores possíveis são: `sucesso`, `falha`, `cancelado`ou `ignorado`.                                                |
-| `jobs.<job_id>.outputs`                     | `objeto` | The set of outputs of a job in a reusable workflow.                                                                                                                  |
-| `jobs.<job_id>.outputs.<output_name>` | `string` | The value of a specific output for a job in a reusable workflow.                                                                                                     |
+| Nome da propriedade                               | Tipo     | Descrição                                                                                                                                                                                             |
+| ------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `jobs`                                            | `objeto` | Isso só está disponível em fluxos de trabalho reutilizáveis e só pode ser usado para definir saídas para um fluxo de trabalho reutilizável. Este objeto contém todas as propriedades listadas abaixo. |
+| `jobs.<job_id>.result`                      | `string` | O resultado de um trabalho no fluxo de trabalho reutilizável. Os valores possíveis são: `sucesso`, `falha`, `cancelado`ou `ignorado`.                                                                 |
+| `jobs.<job_id>.outputs`                     | `objeto` | O conjunto de resultados de um trabalho em um fluxo de trabalho reutilizável.                                                                                                                         |
+| `jobs.<job_id>.outputs.<output_name>` | `string` | O valor de uma saída específica para um trabalho em um fluxo de trabalho reutilizável.                                                                                                                |
 
-### Example contents of the `jobs` context
+### Exemplo de conteúdo do contexto `trabalhos`
 
-This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+Este exemplo do contexto `trabalhos` contém o resultado e as saídas de um trabalho de uma execução reutilizável.
 
 ```json
 {
@@ -415,9 +415,9 @@ This example `jobs` context contains the result and outputs of a job from a reus
 }
 ```
 
-### Example usage of the `jobs` context
+### Exemplo de uso do contexto `trabalhos`
 
-This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)".
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `trabalhos` para definir saídas para o fluxo de trabalho reutilizável. Observe como as saídas fluem das etapas, para o trabalho, e depois para o gatilho `workflow_call`. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)".
 
 {% raw %}
 ```yaml{:copy}
