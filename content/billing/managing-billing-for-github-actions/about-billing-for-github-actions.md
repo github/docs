@@ -28,6 +28,12 @@ Minutes reset every month, while storage usage does not.
 
 ### Included storage and minutes
 
+{% note %}
+
+**Note**: Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+
+{% endnote %}
+
 |Product | Storage | Minutes (per month)|
 |------- | ------- | ---------|
 | {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
