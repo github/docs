@@ -32,7 +32,7 @@ tart:-on :
 +      - name: Setup Deno
 +        # uses: denoland/setup-deno@v1
 +        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
-+        with:
++       -' with:
 +          deno-version: v1.x
 +
 +      # Uncomment this step to verify the use of 'deno fmt' on each commit.
