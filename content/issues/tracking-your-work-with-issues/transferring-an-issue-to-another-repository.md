@@ -23,7 +23,7 @@ To transfer an open issue to another repository, you must have write access to t
 
 {% endnote %}
 
-When you transfer an issue, comments, labels and assignees are retained. The issue's milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
+When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
 
 People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 
