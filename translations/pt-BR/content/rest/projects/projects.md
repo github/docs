@@ -2,7 +2,7 @@
 title: '{% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: Quadros
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
+intro: 'A API de {% data variables.product.prodname_projects_v1 %} permite criar e gerenciar {% data variables.projects.projects_v1_boards %} em um repositório.'
 versions:
   fpt: '*'
   ghes: '*'

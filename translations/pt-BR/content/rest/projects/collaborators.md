@@ -1,8 +1,8 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} collaborators'
+title: 'colaboradores de {% data variables.product.prodname_project_v1_caps %}'
 shortTitle: Colaboradores
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_project_v1 %} collaborators API lets you manage collaborators on a {% data variables.projects.projects_v1_board %}.'
+intro: 'A API de colaboradores de {% data variables.product.prodname_project_v1 %} permite que você gerencie os colaboradores em um {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'

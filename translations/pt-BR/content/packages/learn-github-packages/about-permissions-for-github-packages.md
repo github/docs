@@ -18,20 +18,22 @@ As permissões para pacotes são do escopo do repositório ou do escopo de usuá
 
 Um pacote com escopo de repositório herda as permissões e visibilidade do repositório que possui o pacote. Você pode encontrar um escopo de pacote para um repositório, acessando a página principal do repositório e clicando no link **Pacotes** à direita da página. {% ifversion fpt or ghec %}Para obter mais informações, consulte "[Conectar um repositório a um pacote](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
 
-Os {% data variables.product.prodname_registry %} registros abaixo usam permissões com escopo do repositório:
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
   {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-  - Registro de npm
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
   - Registro do Rubygems
   - Registro do Apache Maven
   - Registro do NuGet
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Permissões granulares para pacotes com escopo de usuário/organização
 
 Pacotes com permissões granulares são escopos para uma conta de usuário pessoal ou de organização. Você pode alterar o controle de acesso e a visibilidade do pacote separadamente de um repositório que está conectado (ou vinculado) a um pacote.
 
-Atualmente, apenas o {% data variables.product.prodname_container_registry %} oferece permissões granulares para os seus pacotes de imagem de contêiner.
+Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
 ## Visibilidade e permissões de acesso para imagens de contêiner
 
