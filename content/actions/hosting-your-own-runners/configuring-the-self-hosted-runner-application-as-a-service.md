@@ -35,7 +35,7 @@ For more information, see "[Adding self-hosted runners](/github/automating-your-
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script created after successfully adding the runner to install and manage using the application as a service.
+For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
 
 {{ service_non_windows_intro_shell }}
 
