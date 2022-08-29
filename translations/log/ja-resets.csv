@@ -331,7 +331,6 @@ translations/ja-JP/data/reusables/marketplace/install-buy.md,broken liquid tags
 translations/ja-JP/data/reusables/organizations/team-synchronization.md,broken liquid tags
 translations/ja-JP/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
 translations/ja-JP/data/reusables/package_registry/authenticate-to-container-registry-steps.md,broken liquid tags
-translations/ja-JP/data/reusables/package_registry/authenticate_with_pat_for_container_registry.md,broken liquid tags
 translations/ja-JP/data/reusables/package_registry/container-registry-ghes-beta.md,broken liquid tags
 translations/ja-JP/data/reusables/package_registry/container-registry-migration-namespaces.md,broken liquid tags
 translations/ja-JP/data/reusables/package_registry/next-steps-for-packages-enterprise-setup.md,broken liquid tags

@@ -1,1 +1,1 @@
-To apply this configuration, submit a request to the API endpoint and include the required configuration in the request body. For more information, see "[Set the customization template for an OIDC subject claim for an organization](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)".
+この設定を適用するには、APIエンドポイントにリクエストをサブミットし、そのリクエストのボディに必要な設定を含めてください。 詳しい情報については「[OrganizationのOIDCサブジェクトクレームのカスタマイズテンプレートの設定](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)」を参照してください。
