@@ -395,16 +395,15 @@ translations/zh-CN/data/reusables/notifications/vulnerable-dependency-notificati
 translations/zh-CN/data/reusables/organizations/team-synchronization.md,broken liquid tags
 translations/zh-CN/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
 translations/zh-CN/data/reusables/package_registry/authenticate-to-container-registry-steps.md,broken liquid tags
-translations/zh-CN/data/reusables/package_registry/authenticate_with_pat_for_container_registry.md,broken liquid tags
 translations/zh-CN/data/reusables/package_registry/docker_registry_deprecation_status.md,Listed in localization-support#489
 translations/zh-CN/data/reusables/package_registry/next-steps-for-packages-enterprise-setup.md,broken liquid tags
 translations/zh-CN/data/reusables/package_registry/packages-cluster-support.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags
