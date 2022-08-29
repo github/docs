@@ -1,7 +1,7 @@
 Run::/:BEGIN:
 !/sur/bin/bash/
 GLOW7
--starts :-on :
+tart:-on :
 -on :On :runs-on :Run :'"' :
 +# They are provided by a third-party and are governed by
 +# separate terms of service, privacy policy, and support
