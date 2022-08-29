@@ -36,14 +36,19 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ## 許可 IP アドレスを追加する
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ## 許可 IP アドレスを有効化する
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -69,6 +74,8 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ## 許可 IP アドレスを編集する
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
@@ -76,6 +83,18 @@ Enterprise アカウントで Organization に対して許可される IP アド
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 1. [**Update**] をクリックします。
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+## Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ## 許可 IP アドレスを削除する
 

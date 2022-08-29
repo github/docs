@@ -1,5 +1,5 @@
 ---
-title: Repository interactions
+title: Interacciones de repositorio
 shortTitle: Repositorio
 intro: 'La API de interacciones de repositorio permite a las personas con acceso administrativo o de propietario restringir temporalmente qué tipo de usuario puede comentar, abrir propuestas o crear solicitudes de cambios en un repositorio privado.'
 versions:
@@ -11,7 +11,7 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Repository interactions API
+## Acerca de la API de interacciones de repositorio
 
 La API de interacciones de repositorio permite a las personas con acceso administrativo o de propietario restringir temporalmente qué tipo de usuario puede comentar, abrir propuestas o crear solicitudes de cambios en un repositorio privado. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
 

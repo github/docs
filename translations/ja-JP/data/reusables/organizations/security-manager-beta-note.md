@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The security manager role is in public beta and subject to change.
+**ノート:** セキュリティマネージャーのロールはパブリックベータであり、変更されることがあります。
 
 {% endnote %}

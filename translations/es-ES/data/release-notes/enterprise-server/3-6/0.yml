@@ -40,7 +40,7 @@ sections:
       heading: Administrator experience
       notes:
         - |
-          Enterprise owners can join organizations on the instance as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+          Los propietarios de las empresas pueden unirse a las organizaciones en la instancia como miembro o propietario desde la página de **Organizaciones* de la cuenta empresarial. Para obtener más información, consulta la sección "[Administrar tu rol en una organización que le pertenece a tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
         - |
           Enterprise owners can allow users to dismiss the configured global announcement banner. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
     - 
@@ -150,12 +150,12 @@ sections:
         - |
           Los usuarios pueden bloquear la creación de ramas que coincide con un patrón de nombre configurado con la regla de protección de rama **Restringir subidas que crean ramas coincidentes**. Por ejemplo, si la rama predeterminada de un repositorio cambia de `master` a `main`, un administrador de repositorio puede prevenir cualquier creación o subida subsecuente de la rama `master`. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" y "[Administrar una regla de protección de rama](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)".
         - |
-          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+          Los usuarios pueden crear una rama directamente desde la página de **Ramas** de un repositorio haciendo clic en **Rama nueva**. Para obtener más información, consulta la sección "[Crear y borrar ramas dentro de tu repositorio](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
         - |
           Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
         - |
-          Repositories with multiple licenses display all of the licenses in the "About" sidebar on the {% octicon "code" aria-label="The code icon" %} **Code** tab. For more information, see "[Licensing a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
-        - When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
+          Los repositorios con licencias múltiples muestran todas las licencias en la barra lateral de "Acerca de" en la pestaña de **Código** {% octicon "code" aria-label="The code icon" %}. Para obtener más información, consulta la sección "[Autorizar un repositorio](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)".
+        - Cuando un usuario renombra o mueve un archivo a un directorio nuevo, si por lo menos la mitad del contenido del archivo es idéntico, el historial de confirmación indican que el archivo se renombró, similar a `git log --follow`. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
         - |
           Los usuarios pueden requerir un despliegue exitoso de una rama antes de que cualquiera pueda fusionar la solicitud de cambios asociada con ella. Para obtener más información, consulta las secciones "[Acerca de las ramas protegidas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" y "[Administrar una regla de protección de rama](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)".
         - |
@@ -181,7 +181,7 @@ sections:
       notes:
         - |
           When viewing the details for a particular release, users can see the creation date for each release asset. For more information, see "[Viewing your repository's releases and tags](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
-        - While creating a release with automatically generated release notes, users can see the tag identified as the previous release, then choose to select a different tag to specify as the previous release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+        - Cuando creas un lanzamiento con notas de lanzamiento generadas automáticamente, los usuarios pueden ver la etiqueta identificada como el lanzamiento anterior y luego elegir seleccionar una etiqueta diferente para especificar como el lanzamiento anterior. Para obtener más información, consulta la sección "[Notas de lanzamiento generadas automáticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
     - 
       heading: Markdown
       notes:
@@ -210,3 +210,4 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Los patrones personalizados para el escaneo de secretos utilizan `.*` como un delimitador final, específicamente en el campo "Después del secreto". Este delimitador ocasiona inconsistencias en los escaneos que buscan secretos en los repositorios y podrías notar brechas en el historial de un repositorio en donde no hay escaneos completados. Los escaneos en aumento también podrían verse impactados. Para prevenir los problemas con los escaneos, modifica el final del patrón para eliminar el delimitador `.*`.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

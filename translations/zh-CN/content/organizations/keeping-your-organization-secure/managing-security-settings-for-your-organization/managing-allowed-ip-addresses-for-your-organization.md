@@ -36,14 +36,19 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 ## 添加允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ## 启用允许的 IP 地址
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -69,6 +74,8 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 ## 编辑允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
@@ -76,6 +83,18 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 1. 单击 **Update（更新）**。
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+## Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ## 删除允许的 IP 地址
 

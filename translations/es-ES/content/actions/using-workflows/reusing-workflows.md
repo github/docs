@@ -39,7 +39,7 @@ Puedes ver los flujos de trabajo reutilizados que se referencian en tus flujos d
 
 ### Flujos de trabajo reutilizables e iniciales
 
-Los flujos de trabajo iniciales permiten que toda persona en tu organización que tenga permiso para crear flujos de trabajo lo haga de forma más fácil y rápida. Cuando las personas crean un flujo de trabajo nuevo, pueden elegir un flujo de trabajo inicial y parte o todo el trabajo de escribir dicho flujo de trabajo se hará automáticamente. Dentro de un flujo de trabajo inicial, también puedes referenciar los flujos de trabajo reutilizables para hacer más fácil que las personas se beneficien de reutilizar el código de flujo de trabajo que se administra centralmente. Si utilizas un nombre de rama o etiqueta cuando referencias el flujo de trabajo reutilizable, puedes garantizar que todo aquél que reutilice ese flujo de trabajo siempre estará utilizando el mismo código de YAML. Sin embargo, si referencias un flujo de trabajo reutilizable mediante una etiqueta o rama, asegúrate de que puedas confiar en esa versión del flujo de trabajo. Para obtener más información, consulta la sección "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
+Los flujos de trabajo iniciales permiten que toda persona en tu organización que tenga permiso para crear flujos de trabajo lo haga de forma más fácil y rápida. Cuando las personas crean un flujo de trabajo nuevo, pueden elegir un flujo de trabajo inicial y parte o todo el trabajo de escribir dicho flujo de trabajo se hará automáticamente. Dentro de un flujo de trabajo inicial, también puedes referenciar los flujos de trabajo reutilizables para hacer más fácil que las personas se beneficien de reutilizar el código de flujo de trabajo que se administra centralmente. Si utilizas un SHA de confirmación cuando referencias el flujo de trabajo reutilizable, puedes garantizar que cualquiera que utilice este flujo de trabajo siempre esté utilizando el mismo código de YAML. Sin embargo, si referencias un flujo de trabajo reutilizable mediante una etiqueta o rama, asegúrate de que puedas confiar en esa versión del flujo de trabajo. Para obtener más información, consulta la sección "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
 
 Para obtener más información, consulta la sección "[Crear flujos de trabajo iniciales para tu organización](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
@@ -69,10 +69,14 @@ Los flujos de trabajo llamados que pertenecen al mismo usuario u organización{%
 
 ## Limitaciones
 
+{% ifversion nested-reusable-workflow %}
+* Puedes conectar hasta cuatro niveles de flujos de trabajo. Para obtener más información, consulta la sección "[Llamar a un flujo de trabajo reutilizable anidado](#calling-a-nested-reusable-workflow)"
+{% else %}
 * Los flujos de trabajo reutilizables no pueden llamar a otros que también sean reutilizables.
+{% endif %}
 * Los flujos de trabajo solo podrán usar a los reutilizables que se encuentren almacenados en un repositorio privado en caso de que estos también se encuentren en el mismo repositorio.
-* Ninguna variable de ambiente que se configure en un contexto de `env` que se defina a nivel del flujo de trabajo en aquél llamante se propagará al flujo llamado. Para obtener más información sobre el contexto `env`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)".
-* La propiedad `strategy` no es compatible en ningún job que llame a un flujo de trabajo reutilizable.
+* Ninguna variable de ambiente que se configure en un contexto de `env` que se defina a nivel del flujo de trabajo en aquél llamante se propagará al flujo llamado. Para obtener más información sobre el contexto `env`, consulta la sección "[Sintaxis de contexto y expresión para las GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)".{% ifversion actions-reusable-workflow-matrix %}{% else %}
+* La propiedad `strategy` no es compatible con ningún job que llame a un flujo de trabajo reutilizable.{% endif %}
 
 ## Crear un flujo de trabajo reutilizable
 
@@ -105,7 +109,13 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
    {% endraw %}
    Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior. Si los secretos se heredan utilizando `secrets: inherit`, puedes referenciarlos incluso si no se definen en la clave `on`.
+1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior.
+
+   {% note %}
+
+   **Nota**: Si los secretos se heredan utilizando `secrets: inherit` en el flujo de trabajo llamante, puedes referenciarlos incluso si no se definen explícitamente en la clave `on`. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)".
+
+   {% endnote %}
    {%- else %}
 1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior.
    {%- endif %}
@@ -164,7 +174,36 @@ jobs:
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+{% ifversion actions-reusable-workflow-matrix %}
+## Utilizar una estrategia de matriz con un flujo de trabajo reutilizable
 
+Los jobs que utilizan la estrategia de matriz pueden llamar a un flujo de trabajo reutilizable.
+
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. Por ejemplo, puedes utilizar una estrategia de matriz para pasar entradas diferentes a un flujo de trabajo reutilizable. Para obtener más información sobre las matrices, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
+
+### Estrategia de matriz ejemplo con un flujo de trabajo reutilizable
+
+Este archivo de flujo de trabajo referencia el contexto de la matriz definiendo la variable `target` con los valores `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. El archivo de flujo de trabajo también llama a un flujo de trabajo reutilizable utilizando la palabra clave `uses`.
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow with matrix strategy
+
+on:
+  push:
+
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
+    with:
+      target: ${{ matrix.target }}
+```
+{% endraw %}
+
+{% endif %}
 ## Llamar a un flujo de trabajo reutilizable
 
 Se llama a un flujo de trabajo reutilizable utilizando la palabra clave `uses`. A diferencia de cuando utilizas acciones en un flujo de trabajo, los flujos de trabajo reutilizables se llaman directamente desde un job y no dentro de los pasos de un job.
@@ -234,9 +273,61 @@ jobs:
 ```
 {% endraw %}
 
+{% ifversion nested-reusable-workflow %}
+## Anidar los flujos de trabajo reutilizables
+
+Puedes conectar un máximo de cuatro niveles de flujos de trabajo; es decir, el flujo de trabajo llamante de nivel superior y hasta tres niveles de flujos de trabajo reutilizables. Por ejemplo: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. No se permiten bucles en el árbol de flujo de trabajo.
+
+Desde dentro de un flujo de trabajo reutilizable, puedes llamar a otro.
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+
+jobs:
+  call-another-reusable:
+    uses: octo-org/example-repo/.github/workflows/another-reusable.yml@v1
+```
+{% endraw %}
+
+### Pasar secretos a flujos de trabajo anidados
+
+Puedes utilizar `jobs.<job_id>.secrets` en un flujo de trabajo llamante para pasar secretos nombrados a un fluljo de trabajo directamente llamado. Como alternativa, puedes utilizar `jobs.<job_id>.secrets.inherit` para pasar todos los secretos de un flujo de trabajo llamante a un flujo de trabajo directamente llamado. Para obtener más información, consulta la sección anterior "[Pasar entradas y secretos a un flujo de trabajo retuilizable](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)" y el artículo de referencia "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)". Los secretos solo se pasan para a un flujo de trabajo llamado directamente para que, en la cadena de flujo de trabajo A > B > C, el flujo de trabajo C solo reciba los secretos de A si ya pasaron de A a B y luego de B a C.
+
+En el siguiente ejemplo, un flujo de trabajo A pasa todos su secretos al B utilizando la palabra clave `inherit`, pero el flujo B solo pasas un secreto a un flujo de trabajo C. Cualquiera de los otros secretos que pasaron a flujo de trabajo B no están disponibles para el flujo de trabajo C.
+
+{% raw %}
+```yaml
+jobs:
+  workflowA-calls-workflowB:
+    uses: octo-org/example-repo/.github/workflows/B.yml@main
+    secrets: inherit # pass all secrets
+```
+
+```yaml
+jobs:
+  workflowB-calls-workflowC:
+    uses: different-org/example-repo/.github/workflows/C.yml@main
+    secrets:
+      envPAT: ${{ secrets.envPAT }} # pass just this secret
+```
+{% endraw %}
+
+### Acceso y permisos
+
+Un flujo de trabajo que contiene flujos de trabajo reutilizables anidados fallará si ninguno de los flujos de trabajo anidados es inaccesible para el flujo de trabajo llamante inicial. Para obtener más información, consulta la sección "[Acceder a los flujos de trabajo reutilizables](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)".
+
+Los permisos de un `GITHUB_TOKEN` solo pueden ser iguales o más restrictivos en los flujos de trabajo anidados. Por ejemplo, en la cadena de flujo de trabajo A > B > C, si el flujo de trabajo A tiene permisos de token de `package: read`, entonces B y C no pueden tener el permiso `package: write`. Para obtener más información, consulta la sección "[Autenticación automática de tokens](/actions/security-guides/automatic-token-authentication)".
+{% endif %}
+
 ## Utilizar salidas desde un flujo de trabajo reutilizable
 
-Un flujo de trabajo reutilizable podría generar datos que quieras utilizar en el flujo de trabajo llamante. Para utilizar estas salidas, debes especificarlas como las salidas del flujo de trabajo reutilizable.
+Un flujo de trabajo reutilizable podría generar datos que quieras utilizar en el flujo de trabajo llamante. Para utilizar estas salidas, debes especificarlas como aquellas del flujo de trabajo reutilizable.{% ifversion actions-reusable-workflow-matrix %}
+
+Si un flujo de trabajo reutilizable que configura una salida se ejecuta con una estrategia de matriz, dicha salida será aquella que configure el último flujo de trabajo reutilizable de la matriz que se complete exitosamente y que de hecho configure un valor. Esto significa que, si el último flujo de trabajo reutilizable que se completa exitosamente configura una secuencia vacía para su salida y el segundo flujo de trabajo reutilizable que se completa con éxito configura un valor real para su salida, dicha salida contendrá el valor del penúltimo flujo de trabajo reutilizable que se complete.{% endif %}
 
 Los siguientes flujos de trabajo reutilizables tienen un solo job que contiene dos pasos. En cada uno de estos pasos, configuramos una sola palabra como la salida: "hello" y "world". En la sección de `outputs` del job, mapeamos estas salidas de paso a las salidas de jobs llamadas: `output1` y `output2`. En la sección de `on.workflow_call.outputs`, definimos entonces a las dos salidas del mismo flujo de trabajo, una llamada `firstword`, la cual mapeamos a `output1`, y otra llamada `secondword`, la cual mapeamos a `output2`.
 

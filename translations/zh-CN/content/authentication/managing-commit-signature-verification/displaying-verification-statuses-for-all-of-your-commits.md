@@ -19,7 +19,7 @@ redirect_from:
 
 当您在计算机上本地工作时，Git 允许您设置更改的作者和提交者的身份。 这可能会使其他人难以确信您创建的提交和标记实际上是由您创建的。 为了帮助解决这个问题，您可以签署您的提交和标签。 更多信息请参阅“[签名提交](/github/authenticating-to-github/signing-commits)”和“[签名标记](/github/authenticating-to-github/signing-tags)”。 {% data variables.product.prodname_dotcom %} 使用验证状态标记已签名的提交和标记。
 
-默认情况下，如果提交和标记使用已成功验证的 GPG 或 S/MIME 密钥签名，则标记为“已验证”。 如果提交或标记具有 {% data variables.product.prodname_dotcom %} 无法验证的签名，则我们会将提交或标记标示为“未验证”。 在所有其他情况下，都不会显示验证状态。
+By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. 如果提交或标记具有 {% data variables.product.prodname_dotcom %} 无法验证的签名，则我们会将提交或标记标示为“未验证”。 在所有其他情况下，都不会显示验证状态。
 
 但是，您可以通过在 {% data variables.product.prodname_dotcom %} 设置中启用警戒模式，让其他用户对您的提交和标签所赋予的身份更加有信心。 启用警戒模式后，您的所有提交和标记都将被标记为三个验证状态之一。
 

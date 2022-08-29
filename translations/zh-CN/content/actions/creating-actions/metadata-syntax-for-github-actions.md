@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。  输入参数被设置为环境变量。 该变量的前缀为 INPUT_，并转换为大写。
+**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。 For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:

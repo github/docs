@@ -1,5 +1,5 @@
 1. Organization 名の下で、クリックします
-{% octicon "people" aria-label="The people icon" %} **Teams**.
+{% octicon "people" aria-label="The people icon" %} **Teams**をクリックしてください。
   {% ifversion fpt or ghes > 3.2 or ghec %}
   ![Teamsタブ](/assets/images/help/organizations/organization-teams-tab-with-overview.png)
   {% else %}

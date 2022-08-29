@@ -35,11 +35,15 @@ Puedes configurar el límite de uso de los codespaces en tu organización o repo
 
 ## Inhabilitar o limitar los {% data variables.product.prodname_codespaces %}
 
-Puedes inhabilitar el uso de los {% data variables.product.prodname_codespaces %} en tu organización o repositorio. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
+You can disable all use of {% data variables.product.prodname_github_codespaces %} that would be billed to your organization. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. Para obtener más información, consulta la sección "[Habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
 
-También puedes limitar a los usuarios individuales que pueden utilizar {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los permisos de los usuarios para tu organización](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
+{% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-Puedes limitar la elección de tipos de máquina que se encuentra disponible para los repositorios que pertenecen a tu organización. Esto te permite prevenir que las personas utilicen máquinas con recursos excedidos para sus codespaces. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
+You can configure which repositories can be accessed from codespaces created for a particular repository. Si necesitas más información, consulta la sección "[Administrar el acceso a otros repositorios dentro de tu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
+
+You can limit the choice of types of machine that are available for codespaces created from repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces, and incurring unnecessary charges. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
+
+You can also restrict how long a codespace can remain unused before it is automatically deleted. This can help to reduce storage costs for {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Restringir el periodo de retención para codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
 
 ## Borrar los codespaces sin utilizar
 
@@ -47,6 +51,6 @@ Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y des
 
 {% note %}
 
-**Nota:** Solo la persona que creó un codespace podrá borrarlo. Actualmente no hay forma de que los propietarios de las organizaciones borren los codespaces que se crearon dentro de su organización.
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a defined number of days. Para obtener más información, consulta la sección "[Restringir el periodo de retención para codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)". A codespace can only be manually deleted by the person who created the codespace.
 
 {% endnote %}

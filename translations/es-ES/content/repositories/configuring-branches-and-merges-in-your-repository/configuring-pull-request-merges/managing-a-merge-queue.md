@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
+La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. Los cambios en la solicitud de cambios se agrupan entonces en `merge_group` con la última versión de `base_branch` así como los cambios frente a esta en la cola. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
 
 
 Para obtener más información acerca de los métodos de fusión, consulta "[Acerca de la fusión de solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
@@ -34,11 +34,11 @@ Para obtener más información acerca de los métodos de fusión, consulta "[Ace
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-### Triggering merge group checks with {% data variables.product.prodname_actions %}
+### Activar las verificaciones de grupo de fusión con {% data variables.product.prodname_actions %}
 
-You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+Puedes utilizar el evento `merge_group` para activar tu flujo de trabajo de {% data variables.product.prodname_actions %} cuando se agrega una solicitud de cambios a una cola de fusión. Toma en cuenta que este es un evento diferente de los de `pull_request` y `push`.
 
-A workflow that reports a check which is required by the target branch's protections would look like this:
+Un flujo de trabajo que reporta una verificación requerida por las protecciones de la rama destino se vería así:
 
 ```yaml
 on:
@@ -46,9 +46,9 @@ on:
   merge_group:
 ```
 
-For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+Para obtener más información, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
 
-### Triggering merge group checks with other CI providers
+### Activar las verificaciones del grupo de fusión con otros proveedores de IC
 
 Con otros proveedores de IC, podrías necesitar actualizar tu configuración de IC para que se ejecute cuando se cree una rama que comienza con el prefijo especial `gh-readonly-queue/{base_branch}`.
 

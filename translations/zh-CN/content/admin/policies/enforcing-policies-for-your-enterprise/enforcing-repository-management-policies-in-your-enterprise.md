@@ -71,24 +71,28 @@ shortTitle: 仓库管理策略
 
 {% endif %}
 
-## 执行 {% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 仓库权限的策略
+## Enforcing a policy for base repository permissions
 
-在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
+Across all organizations owned by your enterprise, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
-  {% ifversion ghec or ghes or ghae %}
-  ![带有仓库权限策略选项的下拉菜单](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
-  {% else %}
-  ![带有仓库权限策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
-  {% endif %}
+4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“Base permissions（基本权限）”下，使用下拉菜单并选择策略。 ![带有仓库权限策略选项的下拉菜单](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+
 
 ## 执行仓库创建策略
 
-在企业拥有的所有组织中，您可以允许成员创建仓库、将仓库创建限于组织所有者或允许所有者在组织级别管理设置。 如果允许成员创建仓库，您可以选择成员能否创建公共、私有和内部仓库的任意组合。 {% data reusables.repositories.internal-repo-default %} 有关内部仓库的更多信息，请参阅“[创建内部仓库](/articles/creating-an-internal-repository)”。
+在企业拥有的所有组织中，您可以允许成员创建仓库、将仓库创建限于组织所有者或允许所有者在组织级别管理设置。
+
+If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
+{% endif %}
+
+{% data reusables.repositories.internal-repo-default %} 有关内部仓库的更多信息，请参阅“[创建内部仓库](/articles/creating-an-internal-repository)”。
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -96,18 +100,21 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. 在“Repository creation”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% ifversion ghes or ghae or ghec %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
-{% data reusables.enterprise-accounts.repo-creation-types %}
-{% else %}
-6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。
-
-  ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
-{% endif %}
+{% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
+1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## 实施有关复刻私有或内部仓库的策略
 
 在企业拥有的所有组织中，您可以允许有权访问私有或内部仓库的人员复刻仓库、永远不允许分支私有或内部仓库，或者允许所有者在组织级别管理设置。
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% note %}
+
+**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -115,14 +122,10 @@ shortTitle: 仓库管理策略
 3. 在“Repository forking”（仓库复刻）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。
 
-  ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-{% ifversion innersource-fork-policies %}
+  ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. 如果启用了复刻，则可以指定允许用户复刻存储库的位置。 查看有关更改设置的信息并选择策略。
 
-    ![显示存储库复刻策略选项列表的屏幕截图](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
-{% endif %}
-
+    ![显示存储库复刻策略选项列表的屏幕截图](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
 
 ## 执行邀请{% ifversion ghec %} 外部{% endif %} 协作者参与仓库的策略
 
@@ -140,8 +143,6 @@ shortTitle: 仓库管理策略
   ![带邀请策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
   {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-
 ## 对默认分支名称实施策略
 
 在企业拥有的所有组织中，您可以为成员创建的任何新仓库设置默认分支名称。 您可以选择在所有组织中强制实施默认分支名称，或允许个别组织设置不同的名称。
@@ -152,8 +153,6 @@ shortTitle: 仓库管理策略
 4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
 5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)
 
-{% endif %}
-
 ## 执行更改仓库可见性的策略
 
 在您的企业拥有的所有组织中，您可以允许具有管理员权限的成员更改仓库的可见性、将仓库可见性更改限制为组织所有者或允许所有者在组织级别管理设置。 当您阻止成员更改仓库可见性时，只有企业所有者可以更改仓库的可见性。
@@ -163,9 +162,8 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+1. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. 在“Repository visibility change（仓库可见性更改）”下，使用下拉菜单选择策略。 ![带有仓库可见性策略选项的下拉菜单](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
 
 ## 执行仓库删除和转移的策略
 

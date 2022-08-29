@@ -1,5 +1,5 @@
 ---
-title: Deployment environments
+title: Ambientes de despliegue
 allowTitleToDifferFromFilename: true
 shortTitle: Ambientes
 intro: 'The Deployment environments API allows you to create, configure, and delete deployment environments.'

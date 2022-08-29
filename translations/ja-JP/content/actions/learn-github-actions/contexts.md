@@ -33,17 +33,13 @@ You can access contexts using the expression syntax. For more information, see "
 
 {% data reusables.actions.context-injection-warning %}
 
-| コンテキスト名    | 種類       | 説明                                                                                                                                                   |
-| ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `github`   | `オブジェクト` | ワークフロー実行に関する情報。 詳しい情報については、「[`github` コンテキスト](#github-context)」を参照してください。                                                                            |
-| `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については、[`env` コンテキスト](#env-context)を参照してください。                                                                   |
-| `ジョブ`      | `オブジェクト` | Information about the currently running job. 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。                                                     |
-| `steps`    | `オブジェクト` | Information about the steps that have been run in the current job. 詳しい情報については、「[`steps` コンテキスト](#steps-context)」を参照してください。                           |
-| `runner`   | `オブジェクト` | 現在のジョブを実行している runner に関する情報。 詳しい情報については[`runner`コンテキスト](#runner-context)を参照してください。                                                                   |
-| `secrets`  | `オブジェクト` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context).      |
-| `strategy` | `オブジェクト` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context).              |
-| `matrix`   | `オブジェクト` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
-| `needs`    | `オブジェクト` | Contains the outputs of all jobs that are defined as a dependency of the current job. 詳しい情報については[`needs`コンテキスト](#needs-context)を参照してください。            |
+| コンテキスト名  | 種類       | 説明                                                                                               |
+| -------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `github` | `オブジェクト` | ワークフロー実行に関する情報。 詳しい情報については、「[`github` コンテキスト](#github-context)」を参照してください。                        |
+| `env`    | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については、[`env` コンテキスト](#env-context)を参照してください。               |
+| `ジョブ`    | `オブジェクト` | Information about the currently running job. 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。 |
+{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %} | `steps` | `object` | Information about the steps that have been run in the current job. 詳しい情報については、「[`steps` コンテキスト](#steps-context)」を参照してください。 | | `runner` | `object` | Information about the runner that is running the current job. 詳しい情報については[`runner`コンテキスト](#runner-context)を参照してください。 | | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). | | `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). | | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). | | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. 詳しい情報については[`needs`コンテキスト](#needs-context)を参照してください。 |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 | `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
@@ -84,7 +80,7 @@ The following table indicates where each context and special function can be use
 | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
@@ -98,7 +94,7 @@ The following table indicates where each context and special function can be use
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
 {% else %}
@@ -184,7 +180,7 @@ jobs:
 | {% ifversion actions-stable-actor-ids %}The username of the user that triggered the initial workflow run. If the workflow run is a re-run, this value may differ from `github.triggering_actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges.{% else %}The username of the user that initiated the workflow run.{% endif %} |          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                              |          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `github.api_url`                                                                                                                                                                                                                                                                                                                                                                                                                             | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `github.base_ref`                                                                                                                                                                                                                                                                                                                                                                                                                            | `string` | ワークフローの実行における `base_ref` またはプルリクエストのターゲットブランチ。  このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `github.base_ref`                                                                                                                                                                                                                                                                                                                                                                                                                            | `string` | ワークフローの実行における `base_ref` またはPull Requestのターゲットブランチ。 このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `github.env`                                                                                                                                                                                                                                                                                                                                                                                                                                 | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)."                                                                                                                                                                                                                                                     |
 | `github.event`                                                                                                                                                                                                                                                                                                                                                                                                                               | `オブジェクト` | webhook ペイロードの完全なイベント。 このコンテキストを使用して、イベントの個々のプロパティにアクセスできます。 This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." For example, for a workflow run triggered by the [`push` event](/actions/using-workflows/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push). |
 | `github.event_name`                                                                                                                                                                                                                                                                                                                                                                                                                          | `string` | ワークフローの実行をトリガーしたイベントの名前。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -196,7 +192,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)」を参照してください。 | | `github.repository` | `string` | The owner and repository name. `Codertocat/Hello-World`などです。 | | `github.repository_owner` | `string` | The repository owner's name. たとえば`Codertocat`。 | | `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. | | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.actions.run_number_description %}
+| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." | | `github.repository` | `string` | The owner and repository name. `Codertocat/Hello-World`などです。 | | `github.repository_owner` | `string` | The repository owner's name. たとえば`Codertocat`。 | | `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. | | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.actions.run_number_description %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
@@ -389,6 +385,72 @@ jobs:
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+
+## `jobs` context
+
+The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. 詳しい情報については「[ワークフローの再利用](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)」を参照してください。
+
+| プロパティ名                                            | 種類       | 説明                                                                                                                                                               |
+| ------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `jobs`                                            | `オブジェクト` | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. This object contains all the properties listed below. |
+| `jobs.<job_id>.result`                      | `string` | The result of a job in the reusable workflow. `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。                                                             |
+| `jobs.<job_id>.outputs`                     | `オブジェクト` | The set of outputs of a job in a reusable workflow.                                                                                                              |
+| `jobs.<job_id>.outputs.<output_name>` | `string` | The value of a specific output for a job in a reusable workflow.                                                                                                 |
+
+### Example contents of the `jobs` context
+
+This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+
+```json
+{
+  example_job: {
+    result: success,
+    outputs: {
+      output1: hello,
+      output2: world
+    }
+  }
+}
+```
+
+### Example usage of the `jobs` context
+
+This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. 詳しい情報については「[ワークフローの再利用](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)」を参照してください。
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
+jobs:
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=firstword::hello"
+      - id: step2
+        run: echo "::set-output name=secondword::world"
+```
+{% endraw %}
+
+{% endif %}
 
 ## `steps` コンテキスト
 

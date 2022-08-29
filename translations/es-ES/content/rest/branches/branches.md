@@ -1,6 +1,6 @@
 ---
 title: Ramas
-intro: The Branches API allows you to modify branches and their protection settings.
+intro: La API de ramas te permite modificar ramas y sus ajustes de protección.
 versions:
   fpt: '*'
   ghes: '*'

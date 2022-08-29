@@ -58,7 +58,23 @@ No painel de controle, clique no menu suspenso do seu nome de usuário no lado e
 
 ![Menu suspenso de alternância de contexto da conta](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-### Explorar outros projetos no {% data variables.product.prodname_dotcom %}
+{% ifversion for-you-feed %}
+
+## Seguindo organizações
+
+{% data reusables.organizations.follow-organizations-beta %}
+
+{% data reusables.organizations.about-following-organizations %}
+
+To follow an organization, in the header of the organization's page, click **Follow**.
+
+![Captura de tela do cabeçalho da organização, com o botão seguir destacado](/assets/images/help/profile/organization-profile-following.png)
+
+For more information, see "[Following organizations](/get-started/exploring-projects-on-github/following-organizations)."
+
+{% endif %}
+
+## Explorar outros projetos no {% data variables.product.prodname_dotcom %}
 
 Você pode encontrar projetos novos e interessantes na página de explorar de {% data variables.product.prodname_dotcom %}. Você pode favoritar projetos interessantes para torná-los fáceis de encontrar mais tarde. Visite sua página de favoritos para ver todos os seus projetos favoritos. Para obter mais informações sobre estrelas, consulte "[Repositórios salvos com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
 

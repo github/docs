@@ -539,7 +539,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +552,7 @@ body:
 
 O erro pode ser corrigido garantindo que não existam opções duplicadas na matriz de `opções`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -570,7 +570,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +585,7 @@ body:
 
 O erro pode ser corrigido removendo "Nenhum" como opção. Se você deseja que um contribuidor possa indicar que ele não gosta de nenhum desses tipos de tortas, você pode também remover a validação `necessária`.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -605,7 +605,7 @@ Os erros com `texto` serão prefixados com `body[i]`, em que `i` representa o í
 
 ### Exemplo
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +618,7 @@ body:
 
 O erro pode ser corrigido colocando cada opção incorreta entre aspas, para evitar que sejam processados como valores booleanos.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -627,6 +627,36 @@ body:
       - "Yes"
       - "No"
       - Maybe
+```
+
+## O texto não pode estar vazio
+
+O par do texto do modelo `key:value` não pode estar vazio. Para obter mais informações sobre quais chaves de nível superior são obrigatórios, consulte "[Sintaxe para os formulários do problema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax). "
+
+O erro pode ser corrigido adicionando a seção `body:`.
+
+### Exemplo
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+Neste exemplo, o erro pode ser corrigido excluindo o `---` (separador do documento) entre os cabeçalhos e a seção `texto`.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
 ```
 
 ## Leia mais
