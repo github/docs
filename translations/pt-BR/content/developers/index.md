@@ -1,6 +1,6 @@
 ---
 title: Desenvolvedores
-intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
+intro: 'Aprofunde-se com {% data variables.product.prodname_dotcom %}, integrando nossas APIs e webhooks, personalizando seu fluxo de trabalho de {% data variables.product.prodname_dotcom %} e criando e compartilhando aplicativos com a comunidade.'
 introLinks:
   About apps: /developers/apps/getting-started-with-apps/about-apps
 layout: product-landing

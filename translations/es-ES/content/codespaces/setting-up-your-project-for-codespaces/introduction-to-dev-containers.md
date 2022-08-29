@@ -53,7 +53,7 @@ Para obtener más información sobre cómo elegir tu configuración preferida de
 
 Es útil pensar que el archivo `devcontainer.json` sirve para proporcionar "adaptación" en vez de "personalización". Solo debes incluir las cosas que necesiten todos los que trabajan en tus codespaces como elementos estándar del ambiente de desarrollo, no las que son preferencias personales. Las cosas como los limpiadores son buenas para estandarizar y para requerir que todos las tengan instaladas, así que es bueno incluirlas en tu archivo `devcontainer.json`. Las cosas como los decoradores de interfaz de usuario o los temas son elecciones personales que no deberían ponerse en el archivo `devcontainer.json`.
 
-Puedes personalizar tus codespaces utilizando dotfiles y la sincronización de ajustes. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
+Puedes personalizar tus codespaces utilizando dotfiles y la sincronización de ajustes. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_github_codespaces %} para tu cuenta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
 ### Dockerfile
 
@@ -114,7 +114,7 @@ Para obtener más información sobre cómo utilizar un Dockerfile en una configu
 
 ## Utilizar la configuración de contenedor dev predeterminada
 
-Si no defines una configuración en tu repositorio, {% data variables.product.prodname_dotcom %} creará un codespace utilizando una imagen de Linux predeterminada. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. Para ver todos los lenguajes, tiempos de ejecución y herramientas que se incluyen, utiliza el comando `devcontainer-info content-url` dentro de tu terminal del codespace y sigue la URL que este produce.
+Si no defines una configuración en tu repositorio, {% data variables.product.prodname_dotcom %} creará un codespace utilizando una imagen de Linux predeterminada. La imagen de Linux incluye varias versiones de tiempo de ejecución para los lenguajes populares como Python, Node, PHP, Java, Go, C++ y .NET Core/C#. Se utilizan los lanzamientos más recientes o de LTS de estos lenguajes. También existen herramientas para apoyar la ciencia de datos y el aprendizaje automático, tal como JupyterLab y Conda. La imagen también incluye otras herramientas y utilidades de desarrollador como Git, el CLI de GitHub, yarn, openssh y vim. Para ver todos los lenguajes, tiempos de ejecución y herramientas que se incluyen, utiliza el comando `devcontainer-info content-url` dentro de tu terminal del codespace y sigue la URL que este produce.
 
 Como alternativa, para obtener más información sobre todo lo que incluye la imagen predeterminada de Linux, consulta el archivo más reciente del repositorio [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux).
 
@@ -161,7 +161,7 @@ Puedes agregar algunas de las características más comunes seleccionándolas cu
 
 1. Actualiza tus selecciones de características y luego haz clic en **OK**.
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![El menú para seleccionar características adicionales durante la configuración del contenedor](/assets/images/help/codespaces/select-additional-features.png)
 
 1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. Para obtener más información sobre cómo reconstruir tu contenedor, consulta la sección "[Aplicar los cambios a tu configuración](#applying-configuration-changes-to-a-codespace)".
 
@@ -182,41 +182,41 @@ Si ninguna de las configuraciones predefinidas satisface tus necesidades, puedes
 
    Si se encuentran archivos `devcontainer.json` múltiples en el repositorio, estos se listarán en la página de opciones de creación de codespaces. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
-   ![A choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
+   ![Una elección de archivos de configuración](/assets/images/help/codespaces/configuration-file-choice.png)
 
 ### Selección de configuración predeterminada durante la creación de codespaces
 
 Si existe el archivo `.devcontainer/devcontainer.json` o `.devcontainer.json`, este será la selección predeterminada en la lista de archivos de configuración disponibles cuando crees un codespace. Si no existe ninguno de ellos, se seleccionará la configuración de contenedor dev predefinida.
 
-![The default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![La elección de configuración predeterminada seleccionada](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
 ### Editar el archivo devcontainer.json
 
-You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
+Puedes agregar y editar las llaves de configuración compatibles en el archivo `devcontainer.json` para especificar los aspectos del ambiente del codespace, como qué extensiones de {% data variables.product.prodname_vscode_shortname %} se instalarán. {% data reusables.codespaces.more-info-devcontainer %}
 
-El archivo de `devcontainer.json` se escribe utilizando el formato JSONC. Esto te permite incluir comentarios dentro del archivo de configuración. For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+El archivo de `devcontainer.json` se escribe utilizando el formato JSONC. Esto te permite incluir comentarios dentro del archivo de configuración. Para obtener más información, consulta la sección "[Editar JSON con {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 
-**Note**: If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
+**Nota**: Si utilizas un limpiador de código para validar el archivo `devcontainer.json`, asegúrate de que esté configurado en JSONC y no en JSON, de lo contrario, los comentarios se reportarán como errores.
 
 {% endnote %}
 
-### Editor settings for {% data variables.product.prodname_vscode_shortname %}
+### Ajustes de editor para {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.vscode-settings-order %}
 
-You can define default editor settings for {% data variables.product.prodname_vscode_shortname %} in two places.
+Puedes definir los ajustes de editor para {% data variables.product.prodname_vscode_shortname %} en dos lugares.
 
-* Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
-* Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.
+* Los ajustes de editor que se definen en el archivo `.vscode/settings.json` de tu repositorio se aplican como ajustes con alcance de _Workspace_ en el codespace.
+* Los ajustes de editor que se definen en la clave `settings` en el archivo `devcontainer.json` están aplicados como ajustes con alcance de _Remote [Codespaces]_ en el codespace.
 
-## Applying configuration changes to a codespace
+## Aplicar los cambios de configuración a un codespace
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 
 {% data reusables.codespaces.rebuild-command %}
-1. {% data reusables.codespaces.recovery-mode %} Fix the errors in the configuration.
+1. {% data reusables.codespaces.recovery-mode %} Corrige los errores en la configuración.
 
    ![Mensaje de error sobre el modo de recuperación](/assets/images/help/codespaces/recovery-mode-error-message.png)
 

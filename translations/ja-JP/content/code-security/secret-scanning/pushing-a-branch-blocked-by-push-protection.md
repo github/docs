@@ -26,6 +26,14 @@ shortTitle: ブロックされたブランチのプッシュ
 
 {% endtip %}
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Organizationの管理者は、プッシュがブロックされた際の{% data variables.product.product_name %}からのメッセージに含められるカスタムリンクを提供できます。 このカスタムリンクには、Organization固有のリソースやアドバイスと、Organizationのポリシーを含めることができます。
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
 ## ブロックされたプッシュのコマンドラインでの解決
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}

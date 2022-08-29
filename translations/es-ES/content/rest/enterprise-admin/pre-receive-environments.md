@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Environments
+title: Ambientes de pre-recepción
 intro: 'La API de Ambientes de Pre-recepción te permite crear, listar, actualizar y borrar ambientes para los ganchos de pre-recepción.'
 versions:
   ghes: '*'

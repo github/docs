@@ -365,9 +365,9 @@ Nome da etapa no {% data variables.product.prodname_dotcom %}.
 
 Seleciona uma ação para executar como parte de uma etapa no trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag. Se você não especificar uma versão, ela poderá interromper seus fluxos de trabalho ou causar um comportamento inesperado quando o proprietário da ação publicar uma atualização.
+É altamente recomendável que você inclua a versão da ação que você está usando, especificando um ref do Git, SHA ou tag do Docker. Se você não especificar uma versão, ela poderá interromper seus fluxos de trabalho ou causar um comportamento inesperado quando o proprietário da ação publicar uma atualização.
 - Usar o commit SHA de uma versão de ação lançada é a maneira mais garantida de obter estabilidade e segurança.
-- If the action publishes major version tags, you should expect to receive critical fixes and security patches while still retaining compatibility. Note that this behavior is at the discretion of the action's author.
+- Se a ação publicar as principais tags de versão, você deve esperar receber as correções críticas e correções de segurança mantendo a compatibilidade. Observe que esse comportamento fica a critério do autor da ação.
 - Usar o branch-padrão de uma ação pode ser conveniente, mas se alguém lançar uma nova versão principal com uma mudança significativa, seu fluxo de trabalho poderá ter problemas.
 
 Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`with`](#jobsjob_idstepswith) (com). Revise o arquivo README da ação para determinar as entradas obrigatórias.
@@ -1037,7 +1037,7 @@ Você pode usar caracteres especiais nos filtros de caminhos, branches e tags.
 - `[]` Corresponde a um caractere listado entre colchetes ou incluído nos intervalos. Os intervalos só podem incluir valores de `a-z`, `A-Z`, e `0-9`. Por exemplo, o intervalo`[0-9a-z]` corresponde a qualquer letra maiúscula ou minúscula. Por exemplo, `[CB]at` corresponde a `Cat` ou `Bat` e `[1-2]00` corresponde a `100` e `200`.
 - `!` No início de um padrão faz com que ele anule padrões positivos anteriores. Não tem nenhum significado especial caso não seja o primeiro caractere.
 
-Os caracteres `*`, `[` e `!` são caracteres especiais em YAML. Se você iniciar um padrão com `*`, `[` ou `!`, você deverá colocá-lo entre aspas. Also, if you use a [flow sequence](https://yaml.org/spec/1.2.2/#flow-sequences) with a pattern containing `[` and/or `]`, the pattern must be enclosed in quotes.
+Os caracteres `*`, `[` e `!` são caracteres especiais em YAML. Se você iniciar um padrão com `*`, `[` ou `!`, você deverá colocá-lo entre aspas. Além disso, se você usar uma [sequência de fluxo](https://yaml.org/spec/1.2.2/#flow-sequences) com um padrão que contém `[` e/ou `]`, o padrão deverá estar entre aspas.
 
 ```yaml
 # Valid

@@ -35,7 +35,7 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
       {%- ifversion ghes = 3.5 %}
       {% note %}
 
-      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. Para obter mais informações sobre atualizações, entre em contato com o administrador do site.
+      **Observação**: O tema de alto contraste claro não estava disponível em {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2 e 3.5.3. O tema está disponível na versão 3.5.4 e posterior. Para obter mais informações sobre atualizações, entre em contato com o administrador do site.
 
       Para obter mais informações sobre como determinar a versão do {% data variables.product.product_name %} que você está usando, consulte "[Sobre as versões de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)"
       {% endnote %}

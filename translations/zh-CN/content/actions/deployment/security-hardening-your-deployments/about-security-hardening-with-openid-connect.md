@@ -73,6 +73,7 @@ topics:
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
+  "repo_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -130,6 +131,7 @@ OIDC 令牌还包括其他标准声明：
 | `job_workflow_ref`    | 这是此作业使用的可重用工作流程的引用路径。 更多信息请参阅“[使用 OpenID 连接和可重用工作流程](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)”。 |
 | `ref`                 | _（引用）_ 触发工作流程运行的 git 引用。                                                                                                                                     |
 | `ref_type`            | `ref` 的类型，例如："branch"。                                                                                                                                       |
+| `repo_visibility`     | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                            |
 | `仓库`                  | 运行工作流程的存储库。                                                                                                                                                  |
 | `repository_id`       | 运行工作流程的存储库的 ID。                                                                                                                                              |
 | `repository_owner`    | 存储 `repository` 的组织的名称。                                                                                                                                      |
@@ -239,6 +241,185 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 ### 添加权限设置
 
 {% data reusables.actions.oidc-permissions-token %}
+
+{% ifversion actions-oidc-hardening-config %}
+## Customizing the token claims
+
+You can security harden your OIDC configuration by customizing the claims that are included with the JWT. This allows your cloud provider to apply more granular trust conditions when determining whether to grant access to its resources. For example, {% ifversion ghec %}you can customize the issuer (`iss`) claim to only allow access from a specific enterprise URL, and {% endif %}you can customize the subject (`sub`) value to require that requests originate from a specific repository, reusable workflow, or other source.
+
+To configure the claim conditions on {% data variables.product.prodname_dotcom %}, you can use the REST API endpoints described in the following sections.
+
+{% ifversion ghec %}
+
+### Switching to a unique token URL
+
+By default, the JWT is issued by {% data variables.product.prodname_dotcom %}'s OIDC provider at `https://token.actions.githubusercontent.com`. This path is presented to your cloud provider using the `iss` value in the JWT.
+
+Enterprise admins can security harden their OIDC configuration by configuring their enterprise to receive tokens from a unique URL at `https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer`. Replace `<enterpriseSlug>` with the slug value of your enterprise.
+
+This configuration means that your enterprise will receive the OIDC token from a unique URL, and you can then configure your cloud provider to only accept tokens from that URL. This helps ensure that only the enterprise's repositories can access your cloud resources using OIDC.
+
+To activate this setting for your enterprise, an enterprise admin must use the `/enterprises/{enterprise}/actions/oidc/customization/issuer` endpoint and specify `"include_enterprise_slug": true` in the request body. For more information, see "[Set the {% data variables.product.prodname_actions %} OIDC custom issuer policy for an enterprise](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)."
+
+After this setting is applied, the JWT will contain the updated `iss` value. In the following example, the `iss` key uses `octocat-inc` as its `enterpriseSlug` value:
+
+```json
+{
+  "jti": "6f4762ed-0758-4ccb-808d-ee3af5d723a8"
+  "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
+  "aud": "http://octocat-inc.example/octocat-inc"
+  "enterprise": "octocat-inc"
+  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "bf": 1755350653,
+  "exp": 1755351553,
+  "iat": 1755351253
+}
+```
+
+{% endif %}
+
+### Customizing the subject claims for an organization
+
+To configure organization-wide security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. For more information, see "[Set the customization template for an OIDC subject claim for an organization](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)."
+
+The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, organization admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim. {% data reusables.actions.use-request-body-api %}
+
+To customize your subject claims, you should first create a matching condition in your cloud provider's OIDC configuration, before adding the configuration using the REST API. Once the configuration is completed, each time a new job runs, the OIDC token generated during that job will follow the new customization template. If the matching condition doesn't exist in the cloud provider's OIDC configuration before the job runs, the generated token might not be accepted by the cloud provider, since the cloud conditions may not be synchronized.
+
+{% note %}
+
+**Note**: When the organization template is applied, it will not affect any existing repositories that already use OIDC. For new repositories that are created after the template has been applied, the repository owner will need to opt-in to receive this configuration. For more information, see "[Set the opt-in flag of an OIDC subject claim customization for a repository](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository)."
+
+{% endnote %}
+
+#### Example: Allowing repository based on visibility and owner
+
+This example template enables cloud access based on repository visibility and owner, letting you restrict cloud role access to only private repositories within an organization or enterprise. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner",
+       "repository_visibility"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repository_owner` and `repository_visibility`. For example: `"repository_owner: "monalisa":repository_visibility:private"`.
+
+#### Example: Allowing access to all repositories with a specific owner
+
+This example template grants access to all repositories with a specified `repository_owner`. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner"
+   ]
+}
+
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repository_owner`. For example: `"repository_owner: "monalisa""`
+
+#### Example: Requiring a reusable workflow
+
+This example template requires a specific reusable workflow in a claim, letting an enterprise enforce consistent deployments across its enterprise, organizations, and repositories. {% data reusables.actions.use-request-body-api %}
+
+```json
+  {
+     "include_claim_keys": [
+         "job_workflow_ref"
+     ]
+  }
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `job_workflow_ref`. For example: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+
+#### Example: Requiring a reusable workflow and other claims
+
+This example template combines the requirement of a specific reusable workflow with additional claims. {% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo",
+       "context",
+       "job_workflow_ref"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo`, `context`, and `job_workflow_ref`.
+
+#### Example: Granting access to a specific repository
+
+This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. To help improve security, combine this template with the custom issuer URL described in "[Customizing the token URL for an enterprise](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)."
+
+{% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repo` claim that matches the required value.
+
+#### Example: Using system-generated GUIDs
+
+This example template enables predictable OIDC claims with system-generated GUIDs that do not change between renames of entities (such as renaming a repository). {% data reusables.actions.use-request-body-api %}
+
+```json
+  {
+     "include_claim_keys": [
+         "repository_id"
+     ]
+  }
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_id` claim that matches the required value.
+
+或:
+
+```json
+{
+   "include_claim_keys": [
+       "repository_owner_id"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
+
+#### Resetting your customizations
+
+This example template resets the subject claims to the default format. {% data reusables.actions.use-request-body-api %} This template effectively opts out of any organization-level customization policy.
+
+```json
+{
+   "include_claim_keys": [
+       "repo",
+       "context"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo` and `context`.
+
+#### Using the default subject claims
+
+For repositories that can receive a subject claim policy from their organization, the repository owner can later choose to opt-out and instead use the default `sub` claim format. To configure this, the repository admin must use the REST API endpoint at "[Set the opt-out flag of an OIDC subject claim customization for a repository](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository)" with the following request body:
+
+```json
+{
+   "use_default": true
+}
+```
+
+{% endif %}
 
 ## 更新 OIDC 的工作流程
 

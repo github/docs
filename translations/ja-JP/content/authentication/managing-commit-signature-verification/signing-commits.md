@@ -1,6 +1,6 @@
 ---
 title: コミットに署名する
-intro: GPG または S/MIME を使用してローカルでコミットに署名できます。
+intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -52,9 +52,5 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
 
 ## 参考リンク
 
-* [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
-* [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
-* [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 * 「[タグに署名する](/articles/signing-tags)」
