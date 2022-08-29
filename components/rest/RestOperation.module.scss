@@ -8,11 +8,10 @@
     }
   }
 }
-
 .statusTable {
-  table-layout: fixed !important;
-}
+   table-layout: fixed !important;
+ }
 
-.codeBlock code:not(td *) {
-  word-break: break-all;
-}
+ .codeBlock code:not(td *) {
+   word-break: break-all;
+ }
