@@ -18,20 +18,22 @@ shortTitle: 権限について
 
 リポジトリスコープのパッケージは、パッケージを所有するリポジトリの権限と可視性を継承します。 リポジトリをスコープとするパッケージは、リポジトリのメインページにアクセスし、ページ右にある**パッケージ**リンクをクリックすれば見つかります。 {% ifversion fpt or ghec %}詳しい情報については「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。{% endif %}
 
-以下の{% data variables.product.prodname_registry %}レジストリは、リポジトリスコープの権限を使います。
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
   {% ifversion not fpt or ghec %}-Dockerレジストリ（`docker.pkg.github.com`）{% endif %}
-  - npmレジストリ
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
   - RubyGemsレジストリ
   - Apache Mavenレジストリ
   - NuGetレジストリ
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 ## ユーザ/Organizationスコープのパッケージの詳細な権限
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
 
-現在の処、{% data variables.product.prodname_container_registry %}だけがコンテナイメージパッケージに関する詳細な権限を提供しています。
+Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
 ## コンテナイメージの可視性とアクセス権限
 

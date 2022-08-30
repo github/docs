@@ -33,9 +33,9 @@ topics:
 Por padrão, cada regra de proteção de branch desabilita push forçado para os branches correspondentes e impede que os branches correspondentes sejam excluídos. Você pode, opcionalmente, desabilitar essas restrições e habilitar configurações adicionais de proteção de branches.
 
 {% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório ou funções personalizadas com a permissão de "ignorar proteção de branch". Opcionalmente, você pode aplicar as restrições para administradores e funções com a permissão "ignorar proteção de branch". Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 {% else %}
-Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório. You can optionally choose to include administrators, too.{% endif %}
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório. Opcionalmente, você também pode escolher incluir administradores.{% endif %}
 
 {% data reusables.repositories.branch-rules-example %} Para obter mais informações sobre os padrões de nomes do branch, consulte "[Gerenciar uma regra de proteção de branch](/github/administering-a-repository/managing-a-branch-protection-rule)".
 
@@ -55,7 +55,7 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 {%- ifversion required-deployments %}
 - [Exige implantações para ter sucesso antes do merge](#require-deployments-to-succeed-before-merging)
 {%- endif %}
-{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
+{% ifversion bypass-branch-protections %}- [Não permita que as configurações acima sejam ignoradas](#do-not-allow-bypassing-the-above-settings){% else %}- [Incluir administradores](#include-administrators){% endif %}
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir push forçado](#allow-force-pushes)
 - [Permitir exclusões](#allow-deletions)
@@ -152,15 +152,15 @@ Antes de exigir um histórico de commit linear, seu repositório deve permitir m
 
 Você pode exigir que as alterações sejam implantadas em ambientes específicos antes de ua branch poder ser mesclado. Por exemplo, você pode usar essa regra para garantir que as alterações sejam implantadas com sucesso em um ambiente de teste antes das alterações sofrerem merge no seu branch padrão.
 
-{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
-### Include administrators{% endif %}
+{% ifversion bypass-branch-protections %}### Não permita que sejam ignoradas as configurações acima{% else %}
+### Incluir administradores{% endif %}
 
 {% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository.
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório ou funções personalizadas com a permissão de "ignorar proteção de branch" em um repositório.
 
-You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+Você pode habilitar esta configuração para aplicar as restrições aos administradores e funções com a permissão "ignorar proteção de branch".  Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 {% else %}
-Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. You can enable this setting to include administrators in your protected branch rules.{% endif %}
+Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. Você pode habilitar essa configuração para incluir administradores em suas regras de proteção de branch.{% endif %}
 
 ### Restringir quem pode fazer push para branches correspondentes
 

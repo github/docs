@@ -12,25 +12,25 @@ shortTitle: 私有映像注册表
 
 ## 关于私人映像注册表和 {% data variables.product.prodname_github_codespaces %}
 
-注册表是用于存储、管理和提取专用容器映像的安全空间。 您可以使用一个来存储一个或多个映像。 注册表的示例很多，例如 {% data variables.product.prodname_dotcom %} 容器注册表、Azure 容器注册表或 DockerHub。
+注册表是用于存储、管理和提取专用容器映像的安全空间。 您可以使用一个来存储一个或多个映像。 There are many examples of registries, such as {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry, or DockerHub.
 
-{% data variables.product.prodname_dotcom %} 容器注册表可以配置为无缝拉取容器映像，而无需向 {% data variables.product.prodname_github_codespaces %} 提供任何身份验证凭据。 对于其他映像注册表，必须在 {% data variables.product.prodname_dotcom %} 中创建机密以存储访问详细信息，这将允许 {% data variables.product.prodname_codespaces %} 访问存储在该注册表中的映像。
+{% data variables.product.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. 对于其他映像注册表，必须在 {% data variables.product.prodname_dotcom %} 中创建机密以存储访问详细信息，这将允许 {% data variables.product.prodname_codespaces %} 访问存储在该注册表中的映像。
 
-## 访问存储在 {% data variables.product.prodname_dotcom %} 容器注册表中的映像
+## Accessing images stored in {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-{% data variables.product.prodname_dotcom %} 容器注册表是 {% data variables.product.prodname_codespaces %} 使用 devcontainer 容器映像的最简单方法。
+{% data variables.product.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_codespaces %} to consume dev container images.
 
-更多信息请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
+For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
 ### 访问发布到与代码空间相同的仓库的映像
 
-如果将容器映像发布到启动代码空间的同一仓库中的 {% data variables.product.prodname_dotcom %} 容器注册表，则在创建代码空间时将自动能够获取该映像。 无需提供任何其他凭据，除非在发布容器映像时未选中 **Inherit access from repo（从仓库继承访问权限）**选项。
+If you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %} in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. 无需提供任何其他凭据，除非在发布容器映像时未选中 **Inherit access from repo（从仓库继承访问权限）**选项。
 
 #### 从发布映像的仓库继承访问权限
 
-默认情况下，将容器映像发布到 {% data variables.product.prodname_dotcom %} 容器注册表时，该映像将继承从中发布映像的仓库的访问设置。 例如，如果仓库是公共的，则映像也是公共的。 如果仓库是私有的，则映像也是私有的，但可以从仓库访问。
+By default, when you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. 例如，如果仓库是公共的，则映像也是公共的。 如果仓库是私有的，则映像也是私有的，但可以从仓库访问。
 
-此行为由 **Inherit access from repo（从仓库继承访问权限）**选项控制。 **通过** {% data variables.product.prodname_actions %} 发布时，默认情况下会选择从仓库继承访问权限，但在使用个人访问令牌 (PAT) 直接发布到 {% data variables.product.prodname_dotcom %} 容器注册表时，不会选择从仓库继承访问权限。
+此行为由 **Inherit access from repo（从仓库继承访问权限）**选项控制。 **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_ghcr_or_npm_registry %} using a Personal Access Token (PAT).
 
 如果在发布映像时未选择 **Inherit access from repo（从仓库继承访问权限）**选项，则可以手动将仓库添加到已发布容器映像的访问控制中。 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)”。
 
@@ -46,13 +46,13 @@ shortTitle: 私有映像注册表
 
 ### 从代码空间发布容器映像
 
-从代码空间到容器注册表 {% data variables.product.prodname_dotcom %} 的无缝访问仅限于拉取容器映像。 如果要从代码空间内部发布容器映像，则必须结合使用个人访问令牌 (PAT) 与 `write:packages` 作用域。
+Seamless access from a codespace to {% data variables.product.prodname_ghcr_or_npm_registry %} is limited to pulling container images. 如果要从代码空间内部发布容器映像，则必须结合使用个人访问令牌 (PAT) 与 `write:packages` 作用域。
 
-我们建议通过 {% data variables.product.prodname_actions %} 发布映像。 更多信息请参阅“[发布 Docker 映像](/actions/publishing-packages/publishing-docker-images)”。
+我们建议通过 {% data variables.product.prodname_actions %} 发布映像。 For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)" and "[Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)."
 
 ## 访问存储在其他容器注册表中的映像
 
-如果要从不是 {% data variables.product.prodname_dotcom %} 容器注册表的注册表访问容器映像，{% data variables.product.prodname_codespaces %} 将检查是否存在三个机密，这些机密定义了容器注册表的服务器名称、用户名和个人访问令牌 (PAT)。 如果找到这些密钥，{% data variables.product.prodname_github_codespaces %} 将在代码空间中提供注册表。
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. 如果找到这些密钥，{% data variables.product.prodname_github_codespaces %} 将在代码空间中提供注册表。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`

@@ -23,15 +23,15 @@ versions:
 
 Tu capacidad de ver un paquete depende de varios factores. Predeterminadamente, puedes ver todos los paquetes que hayas publicado.
 
-Los paquetes con alcance de repositorio heredan sus permisos y visibilidad desde el repositorio al que pertenece el paquete. Los siguientes registros utilizan este tipo de permisos:{% ifversion not fpt or ghec %}
+Los paquetes con alcance de repositorio heredan sus permisos y visibilidad desde el repositorio al que pertenece el paquete. The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
 - Registro de Docker (`docker.pkg.github.com`){% endif %}
-- Registro de npm
+{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
 - Registro de RubyGems
 - Registro de Apache maven
 - Registro de NuGet
 
 {% ifversion fpt or ghec %}
-El registro del contenedor te ofrece la opción de contar con permisos granulares y configuraciones de visibilidad que se pueden personalizar para cada paquete que pertenezca a un usuario personal o a una cuenta de organización. Puedes elegir utilizar permisos granulares o conectar el paquete a un repositorio y heredar sus permisos. Para obtener más información, consulta la sección "[Conectar un repositorio a un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
+The {% data variables.product.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. Puedes elegir utilizar permisos granulares o conectar el paquete a un repositorio y heredar sus permisos. Para obtener más información, consulta la sección "[Conectar un repositorio a un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
 {% endif %}
 
 Para obtener más información, consulta las secciones "[Acerca de los permisos para GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" y "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}".

@@ -58,7 +58,23 @@ topics:
 
 ![切换帐户上下文下拉列表](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-### 在 {% data variables.product.prodname_dotcom %} 上探索其他项目
+{% ifversion for-you-feed %}
+
+## 关注组织
+
+{% data reusables.organizations.follow-organizations-beta %}
+
+{% data reusables.organizations.about-following-organizations %}
+
+To follow an organization, in the header of the organization's page, click **Follow**.
+
+![组织标题的屏幕截图，突出显示了“关注”按钮](/assets/images/help/profile/organization-profile-following.png)
+
+For more information, see "[Following organizations](/get-started/exploring-projects-on-github/following-organizations)."
+
+{% endif %}
+
+## 在 {% data variables.product.prodname_dotcom %} 上探索其他项目
 
 您可以在 {% data variables.product.prodname_dotcom %} 的 Explore（探索）页面上发现新的和有趣的项目。 您可以为有趣的项目加注星标，以便以后再次轻松找到它们。 访问您的星标页面，查看所有已加星标的项目。 有关星标的更多信息，请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 

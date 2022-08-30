@@ -45,7 +45,7 @@ shortTitle: Criar um site do GitHub Pages
 
    {% ifversion pages-custom-workflow %}Se sua fonte de publicação for um branch e uma psata, o arquivo de entrada deverá estar no nível superior da pasta de origem no branch de origem. Por exemplo, se a fonte de publicação for a pasta `/docs` no branch </code>principal`, o arquivo de postagem deverá estar localizado na pasta <code>/docs` em um branch denominado `principal`.
 
-   Se sua fonte de publicação for um fluxo de trabalho de {% data variables.product.prodname_actions %}, o artefato de que você implantar deverá incluir o arquivo de entrada no nível superior do artefato. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
+   Se sua fonte de publicação for um fluxo de trabalho de {% data variables.product.prodname_actions %}, o artefato de que você implantar deverá incluir o arquivo de entrada no nível superior do artefato. Em vez de adicionar o arquivo de entrada ao seu repositório, você pode optar por fazer com que o seu fluxo de trabalho {% data variables.product.prodname_actions %} gere o arquivo de entrada quando o fluxo de trabalho é executado.{% else %} O arquivo de entrada deve estar no nível superior da fonte de publicação escolhida. Por exemplo, se a fonte de publicação for a pasta `/docs` no branch </code>principal`, o arquivo de postagem deverá estar localizado na pasta <code>/docs` em um branch denominado `principal`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
@@ -59,7 +59,7 @@ shortTitle: Criar um site do GitHub Pages
 
 Você pode adicionar mais páginas ao seu site criando novos arquivos. Cada arquivo ficará disponível no site na mesma estrutura de diretórios que a fonte de publicação. Por exemplo, se a fonte de publicação do site de projeto for o branch `gh-pages` e você criar um arquivo chamado `/about/contact-us.md` no branch `gh-pages`, o arquivo novo ficará disponível em {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
 
-Também é possível adicionar um tema para personalizar a aparência do site. For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+Também é possível adicionar um tema para personalizar a aparência do site. Para obter mais informações, consulte "[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 Para personalizar seu site ainda mais, você pode usar o Jekyll, um gerador de site estático com suporte integrado para o {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll)".
 
