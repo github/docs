@@ -18,15 +18,23 @@ shortTitle: Run runner app on startup
 
 {% capture service_first_step %}1. セルフホストランナー アプリケーションが現在実行中の場合は、そのアプリケーションを停止します。{% endcapture %}
 {% capture service_non_windows_intro_shell %}ランナー マシンで、セルフホストランナー アプリケーションをインストールしたディレクトリでシェルを開きます。 以下のコマンドを使って、セルフホストランナーサービスをインストール及び管理します。{% endcapture %}
-{% capture service_nonwindows_intro %}セルフホストランナーアプリケーションをサービスとして設定する前に、ランナーを{% data variables.product.product_name %}に追加しなければなりません。 詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. 詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-`systemd`を利用するLinuxのシステムでは、セルフホストランナーアプリケーションと共に配布されている`svc.sh`スクリプトを使い、セルフホストランナーアプリケーションをサービスとしてインストール及び管理できます。
+For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
 
 {{ service_non_windows_intro_shell }}
 
