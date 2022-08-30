@@ -83,6 +83,12 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
 
+{% note %}
+
+**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
+
+{% endnote %}
+
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 
 ### `sarifLog` object
@@ -210,7 +216,7 @@ These example SARIF output files show supported properties and example values.
 
 ### Example with minimum required properties
 
-This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties or don't include values, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}.
+This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties, omit values, or use an empty string, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}. 
 
 ```json
 {
