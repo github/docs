@@ -43,7 +43,7 @@ Ao instalar ou publicar uma imagem Docker, a {% data variables.product.prodname_
 ## Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+Para efetuar a autenticação no {% data variables.product.prodname_container_registry %} (`ghcr.io`) dentro de um fluxo de trabalho de {% data variables.product.prodname_actions %}, use o `GITHUB_TOKEN` para uma melhor segurança e experiência. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 {% endif %}
 
 {% ifversion ghes %}Certifique-se de substituir o `HOSTNAME` pelo nome do host {% data variables.product.product_location_enterprise %} ou endereço IP nos exemplos abaixo.{% endif %}
