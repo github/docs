@@ -46,7 +46,7 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 {% endif %}
 
-For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% data reusables.package_registry.no-graphql-to-delete-packages %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
+権限とアクセスをリポジトリから継承するパッケージでは、GraphQLを使って特定のパッケージバージョンを削除できます。{% data reusables.package_registry.no-graphql-to-delete-packages %}GraphQLサポートに関する詳しい情報については「[GraphQLでリポジトリをスコープとするパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
 
 {% endif %}
 
@@ -54,7 +54,7 @@ For packages that inherit their permissions and access from repositories, you ca
 
 リポジトリからアクセス権限を継承しているパッケージの場合、そのリポジトリに対する管理者権限がある場合はパッケージを削除できます。
 
-The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+以下の{% data variables.product.prodname_registry %}レジストリは、リポジトリスコープの権限**のみ**を使います。
 
   {% ifversion not fpt or ghec %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
   {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
@@ -62,11 +62,11 @@ The {% data variables.product.prodname_registry %} registries below **only** use
   - Apache Mavenレジストリ
   - NuGetレジストリ
 
-{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
+{% ifversion packages-npm-v2 %}{% data variables.product.prodname_ghcr_and_npm_registry %}については、パッケージがユーザ、Organizationをスコープとするか、あるいはリポジトリにリンクするかを選択できます。{% endif %}
 
 {% ifversion fpt or ghec %}
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME` or `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, you must have admin access to the package. 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
+`https://ghcr.io/OWNER/PACKAGE-NAME`あるいは`https://npm.pkg.github.com/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
 {% endif %}
 
@@ -88,7 +88,7 @@ To delete a package that has granular permissions separate from a repository, su
 
 リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} You can however use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
+{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %}ただし、REST APIを使うことはできます。 詳しい情報については「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。{% endif %}
 
 GraphQL APIの`deletePackageVersion`ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo`スコープを持つトークンを使わなければなりません。 トークンに関する詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 
