@@ -24,7 +24,7 @@ To configure an LMS to connect to {% data variables.product.prodname_classroom %
 
 ## Supported LMSes
 
-{% data variables.product.prodname_classroom %} previously supported import of roster data from LMSes that implement Learning Tools Interoperability (LTI) versions 1.0 and 1.1. On June 30, 2022, the Instructional Management System (IMS) Global Learning Consortium [ended support for LTI versions 1.0 and 1.1.](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule). In the interest of keeping sensitive student information safe and secure, {% data variables.product.company_short %} has temporarily disabled importing roster data from LTI-compliant LMSes.
+{% data variables.product.prodname_classroom %} previously supported import of roster data from LMSes that implement Learning Tools Interoperability (LTI) versions 1.0 and 1.1. On June 30, 2022, the Instructional Management System (IMS) Global Learning Consortium [ended support for LTI versions 1.0 and 1.1](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule). In the interest of keeping sensitive student information safe and secure, {% data variables.product.company_short %} has temporarily disabled importing roster data from LTI-compliant LMSes.
 
 Support for the latest version of Learning Tools Interoperability, [LTI 1.3](https://www.imsglobal.org/activity/learning-tools-interoperability), is currently being worked on and will be made available in {% data variables.product.prodname_classroom %} very soon.
 
@@ -52,7 +52,7 @@ LTI is an industry-standard protocol and GitHub Classroom's use of LTI is certif
 
 ## Connecting to Canvas, Moodle, Sakai, and other LMSes
 
-Connecting to other LMSes is temporarily unavailable as {% data variables.product.company_short %} [updates to Learning Tools Interoperability (LTI) version 1.3](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom#supported-lmses)
+Connecting to other LMSes is temporarily unavailable as {% data variables.product.company_short %} updates to Learning Tools Interoperability (LTI) version 1.3. For more information, see "[Supported LMSes](#supported-lmses)."
 
 In the meantime, you may manually input your roster for your class. For more information about manually importing the roster from your LMS into {% data variables.product.prodname_classroom %}, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
 
