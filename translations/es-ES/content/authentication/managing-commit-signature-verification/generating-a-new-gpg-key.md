@@ -53,7 +53,7 @@ topics:
 {% data reusables.gpg.copy-gpg-key-id %}
 10. Pega el siguiente texto sustituyendo el ID de la llave GPG que deseas usar. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
  ```shell{:copy}
- $ gpg --armor --export <em>3AA5C34371567BD2</em>
+ $ gpg --armor --export 3AA5C34371567BD2
  # Prints the GPG key ID, in ASCII armor format
  ```
 11. Copia tu llave GPG, comenzando con `-----BEGIN PGP PUBLIC KEY BLOCK-----` y terminando con `-----END PGP PUBLIC KEY BLOCK-----`.
