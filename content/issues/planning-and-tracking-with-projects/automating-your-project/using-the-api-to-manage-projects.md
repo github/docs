@@ -512,7 +512,7 @@ The response will contain the node ID of the newly created draft issue.
 {
   "data": {
     "addProjectV2ItemById": {
-      "item": {
+      "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
     }
