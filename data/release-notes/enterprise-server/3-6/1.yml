@@ -1,0 +1,35 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Site administrators were not able to manage security products settings for repositories they had unlocked. 
+    - Prevents duplication of admin SSH keys showing up in Management Console and admin/.ssh/authorized_keys 
+    - Adding a check for running replication before updating configuration files on replica stand-up before running `ghe-cluster-config-apply`. This prevents cases where unconfigured nodes could replicate their configuration to the rest of the cluster, potentially removing configurations from the existing cluster nodes. 
+    - The validation phase of the config apply run would incorrectly mark some Nomad jobs as invalid. 
+    - The symlinks for self-signed TLS certificates were no created which caused various failures in the GitHub UI. 
+    - Fixes an issue where organization admins were unable to set the level of access required for creating discussions. 
+    - Fixes an issue where some users were incorrectly seeing a message that they needed to verify their email before creating a discussion. 
+    - Fixes an issue with the hydro payload value. It use to not have quotes, so the problematic file name isnt being handled properly which created a potential security vulnerability in the file tree 
+    - Fixes an issue where enterprise users were incorrectly seeing a link to the GitHub.com community guidelines. 
+    - Some background tasks could deadlock preventing them from making progress caused by `enterprise-crypto` which has now been modified to be thread safe. 
+    - The top site admin bar contained a broken link to the SHA for the currently running version of the application. 
+  changes:
+    - In some cases, GitHub Advanced Security customers who skipped an upgrade to GitHub Enterprise Server 3.4 may have noticed that alerts from secret scanning were missing in the web UI and REST API. This fix recovers those impacted alerts. 
+    - Performance improvements to the GitHub Enterprise Support Bundle generation process. This modifies the `sanitize_logs` function in `ghe-support-bundle` to run `psed` in parallel vs. serially.  This is based on an analysis of bundle generation on `ghe.io` where it was observed we spent 36% of our time in `psed` sanitizing logs. 
+    - Change the `/organizations/`, `/orgs/` API routes to accept organization slugs or IDs. Previously, they only accepted slugs which was inconsistent with the `/enterprises/` routes and caused `Link` headers on GitHub Advanced Security API endpoints, that use IDs not slugs, to be inaccessible to users. 
+    - User generated audit-logs events, such as `repo.create`, are now correctly returned from the REST API  availabe at `api.github.com/enterprises/{enterprise}/audit-log`. In addition to that, more types of user generated events, such as `project.create`, are now available on both the enterprise audit-log UI (available at `github.com/enterprises/{enterprise}/settings/audit-log`) and REST API (same endpoint as above). 
+    - The page at `/stafftools/users/:login/admin` contained functionality not intended for GitHub Enterprise Server. 
+    - Cache replicas could intermittently reject some git operations on recently updated repositories. 
+    - Adds support for creating dismissible announcements via the API. 
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

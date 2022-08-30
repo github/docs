@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Site administrators were not able to manage security products settings for repositories they had unlocked. 
+    - Prevents duplication of admin SSH keys showing up in Management Console and admin/.ssh/authorized_keys 
+    - Adding a check for running replication before updating configuration files on replica stand-up before running `ghe-cluster-config-apply`. This prevents cases where unconfigured nodes could replicate their configuration to the rest of the cluster, potentially removing configurations from the existing cluster nodes. 
+    - The validation phase of the config apply run would incorrectly mark some Nomad jobs as invalid. 
+    - The symlinks for self-signed TLS certificates were no created which caused various failures in the GitHub UI. 
+    - Some background tasks could deadlock preventing them from making progress caused by `enterprise-crypto` which has now been modified to be thread safe. 
+  changes:
+    - Performance improvements to the GitHub Enterprise Support Bundle generation process. This modifies the `sanitize_logs` function in `ghe-support-bundle` to run `psed` in parallel vs. serially.  This is based on an analysis of bundle generation on `ghe.io` where it was observed we spent 36% of our time in `psed` sanitizing logs. 
+    - User generated audit-logs events, such as `repo.create`, are now correctly returned from the REST API  availabe at `api.github.com/enterprises/{enterprise}/audit-log`. In addition to that, more types of user generated events, such as `project.create`, are now available on both the enterprise audit-log UI (available at `github.com/enterprises/{enterprise}/settings/audit-log`) and REST API (same endpoint as above). 
+  known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
