@@ -38,6 +38,8 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}

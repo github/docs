@@ -1,8 +1,8 @@
 ---
-title: Community metrics
+title: Métricas comunitarias
 shortTitle: Comunidad
 allowTitleToDifferFromFilename: true
-intro: The Community metrics API lets you get data about your community profile.
+intro: La API de métricas comunitarias te permite obtener datos sobre el perfil de tu comunidad.
 versions:
   fpt: '*'
   ghec: '*'

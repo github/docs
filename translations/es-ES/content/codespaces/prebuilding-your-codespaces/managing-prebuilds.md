@@ -16,7 +16,7 @@ miniTocMaxHeadingLevel: 3
 
 Las precompilaciones que configures para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %}, que administra el servicio de {% data variables.product.prodname_github_codespaces %}.
 
-Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
+Dependiendo de los ajustes en una configuración de precompilación, el flujo de trabajo para actualizar la precompilación podría activarse con estos eventos:
 
 * Crear o actualizar la configuración de precompilación
 * Subir una confirmación o una solicitud de cambios a una rama que está configurada para tener precompilaciones
@@ -24,7 +24,7 @@ Depending on the settings in a prebuild configuration, the workflow to update th
 * Un itinerario que definiste en la configuración de la precompilación
 * Activar el flujo de trabajo manualmente
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+Los ajustes en la configuración de precompilación determinan qué eventos activan automáticamente una actualización de la precompilación. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
 Las personas con acceso administrativo a un repositorio pueden verificar el progreso de las precompilaciones, así como editar y borrar las configuraciones de estas.
 
@@ -61,7 +61,7 @@ Esto muestra el historial de ejecución de flujo de trabajo para las precompilac
 
 ### Inhabilitar una configuración de precompilación
 
-To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
+Para pausar la actualización de las precompilaciones de una configuración, puedes inhabilitar las ejecuciones de flujo de trabajo para dicha configuración. El inhabilitar las ejecuciones de flujo de trabajo para una configuración de precompilación no borra ninguna de estas que se haya creado anteriormente para dicha configuración y, como resultado, los codespaces seguirán generándose desde una precompilación existente.
 
 El inhabilitar las ejecuciones de flujos de trabajo para una configuración precompilada es útil si necesitas investigar los fallos en la creación de plantillas.
 
@@ -74,7 +74,7 @@ El inhabilitar las ejecuciones de flujos de trabajo para una configuración prec
 
 ### Borrar una configuración de precompilación
 
-Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. Como resultado, poco después de que borres una configuración, las precompilaciones generadas por dicha configuración ya no estarán disponibles cuando crees un codespace nuevo.
+El borrar una configuración de preocmpilación también borrar todas las precompilaciones que se hayan creado previamente para dicha configuración. Como resultado, poco después de que borres una configuración, las precompilaciones generadas por dicha configuración ya no estarán disponibles cuando crees un codespace nuevo.
 
 Después de que borras una configuración de precompilación, todavía se ejecutarán las ejecuciones de flujo de trabajo de dicha configuración que se hayan puesto en cola o que hayan iniciado. Se listarán en el historial de ejecución de flujo de trabajo junto con las ejecuciones de flujo de trabajo que se hayan completado previamente.
 

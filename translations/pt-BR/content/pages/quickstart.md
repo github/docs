@@ -26,11 +26,11 @@ Este guia irá orientar você com relação à criação de um site em `username
 1. Digite `username.github.io` como nome do repositório. Substitua `nome de usuário` pelo seu nome de usuário de {% data variables.product.prodname_dotcom %}. Por exemplo, se seu nome de usuário for `octocat`, o nome do repositório deverá ser `octocat.github.io`. ![Campo nome do repositório](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Em "Compilação e implantação", em "Fonte", selecione **Implantar a partir de um branch**.
+1. Em "Compilação e implantação", em "Branch", use o menu suspenso **Nenhum** ou **Branch** e selecione uma fonte de publicação.
 
    ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
-1. Optionally, open the `README.md` file of your repository. O arquivo `README.md` é onde você escreverá o conteúdo do seu site. Você pode editar o arquivo ou manter o conteúdo padrão por enquanto.
+1. Opcionalmente, abra o arquivo `README.md` do seu repositório. O arquivo `README.md` é onde você escreverá o conteúdo do seu site. Você pode editar o arquivo ou manter o conteúdo padrão por enquanto.
 1. Acesse `username.github.io` para ver seu novo site. **Observação:** podem ser necessários até 10 minutos para que as alterações no site sejam publicadas após o push delas no {% data variables.product.product_name %}.
 
 ## Alterando o título e a descrição

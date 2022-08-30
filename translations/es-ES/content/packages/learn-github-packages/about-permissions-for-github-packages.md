@@ -18,20 +18,22 @@ Los permisos de los paquetes pueden ser con alcance de repositorio o de usuario/
 
 Un paquete con alcance de repositorio hereda los permisos y la visibilidad del repositorio al que pertenece el paquete. Puedes encontrar un paquete con alcance de un repositorio específico si vas a la página principal de este y haces clic en el enlace de **Paquetes** a la derecha de la página. {% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Conectar un repositorio con un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".{% endif %}
 
-Los registros del {% data variables.product.prodname_registry %} que se mencionan a continuación utilizan permisos con alcance de repositorio:
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
   {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-  - Registro de npm
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
   - Registro de RubyGems
   - Registro de Apache maven
   - Registro de NuGet
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Permisos granulares para paquetes con alcance de organización/usuario
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar el control de accesos y la visibilidad del paquete de forma separada desde un repositorio que esté conectado (o enlazado) a un paquete.
 
-Actualmente, solo el {% data variables.product.prodname_container_registry %} ofrece permisos granulares para tus paquetes de imagen de contenedor.
+Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
 ## Permisos de visibilidad y acceso para las imágenes de contenedor
 

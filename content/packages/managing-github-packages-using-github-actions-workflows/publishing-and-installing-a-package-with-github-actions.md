@@ -24,9 +24,9 @@ shortTitle: Publish & install with Actions
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% ifversion fpt or ghec %}
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### Authenticating to the {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% endif %}
 
@@ -40,7 +40,7 @@ You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle. {% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.{% endif %}
+**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.product.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
 
 {% endnote %}
 
@@ -49,11 +49,11 @@ When you enable GitHub Actions, GitHub installs a GitHub App on your repository.
 {% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
 
 {% ifversion fpt or ghec %}
-## About permissions and package access for {% data variables.product.prodname_container_registry %}
+## About permissions and package access for {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-The {% data variables.product.prodname_container_registry %} (`ghcr.io`) allows users to create and administer containers as free-standing resources at the organization level. Containers can be owned by an organization or personal account and you can customize access to each of your containers separately from repository permissions.
+The {% data variables.product.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
 
-All workflows accessing the {% data variables.product.prodname_container_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+All workflows accessing the {% data variables.product.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
 
 ## Default permissions and access settings for containers modified through workflows
 
@@ -484,9 +484,9 @@ Installing packages hosted by {% data variables.product.prodname_registry %} thr
 {% data reusables.package_registry.actions-configuration %}
 
 {% ifversion fpt or ghec %}
-## Upgrading a workflow that accesses `ghcr.io`
+## Upgrading a workflow that accesses a registry using a PAT
 
-The {% data variables.product.prodname_container_registry %} supports the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to `ghcr.io`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
+The {% data variables.product.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
 For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
@@ -504,9 +504,9 @@ Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, incr
   {% endnote %}
 1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
   ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Open your workflow file. On the line where you log in to `ghcr.io`, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Open your workflow file. On the line where you log in to the registry, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker image using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
 ```yaml{:copy}
 name: Demo Push

@@ -416,7 +416,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-默认情况下， {% data variables.product.prodname_dependabot %} 最多打开五个版本更新的拉取请求。 一旦有五个打开的拉取请求，新的请求将被阻止，直到您合并或关闭一些打开的请求，之后可以在后续更新中打开新的拉取请求。 使用 `open-pull-requests-limit` 可更改此限制。 这也提供了一个简单的方法来暂时禁用包管理器的版本更新。
+默认情况下， {% data variables.product.prodname_dependabot %} 最多打开五个版本更新的拉取请求。 Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. 使用 `open-pull-requests-limit` 可更改此限制。 这也提供了一个简单的方法来暂时禁用包管理器的版本更新。
 
 此选项对安全更新没有影响，因为安全更新具有单独的内部限制：10 个打开的拉取请求。
 

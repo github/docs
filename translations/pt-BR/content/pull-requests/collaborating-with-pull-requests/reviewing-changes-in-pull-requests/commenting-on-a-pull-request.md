@@ -27,7 +27,7 @@ Você pode fazer comentários na guia **Conversation** (Conversa) de uma pull re
 
 Também é possível comentar em seções específicas de um arquivo na guia **Files changed** (Arquivos alterados) de uma pull request na forma de comentários em linha individuais ou como parte de uma [revisão de pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Adicionar comentários em linha é uma excelente maneira de discutir questões sobre implementação ou fornecer feedback ao autor.
 
-For more information on adding line comments to a pull request review, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+Para obter mais informações sobre como adicionar comentários em linha a uma revisão de pull request, consulte "[Revisar alterações propostas em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)".
 
 {% note %}
 
