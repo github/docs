@@ -26,8 +26,8 @@ topics:
   - Notifications
   - Accounts
 ---
-## Using Git
-
+# -EDIT- 
+# -Uses-ci-CI:C::\C:\I:CI.yml
 To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 If you want to work with Git locally, but do not want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
@@ -77,16 +77,16 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world. 
 
-* {% data reusables.getting-started.create-a-repository %}.
+# -* {% data reusables.getting-started.create-a-repository %}.
 
-* {% data reusables.getting-started.fork-a-repository %}
+# -* {% data reusables.getting-started.fork-a-repository %}
 
-* {% data reusables.getting-started.being-social %}
+# -* {% data reusables.getting-started.being-social %}
 
 
-* {% data reusables.support.connect-in-the-forum-bootstrap %}
+# -* {% data reusables.support.connect-in-the-forum-bootstrap %}
 * 
-'**''*' {% "Due: 2022-01-31					"
+# -**{% "Due: 2022-01-31					"
 "							575 Washington Boul																																		
 	Issuer: UNIT												600 Coolidge Drive, Suite 300V																																		
 	Employer												Folsom, CA 95630																																		
@@ -112,36 +112,55 @@ Exemptions/Allowances"			Married
 	State Income Tax				        			        					NON-NEGOTIABLE																																		
 	Net.						 0.001 TO 112.20 PAR SHARE VALUE																																								
 	Tot*	$70,842,743,866.00																																													
-	Federal Income Tax Withheld: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	$22,677,000,000,000.00			        																																										
-	Your federal taxable wages this period are $22677000000000				        																																										
+	Federal Income Tax Withheld: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	$22,677,000,000,000.00			        																																																										
+	ALPHABET INC.\
+  Zachry Tyler Wood 																																													
+	1600 AMPIHTHEATRE  
+  PARKWAY MOUNTAIN VIEW CA 94043																																														
+  
+# - Statement of Assets and Liabilities As of February 28, 2022																																														
+# -Fiscal' year' s end | September 28th.																																														
+# -Unappropriated, Affiliated, Securities, at Value.																																														
+# -Total Operating Expenses 70,842,743,866
+# -Operating Income 212,538,231,597
+# -Income Statement
+# -U.S. Department of the Treasury
+# -For the period January 1, 2022 to August 18, 2022
+# -Sep 28, 2020-May 15, 2021 Feb 11-Sep 27, 2020 Jun 26, 2019-Feb 10, 2020
+# -United States Internal Revenue Service
+# -U.S. Department of the Treasury
+# -For the period January 1, 2022 to August 18, 2022
+# -Jan 1-Aug 18, 2022
+# -70,842,743,866
+# -212,538,231,597
+# -283,380,975,463
+# -283,380,975,463
+# -70,842,743,866
+# -70,842,743,866
+# -212,538,231,597
+# -Net Income 212,538,231,597
+# -United States Internal Revenue Service
+# -U.S. Department of the Treasury
+# -For the period January 1, 2022 to August 18, 2022
+# -650
+# -Account
+# -Jan 1-Aug 18, 2022
+# -Income
+# -Sales 70,842,743,866
+# -USD 212,538,231,597
+# -Total Income 283,380,975,463
+# -Gross Profit 283,380,975,463
+# -Operating Expenses
+# <\font>da912822258c2100021cda001718745ad<\MICRACC>
+# -Total Operating Expenses 70,842,743,866
+# -Operating Income 212,538,231,597
+# -Net Income 																																												
 																																															
-	'*''*'ALPHABET INCOME $	$257,637,118,600.00																																													
-	1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043																																														
 																																															
 																																															
 																																															
 																																															
-																																															
-	Statement of Assets and Liabilities As of February 28, 2022																																														
-	Fiscal' year' s end | September 28th.																																														
-	Unappropriated, Affiliated, Securities, at Value.																																														
-																																															
-																																															
-																																															
-																																															
-																																															
-																																															
-																																															
-																																															
-																																															
-																																															
-		CoD*																																													
-																																															
-																																															
-																																															
-																																															
-																																															
-		PLEASE READ THE IMPORTANT DISCLOSURES BELOW																																													
+# -PLEASE READ THE IMPORTANT DISCLOSURES BELOW																																													
 																																															
 																																															
 																																															
