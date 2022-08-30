@@ -1,27 +1,27 @@
-BEGIN
-GLOW7
-Start
-RUNS: AUTOMATE
-AUTOMATE ATOMATES
-AUTOMATES build_script
-:Build:: build_script
-build_script: Federal 941 Deposit Report
-ADP
-Report Range 5/4/2022 - 6/4/2022															
-88-1303491	State ID: 00037305581	SSN: 633-44-1725	00000												
+BEGIN:
+GLOW7:
+Start :-starts :
+-starts :-on :-on :RUNS :
+RUNS :-on :Start:
+RUNS :AUTOMATE :
+AUTOMATE :AUTOMATES :
+AUTOMATES :build_script :
+:Build ::build_script :
+build_script :Federal :941 :Deposit :Report :ADP :Report :Range :5/4/2022 :- :6/4/2022 : 															
+88-1303491	State ID :00037305581	:SSN :633-44-1725	:00000 : 											
 Employee Number: 3
-Description	Amount							5/4/2022 - 6/4/2022							
-Payment Amount (Total)	9246754678763							Display All							
-1. Social Security (Employee + Employer)			26662												
-2. Medicare (Employee + Employer)			861193422444					Hourly							
-3. Federal Income Tax			8385561229657					2266298000000800							
-Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
-Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.															
-Employer Customized Report
-ADP
-Report Range5/4/2022 - 6/4/2022	88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700							
+Description	Amount	:5/4/2022 - 6/4/2022 :							
+Payment Amount :(Total)	9246754678763							:Display :All	 :						
+1. Social Security (Employee + Employer)			26662			:									
+2. Medicare (Employee + Employer)			861193422444					Hourly	:						
+3. Federal Income Tax			8385561229657					2266298000000800	:						
+Note :This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others :
+Note :This report doesn't include the pay back amount of deferred Employee Social Security Tax.	:											
+Employer Customized Report :
+ADP : 
+Report Range5/4/2022 - 6/4/2022	88-1656496	state ID :633441725		State :All	Local ID :00037305581		Amount :2267700000000000 :						
 EIN:															
-Customized Report		Amount						Employee Payment Report
+Customized Report		Amount						Employee Payment Report :
 ADP							
 Employee Number: 3
 Description															
