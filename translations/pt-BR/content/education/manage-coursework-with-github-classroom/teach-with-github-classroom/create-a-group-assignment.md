@@ -151,6 +151,6 @@ A página de visão geral de atividades exibe informações sobre a aceitação 
 
 ## Leia mais
 
-- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- [{% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Usar Equipes Existentes atividades em grupo?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) na comunidade de {% data variables.product.prodname_education %}

@@ -15,7 +15,7 @@ Neste guia, você começará com {% data variables.product.product_name %}, insc
 
 {% tip %}
 
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+**Dica**: Se você é um aluno e gostaria de aproveitar um desconto acadêmico, consulte "[Inscrever-se em {% data variables.product.prodname_global_campus %} como um aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
@@ -35,9 +35,9 @@ Depois de criar a sua conta pessoal, crie uma conta grátis de organização. Vo
 
 Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/types-of-github-accounts)".
 
-## Applying for teacher benefits
+## Candidatando-se aos benefícios para professores
 
-Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
+Em seguida, você irá inscrever-se para os benefícios e recursos dos professores de {% data variables.product.company_short %}, candidatando-se a {% data variables.product.prodname_global_campus %}, um portal que permite que você acesse todos os seus benefícios educativos em um só lugar.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -53,7 +53,7 @@ Next, you'll sign up for teacher benefits and resources from {% data variables.p
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+Depois que o educador de {% data variables.product.prodname_global_campus %} for verificado, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o site [{% data variables.product.prodname_education %}](https://education.github.com).
 
 ## Configurar {% data variables.product.prodname_classroom %}
 

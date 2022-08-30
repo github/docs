@@ -1,6 +1,6 @@
 ---
 title: Confirmaciones
-intro: 'The Commits API allows you to list, view, and compare commits in a repository. También puedes interactuar con los comentarios y estados de las confirmaciones.'
+intro: 'La API de confirmaciones te permite listar, ver y comparar las confirmaciones de un repositorio. También puedes interactuar con los comentarios y estados de las confirmaciones.'
 versions:
   fpt: '*'
   ghes: '*'

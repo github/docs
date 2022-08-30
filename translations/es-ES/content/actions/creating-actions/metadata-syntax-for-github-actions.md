@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Opcional**  un `map` de los parámetros de entrada que define la acción. Cada parámetro de entrada es un par clave/valor.  Los parámetros de entrada se establecen como variables del entorno. La variable utiliza el prefijo INPUT_ y se convierte en mayúsculas.
+**Opcional**  un `map` de los parámetros de entrada que define la acción. Cada parámetro de entrada es un par clave/valor. Para obtener más información, consulta la sección [Ejemplo: Especificar entradas](#example-specifying-inputs).
 
 ```yaml
 runs:

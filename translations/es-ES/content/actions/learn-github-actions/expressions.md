@@ -129,17 +129,17 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 `contains('Hello world', 'llo')` arroja `true`.
 
-#### Example using an object filter
+#### Ejemplo utilizando un filtro de objeto
 
 `contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
 
-For more information, see "[Object filters](#object-filters)."
+Para obtener más información, consulta la sección "[Filtros de objeto](#object-filters)".
 
-#### Example matching an array of strings
+#### Ejemplo empatando un arreglo de secuencias
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+En vez de escribir `github.event_name == "push" || github.event_name == "pull_request"`, puedes utilizar `contains()` con `fromJson()` para verificar si un arreglo de secuencias contiene un `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+Por ejemplo, `contains(fromJson('["push", "pull_request"]'), github.event_name)` devuelve `true` si `github.event_name` es "push" o "pull_request".
 
 ### startsWith
 

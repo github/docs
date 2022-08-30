@@ -160,9 +160,9 @@ These commands are available from all scopes.
 
 These commands are available only within the scope of an organization.
 
-| Command    | Behavior                                                                                                                                                    |
-|:---------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New team` | Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)." |
+| Command    | Behavior                                                                                                                                     |
+|:---------- |:-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `New team` | Create a new team in the current organization. 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。 |
 
 ### Repository commands
 

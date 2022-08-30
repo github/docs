@@ -27,7 +27,7 @@ shortTitle: Container registry
 
 {% ifversion ghes > 3.4 %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" e "[Habilitando o isolamento do subdomínio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
+Para usar o {% data variables.product.prodname_container_registry %} em {% data variables.product.product_name %}, o administrador do site deve primeiro configurar {% data variables.product.prodname_registry %} para sua instância **e** habilitar o isolamento do subdomínio. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" e "[Habilitando o isolamento do subdomínio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
 
 {% endif %}
 
@@ -42,7 +42,9 @@ Ao instalar ou publicar uma imagem Docker, a {% data variables.product.prodname_
 
 ## Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
+To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+{% endif %}
 
 {% ifversion ghes %}Certifique-se de substituir o `HOSTNAME` pelo nome do host {% data variables.product.product_location_enterprise %} ou endereço IP nos exemplos abaixo.{% endif %}
 

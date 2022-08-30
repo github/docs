@@ -43,6 +43,8 @@ For example, you could create an organization-wide policy that restricts the mac
 
 If you add an organization-wide policy, you should set it to the largest choice of machine types that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adding a policy to limit the available machine types
 
 {% data reusables.profile.access_org %}

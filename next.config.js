@@ -1,6 +1,9 @@
 import fs from 'fs'
-import frontmatter from 'gray-matter'
 import path from 'path'
+
+import frontmatter from 'gray-matter'
+import { languageKeys } from './lib/languages.js'
+
 const homepage = path.posix.join(process.cwd(), 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children
@@ -15,8 +18,7 @@ export default {
     ignoreDuringBuilds: true,
   },
   i18n: {
-    // locales: Object.values(languages).map(({ code }) => code),
-    locales: ['en', 'cn', 'ja', 'es', 'pt'],
+    locales: languageKeys,
     defaultLocale: 'en',
   },
   sassOptions: {

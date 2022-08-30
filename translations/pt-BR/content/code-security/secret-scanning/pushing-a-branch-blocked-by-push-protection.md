@@ -26,6 +26,14 @@ O recurso de proteção de push do {% data variables.product.prodname_secret_sca
 
 {% endtip %}
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Os administradores da organização podem fornecer um link personalizado que será incluído na mensagem de {% data variables.product.product_name %} quando seu push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos para sua organização e suas políticas.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
 ## Resolvendo um push bloqueado na linha de comando
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
@@ -51,6 +59,6 @@ Você também pode remover o segredo se o segredo aparecer em um commit anterior
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-To resolve a blocked commit in the web UI, you need to remove the secret from the file, or use the **Bypass protection** dropdown to allow the secret. Para obter mais informações sobre como contornar a proteção de push da interface de usuário da web, consulte "[Protegendo pushes com a digitalização de segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)".
+Para resolver um commit bloqueado na interface do usuário web, você deverá remover o segredo do arquivo, ou use o menu suspenso **Proteção de Bypass** para permitir o segredo. Para obter mais informações sobre como contornar a proteção de push da interface de usuário da web, consulte "[Protegendo pushes com a digitalização de segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)".
 
 Se você confirmar um segredo é real, você deverá remover o segredo do arquivo. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.

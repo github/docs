@@ -26,6 +26,8 @@ Ao criar uma política, você define se ela se aplica a todos os repositórios d
 
 Se você adicionar uma política para toda a organização com uma restrição de retenção, você deverá definir o período de retenção para o período mais longo aceitável. Em seguida, é possível adicionar políticas separadas que definam o período de retenção máximo para um período mais curto para repositórios específicos na sua organização.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adicionando uma política para definir um período máximo de retenção de codespace
 
 {% data reusables.profile.access_org %}

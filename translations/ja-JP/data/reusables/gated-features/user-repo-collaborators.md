@@ -1,4 +1,4 @@
 {% ifversion fpt %}
-If you're using
-{% data variables.product.prodname_free_user %}, you can add unlimited collaborators on public and private repositories.
+パブリック及びプライベートリポジトリには、
+{% data variables.product.prodname_free_user %}を使っているなら無制限にコラボレータを追加できます。
 {% endif %}
