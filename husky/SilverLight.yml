@@ -1,7 +1,7 @@
 BEGIN:
 GLOW7:
-Start :-starts :
--starts :-on :-on :RUNS :
+Start :On :-on :starts :
+starts ::Run:-on:BEGIN:-Runs:Run:-on:Run :
 RUNS :-on :Start:
 RUNS :AUTOMATE :
 AUTOMATE :AUTOMATES :
