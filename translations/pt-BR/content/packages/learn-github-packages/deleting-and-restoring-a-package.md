@@ -46,7 +46,7 @@ Você pode usar a API REST para gerenciar seus pacotes. Para obter mais informa�
 
 {% endif %}
 
-For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% data reusables.package_registry.no-graphql-to-delete-packages %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
+Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.{% data reusables.package_registry.no-graphql-to-delete-packages %} Para obter mais informações sobre o suporte do GraphQL, consulte "[Excluindo uma versão de um pacote com escopo de repositório com GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
 
 {% endif %}
 
@@ -54,7 +54,7 @@ For packages that inherit their permissions and access from repositories, you ca
 
 Para pacotes que herdam as permissões de acesso dos repositórios, é possível excluir um pacote se você tiver permissões de administrador para o repositório.
 
-The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+Os registros de {% data variables.product.prodname_registry %} abaixo de **apenas** usam permissões com escopo do repositório:
 
   {% ifversion not fpt or ghec %}- Imagens do Docker em `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
   {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
@@ -62,11 +62,11 @@ The {% data variables.product.prodname_registry %} registries below **only** use
   - Registro do Apache Maven
   - Registro do NuGet
 
-{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
+{% ifversion packages-npm-v2 %}Para {% data variables.product.prodname_ghcr_and_npm_registry %}, você pode optar por permitir que os pacotes tenham o escopo definido para um usuário, uma organização ou vinculados a um repositório.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME` or `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, you must have admin access to the package. Para obter mais informações, consulte "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
+Para excluir um pacote que tem permissões granulares separadas de um repositório, como imagens de contêiner armazenadas em `https://ghcr. o/OWNER/PACKAGE-NAME` ou `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, você deve ter acesso de administrador ao pacote. Para obter mais informações, consulte "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
 
 {% endif %}
 
@@ -88,9 +88,9 @@ Para excluir uma versão de um pacote com escopo do repositório, você deve ter
 
 Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} You can however use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
+{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} Você pode usar a API REST. Para obter mais informações, consulte a "[API de {% data variables.product.prodname_registry %}](/rest/reference/packages)."{% endif %}
 
-Use a mutação `deletePackageVersion` na API do GraphQL. Você deve usar um token com os escopos `read:packages`, `delete:packages` e `repo`. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
+Use a mutação `deletePackageVersion` na API do GraphQL. Você deve usar um token com os escopos `read:packages`, `delete:packages` e `repo`. Para obter mais informações sobre tokens, consulte "[Sobre {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
 
 O exemplo a seguir demonstra como excluir uma versão do pacote, usando um `packageVersionId` de `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`.
 
