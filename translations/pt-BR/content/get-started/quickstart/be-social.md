@@ -66,11 +66,11 @@ No painel de controle, clique no menu suspenso do seu nome de usuário no lado e
 
 {% data reusables.organizations.about-following-organizations %}
 
-To follow an organization, in the header of the organization's page, click **Follow**.
+Para seguir uma organização, no cabeçalho da página, clique em **Seguir**.
 
 ![Captura de tela do cabeçalho da organização, com o botão seguir destacado](/assets/images/help/profile/organization-profile-following.png)
 
-For more information, see "[Following organizations](/get-started/exploring-projects-on-github/following-organizations)."
+Para obter mais informações, consulte "[Seguindo as organizações](/get-started/exploring-projects-on-github/following-organizations)".
 
 {% endif %}
 

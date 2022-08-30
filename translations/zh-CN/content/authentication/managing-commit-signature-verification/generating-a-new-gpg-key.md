@@ -29,11 +29,11 @@ topics:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 生成 GPG 密钥对。 由于 GPG 有多个版本，因此您可能需要查询相关的[_手册页_](https://en.wikipedia.org/wiki/Man_page)以找到适当的密钥生成命令。 密钥必须使用 RSA。
     - 如果您使用的是 2.1.17 或更高版本，请粘贴以下文本以生成 GPG 密钥对。
-      ```shell
+      ```shell{:copy}
       $ gpg --full-generate-key
       ```
     - 如果使用的不是 2.1.17 或更高版本，则 `gpg --full-generate-key` 命令无效。 请粘贴以下文本并跳到第 6 步。
-      ```shell
+      ```shell{:copy}
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
 4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认值。
@@ -52,10 +52,10 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 10. 粘贴下面的文本（替换为您要使用的 GPG 密钥 ID）。 在此例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
-  ```shell
-  $ gpg --armor --export <em>3AA5C34371567BD2</em>
-  # Prints the GPG key ID, in ASCII armor format
-  ```
+ ```shell{:copy}
+ $ gpg --armor --export <em>3AA5C34371567BD2</em>
+ # Prints the GPG key ID, in ASCII armor format
+ ```
 11. 复制 GPG 密钥，从 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开始，到 `-----END PGP PUBLIC KEY BLOCK-----` 结束。
 12. [将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)。
 

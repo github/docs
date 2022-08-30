@@ -98,9 +98,9 @@ Each time you create a new release, you can trigger a workflow to publish your p
 
 ### Configuring the destination repository
 
-If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+Linking your package to {% data variables.product.prodname_registry %} using the `repository` key is optional. If you choose not to provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. If the `url` specified in the `repository` key is invalid, your package may still be published however it won't be linked to the repository source as intended.
 
-However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
+If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository. Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
 
 ```json
 {

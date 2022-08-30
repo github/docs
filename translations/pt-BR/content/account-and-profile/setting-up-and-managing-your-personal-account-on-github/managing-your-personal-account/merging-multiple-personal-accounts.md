@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Merge multiple accounts
+shortTitle: Fazer merge de múltiplas contas
 ---
 
 {% tip %}

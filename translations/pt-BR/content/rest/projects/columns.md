@@ -1,8 +1,8 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} columns'
+title: 'colunas de {% data variables.product.prodname_project_v1_caps %}'
 shortTitle: Colunas
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_project_v1 %} columns API lets you create and manage columns on a {% data variables.projects.projects_v1_board %}.'
+intro: 'A API de colunas {% data variables.product.prodname_project_v1 %} permite que você crie e gerencie as colunas em um {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'
