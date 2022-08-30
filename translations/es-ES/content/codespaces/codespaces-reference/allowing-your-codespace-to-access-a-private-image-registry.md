@@ -12,25 +12,25 @@ shortTitle: Registro de imagen privado
 
 ## Acerca de los registros de imagen y {% data variables.product.prodname_github_codespaces %} privados
 
-Un registro es un espacio seguro para almacenar, administrar y recuperar imágenes de contenedor privadas. Puedes utilizar uno para almacenar una o más imágenes. Hay muchos ejemplos de registros, tales como el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, Registro de Contenedores de Azure o DockerHub.
+Un registro es un espacio seguro para almacenar, administrar y recuperar imágenes de contenedor privadas. Puedes utilizar uno para almacenar una o más imágenes. There are many examples of registries, such as {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry, or DockerHub.
 
-El Registro de Contenedores de {% data variables.product.prodname_dotcom %} puede configurarse para extraer imágenes de contenedor sin problemas, sin tener que proporcionar credenciales de autenticación a {% data variables.product.prodname_github_codespaces %}. Para otros registros de imágenes, debes crear secretos en {% data variables.product.prodname_dotcom %} para almacenar los detalles de acceso, los cuales permitirán que los {% data variables.product.prodname_codespaces %} accedan a las imágenes almacenadas en dicho registro.
+{% data variables.product.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. Para otros registros de imágenes, debes crear secretos en {% data variables.product.prodname_dotcom %} para almacenar los detalles de acceso, los cuales permitirán que los {% data variables.product.prodname_codespaces %} accedan a las imágenes almacenadas en dicho registro.
 
-## Acceder a las imágenes almacenadas en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}
+## Accessing images stored in {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-El Registro de Contenedores de {% data variables.product.prodname_dotcom %} es la manera más fácil de que {% data variables.product.prodname_codespaces %} consuma imágenes de contenedor de devcontainer.
+{% data variables.product.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_codespaces %} to consume dev container images.
 
-Para obtener más información, consulta la sección "[Trabajar con el registro de contenedores](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
 ### Acceder a una imagen publicada en el mismo repositorio que el codespace
 
-Si publicas una imagen de contenedor en el Registro de Contenedores de {% data variables.product.prodname_dotcom %} en el mismo repositorio que el codespace en el cuál se lanzará, automáticamente podrás recuperar esta imagen cuando crees el codespace. No tendrás que proporcionar credenciales adicionales, a menos de que la opción **heredar acceso del repositorio** se haya deseleccionado cuando se publique la imagen de contenedor.
+If you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %} in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. No tendrás que proporcionar credenciales adicionales, a menos de que la opción **heredar acceso del repositorio** se haya deseleccionado cuando se publique la imagen de contenedor.
 
 #### Heredar el acceso del repositorio desde el cual se publicó la imagen
 
-Predeterminadamente, cuando publicas una imagen de contenedor en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, esta hereda la configuración de acceso del repositorio desde el cual se publicó. Por ejemplo, si el repositorio es público, la imagen también es pública. Si el repositorio es privado, la imagen también es privada, pero es accesible desde el repositorio.
+By default, when you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. Por ejemplo, si el repositorio es público, la imagen también es pública. Si el repositorio es privado, la imagen también es privada, pero es accesible desde el repositorio.
 
-Este comportamiento se controla mediante la opción **heredar acceso desde el repositorio**. La opción **heredar acceso desde el repositorio** se encuentra seleccionada predeterminadamente cuando publicas a través de {% data variables.product.prodname_actions %}, pero no cuando se publica directamente al Registro de Contenedores de {% data variables.product.prodname_dotcom %} utilizando un token de acceso personal (PAT).
+Este comportamiento se controla mediante la opción **heredar acceso desde el repositorio**. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_ghcr_or_npm_registry %} using a Personal Access Token (PAT).
 
 Si la opción de **heredar acceso desde el repositorio** no se seleccionó cuando se publicó la imagen, puedes agregar el repositorio manualmente a los controles de acceso de la imagen del contenedor publicado. Para obtener más información, consulta la sección "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)".
 
@@ -46,13 +46,13 @@ Si quieres permitir que un subconjunto de repositorios de una organización acce
 
 ### Publicar una imagen de contenedor desde un codespace
 
-El acceso fácil desde un codespace hasta el Registrod de Contenedores de {% data variables.product.prodname_dotcom %} se limita a las imágenes de contenedor que se extraen. Si quieres publicar una imagen de contenedor desde dentro de un codespace, debes utilizar un token de acceso personal (PAT) con el alcance `write:packages`.
+Seamless access from a codespace to {% data variables.product.prodname_ghcr_or_npm_registry %} is limited to pulling container images. Si quieres publicar una imagen de contenedor desde dentro de un codespace, debes utilizar un token de acceso personal (PAT) con el alcance `write:packages`.
 
-Te recomendamos publicar imágenes a través de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Publicar imágenes de Docker](/actions/publishing-packages/publishing-docker-images)".
+Te recomendamos publicar imágenes a través de {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)" and "[Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)."
 
 ## Acceder a las imágenes almacenadas en otros registros de contenedor
 
-Si estás accediendo a una imagen de contenedor desde un registro diferente al Registro de Contenedores de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_codespaces %} verifica la presencia de tres secretos, los cuales definen el nombre del servidor, nombre de usuario y token de acceso personal (PAT) de un registro de contenedores. Si se encuentran estos secretos, {% data variables.product.prodname_github_codespaces %} hará que el registro esté disponible dentro de tu codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. Si se encuentran estos secretos, {% data variables.product.prodname_github_codespaces %} hará que el registro esté disponible dentro de tu codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`

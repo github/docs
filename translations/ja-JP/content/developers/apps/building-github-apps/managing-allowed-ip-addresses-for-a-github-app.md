@@ -23,6 +23,8 @@ Organization に許可リストがある場合、{% data variables.product.prodn
 
 ## {% data variables.product.prodname_github_app %} に IPアドレス許可リストを追加する
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}

@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 デプロイメントのステータスには、オプションとして `description` と `log_url` を含めることもできます。これによりデプロイメントのステータスがより有用なものになるので、非常におすすめです。 `log_url` はデプロイメントの出力の完全な URL で、`description` はデプロイメントで発生したことの概要を示すものです。
 
-GitHub は、新しいデプロイメント、デプロイメントのステータスが作成されたときに、`deployment` イベント、`deployment_status` イベントをディスパッチします。 These events allow third-party integrations to receive and respond to deployment requests, and update the status of a deployment as progress is made.
+GitHub は、新しいデプロイメント、デプロイメントのステータスが作成されたときに、`deployment` イベント、`deployment_status` イベントをディスパッチします。 これらのイベントにより、サードパーティのインテグレーションがデプロイメントのリクエストに対する応答を受けとって反応し、進展があるたびにステータスを更新できます。
 
 以下は、これらの相互作用がどのように機能するかを示す簡単なシーケンス図です。
 

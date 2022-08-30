@@ -24,7 +24,7 @@ Existem três níveis de permissões para um {% data variables.projects.projects
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
+Os proprietários da organização e pessoas com permissões de administrador podem dar acesso a uma organização de {% data variables.projects.projects_v1_board %} individualmente, como colaborador ou integrante da organização externo, ou por meio de sua associação a uma equipe ou organização. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
 
 Os proprietários da organização e as pessoas com permissões de administradores em um {% data variables.projects.projects_v1_board %} também podem:
 - Definir permissões de quadro de projeto padrão para todos os integrantes da organização.

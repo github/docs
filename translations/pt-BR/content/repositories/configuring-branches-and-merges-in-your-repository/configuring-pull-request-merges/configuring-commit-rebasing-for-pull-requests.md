@@ -21,7 +21,7 @@ shortTitle: Configurar rebase de commit
 {% data reusables.repositories.sidebar-settings %}
 3. Em {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}"Pull Requests"{% else %}"Botão de merge"{% endif %}, selecione **Permitir merge de rebase**. Isso permite que os contribuidores façam merge de uma pull request fazendo rebase dos respectivos commits individuais no branch base.
 {% ifversion default-merge-squash-commit-message %}
- ![Screenshot of Pull Request settings with allow rebase merging checkbox emphasized](/assets/images/help/repository/allow-rebase-merging.png){% endif %}{% ifversion ghes = 3.6  %} ![Screenshot of Pull Request settings with allow rebase merging checkbox emphasized](/assets/images/help/repository/allow-rebase-merging-no-dropdown.png){% endif %}
+ ![Captura de tela das configurações de pull request com a caixa de seleção permitir merge de rebase destacada](/assets/images/help/repository/allow-rebase-merging.png){% endif %}{% ifversion ghes = 3.6  %} ![Screenshot of Pull Request settings with allow rebase merging checkbox emphasized](/assets/images/help/repository/allow-rebase-merging-no-dropdown.png){% endif %}
  {% ifversion ghes < 3.6  %}
  ![Commits com rebase da pull request](/assets/images/help/repository/pr-merge-rebase.png){% endif %}
 

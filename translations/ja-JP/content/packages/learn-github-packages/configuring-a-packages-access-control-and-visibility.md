@@ -16,7 +16,7 @@ shortTitle: アクセスコントロールと可視性
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
 
-現在は、{% data variables.product.prodname_container_registry %}でのみ詳細な権限を使うことができます。 詳細な権限は、npmレジストリのような他のパッケージレジストリではサポートされていません。{% ifversion docker-ghcr-enterprise-migration %}{% data variables.product.prodname_container_registry %}への移行に関する詳しい情報については「[Dockerレジストリから{% data variables.product.prodname_container_registry %}への移行](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)」を参照してください。{% endif %}
+現在は、{% data variables.product.prodname_ghcr_and_npm_registry %}でのみ詳細な権限を使うことができます。 Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 リポジトリをスコープとするパッケージの権限や、PATに関するパッケージ関連のスコープ、Actionsのワークフローの権限の管理についての詳しい情報は、「[GitHub Packagesの権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
@@ -95,7 +95,7 @@ Organization が所有するコンテナイメージに対する管理者権限�
 {% ifversion fpt or ghec %}
 ## パッケージへの{% data variables.product.prodname_codespaces %}アクセスの確保
 
-デフォルトでは、codespaceは**Inherit access（アクセスの継承）**オプションが選択された同じリポジトリ内で公開されたパッケージなど、{% data variables.product.prodname_dotcom %} Container Registry内の特定パッケージにシームレスにアクセスできます。 自動的に設定されるアクセスに関する詳しい情報については「[{% data variables.product.prodname_dotcom %} Container Registryに保存されたイメージへのアクセス](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)」を参照してください。
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
 
 あるいは、codespaceがパッケージに確実にアクセスできるようにするには、codespaceが起動されたリポジトリへのアクセスを許可しなければなりません。
 
