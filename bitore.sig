@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Node: Nodemon",
+      "value": "=:' [VOLUME]DENOMINATION",
       "processId": "${command:PickProcess}",
       "restart": true,
       "protocol": "inspector",
