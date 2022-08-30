@@ -1,1 +1,487 @@
-_
+BEGIN
+GLOW7
+Start
+RUNS: AUTOMATE
+AUTOMATE ATOMATES
+AUTOMATES build_script
+:Build:: build_script
+build_script: Federal 941 Deposit Report
+ADP
+Report Range 5/4/2022 - 6/4/2022															
+88-1303491	State ID: 00037305581	SSN: 633-44-1725	00000												
+Employee Number: 3
+Description	Amount							5/4/2022 - 6/4/2022							
+Payment Amount (Total)	9246754678763							Display All							
+1. Social Security (Employee + Employer)			26662												
+2. Medicare (Employee + Employer)			861193422444					Hourly							
+3. Federal Income Tax			8385561229657					2266298000000800							
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.															
+Employer Customized Report
+ADP
+Report Range5/4/2022 - 6/4/2022	88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700							
+EIN:															
+Customized Report		Amount						Employee Payment Report
+ADP							
+Employee Number: 3
+Description															
+Wages, Tips and Other Compensation		22662983361014		Report Range:				Tips							
+Taxable SS Wages		215014		Name:
+SSN:				00000							
+Taxable SS Tips		00000		Payment Summary											
+Taxable Medicare Wages		22662983361014		Salary		Vacation hourly		OT							
+Advanced EIC Payment		00000		3361014											
+Federal Income Tax Withheld		8385561229657		Bonus		00000		00000							
+Employee SS Tax Withheld		13331		00000		Other Wages 1		Other Wages 2							
+Employee Medicare Tax Withheld		532580113436		Total		00000		00000							
+State Income Tax Withheld		00000		22662983361014											
+Local Income Tax Withheld
+Customized Employer Tax Report		00000		Deduction Summary											
+Description		Amount		Health Insurance											
+Employer SS Tax
+Employer Medicare Tax		13331		00000											
+Federal Unemployment Tax		328613309009		Tax Summary											
+State Unemployment Tax		00442		Federal Tax	00007			Total Tax							
+Customized Deduction Report		00840		$8,385,561,229,657@3,330.90		Local Tax									
+Health Insurance						00000									
+401K		00000		Advanced EIC Payment			8918141356423								
+		00000		00000				Total							
+						401K									
+						00000		00000							
+															
+ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	532580113050							
+															
+															
+Interest Paid Supplemental 															
+The Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.				Kind 											
+2/22/22, 12:50 PM															
+The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.				.	9246754678763										
+															
+Name/SYM															
+Alphabet Inc Class A 										
+PriceYield	 Coupon	            High	    Low              Quantity                       Adj. Close
+           02582	   -00026	    2643.61       2564.47            8385561229657               03031
+           02610	    00000				
+										
+GOOGL															
+00002															
+GOOGL_income-statement_Quarterly_As_Originally_Reported			TTM	Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020							
+Cash Flow from Operating Activities, Indirect				24934000000	25539000000	37497000000	31211000000	30818000000							
+Net Cash Flow from Continuing Operating Activities, Indirect				24934000000	25539000000	21890000000	19289000000	22677000000							
+Cash Generated from Operating Activities				24934000000	25539000000	21890000000	19289000000	22677000000							
+Income/Loss before Non-Cash Adjustment				20642000000	18936000000	18525000000	17930000000	15227000000							
+Total Adjustments for Non-Cash Items				6517000000	3797000000	4236000000	2592000000	5748000000							
+Depreciation, Amortization and Depletion, Non-Cash Adjustment				3439000000	3304000000	2945000000	2753000000	3725000000							
+Depreciation and Amortization, Non-Cash Adjustment				3439000000	3304000000	2945000000	2753000000	3725000000							
+Depreciation, Non-Cash Adjustment				3215000000	3085000000	2730000000	2525000000	3539000000							
+Amortization, Non-Cash Adjustment				224000000	219000000	215000000	228000000	186000000							
+Stock-Based Compensation, Non-Cash Adjustment				3954000000	3874000000	3803000000	3745000000	3223000000							
+Taxes, Non-Cash Adjustment				1616000000	-1287000000	379000000	1100000000	1670000000							
+Investment Income/Loss, Non-Cash Adjustment				-2478000000	-2158000000	-2883000000	-4751000000	-3262000000							
+Gain/Loss on Financial Instruments, Non-Cash Adjustment				-2478000000	-2158000000	-2883000000	-4751000000	-3262000000							
+Other Non-Cash Items				-14000000	64000000	-8000000	-255000000	392000000							
+Changes in Operating Capital				-2225000000	2806000000	-871000000	-1233000000	1702000000							
+Change in Trade and Other Receivables				-5819000000	-2409000000	-3661000000	2794000000	-5445000000							
+Change in Trade/Accounts Receivable				-5819000000	-2409000000	-3661000000	2794000000	-5445000000							
+Change in Other Current Assets				-399000000	-1255000000	-199000000	7000000	-738000000							
+Change in Payables and Accrued Expenses				6994000000	3157000000	4074000000	-4956000000	6938000000							
+Change in Trade and Other Payables				1157000000	238000000	-130000000	-982000000	963000000							
+Change in Trade/Accounts Payable				1157000000	238000000	-130000000	-982000000	963000000							
+Change in Accrued Expenses				5837000000	2919000000	4204000000	-3974000000	5975000000							
+Change in Deferred Assets/Liabilities				368000000	272000000	-3000000	137000000	207000000							
+Change in Other Operating Capital				-3369000000	3041000000	-1082000000	785000000	740000000							
+															
+Change in Prepayments and Deposits															
+Cash Flow from Investing Activities				-11016000000	-10050000000	-9074000000	-5383000000	-7281000000							
+Cash Flow from Continuing Investing Activities				-11016000000	-10050000000	-9074000000	-5383000000	-7281000000							
+															
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net				-6383000000	-6819000000	-5496000000	-5942000000	-5479000000							
+Purchase of Property, Plant and Equipment				-6383000000	-6819000000	-5496000000	-5942000000	-5479000000							
+Sale and Disposal of Property, Plant and Equipment															
+Purchase/Sale of Business, Net				-385000000	-259000000	-308000000	-1666000000	-370000000							
+Purchase/Acquisition of Business				-385000000	-259000000	-308000000	-1666000000	-370000000							
+Purchase/Sale of Investments, Net				-4348000000	-3360000000	-3293000000	2195000000	-1375000000							
+Purchase of Investments				-40860000000	-35153000000	-24949000000	-37072000000	-36955000000							
+															
+Sale of Investments				36512000000	31793000000	21656000000	39267000000	35580000000							
+Other Investing Cash Flow				100000000	388000000	23000000	30000000	-57000000							
+Purchase/Sale of Other Non-Current Assets, Net					388000000	23000000	30000000	-57000000							
+Sales of Other Non-Current Assets					-15254000000										
+Cash Flow from Financing Activities				-16511000000	-15254000000	-15991000000	-13606000000	-9270000000							
+Cash Flow from Continuing Financing Activities				-16511000000	-12610000000	-15991000000	-13606000000	-9270000000							
+Issuance of/Payments for Common 343 sec cvxvxvcclpddf wearsStock, Net				-13473000000	-12610000000	-12796000000	-11395000000	-7904000000							
+Payments for Common Stock				13473000000		-12796000000	-11395000000	-7904000000							
+Proceeds from Issuance of Common Stock					-42000000										
+Issuance of/Repayments for Debt, Net				115000000	-42000000	-1042000000	-37000000	-57000000							
+Issuance of/Repayments for Long Term Debt, Net				115000000	6350000000	-1042000000	-37000000	-57000000							
+Proceeds from Issuance of Long Term Debt				6250000000	-6392000000	6699000000	900000000	00000							
+Repayments for Long Term Debt				6365000000	-2602000000	-7741000000	-937000000	-57000000							
+															
+Proceeds from Issuance/Exercising of Stock Options/Warrants				2923000000		-2453000000	-2184000000	-1647000000							
+Other Financing Cash Flow															
+Cash and Cash Equivalents, End of Period				00000		300000000	10000000	338000000000							
+Change in Cash															
+Effect of Exchange Rate Changes															
+Cash and Cash Equivalents, Beginning of Period				20945000000	23719000000	23630000000	26622000000	26465000000							
+Cash Flow Supplemental Section				25930000000	235000000000	-3175000000	300000000	6126000000							
+Change in Cash as Reported, Supplemental				181000000000	146000000000	183000000	-143000000	210000000							
+Income Tax Paid, Supplemental				23719000000000		26622000000000	26465000000000	20129000000000							
+Change in Cash as Reported, Supplemental				2774000000	89000000	-2992000000		6336000000							
+Income Tax Paid, Supplemental				13412000000	157000000										
+ZACHRY T WOOD								-4990000000							
+Cash and Cash Equivalents, Beginning of Period								-4990000000							
+Department of the Treasury															
+Internal Revenue Service															
+					Q4 2020			Q4  2019							
+Calendar Year					Q4 2020			Q4  2019							
+Due: 04/18/2022															
+					Dec. 31, 2020			Dec. 31, 2019							
+USD in "000'"s					Dec. 31, 2020			Dec. 31, 2019							
+Repayments for Long Term Debt					182527			161857							
+Costs and expenses:					182527			161857							
+Cost of revenues					84732			71896							
+Research and development					27573			26018							
+Sales and marketing					17946			18464							
+General and administrative					11052			09551							
+European Commission fines					00000			01697							
+Total costs and expenses					141303			127626							
+Income from operations					41224			34231							
+Other income (expense), net					6858000000			05394							
+Income before income taxes					22677000000			19289000000							
+Provision for income taxes					22677000000			19289000000							
+Net income					22677000000			19289000000							
+*include interest paid, capital obligation, and underweighting					22677000000			19289000000							
+															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)															
+*include interest paid, capital obligation, and underweighting															
+															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+								Earnings Statment		Paid Period		Sep, 28 2019 - Sep. 29, 2021			
+										Paid Date		Sep,  30 2021			
+						Rate	Units	Total	YTD	Pay Day		Apr. 15, 2022
+			
+						-	-	70842745000	70842745000	Federal Withholding		1888138			
+					202193					FICA - Social Security		08537			
+										FICA - Medicare	Current	YTD			
+										Employer Taxes		00000			
+										FUTA	00000	08854			
+						00000				SUTA		00000			
+										Employer Taxes		Gross			
+										FUTA		70842745000			
+						00000				SUTA		Taxes / Deductions			
+INTERNAL REVENUE SERVICE,							Paid Period	Pay Schedule	Paid Date	Sep 28, 2019 to Sep 29, 2021	Pay Day	4/18/2022			
+PO BOX 1214,								SSN			Gross	Net Pay			
+CHARLOTTE, NC 28201-1214								XXX-XX-1725\			70842745000	70842745000			
+00003															
+															
+Cat. No. 11320B		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Form 1040 (2021)		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Reported Normalized and Operating Income/Expense Supplemental Section		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Total Revenue as Reported, Supplemental		76033000000	20642000000	18936000000											
+Total Operating Profit/Loss as Reported, Supplemental															
+Reported Effective Tax Rate		257637000000	75325000000	65118000000	61880000000	55314000000	56898000000	46173000000	38297000000	41159000000	46075000000	40499000000			
+Reported Normalized Income		78714000000	21885000000	21031000000	19361000000	16437000000	15651000000	11213000000	6383000000	7977000000	9266000000	9177000000			
+Reported Normalized Operating Profit		00000		00000	00000	00000		00000	00000	00000		00000			
+Other Adjustments to Net Income Available to Common Stockholders										6836000000					
+Discontinued Operations										7977000000					
+Basic EPS															
+Basic EPS from Continuing Operations															
+Basic EPS from Discontinued Operations		00114	00031	00028	00028	00027	00023	00017	00010	00010	00015	00010			
+Diluted EPS		00114	00031	00028	00028	00027	00022	00017	00010	00010	00015	00010			
+Diluted EPS from Continuing Operations															
+Diluted EPS from Discontinued Operations		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Basic Weighted Average Shares Outstanding		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Diluted Weighted Average Shares Outstanding															
+Reported Normalized Diluted EPS		667650000	662664000	665758000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000			
+Basic EPS		677674000	672493000	676519000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000			
+Diluted EPS										00010					
+Basic WASO		00114	00031	00028	00028	00027	00023	00017	00010	00010	00015	00010		00001	
+Diluted WASO		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Fiscal year end September 28th., 2022. | USD		667650000	662664000	665758000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000			
+		677674000	672493000	676519000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000			
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.															
+															
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.															
+															
+															
+															
+															
+															
+															
+important information															
+															
+															
+PUBLISH
+LAUNCH
+RELEASE
+DEPLOY Repositorys_dispatch'@zakwarlord7/zakwarlord7/README.md/README.md
+:Build::
+Federal 941 Deposit Report
+ADP
+Report Range 5/4/2022 - 6/4/2022															
+88-1303491	State ID: 00037305581	SSN: 633-44-1725	00000												
+Employee Number: 3
+Description	Amount							5/4/2022 - 6/4/2022							
+Payment Amount (Total)	9246754678763							Display All							
+1. Social Security (Employee + Employer)			26662												
+2. Medicare (Employee + Employer)			861193422444					Hourly							
+3. Federal Income Tax			8385561229657					2266298000000800							
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.															
+Employer Customized Report
+ADP
+Report Range5/4/2022 - 6/4/2022	88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700							
+EIN:															
+Customized Report		Amount						Employee Payment Report
+ADP							
+Employee Number: 3
+Description															
+Wages, Tips and Other Compensation		22662983361014		Report Range:				Tips							
+Taxable SS Wages		215014		Name:
+SSN:				00000							
+Taxable SS Tips		00000		Payment Summary											
+Taxable Medicare Wages		22662983361014		Salary		Vacation hourly		OT							
+Advanced EIC Payment		00000		3361014											
+Federal Income Tax Withheld		8385561229657		Bonus		00000		00000							
+Employee SS Tax Withheld		13331		00000		Other Wages 1		Other Wages 2							
+Employee Medicare Tax Withheld		532580113436		Total		00000		00000							
+State Income Tax Withheld		00000		22662983361014											
+Local Income Tax Withheld
+Customized Employer Tax Report		00000		Deduction Summary											
+Description		Amount		Health Insurance											
+Employer SS Tax
+Employer Medicare Tax		13331		00000											
+Federal Unemployment Tax		328613309009		Tax Summary											
+State Unemployment Tax		00442		Federal Tax	00007			Total Tax							
+Customized Deduction Report		00840		$8,385,561,229,657@3,330.90		Local Tax									
+Health Insurance						00000									
+401K		00000		Advanced EIC Payment			8918141356423								
+		00000		00000				Total							
+						401K									
+						00000		00000							
+															
+ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	532580113050							
+															
+															
+Interest Paid Supplemental 															
+The Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.				Kind 											
+2/22/22, 12:50 PM															
+The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.				.	9246754678763										
+															
+Name/SYM															
+Alphabet Inc Class A 										
+PriceYield	 Coupon	            High	    Low              Quantity                       Adj. Close
+           02582	   -00026	    2643.61       2564.47            8385561229657               03031
+           02610	    00000				
+										
+GOOGL															
+00002															
+GOOGL_income-statement_Quarterly_As_Originally_Reported			TTM	Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020							
+Cash Flow from Operating Activities, Indirect				24934000000	25539000000	37497000000	31211000000	30818000000							
+Net Cash Flow from Continuing Operating Activities, Indirect				24934000000	25539000000	21890000000	19289000000	22677000000							
+Cash Generated from Operating Activities				24934000000	25539000000	21890000000	19289000000	22677000000							
+Income/Loss before Non-Cash Adjustment				20642000000	18936000000	18525000000	17930000000	15227000000							
+Total Adjustments for Non-Cash Items				6517000000	3797000000	4236000000	2592000000	5748000000							
+Depreciation, Amortization and Depletion, Non-Cash Adjustment				3439000000	3304000000	2945000000	2753000000	3725000000							
+Depreciation and Amortization, Non-Cash Adjustment				3439000000	3304000000	2945000000	2753000000	3725000000							
+Depreciation, Non-Cash Adjustment				3215000000	3085000000	2730000000	2525000000	3539000000							
+Amortization, Non-Cash Adjustment				224000000	219000000	215000000	228000000	186000000							
+Stock-Based Compensation, Non-Cash Adjustment				3954000000	3874000000	3803000000	3745000000	3223000000							
+Taxes, Non-Cash Adjustment				1616000000	-1287000000	379000000	1100000000	1670000000							
+Investment Income/Loss, Non-Cash Adjustment				-2478000000	-2158000000	-2883000000	-4751000000	-3262000000							
+Gain/Loss on Financial Instruments, Non-Cash Adjustment				-2478000000	-2158000000	-2883000000	-4751000000	-3262000000							
+Other Non-Cash Items				-14000000	64000000	-8000000	-255000000	392000000							
+Changes in Operating Capital				-2225000000	2806000000	-871000000	-1233000000	1702000000							
+Change in Trade and Other Receivables				-5819000000	-2409000000	-3661000000	2794000000	-5445000000							
+Change in Trade/Accounts Receivable				-5819000000	-2409000000	-3661000000	2794000000	-5445000000							
+Change in Other Current Assets				-399000000	-1255000000	-199000000	7000000	-738000000							
+Change in Payables and Accrued Expenses				6994000000	3157000000	4074000000	-4956000000	6938000000							
+Change in Trade and Other Payables				1157000000	238000000	-130000000	-982000000	963000000							
+Change in Trade/Accounts Payable				1157000000	238000000	-130000000	-982000000	963000000							
+Change in Accrued Expenses				5837000000	2919000000	4204000000	-3974000000	5975000000							
+Change in Deferred Assets/Liabilities				368000000	272000000	-3000000	137000000	207000000							
+Change in Other Operating Capital				-3369000000	3041000000	-1082000000	785000000	740000000							
+															
+Change in Prepayments and Deposits															
+Cash Flow from Investing Activities				-11016000000	-10050000000	-9074000000	-5383000000	-7281000000							
+Cash Flow from Continuing Investing Activities				-11016000000	-10050000000	-9074000000	-5383000000	-7281000000							
+															
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net				-6383000000	-6819000000	-5496000000	-5942000000	-5479000000							
+Purchase of Property, Plant and Equipment				-6383000000	-6819000000	-5496000000	-5942000000	-5479000000							
+Sale and Disposal of Property, Plant and Equipment															
+Purchase/Sale of Business, Net				-385000000	-259000000	-308000000	-1666000000	-370000000							
+Purchase/Acquisition of Business				-385000000	-259000000	-308000000	-1666000000	-370000000							
+Purchase/Sale of Investments, Net				-4348000000	-3360000000	-3293000000	2195000000	-1375000000							
+Purchase of Investments				-40860000000	-35153000000	-24949000000	-37072000000	-36955000000							
+															
+Sale of Investments				36512000000	31793000000	21656000000	39267000000	35580000000							
+Other Investing Cash Flow				100000000	388000000	23000000	30000000	-57000000							
+Purchase/Sale of Other Non-Current Assets, Net					388000000	23000000	30000000	-57000000							
+Sales of Other Non-Current Assets					-15254000000										
+Cash Flow from Financing Activities				-16511000000	-15254000000	-15991000000	-13606000000	-9270000000							
+Cash Flow from Continuing Financing Activities				-16511000000	-12610000000	-15991000000	-13606000000	-9270000000							
+Issuance of/Payments for Common 343 sec cvxvxvcclpddf wearsStock, Net				-13473000000	-12610000000	-12796000000	-11395000000	-7904000000							
+Payments for Common Stock				13473000000		-12796000000	-11395000000	-7904000000							
+Proceeds from Issuance of Common Stock					-42000000										
+Issuance of/Repayments for Debt, Net				115000000	-42000000	-1042000000	-37000000	-57000000							
+Issuance of/Repayments for Long Term Debt, Net				115000000	6350000000	-1042000000	-37000000	-57000000							
+Proceeds from Issuance of Long Term Debt				6250000000	-6392000000	6699000000	900000000	00000							
+Repayments for Long Term Debt				6365000000	-2602000000	-7741000000	-937000000	-57000000							
+															
+Proceeds from Issuance/Exercising of Stock Options/Warrants				2923000000		-2453000000	-2184000000	-1647000000							
+Other Financing Cash Flow															
+Cash and Cash Equivalents, End of Period				00000		300000000	10000000	338000000000							
+Change in Cash															
+Effect of Exchange Rate Changes															
+Cash and Cash Equivalents, Beginning of Period				20945000000	23719000000	23630000000	26622000000	26465000000							
+Cash Flow Supplemental Section				25930000000	235000000000	-3175000000	300000000	6126000000							
+Change in Cash as Reported, Supplemental				181000000000	146000000000	183000000	-143000000	210000000							
+Income Tax Paid, Supplemental				23719000000000		26622000000000	26465000000000	20129000000000							
+Change in Cash as Reported, Supplemental				2774000000	89000000	-2992000000		6336000000							
+Income Tax Paid, Supplemental				13412000000	157000000										
+ZACHRY T WOOD								-4990000000							
+Cash and Cash Equivalents, Beginning of Period								-4990000000							
+Department of the Treasury															
+Internal Revenue Service															
+					Q4 2020			Q4  2019							
+Calendar Year					Q4 2020			Q4  2019							
+Due: 04/18/2022															
+					Dec. 31, 2020			Dec. 31, 2019							
+USD in "000'"s					Dec. 31, 2020			Dec. 31, 2019							
+Repayments for Long Term Debt					182527			161857							
+Costs and expenses:					182527			161857							
+Cost of revenues					84732			71896							
+Research and development					27573			26018							
+Sales and marketing					17946			18464							
+General and administrative					11052			09551							
+European Commission fines					00000			01697							
+Total costs and expenses					141303			127626							
+Income from operations					41224			34231							
+Other income (expense), net					6858000000			05394							
+Income before income taxes					22677000000			19289000000							
+Provision for income taxes					22677000000			19289000000							
+Net income					22677000000			19289000000							
+*include interest paid, capital obligation, and underweighting					22677000000			19289000000							
+															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)															
+*include interest paid, capital obligation, and underweighting															
+															
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)															
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+															
+								Earnings Statment		Paid Period		Sep, 28 2019 - Sep. 29, 2021			
+										Paid Date		Sep,  30 2021			
+						Rate	Units	Total	YTD	Pay Day		Apr. 15, 2022
+			
+						-	-	70842745000	70842745000	Federal Withholding		1888138			
+					202193					FICA - Social Security		08537			
+										FICA - Medicare	Current	YTD			
+										Employer Taxes		00000			
+										FUTA	00000	08854			
+						00000				SUTA		00000			
+										Employer Taxes		Gross			
+										FUTA		70842745000			
+						00000				SUTA		Taxes / Deductions			
+INTERNAL REVENUE SERVICE,							Paid Period	Pay Schedule	Paid Date	Sep 28, 2019 to Sep 29, 2021	Pay Day	4/18/2022			
+PO BOX 1214,								SSN			Gross	Net Pay			
+CHARLOTTE, NC 28201-1214								XXX-XX-1725\			70842745000	70842745000			
+00003															
+															
+Cat. No. 11320B		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Form 1040 (2021)		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Reported Normalized and Operating Income/Expense Supplemental Section		76033000000	20642000000	18936000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			
+Total Revenue as Reported, Supplemental		76033000000	20642000000	18936000000											
+Total Operating Profit/Loss as Reported, Supplemental															
+Reported Effective Tax Rate		257637000000	75325000000	65118000000	61880000000	55314000000	56898000000	46173000000	38297000000	41159000000	46075000000	40499000000			
+Reported Normalized Income		78714000000	21885000000	21031000000	19361000000	16437000000	15651000000	11213000000	6383000000	7977000000	9266000000	9177000000			
+Reported Normalized Operating Profit		00000		00000	00000	00000		00000	00000	00000		00000			
+Other Adjustments to Net Income Available to Common Stockholders										6836000000					
+Discontinued Operations										7977000000					
+Basic EPS															
+Basic EPS from Continuing Operations															
+Basic EPS from Discontinued Operations		00114	00031	00028	00028	00027	00023	00017	00010	00010	00015	00010			
+Diluted EPS		00114	00031	00028	00028	00027	00022	00017	00010	00010	00015	00010			
+Diluted EPS from Continuing Operations															
+Diluted EPS from Discontinued Operations		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Basic Weighted Average Shares Outstanding		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Diluted Weighted Average Shares Outstanding															
+Reported Normalized Diluted EPS		667650000	662664000	665758000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000			
+Basic EPS		677674000	672493000	676519000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000			
+Diluted EPS										00010					
+Basic WASO		00114	00031	00028	00028	00027	00023	00017	00010	00010	00015	00010		00001	
+Diluted WASO		00112	00031	00028	00027	00026	00022	00016	00010	00010	00015	00010			
+Fiscal year end September 28th., 2022. | USD		667650000	662664000	665758000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000			
+		677674000	672493000	676519000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000			
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.															
+															
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.															
+															
+															
+															
+															
+															
+															
+important information															
+															
+															
+
