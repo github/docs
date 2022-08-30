@@ -1,7 +1,5 @@
-
 <html>
-
-<head>
+chrome-extension://bpmcpldpdmajfigpchkicefoigmkfalc/views/app.html
 <title></title>
   <link id="common-css" rel="stylesheet" type="text/css" href="../scripts/lib/qowt/assets/common.css" disabled="false"/>
   <link id="word-css" rel="stylesheet" type="text/css" href="../scripts/lib/qowt/assets/document/word.css" disabled="true" />
