@@ -42,8 +42,8 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-     {% data reusables.code-scanning.alert-default-branch %}
-     ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+   {% data reusables.code-scanning.alert-default-branch %}
+   ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado.
   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
    ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)

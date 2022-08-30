@@ -13,4 +13,4 @@ versions:
 
 ## About a API do cache
 
-A API do cache do {% data variables.product.prodname_actions %} permite que você consulte e gerencie o cache {% data variables.product.prodname_actions %} para repositórios. {% ifversion actions-cache-management %}You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. {% endif %}For more information, see "[Caching dependencies to speed up workflows](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#managing-caches)."
+A API do cache do {% data variables.product.prodname_actions %} permite que você consulte e gerencie o cache {% data variables.product.prodname_actions %} para repositórios. {% ifversion actions-cache-management %}Você também pode instalar uma extensão de {% data variables.product.prodname_cli %} para gerenciar seus caches a partir da linha de comando. {% endif %}Para obter mais informações, consulte "[Dependências de cache para acelerar os fluxos de trabalho](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#managing-caches)".

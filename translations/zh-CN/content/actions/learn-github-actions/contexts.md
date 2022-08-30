@@ -33,17 +33,13 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.context-injection-warning %}
 
-| 上下文名称      | 类型   | 描述                                                                |
-| ---------- | ---- | ----------------------------------------------------------------- |
-| `github`   | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。             |
-| `env`      | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。          |
-| `job`      | `对象` | 有关当前运行的作业的信息。 更多信息请参阅 [`job` 上下文](#job-context)。                  |
-| `steps`    | `对象` | 有关当前作业中已运行的步骤的信息。 更多信息请参阅 [`steps` 上下文](#steps-context)。          |
-| `runner`   | `对象` | 运行当前作业的运行程序相关信息。 更多信息请参阅 [`runner` 上下文](#runner-context)。         |
-| `secrets`  | `对象` | 包含可用于工作流程运行的机密的名称和值。 更多信息请参阅 [`secrets` 上下文](#secrets-context)。   |
-| `strategy` | `对象` | 有关当前作业的矩阵执行策略的信息。 更多信息请参阅 [`strategy` 上下文](#strategy-context)。    |
-| `matrix`   | `对象` | 包含在工作流程中定义的应用于当前作业的矩阵属性。 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 |
-| `needs`    | `对象` | 包含定义为当前作业依赖项的所有作业的输出。 更多信息请参阅 [`needs` 上下文](#needs-context)。      |
+| 上下文名称    | 类型   | 描述                                                       |
+| -------- | ---- | -------------------------------------------------------- |
+| `github` | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。    |
+| `env`    | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。 |
+| `job`    | `对象` | 有关当前运行的作业的信息。 更多信息请参阅 [`job` 上下文](#job-context)。         |
+{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %} | `steps` | `object` | Information about the steps that have been run in the current job. 更多信息请参阅 [`steps` 上下文](#steps-context)。 | | `runner` | `object` | Information about the runner that is running the current job. 更多信息请参阅 [`runner` 上下文](#runner-context)。 | | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. 更多信息请参阅 [`secrets` 上下文](#secrets-context)。 | | `strategy` | `object` | Information about the matrix execution strategy for the current job. 更多信息请参阅 [`strategy` 上下文](#strategy-context)。 | | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 | | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. 更多信息请参阅 [`needs` 上下文](#needs-context)。 |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 | `inputs` | `object` | 包含可重用 {% ifversion actions-unified-inputs %}或手动触发 {% endif %}工作流程的输入。 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
 
@@ -389,6 +385,72 @@ jobs:
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+
+## `jobs` context
+
+The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. 更多信息请参阅“[重用工作流程](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”。
+
+| 属性名称                                              | 类型    | 描述                                                                                                                         |
+| ------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------- |
+| `jobs`                                            | `对象`  | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. 此对象包含下面列出的所有属性。 |
+| `jobs.<job_id>.result`                      | `字符串` | The result of a job in the reusable workflow. 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。                          |
+| `jobs.<job_id>.outputs`                     | `对象`  | The set of outputs of a job in a reusable workflow.                                                                        |
+| `jobs.<job_id>.outputs.<output_name>` | `字符串` | The value of a specific output for a job in a reusable workflow.                                                           |
+
+### Example contents of the `jobs` context
+
+This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+
+```json
+{
+  example_job: {
+    result: success,
+    outputs: {
+      output1: hello,
+      output2: world
+    }
+  }
+}
+```
+
+### Example usage of the `jobs` context
+
+This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. 更多信息请参阅“[重用工作流程](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”。
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
+jobs:
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=firstword::hello"
+      - id: step2
+        run: echo "::set-output name=secondword::world"
+```
+{% endraw %}
+
+{% endif %}
 
 ## `steps` 上下文
 

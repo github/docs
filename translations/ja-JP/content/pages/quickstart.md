@@ -26,11 +26,12 @@ product: '{% data reusables.gated-features.pages %}'
 1. リポジトリ名として`username.github.io`を入力してください。 `username`を自分の{% data variables.product.prodname_dotcom %}ユーザ名で置き換えてください。 たとえば、ユーザ名が`octocat`なら、リポジトリ名は`octocat.github.io`となります。 ![リポジトリ名フィールド](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. **Choose a theme（テーマの選択）**をクリックしてください。 ![[Choose a theme] ボタン](/assets/images/help/pages/choose-theme.png)
-2. テーマ選択画面が開きます。 利用可能なテーマをブラウズし、**Select theme（テーマの選択）**をクリックしてテーマを選択してください。 後でテーマを変更することも容易なので、はっきりしない場合はとりあえずどれか1つを選択しておいてください。 ![テーマのオプションおよび [Select theme] ボタン](/assets/images/help/pages/select-theme.png)
-3. テーマとを選択すると、ファイルエディタで`README.md`ファイルが開かれます。 `README.md`ファイルは、サイトの内容を書くところです。 このファイルを編集することも、あるいはとりあえずデフォルトの内容をそのままにしておくこともできます。
-4. ファイルの編集が終わったら、**Commit changes（変更をコミット）**をクリックしてください。
-5. `username.github.io`にアクセスして、新しいWebサイトを見てみてください。 **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
+1. "Build and deployment（ビルドとデプロイ）"の下の"Source（ソース）"の下で、**Deploy from a branch（ブランチからデプロイ）**を選択してください。
+1. "Build and deployment（ビルドとデプロイ）"の下の"Branch（ブランチ）"の下で、**None（無し）**もしくは**Branch（ブランチ）**ドロップダウンメニューを使って公開ソースを選択してください。
+
+   ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
+1. あるいは、リポジトリの`README.md`ファイルを開いてください。 `README.md`ファイルは、サイトの内容を書くところです。 このファイルを編集することも、あるいはとりあえずデフォルトの内容をそのままにしておくこともできます。
+1. `username.github.io`にアクセスして、新しいWebサイトを見てみてください。 **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大10分かかることがあります。
 
 ## タイトルと説明の変更
 

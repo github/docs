@@ -2,5 +2,12 @@ Web UIを使ってプッシュ保護としてのSecret scanningが有効化さ�
 
 シークレットの場所に関する情報がページ上部のバナーに表示され、簡単にシークレットが見つけられるよう、ファイル内でシークレットに下線が引かれます。
 
+{% ifversion push-protection-custom-link-orgs %}
+
+  ![Secret scanningのプッシュ保護のため、Web UIでコミットがブロックされていることが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+
+{% else %}
+
   ![Secret scanningのプッシュ保護のため、Web UIでコミットがブロックされていることが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
-  
+
+{% endif %}

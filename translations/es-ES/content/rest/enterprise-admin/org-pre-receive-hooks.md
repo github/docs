@@ -1,6 +1,6 @@
 ---
-title: Organization Pre-receive Hooks
-intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
+title: Ganchos de pre-recepción de organización
+intro: La API de ganchos de pre-recepción de organización te permite ver y modificar el requisito de tener ganchos de pre-recepción que están disponibles para una organización.
 versions:
   ghes: '*'
 topics:
@@ -20,4 +20,4 @@ allowTitleToDifferFromFilename: true
 
 Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. El valor `disabled` indica que el gancho de pre-recepción no se ejecutará. El valor `enabled` indica que se ejecutará y rechazará cualquier carga que resulte en un estado diferente a zero. El valor `testing` indica que el script va a ejecutarse pero no va a causar que se rechace ninguna carga.
 
-`configuration_url` may be a link to this endpoint or this hook's global configuration. Solo los administradores de sistema pueden acceder a la configuración global.
+`configuration_url` podría ser un enlace a esta terminal o a la configuración global de este gancho. Solo los administradores de sistema pueden acceder a la configuración global.

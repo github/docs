@@ -23,12 +23,12 @@ shortTitle: 删除和恢复包
 - 整个私有包
 - 整个公共包（如果任何包版本不超过 5000 次下载）
 - 私有包的特定版本
-- 公共包的特定版本（如果包版本不超过 5000 次下载）
+- 公共包的特定版本（如果包版本不超过 5,000 次下载）
 
 {% note %}
 
 **注:**
-- 如果任何版本的包下载量超过 5000 次，则无法删除公共包。 在这种情况下，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-packages) 获取更多帮助。
+- 如果任何版本的包下载量超过 5,000 次，则无法删除公共包。 在这种情况下，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-packages) 获取更多帮助。
 - 删除公共包时，请注意，您可能会破坏依赖于包的项目。
 
 {% endnote %}
@@ -46,7 +46,7 @@ shortTitle: 删除和恢复包
 
 {% endif %}
 
-对于从仓库继承其权限和访问权限的包，您可以使用 GraphQL 删除特定的包版本。{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %} GraphQL API 不支持使用包命名空间的容器或 Docker 映像 `https://ghcr.io/OWNER/PACKAGE-NAME`。{% endif %} 有关 GraphQL 支持的更多信息，请参阅“[使用 GraphQL 删除存储库范围包的版本](#deleting-a-version-of-a-repository-scoped-package-with-graphql)”。
+For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% data reusables.package_registry.no-graphql-to-delete-packages %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
 
 {% endif %}
 
@@ -54,17 +54,19 @@ shortTitle: 删除和恢复包
 
 对于从仓库继承其访问权限的包，如果您拥有仓库管理权限，则可以删除包。
 
-{% data variables.product.prodname_registry %} 上仓库范围的包中包括以下包：
-- npm
-- RubyGems
-- maven
-- Gradle
-- NuGet
-{% ifversion not fpt or ghec %}- Docker 映像位于 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+
+  {% ifversion not fpt or ghec %}- Docker 映像位于 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+  {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
+  - RubyGems 注册表
+  - Apache Maven 注册表
+  - NuGet 注册表
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-要删除与仓库分开的具有粒度权限的软件包，例如存储在 `https://ghcr.io/OWNER/PACKAGE-NAME` 上的容器映像，您必须对该包具有管理员访问权限。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
+To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME` or `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, you must have admin access to the package. 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
 
 {% endif %}
 
@@ -86,9 +88,7 @@ shortTitle: 删除和恢复包
 
 对于从仓库继承其许可和访问权限的包，您可以使用 GraphQL 删除特定的包版本。
 
-{% ifversion fpt or ghec %}
-对于在 `ghcr.io` 上的容器或 Docker 映像，GraphQL 不受支持，但您可以使用 REST API。 更多信息请参阅“[{% data variables.product.prodname_registry %} API](/rest/reference/packages)”。
-{% endif %}
+{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} You can however use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
 
 在 GraphQL API 中使用 `deletePackageVersion` 突变。 必须使用具有 `read:packages`、`delete:packages` 和 `repo` 作用域的令牌。 有关令牌的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)”。
 

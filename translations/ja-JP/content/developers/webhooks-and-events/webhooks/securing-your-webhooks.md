@@ -37,12 +37,12 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## GitHub からのペイロードを検証する
 
-シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
+シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 This hash signature is included with the headers of each request as `x-hub-signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 以下は、`X-Hub-Signature-256` ヘッダの使用例です。
+**Note:** For backward-compatibility, we also include the `x-hub-signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `x-hub-signature-256` header for improved security. The example below demonstrates using the `x-hub-signature-256` header.
 
 {% endnote %}
 {% endif %}
