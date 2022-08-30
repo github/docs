@@ -1,7 +1,7 @@
 ---
-title: Allowing a prebuild to access other repositories
-shortTitle: Allow external repo access
-intro: 'You can permit your prebuild template access to other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
+title: Permitindo que uma pré-compilação acesse outros repositórios
+shortTitle: Permitindo o acesso ao repositório externo
+intro: 'Você pode permitir que sua pré-compilação acesse outros repositórios de {% data variables.product.prodname_dotcom %} para que possam ser compilados com sucesso.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,25 +13,25 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-Por padrão, o fluxo de trabalho de {% data variables.product.prodname_actions %} para uma configuração de pré-compilação só pode acessar o próprio conteúdo do repositório. Your project may use additional resources, located elsewhere, to build the development environment.
+Por padrão, o fluxo de trabalho de {% data variables.product.prodname_actions %} para uma configuração de pré-compilação só pode acessar o próprio conteúdo do repositório. Seu projeto pode usar recursos adicionais localizados em outro lugar, para construir o ambiente de desenvolvimento.
 
-## Allowing a prebuild read access external resources
+## Permitindo recursos externos do acesso de leitura a uma pré-compilação
 
-You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. Para obter mais informações, consulte "[Gerenciar o acesso a outros repositórios dentro de seu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
+Você pode configurar o acesso de leitura para outros repositórios {% data variables.product.prodname_dotcom %}, com o mesmo proprietário do repositório, especificando permissões no arquivo `devcontainer.json` usado pela configuração da sua pré-compilação. Para obter mais informações, consulte "[Gerenciar o acesso a outros repositórios dentro de seu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
 
 {% note %}
 
-**Note**: You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocat` repository, then you'll be able to grant read permissions for other `octo-org/*` repositories if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
+**Observação**: Você só pode autorizar permissões de leitura desta forma, e o proprietário do repositório de destino deve ser o mesmo que o proprietário do repositório para o qual você está criando uma pré-compilação. Por exemplo, se você estiver criando uma configuração de pré-compilação para o repositório `octo-org/octocat`, você poderá conceder permissões de leitura para outros `octo-org/*` repositórios se isso for especificado no arquivo `devcontainer.json ` e forneceu as permissões você mesmo.
 
 {% endnote %}
 
-When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+Ao criar ou editar uma configuração de pré-compilação para um arquivo `devcontainer.json` que configura acesso de leitura para outros repositórios com o mesmo proprietário do repositório, será solicitado que você conceda essas permissões ao clicar em **Criar** ou **Atualizar**. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
-## Allowing a prebuild write access external resources
+## Permitindo recursos externos do acesso de gravação a uma pré-compilação
 
-If your project requires write access to resources, or if the external resources reside in a repository with a different owner to the repository for which you are creating a prebuild configuration, you can use a personal access token (PAT) to grant this access.
+Se o seu projeto precisar de acesso de gravação aos recursos, ou se os recursos externos residirem em um repositório com um proprietário diferente do repositório para o qual você está criando uma configuração pré-compilada, você poderá usar um token de acesso pessoal (PAT) para conceder este acesso.
 
-You will need to create a new personal account and then use this account to create a PAT with the appropriate scopes.
+Você precisará criar uma nova conta pessoal e, em seguida, usar esta conta para criar um PAT com o escopo apropriado.
 
 1. Crie uma nova conta pessoal em {% data variables.product.prodname_dotcom %}.
 
@@ -55,7 +55,7 @@ You will need to create a new personal account and then use this account to crea
 1. Efetue novamente o login na conta com acesso de administrador ao repositório.
 1. No repositório para o qual você deseja criar as pré-compilações de {% data variables.product.prodname_codespaces %}, crie um novo segredo de repositório de {% data variables.product.prodname_codespaces %} chamado `CODESPACES_PREBUILD_TOKEN`, dando-lhe o valor do token que você criou e copiou. Para obter mais informações, consulte "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)".
 
-O PAT será usado para todos os modelos de pré-compilação subsequentes criados para o seu repositório. Ao contrário de outros segredos do repositório de {% data variables.product.prodname_codespaces %}, o segredo `CODESPACES_PREBUILD_TOKEN` é usado apenas para pré-compilação e não estará disponível para uso em codespaces criados a partir do seu repositório.
+O PAT será usado para todas as pré-compilações subsequentes criadas para o seu repositório. Ao contrário de outros segredos do repositório de {% data variables.product.prodname_codespaces %}, o segredo `CODESPACES_PREBUILD_TOKEN` é usado apenas para pré-compilação e não estará disponível para uso em codespaces criados a partir do seu repositório.
 
 ## Leia mais
 

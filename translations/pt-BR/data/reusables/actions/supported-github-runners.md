@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Ambiente virtual</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>Etiqueta de fluxo de trabalho YAML</b></th>
     <th style="width:40%"><b>Observações</b></th>
   </tr>
@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-O Ubuntu 22,04 está atualmente em beta público.
 </td>
 </tr>
 <tr>
@@ -49,12 +48,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
 </td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% note %}
 
-**Observação:** Os `-últimos` ambientes virtuais são as últimas imagens estáveis que {% data variables.product.prodname_dotcom %} fornece, e podem não ser a versão mais recente do sistema operacional disponível no fornecedor do sistema operacional.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 

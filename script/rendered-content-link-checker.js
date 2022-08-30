@@ -12,6 +12,7 @@ import path from 'path'
 import cheerio from 'cheerio'
 import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
+import got from 'got'
 
 import shortVersions from '../middleware/contextualizers/short-versions.js'
 import contextualize from '../middleware/context.js'
@@ -20,6 +21,7 @@ import getRedirect from '../lib/get-redirect.js'
 import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
+import excludedLinks from '../lib/excluded-links.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -31,6 +33,18 @@ Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
 })
+
+// Return a function that can as quickly as possible check if a certain
+// href input should be skipped.
+// Do this so we can use a `Set` and a `iterable.some()` for a speedier
+// check.
+function linksToSkipFactory() {
+  const set = new Set(excludedLinks.filter((regexOrURL) => typeof regexOrURL === 'string'))
+  const regexes = excludedLinks.filter((regexOrURL) => regexOrURL instanceof RegExp)
+  return (href) => set.has(href) || regexes.some((regex) => regex.test(href))
+}
+
+const linksToSkip = linksToSkipFactory(excludedLinks)
 
 const CONTENT_ROOT = path.resolve('content')
 
@@ -56,6 +70,7 @@ program
   .option('-b, --bail', 'Exit on the first flaw')
   .option('--check-anchors', "Validate links that start with a '#' too")
   .option('--check-images', 'Validate local images too')
+  .option('--check-external-links', 'Check external URLs too')
   .option('-v, --verbose', 'Verbose outputs')
   .option('--debug', "Loud about everything it's doing")
   .option('--random', 'Load pages in a random order (useful for debugging)')
@@ -92,7 +107,7 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, language, filter, exit, debug, max, verbose, list } = opts
+  const { random, language, filter, exit, debug, max, verbose, list, checkExternalLinks } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
   // even though there's no server involved, is because
@@ -132,6 +147,14 @@ async function main(opts, files) {
   debug && console.time('getPages')
   const pages = getPages(pageList, languages, filters, files, max)
   debug && console.timeEnd('getPages')
+
+  if (checkExternalLinks && pages.length >= 100) {
+    console.warn(
+      chalk.yellow(
+        `Warning! Checking external URLs can be time costly. You're testing ${pages.length} pages.`
+      )
+    )
+  }
 
   const processPagesStart = new Date()
   const flawsGroups = await Promise.all(
@@ -240,38 +263,58 @@ async function processPage(page, pageMap, redirects, opts) {
 }
 
 async function processPermalink(permalink, page, pageMap, redirects, opts) {
-  const { level, checkAnchors, checkImages } = opts
+  const { level, checkAnchors, checkImages, checkExternalLinks } = opts
   const html = await renderInnerHTML(page, permalink)
   const $ = cheerio.load(html)
   const flaws = []
+  const links = []
   $('a[href]').each((i, link) => {
-    const { href } = link.attribs
-
-    // The global cache can't be used for anchor links because they
-    // depend on each page it renders
-    if (!href.startsWith('#')) {
-      if (globalHrefCheckCache.has(href)) {
-        globalCacheHitCount++
-        return globalHrefCheckCache.get(href)
-      }
-      globalCacheMissCount++
-    }
-
-    const flaw = checkHrefLink(href, $, redirects, pageMap, checkAnchors)
-
-    // Again if it's *not* an anchor link, we can use the cache.
-    if (!href.startsWith('#')) {
-      globalHrefCheckCache.set(href, flaw)
-    }
-
-    if (flaw) {
-      if (level === 'critical' && !flaw.CRITICAL) {
-        return
-      }
-      const text = $(link).text()
-      flaws.push({ permalink, page, href, flaw, text })
-    }
+    links.push(link)
   })
+  const newFlaws = await Promise.all(
+    links.map(async (link) => {
+      const { href } = link.attribs
+
+      // The global cache can't be used for anchor links because they
+      // depend on each page it renders
+      if (!href.startsWith('#')) {
+        if (globalHrefCheckCache.has(href)) {
+          globalCacheHitCount++
+          return globalHrefCheckCache.get(href)
+        }
+        globalCacheMissCount++
+      }
+
+      const flaw = await checkHrefLink(
+        href,
+        $,
+        redirects,
+        pageMap,
+        checkAnchors,
+        checkExternalLinks
+      )
+
+      if (flaw) {
+        if (level === 'critical' && !flaw.CRITICAL) {
+          return
+        }
+        const text = $(link).text()
+        if (!href.startsWith('#')) {
+          globalHrefCheckCache.set(href, { href, flaw, text })
+        }
+        return { href, flaw, text }
+      } else {
+        if (!href.startsWith('#')) {
+          globalHrefCheckCache.set(href, flaw)
+        }
+      }
+    })
+  )
+  for (const flaw of newFlaws) {
+    if (flaw) {
+      flaws.push(Object.assign(flaw, { page, permalink }))
+    }
+  }
 
   if (checkImages) {
     $('img[src]').each((i, img) => {
@@ -353,7 +396,14 @@ const globalImageSrcCheckCache = new Map()
 let globalCacheHitCount = 0
 let globalCacheMissCount = 0
 
-function checkHrefLink(href, $, redirects, pageMap, checkAnchors = false) {
+async function checkHrefLink(
+  href,
+  $,
+  redirects,
+  pageMap,
+  checkAnchors = false,
+  checkExternalLinks = false
+) {
   if (href === '#') {
     if (checkAnchors) {
       return { WARNING: 'Link is just an empty `#`' }
@@ -399,7 +449,78 @@ function checkHrefLink(href, $, redirects, pageMap, checkAnchors = false) {
         return { CRITICAL: 'Broken link' }
       }
     }
+  } else if (checkExternalLinks) {
+    if (!href.startsWith('https://')) {
+      return { WARNING: `Will not check external URLs that are not HTTPS (${href})` }
+    }
+    if (linksToSkip(href)) {
+      return
+    }
+    let failed = false
+
+    try {
+      failed = await checkExternalURL(href)
+    } catch (err) {
+      return { WARNING: `Got error when testing ${href}: ${err.toString()}` }
+    }
+    if (failed) {
+      return { CRITICAL: 'Broken external link ' }
+    }
   }
+}
+
+const externalResponseCache = new Map()
+const externalResponseWaiting = new Set()
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+async function checkExternalURL(url) {
+  if (!url.startsWith('https://')) throw new Error('Invalid URL')
+
+  if (externalResponseCache.has(url)) {
+    const result = externalResponseCache.get(url)
+    return result
+  }
+  if (externalResponseWaiting.has(url)) {
+    // Because this whole script is based on `Promise.all()` you can't
+    // guarantee that you first make the list of external URLs distinct,
+    // so you'll end up with N concurrent threads that both start,
+    // waiting for the same URL to check.
+    // If there's one going on, sleep and retry all over.
+    await sleep(500 + Math.random() * 100)
+    return await checkExternalURL(url)
+  }
+  externalResponseWaiting.add(url)
+
+  // The way `got` does retries:
+  //
+  //   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
+  //
+  // So, it means:
+  //
+  //   1. ~1000ms
+  //   2. ~2000ms
+  //   3. ~4000ms
+  //
+  // ...if the limit we set is 3.
+  // Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
+  // So there's no point in trying more attempts than 3 because it would
+  // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
+  const retry = {
+    limit: 3,
+  }
+  const timeout = 2000
+
+  const r = await got(url, {
+    throwHttpErrors: false,
+    retry,
+    timeout,
+  })
+
+  const failed = r.statusCode !== 200
+  externalResponseCache.set(url, failed)
+  externalResponseWaiting.delete(url)
+  return failed
 }
 
 function checkImageSrc(src, $) {

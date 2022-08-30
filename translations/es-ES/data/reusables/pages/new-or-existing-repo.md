@@ -1,6 +1,6 @@
-You can either create a repository or choose an existing repository for your site.
+Puedes ya sea crear un repositorio o elegir alguno existente para tu sitio.
 
-If you want to create a {% data variables.product.prodname_pages %} site for a repository where not all of the files in the repository are related to the site, you will be able to configure a publishing source for your site. For example, you can have a dedicated branch and folder to hold your site source files{% ifversion pages-custom-workflow %}, or you can use a custom {% data variables.product.prodname_actions %} workflow to build and deploy your site source files{% endif %}.
+Si quieres crear un sitio de {% data variables.product.prodname_pages %} para un repositorio en donde no todos los archivos de este se relacionen con el sitio, podrás configurar una fuente de publicación para dicho sitio. Por ejemplo, puedes tener una rama y carpeta dedicados para albergar los archivos fuente de tu sitio{% ifversion pages-custom-workflow %} o puedes utilizar un flujo de trabajo de {% data variables.product.prodname_actions %} personalizado para crear y desplegar los archivos fuente de tu sitio{% endif %}.
 
 {% ifversion fpt or ghec %}Si la cuenta a la que pertenece el repositorio utiliza {% data variables.product.prodname_free_user %} o {% data variables.product.prodname_free_team %} para organizaciones, el repositorio deberá ser público.{% endif %}
 

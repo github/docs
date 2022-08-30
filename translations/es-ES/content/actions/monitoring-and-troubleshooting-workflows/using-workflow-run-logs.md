@@ -27,7 +27,7 @@ Si falla la ejecución de su flujo de trabajo, puedes ver qué paso provocó el 
 
 Adicionalmente a los pasos que se configuraron en el archivo de flujo de trabajo, {% data variables.product.prodname_dotcom %} agrega dos pasos adicionales a cada job para configurar y completar la ejecución del flujo de trabajo. Estos pasos se registran en la ejecución del flujo de trabajo con los nombres de "Set up job" y "Complete job".
 
-Para jobs que se ejecutan en ejecutores hospedados en {% data variables.product.prodname_dotcom %}, "Set up job" registra los detalles del ambiente virtual del ejecutor, e incluye un enlace a la lista de herramientas pre-instaladas que estuvieron presentes en la máquina del ejecutor.
+Para los jobs que se ejecuten en ejecutores hospedados en {% data variables.product.prodname_dotcom %}, "Set up job" registra los detalles de la imagen del ejecutor e incluye un enlace a la lista de herramientas pre-instaladas que estuvieron presentes en la máquina ejecutora.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

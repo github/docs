@@ -31,18 +31,23 @@ redirect_from:
 
 ## 添加允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ## 允许 {% data variables.product.prodname_github_apps %} 访问
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ## 启用允许的 IP 地址
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -52,6 +57,8 @@ redirect_from:
 
 ## 编辑允许的 IP 地址
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -59,6 +66,18 @@ redirect_from:
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. 单击 **Update（更新）**。
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+## Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ## 删除允许的 IP 地址
 

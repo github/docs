@@ -6,10 +6,10 @@ name: 'Link Checker: All English'
 
 on:
   workflow_dispatch:
+  merge_group:
   push:
     branches:
       - main
-      - gh-readonly-queue/main/**
   pull_request:
 
 permissions:
@@ -53,6 +53,14 @@ jobs:
           # Don't care about CDN caching image URLs
           DISABLE_REWRITE_ASSET_URLS: true
         run: |
+
+          # Note as of Aug 2022, we *don't* check external links
+          # on the pages you touched in the PR. We could enable that
+          # but it has the added risk of false positives blocking CI.
+          # We are using this script for the daily/nightly checker that
+          # checks external links too. Once we're confident it really works
+          # well, we can consider enabling it here on every content PR too.
+
           ./script/rendered-content-link-checker.js \
             --language en \
             --max 100 \

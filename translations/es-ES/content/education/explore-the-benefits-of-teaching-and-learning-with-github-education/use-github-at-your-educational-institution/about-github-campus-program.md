@@ -7,6 +7,7 @@ redirect_from:
   - /articles/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors
 versions:
   fpt: '*'
 shortTitle: Programa del Campus de GitHub
@@ -16,7 +17,7 @@ El {% data variables.product.prodname_campus_program %} es un paquete de acceso 
 
 - Acceso sin costo a {% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_server %} para todos tus departamentos técnicos y académicos
 - 50,000 minutos de {% data variables.product.prodname_actions %} y 50 GB de almacenamiento de {% data variables.product.prodname_registry %}
-- Capacitación de maestro para dominar Git y {% data variables.product.prodname_dotcom %} con nuestro [Programa de asesor del campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- Capacitación para docentes para dominar Git y {% data variables.product.prodname_dotcom %}
 - Acceso exclusivo a las características nuevas, swag específico de la Educación de GitHub y herramientas de desarrollo gratuitas de los socios de {% data variables.product.prodname_dotcom %}
 - Acceso automatizado a las funciones premium de {% data variables.product.prodname_education %}, como {% data variables.product.prodname_student_pack %}
 

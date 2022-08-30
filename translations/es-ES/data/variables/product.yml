@@ -85,7 +85,7 @@ prodname_oauth_app: 'App OAuth'
 prodname_oauth_apps: 'OAuth Apps'
 #API and developer docs
 prodname_enterprise_api: 'las API de {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %}'
-prodname_support_forum_with_url: '[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
+prodname_support_forum_with_url: '[Debates de las API e integraciones en la comunidad de GitHub](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
 prodname_unfurls: 'Adjuntos de Contenido'
 #Azure AD
 ae_azure_ad_app_link: 'la [Aplicación de GitHub AE](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
@@ -112,6 +112,10 @@ prodname_registry: 'Registro del paquete de GitHub'
 prodname_container_registry: 'Registro de contenedores'
 prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes or ghae %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
 prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes or ghae %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
+prodname_npm_registry: 'Registro de npm'
+prodname_ghcr_and_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_or_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} or {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_and_npm_registry_full: '{% data variables.product.prodname_container_registry %} (`ghcr.io`){% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %} (`npm.pkg.github.com`){% endif %}'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -126,7 +130,7 @@ prodname_github_codespaces: 'Acerca de GitHub Codespaces'
 prodname_serverless: 'editor basado en la web'
 #GitHub resources: blog, jobs, skills
 prodname_gcf: 'Soporte de la Comunidad de GitHub'
-prodname_github_community: 'GitHub Community'
+prodname_github_community: 'Comunidad de GitHub'
 prodname_blog: 'el blog de GitHub'
 prodname_jobs: 'Empleos GitHub'
 prodname_learning: 'Habilidades de GitHub'

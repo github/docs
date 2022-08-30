@@ -71,9 +71,6 @@ COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Whether to hide iframes, add warnings to external links
-ENV AIRGAP false
-
 # Preferred port for server.js
 ENV PORT 4000
 
@@ -87,11 +84,9 @@ ENV BUILD_SHA=$BUILD_SHA
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
-COPY --chown=node:node includes ./includes
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.js ./server.js

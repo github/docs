@@ -11,7 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Notifications API
+## Acerca de la API de notificaciones
 
 La API de notificaciones te permite administrar las notificaciones de {% data variables.product.product_name %}. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)".
 

@@ -69,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -277,12 +277,12 @@ Adicione o evento "pull_request", para que o fluxo de trabalho seja executado au
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-Adicione o evento "push", de modo que o fluxo de trabalho seja executado automaticamente toda vez que um commit for enviado por push para um branch que corresponde ao filtro "gh-readonly-queue/main/**". Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
+Adicione o evento `push`, para que o fluxo de trabalho seja executado automaticamente toda vez que um commit for feito push para um branch que corresponda ao filtro `main`. Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>

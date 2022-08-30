@@ -35,11 +35,15 @@ You can set a usage limit for the codespaces in your organization or repository.
 
 ## Disabling or limiting {% data variables.product.prodname_codespaces %}
 
-You can disable the use of {% data variables.product.prodname_codespaces %} in your organization or repository. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
+You can disable all use of {% data variables.product.prodname_github_codespaces %} that would be billed to your organization. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
 
-You can also limit the individual users who can use {% data variables.product.prodname_codespaces %}. For more information, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
+{% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-You can limit the choice of machine types that are available for repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces. 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
+You can configure which repositories can be accessed from codespaces created for a particular repository. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+
+You can limit the choice of types of machine that are available for codespaces created from repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces, and incurring unnecessary charges. 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
+
+You can also restrict how long a codespace can remain unused before it is automatically deleted. This can help to reduce storage costs for {% data variables.product.prodname_codespaces %}. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 ## Deleting unused codespaces
 
@@ -47,6 +51,6 @@ Your users can delete their codespaces in https://github.com/codespaces and from
 
 {% note %}
 
-**注釈:** codespace を作成したユーザだけが削除できます。 現在、Organization のオーナーが Organization 内で作成された Codespaces を削除する方法はありません。
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a defined number of days. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)." A codespace can only be manually deleted by the person who created the codespace.
 
 {% endnote %}

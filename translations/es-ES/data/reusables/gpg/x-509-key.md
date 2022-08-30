@@ -1,5 +1,5 @@
 
-### Informarle a Git acerca de tu llave X.509
+## Informarle a Git acerca de tu llave X.509
 
 Puedes usar [smimesign](https://github.com/github/smimesign) para firmar confirmaciones y etiquetas utilizando S/MIME en lugar de GPG.
 

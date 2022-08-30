@@ -25,6 +25,10 @@ shortTitle: アラートのフィルタリング
 
 アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析がOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
 
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
+
 ## リポジトリでフィルタリング
 
 すべてのOrganizationレベル及びTeamレベルのビューで利用可能。

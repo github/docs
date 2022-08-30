@@ -52,7 +52,7 @@ El uso de almacenamiento se comparte con los artefactos de compilación que prod
 
 {% data variables.product.prodname_dotcom %} cobra el uso a la cuenta a la que pertenece el repositorio en donde se publica el paquete. Si tu uso de cuenta sobrepasa estos límites y configuraste un límite de gastos mayor a $0 USD, pagarás $0.008 USD por GB de almacenamiento por día y $0.50 USD por GB de transferencia de datos.
 
-Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %}, permite los gastos ilimitados, utiliza 150GB de almacenamiento, y tiene 50GB de transferencia de datos durante un mes, ésta tendrá un excedente de 148GB en el almacenamiento y de 40GB en transferencia de datos para ese mes. El excedente de almacenamiento costaría $0.008 USD por GB por día o $37 USD. El excedente para transferencia de datos costaría $0.50 USD por GB, o $20 USD.
+Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %}, permite los gastos ilimitados, utiliza 150GB de almacenamiento, y tiene 50GB de transferencia de datos durante un mes, ésta tendrá un excedente de 148GB en el almacenamiento y de 40GB en transferencia de datos para ese mes. El almacenamiento excedente costaría $0.008 USD por GB por día o, aproximadamente, $37 USD por un mes de 31 días. El excedente para transferencia de datos costaría $0.50 USD por GB, o $20 USD.
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 

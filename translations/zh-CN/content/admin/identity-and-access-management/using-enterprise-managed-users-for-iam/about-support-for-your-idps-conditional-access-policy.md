@@ -22,9 +22,11 @@ topics:
 
 有关将 OIDC 与 {% data variables.product.prodname_emus %} 配合使用的更多信息，请参阅“[为企业托管用户配置 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)”和“[从 SAML 迁移到 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)”。
 
-## 关于将 CAP 与 IP 允许列表一起使用
+{% note %}
 
-我们建议您禁用企业帐户的 IP 允许列表，并依靠 IdP 的 CAP。 如果您为企业启用 IP 允许列表，并且还利用 IdP 的 CAP，则将强制执行 IP 允许列表和 CAP。 如果限制或拒绝用户的 IP 地址，则请求将失败。 有关 IP 允许列表的更多信息，请参阅“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
+**Note:** If you use Conditional Access (CA) network location policies in your Azure AD tenant, do not use the IP allow list feature on {% data variables.product.prodname_dotcom_the_website %}, with your enterprise account or with any of the organizations owned by the enterprise. Using both is unsupported and can result in the wrong policy applying. For more information about IP allow lists, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+
+{% endnote %}
 
 ## 集成和自动化的注意事项
 

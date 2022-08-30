@@ -16,7 +16,7 @@ topics:
 
 Millones de desarrolladores en todo el mundo hospedan millones de proyectos, tanto de código propietario como de código libre, en GitHub. Somo afortunados de poder tomar parte en habilitar la colaboración a lo largo de la comunidad de desarrolladores cada día, lo cual es una responsabilidad que no nos tomamos a la ligera. Juntos, tenemos la emocionante oportunidad de hacer de esta una comunidad de la cual podamos estar orgullosos.
 
-GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. Este es un lugar civilizado para conectarse con otros usuarios, aprender nuevas habilidades, compartir comentarios e ideas y encontrar todo el apoyo que necesitas para tus proyectos de GitHub. By participating in GitHub Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this GitHub Community-specific Code of Conduct.
+GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. Este es un lugar civilizado para conectarse con otros usuarios, aprender nuevas habilidades, compartir comentarios e ideas y encontrar todo el apoyo que necesitas para tus proyectos de GitHub. Si participas en la Comunidad de GitHub, estás de acuerdo con los mismos [Términos de servicio](/github/site-policy/github-terms-of-service/) y [Políticas de uso aceptable de GitHub](/github/site-policy/github-acceptable-use-policies) que aplican a GitHub.com, así como este Código de Conducta específico de la Comunidad de GitHub.
 
 With this Code of Conduct, we hope to help you understand how best to collaborate in GitHub Community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from community participation. We will investigate any abuse reports and may moderate public content within GitHub Community that we determine to be in violation of either the GitHub Terms of Service or this Code of Conduct.
 
@@ -24,7 +24,7 @@ Nuestra base de usuarios diversa trae perspectivas, ideas y experiencias diferen
 
 ## Compromiso
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in GitHub Community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+Con el mejor interés de fomentar un ambiente abierto y acogedor, como contribuyentes y mantenedores nos comprometemos a que la participación en la Comunidad de GitHub sea una experiencia sin acoso para todos, sin importar la edad, talla, discapacidades, etnicidad, identidad y expresión de género, nivel de experiencia, nacionalidad, apariencia personal, raza, religión o identidad y orientación sexual.
 
 ## Estándares
 

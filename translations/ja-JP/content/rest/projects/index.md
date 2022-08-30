@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create, list, update, delete and customize {% data variables.projects.projects_v1_boards %}.'
+intro: '{% data variables.product.prodname_projects_v1 %} APIを使うと、{% data variables.projects.projects_v1_boards %}の作成、リスト、更新、削除、カスタマイズができます。'
 redirect_from:
   - /v3/projects
   - /rest/reference/projects

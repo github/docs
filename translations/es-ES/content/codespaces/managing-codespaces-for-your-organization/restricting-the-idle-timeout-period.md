@@ -36,9 +36,11 @@ If someone sets the default idle timeout to 90 minutes in their personal setting
 
 ### Configurar políticas específicas para los repositorios y a lo largo de la organización
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+Cuando creas una política, eliges si esta aplica a todos los repositorios de tu organización o solo a algunos específicos. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
 
 If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## Adding a policy to set a maximum idle timeout period
 
@@ -51,7 +53,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
 1. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar la restricción.
 
-   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Editar la restricción de tiempo de espera](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
 1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
 
@@ -65,9 +67,9 @@ The policy will be applied to all new codespaces that are created, and to existi
 
 ## Editar una política
 
-You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
+Puedes editar una política existente. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para configurar un periodo de tiempo de inactividad máximo](#adding-a-policy-to-set-a-maximum-idle-timeout-period)".
 1. Haz clic en el nombre de la política que quieres editar.
 1. Haz los cambios requeridos y luego haz clic en **Guardar**.
 

@@ -41,11 +41,11 @@ shortTitle: GitHub Pagesのサイトの作成
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-1. Create the entry file for your site. {% data variables.product.prodname_pages %} will look for an `index.html`, `index.md`, or `README.md` file as the entry file for your site.
+1. サイトのエントリファイルを作成してください。 {% data variables.product.prodname_pages %}は、サイトのエントリファイルとして`index.html`、`index.md`、`README.md`のいずれかのファイルを探します。
 
-   {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
+   {% ifversion pages-custom-workflow %}公開ソースがブランチとフォルダなら、エントリファイルはソースブランチのソースフォルダのトップレベルになければなりません。 たとえば、公開ソースが`main`ブランチの`/docs`フォルダにあるなら、エントリファイルは`main`というブランチの`/docs`フォルダに置かれていなければなりません。
 
-   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
+   公開ソースが{% data variables.product.prodname_actions %}ワークフローなら、デプロイする成果物のトップレベルにはエントリファイルがなければなりません。 エントリファイルをリポジトリに追加する代わりに、{% data variables.product.prodname_actions %}ワークフローに実行時にエントリファイルを生成させるよう選択することもできます。{% else %}エントリファイルは、選択した公開ソースのトップレベルになければなりません。 たとえば、公開ソースが`main`ブランチの`/docs`フォルダにあるなら、エントリファイルは`main`というブランチの`/docs`フォルダ内に置かれていなければなりません。{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
@@ -59,9 +59,9 @@ shortTitle: GitHub Pagesのサイトの作成
 
 新しいファイルを追加で作成することにより、ページを追加できます。 各ファイルは、公開元と同じディレクトリ構造で、サイト上に表示されます。 たとえば、プロジェクトサイトの公開元が `gh-pages` ブランチで、新しいファイル `/about/contact-us.md` を `gh-pages` ブランチに作成した場合、ファイルは {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` で表示されます。
 
-また、サイトの見た目をカスタマイズするため、テーマを追加できます。 詳しい情報については、{% ifversion fpt or ghec %}「[テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}「[Jekyll テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}」を参照してください。
+また、サイトの見た目をカスタマイズするため、テーマを追加できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
 
-サイトを更にカスタマイズするには、Jekyll を使用できます。Jekyll は、{% data variables.product.prodname_pages %} に組み込まれている静的サイトジェネレータです。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll](/articles/about-github-pages-and-jekyll)」を参照してください。
+サイトを更にカスタマイズするには、Jekyll を使用できます。Jekyll は、{% data variables.product.prodname_pages %} に組み込まれている静的サイトジェネレータです。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyllについて](/articles/about-github-pages-and-jekyll)」を参照してください。
 
 ## 参考リンク
 

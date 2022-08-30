@@ -37,7 +37,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能
 
 - CircleCI 的自动测试并行性根据用户指定的规则或历史计时信息自动对测试进行分组。 此功能未内置于 {% data variables.product.prodname_actions %}。
 - 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}有关 {% data variables.product.product_name %} 托管的运行器上 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
 ## 迁移工作流程和作业
@@ -66,10 +66,10 @@ CircleCI 提供一套具有共同依赖项的预建映像。 这些映像的 `US
 
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+For more information about the Docker filesystem, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 有关
 
-{% data variables.product.prodname_dotcom %} 托管的虚拟环境中可用的工具和软件包的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% data variables.product.prodname_dotcom %}-hosted runner images, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
 ## 使用变量和密码
@@ -287,7 +287,8 @@ jobs:
 
     steps:
       # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      # See https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem
+
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
       - uses: {% data reusables.actions.action-checkout %}

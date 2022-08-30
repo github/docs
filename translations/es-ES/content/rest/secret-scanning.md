@@ -1,5 +1,5 @@
 ---
-title: Escaneo de secretos
+title: Secret scanning
 intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   ghes: '*'
@@ -16,9 +16,9 @@ redirect_from:
 
 ## About the Secret scanning API
 
-La API del {% data variables.product.prodname_secret_scanning %} te permite :
+The {% data variables.product.prodname_secret_scanning %} API lets you:
 
-- Enable or disable {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} and push protection{% endif %} for a repository. Para obtener más información, consulta la sección "[Repositorios](/rest/repos/repos#update-a-repository)" y expande la sección de "Propiedades del objeto `security_and_analysis`" en la documentación de la API de REST.
+- Enable or disable {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} and push protection{% endif %} for a repository. For more information, see "[Repositories](/rest/repos/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 - Retrieve and update {% data variables.product.prodname_secret_scanning_GHAS %} alerts from a repository. For further details, see the sections below.
 
-Para obtener más información acerca de las {% data variables.product.prodname_secret_scanning %}, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)".
+For more information about {% data variables.product.prodname_secret_scanning %}, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)."

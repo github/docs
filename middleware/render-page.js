@@ -1,5 +1,6 @@
 import { get } from 'lodash-es'
 
+import FailBot from '../lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
@@ -7,13 +8,7 @@ import statsd from '../lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
-import { cacheControlFactory } from './cache-control.js'
-
-const noCacheControl = cacheControlFactory(0)
-
-const htmlCacheControl = cacheControlFactory(0)
-// We'll start with no cache, the increase to one minute (60),
-// then five minutes (60 * 5), finally ten minutes (60 * 10)
+import { defaultCacheControl } from './cache-control.js'
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -23,21 +18,6 @@ async function buildRenderedPage(req) {
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
   const renderedPage = await pageRenderTimed(context)
-
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    return renderedPage + context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    return renderedPage + context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    return renderedPage + context.graphql.prerenderedMutationsForCurrentVersion.html
-  }
 
   return renderedPage
 }
@@ -56,12 +36,18 @@ async function buildMiniTocItems(req) {
 
 export default async function renderPage(req, res, next) {
   const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
   const { page } = context
   const path = req.pagePath || req.path
 
   // render a 404 page
   if (!page) {
-    noCacheControl(res)
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
       console.error(
         `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
@@ -72,11 +58,8 @@ export default async function renderPage(req, res, next) {
 
   // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    noCacheControl(res)
     return res.status(200).send('')
   }
-
-  htmlCacheControl(res)
 
   // Updating the Last-Modified header for substantive changes on a page for engineering
   // Docs Engineering Issue #945
@@ -139,6 +122,8 @@ export default async function renderPage(req, res, next) {
       })
     }
   }
+
+  defaultCacheControl(res)
 
   return nextHandleRequest(req, res)
 }

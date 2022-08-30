@@ -19,7 +19,7 @@ Los estados de despliegue permiten que los servicios externos marquen estos desp
 
 Los estados de despliegue también incluyen una `description` y una `log_url` opcionales, las cuales se recomiendan ampliamente, ya que hacen que los estados de despliegue sean más útiles. La `log_url` es la URL completa para la salida del despliegue, y la `description` es el resumen de alto nivel de lo que pasó con este despliegue.
 
-GitHub envía eventos de `deployment` y `deployment_status` cuando se crean despliegues y estados de despliegue nuevos. Estos eventos permiten que las integraciones de terceros reciban respuesta de las solicitudes de despliegue y actualizan el estado de un despliegue conforme éste progrese.
+GitHub envía eventos de `deployment` y `deployment_status` cuando se crean despliegues y estados de despliegue nuevos. These events allow third-party integrations to receive and respond to deployment requests, and update the status of a deployment as progress is made.
 
 Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionarían estas interacciones.
 

@@ -91,7 +91,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 | 修飾子                       | サンプル                                                                                                                                                                                               |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>stars:<em>n</em></code> | [**stars:500**](https://github.com/search?utf8=%E2%9C%93&q=stars%3A500&type=Repositories) は、Star がちょうど 500 のリポジトリにマッチします。                                                                          |
-|                           | [**stars:10..20**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) は、1000 KB 未満で、Star が 10 から 20 のリポジトリにマッチします。                                                       |
+|                           | [**stars:10..20 size:<1000**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) matches repositories 10 to 20 stars, that are smaller than 1000 KB.                     |
 |                           | [**stars:&gt;=500 fork:true language:php**](https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&type=Repositories) は、PHP 形式のフォークされたリポジトリを含め Star が 500 以上のリポジトリにマッチします。 |
 
 ## リポジトリの作成時期や最終更新時期で検索

@@ -1,6 +1,6 @@
 ---
-title: Finding your discussions
-intro: You can easily access every discussion you've created or participated in.
+title: Encontrar tus debates
+intro: Puedes acceder fácilmente a cualquier debate que hayas creado o en el cual hayas participado.
 versions:
   feature: discussions
 shortTitle: Encontrar debates

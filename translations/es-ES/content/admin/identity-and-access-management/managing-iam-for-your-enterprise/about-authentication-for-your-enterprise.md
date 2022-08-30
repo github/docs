@@ -82,7 +82,11 @@ Estas restricciones no son aceptables para algunas empresas. Para determinar si 
 
 ### ¿Tus desarrolladores confían en la colaboración fuera de tu empresa?
 
-{% data variables.product.prodname_managed_users_caps %} solo puede contribuir con los repositorios dentro de tu empresa. Si tus desarrolladores necesitan colaborar en repositorios externos a tu empresa, incluso si estos son privados, para completar su trabajo, {% data variables.product.prodname_emus %} podría no ser lo correcto para tu empresa y el SSO de SAML podría ser una mejor solución.
+{% data variables.product.prodname_managed_users_caps %} solo puede contribuir con los repositorios dentro de tu empresa. Si tus desarrolladores deben contribuir con ambos repositorios dentro y fuera de tu empresa, incluyendo a los repositorios privados, {% data variables.product.prodname_emus %} podría no ser lo correcto para tu empresa. El SSO de SAML podría ser una mejor solución.
+
+Algunas empresas mantienen repositorios dentro de una empresa existente utilizando el SSO de SAML en {% data variables.product.product_location %} y también crean una {% data variables.product.prodname_emu_enterprise %}. Los desarrolladores que contribuyen con los repositorios que le pertenecen a ambas empresas desde una estación de trabajo única deben cambiar entre las cuentas de {% data variables.product.product_location %} dentro de un solo buscador o utilizar un buscador diferente para cada cuenta. El desarrollador también podría necesitar personalizar la configuración de Git de la estación de trabajo para acomodar las dos cuentas. La complejidad de este flujo de trabajo puede incrementar el riesgo de filtrar el código interno al público por accidente.
+
+Si decides crear una {% data variables.product.prodname_emu_enterprise %} pero necesitas que los desarrolladores contribuyan con los recursos fuera de la empresa desde una sola estación de trabajo, puedes proporcionar compatibilidad para cambiar entre las cuentas de una configuración local de Git del desarrollador. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)".
 
 ### ¿Tu empresa depende de colaboradores externos?
 

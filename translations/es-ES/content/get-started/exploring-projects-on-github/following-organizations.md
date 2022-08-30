@@ -7,15 +7,11 @@ topics:
   - Profile
 ---
 
-{% note %}
-
-**Nota:** La capacidad de seguir organizaciones se encuentra actualmente en beta público y está sujeta a cambios.
-
-{% endnote %}
+{% data reusables.organizations.follow-organizations-beta %}
 
 ## Aceca de los seguidores en {% data variables.product.product_name %}
 
-Cuando sigues organizaciones, puedes ver su actividad pública en tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+{% data reusables.organizations.about-following-organizations %} For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
 Puedes dejar de seguir a una organización si no quieres ver su actividad {% ifversion fpt or ghec %}pública{% endif %} en {% data variables.product.product_name %}.
 

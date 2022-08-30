@@ -44,7 +44,8 @@ Você configurou o fluxo do log de auditoria em {% data variables.product.produc
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Armazenamento do Azure Blob](#setting-up-streaming-to-azure-blob-storage)
-- [Centros de evento do Azure](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Armazenamento do Google Cloud](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
@@ -84,6 +85,12 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
 
 {% ifversion streaming-oidc-s3 %}
 #### Configurando a transmissão para S3 com OpenID Connect
+
+{% note %}
+
+**Observação:** A tansmissão para o Amazon S3 com OpenID Connect está atualmente na versão beta e sujeita a alterações.
+
+{% endnote %}
 
 1. No AWS, adicione o provedor do OIDC {% data variables.product.prodname_dotcom %} ao IAM. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
 
@@ -225,6 +232,32 @@ Você precisa de duas informações sobre seu centro de eventos: o nome da sua i
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion streaming-datadog %}
+### Setting up streaming to Datadog
+
+To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+
+After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+
+1. If you don't already have a Datadog account, create one.
+1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the **Configure stream** dropdown menu and click **Datadog**.
+
+   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Under "Token", paste the token  you copied earlier.
+
+   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+
+   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+
+   ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+{% endif %}
+
 ### Configurando a transmissão para o Google Cloud Storage
 
 Para configurar a transmissão para o Google Cloud Storage, você deve criar uma conta de serviço no Google Cloud com as credenciais e permissões apropriadas e, em seguida, configurar a transmissão do log de auditoria em {% data variables.product.product_name %} usando as credenciais da conta de serviço para autenticação.
@@ -284,6 +317,10 @@ Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Spl
 ## Pausando a transmissão do log de auditoria
 
 A pausa da transmissão permite que você execute a manutenção no aplicativo de recebimento sem perder dados de auditoria. Os logs de auditoria são armazenados por até sete dias em {% data variables.product.product_location %} e, em seguida, são exportados quando você suspender a pausa da transmissão.
+
+{% ifversion streaming-datadog %}
+Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Clique **Pausar transmissão**.

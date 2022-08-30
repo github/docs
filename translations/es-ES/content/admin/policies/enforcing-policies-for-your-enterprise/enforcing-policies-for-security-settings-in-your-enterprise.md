@@ -41,7 +41,7 @@ Before you can require 2FA for all organizations owned by your enterprise, you m
 
 - When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 - Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
-- If you're the sole owner of a enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
+- If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
 
 {% endwarning %}
 
@@ -79,18 +79,25 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 ### Adding an allowed IP address
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ### Allowing access by {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ### Enabling allowed IP addresses
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -101,6 +108,8 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 ### Editing an allowed IP address
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -108,6 +117,18 @@ You can also configure allowed IP addresses for an individual organization. For 
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Click **Update**.
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+### Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ### Deleting an allowed IP address
 

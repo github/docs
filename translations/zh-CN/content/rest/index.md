@@ -3,7 +3,8 @@ title: GitHub REST API
 shortTitle: REST API
 intro: '要创建集成、检索数据和自动化工作流程，请使用 {% data variables.product.prodname_dotcom %} REST API 构建。'
 introLinks:
-  quickstart: /rest/guides/getting-started-with-the-rest-api
+  quickstart: /rest/quickstart
+  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   guides:
     - /rest/guides/getting-started-with-the-rest-api
@@ -31,6 +32,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
   - /overview
   - /guides
   - /actions

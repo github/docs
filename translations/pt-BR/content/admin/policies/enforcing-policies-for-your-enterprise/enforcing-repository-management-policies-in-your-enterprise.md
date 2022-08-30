@@ -71,24 +71,28 @@ Se um proprietário corporativo impedir que os integrantes criem certos tipos de
 
 {% endif %}
 
-## Aplicar uma política de {% ifversion ghec or ghes or ghae %}base{% else %}permissões padrão{% endif %} do repositório
+## Aplicando uma política para as permissões básicas do repositório
 
-Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode definir um nível de permissão básica do repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
-  {% ifversion ghec or ghes or ghae %}
-  ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
-  {% else %}
-  ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
-  {% endif %}
+4. Em "Permissões básicas", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Em "Permissões básicas", use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+
 
 ## Aplicando uma política para a criação do repositório
 
-Em todas as organizações pertencentes à sua empresa, é possível permitir que os integrantes criem repositórios, restringir a criação de repositórios a proprietários da organização ou permitir que os proprietários administrem a configuração no nível da organização. Caso você permita que os integrantes criem repositórios, escolha se eles poderão criar qualquer combinação de repositórios internos, privados e públicos. O {% data reusables.repositories.internal-repo-default %} Para obter mais informações sobre repositórios internos, consulte "[Criar um repositório interno](/articles/creating-an-internal-repository)".
+Em todas as organizações pertencentes à sua empresa, é possível permitir que os integrantes criem repositórios, restringir a criação de repositórios a proprietários da organização ou permitir que os proprietários administrem a configuração no nível da organização.
+
+Se você permitir que os integrantes criem repositórios em suas organizações, você poderá escolher quais tipos de repositórios (públicos, privados e internos) que os integrantes poderão criar.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% ifversion ghec %}Se a empresa usa {% data variables.product.prodname_emus %}, você{% else %}Você{% endif %} também pode impedir que os usuários criem repositórios pertencentes às contas de usuário deles.
+{% endif %}
+
+O {% data reusables.repositories.internal-repo-default %} Para obter mais informações sobre repositórios internos, consulte "[Criar um repositório interno](/articles/creating-an-internal-repository)".
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -96,18 +100,21 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. Em "Repository creation" (Criação de repositório), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
-{% data reusables.enterprise-accounts.repo-creation-types %}
-{% else %}
-6. Em "Repository creation" (Criação de repositórios), use o menu suspenso e escolha uma política.
-
-  ![Menu suspenso com opções de políticas de criação de repositórios](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
-{% endif %}
+{% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
+1. Opcionalmente, {% ifversion ghec %}se sua empresa usa {% data variables.product.prodname_emus %} e você quer {% endif %}que impeça que os integrantes da empresa criem repositórios pertencentes às suas contas de usuário, Selecione **Bloquear a criação de repositórios de namespace do usuário**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Aplicar uma política para a bifurcação de repositórios internos ou privados
 
 Em todas as organizações pertencentes à sua empresa, é possível permitir que pessoas com acesso a um repositório privado o bifurquem, nunca permitir a bifurcação de repositórios privados ou permitir que os proprietários administrem a configuração no nível da organização.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% note %}
+
+**Observação:** Se {% ifversion ghec %}sua empresa usa {% data variables.product.prodname_emus %} e {% endif %}sua política de "Criação do repositório" impede que os integrantes corporativos criem repositórios pertencentes às suas contas de usuário, os integrantes não terão permissão para bifurcar um repositório nas contas de usuários, independentemente da política de "bifurcação do repositório".
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -115,14 +122,10 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 3. Em "Bifurcação de repositório", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Em "Repository forking" (Bifurcação de repositórios), use o menu suspenso e escolha uma política.
 
-  ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-{% ifversion innersource-fork-policies %}
+  ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. Se a bifurcação estiver habilitada, você poderá especificar onde os usuários podem fazer a bifurcação de repositórios. Revise as informações sobre como alterar a configuração e escolha uma política.
 
-    ![Captura de tela que mostra a lista de opções de política de bifurcação de repositório](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
-{% endif %}
-
+    ![Captura de tela que mostra a lista de opções de política de bifurcação de repositório](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
 
 ## Aplicando uma política para convidar{% ifversion ghec %} colaboradores{% endif %} externos para repositórios
 
@@ -140,8 +143,6 @@ Em todas as organizações pertencentes à sua empresa, você pode permitir que 
   ![Menu suspenso com opções de política de convites](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
   {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-
 ## Aplicando uma política para o nome padrão do branch
 
 Em todas as organizações pertencentes à sua empresa, você pode definir o nome padrão da branch para quaisquer novos repositórios que os integrantes criarem. Você pode optar por aplicar esse nome do branch-padrão em todas as organizações ou permitir que as organizações individuais definam um nome diferente.
@@ -152,8 +153,6 @@ Em todas as organizações pertencentes à sua empresa, você pode definir o nom
 4. Opcionalmente, para aplicar o nome do branch-padrão para todas as organizações da empresa, selecione **Aplicar em toda a empresa**. ![Caixa de aplicação](/assets/images/help/business-accounts/default-branch-name-enforce.png)
 5. Clique em **Atualizar**. ![Botão de atualizar](/assets/images/help/business-accounts/default-branch-name-update.png)
 
-{% endif %}
-
 ## Aplicando uma política de alterações à visibilidade do repositório
 
 Em todas as organizações pertencentes à sua empresa, é possível permitir que integrantes com acesso administrativo alterem a visibilidade de um repositório, restringir alterações na visibilidade do repositório a proprietários da organização ou permitir que os proprietários administrem a configuração no nível da organização. Quando você impede que os integrantes alterem a visibilidade do repositório, somente os proprietários corporativos podem alterar a visibilidade de um repositório.
@@ -163,9 +162,8 @@ Se um proprietário corporativo tiver restringido a criação de repositório ap
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. Em "Repository visibility change" (Alteração da visibilidade do repositório), revise as informações sobre a alteração da configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+1. Em "Repository visibility change" (Alteração da visibilidade do repositório), revise as informações sobre a alteração da configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Em "Repository visibility change" (Mudança de visibilidade do repositório), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de política de visibilidade do repositório](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
 
 ## Aplicando uma política de exclusão e transferência de repositório
 

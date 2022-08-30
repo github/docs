@@ -150,26 +150,26 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## {% data variables.projects.projects_v2_caps %}
 
-### Navigating a project
+### Navegando em um projeto
 
-| Atalho                                                                          | Descrição                    |
-| ------------------------------------------------------------------------------- | ---------------------------- |
-| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
-| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
-| <kbd>→</kbd>                                                                    | Move cell focus to the right |
-| <kbd>↑</kbd>                                                                    | Move cell focus up           |
-| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+| Atalho                                                                          | Descrição                             |
+| ------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Campo de filtro do foco               |
+| <kbd>←</kbd>                                                                    | Mover foco de célula para a esquerda  |
+| <kbd>→</kbd>                                                                    | Mover o foco da célula para a direita |
+| <kbd>↑</kbd>                                                                    | Mover o foco da célula para cima      |
+| <kbd>↓</kbd>                                                                    | Mover o foco da célula para baixo     |
 
-### Manipulating a project
+### Manipulando um projeto
 
-| Atalho                                                                                                              | Descrição                             |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
-| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
-| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
-| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | Selecionar item                       |
-| <kbd>Space (Espaço)</kbd>                                                                                           | Open selected item                    |
-| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+| Atalho                                                                                                              | Descrição                                    |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Alternar modo de edição para a célula focada |
+| <kbd>Escape</kbd>                                                                                                   | Cancelar a edição para a célula focada       |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Abrir menu de ações da linha                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | Selecionar item                              |
+| <kbd>Space (Espaço)</kbd>                                                                                           | Abrir o item selecionado                     |
+| <kbd>e</kbd>                                                                                                        | Arquivar itens selecionados                  |
 
 {% endif %}
 

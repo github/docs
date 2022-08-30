@@ -25,7 +25,10 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 
   let requestBodyParams = ''
   if (codeSample?.request?.bodyParameters) {
-    requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters)}'`
+    requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
+      /'/g,
+      "'\\''"
+    )}'`
 
     // If the content type is application/x-www-form-urlencoded the format of
     // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
@@ -42,7 +45,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: token <TOKEN>"`,
+    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: Bearer <YOUR-TOKEN>"`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -138,11 +141,7 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
     }
   }
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
-  const require = `const octokit = new Octokit(${stringify(
-    { auth: 'personal-access-token123' },
-    null,
-    2
-  )})\n\n`
+  const require = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
 
   return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath

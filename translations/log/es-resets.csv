@@ -95,6 +95,7 @@ translations/es-ES/content/code-security/code-scanning/automatically-scanning-yo
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,Listed in localization-support#489
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,Listed in localization-support#489
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,broken liquid tags
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/index.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
@@ -141,7 +142,6 @@ translations/es-ES/content/desktop/contributing-and-collaborating-using-github-d
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,Listed in localization-support#489
 translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,Listed in localization-support#489
 translations/es-ES/content/discussions/index.md,Listed in localization-support#489
-translations/es-ES/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/es-ES/content/education/guides.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,rendering error
@@ -168,6 +168,7 @@ translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed
 translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
 translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
 translations/es-ES/content/index.md,Listed in localization-support#489
+translations/es-ES/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-issue.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,Listed in localization-support#489
@@ -292,6 +293,7 @@ translations/es-ES/content/repositories/working-with-files/managing-large-files/
 translations/es-ES/content/rest/activity/events.md,broken liquid tags
 translations/es-ES/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/es-ES/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
+translations/es-ES/content/rest/secret-scanning.md,broken liquid tags
 translations/es-ES/content/search-github/searching-on-github/searching-code.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-commits.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,Listed in localization-support#489
@@ -303,6 +305,7 @@ translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/es-ES/data/release-notes/enterprise-server/3-6/0-rc1.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
+translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-general.md,rendering error

@@ -38,8 +38,10 @@ shortTitle: 在 GitHub Marketplace 中发布
 要草拟新发行版并将操作发布到 {% data variables.product.prodname_marketplace %}，请遵循以下说明：
 
 {% data reusables.repositories.navigate-to-repo %}
-1. 当仓库包含操作元数据文件（`action.yml` 或 `action.yaml`），您会看到一个用于将操作发布到 {% data variables.product.prodname_marketplace %} 的横幅。 单击 **Draft a release（草拟发行版）**。 ![将此操作发布到 Markeplace 按钮](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
-1. 选择**将此操作发布到 {% data variables.product.prodname_marketplace %}**。 如果无法选择**将此操作发布到 {% data variables.product.prodname_marketplace %}** 复选框，则需要先阅读并接受 {% data variables.product.prodname_marketplace %} 协议。 ![选择发布到 Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
+1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. 单击 **Draft a release（草拟发行版）**。
+
+   ![Publish this action to marketplace button](/assets/images/help/repository/publish-github-action-to-marketplace-button.png)
+1. Under "Release Action", select the checkbox to publish the action to the {% data variables.product.prodname_marketplace %}. If you can't select the checkbox, you must first click the link to read and accept the {% data variables.product.prodname_marketplace %} Developer Agreement. ![选择发布到 Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
 1. 如果元数据文件中的标签包含任何问题，您将看到一条错误消息。 ![查看通知](/assets/images/help/repository/marketplace_actions_fixerrors.png)
 1. 如果您看到任何屏幕上的建议，请通过更新元数据文件来解决这些问题。 完成后，您将看到一条“Everything looks good!（一切看起来都不错！）”的消息。 ![修复错误](/assets/images/help/repository/marketplace_actions_looksgood.png)
 1. 选择“Primary Category（主要类别）”，然后按需要选择“Another Category（另一个类别）”，这将有助于人们找到您的 {% data variables.product.prodname_marketplace %} 中的操作。 ![选择类别](/assets/images/help/repository/marketplace_actions_categories.png)

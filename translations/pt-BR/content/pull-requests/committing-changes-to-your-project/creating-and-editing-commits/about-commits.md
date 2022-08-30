@@ -19,7 +19,7 @@ versions:
 {% data reusables.commits.about-commits %}
 
 {% ifversion commit-signoffs %}
-If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)." {% endif %}
+Se o repositório com o qual você está se comprometendo tiver assinaturas de commit habilitadas e você estiver fazendo o commit por meio da interface web, você irá automaticamente assinar o commit como parte do processo de commit. Para obter mais informações, consulte "[Gerenciando a política de assinatura de commit para o seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)". {% endif %}
 
 Você pode adicionar um coautor em qualquer commit em que colaborar. Para obter mais informações, consulte "[Criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 

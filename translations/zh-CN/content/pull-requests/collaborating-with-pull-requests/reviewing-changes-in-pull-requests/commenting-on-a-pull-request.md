@@ -27,7 +27,7 @@ shortTitle: 对 PR 的评论
 
 也可以采用单独行注释的形式或者作为[拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)的一部分，在拉取请求的 **Files changed（已更改文件）**选项卡上对文件的特定部分做出评论。 添加行注释是讨论有关实现的问题或向作者提供反馈的好方法。
 
-有关向拉取请求审查添加行注释的更多信息，请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
+For more information on adding line comments to a pull request review, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% note %}
 

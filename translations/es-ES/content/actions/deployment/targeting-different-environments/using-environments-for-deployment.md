@@ -27,7 +27,7 @@ Puedes configurr ambientes con reglas de protección y secretos. Cuando un job d
 
 **Nota:** Solo puedes configurar ambientes para repositorios públicos. Si conviertes un repositorio de público a privado, cualquier regla de protección o secretos de ambiente que hubieses configurado se ingorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
 
-Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden configurar ambientes para los repositorios privados. Para obtener más información, consulta la sección [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
+Las organizaciones con {% data variables.product.prodname_team %} y los usuarios con {% data variables.product.prodname_pro %} pueden configurar los ambientes para los repositorios privados. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)".
 
 {% endnote %}
 {% endif %}
@@ -72,7 +72,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Nota:** Para crear un ambiente en un repositorio privado, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Nota:** La creación de un ambiente en un repositorio privado está disponible para las organizaciones con {% data variables.product.prodname_team %} y para los usuarios con {% data variables.product.prodname_pro %}.
 
 {% endnote %}
 {% endif %}
@@ -99,7 +99,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
    1. Ingresa el valor del secreto.
    1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".
+También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones "[Ambientes de despliegue](/rest/deployments/environments)", "[Secretos de GitHub Actions](/rest/actions/secrets)" y "[Políticas de despliegue de rama](/rest/deployments/branch-policies)".
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 

@@ -1,1 +1,1 @@
-1. To the right of your existing views, click **New view** ![Screenshot showing the column field menu](/assets/images/help/projects-v2/new-view.png)
+1. To the right of your existing views, click **New view** ![列フィールドメニューを表示しているスクリーンショット](/assets/images/help/projects-v2/new-view.png)

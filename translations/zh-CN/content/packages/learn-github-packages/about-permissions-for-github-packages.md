@@ -18,20 +18,22 @@ shortTitle: 关于权限
 
 仓库作用域的包从拥有该包的仓库继承权限和可见性。 通过转到仓库的主页并单击页面右侧的 **Packages（包）**链接，您可以找到作用域为仓库的包。 {% ifversion fpt or ghec %}更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。{% endif %}
 
-下面的 {% data variables.product.prodname_registry %} 注册表使用仓库作用域的权限：
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
   {% ifversion not fpt or ghec %}- Docker 注册表 (`docker.pkg.github.com`){% endif %}
-  - npm 注册表
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
   - RubyGems 注册表
   - Apache Maven 注册表
   - NuGet 注册表
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 ## 用户/组织作用域包的精细权限
 
 具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
 
-目前，只有 {% data variables.product.prodname_container_registry %} 为容器映像包提供精细权限。
+Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
 ## 容器映像的可见性和访问权限
 

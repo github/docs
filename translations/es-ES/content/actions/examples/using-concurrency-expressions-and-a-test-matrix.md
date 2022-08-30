@@ -1,5 +1,5 @@
 ---
-title: 'Using concurrency, expressions, and a test matrix'
+title: 'Utilizar concurrencia, expresiones y una matriz de pruebas'
 shortTitle: 'Utilizar concurrencia, expresiones y una matriz de pruebas'
 intro: 'Cómo utilizar características avanzadas de {% data variables.product.prodname_actions %} para la integración continua (IC).'
 versions:
@@ -34,7 +34,7 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Ejecutar el job en ejecutores diferentes, dependiendo del repositorio: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
 | Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
@@ -69,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -244,7 +244,7 @@ on:
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+La palabra clave `on` te permite definir los eventos que se activan cuando se ejecuta el flujo de trabajo. Puedes definir eventos múltiples aquí. Para obtener más información, consulta la sección "[Activar un flujo de trabajo](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)".
 </td>
 </tr>
 <tr>
@@ -268,7 +268,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 </td>
 <td>
 
-Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+Agrega el evento `pull_request` para que el flujo de trabajo se ejecute automáticamente cada que se cree o actualice una solicitud de cambios. Para obtener más información, consulta [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -277,12 +277,12 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `gh-readonly-queue/main/**`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. Para obtener más información, consulta [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -310,7 +310,7 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Crea un grupo de concurrencia para los eventos específicos y utiliza el operador `||` para definir los valores de reserva. Para obtener más información, consulta la sección "[Utilizar concurrencia](/actions/using-jobs/using-concurrency)".
 </td>
 </tr>
 <tr>
@@ -322,7 +322,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 </td>
 <td>
 
-Cancels any currently running job or workflow in the same concurrency group.
+Cancela cualquier job o flujo de trabajo concurrentes en el mismo grupo de concurrencia.
 </td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configura el job para ejecutarse en un ejecutor hospedado en {% data variables.product.prodname_dotcom %} o en un ejecutor auto-hospedado, dependiendo del repositorio que ejecuta el flujo de trabajo. En este ejemplo, el job se ejecutará en un ejecutor auto-hospedado si se nombra al repositorio `docs-internal` y está dentro de la organización `github`. Si el repositorio no empata con esta ruta, entonces se ejecutará en un ejecutor `ubuntu-latest` hospedado por {% data variables.product.prodname_dotcom %}. Para obtener más información sobre estas opciones, consulta la sección "[Elegir el ejecutor para un job](/actions/using-jobs/choosing-the-runner-for-a-job)".
 </td>
 </tr>
 <tr>
@@ -428,7 +428,7 @@ Creates a matrix named `test-group`, with an array of test groups. These values 
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `test` job. Each job in a workflow has its own `steps` section.
+Groups together all the steps that will run as part of the `test` job. Cada job en un flujo de trabajo tiene su propia sección de `steps`.
 </td>
 </tr>
 <tr>
@@ -552,7 +552,7 @@ This step runs a command to check out LFS objects from the repository.
 </td>
 <td>
 
-This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
+This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. Este ejemplo se fija a una versión específica de la acción utilizando el SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
 </td>
 </tr>
 <tr>

@@ -53,6 +53,8 @@ Generally, we name our supported ecosystems after the software programming langu
 - Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
 - Erlang (registry: https://hex.pm/){% endif %}
 - Go (registry: https://pkg.go.dev/)
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7508 %}
+- GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
 - Maven (registry: https://repo1.maven.org/maven2/org/)
 - npm (registry: https://www.npmjs.com/)
 - NuGet (registry: https://www.nuget.org/)
@@ -72,7 +74,7 @@ El {% data variables.product.prodname_dependabot %} no crea {% data variables.pr
 
 ## About information in security advisories
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
+Cada asesoría de seguridad contiene información sobre la vulnerabilidad{% ifversion GH-advisory-db-supports-malware %} o malware,{% endif %} lo cual podría incluir la descripción, gravedad, paquete afectado, ecosistema del paquete, versiones afectadas y parchadas, impacto e información opcional tal como las referencias, soluciones alternativas y créditos. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
 El nivel de gravedad es uno de cuatro niveles posibles que se definen en el [Sistema de clasificación de vulnerabilidades comunes (CVSS), Sección 5](https://www.first.org/cvss/specification-document)".
 - Bajo
@@ -98,7 +100,7 @@ La {% data variables.product.prodname_advisory_database %} utiliza los niveles d
 
 {% note %}
 
-También se puede acceder a la base de datos utilizando la API de GraphQL. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[`security_advisory` webhook event](/webhooks/event-payloads/#security_advisory)."
+También se puede acceder a la base de datos utilizando la API de GraphQL. {% ifversion GH-advisory-db-supports-malware %}Predeterminadamente, las consultas devolverán asesorías revisadas por {% data variables.product.company_short %} para las vulnerabilidades de seguridad, a menos de que especifiques `type:malware`.{% endif %} Para obtener más información, consulta el "[evento de webhook `security_advisory`](/webhooks/event-payloads/#security_advisory)".
 
 {% endnote %}
 
@@ -128,7 +130,7 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 2. Haz clic en una asesoría.
 3. En la parte superior de la página de la asesoría, haz clic en **Alertas del dependabot**. ![Las alertas del dependabot](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Opcionalmente, para filtrar la lista, utiliza la barra de búsqueda o los menús desplegables. El menú desplegable de "Organización" te permite filtrar las {% data variables.product.prodname_dependabot_alerts %} por propietario (organización o usuario). ![Barra de búsqueda y menús desplegables para filtrar alertas](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
+5. Para obtener más detalles sobre la asesoría y sobre cómo corregir el repositorio vulnerable, haz clic en el nombre del repositorio.
 
 {% ifversion security-advisories-ghes-ghae %}
 ## Accessing the local advisory database on {% data variables.product.product_location %}
@@ -137,7 +139,7 @@ If your site administrator has enabled {% data variables.product.prodname_github
 
 You can use your local advisory database to check whether a specific security vulnerability is included, and therefore whether you'd get alerts for vulnerable dependencies. You can also view any vulnerable repositories.
 
-1. Navigate to `https://HOSTNAME/advisories`.
+1. Navega a `https://HOSTNAME/advisories`.
 2. Opcionalmente, para filtrar la lista, utiliza cualquiera de los menúes desplegables. ![Filtros desplegables](/assets/images/help/security/advisory-database-dropdown-filters.png)
    {% note %}
 

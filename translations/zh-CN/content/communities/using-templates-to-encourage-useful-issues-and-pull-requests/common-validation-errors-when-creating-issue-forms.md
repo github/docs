@@ -539,7 +539,7 @@ body:
 
 ### 示例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +552,7 @@ body:
 
 通过确保 `options` 数组中不存在重复选项，可以修复此错误。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -570,7 +570,7 @@ body:
 
 ### 示例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +585,7 @@ body:
 
 可以通过删除 "None" 作为选项来修复该错误。 如果您希望贡献者能够表明他们不喜欢这些类型的馅饼，可以另外删除`必要的`验证。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -605,7 +605,7 @@ body:
 
 ### 示例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +618,7 @@ body:
 
 可以通过将每个有问题的选项括在引号中来修复该错误，以防止它们被处理为布尔值。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -627,6 +627,36 @@ body:
       - "Yes"
       - "No"
       - Maybe
+```
+
+## Body cannot be empty
+
+The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+
+The error can be fixed by adding the `body:` section.
+
+### 示例
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
 ```
 
 ## 延伸阅读

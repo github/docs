@@ -27,7 +27,7 @@ redirect_from:
 1. Na lista "Pull Requests", clique no pull request que você gostaria de adicionar a uma fila de merge.
 
 1. Clique em **Fazer merge quando estiver pronto** para adicionar o pull request à fila de merge. Como alternativa, se você for um administrador, você pode:
-   -  Faça o merge diretamente do pull request verificando **Merge sem aguardar que os requisitos sejam cumpridos (somente administradores)**, se permitido pelas configurações de proteção de branches e siga o fluxo padrão. ![Opções da fila de merge](/assets/images/help/pull_requests/merge-queue-options.png)
+   -  Faça o merge direto do pull request marcando **Merge sem espera para atendimento dos requisitos ({% ifversion bypass-branch-protections %}ignorar proteções do branch{% else %}apenas administradores{% endif %})**, se permitido pelas configurações de proteção de branches e siga o fluxo padrão. ![Opções da fila de merge](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 

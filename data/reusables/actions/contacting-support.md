@@ -5,5 +5,5 @@ If you have feedback or feature requests for {% data variables.product.prodname_
 Contact {% data variables.contact.contact_support %} for any of the following, whether your use or intended use falls into the usage limit categories:
 
 * If you believe your account has been incorrectly restricted
-* If you encounter an unexpected error when executing one of your Actions, for example: a unique ID
+* If you encounter an unexpected error when executing one of your actions
 * If you encounter a situation where existing behavior contradicts expected, but not always documented, behavior

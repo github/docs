@@ -31,6 +31,7 @@ O nome do código também está incluído em muitos dos arquivos de registro. Po
 Todos os codespaces também possuem um ID (identificador). Ele não é exibido por padrão em {% data variables.product.prodname_vscode %}. Portanto, é possível que você precise atualizar as configurações para a extensão {% data variables.product.prodname_github_codespaces %} antes de acessar o ID.
 
 1. Em {% data variables.product.prodname_vscode %}, navegador ou área de trabalho, na barra de atividades à esquerda, clique em **Explorador remoto** para mostrar as informações para o codespace.
-2. Se a barra lateral incluir uma seção "Desempenho do codespace", passe o mouse sobre o "ID do codespace" e clique no ícone da área de transferência para copiar o ID.
-3. Se a informação não for exibida, clique em {% octicon "gear" aria-label="The gear icon" %} no canto inferior esquerdo da barra de atividade, para exibir a aba "Configurações".
-4. Expanda **Extensões** e clique em **{% data variables.product.prodname_github_codespaces %}** para exibir as configurações da extensão. Em seguida, habilite o **Exibir o explorador de desempenho** para exibir a seção "Codespace" na barra lateral. ![O ID do codespace e configurações necessárias para exibir informações de desempenho](/assets/images/help/codespaces/find-codespace-id.png)
+{% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
+1. Se a barra lateral incluir uma seção "Desempenho do codespace", passe o mouse sobre o "ID do codespace" e clique no ícone da área de transferência para copiar o ID.
+1. Se a informação não for exibida, clique em {% octicon "gear" aria-label="The gear icon" %} no canto inferior esquerdo da barra de atividade, para exibir a aba "Configurações".
+1. Expanda **Extensões** e clique em **{% data variables.product.prodname_github_codespaces %}** para exibir as configurações da extensão. Em seguida, habilite o **Exibir o explorador de desempenho** para exibir a seção "Codespace" na barra lateral. ![O ID do codespace e configurações necessárias para exibir informações de desempenho](/assets/images/help/codespaces/find-codespace-id.png)
