@@ -51,7 +51,7 @@ For more information on workflow run artifacts, see "[Persisting workflow data u
 
 ワークフローは、現在のブランチ、ベースブランチ（フォークされたリポジトリのベースブランチを含む）、またはデフォルトブランチ（通常は `main`）で作成されたキャッシュにアクセスして復元できます。 たとえば、デフォルトブランチで作成されたキャッシュは、どのPull Requestからもアクセスできます。 また、`feature-b` ブランチに `feature-a` ベースブランチがある場合、`feature-b` でトリガーされたワークフローは、デフォルトのブランチ（`main`）、`feature-a`、および `feature-b` で作成されたキャッシュにアクセスできます。
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`). On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
 
 Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
 
