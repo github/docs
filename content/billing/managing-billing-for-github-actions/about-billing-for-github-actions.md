@@ -64,24 +64,16 @@ The storage used by a repository is the total storage used by {% data variables.
 
 {% endnote %}
 
-### Per-minute rates for standard runners
+### Per-minute rates
 
 {% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
-
-{% data reusables.user-settings.context_switcher %}
-
+- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+- {% data reusables.user-settings.context_switcher %}
 {% ifversion actions-hosted-runners %} 
-
-### Per-minute rates for {% data variables.actions.hosted_runner %}s
-
-{% data variables.product.prodname_dotcom %} offers more powerful {% data variables.actions.hosted_runner %}s that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
-
-{% data reusables.billing.billing-hosted-runners %}
-
-There is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}.
-
+- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 {% endif %}
 
 ## Calculating minute and storage spending
