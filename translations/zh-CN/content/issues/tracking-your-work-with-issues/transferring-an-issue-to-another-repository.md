@@ -24,7 +24,7 @@ shortTitle: 转移议题
 
 {% endnote %}
 
-转让议题时，评论、标签和受理人将保留。 不会保留议题的里程碑。 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。
+转让议题时，评论和受理人将保留。 Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。
 
 议题中提及的人员或团队将收到通知，告知他们该议题已转让给新仓库。 原来的 URL 会重定向到新议题的 URL。 在新仓库中没有读取权限的人员将看到一个横幅，告知他们该议题已转让给他们无法访问的新仓库。
 

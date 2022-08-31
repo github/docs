@@ -29,11 +29,11 @@ topics:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. GPG キーペアを生成します。 GPG には複数のバージョンがあるため、関連する [_man ページ_](https://en.wikipedia.org/wiki/Man_page)を参考にして適切なキーの生成コマンドを見つける必要があります。 キーには RSA を使用する必要があります。
     - バージョン 2.1.17 以降の場合は、以下のテキストを貼り付けて GPG キーペアを生成します。
-      ```shell
+      ```shell{:copy}
       $ gpg --full-generate-key
       ```
     - バージョン 2.1.17 およびそれ以降でない場合は、 `gpg --full-generate-key` コマンドが使えません。 以下のテキストを貼り付けてステップ 6 に進んでください。
-      ```shell
+      ```shell{:copy}
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
 4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.
@@ -52,10 +52,10 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 10. 以下のテキストを貼り付けます。GPG キー ID は実際に使用するものを入力してください。 この例では、GPG キー ID は `3AA5C34371567BD2` です。
-  ```shell
-  $ gpg --armor --export <em>3AA5C34371567BD2</em>
-  # ASCII armor 形式で GPG キーを出力する
-  ```
+ ```shell{:copy}
+ $ gpg --armor --export 3AA5C34371567BD2
+ # Prints the GPG key ID, in ASCII armor format
+ ```
 11. `-----BEGIN PGP PUBLIC KEY BLOCK-----` で始まり、`-----END PGP PUBLIC KEY BLOCK-----` で終わる GPG キーをコピーします。
 12. [GPG キーを GitHub アカウントに追加](/articles/adding-a-gpg-key-to-your-github-account)します。
 

@@ -633,7 +633,7 @@ body:
 
 The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
 
-The error can be fixed by adding the `body:` section.
+El error se puede corregir agregando la sección `body:`.
 
 ### Ejemplo
 
@@ -647,7 +647,7 @@ body:
     label: "What's wrong?"
 ```
 
-In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+En este ejemplo, el error se puede corregir borrando el `---` (separador de documentos) entre los encabezados y la sección `body`.
 
 ```yaml
 name: Support Request

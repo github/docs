@@ -1,8 +1,8 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} cards'
+title: 'Cartões de {% data variables.product.prodname_project_v1_caps %}'
 shortTitle: Cartões
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_project_v1 %} cards API lets you create and manage cards on a {% data variables.projects.projects_v1_board %}.'
+intro: 'A API de cartões de {% data variables.product.prodname_project_v1 %} permite que você crie e gerencie cartões em um {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'

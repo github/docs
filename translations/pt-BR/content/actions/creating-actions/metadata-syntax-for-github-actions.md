@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Opcional**  Um `mapa` dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
+**Opcional**  Um `mapa` dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor. Para obter mais informações, consulte [Exemplo: Especificando as entradas](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -475,7 +475,7 @@ runs:
 
 ## `branding`
 
-**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**Opcional** Você pode usar uma cor e o ícone [Pena](https://feathericons.com/) para criar um emblema para personalizar e distinguir sua ação. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 ### Exemplo: Configurar a marca para uma ação
 

@@ -3798,6 +3798,12 @@
         "subcategory": "keys",
         "verb": "get",
         "requestPath": "/users/{username}/keys"
+      },
+      {
+        "slug": "list-ssh-signing-keys-for-a-user",
+        "subcategory": "ssh-signing-keys",
+        "verb": "get",
+        "requestPath": "/users/{username}/ssh_signing_keys"
       }
     ],
     "webhooks": [

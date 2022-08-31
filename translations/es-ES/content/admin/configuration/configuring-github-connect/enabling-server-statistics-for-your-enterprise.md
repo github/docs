@@ -12,9 +12,9 @@ shortTitle: Estadísticas del servidor
 
 ## Acerca de las {% data variables.product.prodname_server_statistics %}
 
-{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.product.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_server_statistics %} recopila los datos de uso agregado de {% data variables.product.product_location %}, lo que te permite anticipar las necesidades de tu organización de una forma mejor, entender cómo trabaja tu equipo y mostrar el valor que obtienes de {% data variables.product.prodname_ghe_server %}.
 
-{% data variables.product.prodname_server_statistics %} only collects certain aggregate metrics on repositories, issues, pull requests, and other features.{% data variables.product.prodname_dotcom %} content, such as code, issues, comments, or pull request content, is not collected. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)".
+{% data variables.product.prodname_server_statistics %} solo recopila ciertas métricas agregadas en los repositorios, propuestas, solicitudes de cambio y otras características. No se recopila el contenido de {% data variables.product.prodname_dotcom %} tal como el código, las propuestas, los comentarios o el contenido de las solicitudes de cambio. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)".
 
 By enabling {% data variables.product.prodname_server_statistics %}, you are also helping to improve {% data variables.product.company_short %}. The aggregated data you will provide helps us understand how our customers are using {% data variables.product.prodname_dotcom %}, and make better and more informed product decisions, ultimately benefiting you.
 

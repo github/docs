@@ -1,6 +1,6 @@
 ---
 title: Sobre o GitHub Pages
-intro: 'Você pode usar {% data variables.product.prodname_pages %} para hospedar um site sobre você, sua organização, ou seu projeto diretamente a partir de um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'Você pode usar {% data variables.product.prodname_pages %} para hospedar um site sobre você, sua organização, ou seu projeto diretamente a partir de um repositório no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/what-are-github-pages
   - /articles/what-is-github-pages
@@ -75,7 +75,7 @@ Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/
 
 {% data reusables.pages.pages-about-publishing-source %}
 
-For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+Para obter mais informações, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
 
 {% ifversion ghec %}
 ## Limitações para {% data variables.product.prodname_emus %}
@@ -93,9 +93,9 @@ O {% data variables.product.prodname_pages %} publica qualquer arquivo estático
 
 {% ifversion pages-custom-workflow %}
 
-If you use a custom build process or a static site generator other than Jekyll, you can write a {% data variables.product.prodname_actions %} to build and publish your site. {% data variables.product.product_name %} provides starter workflows for several static site generators. For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+Se você usar um processo de compilação personalizado ou um gerador de site estático diferente do Jekyll, você poderá escrever um {% data variables.product.prodname_actions %} para criar e publicar seu site. O {% data variables.product.product_name %} fornece fluxos de trabalho iniciais para vários geradores de site estáticos. Para obter mais informações, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
 
-If you publish your site from a source branch, {% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, we recommend that you write a {% data variables.product.prodname_actions %} to build and publish your site instead. Otherwise, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
+Se você publicar seu site a partir de um branch fonte, o {% data variables.product.prodname_pages %} usará o Jekyll para criar seu site por padrão. Se quiser usar um gerador de site estático diferente do Jekyll, recomendamos que você escreva um {% data variables.product.prodname_actions %} para criar e publicar seu site. Caso contrário, desabilite o processo de compilação do Jekyll criando um arquivo vazio denominado `.nojekyll` na raiz da fonte de publicação e, em seguida, siga as instruções do gerador de site estático para criar seu site localmente.
 
 {% else %}
 
@@ -125,8 +125,8 @@ Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao segui
   - Os sites do {% data variables.product.prodname_pages %} publicados não podem ter mais de 1 GB.
 {% ifversion fpt or ghec %}
   - Sites de {% data variables.product.prodname_pages %} têm um limite de banda larga *flexível* de 100 GB por mês.
-  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
-  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
+  - Os sites de {% data variables.product.prodname_pages %} têm um limite de *soft* de 10 compilações por hora.{% ifversion pages-custom-workflow %} Esse limite não se aplica se você criar e publicar seu site com um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %} {% endif %}
+  - Para fornecer uma qualidade consistente de serviço para todos os sites de {% data variables.product.prodname_pages %}, é possível que se apliquem limites de taxa. Esses limites de taxa não são destinados a interferir nos usos legítimos de {% data variables.product.prodname_pages %}. Se o seu pedido acionar limites de taxa, você receberá uma resposta apropriada com um código de status HTTP de `429`, junto com um texto HTML informativo.
 
 Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou você receba um e-mail formal do {% data variables.contact.contact_support %} sugerindo estratégias para reduzir o impacto do site em nossos servidores, como colocar uma rede de distribuição de conteúdo (CDN, Content Distribution Network) de terceiros na frente do site, usar outros recursos do {% data variables.product.prodname_dotcom %}, como versões, ou migrar para outro serviço de hospedagem que possa atender melhor às suas necessidades.
 

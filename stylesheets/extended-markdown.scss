@@ -23,6 +23,15 @@
     padding: 0.5rem 0.5rem 0.5rem 0;
     margin-bottom: 0;
   }
+
+  &.note,
+  &.warning,
+  &.tip,
+  &.danger {
+    p {
+      margin: 0;
+    }
+  }
 }
 
 .warning {

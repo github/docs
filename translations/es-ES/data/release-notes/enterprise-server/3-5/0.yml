@@ -116,8 +116,7 @@ sections:
       heading: La gráfica de dependencias es compatible con GitHub Actions
       notes:
         - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
-            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
+          La gráfica de dependencias ahora detecta archivos YAML para los flujos de trabajo de GitHub Actions. GitHub Enterprise Server mostrará los archivos de flujo de trabajo dentro de la sección de gráfica de dependencias de la pestaña **Perspectivas**. Los repositorios que publiquen acciones también podrán ver la cantidad de repositorios que dependen de esa acción desde el control de "Utilizado por" en la página principal del repositorio. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".  - **Nota**: Esta característica está disponible en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. La característica está disponible en la versión 3.5.4 y posteriores. [Actualizado: 2022-08-16]
     - 
       heading: El resumen de seguridad para empresas está en beta público
       notes:
@@ -201,8 +200,8 @@ sections:
       heading: Volver a abrir las alertas descartadas del Dependabot
       notes:
         - |
-          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
+          Ahora puedes volver a abrir las alertas del Dependabot que se descartaron mediante la página de IU en el caso de las alertas cerradas. Esto no afecta a las solicitudes de cambio ni a la API de GraphQL. Para obtener más información, consulta la sección "[Acerca de las alertas del Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+            - **Nota**: Esta característica no estuvo disponible en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. La característica está disponible en la versión 3.5.4 y posteriores. [Actualizado: 2022-08-16]
     - 
       heading: La compatibilidad de Pub para las actualizaciones de versión del Dependabot se encuentra en beta público
       notes:
@@ -262,12 +261,12 @@ sections:
       heading: Más formas de mantener actualizada la rama de tema de una solicitud de cambios
       notes:
         - |
-          The **Update branch** button on the pull request page lets you update your pull request's branch with the latest changes from the base branch. This is useful for verifying your changes are compatible with the current version of the base branch before you merge. Two enhancements now give you more ways to keep your branch up-to-date.
+          El botón de **Rama actualizada* en la página de la solicitud de cambios te permite actualizar la rama de esta solicitud con los últimos cambios de la rama base. Esto es útil para verificar que tus cambios sean compatibles con la versión actual de la rama base antes de que hagas la fusión. Estas dos mejoras ahora te proporcionan más formas de mantener tu rama actualizada.
 
-          - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+          - Cuando la rama de tema de tu solicitud de cambios está desactualizada con la rama base, ahora tienes la opción de actualizarla rebasándola en la versión más reciente de la rama base. El rebase aplica los cambios de tu rama en la última versión de la rama base, lo que da como resultado una rama con un historial linear, ya que no se crea ninguna confirmación de fusión. Para actualizar por rebase, haz clic en el menú desplegable junto al botón**Actualizar rama**, luego en **Actualizar con rebase** y luego en *Rebasar rama*. Anteriormente, **Actualizar rama** realizaba una fusión tradicional que siembre daba como resultado una confirmación de fusión en la rama de tu solicitud de cambios. Esta opción aún está disponible, pero ahora tienes una elección. Para obtener más información, consulta la sección "[Mantener tu solicitud de cambios sincronizada con la rama base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)".
 
-          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
-            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
+          - Un ajuste nuevo de repositorio permite que el botón **Actualizar rama** siempre esté disponible cuando la rama de tema de una solicitud de cambios no esté actualizada con la rama base. Anteriormente, este botón solo estaba disponible cuando estaba habilitado el ajuste de protección de rama **Requerir que las ramas estén actualizadas antes de fusionarlas**. Las personas con acceso de mantenedor o administrador pueden administrar el ajuste de **Siempre sugerir actualizar las ramas de solicitudes de cambios** de la sección **Solicitudes de cambios* en los ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar sugerencias para actualizar las ramas de las solicitudes de cambios](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)".
+            - **Nota**: Esta característica no estuvo disponible en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. La característica está disponible en la versión 3.5.4 y posterior. [Actualizado: 2022-08-16]
     - 
       heading: Configurar los encabezados personalizados de HTTP para los sitios de GitHub Pages
       notes:
@@ -282,8 +281,8 @@ sections:
       heading: El tema claro de contraste alto está disponible en general
       notes:
         - |
-          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
-            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
+          Ahora hay un tema claro de alto contraste disponible para el público en general, el cual tiene un mayor contraste entre los elementos de fondo y superpuestos. Para obtener más información, consulta la sección "[Administrar los ajustes de tu tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)".
+            - **Note**: Esta característica no estuvo disponible en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. La característica está disponible en la versión 3.5.4 y posterior. [Actualizado: 2022-08-16]
     - 
       heading: Reglas de protección de etiquetas
       notes:
@@ -352,10 +351,10 @@ sections:
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 patch release. [Updated: 2022-06-10]'
     - 'La consola de administración podría haberse mostrado atascada en la pantalla de _Starting_ después de mejorar una instancia subaprovisionada para GitHub Enterprise Server 3.5. [Actualizado: 2022-06-20]'
     - |
-      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+      Las siguientes características no estuvieron disponibles para los usuarios en GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 y 3.5.3. Las características están disponibles en la versión 2.5.4 y posterior. [Actualizado: 2022-08-16]
 
-      - Detection of GitHub Actions workflow files for the dependency graph
-      - Reopening of dismissed Dependabot alerts
-      - Enabling the **Update branch** button for all pull requests in a repository
-      - Light high contrast theme
+      - Detección de archivos de flujo de GitHub Actions para la gráfica de dependencias
+      - Reapertura de las alertas descartadas del Dependabot
+      - Habilitar el botón **Actualizar rama** para todas las solicitudes de cambio en un repositorio
+      - Tema claro de alto contraste
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

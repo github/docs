@@ -55,7 +55,7 @@ redirect_from:
 
 ### 課題のタイプを選択する
 
-[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 個人課題を作成する場合は、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」を参照してください。
+[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
 
 ### 課題のTeamを定義する
 

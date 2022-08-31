@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+Para obtener más información sobre cómo {% data variables.product.prodname_community_exchange %} puede ayudarte como alumno, consulta la sección "[Acerca de {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)".
 
 ## Accessing {% data variables.product.prodname_community_exchange %}
 
@@ -38,7 +38,7 @@ To star a repository: Go to your {% data variables.product.prodname_community_ex
 
 The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
+Para reportar un repositorio ofensivo: Dirígete a tu página principal de {% data variables.product.prodname_community_exchange %}, encuentra el repositorio que quieras reportar, haz clic en el menú desplegable de {% octicon "kebab-horizontal" aria-label="The edit icon" %} justo en su nombre y luego haz clic en {% octicon "report" aria-label="The report symbol" %} **Reportar abuso**.
 
 ## Leer más
 
