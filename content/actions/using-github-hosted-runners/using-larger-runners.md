@@ -29,16 +29,6 @@ In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` h
 4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
 5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
 
-### Private pools and queue time
-
-{% data variables.product.prodname_dotcom %} uses two types of pools to organize and allocate machines:
-
-- **Public pool**: This pool hosts the standard 2-core runners. It consists of a general shared pool of machines are used to pick up jobs from any {% data variables.product.prodname_actions %} customer. When that job is complete, those machines are re-imaged and returned to the pool. Since many customers share this pool, there is likely to be an idling re-imaged machine ready to process your job.
-
-- **Private pools**:  The {% data variables.actions.hosted_runner %}s use private pools, which helps improves the security of the virtual machine lifecycle. With private pools, only re-imaged machines are allowed to be used within your organization or enterprise. This helps reduce concerns around re-imaged machines leaving artefacts behind. The use of private pools does affect the queue time for {% data variables.actions.hosted_runner %}s.
-
-When using {% data variables.actions.hosted_runner %}s, you can expect to see a longer job queue period than the standard runners that reside in the public pool. This can occur when a job is queued for processing. Since private pools contain fewer machines than the public pool, it is more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
-
 ## Autoscaling {% data variables.actions.hosted_runner %}s
 
 Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
