@@ -446,6 +446,8 @@
   "/rest/teams#list-idp-groups-for-a-team": "/rest/teams/team-sync#list-idp-groups-for-a-team",
   "/rest/teams#create-or-update-idp-group-connections": "/rest/teams/team-sync#create-or-update-idp-group-connections",
   "/rest/teams#list-child-teams": "/rest/teams/teams#list-child-teams",
+  "/rest/orgs#enable-or-disable-security-product-on-all-org-repos": "/rest/orgs/orgs#enable-or-disable-security-product-on-all-org-repos",
+  "/rest/orgs#orgs": "/rest/orgs/orgs",
   "/rest/projects#get-a-project-card": "/rest/projects/cards#get-a-project-card",
   "/rest/projects#cards": "/rest/projects/cards",
   "/rest/projects#update-a-project-card": "/rest/projects/cards#update-a-project-card",
