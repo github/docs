@@ -2455,6 +2455,12 @@
         "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
       },
       {
+        "slug": "enable-or-disable-a-security-feature-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/{security_product}/{enablement}"
+      },
+      {
         "slug": "list-organizations-for-a-user",
         "subcategory": "orgs",
         "verb": "get",
