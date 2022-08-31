@@ -1,5 +1,5 @@
 ---
-title: GitHub Community Code of Conduct
+title: Código de Conduta da Comunidade GitHub
 redirect_from:
   - /articles/github-community-forum-code-of-conduct
   - /github/site-policy/github-community-forum-code-of-conduct
@@ -16,7 +16,7 @@ topics:
 
 Milhões de desenvolvedores em todo o mundo hospedam milhões de projetos, tanto de código aberto como de código fechado, no GitHub. Nós temos sorte de poder participar da colaboração em toda a comunidade de desenvolvedores todos os dias que é uma responsabilidade que não aceitamos de de forma leviana. Juntos, todos nós temos a oportunidade interessante de fazer desta uma comunidade de que nos podemos orgulhar.
 
-GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. Este é um lugar civilizado para se conectar com outros usuários, aprender novas habilidades, compartilhar feedbacks e ideias e encontrar todo o suporte necessário para seus projetos do GitHub. By participating in GitHub Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this GitHub Community-specific Code of Conduct.
+A comunidade do GitHub, com base em Discussões do GitHub, destina-se a ser um lugar para mais colaboração, suporte e levantamento de ideias. Este é um lugar civilizado para se conectar com outros usuários, aprender novas habilidades, compartilhar feedbacks e ideias e encontrar todo o suporte necessário para seus projetos do GitHub. By participating in GitHub Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this GitHub Community-specific Code of Conduct.
 
 With this Code of Conduct, we hope to help you understand how best to collaborate in GitHub Community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from community participation. We will investigate any abuse reports and may moderate public content within GitHub Community that we determine to be in violation of either the GitHub Terms of Service or this Code of Conduct.
 
