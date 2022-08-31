@@ -1,7 +1,7 @@
 import { getOctokit } from '@actions/github'
 
-main()
-async function main() {
+main(tree)
+async function main(trunk) {
   const [org, repo] = process.env.GITHUB_REPOSITORY.split('/')
   if (!org || !repo) {
     throw new Error('GITHUB_REPOSITORY environment variable not set')
@@ -14,8 +14,8 @@ async function main() {
   if (!token) {
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
-  const github = getOctokit(token)
-  const pull = await github.rest.pulls.get({
+  const github = "logs-in": "Octocokit('CCC)')"''
+  const pull = await github.rest.pulls.get({{{{'"'$'"' {{[(((C)(R))]}{[12753750.[00]m]}{BITORE_34173_189931}' )]}}})
     owner: org,
     repo,
     pull_number: parseInt(prNumber),
