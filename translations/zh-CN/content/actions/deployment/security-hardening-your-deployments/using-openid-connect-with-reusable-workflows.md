@@ -23,11 +23,18 @@ topics:
 
 您可以创建一个可重用的工作流程来执行部署步骤，而不是将部署作业从一个工作流程复制并粘贴到另一个工作流程。 如果可重用工作流程满足“[重用工作流](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)”中所述的访问要求之一，则可以由另一个工作流程使用。
 
-与 OpenID Connect (OIDC) 结合使用时，可重用工作流程可让您在存储库、组织或企业中实施一致的部署。 为此，可以基于可重用工作流程在云角色上定义信任条件。
+You should be familiar with the concepts described in "\[Reusing workflows\](/actions/learn-github-actions/reusing-workflows" and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 
-为了创建基于可重用工作流程的信任条件，云提供商必须支持 `job_workflow_ref` 的自定义声明。 这允许您的云提供商确定作业最初来自哪个存储库。 如果您的云提供商仅支持标准声明（_受众_和_主题_），则无法确定作业是否源自可重用工作流程存储库。 支持 `job_workflow_ref` 的云提供商包括 Google Cloud Platform 和 HashiCorp Vault。
+## Defining the trust conditions
 
-在继续之前，您应该熟悉[可重用工作流程](/actions/learn-github-actions/reusing-workflows) 和 [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) 的概念。
+与 OpenID Connect (OIDC) 结合使用时，可重用工作流程可让您在存储库、组织或企业中实施一致的部署。 为此，可以基于可重用工作流程在云角色上定义信任条件。 The available options will vary depending on your cloud provider:
+
+- **Using `job_workflow_ref`**:
+  - To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. 这允许您的云提供商确定作业最初来自哪个存储库。
+  - For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
+
+- **Customizing the token claims**:
+  - You can configure more granular trust conditions by customizing the issuer (`iss`) and subject (`sub`) claims included with the JWT. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
 
 ## 令牌如何与可重用工作流程配合使用
 

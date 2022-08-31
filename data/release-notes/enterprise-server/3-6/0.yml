@@ -28,7 +28,9 @@ sections:
 
         # https://github.com/github/releases/issues/2341
         - |
-          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)."
+          
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature will be available in an upcoming release. [Updated: 2022-08-26]
 
     - heading: Audit logs
       notes:
