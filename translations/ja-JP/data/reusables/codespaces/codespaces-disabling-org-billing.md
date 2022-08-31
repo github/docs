@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**:  If you disable billable codespaces use for your organization, anyone who can create codespaces as an individual user, and can clone a repository in your organization, will still be able to create a codespace for that repository. However, this will not incur any charge for your organization. For information about restricting access to a repository, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+**ノート**: Organizationで課金されるcodespacesの利用を無効化した場合でも、個人ユーザとしてcodespacesを作成でき、Organization内のリポジトリをクローンできるユーザは、引き続きそのリポジトリに対してcodespaceを作成できます。 しかし、これによってOrganizationに対する課金が生じることはありません。 リポジトリへのアクセスの制限に関する情報については「[リポジトリへのアクセスを持つTeamや人の管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
 
 {% endnote %}

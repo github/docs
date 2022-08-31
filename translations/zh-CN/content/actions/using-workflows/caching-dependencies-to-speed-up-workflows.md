@@ -51,7 +51,7 @@ miniTocMaxHeadingLevel: 3
 
 工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-访问限制通过在不同分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-c`（具有基础分支 `main`）的拉取请求。
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-c`（具有基础分支 `main`）的拉取请求。 On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
 
 仓库中的多个工作流程共享缓存条目。 可以从同一仓库和分支的另一个工作流程访问和恢复为工作流程中的分支创建的缓存。
 

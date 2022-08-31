@@ -25,7 +25,7 @@ shortTitle: Sponsor a contributor
 
 You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. Organization に代わってアカウントをスポンサーできますが、それには多くの理由があります。
 - Organization の作業が依存する特定のライブラリを維持する
-- Organization として依存しているエコシステム (たとえばブロックチェーン) に投資する
+- Investing in the ecosystem you rely on as an organization (such as blockchain)
 - オープンソースを大切にする Organization としてブランド認知度を確立する
 - Organization が提供する製品を補完するライブラリを構築しているオープンソース開発者に感謝する
 

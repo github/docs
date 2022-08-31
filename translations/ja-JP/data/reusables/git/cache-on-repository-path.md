@@ -1,4 +1,4 @@
-1. To configure Git to cache credentials for each local directory where you clone a repository, enter the following command.
+1. リポジトリをクローンしたそれぞれのローカルディレクトリに認証情報をキャッシュするようGitを設定するには、以下のコマンドを入力してください。
 
    ```shell{:copy}
    git config --global credential.useHttpPath true
