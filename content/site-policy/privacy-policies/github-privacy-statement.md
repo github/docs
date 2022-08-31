@@ -258,7 +258,7 @@ The table below provides additional information about how we use different types
    
      Any GitHub page that serves non-essential cookies will have a link in the page’s footer to Cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
 
-     Some users will also be able to disable non-essential cookies via a cookie consent banner, including the option to reject all non-essential cookies.
+     Some users will also be able to manage non-essential cookies via a cookie consent banner, including the option to reject all non-essential cookies.
   2. **Generally for all websites**
 
     You can control the cookies you encounter on the web using a variety of widely-available tools. For example:
