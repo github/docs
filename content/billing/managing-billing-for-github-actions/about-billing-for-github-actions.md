@@ -31,7 +31,7 @@ Minutes reset every month, while storage usage does not.
 {% ifversion actions-hosted-runners %} 
 {% note %}
 
-**Note**: Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)."
+**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
 {% endnote %}
 {% endif %}
