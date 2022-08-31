@@ -14,7 +14,7 @@ topics:
   - Legal
 ---
 
-Effective date: **August 31, 2022**
+Effective date: **September 1, 2022**
 
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
