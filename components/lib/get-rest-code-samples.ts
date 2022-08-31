@@ -86,12 +86,12 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams = Object.keys(codeSample.request.bodyParameters)
       .map((key) => {
         if (typeof codeSample.request.bodyParameters[key] === 'string') {
-          return `-f ${key}='${codeSample.request.bodyParameters[key]}'\n`
+          return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
         } else {
-          return `-F ${key}=${codeSample.request.bodyParameters[key]}\n`
+          return `-F ${key}=${codeSample.request.bodyParameters[key]} `
         }
       })
-      .join(' ')
+      .join('\\\n ')
   }
   const args = [
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
