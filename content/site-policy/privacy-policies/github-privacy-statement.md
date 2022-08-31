@@ -300,10 +300,10 @@ If you have concerns about the way GitHub is handling your personal data, please
 You may also contact our Data Protection Officer directly at at **github [at]dp-officer [dot] com**
 
 | If you are in North America | If you are outside of North America |
-|---|---|
+|--------|--------|
 | Our United States HQ | Our EU Office |
 | GitHub Data Protection Officer | Github Data Protection Officer |
-| 88 Colin P. Kelly Jr. St. | co/ DP Dock DPO Services GmbH,<br><br>Attn: GitHub BV, Gut Projensdorf |
+| 88 Colin P. Kelly Jr. St. | c/o DP Dock DPO Services GmbH,<br><br>Attn: GitHub BV, Gut Projensdorf |
 | San Francisco, CA 94107 | 24161 Altenholz |
 | United States | Germany |
 | **privacy [at] github [dot] com** | github@dp-officer.com  cc: **privacy [at] github [dot] com**<br><br>CC: GitHub BV, Vijzelstraat 68-72, 1017 HL Amsterdam, The Netherlands |
