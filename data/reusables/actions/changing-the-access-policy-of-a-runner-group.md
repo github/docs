@@ -1,3 +1,5 @@
+{% comment %} Always include a security admonition above this procedure. This is either reusables.actions.self-hosted-runner-security-admonition or reusables.actions.hosted-runner-security-admonition {% endcomment %}
+
 For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
 
 ### Changing what organizations or repositories can access a runner group
@@ -7,17 +9,6 @@ For runner groups in an enterprise, you can change what organizations in the ent
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
 
-   {%- ifversion fpt or ghec or ghes %}
-   {% warning %}
-
-   **Warning**:
-
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
-   {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.actions.configure-runner-group-access %}
 {% endif %}

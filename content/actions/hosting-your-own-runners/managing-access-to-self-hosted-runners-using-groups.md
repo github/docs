@@ -23,15 +23,31 @@ shortTitle: Using runner groups
 
 ## Creating a runner group for an organization
 
+{%- ifversion ghes %}
+{% data reusables.actions.self-hosted-runner-security-admonition %}
+{%- endif %}
+
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
 ## Creating a runner group for an enterprise
+
+ {%- ifversion ghec or ghes %}
+
+{% data reusables.actions.self-hosted-runner-security-admonition %}
+
+{%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
 
 ## Changing the access policy of a runner group
+
+{%- ifversion fpt or ghec or ghes %}
+
+{% data reusables.actions.self-hosted-runner-security-admonition %}
+
+{%- endif %}
 
 {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 

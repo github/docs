@@ -1,3 +1,4 @@
+ {% comment %} Always include a security admonition above this procedure. This is either reusables.actions.self-hosted-runner-security-admonition or reusables.actions.hosted-runner-security-admonition {% endcomment %}
 
 All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
 
@@ -12,14 +13,6 @@ When creating a group, you must choose a policy that defines which repositories{
 1. In the "Runner groups" section, click **New runner group**.
 1. Enter a name for your runner group.
  {% data reusables.actions.runner-group-assign-policy-repo %}
-
-   {% warning %}
-
-   **Warning**: {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
 {% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
 {% data reusables.actions.create-runner-group %}
 {% elsif ghae or ghes < 3.4 %}
@@ -33,18 +26,6 @@ When creating a group, you must choose a policy that defines which repositories{
 
    You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
    
-   {%- ifversion ghes %}
-   {% warning %}
-
-   **Warning**:
-
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
-   {%- endif %}
-
    ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.
 {% endif %}

@@ -78,7 +78,6 @@ You can add {% data variables.actions.hosted_runner %}s to an enterprise, where 
 {% data reusables.actions.add-hosted-runner %}
 1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
 
-
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
 You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 

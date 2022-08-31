@@ -19,16 +19,19 @@ shortTitle: Controlling access to {% data variables.actions.hosted_runner %}s
 
 ## Creating a runner group for an organization
 
+{% data reusables.actions.hosted-runner-security-admonition %}
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
 ## Creating a runner group for an enterprise
 
+{% data reusables.actions.hosted-runner-security-admonition %}
 {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
 
 ## Changing the access policy of a runner group
 
+{% data reusables.actions.hosted-runner-security-admonition %}
 {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
 ## Changing the name of a runner group
