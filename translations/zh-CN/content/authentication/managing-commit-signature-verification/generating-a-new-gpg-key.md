@@ -53,7 +53,7 @@ topics:
 {% data reusables.gpg.copy-gpg-key-id %}
 10. 粘贴下面的文本（替换为您要使用的 GPG 密钥 ID）。 在此例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
  ```shell{:copy}
- $ gpg --armor --export <em>3AA5C34371567BD2</em>
+ $ gpg --armor --export 3AA5C34371567BD2
  # Prints the GPG key ID, in ASCII armor format
  ```
 11. 复制 GPG 密钥，从 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开始，到 `-----END PGP PUBLIC KEY BLOCK-----` 结束。
