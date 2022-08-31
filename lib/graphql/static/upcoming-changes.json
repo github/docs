@@ -274,6 +274,14 @@
         "owner": "lukewar"
       },
       {
+        "location": "ProjectView.groupedItems",
+        "description": "<p><code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
         "location": "ProjectView.groupBy",
         "description": "<p><code>groupBy</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
@@ -1698,6 +1706,14 @@
       {
         "location": "ProjectView.items",
         "description": "<p><code>items</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
+        "location": "ProjectView.groupedItems",
+        "description": "<p><code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",

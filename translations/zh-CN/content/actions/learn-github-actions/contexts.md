@@ -33,17 +33,13 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.context-injection-warning %}
 
-| 上下文名称      | 类型   | 描述                                                                |
-| ---------- | ---- | ----------------------------------------------------------------- |
-| `github`   | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。             |
-| `env`      | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。          |
-| `job`      | `对象` | 有关当前运行的作业的信息。 更多信息请参阅 [`job` 上下文](#job-context)。                  |
-| `steps`    | `对象` | 有关当前作业中已运行的步骤的信息。 更多信息请参阅 [`steps` 上下文](#steps-context)。          |
-| `runner`   | `对象` | 运行当前作业的运行程序相关信息。 更多信息请参阅 [`runner` 上下文](#runner-context)。         |
-| `secrets`  | `对象` | 包含可用于工作流程运行的机密的名称和值。 更多信息请参阅 [`secrets` 上下文](#secrets-context)。   |
-| `strategy` | `对象` | 有关当前作业的矩阵执行策略的信息。 更多信息请参阅 [`strategy` 上下文](#strategy-context)。    |
-| `matrix`   | `对象` | 包含在工作流程中定义的应用于当前作业的矩阵属性。 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 |
-| `needs`    | `对象` | 包含定义为当前作业依赖项的所有作业的输出。 更多信息请参阅 [`needs` 上下文](#needs-context)。      |
+| 上下文名称    | 类型   | 描述                                                       |
+| -------- | ---- | -------------------------------------------------------- |
+| `github` | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。    |
+| `env`    | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。 |
+| `job`    | `对象` | 有关当前运行的作业的信息。 更多信息请参阅 [`job` 上下文](#job-context)。         |
+{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %} | `steps` | `object` | Information about the steps that have been run in the current job. 更多信息请参阅 [`steps` 上下文](#steps-context)。 | | `runner` | `object` | Information about the runner that is running the current job. 更多信息请参阅 [`runner` 上下文](#runner-context)。 | | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. 更多信息请参阅 [`secrets` 上下文](#secrets-context)。 | | `strategy` | `object` | Information about the matrix execution strategy for the current job. 更多信息请参阅 [`strategy` 上下文](#strategy-context)。 | | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 | | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. 更多信息请参阅 [`needs` 上下文](#needs-context)。 |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 | `inputs` | `object` | 包含可重用 {% ifversion actions-unified-inputs %}或手动触发 {% endif %}工作流程的输入。 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
 
@@ -84,7 +80,7 @@ miniTocMaxHeadingLevel: 3
 | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
@@ -98,7 +94,7 @@ miniTocMaxHeadingLevel: 3
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
 {% else %}
@@ -200,7 +196,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | 在存储库中运行的特定工作流程的每次尝试的唯一编号。 对于工作流程运行的第一次尝试，此数字从 1 开始，并随着每次重新运行而递增。 |
 {%- endif %}
-| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
+| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %} | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
 
 ### `github` 上下文的示例内容
 
@@ -389,6 +385,72 @@ jobs:
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+
+## `jobs` context
+
+The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. 更多信息请参阅“[重用工作流程](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”。
+
+| 属性名称                                              | 类型    | 描述                                                                                                                         |
+| ------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------- |
+| `jobs`                                            | `对象`  | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. 此对象包含下面列出的所有属性。 |
+| `jobs.<job_id>.result`                      | `字符串` | The result of a job in the reusable workflow. 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。                          |
+| `jobs.<job_id>.outputs`                     | `对象`  | The set of outputs of a job in a reusable workflow.                                                                        |
+| `jobs.<job_id>.outputs.<output_name>` | `字符串` | The value of a specific output for a job in a reusable workflow.                                                           |
+
+### Example contents of the `jobs` context
+
+This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+
+```json
+{
+  example_job: {
+    result: success,
+    outputs: {
+      output1: hello,
+      output2: world
+    }
+  }
+}
+```
+
+### Example usage of the `jobs` context
+
+This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. 更多信息请参阅“[重用工作流程](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”。
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
+jobs:
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=firstword::hello"
+      - id: step2
+        run: echo "::set-output name=secondword::world"
+```
+{% endraw %}
+
+{% endif %}
 
 ## `steps` 上下文
 

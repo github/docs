@@ -36,14 +36,21 @@ También puedes configurar las direcciones IP permitidas para las organizaciones
 
 ## Agregar una dirección IP permitida
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ## Habilitar direcciones IP permitidas
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -69,6 +76,8 @@ Para obtener más información sobre cómo crear una lista de direcciones permit
 
 ## Editar una dirección IP permitida
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
@@ -76,6 +85,18 @@ Para obtener más información sobre cómo crear una lista de direcciones permit
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 1. Da clic en **Actualizar**.
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+## Verificar si se permite una dirección IP
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ## Eliminar una dirección IP permitida
 

@@ -59,6 +59,7 @@ const PUBLIC_REPOS = new Set([
   'roadmap',
   'securitylab',
   'semantic',
+  'ssh_data',
   'site-policy',
   'smimesign',
   'stack-graphs',

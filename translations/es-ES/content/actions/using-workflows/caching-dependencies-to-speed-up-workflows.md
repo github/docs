@@ -51,7 +51,7 @@ Para obtener más información sobre los artefactos de ejecución de flujos de t
 
 Un flujo de trabajo puede acceder y restaurar una caché creada en la rama actual, la rama base (incluidas las ramas base de los repositorios bifurcados) o la rama predeterminada (por lo general `main`). Por ejemplo, un caché creado en la rama predeterminada sería accesible desde cualquier solicitud de cambios. También, si la rama `feature-b` tiene la rama base `feature-a`, un flujo de trabajo activado en `feature-b` tendría acceso a las cachés creadas en la rama predeterminada (`main`), `feature-a` y `feature-b`.
 
-Las restricciones de acceso proporcionan aislamiento y seguridad de caché al crear una frontera lógica entre las ramas diferentes. Por ejemplo, una solicitud de cambios para la rama `feature-c` (con la base `main`) no podría acceder a un caché que se creó para la rama `feature-a` (con la base `main`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. Por ejemplo, una solicitud de cambios para la rama `feature-c` (con la base `main`) no podría acceder a un caché que se creó para la rama `feature-a` (con la base `main`). On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
 
 Los flujos de trabajo múltiples dentro de un repositorio comparten entradas de caché. Puede accederse a un caché que se crea para una rama dentro de un flujo de trabajo y se puede establecer desde otro flujo de trabajo para el mismo repositorio y rama.
 
@@ -172,7 +172,7 @@ npm-d5ea0750
 
 ### Utilizar la salida de la acción `cache`
 
-Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
+Puedes utilizar la salida de la acción `cache` para hacer algo con base en si se suscita una ocurrencia u omisión en caché. Cuando se encuentra una coincidencia exacta para un caché para la `key` especificada, la salida `cache-hit` se configura como `true`.
 
 En el flujo de trabajo del ejemplo anterior, hay un paso que lista el estado de los módulos de nodo si se suscitó una omisión de caché:
 

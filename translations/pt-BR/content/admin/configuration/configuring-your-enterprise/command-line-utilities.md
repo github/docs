@@ -673,7 +673,7 @@ Você pode adicionar o argumento opcional `--prune` para remover objetos inacess
 
 {% warning %}
 
-**Aviso**: Antes de usar o argumento `--prune` para remover objetos Git inacessíveis, coloque {% data variables.product.product_location %} em modo de manutenção, ou certifique-se de que o repositório esteja off-line. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)".
+**Aviso**: Antes de usar o argumento `--prune` para remover objetos do Git inacessíveis, coloque {% data variables.product.product_location %} em modo de manutenção ou garantir que todos os repositórios da mesma rede de repositório estejam bloqueados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)".
 
 {% endwarning %}
 

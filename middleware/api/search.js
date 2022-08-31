@@ -3,17 +3,15 @@ import express from 'express'
 import searchVersions from '../../lib/search/versions.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { cacheControlFactory } from '../cache-control.js'
+import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults } from './es-search.js'
+import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
 const languagesSet = new Set(Object.keys(languages))
 
 const router = express.Router()
-
-const cacheControl = cacheControlFactory(60 * 60 * 24)
 
 const DEFAULT_SIZE = 10
 const MAX_SIZE = 50 // How much you return has a strong impact on performance
@@ -45,14 +43,48 @@ const legacyEnterpriseServerVersions = Object.fromEntries(
     })
 )
 
+function getIndexPrefix() {
+  // This logic is mirrored in the scripts we use before running tests
+  // In particular, see the `index-test-fixtures` npm script.
+  // That's expected to be run before CI and local jest testing.
+  // The reason we have a deliberately different index name (by prefix)
+  // for testing compared to regular operation is to make it convenient
+  // for engineers working on local manual testing *and* automated
+  // testing without have to re-index different content (e.g. fixtures
+  // vs real content) on the same index name.
+  if (process.env.NODE_ENV === 'test') return 'tests_'
+
+  return ''
+}
+
 function convertLegacyVersionName(version) {
   // In the olden days we used to use `?version=3.5&...` but we decided
   // that's ambiguous and it should be `ghes-3.5` instead.
   return legacyEnterpriseServerVersions[version] || version
 }
 
+function notConfiguredMiddleware(req, res, next) {
+  if (!ELASTICSEARCH_URL) {
+    if (process.env.NODE_ENV === 'production') {
+      // Temporarily, this is OKish. The Docs Engineering team is
+      // currently working on setting up an Elasticsearch cloud
+      // instance that we can use. We don't currently have that,
+      // but this code is running in production. We just don't want
+      // to unnecessarily throw errors when it's actually a known thing.
+      return res.status(500).send('ELASTICSEARCH_URL not been set up yet')
+    }
+    throw new Error(
+      'process.env.ELASTICSEARCH_URL is not set. ' +
+        "If you're working on this locally, add `ELASTICSEARCH_URL=http://localhost:9200` in your .env file"
+    )
+  }
+
+  return next()
+}
+
 router.get(
   '/legacy',
+  notConfiguredMiddleware,
   catchMiddlewareError(async function legacySearch(req, res, next) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
@@ -69,7 +101,10 @@ router.get(
       return res.status(200).json([])
     }
 
-    const indexName = `github-docs-${convertLegacyVersionName(version)}-${language}`
+    const indexName = `${getIndexPrefix()}github-docs-${convertLegacyVersionName(
+      version
+    )}-${language}`
+
     const hits = []
     try {
       const searchResults = await getSearchResults({
@@ -117,7 +152,7 @@ router.get(
       }
     })
     if (process.env.NODE_ENV !== 'development') {
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     res.setHeader('x-search-legacy', 'yes')
@@ -187,7 +222,7 @@ const validationMiddleware = (req, res, next) => {
 
   const version = versionAliases[search.version] || allVersions[search.version].miscVersionName
 
-  search.indexName = `github-docs-${version}-${search.language}` // github-docs-ghes-3.5-en
+  search.indexName = `${getIndexPrefix()}github-docs-${version}-${search.language}` // github-docs-ghes-3.5-en
 
   req.search = search
   return next()
@@ -196,6 +231,7 @@ const validationMiddleware = (req, res, next) => {
 router.get(
   '/v1',
   validationMiddleware,
+  notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res, next) {
     const { indexName, query, page, size, debug, sort } = req.search
     const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
@@ -206,7 +242,7 @@ router.get(
       // So the only distinguishing key is the request URL.
       // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
       // cache and hold on to this.
-      cacheControl(res)
+      defaultCacheControl(res)
     }
 
     // The v1 version of the output matches perfectly what comes out

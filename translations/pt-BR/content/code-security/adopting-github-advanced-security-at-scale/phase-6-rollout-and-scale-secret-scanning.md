@@ -32,7 +32,7 @@ Existem algumas abordagens para lidar com as credenciais recentemente comprometi
 
   {% note %}
 
-  **Note:** You can automate this step. Para grandes empresas e organizações com centenas de repositórios, o acompanhamento manual é insustentável. Você pode incorporar automação ao processo de webhook definido na primeira etapa. A carga do webhook contém informações do repositório e da organização sobre o segredo vazado. Ao usar estas informações, você pode entrar em contato com os mantenedores atuais do repositório e criar um e-mail/mensagem para as pessoas responsáveis ou abrir um problema.
+  **Note:** You can automate this step. Para grandes empresas e organizações com centenas de repositórios, o acompanhamento manual é insustentável. Você pode incorporar automação ao processo de webhook definido na primeira etapa. A carga do webhook contém informações do repositório e da organização sobre o segredo vazado. Using this information, you can contact the current maintainers on the repository and create an email/message to the responsible people or open an issue.
 
   {% endnote %}
 3. **Treine**: Criar um documento de treinamento interno atribuído ao desenvolvedor que fez o commit do segredo. Dentro desse documento de treinamento, você pode explicar os riscos criados por meio da inserção de segredos e direcioná-los para suas informações de melhor prática sobre o uso de segredos no desenvolvimento de forma segura. Se um desenvolvedor não aprender com a experiência e continuar a fazer commit de segredos, você poderia criar um processo de escalada, mas o treinamento geralmente funciona bem.

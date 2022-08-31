@@ -19,10 +19,10 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
+**{% ifversion classic-project-visibility-permissions %}ノート{% else %}ノート{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
 * {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. Organizationの特定のメンバーに対して、その人が所属するTeamにアクセスを付与するか、その人をコラボレータとして{% data variables.projects.projects_v1_board %}に追加することによって、書き込みあるいは管理権限を付与することができます。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+* {% endif %}{% data variables.projects.projects_v1_board %}を{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}にすると、デフォルトではOrganizationのメンバーには読み取りアクセスが付与されます。 Organizationの特定のメンバーに対して、その人が所属するTeamにアクセスを付与するか、その人をコラボレータとして{% data variables.projects.projects_v1_board %}に追加することによって、書き込みあるいは管理権限を付与することができます。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Adicionar um arquivo a um repositório
-intro: 'Você pode fazer o upload e o commit de um arquivo existente para um repositório no {% data variables.product.product_name %} ou usando a linha de comando.'
+intro: 'Você pode fazer o upload e o commit de um arquivo existente para um repositório em {% data variables.product.product_name %} ou usando a linha de comando.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -22,7 +22,7 @@ shortTitle: Adicionar um arquivo
 
 ## Adicionando um arquivo a um repositório em {% data variables.product.product_name %}
 
-Os arquivos que você adiciona a um repositório por meio do navegador são limitados a {% data variables.large_files.max_github_browser_size %} por arquivo. É possível adicionar arquivos maiores, de até {% data variables.large_files.max_github_size %} cada um, usando a linha de comando. Para obter mais informações, consulte "[Adicionar um arquivo a um repositório usando a linha de comando](#adding-a-file-to-a-repository-using-the-command-line)". To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Os arquivos que você adiciona a um repositório por meio do navegador são limitados a {% data variables.large_files.max_github_browser_size %} por arquivo. É possível adicionar arquivos maiores, de até {% data variables.large_files.max_github_size %} cada um, usando a linha de comando. Para obter mais informações, consulte "[Adicionar um arquivo a um repositório usando a linha de comando](#adding-a-file-to-a-repository-using-the-command-line)". Para adicionar arquivos maiores que {% data variables.large_files.max_github_size %}, você deve usar {% data variables.large_files.product_name_long %}. Para obter mais informações, consulte "[Sobre arquivos grandes em {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 {% tip %}
 

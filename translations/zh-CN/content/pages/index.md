@@ -12,7 +12,6 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll{% endif %}'
     - '{% ifversion ghec %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site{% endif %}'
-    - '{% ifversion fpt %}/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll{% endif %}'
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'

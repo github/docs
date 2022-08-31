@@ -26,11 +26,12 @@ product: '{% data reusables.gated-features.pages %}'
 1. 输入 `username.github.io` 作为存储库名称。 将 `username` 替换为您的 {% data variables.product.prodname_dotcom %} 用户名。 例如，如果您的用户名是 `octocat`，则存储库名称应为 `octocat.github.io`。 ![存储库名称字段](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. 单击 **Choose a theme（选择主题）**。 ![选择主题按钮](/assets/images/help/pages/choose-theme.png)
-2. 主题选择器将打开。 浏览可用的主题，然后单击 **Select theme（选择主题）**以选择主题。 以后更改主题很容易，因此，如果您不确定，请暂时选择一个。 ![主题选项和选择主题按钮](/assets/images/help/pages/select-theme.png)
-3. 选择主题后，存储库的 `README.md` 文件将在文件编辑器中打开。 `README.md` 文件是您将为网站编写内容的位置。 您可以编辑文件或暂时保留默认内容。
-4. 编辑完文件后，单击 **Commit changes（提交更改）**。
-5. 访问 `username.github.io` 以查看您的新网站。 **注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 20 分钟才会发布。
+1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
+1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+
+   ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
+1. Optionally, open the `README.md` file of your repository. `README.md` 文件是您将为网站编写内容的位置。 您可以编辑文件或暂时保留默认内容。
+1. 访问 `username.github.io` 以查看您的新网站。 **注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 10 分钟才会发布。
 
 ## 更改标题和说明
 

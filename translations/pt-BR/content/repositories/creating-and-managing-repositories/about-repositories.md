@@ -90,12 +90,12 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% data reusables.repositories.internal-repo-default %}
 
-{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+{% ifversion ghec %}A menos que sua empresa use {% data variables.product.prodname_emus %}, os integrantes{% else %}Integrantes{% endif %} da empresa poderão bifurcar qualquer repositório interno de propriedade de uma organização na empresa. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+**Observação:** {% data variables.product.prodname_managed_users_caps %} não pode realizar a bifurcação a partir de repositórios internos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
 {% endnote %}
 {% endif %}
@@ -109,9 +109,9 @@ A maioria dos limites abaixo afetam o {% data variables.product.product_name %} 
 
 ### Limites de texto
 
-Os arquivos de texto acima de **512 KB** são sempre exibidos como texto sem formatação. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
+Os arquivos de texto acima de **512 KB** são sempre exibidos como texto sem formatação. O código não destaca a sintaxe e arquivos em prosa não são convertidos em HTML (como markdown, AsciiDoc *etc.*).
 
-Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
+Arquivos de texto acima de **5 MB** somente estão disponíveis por meio de suas URLs não processadas, que são servidas em `{% data variables.product.raw_github_com %}`; por exemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Não processado** para obter a URL não processada de um arquivo.
 
 ### Limites de diff
 
@@ -126,7 +126,7 @@ Algumas partes de um diff limitado podem ser exibidas, mas qualquer excedente de
 
 ### Limites de listas de commits
 
-As páginas de visualização comparada e pull requests exibem uma lista de commits entre as revisões `base` e `head`. These lists are limited to **250** commits. Caso o limite seja excedido, uma observação indicará que commits adicionais estão presentes (mas não são mostrados).
+As páginas de visualização comparada e pull requests exibem uma lista de commits entre as revisões `base` e `head`. Essas listas são limitadas a **250** commits. Caso o limite seja excedido, uma observação indicará que commits adicionais estão presentes (mas não são mostrados).
 
 ## Leia mais
 
