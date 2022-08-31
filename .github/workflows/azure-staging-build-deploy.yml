@@ -114,7 +114,7 @@ jobs:
 
       # Watch deployment slot instances to see when all the instances are ready
       - name: Check that deployment slot is ready
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@c713e510dbd7d213d92d41b7a7805a986f4c5c66
         env:
           CHECK_INTERVAL: 10000
         with:
