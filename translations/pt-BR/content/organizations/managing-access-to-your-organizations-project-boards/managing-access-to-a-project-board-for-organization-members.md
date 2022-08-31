@@ -31,7 +31,7 @@ Por padrão, os integrantes da organização têm acesso de gravação ao {% dat
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -40,6 +40,6 @@ Por padrão, os integrantes da organização têm acesso de gravação ao {% dat
 
 ## Leia mais
 
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Gerenciando o acesso de um indivíduo a uma organização de {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Gerenciando o acesso de uma equipe a uma organização de {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
 - "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"

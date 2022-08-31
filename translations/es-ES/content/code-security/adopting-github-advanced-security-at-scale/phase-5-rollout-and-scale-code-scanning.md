@@ -19,7 +19,7 @@ Este artículo es parte de una serie de cómo adoptar la {% data variables.produ
 
 ### Habilitar el escaneo de código
 
-Using the data you collated in [Phase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), you can begin to enable GHAS and then {% data variables.product.prodname_code_scanning %} on your repositories, one language at a time. The step-by-step process for enabling GHAS should look like this:
+Utilizando los datos que recolectaste en la [Fase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), puedes comenzar a habilitar la GHAS y luego el {% data variables.product.prodname_code_scanning %} en tus repositorios, un lenguaje a la vez. The step-by-step process for enabling GHAS should look like this:
 
 1. Enable GHAS on the repository. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)".
 1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. Para obtener más información, consulta la sección"[Crear una solicitud de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."

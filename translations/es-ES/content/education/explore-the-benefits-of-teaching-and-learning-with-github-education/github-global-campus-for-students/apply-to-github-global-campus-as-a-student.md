@@ -32,7 +32,7 @@ Es posible que se te pida periódicamente que vuelvas a verificar tu estado acad
 
 {% endnote %}
 
-For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
+Para obtener información sobre cómo renovar tu acceso al {% data variables.product.prodname_global_campus %}, consulta la sección "[Vencimiento y renovaciones](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)".
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 

@@ -23,6 +23,8 @@ Quando uma organização tem uma lista de autorizações, aplicativos de terceir
 
 ## Adicionando uma lista de endereços IP permitidos para {% data variables.product.prodname_github_app %}
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}

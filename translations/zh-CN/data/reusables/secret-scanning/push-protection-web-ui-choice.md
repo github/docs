@@ -2,5 +2,12 @@
 
 您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。
 
+{% ifversion push-protection-custom-link-orgs %}
+
+  ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+
+{% else %}
+
   ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
-  
+
+{% endif %}

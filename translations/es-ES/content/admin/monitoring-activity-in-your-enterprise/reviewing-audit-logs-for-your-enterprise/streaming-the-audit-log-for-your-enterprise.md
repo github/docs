@@ -44,7 +44,8 @@ Puedes configurar la transmisión de bitácoras de auditoría en {% data variabl
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Almacenamiento de Blobs de Azure](#setting-up-streaming-to-azure-blob-storage)
-- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
@@ -60,7 +61,7 @@ Puedes configurar la transmisión de S3 con claves de acceso o, para evitar el a
 #### Configurar la transmisión a S3 con llaves de acceso
 {% endif %}
 
-Para transmitir bitácoras de auditoría a la terminal de Amazon S3, debes tener un bucket y llaves de acceso. Para obtener más información, consulta la sección [Crear, configurar y trabajar con los buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS. Asegúrate de bloquear el acceso público al bucket para proteger la información de tu bitácora de auditoría.
+Para transmitir bitácoras de auditoría a la terminal de Amazon S3, debes tener un bucket y llaves de acceso. Para obtener más información, consulta la sección "[Crear, configurar y trabajar con buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS. Asegúrate de bloquear el acceso público al bucket para proteger la información de tu bitácora de auditoría.
 
 Para configurar la transmisión de bitácora de auditoría desde {% data variables.product.prodname_dotcom %}, necesitarás:
 * El nombrede tu bucket de Amazon S3
@@ -87,7 +88,7 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
 
 {% note %}
 
-**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+**Nota:** La transmisión a Amazon S3 con OpenID Connect se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 
@@ -231,6 +232,32 @@ Necesitas dos partes de información sobre tu concentrador de eventos: su nombre
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion streaming-datadog %}
+### Setting up streaming to Datadog
+
+To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+
+After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+
+1. If you don't already have a Datadog account, create one.
+1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the **Configure stream** dropdown menu and click **Datadog**.
+
+   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Under "Token", paste the token  you copied earlier.
+
+   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+
+   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+
+   ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+{% endif %}
+
 ### Configurar la transmisión para Google Cloud Storage
 
 Para configurar la transmisión al Almacenamiento de Google Cloud, debes crear una cuenta de servicio en Google Cloud con las credenciales y permisos adecuados y luego configurar la transmisión de bitácoras de auditoría en {% data variables.product.product_name %} utilizando las credenciales de la cuenta de servicio para la autenticación.
@@ -265,7 +292,7 @@ Para transmitir bitácoras de auditoría a la terminal del Recolector de Eventos
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Haz clic en **Configurar transmisión** y selecciona **Splunk**.
 
-   ![Elige Splunk desde el menú desplegable](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
+   ![Elegir Splunk del menú desplegable](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 
 1. En la página de configuración, ingresa:
    * El dominio en el cual se hospeda la aplicación que quieres transmitir.
@@ -290,6 +317,10 @@ Para transmitir bitácoras de auditoría a la terminal del Recolector de Eventos
 ## Pausar la transmisión de bitácoras de auditoría
 
 El pausar la transmisión te permite realizar el mantenimiento de la aplicación receptora sin perder datos de auditoría. Las bitácoras de auditoría se almacenan por hasta siete días en {% data variables.product.product_location %} y luego se exportan cuando dejas de pausar la transmisión.
+
+{% ifversion streaming-datadog %}
+Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Haz clic en **Pausar transmisión**.

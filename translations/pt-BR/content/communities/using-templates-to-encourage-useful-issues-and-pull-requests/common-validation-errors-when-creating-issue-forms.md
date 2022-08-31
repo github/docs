@@ -629,11 +629,11 @@ body:
       - Maybe
 ```
 
-## Body cannot be empty
+## O texto não pode estar vazio
 
-The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+O par do texto do modelo `key:value` não pode estar vazio. Para obter mais informações sobre quais chaves de nível superior são obrigatórios, consulte "[Sintaxe para os formulários do problema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax). "
 
-The error can be fixed by adding the `body:` section.
+O erro pode ser corrigido adicionando a seção `body:`.
 
 ### Exemplo
 
@@ -647,7 +647,7 @@ body:
     label: "What's wrong?"
 ```
 
-In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+Neste exemplo, o erro pode ser corrigido excluindo o `---` (separador do documento) entre os cabeçalhos e a seção `texto`.
 
 ```yaml
 name: Support Request

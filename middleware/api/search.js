@@ -43,6 +43,20 @@ const legacyEnterpriseServerVersions = Object.fromEntries(
     })
 )
 
+function getIndexPrefix() {
+  // This logic is mirrored in the scripts we use before running tests
+  // In particular, see the `index-test-fixtures` npm script.
+  // That's expected to be run before CI and local jest testing.
+  // The reason we have a deliberately different index name (by prefix)
+  // for testing compared to regular operation is to make it convenient
+  // for engineers working on local manual testing *and* automated
+  // testing without have to re-index different content (e.g. fixtures
+  // vs real content) on the same index name.
+  if (process.env.NODE_ENV === 'test') return 'tests_'
+
+  return ''
+}
+
 function convertLegacyVersionName(version) {
   // In the olden days we used to use `?version=3.5&...` but we decided
   // that's ambiguous and it should be `ghes-3.5` instead.
@@ -87,7 +101,10 @@ router.get(
       return res.status(200).json([])
     }
 
-    const indexName = `github-docs-${convertLegacyVersionName(version)}-${language}`
+    const indexName = `${getIndexPrefix()}github-docs-${convertLegacyVersionName(
+      version
+    )}-${language}`
+
     const hits = []
     try {
       const searchResults = await getSearchResults({
@@ -205,7 +222,7 @@ const validationMiddleware = (req, res, next) => {
 
   const version = versionAliases[search.version] || allVersions[search.version].miscVersionName
 
-  search.indexName = `github-docs-${version}-${search.language}` // github-docs-ghes-3.5-en
+  search.indexName = `${getIndexPrefix()}github-docs-${version}-${search.language}` // github-docs-ghes-3.5-en
 
   req.search = search
   return next()

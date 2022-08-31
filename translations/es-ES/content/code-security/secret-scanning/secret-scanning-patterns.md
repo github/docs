@@ -21,10 +21,10 @@ redirect_from:
 {% ifversion fpt or ghec %}
 ## Acerca de los patrones del {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.product_name %} maintains these different sets of {% data variables.product.prodname_secret_scanning %} patterns:
+{% data variables.product.product_name %} mantiene estos diversos conjuntos de patrones del {% data variables.product.prodname_secret_scanning %}:
 
 1. **Patrones socios.** Se utilizan para detectar secretos potenciales en todos los repositorios públicos. Para obtener más detalles, consulta la sección "[Secretos compatibles para los patrones asociados](#supported-secrets-for-partner-patterns)".
-2. **Patrones de seguridad avanzada.** Se utilizan para detectar secretos potenciales en los repositorios que tienen habilitado el {% data variables.product.prodname_secret_scanning %}. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}{% ifversion secret-scanning-push-protection %}
+2. **Patrones de seguridad avanzada.** Se utilizan para detectar secretos potenciales en los repositorios que tienen habilitado el {% data variables.product.prodname_secret_scanning %}. {% ifversion ghec %} Para obtener más detalles, consulta la sección "[Secretos compatibles para la seguridad avanzada](#supported-secrets-for-advanced-security)".{% endif %}{% ifversion secret-scanning-push-protection %}
 3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled. For details, see "[Supported secrets for push protection](#supported-secrets-for-push-protection)."{% endif %}
 
 {% ifversion fpt %}

@@ -74865,16 +74865,8 @@
           "description": "<p>A Bitbucket Server migration source.</p>"
         },
         {
-          "name": "GITHUB",
-          "description": "<p>A GitHub migration source.</p>"
-        },
-        {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
-        },
-        {
-          "name": "GITLAB",
-          "description": "<p>A GitLab migration source.</p>"
         }
       ]
     },

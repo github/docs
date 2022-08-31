@@ -57,11 +57,21 @@ Si tienes repositorios o código fuente existentes que se almacenan localmente e
 1. [Crear un repositorio nuevo](/repositories/creating-and-managing-repositories/creating-a-new-repository) en {% data variables.product.product_location %}. Para evitar errores, no inicialices el nuevo repositorio con archivos *README* licencia o `gitingnore`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. ![Desplegable Create New Repository (Crear nuevo repositorio)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Cambiar el directorio de trabajo actual en tu proyecto local.
-4. Inicializar el directorio local como un repositorio de Git.
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. Agregar los archivos a tu nuevo repositorio local. Esto representa la primera confirmación.
+
   ```shell
   $ git add .
   # Agrega el archivo en el repositorio local y lo presenta para la confirmación. {% data reusables.git.unstage-codeblock %}
@@ -92,10 +102,19 @@ Si tienes repositorios o código fuente existentes que se almacenan localmente e
 1. [Crear un repositorio nuevo](/articles/creating-a-new-repository) en {% data variables.product.product_location %}. Para evitar errores, no inicialices el nuevo repositorio con archivos *README* licencia o `gitingnore`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. ![Desplegable Create New Repository (Crear nuevo repositorio)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Cambiar el directorio de trabajo actual en tu proyecto local.
-4. Inicializar el directorio local como un repositorio de Git.
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. Agregar los archivos a tu nuevo repositorio local. Esto representa la primera confirmación.
   ```shell
   $ git add .
@@ -127,10 +146,19 @@ Si tienes repositorios o código fuente existentes que se almacenan localmente e
 1. [Crear un repositorio nuevo](/articles/creating-a-new-repository) en {% data variables.product.product_location %}. Para evitar errores, no inicialices el nuevo repositorio con archivos *README* licencia o `gitingnore`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. ![Desplegable Create New Repository (Crear nuevo repositorio)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Cambiar el directorio de trabajo actual en tu proyecto local.
-4. Inicializar el directorio local como un repositorio de Git.
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. Agregar los archivos a tu nuevo repositorio local. Esto representa la primera confirmación.
   ```shell
   $ git add .

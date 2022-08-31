@@ -18,15 +18,23 @@ shortTitle: 启动时运行运行器应用程序
 
 {% capture service_first_step %}1. 如果自托管的运行器应用程序正在运行，请停止它。{% endcapture %}
 {% capture service_non_windows_intro_shell %}在运行器机器上，在安装了自托管运行器应用程序的目录中打开 shell。 使用以下命令安装和管理自托管的运行器服务。{% endcapture %}
-{% capture service_nonwindows_intro %}将自托管的运行器应用程序配置为服务之前，您必须添加运行器到 {% data variables.product.product_name %}。 更多信息请参阅“[添加自托管的运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”。{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. 更多信息请参阅“[添加自托管的运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”。
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-对于使用 `systemd` 的 Linux 系统，您可以使用随自托管运行器应用程序分发的 `svc.h` 脚本来安装和管理应用程序即服务。
+For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
 
 {{ service_non_windows_intro_shell }}
 

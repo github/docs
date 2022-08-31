@@ -13,6 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Pull request reviews API
+## Acerca de la API de revisiones de solicitudes de cambio
 
-Pull Request Reviews are groups of pull request review comments on a pull request, grouped together with a state and optional body comment.
+Las revisiones de solicitudes de cambio son grupos de comentarios en dichas revisiones que se agrupan con un estado y comentario de cuerpo opcional.
