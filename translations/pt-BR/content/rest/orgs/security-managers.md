@@ -1,10 +1,10 @@
 ---
-title: Security Managers
+title: Gerentes de segurança
 intro: ''
 versions:
   fpt: '*'
   ghes: '>=3.7'
-  ghae: 'issue-7691'
+  ghae: issue-7691
   ghec: '*'
 topics:
   - API
