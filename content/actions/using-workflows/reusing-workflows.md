@@ -127,6 +127,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
+         # References a local action
          - uses: ./.github/actions/my-action
            with:
              username: ${{ inputs.username }}
@@ -147,7 +148,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
 ### Example reusable workflow
 
-This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
+This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in a [local action in the same repository](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-an-action-in-the-same-repository-as-the-workflow) as the reusable workflow.
 
 {% raw %}
 ```yaml{:copy}
@@ -168,12 +169,14 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
+      # References a local action
       - uses: ./.github/actions/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+
 {% ifversion actions-reusable-workflow-matrix %}
 ## Using a matrix strategy with a reusable workflow
 
