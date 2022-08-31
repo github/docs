@@ -1,170 +1,277 @@
 ---
-title: 关于自托管运行器
-intro: '您可以托管自己的运行器，并自定义用于在 {% data variables.product.prodname_actions %} 工作流程中运行作业的环境。'
+title: About self-hosted runners
+intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 关于自托管运行器
+## About self-hosted runners
 
-{% data reusables.github-actions.self-hosted-runner-description %} 自托管的运行器可以是物理、虚拟，在容器中，也可以在本地或云端。
+A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes or ghae %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
-您可以在管理层次结构的各个层级添加自托管运行器：
-- 仓库级运行器专用于单个仓库。
-- 组织级运行器可以处理组织中多个仓库的作业。
-- 企业级运行器可以分配到企业帐户中的多个组织。
+{% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
-运行器机器使用 {% data variables.product.prodname_actions %} 自托管运行器应用程序连接到 {% data variables.product.product_name %}。 {% data reusables.github-actions.runner-app-open-source %} 当发布新版本时，运行器应用程序在作业分配到运行器时或发布后一周内（如果运行器没有被分配任何作业）会自动更新。
+You can add self-hosted runners at various levels in the management hierarchy:
+- Repository-level runners are dedicated to a single repository.
+- Organization-level runners can process jobs for multiple repositories in an organization.
+- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-{% data reusables.github-actions.self-hosted-runner-auto-removal %}
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
-有关安装和使用自托管运行器的更多信息，请参阅“[添加自托管运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”和“[在工作流程中使用自托管运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
+{% ifversion ghes %} 
+{% note %}
 
-### {% data variables.product.prodname_dotcom %} 托管的运行器与自托管运行器之间的差异
+**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% data variables.product.prodname_dotcom %} 托管的运行器提供了一个更快、更简单的工作流程运行方式，而自托管运行器是您的自定义环境中高度可配置的工作流程运行方式。
+{% endnote %}
+{% endif %}
 
-**{% data variables.product.prodname_dotcom %} 托管的运行器：**
-- 接收操作系统、预安装的软件包和工具以及自托管运行器程序应用程序的自动更新。
-- 被 {% data variables.product.prodname_dotcom %} 管理和维护。
-- 为每个作业执行提供一个干净的实例。
-- 使用 {% data variables.product.prodname_dotcom %} 计划设定的免费分钟数，超过免费分钟数后按分钟收费。
+{% data reusables.actions.self-hosted-runner-auto-removal %}
 
-**自托管运行器：**
-- 仅接收自托管运行器应用程序的自动更新。 您负责更新操作系统和所有其他软件。
-- 可使用已付费的云服务或本地计算机。
-- 可根据您的硬件、操作系统、软件和安全要求进行自定义。
-- 无需为每个作业执行提供一个干净的实例。
-- 可免费使用 {% data variables.product.prodname_actions %}，但是您对运行器维护费用负责。
+For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### 自托管运行器机器的要求
+## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
 
-只要符合以下要求，便可将任何计算机用作自托管运行器：
+{% ifversion fpt or ghec or ghes %}
+{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
 
-* 您可以在机器上安装和运行自托管运行器应用程序。 更多信息请参阅“[自托管运行器支持的架构和操作系统](#supported-architectures-and-operating-systems-for-self-hosted-runners)”。
-* 计算机可与 {% data variables.product.prodname_actions %} 通信。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
-* 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
-* 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
+{% ifversion fpt or ghec or ghes %}
+**{% data variables.product.prodname_dotcom %}-hosted runners:**
+- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
+- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
+- Provide a clean instance for every job execution.
+- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
-### 使用限制
+**Self-hosted runners:**{% endif %}
+- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Can use cloud services or local machines that you already pay for.
+- Are customizable to your hardware, operating system, software, and security requirements.
+- Don't need to have a clean instance for every job execution.
+- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
+- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
 
-在使用自托管的运行器时，对 {% data variables.product.prodname_actions %} 的使用有一些限制。 这些限制可能会有变动。
+## Requirements for self-hosted runner machines
 
-{% data reusables.github-actions.usage-workflow-run-time %}
-- **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
-{% data reusables.github-actions.usage-api-requests %}
-- **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-### 自托管运行器的工作流连续性
+* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
-{% data reusables.github-actions.runner-workflow-continuity %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
+## Autoscaling your self-hosted runners
 
-### 自托管运行器支持的架构和操作系统
+You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 
-自托管运行器应用程序支持以下操作系统。
+{% endif %}
 
-#### Linux
+## Usage limits
 
-- Red Hat Enterprise Linux 7 或更新版本
-- CentOS 7 或更新版本
+There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+
+{% data reusables.actions.usage-workflow-run-time %}
+- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+{% data reusables.actions.usage-api-requests %}
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
+
+## Workflow continuity for self-hosted runners
+
+{% data reusables.actions.runner-workflow-continuity %}
+
+## Supported architectures and operating systems for self-hosted runners
+
+The following operating systems are supported for the self-hosted runner application.
+
+### Linux
+
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
-- Fedora 29 或更高版本
-- Debian 9 或更高版本
-- Ubuntu 16.04 或更高版本
-- Linux Mint 18 或更高版本
-- openSUSE 15 或更高版本
-- SUSE Enterprise Linux (SLES) 12 SP2 或更高版本
+- Fedora 29 or later
+- Debian 9 or later
+- Ubuntu 16.04 or later
+- Linux Mint 18 or later
+- openSUSE 15 or later
+- SUSE Enterprise Linux (SLES) 12 SP2 or later
 
-#### Windows
+### Windows
 
-- Windows 7 64 位
-- Windows 8.1 64 位
-- Windows 10 64 位
-- Windows Server 2012 R2 64 位
-- Windows Server 2016 64 位
-- Windows Server 2019 64 位
+- Windows 7 64-bit
+- Windows 8.1 64-bit
+- Windows 10 64-bit
+- Windows Server 2012 R2 64-bit
+- Windows Server 2019 64-bit
 
-#### macOS
+### macOS
 
-- macOS 10.13 (High Sierra) 或更高版本
+- macOS 10.13 (High Sierra) or later
 
-#### 架构
+### Architectures
 
-自托管运行器应用程序支持以下处理器架构。
+The following processor architectures are supported for the self-hosted runner application.
 
-- `x64` - Linux、macOS、Windows。
-- `ARM64` - 仅 Linux。
-- `ARM32` - 仅 Linux。
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
+## Supported actions on self-hosted runners
 
-计算机可与 {% data variables.product.prodname_actions %} 通信。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
+Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% endif %}
 
-### 自托管运行器与 {% data variables.product.product_name %} 之间的通信
+<a name="communication-requirements"></a>
 
-自托管运行器将调查 {% data variables.product.product_name %} 以检索应用程序更新，并检查是否有作业在排队等待处理。 自托管运行器使用 HTTPS _long poll_ 打开 {% data variables.product.product_name %} 连接 50 秒，如果没有收到任何响应，就会暂停并创建新的长轮询。 应用程序必须在机器上运行才能接受和运行 {% data variables.product.prodname_actions %} 作业。
+## Communication between self-hosted runners and {% data variables.product.product_name %}
 
-{% if currentVersion == "github-ae@latest" %}
-您必须确保自托管运行器具有适当的网络访问权限才可与
-{% data variables.product.prodname_ghe_managed %} URL 通信。
-例如，如果你的实例名称是 `octoghie`，则需要允许自托管运行器访问 `octoghe. ithub.com`。
-如果您对
+The self-hosted runner connects to {% data variables.product.product_name %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
-{% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”。
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+{% ifversion fpt or ghec %}
+Since the self-hosted runner opens a connection to {% data variables.product.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
+{% elsif ghes or ghae %}
+Only an outbound connection from the runner to {% data variables.product.product_location %} is required. There is no need for an inbound connection from {% data variables.product.product_location %} to the runner.
+{%- endif %}
+
+{% ifversion ghes %}
+
+{% data variables.product.product_name %} must accept inbound connections from your runners over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} at {% data variables.product.product_location %}'s hostname and API subdomain, and your runners must allow outbound connections over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} to {% data variables.product.product_location %}'s hostname and API subdomain.
+
+{% elsif ghae %}
+
+You must ensure that the self-hosted runner has appropriate network access to communicate with your {% data variables.product.product_name %} URL and its subdomains. For example, if your subdomain for {% data variables.product.product_name %} is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
+
+If you use an IP address allow list, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-您必须确保机器具有适当的网络访问权限才可与以下列出的 {% data variables.product.prodname_dotcom %} URL 通信。
+You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+
+{% note %}
+
+**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+
+{% endnote %}
+
+**Needed for essential operations:**
 
 ```
 github.com
 api.github.com
-*.actions.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
-codeload.github.com
-*.pkg.github.com
-pkg-cache.githubusercontent.com
-pkg-containers.githubusercontent.com
-pkg-containers-az.githubusercontent.com
 ```
 
-如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
+**Needed for downloading actions:**
+
+```
+codeload.github.com
+```
+
+**Needed for runner version updates:**
+
+```
+objects.githubusercontent.com
+objects-origin.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+```
+
+**Needed for uploading/downloading caches and workflow artifacts:**    
+
+```
+*.blob.core.windows.net
+```
+
+**Needed for retrieving OIDC tokens:**
+
+```
+*.actions.githubusercontent.com
+```
+
+In addition, your workflow may require access to other network resources. For example, if your workflow installs packages or publishes containers to {% data variables.product.prodname_dotcom %} Packages, then the runner will also require access to those network endpoints.
+
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% else %}
 
-您必须确保机器具有适当的网络访问权限才可与 {% data variables.product.product_location %} 通信。
+{% ifversion ghes %}Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.product_location %}, with no need for traffic to traverse a public network.{% endif %}
 
 {% endif %}
 
-您也可以通过代理服务器使用自托管的运行器。 更多信息请参阅“[将代理服务器与自托管运行器一起使用](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)”。
+{% ifversion ghae %}
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+{% endif %}
 
-### 使用公共仓库的自托管运行器安全性
+You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
-{% data reusables.github-actions.self-hosted-runner-security %}
+For more information about troubleshooting common network connectivity issues, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
 
-这对 {% data variables.product.prodname_dotcom %} 托管的运行器不是问题，因为每个 {% data variables.product.prodname_dotcom %} 托管的运行器始终是一个干净的独立虚拟机， 在作业执行结束时被销毁。
+{% ifversion ghes or ghae %}
 
-在自托管运行器上运行不受信任的工作流程会给您的机器和网络环境带来严重的安全风险，特别是机器在同一环境下执行不同的作业时。 其中一些风险包括：
+## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
 
-* 机器上运行的恶意程序。
-* 逃避机器的运行器沙盒。
-* 显示对机器网络环境的访问权限。
-* 在机器上保持不需要或危险的数据。
+Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.product.product_location %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+
+If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below. 
+
+```
+github.com
+api.github.com
+codeload.github.com
+```
+
+{% note %}
+
+**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
+
+{% endnote %}
+
+
+{% endif %}
+
+## Self-hosted runner security
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.actions.self-hosted-runner-security %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+
+{% endif %}
+
+Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+
+* Malicious programs running on the machine.
+* Escaping the machine's runner sandbox.
+* Exposing access to the machine's network environment.
+* Persisting unwanted or dangerous data on the machine.
+
+For more information about security hardening for self-hosted runners, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% ifversion ghec or ghes or ghae %}
+
+## Further reading
+
+- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+
+{% endif %}

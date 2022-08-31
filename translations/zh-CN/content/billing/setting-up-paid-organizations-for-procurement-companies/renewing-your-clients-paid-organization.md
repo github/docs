@@ -5,13 +5,14 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
+shortTitle: 更新付费组织
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -22,7 +23,7 @@ topics:
 
 {% endtip %}
 
-### 更新组织的信用卡
+## 更新组织的信用卡
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

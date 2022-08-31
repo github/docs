@@ -3,8 +3,9 @@ title: Example workflows for publishing a package
 intro: 'To help you get started with your own custom workflows, review some example workflows for publishing packages.'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Example workflows
 ---
 

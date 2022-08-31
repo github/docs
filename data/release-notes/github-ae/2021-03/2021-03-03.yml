@@ -9,8 +9,6 @@ sections:
         - |
           [{% data variables.product.prodname_actions %}](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
 
-          {% data variables.product.prodname_actions %} on {% data variables.product.product_name %} uses a new [{% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners), only available for {% data variables.product.product_name %}, that enables you to customize the size, image, and networking configuration of the runners. These runners are a finished-service CI compute environment with auto-scaling and management, fully managed by {% data variables.product.company_short %}. During the beta, the use {% data variables.actions.hosted_runner %}s is free of charge. For more information, see "[Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
-
           Please note that when {% data variables.product.prodname_actions %} is enabled during this upgrade, two organizations named "GitHub Actions" (@**actions** and @**github**) will appear in {% data variables.product.product_location %}. These organizations are required by {% data variables.product.prodname_actions %}. Users named @**ghost** and @**actions** appear as the actors for creation of these organizations in the audit log.
     - heading: 'GitHub Packages beta'
       notes:

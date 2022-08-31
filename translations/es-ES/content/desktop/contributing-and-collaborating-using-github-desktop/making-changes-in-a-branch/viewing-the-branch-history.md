@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Visualizar el historial de la rama
 ---
 
 Cada confirmación muestra:
@@ -19,6 +20,6 @@ Cada confirmación muestra:
 2. En la pestaña **History** (Historial), haz clic en la confirmación que deseas revisar. ![Una confirmación en la pestaña History (Historial)](/assets/images/help/desktop/branch-history-commit.png)
 3. Si existen múltiples archivos en la confirmación, haz clic en un archivo individual para ver los cambios que se realizan a ese archivo en esa confirmación. ![Un archivo en la confirmación](/assets/images/help/desktop/branch-history-file.png)
 
-### Leer más
+## Leer más
 
 - [Sincronizar tu rama](/desktop/guides/contributing-to-projects/syncing-your-branch/)"

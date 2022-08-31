@@ -2,14 +2,16 @@
 title: Git 数据库 API 入门指南
 intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新您的引用（分支头部和标记）。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: 开始 - Git 数据库 API
 ---
 
-### 概览
+## 概览
 
 这基本上允许您通过我们的 API 重新实现大量 Git 功能 - 通过直接在数据库中创建原始对象并更新分支引用，从技术上讲，您可以在不安装 Git 的情况下完成 Git 能做的任何事情。
 
@@ -31,7 +33,7 @@ topics:
 
 看似很复杂，但是当您了解模型后，实际上很简单，它为您开辟了广阔的天地，使您可以使用 API 实现许多功能。
 
-### 检查拉取请求的可合并性
+## 检查拉取请求的可合并性
 
 {% warning %}
 

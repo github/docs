@@ -6,22 +6,23 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
   - /admin/enterprise-management/cluster-network-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
   - Networking
+shortTitle: Configurar una red de clúster
 ---
 
-### Consideraciones de red
+## Consideraciones de red
 
 El diseño de red más simple para una agrupación es colocar los nodos en una LAN única. Si un clúster debe abarcar subredes, no te recomendamos configurar ninguna regla de firewall entre ellas. La latencia entre nodos debe ser de menos de 1 milisegundo.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}Para establecer la disponibilidad alta, la latencia entre la red con los nodos activos y aquella con los pasivos debe ser de menos de 70 milisegundos. No te recomendamos configurar una firewall entre las dos redes.{% endif %}
+{% ifversion ghes %}Para contar con alta disponibilidad, la latencia entre la red con los nodos activos y la red con los pasivos debe ser de menos de 70 milisegundos. No te recomendamos configurar una firewall entre las dos redes.{% endif %}
 
-#### Puertos de la aplicación para usuarios finales
+### Puertos de la aplicación para usuarios finales
 
 Los puertos de la aplicación permiten que los usuarios finales accedan a Git y a las aplicaciones web.
 
@@ -33,7 +34,7 @@ Los puertos de la aplicación permiten que los usuarios finales accedan a Git y 
 | 443/TCP       | HTTPS                                                                     | Sí                                                                     |
 | 9418/TCP      | Puerto de protocolo de Git simple<br>(Inhabilitado en modo privado) | No                                                                     |
 
-#### Puertos administrativos
+### Puertos administrativos
 
 No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
 
@@ -45,7 +46,7 @@ No se requieren puertos administrativos para el uso de la aplicación básica po
 | 8080/TCP      | Consola de gestión HTTP     | No<br>(Cuando SSL está habilitado, este puerto redirige a HTTPS) |
 | 8443/TCP      | Consola de gestión de HTTPS | Sí                                                                     |
 
-#### Puertos de comunicación de agrupación
+### Puertos de comunicación de agrupación
 
 Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberán estar accesibles. La comunicación entre los nodos no está cifrada. Estos puertos no deberían estar accesibles externamente.
 
@@ -78,7 +79,7 @@ Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberá
 | 8302/UDP      | Consul                                   |
 | 25827/UDP     | Collectd                                 |
 
-### Configurar un balanceador de carga
+## Configurar un balanceador de carga
 
  Recomendamos un balanceador de carga externo basado en TCP que respalde el protocolo PROXY para distribuir el tráfico a través de los nodos. Considera estas configuraciones del balanceador de carga:
 
@@ -87,7 +88,7 @@ Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberá
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Manejar información de conexión de clientes
+## Manejar información de conexión de clientes
 
 Dado que las conexiones de clientes con el agrupamiento provienen del balanceador de carga, no se puede perder la dirección IP de cliente. Para capturar adecuadamente la información de la conexión de clientes, se requiere una consideración adicional.
 
@@ -95,9 +96,11 @@ Dado que las conexiones de clientes con el agrupamiento provienen del balanceado
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Habilitar el soporte PROXY en {% data variables.product.prodname_ghe_server %}
+### Habilitar el soporte PROXY en {% data variables.product.prodname_ghe_server %}
 
 Recomendamos firmemente habilitar el soporte PROXY para tu instancia y el balanceador de carga.
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
  - Para tu instancia, usa este comando:
   ```shell
@@ -107,11 +110,11 @@ Recomendamos firmemente habilitar el soporte PROXY para tu instancia y el balanc
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Habilitar el soporte X-Forwarded-For en {% data variables.product.prodname_ghe_server %}
+### Habilitar el soporte X-Forwarded-For en {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-Para habilitar el encabezado `X-Fowarded-For`, usa este comando:
+Para habilitar el encabezado `X-Forwarded-For`, usa este comando:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
@@ -119,12 +122,12 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-#### Configurar revisiones de estado
+### Configurar revisiones de estado
 Las comprobaciones de estado permiten que un balanceador de carga deje de enviar tráfico a un nodo que no responde si una comprobación preconfigurada falla en ese nodo. Si un nodo de agrupación falla, las revisiones de estado emparejadas con nodos redundantes brindan alta disponibilidad.
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-### Requisitos de DNS
+## Requisitos de DNS
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}

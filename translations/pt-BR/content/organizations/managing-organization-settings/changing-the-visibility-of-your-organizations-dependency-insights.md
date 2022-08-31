@@ -1,20 +1,22 @@
 ---
 title: Alterar a visibilidade de informações de dependência da organização
 intro: Você pode permitir que todos os integrantes da organização exibam informações de dependência da sua organização ou limitar a exibição aos proprietários da organização.
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Mude a visibilidade da ideia
 ---
 
 Os proprietários da organização podem definir limitações para exibir informações de dependência da organização. Todos os integrantes de uma organização podem exibir informações de dependência da organização por padrão.
 
-Os proprietários corporativos podem definir limitações para exibir informações de dependência da organização em todas as organizações da sua conta corporativa. Para obter mais informações, consulte "[Aplicar uma política nas informações de dependência de sua conta corporativa](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".
+{% ifversion ghec %}
+Os proprietários corporativos podem definir limitações para exibir informações de dependência da organização em todas as organizações da sua conta corporativa. Para obter mais informações, consulte[Políticas de Insights de dependência na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)".
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

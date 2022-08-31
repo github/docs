@@ -2,15 +2,17 @@
 title: OAuth Appアクセストークンのリクエストエラーのトラブルシューティング
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
+shortTitle: トークンリクエストのトラブルシューティング
 ---
 
 {% note %}
@@ -19,7 +21,7 @@ topics:
 
 {% endnote %}
 
-### 不正なクライアント認識情報
+## 不正なクライアント認識情報
 
 渡した client\_id や client\_secret が正しくない場合は、以下のエラーレスポンスを受け取ります。
 
@@ -33,7 +35,7 @@ topics:
 
 このエラーを解決するには、{% data variables.product.prodname_oauth_app %} の正しい認証情報を持っているかを確認します。 `client_id` と `client_secret` が間違っていないか、また {% data variables.product.product_name %} に正しく渡されているかを再確認してください。
 
-### リダイレクトURIの不一致
+## リダイレクトURIの不一致
 
 指定した `redirect_uri` が {% data variables.product.prodname_oauth_app %} で登録したものと一致しない場合、次のエラーメッセージが表示されます。
 
@@ -47,7 +49,7 @@ topics:
 
 このエラーを修正するには、登録したものと一致する`redirect_uri`を指定するか、アプリケーションで登録されているデフォルトのURIを使用するためパラメータを省略します。
 
-### 不正な検証コード
+## 不正な検証コード
 
 ```json
 {

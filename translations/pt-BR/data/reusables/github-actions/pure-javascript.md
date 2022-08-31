@@ -1,1 +1,0 @@
-Para garantir que suas ações de JavaScript sejam compatíveis com todos os executores hospedados no GitHub (Ubuntu, Windows e macOS), o código JavaScript empacotado que você escreve deve ser JavaScript puro e não depender de outros binários. As ações JavaScript são realizadas diretamente no executor e usam binários que já existem no ambiente virtual.

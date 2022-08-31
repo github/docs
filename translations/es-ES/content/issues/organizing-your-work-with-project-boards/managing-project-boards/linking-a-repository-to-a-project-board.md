@@ -1,23 +1,25 @@
 ---
-title: Vincular un repositorio a un tablero de proyecto
-intro: Puedes vincular un repositorio a tu tablero de proyecto de la organización o de la cuenta de usuario.
+title: 'Enlazar un repositorio a un {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes enlazar un repositorio al {% data variables.projects.projects_v1_board %} de tu cuenta personal o de organización.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+shortTitle: Enlazar un repositorio al tablero
+allowTitleToDifferFromFilename: true
 ---
 
-Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar repositorios que sean propiedad de la cuenta de usuario u organización al mismo. Para obtener más información, consulta la sección "[Permisos para una organización sobre el tablero de proyecto](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para tableros de proyecto propiedad de un usuario](/articles/permission-levels-for-user-owned-project-boards/)".
+{% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.link-repos-to-project-board %} Puedes agregar propuestas y solicitudes de extracción desde cualquier repositorio no vinculado escribiendo la URL de la propuesta o de la solicitud de extracción en una tarjeta. Para obtener más información, consulta "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)".
+Cualquiera con permisos de escritura en un {% data variables.projects.projects_v1_board %} puede enlazar repositorios que le pertenezcan a dicha organización o cuenta personal al {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para los {% data variables.product.prodname_projects_v1 %} que pertenecen a usuarios](/articles/permission-levels-for-user-owned-project-boards/)".
 
-1. Navega hasta el tablero de proyecto al que quieras vincular un repositorio.
+{% data reusables.project-management.link-repos-to-project-board %} Puedes agregar propuestas y solicitudes de extracción desde cualquier repositorio no vinculado escribiendo la URL de la propuesta o de la solicitud de extracción en una tarjeta. Para obtener más información, consulta la sección "[Agregar propuestas y solicitudes de cambio a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)".
+
+1. Navega al {% data variables.projects.projects_v1_board %} en donde quieres enlazar un repositorio.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 4. En la barra lateral izquierda, haz clic en **Linked repositories** (Repositorios vinculados). ![Opción del menú Linked repositories (Repositorios vinculados) en la barra lateral izquierda](/assets/images/help/projects/project-board-linked-repositories-setting.png)
@@ -27,10 +29,10 @@ Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar rep
 
 {% note %}
 
-**Nota:** Para poder vincular el repositorio a tu tablero de proyectos que pertenece a tu organización o usuario, el repositorio necesita que se le habiliten las propuestas. Es decir, el repositorio tiene una pestaña de "Propuestas" (en los repositorios bifurcados, las propuestas se inhabilitan predeterminadamente).  Para obtener más información sobre cómo habilitar o inhabilitar las propuestas en un repositorio, consulta la sección "[Inhabilitar las propuestas en un repositorio](/github/managing-your-work-on-github/disabling-issues)".
+**Nota:** Para enlazar un repositorio a tu {% data variables.projects.projects_v1_board %} que pertenece a un usuario u organización, el repositorio necesita tener habilitadas las propuestas. Es decir, el repositorio tiene una pestaña de "Propuestas" (en los repositorios bifurcados, las propuestas se inhabilitan predeterminadamente).  Para obtener más información sobre cómo habilitar o inhabilitar las propuestas en un repositorio, consulta la sección "[Inhabilitar las propuestas en un repositorio](/github/managing-your-work-on-github/disabling-issues)".
 
 {% endnote %}
 
-### Leer más
+## Leer más
 
-- "[Acerca de los tableros de proyectos](/articles/about-project-boards)"
+- "[Acerca de {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"

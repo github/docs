@@ -2,11 +2,11 @@
 title: Migrating from GitHub Enterprise 11.10.x to 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
@@ -56,7 +56,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 7. Click **Add key** and then click **Continue**.
 8. Copy the `ghe-restore` command that you'll run on the backup host to migrate data to the new instance.
 ![Starting a migration](/assets/images/enterprise/migration/migration-restore-start.png)
-9. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+9. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
   {% note %}
 
@@ -99,4 +99,4 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
   {% endnote %}
 
 15. Switch user network traffic from the old instance to the new instance using either DNS or IP address assignment.
-16. Upgrade to the latest patch release of {{ currentVersion }}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_sponsors %} 允许您每月定期向设计、创建或维护您所依赖的开源项目的开发人员或组织付款。 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。

@@ -1,14 +1,14 @@
 ---
 title: Auditar de usuários em toda a sua empresa
-intro: 'O painel de log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de sua empresa nos últimos 90 dias incluindo detalhes como quem executou a ação, qual era a ação e quando a ação foi realizada.'
+intro: 'O painel do log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de toda a sua empresa dentro do mês atual e dos seis meses anteriores. O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,9 +16,10 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Auditoria de usuários
 ---
 
-### Acessar o log de auditoria
+## Acessar o log de auditoria
 
 O painel de log de auditoria oferece uma exibição visual de dados de auditoria na sua empresa.
 
@@ -30,7 +31,7 @@ O painel de log de auditoria oferece uma exibição visual de dados de auditoria
 
 No mapa, você pode aplicar zoom e visão panorâmica para ver os eventos do mundo todo. Posicione o mouse sobre um país para ver a contagem de eventos ocorridos nele.
 
-### Pesquisar eventos na sua empresa
+## Pesquisar eventos na sua empresa
 
 O log de auditoria lista as seguintes informações sobre as ações feitas na sua empresa:
 
@@ -46,11 +47,11 @@ O log de auditoria lista as seguintes informações sobre as ações feitas na s
 **Notas:**
 
 - Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. {% data variables.product.product_name %} é compatível com muitos operadores para fazer pesquisa em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
-- Para pesquisar eventos com mais de 90 dias, use o qualificador `created`.
+- Os registros de auditoria estão disponíveis para o mês atual e todos os dias dos seis meses anteriores.
 
 {% endwarning %}
 
-#### Pesquisar com base no repositório
+### Pesquisar com base no repositório
 
 O qualificador `repo` limita as ações a um repositório específico pertencente à sua organização. Por exemplo:
 
@@ -60,7 +61,7 @@ O qualificador `repo` limita as ações a um repositório específico pertencent
 
 Você deve incluir o nome da sua organização no qualificador `repo`; pesquisar somente `repo:our-repo` não funcionará.
 
-#### Pesquisar com base no usuário
+### Pesquisar com base no usuário
 
 O qualificador `actor` incluir eventos com base no integrante da organização que fez a ação. Por exemplo:
 
@@ -70,7 +71,7 @@ O qualificador `actor` incluir eventos com base no integrante da organização q
 
 Só é possível usar o nome de usuário do {% data variables.product.product_name %}, e não o nome verdadeiro da pessoa.
 
-#### Pesquisar com base na organização
+### Pesquisar com base na organização
 
 O qualificador `org` limita as ações a uma organização específica. Por exemplo:
 
@@ -78,9 +79,9 @@ O qualificador `org` limita as ações a uma organização específica. Por exem
 * `org:my-org action:team` localiza todos os eventos de equipe que ocorreram na organização `my-org`;
 * `-org:my-org` exclui todos os eventos que ocorreram na organização `minha-org`.
 
-#### Pesquisar com base na ação
+### Pesquisar com base na ação
 
-O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
+O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para obter informações sobre os eventos associados a essas categorias, consulte "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Categoria | Descrição                                                                         |
 | --------- | --------------------------------------------------------------------------------- |
@@ -99,7 +100,7 @@ Cada categoria tem um conjunto de eventos associados que você pode usar no filt
 * `action:team.create` localiza todos os eventos em que uma equipe foi criada;
 * `-action:billing.change_email` exclui todos os eventos em que a categoria de cobrança foi alterada.
 
-#### Pesquisar com base no local
+### Pesquisar com base no local
 
 O qualificador `country` filtra as ações com base no país de origem.
 - Você pode usar o código de duas letras do país ou o nome completo.
@@ -108,11 +109,11 @@ O qualificador `country` filtra as ações com base no país de origem.
   * `country:Mexico` localiza todos os eventos ocorridos no México;
   * `country:"United States"` localiza todos os eventos ocorridos nos Estados Unidos.
 
-#### Pesquisar com base na hora da ação
+### Pesquisar com base na hora da ação
 
 O qualificador `created` filtra as ações com base na hora em que elas ocorreram.
 - Defina as datas usando o formato `YYYY-MM-DD` (ano, mês, dia).
-- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/{{ currentVersion }}/user/articles/search-syntax). Por exemplo:
+- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/user/articles/search-syntax). Por exemplo:
   * `created:2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014;
   * `created:>=2014-07-01` localiza todos os eventos ocorridos depois de 8 de julho de 2014;
   * `created:<=2014-07-01`  localiza todos os eventos ocorridos antes de 8 de julho de 2014;

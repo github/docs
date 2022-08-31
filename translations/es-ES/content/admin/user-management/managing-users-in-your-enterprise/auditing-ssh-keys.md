@@ -2,12 +2,12 @@
 title: Auditar claves SSH
 intro: Los administradores del sitio pueden iniciar una auditoría en todas las instancias de las claves SSH.
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys/
+  - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -18,7 +18,7 @@ topics:
 
 Una vez iniciada, la auditoría desactiva todas las claves SSH existentes y obliga a los usuarios a aprobarlas o rechazarlas antes de que sea posible clonarlas, extraerlas o subirlas a cualquier repositorio. Una auditoría es útil cuando un empleado o contratista se va de la empresa y necesitas asegurarte de que todas las claves estén verificadas.
 
-### Iniciar una auditoría
+## Iniciar una auditoría
 
 Puedes iniciar una auditoría de claves SSH desde la pestaña "Todos los usuarios" del tablero de administrador del sitio:
 
@@ -30,7 +30,7 @@ Una vez que haces clic en el botón "Iniciar auditoría de clave pública", ser�
 
 Una vez que haces clic en el botón "Comenzar auditoría", todas las claves SSH son invalidadas y se necesitará aprobación. Verás una notificación que indica que la auditoría ha comenzado.
 
-### Lo que los usuarios ven
+## Lo que los usuarios ven
 
 Si un usuario intenta realizar cualquier operación Git a través de SSH, fallará y se indicará el siguiente mensaje:
 
@@ -48,11 +48,13 @@ Cuando el usuario sigue el enlace, se le solicita aprobar las claves en su cuent
 
 Una vez que se aprueban o se rechazan sus claves, podrá interactuar con los repositorios como siempre.
 
-### Agregar una clave SSH
+## Agregar una clave SSH
 
-Cuando los usuarios nuevos agreguen una clave SSH, se les solicitará su contraseña:
+{% ifversion ghes %}
 
-![Confirmación de contraseña](/assets/images/help/settings/sudo_mode_popup.png)
+Cuando un usuario nuevo agrega una llave SSH a una cuenta, para confirmar el acceso del usuario, {% data variables.product.product_name %} pedirá su autenticación. Para obtener más información, consulta la sección "[modo Sudo](/authentication/keeping-your-account-and-data-secure/sudo-mode)".
+
+{% endif %}
 
 Cuando un usuario agrega una clave, recibirá un correo electrónico de notificación que se verá como esto:
 

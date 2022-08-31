@@ -5,9 +5,10 @@ redirect_from:
   - /articles/changing-team-visibility
   - /github/setting-up-and-managing-organizations-and-teams/changing-team-visibility
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,7 +23,7 @@ topics:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 3. Selecione a(s) equipe(s) cuja visibilidade deseja alterar. ![Lista de equipes com duas equipes selecionadas](/assets/images/help/teams/list-of-teams-selected.png)
 4. Acima da lista de equipes, use o menu suspenso e clique em **Change visibility** (Alterar visibilidade). ![Menu suspenso com opção para alterar visibilidade da equipe](/assets/images/help/teams/team-bulk-management-options.png)

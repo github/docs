@@ -1,4 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-请注意，上述限制是
-{% data variables.product.product_name %} 上的企业设置来设置公告横幅。 请与站点管理员联系，确认是否启用了速率限制以及如何配置它们。
+{% ifversion ghes %}
+
+{% note %}
+
+**注意**：以下速率限制是 {% data variables.product.product_name %} 的默认速率限制。 请与站点管理员联系，以确认 {% data variables.product.product_location %} 的速率限制。
+
+{% endnote %}
+
 {% endif %}

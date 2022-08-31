@@ -1,1 +1,1 @@
-1. 访问 https://enterprise.github.com/support 并登录（如果提示）。
+1. 如果支持工程师为您提供了支持包的上传链接，请使用此链接。 否则，请访问 https://support.github.com/ 并登录（如果出现提示）有权获得支持的企业帐户。

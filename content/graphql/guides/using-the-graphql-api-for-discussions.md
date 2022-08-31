@@ -1,8 +1,8 @@
 ---
 title: Using the GraphQL API for Discussions
-intro: Learn how to use the GitHub Discussions GraphQL API.
+intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: Use GraphQL for Discussions
 ---
 
@@ -1080,4 +1080,4 @@ Return type fields:
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/search-github/searching-on-github/searching-discussions)."

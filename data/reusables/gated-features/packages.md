@@ -1,4 +1,6 @@
-{% data variables.product.prodname_registry %} is available with {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %}, and {% data variables.product.prodname_ghe_managed %}.
-{% ifversion fpt %} 
+{% ifversion fpt or ghec or ghes < 3.5 %} 
+{% data variables.product.prodname_registry %} is available with {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} 3.0 or higher, and {% data variables.product.prodname_ghe_managed %}.{% ifversion ghes %} For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.{% endif %}
+{% ifversion fpt or ghec %} 
 <br>{% data variables.product.prodname_registry %} is not available for private repositories owned by accounts using legacy per-repository plans. Also, accounts using legacy per-repository plans cannot access the {% data variables.product.prodname_container_registry %} since these accounts are billed by repository. {% data reusables.gated-features.more-info %}
+{% endif %}
 {% endif %}

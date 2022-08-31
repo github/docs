@@ -1,55 +1,65 @@
 ---
-title: Management Console にアクセスする
+title: Accessing the management console
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
+## About the {% data variables.enterprise.management_console %}
 
-### {% data variables.enterprise.management_console %}について
+Use the {% data variables.enterprise.management_console %} for basic administrative activities:
+- **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location %} by visiting {% data variables.product.product_location %}'s IP address in your browser.
+- **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
+- **Scheduling maintenance windows**: Take {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
+- **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
+- **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
 
-次の基本的な管理作業には {% data variables.enterprise.management_console %} を使用します。
-- **初期セットアップ**: ブラウザで {% data variables.product.product_location %} の IP アドレスにアクセスすることで {% data variables.product.product_location %} を最初に起動したときに、初期セットアッププロセスを段階的に実行します。
-- **インスタンスの基本設定**: [Settings] ページで、DNS、ホスト名、SSL、ユーザ認証、メール、モニタリングサービス、ログの転送を設定します。
-- **メンテナンスウィンドウのスケジュール**: {% data variables.enterprise.management_console %} または管理シェルを使用してメンテナンスを実行する際に、{% data variables.product.product_location %} をオフラインにします。
-- **トラブルシューティング**: Support Bundle を生成するか、高レベルの診断情報を一覧表示します。
-- **ライセンス管理**: {% data variables.product.prodname_enterprise %} ライセンスを一覧表示または更新します。
+You can always reach the {% data variables.enterprise.management_console %} using {% data variables.product.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
 
-{% data variables.enterprise.management_console %}には、{% data variables.product.product_location %}のIPアドレスからいつでもアクセスできます。インスタンスがメンテナンスモードになっていたり、致命的なアプリケーション障害やホスト名あるいはSSLの設定ミスがあってもアクセス可能です。
+To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
 
-{% data variables.enterprise.management_console %}にアクセスするには、{% data variables.product.product_location %}の初期セットアップ時に設定した管理者パスワードを使わなければなりません。 また、ポート8443で仮想マシンのホストに接続することもできます。 {% data variables.enterprise.management_console %}へのアクセスに問題があれば、中間のファイアウォールやセキュリティグループの設定を確認してください。
+The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
-### サイト管理者としての{% data variables.enterprise.management_console %}へのアクセス
+## Accessing the {% data variables.enterprise.management_console %} as a site administrator
 
-サイト管理者として初めて {% data variables.enterprise.management_console %} にアクセスするときは、アプリに認証するために {% data variables.product.prodname_enterprise %} ライセンスファイルをアップロードする必要があります。 詳しい情報については、「[{% data variables.product.prodname_enterprise %}ライセンスを管理する](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)」を参照してください。
+The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### 認証されていないユーザとしての{% data variables.enterprise.management_console %}へのアクセス
+## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
 
-1. ブラウザで次の URL にアクセスします。`hostname` は実際の {% data variables.product.prodname_ghe_server %} ホスト名または IP アドレスに置き換えてください:
+1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
   ```shell
   http(s)://HOSTNAME/setup
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### ログイン試行の失敗後の{% data variables.enterprise.management_console %}のアンロック
+## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
 
-10 分以内にログインに 10 回失敗すると、{% data variables.enterprise.management_console %} はロックされます。 ログインを再度試みるには、ログイン画面が自動的にロック解除されるまで待つ必要があります。 直前の 10 分間に失敗したログイン試行が 10 回未満となると同時に、ログイン画面は自動的にロックが解除されます。 ログインが成功すると、カウンタはリセットされます。
+The {% data variables.enterprise.management_console %} locks after ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.
 
-{% data variables.enterprise.management_console %} をただちにロック解除するには、管理シェルから `ghe-reactivate-admin-login` コマンドを使用します。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)」および「[管理シェル (SSH) にアクセスする](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)」を参照してください。
+To immediately unlock the {% data variables.enterprise.management_console %}, use the `ghe-reactivate-admin-login` command via the administrative shell. For more information, see "[Command line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" and "[Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+
+## Troubleshooting failed connections to the {% data variables.enterprise.management_console %}
+
+If you cannot connect to the {% data variables.enterprise.management_console %} on {% data variables.product.product_location %}, you can review the following information to troubleshoot the problem.
+
+### Error: "Your session has expired" for connections through a load balancer
+
+If you access {% data variables.product.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. For more information, see "[Using {% data variables.product.product_name %} with a load balancer](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."

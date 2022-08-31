@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -13,7 +14,7 @@ shortTitle: Cancel or edit invitation
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. On the People tab, click **Pending invitation**.
  ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)
@@ -28,7 +29,7 @@ shortTitle: Cancel or edit invitation
 
 ## Further reading
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"
 {% endif %}
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

@@ -16,8 +16,12 @@ Use the [content model](/contributing/content-model.md#conceptual) for full inst
 ```
 ---
 title: About [subject]
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: overview
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -51,8 +55,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Nouns describing your subject
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: reference
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -86,8 +94,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Start with a gerund
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+type: how_to
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -121,7 +133,11 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Quickstart title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
+type: quick_start
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -160,7 +176,7 @@ versions:
 
 ## Next steps
 
-<!-- Provide a quick recap of what has been accomplished in the quick start as a means of transitioning to next steps. Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Learning Labs. -->
+<!-- Provide a quick recap of what has been accomplished in the quick start as a means of transitioning to next steps. Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Skills. -->
 ```
 
 ## Tutorial 
@@ -170,8 +186,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ```
 ---
 title: Tutorial title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ optional product callout }}'
+type: tutorial
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -233,8 +253,12 @@ Use the [tutorial content model](hhttps://github.com/github/docs/blob/main/contr
 ```
 ---
 title: Guide title
+shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ site.data.reusables.gated-features.actions }}'
+type: tutorial
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - [topic]
 versions:
 ---
 
@@ -276,7 +300,7 @@ versions:
   - Include any additional features the setup action might provide that are useful to CI.
   - If applicable, provide examples of configuring exact versions or major/minor versions.
   - Include information about software already installed on GitHub-hosted runners or software configuration necessary to build and test the project. 
-  - Provide examples of configuring build matrix strategies.
+  - Provide examples of configuring matrix strategies.
   - Link out to any docs about available software on the GitHub-hosted runners. (Ex. https://docs.github.com/en/actions/reference/software-installed-on-github-hosted-runners).
   - Include code samples.
 -->

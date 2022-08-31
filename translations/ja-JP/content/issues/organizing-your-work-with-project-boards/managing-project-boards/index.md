@@ -1,11 +1,9 @@
 ---
-title: プロジェクトボードを管理する
-shortTitle: プロジェクトボードを管理する
-intro: プロジェクトボードの作成と管理の方法を学んでください
+title: '{% data variables.product.prodname_projects_v1 %}の管理'
+shortTitle: '{% data variables.product.prodname_projects_v1 %}の管理'
+intro: '{% data variables.projects.projects_v1_boards %}の作成と管理の方法を学んでください'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -23,5 +21,7 @@ children:
   - /deleting-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}

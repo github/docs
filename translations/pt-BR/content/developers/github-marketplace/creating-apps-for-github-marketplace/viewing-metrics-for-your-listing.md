@@ -2,15 +2,17 @@
 title: Visualizar métricas para a sua listagem
 intro: 'A página de Insights do {% data variables.product.prodname_marketplace %} exibe métricas para o seu {% data variables.product.prodname_github_app %}. Você pode usar as métricas para acompanhar o desempenho do seu {% data variables.product.prodname_github_app %} e tomar decisões mais informadas sobre os preços, planos, testes grátis, bem como visualizar os efeitos das campanhas de marketing.'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Visualizar métricas de anúncio
 ---
 
 Você pode visualizar as métricas do último dia (24 horas), semana, mês ou referente a todo o tempo em que seu {% data variables.product.prodname_github_app %} foi listada.
@@ -21,7 +23,7 @@ Você pode visualizar as métricas do último dia (24 horas), semana, mês ou re
 
 {% endnote %}
 
-### Métricas de desempenho
+## Métricas de desempenho
 
 A página de Insights exibe essas métricas de desempenho para o período de tempo selecionado:
 
@@ -35,7 +37,7 @@ A página de Insights exibe essas métricas de desempenho para o período de tem
 
 {% endnote %}
 
-#### Desempenho de conversão
+### Desempenho de conversão
 
 * **Visitantes únicos da página de destino:** Número de pessoas que visualizaram a página inicial do seu aplicativo GitHub.
 * **Visitantes únicos para a página de checkout:** Número de pessoas que visualizaram uma das páginas de checkout do seu aplicativo GitHub.

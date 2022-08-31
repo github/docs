@@ -3,9 +3,10 @@ title: Administrar los paquetes de GitHub utilizando flujos de trabajo de GitHub
 shortTitle: Administrar los paquetes de GitHub con flujos de trabajo
 intro: 'Puedes publicar con seguridad y consumir paquetes si creas flujos de trabajo personalizados que también puedan compilar, probar y desplegar tu código.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /publishing-and-installing-a-package-with-github-actions
   - /example-workflows-for-publishing-a-package

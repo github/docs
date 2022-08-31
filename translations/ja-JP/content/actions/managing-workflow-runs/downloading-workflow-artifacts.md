@@ -1,38 +1,37 @@
 ---
 title: ワークフローの成果物をダウンロードする
 intro: アーカイブされた成果物は、自動的に有効期限切れになる前にダウンロードできます。
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Download workflow artifacts
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} デフォルトでは、{% data variables.product.product_name %} はビルドログと成果物を 90 日間保存し、リポジトリのタイプに応じてこの保持期間をカスタマイズできます。 詳しい情報については、「[リポジトリ内の GitHub Actionsの成果物とログの保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)」を参照してください。{% endif %}
-{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} には、完全なビルドログと成果物が 90 日間保存されます。{% endif %}
-
-### {% data variables.product.prodname_dotcom %} UI を使用して成果物をダウンロードする
+By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. 詳しい情報については、「[リポジトリの {% data variables.product.prodname_actions %} 設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)」を参照してください。
 
 {% data reusables.repositories.permissions-statement-read %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. [**Artifacts**] の下で、ダウンロードする成果物をクリックします。
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+
     ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
 
-### {% data variables.product.prodname_cli %} で成果物をダウンロードする
 
-{% data reusables.actions.actions-cli %}
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} は、成果物の名前に基づいて各成果物を個別のディレクトリにダウンロードします。 成果物が 1 つだけ指定されている場合は、現在のディレクトリに抽出されます。
 
@@ -59,3 +58,5 @@ gh run download <em>run-id</em> -n <em>artifact-name-1</em> -n <em>artifact-name
 ```shell
 gh run download -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
 ```
+
+{% endcli %}

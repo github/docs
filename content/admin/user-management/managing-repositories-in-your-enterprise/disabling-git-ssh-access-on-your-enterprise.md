@@ -1,15 +1,15 @@
 ---
 title: Disabling Git SSH access on your enterprise
 redirect_from:
-  - /enterprise/admin/hidden/disabling-ssh-access-for-a-user-account/
-  - /enterprise/admin/articles/disabling-ssh-access-for-a-user-account/
-  - /enterprise/admin/hidden/disabling-ssh-access-for-your-appliance/
-  - /enterprise/admin/articles/disabling-ssh-access-for-your-appliance/
-  - /enterprise/admin/hidden/disabling-ssh-access-for-an-organization/
-  - /enterprise/admin/articles/disabling-ssh-access-for-an-organization/
-  - /enterprise/admin/hidden/disabling-ssh-access-to-a-repository/
-  - /enterprise/admin/articles/disabling-ssh-access-to-a-repository/
-  - /enterprise/admin/guides/installation/disabling-git-ssh-access-on-github-enterprise/
+  - /enterprise/admin/hidden/disabling-ssh-access-for-a-user-account
+  - /enterprise/admin/articles/disabling-ssh-access-for-a-user-account
+  - /enterprise/admin/hidden/disabling-ssh-access-for-your-appliance
+  - /enterprise/admin/articles/disabling-ssh-access-for-your-appliance
+  - /enterprise/admin/hidden/disabling-ssh-access-for-an-organization
+  - /enterprise/admin/articles/disabling-ssh-access-for-an-organization
+  - /enterprise/admin/hidden/disabling-ssh-access-to-a-repository
+  - /enterprise/admin/articles/disabling-ssh-access-to-a-repository
+  - /enterprise/admin/guides/installation/disabling-git-ssh-access-on-github-enterprise
   - /enterprise/admin/installation/disabling-git-ssh-access-on-github-enterprise-server
   - /enterprise/admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
   - /admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
@@ -53,7 +53,7 @@ shortTitle: Disable SSH for Git
 ## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

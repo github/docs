@@ -6,12 +6,14 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-display-of-member-names-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: メンバー名の表示の管理
 ---
 
 Organization のオーナーは、Organization 内のメンバー名表示を管理できます。
@@ -19,6 +21,9 @@ Organization のオーナーは、Organization 内のメンバー名表示を管
 ![コメントに表示されたコメント作者の名前](/assets/images/help/issues/commenter-full-name.png)
 
 Organization の各メンバーは、自分のプロフィール名を設定で選択します。 詳細は「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)」を参照してください。
+
+{% ifversion profile-name-enterprise-setting %}
+EnterpriseのオーナーがポリシーをEnterpriseのレベルで設定している場合、この設定をOrganizationでは行えないかもしれません。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)」を参照してください。{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

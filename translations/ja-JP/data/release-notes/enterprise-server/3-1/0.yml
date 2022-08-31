@@ -1,166 +1,173 @@
----
 date: '2021-06-03'
-intro: '最小のインフラストラクチャの要件については「[{% data variables.product.prodname_ghe_server %} 3.0以降に対する最小要件について](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。'
+intro: For minimum infrastructure requirements, see "[About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 sections:
   features:
-    - 
-      heading: GitHub Advanced Security Secret Scanning
+    - heading: GitHub Advanced Security Secret Scanning
       notes:
         - |
-          [Secret Scanning](https://github.com/features/security)は、{% data variables.product.prodname_ghe_server %} 3.1+で一般的に利用可能になりました。コミットされた認証情報をパブリック及びプライベートリポジトリでスキャンし、シークレットを見つけ、それらがリポジトリにコミットされた時点でシークレットのプロバイダもしくは管理者に通知します。
+          [Secret Scanning](https://github.com/features/security) is now generally available on {% data variables.product.prodname_ghe_server %} 3.1+. Scan public and private repositories for committed credentials, find secrets, and notify the secret provider or admin the moment they are committed into a repository.
 
-          このリリースには、{% data variables.product.prodname_ghe_server %}上のSecret Scanningのベータからのいくつかの改善が含まれています。
+          This release includes several improvements from the beta of Secret Scanning on {% data variables.product.prodname_ghe_server %}:
 
-          - [パターンのカバレッジ](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories)を24パターンから37へ拡大
-          - [API](/rest/reference/secret-scanning)と[webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)の追加
-          - シークレットをコミットした際の[コミット作者への通知](https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/)の追加
-          - 大量のシークレットのトリアージを容易にするインデックスビューの更新
-          - 多くのパターンでの偽陽性率の低下
+          - Expanded our [pattern coverage](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories) from 24 partners to 37
+          - Added an [API](/rest/reference/secret-scanning) and [webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)
+          - Added [notifications for commit authors](https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/) when they commit secrets
+          - Updated the index view to made it easy to triage secrets in bulk
+          - Reduced the false positive rate on many patterns
 
-          {% data variables.product.prodname_GH_advanced_security %}を使用する管理者は、{% data variables.product.prodname_GH_advanced_security %}のSecret Scanningを[有効化して設定](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance)できます。{% data variables.product.prodname_GH_advanced_security %}のSecret Scanningを有効化する前に、[更新されたプラットフォームの最小要件](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューできます。
-    - 
-      heading: GitHub Advanced Securityの支払いの改善
+          Administrators using {% data variables.product.prodname_GH_advanced_security %} can [enable and configure](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} secret scanning. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_GH_advanced_security %} secret scanning.
+
+    - heading: GitHub Advanced Security billing improvements
       notes:
         - |
-          このリリースには、{% data variables.product.prodname_ghe_server %}に置ける{% data variables.product.prodname_GH_advanced_security %}の支払いに対するいくつかの改善が含まれています:
+          This release includes several improvements to {% data variables.product.prodname_GH_advanced_security %} billing in {% data variables.product.prodname_ghe_server %}:
 
-          - {% data variables.product.prodname_GH_advanced_security %}のお客様は、OrganizationもしくはEnterpriseアカウントの支払いページでアクティブなコミッター数や未使用のコミッターシートの残数を見ることができるようになりました。EnterpriseでAdvanced Securityが購入されていると、管理者はEnterprise内で他のOrganizationによって使われているアクティブなコミッターシートを見ることもできます。詳しい情報については「[GitHub Acvenced Securityのライセンスについて](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)」及び「[GitHub Advanced Securityの利用状況の表示](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)」を参照してください。
-          - GitHub Advanced Securityのお客様は、OrganizationもしくはEnterpriseアカウントの支払いページでAdvanced Securityが有効化されている任意のリポジトリのアクティブなコミッター数を見ることができるようになりました。これらの変更は、支払いの管理者による購入したコミッターライセンス数の使用状況の対性を支援します。詳しい情報については「[Organizationのセキュリティ及び分析設定の管理](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
-    - 
-      heading: Dependabotの改善
-      notes:
-        - |
-          このリリースには、{% data variables.product.prodname_ghe_server %}のDependabotアラートの改善が含まれています。
+          - {% data variables.product.prodname_GH_advanced_security %} customers can now view their active committer count and the remaining number of unused committer seats on their organization or enterprise account’s Billing page. If Advanced Security is purchased for an enterprise, administrators can also view the active committer seats which are being used by other organizations within their enterprise. For more information, see "[About GitHub Advanced Security licensing](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)" and "[Viewing your GitHub Advanced Security usage](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)."
+          - GitHub Advanced Security customers can now view their active committer count for any Advanced Security enabled repositories on their organization or enterprise account's Billing page. These changes help billing administrators track their usage against how many committer licenses they purchased. For more information see "[Managing security and analysis settings for your organization](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-          - Dependabotアラートを有効化しているユーザは、 [GitHub Advisory Database](https://github.com/advisories)のエントリにアクセスして、ある脆弱性によって自分たちのどのリポジトリが影響されるかを見ることができます。この機能はパブリックベータとして利用できます。詳しい情報については「[リポジトリ中の脆弱な依存関係の表示と更新](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
-          - GitHub Advisory Databaseに脆弱性が追加されると、重要度が低及び中の脆弱性に関するDependabotアラートについての[メール及びWeb通知](https://github.com/notifications)は受け取らなくなります。これらのアラートは、リポジトリのセキュリティタブから引き続きアクセスできます。詳しい情報については「[リポジトリ中の脆弱な依存関係の表示と更新](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
-          - リポジトリの`root`、`docs`あるいは`.github`フォルダに`SECURITY.md`を追加することによって、プロジェクト中のセキュリティ脆弱性を責任を持ってレポートする方法に関する指示を人に出せるようになりました。誰かがリポジトリでIssueを作成すると、プロジェクトのセキュリティポリシーへのリンクが示されます。詳しい情報については「[リポジトリへのセキュリティポリシーの追加](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)」を参照してください。
-    - 
-      heading: GitHub Actions Workflow Visualizationベータ
+    - heading: Dependabot improvements
       notes:
         - |
-          {% data variables.product.prodname_actions %}は、実行ごとにワークフローの視覚的なグラフを生成するようになりました。ワークフローの可視化によって、以下ができるようになります。
-          - 複雑なワークフローの表示と理解
-          - リアルタイムでのワークフローの進捗の追跡
-          - ログとジョブのメタデータに容易にアクセスすることによって、素早く実行のトラブルシューティングを行う
-          - デプロイメントジョブの進捗のモニタと、デプロイメントのターゲットへの容易なアクセス
+          This release includes improvements to Dependabot alerts in {% data variables.product.prodname_ghe_server %}:
 
-          詳しい情報については「[可視化グラフの利用](/actions/managing-workflow-runs/using-the-visualization-graph)」」を参照してください。
-    - 
-      heading: OAuth 2.0デバイス認証の付与
-      notes:
-        - |
-          [OAuth 2.0 デバイス認証の付与](https://github.com/login/device)によって、任意のCLIクライアントもしくは開発者ツールが、ブラウザで二次的なシステムを使って認証を受けることができます。
+          - Users with Dependabot alerts enabled can see which of their repositories are impacted by a given vulnerability by navigating to its entry in the [GitHub Advisory Database](https://github.com/advisories). This feature is available in public beta. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+          - When a vulnerability is added to GitHub Advisory Database, you will no longer receive [email and web notifications](https://github.com/notifications) for Dependabot alerts on low and moderate severity vulnerabilities. These alerts are still accessible from the repository's Security tab. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+          - You can now give people instructions on how to responsibly report security vulnerabilities in your project by adding a `SECURITY.md` file to your repository's `root`, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's security policy. For more information, see "[Adding a security policy to your repository](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
-          [OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)及び[GitHub Apps](/developers/apps/authorizing-oauth-apps#device-flow)を使う管理者は、既存のWebアプリケーションフローに加えてOAuth 2.0デバイス認証フローを有効化して設定できます。OAuth 2.0デバイス認証フローを有効化する前に、[更新されたプラットフォームの最小要件](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューできます。
-    - 
-      heading: Pull request auto-merge
+    - heading: GitHub Actions Workflow Visualization beta
       notes:
         - |
-          自動マージでは、すべてのマージ要件が満たされたらPull Requestが自動的にマージされるように設定できます。こうすることで、ユーザはマージするためだけにPull Requestの状態を常にチェックする必要がなくなります。自動マージは、マージする権限を持つユーザによって、マージ要件を満たしていないPull Requestで有効化できます。詳しい情報については「[Pull Requestを自動的にマージ](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)」を参照してください。
-    - 
-      heading: カスタム通知
-      notes:
-        - |
-          個々のリポジトリから受信したい通知の種類をカスタマイズできます。詳しい情報については「[通知の設定](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
-    - 
-      heading: GitHub Mobileのフィルタリング
-      notes:
-        - |
-          {% data variables.product.prodname_mobile %}(https://github.com/mobile) のフィルタリングを利用すると、ご自分のデバイスからIssue、Pull Request、ディスカッションを検索して見つけることができます。IssueやPull Requestのリストアイテムの新しいメタデータによって、アサインされた人、チェックのステータス、レビューのステータス、コメント数によってフィルタリングできます。
+          {% data variables.product.prodname_actions %} can now generate a visual graph of your workflow on every run. With workflow visualization, you can:
+          - View and understand complex workflows
+          - Track progress of workflows in real-time
+          - Troubleshoot runs quickly by easily accessing logs and jobs metadata
+          - Monitor progress of deployment jobs and easily access deployment targets
 
-          {% data variables.product.prodname_mobile %}ベータは、{% data variables.product.prodname_ghe_server %}で利用できます。[Android](https://play.google.com/store/apps/details?id=com.github.android)及び[iOS](https://apps.apple.com/app/github/id1477376905)アプリケーションにサインインして、外出先で通知をトリアージし、IssueやPull Requestを管理してください。管理者は、管理コンソールから、あるいは`ghe-config app.mobile.enabled false`と実行することによって、Enterpriseでのモバイルサポートを無効化できます。詳しい情報については「[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)」を参照してください。
+          For more information, see "[Using the visualization graph](/actions/managing-workflow-runs/using-the-visualization-graph)."
+
+    - heading: OAuth 2.0 Device Authorization Grant
+      notes:
+        - |
+          [OAuth 2.0 Device Authorization Grant](https://github.com/login/device) allows any CLI client or developer tool to authenticate using a secondary system with a browser.
+
+          Administrators using [OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow) and [GitHub Apps](/developers/apps/authorizing-oauth-apps#device-flow) can enable and configure OAuth 2.0 Device Authorization Flow, in addition to the existing Web Application Flow. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you enable OAuth 2.0 Device Authorization Flow.
+
+    - heading: Pull request auto-merge
+      notes:
+        - |
+          With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements. For more information, see "[Automatically merging a pull request](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+
+    - heading: Custom notifications
+      notes:
+        - |
+          You can customize the types of notifications you want to receive from individual repositories. For more information, see "[Configuring notifications](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+
+    - heading: GitHub Mobile filtering
+      notes:
+        - |
+          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) filtering allows you to search for and find issues, pull requests, and discussions from your device. New metadata for issues and pull request list items allow you to filter by assignees, checks status, review states, and comment counts.
+
+          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub Mobile](/get-started/using-github/github-mobile)."
+
   changes:
-    - 
-      heading: 管理に関する変更
+    - heading: Administration Changes
       notes:
-        - チェックサムを事前に計算しておくことによって、リポジトリがロックされている時間が大幅に短くなり、より多くの書き込み操作が即座に成功し、単一リポジトリのパフォーマンスが改善されました。
-        - CodeQL CLIの最新リリースは、分析結果のGitHubへのアップロードをサポートします。これによって、{% data variables.product.prodname_actions %}以外のCI/CDシステムを使いたいお客様がコード分析を実行しやすくなります。以前は、そういったユーザは別個のCodeQL Runnerを使わなければなりませんでした。CodeQL Runnerは引き続き利用できます。詳しい情報については「[CIシステムでのCode QL Code Scanningについて](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)」を参照してください。
-        - '{% data variables.product.prodname_actions %}は、コミットメッセージ中の一般的なキーワードを探すことによる`push`及び`pull_request`ワークフローのスキップをサポートするようになりました。'
-        - 4ヶ月以上経過したチェックアノテーションはアーカイブされます。
-    - 
-      heading: セキュリティの変更
+        - By precomputing checksums, the amount of time a repository is under the lock has reduced dramatically, allowing more write operations to succeed immediately and improving monorepo performance.
+        - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than {% data variables.product.prodname_actions %}. Previously, such users had to use the separate CodeQL runner, which will continue to be available. For more information, see "[About CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
+        - '{% data variables.product.prodname_actions %} now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.'
+        - Check annotations older than four months will be archived.
+        - Scaling of worker allocation for background tasks has been revised. We recommend validating that the new defaults are appropriate for your workload. Custom background worker overrides should be unset in most cases. [Updated 2022-03-18]
+
+    - heading: Security Changes
       notes:
-        - 'フィードバックに従って、Pull RequestのIDをサブミットすることなくPull Request上にCode Scanningの結果を表示することは、サポートされ続けることになります。詳しい情報については「[Code Scanningの設定](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)」及び「[CIシステムでのCode QL Code Scanningの設定] (/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests)」を参照してください。'
-        - SARIFアップロードのサポートは、アップロードごとに最大5000件の結果に増加しました。
-    - 
-      heading: 開発者の変更
+        - Following feedback, display of Code Scanning results on a pull request without submitting with a pull request ID will remain supported. For more information, see "[Configuring code scanning](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)" and "[Configuring CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests).
+        - SARIF upload support increased to a maximum of 5000 results per upload.
+
+    - heading: Developer Changes
       notes:
-        - GitHub Appを設定する際には、複数のコールバックURLを指定できます。これは、複数のドメインもしくはサブドメインを持つサービスで利用できます。GitHubは、リクエストからのコールバックURLが認可コールバックURLリスト中にない場合には、常に認可を拒否します。
-        - GitHub Appのファイル権限は、アプリケーションがアクセスをリクエストできる最大で10のファイルに読み取りのみもしくは読み書きのアクセスをアプリケーション開発者が指定できるよう、更新されました。
-        - CodeQLは、様々な言語([C++](https://github.com/github/codeql/tree/main/cpp)、[JavaScript](https://github.com/github/codeql/tree/main/javascript)、[Python](https://github.com/github/codeql/tree/main/python)、[Java](https://github.com/github/codeql/tree/main/java)、[Go](https://github.com/github/codeql-go/tree/main))の[ライブラリやフレームワーク](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)をサポートするようになりました。CodeQLエンジンは、信頼できないユーザデータの多くのソースを検出できるようになり、それによってCode Scanningアラートの質と深さが改善されました。詳しい情報については「[CodeQLについて](https://codeql.github.com/docs/codeql-overview/about-codeql/)」を参照してください。
-        - GitHub Appを設定する際、認可コールバックURLは必須のフィールドです。開発者は、複数のコールバックURLを指定できるようになりました。これは、複数のドメインもしくはサブドメインを持つサービスで利用できます。GitHubは、リクエストからのコールバックURLが認可コールバックURLリスト中にない場合には、常に認可を拒否します。
-        - 'Webブラウザから、サブディレクトリを含むファイルのディレクトリ全体を削除します。詳しい情報については「[ファイルもしくはディレクトリの削除](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory)」を参照してください。'
-        - 'Issue、ディスカッション、Pull Requestコメントで`#`の後に複数の語を含めて、検索をさらに絞り込めるようにしてください。'
-        - 'Issue、Pull Request、ディスカッションコメントを書いているときに、箇条書き、番号、タスクのためのリスト構文は、`return`あるいは`enter`を押した後に自動補完を行います。'
-    - 
-      heading: API の変更
+        - You can specify multiple callback URLs while configuring a GitHub App. This can be used in services with multiple domains or subdomains. GitHub will always deny authorization if the callback URL from the request is not in the authorization callback URL list.
+        - The GitHub App file permission has been updated to allow an app developer to specify up to 10 files for read-only or read-write access that their app can request access to.
+        - CodeQL now supports more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) for a variety of languages ([C++](https://github.com/github/codeql/tree/main/cpp), [JavaScript](https://github.com/github/codeql/tree/main/javascript), [Python](https://github.com/github/codeql/tree/main/python),[Java](https://github.com/github/codeql/tree/main/java), [Go](https://github.com/github/codeql-go/tree/main)). The CodeQL engine can now detect more sources of untrusted user data, which improves the quality and depth of the code scanning alerts. For more information, see "[About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)."
+        - When configuring a GitHub App, the authorization callback URL is a required field. Now, we allow the developer to specify multiple callback URLs. This can be used in services with multiple domains or subdomains. GitHub will always deny authorization if the callback URL from the request is not in the authorization callback URL list.
+        - Delete an entire directory of files, including subdirectories, from your web browser. For more information, see "[Deleting a file or directory](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory)."
+        - 'Include multiple words after the `#` in an issue, discussion, or pull request comment to further narrow your search.'
+        - 'When you’re writing an issue, pull request, or discussion comment the list syntax for bullets, numbers, and tasks autocompletes after you press `return` or `enter`.'
+
+    - heading: API Changes
       notes:
-        - Code Scanning APIを利用すると、ユーザは静的分析のセキュリティテストの結果に関するデータをアップロードしたり、アラートに関するデータをエクスポートしたりできます。詳しい情報については[Code Scanning APIリファレンス](/rest/reference/code-scanning)を参照してください。
-        - インストールを管理するための[GitHub Apps API](/rest/reference/apps)はAPIプレビューを卒業し、一般に利用可能なAPIになりました。これらのエンドポイントにアクセスするのに、[プレビューヘッダ](/rest/overview/api-previews)は不要になりました。
+        - The code scanning API allows users to upload data about static analysis security testing results, or export data about alerts. For more information, see the [code scanning API reference](/rest/reference/code-scanning).
+        - The [GitHub Apps API](/rest/reference/apps) for managing installations has now graduated from an API preview to a generally available API. The [preview header](/rest/overview/api-previews) is no longer required to access these endpoints.
+
   security_fixes:
-    - '** 中 ** 特定の環境下で、TeamあるいはOrganizationから削除されたユーザは、オープンな既存のPull Requestを持つブランチへの書き込みアクセス権を持ったままになることがあります。'
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - '**MEDIUM** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - Packages have been updated to the latest security versions.
+
   bugs:
-    - 
-      heading: リリース候補からの既知の問題の修正
+    - heading: Fixes for known issues from Release Candidate
       notes:
-        - リリース候補1のすべての既知の問題は、以下の既知の問題のセクションにリストされているもの以外、すべて修正されました。
-    - 
-      heading: 他の問題の修正
+        - All known issues from Release Candidate 1 have been fixed, except those listed in the Known Issues section below.
+    - heading: Fixes for other issues
       notes:
-        - 初期のインストールプロセスの"Configure Actions and Packages"ページで、"Test domain settings"ボタンをクリックしてもテストが完了しませんでした。
-        - '`ghe-btop`の実行がエラーに成り、''babeld''コンテナを見つけられませんでした。'
-        - 自動フェイルオーバーの設定を変更すると、MySQLがリロードされ、ダウンタイムが生じることがあります。
-        - アップグレード後に、内部及び外部のタイムアウト値のミスマッチによって、サービスが利用できなくなりました。
-        - MSSQLにおいて、予想されるレプリケーションの遅延で警告が生じました。
-        - '管理コンソール上の「[クラスタリングの設定](/admin/enterprise-management/configuring-clustering)」へのリンクが正しくありませんでした。'
-        - pre-receiveフックを作成あるいは編集する際に、ユーザインターフェースのレース条件によって、リポジトリを選択した後、そのリポジトリ内のファイルがファイルのドロップダウンに展開されないことがありました。
-        - '"Create Whitelist Entry"ボタンを使ってホワイトリストにIPアドレスをついかしても、引き続きロックアウトされたままとして表示されることがあります。'
-        - '「依存関係グラフ」及び「Dependabotアラート」機能への参照が、いくつかのリポジトリで無効化されたとして表示されませんでした。'
-        - Enterpriseアカウントの設定でアナウンスを設定すると、500 Internal Server Errorが生じることがありました。
-        - '`/hooks`エンドポイントへのHTTP POSTリクエストが、`hookID`が正しく設定されていないため、401レスポンスで失敗することがあります。'
-        - '`build-server`がプロセスのクリーンアップに失敗し、それらのプロセスが`defunct`状態で残ったままになりました。'
-        - '`spokesd`が"fixing placement skipped"というフレーズを含む過剰なログのエントリを生成しました。'
-        - インスタンスが設定されているホスト名への自己リクエストを発行できない場合、Actionsのアップブレードが失敗することがありました。
-        - 2.22.xから3.1.0.rc1にアップグレードすると、`BackfillIntegrationApplicationCallbackUrlsTransition`データ転送に関係するデータベースの移行エラーが生じることがあります。
+        - On the "Configure Actions and Packages" page of the initial installation process, clicking on the "Test domain settings" button did not complete the test.
+        - 'Running `ghe-btop` failed with an error and cannot find a `babeld` container.'
+        - MySQL could reload and cause downtime if you change auto failover settings.
+        - After upgrading, a mismatch of internal and external timeout values created service unavailability.
+        - Expected replication delays in MSSQL generated warnings.
+        - 'Link to "[Configuring clustering](/admin/enterprise-management/configuring-clustering)" on the Management Console was incorrect.'
+        - When creating or editing a pre-receive hook, a race condition in the user interface meant that after selecting a repository, files within the repository were sometimes not populated in files dropdown.
+        - When an IP address is added to a whitelist using "Create Whitelist Entry" button, it could still be shown as locked out.
+        - References to the "Dependency graph" and "Dependabot alerts" features were not shown as disabled on some repositories.
+        - Setting an announcement in the enterprise account settings could result in a 500 Internal Server Error.
+        - HTTP POST requests to the `/hooks` endpoint could fail with a 401 response due to an incorrectly configured `hookID`.
+        - The `build-server` process failed to clean up processes, leaving them in the `defunct` state.
+        - '`spokesd` created excessive log entries, including the phrase "fixing placement skipped".'
+        - While upgrading Actions the upgrade could fail if the instance could not make self-requests via its configured hostname.
+        - Upgrading from 2.22.x to 3.1.0.rc1 could result in a database migration error relating to the `BackfillIntegrationApplicationCallbackUrlsTransition` data transition.
+
   known_issues:
-    - '`ghe-repo <owner>/<reponame>`を使って管理シェルを通じてリポジトリにアクセスすると、ハングします。回避策として、次のバージョンで修正が提供されるまで`ghe-repo <owner>/<reponame> -c "bash -i"`を使ってください。'
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - 以前は2.14リリースではなく2.13リリースを実行していたインスタンスをアップグレードすると、`AddRepositoryIdToCheckRuns`データ転送に関係するデータベースの移行エラーが生じます。
+    - Access to a repository through the administrative shell using `ghe-repo <owner>/<reponame>` will hang. As a workaround, use `ghe-repo <owner>/<reponame> -c "bash -i"` until a fix is available in the next version.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - Upgrading an instance that has previously ran a 2.13 release, but not a 2.14 release, results in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
+    - |
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
+      ```
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ```
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+
   deprecations:
-    - 
-      heading: GitHub Enterprise Server 2.20の非推奨化
+    - heading: Deprecation of GitHub Enterprise Server 2.20
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.20は、2021 年3月2日に廃止となりました**。これは、この日以降は重大なセキュリティの問題に対してであってもパッチリリースが行われなくなるということです。より優れたパフォーマンス、改善されたセキュリティ、新しい機能のために、[{% data variables.product.prodname_ghe_server %}の最新バージョンへのアップグレード](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
-    - 
-      heading: GitHub Enterprise Server 2.21の非推奨化
+        - '**{% data variables.product.prodname_ghe_server %} 2.20 was discontinued on March 2, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+    - heading: Deprecation of GitHub Enterprise Server 2.21
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.21は、2021 年6月9日に廃止となりました**。これは、この日以降は重大なセキュリティの問題に対してであってもパッチリリースが行われなくなるということです。より優れたパフォーマンス、改善されたセキュリティ、新しい機能のために、[{% data variables.product.prodname_ghe_server %}の最新バージョンへのアップグレード](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
-    - 
-      heading: 旧来のGitHub App webhookイベントの非推奨化
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 will be discontinued on June 9, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+    - heading: Deprecation of Legacy GitHub App Webhook Events
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 2.21.0から、2つの旧来のGitHub Appsに関連するwebhookイベントが非推奨となり、{% data variables.product.prodname_ghe_server %} 3.2.0で削除されます。非推奨となったイベントの`integration_installation`と`integration_installation_repositories`には、サポートされることになる同等のイベントがあります。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)にあります。'
-    - 
-      heading: 旧来のGitHub Appsのエンドポイントの非推奨化
+        - 'Starting with {% data variables.product.prodname_ghe_server %} 2.21.0 two legacy GitHub Apps-related webhook events have been deprecated and will be removed in {% data variables.product.prodname_ghe_server %} 3.2.0. The deprecated events `integration_installation` and `integration_installation_repositories` have equivalent events which will be supported. More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/).'
+    - heading: Deprecation of Legacy GitHub Apps Endpoint
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 2.21.0から、インストールアクセストークンを作成するための旧来のGitHub Appsのエンドポイントが非推奨となり、{% data variables.product.prodname_ghe_server %} 3.2.0で削除されます。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)にあります。'
-    - 
-      heading: OAuth Application APIの非推奨化
+        - Starting with {% data variables.product.prodname_ghe_server %} 2.21.0 the legacy GitHub Apps endpoint for creating installation access tokens was deprecated and will be removed in {% data variables.product.prodname_ghe_server %} 3.2.0.  More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/).
+    - heading: Deprecation of OAuth Application API
       notes:
-        - 'GitHubは、パスパラメータとして`access_token`を含むOAuthのアプリケーションエンドポイントをサポートしなくなりました。`access_token`をリクエストのボディに移すことにより、OAuth Appsのためのトークンをセキュアに管理できるようにする、新しいエンドポイントが導入されます。非推奨にはなりましたが、これらのエンドポイントはこのバージョンではまだ利用可能です。これらのエンドポイントは、{% data variables.product.prodname_ghe_server %} 3.4で削除しようとしています。詳細については[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)を参照してください。'
-    - 
-      heading: GitHub Actionsの短いSHAサポートの非推奨化
+        - 'GitHub no longer supports the OAuth application endpoints that contain `access_token` as a path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. While deprecated, the endpoints are still accessible in this version. We intend to remove these endpoints on {% data variables.product.prodname_ghe_server %} 3.4. For more information, see the [deprecation announcement blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).'
+    - heading: Deprecation of GitHub Actions short SHA support
       notes:
-        - '{% data variables.product.prodname_actions %}は、短縮バージョンのgitコミットSHAを使ったアクションの参照サポートを削除します。これによって、リポジトリ内のワークフローで動作しなくなるものがあるかもしれません。それらのワークフローを修正するには、アクションの参照を完全なコミットSHAを使うように更新しなければなりません。詳しい情報については「[{% data variables.product.prodname_actions %}のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)」を参照してください。'
-    - 
-      heading: XenServer Hypervisorサポートの非推奨化
+        - '{% data variables.product.prodname_actions %} will remove support for referencing actions using the shortened version of a git commit SHA. This may cause some workflows in your repository to break. To fix these workflows, you will need to update the action reference to use the full commit SHA. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)."'
+    - heading: Deprecation of XenServer Hypervisor support
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.1から、Xen Hypervisorのサポートを停止します。完全な非推奨化は{% data variables.product.prodname_ghe_server %} 3.3でスケジュールされており、標準の1年の非推奨化ウィンドウに従います。'
+        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window.
+    - heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.1は、[バックアップとディザスタリカバリ](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance)のために、最低でも[GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils)を必要とします。'
+    - '{% data variables.product.prodname_ghe_server %} 3.1 requires at least [GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

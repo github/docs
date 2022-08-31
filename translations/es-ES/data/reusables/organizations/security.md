@@ -1,6 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. En la sección de "Seguridad" de la barra lateral, haz clic en **{% octicon "shield-lock" aria-label="The shield-lock icon" %} Seguridad de autenticación**.
+{% else  %}
 1. En la barra lateral izquierda, da clic en **Seguridad de la organización**.
-{% else %}
-1. En la barra lateral izquierda, haz clic en **Security** (Seguridad).
-{% endif %}
+
  ![Configuración de seguridad de la organización](/assets/images/help/organizations/org-security-settings-tab.png)
+{% endif %}

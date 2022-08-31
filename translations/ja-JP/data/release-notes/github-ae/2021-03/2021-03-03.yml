@@ -1,87 +1,81 @@
----
 date: '2021-03-03'
-friendlyDate: '2021 年 3 月 3 日'
-title: '2021年3月3日の週'
+friendlyDate: 'March 3, 2021'
+title: 'Week of March 3, 2021'
 currentWeek: false
 sections:
   features:
-    - 
-      heading: 'GitHub Actionsべータ'
+    - heading: 'GitHub Actions beta'
       notes:
         - |
-          [{% data variables.product.prodname_actions %}](https://github.com/features/actions)は、CI/CD及びワークフローオートメーションのための強力で柔軟なソリューションです。詳しい情報については「[{% data variables.product.prodname_actions %}の紹介](/actions/learn-github-actions/introduction-to-github-actions)」を参照してください。
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
 
-          {% data variables.product.product_name %}上の{% data variables.product.prodname_actions %}は、新しい[{% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)を使います。これは{% data variables.product.product_name %}のみで利用できるもので、ランナーのサイズ、画像、ネットワーク設定をカスタマイズできるようにしてくれます。これらのランナーは、{% data variables.product.company_short %}で完全に管理された、自動スケール及び管理のCIコンピュート環境の完成したサービスです。ベータの間は、{% data variables.actions.hosted_runner %}の利用は無料です。詳しい情報については「[{% data variables.actions.hosted_runner %}の追加](/actions/using-github-hosted-runners/adding-ae-hosted-runners)」を参照してください。
+          Please note that when {% data variables.product.prodname_actions %} is enabled during this upgrade, two organizations named "GitHub Actions" (@**actions** and @**github**) will appear in {% data variables.product.product_location %}. These organizations are required by {% data variables.product.prodname_actions %}. Users named @**ghost** and @**actions** appear as the actors for creation of these organizations in the audit log.
+    - heading: 'GitHub Packages beta'
+      notes:
+        - |
+          [{% data variables.product.prodname_registry %}](https://github.com/features/packages) is a package hosting service, natively integrated with {% data variables.product.prodname_actions %}, APIs, and webhooks. Create an [end-to-end DevOps workflow](/github-ae@latest/packages/quickstart) that includes your code, continuous integration, and deployment solutions. During this beta, {% data variables.product.prodname_registry %} is offered free of charge to {% data variables.product.product_name %} customers.
+    - heading: 'GitHub Advanced Security beta'
+      notes:
+        - |
+          {% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both code scanning and secret scanning. During this beta, {% data variables.product.prodname_GH_advanced_security %} features are being offered free of charge to {% data variables.product.product_name %} customers. Repository and organization administrators can opt-in to use {% data variables.product.prodname_GH_advanced_security %} in the Security and Analysis tab under settings.
 
-          アップグレードの間に{% data variables.product.prodname_actions %}を有効化すると、{% data variables.product.product_location %}に"GitHub Actions"という名前の2つのOrganization(@**actions**及び@**github**)が表示されるようになることに注意してください。これらのOrganizationは{% data variables.product.prodname_actions %}が必要とするものです。監査ログには、これらのOrganizationを作成したアクターとして@**ghost**及び@**actions**という名前のユーザが現れます。
-    - 
-      heading: 'GitHub Packagesベータ'
-      notes:
-        - |
-          [{% data variables.product.prodname_registry %}](https://github.com/features/packages)は、{% data variables.product.prodname_actions %}、API、webhookとネイティブに統合されたパッケージホスティングサービスです。コード、継続的インテグレーション、デプロイメントソリューションを含む[エンドツーエンドのDevOpsワークフロー](/github-ae@latest/packages/quickstart)を作成してください。ベータの間、{% data variables.product.prodname_registry %}は{% data variables.product.product_name %}のお客様に対して無料で提供されます。
-    - 
-      heading: 'GitHub Advanced Securityベータ'
-      notes:
-        - |
-          {% data variables.product.prodname_GH_advanced_security %}はベータとして利用でき、コードスキャンとシークレットスキャンをどちらも含んでいます。このベータの間、{% data variables.product.prodname_GH_advanced_security %}の機能は{% data variables.product.product_name %}のお客様に無料で提供されます。リポジトリ及びOrganizationの管理者は、設定のSecurity and Analysisタブ内で{% data variables.product.prodname_GH_advanced_security %}の利用にオプトインできます。
+          Learn more about {% data variables.product.prodname_GH_advanced_security %} [code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) and [secret scanning](/github/administering-a-repository/about-secret-scanning) on {% data variables.product.prodname_ghe_managed %}.
 
-          {% data variables.product.prodname_ghe_managed %}上の{% data variables.product.prodname_GH_advanced_security %}の[コードスキャンニング](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) 及び[シークレットスキャンニング](/github/administering-a-repository/about-secret-scanning)についてさらに学んでください。
-    - 
-      heading: アイデンティティプロバイダ (IdP) での Team の管理
+    - heading: Manage teams from your identity provider (IdP)
       notes:
         - |
-          SCIM（System for Cross-domain Identity Management）を利用しているお客様は、Azure Active Directory内のセキュリティグループを{% data variables.product.company_short %}のTeamと同期できるようになりました。Teamがセキュリティグループにリンクされると、割り当てられたセキュリティグループにユーザの追加や削除が行われると、{% data variables.product.product_name %}でも自動的にメンバーシップが更新されます。
-    - 
-      heading: IP 許可リストベータ
+          Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams.  Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group.
+
+    - heading: IP allow lists beta
       notes:
         - |
-          [{% data variables.product.company_short %} IP許可リスト](/admin/configuration/restricting-network-traffic-to-your-enterprise)は、CIDR表記で定義された管理者が指定するIPの範囲からのトラフィックをフィルタリングできるようにしてくれます。許可リストは、EnterpriseもしくはOrganizationアカウントレベルにおいて、Security > Settingで設定できます。Enterpriseアカウント及びOrganization内のリソースに到達しようとするすべてのトラフィックは、IP許可リストでフィルタリングされます。この機能は、GHAEのテナント全体に対するトラフィックをフィルタリングするネットワークセキュリティグループの変更をリクエストする機能に加えて提供されます。
+          [{% data variables.product.company_short %} IP allow lists](/admin/configuration/restricting-network-traffic-to-your-enterprise) provide the ability to filter traffic from administrator-specified IP ranges, defined by CIDR notation. The allow list is defined at the enterprise or organization account level in Security > Settings. All traffic that attempts to reach resources within the enterprise account and organizations are filtered by the IP allow lists. This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the GHAE tenant.
+
   changes:
-    - 
-      heading: 開発者の変更
+    - heading: Developer Changes
       notes:
         - |
-          Organization内のリポジトリからの{% data variables.product.prodname_pages %}サイトの[公開をOrganizationのオーナーが無効化できるようになりました](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)。これによって、既存のサイトが取り下げられることはありません。
-        - '{% data variables.product.prodname_pages %}を使うリポジトリは、[任意のブランチからビルドとデプロイ](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)を行えるようになりました。'
-        - IssueあるいはPull Reqeustを書く際に、箇条書き、番号、タスクのためのリスト構文は、`return`あるいは`enter`を押した後にオートコンプリートされるようになりました。
-        - リポジトリ内のディレクトリをリポジトリページから削除できるようになりました。ディレクトリにアクセスすると、"Add file"ボタンの隣にある新しいケバブボタンから、そのディレクトリを削除できます。
-        - '"#"の後の複数の単語に渡って検索を行い、[IssueやPull Requestの参照](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests)が容易に素早く行えるようになりました。'
-    - 
-      heading: 管理に関する変更
+          [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
+        - Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+        - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
+        - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
+        - It's now easier and faster to [reference issues or pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), with search across multiple words after the "#".
+
+    - heading: Administration changes
       notes:
-        - Enterpriseオーナーは、必須メッセージを発行できるようになりました。このメッセージは、すべてのユーザに対して表示され、ユーザは承認しなければなりません。これは、利用規約やポリシーといった重要な情報を表示するために利用できます。
-        - '{% data variables.product.prodname_github_app%} 単一ファイルパス権限は、[最大で10ファイルをサポート](/developers/apps/creating-a-github-app-using-url-parameters)できるようになりました。'
-        - '{% data variables.product.prodname_github_app%}を設定する際、認可コールバックURLは必須フィールドです。インテグレータは、複数のコールバックURLを指定できるようになりました。リクエストからのコールバックURLがリスト中にない場合、{% data variables.product.product_name %}は認可を拒否します。'
-        - '[新しいAPI エンドポイント](/rest/reference/apps#create-a-scoped-access-token)を使用すると、特定のリポジトリをスコープとするユーザからサーバーへのトークンを、ユーザからサーバーへのトークンと交換できます。。'
-        - '[Team メンバーをチームメンテナに昇格させたり、チームメンテナを Team メンバーに降格したりする](/admin/user-management/audited-actions#teams)と、イベントが Audit log に記録されるようになりました。'
-        - '[OAuthデバイス認可フロー](/developers/apps/authorizing-oauth-apps#device-flow)がサポートされました。これによって、任意のCLIクライアントあるいは開発者ツールがセカンダリシステムを使って認可できるようになります。'
-        - SCIM プロビジョニングが有効になっている場合、ユーザは自分のアカウントを削除できなくなります。
-    - 
-      heading: デフォルトブランチの名称変更
+        - Enterprise owners can now publish a mandatory message. The message is shown to all users and they must acknowledge it. This can be used to display important information, terms of service or policies.
+        - The {% data variables.product.prodname_github_app%} single file path permission can now [support up to ten files](/developers/apps/creating-a-github-app-using-url-parameters).
+        - When configuring a {% data variables.product.prodname_github_app%}, the authorization callback URL is a required field. Now we will permit the integrator to specify multiple callback URLs. {% data variables.product.product_name %} denies authorization if the callback URL from the request is not listed.
+        - A [new API endpoint](/rest/reference/apps#create-a-scoped-access-token) enables the exchange of a user to server token for a user to server token scoped to specific repositories.
+        - Events are now logged in the audit log on [promoting a team member to be a team maintainer and on demoting a team maintainer to be a team member](/admin/user-management/audited-actions#teams).
+        - The [OAuth device authorization flow](/developers/apps/authorizing-oauth-apps#device-flow) is now supported. This allows any CLI client or developer tool to authenticate using a secondary system.
+        - A user can no longer delete their account if SCIM provisioning is enabled.
+
+    - heading: Default branch renaming
       notes:
         - |
-          Enterprise及びOrganizationのオーナーは、新しいリポジトリのためのデフォルトブランチ名を設定できるようになりました。Enterpriseのオーナーは、デフォルトブランチ名についての自分の選択をOrganization群全体に強制することも、個々のOrganizationが独自の選択をできるようにすることもできます。
+          Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own.
 
-          既存のリポジトリはこれらの設定に影響されず、デフォルトブランチ名は変更されません。
+          Existing repositories are unaffected by these settings, and their default branch name will not be changed.
 
-          この変更は、デフォルトブランチの名前を変更したいプロジェクトやメンテナをサポートするために{% data variables.product.company_short %}が行っている多くの変更の中の1つです。行しく学ぶには、[github/名称変更](https://github.com/github/renaming)を参照してください。
+          This change is one of many changes {% data variables.product.company_short %} is making to support projects and maintainers that want to rename their default branch. To learn more, see [github/renaming](https://github.com/github/renaming).
+
   bugs:
-    - 
-      heading: バグ修正
+    - heading: Bug fixes
       notes:
-        - ユーザは、自分のプロフィールでバックアップメールアドレスを設定できなくなりました。メールアドレスは、IdPを通じてのみ設定されます。
-        - IdP で認証を設定した後に、2 要素認証を有効化することはできなくなりました。
+        - Users can no longer set a backup email address on their profile. Their email address is set through the IdP only.
+        - You can no longer enable two-factor authentication after configuring authentication through your IdP.
         - |
-          {% data variables.product.product_name %} が Azure ボードに接続できるようになりました。
-        - API にバージョンヘッダがありませんでしたが、現在は「GitHub AE」に設定されています。
-        - ドキュメントへのリンクが修正されました。
-        - Enterprise の設定での Audit log 転送の設定が失敗していました。
-        - gists に移動すると、500 件のエラーが発生する可能性があります。
-        - サポートメールあるいはURLの保存に失敗していました。数分後に保存されるようになりました。
-        - Organization レベルのPull Requestテンプレートは、Organization 内のすべてのPull Requestに適用されていませんでした。
+          {% data variables.product.product_name %} can now connect to Azure Boards.
+        - Version headers were missing from the APIs, and have now been set to "GitHub AE."
+        - Links to documentation have been fixed.
+        - Configuration of audit log forwarding within the enterprise's settings was failing.
+        - Navigating to gists could result in a 500 error.
+        - The Support email or URL was failing to save. It now saves after a period of a few minutes.
+        - Organization level pull request templates were not being applied to all pull requests in the organization.
+
   known_issues:
-    - 
-      heading: 既知の問題
+    - heading: Known issues
       notes:
-        - 地理的位置データは、監査ログに表示されません。位置情報は、それぞれのイベントに関連づけられたIPアドレスから識別できます。
-        - リポジトリページから {% data variables.product.prodname_registry %} へのリンクでは、そのリポジトリにパッケージがない場合、誤った検索ページを表示します。
+        - Geographic location data is not shown in the audit log. Location information can otherwise be discerned from the IP address associated with each event.
+        - The link to {% data variables.product.prodname_registry %} from a repository page shows an incorrect search page when that repository does not have any packages.

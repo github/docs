@@ -1,11 +1,3 @@
-You can run your codespace on a choice of three types of remote machine: Basic, Standard, or Premium. Cada uma delas tem um nível diferente de recursos e uma camada diferente de cobrança.<!-- For information, see "\[About billing for Codespaces\](/github/developing-online-with-codespaces/about-billing-for-codespaces)." -->{% note %}
+Typically, you can run your codespace on a choice of remote machine, from 2 cores to 32 cores. Cada uma delas tem um nível diferente de recursos e uma camada diferente de cobrança. For information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
-**Observação:** {% data reusables.codespaces.about-billing-for-codespaces %}
-
-{% endnote %}
-
-Switching machine types gives you the flexibility to choose the most appropriate resources for your work. Certain tasks may require different machine types:
-
-* **Basic** for updating a file and raising a pull request
-* **Standard** for editing a website
-* **Premium** for high compute tasks such as data analysis
+By default the machine type with the lowest valid resources is used when you create a codespace. 

@@ -6,15 +6,17 @@ redirect_from:
   - /articles/accessing-a-projects-community-profile
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Acceder a los perfiles comunitarios
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Community** (Comunidad). ![Comunidad en la barra lateral izquierda](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
-### Leer más
+## Leer más
 
 - [Acerca de los perfiles de la comunidad para repositorios públicos](/articles/about-community-profiles-for-public-repositories)"

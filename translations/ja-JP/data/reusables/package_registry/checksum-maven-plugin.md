@@ -1,5 +1,5 @@
-{%- if currentVersion == "github-ae@latest" %}
-1. *pom.xml*ファイルの`plugins`要素に[checksum-maven-plugin](http://checksum-maven-plugin.nicoulaj.net/index.html)プラグインを追加し、そのプラグインを最低でもSHA-256のチェックサムを送信するように設定してください。
+{%- ifversion ghae %}
+1. *pom.xml*ファイルの`plugins`要素に[checksum-maven-plugin](https://search.maven.org/artifact/net.nicoulaj.maven.plugins/checksum-maven-plugin)プラグインを追加し、そのプラグインを最低でもSHA-256のチェックサムを送信するように設定してください。
     ```xml
     <plugins>
         <plugin>

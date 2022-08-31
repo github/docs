@@ -4,14 +4,15 @@ intro: REST APIを通じてオブジェクトのグローバルノードIDを取
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 [最近のアップデート](https://developer.github.com/changes/2017-12-19-graphql-node-id/)で、多くのオブジェクトの**グローバルノードID**をREST APIから見つけ、それらのIDをGraphQLの操作で使えるようになりました。
+GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 REST API内から多くのオブジェクトの**グローバルノードID**を見つけ、それらのIDをGraphQLの操作で利用できます。 詳しい情報については「[REST APIリソース内のGraphQL APIノードIDのプレビュー](https://developer.github.com/changes/2017-12-19-graphql-node-id/)」を参照してください。
 
 {% note %}
 
@@ -19,7 +20,7 @@ GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエ
 
 {% endnote %}
 
-### グローバルノードIDを利用する
+## グローバルノードIDを利用する
 
 グローバルノードIDを効率的に利用するには、以下の3つのステップを踏んでください。
 
@@ -29,7 +30,7 @@ GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエ
 
 例を見ていきましょう。
 
-### 1. オブジェクトのノードIDを返すRESTのエンドポイントの呼び出し
+## 1. オブジェクトのノードIDを返すRESTのエンドポイントの呼び出し
 
 [認証済みのユーザをリクエスト](/rest/reference/users#get-the-authenticated-user)した場合、
 
@@ -87,7 +88,7 @@ $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/us
 }
 ```
 
-### 2. GraphQLでのオブジェクトの型を見つける
+## 2. GraphQLでのオブジェクトの型を見つける
 
 この例では、`node_id`の値は`MDQ6VXNlcjU4MzIzMQ==`です。 この値を使って、同じオブジェクトをGraphQLでクエリできます。
 
@@ -105,7 +106,7 @@ query {
 
 このクエリを実行すると、`__typename`が[`User`](/graphql/reference/objects#user)であることが分かります。
 
-### 3. GraphQLでダイレクトノードルックアップを行う
+## 3. GraphQLでダイレクトノードルックアップを行う
 
 型が確認できたら、[インラインフラグメント](https://graphql.github.io/learn/queries/#inline-fragments)を使ってIDでオブジェクトにアクセスし、追加のデータを返させることができます。 この例では、クエリをかけたい`User`のフィールドを定義しています。
 
@@ -122,6 +123,6 @@ query {
 
 この種のクエリは、オブジェクトをグローバルノードIDでルックアップする標準的なアプローチです。
 
-### 移行におけるグローバルノードIDの利用
+## 移行におけるグローバルノードIDの利用
 
 REST API または GraphQL API を使用するインテグレーションを構築する場合、API バージョン間にわたってオブジェクトを簡単に参照できるように、グローバルノード ID を保持すると良いでしょう。 RESTとGraphQL間の移行の扱いに関する詳細な情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。

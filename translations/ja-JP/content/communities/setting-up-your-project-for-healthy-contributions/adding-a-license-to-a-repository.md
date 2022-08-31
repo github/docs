@@ -5,10 +5,12 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: リポジトリへのライセンスの追加
 ---
 
 リポジトリに見つけやすいライセンスを含めておくと、リポジトリにアクセスした人はリポジトリページの先頭ですぐに見つけることができます。 ライセンスファイル全体を読むには、ライセンスの名前をクリックします。
@@ -17,10 +19,10 @@ topics:
 
 オープンソースライセンスによって、他者が自由にリポジトリ中のプロジェクトを利用、変更、配布できるようになります。 リポジトリのライセンスに関する詳しい情報については[リポジトリのライセンス](/articles/licensing-a-repository)を参照してください。
 
-### リポジトリにオープンソースライセンスを含める
+## リポジトリにオープンソースライセンスを含める
 
 <!--Dotcom version uses the license tool-->
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. ファイル名フィールドで、*LICENSE* あるいは *LICENSE.md* (すべて大文字) と入力します。
@@ -35,7 +37,7 @@ topics:
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -48,6 +50,6 @@ topics:
 
 {% endif %}
 
-### 参考リンク
+## 参考リンク
 
 - [リポジトリコントリビューターのためのガイドラインを定める](/articles/setting-guidelines-for-repository-contributors)

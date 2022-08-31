@@ -4,6 +4,7 @@ intro: 'The {% data variables.product.product_name %} REST API is fully describe
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -26,4 +27,4 @@ There are many uses for an OpenAPI description. For example, you could:
 * Validate and test a {% data variables.product.company_short %} REST API integration.
 * Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
 
-For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest/reference).
+For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest).

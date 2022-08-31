@@ -1,1 +1,1 @@
-シークレットを作成すると、新しいcodespaceを作成したり、codespaceを再起動したりすれば、利用できるようになります。 現在のcodespaeで作成したばかりのシークレットを使うには、codespeceをサスペンドして再開する必要があります。
+シークレットを作成すると、新しいcodespaceを作成したり、codespaceを再起動したりすれば、利用できるようになります。 作成したばかりのシークレットを現在のcodespaceで使うには、codespaceを停止して再開しなければなりません。 codespaveの停止に関する情報については「[{% data variables.product.prodname_codespaces %}でのコマンドパレットの利用](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)」を参照してください。

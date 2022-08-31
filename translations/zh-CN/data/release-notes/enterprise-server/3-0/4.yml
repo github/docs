@@ -24,3 +24,5 @@ sections:
     - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
     - restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。
     - 在合并拉取请求后删除分支时，即使分支删除成功也会出现错误消息。
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

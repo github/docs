@@ -1,3 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-プロジェクトボードをコピーして、そのカスタマイズを同様のプロジェクトで再利用できます。 詳しい情報については「[プロジェクトボードのコピー](/articles/copying-a-project-board)」を参照してください。
+{% ifversion fpt or ghec %}
+You can also copy a
+{% data variables.projects.projects_v1_board %} to reuse its customizations for similar projects. For more information, see "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)."
 {% endif %}

@@ -6,9 +6,10 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -27,7 +28,7 @@ topics:
 
 ![里程碑页面](/assets/images/help/issues/milestone-info-page.png)
 
-### 排列议题和拉取请求在里程碑中的优先级
+## 排列议题和拉取请求在里程碑中的优先级
 
 您可以单击开放的议题或拉取请求复选框左边，将其拖放到新位置，以排列其在里程碑中的优先级。
 
@@ -39,7 +40,7 @@ topics:
 
 ![重新排序的里程碑](/assets/images/help/issues/milestone-reordered.gif)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建和编辑议题及拉取请求的里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
 - "[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)"

@@ -6,9 +6,10 @@ redirect_from:
   - /github/building-a-strong-community/about-team-discussions
   - /github/setting-up-and-managing-organizations-and-teams/about-team-discussions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -25,13 +26,13 @@ Puedes vincularte a cualquier debate de equipo para hacer referencia al mismo en
 
 {% data reusables.organizations.team-discussions-default %} Los propietarios pueden desactivar debates del equipo para toda la organización. Para obtener más información, consulta "[Desactivar los debates del equipo para tu organización](/articles/disabling-team-discussions-for-your-organization)".
 
-### Notificaciones para los debates del equipo
+## Notificaciones para los debates del equipo
 
 Cuando alguien publica o responde a un debate público en la página de un equipo, los miembros del equipo y los miembros de cualquier equipo hijo reciben un correo electrónico o notificaciones web. Cuando alguien publica o responde a un debate privado en la página de un equipo, solo los miembros del equipo reciben notificaciones.
 
 {% tip %}
 
-**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {% data variables.product.product_name %}, o ambas. Para obtener más información, consulta las secciones {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Acerca de las notificaciones web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}".
+**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {% data variables.product.product_name %}, o ambas. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
 {% endtip %}
 
@@ -39,9 +40,17 @@ Por defecto, si se menciona tu nombre de usuario en un debate del equipo, recibi
 
 Para apagar las notificaciones para los debates del equipo, puedes cancelar la suscripción a una publicación de debate específica o cambiar tus parámetros de notificación para dejar de ver o ignorar por completo los debtaes de un equipo específico. Te puedes suscribir a las notificaciones para la publicación de un debate específico incluso si dejaste de ver los debates de ese equipo.
 
-Para obtener más información, consulta las secciones{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Suscribirte y desuscribirte de las notificaciones](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
+Para obtener más información, consulta la sección "[Ver tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
 
-### Leer más
+{% ifversion fpt or ghec %}
+
+## Debates de organización
+
+También puedes utilizar los debates de la organización para facilitar las conversaciones en ella. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates de GitHub en una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
+
+{% endif %}
+
+## Leer más
 
 - "[Inicio rápido para comunicarte con {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - [Acerca de los equipos](/articles/about-teams)"

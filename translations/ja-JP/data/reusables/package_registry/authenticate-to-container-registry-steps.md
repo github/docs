@@ -1,25 +1,24 @@
-1. 実行したいタスクに対して適切なスコープを持つ新しい個人アクセストークン（PAT）を作成してください。 OrganizationがSSOを必須としている場合は、新しいトークンでSSOを有効化しなければなりません。
+1. Create a new personal access token (PAT) with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
   {% warning %}
 
-  **ノート:** デフォルトでは、ユーザインターフェース内で個人アクセストークン（PAT）に対して`write:packages`スコープを選択すると、`repo`スコープも選択されます。 `repo`は不要に広いアクセス権を提供するので、特にGitHub Actionsのワークフローでの利用は避けることをおすすめします。 詳しい情報については「[GitHub Actionsのためのセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」を参照してください。 回避策として、以下のURLでユーザインターフェース内でPATに`write:packages`スコープだけを選択することができます。 `https://github.com/settings/tokens/new?scopes=write:packages`
+  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
 
   {% endwarning %}
 
-    - コンテナイメージをダウンロードし、そのメタデータを読むためには`read:packages`スコープを選択してください。
-    - コンテナイメージのダウンロードとアップロード、及びそのメタデータの読み書きのためには、`write:packages`スコープを選択してください。
-    - コンテナイメージを削除するには`delete:packages`スコープを選択してください。
+    - Select the `read:packages` scope to download container images and read their metadata.
+    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
+    - Select the `delete:packages` scope to delete container images.
 
-  詳しい情報については[コマンドラインのための個人のアクセストークンの作成](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)を参照してください。
+  For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
 
-2. PATを保存してください。 PATは環境変数として保存することをおすすめします。
+2. Save your PAT. We recommend saving your PAT as an environment variable.
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. コンテナタイプにあったCLIを利用して、
-`ghcr.io`にある{% data variables.product.prodname_container_registry %}サービスにサインインしてください。
+3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
   {% raw %}
   ```shell
-  $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+  $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin
   > Login Succeeded
   ```
   {% endraw %}

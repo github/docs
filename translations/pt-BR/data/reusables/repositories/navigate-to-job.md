@@ -1,1 +1,3 @@
-1. In the left sidebar, click the job you want to see. ![List of jobs in left sidebar](/assets/images/help/repository/check-suite-list.png)
+1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver.
+
+   ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)

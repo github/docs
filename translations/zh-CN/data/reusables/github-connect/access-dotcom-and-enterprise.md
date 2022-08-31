@@ -1,1 +1,1 @@
-1. 登录到 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. 登录到 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %} 和 {% data variables.product.prodname_dotcom_the_website %}。

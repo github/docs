@@ -1,1 +1,0 @@
-Once you have created a secret, it will be available when you create a new codespace or restart the codespace. To use a secret that you've just created in a current codespace, you will need to suspend the codespace and resume it.

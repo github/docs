@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - Mais informações detalhadas sobre o estado de merge de uma pull request.
@@ -76,16 +76,6 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: Criar anexos de conteúdo
-  description: Esta visualização adiciona suporte para a criação de anexos de conteúdo.
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
 - 
   title: Visualização de Etiquetas
   description: >-

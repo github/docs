@@ -1,7 +1,10 @@
+import { Fragment } from 'react'
 import cx from 'classnames'
 import slugger from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { Link } from 'components/Link'
+
+import styles from './PatchNotes.module.scss'
 
 const SectionToLabelMap: Record<string, string> = {
   features: 'Features',
@@ -26,53 +29,30 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
           <div
             key={key}
             className={cx(
-              `release-notes-section-${key}`,
-              'py-6 d-block d-xl-flex gutter-xl flex-items-baseline',
+              'py-6 d-block d-xl-flex',
               !withReleaseNoteLabel && 'mx-6',
               !isLast && 'border-bottom'
             )}
           >
-            {withReleaseNoteLabel && (
-              <div className="col-12 col-xl-3 mb-5">
-                <span className="px-3 py-2 text-small text-bold text-uppercase text-mono color-text-inverse release-notes-section-label">
-                  {SectionToLabelMap[key] || 'INVALID SECTION'}
-                </span>
-              </div>
-            )}
-            <ul className={cx(withReleaseNoteLabel && 'col-xl-9', 'col-12 release-notes-list')}>
+            <ul className={cx(withReleaseNoteLabel)}>
+              <h3>{SectionToLabelMap[key] || 'INVALID SECTION'}</h3>
               {sectionItems.map((item) => {
                 if (typeof item === 'string') {
-                  return (
-                    <li key={item} className="release-notes-list-item">
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
-                    </li>
-                  )
+                  return <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
                 }
 
                 const slug = item.heading ? slugger.slug(item.heading) : ''
                 return (
-                  <li key={slug} className="release-notes-list-item list-style-none">
-                    <h4
-                      id={slug}
-                      className="release-notes-section-heading text-uppercase text-bold"
-                    >
-                      <Link href={`#${slug}`} className="text-inherit">
-                        {item.heading}
-                      </Link>
+                  <Fragment key={slug}>
+                    <h4 id={slug} className={cx(styles.sectionHeading, 'text-bold f4')}>
+                      <Link href={`#${slug}`}>{item.heading}</Link>
                     </h4>
-
-                    <ul className="pl-0 pb-4 mt-2 release-notes-list">
-                      {item.notes.map((note) => {
-                        return (
-                          <li
-                            key={note}
-                            className="release-notes-list-item"
-                            dangerouslySetInnerHTML={{ __html: note }}
-                          />
-                        )
-                      })}
-                    </ul>
-                  </li>
+                    {item.notes.map((note) => {
+                      return (
+                        <li key={note} className="f4" dangerouslySetInnerHTML={{ __html: note }} />
+                      )
+                    })}
+                  </Fragment>
                 )
               })}
             </ul>

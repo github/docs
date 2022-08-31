@@ -1,17 +1,16 @@
 ---
 title: Disabling and enabling a workflow
 intro: 'You can disable and re-enable a workflow using the {% data variables.product.prodname_dotcom %} UI, the REST API, or {% data variables.product.prodname_cli %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}.
 
@@ -30,9 +29,7 @@ Temporarily disabling a workflow can be useful in many scenarios. These are a fe
 
 You can also disable and enable a workflow using the REST API. For more information, see the "[Actions REST API](/rest/reference/actions#workflows)."
 
-### Disabling a workflow
-
-{% include tool-switcher %}
+## Disabling a workflow
 
 {% webui %}
 
@@ -51,9 +48,7 @@ The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} 
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To disable a workflow, use the `workflow disable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to disable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
 
@@ -63,9 +58,7 @@ gh workflow disable <em>workflow</em>
 
 {% endcli %}
 
-### Enabling a workflow
-
-{% include tool-switcher %}
+## Enabling a workflow
 
 {% webui %}
 
@@ -81,8 +74,6 @@ You can re-enable a workflow that was previously disabled.
 {% endwebui %}
 
 {% cli %}
-
-{% data reusables.actions.actions-cli %}
 
 To enable a workflow, use the `workflow enable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to enable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
 

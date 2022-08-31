@@ -1,12 +1,13 @@
 ---
 title: Guías
-intro: 'Aprende cómo utilizar la API de {% data variables.product.prodname_dotcom %} con tu app, integración continua, y cómo compilar con las apps.'
+intro: 'Aprende cómo utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} con tu app, integración continua y cómo compilar con apps.'
 redirect_from:
   - /apps/quickstart-guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 children:

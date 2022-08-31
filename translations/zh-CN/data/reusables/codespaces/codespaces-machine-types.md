@@ -1,11 +1,3 @@
-您可以在三种类型的远程机器上运行代码空间：基本、标准或高级。 每种类型都有不同的资源水平和不同的计费等级。<!-- For information, see "\[About billing for Codespaces\](/github/developing-online-with-codespaces/about-billing-for-codespaces)." -->{% note %}
+通常，您可以在选择的远程机器上运行代码空间，从 2 核到 32 核。 每种类型都有不同的资源水平和不同的计费等级。 有关信息请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
-**注：**{% data reusables.codespaces.about-billing-for-codespaces %}
-
-{% endnote %}
-
-切换机器类型使您可以灵活地选择最适合您工作的资源。 某些任务可能需要不同的机器类型：
-
-* **基本**，适用于更新文件和提出拉取请求
-* **标准**，适用于编辑网站
-* **高级**，适用于数据分析等高计算任务
+默认情况下，在创建代码空间时，将使用具有最低有效资源的计算机类型。 

@@ -1,1 +1,0 @@
-1. Teclea un comentario que resuma tu retroalimentación sobre los cambios propuestos. ![Ventana de comentarios para el resumen de la revisión](/assets/images/help/pull_requests/review-summary-comment-window.png)

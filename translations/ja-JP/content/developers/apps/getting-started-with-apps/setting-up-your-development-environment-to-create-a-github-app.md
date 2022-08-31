@@ -5,18 +5,20 @@ redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
   - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: 開発環境
 ---
 
-### はじめに
+## はじめに
 
 このガイドは、GitHub Appを設定してサーバー上で実行するために必要なステップを案内します。 GitHub Appには、webhookイベントを管理し、GitHub上のアプリケーションの登録をコードに接続するためのセットアップのステップが必要です。 このガイドのアプリケーションは、拡張して新しいGitHub Appを構築するための基盤の役目を果たします。
 
-このガイドを終えれば、GitHub Appを登録し、webhookイベントを受信するためのWebサーバーをセットアップできます。 Smeeというツールを使ってwebhookペイロードをキャプチャし、ローカルの開発環境に転送する方法を学びます。 このセクションで設定するテンプレートのアプリケーションは特別なことはしませんが、APIを使ってアプリケーションコードを書きはじめたり、他の[クイックスタートガイド](/apps/quickstart-guides/)を完了させたりするために使用できるフレームワークとして働きます。 {% if currentVersion == "free-pro-team@latest" %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
+このガイドを終えれば、GitHub Appを登録し、webhookイベントを受信するためのWebサーバーをセットアップできます。 Smeeというツールを使ってwebhookペイロードをキャプチャし、ローカルの開発環境に転送する方法を学びます。 このセクションで設定するテンプレートのアプリケーションは特別なことはしませんが、APIを使ってアプリケーションコードを書きはじめたり、他の[クイックスタートガイド](/apps/quickstart-guides/)を完了させたりするために使用できるフレームワークとして働きます。 {% ifversion fpt or ghec %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
 このプロジェクトを完了すると、GitHub App及びインストールとして認証を受ける方法と、それらの認証方法の違いを理解できます。
 
@@ -32,7 +34,7 @@ topics:
 
 {% data reusables.apps.app-ruby-guides %}
 
-### 必要な環境
+## 必要な環境
 
 以下に関する基本的な理解があると役立つでしょう。
 
@@ -50,9 +52,9 @@ topics:
 $ git clone https://github.com/github-developer/github-app-template.git
 ```
 
-### ステップ 1. 新しいSmeeチャンネルの開始
+## ステップ 1. 新しいSmeeチャンネルの開始
 
-ローカルのマシンをインターネットに公開することなく、GitHubがwebhookを送信するのを支援するために、Smeeというツールが利用できます。 まず https://smee.io にアクセスして、**Start a new channel**をクリックしてください。 [ngrok](https://dashboard.ngrok.com/get-started)や[localtunnel](https://localtunnel.github.io/www/)のような、ローカルマシンをインターネットに公開してくれる他のツールに慣れているなら、それらを使ってもかまいません。
+ローカルのマシンをインターネットに公開することなく、GitHubがwebhookを送信するのを支援するために、Smeeというツールが利用できます。 まず https://smee.io にアクセスして、**Start a new channel**をクリックしてください。 If you're already comfortable with other tools that expose your local machine to the internet like [`ngrok`](https://dashboard.ngrok.com/get-started) or [`localtunnel`](https://localtunnel.github.io/www/), feel free to use those.
 
 ![Smeeの新規チャンネルボタン](/assets/images/smee-new-channel.png)
 
@@ -89,9 +91,9 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 `smee --url <unique_channel>`というコマンドは、Smeeに対してSmeeのチャンネルが受信したすべてのwebhookイベントを、コンピューター上で動作するSmeeクライアントに転送するように指示しています。 `--path /event_handler`オプションは、イベントを`/event_handler`というルートに転送します。このルートについては[後のセクション](#step-5-review-the-github-app-template-code)で取り上げます。 `--port 3000`オプションはポート3000を指定しており、サーバーはこのポートで待ち受けます。 Smeeを使えば、GitHubからのwebhookを受信するためにあなたのマシンがパブリックなインターネットに対してオープンである必要はありません。 また、ブラウザでSmeeのURLを開いて、受信したwebhookのペイロードを調べることもできます。
 
-このターミナルのウィンドウは開いたままにしておき、このガイドの残りのステップを完了させるまでの間、Smeeに接続したままにしておくことをおすすめします。 ユニークなドメインを失うことなくSmeeのクライアントの接続を切って、接続しなおすことも_できます_が（ngrokとは違って）、これは接続したままにしておいて、別のターミナルウィンドウで他のコマンドラインのタスクを行うようにするほうが簡単でしょう。
+このターミナルのウィンドウは開いたままにしておき、このガイドの残りのステップを完了させるまでの間、Smeeに接続したままにしておくことをおすすめします。 Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike `ngrok`), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
 
-### ステップ 2. 新しいGitHub Appの登録
+## ステップ 2. 新しいGitHub Appの登録
 
 まだGitHubのアカウントを持っていないなら、ここが[参加する時です](https://github.com/join)。 続行する前にメールを確認するのを忘れないようにしてください! 新しいアプリケーションを登録するには、自分のGitHubのプロフィール内の[アプリケーション設定ペー委](https://github.com/settings/apps)にアクセスし、**New GitHub App**をクリックしてください。
 
@@ -117,7 +119,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
     ![webhookのシークレットが入力されたフォーム](/assets/images/webhook-secret.png)
 
-* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
+* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 [Repository permissions] セクションで、[Metadata] までスクロールして、[`Access: Read-only`] を選択します。 このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
 
 * Permissions & Webhooks（権限とwebhook）ページの下部で、これがプライベートのアプリケーションなのか、パブリックのアプリケーションなのかを指定してください。 これは、アプリケーションを誰がインストールできるのか、すなわちあなただけなのか、誰でもできるのかを指します。 この時点では、**Only on this account（このアカウントのみ）**を選択して、アプリケーションをプライベートのままにしておいてください。
 
@@ -125,11 +127,11 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 **Create GitHub App（GitHub Appの作成）**をクリックして、アプリケーションを作成してください!
 
-### ステップ 3. 秘密鍵とApp IDの保存
+## ステップ 3. 秘密鍵とApp IDの保存
 
 アプリケーションを作成すると、[アプリケーションの設定ページ](https://github.com/settings/apps)に戻されます。 ここで行うことがあと2つあります。
 
-* **アプリケーションの秘密鍵の生成。**これは後でアプリケーションを認証するために必要です。 ページをスクロールダウンして、**Generate a private key（秘密鍵の生成）**をクリックしてください。 生成されたPEMファイル（_`app-name`_-_`date`_-private-key.pemというような名前）を、また見つけられるディレクトリに保存してください。
+* **アプリケーションの秘密鍵の生成。**これは後でアプリケーションを認証するために必要です。 ページをスクロールダウンして、**Generate a private key（秘密鍵の生成）**をクリックしてください。 Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
 
     ![秘密鍵の生成ダイアログ](/assets/images/private_key.png)
 
@@ -137,7 +139,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
     <img src="/assets/images/app_id.png" alt="アプリケーションのID番号" width="200px" />
 
-### ステップ 4. ランタイム環境の準備
+## ステップ 4. ランタイム環境の準備
 
 情報を保護するために、アプリケーションに関するすべてのシークレットは、直接コードに埋め込むのではなく、アプリケーションが見つけることができるコンピュータのメモリ中に置いておくことをおすすめします。 [dotenv](https://github.com/bkeepers/dotenv)という便利な開発ツールは、プロジェクトに固有の変数を`.env`ファイルから`ENV`にロードしてくれます。 `.env`ファイルは、決してGitHubにチェックインしないでください。 これは、パブリックなインターネット上にさらしたくない機密情報を保存するローカルファイルです。 そうならないようにするために、すでに`.env`はリポジトリの[`.gitignore`](/github/getting-started-with-github/ignoring-files/)に含まれています。
 
@@ -161,7 +163,7 @@ GITHUB_APP_IDENTIFIER=12345
 GITHUB_WEBHOOK_SECRET=your webhook secret
 ```
 
-### ステップ 5. GitHub Appのテンプレートコードのレビュー
+## ステップ 5. GitHub Appのテンプレートコードのレビュー
 
 テンプレートのアプリケーションコードには、すべてのGitHub Appが必要とする多少のコードがすでに含まれています。 このセクションでは、GitHub Appのテンプレートにすでにあるコードを見ていきます。 このセクションで完了しなければならないステップはありません。 テンプレートコードにすでに馴染んでいるなら、「[ステップ 6  サーバーの起動](#step-6-start-the-server)」までスキップできます。
 
@@ -169,7 +171,7 @@ GITHUB_WEBHOOK_SECRET=your webhook secret
 
 ファイルの先頭には`set :port 3000`があります。これは、Webサーバーを起動するときに使われるポートを設定して、「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"でwebhookのペイロードをリダイレクトしたポートと一致させます。
 
-次に出てくるコードは`class GHApp < Sintra::Application`という宣言です。 GitHub Appのすべてのコードは、このクラスの中に書いていきます。
+次に出てくるコードは`class GHApp < Sinatra::Application`という宣言です。 GitHub Appのすべてのコードは、このクラスの中に書いていきます。
 
 そのままの状態では、テンプレート中のこのクラスは以下のことを行います。
 * [環境変数の読み取り](#read-the-environment-variables)
@@ -178,7 +180,7 @@ GITHUB_WEBHOOK_SECRET=your webhook secret
 * [ルートハンドラの定義](#define-a-route-handler)
 * [ヘルパーメソッドの定義](#define-the-helper-methods)
 
-#### 環境変数の読み取り
+### 環境変数の読み取り
 
 このクラスが最初に行うのは、「[ステップ4  ランタイム環境の準備](#step-4-prepare-the-runtime-environment)」で設定した3つの環境変数を読み取り、後で使うために変数に設定することです。
 
@@ -194,7 +196,7 @@ WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
 ```
 
-#### ロギングの有効化
+### ロギングの有効化
 
 次は、Sinatraにおけるデフォルトの環境である開発の間、ロギングを有効にするコードブロックです。 このコードは`DEBUG`レベルでロギングを有効化し、アプリケーションの開発の間、ターミナルに有益な出力を行います。
 
@@ -205,7 +207,7 @@ configure :development do
 end
 ```
 
-#### ビフォアフィルタの定義
+### ビフォアフィルタの定義
 
 Sinatraは、ルートハンドラよりも先にコードを実行できるようにしてくれる[ビフォアフィルタ](https://github.com/sinatra/sinatra#filters)を使います。 テンプレート中の`before`ブロックは、4つの[ヘルパーメソッド](https://github.com/sinatra/sinatra#helpers)を呼びます。 このテンプレートアプリケーションでは、これらのヘルパーメソッドは[後のセクション](#define-the-helper-methods)で定義します。
 
@@ -220,7 +222,7 @@ before '/event_handler' do
 end
 ```
 
-#### ルートハンドラの定義
+### ルートハンドラの定義
 
 テンプレートコードには、空のルートが含まれています。 このコードは、`/event_handler`ルートへのすべての`POST`リクエストを処理します。 このクイックスタートではこのイベントハンドラは書きませんが、このテンプレートアプリケーションの拡張方法の例については他の[クイックスタートガイド](/apps/quickstart-guides/)を参照してください。
 
@@ -230,19 +232,19 @@ post '/event_handler' do
 end
 ```
 
-#### ヘルパーメソッドの定義
+### ヘルパーメソッドの定義
 
 このテンプレートのヘルパーメソッドは、最も難しい処理のほとんどを行います。 コードのこのセクションでは、4つのヘルパーメソッドが定義されています。
 
-##### webhookペイロードの処理
+#### webhookペイロードの処理
 
 最初のメソッドである`get_payload_request`は、webhookのペイロードをキャプチャしてJSON形式に変換し、ペイロードのデータにアクセスしやすくします。
 
-##### webhookの署名の検証
+#### webhookの署名の検証
 
 2番目のメソッドの`verify_webhook_signature`は、webhookの署名を検証して、そのイベントがGitHubが生成したものであることを確認します。 `verify_webhook_signature`ヘルパーメソッド中のコードについてさらに学ぶには、「[webhookをセキュアにする](/webhooks/securing/)」を参照してください。 webhookがセキュアであれば、このメソッドは受け取ったペイロードのすべてをターミナルに出力します。 ロガーのコードはWebサーバーが動作していることを確認するのに役立ちますが、後でいつでも取り除くことができます。
 
-##### GitHub Appとしての認証
+#### GitHub Appとしての認証
 
 API呼び出しを行うには、[Octokitライブラリ](http://octokit.github.io/octokit.rb/)を使います。 このライブラリで何か面白いことを行うには、あなた、あるいはむしろアプリケーションが認証を受ける必要があります。 GitHub Appには2つの認証方法があります。
 
@@ -288,7 +290,7 @@ end
 
 このコードは[JSON Webトークン（JWT）](https://jwt.io/introduction)を生成し、それを（アプリケーションの秘密鍵とともに）使ってOctokitクライアントを初期化します。 GitHubは、保存されたアプリケーションの公開鍵でトークンを検証することによって、リクエストの認証を確認します。 このコードの動作についてさらに学ぶには、「[GitHub Appとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してください。
 
-##### インストールとして認証を行う
+#### インストールとして認証を行う
 
 _インストール_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 ある人がアプリケーションを複数のリポジトリにインストールした場合でも、それらは同じアカウント内なので1つのインストールとしかカウントされません。 最後のヘルパーメソッドである`authenticate_installation`は、インストールとして認証された[Octokitクライアント](http://octokit.github.io/octokit.rb/Octokit/Client.html)を初期化します。 このOctokitクライアントは、認証されたAPI呼び出しを行うために使われます。
 
@@ -313,7 +315,7 @@ Octokitの[`create_app_installation_access_token`](http://octokit.github.io/octo
 
 これでAPI呼び出しを発行する準備ができました!
 
-### ステップ 6. サーバーの起動
+## ステップ 6. サーバーの起動
 
 このアプリケーションはまだなにも_行い_ませんが、この時点でサーバー上で動作させることができます。
 
@@ -355,7 +357,7 @@ $ ruby template_server.rb
 
 うまくいっています! これはエラーページではありますが、_Sinatra_のエラーページであり、期待どおりにアプリケーションがサーバーに接続されているということです。 このメッセージが表示されているのは、他に表示するものを何もアプリケーションに加えていないからです。
 
-### ステップ 7. アカウントへのアプリケーションのインストール
+## ステップ 7. アカウントへのアプリケーションのインストール
 
 サーバーがアプリケーションを待ち受けているかは、受信するイベントをトリガーすればテストできます。 テストできるシンプルなイベントは、自分のGitHubアカウントにアプリケーションをインストールしてみることで、そうすれば[`installation`](/webhooks/event-payloads/#installation)イベントが送信されます。 アプリケーションがそれを受信すれば、`template_server.rb`を起動したターミナルのタブに、何か出力されるでしょう。
 
@@ -382,7 +384,7 @@ $ ruby template_server.rb
 
 上記のターミナルの出力がどこから来るのか疑問に思うなら、それは`template_server.rb`中の[アプリケーションのテンプレートコード](#prerequisites)に書かれています。
 
-### トラブルシューティング
+## トラブルシューティング
 
 以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
@@ -422,11 +424,11 @@ $ ruby template_server.rb
 
 * **Q:** サーバーがイベントを待ち受けていません! Smeeクライアントはターミナルウィンドウで動作していて、アプリケーションをGitHubのリポジトリにインストールしていますが、サーバーを動作させているターミナルウィンドウに出力がありません。
 
-    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"でwebhookのペイロードをリダイレクトしたポートと一致させます。 If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
+    **A:** Smeeコマンドのパラメータが間違っていてSmeeクライアントが動作していないか、GitHub Appの設定に正しいSmeeのドメインがないかもしれません。 まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"でwebhookのペイロードをリダイレクトしたポートと一致させます。 いずれもうまくいかない場合は、`--path`と`--port`オプションを含む完全なSmeeコマンド (例: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (`https://smee.io/qrfeVRbFbffd6vD`を自分のSmeeドメインに置き換える)) を実行しているか確かめてください。
 
 * **Q:** デバッグ出力に`Octokit::NotFound` 404エラーが出ます。
     ```
-    2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
+    2018-12-06 15:00:56 - Octokit::NotFound - POST {% data variables.product.api_url_code %}/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
 
     **A:** `.env`ファイル内の変数が正しいことを確認してください。 `bash_profile`のような他の環境変数ファイルで同じ変数を設定していないことを確認してください。 アプリケーションが使用している環境変数は、アプリケーションのコードに`puts`文を追加して実行し直すことで確認できます。 たとえば、正しい秘密鍵が設定されているかを確認するには、アプリケーションのコードに`puts PRIVATE_KEY`を追加できます。
@@ -436,7 +438,7 @@ $ ruby template_server.rb
     puts PRIVATE_KEY
     ```
 
-### おわりに
+## おわりに
 
 このガイドを見終えれば、GitHub Appを開発するための基本的なビルディングブロックを学んだことになります! 振り返ると、以下を行いました。
 
@@ -446,6 +448,6 @@ $ ruby template_server.rb
 * GitHub Appとして認証
 * インストールとして認証
 
-### 次のステップ
+## 次のステップ
 
 これでGitHub Appをサーバー上で動作させることができました。 まだこれは特別なことは何もしていませんが、他の[クイックスタートガイド](/apps/quickstart-guides/)でGitHub Appテンプレートをカスタマイズする方法を調べてみてください。

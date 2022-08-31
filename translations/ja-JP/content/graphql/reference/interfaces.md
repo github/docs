@@ -4,14 +4,15 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### インターフェースについて
+## インターフェースについて
 
 [インターフェース](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces)は、他のオブジェクトが継承できる親オブジェクトとして働きます。
 
@@ -19,6 +20,4 @@ topics:
 
 詳しい情報については「[実装](/graphql/guides/introduction-to-graphql#implementation)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

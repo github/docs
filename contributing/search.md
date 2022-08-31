@@ -2,7 +2,7 @@
 
 ## Overview
 
-This site's search functionality is powered by [Algolia](https://www.algolia.com), a third-party service.
+This site's search functionality.
 
 To see all existing search-related issues and pull requests, visit [github.com/github/docs/labels/search](https://github.com/github/docs/labels/search).
 
@@ -14,7 +14,7 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 ## How to search
 
-The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
+The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts our search querying functionality. We recommend using this endpoint, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
 You can also query our search endpoint directly at: 
 `https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
  
@@ -33,49 +33,37 @@ https://docs.github.com/search?version=dotcom&language=en&filters=topics:'oauth 
 
 ### Using the topics search filter
 
-Using the attribute `topics` in your query will only return results that have the matching topic value. The `topics` attribute is configured as a [`filter only` facet in Algolia](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/). When the topic contains spaces, you must use quotes. For Algolia, [here](https://www.algolia.com/doc/api-reference/api-parameters/filters/#handle-attributes-with-spaces) is an example for filters containing spaces. Algolia also requires [boolean operators](https://www.algolia.com/doc/api-reference/api-parameters/filters) to combine more than one filter. 
+Using the attribute `topics` in your query will only return results that have the matching topic value. When the topic contains spaces, you must use quotes. Filters with spaces or combining filters requires special syntax.
 
 ## Production deploys
 
-A [GitHub Actions workflow](.github/workflows/sync-algolia-search-indices.yml) triggered by pushes to the `main` branch syncs the search data to Algolia. This process generates structured data for all pages on the site, compares that data to what's currently on Algolia, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](.github/workflows/sync-search-indices.yml) that runs every four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
-The Actions workflow progress can be viewed (by GitHub employees) in the [Actions tab](https://github.com/github/docs/actions?query=workflow%3AAlgolia) of the repo.
+The Actions workflow progress can be viewed (by GitHub employees) in the [Actions tab](https://github.com/github/docs/actions?query=workflow%3Asearch) of the repo.
 
-Because the workflow runs after a branch is merged to `main`, there is a slight delay for search data updates to appear on the site.
+## Manually triggering the search index update workflow
 
-## Manual sync from a checkout
+You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
 
-It is also possible to manually sync the indices to Algolia from your local checkout of the repo, before your branch is merged to `main`.
+## Generating search indexes for your local checkout
 
-**Prerequisite:** Make sure the environment variables `ALGOLIA_APPLICATION_ID` and `ALGOLIA_API_KEY` are set in your `.env` file. You can find these values on [Algolia](https://www.algolia.com/apps/ZI5KPY1HBE/api-keys/all).
+You can locally generate search indexes, but please do not check them into your local branch because they can get out-of-sync with the `main` branch quickly.
 
-### Build without sync (dry run)
-
-To build all the indices without uploading them to Algolia's servers (this takes about an hour):
-```
-npm run sync-search-dry-run
-```
-To build indices for a specific language and/or version (this is much faster):
-```
-VERSION=<PLAN@RELEASE> LANGUAGE=<TWO-LETTER CODE> npm run sync-search-dry-run
-```
-You can set `VERSION` and `LANGUAGE` individually, too.
-
-Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`.
+To locally generate the English version of the Dotcom search index locally, run `LANGUAGE=en VERSION=free-pro-team@latest npm run sync-search`. See [Build and sync](#build-and-sync) below for more details. To revert those files run `git checkout lib/search/indexes`.
 
 ### Build and sync
 
-To build all the indices and sync them to Algolia (this also takes about an hour):
+To build all the indices (this takes about an hour):
 ```
 npm run sync-search
 ```
-To build indices for a specific language and/or version and sync them to Algolia:
+To build indices for a specific language and/or version and sync them:
 ```
 VERSION=<PLAN@RELEASE LANGUAGE=<TWO-LETTER CODE> npm run sync-search
 ```
 You can set `VERSION` and `LANGUAGE` individually, too.
 
-Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`.
+Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`. Languages and versions are lowercase. The options for version are currently `free-pro-team`, `github-ae`, and `enterprise-server`.
 
 ## Label-triggered Actions workflow
 
@@ -95,17 +83,16 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ### Actions workflow files
 
-- [`.github/workflows/sync-algolia-search-indices.yml`](.github/workflows/sync-algolia-search-indices.yml) - Builds and syncs search indices whenever the `main` branch is pushed to (that is, on production deploys).
-- [`.github/workflows/dry-run-sync-algolia-search-indices.yml`](.github/workflows/dry-run-sync-algolia-search-indices.yml) - This workflow can be run manually (via `workflow_dispatch`) to do a dry run build of all the indices. Useful for confirming that the indices can build without erroring out.
-- [`.github/workflows/sync-single-english-algolia-index.yml`](.github/workflows/sync-single-english-algolia-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
+- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are committed directly to the `main` branch on both the `github/docs-internal` and `github/docs` repositories. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml).
+- [`.github/workflows/sync-single-english-index.yml`](.github/workflows/sync-single-english-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
 
 ### Code files
 
-- [javascripts/search.js](javascripts/search.js) - The browser-side code that enables search.
-- [lib/search/algolia-client.js](lib/search/algolia-client.js) - A thin wrapper around the [algoliasearch](https://ghub.io/algoliasearch) Node.js module for interacting with the Algolia API.
-- [lib/search/algolia-search-index.js](lib/search/algolia-search-index.js) - A class for generating structured search data from repository content and syncing it with the remote Algolia service. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
-- [script/sync-search-indices.js](script/sync-search-indices.js) - The script used by the Actions workflow to update search indices on our Algolia account. This can also be [run in the development environment](#development).
-- [tests/algolia-search.js](tests/algolia-search.js) - Tests!
+- [components/lib/search.ts](components/lib/search.ts) - The browser-side code that enables search.
+- [lib/search/client.js](lib/search/client.js) - A thin wrapper around the Node.js module for interacting with the search API.
+- [lib/search/search-index.js](lib/search/search-index.js) - A class for generating structured search data from repository content and syncing it. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
+- [script/sync-search-indices.js](script/sync-search-indices.js) - The script used by the Actions workflow to update search indices. This can also be [run in the development environment](#development).
+- [tests/content/search.js](tests/content/search.js) - Tests!
 
 ## Indices
 
@@ -144,7 +131,8 @@ Each record represents a section of a page. Sections are derived by splitting up
 
 ## Notes
 
-- It's not strictly necessary to set an `objectID` as Algolia will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
-- Algolia has typo tolerance. Try spelling something wrong and see what you get!
-- Algolia has lots of controls for customizing each index, so we can add weights to certain attributes and create rules like "title is more important than body", etc. But it works pretty well as-is without any configuration.
-- Algolia has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default but we have it enabled in our browser client. This and many other settings can be configured in Algolia.com web interface. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.js]([middleware/search.js).
+- It's not strictly necessary to set an `objectID` as the search index will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
+- Our search querying has typo tolerance. Try spelling something wrong and see what you get!
+- Our search querying has lots of controls for customizing each index, so we can add weights to certain attributes and create rules like "title is more important than body", etc. But it works pretty well as-is without any configuration.
+- Our search querying has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default but we have it enabled in our browser client. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.js]([middleware/search.js).
+- When needed, the Docs Engineering team can commit updates to the search index, as long as the label `skip-index-check` is applied to the PR.

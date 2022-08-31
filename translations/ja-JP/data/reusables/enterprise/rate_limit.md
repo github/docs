@@ -1,4 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-上記の制限は
-{% data variables.product.product_name %}のデフォルトのレート制限であることに注意してください。 レート制限が有効化されており、どのように設定されているかを確認するにはサイト管理者に連絡してください。
+{% ifversion ghes %}
+
+{% note %}
+
+**ノート**: 以下のレート制限は、{% data variables.product.product_name %}のデフォルトのレート制限です。 {% data variables.product.product_location %}のレート制限を確認するには、サイト管理者に連絡してください。
+
+{% endnote %}
+
 {% endif %}

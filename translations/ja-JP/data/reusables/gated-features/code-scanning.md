@@ -1,6 +1,13 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_code_scanning_capc %}は、Organizationが所有する{% data variables.product.prodname_GH_advanced_security %}が有効化されたすべてのパブリック及びプライベートリポジトリで利用できます。
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_code_scanning_capc %}は、Organizationが所有するリポジトリで{% data variables.product.prodname_GH_advanced_security %}が有効化されていれば利用できます。
-{%- elsif currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_code_scanning_capc %}は、ベータリリースの間は無料の{% data variables.product.prodname_GH_advanced_security %}の一部として利用できます。
-{%- else %}
-{% data variables.product.prodname_code_scanning_capc %}は、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら利用できます。{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{%- ifversion fpt %}
+{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_code_scanning_capc %} is also available for private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghec %}
+{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. To use {% data variables.product.prodname_code_scanning %} in a private repository owned by an organization, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghes %}
+{% data variables.product.prodname_code_scanning_capc %} is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghae %}
+{% data variables.product.prodname_code_scanning_capc %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+
+{%- endif %} For more information, see "[GitHub's products](/articles/githubs-products)."

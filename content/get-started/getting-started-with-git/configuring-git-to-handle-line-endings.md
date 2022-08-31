@@ -2,9 +2,9 @@
 title: Configuring Git to handle line endings
 intro: 'To avoid problems in your diffs, you can configure Git to properly handle line endings.'
 redirect_from:
-  - /dealing-with-lineendings/
-  - /line-endings/
-  - /articles/dealing-with-line-endings/
+  - /dealing-with-lineendings
+  - /line-endings
+  - /articles/dealing-with-line-endings
   - /articles/configuring-git-to-handle-line-endings
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings
@@ -13,8 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Handle line endings
 ---
+## About line endings
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 
 When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.

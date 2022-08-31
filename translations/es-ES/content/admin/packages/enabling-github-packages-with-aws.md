@@ -2,9 +2,14 @@
 title: Habilitar GitHub packages con AWS
 intro: 'Configura el {% data variables.product.prodname_registry %} con AWS como tu almacenamiento externo.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Packages
+  - Packages
+shortTitle: Habilitar los paquetes con AWS
 ---
 
 {% warning %}
@@ -16,7 +21,7 @@ topics:
 
 {% endwarning %}
 
-### Prerrequisitos
+## Prerrequisitos
 
 Antes de que puedas habilitar y configurar el {% data variables.product.prodname_registry %} en {% data variables.product.product_location_enterprise %}, necesitas preparar tu bucket de almacenamiento de AWS. Para preparar tu bucket de almacenamiento de AWS, te recomendamos consultar los documentos oficiales de AWS en la [documentación de AWS](https://docs.aws.amazon.com/index.html).
 
@@ -29,20 +34,14 @@ Asegúrate de que la ID de tu clave y secreto de acceso de AWS tengan los siguie
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de AWS
+## Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de AWS
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% if currentVersion == "enterprise-server@2.22" %}
-1. Debajo de "AWS Service URL", teclea la URL de la terminal de S3 para la región de tu espacio. ![Campo de URL de servicio de AWS](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Debajo de "AWS S3 Bucket", teclea el nombre del espacio de S3 que quieras utilizar para almacenar artefactos de los paquetes. ![Campo de espacio de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Debajo de "AWS S3 Access Key", teclea tu clave de acceso para S3. ![Campo de clave de acceso de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Debajo de "AWS S3 Secret Key", teclea tu clave secreta para S3. ![Campo de clave secreta de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Debajo de "AWS S3 Region", teclea tu región para S3. ![Campo de región de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+
+{% ifversion ghes %}
 1. Debajo de "Almacenamiento de Paquetes", selecciona **Amazon S3** e ingresa los detalles de tu bucket de almacenamiento:
     - **AWS Service URL:** La URL de servicio para tu bucket. Por ejemplo, si tu bucket de S3 se creó en la `us-west-2 region`, este valor deberá ser `https://s3.us-west-2.amazonaws.com`.
 
@@ -57,6 +56,6 @@ Asegúrate de que la ID de tu clave y secreto de acceso de AWS tengan los siguie
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Pasos siguientes
+## Pasos siguientes
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

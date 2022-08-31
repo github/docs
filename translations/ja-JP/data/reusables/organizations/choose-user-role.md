@@ -1,1 +1,1 @@
-1. 招待している人がOrganizationのメンバーだったことがないか、その権限をあなたがクリアしたなら、そのユーザのロールを選択してください。 ![ユーザをメンバーもしくはオーナーにするオプション](/assets/images/help/organizations/choose-new-member-role.png)
+1. 招待している人がOrganizationのメンバーだったことがない、あるいはその人の権限をクリア済みなら、そのユーザのOrganizationのロールを選択してください。 ![ユーザをメンバーもしくはオーナーにするオプション](/assets/images/help/organizations/choose-new-member-role.png)

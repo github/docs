@@ -65,7 +65,7 @@ export const ProductLanding = () => {
       )}
 
       {featuredLinks.guideCards?.length > 0 && (
-        <div className="color-bg-tertiary py-6">
+        <div className="color-bg-subtle py-6">
           <LandingSection title={t('guides')} sectionLink="guides-2" className="my-6">
             <GuideCards />
           </LandingSection>

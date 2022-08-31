@@ -6,7 +6,7 @@
 
 コメントに対するレスポンスのスレッド化されたコメントを、ディスカッションに対する回答としてマークすることはできません。 また、最小化されたコメントをディスカッションへの回答としてマークすることもできません。
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. ディスカッションのリスト中で、回答済みとしてマークしたい未回答のディスカッションをクリックしてください。 ![未回答のディスカッション](/assets/images/help/discussions/unanswered-discussion.png)
 1. ディスカッション中で、回答としてマークしたいコメントを見つけてください。

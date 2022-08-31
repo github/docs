@@ -1,26 +1,27 @@
 ---
 title: 创建预接收挂钩脚本
 intro: 使用预接收挂钩脚本创建基于内容来接受或拒绝推送的要求。
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
   - /admin/policies/creating-a-pre-receive-hook-script
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: 预接收挂钩脚本
 ---
 
 您可以在 [`github/platform-samples` 仓库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {% data variables.product.prodname_ghe_server %} 的预接收挂钩示例。
 
-### 编写预接收挂钩脚本
+## 编写预接收挂钩脚本
 预接收挂钩脚本在 {% data variables.product.product_location %} 上的预接收挂钩环境中执行。 创建预接收挂钩脚本时，请考虑可用的输入、输出、退出状态和环境变量。
 
-#### 输入 (`stdin`)
+### 输入 (`stdin`)
 推送发生后，在为远程仓库更新任何引用之前，在 {% data variables.product.product_location %} 上的 `git-receive-pack` 进程将调用预接收挂钩脚本。 脚本 `stdin` 的标准输入是一个字符串，对每个要更新的 ref 包含一行。 每行都包含 ref 的旧对象名称、引用的新对象名称和 ref 的全名。
 
 ```
@@ -37,11 +38,11 @@ topics:
 
 有关 `git-receive-pack` 的更多信息，请参阅 Git 文档中的“[git-receive-pack](https://git-scm.com/docs/git-receive-pack)”。 有关 ref 的更多信息，请参阅 *Pro Git* 中的“[Git 引用](https://git-scm.com/book/en/v2/Git-Internals-Git-References)”。
 
-#### 输出 (`stdout`)
+### 输出 (`stdout`)
 
 脚本 `stdout` 的标准输出传回客户端。 任何 `echo` 语句将在命令行或用户界面上对用户可见。
 
-#### 退出状态
+### 退出状态
 
 预接收脚本的退出状态决定是否接受推送。
 
@@ -50,7 +51,7 @@ topics:
 | 0             | 将接受推送。 |
 | 非零            | 将拒绝推送。 |
 
-#### 环境变量
+### 环境变量
 
 除了预接收挂钩脚本 `stdin` 的标准输入外，，{% data variables.product.prodname_ghe_server %} 在 Bash 环境中为您的脚本执行提供以下变量。 有关预接收钩脚本 `stdin` 的更多信息，请参阅“[输入 (`stdin`)](#input-stdin)”。
 
@@ -61,7 +62,7 @@ topics:
 - [可用于拉取请求合并](#available-for-pull-request-merges)
 - [可用于使用 SSH 身份验证的推送](#available-for-pushes-using-ssh-authentication)
 
-##### 始终可用
+#### 始终可用
 
 以下变量在预接收挂钩环境中始终可用。
 
@@ -69,40 +70,36 @@ topics:
 |:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
 | <pre>$GIT_DIR</pre> | 实例上远程仓库的路径                                                                                                                                                                                                                  | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
 | <pre>$GIT_PUSH_OPTION_COUNT</pre> | 由客户端使用 `--pub-option` 发送的推送选项数量。 更多信息请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)”。                                                                        | 1                                                                  |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | 其中 _N_ 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 `GIT_PUSH_OPTION_0` 中，发送的第二个选项存储在 `GIT_PUSH_OPTION_1` 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 | abcd |{% if currentVersion ver_gt "enterprise-server@2.21" %}
+| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | 其中 _N_ 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 `GIT_PUSH_OPTION_0` 中，发送的第二个选项存储在 `GIT_PUSH_OPTION_1` 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 | abcd |{% ifversion ghes %}
 | <pre>$GIT_USER_AGENT</pre> | 推送更改的 Git 客户端发送的 user-agent 字符串。                                                                                                                                                                                            | git/2.0.0{% endif %}
 | <pre>$GITHUB_REPO_NAME</pre> | 以 _NAME_/_OWNER_ 格式更新的仓库名称                                                                                                                                                                                                  | octo-org/hello-enterprise                                          |
 | <pre>$GITHUB_REPO_PUBLIC</pre> | 表示更新的仓库是否公开的布尔值                                                                                                                                                                                                             | <ul><li>true：仓库的可见性是公开的</li><li>false：仓库的可见性是私密或内部的</li></ul>                                          |
 | <pre>$GITHUB_USER_IP</pre> | 发起推送的客户端 IP 地址                                                                                                                                                                                                              | 192.0.2.1                                                          |
 | <pre>$GITHUB_USER_LOGIN</pre> | 发起推送的帐户的用户名                                                                                                                                                                                                                 | octocat                                                            |
 
-##### 可用于从 Web 界面或 API 推送
+#### 可用于从 Web 界面或 API 推送
 
 当触发挂钩的 ref 更新通过 {% data variables.product.prodname_ghe_server %} 的 Web 界面或 API 进行时，`$GITHUB_VIA` 变量可用于预接收挂钩环境。 该值描述了更新 ref 的操作。
 
-| 值                          | 操作                                            | 更多信息                                                                                                                                              |
-|:-------------------------- |:--------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre>auto-merge deployment api</pre>  | 通过 API 创建的部署自动合并基础分支                          | REST API 文档中的“[仓库](/rest/reference/repos#create-a-deployment)”                                                                                    |
-| <pre>blob edit</pre> | 在 Web 界面中更改文件的内容                              | "[编辑仓库中的文件](/github/managing-files-in-a-repository/editing-files-in-your-repository)"                                                             |
-| <pre>branch merge api</pre> | 通过 API 合并分支                                   | REST API 文档中的“[仓库](/rest/reference/repos#merge-a-branch)”                                                                                         |
-| <pre>branches page delete button</pre> | 在 Web 界面中删除分支                                 | “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”      |
-| <pre>git refs create api</pre> | 通过 API 创建 ref                                 | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-reference)”                                                                                  |
-| <pre>git refs delete api</pre> | 通过 API 删除 ref                                 | REST API 文档中的“[Git 数据库](/rest/reference/git#delete-a-reference)”                                                                                  |
-| <pre>git refs update api</pre> | 通过 API 更新 ref                                 | REST API 文档中的“[Git 数据库](/rest/reference/git#update-a-reference)”                                                                                  |
-| <pre>git repo contents api</pre> | 通过 API 更改文件的内容                                | REST API 文档中的“[仓库](/rest/reference/repos#create-or-update-file-contents)”                                                                         |
-| <pre>merge base into head</pre> | 当基础分支需要严格的状态检查时，从基础分支更新主题分支（通过拉取请求中的**更新分支**） | "[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)"                                     |
-| <pre>pull request branch delete button</pre> | 在 Web 界面中从拉取请求中删除主题分支                         | "[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
-| <pre>pull request branch undo button</pre> | 在 Web 界面中从拉取请求中恢复主题分支                         | "[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)"                |
-| <pre>pull request merge api</pre> | 通过 API 合并拉取请求                                 | REST API 文档中的“[拉取](/rest/reference/pulls#merge-a-pull-request)”                                                                                   |
-| <pre>pull request merge button</pre> | Web 界面中拉取请求的合并                                | "[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)"                           |
-| <pre>拉取请求还原按钮</pre> | 还原拉取请求                                        | "[接收拉取请求](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"                                                          |
-| <pre>releases delete button</pre> | 删除发行版                                         | “[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)”                                            |
-| <pre>stafftools branch restore</pre> | 从站点管理员仪表板中还原分支                                | "[站点管理员仪表板](/admin/configuration/site-admin-dashboard#repositories)"                                                                              |
-| <pre>tag create api</pre> | 通过 API 创建标签                                   | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-tag-object)”                                                                                 |
-| <pre>slumlord (#<em>SHA</em>)</pre> | 通过 Subversion 提交                              | "[支持 Subversion 客户端](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)"                      |
-| <pre>web branch create</pre> | 通过 Web 界面创建分支                                 | “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”      |
+| 值                          | 操作                   | 更多信息                                                                                                                                         |
+|:-------------------------- |:-------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------- |
+| <pre>auto-merge deployment api</pre>  | 通过 API 创建的部署自动合并基础分支 | REST API 文档中的“[创建部署](/rest/reference/deployments#create-a-deployment)”                                                                       |
+| <pre>blob#save</pre> | 在 Web 界面中更改文件的内容     | "[编辑文件](/repositories/working-with-files/managing-files/editing-files)"                                                                      |
+| <pre>branch merge api</pre> | 通过 API 合并分支          | REST API 文档中的“[合并分支](/rest/reference/branches#merge-a-branch)”                                                                               |
+| <pre>branches page delete button</pre> | 在 Web 界面中删除分支        | “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)” |
+| <pre>git refs create api</pre> | 通过 API 创建 ref        | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-reference)”                                                                             |
+| <pre>git refs delete api</pre> | 通过 API 删除 ref        | REST API 文档中的“[Git 数据库](/rest/reference/git#delete-a-reference)”                                                                             |
+| <pre>git refs update api</pre> | 通过 API 更新 ref        | REST API 文档中的“[Git 数据库](/rest/reference/git#update-a-reference)”                                                                             |
+| <pre>git repo contents api</pre> | 通过 API 更改文件的内容       | REST API 文档中的“[创建或更新文件内容](/rest/reference/repos#create-or-update-file-contents)”                                                             |
 
-##### 可用于拉取请求合并
+{%- ifversion ghes %}
+| 
+
+`merge` | 使用 auto-merge 合并拉取请求 | "[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
+{%- endif %}
+| <pre>merge base into head</pre> |当基本分支需要严格的状态检查时，从基本分支更新主题分支（例如，通过拉取请求中的**更新分支**）|"[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)"| | <pre>pull request branch delete button</pre> |从 Web 界面中的拉取请求中删除主题分支|"[在拉取请求中删除和恢复分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)"| | <pre>pull request branch undo button</pre> |从 Web 界面中的拉取请求恢复主题分支|"[在拉取请求中删除和恢复分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)"| | <pre>pull request merge api</pre> |通过 API 合并拉取请求|REST API 文档中的“[拉取](/rest/reference/pulls#merge-a-pull-request)”| | <pre>pull request merge button</pre> |在 Web 界面中合并拉取请求|"[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)"| | <pre>拉取请求还原按钮</pre> |还原拉取请求|"[](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"还原拉取请求"| | <pre>releases delete button</pre> |删除发行版|"[管理存储库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" | | <pre>stafftools branch restore</pre> |从站点管理仪表板还原分支|"[站点管理仪表板](/admin/configuration/site-admin-dashboard#repositories)" | | <pre>tag create api</pre> |通过 API |创建标签|REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-tag-object)”| | <pre>slumlord (#<em>SHA</em>)</pre> |通过 Subversion 提交| "[支持 Subversion 客户端](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" | | <pre>web branch create</pre> | 通过 web 接口创建分支 | "[在仓库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)|
+
+#### 可用于拉取请求合并
 
 当触发挂钩的推送由于拉取请求请求合并而成为推送时，以下变量在预接收挂钩环境中可用。
 
@@ -112,13 +109,13 @@ topics:
 | <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | 拉取请求的主题分支的名称，格式为 `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
 | <pre>$GITHUB_PULL_REQUEST_BASE</pre> | 拉取请求的基础分支的名称，格式为 `USERNAME:BRANCH` | octocat:main                 |
 
-##### 可用于使用 SSH 身份验证的推送
+#### 可用于使用 SSH 身份验证的推送
 
 | 变量                         | 描述           | 示例值                                             |
 |:-------------------------- |:------------ |:----------------------------------------------- |
 | <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | 推送更改的用户的公钥指纹 | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
-### 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
+## 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
 {% data variables.product.product_location %} 上的仓库中包含预接收挂钩脚本。 站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
 
@@ -142,9 +139,9 @@ topics:
    $ git push
    ```
 
-3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
+3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
 
-### 在本地测试预接收脚本
+## 在本地测试预接收脚本
 在 {% data variables.product.product_location %} 上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。 一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
 
 {% data reusables.linux.ensure-docker %}
@@ -255,5 +252,5 @@ topics:
 
    请注意，在执行预接收挂钩并回显脚本中的输出后，将拒绝推送。
 
-### 延伸阅读
+## 延伸阅读
  - 来自 *Pro Git 网站*的“[自定义 Git - Git 强制实施策略示例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)”

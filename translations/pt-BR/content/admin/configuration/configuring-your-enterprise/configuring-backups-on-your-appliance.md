@@ -2,21 +2,21 @@
 title: Configurar backups no appliance
 shortTitle: Configuração de backups
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
-  - /enterprise/admin/articles/backup-and-recovery/
-  - /enterprise/admin/articles/backing-up-github-enterprise/
-  - /enterprise/admin/articles/restoring-github-enterprise/
-  - /enterprise/admin/articles/backing-up-repository-data/
-  - /enterprise/admin/articles/restoring-enterprise-data/
-  - /enterprise/admin/articles/restoring-repository-data/
-  - /enterprise/admin/articles/backing-up-enterprise-data/
-  - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
+  - /enterprise/admin/categories/backups-and-restores
+  - /enterprise/admin/articles/backup-and-recovery
+  - /enterprise/admin/articles/backing-up-github-enterprise
+  - /enterprise/admin/articles/restoring-github-enterprise
+  - /enterprise/admin/articles/backing-up-repository-data
+  - /enterprise/admin/articles/restoring-enterprise-data
+  - /enterprise/admin/articles/restoring-repository-data
+  - /enterprise/admin/articles/backing-up-enterprise-data
+  - /enterprise/admin/guides/installation/backups-and-disaster-recovery
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
 intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location %} configurando backups automatizados.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Backups
@@ -25,7 +25,7 @@ topics:
   - Infrastructure
 ---
 
-### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
+## Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
 
 O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup a ser instalado em um host separado, que tira instantâneos de backup da {% data variables.product.product_location %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.
 
@@ -33,7 +33,7 @@ Somente os dados adicionados desde o último instantâneo serão transferidos pe
 
 Para obter informações mais detalhadas sobre recursos, requisitos e uso avançado, consulte o [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
-### Pré-requisitos
+## Pré-requisitos
 
 Para usar o {% data variables.product.prodname_enterprise_backup_utilities %}, você deve ter um sistema host Linux ou Unix separado da {% data variables.product.product_location %}.
 
@@ -51,7 +51,7 @@ Os requisitos de armazenamento físico variam com base no uso do disco do reposi
 
 Podem ser necessários mais recursos dependendo do uso, como atividade do usuário e integrações selecionadas.
 
-### Instalar o {% data variables.product.prodname_enterprise_backup_utilities %}
+## Instalar o {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% note %}
 
@@ -65,36 +65,51 @@ Podem ser necessários mais recursos dependendo do uso, como atividade do usuár
   ```
 2. Copie o arquivo `backup.config-example` para `backup.config` e abra em um editor.
 3. Defina o valor `GHE_HOSTNAME` para o nome de host ou endereço IP da instância primária do {% data variables.product.prodname_ghe_server %}.
+
+  {% note %}
+
+  **Observação:** Se o seu {% data variables.product.product_location %} for implantado como um cluster ou em uma configuração de alta disponibilidade usando um balanceador de carga, o `GHE_HOSTNAME` poderá ser o nome de host do balanceador da carga, desde que permita o acesso SSH (na porta 122) a {% data variables.product.product_location %}.
+
+  {% endnote %}
+
 4. Defina o valor `GHE_DATA_DIR` no local do arquivo do sistema onde você deseja arquivar os instantâneos de backup.
-5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-5. Verifique a conectividade SSH com a {% data variables.product.product_location %} usando o comando `ghe-host-check`.
+5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+6. Verifique a conectividade SSH com a {% data variables.product.product_location %} usando o comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
   ```
-  6. Para criar um backup completo inicial, execute o comando `ghe-backup`.
+  7. Para criar um backup completo inicial, execute o comando `ghe-backup`.
   ```shell
   $ bin/ghe-backup        
   ```
 
 Para obter mais informações sobre uso avançado, consulte o [arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
-### Programar um backup
+## Programar um backup
 
 É possível programar backups regulares no host de backup com o comando `cron(8)` ou um serviço de agendamento semelhante. A frequência configurada determinará o objetivo do ponto de recuperação (RPO) nos piores cenários do seu plano de recuperação. Por exemplo, ao programar backups diários à meia-noite, você pode perder até 24 horas de dados em caso de desastre. É recomendável começar com backups a cada hora, garantindo a possibilidade de perdas menores (no máximo de uma hora) caso os dados primários do site sejam destruídos.
 
 Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será interrompido com uma mensagem de erro, informando a existência de um backup simultâneo. Nesse caso, é recomendável diminuir a frequência dos backups programados. Para obter mais informações, consulte a seção "Agendar backups" do [ arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
 
-### Restaurar um backup
+## Restaurar um backup
 
 Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
 
-{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% ifversion ghes %}
 {% note %}
 
 **Nota:** Se {% data variables.product.product_location %} tiver {% data variables.product.prodname_actions %} habilitado, você deverá primeiro configurar o provedor de armazenamento externo de {% data variables.product.prodname_actions %} no aplicativo de substituição antes de executar o comando `ghe-restore`. Para obter mais informações, consulte "[Backup e restauração de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %} ativado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 {% endnote %}
 {% endif %}
+
+{% note %}
+
+**Observação:** Ao executar backup para {% data variables.product.product_location %}, aplicam-se as mesmas regras de suporte de versão. Você só pode restaurar dados de no máximo duas versões do recursos para trás.
+
+Por exemplo, se você receber um backup do GHES 3.0.x, você poderá restaurá-lo em uma instância GHES 3.2.x. No entanto, você não poderá restaurar dados de um backup do GHES 2.22.x para 3.2., porque seriam três saltos entre as versões (2.22 > 3.0 > 3.1 > 3.2). Primeiro, você deverá restaurar em uma instância de 3.1.x e, em seguida, atualizar para 3.2.x.
+
+{% endnote %}
 
 Para restaurar a {% data variables.product.product_location %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
 
@@ -115,6 +130,10 @@ $ ghe-restore -c 169.154.1.1
 > Acesse https://169.154.1.1/setup/settings para revisar a configuração do appliance.
 ```
 
+{% ifversion ip-exception-list %}
+Opcionalmente, para validar a restauração, configure uma lista de exceções IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, consulte "[Validando as alterações no modo de manutenção usando a lista de exceção de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
+
 {% note %}
 
 **Observação:** as configurações de rede são excluídas do instantâneo de backup. Você deve configurar manualmente a rede no appliance de destino do {% data variables.product.prodname_ghe_server %} conforme o seu ambiente.
@@ -122,5 +141,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Você pode usar estas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usando comandos de backup e restauração" do [LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - O sinalizador `-s` permite selecionar outro instantâneo de backup.

@@ -1,58 +1,62 @@
 ---
-title: Instalar el servidor de GitHub Enterprise en XenServer
-intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en XenServer, debes implementar la imagen de disco {% data variables.product.prodname_ghe_server %} a un servidor XenServer.'
+title: Installing GitHub Enterprise Server on XenServer
+intro: 'To install {% data variables.product.prodname_ghe_server %} on XenServer, you must deploy the {% data variables.product.prodname_ghe_server %} disk image to a XenServer host.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  enterprise-server: '*'
+  ghes: <=3.2
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Install on XenServer
 ---
 
 {% note %}
 
-  **Note:** Support for {% data variables.product.prodname_ghe_server %} on XenServer will be discontinued in {% data variables.product.prodname_ghe_server %} 3.3. Para obtener más información, consulta la sección de [notas de lanzamiento para {% data variables.product.prodname_ghe_server %} 3.1](/admin/release-notes#3.1.0)
+  **Note:** Support for {% data variables.product.prodname_ghe_server %} on XenServer will be discontinued in {% data variables.product.prodname_ghe_server %} 3.3. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.1 release notes](/admin/release-notes#3.1.0)
 
 {% endnote %}
 
-### Prerrequisitos
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- Debes instalar el XenServer Hypervisor en la máquina que ejecutará tu máquina virtual (VM) {% data variables.product.prodname_ghe_server %}. Admitimos versiones 6.0 a 7.0.
-- Recomendamos utilizar XenCenter Windows Management Console para la configuración inicial. Abajo se incluyen instrucciones utilizando XenCenter Windows Management Console. Para obtener más información, consulta la guía de Citrix "[Cómo descargar e instalar una nueva versión de XenCenter](https://support.citrix.com/article/CTX118531)."
+- You must install the XenServer Hypervisor on the machine that will run your {% data variables.product.prodname_ghe_server %} virtual machine (VM). We support versions 6.0 through 7.0.
+- We recommend using the XenCenter Windows Management Console for initial setup. Instructions using the XenCenter Windows Management Console are included below. For more information, see the Citrix guide "[How to Download and Install a New Version of XenCenter](https://support.citrix.com/article/CTX118531)."
 
-### Consideraciones relativas al hardware
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Descargar la imagen {% data variables.product.prodname_ghe_server %}
+## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecciona {% data variables.product.prodname_dotcom %} local, después haz clic en **XenServer (VHD)**.
-5. Para descargar tu archivo de licencia, haz clic en **Download license (Descargar licencia)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **XenServer (VHD)**.
+5. To download your license file, click **Download license**.
 
-### Crear la instancia {% data variables.product.prodname_ghe_server %}
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. En XenCenter, importa la imagen {% data variables.product.prodname_ghe_server %} que descargaste. Para obtener instrucciones, consulta la guía de XenCenter "[Importar imágenes de disco](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)."
-    - Para el paso "Enable Operating System Fixup (Habilitar Ajuste del sistema en funcionamiento)", selecciona **Don't use Operating System Fixup (No usar Ajuste del sistema en funcionamiento)**.
-    - Deja la VM apagada cuando hayas finalizado.
-{% data reusables.enterprise_installation.create-attached-storage-volume %} Para obtener instrucciones, consulta la guía de XenCenter "[Agregar discos virtuales](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)."
+1. In XenCenter, import the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the XenCenter guide "[Import Disk Images](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)."
+    - For the "Enable Operating System Fixup" step, select **Don't use Operating System Fixup**.
+    - Leave the VM powered off when you're finished.
+{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the XenCenter guide "[Add Virtual Disks](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)."
 
-### Configurar la instancia de {% data variables.product.prodname_ghe_server %}
+## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para obtener más información, consulta "[Configurar el aparato de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Leer más
+## Further reading
 
-- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

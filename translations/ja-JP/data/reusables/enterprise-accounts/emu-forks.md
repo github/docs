@@ -1,0 +1,1 @@
+{% data variables.product.prodname_managed_users_caps %}は、Enteprise外からリポジトリをフォークしたり、インターナルリポジトリをフォークしたりすることはできません。 {% data variables.product.prodname_managed_users_caps %}は、Enterprise内のOrganizationが所有するプライベートリポジトリを、そのEnterpriseが所有する他のOrganizationに、あるいは{% data variables.product.prodname_managed_user %}が所有するフォークとしてフォークできます。

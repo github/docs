@@ -1,11 +1,12 @@
 ---
-title: Crear equipos
-intro: 'Los equipos les permiten a las organizaciones crear grupos de miembros y controlar el acceso a los repositorios. A los miembros del equipo se les pueden otorgar permisos de lectura, escritura o administración para repositorios específicos.'
+title: Creating teams
+intro: 'Teams give organizations the ability to create groups of members and control access to repositories. Team members can be granted read, write, or admin permissions to specific repositories.'
 redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -13,19 +14,18 @@ topics:
   - Teams
   - User account
 ---
+Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-Los equipos son centrales para muchas de las características colaborativas de {% data variables.product.prodname_dotcom %}, como las @menciones del equipo para notificar a las partes correspondientes que les quieres solicitar su colaboración o atención. Para obtener más información, consulta "[Niveles de permisos para el repositorio de una organizazión](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
 
-Un equipo puede representar a un grupo dentro de tu empresa o incluir personas con ciertos intereses o experiencia. Por ejemplo, un equipo de expertos en accesibilidad en {% data variables.product.product_location %} podría estar compuesto por personas de diferentes departamentos. Los equipos pueden representar inquietudes de carácter funcional que complementan la jerarquía divisional existente de una empresa.
+Organizations can create multiple levels of nested teams to reflect a company or group's hierarchy structure. For more information, see "[About teams](/enterprise/user/articles/about-teams/#nested-teams)."
 
-Las organizaciones pueden crear varios niveles de equipos anidados para reflejar la estructura de jerarquía de una empresa o grupo. Para obtener más información, consulta "[Acerca de los equipos](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)".
+## Creating a team
 
-### Crear un equipo
-
-Una combinación prudente de equipos es una manera eficaz de controlar el acceso a los repositorios. Por ejemplo, si tu organización solo permite que tu equipo de ingeniería en lanzamientos suba código a la rama predeterminada de cualquier repositorio, puedes otorgar únicamente a este equipo el permiso de **administrador** para los repositorios de tu organización y darle al resto de los equipos permisos de **lectura**.
+A prudent combination of teams is a powerful way to control repository access. For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
@@ -33,28 +33,35 @@ Una combinación prudente de equipos es una manera eficaz de controlar el acceso
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### Crear equipos con la sincronización LDAP activada
+{% ifversion ghes %}
 
-Las instancias que usan LDAP para la autenticación de usuarios pueden usar la sincronización LDAP para administrar los miembros de un equipo. Al poner el **Nombre Distintivo** (DN) del grupo en el campo **LDAP group** (Grupo LDAP), se le asignará un equipo a un grupo LDAP en tu servidor LDAP. Si usas la sincronización LDAP para administrar los miembros de un equipo, no podrás administrar tu equipo dentro de {% data variables.product.product_location %}. Cuando la sincronización LDAP está activada, el equipo asignado sincroniza sus miembros en segundo plano de manera periódica con el intervalo configurado. Para obtener más información, consulta "[Activar sincronización LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+## Creating teams with LDAP Sync enabled
+
+Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.product.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+
+You must be a site admin and an organization owner to create a team with LDAP sync enabled.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}
 
-**Notas:**
-- La sincronización LDAP solo administra la lista de miembros del equipo. Debes administrar los permisos y repositorios del equipo desde dentro del {% data variables.product.prodname_ghe_server %}.
-- Si se elimina un grupo LDAP asignado a un DN, o si se borra un grupo LDAP, todos los miembros se eliminan del equipo sincronizado del {% data variables.product.prodname_ghe_server %}. Para solucionar esto, asigna el equipo a un nuevo DN, vuelve a agregar a los miembros del equipo y [sincroniza de forma manual la asignación](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap/#manually-syncing-ldap-accounts).
-- Si se elimina a una persona de un repositorio cuando la sincronización LDAP está activada, perderá el acceso, pero sus bifurcaciones no se borrarán. Si se agrega a esa persona a un equipo con acceso al repositorio original de la organización dentro de los tres meses posteriores, en la siguiente sincronización, se reestablecerá automáticamente su acceso a las bifurcaciones.
+**Notes:**
+- LDAP Sync only manages the team's member list. You must manage the team's repositories and permissions from within {% data variables.product.prodname_ghe_server %}.
+- If an LDAP group mapping to a DN is removed, such as if the LDAP group is deleted, then every member is removed from the synced {% data variables.product.prodname_ghe_server %} team. To fix this, map the team to a new DN, add the team members back, and [manually sync the mapping](/enterprise/admin/authentication/using-ldap#manually-syncing-ldap-accounts).
+- When LDAP Sync is enabled, if a person is removed from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.
 
 {% endwarning %}
 
-1. Asegúrate de que [La sincronización LDAP esté activada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync).
+1. Ensure that [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync).
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. Busca el DN de un grupo LDAP al que asignar el equipo. Si no conoces el DN, escribe el nombre del grupo LDAP. El {% data variables.product.prodname_ghe_server %} buscará y completará automáticamente cualquier coincidencia. ![Asignar al DN del grupo LDAP](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
+![Mapping to the LDAP group DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
+
+{% endif %}

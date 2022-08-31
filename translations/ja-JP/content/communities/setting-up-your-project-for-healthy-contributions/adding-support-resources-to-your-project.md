@@ -5,20 +5,22 @@ redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: サポートリソースの追加
 ---
 
 人々を特定のサポートリソースに向かせるために、リポジトリのルート、`docs`、`.github` フォルダに SUPPORT ファイルを追加できます。 誰かがリポジトリに Issue を作成すると、その人はプロジェクトの SUPPORT ファイルへのリンクを見ることになります。
 
 ![サポートガイドライン](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
-Organization またはユーザアカウントのデフォルトのサポートリソースを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create default support resources for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
@@ -28,7 +30,7 @@ Organization またはユーザアカウントのデフォルトのサポート�
 
 {% endtip %}
 
-### プロジェクトへのサポートリソースの追加
+## プロジェクトへのサポートリソースの追加
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

@@ -7,3 +7,5 @@
 * `s3:AbortMultipartUpload`
 * `s3:DeleteObject`
 * `s3:ListBucket`
+* `kms:GenerateDataKey`（如果已启用 Management Service (KMS) 加密）
+

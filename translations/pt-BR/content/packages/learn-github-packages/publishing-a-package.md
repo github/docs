@@ -1,39 +1,39 @@
 ---
-title: Publicar um pacote
-intro: 'Você pode publicar um pacote no {% data variables.product.prodname_registry %} para disponibilizar o pacote para que outros façam download e reutilizem.'
+title: Publishing a package
+intro: 'You can publish a package to {% data variables.product.prodname_registry %} to make the package available for others to download and re-use.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
 permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### Sobre os pacotes publicados
+## About published packages
 
-Você pode ajudar as pessoas a entender e usar seu pacote fornecendo uma descrição e outros detalhes como, por exemplo, a instalação e instruções de uso na página do pacote. GitHub provides metadata for each version, such as the publication date, download activity, and recent versions. Para uma página de pacote de exemplo, veja [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
+You can help people understand and use your package by providing a description and other details like installation and usage instructions on the package page. {% data variables.product.product_name %} provides metadata for each version, such as the publication date, download activity, and recent versions. For an example package page, see [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
 
-{% data reusables.package_registry.public-or-private-packages %} Um repositório pode ser conectado a mais de um pacote. Para evitar confusão, certifique-se de que o README e a descrição fornecem informações claras sobre cada pacote.
+{% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 
-{% if currentVersion == "free-pro-team@latest" %}
-Se uma nova versão de um pacote corrigir uma vulnerabilidade de segurança, você deverá publicar uma consultoria de segurança no seu repositório.
-{% data variables.product.prodname_dotcom %} revisa a cada consultoria de segurança publicado e pode usá-lo para enviar {% data variables.product.prodname_dependabot_alerts %} para repositórios afetados. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% ifversion fpt or ghec %}
+If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {% endif %}
 
-### Publicar um pacote
+## Publishing a package
 
-Você pode publicar um pacote em {% data variables.product.prodname_registry %} usando qualquer tipo de {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}cliente de pacote compatível{% else %}tipo de pacote habilitado para a sua instância{% endif %}, seguindo as mesmas diretrizes gerais.
+You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. Crie ou use um token de acesso existente com os escopos apropriados para a tarefa que você deseja realizar. Para obter mais informações, consulte "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
-2. Efetue a autenticação em {% data variables.product.prodname_registry %} usando seu token de acesso e as instruções para seu cliente do pacote.
-3. Publique o pacote usando as instruções do seu cliente de pacote.
+1. Create or use an existing access token with the appropriate scopes for the task you want to accomplish. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+2. Authenticate to {% data variables.product.prodname_registry %} using your access token and the instructions for your package client.
+3. Publish the package using the instructions for your package client.
 
-Para obter instruções específicas para o seu cliente de pacotes, consulte "[Trabalhar com um registro de pacotes do GitHub](/packages/working-with-a-github-packages-registry)".
+For instructions specific to your package client, see "[Working with a GitHub Packages registry](/packages/working-with-a-github-packages-registry)."
 
-Após publicar um pacote, você poderá visualizá-lo no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Visualizar pacotes](/packages/learn-github-packages/viewing-packages)".
+After you publish a package, you can view the package on {% data variables.product.prodname_dotcom %}. For more information, see "[Viewing packages](/packages/learn-github-packages/viewing-packages)."

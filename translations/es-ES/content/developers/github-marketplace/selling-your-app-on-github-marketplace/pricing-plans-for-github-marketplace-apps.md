@@ -2,18 +2,20 @@
 title: Planes de precios para las apps de GitHub Marketplace
 intro: 'Los planes de precios te permiten darle a tu app diferentes recursos o niveles de servicio. Puedes ofrecer hasta 10 planes de precios en tu listado de {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
+  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Planes de precios para las apps
 ---
 
 Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen para las apps que publican los publicadores verificados. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-Los clientes compran tu app utilizando un método de pago adjunto a su cuenta de {% data variables.product.product_name %}, sin tener que salir del {% data variables.product.prodname_dotcom_the_website %}. No tienes que escribir código para realizar las transacciones de facturación, pero tendrás que administrar los eventos desde la API de {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
+Los clientes compran tu app utilizando un método de pago adjunto a su cuenta de {% data variables.product.product_location %} sin tener que salir de {% data variables.product.prodname_dotcom_the_website %}. No tienes que escribir código para realizar las transacciones de facturación, pero tendrás que administrar los eventos desde la API de {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 Si la app que estás listando en {% data variables.product.prodname_marketplace %} tiene opciones de plan múltiples, puedes configurar los planes de precios correspondientes. Por ejemplo, si tu app tiene dos opciones de plan, u plan de código abierto y un plan profesional, puedes configurar un plan de precios gratuito para tu plan de código abierto y un plan de tasa fija para tu plan profesional. Cada listado de {% data variables.product.prodname_marketplace %} debe tener un precio mensual y anual para cada plan que se liste.
 
@@ -21,9 +23,9 @@ Para obtener más información sobre cómo crear un plan de precios, consulta la
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Tipos de planes de precios
+## Tipos de planes de precios
 
-#### Planes gratuitos
+### Planes gratuitos
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
@@ -33,7 +35,7 @@ Todas las apps necesitan administrar los eventos de las compras nuevas y de las 
 
 Si agregas un plan de pago a una app que ya esté listada en {% data variables.product.prodname_marketplace %} como un servicio gratuito, necesitarás solicitar una verificación para dicha app y pasar por un proceso de integración financiera.
 
-#### Planes de pago
+### Planes de pago
 
 Hay dos tipos de planes de pago:
 
@@ -43,7 +45,7 @@ Hay dos tipos de planes de pago:
 
 Puede que también quieras ofrecer pruebas gratuitas. Estas proporcionan periodos de prueba gratuitos de 14 días en aplicaciones de GitHub y de OAuth. Cuandoconfiguras un plan de precios en Marketplace, puedes seleccionar la opción de proporcionar un plan gratuito para los planes de tasa fija o o de costo por unidad.
 
-### Periodos de prueba gratuitos
+## Periodos de prueba gratuitos
 
 Los clientes pueden iniciar un periodo de prueba gratuto para cualquier plan de pago en una lista de Marketplace que incluya pruebas gratuitas. Sin embargo, los clientes no pueden crear más de una prueba gratuita por producto de marketplace.
 

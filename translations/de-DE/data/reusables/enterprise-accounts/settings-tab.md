@@ -1,1 +1,0 @@
-1. Klicke in der Seitenleiste des Enterprise-Kontos auf {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen) in der Seitenleiste des Enterprise-Kontos](/assets/images/help/business-accounts/enterprise-account-settings-tab.png)

@@ -1,0 +1,7 @@
+---
+#Issue #7062
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
+  ghae: 'issue-7062'

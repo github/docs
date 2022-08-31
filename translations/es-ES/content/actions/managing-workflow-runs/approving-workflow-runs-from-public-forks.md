@@ -1,14 +1,23 @@
 ---
 title: Aprobar ejecuciones de flujo de trabajo desde bifurcaciones públicas
-intro: 'Cuando un contribuyente primerizo emite una solicitud de cambios a un repositorio público, un mantenedor con acceso de escritura debe aprobar cualquier ejecución de flujo de trabajo.'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'Cuando un contribuyente externo emite una solicitud de cambios a un repositorio público, podría ser que un mantenedor con acceso de escritura tenga que aprobar cualquier ejecución de flujo de trabajo.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Aprobar las ejecuciones de una bifurcación pública
 ---
 
-Las bifurcaciones de los repositorios públicos pueden emitir solicitudes de cambio que propongan cambios a los flujos de trabajo de las {% data variables.product.prodname_actions %} de un repositorio. Aunque los flujos de trabajo de las bifurcaciones no tienen acceso a datos sensibles tales como los secretos, pueden ser molestos para los mantenedores si se modifican para fines de abuso. Para ayudar a prevenir esto, los flujos de trabajo de las solicitudes de cambio no se ejecutan automáticamente si se reciben de contribuyentes primerizos y debe aprobarse primero.
+## Acerca de las ejecuciones de flujo de trabajo de las bifurcaciones públicas
 
-Los mantenedores con acceso de escritura al repositorio pueden utilizar el siguiente procedimiento para revisar y ejecutar flujos de trabajo en solicitudes de cambio de contribuyentes primerizos. Después de que un contribuyente fusione por lo menos una solicitud de cambios en el repositorio de un proyecto, cualquier solicitud de cambios subsecuente de la bifurcación de dicho contribuyente ejecutará flujos de trabajo automáticamente.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+Puedes configurar los requisitos de aprobación de flujo de trabajo para un [repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks) o [ empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
+
+Las ejecuciones de flujos de trabajo que hayan estado esperando una aprobación por más de 30 días se borrarán automáticamente.
+
+## Aprobar las ejecuciones de flujo de trabajo en una solicitud de cambios de una bifurcación pública
+
+Los mantenedores con acceso de escritura en un repositorio pueden utilizar el siguiente procedimiento para revisar y ejecutar flujos de trabajo en las solicitudes de extracción de los contribuyentes que requieran aprobación.
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

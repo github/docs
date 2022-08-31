@@ -221,7 +221,7 @@
   term: GET
   description: REST API 中的一种方法。
 - 
-  term: geoJSON
+  term: GeoJSON
   description: 用于编码各种地理数据结构的格式。
 - 
   term: GitHub Marketplace 开发者协议
@@ -665,7 +665,7 @@
   description: >-
     可用来代替密码。令牌可以是个人访问令牌、OAuth 令牌或 API 令牌。
 - 
-  term: topoJSON
+  term: TopoJSON
   description: 用于编码拓扑的 GeoJSON 扩展。
 - 
   term: TOTP 应用程序

@@ -1,28 +1,32 @@
 ---
-title: Cambiar la visibilidad del tablero de proyecto
-intro: 'Como propietario de una organización o administrador del tablero de proyecto, puedes convertir dicho tablero de proyecto en {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o privado.'
+title: Changing {% data variables.product.prodname_project_v1 %} visibility
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: "projects-v1"
 topics:
   - Pull requests
+shortTitle: Change visibility
+allowTitleToDifferFromFilename: true
 ---
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% tip %}
+{% note %}
 
-**Tip:** Cuando conviertas tu tablero de proyecto en {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %}, se les otorgará acceso de lectura a los miembros de la organización predeterminadamente. Puedes brindar a los miembros de la organización permisos de escritura o administración específicos al brindar acceso al tablero de proyecto a los equipos en los que están y al agregarlos en un tablero de proyecto como colaboradores. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
-{% endtip %}
+* {% data reusables.projects.owners-can-limit-visibility-permissions %}
+* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
-1. Navega al tablero del proyecto que quieres hacer {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o privado.
+{% endnote %}
+
+1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.choose-visibility %}
-1. Haz clic en **Save ** (guardar).
+1. Click **Save**.

@@ -1,0 +1,1 @@
+1. En la esquina superior derecha de cualquier página, haz clic en tu foto de perfil y luego en **Tus favoritos**.![Captura de pantalla de la opción de marcar con estrella en un menú desplegable](/assets/images/help/stars/navigate-to-stars-page.png)

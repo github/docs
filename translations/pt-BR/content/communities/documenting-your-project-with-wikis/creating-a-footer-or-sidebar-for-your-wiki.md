@@ -2,20 +2,22 @@
 title: Criar rodapé ou barra lateral no wiki
 intro: Você pode adicionar uma barra lateral ou um footer personalizado para seu wiki a fim de fornecer aos leitores informações mais contextuais.
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Criar rodapé ou barra lateral
 ---
 
-### Criar um footer
+## Criar um footer
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -24,7 +26,7 @@ topics:
 5. Insira uma mensagem do commit descrevendo o footer que você está adicionando. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 6. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-### Criar uma barra lateral
+## Criar uma barra lateral
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -33,6 +35,6 @@ topics:
 5. Insira uma mensagem do commit descrevendo a barra lateral que você está adicionando. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 6. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-### Criar um footer ou uma barra lateral localmente
+## Criar um footer ou uma barra lateral localmente
 
 Se você criar um arquivo chamado `_Footer.<extension>` ou `_Sidebar.<extension>`, nós os usaremos para preencher o footer e a barra lateral do wiki, respectivamente. Assim como qualquer outra página do wiki, a extensão que você escolhe para esses arquivos determina como nós os renderizaremos.

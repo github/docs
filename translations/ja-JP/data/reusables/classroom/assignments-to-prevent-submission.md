@@ -1,1 +1,1 @@
-学生による課題の受理または提出を防ぐには、**Enable assignment invitation URL（課題の招待URLの有効化）**の選択を解除してください。 課題を編集するには{% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment（課題の編集）**をクリックしてください。
+学生による課題の受理もしくは提出を防止するには、"Edit assignment（課題の編集）"ビュー内の"Assignment Status（課題のステータス）"を変更できます。 課題がアクティブな場合、学生は招待リンクを使って受理できます。 アクティブではない場合、このリンクは有効ではありません。

@@ -7,21 +7,23 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### ブランチの管理について
+## ブランチの管理について
 ブランチを使用して、プロジェクトの変更を安全に試すことができます。 ブランチは、開発作業をリポジトリ内の他のブランチから分離します。 たとえば、ブランチを使用して新しい機能を開発したり、バグを修正したりすることができます。
 
 ブランチは常に既存のものから作成します。 通常、リポジトリのデフォルトブランチからブランチを作成します。 その後、他の人がリポジトリに加えた変更とは別に、新しいブランチで作業できます。
 
-作業が完了したら、プルリクエストを作成して、現在のブランチの変更を別のブランチにマージできます。 詳しい情報については、「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」および「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。
+You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
+
+作業が完了したら、プルリクエストを作成して、現在のブランチの変更を別のブランチにマージできます。 For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
 リポジトリへの読み取りアクセスがある場合は、常に {% data variables.product.prodname_desktop %} でブランチを作成できますが、リポジトリへの書き込みアクセスがある場合のみ、ブランチを {% data variables.product.prodname_dotcom %} にプッシュできます。
 
 {% data reusables.desktop.protected-branches %}
 
-### ブランチの作成
+## ブランチの作成
 
 {% tip %}
 
@@ -59,14 +61,22 @@ versions:
 
 {% endwindows %}
 
-### ブランチを公開する
+## Creating a branch from a previous commit
+
+{% data reusables.desktop.history-tab %}
+2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**. ![Create branch from commit context menu](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create branch from commit](/assets/images/help/desktop/create-branch-from-commit-overview.png)
+
+## ブランチを公開する
 
 {% data variables.product.product_name %} にブランチを作成する場合は、ブランチを公開して、{% data variables.product.prodname_dotcom %} でのコラボレーションに使用できるようにする必要があります。
 
 1. アプリの上部で、{% octicon "git-branch" aria-label="The branch icon" %} [**Current Branch**] をクリックし、公開するブランチをクリックします。 ![公開するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. [**Publish branch**] をクリックします。 ![[Publish branch] ボタン](/assets/images/help/desktop/publish-branch-button.png)
 
-### ブランチ間の切り替え
+## ブランチ間の切り替え
 リポジトリのどんなブランチに対しても、コミットを表示したり、コミットを行ったりすることができます。 まだコミットしていない、保存した変更がある場合は、その変更の扱いについて、ブランチを切り替える前に決める必要があります。 You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
@@ -79,7 +89,7 @@ versions:
   ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. 保存していて、まだコミットしていない変更がある場合は、[**Leave my changes**] または [**Bring my changes**] を選択してから、[**Switch Branch**] をクリックしてください。 ![[Switch branch] と変更オプション](/assets/images/help/desktop/stash-changes-options.png)
 
-### ブランチの削除
+## ブランチの削除
 
 現時点でブランチがオープンなプルリクエストに関連付けられている場合は、ブランチを削除できません。 ブランチの削除を取り消すことはできません。
 
@@ -101,10 +111,10 @@ versions:
 
 {% endwindows %}
 
-### 参考リンク
+## 参考リンク
 
 - 「[{% data variables.product.prodname_desktop %}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」
 - {% data variables.product.prodname_dotcom %} 用語集中の[ブランチ](/articles/github-glossary/#branch)
-- [ブランチについて](/articles/about-branches)
+- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - Gitのドキュメンテーション中の[ブランチの要約](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 - "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

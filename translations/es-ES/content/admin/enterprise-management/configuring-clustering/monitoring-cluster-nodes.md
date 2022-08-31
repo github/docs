@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
   - /admin/enterprise-management/monitoring-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -17,7 +17,7 @@ topics:
   - Performance
 ---
 
-### Comprobación manual del estado de la agrupación
+## Comprobación manual del estado de la agrupación
 
 {% data variables.product.prodname_ghe_server %} tiene una utilidad de línea de comando incorporada para supervisar el estado de la agrupación. Desde el shell administrativo, la puesta en funcionamiento de un comando `ghe-cluster-status` ejecuta una serie de revisiones de estado en cada nodo, incluida la verificación de la conectividad y el estado del servicio. La salida muestra todos los resultados de la prueba incluido el texto `ok` o `error`. Por ejemplo, para mostrar solamente las pruebas fallidas, ejecuta:
 
@@ -32,15 +32,15 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 {% endnote %}
 
-### Supervisar el estado de la agrupación con Natgios
+## Supervisar el estado de la agrupación con Natgios
 
 Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {% data variables.product.prodname_ghe_server %}. Además de supervisar la conectividad básica para cada uno de los nodos de la agrupación, puedes comprobar el estado de la agrupación al configurar Nagios para que use el comando `ghe-cluster-status -n`. Esto devuelve salidas en un formato que Nagios comprende.
 
-#### Prerrequisitos
+### Prerrequisitos
 * Host Linux que ejecuta Nagios.
 * Acceso de red para la agrupación {% data variables.product.prodname_ghe_server %}.
 
-#### Configurar el host de Nagios
+### Configurar el host de Nagios
 1. Genera una clave SSH con una contraseña en blanco. Nagios usa esto para autenticar la agrupación de {% data variables.product.prodname_ghe_server %}.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>

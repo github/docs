@@ -1,20 +1,30 @@
 ---
 title: ¿Puedo crear cuentas para personas en mi organización?
-intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas de usuario personales en nombre de otra persona.'
+intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas personales en nombre de otra persona.'
 redirect_from:
-  - /articles/can-i-create-accounts-for-those-in-my-organization/
+  - /articles/can-i-create-accounts-for-those-in-my-organization
   - /articles/can-i-create-accounts-for-people-in-my-organization
   - /github/setting-up-and-managing-organizations-and-teams/can-i-create-accounts-for-people-in-my-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Crear cuentas para las personas
 ---
 
-Dado que accedes a una organización iniciando sesión mediante tu cuenta personal, cada uno de los miembros del equipo necesita una cuenta personal. Una vez que tienes los nombres de usuario de cada persona que deseas agregar a tu organización, puedes agregarlos a los equipos.
+## Acerca de tus cuentas personales
 
-### Agregar usuarios a tu organización
+Ya que accedes a una organización al iniciar sesión en una cuenta personal, cada uno de los miembros de tu equipo necesita crear su propia cuenta personal. Después de que tengas nombres de usuario para cada una de las personas que quieras agregar a tu organización, podrás agregarlos a los equipos.
+
+{% ifversion fpt or ghec %}
+{% ifversion fpt %}Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden{% else %}Puedes{% endif %} utilizar el inicio de sesión único de SAML para administrar centralmente el acceso que tienen las cuentas personales a los recursos de la organización mediante un proveedor de identidad (IdP). Para obtener más información, consulta la sección "[Acerca de la administración de identidad y acceso con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
+
+También puedes considerar los {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
+{% endif %}
+
+## Agregar usuarios a tu organización
 
 1. Brinda a cada persona las instrucciones para [crear una cuenta personal](/articles/signing-up-for-a-new-github-account).
 2. Preguntar el nombre de usuario a cada persona a la que deseas dar membresía a la organización.

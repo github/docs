@@ -2,29 +2,30 @@
 title: GitHub Enterprise 11.10.xから2.1.23への移行
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: '{% data variables.product.prodname_enterprise %}11.10.xから2.1.23へ移行するには、新しいアプライアンスのインスタンスをセットアップし、以前のインスタンスからデータを移行しなければなりません。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: Migrate from 11.10.x to 2.1.23
 ---
 
 {% data variables.product.prodname_enterprise %}11.10.348以降からの移行がサポートされています。 {% data variables.product.prodname_enterprise %}11.10.348以前からの移行はサポートされていません。 いくつかのアップグレードを経て、まず11.10.348にアップグレードしなければなりません。 詳しい情報については11.10.348のアップグレード手順"[最新リリースへのアップグレード](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)"を参照してください。
 
 最新バージョンの {% data variables.product.prodname_enterprise %} にアップグレードするには、まず {% data variables.product.prodname_ghe_server %} 2.1 に移行する必要があります。その後、通常のアップグレードプロセスに従うことができます。 詳細は「[{% data variables.product.prodname_enterprise %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」参照してください。
 
-### 移行の準備
+## 移行の準備
 
 1. プロビジョニング及びインストールガイドをレビューし、{% data variables.product.prodname_enterprise %}2.1.23を自分の環境にプロビジョニングして設定するのに必要な条件が満たされているかを確認してください。 詳しい情報については"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"を参照してください。
 2. 現在のインスタンスがサポートされているアップグレードバージョンを動作させていることを確認してください。
@@ -44,7 +45,7 @@ topics:
     - **IPアドレスの割り当て** - この方法が利用できるのはVMWareからVMWareへの移行の場合のみであり、DNSを使う方法が利用できない場合以外にはおすすめできません。 移行を始める前に、古いインスタンスをシャットダウンしてそのIPアドレスを新しいインスタンスに割り当てる必要があります。
 6. メンテナンスウィンドウをスケジューリングしてください。 メンテナンスウィンドウには、データをバックアップホストから新しいインスタンスに転送するのに十分な時間が含まれていなければならず、その長さはバックアップスナップショットのサイズと利用可能なネットワーク帯域に基づいて変化します。 この間、現在のインスタンスは利用できなくなり、新しいインスタンスへの移行の間はメンテナンスモードになります。
 
-### 移行の実施
+## 移行の実施
 
 1. 新しい{% data variables.product.prodname_enterprise %}2.1インスタンスをプロビジョニングしてください。 詳しい情報については、ターゲットのプラットフォームの"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"ガイドを参照してください。
 2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
@@ -53,7 +54,7 @@ topics:
 6. バックアップホストへのアクセス用のSSHキーを"Add new SSH key（新しいSSHキーの追加）"に貼り付けてください。 ![バックアップの認証](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
 7. [**Add key**] をクリックしてから、[**Continue**] をクリックします。
 8. 新しいインスタンスへデータを移行するためにバックアップホストで実行する`ghe-restore`コマンドをコピーしてください。 ![移行の開始](/assets/images/enterprise/migration/migration-restore-start.png)
-9. 古いインスタンスでメンテナンスモードを有効化し、すべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+9. 古いインスタンスでメンテナンスモードを有効化し、すべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% note %}
 
@@ -94,4 +95,4 @@ topics:
   {% endnote %}
 
 15. DNS または IP アドレスの割り当てのどちらかを使用して、ユーザーのネットワークトラフィックを古いインスタンスから新しいインスタンスに切り替えます。
-16. 最新のパッチリリース {{ currentVersion }} にアップグレードします。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
+16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

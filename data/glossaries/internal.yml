@@ -208,13 +208,13 @@
   description: A format for describing gem dependencies for Ruby programs.
 - term: GET
   description: A type of method in the REST API
-- term: geoJSON
+- term: GeoJSON
   description: A format for encoding a variety of geographic data structures.
 - term: GitHub Marketplace Developer Agreement
   description: An agreement users sign when using GitHub Marketplace.
 - term: GPG
   description: >-
-    GNU Privacy Guard. Encyrption software that you can use to encrypt (and
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and
     decrypt) files that contain sensitive data
 - term: GPG key
   description: An encryption key used with GPG.
@@ -618,7 +618,7 @@
   description: >-
     Can be used in place of a password. Tokens can be personal access tokens,
     OAuth tokens, or API tokens.
-- term: topoJSON
+- term: TopoJSON
   description: An extension of GeoJSON that encodes topology.
 - term: TOTP application
   description: >-

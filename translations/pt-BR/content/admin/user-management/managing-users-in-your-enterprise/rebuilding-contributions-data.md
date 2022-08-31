@@ -2,16 +2,17 @@
 title: Recriar dados de contribuições
 intro: Talvez você precise recriar os dados das contribuições para vincular os commits existentes a uma conta de usuário.
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Repositories
   - User account
+shortTitle: Recriar contribuições
 ---
 
 Sempre que é enviado para o {% data variables.product.prodname_enterprise %}, o commit é vinculado a uma conta de usuário caso ambos estejam associados ao mesmo endereço de e-mail. No entanto, os commits *não* são vinculados retroativamente quando um usuário registra um endereço de e-mail ou cria uma conta.

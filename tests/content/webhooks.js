@@ -1,36 +1,49 @@
-const { difference } = require('lodash')
-const { getJSON } = require('../helpers/supertest')
-const { latest } = require('../../lib/enterprise-server-releases')
-const allVersions = Object.values(require('../../lib/all-versions'))
-const payloadVersions = allVersions.map(v => v.miscVersionName)
-const webhookPayloads = require('../../lib/webhooks')
+import { difference } from 'lodash-es'
+import { getJSON } from '../helpers/e2etest.js'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import { allVersions } from '../../lib/all-versions.js'
+import getWebhookPayloads from '../../lib/webhooks'
+import { jest } from '@jest/globals'
+
+const allVersionValues = Object.values(allVersions)
+
+const payloadVersions = allVersionValues.map((v) => v.miscVersionName)
 
 // grab some values for testing
-const nonEnterpriseDefaultPayloadVersion = allVersions
-  .find(version => version.nonEnterpriseDefault)
-  .miscVersionName
+const nonEnterpriseDefaultPayloadVersion = allVersionValues.find(
+  (version) => version.nonEnterpriseDefault
+).miscVersionName
 
-const latestGhesPayloadVersion = allVersions
-  .find(version => version.currentRelease === latest)
-  .miscVersionName
+const latestGhesPayloadVersion = allVersionValues.find(
+  (version) => version.currentRelease === latest
+).miscVersionName
 
-const ghaePayloadVersion = allVersions
-  .find(version => version.plan === 'github-ae')
-  .miscVersionName
+const ghaePayloadVersion = allVersionValues.find(
+  (version) => version.plan === 'github-ae'
+).miscVersionName
 
 describe('webhook payloads', () => {
   jest.setTimeout(3 * 60 * 1000)
 
+  const webhookPayloads = getWebhookPayloads()
+
   test('have expected top-level keys', () => {
-    payloadVersions.forEach(version => {
-      expect(version in webhookPayloads).toBe(true)
+    payloadVersions.forEach((version) => {
+      // todo: remove if check once we have API/webhook versions for ghec
+      // Docs Engineering issue: 979
+      if (version !== 'ghec') {
+        expect(version in webhookPayloads).toBe(true)
+      }
     })
   })
 
   test('have a reasonable number of payloads per version', () => {
-    payloadVersions.forEach(version => {
-      const payloadsPerVersion = Object.keys(webhookPayloads[version])
-      expect(payloadsPerVersion.length).toBeGreaterThan(20)
+    payloadVersions.forEach((version) => {
+      // todo: remove if check once we have API/webhook versions for ghec
+      if (version !== 'ghec') {
+        const payloadsPerVersion = Object.keys(webhookPayloads[version])
+        expect(payloadsPerVersion.length).toBeGreaterThan(20)
+      }
     })
   })
 
@@ -42,7 +55,8 @@ describe('webhook payloads', () => {
     const payloadLines = payloadString.split('\n')
 
     expect(payloadLines.length).toBeGreaterThan(5)
-    expect(payloadLines[2].trim()).toBe('```json')
+    expect(payloadLines[0].includes('data-highlight="json"')).toBe(true)
+    expect(payloadLines[2].trim()).toBe('```')
     expect(payloadLines[3].trim()).toBe('{')
     expect(payloadLines[payloadLines.length - 3].trim()).toBe('```')
   })
@@ -50,30 +64,35 @@ describe('webhook payloads', () => {
   test('on non-dotcom versions, dotcom-only payloads fall back to dotcom', async () => {
     const ghesPayloads = webhookPayloads[latestGhesPayloadVersion]
     const ghaePayloads = webhookPayloads[ghaePayloadVersion]
-    const dotcomOnlyPayloads = difference(Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion]), Object.keys(ghesPayloads))
+    const dotcomOnlyPayloads = difference(
+      Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion]),
+      Object.keys(ghesPayloads)
+    )
     // use the first one found for testing purposes
     const dotcomOnlyPayload = dotcomOnlyPayloads[0]
     expect(ghesPayloads[dotcomOnlyPayload]).toBeUndefined()
     expect(ghaePayloads[dotcomOnlyPayload]).toBeUndefined()
 
     // fallback handling is in middleware/contextualizers/webhooks.js
-    const ghesPayloadsWithFallbacks = await getJSON(`/en/enterprise-server@${latest}/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion`)
-    const ghaePayloadsWithFallbacks = await getJSON('/en/github-ae@latest/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion')
+    const ghesPayloadsWithFallbacks = await getJSON(
+      `/en/enterprise-server@${latest}/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion`
+    )
+    const ghaePayloadsWithFallbacks = await getJSON(
+      '/en/github-ae@latest/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion'
+    )
     expect(ghesPayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
     expect(ghaePayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
 
     const ghesPayloadString = getPayloadString(ghesPayloadsWithFallbacks[dotcomOnlyPayload])
     const ghaePayloadString = getPayloadString(ghaePayloadsWithFallbacks[dotcomOnlyPayload])
-    expect(ghesPayloadString.includes('```json')).toBe(true)
-    expect(ghaePayloadString.includes('```json')).toBe(true)
+    expect(ghesPayloadString.includes('data-highlight="json"')).toBe(true)
+    expect(ghaePayloadString.includes('data-highlight="json"')).toBe(true)
   })
 })
 
 // accommodate two possible payload string locations
 // value of top-level key: `create` (in create.payload.json)
 // value of second-level key: `issues.opened` (in issues.opened.payload.json)
-function getPayloadString (payload) {
-  return typeof payload === 'string'
-    ? payload
-    : payload[Object.keys(payload)[0]]
+function getPayloadString(payload) {
+  return typeof payload === 'string' ? payload : payload[Object.keys(payload)[0]]
 }

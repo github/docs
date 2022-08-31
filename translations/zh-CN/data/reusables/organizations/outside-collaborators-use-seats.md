@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}将一个外部协作者添加到私人仓库将会使用您组织的一个付费许可。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing/)”。{% endif %}
+将外部协作者添加到私有{% ifversion ghec %} 或内部{% endif %} 存储库将使用您的付费许可证之一。 更多信息请参阅“{% ifversion fpt or ghec %}[关于每用户定价](/billing/managing-billing-for-your-github-account/about-per-user-pricing){% elsif ghes or ghae %}[关于企业的计费](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise){% endif %}”。

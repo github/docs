@@ -1,13 +1,16 @@
 ---
 title: 参考
-intro: '本节包含帮助您成功使用 {% data variables.product.prodname_codespaces %} 的参考'
+intro: '本节包含帮助您成功使用 {% data variables.product.prodname_github_codespaces %} 的参考'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+product: '{% data reusables.gated-features.codespaces %}'
 children:
-  - /about-billing-for-codespaces
-  - /troubleshooting-your-codespace
+  - /understanding-billing-for-github-codespaces
   - /allowing-your-codespace-to-access-a-private-image-registry
-  - /using-the-command-palette-in-codespaces
+  - /using-github-copilot-in-github-codespaces
+  - /using-the-vs-code-command-palette-in-codespaces
+  - /security-in-github-codespaces
+  - /disaster-recovery-for-github-codespaces
 ---
 
-{% data reusables.codespaces.release-stage %}

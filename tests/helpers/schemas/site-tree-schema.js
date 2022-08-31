@@ -3,7 +3,7 @@ const childPage = {
   properties: {
     href: {
       type: 'string',
-      required: true
+      required: true,
     },
     page: {
       type: 'object',
@@ -11,20 +11,20 @@ const childPage = {
       properties: {
         title: {
           type: 'string',
-          required: true
+          required: true,
         },
         relativePath: {
           type: 'string',
-          required: true
+          required: true,
         },
         permalinks: {
           type: 'array',
           required: true,
-          minItems: 1
-        }
-      }
-    }
-  }
+          minItems: 1,
+        },
+      },
+    },
+  },
 }
 
-module.exports = { childPage }
+export default { childPage }

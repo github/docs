@@ -2,21 +2,22 @@
 title: Crear una GitHub App
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, los cuales le permiten a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
+{% ifversion fpt or ghec %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, lo cual permite a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)".{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Nota:** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -34,7 +35,7 @@ topics:
 
 1. Opcionalmente, en "Descripción", teclea la descripción de tu app que verán los usuarios. ![Campo para agregar una descripción de tu GitHub App](/assets/images/github-apps/github_apps_description.png)
 1. En "URL de la página principal", teclea la URL completa del sitio web de tu app. ![Campo para la URL de la página de inicio de tu GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes or ghec %}
 1. En "URL de rellamado", teclea la URL completa a la cual se redirigirá a los usuarios después de que autoricen la instalación. Esta URL se utiliza si tu app necesita identificar y autorizar las solicitudes de usuario a servidor.
 
   Puedes utilizar la opción de **Agregar una URL de rellamado** para proporcionar las URL de rellamado adicionales, con un máximo de 10 de ellas.
@@ -44,10 +45,9 @@ topics:
 1. En "URL de rellamado para la autorización del usuario", teclea la URL completa a la cual se redireccionará después de que un usuario autorice una instalación. Esta URL se utiliza si tu app necesita identificar y autorizar las solicitudes de usuario a servidor. ![Campo para la URL de rellamado para la autorización del usuario de tu GitHub App](/assets/images/github-apps/github_apps_user_authorization.png)
 
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 1. Predeterminadamente, para mejorar la seguridad de tu app, ésta utilizará un token de autorización de usuario con una vida útil limitada. Para elegir no utilizar estos tokens de usuario, debes deseleccionar la opción "Limitar la vida útil de los tokens de autorización de usuario". Para conocer más acerca de configurar un flujo de rehabilitación de tokens y acerca de los beeficios de que éstos tenga una vida útil limitada, consulta la sección "[Rehabilitar los tokens de acceso de usuario a servidor](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)". ![Opción para unirse a los tokens de usuario con caducidad durante la configuración de las GitHub Apps](/assets/images/github-apps/expire-user-tokens-selection.png)
-{% endif %}
-1. Si tu app autoriza a los usuarios que utilizan el flujo de OAuth, puedes seleccionar la opción **Solicitar la autorización del usuario (OAuth) durante la instalación** para permitir que las personas den autorización a la app cuando la instalen, lo cual te ahorra un paso. Si seleccionas esta opción, la "URL de configuración" dejará de estar disponible y se redirigirá a los usuarios a tu "URL de rellamado para autorización del usuario" después de que instalen la app. Consulta la sección "[Autorizar a los usuarios durante la instalación](/apps/installing-github-apps/#authorizing-users-during-installation)" para obtener más información. ![Solicitar una autorización de usuario durante la instalación](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+1. Si tu app autoriza a los usuarios que utilizan el flujo de OAuth, puedes seleccionar la opción **Solicitar la autorización del usuario (OAuth) durante la instalación** para permitir que las personas den autorización a la app cuando la instalen, lo cual te ahorra un paso. Si seleccionas esta opción, la "URL de configuración" dejará de estar disponible y se redirigirá a los usuarios a tu "URL de rellamado para autorización del usuario" después de que instalen la app. Consulta la sección "[Autorizar a los usuarios durante la instalación](/apps/installing-github-apps/#authorizing-users-during-installation)" para obtener más información. ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
+1. Si tu GitHub App utilizará el flujo de dispositivos para identificar y autorizar usuarios, haz clic en **Habilitar flujo de dispositivos**. Para obtener más información sobre el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)". ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. Si se requiere hacer ajustes adicionales después de la instalación, agrega una "URL de configuración" para redireccionar a los usuarios después de que instalen tu app. ![Campo para configurar la URL de tu GitHub App ](/assets/images/github-apps/github_apps_setup_url.png)
 
   {% note %}

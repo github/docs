@@ -1,58 +1,59 @@
 ---
-title: GitHub Marketplaceアプリケーションの価格プラン
-intro: '価格プランを利用して、様々なレベルのサービスやリソースと共にアプリケーションを提供できます。 {% data variables.product.prodname_marketplace %}のリストでは、最大で10個の価格プランを提供できます。'
+title: Pricing plans for GitHub Marketplace apps
+intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
-  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
+  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Pricing plans for apps
 ---
+{% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
-{% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+Customers purchase your app using a payment method attached to their account on {% data variables.product.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+If the app you're listing on {% data variables.product.prodname_marketplace %} has multiple plan options, you can set up corresponding pricing plans. For example, if your app has two plan options, an open source plan and a pro plan, you can set up a free pricing plan for your open source plan and a flat pricing plan for your pro plan. Each {% data variables.product.prodname_marketplace %} listing must have an annual and a monthly price for every plan that's listed.
 
-{% data variables.product.prodname_marketplace %}上でリストしているアプリケーションが複数のプランのオプションを持っているなら、対応する価格プランをセットアップできます。 たとえばアプリケーションが2つのプランの選択肢としてオープンソースプランとプロプランを持っているなら、オープンソースプランに対して無料価格プランを、そしてプロプランに対して定額料金プランをセットアップできます。 それぞれの{% data variables.product.prodname_marketplace %}リストには、リストされたすべてのプランに対して年間及び月間の価格がなければなりません。
-
-価格プランの作成方法に関する詳しい情報については「[{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)」を参照してください。
+For more information on how to create a pricing plan, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
 
 {% data reusables.marketplace.free-plan-note %}
 
-### 価格プランの種類
+## Types of pricing plans
 
-#### 無料プラン
+### Free pricing plans
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-無料プランは、ユーザに対してまったく無料です。 無料プランをセットアップした場合、アプリケーションを利用するために無料プランを選択したユーザに課金することはできません。 リストでは無料と有料のプランをどちらも作成できます。
+Free plans are completely free for users. If you set up a free pricing plan, you cannot charge users that choose the free pricing plan for the use of your app. You can create both free and paid plans for your listing.
 
-すべてのアプリケーションは、新規の購入とキャンセルのイベントを処理しなければなりません。 無料プランだけを持つアプリケーションは、無料トライアル、アップグレード、ダウングレードのイベントを処理する必要はありません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+All apps need to handle events for new purchases and cancellations. Apps that only have free plans do not need to handle events for free trials, upgrades, and downgrades. For more information, see: "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-{% data variables.product.prodname_marketplace %}に無料のサービスとしてリスト済みのアプリケーションに有料プランを追加する場合、アプリケーションの検証をリクエストし、金銭のオンボーディングを通さなければなりません。
+If you add a paid plan to an app that you've already listed in {% data variables.product.prodname_marketplace %} as a free service, you'll need to request verification for the app and go through financial onboarding.
 
-#### 有料プラン
+### Paid pricing plans
 
-有料プランには2つの種類があります。
+There are two types of paid pricing plan:
 
-- 定額プランは、月単位及び年単位で設定された料金を課金します。
+- Flat rate pricing plans charge a set fee on a monthly and yearly basis.
 
-- ユニット単位の価格プランは、月単位あるいは年単位で、指定したユニットに基づいて設定された料金を課金します。 「ユニット」には好きなもの（たとえばユーザ、シート、あるいは人）を指定できます。
+- Per-unit pricing plans charge a set fee on either a monthly or yearly basis for a unit that you specify. A "unit" can be anything you'd like (for example, a user, seat, or person).
 
-無料トライアルを提供したいこともあるでしょう。 無料トライアルは、OAuthもしくはGitHub Appsを無料の14日間のトライアルとして顧客に提供します。 Marketplaceの価格プランをセットアップする際に、定額あるいはユニット単位の価格プランに対する無料トライアルを提供するオプションを選択できます。
+You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
 
-### 無料トライアル
+## Free trials
 
-顧客は、無料トライアルを含むMarketplaceリスト上の任意の有料プランに対して、無料トライアルを開始できます。 ただし、顧客はMarketplaceの製品ごとに複数の無料トライアルを作成することはできません。
+Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
 
-無料トライアルの期間は固定の14日間です。 顧客はトライアル期間の終了の4日前（無料トライアルの11日目）に、プランがアップグレードされるという通知を受け取ります。 顧客は、キャンセルしないかぎり、無料トライアルの終わりにトライアルを行っていたプランに自動的に登録されます。
+Free trials have a fixed length of 14 days. Customers are notified 4 days before the end of their trial period (on day 11 of the free trial) that their plan will be upgraded. At the end of a free trial, customers will be auto-enrolled into the plan they are trialing if they do not cancel.
 
-詳しい情報については「[新規の購入と無料トライアルの処理](/developers/github-marketplace/handling-new-purchases-and-free-trials/)」を参照してください。
+For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/handling-new-purchases-and-free-trials/)."
 
 {% note %}
 
-**ノート:** GitHubは、キャンセルされたトライアルのすべてのプライベートな顧客データが、キャンセルイベントの受け付け開始から30日以内に削除されるものと期待します。
+**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
 
 {% endnote %}

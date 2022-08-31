@@ -4,14 +4,13 @@ intro: 'Publish to {% data variables.product.prodname_registry %} with {% data v
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introduction
 
@@ -19,16 +18,16 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
 ## Publishing your package
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. {% ifversion ghes < 3.1 %} Create a private repository if you’d like to delete this package later, public packages cannot be deleted.{% endif %} For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     ```shell
-    $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
     ```javascript{:copy}
-    alert("Hello, World!");
+    console.log("Hello, World!");
     ```
     {% endraw %}
 4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
@@ -50,7 +49,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git push
     ```
 6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -62,8 +61,8 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
           - run: npm ci
@@ -71,16 +70,16 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           packages: write
-          contents: read{% endif %}
+          contents: read
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
-              registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
@@ -120,7 +119,6 @@ You can view all of the packages you have published.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
-
 
 ## Installing a published package
 

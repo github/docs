@@ -5,6 +5,7 @@ redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -14,4 +15,3 @@ children:
   - /enforcing-policy-with-pre-receive-hooks
 shortTitle: Set policies
 ---
-

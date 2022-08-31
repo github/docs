@@ -4,14 +4,15 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca de las interfaces
+## Acerca de las interfaces
 
 Las [interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) sirven como objetos padre de los cuales obtendrán sus herencias los demás objetos.
 
@@ -19,6 +20,4 @@ Por ejemplo, [`Lockable`](/graphql/reference/interfaces#lockable) es una interfa
 
 Para obtener más información, consulta la sección "[Implementación](/graphql/guides/introduction-to-graphql#implementation)".
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

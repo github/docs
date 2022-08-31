@@ -6,9 +6,11 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Emitir tu listado
 ---
 
 Una vez que el listado de tu app cumpla con los requisitos de {% data variables.product.prodname_marketplace %}, puedes emitirla. Para obtener un resumen de los requisitos del listado de la app, consulta la sección "[requisitos para listar una app](/developers/github-marketplace/requirements-for-listing-an-app)".
@@ -17,7 +19,7 @@ Una vez que el listado de tu app cumpla con los requisitos de {% data variables.
 
   ![Opción de resumen para el borrador de listado de marketplace](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. Para emitir tu listado de app completo, haz clic en **Solicitar publicación**.
+2. Para emitir tu listado de apps completado, haz clic en **Solicitar publicación**.
 
   ![Lista de verificación de "Publica tu app en Marketplace" con botón de emisión al final](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

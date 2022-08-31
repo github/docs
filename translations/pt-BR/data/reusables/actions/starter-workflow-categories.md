@@ -1,0 +1,5 @@
+{% data variables.product.prodname_dotcom %} fornece fluxos de trabalho iniciais prontos para uso para as seguintes categorias de alto nível:
+- **Implantação (CD)**. Para obter mais informações, consulte[Sobre a implantação contínua](/actions/deployment/about-deployments/about-continuous-deployment)".
+{% ifversion fpt or ghec %}- **Segurança**. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_code_scanning %} usando fluxos de trabalho iniciais](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)".{% endif %}
+- **Integração Contínua (CI)**. Para obter mais informações, consulte "[Sobre integração contínua](/actions/automating-builds-and-tests/about-continuous-integration)".
+- **Automação**. Os fluxos de trabalho iniciais de automação oferecem soluções para automatizar os fluxos de trabalho como, por exemplo, pull requests de triagem e aplicação de uma etiqueta baseada nos caminhos modificados no pull request, ou saudar usuários que contribuem pela primeira vez para o repositório.

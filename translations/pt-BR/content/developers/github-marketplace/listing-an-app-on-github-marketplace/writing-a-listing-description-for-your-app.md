@@ -2,40 +2,42 @@
 title: Escrever uma descrição da listagem para o seu aplicativo
 intro: 'Para [listar seu aplicativo](/marketplace/listing-on-github-marketplace/) no {% data variables.product.prodname_marketplace %}, você precisará escrever as descrições do seu aplicativo e fornecer imagens que seguem as diretrizes do GitHub.'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Escrever descrições de anúncio
 ---
 
 Aqui estão as diretrizes sobre os campos que você precisará preencher na seção de **Descrição da listagem** do seu rascunho da listagem.
 
-### Nomenclatura e links
+## Nomenclatura e links
 
-#### Nome da listagem
+### Nome da listagem
 
-O nome do seu anúncio irá aparecer na [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. O seu anúncio não pode ter o mesmo nome de uma conta existente {% data variables.product.product_name %}, a menos que o nome seja seu próprio nome de usuário ou organização.
+O nome do seu anúncio irá aparecer na [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. Seu anúncio não pode ter o mesmo nome de uma conta existente em {% data variables.product.product_location %}, a menos que o nome seja o seu próprio usuário ou nome de organização.
 
-#### Descrição muito curta
+### Descrição muito curta
 
 A comunidade verá a descrição "muito curta" sob o nome de seu aplicativo [na página inicial do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
 ![Descrição curta do aplicativo em {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
 
-##### Comprimento
+#### Comprimento
 
 Recomendamos manter descrições curtas para com 40 a 80 caracteres. Embora você possa usar mais caracteres, as descrições concisas são mais fáceis para os clientes ler e entender rapidamente.
 
-##### Conteúdo
+#### Conteúdo
 
 - Descreva as funcionalidades do aplicativo. Não use este espaço para uma chamada para ação. Por exemplo:
 
@@ -51,7 +53,7 @@ Recomendamos manter descrições curtas para com 40 a 80 caracteres. Embora voc�
 
   **NÃO RECOMENDADO:** O Skycap é uma ferramenta de integração contínua nativa do contêiner
 
-##### Formatação
+#### Formatação
 
 - Use sempre letras maiúsculas na frase. Use maiúscula somente para a primeira letra e para substantivos próprios.
 
@@ -77,15 +79,15 @@ Recomendamos manter descrições curtas para com 40 a 80 caracteres. Embora voc�
 
   **NÃO RECOMENDADO:** Quadros de tarefas ágeis, estimativas e relatórios sem sair da interface de usuário do GitHub
 
-#### Categorias
+### Categorias
 
 Os aplicativos em {% data variables.product.prodname_marketplace %} podem ser exibidos por categoria. Selecione a categoria que melhor descreve a principal funcionalidade do seu aplicativo no menu suspenso **categoria primária**, e opcionalmente, selecione uma **categoria secundária** que se encaixa no seu aplicativo.
 
-#### Linguagens compatíveis
+### Linguagens compatíveis
 
 Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 linguagens de programação com as quais o seu aplicativo é compatível. Esses idiomas são exibidos na página de listagem do {% data variables.product.prodname_marketplace %} do seu aplicativo. Este campo é opcional.
 
-#### Listar URLs
+### Listar URLs
 
 **URLs obrigatórias**
 * **URL de suporte ao cliente:** A URL de uma página da web para a qual seus clientes acessarão quando tiverem dúvidas referente ao suporte técnico, produtos ou conta.
@@ -97,7 +99,7 @@ Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 lin
 * **URL de status:** Um link para uma página da web que exibe o status do seu aplicativo. As páginas de status podem incluir relatórios de incidente atuais e em forma de histórico, status do tempo de atividade do aplicativo, bem como manutenção programada.
 * **URL da documentação:** Um link para a documentação que ensina os clientes a usar seu aplicativo.
 
-### Logotipo e cartão de recurso
+## Logotipo e cartão de recurso
 
 {% data variables.product.prodname_marketplace %} exibe todas as listagens com um logotipo quadrado dentro de um selo circular para distinguir visualmente os aplicativos.
 
@@ -109,7 +111,7 @@ Um cartão de recursos consiste do logotipo, nome e uma imagem de fundo personal
 
 À medida que você faz o upload das imagens e seleciona as cores, sua listagem de rascunho do {% data variables.product.prodname_marketplace %} exibirá uma prévia do seu logotipo e do seu cartão de recurso.
 
-##### Diretrizes para logotipos
+#### Diretrizes para logotipos
 
 Você deve enviar uma imagem personalizada para o logotipo. Escolha uma cor de fundo para o selo.
 
@@ -119,7 +121,7 @@ Você deve enviar uma imagem personalizada para o logotipo. Escolha uma cor de f
 - Para dar a aparência de um selo perfeito, escolha uma cor de fundo para o selo que corresponda à cor de fundo (ou transparência) da imagem do seu logotipo.
 - Evite usar imagens do logotipo com palavras ou texto. Os logotipos com texto não são bem dimensionados em telas pequenas.
 
-##### Diretrizes para cartões de recurso
+#### Diretrizes para cartões de recurso
 
 Você deve enviar uma imagem de fundo personalizada para o cartão de recurso. Para o nome do aplicativo, escolha uma cor do texto.
 
@@ -127,7 +129,7 @@ Você deve enviar uma imagem de fundo personalizada para o cartão de recurso. P
 - A iImagem de fundo mede 965 pixels x 482 pixels (largura x altura).
 - Escolha uma cor de texto para o nome do aplicativo que aparece claramente sobre a imagem de fundo.
 
-### Detalhes da listagem
+## Detalhes da listagem
 
 Para acessar a página inicial do seu aplicativo, clique no nome do aplicativo na página inicial ou na página de categoria do {% data variables.product.prodname_marketplace %}. A página de destino exibe uma descrição mais longa do aplicativo, que inclui duas partes: uma "Descrição introdutória" e uma "Descrição detalhada".
 
@@ -141,19 +143,19 @@ Clicar em **Ler mais...**, exibirá a "Descrição detalhada".
 
 Siga estas instruções para escrever estas descrições.
 
-#### Comprimento
+### Comprimento
 
 Recomendamos escrever um resumo de alto nível de 1 a 2 frases com 150 a 250 caracteres no campo obrigatório de "Descrição introdutória" ao [listar o seu aplicativo](/marketplace/listing-on-github-marketplace/). Embora seja permitido o uso de mais caracteres, os resumos concisos são mais fáceis de ler e entender pelos clientes rapidamente.
 
 Você pode adicionar mais informações ao campo opcional "Descrição detalhada". Você verá esta descrição ao clicar em **Leia mais...**, abaixo da descrição introdutória na página inicial do seu aplicativo. Uma descrição detalhada consiste de 3 a 5 [propostas de valor](https://en.wikipedia.org/wiki/Value_proposition), com 1 a 2 frases que descrevem cada uma. Você pode usar até 1.000 caracteres para essa descrição.
 
-#### Conteúdo
+### Conteúdo
 
 - Sempre comece descrições introdutórias com o nome do seu aplicativo.
 
 - Sempre escreva as descrições e as propostas de valores usando a voz ativa.
 
-#### Formatação
+### Formatação
 
 - Sempre use as letras maiúsculas adequadamente nas frases dos títulos para as propostas de valor. Use maiúscula somente para a primeira letra e para substantivos próprios.
 
@@ -166,7 +168,7 @@ Você pode adicionar mais informações ao campo opcional "Descrição detalhada
 
   ### Aprenda as habilidades de que você precisa
 
-  O GitHub Learning Lab pode ajudá-lo a aprender como usar o GitHub, comunicar-se de modo mais efetivo com o Markdown, gerenciar conflitos de merge, entre outros.
+  O GitHub Skills pode ajudar você a aprender como usar o GitHub, comunicar-se de modo mais efetivo com o Markdown, gerenciar conflitos de merge, entre outros.
 
 - Use maiúscula apenas para os substantivos próprios.
 
@@ -180,11 +182,11 @@ Você pode adicionar mais informações ao campo opcional "Descrição detalhada
 
 - Evite acrônimos, a menos que estejam conhecidos (como, por exemplo, API).
 
-### Capturas de tela dos produtos
+## Capturas de tela dos produtos
 
 Você pode enviar até cinco imagens de captura de tela do seu aplicativo para ser exibidas na página inicial do seu aplicativo. Adicione uma legenda opcional para cada captura de tela para fornecer contexto. Após enviar suas capturas de tela, você pode arrastá-las para a ordem que você deseja que sejam exibidas na página inicial.
 
-#### Diretrizes para capturas de tela
+### Diretrizes para capturas de tela
 
 - As imagens devem ser de alta resolução (pelo menos 1200 px de largura).
 - Todas as imagens devem ter a mesma altura e largura (proporção de aspecto) para evitar pular páginas quando as pessoas clicam de uma imagem para a seguinte.

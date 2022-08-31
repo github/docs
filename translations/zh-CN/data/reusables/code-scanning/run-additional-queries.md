@@ -1,9 +1,18 @@
-使用 {% data variables.product.prodname_codeql %} 扫描代码时，{% data variables.product.prodname_codeql %} 分析引擎将从代码生成数据库并对其运行查询。 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)”。
+When you use {% data variables.product.prodname_codeql %} to scan code, the {% data variables.product.prodname_codeql %} analysis engine generates a database from the code and runs queries on it. {% data variables.product.prodname_codeql %} analysis uses a default set of queries, but you can specify more queries to run, in addition to the default queries.
 
-{% data variables.product.prodname_codeql %} 分析使用默认的查询集，但除了默认查询外，您还可以指定更多的查询来运行。 要运行的查询必须属于仓库中的 {% data variables.product.prodname_ql %} 包。 更多信息请参阅“[关于 {% data variables.product.prodname_ql %} 包](https://codeql.github.com/docs/codeql-cli/about-ql-packs/)”。
+{% ifversion codeql-packs %}
+You can run extra queries if they are part of a {% data variables.product.prodname_codeql %} pack (beta) published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_ql %} pack stored in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 
-查询只能依赖于标准库（即查询中的 `import LANGUAGE` 语句引用的库）或与查询相同的 {% data variables.product.prodname_ql %} 包中的库。 标准库位于 [github/codeql](https://github.com/github/codeql) 仓库中。 更多信息请参阅“[关于 CodeQL 查询](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)。”
+The options available to specify the additional queries you want to run are:
 
-您可以指定一个 _.ql_ 文件（一个目录中包含多个 _.ql_ 文件）、一个 _.qls_ 查询套件定义文件或任意组合。 有关查询套件定义的更多信息，请参阅“[创建 {% data variables.product.prodname_codeql %} 查询套件](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)”。
+- `packs` to install one or more {% data variables.product.prodname_codeql %} query packs (beta) and run the default query suite or queries for those packs.
+- `queries` to specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
 
-{% if currentVersion == "free-pro-team@latest" %}不建议直接从 `github/codeql` 仓库引用查询套件，如 `github/codeql/cpp/ql/src@main`。 此类查询不可使用与其他查询所用版本相同的 {% data variables.product.prodname_codeql %} 版本编译，否则可能导致分析过程中出错。{% endif %}
+You can use both `packs` and `queries` in the same workflow.
+{% else %}
+Any additional queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
+
+You can specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
+{% endif %}
+
+{% ifversion fpt or ghec %}We don't recommend referencing query suites directly from the `github/codeql` repository, for example, `github/codeql/cpp/ql/src@main`. Such queries would have to be recompiled, and may not be compatible with the version of {% data variables.product.prodname_codeql %} currently active on {% data variables.product.prodname_actions %}, which could lead to errors during analysis.{% endif %}

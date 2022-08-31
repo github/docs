@@ -3,14 +3,14 @@ title: 兑换优惠券
 intro: '如果您有优惠券，可以将其兑换为付费的 {% data variables.product.prodname_dotcom %} 订阅。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
-  - /articles/where-do-i-add-a-coupon-code/
-  - /articles/redeeming-a-coupon-for-your-personal-account/
-  - /articles/redeeming-a-coupon-for-organizations/
+  - /articles/where-do-i-add-a-coupon-code
+  - /articles/redeeming-a-coupon-for-your-personal-account
+  - /articles/redeeming-a-coupon-for-organizations
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Discounts
@@ -25,13 +25,13 @@ topics:
 
 您无法将优惠券应用到 {% data variables.product.prodname_marketplace %} 应用程序的付费计划。
 
-### 兑换个人帐户的优惠券
+## 兑换个人帐户的优惠券
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. 在“Redeem your coupon（兑换您的优惠券）”下，单击*个人*帐户用户名旁边的 **Choose（选择）**。 ![选择按钮](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-### 兑换组织的优惠券
+## 兑换组织的优惠券
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

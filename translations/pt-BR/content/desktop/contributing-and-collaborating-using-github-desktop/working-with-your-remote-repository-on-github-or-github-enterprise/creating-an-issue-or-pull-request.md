@@ -7,23 +7,24 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Criar um problema ou PR
 ---
 
-### Sobre problemas e pull requests
+## Sobre problemas e pull requests
 
 Você pode usar problemas para rastrear ideias, erros, tarefas e outras informações importantes para o seu projeto. Você pode criar um problema no repositório do seu projeto com o {% data variables.product.prodname_desktop %}. Para obter mais informações sobre os problemas, consulte "[Sobre os problemas](/github/managing-your-work-on-github/about-issues)".
 
 Após criar um branch e fazer alterações nos arquivos em um projeto, você poderá criar um pull request. Com um pull request, você pode propor, discutir e repetir alterações antes de fazer merge das alterações no projeto. Você pode criar um pull request no repositório do seu projeto com o {% data variables.product.prodname_desktop %}. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
-### Pré-requisitos
+## Pré-requisitos
 
 Antes de criar um pull request, você deverá fazer push das alterações em um branch em {% data variables.product.prodname_dotcom %}.
 - Salve e faça o commit de quaisquer alterações no seu branch local. Para obter mais informações, consulte "[Fazer o commit e revisar as alterações no seu projeto](/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project)".
 - Faça push dos seus commits locais para o repositório remoto. Para obter mais informações, consulte "[Fazer push de alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)".
 - Publique seu branch atual no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciar branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)".
 
-### Criar um problema
+## Criar um problema
 
 {% mac %}
 
@@ -45,7 +46,7 @@ Antes de criar um pull request, você deverá fazer push das alterações em um 
 
 {% endnote %}
 
-### Criar uma pull request
+## Criar um pull request
 
 {% mac %}
 
@@ -67,7 +68,7 @@ Antes de criar um pull request, você deverá fazer push das alterações em um 
 
 {% endwindows %}
 
-### Leia mais
+## Leia mais
 - "[Problema ](/github/getting-started-with-github/github-glossary#issue) no glossário de {% data variables.product.prodname_dotcom %}
 - "[pull request](/github/getting-started-with-github/github-glossary#pull-request)" no glossário do {% data variables.product.prodname_dotcom %}
 - "[Branch de base](/github/getting-started-with-github/github-glossary#base-branch)no glossário de {% data variables.product.prodname_dotcom %}

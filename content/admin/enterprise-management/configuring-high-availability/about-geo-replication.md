@@ -22,7 +22,9 @@ Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/
 
 ## Limitations
 
-Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests. 
+Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes is limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. {% ifversion ghes > 3.2 %}To reduce the latency and bandwidth caused by distributed teams and large CI farms without impacting write throughput, you can configure repository caching instead. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
+
+Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests. 
 
 {% data reusables.enterprise_installation.replica-limit %}
 
@@ -31,4 +33,4 @@ Writing requests to the replica requires sending the data to the primary and all
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
 ## Further reading
-- "[Creating geo-replication replicas](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"
+- "[Creating geo-replication replicas](/enterprise/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

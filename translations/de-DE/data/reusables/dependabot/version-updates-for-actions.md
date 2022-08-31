@@ -1,1 +1,0 @@
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} for the actions that you add to your workflow. For more information, see "[Keeping your actions up to date with {% data variables.product.prodname_dependabot %}](/github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot)."

@@ -1,11 +1,9 @@
 ---
-title: プロジェクトボードで進捗を追跡する
-shortTitle: プロジェクトの追跡
-intro: プロジェクトボードで作業を追跡する方法を学んでください
+title: '{% data variables.product.prodname_projects_v1 %}の進捗を追跡する'
+shortTitle: '{% data variables.product.prodname_projects_v1 %}の追跡'
+intro: '{% data variables.projects.projects_v1_board %}上の作業の追跡のやり方を学んでください。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -17,5 +15,7 @@ children:
   - /archiving-cards-on-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}

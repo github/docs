@@ -1,16 +1,20 @@
-const path = require('path')
-const fs = require('fs')
-const readFrontmatter = require('../../../lib/read-frontmatter')
-const walk = require('walk-sync')
-const { difference } = require('lodash')
-const allowedTopics = require('../../../data/allowed-topics')
+import path from 'path'
+import fs from 'fs'
+import readFrontmatter from '../../../lib/read-frontmatter.js'
+import walk from 'walk-sync'
+import { difference } from 'lodash-es'
+import allowedTopics from '../../../data/allowed-topics.js'
 
 const contentDir = path.join(process.cwd(), 'content')
 const topics = walk(contentDir, { includeBasePath: true })
-  .filter(filename => filename.endsWith('.md') && !filename.includes('README'))
-  .map(filename => {
+  .filter((filename) => filename.endsWith('.md') && !filename.includes('README'))
+  .map((filename) => {
     const fileContent = fs.readFileSync(filename, 'utf8')
-    const { data } = readFrontmatter(fileContent)
+    const { data, errors } = readFrontmatter(fileContent)
+    if (errors.length > 0) {
+      console.warn(errors)
+      throw new Error(`More than 0 front-matter errors`)
+    }
     return data.topics || []
   })
   .flat()

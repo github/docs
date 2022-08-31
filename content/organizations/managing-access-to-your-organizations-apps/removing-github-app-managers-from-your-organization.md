@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Remove GitHub App managers
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
 
@@ -29,13 +30,13 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
+1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
 ![Select {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**.
 ![Revoke {% data variables.product.prodname_github_app %} manager permissions](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"

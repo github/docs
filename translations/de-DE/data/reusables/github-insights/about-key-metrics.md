@@ -1,1 +1,0 @@
-{% data variables.product.prodname_insights %} hebt Schlüsselmetriken hervor, da diese Metriken direkt umsetzbar sind, um sowohl Geschwindigkeit als auch Qualität zu erhöhen. Schlüsselmetriken sind für jeden in der Organisation hilfreich, von einzelnen Mitwirkenden und deren Vorgesetzten bis hin zu Führungskräften, die das Gesamtbild betrachten.
