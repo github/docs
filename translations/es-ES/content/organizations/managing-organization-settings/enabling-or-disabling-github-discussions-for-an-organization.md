@@ -1,6 +1,6 @@
 ---
 title: Habilitar o inhabilitar los debates de GitHub para una organización
-intro: 'Puedes utilizar {% data variables.product.prodname_discussions %} en una organización como un lugar en el que esta pueda tener conversaciones que no sean específicas para un solo repositorio dentro de ella.'
+intro: 'You can use {% data variables.product.prodname_discussions %} in an organization as a place for your organization to have conversations that aren''t specific to a single repository within your organization.'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
   feature: discussions

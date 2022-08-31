@@ -53,7 +53,7 @@ topics:
 {% data reusables.gpg.copy-gpg-key-id %}
 10. 以下のテキストを貼り付けます。GPG キー ID は実際に使用するものを入力してください。 この例では、GPG キー ID は `3AA5C34371567BD2` です。
  ```shell{:copy}
- $ gpg --armor --export <em>3AA5C34371567BD2</em>
+ $ gpg --armor --export 3AA5C34371567BD2
  # Prints the GPG key ID, in ASCII armor format
  ```
 11. `-----BEGIN PGP PUBLIC KEY BLOCK-----` で始まり、`-----END PGP PUBLIC KEY BLOCK-----` で終わる GPG キーをコピーします。

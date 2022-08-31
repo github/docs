@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 **注意：**
 
-- 外部组 API 仅适用于属于使用 {% data variables.product.prodname_emus %} 的企业中的组织。 更多信息请参阅“[关于企业管理用户](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+- The external groups API is only available for organizations that are part of an enterprise using {% data variables.product.prodname_emus %}. 更多信息请参阅“[关于企业管理用户](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 - 如果您的组织使用团队同步，则可以使用团队同步 API。 更多信息请参阅“[团队同步 API](#team-synchronization)”。
 
 {% endnote %}

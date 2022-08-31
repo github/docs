@@ -23,7 +23,7 @@ versions:
 
 パッケージを見ることができるかどうかは、いくつかの要素に依存します。 デフォルトでは、公開したパッケージはすべて見ることができます。
 
-リポジトリをスコープとするパッケージは、そのパッケージを所有するリポジトリから権限と可視性を継承します。 The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
+リポジトリをスコープとするパッケージは、そのパッケージを所有するリポジトリから権限と可視性を継承します。 以下のレジストリは、この種類の権限**のみ**を利用します:{% ifversion not fpt or ghec %}
 - Dockerレジストリ (`docker.pkg.github.com`){% endif %}
 {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
 - RubyGemsレジストリ
@@ -31,7 +31,7 @@ versions:
 - NuGetレジストリ
 
 {% ifversion fpt or ghec %}
-The {% data variables.product.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. 詳細な権限を利用することも、パッケージをレジストリに接続してその権限を継承することもできます。 詳しい情報については「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
+{% data variables.product.prodname_ghcr_and_npm_registry %}は、個人ユーザもしくはOrganizationアカウントが所有する各パッケージごとにカスタマイズできる、詳細な権限及び可視性の設定のオプションを提供します。 詳細な権限を利用することも、パッケージをレジストリに接続してその権限を継承することもできます。 詳しい情報については「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
 {% endif %}
 
 詳しい情報については「[GitHub Packagesの権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」{% ifversion fpt or ghec %}及び「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」{% endif %}を参照してください。

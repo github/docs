@@ -23,7 +23,7 @@ shortTitle: Executar o executor ao iniciar
 
 {% note %}
 
-**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
+**Observação:** Você precisa adicionar um executor a {% data variables.product.product_name %} antes de poder configurar o aplicativo do executor auto-hospedado como um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
 
 {% endnote %}
 {% endcapture %}
@@ -34,7 +34,7 @@ shortTitle: Executar o executor ao iniciar
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
+Para sistemas Linux que usam `systemd`, você pode usar o `svc.sh` que é criado após adicionar com sucesso o executor para instalar e gerenciar usar o aplicativo como um serviço.
 
 {{ service_non_windows_intro_shell }}
 
