@@ -25,7 +25,7 @@ shortTitle: 赞助贡献者
 
 您可以代表您的个人帐户赞助一个帐户，以投资您个人受益的项目。 您可以代表您的组织赞助帐户，原因有很多。
 - 维护组织工作所依赖的特定库
-- 投资于作为一个组织所依赖的生态系统（如区块链）
+- Investing in the ecosystem you rely on as an organization (such as blockchain)
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 

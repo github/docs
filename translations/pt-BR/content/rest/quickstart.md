@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub REST API
-intro: 'Learn how to get started with the {% data variables.product.prodname_dotcom %} REST API.'
+title: Início rápido para a API REST do GitHub
+intro: 'Saiba como começar com a API REST de {% data variables.product.prodname_dotcom %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,13 +16,13 @@ redirect_from:
 miniTocMaxHeadingLevel: 3
 ---
 
-This article describes how to quickly get started with the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+Esse artigo descreve como começar rapidamente com a API REST de {% data variables.product.prodname_dotcom %} usando {% data variables.product.prodname_cli %}, JavaScript ou cURL. Para um guia mais detalhado, consulte "[Primeiros passos com a API REST](/rest/guides/getting-started-with-the-rest-api)."
 
 {% cli %}
 
-## Getting started using {% data variables.product.prodname_cli %}
+## Primeiros passos para usar o {% data variables.product.prodname_cli %}
 
-### Using {% data variables.product.prodname_cli %} in the command line
+### Usando {% data variables.product.prodname_cli %} na linha de comando
 
 {% data variables.product.prodname_cli %} is the easiest way to use the {% data variables.product.prodname_dotcom %} REST API from the command line.
 
@@ -348,4 +348,4 @@ jobs:
 
 ## Próximas etapas
 
-For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+Para um guia mais detalhado, consulte "[Primeiros passos com a API REST](/rest/guides/getting-started-with-the-rest-api)."
