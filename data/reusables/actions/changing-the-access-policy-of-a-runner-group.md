@@ -2,7 +2,7 @@
 
 Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
 
-{% data reusables.actionsself-hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 {% data reusables.actions.hosted-runner-security-admonition %}
  
  {% endcomment %}
