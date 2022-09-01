@@ -28,7 +28,7 @@ Estas bitácoras contienen información detallada sobre los codespaces, el conte
 {% webui %}
 
 1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, asegúrate de que estés conectado al codespace que quieres depurar.
-1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
 1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
 1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, haz clic derecho en el archivo zip de las bitácoras desde la vista de explorador y selecciona **Download…** para descargarlas en tu máquina local.
 
@@ -36,7 +36,7 @@ Estas bitácoras contienen información detallada sobre los codespaces, el conte
 
 {% vscode %}
 
-1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
 1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
 
 {% endvscode %}
@@ -55,7 +55,7 @@ Estas bitácoras contienen información sobre el contenedor, el contenedor dev y
 {% webui %}
 
 1. Conéctate al codespace que quieras depurar.
-2. Abre la {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
+2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
 
 Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bitácora de creación en un editor de texto y guardar el archivo localmente.
 
@@ -63,7 +63,7 @@ Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bit�
 
 {% vscode %}
 
-Abre la paleta de comandos (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
+Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
 
 Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bitácora de creación en un editor de texto y guardar el archivo localmente.
 

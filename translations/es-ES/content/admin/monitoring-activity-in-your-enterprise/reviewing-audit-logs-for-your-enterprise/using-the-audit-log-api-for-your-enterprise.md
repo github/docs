@@ -121,7 +121,7 @@ Para obtener más información sobre la API de REST de la bitácora de auditorí
 La siguiente consulta busca los eventos de la bitácora de auditoría que se crearon el 1 de enero de 2022 en la empresa `avocado-corp` y devolvió la primera página con un máximo de 100 elementos por página utilizando la [Paginación de la API de REST](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
@@ -133,7 +133,7 @@ Puedes especificar frases de búsqueda múltiples, tales como `created` y `actor
 La siguiente consulta busca los eventos de bitácora de auditoría para las solicitudes de cambios, en donde el evento ocurrió en o después del 1 de enero de 2022 en la empresa `avocado-corp` y el usuario `octocat` realizó la acción:
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
