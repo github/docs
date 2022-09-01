@@ -25,12 +25,7 @@ For more information on exactly how {% data variables.product.prodname_github_co
 ## Creating your codespace
 
 1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
-
-1. Choose an owner for the new repository, enter a repository name, select your preferred privacy setting, and click **Create repository from template**.
-
-1. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
-
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+{% data reusables.codespaces.open-codespace-from-template-repo %}
 
 ## Running the application
 
