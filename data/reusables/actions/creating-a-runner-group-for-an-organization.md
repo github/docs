@@ -2,10 +2,10 @@
 
 Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
 
-{% data reusables.actionsself-hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 {% data reusables.actions.hosted-runner-security-admonition %}
  
- {% endcomment %}
+{% endcomment %}
 
 All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
 

@@ -2,10 +2,10 @@
 
 Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
 
-{% data reusables.actionsself-hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 {% data reusables.actions.hosted-runner-security-admonition %}
  
- {% endcomment %}
+{% endcomment %}
 
 Enterprises can add their runners to groups for access management. Enterprises can create groups of runners that are accessible to specific organizations in the enterprise account{% ifversion restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. For information about how to create a runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
 
