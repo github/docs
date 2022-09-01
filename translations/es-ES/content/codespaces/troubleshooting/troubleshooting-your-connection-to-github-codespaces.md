@@ -18,7 +18,7 @@ redirect_from:
 Los codespaces están configurados para detenerse después de pasar 30 minutos sin actividad. Si intentas interactuar con un codespace después de que se detuvo, podrías ver un error de tipo `503 service unavailable`.
 
 - Si se muestra un botón de **Inicio** en {% data variables.product.prodname_vscode %} o en tu ventana de buscador, haz clic en **Inicio** para volverte a conectar al codespace.
-- Restablece tu codespace volviendo a cargar la ventana. Desde la [paleta de comandos](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) en {% data variables.product.prodname_vscode %}, haz clic en **Desarrollador: Recargar Ventana**.
+- Restablece tu codespace volviendo a cargar la ventana. From the [Command Palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## El buscador no se puede conectar
 

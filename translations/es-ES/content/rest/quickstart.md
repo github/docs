@@ -103,15 +103,15 @@ Puedes utilizar Octokit.js para interactuar con la API de REST de {% data variab
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **Advertencia**: Trata a tu token de acceso como si fuera una contraseña.
 
-   To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+   Para mantener seguro a tu token, puedes almacenarlo como un secreto y ejecutar tu script mediante {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
 
    {%- ifversion fpt or ghec %}
 
-   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   Si estas opciones no son posibles, considera utilizar otro servicio tal como [el 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) para almacenar tu token de forma segura.
 
    {% endwarning %}
 
@@ -136,18 +136,18 @@ Puedes utilizar Octokit.js para interactuar con la API de REST de {% data variab
 
 ### Using Octokit.js in {% data variables.product.prodname_actions %}
 
-You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
 {% data variables.product.prodname_dotcom %} recomienda que utilices el `GITHUB_TOKEN` integrado en vez de crear un token. Si esto es imposible, almacena tu token como un secreto y reemplaza a `GITHUB_TOKEN` por el nombre de tu secreto en el siguiente ejemplo. Para obtener más información sobre el `GITHUB_TOKEN`, consulta ""[Automatic token authentication](/actions/security-guides/automatic-token-authentication)". Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
 
-The following example workflow:
+El siguiente flujo de trabajo de ejemplo:
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. Verifica el contenido del repositorio
+1. Configura a Node.js
+1. Instala `octokit`
+1. Almacena el valor de `GITHUB_TOKEN` como una variable de ambiente llamada `TOKEN` y ejecuta `.github/actions-scripts/use-the-api.mjs`, que puede acceder a esa variable de ambiente como `process.env.TOKEN`
 
-Example workflow:
+Flujo de trabajo de ejemplo:
 
 ```yaml
 on:
@@ -177,7 +177,7 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+Script de JavaScript de ejemplo con la ruta de archivo `.github/actions-scripts/use-the-api.mjs`:
 
 ```javascript
 import { Octokit } from "octokit"
@@ -256,20 +256,20 @@ jobs:
 
 {% endnote %}
 
-1. Install cURL if cURL isn't already installed on your machine. To check if cURL is installed, execute `curl --version` in the command line. If the output is information about the cURL version, cURL is installed. If you get a message similar to `command not found: curl`, you need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+1. Install cURL if cURL isn't already installed on your machine. To check if cURL is installed, execute `curl --version` in the command line. If the output is information about the cURL version, cURL is installed. If you get a message similar to `command not found: curl`, you need to download and install cURL. Para obtener más información, consulta [la página de descarga del proyecto cURL](https://curl.se/download.html).
 1. Crear un token de acceso. Por ejemplo, crea un token de acceso personal (PAT) o un token de acceso de usuario a servidor de {% data variables.product.prodname_github_app %}. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **Advertencia**: Trata a tu token de acceso como si fuera una contraseña.
 
    {%- ifversion fpt or ghec %}
 
-   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".{% endif %}
 
-   You can also use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+   You can also use {% data variables.product.prodname_cli %} instead of cURL. El {% data variables.product.prodname_cli %} se encargará de la autenticación por ti. Para obtener más información, consulta la versión del {% data variables.product.prodname_cli %} de esta página.
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   Si estas opciones no son posibles, considera utilizar otro servicio tal como [el 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) para almacenar tu token de forma segura.
 
    {% endwarning %}
 
@@ -284,7 +284,7 @@ jobs:
 
    {% note %}
 
-   **Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. JSON web tokens (JWTs) only work with `Authorization: Bearer`.
+   **Nota:** {% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 

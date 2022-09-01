@@ -17,7 +17,7 @@ redirect_from:
 
 ## Acerca de {% data variables.product.prodname_vscode_command_palette %}
 
-La paleta de comandos es una de las características focales de {% data variables.product.prodname_vscode %} y está disponible para que la utilices en {% data variables.product.prodname_github_codespaces %}. La {% data variables.product.prodname_vscode_command_palette %} te permite acceder a muchos comandos para {% data variables.product.prodname_codespaces %} y {% data variables.product.prodname_vscode_shortname %}. Para obtener más información sobre cómo utilizar la {% data variables.product.prodname_vscode_command_palette_shortname %}, consulta la sección "[Interfaz de usuario](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
+La paleta de comandos es una de las características focales de {% data variables.product.prodname_vscode %} y está disponible para que la utilices en {% data variables.product.prodname_github_codespaces %}. La paleta de comandos te permite acceder a muchos comandos para los {% data variables.product.prodname_codespaces %} y para {% data variables.product.prodname_vscode_shortname %}. Para obtener más información sobre cómo utilizar la {% data variables.product.prodname_vscode_command_palette_shortname %}, consulta la sección "[Interfaz de usuario](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 
 ## Acceder a la {% data variables.product.prodname_vscode_command_palette_shortname %}
 

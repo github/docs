@@ -1,9 +1,9 @@
 {% ifversion fpt %}
-1. Navega a la página principal del repositorio u organización en donde se ubican tus grupos de ejecutores auto-hospedados.
+1. Navigate to the main page of the repository or organization where your runner groups are located.
 2. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 {% elsif ghec or ghes or ghae %}
-1. Navega a donde se ubiquen tus grupos de ejecutores auto-hospedados:
+1. Navigate to where your runner groups are located:
    * **En una organización**: navega a la página principal y da clic en {% octicon "gear" aria-label="The Settings gear" %} **Configuración**.
    * **Si utilizas un grupo a nivel de empresa**:
 
@@ -12,7 +12,7 @@
    * **En una organización**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runner-groups spaces=5 %}
-   * **Si estás utilizando un grupo a nivel de empresa**:
+   * **Si utilizas un grupo a nivel de empresa**:
 
 {% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
 {% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}
