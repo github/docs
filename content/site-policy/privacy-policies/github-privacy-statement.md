@@ -256,7 +256,7 @@ The table below provides additional information about how we use different types
 
   1. **Specifically on GitHub Enterprise Marketing Pages**
    
-     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to Cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
+     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
 
      Some users will also be able to manage non-essential cookies via a cookie consent banner, including the options to accept, manage, and reject all non-essential cookies.
   2. **Generally for all websites**
@@ -265,7 +265,7 @@ The table below provides additional information about how we use different types
      - If your browser sends a [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track) (DNT) signal, GitHub will not set non-essential cookies and will not load third party resources which set non-essential cookies.
      - Many browsers provide cookie controls which may limit the types of cookies you encounter online. Check out the documentation for your browser to learn more.
      - If you enable a browser extension designed to block tracking, such as [Privacy Badger](https://en.wikipedia.org/wiki/Privacy_Badger), non-essential cookies set by a website or third parties may be disabled.
-     - If you enable a browser extension designed to block unwanted content, such as [uBlock Origin](https://en.wikipedia.org/wiki/UBlock_Origin), non-essential cookies will be disabled to the extent content that sets non-essential cookies is blocked.
+     - If you enable a browser extension designed to block unwanted content, such as [uBlock Origin](https://en.wikipedia.org/wiki/UBlock_Origin), non-essential cookies will be disabled to the extent that content that sets non-essential cookies will be blocked.
      - Advertising controls. Our advertising partners may participate in associations that provide simple ways to opt out of ad targeting, which you can access at:
        - United States: [NAI](http://optout.networkadvertising.org) and [DAA](http://optout.aboutads.info/)
        - Canada: [Digital Advertising Alliance of Canada](https://youradchoices.ca/)
@@ -308,7 +308,7 @@ United States<br>
 
 **If you are outside of North America:**<br>
 Github Data Protection Officer<br>
-co/ DP Dock DPO Services GmbH,<br>
+c/o DP Dock DPO Services GmbH,<br>
 Attn: GitHub BV, Gut Projensdorf,<br>
 24161 Altenholz, Germany<br>
 github@dp-officer.com  cc: **privacy [at] github [dot] com**<br>
