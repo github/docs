@@ -21,15 +21,17 @@ shortTitle: Using runner groups
 
 {% ifversion ghec or ghes or ghae %}
 
-## Creating a runner group for an organization
+## Creating a self-hosted runner group for an organization
 
-{%- ifversion ghes %}
+{%- ifversion ghec or ghes %}
+
 {% data reusables.actions.self-hosted-runner-security-admonition %}
+
 {%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Creating a runner group for an enterprise
+## Creating a self-hosted runner group for an enterprise
 
  {%- ifversion ghec or ghes %}
 
@@ -41,7 +43,7 @@ shortTitle: Using runner groups
 
 {% endif %}
 
-## Changing the access policy of a runner group
+## Changing the access policy of a self-hosted runner group
 
 {%- ifversion fpt or ghec or ghes %}
 
@@ -56,15 +58,15 @@ shortTitle: Using runner groups
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Automatically adding a runner to a group
+## Automatically adding a self-hosted runner to a group
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
-## Moving a runner to a group
+## Moving a self-hosted runner to a group
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## Removing a runner group
+## Removing a self-hosted runner group
 
 {% data reusables.actions.removing-a-runner-group %}
 
