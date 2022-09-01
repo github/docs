@@ -12,8 +12,8 @@ sections:
     - Fixes an issue where enterprise users were incorrectly seeing a link to the GitHub.com community guidelines. 
     - Some background tasks could deadlock preventing them from making progress caused by `enterprise-crypto` which has now been modified to be thread safe. 
     - The top site admin bar contained a broken link to the SHA for the currently running version of the application. 
+    - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
   changes:
-    - In some cases, GitHub Advanced Security customers who skipped an upgrade to GitHub Enterprise Server 3.4 may have noticed that alerts from secret scanning were missing in the web UI and REST API. This fix recovers those impacted alerts. 
     - Performance improvements to the GitHub Enterprise Support Bundle generation process. This modifies the `sanitize_logs` function in `ghe-support-bundle` to run `psed` in parallel vs. serially.  This is based on an analysis of bundle generation on `ghe.io` where it was observed we spent 36% of our time in `psed` sanitizing logs. 
     - Change the `/organizations/`, `/orgs/` API routes to accept organization slugs or IDs. Previously, they only accepted slugs which was inconsistent with the `/enterprises/` routes and caused `Link` headers on GitHub Advanced Security API endpoints, that use IDs not slugs, to be inaccessible to users. 
     - User generated audit-logs events, such as `repo.create`, are now correctly returned from the REST API  availabe at `api.github.com/enterprises/{enterprise}/audit-log`. In addition to that, more types of user generated events, such as `project.create`, are now available on both the enterprise audit-log UI (available at `github.com/enterprises/{enterprise}/settings/audit-log`) and REST API (same endpoint as above). 
@@ -32,4 +32,3 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
