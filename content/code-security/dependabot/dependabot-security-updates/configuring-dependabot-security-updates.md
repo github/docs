@@ -38,7 +38,7 @@ You can disable {% data variables.product.prodname_dependabot_security_updates %
 
 ## Supported repositories
 
-{% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Managing security and analysis settings for your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)." 
+{% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-dependabot-security-updates-for-your-repositories)." 
 
 If you create a fork of a repository that has security updates enabled, {% data variables.product.prodname_dotcom %} will automatically disable {% data variables.product.prodname_dependabot_security_updates %} for the fork. You can then decide whether to enable {% data variables.product.prodname_dependabot_security_updates %} on the specific fork. For more information on enabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository, see "[Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository](#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository)."
 
@@ -46,11 +46,11 @@ If security updates are not enabled for your repository and you don't know why, 
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository (see below).
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see "[Managing security and analysis settings for your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)." 
 
-You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories owned by your personal account or organization. For more information, see "[Managing security and analysis settings for your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)." 
+{% data variables.product.prodname_dependabot_security_updates %} enabled at the personal or organization account level require specific repository settings. For more information, see "[Supported repositories](#supported-repositories)."
 
-{% data variables.product.prodname_dependabot_security_updates %} require specific repository settings. For more information, see "[Supported repositories](#supported-repositories)."
+You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository.
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
 
