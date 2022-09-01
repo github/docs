@@ -1,15 +1,15 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - Site administrators were not able to manage security products settings for repositories they had unlocked. 
-    - Prevents duplication of admin SSH keys showing up in Management Console and admin/.ssh/authorized_keys 
-    - Adding a check for running replication before updating configuration files on replica stand-up before running `ghe-cluster-config-apply`. This prevents cases where unconfigured nodes could replicate their configuration to the rest of the cluster, potentially removing configurations from the existing cluster nodes. 
-    - The validation phase of the config apply run would incorrectly mark some Nomad jobs as invalid. 
-    - The symlinks for self-signed TLS certificates were no created which caused various failures in the GitHub UI. 
-    - Some background tasks could deadlock preventing them from making progress caused by `enterprise-crypto` which has now been modified to be thread safe. 
+    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
+    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
+    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
+    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
+    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
+    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
   changes:
-    - Performance improvements to the GitHub Enterprise Support Bundle generation process. This modifies the `sanitize_logs` function in `ghe-support-bundle` to run `psed` in parallel vs. serially.  This is based on an analysis of bundle generation on `ghe.io` where it was observed we spent 36% of our time in `psed` sanitizing logs. 
-    - User generated audit-logs events, such as `repo.create`, are now correctly returned from the REST API  availabe at `api.github.com/enterprises/{enterprise}/audit-log`. In addition to that, more types of user generated events, such as `project.create`, are now available on both the enterprise audit-log UI (available at `github.com/enterprises/{enterprise}/settings/audit-log`) and REST API (same endpoint as above). 
+    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
+    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
   known_issues:
     - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
