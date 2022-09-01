@@ -1,9 +1,9 @@
 {% note %}
 
-**Note**: If the Remote Explorer is not displayed in the Activity Bar:
+**ノート**: Remote Explorerがアクティビティバーに表示されない場合:
 
-1. Access the command palette. For example, by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type: `codespaces`.
-1. Click **Codespaces: Details**.
+1. コマンドパレットにアクセスしてください。 たとえば<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linuxを押します。
+1. `codespaces`と入力してください。
+1. **Codespaces: Details（Codespacesの詳細）**をクリックしてください。
 
 {% endnote %}

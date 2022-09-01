@@ -79,6 +79,8 @@ Enterprise owners can restrict access to private assets owned by organizations i
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}

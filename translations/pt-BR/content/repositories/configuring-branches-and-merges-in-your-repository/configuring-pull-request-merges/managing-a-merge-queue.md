@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-A fila de merge cria branches temporários com um prefixo especial para validar as alterações do pull request. The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} fará merge de todas essas alterações em `base_branch` uma vez que as verificações exigidas pelas proteções do branch de `base_branch` sejam aprovadas.
+A fila de merge cria branches temporários com um prefixo especial para validar as alterações do pull request. Em seguida, as alterações no pull request são agrupadas em um `merge_group` com a última versão do `base_branch` e também com as alterações antes dele na fila. {% data variables.product.product_name %} fará merge de todas essas alterações em `base_branch` uma vez que as verificações exigidas pelas proteções do branch de `base_branch` sejam aprovadas.
 
 
 Para obter informações sobre métodos de merge, consulte "[Sobre merges de pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
@@ -34,11 +34,11 @@ Para obter informações sobre métodos de merge, consulte "[Sobre merges de pul
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-### Triggering merge group checks with {% data variables.product.prodname_actions %}
+### Acionando verificações de grupo de merge com {% data variables.product.prodname_actions %}
 
-You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+Você pode usar o evento `merge_group` para acionar o fluxo de trabalho {% data variables.product.prodname_actions %} quando um pull request é adicionado à fila de merge. Observe que este é um evento diferente dos eventos `pull_request` e `push`.
 
-A workflow that reports a check which is required by the target branch's protections would look like this:
+Um fluxo de trabalho que informa uma verificação necessária pelas proteções do branch de destino ficaria assim:
 
 ```yaml
 on:
@@ -46,11 +46,11 @@ on:
   merge_group:
 ```
 
-For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
 
-### Triggering merge group checks with other CI providers
+### Acionando verificações de grupo de merge com outros provedores de CI
 
-With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
+Com outros provedores de CI, é possível que você precise atualizar sua configuração de CI para ser executada quando uma branch que começa quando o prefixo especial `gh-readonly /{base_branch}` é criado.
 
 ## Gerenciando uma fila de merge
 

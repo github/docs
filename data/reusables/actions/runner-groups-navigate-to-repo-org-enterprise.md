@@ -1,9 +1,9 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the repository or organization where your self-hosted runner groups are located.
+1. Navigate to the main page of the repository or organization where your runner groups are located.
 2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 {% elsif ghec or ghes or ghae %}
-1. Navigate to where your self-hosted runner groups are located:
+1. Navigate to where your runner groups are located:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
    * **If using an enterprise-level group**:
 
