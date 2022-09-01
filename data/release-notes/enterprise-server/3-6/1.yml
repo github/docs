@@ -7,12 +7,11 @@ sections:
     - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
     - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
     - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
-    - Fixes an issue where organization admins were unable to set the level of access required for creating discussions. 
-    - Fixes an issue where some users were incorrectly seeing a message that they needed to verify their email before creating a discussion. 
-    - Fixes an issue with the hydro payload value. It use to not have quotes, so the problematic file name isnt being handled properly which created a potential security vulnerability in the file tree 
-    - Fixes an issue where enterprise users were incorrectly seeing a link to the GitHub.com community guidelines. 
     - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
-    - The top site admin bar contained a broken link to the SHA for the currently running version of the application. 
+    - The site admin bar at the top of the web interface contained a broken link to the SHA for the currently running version of the application.
+    - Organization owners were unable to set the level of access required to create discussions. 
+    - Discussions users were incorrectly directed to the community guidelines for GitHub.com.
+    - In some cases, users were incorrectly instructed to verify their email before creating a discussion.
     - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
   changes:
     - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."

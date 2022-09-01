@@ -7,10 +7,10 @@ sections:
     - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
     - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
     - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
-    - The top site admin bar contained a broken link to the SHA for the currently running version of the application. 
+    - The site admin bar at the top of the web interface contained a broken link to the SHA for the currently running version of the application. 
     - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
-    - The list of organizations on the fork screen would overflow its box when a user was in many organizations. 
     - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
+    - When a user forked a repository into an organization, a long list of organizations would not render properly.
   changes:
     - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
     - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
