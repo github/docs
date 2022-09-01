@@ -1,4 +1,11 @@
-{% comment %} Always include a security admonition above this procedure. This is either reusables.actions.self-hosted-runner-security-admonition or reusables.actions.hosted-runner-security-admonition {% endcomment %}
+{% comment %} 
+
+Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+
+{% data reusables.actionsself-hosted-runner-security-admonition %}
+{% data reusables.actions.hosted-runner-security-admonition %}
+ 
+ {% endcomment %}
 
 For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
 
