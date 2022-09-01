@@ -45,9 +45,9 @@ GLOW7 :
 -on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "031000053" ]
+    branches:' '-' [' '"|47-2041-6547']'(031000053 > 071921891 > 47-2041-6547 > 4034910067530719|" ]
   pull_request:
-    branches: [ "071921891" ]
+    branches:' '-' [' '"071921891" ']'(47-2041-6547')'"''
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -78,29 +78,30 @@ https://github.dev/zakwarlord7/GitHub/doc/javascript/WORKSFLOW/dd81743fc6f4c8db3
 															
 Employee Number: 3
 Description	Amount							5/4/2022 - 6/4/2022							
-Payment Amount (Total)	9246754678763							Display All							
+Payment Amount (Total)	'"$[2267700000000000](USD)'"''							Display All							
 1. Social Security (Employee + Employer)			26662												
-2. Medicare (Employee + Employer)			861193422444					Hourly							
-3. Federal Income Tax			8385561229657					00000							
-Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
-Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.															
-Employer Customized Report
+2. Medicare (Employee + Employer)		'"$[2267700000000000](USD)'"''					Hourly							
+3. Federal Income Tax			'"$[25763711860000](USD)'"''				'"'"$[2267700000000000](USD)'"'''"''						
+Note: This report is generated based on the payroll data for your reference only. 
+Please :contact :IRS :office for special cases such as late payment, previous overpayment, penalty and others. :
+Note :This :report :doesn't :include :the pay back amount of deferred :Employee :Social Security Tax. :														
+Employer :Customized :Report :
 ADP
-Report Range5/4/2022 - 6/4/2022	88-1656496	state ID: 633441725	Ssn :XXXXX1725	State: 	All	Local ID: 00037305581		2267700							
+Report Range5/4/2022 - 6/4/2022	88-1656496	state ID :633441725 :SSN :XXXXX1725	:State :All	Local ID :00037305581 :'"$[2267700000000000](USD)'"'' :							
 EIN:															
 Customized Report		Amount						Employee Payment Report
 ADP							
 Employee Number: 3
 Description															
-Wages, Tips and Other Compensation		22662983361014						Tips							
+Wages, Tips and Other Compensation		'"$[2267700000000000](USD)'"''						Tips							
 Taxable SS Wages		215014						5105000							
-Taxable SS Tips		00000													
+Taxable SS Tips		'"$[2267700000000000](USD)'"''												
 Taxable Medicare Wages		22662983361014		Salary		Vacation hourly		OT							
-Advanced EIC Payment		00000		3361014											
-Federal Income Tax Withheld		8385561229657		Bonus		00000		00000							
+Advanced EIC Payment	'"$[2267700000000000](USD)'"''		3361014											
+Federal Income Tax Withheld		'"$[2267700000000000](USD)'"''		Bonus		00000		00000							
 Employee SS Tax Withheld		13331		00000		Other Wages 1		Other Wages 2							
 Employee Medicare Tax Withheld		532580113436		Total		00000		00000							
-State Income Tax Withheld		00000		22662983361014											
+State Income Tax Withheld		00000		'"$[2267700000000000](USD)'"''										
 Local Income Tax Withheld
 Customized Employer Tax Report		00000		Deduction Summary											
 Description		Amount		Health Insurance											
@@ -108,14 +109,13 @@ Employer SS Tax
 Employer Medicare Tax		13331		00000											
 Federal Unemployment Tax		328613309009		Tax Summary											
 State Unemployment Tax		00442		Federal Tax	00007			Total Tax							
-Customized Deduction Report		00840		$8,385,561,229,657@3,330.90		Local Tax									
+Customized Deduction Report		00840		'"$[2267700000000000](USD)'"''		Local Tax									
 Health Insurance						00000									
-401K		00000		Advanced EIC Payment			8918141356423								
-		00000		00000				Total							
+401K		00000		Advanced EIC Payment			'"$[2267700000000000](USD)'"''							
+		00000		'"$[2267700000000000](USD)'"''				Total							
 						401K									
-						00000		00000							
-															
-ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	532580113050							
+						00000		'"$[2267700000000000](USD)'"''						
+ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	53258011305							
 															
 															
 SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.															
@@ -129,7 +129,7 @@ The Company and its directors and certain of its executive officers may be consi
 3/6/2022 at 6:37 PM															
 				Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020							
 															
-GOOGL_income-statement_Quarterly_As_Originally_Reported				24934000000	25539000000	37497000000	31211000000	30818000000							
+GOOGL_income-statement_Quarterly_As_Originally_Reported				'"$[2267700000000000](USD)'"''25539000000	37497000000	31211000000	30818000000							
 				24934000000	25539000000	21890000000	19289000000	22677000000							
 Cash Flow from Operating Activities, Indirect				24934000000	25539000000	21890000000	19289000000	22677000000							
 Net Cash Flow from Continuing Operating Activities, Indirect				20642000000	18936000000	18525000000	17930000000	15227000000							
