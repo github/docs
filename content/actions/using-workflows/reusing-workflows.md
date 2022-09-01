@@ -127,7 +127,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: my-org/my-action@main
+         - uses: octo-org/my-action@v1
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -168,7 +168,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: my-org/my-action@main
+      - uses: octo-org/my-action@v1
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
