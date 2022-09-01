@@ -17,7 +17,7 @@ shortTitle: Using runner groups
 
 ## About runner groups
 
-{% data reusables.actions.about-runner-groups %}
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 

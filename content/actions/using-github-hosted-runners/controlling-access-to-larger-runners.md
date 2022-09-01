@@ -13,7 +13,7 @@ shortTitle: Controlling access to {% data variables.actions.hosted_runner %}s
 
 ## About runner groups
 
-{% data reusables.actions.about-runner-groups %}
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
