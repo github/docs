@@ -51,7 +51,7 @@ Para obter mais informações sobre artefatos da execução do fluxo de trabalho
 
 Um fluxo de trabalho pode acessar e restaurar um cache criado no branch atual, no branch de base (incluindo branches base de repositórios bifurcados) ou no branch-padrão (geralmente `principal`). Por exemplo, um cache criado no branch-padrão pode ser acessado a partir de qualquer pull request. Além disso, se o branch `feature-b` tiver o branch de base `feature-a`, um fluxo de trabalho acionado em `feature-b` teria acesso a caches criados no branch-padrão (`principal`), `feature-a` e `feature-b`.
 
-As restrições de acesso fornecem o isolamento da cache e a segurança ao criar um limite lógico entre os diferentes branches. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`). On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
 
 Vários fluxos de trabalho dentro de um repositório compartilham entradas de cache. Uma cache criada para um branch de um fluxo de trabalho pode ser acessada e restaurada a partir de outro fluxo de trabalho para o mesmo repositório e branch.
 
@@ -204,7 +204,7 @@ npm-d5ea0750
 
 ### Usando a saída da ação do `cache`
 
-Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
+Você pode usar a ação `cache` para fazer algo baseado em se ocorreu uma correspondência de cache ou se a falha ocorreu. Quando uma correspondência exata é encontrada para um cache para a tecla `especificada`, o `cache-hit` é definido como `verdadeiro`.
 
 No exemplo de fluxo de trabalho acima, há uma etapa que lista o estado dos módulos do Node se ocorrer uma falha de cache:
 

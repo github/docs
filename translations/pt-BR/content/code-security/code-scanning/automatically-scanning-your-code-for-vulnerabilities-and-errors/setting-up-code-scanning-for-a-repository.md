@@ -143,25 +143,29 @@ Os nomes das verificações de análise de {% data variables.product.prodname_co
 
   ![Verificações de pull request de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-Quando os trabalhos de {% data variables.product.prodname_code_scanning %} forem concluídos, {% data variables.product.prodname_dotcom %} calcula se quaisquer alertas foram adicionados pelo pull request e adiciona a entrada "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" à lista de verificações. Depois de {% data variables.product.prodname_code_scanning %} ser executado pelo menos uma vez, você poderá clicar em **Detalhes** para visualizar os resultados da análise. Se você usou um pull request para adicionar {% data variables.product.prodname_code_scanning %} ao repositório, inicialmente você verá uma mensagem de {% ifversion fpt or ghes > 3.2 or ghae or ghec %} "Análise não encontrada"{% else %}"Análise ausente"{% endif %} ao clicar em **Detalhes** na verificação de "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME".
+Quando os trabalhos de {% data variables.product.prodname_code_scanning %} forem concluídos, {% data variables.product.prodname_dotcom %} calcula se quaisquer alertas foram adicionados pelo pull request e adiciona a entrada "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" à lista de verificações. Depois de {% data variables.product.prodname_code_scanning %} ser executado pelo menos uma vez, você poderá clicar em **Detalhes** para visualizar os resultados da análise.
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-  ![Análise não encontrada para mensagem de commit](/assets/images/help/repository/code-scanning-analysis-not-found.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-7095  %}
+<!--Troubleshooting section no longer relevant-->
+{% elsif ghes < 3.5 or ghae %}
+Se você usou um pull request para adicionar {% data variables.product.prodname_code_scanning %} ao repositório, inicialmente você verá uma mensagem de {% ifversion ghes > 3.2 or ghae %} "Análise não encontrada"{% elsif ghes = 3.2 %}"Análise ausente"{% endif %} ao clicar em **Detalhes** na verificação de "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME".
+
+{% ifversion ghes > 3.2 or ghae %}
+  ![Análise não encontrada para mensagem de commit](/assets/images/enterprise/3.4/repository/code-scanning-analysis-not-found.png)
 
 A tabela lista uma ou mais categorias. Cada categoria está relacionada a análises específicas, para a mesma ferramenta e commit, realizadas em uma linguagem diferente ou em uma parte diferente do código. Para cada categoria a tabela mostra as duas análises que {% data variables.product.prodname_code_scanning %} tentou comparar para determinar quais alertas foram introduzidos ou corrigidos no pull request.
 
 Por exemplo, na captura de tela acima, {% data variables.product.prodname_code_scanning %} encontrou uma análise para o commit do merge do pull request, mas não há análise para o cabeçalho do branch principal.
-{% else %}
-  ![Análise ausente para mensagem de commit](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
-{% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ### Motivos para a mensagem "Análise não encontrada"
-{% else %}
+
+{% elsif ghes = 3.2 %}
+  ![Análise ausente para mensagem de commit](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
+
 ### Motivos para a mensagem "Análise ausente"
 {% endif %}
 
-Depois que {% data variables.product.prodname_code_scanning %} analisou o código em um pull request, ele precisa comparar a análise do branch de tópico (o branch que você usou para criar o pull request) com a análise do branch de base (o branch no qual você deseja mesclar o pull request). Isso permite que {% data variables.product.prodname_code_scanning %} calcule quais alertas foram recém-introduzidos pelo pull request, que alertas já estavam presentes no branch de base e se alguns alertas existentes são corrigidos pelas alterações no pull request. Inicialmente, se você usar um pull request para adicionar {% data variables.product.prodname_code_scanning %} a um repositório, o branch de base ainda não foi analisado. Portanto, não é possível computar esses detalhes. Neste caso, quando você clicar nos resultados verificando o pull request você verá a mensagem {% ifversion fpt or ghes > 3.2 or ghae or ghec %}"Análise não encontrada"{% else %}"Análise ausente do commit base SHA-HASH"{% endif %}.
+Depois que {% data variables.product.prodname_code_scanning %} analisou o código em um pull request, ele precisa comparar a análise do branch de tópico (o branch que você usou para criar o pull request) com a análise do branch de base (o branch no qual você deseja mesclar o pull request). Isso permite que {% data variables.product.prodname_code_scanning %} calcule quais alertas foram recém-introduzidos pelo pull request, que alertas já estavam presentes no branch de base e se alguns alertas existentes são corrigidos pelas alterações no pull request. Inicialmente, se você usar um pull request para adicionar {% data variables.product.prodname_code_scanning %} a um repositório, o branch de base ainda não foi analisado. Portanto, não é possível computar esses detalhes. Neste caso, quando você clicar nos resultados verificando o pull request você verá a mensagem {% ifversion ghes > 3.2 or ghae %}"Análise não encontrada"{% elsif ghes = 3.2 %}"Análise ausente do commit base SHA-HASH"{% endif %}.
 
 Há outras situações em que não pode haver análise para o último commit do branch de base para um pull request. Isso inclui:
 
@@ -169,7 +173,7 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Para verificar se um branch foi verificado, acesse a página {% data variables.product.prodname_code_scanning_capc %}, clique no menu suspenso **Branch** e selecione o branch relevante.
 
-![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   A solução nesta situação é adicionar o nome do branch de base para a especificação `on:push` e `on:pull_request` no fluxo de trabalho de {% data variables.product.prodname_code_scanning %} nesse branch e, em seguida, fazer uma alteração que atualize o pull request aberto que você deseja escanear.
 
@@ -181,13 +185,15 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Faça merge uma mudança trivial no branch de base para acionar {% data variables.product.prodname_code_scanning %} neste commit mais recente e, em seguida, faça push de uma alteração para o pull request reiniciar {% data variables.product.prodname_code_scanning %}.
 
+{% endif %}
+
 ## Próximas etapas
 
 Após configurar a opção {% data variables.product.prodname_code_scanning %}, e permitir que suas ações sejam concluídas, você pode:
 
 - Visualizar todos os alertas de {% data variables.product.prodname_code_scanning %} gerados para este repositório. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 - Visualizar todos os alertas gerados para um pull request enviado após configurar {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Triar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
-- Configurar notificações para execuções concluídas. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)".
+- Configurar notificações para execuções concluídas. Para obter mais informações, consulte “[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)".
 - Visualizar os logs gerados pela análise do {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Visualizar registros de {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs)".
 - Investigue todos os problemas que ocorrerem com a configuração inicial de {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Solucionar problemas no fluxo de trabalho de {% data variables.product.prodname_codeql %}](/code-security/secure-coding/troubleshooting-the-codeql-workflow)".
 - Personalize como {% data variables.product.prodname_code_scanning %} faz a varredura de código no seu repositório. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)."

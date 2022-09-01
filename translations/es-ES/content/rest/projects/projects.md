@@ -1,8 +1,8 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-shortTitle: Boards
+shortTitle: Tableros
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
+intro: 'La API de {% data variables.product.prodname_projects_v1 %} te permite crear y fusionar {% data variables.projects.projects_v1_boards %} en un repositorio.'
 versions:
   fpt: '*'
   ghes: '*'

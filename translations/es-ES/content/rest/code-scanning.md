@@ -1,5 +1,5 @@
 ---
-title: Code Scanning
+title: Escaneo de código
 intro: 'La API del {% data variables.product.prodname_code_scanning %} te permite recuperar y actualizar las alertas del {% data variables.product.prodname_code_scanning %} desde un repositorio.'
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-## About the Code scanning API
+## Acerca de la API de escaneo de código
 
 La API del {% data variables.product.prodname_code_scanning %} te permite recuperar y actualizar las alertas del {% data variables.product.prodname_code_scanning %} desde un repositorio. Puedes utilizar las terminales para crear reportes automatizados para las alertas del {% data variables.product.prodname_code_scanning %} en una organización o cargar resutlados de análisis que se hayan generado utilizando con herramientas fuera de línea del {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta la sección "[Encontrar vulnerabilidades de seguridad y errores en tu código](/github/finding-security-vulnerabilities-and-errors-in-your-code)".
 

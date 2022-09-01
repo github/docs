@@ -995,6 +995,13 @@ upcoming_changes:
     criticality: breaking
     owner: lukewar
   - 
+    location: ProjectView.groupedItems
+    description: 'O `groupedItems` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
     location: ProjectView.items
     description: 'O `items` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.

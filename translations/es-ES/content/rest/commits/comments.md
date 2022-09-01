@@ -12,7 +12,7 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the commit comments API
+## Acerca de la API de comentarios de confirmaciones
 
 La API de comentarios de confirmaciones te permite crear y editar los comentarios que se relacionan con confirmaciones específicas.
 

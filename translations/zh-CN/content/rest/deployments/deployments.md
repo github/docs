@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 部署状态还可以包含可选的 `description` 和 `log_url`，强烈建议使用它们，因为它们使部署状态更有用。 `log_url` 是部署输出的完整 URL，`description` 是关于部署过程中所发生情况的高级摘要。
 
-在创建新的部署和部署状态时，GitHub 将分发 `deployment` 和 `deployment_status` 事件。 这些事件允许第三方集成接收对部署请求的响应，并在取得进展时更新部署的状态。
+在创建新的部署和部署状态时，GitHub 将分发 `deployment` 和 `deployment_status` 事件。 These events allow third-party integrations to receive and respond to deployment requests, and update the status of a deployment as progress is made.
 
 下面是一个说明这些交互的工作方式的简单序列图。
 

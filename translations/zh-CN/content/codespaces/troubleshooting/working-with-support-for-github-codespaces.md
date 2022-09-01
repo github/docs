@@ -31,6 +31,7 @@ redirect_from:
 每个代码空间还有一个 ID（标识符）。 默认情况下，这在 {% data variables.product.prodname_vscode %} 中不显示，因此您可能需要先更新 {% data variables.product.prodname_github_codespaces %} 扩展的设置，然后才能访问该 ID。
 
 1. 在 {% data variables.product.prodname_vscode %}、浏览器或桌面中的左侧活动栏中，单击 **Remote Explorer（远程资源管理器）**以显示代码空间的详细信息。
-2. 如果侧边栏包含“Codespace Performance（代码空间性能）”部分，请将鼠标悬停在“Codespace ID（代码空间 ID）”上，然后单击剪贴板图标以复制 ID。
-3. 如果未显示信息，请单击活动栏左下角的 {% octicon "gear" aria-label="The gear icon" %} 以显示“Settings（设置）”选项卡。
-4. 展开 **Extensions（扩展）**，然后单击 **{% data variables.product.prodname_github_codespaces %}** 以显示扩展的设置。 然后启用 **Show Performance Explorer（显示性能资源管理器）**在边栏中显示“Codespace Performance（代码空间性能）”部分。 ![显示性能信息所需的代码空间 ID 和设置](/assets/images/help/codespaces/find-codespace-id.png)
+{% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
+1. 如果侧边栏包含“Codespace Performance（代码空间性能）”部分，请将鼠标悬停在“Codespace ID（代码空间 ID）”上，然后单击剪贴板图标以复制 ID。
+1. 如果未显示信息，请单击活动栏左下角的 {% octicon "gear" aria-label="The gear icon" %} 以显示“Settings（设置）”选项卡。
+1. 展开 **Extensions（扩展）**，然后单击 **{% data variables.product.prodname_github_codespaces %}** 以显示扩展的设置。 然后启用 **Show Performance Explorer（显示性能资源管理器）**在边栏中显示“Codespace Performance（代码空间性能）”部分。 ![显示性能信息所需的代码空间 ID 和设置](/assets/images/help/codespaces/find-codespace-id.png)

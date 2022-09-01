@@ -10,8 +10,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Workflow jobs API
+## Acerca de la API de jobs de flujo de trabajo
 
-The Workflow jobs API allows you to view logs and workflow jobs. {% data reusables.actions.about-workflow-jobs %} Para obtener más información, consulta la sección "[Sintaxis de flujode trabajo para GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+La API de jobs de flujo de trabajo te permite ver bitácoras y jobs de flujo de trabajo. {% data reusables.actions.about-workflow-jobs %} Para obtener más información, consulta la sección "[Sintaxis de flujode trabajo para GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
