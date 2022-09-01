@@ -68,7 +68,9 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 
 For guidance on using {% data variables.product.prodname_copilot %} in Neovim, you can view the plugin documentation. To see the documentation, open Neovim and run the following command.
 
+  ```
   :help copilot
+  ```
 
 ## Further reading
 
