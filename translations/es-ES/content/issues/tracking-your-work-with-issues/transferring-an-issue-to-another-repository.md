@@ -24,7 +24,7 @@ Para transferir una propuesta abierta a otro repositorio, debes tener acceso de 
 
 {% endnote %}
 
-Cuando transfieres una propuesta, los comentarios, etiquetas y asignados se retienen. Los hitos de la propuesta no se retienen. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
+Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
 Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 
