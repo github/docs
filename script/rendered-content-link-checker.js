@@ -12,7 +12,7 @@ import path from 'path'
 import cheerio from 'cheerio'
 import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
-import got from 'got'
+import got, { RequestError } from 'got'
 
 import shortVersions from '../middleware/contextualizers/short-versions.js'
 import contextualize from '../middleware/context.js'
@@ -74,6 +74,9 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .option('--debug', "Loud about everything it's doing")
   .option('--random', 'Load pages in a random order (useful for debugging)')
+  .option('--patient', 'Give external link checking longer timeouts and more retries')
+  .option('-o, --out <file>', 'Put warnings and errors into a file instead of stdout')
+  .option('--json-output', 'Print JSON to stdout or file instead')
   .option('--max <number>', 'integer argument (default: none)', (value) => {
     const parsed = parseInt(value, 10)
     if (isNaN(parsed)) {
@@ -107,7 +110,19 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, language, filter, exit, debug, max, verbose, list, checkExternalLinks } = opts
+  const {
+    random,
+    language,
+    filter,
+    exit,
+    debug,
+    max,
+    verbose,
+    list,
+    checkExternalLinks,
+    jsonOutput,
+    out,
+  } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
   // even though there's no server involved, is because
@@ -162,6 +177,9 @@ async function main(opts, files) {
   )
   const processPagesEnd = new Date()
   const flaws = flawsGroups.flat()
+  if (jsonOutput) {
+    jsonPrintFlaws(flaws, opts)
+  }
 
   debug && printGlobalCacheHitRatio()
 
@@ -172,6 +190,9 @@ async function main(opts, files) {
     console.log(`Took ${getDurationString(processPagesStart, processPagesEnd)}`)
 
     summarizeFlaws(flaws)
+    if (out && flaws.length > 0) {
+      console.log(`All flaws written to ${chalk.bold(out)}`)
+    }
   }
 
   if (exit) {
@@ -244,7 +265,7 @@ function getPages(pageList, languages, filters, files, max) {
 }
 
 async function processPage(page, pageMap, redirects, opts) {
-  const { bail, verboseUrl } = opts
+  const { bail, verboseUrl, jsonOutput, out } = opts
 
   const allFlawsEach = await Promise.all(
     page.permalinks.map((permalink) => processPermalink(permalink, page, pageMap, redirects, opts))
@@ -253,17 +274,23 @@ async function processPage(page, pageMap, redirects, opts) {
   const allFlaws = allFlawsEach.flat()
 
   if (bail && allFlaws.length > 0) {
-    printFlaws(allFlaws, verboseUrl)
+    if (jsonOutput) {
+      jsonPrintFlaws(allFlaws, opts)
+    } else {
+      printFlaws(allFlaws, { verboseUrl, out })
+    }
     process.exit(1)
   }
 
-  printFlaws(allFlaws, verboseUrl)
+  if (!jsonOutput) {
+    printFlaws(allFlaws, { verboseUrl, out })
+  }
 
   return allFlaws
 }
 
 async function processPermalink(permalink, page, pageMap, redirects, opts) {
-  const { level, checkAnchors, checkImages, checkExternalLinks } = opts
+  const { level, checkAnchors, checkImages, checkExternalLinks, verbose, patient } = opts
   const html = await renderInnerHTML(page, permalink)
   const $ = cheerio.load(html)
   const flaws = []
@@ -291,7 +318,8 @@ async function processPermalink(permalink, page, pageMap, redirects, opts) {
         redirects,
         pageMap,
         checkAnchors,
-        checkExternalLinks
+        checkExternalLinks,
+        { verbose, patient }
       )
 
       if (flaw) {
@@ -347,36 +375,92 @@ async function processPermalink(permalink, page, pageMap, redirects, opts) {
   return flaws
 }
 
-function printFlaws(flaws, verboseUrl = null) {
+function jsonPrintFlaws(flaws, { verboseUrl = null, out = null } = {}) {
+  const printableFlaws = {}
+  for (const { page, permalink, href, text, src, flaw } of flaws) {
+    const fullPath = prettyFullPath(page.fullPath)
+
+    if (!(fullPath in printableFlaws)) {
+      printableFlaws[fullPath] = []
+    }
+    if (href) {
+      printableFlaws[fullPath].push({
+        href,
+        url: verboseUrl ? new URL(permalink.href, verboseUrl).toString() : permalink.href,
+        text,
+        flaw,
+      })
+    } else if (src) {
+      printableFlaws[fullPath].push({
+        src,
+      })
+    }
+  }
+  const message = JSON.stringify(printableFlaws, undefined, 2)
+  if (out) {
+    fs.writeFileSync(out, message + '\n', 'utf-8')
+  } else {
+    console.log(message)
+  }
+}
+
+function printFlaws(flaws, { verboseUrl = null, out = null } = {}) {
   let previousPage = null
   let previousPermalink = null
+
+  function fout(msg) {
+    if (out) {
+      fs.appendFileSync(out, `${msg}\n`, 'utf-8')
+    } else {
+      console.log(msg)
+    }
+  }
+
   for (const { page, permalink, href, text, src, flaw } of flaws) {
+    const fullPath = prettyFullPath(page.fullPath)
     if (page !== previousPage) {
-      console.log(`PAGE: ${chalk.bold(prettyFullPath(page.fullPath))}`)
+      if (out) {
+        fout(`PAGE: ${fullPath}`)
+      } else {
+        console.log(`PAGE: ${chalk.bold(fullPath)}`)
+      }
     }
     previousPage = page
 
     if (href) {
       if (previousPermalink !== permalink.href) {
         if (verboseUrl) {
-          console.log(`  URL: ${new URL(permalink.href, verboseUrl).toString()}`)
+          fout(`  URL: ${new URL(permalink.href, verboseUrl).toString()}`)
         } else {
-          console.log(`  PERMALINK: ${permalink.href}`)
+          fout(`  PERMALINK: ${permalink.href}`)
         }
       }
       previousPermalink = permalink.href
 
-      console.log(`    HREF: ${chalk.bold(href)}`)
-      console.log(`    TEXT: ${text}`)
+      if (out) {
+        fout(`    HREF: ${href}`)
+      } else {
+        console.log(`    HREF: ${chalk.bold(href)}`)
+      }
+      fout(`    TEXT: ${text}`)
     } else if (src) {
-      console.log(`    IMG SRC: ${chalk.bold(src)}`)
+      if (out) {
+        fout(`    IMG SRC: ${src}`)
+      } else {
+        console.log(`    IMG SRC: ${chalk.bold(src)}`)
+      }
     } else {
       throw new Error("Flaw has neither 'href' nor 'src'")
     }
-    console.log(
-      `    FLAW: ${flaw.CRITICAL ? chalk.red(flaw.CRITICAL) : chalk.yellow(flaw.WARNING)}`
-    )
-    console.log('')
+
+    if (out) {
+      fout(`    FLAW: ${flaw.CRITICAL ? flaw.CRITICAL : flaw.WARNING}`)
+    } else {
+      console.log(
+        `    FLAW: ${flaw.CRITICAL ? chalk.red(flaw.CRITICAL) : chalk.yellow(flaw.WARNING)}`
+      )
+    }
+    fout('')
   }
 }
 
@@ -402,7 +486,8 @@ async function checkHrefLink(
   redirects,
   pageMap,
   checkAnchors = false,
-  checkExternalLinks = false
+  checkExternalLinks = false,
+  { verbose = false, patient = false } = {}
 ) {
   if (href === '#') {
     if (checkAnchors) {
@@ -456,42 +541,38 @@ async function checkHrefLink(
     if (linksToSkip(href)) {
       return
     }
-    let failed = false
-
-    try {
-      failed = await checkExternalURL(href)
-    } catch (err) {
-      return { WARNING: `Got error when testing ${href}: ${err.toString()}` }
-    }
-    if (failed) {
-      return { CRITICAL: 'Broken external link ' }
+    const { ok, ...info } = await checkExternalURL(href, { verbose, patient })
+    if (!ok) {
+      return { CRITICAL: `Broken external link (${JSON.stringify(info)})` }
     }
   }
 }
 
-const externalResponseCache = new Map()
-const externalResponseWaiting = new Set()
+const _fetchCache = new Map()
+async function checkExternalURL(url, { verbose = false, patient = false } = {}) {
+  if (!url.startsWith('https://')) throw new Error('Invalid URL')
+  const cleanURL = url.split('#')[0]
+  if (!_fetchCache.has(cleanURL)) {
+    _fetchCache.set(cleanURL, innerFetch(cleanURL, { verbose, patient }))
+  }
+  return _fetchCache.get(cleanURL)
+}
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-async function checkExternalURL(url) {
-  if (!url.startsWith('https://')) throw new Error('Invalid URL')
+// Global for recording which domains we get rate-limited on.
+// For example, if you got rate limited on `something.github.com/foo`
+// and now we're asked to fetch for `something.github.com/bar`
+// it's good to know to now bother yet.
+const _rateLimitedDomains = new Map()
 
-  if (externalResponseCache.has(url)) {
-    const result = externalResponseCache.get(url)
-    return result
-  }
-  if (externalResponseWaiting.has(url)) {
-    // Because this whole script is based on `Promise.all()` you can't
-    // guarantee that you first make the list of external URLs distinct,
-    // so you'll end up with N concurrent threads that both start,
-    // waiting for the same URL to check.
-    // If there's one going on, sleep and retry all over.
-    await sleep(500 + Math.random() * 100)
-    return await checkExternalURL(url)
-  }
-  externalResponseWaiting.add(url)
+async function innerFetch(url, config = {}) {
+  const { verbose, useGET, patient } = config
 
+  const { hostname } = new URL(url)
+  if (_rateLimitedDomains.has(hostname)) {
+    await sleep(_rateLimitedDomains.get(hostname))
+  }
   // The way `got` does retries:
   //
   //   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
@@ -507,20 +588,87 @@ async function checkExternalURL(url) {
   // So there's no point in trying more attempts than 3 because it would
   // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
   const retry = {
-    limit: 3,
+    limit: patient ? 5 : 2,
   }
-  const timeout = 2000
+  const timeout = { request: patient ? 10000 : 2000 }
 
-  const r = await got(url, {
-    throwHttpErrors: false,
-    retry,
-    timeout,
-  })
+  const headers = {
+    'User-Agent':
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36',
+  }
 
-  const failed = r.statusCode !== 200
-  externalResponseCache.set(url, failed)
-  externalResponseWaiting.delete(url)
-  return failed
+  const retries = config.retries || 0
+  const httpFunction = useGET ? got.get : got.head
+
+  if (verbose) console.log(`External URL ${useGET ? 'GET' : 'HEAD'}: ${url} (retries: ${retries})`)
+  try {
+    const r = await httpFunction(url, {
+      headers,
+      throwHttpErrors: false,
+      retry,
+      timeout,
+    })
+    if (verbose) {
+      console.log(
+        `External URL ${useGET ? 'GET' : 'HEAD'} ${url}: ${r.statusCode} (retries: ${retries})`
+      )
+    }
+
+    // If we get rate limited, remember that this hostname is now all
+    // rate limited. And sleep for the number of seconds that the
+    // `retry-after` header indicated.
+    if (r.statusCode === 429) {
+      let sleepTime = Math.min(
+        60_000,
+        Math.max(10_000, getRetryAfterSleep(r.headers['retry-after']))
+      )
+      // Sprinkle a little jitter so it doesn't all start again all
+      // at the same time
+      sleepTime += Math.random() * 10 * 1000
+      // Give it a bit extra when we can be really patient
+      if (patient) sleepTime += 30 * 1000
+
+      _rateLimitedDomains.set(hostname, sleepTime + Math.random() * 10 * 1000)
+      if (verbose)
+        console.log(
+          chalk.yellow(
+            `Rate limited on ${hostname} (${url}). Sleeping for ${(sleepTime / 1000).toFixed(1)}s`
+          )
+        )
+      await sleep(sleepTime)
+      return innerFetch(url, Object.assign({}, config, { retries: retries + 1 }))
+    } else {
+      _rateLimitedDomains.delete(hostname)
+    }
+
+    // Perhaps the server doesn't suppport HEAD requests.
+    // If so, try again with a regular GET.
+    if ((r.statusCode === 405 || r.statusCode === 404) && !useGET) {
+      return innerFetch(url, Object.assign({}, config, { useGET: true }))
+    }
+    if (verbose) {
+      console.log((r.ok ? chalk.green : chalk.red)(`${r.statusCode} on ${url}`))
+    }
+    return { ok: r.ok, statusCode: r.statusCode }
+  } catch (err) {
+    if (err instanceof RequestError) {
+      if (verbose) {
+        console.log(chalk.yellow(`RequestError (${err.message}) on ${url}`))
+      }
+      return { ok: false, requestError: err.message }
+    }
+    throw err
+  }
+}
+
+// Return number of milliseconds from a `Retry-After` header value
+function getRetryAfterSleep(headerValue) {
+  if (!headerValue) return 0
+  let ms = Math.round(parseFloat(headerValue) * 1000)
+  if (isNaN(ms)) {
+    ms = Math.max(0, new Date(headerValue) - new Date())
+  }
+  return ms
 }
 
 function checkImageSrc(src, $) {
