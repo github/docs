@@ -1,4 +1,12 @@
-Start: BEGINS "Run::/:'::Presses:' Run::/:Runs::/:Script::/:':Build::":, "build_scripts":, "Settings":, > "Forward":, > "From "RTP("021000021/000002965)":, > "=RTP(071921891/4720416547)":, > NON-NEGOTIABLE ALL OF THE FOLLOWING DEPOSITS AS FOLLOW UNTIL LAST LINE ON SYNTAX<-- omit in 021000021 --> 
+Start : 
+BEGIN :
+GLOW7 :
+FLOAT :
+ALINE Pay :
+"AccountNumber :47-2041-6547@071921891@031000053@PNCBANK@https://github.com/Users/bin/repositories/071921991/47-2041-6547/4034-9100-6753-0719@https://pnc.com/0719218914720416547@PNCBANK/":, :
+DEPOSIT : REPORT
+On :-starts :Start :BEGIN :Run :Runs::/:Run ::/:BEGIN-on :On :starts-On-on :Run":, :"::"
+Run::/:'::Presses:' Run::/:Runs::/:Script::/:':Build::":, "build_scripts":, "Settings":, > "Forward":, > "From "RTP("021000021/000002965)":, > "=RTP(071921891/4720416547)":, > NON-NEGOTIABLE ALL OF THE FOLLOWING DEPOSITS AS FOLLOW UNTIL LAST LINE ON SYNTAX<-- omit in 021000021 --> 
 Federal 941 Deposit Report
 ADP
 Report Range 5/4/2022 - 6/4/2022					00519									
@@ -297,7 +305,1279 @@ That's how you can easily become a member of the GitHub Documentation community.
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
+- [8-K 1 d364992d8k.htm 8-K
+  
+
+ 
+
+ 
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+Washington, D.C. 20549
+
+ 
+
+ 
+
+FORM 8-K
+
+ 
+
+ 
+
+CURRENT REPORT
+
+Pursuant to Section 13 or 15(d)
+
+of the Securities Exchange Act of 1934
+
+Date of Report (Date of earliest event reported): August 12, 2022
+
+Commission File Number of issuing entity: 333-239581
+
+Central Index Key Number of issuing entity: 0001174821
+
+ 
+
+ 
+
+CHASE ISSUANCE TRUST
+
+(Issuing Entity of the Notes)
+
+(Exact name of registrant as specified in its charter)
+
+ 
+
+ 
+
+Delaware
+
+(State or other jurisdiction of incorporation or organization)
+
+Chase Issuance Trust
+
+c/o Chase Card Funding LLC
+
+201 North Walnut Street
+
+Wilmington, Delaware 19801
+
+(Address of principal executive offices)
+
+Commission File Number of depositor: 333-239581-01
+
+Central Index Key Number of depositor: 0001658982
+
+ 
+
+ 
+
+CHASE CARD FUNDING LLC
+
+(Exact name of depositor as specified in its charter)
+
+ 
+
+ 
+
+Delaware
+
+(State or other jurisdiction of incorporation or organization)
+
+Chase Card Funding LLC
+
+201 North Walnut Street
+
+Wilmington, Delaware 19801
+
+(Address of principal executive offices)
+
+(302) 282-6545
+
+(Telephone number, including area code)
+
+Not Applicable
+
+(Former name or former address, if changed since last report)
+
+Central Index Key Number of sponsor: 0000869090
+
+ 
+
+ 
+
+JPMORGAN CHASE BANK,
+
+NATIONAL ASSOCIATION
+
+(Exact name of sponsor as specified in its charter)
+
+ 
+
+ 
+
+United States
+
+(State or other jurisdiction of incorporation or organization)
+
+JPMorgan Chase Bank, National Association
+
+383 Madison Avenue
+
+New York, New York 10179
+
+(Address of principal executive offices)
+
+N.A.
+
+(I.R.S. Employer Identification No. of the issuing entity)
+
+N.A.
+
+(I.R.S. Employer Identification No. of the depositor)
+
+13-4994650
+
+(I.R.S. Employer Identification No. of the sponsor)
+
+ 
+
+ 
+
+Check the appropriate box below if the Form 8-K filing is intended to simultaneously satisfy the filing obligation of the registrant under any of the following provisions:
+
+ 
+
+☐	
+Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+
+ 
+
+☐	
+Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240.14a-12)
+
+ 
+
+☐	
+Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+
+ 
+
+☐	
+Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+
+Securities registered pursuant to Section 12(b) of the Act: None.
+
+ 
+
+Title of each class
+
+ 	
+Trading
+
+Symbol(s)
+
+ 	
+Name of each exchange
+
+on which registered
+
+ 		 	
+Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+
+Emerging growth company ☐
+
+If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act.   ☐
+
+ 
+
+ 
+
+ 
+
+Section 8 – Other Events
+
+Item 8.01 Other Events
+
+Portfolio Information Tables
+
+The following information relates to the credit card receivables owned by the issuing entity and the related credit card accounts. Some of the terms used herein are used as defined in the “Glossary of Defined Terms” at the end of this report.
+
+Delinquency and Loss Experience
+
+The following tables describe the delinquency and loss experience for each of the periods shown for the Trust Portfolio and include all receivables included in the Trust Portfolio as of the date specified in the tables. There can be no assurance that the delinquency and loss experience for the Issuing Entity Receivables will be similar to the historical experience set forth below because, among other things, economic and financial conditions affecting the ability of cardholders to make payments, including the effects of the COVID-19 pandemic, may be different from those that have prevailed during the periods reflected below.
+
+Delinquency Experience
+
+Chase Issuance Trust
+
+(dollars in thousands)
+
+ 
+
+ 	  	As of June 30, 2022	 
+ 	  	Number of
+Accounts(1)	 	  	Amount of
+Receivables(2)	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+Pool Balance
+
+  	 	6,512,257	 	  	$	10,828,422	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Number of Days Delinquent:
+
+  				  				  			
+30-59 days
+
+  	 	4,320	 	  	$	21,213	 	  	 	0.20	% 
+60-89 days
+
+  	 	2,481	 	  	 	15,488	 	  	 	0.14	 
+90-119 days
+
+  	 	2,023	 	  	 	12,856	 	  	 	0.12	 
+120-149 days
+
+  	 	1,664	 	  	 	11,789	 	  	 	0.11	 
+150-179 days
+
+  	 	1,386	 	  	 	9,696	 	  	 	0.09	 
+180 or more days
+
+  	 	0	 	  	 	—  	 	  	 	0.00	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	11,874	 	  	$	71,042	 	  	 	0.66	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+ 
+
+ 	  	As of December 31,	 
+ 	  	2021	 	 	2020	 
+ 	  	Number of
+Accounts(1)	 	  	Dollar Amount(2)	 	  	Percentage
+of Total
+Receivables	 	 	Number of
+Accounts(1)	 	  	Dollar Amount(2)	 	  	Percentage
+of Total
+Receivables	 
+Pool Balance
+
+  	 	6,778,999	 	  	$	11,085,248	 	  	 	100.00	% 	 	 	7,110,349	 	  	$	11,935,301	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Number of Days Delinquent:
+
+  				  				  				 				  				  			
+30-59 days
+
+  	 	4,626	 	  	$	22,714	 	  	 	0.20	% 	 	 	5,386	 	  	$	31,026	 	  	 	0.26	% 
+60-89 days
+
+  	 	2,660	 	  	 	16,234	 	  	 	0.15	 	 	 	3,442	 	  	 	24,610	 	  	 	0.20	 
+90-119 days
+
+  	 	2,020	 	  	 	12,711	 	  	 	0.11	 	 	 	2,889	 	  	 	22,277	 	  	 	0.19	 
+120-149 days
+
+  	 	1,548	 	  	 	10,888	 	  	 	0.10	 	 	 	2,502	 	  	 	21,435	 	  	 	0.18	 
+150-179 days
+
+  	 	1,418	 	  	 	10,715	 	  	 	0.10	 	 	 	2,221	 	  	 	19,044	 	  	 	0.16	 
+180 or more days
+
+  	 	0	 	  	 	—  	 	  	 	0.00	 	 	 	0	 	  	 	0	 	  	 	0.00	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	12,272	 	  	$	73,262	 	  	 	0.66	% 	 	 	16,440	 	  	$	118,392	 	  	 	0.99	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+ 
+
+2
+
+ 	  	As of December 31,	 
+ 	  	2019	 	 	2018	 
+ 	  	Number of
+Accounts(1)	 	  	Amount of
+Receivables(2)	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 	 	Number of
+Accounts(1)	 	  	Amount of
+Receivables(2)	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+Pool Balance
+
+  	 	7,310,889	 	  	$	15,006,193	 	  	 	100.00	% 	 	 	14,306,701	 	  	$	30,475,163	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Number of Days Delinquent:
+
+  				  				  				 				  				  			
+30-59 days
+
+  	 	8,027	 	  	$	48,927	 	  	 	0.33	% 	 	 	17,688	 	  	$	105,703	 	  	 	0.35	% 
+60-89 days
+
+  	 	4,859	 	  	 	36,025	 	  	 	0.24	 	 	 	10,695	 	  	 	76,251	 	  	 	0.25	 
+90-119 days
+
+  	 	4,012	 	  	 	31,187	 	  	 	0.21	 	 	 	8,692	 	  	 	67,236	 	  	 	0.22	 
+120-149 days
+
+  	 	3,298	 	  	 	27,151	 	  	 	0.18	 	 	 	6,894	 	  	 	55,174	 	  	 	0.18	 
+150-179 days
+
+  	 	2,962	 	  	 	25,599	 	  	 	0.17	 	 	 	6,257	 	  	 	52,813	 	  	 	0.17	 
+180 or more days
+
+  	 	0	 	  	 	0	 	  	 	0.00	 	 	 	79	 	  	 	471	 	  	 	0.00	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	23,158	 	  	$	168,889	 	  	 	1.13	% 	 	 	50,305	 	  	$	357,648	 	  	 	1.17	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+ 
+
+(1)	
+The number of accounts includes all non-charged off credit card accounts in the Trust Portfolio, but does not include inactivated credit card accounts where the credit card had been lost or stolen or that had been flagged for potential fraud and replaced with a new credit card account.
+
+(2)	
+The amount of receivables reflected includes all principal, finance charge and fee amounts due from cardholders as of the date specified.
+
+Loss Experience
+
+Chase Issuance Trust
+
+(dollars in thousands)
+
+ 
+
+ 	  	Six Months
+Ended	 	 	Year Ended December 31,
+ 	  	June 30, 2022	 	 	2021	 	 	2020	 	 	2019	 	 	2018	 
+Average Pool Balance
+
+  	$	10,374,244	 	 	$	10,664,957	 	 	$	12,379,317	 	 	$	25,558,137	 	 	$	30,922,182	 
+Gross Losses(1)
+
+  	$	82,834	 	 	$	212,809	 	 	$	309,965	 	 	$	662,373	 	 	$	821,255	 
+Recoveries(2)
+
+  	$	23,770	 	 	$	56,433	 	 	$	50,330	 	 	$	74,158	 	 	$	84,663	 
+Net Losses(3)
+
+  	$	59,064	 	 	$	156,376	 	 	$	259,635	 	 	$	588,215	 	 	$	736,592	 
+Net Losses as a percentage of Average Pool Balance
+
+  	 	1.14	%(4) 	 	 	1.47	% 	 	 	2.10	% 	 	 	2.30	% 	 	 	2.38	% 
+ 
+
+(1)	
+Gross Losses are charge-offs of principal receivables. Gross Losses do not include the amount of any reductions in principal receivables due to fraud, returned goods or customer disputes, the amount of which instead results in the reduction of the Transferor Amount. The number of accounts experiencing a loss for the six months ended June 30, 2022 was 17,421.
+
+(2)	
+Recoveries are amounts received on previously charged-off receivables. As Recoveries are amounts received from defaulted accounts and allocated to the issuing entity from the servicer’s managed portfolio of credit card receivables, the number of accounts with a recovery cannot be calculated. Recoveries as a percentage of Gross Losses for each of the six months ended June 30, 2022 were 28.70% and for each of the years ended December 31, 2021, 2020, 2019 and 2018 were 26.52%, 16.24%, 11.20% and 10.31%.
+
+(3)	
+Net Losses are Gross Losses minus Recoveries. Net Losses do not include any reductions in principal receivables due to fraud, returned goods or customer disputes, the amount of which instead results in the reduction of the Transferor Amount. Net Losses as a percentage of Gross Losses for the six months ended June 30, 2022 were 71.30% and for each of the years ended December 31, 2021, 2020, 2019 and 2018 were 73.48%, 83.76%, 88.80% and 89.69%.
+
+(4)	
+Annualized.
+
+The delinquency and net loss percentages for the Trust Portfolio at any time reflect, among other factors, the quality of the related credit card loans in the Trust Portfolio, the average seasoning of the related revolving credit card accounts in the Trust Portfolio, the success of JPMorgan Chase Bank’s collection efforts and general economic conditions. Future charge-offs in the Trust Portfolio and overall credit quality for the Trust Portfolio are subject to uncertainties which may cause actual results to differ from current and historical performance.
+
+ 
+
+3
+
+Revenue Experience
+
+The revenue experience for the issuing entity for the six months ended June 30, 2022 and for each of the years ended December 31, 2021, 2020, 2019 and 2018 is described in the following table. The revenue experience for the issuing entity in the following table is calculated on a cash basis. Finance charges, fees and interchange are comprised of monthly periodic finance charges, annual membership fees and other credit card fees and interchange amounts.
+
+Revenue Experience
+
+Chase Issuance Trust
+
+(dollars in thousands)
+
+ 
+
+ 	  	Six Months
+Ended	 	 	Year Ended December 31,
+  	June 30, 2022	 	 	2021	 	 	2020	 	 	2019	 	 	2018	 
+Finance Charges, Fees and Interchange
+
+  	$	1,112,115	 	 	$	2,259,157	 	 	$	2,365,611	 	 	$	5,078,088	 	 	$	5,958,692	 
+Yield from Finance Charges, Fees and Interchange(1)
+
+  	 	21.62	%(2) 	 	 	21.18	% 	 	 	19.11	% 	 	 	19.87	% 	 	 	19.27	% 
+ 
+
+(1)	
+Yield from Finance Charges, Fees and Interchange is the result of dividing finance charges, fees and interchange amounts, by the Average Pool Balance for the periods indicated.
+
+(2)	
+Annualized.
+
+The revenue experience will be affected by numerous factors, including, but not limited to, the monthly periodic finance charges on the credit card receivables, other fees and interchange amounts, changes in the delinquency and loss rates on the credit card receivables, the percentage of revolving credit card accounts bearing finance charges at promotional rates and the percentage of cardholders who pay their balances in full each month and do not incur monthly periodic finance charges. These factors may in turn be caused or affected by a variety of other factors, including seasonal spend variations, the availability of other sources of credit and general economic conditions, unemployment levels, consumer spending and borrowing patterns, all of which may be impacted by the COVID-19 pandemic. In addition, revenue experience will be affected by future changes in the types of charges and fees assessed by JPMorgan Chase Bank on the revolving credit card accounts and on the types of additional revolving credit card accounts added to the issuing entity from time to time.
+
+The revenue experience from periodic finance charges and fees—other than annual fees—depends in part upon the collective preference of cardholders to use their credit cards as revolving debt instruments for purchases and cash advances and to pay account balances over several months—as opposed to convenience use, where cardholders pay off their entire balance each month, thereby avoiding periodic finance charges on their purchases—and upon other credit card related services for which the cardholder pays a fee.
+
+Principal Payment Rates
+
+The cardholder monthly principal payment rate for each month is calculated as a percentage of the Pool Balance as of the first day of that month, subject to adjustment for additions and removals of assets that occur in that month.
+
+Cardholder Monthly Principal Payment Rates
+
+Chase Issuance Trust
+
+ 
+
+Receivables Principal Payment Rate	  	Six Months
+Ended	 	 	Year Ended December 31,
+  	June 30, 2022	 	 	2021	 	 	2020	 	 	2019	 	 	2018	 
+Lowest Month
+
+  	 	44.96	% 	 	 	38.09	% 	 	 	31.79	% 	 	 	32.09	% 	 	 	31.32	% 
+Highest Month
+
+  	 	51.02	% 	 	 	51.09	% 	 	 	42.29	% 	 	 	38.27	% 	 	 	34.80	% 
+Monthly Average
+
+  	 	48.38	% 	 	 	45.50	% 	 	 	36.30	% 	 	 	34.98	% 	 	 	33.37	% 
+ 
+
+4
+
+Composition of Issuing Entity Receivables.
+
+As of June 30, 2022 (which reflects the reassignment of approximately $1.5 billion of receivables in removed accounts which occurred on July 25, 2022)1:
+
+ 
+
+ 	•	 	
+the Issuing Entity Receivables included $9,328,416,845 in total receivables;
+
+ 
+
+ 	•	 	
+the accounts in the issuing entity had an average total receivables balance of $1,663, including accounts with a zero balance and an average credit limit of $14,910;
+
+ 
+
+ 	•	 	
+the percentage of the aggregate total receivables balance in the Issuing Entity Receivables to the aggregate total credit limit was 11.15%;
+
+ 
+
+ 	•	 	
+the average age of the accounts, the receivables of which are in the Issuing Entity Receivables, was approximately 250 months;
+
+ 
+
+ 	•	 	
+for the June 2022 monthly period, 2.69% of the accounts in the issuing entity received the minimum payment due and 30.20% of the accounts in the issuing entity received a full balance payment; and
+
+ 
+
+ 	•	 	
+of the accounts in the issuing entity, approximately 12.05% related to cardholders with billing addresses in California, 8.64% in New York, 7.93% in Texas, 6.39% in Florida and 5.88% in Illinois; no other single state accounts for more than 5% of the accounts in the issuing entity. Since the largest number of accountholders (based on billing addresses) whose accounts were included in the issuing entity were in California, New York, Texas, Florida and Illinois, adverse economic, financial or social conditions, including those resulting from the COVID-19 pandemic, or environmental conditions affecting accountholders residing in these states could affect timely payment by the related accountholders of amounts due on the accounts and, accordingly, the actual rates of delinquencies and losses with respect to the issuing entity.
+
+The following tables summarize the Issuing Entity Receivables by various criteria as of June 30, 2022 (which reflects the reassignment of approximately $1.5 billion of receivables in removed accounts which occurred on July 25, 2022). Receivables in the following tables include principal, finance charge and fee receivables held directly by the issuing entity. Because the composition of the Issuing Entity Receivables may change over time, these tables are not necessarily indicative of the composition of the receivables in the issuing entity at any future time. In addition, in each of the following tables the number of accounts includes all non-charged off credit card accounts in the Trust Portfolio, but does not include inactivated credit card accounts where the credit card had been lost or stolen or that had been flagged for potential fraud and replaced with a new credit card account.
+
+Composition by Account Balance
+
+Chase Issuance Trust
+
+ 
+
+Account Balance Range	  	Number
+of
+Accounts	 	  	Percentage
+of
+Total
+Number of
+Accounts	 	 	Amount of
+Receivables	 	 	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+Credit Balance
+
+  	 	65,762	 	  	 	1.17	% 	 	$	(20,166,731	) 	 	 	(0.22	)% 
+No Balance
+
+  	 	2,743,214	 	  	 	48.89	 	 	 	0	 	 	 	0.00	 
+$0.00 to $5,000.00 Balance
+
+  	 	2,211,750	 	  	 	39.43	 	 	 	2,786,548,904	 	 	 	29.88	 
+$5,000.01 to $10,000.00 Balance
+
+  	 	342,463	 	  	 	6.10	 	 	 	2,427,629,448	 	 	 	26.02	 
+$10,000.01 to $15,000.00 Balance
+
+  	 	133,697	 	  	 	2.38	 	 	 	1,627,414,211	 	 	 	17.45	 
+$15,000.01 to $20,000.00 Balance
+
+  	 	59,579	 	  	 	1.06	 	 	 	1,024,109,543	 	 	 	10.98	 
+$20,000.01 to $25,000.00 Balance
+
+  	 	28,907	 	  	 	0.52	 	 	 	642,736,093	 	 	 	6.89	 
+$25,000.01 to $50,000.00 Balance
+
+  	 	24,206	 	  	 	0.43	 	 	 	762,485,070	 	 	 	8.17	 
+$50,000.01 or More
+
+  	 	1,173	 	  	 	0.02	 	 	 	77,660,307	 	 	 	0.83	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 
+Total
+
+  	 	5,610,751	 	  	 	100.00	% 	 	$	9,328,416,845	 	 	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 
+ 
+
+1 	
+See the Form 8-K filed with the Securities and Exchange Commission on July 26, 2022.
+
+ 
+
+5
+
+Composition by Credit Limit
+
+Chase Issuance Trust
+
+ 
+
+ 	  	Number
+of
+Accounts	 	  	Percentage
+of
+Total
+Number of
+Accounts	 	 	Amount of
+Receivables	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+$0.01 to $5,000.00
+
+  	 	921,515	 	  	 	16.42	% 	 	$	399,669,434	 	  	 	4.28	% 
+$5,000.01 to $10,000.00
+
+  	 	1,234,978	 	  	 	22.02	 	 	 	1,083,513,245	 	  	 	11.62	 
+$10,000.01 to $15,000.00
+
+  	 	1,198,630	 	  	 	21.36	 	 	 	1,528,394,624	 	  	 	16.38	 
+$15,000.01 to $20,000.00
+
+  	 	788,810	 	  	 	14.06	 	 	 	1,452,976,692	 	  	 	15.58	 
+$20,000.01 to $25,000.00
+
+  	 	671,747	 	  	 	11.97	 	 	 	1,555,228,845	 	  	 	16.67	 
+$25,000.01 to $50,000.00
+
+  	 	763,073	 	  	 	13.60	 	 	 	2,931,977,100	 	  	 	31.43	 
+$50,000.01 or More
+
+  	 	31,998	 	  	 	0.57	 	 	 	376,656,905	 	  	 	4.04	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	5,610,751	 	  	 	100.00	% 	 	$	9,328,416,845	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Composition by Period of Delinquency
+
+Chase Issuance Trust
+
+ 
+
+Payment Status (Days Contractually
+
+Delinquent)
+
+  	Number
+of
+Accounts	 	  	Percentage
+of
+Total
+Number
+of
+Accounts	 	 	Amount of
+Receivables	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+Not Delinquent
+
+  	 	5,581,000	 	  	 	99.46	% 	 	$	9,187,766,147	 	  	 	98.49	% 
+Up to 29 Days
+
+  	 	19,515	 	  	 	0.35	 	 	 	79,257,340	 	  	 	0.85	 
+30 to 59 Days
+
+  	 	3,700	 	  	 	0.07	 	 	 	18,065,288	 	  	 	0.20	 
+60 to 89 Days
+
+  	 	2,146	 	  	 	0.04	 	 	 	13,517,070	 	  	 	0.14	 
+90 to 119 Days
+
+  	 	1,752	 	  	 	0.03	 	 	 	11,292,527	 	  	 	0.12	 
+120 to 149 Days
+
+  	 	1,434	 	  	 	0.03	 	 	 	10,198,535	 	  	 	0.11	 
+150 to 179 Days
+
+  	 	1,204	 	  	 	0.02	 	 	 	8,319,938	 	  	 	0.09	 
+180 or More Days
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	5,610,751	 	  	 	100.00	% 	 	$	9,328,416,845	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Composition by Account Age
+
+Chase Issuance Trust
+
+ 
+
+Age Range	  	Number
+of
+Accounts	 	  	Percentage
+of
+Total
+Number
+of
+Accounts	 	 	Amount of
+Receivables	 	  	Percentage
+of
+Total
+Amount
+of
+Receivables	 
+Less than or equal to 6 Months
+
+  	 	0	 	  	 	0.00	% 	 	$	0	 	  	 	0.00	% 
+Over 6 Months to 12 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 12 Months to 24 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 24 Months to 36 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 36 Months to 48 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 48 Months to 60 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 60 Months to 120 Months
+
+  	 	0	 	  	 	0.00	 	 	 	0	 	  	 	0.00	 
+Over 120 Months
+
+  	 	5,610,751	 	  	 	100.00	 	 	 	9,328,416,845	 	  	 	100.00	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	 	5,610,751	 	  	 	100.00	% 	 	$	9,328,416,845	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 	 	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+ 
+
+6
+
+FICO® Scores
+
+The following table reflects the distribution of the FICO scores for a statistically significant random sample of credit card accounts included in the Trust Portfolio received by JPMorgan Chase Bank in June 2022 and the outstanding receivables balances of the related accounts as of June 30, 2022. Because the composition of the Trust Portfolio is expected to change over time, there can be no assurance that the FICO score distribution for the Trust Portfolio in future periods will be similar to the information set forth below. In addition, FICO scores may change over time, depending on the conduct of the cardholder and changes in credit score technology.
+
+Chase Issuance Trust
+
+FICO® Scores
+
+ 
+
+ 	  	As of June 30, 2022	 
+FICO Score Range(2)	  	Amount of
+Receivables	 	  	Percentage
+of
+Total
+Amount of
+Receivables	 
+No FICO Score
+
+  	$	1,308,562	 	  	 	0.24	% 
+Less Than 600
+
+  	 	6,702,526	 	  	 	1.25	 
+600 to 659
+
+  	 	21,242,314	 	  	 	3.95	 
+660 to 719
+
+  	 	93,613,934	 	  	 	17.39	 
+720 and Above
+
+  	 	415,477,246	 	  	 	77.17	 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+Total
+
+  	$	538,344,582	 	  	 	100.00	% 
+  	
+ 
+
+ 
+
+ 	  	
+ 
+
+ 
+
+ 
+ 
+
+(1)	
+FICO® is a federally registered servicemark of Fair, Isaac & Company.
+
+(2)	
+The FICO scores are Experian/FICO® Bankcard Score 8 scores.
+
+ 
+
+7
+
+Glossary of Defined Terms
+
+“Account Owner” means JPMorgan Chase Bank (as successor by merger to Chase Bank USA, National Association), or any affiliate which is the issuer of the credit card relating to an account pursuant to a credit card agreement.
+
+“Asset Pool One” means the collateral granted to the Collateral Agent pursuant to the Asset Pool One Supplement.
+
+“Asset Pool One Notes” means the notes designated in an indenture supplement as being secured by the collateral of Asset Pool One.
+
+“Asset Pool One Supplement” means the Third Amended and Restated Asset Pool Supplement, to the Fourth Amended and Restated Indenture, dated as of January 20, 2016, by and between the issuing entity and the Indenture Trustee and Collateral Agent, for the benefit of the parties listed in the granting clause of the Asset Pool One Supplement.
+
+“Business Day” means, unless otherwise indicated, any day other than a Saturday, a Sunday or a day on which banking institutions in New York, New York, Wilmington, Delaware or Minneapolis, Minnesota are authorized or obligated by law, executive order or governmental decree to be closed.
+
+“Card Act” means the Credit Card Accountability Responsibility and Disclosure Act of 2009.
+
+“Collateral Agent” means Wells Fargo Bank, National Association, a national banking association. As of November 1, 2021 Computershare Trust Company, National Association is acting as agent for Wells Fargo Bank, National Association, as the Indenture Trustee and Collateral Agent. See the  Form 8-K filed with the Securities and Exchange Commission on November 3, 2021.
+
+“Collateral Certificate Principal Shortfall Payments” means remaining excess principal collections received on collateral certificates designated for inclusion in the issuing entity in respect of remaining shortfalls in Principal Collections for series of notes after application of shared excess available principal collections.
+
+“Default Amount” means, for any month, the sum of:
+
+ 
+
+ 	•	 	
+with respect to credit card receivables in the issuing entity, an amount, which may not be less than zero, equal to (1) the aggregate amount of principal receivables, other than Ineligible Receivables, in each Defaulted Account that became a Defaulted Account during that month, on the day that revolving credit card account became a Defaulted Account, minus (2) the aggregate amount of Recoveries received in that month, and
+
+ 
+
+ 	•	 	
+with respect to any collateral certificate in the issuing entity, the investor default amount or similar amount allocated to the holder of the collateral certificate for that month.
+
+“Defaulted Accounts” means revolving credit card accounts, the credit card receivables of which have been written off as uncollectible by the applicable servicer.
+
+“Finance Charge Collections” means, for any month, the sum of (1) with respect to credit card receivables designated for inclusion in the issuing entity, all collections received by the servicer on behalf of the issuing entity of finance charge receivables (including collections of discount receivables and Recoveries received for that month to the extent those Recoveries exceed the aggregate amount of principal receivables (other than Ineligible Receivables) in Defaulted Accounts that became Defaulted Accounts with respect to that month), (2) with respect to any collateral certificate designated for inclusion in the issuing entity, collections of finance charge receivables allocated to the holder of the collateral certificate for that month and (3) any amounts received by the issuing entity which are designated as Finance Charge Collections. Finance Charge Collections with respect to any month will include the amount of Interchange (if any) deposited into the applicable collection account on the First Note Transfer Date following that month.
+
+ 
+
+8
+
+“First Note Transfer Date” means, for any month, the initial Note Transfer Date for any series, class or tranche of notes in that month.
+
+“Indenture Trustee” means Wells Fargo Bank, National Association, a national banking association. As of November 1, 2021 Computershare Trust Company, National Association is acting as agent for Wells Fargo Bank, National Association, as the Indenture Trustee and Collateral Agent. See the  Form 8-K filed with the Securities and Exchange Commission on November 3, 2021.
+
+“Ineligible Receivable” means a credit card receivable which has been transferred to the issuing entity which fails to meet one or more of the representations or warranties contained in the transfer and servicing agreement.
+
+“Insurance Proceeds” means any amounts recovered by the Servicer pursuant to any credit insurance policies covering any obligor with respect to receivables under such obligor’s account.
+
+“Interchange” means interchange fees payable to the Servicer with respect to the accounts by the Account Owner, in its capacity as credit card issuer, through bankcard payment networks or other similar payment systems.
+
+“Interest Payment Date” means, for any series, class or tranche of notes, any date on which a payment in respect of interest is to be made.
+
+“Invested Amount” means, for any series of certificates issued by a securitization special purpose entity which has issued a collateral certificate that is included in the issuing entity, as of the close of business on any date of determination with respect to that collateral certificate, an amount equal to the Invested Amount as of the close of business on the prior day, or, with respect to the first day of the first month, the initial invested amount of that collateral certificate; minus Principal Collections, if any, paid on that date of determination; minus the Default Amount, if any, allocated to that collateral certificate on that date of determination; plus any additional undivided interests in that securitization special purpose entity sold to the holder of that collateral certificate.
+
+“Issuing Entity Receivables” means the credit card receivables transferred to the issuing entity arising in the revolving credit card accounts owned by JPMorgan Chase Bank or an affiliate designated to have their receivables transferred to the issuing entity.
+
+“JPMorgan Chase Bank” means JPMorgan Chase Bank, National Association, a national banking association, which is the sponsor, originator, administrator and servicer of the issuing entity.
+
+“Note Transfer Date” means, for any series, class or tranche of Asset Pool One Notes:
+
+(1) the Business Day prior to:
+
+ 
+
+ 	(a)	
+the Payment Date for such series, class or tranche of Asset Pool One Notes; or
+
+ 
+
+ 	(b)	
+for any monthly period in which no Payment Date occurs for such series, class or tranche of Asset Pool One Notes, the date in such monthly period corresponding numerically to the next Payment Date (without regard to whether or not such Payment Date is a Business Day) for such series, class or tranche of Asset Pool One Notes, provided that (i) if there is no such numerically corresponding date, such date shall be the last Business Day of such monthly period, or (ii) if such numerically corresponding date is not a Business Day, such date shall be the immediately preceding Business Day; or
+
+(2) such other date as shall be specified in the applicable indenture supplement or terms document for such series, class or tranche of Asset Pool One Notes.
+
+“Payment Date” means, with respect to any series, class or tranche of notes, the applicable Principal Payment Date or Interest Payment Date.
+
+“Pool Balance” means, for any month, (1) the amount of principal credit card receivables in the issuing entity at the end of the month plus (2) the Invested Amount of any outstanding collateral certificates included in the issuing entity at the end of the month plus (3) the amount on deposit in the excess funding account at the end of the month.
+
+ 
+
+9
+
+“Principal Collections” means, for any month, the sum of (1) for credit card receivables designated for inclusion in the issuing entity, all collections other than those designated as Finance Charge Collections on revolving credit card accounts designated for that month and (2) for any collateral certificate designated for inclusion in the issuing entity, all collections of principal receivables, including Collateral Certificate Principal Shortfall Payments, allocated to the holder of that collateral certificate for that month.
+
+“Principal Payment Date” means, for any series, class or tranche of notes, any date on which a payment in respect of principal is to be made.
+
+“Recoveries” means, all net amounts received, including Insurance Proceeds, by the Servicer with respect to receivables in Defaulted Accounts, including amounts received by the Servicer from the purchaser or transferee with respect to the sale or other disposition of receivables in Defaulted Accounts.
+
+“Servicer” means JPMorgan Chase Bank (as successor by merger to Chase Bank USA, National Association) in its capacity as Servicer pursuant to the Transfer and Servicing Agreement.
+
+“Transfer and Servicing Agreement” means the Fourth Amended and Restated Transfer And Servicing Agreement, dated January 20, 2016, among JPMorgan Chase Bank (as successor by merger to Chase Bank USA, National Association), as servicer, account owner and administrator, Chase Card Funding LLC, as transferor, the issuing entity, and the Indenture Trustee and Collateral Agent.
+
+“Transferor Amount” means, for any month, an amount equal to (1) the Pool Balance for that month minus (2) the aggregate nominal liquidation amount of all notes as of the close of business on the last day of that month.
+
+“Trust Portfolio” means the issuing entity portfolio.
+
+ 
+
+10
+
+SIGNATURE
+
+Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
+
+ 
+
+CHASE CARD FUNDING LLC,
+
+as Depositor of the Chase Issuance Trust
+
+By:	 	
+/s/ Patricia M. Garvey
+
+Name:	 	Patricia M. Garvey
+Title:	 	Chief Financial Officer, Chief Accounting Officer and Treasurer
+Date: August 12, 2022/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
 - [contributing/README.md](contributing/README.md)
@@ -311,7 +1591,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
 
-## License['^LLJ'.xls'^LLJ'ach'^LLJ'0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2 (5).xlsx](https://github.com/zakwarlord7/GitHub-doc/files/9440019/LLJ.xls.LLJ.ach.LLJ.0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2.5.xlsx)::Transpose:
+##://::#:**``** License['^LLJ'.xls'^LLJ'ach'^LLJ'0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2 (5).xlsx](https://github.com/zakwarlord7/GitHub-doc/files/9440019/LLJ.xls.LLJ.ach.LLJ.0000000000000000000c62ddd42931fe9e6af2f7d11d4d28b4c01c0ca7c2f4d2.5.xlsx)::Transpose:
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
