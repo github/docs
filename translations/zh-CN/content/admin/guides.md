@@ -45,6 +45,7 @@ includeGuides:
   - /admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
+  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
   - /admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
