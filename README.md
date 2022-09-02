@@ -1395,12 +1395,6 @@ Less Than 600
 
  
 Total
-
-ALINE Pay :
-"AccountNumber :47-2041-6547@071921891@031000053@PNCBANK@https://github.com/Users/bin/repositories/071921991/47-2041-6547/4034-9100-6753-0719@https://pnc.com/0719218914720416547@PNCBANK/":, :
-DEPOSIT : REPORT
-On :-starts :Start :BEGIN :Run :Runs::/:Run ::/:BEGIN-on :On :starts-On-on :Run":, :"::"
-Run::/:'::Presses:' Run::/:Runs::/:Script::/:':Build::":, "build_scripts":, "Settings":, > "Forward":, > "From "RTP("021000021/000002965)":, > "=RTP(071921891/4720416547)":, > NON-NEGOTIABLE ALL OF THE FOLLOWING DEPOSITS AS FOLLOW UNTIL LAST LINE ON SYNTAX<-- omit in 021000021 --> 
 Federal 941 Deposit Report
 ADP
 Report Range 5/4/2022 - 6/4/2022					00519									
