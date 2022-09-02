@@ -55803,6 +55803,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "mergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when merging a pull request.</p>",
+          "type": "MergeCommitMessage!",
+          "id": "mergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommitmessage"
+        },
+        {
+          "name": "mergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when merging a pull request.</p>",
+          "type": "MergeCommitTitle!",
+          "id": "mergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommittitle"
+        },
+        {
           "name": "milestone",
           "description": "<p>Returns a single milestone from the current repository by number.</p>",
           "type": "Milestone",
@@ -56957,6 +56973,22 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "squashMergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitMessage!",
+          "id": "squashmergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommitmessage"
+        },
+        {
+          "name": "squashMergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitTitle!",
+          "id": "squashmergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommittitle"
         },
         {
           "name": "squashPrTitleUsedAsDefault",
@@ -74788,6 +74820,44 @@
       ]
     },
     {
+      "name": "MergeCommitMessage",
+      "kind": "enums",
+      "id": "mergecommitmessage",
+      "href": "/graphql/reference/enums#mergecommitmessage",
+      "description": "<p>The possible default commit messages for merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeCommitTitle",
+      "kind": "enums",
+      "id": "mergecommittitle",
+      "href": "/graphql/reference/enums#mergecommittitle",
+      "description": "<p>The possible default commit titles for merges.</p>",
+      "values": [
+        {
+          "name": "MERGE_MESSAGE",
+          "description": "<p>Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -74865,16 +74935,8 @@
           "description": "<p>A Bitbucket Server migration source.</p>"
         },
         {
-          "name": "GITHUB",
-          "description": "<p>A GitHub migration source.</p>"
-        },
-        {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
-        },
-        {
-          "name": "GITLAB",
-          "description": "<p>A GitLab migration source.</p>"
         }
       ]
     },
@@ -77539,6 +77601,44 @@
         {
           "name": "PUBLIC",
           "description": "<p>Public.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitMessage",
+      "kind": "enums",
+      "id": "squashmergecommitmessage",
+      "href": "/graphql/reference/enums#squashmergecommitmessage",
+      "description": "<p>The possible default commit messages for squash merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGES",
+          "description": "<p>Default to the branch's commit messages.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitTitle",
+      "kind": "enums",
+      "id": "squashmergecommittitle",
+      "href": "/graphql/reference/enums#squashmergecommittitle",
+      "description": "<p>The possible default commit titles for squash merges.</p>",
+      "values": [
+        {
+          "name": "COMMIT_OR_PR_TITLE",
+          "description": "<p>Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
         }
       ]
     },

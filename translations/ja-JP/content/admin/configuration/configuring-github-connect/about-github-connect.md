@@ -8,6 +8,7 @@ type: overview
 topics:
   - Enterprise
   - GitHub Connect
+miniTocMaxHeadingLevel: 3
 ---
 
 ## About {% data variables.product.prodname_github_connect %}
@@ -37,6 +38,16 @@ Unified contributions | Allow users to include anonymized contribution counts fo
 
 ## Data transmission for {% data variables.product.prodname_github_connect %} 
 
+When {% data variables.product.prodname_github_connect %} is enabled, a record on {% data variables.product.prodname_ghe_cloud %} stores information about the connection. If you enable individual features of {% data variables.product.prodname_github_connect %}, additional data is transmitted.
+
+{% note %}
+
+**Note:** No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} by {% data variables.product.prodname_github_connect %}.
+
+{% endnote %}
+
+### Data transmitted when {% data variables.product.prodname_github_connect %} is enabled
+
 When you enable {% data variables.product.prodname_github_connect %} or specific {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_ghe_cloud %} stores the following information about the connection.
 {% ifversion ghes %}
 - The public key portion of your {% data variables.product.prodname_ghe_server %} license
@@ -54,11 +65,7 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 
 {% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 
-{% note %}
-
-**Note:** No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} by {% data variables.product.prodname_github_connect %}.
-
-{% endnote %}
+### Data transmitted by individual features of {% data variables.product.prodname_github_connect %}
 
 Additional data is transmitted if you enable individual features of {% data variables.product.prodname_github_connect %}.
 
@@ -68,7 +75,7 @@ Automatic user license sync | Each {% data variables.product.product_name %} use
 {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |{% endif %}{% ifversion dependabot-updates-github-connect %}
 {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} {% endif %}
 {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.product_name %}{% ifversion server-statistics %}
-{% data variables.product.prodname_server_statistics %} | Aggregate {% data variables.product.prodname_ghe_server %} usage metrics<br>For the list of aggregate metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %}{% endif %}
+{% data variables.product.prodname_server_statistics %} | Aggregate metrics about your usage of {% data variables.product.prodname_ghe_server %}. For the complete list of metrics, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %}{% endif %}
 Unified search | Search terms, search results | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.product_name %} |
 Unified contributions | Contribution counts | From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_dotcom_the_website %} |
 

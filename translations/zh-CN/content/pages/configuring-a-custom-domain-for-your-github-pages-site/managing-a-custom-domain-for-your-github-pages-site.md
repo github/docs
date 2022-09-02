@@ -46,7 +46,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." ![保存自定义域按钮](/assets/images/help/pages/save-custom-subdomain.png)
-5. 导航到您的 DNS 提供程序并创建 `CNAME` 记录，使子域指向您站点的默认域。 例如，如果要对您的用户站点使用子域 `www.example.com`，您可以创建 `CNAME` 记录，使 `www.example.com` 指向 `<user>.github.io`。 如果要对您的组织站点使用子域 `www.anotherexample.com`，您可以创建 `CNAME` 记录，使 `www.anotherexample.com` 指向 `<organization>.github.io`。 `CNAME` 记录应该始终指向 `<user>.github.io` 或 `<organization>.github.io`，不包括仓库名称。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+5. 导航到您的 DNS 提供程序并创建 `CNAME` 记录，使子域指向您站点的默认域。 例如，如果要对您的用户站点使用子域 `www.example.com`，您可以创建 `CNAME` 记录，使 `www.example.com` 指向 `<user>.github.io`。 如果要对您的组织站点使用子域 `another.example.com`，您可以创建 `CNAME` 记录，使 `another.example.com` 指向 `<organization>.github.io`。 `CNAME` 记录应该始终指向 `<user>.github.io` 或 `<organization>.github.io`，不包括仓库名称。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}

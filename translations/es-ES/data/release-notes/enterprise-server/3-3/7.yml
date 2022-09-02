@@ -9,10 +9,10 @@ sections:
     - 'Se acumularon los archivos de bitácora rotados con la extensión `.backup` enlos directorios que contenían bitácoras de sistema.'
     - 'En algunas topologías de clúster, no pudieron ejecutarse las utilidades de línea de comandos `ghe-spokesctl` y `ghe-btop`.'
     - 'Los índices de Elastisearch podrían duplicarse durante la mejora de un paquete debido a que el servicio de `elasticsearch-upgrade` se ejecutó varias veces en paralelo.'
-    - 'In the pull request and commit views, rich diffs would fail to load for some files tracked by Git LFS.'
+    - 'En las vistas de confirmación y solicitud de cambios, las diferencias enriquecidas no pudieron cargar para algunos archivos rastreados por Git LFS.'
     - 'Cuando conviertes una cuenta de usuario en una organización, si dicha cuenta fue propietaria de la cuenta empresarial de {% data variables.product.prodname_ghe_server %}, la organización convertida se mostró incorrectamente en la lista de propietarios de la empresa.'
     - 'El crear un token de OAuth de personificación utilizando la API de REST de administración de empresas dio como resultado un error cuando una integración que coincidió con la ID de aplicación de OAuth ya existía.'
-    - 'The Secret Scanning REST API would return a `500` response code when there were UTF8 characters present in a detected secret.'
+    - 'La API de REST del escaneo de secretos devolvió un código de respuesta `500` cuando hubo caracteres UTF8 presentes en un secreto detectado.'
     - 'Los servidores de caché del repositorio pudieron servir datos de ubicaciones fuera del caché, incluso cuando los datos estuvieron disponibles en la ubicación del caché local.'
   changes:
     - 'Los errores de configuración que detienen una ejecución de aplicación de configuraciones ahora son el producto de la terminal adicionalmente a la bitácora de configuración.'

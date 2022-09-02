@@ -60,7 +60,19 @@ shortTitle: プッシュ保護の有効化
 
 コマンドラインでは、一度に最大で5つの検出されたシークレットが表示されます。 特定のシークレットが既にリポジトリ中で検出されており、アラートが既に存在するなら、{% data variables.product.prodname_dotcom %}はそのシークレットをブロックしません。
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Organizationの管理者は、プッシュがブロックされたときに表示されるカスタムリンクを提供できます。 このカスタムリンクには、Organization固有のリソースと、利用を進めるシークレットの保管庫や、ブロックされたシークレットに関連して質問の連絡を取る相手といったアドバイスを含めることができます。
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![ユーザがシークレットをリポジトリにプッシュしようとしたときにプッシュがブロックされたことを示しているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
 ![ユーザがシークレットをリポジトリにプッシュしようとしたときにプッシュがブロックされたことを示しているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+
+{% endif %}
 
 {% data reusables.secret-scanning.push-protection-remove-secret %} ブロックされたシークレットの修復に関する詳しい情報については「[プッシュ保護によってブロックされたブランチのプッシュ](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)」を参照してください。
 
@@ -87,6 +99,14 @@ shortTitle: プッシュ保護の有効化
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 Web UIでは、{% data variables.product.prodname_dotcom %}は検出されたシークレットを一度に1つだけしか表示しません。 特定のシークレットが既にリポジトリ中で検出されており、アラートが既に存在するなら、{% data variables.product.prodname_dotcom %}はそのシークレットをブロックしません。
+
+{% ifversion push-protection-custom-link-orgs %}
+
+Organizationの管理者は、プッシュがブロックされたときに表示されるカスタムリンクを提供できます。 このカスタムリンクには、Organization固有のリソースやアドバイスを含めることができます。 たとえば、このカスタムリンクはOrganizationのシークレットの保管庫に関する情報を持つREADMEファイルや、質問のエスカレート先のチームや個人、あるいはOrganizationで承認されたシークレットの扱いやコミット履歴の書き換えのポリシーなどを指すようにすることができます。
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
 
 Web UIを使って、シークレットをファイルから削除できます。 シークレットを削除すると、ページ上部のバナーは変化し、変更をコミットできるようになったことを知らせてくれます。
 

@@ -60,9 +60,21 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 
 Se mostrarán hasta cinco secretos detectados a la vez en la línea de comandos. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
+{% ifversion push-protection-custom-link-orgs %}
+
+Los administradores de las organizaciones pueden proporcionar un enlace personalizado que se mostrará cuando se bloquee una subida de información. Este enlace personalizado puede contener consejos y recursos específicos para la organización, tal como las instrucciones para utilizar una bóveda de secretos recomendada o a quién contactar para hacer preguntas relacionadas con el secreto bloqueado.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
 ![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos bloqueados de remediación, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
+{% endif %}
+
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos de remediación bloqueados, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
 
 Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Los secretos reales que se expusieron deben revocarse para evitar un acceso no autorizado. Podrías considerar rotar el secreto primero antes de revocarlo. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
@@ -87,6 +99,14 @@ Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas s
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} solo mostrará un secreto detectado a la vez en la IU web. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
+
+{% ifversion push-protection-custom-link-orgs %}
+
+Los administradores de las organizaciones pueden proporcionar un enlace personalizado que se mostrará cuando se bloquee una subida de información. Este enlace personalizado puede contener recursos y consejos específicos para tu organización. Por ejemplo, el enlace personalizado puede apuntar a un archivo README con información sobre la bóveda de secretos de la organización, a qué individuos y equipos escalar las preguntas o la política aprobada de la organización para trabajar con secretos y reescribir el historial de confirmaciones.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
 
 Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimines el secreto, el letrero en la parte superior de la página cambiará y te dirá que ahora puedes confirmar tus cambios.
 

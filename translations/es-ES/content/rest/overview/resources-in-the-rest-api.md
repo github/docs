@@ -79,12 +79,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### Token de OAuth (enviado en un encabezado)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Nota: GitHub recomienda enviar los tokens de OAuth utilizando el encabezado de autorización.
+
+{% endnote %}
+
+{% note %}
+
+**Nota:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 

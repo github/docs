@@ -13,10 +13,14 @@ import path from 'path'
 import { Client } from '@elastic/elasticsearch'
 import { program, Option } from 'commander'
 import chalk from 'chalk'
+import dotenv from 'dotenv'
 
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
+
+// Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
+dotenv.config()
 
 // Create an object that maps the "short name" of a version to
 // all information about it. E.g
@@ -61,6 +65,7 @@ program
     '-s, --source-directory <DIRECTORY>',
     `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
   )
+  .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
   .parse(process.argv)
 
 main(program.opts())
@@ -122,10 +127,13 @@ async function main(opts) {
     console.log(`Indexing on languages ${chalk.bold(languages.join(', '))}`)
   }
 
+  const { indexPrefix } = opts
+  const prefix = indexPrefix ? `${indexPrefix}_` : ''
+
   for (const language of languages) {
     for (const versionKey of versionKeys) {
       console.log(chalk.yellow(`Indexing ${chalk.bold(versionKey)} in ${chalk.bold(language)}`))
-      const indexName = `github-docs-${versionKey}-${language}`
+      const indexName = `${prefix}github-docs-${versionKey}-${language}`
 
       console.time(`Indexing ${indexName}`)
       await indexVersion(client, indexName, versionKey, language, sourceDirectory, verbose)

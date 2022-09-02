@@ -40,6 +40,8 @@ Ao criar uma política, você define se ela se aplica a todos os repositórios d
 
 Se você adicionar uma política para toda a organização com uma restrição de tempo limite, você deverá definir o tempo limite como o período de tempo mais longo. Em seguida, é possível adicionar políticas separadas que definam o tempo limite máximo para um período mais curto para repositórios específicos na sua organização.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adicionando uma política para definir um período máximo de tempo ocioso
 
 {% data reusables.profile.access_org %}

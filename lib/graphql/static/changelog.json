@@ -4,6 +4,40 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>MergeCommitMessage</code> was added</p>",
+          "<p>Type <code>MergeCommitTitle</code> was added</p>",
+          "<p>Type <code>SquashMergeCommitMessage</code> was added</p>",
+          "<p>Type <code>SquashMergeCommitTitle</code> was added</p>",
+          "<p>Field <code>mergeCommitMessage</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>mergeCommitTitle</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>squashMergeCommitMessage</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>squashMergeCommitTitle</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>GITHUB</code> was removed from enum <code>MigrationSourceType</code></p>",
+          "<p>Enum value <code>GITLAB</code> was removed from enum <code>MigrationSourceType</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>createLabelsIfMissing</code> was added to input object type <code>TransferIssueInput</code></p>"
         ]
       }

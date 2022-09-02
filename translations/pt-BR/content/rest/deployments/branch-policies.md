@@ -1,8 +1,8 @@
 ---
-title: Deployment branch policies
+title: Políticas de branch de implantação
 allowTitleToDifferFromFilename: true
-shortTitle: Deployment branch policies
-intro: The Deployment branch policies API allows you to manage custom deployment branch policies.
+shortTitle: Políticas de branch de implantação
+intro: A API de políticas de branch de implantação permite que você gerencie políticas personalizadas de branch de implantação.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Deployment branch policies API
+## Sobre a API das políticas de branch de implantação
 
-The Deployment branch policies API allows you to specify custom name patterns that branches must match in order to deploy to an environment. The `deployment_branch_policy.custom_branch_policies` property for the environment must be set to `true` to use these endpoints. To update the `deployment_branch_policy` for an environment, see "[Create or update an environment](/rest/deployments/environments#create-or-update-an-environment)."
+A API de políticas de branch de implantação permite que você especifique padrões de nome personalizados aos quais os branchs devem corresponder para fazer a implantação em um ambiente. A propriedade `deployment_branch_policy.custom_branch_policy` para o ambiente deve ser definida como `verdadeiro` para usar estas extremidades. Para atualizar o `deployment_branch_policy` para um ambiente, consulte "[Criando ou atualizando um ambiente](/rest/deployments/environments#create-or-update-an-environment)".
 
-For more information about restricting environment deployments to certain branches, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)."
+Para obter mais informações sobre como restringir implantações de ambiente em certos branches, consulte "[Usando ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches). ".

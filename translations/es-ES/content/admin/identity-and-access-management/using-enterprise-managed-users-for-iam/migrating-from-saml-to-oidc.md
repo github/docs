@@ -1,5 +1,5 @@
 ---
-title: Migrating from SAML to OIDC
+title: Migrarte de SAML a OIDC
 shortTitle: Migrarte de SAML a OIDC
 intro: 'If you''re using SAML to authenticate members in your {% data variables.product.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
 product: '{% data reusables.gated-features.emus %}'
@@ -26,11 +26,12 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 
 {% note %}
 
-**Note:** To sign in as the setup user, you will need a recovery code. If you do not already have your recovery codes, you can access the codes while signed in as an enterprise owner. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+**Note:** To sign in as the setup user, you will need a recovery code. If you do not already have your recovery codes, you can access the codes while signed in as an enterprise owner. Para obtener más información, consulta la sección "[Descargar los códigos de recuperación de inicio de sesión único de tu cuenta empresarial](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)".
 
 {% endnote %}
 
 1. Before you begin the migration, sign in to Azure and disable provisioning in the existing {% data variables.product.prodname_emu_idp_application %} application.
+1. Si utilizas [Políticas de ubicación de red con Acceso Condicional (CA)](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) en Azure AD y actualmente utilizas una lista de direcciones IP permitidas con tu cuenta empresarial o con cualquier organización que le pertenezca a la cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}, inhabilita las listas de direcciones IP permitidas. Para obtener más información, consulta las secciones "[Requerir ajustes de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" y "[Administrar direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)".
 1.  Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your enterprise with the username **@<em>SHORT-CODE</em>_admin**.
 1. When prompted to continue to your identity provider, click **Use a recovery code** and sign in using one of your enterprise's recovery codes.
 {% data reusables.enterprise-accounts.access-enterprise %}

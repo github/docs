@@ -66,6 +66,7 @@ const PUBLIC_REPOS = new Set([
   'super-linter',
   'tweetsodium',
   'VisualStudio',
+  'codespaces-getting-started-ml',
 ])
 
 const ALLOW_DOCS_PATHS = [

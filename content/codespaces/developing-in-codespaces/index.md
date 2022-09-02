@@ -18,6 +18,7 @@ children:
   - /forwarding-ports-in-your-codespace
   - /default-environment-variables-for-your-codespace
   - /connecting-to-a-private-network
+  - /getting-started-with-github-codespaces-for-machine-learning
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-with-github-cli
 ---
