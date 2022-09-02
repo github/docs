@@ -52,13 +52,6 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
 
-      - name: Comment on the new issue
-        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
-        env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
-          NEW_ISSUE: ${{ env.NEW_ISSUE }}
-          OLD_ISSUE: ${{ github.event.issue.html_url }}
-
       - name: Comment on the old issue
         run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to the REST/GraphQL API description must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
@@ -69,4 +62,11 @@ jobs:
         run: gh issue close $OLD_ISSUE
         env:
           GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Comment on the new issue
+        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
