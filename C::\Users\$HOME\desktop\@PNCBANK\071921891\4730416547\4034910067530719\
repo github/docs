@@ -24,10 +24,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
+      Checks-out :ActionScript :O'Auth's':' scripts''@v'-"0.0.0":,
+      #Runs::/:Run:'' '"#:: a single command using the runners shell
+      '"::##:,'' '"::#:'":,'' '"Name":, "Runs":,' '":"a-multi_line_one_line_build_script":,
         Echo: "Hello','' 'world":,
 
       # Runs a set of commands using the runners shell
