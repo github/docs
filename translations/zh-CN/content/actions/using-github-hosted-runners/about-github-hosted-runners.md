@@ -86,6 +86,15 @@ jobs:
 
 ## 支持的运行器和硬件资源
 
+{% ifversion actions-hosted-runners %}
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+
+{% endnote %}
+{% endif %}
+
 Windows 和 Linux 虚拟机的硬件规格：
 - 2 核 CPU (x86_64)
 - 7 GB RAM

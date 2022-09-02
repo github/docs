@@ -72,7 +72,7 @@ topics:
 {% endtip %}
 {% endif %}
 
-此 {% data variables.product.prodname_dependency_review_action %} 示例文件说明了如何使用这些配置选项。
+此 {% data variables.product.prodname_dependency_review_action %} 示例文件说明了如何使用这些配置选项。 Notice that the example uses short version number for the action (`v2`) instead of a semver release number (for example, `v2.0.8`). This ensures that you use the most recent minor version of the action.
 
 ```yaml{:copy}
 name: 'Dependency Review'

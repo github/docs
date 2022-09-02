@@ -121,7 +121,7 @@ GraphQL API 对每个查询最多返回 100 个节点。 要检索其他结果�
 下面的查询搜索在 `avocado-corp` 企业中搜索 2022 年 1 月 1 日创建的审核日志事件，并使用 [REST API 分页](/rest/overview/resources-in-the-rest-api#pagination)返回第一页，每页最多包含 100 个项：
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
@@ -133,7 +133,7 @@ curl -H "Authorization: token <em>TOKEN</em>" \
 下面的查询搜索拉取请求的审核日志事件，其中事件发生在 `avocado-corp` 企业中的 2022 年 1 月 1 日或之后，并且该操作由 `octocat` 用户执行：
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```

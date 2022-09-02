@@ -19,5 +19,6 @@ children:
   - /followers
   - /gpg-keys
   - /keys
+  - /ssh-signing-keys
 ---
 

@@ -1,9 +1,9 @@
 {% ifversion fpt %}
-1. 导航到自托管运行器组所在的存储库或组织的主页。
+1. Navigate to the main page of the repository or organization where your runner groups are located.
 2. 单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 {% elsif ghec or ghes or ghae %}
-1. 导航到自托管运行器组所在的位置：
+1. Navigate to where your runner groups are located:
    * **在组织中**，导航到主页并单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。
    * **如果使用企业级组**：
 

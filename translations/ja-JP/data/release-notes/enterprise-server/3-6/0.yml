@@ -25,7 +25,9 @@ sections:
           -「[Enterpriseでのリポジトリ管理ポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」
           -「[インスタンスのホストキーの設定](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)」
         - |
-          インスタンスに接続してくるSMTPコネクションにTLS暗号化を要求できます。詳しい情報については「[通知のメールの設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」を参照してください。
+          インスタンスへのSMTP接続にTLS暗号化を必須とすることができます。詳しい情報については「[通知のためのメールの設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)」を参照してください。
+
+          -**ノート**: この機能はGitHub Enterprise Server 3.6.0では利用できません。この機能は今後のリリースで利用できるようになります。[更新: 2022 年8月26日]
     - 
       heading: 監査ログ
       notes:

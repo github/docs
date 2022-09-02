@@ -19,6 +19,8 @@ topics:
 
 {% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting.
 
+Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Domain Names Specification RFC](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
+
 After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。
 
 For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).

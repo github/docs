@@ -359,7 +359,7 @@ In the following example, the `+` symbol ensures that the specified additional {
 
 ## Using a custom configuration file
 
-A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
@@ -441,6 +441,41 @@ Optionally, you can give each array element a name, as shown in the example conf
 ### Disabling the default queries
 
 If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+### Excluding specific queries from analysis
+
+You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
+
+This is useful if you want to exclude, for example:
+- Specific queries from the default suites (`security`, `security-extended` and `security-and-quality`).
+- Specific queries whose results do not interest you.
+- All the queries that generate warnings and recommendations.
+
+You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
+
+```yaml
+query-filters:
+  - exclude:
+      id: js/redundant-assignment
+  - exclude:
+      id: js/useless-assignment-to-local
+```
+To find the id of a query, you can click the alert in the list of alerts in the Security tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+
+{% tip %}
+
+**Tips:**
+- The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
+- Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
+
+{% endtip %}
+
+You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
+
+For more information about using `exclude` and `include` filters in your custom configuration file, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+
+{% endif %}
 
 ### Specifying directories to scan
 

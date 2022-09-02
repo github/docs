@@ -107,13 +107,13 @@ Accept: application/xml
 
 访问令牌可用于代表用户向 API 提出请求。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 例如，您可以像以下这样在 curl 中设置“授权”标头：
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## 设备流程

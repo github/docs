@@ -14,6 +14,7 @@ topics:
 children:
   - /enabling-github-advanced-security-for-your-enterprise
   - /configuring-code-scanning-for-your-appliance
+  - /configuring-dependency-review-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
 ---
 

@@ -1,4 +1,4 @@
-1. Configure Git to use SSH to sign commits and tags:
+1. SHHを使ってコミットとタグに署名するようGitを設定してください。
   ```bash
   $ git config --global gpg.format ssh
   ```

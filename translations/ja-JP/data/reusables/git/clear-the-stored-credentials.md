@@ -1,1 +1,1 @@
-1. If the output confirms that you're using a credential manager, clear the stored credentials for the credential manager.
+1. 出力で認証情報マネージャーの利用が確認された場合、その認証情報マネージャーに保存された認証情報をクリアしてください。
