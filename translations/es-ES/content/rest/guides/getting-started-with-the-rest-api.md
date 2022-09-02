@@ -32,7 +32,7 @@ Para hacer una solicitud, primero encuentra el método HTTP y la ruta para la op
 
 {% endnote %}
 
-Si aún no estás autenticado en el {% data variables.product.prodname_cli %}, debes utilizar el subcomando `gh auth login` para autenticarte antes de hacer hacer cualquier tipo de solicitud. For more information, see "[Authenticating](#authenticating)."
+Si aún no estás autenticado en el {% data variables.product.prodname_cli %}, debes utilizar el subcomando `gh auth login` para autenticarte antes de hacer hacer cualquier tipo de solicitud. Para obtener más información, consulta la sección "[Autenticarse](#authenticating)".
 
 Para hacer una solicitud utilizando el {% data variables.product.prodname_cli %}, utiliza el subcomando `api` junto con la ruta. Utiliza el marcador `--method` o `-X` para especificar el método.
 
@@ -166,7 +166,7 @@ curl --request GET \
 
 {% note %}
 
-**Nota:** En la mayoría de los casos, puedes utilizar `Authorization: Bearer` o `Authorization: token`. Los tokens web JSON (JWT) solo funcionarán con `Authorization: Bearer`.
+**Nota:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 

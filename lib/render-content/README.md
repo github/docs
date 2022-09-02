@@ -36,7 +36,7 @@ Options:
 
 ### .liquid
 
-The [Liquid](https://ghub.io/liquid) instance used internally.
+The [Liquid](https://ghub.io/liquidjs) instance used internally.
 
 ### Code block headers
 

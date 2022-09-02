@@ -1,4 +1,4 @@
-{% data reusables.actions.self-hosted-runner-configure-runner-group %}
+{% data reusables.actions.configure-runner-group %}
 1. Modify your policy options.
    
    {% ifversion not ghae %}

@@ -23,7 +23,7 @@ topics:
 
 En vez de copiar y pegar desde un flujo de trabajo hacia otro, puedes hacer flujos de trabajo reutilizables. Tú y cualquiera que tenga acceso a un flujo de trabajo reutilizable pueden entonces llamarlo desde otro flujo.
 
-El reutilizar flujos de trabajo evita la duplicación. Esto hace que los flujos de trabajo se puedan mantener más fácilmente y te permite crear flujos de trabajo nuevos más fácilmente compilando sobre el trabajo de los demás, tal como lo haces con las acciones. La reutilización de flujos de trabajo también promueve las mejores prácticas al ayudarte a utilizar los flujos de trabajo que están bien diseñados, que ya se han probado y cuya efectividad ya se comprobó. Tu organización puede crear una librería de flujos de trabajo reutilizables que puede mantenerse centralmente.
+El reutilizar flujos de trabajo evita la duplicación. Esto hace que los flujos de trabajo se puedan mantener más fácilmente y te permite crear flujos de trabajo nuevos más fácilmente compilando sobre el trabajo de los demás, tal como lo haces con las acciones. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Tu organización puede crear una librería de flujos de trabajo reutilizables que puede mantenerse centralmente.
 
 El siguiente diagrama muestra tres jobs de compilación en la parte izquierda del mismo. Después de que cada uno de estos jobs se complete con éxito, se ejecutará un job dependiente llamado "Deploy". Este job crea un flujo de trabajo reutilizable que contiene tres jobs: "Staging", "Review" y "Production". El job de despliegue "Production" solo se ejecuta después de que el job "Staging" se haya completado con éxito. El utilizar un flujo de trabajo reutilizable para ejecutar jobs de despliegue te permite ejecutarlos para cada compilación sin duplicar el código en los flujos de trabajo.
 
@@ -127,7 +127,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/workflows/my-action
+         - uses: octo-org/my-action@v1
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -168,12 +168,13 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/my-action
+      - uses: octo-org/my-action@v1
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+
 {% ifversion actions-reusable-workflow-matrix %}
 ## Utilizar una estrategia de matriz con un flujo de trabajo reutilizable
 
