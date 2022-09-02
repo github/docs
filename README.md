@@ -1,4 +1,4 @@
-::ALIGHN: "Pay.":,-on:Runs::GitHub Docs <!-- omit in toc --> 
+Start: BEGINS "Run::/:'::Presses:' Run::/:Runs::/:Script::/:':Build::":, "build_scripts":, "Settings":, > "Forward":, > "From "RTP("021000021/000002965)":, > "=RTP(071921891/4720416547)":, > NON-NEGOTIABLE ALL OF THE FOLLOWING DEPOSITS AS FOLLOW UNTIL LAST LINE ON SYNTAX<-- omit in 021000021 --> 
 Federal 941 Deposit Report
 ADP
 Report Range 5/4/2022 - 6/4/2022					00519									
