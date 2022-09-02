@@ -1,0 +1,1 @@
+您可以向 {% data variables.product.product_location %} 中的组织添加成员，只要您是要管理的组织中的组织所有者即可。 您还可以配置组织成员身份的可见性。 更多信息请参阅“[将人员添加到组织](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)”和“[配置组织成员身份的可见性](/admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership)”。

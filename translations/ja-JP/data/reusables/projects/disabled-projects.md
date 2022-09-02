@@ -1,1 +1,1 @@
-You only see this event in responses when project boards have been [enabled](/articles/disabling-project-boards-in-a-repository) in the repository.
+プロジェクトボードがリポジトリで[有効化](/articles/disabling-project-boards-in-a-repository)されている場合にのみ、レスポンス中にこのイベントが示されます。

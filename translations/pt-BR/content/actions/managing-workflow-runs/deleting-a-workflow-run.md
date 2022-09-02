@@ -1,10 +1,11 @@
 ---
 title: Eliminar execução de um fluxo de trabalho
-intro: 'Você pode excluir uma execução do fluxo de trabalho que foi concluída ou que tem mais de duas semanas.'
-product: '{% data reusables.gated-features.actions %}'
+intro: Você pode excluir uma execução do fluxo de trabalho que foi concluída ou que tem mais de duas semanas.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}

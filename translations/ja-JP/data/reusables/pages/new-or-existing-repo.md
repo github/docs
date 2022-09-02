@@ -1,3 +1,7 @@
-サイトが独立プロジェクトなら、サイトのソースコードを保存するために新しいリポジトリを作成できます。 If your site is associated with an existing project, you can add the source code {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}to that project's repository, in a `/docs` folder on the default branch or on a different branch.{% else %}for your site to a `gh-pages` branch or a `docs` folder on the `master` branch in that project's repository.{% endif %} For example, if you're creating a site to publish documentation for a project that's already on {% data variables.product.product_name %}, you may want to store the source code for the site in the same repository as the project.
+You can either create a repository or choose an existing repository for your site.
+
+If you want to create a {% data variables.product.prodname_pages %} site for a repository where not all of the files in the repository are related to the site, you will be able to configure a publishing source for your site. For example, you can have a dedicated branch and folder to hold your site source files{% ifversion pages-custom-workflow %}, or you can use a custom {% data variables.product.prodname_actions %} workflow to build and deploy your site source files{% endif %}.
+
+{% ifversion fpt or ghec %}リポジトリを所有しているアカウントが{% data variables.product.prodname_free_user %}もしくはOrganization用の{% data variables.product.prodname_free_team %}を使用しているなら、そのリポジトリはパブリックでなければなりません。{% endif %}
 
 既存のリポジトリにサイトを作成したいのなら、[サイトの作成](#creating-your-site)セクションまでスキップしてください。

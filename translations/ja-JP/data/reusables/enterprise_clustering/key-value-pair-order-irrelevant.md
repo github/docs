@@ -1,1 +1,1 @@
-The order of the key-value pairs doesn't matter.
+キー/値ペアの順序は問題になりません。

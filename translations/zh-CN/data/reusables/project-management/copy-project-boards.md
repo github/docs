@@ -1,3 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-您也可以复制一个项目板，以将其自定义内容重新用于类似项目。 更多信息请参阅“[复制项目板](/articles/copying-a-project-board)”。
+{% ifversion fpt or ghec %}
+You can also copy a
+{% data variables.projects.projects_v1_board %} to reuse its customizations for similar projects. For more information, see "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)."
 {% endif %}

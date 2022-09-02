@@ -1,1 +1,1 @@
-{% data variables.product.prodname_ghe_server %} は 1 時間ごとに更新を送信します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% elsif ghes or ghae %}{% data variables.product.product_name %}{% endif %}は更新を1時間ごとに送信します。

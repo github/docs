@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_server %} usa busca de fundo para oferecer suporte para notificações push sem enviar suas informações para um serviço de terceiros. Portanto, é possível que você note atraso no recebimento de notificações de push.

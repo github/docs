@@ -1,0 +1,1 @@
+1. En la página principal del repositorio, haz clic en las confirmaciones para navegar a sus páginas. ![Captura de pantalla de la página principal del repositorio con las confirmaciones enfatizadas](/assets/images/help/commits/commits-page.png) 

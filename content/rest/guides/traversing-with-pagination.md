@@ -2,43 +2,47 @@
 title: Traversing with pagination
 intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: Traverse with pagination
 ---
 
- 
-
-The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
-and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
 
-In this guide, we'll make some calls to the {% data variables.product.product_name %} Search API, and iterate over
+In this guide, we'll make some calls to the Search API, and iterate over
 the results using pagination. You can find the complete source code for this project
 in the [platform-samples][platform samples] repository.
 
-### Basics of Pagination
+{% data reusables.rest-api.dotcom-only-guide-note %}
+
+## Basics of Pagination
 
 To start with, it's important to know a few facts about receiving paginated items:
 
 1. Different API calls respond with different defaults. For example, a call to
-[List public repositories](/v3/repos/#list-public-repositories)
+[List public repositories](/rest/reference/repos#list-public-repositories)
 provides paginated items in sets of 30, whereas a call to the GitHub Search API
 provides items in sets of 100
 2. You can specify how many items to receive (up to a maximum of 100); but,
 3. For technical reasons, not every endpoint behaves the same. For example,
-[events](/v3/activity/events/) won't let you set a maximum for items to receive.
+[events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
 Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
-Information about pagination is provided in [the Link header](http://tools.ietf.org/html/rfc5988)
+Information about pagination is provided in [the Link header](https://datatracker.ietf.org/doc/html/rfc5988)
 of an API call. For example, let's make a curl request to the search API, to find
 out how many times Mozilla projects use the phrase `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
 The `-I` parameter indicates that we only care about the headers, not the actual
@@ -56,7 +60,7 @@ Nice!
 
 **Always** rely on these link relations provided to you. Don't try to guess or construct your own URL.
 
-#### Navigating through the pages
+### Navigating through the pages
 
 Now that you know how many pages there are to receive, you can start navigating
 through the pages to consume the results. You do this by passing in a `page`
@@ -64,7 +68,7 @@ parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
 and see what happens:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 Here's the link header once more:
@@ -80,13 +84,13 @@ and more importantly, `rel="prev"` lets you know the page number of the previous
 page. Using this information, you could construct some UI that lets users jump
 between the first, previous, next, or last list of results in an API call.
 
-#### Changing the number of items received
+### Changing the number of items received
 
 By passing the `per_page` parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 Notice what it does to the header response:
@@ -98,7 +102,7 @@ As you might have guessed, the `rel="last"` information says that the last page
 is now 20. This is because we are asking for more information per page about
 our results.
 
-### Consuming the information
+## Consuming the information
 
 You don't want to be making low-level curl calls just to be able to work with
 pagination, so let's write a little Ruby script that does everything we've
@@ -188,7 +192,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-### Constructing Pagination Links
+## Constructing Pagination Links
 
 Normally, with pagination, your goal isn't to concatenate all of the possible
 results, but rather, to produce a set of navigation, like this:
@@ -254,9 +258,9 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /v3/repos/commits/#list-commits
+[listing commits]: /rest/reference/commits#list-commits

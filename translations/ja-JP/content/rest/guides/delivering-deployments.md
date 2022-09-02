@@ -1,23 +1,26 @@
 ---
 title: デプロイメントを配信する
-intro: 'Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。'
+intro: Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
  
   
 
-[Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
+[Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 [Status API][status API]と組み合わせれば、コードがデフォルトブランチに到着してからすぐにデプロイメントを調整できるようになります。
 
 このAPIでは、ステータスAPIを使って、利用できる設定を示します。 このシナリオでは、以下を行います。
 
-* ププルリクエストをマージします。
+* Pull Requestをマージします。
 * CIが終了したら、それに応じてプルリクエストのステータスを設定します。
 * プルリクエストがマージされたら、サーバーでデプロイメントを実行します。
 
@@ -27,7 +30,7 @@ versions:
 
 注釈: このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
 
-### サーバーを書く
+## サーバーを書く
 
 ローカル接続が機能していることを証明するための、簡単なSinatraアプリケーションを書きます。 まずは以下のソースから始めましょう。
 
@@ -74,7 +77,7 @@ end
 
 この概念実証を試すため、テストリポジトリのブランチで何か変更を行い、プルリクエストを開いてマージします。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
 
-### デプロイメントを扱う
+## デプロイメントを扱う
 
 サーバーの準備が整い、コードがレビューされ、プルリクエストがマージされたので、プロジェクトをデプロイしたいと思います。
 
@@ -134,18 +137,18 @@ end
 
 デプロイメントが完了後、ステータスを`success`に設定します。
 
-### おわりに
+## おわりに
 
-GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 その基本的なフローは、上記で構築してきたサーバーと本質的にまったく同じです。 GitHubでは、以下を実行しています。
+GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 一般的なフローは、上で構築したサーバーと本質的に同じです。
 
-* CIのステータスについてレスポンスを待つ
-* コードが緑色なら、プルリクエストにマージする
-* Heavenはマージされたコードを取り込み、本番サーバーとステージングサーバーにデプロイする
+* CIチェックのステータスに対する応答（成功もしくは失敗）を待つ
+* 必要なチェックが成功していれば、Pull Requestをマージする
+* Heavenはマージされたコードを取り込み、ステージング及びプロダクションサーバーにデプロイする
 * その間にHeavenは、当社のチャットルームに居座っている[Hubot][hubot]を通じて全員にビルドについて通知する
 
 これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

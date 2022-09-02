@@ -1,1 +1,0 @@
-- Melden Sie sich kostenlos für[{% data variables.product.prodname_team %}](/articles/github-s-products) an, was unbegrenzte Benutzer- und private Repositorys ermöglicht. Weitere Informationen findest Du unter „[Einen Lehrer- oder Forscherrabatt beantragen](/articles/applying-for-an-educator-or-researcher-discount).“

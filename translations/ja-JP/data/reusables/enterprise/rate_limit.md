@@ -1,4 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-Note that the limits mentioned above are the default rate limits for
-{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 Contact your site administrator to confirm if rate limits are enabled and how they are configured.
+{% ifversion ghes %}
+
+{% note %}
+
+**ノート**: 以下のレート制限は、{% data variables.product.product_name %}のデフォルトのレート制限です。 {% data variables.product.product_location %}のレート制限を確認するには、サイト管理者に連絡してください。
+
+{% endnote %}
+
 {% endif %}

@@ -1,1 +1,1 @@
-1. https://enterprise.github.com/support にアクセスし、サインインを求められた場合はサインインしてください。
+1. サポートエンジニアがSupport Bundleのアップロードリンクを伝えたなら、そのリンクを使ってください。 そうでない場合はhttps://support.github.com/にアクセスし、サポートを受ける権利があるEnterpriseアカウントにサインインしてください（求められた場合）。

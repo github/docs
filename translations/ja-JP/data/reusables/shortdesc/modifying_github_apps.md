@@ -1,1 +1,1 @@
-After creating a GitHub App, you can make changes to it.
+GitHub Appを作成した後に、変更を加えることができます。

@@ -1,1 +1,1 @@
-1. No {% data variables.product.product_name %}, navegue para a página principal da organização.
+1. No {% data variables.product.product_location %}, navegue para a página principal da organização.

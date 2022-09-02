@@ -1,2 +1,2 @@
-1. In the left sidebar, click **{% data variables.product.prodname_advanced_security %}**.
-![Advanced Security sidebar](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+1. In the left sidebar, click **Security**.
+![Security sidebar](/assets/images/enterprise/3.2/management-console/sidebar-security.png)

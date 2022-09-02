@@ -4,9 +4,12 @@ redirect_from:
   - /v4/explorer
   - /v4/explorer-new
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+layout: graphql-explorer
+topics:
+  - API
 ---
 
-Você pode acessar o Explorador GraphQL do GitHub em https://developer.github.com/v4/explorer.

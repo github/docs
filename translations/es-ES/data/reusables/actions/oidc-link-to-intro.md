@@ -1,0 +1,1 @@
+- Para aprender los conceptos básicos de cómo {% data variables.product.prodname_dotcom %} utiliza OpenID Connect (OIDC) y su arquitectura y beneficios, consulta la sección "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".

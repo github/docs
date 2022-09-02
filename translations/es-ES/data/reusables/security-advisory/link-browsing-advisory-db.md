@@ -1,0 +1,1 @@
+Para obtener más información, consulta la sección "[Buscar asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)".

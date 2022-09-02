@@ -1,1 +1,1 @@
-If the image's container registry requires authentication to pull the image, you can use `credentials` to set a `map` of the `username` and `password`. The credentials are the same values that you would provide to the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command.
+イメージのコンテナレジストリがイメージをプルするために認証を要求するなら、`username`と`password`の`map`を設定するために`jobs.<job_id>.container.credentials`が利用できます。 この認証情報は、[`docker login`](https://docs.docker.com/engine/reference/commandline/login/)コマンドに渡すものと同じ値です。

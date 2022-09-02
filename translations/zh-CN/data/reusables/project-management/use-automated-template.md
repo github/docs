@@ -1,1 +1,1 @@
-您可以使用项目板模板来创建一个已配置自动化的项目板。 更多信息请参阅“[关于项目板](/articles/about-project-boards#templates-for-project-boards)”。
+You can use a {% data variables.projects.projects_v1_board %} template to create a {% data variables.projects.projects_v1_board %} with automation already configured. 更多信息请参阅“[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards#templates-for-project-boards)”。

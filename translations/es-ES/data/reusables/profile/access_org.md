@@ -1,0 +1,1 @@
+1. En la esquina superior derecha de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, haz clic en tu foto de perfil y luego en **Tus organizaciones**. ![Tus organizaciones en el menú de perfil](/assets/images/help/profile/your-organizations.png)

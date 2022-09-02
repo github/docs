@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_server %} utiliza búsquedas de segundo plano para ser compatible con las notificaciones push sin enviar tu información a ningún servicio de terceros, así que podrías experimentar un retraso en recibir las notificaciones push.

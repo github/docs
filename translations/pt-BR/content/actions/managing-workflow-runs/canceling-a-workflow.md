@@ -1,10 +1,11 @@
 ---
 title: Cancelar um fluxo de trabalho
 intro: 'Você pode cancelar a execução de um fluxo de trabalho em andamento. Ao cancelar a execução de um fluxo de trabalho, o {% data variables.product.prodname_dotcom %} cancela todos os trabalhos e as etapas que integram esse fluxo de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -12,15 +13,15 @@ versions:
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Cancelar a execução do fluxo de trabalho
+## Cancelar a execução do fluxo de trabalho
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. No canto superior direito do fluxo de trabalho, clique em **Cancelar fluxo de trabalho**. ![Botão Cancel check suite (Cancelar conjunto de verificações)](/assets/images/help/repository/cancel-check-suite.png)
+1. Na lista de execuções do fluxo de trabalho, clique no nome da execução em estado `queued` ou `em progresso` que você deseja cancelar. ![Nome da execução do fluxo de trabalho](/assets/images/help/repository/in-progress-run.png)
+1. No canto superior direito do fluxo de trabalho, clique em **Cancelar fluxo de trabalho**. ![Botão Cancel check suite (Cancelar conjunto de verificações)](/assets/images/help/repository/cancel-check-suite-updated.png)
 
-### Etapas que o {% data variables.product.prodname_dotcom %} realiza para cancelar uma execução de fluxo de trabalho
+## Etapas que o {% data variables.product.prodname_dotcom %} realiza para cancelar uma execução de fluxo de trabalho
 
 Ao cancelar a execução do fluxo de trabalho, você poderá estar executando outro software que utiliza recursos relacionados à execução do fluxo de trabalho. Para ajudar você a liberar recursos relacionados à execução do fluxo de trabalho, pode ser útil entender as etapas que {% data variables.product.prodname_dotcom %} realiza para cancelar a execução de um fluxo de trabalho.
 

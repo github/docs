@@ -1,1 +1,1 @@
-O preço máximo é US$ 6.000 por mês.
+O preço máximo é US$ 12.000 por mês.

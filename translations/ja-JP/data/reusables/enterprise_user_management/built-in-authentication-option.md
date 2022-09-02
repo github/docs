@@ -1,1 +1,1 @@
-あるいは、ユーザが{% data variables.product.product_location %}のアイデンティティプロバイダに属していないなら、**Allow built-in authentication**（ビルトイン認証の許可）を選択して、ビルトイン認証を使うように招待することもできます。
+あるいは外部の認証システムにアカウントを持たずにビルトイン認証でサインインすることを許可するには、**Allow built-in authentication（ビルトイン認証の許可）**を選択してください。 詳しい情報については「[プロバイダ外のユーザへのビルトイン認証の許可](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)」を参照してください。

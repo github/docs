@@ -1,0 +1,1 @@
+Executa o comando `mvn --batch-mode` para publicar no repositório `ossrh`. A variável de ambiente `MAVEN_USERNAME` será definida com o conteúdo do seu segredo `OSSRH_USERNAME`, e a variável de ambiente `MAVEN_PASSWORD` será definida com o conteúdo do seu segredo `OSSRH_TOKEN`.

@@ -1,21 +1,13 @@
-const patterns = require('../lib/patterns')
+import statsd from '../lib/statsd.js'
 
-module.exports = (req, res, next) => {
-  // prevent open redirect vulnerability
-  if (req.path.match(patterns.multipleSlashes)) {
+const STATSD_KEY = 'middleware.handle_invalid_paths'
+
+export default function handleInvalidPaths(req, res, next) {
+  // Prevent various malicious injection attacks targeting Next.js
+  if (req.path.match(/^\/_next[^/]/) || req.path === '/_next/data' || req.path === '/_next/data/') {
+    statsd.increment(STATSD_KEY, 1, ['check:nextjs-injection-attack'])
     return next(404)
   }
 
-  // Prevent Express from blowing up with `URIError: Failed to decode param`
-  // for paths like /%7B%
-  try {
-    decodeURIComponent(req.path)
-    return next()
-  } catch (err) {
-    if (process.env.NODE_ENV !== 'test') {
-      console.log('unable to decode path', req.path, err)
-    }
-
-    return res.sendStatus(400)
-  }
+  return next()
 }

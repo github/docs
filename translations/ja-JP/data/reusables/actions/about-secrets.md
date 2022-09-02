@@ -1,1 +1,1 @@
-Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository or organization.
+暗号化されたシークレットを使えば、アクセストークンのようなセンシティブな情報をリポジトリやリポジトリ環境、Organizationに保存できます。

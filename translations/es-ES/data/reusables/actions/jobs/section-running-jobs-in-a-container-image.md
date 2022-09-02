@@ -1,0 +1,1 @@
+Utiliza `jobs.<job_id>.container.image` para definir la imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de imagen de Docker Hub o un nombre de registro.

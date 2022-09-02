@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the  _src_ directory (relative to the root), and to exclude the _node_modules_ directory (also relative to the root), as well as any file whose name ends in _.test.js_.
+The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -24,9 +24,28 @@ queries:
   - name: Use a query suite file (run queries from a query suite in this repo)
     uses: ./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls
 
-paths-ignore: 
-  - node_modules
-  - '**/*.test.js'
 paths:
   - src 
+paths-ignore: 
+  - src/node_modules
+  - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

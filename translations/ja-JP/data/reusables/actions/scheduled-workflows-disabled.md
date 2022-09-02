@@ -1,1 +1,1 @@
-To prevent unnecessary workflow runs, scheduled workflows may be disabled automatically. When a public repository is forked, scheduled workflows are disabled by default. In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days.
+不必要なワークフローの実行を避けるために、スケジュールされたワークフローは自動的に無効化できます。 パブリックリポジトリがフォークされると、スケジュールされたワークフローはデフォルトで無効化されます。 パブリックリポジトリでは、60日間にリポジトリにアクティビティがなかった場合、スケジュールされたワークフローは自動的に無効化されます。

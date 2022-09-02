@@ -1,1 +1,1 @@
-1. 左のサイドバーで**{% data variables.product.prodname_github_connect %}**をクリックしてください。 ![ビジネスアカウントの設定サイドバー内のGitHub Connectタブ](/assets/images/enterprise/business-accounts/settings-github-connect-tab.png)
+1. Enterpriseアカウントのサイドバーで、{% octicon "plug" aria-label="The GitHub Connect gear" %} **{% data variables.product.prodname_github_connect %}**をクリックしてください。 ![EnterpriseアカウントサイドバーのGitHub Connectタブ](/assets/images/help//business-accounts/enterprise-account-github-connect-tab.png)

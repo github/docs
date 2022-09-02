@@ -4,4 +4,4 @@
 | `changes`             | `对象`  | 对项目卡的更改，如果操作为 `edited` 或 `converted`。                               |
 | `changes[note][from]` | `字符串` | 备注的先前版本，如果操作为 `edited` 或 `converted`。                               |
 | `after_id`            | `整数`  | 此卡现在所遵循的卡的 ID，如果操作为 "moved"。 将为 `null`，如果它是列中的第一张卡。                 |
-| `project_card`        | `对象`  | [项目卡](/v3/projects/cards)本身。                                        |
+| `project_card`        | `对象`  | [项目卡](/rest/reference/projects#cards)本身。                            |

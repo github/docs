@@ -4,22 +4,19 @@ intro: 'GraphQL Explorer 是浏览器中的集成开发环境，包含文档、�
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
 ## 关于 GraphQL Explorer
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-[GraphQL Explorer](/v4/explorer) 是 [GraphiQL](https://github.com/graphql/graphiql) -“浏览器内的图形交互式 GraphQL IDE”- 的实例。
-
-{% note %}
-
-**注**：{% data variables.product.prodname_dotcom %} 在 Explorer 中禁用[突变](/v4/mutation/)，但您在自己的 GraphiQL 实例中可以使用它们。
-
-{% endnote %}
+[GraphQL Explorer](/graphql/overview/explorer) 是 [GraphiQL](https://github.com/graphql/graphiql) -“浏览器内的图形交互式 GraphQL IDE”- 的实例。
 
 {% else %}
 
@@ -27,13 +24,13 @@ versions:
 
 {% endif %}
 
-### 使用 GraphiQL
+## 使用 GraphiQL
 
 要使用 GraphiQL 应用程序，请从 https://github.com/skevy/graphiql-app 下载并安装。
 
-#### 配置 GraphiQL
+### 配置 GraphiQL
 
-1. 获取 [OAuth 令牌](/v4/guides/forming-calls#authenticating-with-graphql)。
+1. 获取 [OAuth 令牌](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)。
 1. 启动 GraphiQL。
 1. 在 GraphiQL 的右上角，单击 **Edit HTTP Headers（编辑 HTTP 标头）**。
 1. 在 **Key（密钥）**字段中，输入 `Authorization`。 在 **Value（值）**字段中，输入 `Bearer <token>`，其中 `<token>` 是您生成的 OAuth 令牌。 ![graphiql 标头](/assets/images/developer/graphiql-headers.png)
@@ -44,7 +41,7 @@ versions:
 
 {% note %}
 
-**注**：有关为何选择 `POST` 作为方法的更多信息，请参阅“[与 GraphQL 通信](/v4/guides/forming-calls#communicating-with-graphql)”。
+**注**：有关为何选择 `POST` 作为方法的更多信息，请参阅“[与 GraphQL 通信](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)”。
 
 {% endnote %}
 
@@ -60,19 +57,19 @@ query {
 
 如果一切运行正常，将会显示您的登录信息。 您已设置完成，可以开始查询。
 
-### 访问边栏文档
+## 访问边栏文档
 
 GraphQL 架构中的所有类型都包含一个编译到文档中的 `description` 字段。 Explorer 页面右侧可折叠的 **Docs（文档）**窗格可用于浏览有关类型系统的文档。 文档将自动更新，并删除已弃用的字段。
 
 {% note %}
 
-**Docs（文档）**边栏包含的内容，与“[引用](/v4/)”下的架构自动生成的内容相同，但有些地方的格式不同。
+**Docs（文档）**边栏包含的内容，与“[引用](/graphql)”下的架构自动生成的内容相同，但有些地方的格式不同。
 
 {% endnote %}
 
-### 使用变量窗格
+## 使用变量窗格
 
-包含[变量](/v4/guides/forming-calls#working-with-variables)的一些示例调用可能写作：
+包含[变量](/graphql/guides/forming-calls-with-graphql#working-with-variables)的一些示例调用可能写作：
 
 ```graphql
 query($number_of_repos:Int!){
@@ -90,7 +87,7 @@ variables {
 }
 ```
 
-这是通过 cURL `POST` 提交调用的正确格式（但要[避免使用换行符](/v4/guides/forming-calls#communicating-with-graphql)）。
+这是通过 cURL `POST` 提交调用的正确格式（但要[避免使用换行符](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)）。
 
 如果要在 Explorer 中运行调用，请在主窗格中输入 `query` 字段，并在其下方的 **Query Variables（查询变量）**窗格中输入变量。 在 Explorer 中省略 `variables` 一词：
 
@@ -100,18 +97,18 @@ variables {
 }
 ```
 
-### 请求支持
+## 请求支持
 
 {% data reusables.support.help_resources %}
 
-### 排查错误
+## 排查错误
 
-由于 GraphQL 可以[自省](/v4/guides/intro-to-graphql#discovering-the-graphql-api)，因此 Explorer 支持：
+由于 GraphQL 可以[自省](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)，因此 Explorer 支持：
 
 * 基于当前架构的智能输入提示
 * 键入时预提示验证错误
 
-如果您输入的查询格式不正确或未通过[架构验证](/v4/guides/intro-to-graphql#schema)，则会弹出错误警示窗口。 如果您运行查询，错误将返回响应窗格中。
+如果您输入的查询格式不正确或未通过[架构验证](/graphql/guides/introduction-to-graphql#schema)，则会弹出错误警示窗口。 如果您运行查询，错误将返回响应窗格中。
 
 GraphQL 响应中包含多个密钥：`data` 哈希和 `errors` 数组。
 

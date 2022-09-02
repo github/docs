@@ -1,1 +1,1 @@
-You can use the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
+Você pode usar {% data variables.enterprise.management_console %} para gerenciar configurações dos aplicativos virtuais, como o domínio, autenticação e SSL.

@@ -1,5 +1,5 @@
 
-### Telling Git about your X.509 key
+## Telling Git about your X.509 key
 
 You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
 
@@ -30,7 +30,7 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   $ git config --local gpg.program smimesign
   ```
   If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
-4. If you're not using an X.509 key that matches your commiter identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
+4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
   ```shell
   $ smimesign --list-keys
   ```

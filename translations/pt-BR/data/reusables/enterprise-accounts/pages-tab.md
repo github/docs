@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-label="The law icon" %} Policies", click **Pages**. ![Pages tab in the enterprise sidebar](/assets/images/enterprise/business-accounts/pages-tab.png)
+1. Em "Políticas de {% octicon "law" aria-label="The law icon" %}", clique em **Páginas**. ![Aba de páginas na barra lateral da empresa](/assets/images/enterprise/business-accounts/pages-tab.png)
