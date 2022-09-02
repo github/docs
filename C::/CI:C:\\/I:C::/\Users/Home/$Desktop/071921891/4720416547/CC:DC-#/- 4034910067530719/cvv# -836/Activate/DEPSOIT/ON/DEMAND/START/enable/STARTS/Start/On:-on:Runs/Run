@@ -7,7 +7,7 @@ GLOW7 :
 -on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "031000053" ]
+    branches: [ "4720416547'@031000053" ]
   pull_request:
     branches: [ "071921891" ]
 
