@@ -24,8 +24,6 @@ You can have more granular control over the permissions you grant at the reposit
 
 You can also use the REST API to manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
 
-{% data reusables.organizations.custom-repo-role-api-beta %}
-
 {% else %}
 
 You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
