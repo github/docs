@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} 3.6 supports migration for Docker images stored in organizations. A future release will support migration of user-owned images.
+{% data variables.product.product_name %} 3.6はOrganizationに保存されたDockerイメージの移行をサポートしています。 将来のリリースでは、ユーザが所有するイメージの移行がサポートされます。

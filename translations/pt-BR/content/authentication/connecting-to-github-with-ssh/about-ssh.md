@@ -1,6 +1,6 @@
 ---
 title: Sobre o SSH
-intro: 'Usando o protocolo SSH, você pode se conectar a servidores e serviços remotos e se autenticar neles. Com chaves SSH, você pode conectar-se a {% data variables.product.product_name %} sem inserir seu nome de usuário e token de acesso pessoal em cada visita.'
+intro: 'Usando o protocolo SSH, você pode se conectar a servidores e serviços remotos e se autenticar neles. Com chaves SSH, você pode se conectar a {% data variables.product.product_name %} sem fornecer seu nome de usuário e token de acesso pessoal em cada acesso.{% ifversion ssh-commit-verification %} Você também pode usar uma chave SSH para assinar commits.{% endif %}'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh
@@ -14,11 +14,9 @@ topics:
   - SSH
 ---
 
-## Sobre o SSH
-
 {% data reusables.ssh.about-ssh %} Para obter mais informações sobre SSH, consulte [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) na Wikipédia.
 
-Ao configurar o SSH, você deverá gerar uma nova chave SSH privada e adicioná-la ao agente SSH. Você também deve adicionar a chave SSH pública à sua conta no {% data variables.product.product_name %} antes de usar a chave para efetuar a autenticação. Para mais informações consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" e "[Adicionar uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+Ao configurar o SSH, você deverá gerar uma nova chave SSH privada e adicioná-la ao agente SSH. Você também deve adicionar a chave SSH pública à sua conta em {% data variables.product.product_name %} antes de usar a chave para efetuar a autenticação em {% ifversion ssh-commit-verification %} ou assinar commits{% endif %}. Para obter mais informações, consulte "[Gerando uma nova chave SSH e adicionando-a ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"{% ifversion ssh-commit-verification %}, {% else %} e{% endif %} "[Adicionando uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account){% ifversion ssh-commit-verification %}" e "[Sobre a verificação de assinatura do commit](/articles/about-commit-signature-verification){% endif %}."
 
 Você pode proteger ainda mais sua chave SSH usando uma chave de segurança de hardware, o que exige que a chave de segurança física do hardware seja conectada ao seu computador quando o par de chaves é usado para efetuar a autenticação com SSH. Você também pode proteger sua chave SSH, adicionando sua chave ao agente do ssh-agent e usando uma frase secreta. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
@@ -35,7 +33,6 @@ As organizações que usam {% data variables.product.prodname_ghe_cloud %} podem
 {% else ghec or ghes or ghae %}
 Se você for integrante de uma organização que fornece certificados SSH, você poderá usar seu certificado para acessar os repositórios da organização sem adicionar o certificado à sua conta em {% data variables.product.product_name %}. Você não pode usar seu certificado para acessar as bifurcações dos repositórios da organização, se as bifurcações pertencerem à sua conta pessoal. Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 {% endif %}
-
 ## Leia mais
 
 - "[Solucionar problemas de SSH](/articles/troubleshooting-ssh)"

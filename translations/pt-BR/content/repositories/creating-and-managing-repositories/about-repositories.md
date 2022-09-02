@@ -90,7 +90,15 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% data reusables.repositories.internal-repo-default %}
 
-Qualquer integrante da empresa pode bifurcar qualquer repositório interno pertencente a uma organização da empresa. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+{% ifversion ghec %}A menos que sua empresa use {% data variables.product.prodname_emus %}, os integrantes{% else %}Integrantes{% endif %} da empresa poderão bifurcar qualquer repositório interno de propriedade de uma organização na empresa. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+
+{% ifversion ghec %}
+{% note %}
+
+**Observação:** {% data variables.product.prodname_managed_users_caps %} não pode realizar a bifurcação a partir de repositórios internos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+
+{% endnote %}
+{% endif %}
 {% endif %}
 
 ## Limites para visualização de conteúdo e diffs no repositório
@@ -103,7 +111,7 @@ A maioria dos limites abaixo afetam o {% data variables.product.product_name %} 
 
 Os arquivos de texto acima de **512 KB** são sempre exibidos como texto sem formatação. O código não destaca a sintaxe e arquivos em prosa não são convertidos em HTML (como markdown, AsciiDoc *etc.*).
 
-Arquivos de texto acima de **5 MB** somente estão disponíveis por meio de suas URLs brutas, que são servidas em `{% data variables.product.raw_github_com %}`; por exemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Raw** (Bruto) para obter o URL bruto de um arquivo.
+Arquivos de texto acima de **5 MB** somente estão disponíveis por meio de suas URLs não processadas, que são servidas em `{% data variables.product.raw_github_com %}`; por exemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Não processado** para obter a URL não processada de um arquivo.
 
 ### Limites de diff
 

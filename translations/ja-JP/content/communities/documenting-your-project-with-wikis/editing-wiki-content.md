@@ -26,7 +26,7 @@ topics:
 ページでサポートされている標準的なマークアップや MediaWiki の構文を使ってウィキにリンクを作成できます。 例:
 
 - ページが Markdown でレンダリングされる場合、リンクの構文は `[Link Text](full-URL-of-wiki-page)` です。
-- MediaWiki 構文では、リンクの構文は `[[Link Text|nameofwikipage]]` となります。
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
 ## 画像の追加
 
@@ -44,6 +44,11 @@ topics:
 {% data variables.product.product_name %}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
+
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Adding mathematical expressions and diagrams{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
 
 ## サポートされる MediaWiki 形式
 

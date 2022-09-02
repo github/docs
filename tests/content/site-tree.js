@@ -2,7 +2,6 @@ import revalidator from 'revalidator'
 import schema from '../helpers/schemas/site-tree-schema.js'
 import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { loadSiteTree } from '../../lib/page-data.js'
-import japaneseCharacters from 'japanese-characters'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import { jest } from '@jest/globals'
 
@@ -18,30 +17,16 @@ describe('siteTree', () => {
 
   test('has language codes as top-level keys', () => {
     expect('en' in siteTree).toBe(true)
-    expect('ja' in siteTree).toBe(true)
   })
 
   test('object order and structure', () => {
-    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].href).toBe('/en/get-started')
-    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].childPages[0].href).toBe(
+    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].href).toBe('/en/get-started')
+    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].childPages[0].href).toBe(
       '/en/get-started/quickstart'
     )
   })
 
   describe('localized titles', () => {
-    // skipped because it has rendering errors. See translations/log/ja-resets.csv
-    test.skip('titles for categories', () => {
-      const japaneseTitle =
-        siteTree.ja[nonEnterpriseDefaultVersion].childPages[0].childPages[0].page.title
-      expect(typeof japaneseTitle).toBe('string')
-      expect(japaneseCharacters.presentIn(japaneseTitle)).toBe(true)
-
-      const englishTitle =
-        siteTree.en[nonEnterpriseDefaultVersion].childPages[0].childPages[0].page.title
-      expect(typeof englishTitle).toBe('string')
-      expect(japaneseCharacters.presentIn(englishTitle)).toBe(false)
-    })
-
     test('articles that include site data in liquid templating', async () => {
       const ghesLatest = `enterprise-server@${latestEnterpriseRelease}`
       const ghesSiteTree = siteTree.en[ghesLatest]

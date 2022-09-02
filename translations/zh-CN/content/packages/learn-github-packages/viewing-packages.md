@@ -23,15 +23,15 @@ versions:
 
 查看包的权限取决于几个因素。 默认情况下，您可以查看您发布的所有包。
 
-仓库作用域的包从拥有该包的仓库继承权限和可见性。 下面的注册表使用此类权限：{% ifversion not fpt or ghec %}
+仓库作用域的包从拥有该包的仓库继承权限和可见性。 The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
 - Docker 注册表 (`docker.pkg.github.com`){% endif %}
-- npm 注册表
+{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
 - RubyGems 注册表
 - Apache Maven 注册表
 - NuGet 注册表
 
 {% ifversion fpt or ghec %}
-容器注册表提供粒度权限和可见性设置，可针对个人用户或组织帐户拥有的每个包进行自定义。 您可以选择使用粒度权限或连接包到仓库并继承它的权限。 更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
+The {% data variables.product.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. 您可以选择使用粒度权限或连接包到仓库并继承它的权限。 更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
 {% endif %}
 
 更多信息请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”{% ifversion fpt or ghec %} 或“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。{% endif %}

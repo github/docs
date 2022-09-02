@@ -1,6 +1,6 @@
 ---
 title: Implementaciones
-intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
+intro: 'La API de despliegues te permite crear y borrar llaves de despliegue, despliegues y ambientes de despliegue.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,6 +14,7 @@ children:
   - /deployments
   - /environments
   - /statuses
+  - /branch-policies
 redirect_from:
   - /rest/reference/deployments
 ---

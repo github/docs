@@ -1,7 +1,7 @@
 ---
-title: Understanding field types
-shortTitle: Understanding field types
-intro: 'Learn about the different custom field types, how to add custom fields to your project, and how to manage custom fields.'
+title: Entendendo os tipos de campo
+shortTitle: Entendendo os tipos de campo
+intro: 'Aprenda sobre os diferentes tipos de campos personalizados, como adicionar campos personalizados ao seu projeto e como gerenciar campos personalizados.'
 versions:
   feature: projects-v2
 topics:

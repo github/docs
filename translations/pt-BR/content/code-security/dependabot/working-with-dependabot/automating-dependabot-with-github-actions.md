@@ -33,17 +33,17 @@ redirect_from:
 {% data variables.product.prodname_dependabot %} consegue acionar fluxos de trabalho de {% data variables.product.prodname_actions %} nos seus pull requests e comentários. No entanto, certos eventos são tratados de maneira diferente.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status`, aplicam-se as restrições a seguir:
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) que usam eventos de `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment` e`deployment_status`, aplicam-se as restrições a seguir:
 {% endif %}
 
 - {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` tem permissões somente leitura, a menos que seu administrador tenha removido as restrições.{% else %}`GITHUB_TOKEN` tem permissões somente leitura por padrão.{% endif %}
 - {% ifversion ghes = 3.3 %}Os segredos são inacessíveis, a menos que o seu administrador tenha removido restrições.{% else %}Os segredos são preenchidos a partir dos segredos de {% data variables.product.prodname_dependabot %}. Os segredos de {% data variables.product.prodname_actions %} não estão disponíveis.{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request_target`, se a referência da base do pull request foi criada por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`), the `GITHUB_TOKEN` será somente leitura e os segredos não estarão disponíveis.
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github. ctor == 'dependabot[bot]'`) que usam o evento `pull_request_target`, se o ref de base do pull request foi criado por {% data variables.product.prodname_dependabot %} (`github. ctor == 'dependabot[bot]'`), o `GITHUB_TOKEN` será somente leitura e os segredos não estarão disponíveis.
 {% endif %}
 
-{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
+{% ifversion actions-stable-actor-ids %}Essas restrições aplicam-se mesmo se o fluxo de trabalho for executado novamente por um ator diferente.{% endif %}
 
 Para obter mais informações, consulte ["Manter seus GitHub Actions e fluxos de trabalho seguro: Evitando solicitações de pwn"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 
@@ -228,7 +228,7 @@ jobs:
 
 {% ifversion actions-stable-actor-ids %}
 
-When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. Para obter mais informações, consulte "[Executando novamente os fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+Ao executar novamente um fluxo de trabalho do Dependabot manualmente, ele será executado com os mesmos privilégios de antes, mesmo se o usuário que iniciou o a nova execução tiver privilégios diferentes. Para obter mais informações, consulte "[Executando novamente os fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
 {% else %}
 

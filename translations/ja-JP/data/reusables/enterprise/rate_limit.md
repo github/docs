@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: The following rate limits are the default rate limits for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for {% data variables.product.product_location %}.
+**ノート**: 以下のレート制限は、{% data variables.product.product_name %}のデフォルトのレート制限です。 {% data variables.product.product_location %}のレート制限を確認するには、サイト管理者に連絡してください。
 
 {% endnote %}
 

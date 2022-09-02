@@ -32,6 +32,15 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 1. Clique no tema que deseja usar.
     - Se você escolheu um único tema, clique em um tema.
 
+      {%- ifversion ghes = 3.5 %}
+      {% note %}
+
+      **Observação**: O tema de alto contraste claro não estava disponível em {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2 e 3.5.3. O tema está disponível na versão 3.5.4 e posterior. Para obter mais informações sobre atualizações, entre em contato com o administrador do site.
+
+      Para obter mais informações sobre como determinar a versão do {% data variables.product.product_name %} que você está usando, consulte "[Sobre as versões de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)"
+      {% endnote %}
+      {%- endif %}
+
       {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - Se você escolheu seguir as configurações do sistema, clique em um tema diurno e um tema noturno.
 

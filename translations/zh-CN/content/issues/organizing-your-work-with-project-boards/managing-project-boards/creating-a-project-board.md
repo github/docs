@@ -57,6 +57,14 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.projects.classic-project-creation %}
 
+{% ifversion classic-project-visibility-permissions %}
+{% note %}
+
+**注意：**{% data reusables.projects.owners-can-limit-visibility-permissions %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}

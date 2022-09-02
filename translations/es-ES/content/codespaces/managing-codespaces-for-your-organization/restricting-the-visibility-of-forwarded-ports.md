@@ -36,6 +36,8 @@ Por ejemplo, podrías crear una política en toda la organización que restrinja
 
 Si agregas una política de toda la organización, deberías configurarla para que tenga la opción de visibilidad más indulgente disponible para cualquier repositorio en tu organización. Entonces podrás agregar las políticas específicas para los repositorios y así restringir aún más la elección.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Agregar una política para limitar las opciones de visibilidad de puerto
 
 {% data reusables.profile.access_org %}

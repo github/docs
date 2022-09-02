@@ -10,7 +10,6 @@ versions:
 children:
   - /about-github-campus-program
   - /about-campus-experts
-  - /about-campus-advisors
 shortTitle: At your institution
 ---
 

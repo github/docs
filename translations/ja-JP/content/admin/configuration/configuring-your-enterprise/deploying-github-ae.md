@@ -20,9 +20,7 @@ After you purchase or start a trial of {% data variables.product.product_name %}
 
 ## 必要な環境
 
-- Before you can deploy {% data variables.product.product_name %}, you must request access from your {% data variables.product.company_short %} account team. {% data variables.product.company_short %} will enable deployment of {% data variables.product.product_name %} for your Azure subscription. If you haven't already purchased {% data variables.product.product_name %}, you can contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a trial.
-
-- You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
 
 ## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
 
@@ -40,7 +38,7 @@ The {% data variables.actions.azure_portal %} allows you to deploy the {% data v
 1. To review a summary of the proposed changes, click **Review + create**.
 1. After the validation process has completed, click **Create**.
 
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. 詳しい情報については、「[{% data variables.product.product_name %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
+The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. 詳しい情報については「[{% data variables.product.product_name %}の初期化](/admin/configuration/initializing-github-ae)」を参照してください。
 
 {% note %}
 
@@ -57,7 +55,7 @@ You can use the {% data variables.actions.azure_portal %} to navigate to your {%
 
 ## 次のステップ
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. 詳しい情報については、「[{% data variables.product.product_name %} を初期化する](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)」を参照してください。
+- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. 詳しい情報については「[{% data variables.product.product_name %}の初期化](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)」を参照してください。
 - If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. {% data variables.product.product_name %} を評価するための時間がさらに必要な場合は、{% data variables.contact.contact_enterprise_sales %} に連絡して延長をリクエストしてください。
 
 ## 参考リンク

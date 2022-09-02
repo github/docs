@@ -1,6 +1,7 @@
 ---
 title: Acerca de la facturación para GitHub Actions
 intro: 'Si quieres utilizar {% data variables.product.prodname_actions %} con más almacenamiento o minutos de los que se incluyen en tu cuenta, se te cobrará por estos recursos adicionales.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -28,6 +29,13 @@ Los minutos se restablecen cada mes, pero no es el caso para el uso de almacenam
 
 ### Minutos y almacenamiento incluídos
 
+{% ifversion actions-hosted-runners %}
+{% note %}
+
+**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+
+{% endnote %}
+{% endif %}
 | Producto                                                              | Almacenamiento | Minutos (por mes) |
 | --------------------------------------------------------------------- | -------------- | ----------------- |
 | {% data variables.product.prodname_free_user %}                     | 500 MB         | 2,000             |
@@ -58,15 +66,15 @@ El almacenamiento que utilza un repositorio es el total del almacenamiento utili
 
 ### Tasas por minuto
 
-| Sistema operativo | Tasa por minuto (USD) |
-| ----------------- | --------------------- |
-| Linux             | $0.008                |
-| macOS             | $0.08                 |
-| Windows           | $0.016                |
+{% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-La cantidad de jobs que puedes ejecutar simultáneamente a través de todos los repositorios que pertenezcan a tu cuenta de usuario u organización dependerá de tu plan de GitHub. Para obtener más información, consulta la sección "[Facturación y límites de uso](/actions/reference/usage-limits-billing-and-administration)" para los ejecutores hospedados en {% data variables.product.prodname_dotcom %} y la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para los límites de uso de los ejecutores auto-hospedados.
-
-{% data reusables.user-settings.context_switcher %}
+- La cantidad de jobs que puedes ejecutar simultáneamente a través de todos los repositorios que pertenezcan a tu cuenta de usuario u organización dependerá de tu plan de GitHub. Para obtener más información, consulta la sección "[Facturación y límites de uso](/actions/reference/usage-limits-billing-and-administration)" para los ejecutores hospedados en {% data variables.product.prodname_dotcom %} y la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para los límites de uso de los ejecutores auto-hospedados.
+- {% data reusables.user-settings.context_switcher %}
+{% ifversion actions-hosted-runners %}
+- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+{% endif %}
 
 ## Calcular los gastos por minuto y por almacenamiento
 

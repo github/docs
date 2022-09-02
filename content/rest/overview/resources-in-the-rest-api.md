@@ -91,12 +91,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Note: GitHub recommends sending OAuth tokens using the Authorization header.
+
+{% endnote %}
+
+{% note %}
+
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -256,7 +262,7 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 ## HTTP verbs
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action.
+action. Note that HTTP verbs are case-sensitive.
 
 Verb | Description
 -----|-----------

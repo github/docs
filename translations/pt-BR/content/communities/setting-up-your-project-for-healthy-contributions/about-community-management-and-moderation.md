@@ -36,5 +36,3 @@ Os contribuidor sempre podem reportar conteúdo disruptivo para {% data variable
 - "[Seu Código de Conduta](https://opensource.guide/code-of-conduct/)" nos Guias de Código Aberto
 - "[Construindo comunidades acolhedoras](https://opensource.guide/building-community/)" nos Guias de Código Aberto
 - "[Liderança e Governança](https://opensource.guide/leadership-and-governance/)" nos Guias de Código Aberto
-- "[Humilhação e por que ela é inapropriada](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)" no Fórum Comunitário do GitHub
-- "[Ser tóxico não é uma crítica construtiva](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)" no Fórum Comunitário do GitHub

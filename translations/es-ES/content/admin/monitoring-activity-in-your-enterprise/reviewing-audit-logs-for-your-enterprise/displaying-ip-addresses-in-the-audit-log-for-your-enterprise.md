@@ -14,12 +14,6 @@ topics:
   - Security
 ---
 
-{% note %}
-
-**Note:** Display of IP addresses in the enterprise audit log is currently in public beta and is subject to change.
-
-{% endnote %}
-
 ## About display of IP addresses in the audit log
 
 By default, {% data variables.product.product_name %} does not display the source IP address for events in your enterprise's audit log. Optionally, to ensure compliance and respond to threats, you can display the full IP address associated with the actor responsible for each event. Actors are typically users, but can also be apps or integrations.
@@ -30,7 +24,7 @@ If you choose to display IP addresses, the IP addresses only appear in your ente
 
 You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
-When anyone creates an account on {% data variables.product.product_location %}, the person agrees to {% data variables.product.company_short %}'s collection of basic information about connections to {% data variables.product.company_short %}'s services, including source IP address. For more information, see "[GitHub Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)."
+Cuando alguien crea una cuenta en {% data variables.product.product_location %}, la persona está de acuerdo en que {% data variables.product.company_short %} recopile información básica sobre las conexiones con los servicios de {% data variables.product.company_short %}, incluyendo las direcciones IP de origen. For more information, see "[GitHub Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)."
 
 ## Events that display IP addresses in the audit log
 

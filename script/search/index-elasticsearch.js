@@ -13,10 +13,14 @@ import path from 'path'
 import { Client } from '@elastic/elasticsearch'
 import { program, Option } from 'commander'
 import chalk from 'chalk'
+import dotenv from 'dotenv'
 
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
+
+// Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
+dotenv.config()
 
 // Create an object that maps the "short name" of a version to
 // all information about it. E.g
@@ -61,6 +65,7 @@ program
     '-s, --source-directory <DIRECTORY>',
     `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
   )
+  .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
   .parse(process.argv)
 
 main(program.opts())
@@ -122,10 +127,13 @@ async function main(opts) {
     console.log(`Indexing on languages ${chalk.bold(languages.join(', '))}`)
   }
 
+  const { indexPrefix } = opts
+  const prefix = indexPrefix ? `${indexPrefix}_` : ''
+
   for (const language of languages) {
     for (const versionKey of versionKeys) {
       console.log(chalk.yellow(`Indexing ${chalk.bold(versionKey)} in ${chalk.bold(language)}`))
-      const indexName = `github-docs-${versionKey}-${language}`
+      const indexName = `${prefix}github-docs-${versionKey}-${language}`
 
       console.time(`Indexing ${indexName}`)
       await indexVersion(client, indexName, versionKey, language, sourceDirectory, verbose)
@@ -241,13 +249,14 @@ async function indexVersion(
   })
 
   // POPULATE
-  const operations = Object.values(records).flatMap((doc) => {
+  const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
+  const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, topics } = doc
     const record = {
       url: objectID,
       title,
       title_autocomplete: title,
-      content,
+      content: escapeHTML(content),
       breadcrumbs,
       headings,
       topics: topics.filter(Boolean),
@@ -276,21 +285,35 @@ async function indexVersion(
   const { count } = await client.count({ index: thisAlias })
   console.log(`Documents now in ${chalk.bold(thisAlias)}: ${chalk.bold(count.toLocaleString())}`)
 
-  // POINT THE ALIAS
-  await client.indices.putAlias({
-    index: thisAlias,
-    name: indexName,
-  })
+  // To perform an atomic operation that creates the new alias and removes
+  // the old indexes, we can use the updateAliases API with a body that
+  // includes an "actions" array. The array includes the added alias
+  // and the removed indexes. If any of the actions fail, none of the operations
+  // are performed.
+  // https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html
+  const aliasUpdates = [
+    {
+      add: {
+        index: thisAlias,
+        alias: indexName,
+      },
+    },
+  ]
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
-  // DELETE ALL OTHER OLDER INDEXES
   const indices = await client.cat.indices({ format: 'json' })
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {
-      await client.indices.delete({ index: index.index })
-      console.log('Deleted', index.index)
+      aliasUpdates.push({ remove_index: { index: index.index } })
+      console.log('Deleting index', index.index)
     }
   }
+
+  await client.indices.updateAliases({ body: { actions: aliasUpdates } })
+}
+
+function escapeHTML(content) {
+  return content.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
 async function loadRecords(indexName, sourceDirectory) {

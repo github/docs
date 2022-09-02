@@ -1,7 +1,7 @@
 ---
-title: 'Planning and tracking with {% data variables.product.prodname_projects_v2 %}'
+title: 'Planejamento e acompanhamento com {% data variables.product.prodname_projects_v2 %}'
 shortTitle: '{% data variables.product.prodname_projects_v2 %}'
-intro: 'Build adaptable projects to track your work on {% data variables.product.company_short %}.'
+intro: 'Crie projetos adaptáveis para acompanhar seu trabalho em {% data variables.product.company_short %}.'
 versions:
   feature: projects-v2
 topics:
@@ -17,5 +17,7 @@ children:
   - /viewing-insights-from-your-project
   - /managing-your-project
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /issues/trying-out-the-new-projects-experience
 ---
 

@@ -19,20 +19,8 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-A fila de merge cria branches temporários com um prefixo especial para validar as alterações do pull request. As alterações no pull request são agrupadas com a versão mais recente do `base_branch` e também com as alterações na fila. {% data variables.product.product_name %} fará merge de todas essas alterações em `base_branch` uma vez que as verificações exigidas pelas proteções do branch de `base_branch` sejam aprovadas.
+A fila de merge cria branches temporários com um prefixo especial para validar as alterações do pull request. Em seguida, as alterações no pull request são agrupadas em um `merge_group` com a última versão do `base_branch` e também com as alterações antes dele na fila. {% data variables.product.product_name %} fará merge de todas essas alterações em `base_branch` uma vez que as verificações exigidas pelas proteções do branch de `base_branch` sejam aprovadas.
 
-Talvez você precise atualizar a sua configuração de Integração Contínua (CI) para acionar compilações em nomes de branches que começam com o prefixo especial `gh-readonly /{base_branch}` depois que o grupo é criado.
-
-Por exemplo, com {% data variables.product.prodname_actions %}, um fluxo de trabalho com o gatilho a seguir será executado cada vez que um pull request que visa ao branch base `main` for enfileirada para fazer merge.
-
-```yaml
-on:
-  push:
-    branches:
-    - gh-readonly-queue/main/**
-```
-
-{% data reusables.pull_requests.merge-queue-merging-method %}
 
 Para obter informações sobre métodos de merge, consulte "[Sobre merges de pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
@@ -45,6 +33,24 @@ Para obter informações sobre métodos de merge, consulte "[Sobre merges de pul
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+### Acionando verificações de grupo de merge com {% data variables.product.prodname_actions %}
+
+Você pode usar o evento `merge_group` para acionar o fluxo de trabalho {% data variables.product.prodname_actions %} quando um pull request é adicionado à fila de merge. Observe que este é um evento diferente dos eventos `pull_request` e `push`.
+
+Um fluxo de trabalho que informa uma verificação necessária pelas proteções do branch de destino ficaria assim:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+
+### Acionando verificações de grupo de merge com outros provedores de CI
+
+Com outros provedores de CI, é possível que você precise atualizar sua configuração de CI para ser executada quando uma branch que começa quando o prefixo especial `gh-readonly /{base_branch}` é criado.
 
 ## Gerenciando uma fila de merge
 

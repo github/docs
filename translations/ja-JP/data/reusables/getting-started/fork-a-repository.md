@@ -1,1 +1,1 @@
-Forking a repository will allow you to make changes to another repository without affecting the original. For more information, see "[Fork a repository](/get-started/quickstart/fork-a-repo)."
+リポジトリをフォークすると、他のリポジトリへの変更をオリジナルに影響を与えずに行えます。 詳しい情報については「[リポジトリのフォーク](/get-started/quickstart/fork-a-repo)」を参照してください。

@@ -416,7 +416,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-Por padrão, {% data variables.product.prodname_dependabot %} abre um máximo de cinco pull requests para atualizações de versão. Uma vez que há cinco pull requests abertos, novas solicitações serão bloqueadas até que você faça o merge ou feche alguns dos pull requests aberto, e, após esse peeríodo, novos pull requests poderão ser abertos em atualizações subsequentes. Use `open-pull-requests-limit` para alterar este limite. Isto também fornece uma maneira simples de desativar temporariamente as atualizações de versão para um gerenciador de pacotes.
+Por padrão, {% data variables.product.prodname_dependabot %} abre um máximo de cinco pull requests para atualizações de versão. Como há cinco pull requests em aberto de {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} não abrirá nenhuma nova solicitação até que algumas das solicitações abertas sejam mescladas ou fechadas. Use `open-pull-requests-limit` para alterar este limite. Isto também fornece uma maneira simples de desativar temporariamente as atualizações de versão para um gerenciador de pacotes.
 
 Esta opção não tem impacto em atualizações de segurança, que têm um limite interno separado de dez pull requests abertas.
 
@@ -774,6 +774,12 @@ registries:
 {% endraw %}
 
 ### `docker-registry`
+
+{% note %}
+
+**Observação:** Nós não somos compatíveis com o Azure Container Registry (ACR).
+
+{% endnote %}
 
 O tipo `docker-registry` é compatível com nome de usuário e senha.
 

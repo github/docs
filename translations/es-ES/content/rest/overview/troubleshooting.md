@@ -44,24 +44,14 @@ curl -u my_user:my_password https://api.github.com/user/repos
 En vez de esto, utiliza un [token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) cuando pruebes las terminales o cuando realices desarrollos locales:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
 Para las Apps de Oauth, debes utilizar el [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar un token de OAuth para utilizar el encabezado de la llamada a la API:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
-
-### Llamadas a la API de Autorizciones de OAuth
-
-Si estás haciendo llamadas a la [API de Autorizaciones de OAuth](/enterprise-server/rest/reference/oauth-authorizations) para administrar las autorizaciones de tu app de OAuth o para generar tokens de acceso de forma similar a este ejemplo:
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-Entonces debes cambiar al [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar tokens de acceso.
 
 ## Exceder el tiempo de espera
 

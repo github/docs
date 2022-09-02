@@ -79,12 +79,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### Token de OAuth (enviado en un encabezado)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Nota: GitHub recomienda enviar los tokens de OAuth utilizando el encabezado de autorización.
+
+{% endnote %}
+
+{% note %}
+
+**Nota:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -227,7 +233,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción. Toma en cuenta que los verbos HTTP distinguen entre mayúsculas y minúsculas.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

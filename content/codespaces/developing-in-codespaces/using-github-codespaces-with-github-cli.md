@@ -30,6 +30,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
   - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
   - [Modify ports in a codespace](#modify-ports-in-a-codespace)
   - [Access codespace logs](#access-codespace-logs)
+  - [Access remote resources](#access-remote-resources)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -197,3 +198,12 @@ gh codespace logs -c <em>codespace-name</em>
 ```
 
 For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
+
+### Access remote resources 
+You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+{% note %}
+
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+
+{% endnote %}

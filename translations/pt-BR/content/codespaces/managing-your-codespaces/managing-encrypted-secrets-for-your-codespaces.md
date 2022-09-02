@@ -77,19 +77,19 @@ Você pode atualizar o valor de um segredo existente, bem como alterar quais rep
 
 ## Usar segredos
 
-A secret is exported as an environment variable into the user's terminal session.
+Um segredo é exportado como uma variável de ambiente na sessão terminal do usuário.
 
-  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+  ![Exibindo o valor de um segredo exportado no terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
 
-You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
+Você pode usar segredos em um codespace após o codespace ser construído e estiver sendo executado. Por exemplo, um segredo pode ser usado:
 
-* When launching an application from the integrated terminal or ssh session.
-* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+* Ao lançar um aplicativo a partir do terminal integrado ou da sessão ssh.
+* Dentro de um script de ciclo de vida do container dev que é executado depois que o codespace está sendo executado. Para obter mais informações sobre scripts de ciclo de vida do contêiner dev consulte a documentação em containers.dev: [Especificação](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-Codespace secrets cannot be used during:
+Os codespaces não podem ser usados durante:
 
-* Codespace build time (that is, within a Dockerfile or custom entry point).
-* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
+* Data de compilação do código (ou seja, dentro de um arquivo Docker ou ponto de entrada personalizado).
+* Dentro de um recurso de desenvolvimento de contêiner. Para obter mais informações, consulte os atributos `funcionalidades` na documentação em containers.dev: [Especificação](https://containers.dev/implementors/json_reference/#general-properties).
 
 ## Leia mais
 

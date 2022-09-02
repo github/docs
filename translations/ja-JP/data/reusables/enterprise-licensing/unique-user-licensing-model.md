@@ -1,3 +1,3 @@
-{% data variables.product.company_short %} uses a unique-user licensing model. For enterprise products that include multiple deployment options, {% data variables.product.company_short %} determines how many licensed seats you're consuming based on the number of unique users across all your deployments.
+{% data variables.product.company_short %}はユニークユーザライセンスモデルを使用しています。 複数デプロイメントのオプションを含むEnterprise製品では、{% data variables.product.company_short %}は消費しているライセンスシート数を、すべてのデプロイメントに渡るユニークユーザ数に基づいて決定します。
 
-Each user account only consumes one license, no matter how many {% data variables.product.prodname_ghe_server %} instances the user account uses, or how many organizations the user account is a member of on {% data variables.product.prodname_ghe_cloud %}. This model allows each person to use multiple {% data variables.product.prodname_enterprise %} deployments without incurring extra costs.
+各ユーザは、使用している{% data variables.product.prodname_ghe_server %}インスタンス数、あるいはユーザが{% data variables.product.prodname_ghe_cloud %}上でメンバーになっているOrganization数にかかわらず、1つのライセンスのみを消費します。 このモデルによって、各ユーザは追加コストなしに複数の{% data variables.product.prodname_enterprise %}デプロイメントを使用できます。

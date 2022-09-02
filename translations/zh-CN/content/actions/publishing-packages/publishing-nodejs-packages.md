@@ -98,9 +98,9 @@ always-auth=true
 
 ### 配置目标仓库
 
-如果您没有在 *package.json* 文件中提供 `repository` 键，则 {% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的 `name` 字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，名为 `@my-org/test` 的包将被发布到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。
+Linking your package to {% data variables.product.prodname_registry %} using the `repository` key is optional. If you choose not to provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. 例如，名为 `@my-org/test` 的包将被发布到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。 If the `url` specified in the `repository` key is invalid, your package may still be published however it won't be linked to the repository source as intended.
 
-但是，如果您提供了 `repository` 键，则该键中的仓库将被用作 {% data variables.product.prodname_registry %} 的目标 npm 注册表。 例如，发布以下 *package.json* 将导致名为 `my-amazing-package` 的包被发布到 `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} 仓库。
+If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. 例如，发布以下 *package.json* 将导致名为 `my-amazing-package` 的包被发布到 `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} 仓库。 Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
 
 ```json
 {

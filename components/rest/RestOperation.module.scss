@@ -13,6 +13,6 @@
   table-layout: fixed !important;
 }
 
-.codeBlock code {
+.codeBlock code:not(td *) {
   word-break: break-all;
 }

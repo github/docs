@@ -1,4 +1,4 @@
-name: Create translation Batch Pull Request
+name: Create translation Batch Pull Request (Microsoft)
 
 # **What it does**:
 #  - Creates one pull request per language after running a series of automated checks,
@@ -31,48 +31,39 @@ jobs:
       matrix:
         include:
           - language: es
-            crowdin_language: es-ES
             language_dir: translations/es-ES
             language_repo: github/docs-internal.es-es
 
           - language: ja
-            crowdin_language: ja-JP
             language_dir: translations/ja-JP
             language_repo: github/docs-internal.ja-jp
 
           - language: pt
-            crowdin_language: pt-BR
             language_dir: translations/pt-BR
             language_repo: github/docs-internal.pt-br
 
           - language: cn
-            crowdin_language: zh-CN
             language_dir: translations/zh-CN
             language_repo: github/docs-internal.zh-cn
 
           # We'll be ready to add the following languages in a future effort.
 
           # - language: ru
-          #   crowdin_language: ru-RU
           #   language_dir: translations/ru-RU
           #   language_repo: github/docs-internal.ru-ru
 
           # - language: ko
-          #   crowdin_language: ko-KR
           #   language_dir: translations/ko-KR
           #   language_repo: github/docs-internal.ko-kr
 
           # - language: fr
-          #   crowdin_language: fr-FR
           #   language_dir: translations/fr-FR
           #   language_repo: github/docs-internal.fr-fr
 
           # - language: de
-          #   crowdin_language: de-DE
           #   language_dir: translations/de-DE
           #   language_repo: github/docs-internal.de-de
 
-    # TODO: replace the branch name
     steps:
       - name: Set branch name
         id: set-branch
@@ -109,11 +100,10 @@ jobs:
       - name: Remove .git from the language-specific repo
         run: rm -rf ${{ matrix.language_dir }}/.git
 
-      # TODO: Rename this step
-      - name: Commit crowdin sync
+      - name: Commit translated files
         run: |
           git add ${{ matrix.language_dir }}
-          git commit -m "Add crowdin translations" || echo "Nothing to commit"
+          git commit -m "Add translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
@@ -122,25 +112,16 @@ jobs:
 
       - run: npm ci
 
-      # step 6 in docs-engineering/crowdin.md
       - name: Homogenize frontmatter
         run: |
           node script/i18n/homogenize-frontmatter.js
           git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
 
-      # step 7 in docs-engineering/crowdin.md
       - name: Fix translation errors
         run: |
           node script/i18n/fix-translation-errors.js
           git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
 
-      # step 8a in docs-engineering/crowdin.md
-      - name: Check parsing
-        run: |
-          node script/i18n/lint-translation-files.js --check parsing | tee -a /tmp/batch.log | cat
-          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
-
-      # step 8b in docs-engineering/crowdin.md
       - name: Check rendering
         run: |
           node script/i18n/lint-translation-files.js --check rendering | tee -a /tmp/batch.log | cat
@@ -148,26 +129,18 @@ jobs:
 
       - name: Reset files with broken liquid tags
         run: |
-          node script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }} | tee -a /tmp/batch.log | cat
-          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }}" || echo "Nothing to commit"
-
-      # step 5 in docs-engineering/crowdin.md using script from docs-internal#22709
-      - name: Reset known broken files
-        run: |
-          node script/i18n/reset-known-broken-translation-files.js | tee -a /tmp/batch.log | cat
-          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          node script/i18n/msft-reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }} | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/msft-reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }}" || echo "Nothing to commit"
 
       - name: Check in CSV report
         run: |
           mkdir -p translations/log
-          csvFile=translations/log/${{ matrix.language }}-resets.csv
-          script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
+          csvFile=translations/log/msft-${{ matrix.language }}-resets.csv
+          script/i18n/msft-report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
           git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
 
       - name: Write the reported files that were reset to /tmp/pr-body.txt
-        run: script/i18n/report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log > /tmp/pr-body.txt
+        run: script/i18n/msft-report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log --csv-path=${{ steps.set-branch.outputs.BRANCH_NAME }}/translations/log/msft-${{ matrix.language }}-resets.csv > /tmp/pr-body.txt
 
       - name: Push filtered translations
         run: git push origin ${{ steps.set-branch.outputs.BRANCH_NAME }}

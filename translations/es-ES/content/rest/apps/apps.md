@@ -1,7 +1,7 @@
 ---
 title: GitHub Apps
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_github_apps %} API enables you to retrieve information about {% data variables.product.prodname_github_apps %}.'
+intro: 'La API de {% data variables.product.prodname_github_apps %} te permite recuperar información sobre las {% data variables.product.prodname_github_apps %}.'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 ---
 
-## About the {% data variables.product.prodname_github_apps %} API
+## Acerca de la API de {% data variables.product.prodname_github_apps %}
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -20,6 +20,6 @@ Esta página lista las terminales a las que puedes acceder mientras te autentica
 
 Cuando estás autenticado como una GitHub App, la API de GitHub Apps te habilita para obtener información de alto nivel sobre una GitHub App así como para obtener información específica sobre las instalaciones de éstas.
 
-You can access REST API endpoints while authenticated as a GitHub App. These endpoints have text that says "Works with GitHub Apps." También puedes acceder a estas terminales mientras estás autenticado como un usuario.
+Puedes acceder a las terminales de la API de REST mientras estás autenticado como una GitHub App. Estas terminales tienen un texto que dice "Funciona con GitHub Apps". También puedes acceder a estas terminales mientras estás autenticado como un usuario.
 
-A subset of REST API endpoints requires authenticating as a GitHub App installation. Consulta las [Instalaciones](/rest/reference/apps#installations) para obtener una lista de estas terminales.
+Un subconjunto de terminales de la API de REST requiere autenticarse como una instalación de GitHub App. Consulta las [Instalaciones](/rest/reference/apps#installations) para obtener una lista de estas terminales.

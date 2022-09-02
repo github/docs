@@ -1,4 +1,4 @@
-Para solicitar desconto de um educador ou pesquisador, você deve atender aos seguintes requisitos.
+To apply for teacher benefits and {% data variables.product.prodname_global_campus %} access, you must meet the following requirements.
 
 - Ser um educador, integrante do corpo docente ou pesquisador.
 - Tenha um endereço de e-mail verificável emitido pela escola.

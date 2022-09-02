@@ -47,7 +47,7 @@ Rate limits for {% data variables.product.prodname_github_apps %} and {% data va
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization or a repository within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
 
 {% endif %}
 

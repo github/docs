@@ -44,7 +44,8 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
-- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
@@ -60,7 +61,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 #### Setting up streaming to S3 with access keys
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
+To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
 * The name of your Amazon S3 bucket
@@ -84,6 +85,12 @@ For information on creating or accessing your access key ID and secret key, see 
 
 {% ifversion streaming-oidc-s3 %}
 #### Setting up streaming to S3 with OpenID Connect
+
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
 
 1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
@@ -225,6 +232,32 @@ You need two pieces of information about your event hub: its instance name and t
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion streaming-datadog %}
+### Setting up streaming to Datadog
+
+To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+
+After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+
+1. If you don't already have a Datadog account, create one.
+1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the **Configure stream** dropdown menu and click **Datadog**.
+   
+   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Under "Token", paste the token  you copied earlier.
+
+   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+
+   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+{% endif %}
+
 ### Setting up streaming to Google Cloud Storage
 
 To set up streaming to Google Cloud Storage, you must create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.product_name %} using the service account's credentials for authentication.
@@ -285,6 +318,10 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 ## Pausing audit log streaming
 
 Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.product_location %} and are then exported when you unpause the stream.
+
+{% ifversion streaming-datadog %}
+Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Pause stream**.

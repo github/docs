@@ -13,14 +13,15 @@ shortTitle: ガイド
 
 - [新しい{% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Gitと{% data variables.product.prodname_dotcom %}のクイックスタート ](/github/getting-started-with-github/quickstart)
-- [学生のためのGitHub Educationについて](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)
-- [教育者割引または研究者割引への応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
-- [学生向け開発者パックへの応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
+- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
+- [Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
 
 ## {% data variables.product.company_short %}でソフトウェア開発コースを運営する
 
 {% data variables.product.prodname_classroom %}で、クラスルームを管理し、学生への課題割り当てやレビューを行い、新世代のソフトウェア開発を教えましょう。
 
+- [About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
 - [{% data variables.product.prodname_classroom %}のセットアップの基本 ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms)
 - [Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
@@ -35,7 +36,7 @@ shortTitle: ガイド
 {% data variables.product.prodname_dotcom %}を教育に取り入れ、プロと同じツールを使いましょう。
 
 - [Gitと{% data variables.product.prodname_dotcom %}の学習リソース](/github/getting-started-with-github/git-and-github-learning-resources)
-- [学業での{% data variables.product.prodname_dotcom %}の使用](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)
+- [{% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
 - [{% data variables.product.prodname_desktop %}を使ってみる](/desktop)
 - [{% data variables.product.prodname_cli %}を使ってみる](/github/getting-started-with-github/github-cli)
 
@@ -44,7 +45,6 @@ shortTitle: ガイド
 コミュニティに参加して、 {% data variables.product.company_short %}からトレーニングを受け、新しいスキルを学んだり教えたりしましょう。
 
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
+- [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
 - [Campus Expertsについて](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
-- [Campus Advisorsについて](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
-- [{% data variables.product.prodname_community_exchange %}について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)
 - [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

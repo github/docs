@@ -1,6 +1,6 @@
 ---
 title: 为组织启用或禁用 GitHub 讨论
-intro: '您可以使用组织中的 {% data variables.product.prodname_discussions %} 作为组织进行对话的位置，这些对话不特定于组织中的单个存储库。'
+intro: 'You can use {% data variables.product.prodname_discussions %} in an organization as a place for your organization to have conversations that aren''t specific to a single repository within your organization.'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
   feature: discussions

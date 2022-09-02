@@ -1,6 +1,6 @@
 ---
 title: Sobre o GitHub Pages
-intro: 'Você pode usar {% data variables.product.prodname_pages %} para hospedar um site sobre você, sua organização, ou seu projeto diretamente a partir de um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'Você pode usar {% data variables.product.prodname_pages %} para hospedar um site sobre você, sua organização, ou seu projeto diretamente a partir de um repositório no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/what-are-github-pages
   - /articles/what-is-github-pages
@@ -71,15 +71,11 @@ Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/
 
 ## Publicar fontes para sites do {% data variables.product.prodname_pages %}
 
-A fonte de publicação do seu site de {% data variables.product.prodname_pages %} é o branch e a pasta onde os arquivos de origem do seu site são armazenados.
-
 {% data reusables.pages.private_pages_are_public_warning %}
 
-Se existir uma fonte de publicação padrão no repositório, o {% data variables.product.prodname_pages %} publicará automaticamente um site a partir dessa fonte. A fonte de publicação padrão para sites de usuário e organização é a raiz do branch-padrão do repositório. A fonte de publicação padrão para sites de projeto é a raiz do branch `gh-pages`.
+{% data reusables.pages.pages-about-publishing-source %}
 
-Se você desejar manter os arquivos de origem do seu site em outro local, você poderá alterar a fonte de publicação do seu site. É possível publicar o site a partir de qualquer branch no repositório, a partir da raiz do repositório nesse branch, `/` ou a partir da pasta `/docs` nesse branch. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
-
-Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
+Para obter mais informações, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
 
 {% ifversion ghec %}
 ## Limitações para {% data variables.product.prodname_emus %}
@@ -93,9 +89,21 @@ Para obter mais informações sobre {% data variables.product.prodname_emus %}, 
 
 ## Geradores de site estáticos
 
-O {% data variables.product.prodname_pages %} publica qualquer arquivo estático do qual você faz push no repositório. É possível criar seus próprios arquivos estáticos ou usar um gerador de site estático para que ele crie o site para você. Também pode personalizar seu próprio processo de criação localmente ou em outro servidor. É recomendável usar o Jekyll, um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %} e um processo de compilação simplificado. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o JJekyll](/articles/about-github-pages-and-jekyll)".
+O {% data variables.product.prodname_pages %} publica qualquer arquivo estático do qual você faz push no repositório. É possível criar seus próprios arquivos estáticos ou usar um gerador de site estático para que ele crie o site para você. Também pode personalizar seu próprio processo de criação localmente ou em outro servidor.
+
+{% ifversion pages-custom-workflow %}
+
+Se você usar um processo de compilação personalizado ou um gerador de site estático diferente do Jekyll, você poderá escrever um {% data variables.product.prodname_actions %} para criar e publicar seu site. O {% data variables.product.product_name %} fornece fluxos de trabalho iniciais para vários geradores de site estáticos. Para obter mais informações, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
+
+Se você publicar seu site a partir de um branch fonte, o {% data variables.product.prodname_pages %} usará o Jekyll para criar seu site por padrão. Se quiser usar um gerador de site estático diferente do Jekyll, recomendamos que você escreva um {% data variables.product.prodname_actions %} para criar e publicar seu site. Caso contrário, desabilite o processo de compilação do Jekyll criando um arquivo vazio denominado `.nojekyll` na raiz da fonte de publicação e, em seguida, siga as instruções do gerador de site estático para criar seu site localmente.
+
+{% else %}
+
+É recomendável usar o Jekyll, um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %} e um processo de compilação simplificado. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o JJekyll](/articles/about-github-pages-and-jekyll)".
 
 O {% data variables.product.prodname_pages %} usará o Jekyll para criar seu site por padrão. Se quiser usar um gerador de site estático diferente do Jekyll, desabilite o processo de compilação do Jekyll criando um arquivo vazio chamado `.nojekyll` na raiz da fonte de publicação e siga as instruções do gerador de site estático para criar seu site localmente.
+
+{% endif %}
 
 O {% data variables.product.prodname_pages %} não aceita linguagens de servidor como PHP, Ruby ou Python.
 
@@ -117,7 +125,8 @@ Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao segui
   - Os sites do {% data variables.product.prodname_pages %} publicados não podem ter mais de 1 GB.
 {% ifversion fpt or ghec %}
   - Sites de {% data variables.product.prodname_pages %} têm um limite de banda larga *flexível* de 100 GB por mês.
-  - Os sites do {% data variables.product.prodname_pages %} têm um limite *flexível* de 10 compilações por hora.
+  - Os sites de {% data variables.product.prodname_pages %} têm um limite de *soft* de 10 compilações por hora.{% ifversion pages-custom-workflow %} Esse limite não se aplica se você criar e publicar seu site com um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %} {% endif %}
+  - Para fornecer uma qualidade consistente de serviço para todos os sites de {% data variables.product.prodname_pages %}, é possível que se apliquem limites de taxa. Esses limites de taxa não são destinados a interferir nos usos legítimos de {% data variables.product.prodname_pages %}. Se o seu pedido acionar limites de taxa, você receberá uma resposta apropriada com um código de status HTTP de `429`, junto com um texto HTML informativo.
 
 Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou você receba um e-mail formal do {% data variables.contact.contact_support %} sugerindo estratégias para reduzir o impacto do site em nossos servidores, como colocar uma rede de distribuição de conteúdo (CDN, Content Distribution Network) de terceiros na frente do site, usar outros recursos do {% data variables.product.prodname_dotcom %}, como versões, ou migrar para outro serviço de hospedagem que possa atender melhor às suas necessidades.
 

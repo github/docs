@@ -23,9 +23,14 @@ permissions: People with write access for a forked repository can sync the fork 
 
 ## Sincronizando o branch de uma bifurcação a partir da interface de usuário web
 
+{% ifversion syncing-fork-web-ui %}
 1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
-2. Selecione o menu suspenso **Buscar a upstream**. ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Revise as informações sobre os commits do repositório upstream e, em seguida, clique em **Buscar e merge**. ![Botão "Buscar e fazer merge"](/assets/images/help/repository/fetch-and-merge-button.png)
+2. Selecione o menu suspenso **Sincronizar bifurcação**. ![Menu suspenso "Sincronizar bifurcação" destacado](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Revise os detalhes sobre os commits do repositório upstream e clique em **Atualizar branch**. ![Modo sincronizar bifurcação com o botão "Atualizar branch" destacado](/assets/images/help/repository/update-branch-button.png)
+{% else %}
+1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
+2. Selecione o menu suspenso **Buscar upstream**. ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Revise as informações sobre os commits do repositório upstream e, em seguida, clique em **Buscar e merge**. !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
 Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
 

@@ -34,22 +34,22 @@ Cuando bloqueas a un usuario:
 - Se te elimina como colaborador en sus repositorios
 - Ya no contarás con su patrocinio
 - Cualquier invitación de sucesor de una cuenta o repositorio que se haga a o que provenga del usuario bloqueado se cancela
-- The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
-- You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
+- El usuario se eliminó como un colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} que te pertenecen
+- Se te eliminó como colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} que le pertenecen al usuario
 
 Después de que hayas bloqueado a un usuario, no podrá:
 - Enviarte notificaciones, incluso al [@mencionar](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) tu nombre de usuario
-- Los comentarios o ediciones a los informes de problemas o solicitudes de extracción que has creado
+- Comentar en o editar las propuestas o solicitudes de cambios que hayas creado
 - Reaccionar a tus comentarios en reportes de problemas, solicitudes de extracción y confirmaciones
 - Seguir o ver tu contenido en el feed de sus actividades
-- Se te asigna a los informes de problemas o solicitudes de extracción
+- Asignarte a las propuestas o solicitudes de cambios
 - Invitarte para que seas colaborador en sus repositorios
 - Invitarte como colaborador en una asesoría de seguridad
 - Realizar referencias cruzadas con tus repositorios en comentarios
 - Bifurcar, observar, fijar o marcar con estrella a tus repositorios
 - Patrocinarte
-- Add you as a collaborator on their projects and {% data variables.projects.projects_v1_boards %}
-- Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
+- Agregarte como colaborador en sus proyectos y {% data variables.projects.projects_v1_boards %}
+- Hacer cambios a tus proyectos públicos y {% data variables.projects.projects_v1_boards %}
 
 En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 - Abrir propuestas

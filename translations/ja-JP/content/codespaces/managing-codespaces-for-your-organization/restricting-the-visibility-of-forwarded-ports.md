@@ -36,6 +36,8 @@ For example, you could create an organization-wide policy that restricts the vis
 
 If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adding a policy to limit the port visibility options
 
 {% data reusables.profile.access_org %}

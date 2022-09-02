@@ -100,5 +100,5 @@ La tarea inicial de Git & {% data variables.product.company_short %} solo se enc
 
 ## Leer más
 
-- "[Utiliza {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[{% data variables.product.prodname_global_campus %} para docentes](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
 - "[Conectar un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

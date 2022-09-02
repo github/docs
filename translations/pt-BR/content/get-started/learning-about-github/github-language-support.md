@@ -25,7 +25,7 @@ Alguns produtos de {% data variables.product.prodname_dotcom %} têm funcionalid
 
 As linguagens principais para funcionalidades de {% data variables.product.prodname_dotcom %} incluem C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala e TypeScript. Para funcionalidades que gerenciam pacotes de suporte, os gerentes de pacotes atualmente compatíveis são incluídos na tabela com suas linguagens relevantes.
 
-Algumas linguagens são compatíveis para gerentes de linguagens ou pacotes adicionais. Se você quer saber se outra linguagem é compatível para uma funcionalidade solicitar suporte para uma linguagem, acesse o [Fórum da Comunidade](https://github.community/).
+Algumas linguagens são compatíveis para gerentes de linguagens ou pacotes adicionais. Se você quer saber se outra linguagem é compatível com um recurso ou solicitar suporte para ums linguagem, acesse [Discussões de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions).
 
 | Linguagem {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}

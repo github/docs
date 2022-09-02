@@ -5,6 +5,7 @@ sections:
     - "**MÉDIO**: Impede que um invasor execute o código do Javascript explorando uma vulnerabilidade de script entre sites (XSS) nos elementos da interface de usuário do menu suspenso na interface web do GitHub Enterprise Server."
     - Atualiza o Grafana para a versão 7.5.16, que aborda várias vulnerabilidades de segurança, incluindo [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) e [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g).
     - Os pacotes foram atualizados para as últimas versões de segurança.
+    - "**MEDIUM**: A stored XSS vulnerability was identified in GitHub Enterprise Server that allowed the injection of arbitrary attributes. This injection was blocked by Github's Content Security Policy (CSP). This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733).  [Updated: 2022-07-31]"
   bugs:
     - Em alguns casos, o collectd daemon poderia consumir o excesso de memória.
     - Em alguns casos, os backups dos arquivos de log girados podem acumular e consumir o excesso de armazenamento.
@@ -20,3 +21,20 @@ sections:
     - A ferramenta de linha de comando `ghe-set-password` inicia os serviços necessários automaticamente quando a instância é iniciada no modo de recuperação.
     - As métricas para processos em segundo plano `aqueduct` são coletadas para encaminhamento e exibição no console de gerenciamento.
     - A localização da migração e do log de execução da configuração do banco de dados, `/data/user/common/ghe-config.log`, agora é exibida na página que detalha uma migração em andamento.
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
+    - |
+      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+
+      - Detection of GitHub Actions workflow files for the dependency graph
+      - Reopening of dismissed Dependabot alerts
+      - Enabling the **Update branch** button for all pull requests in a repository
+      - Light high contrast theme
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

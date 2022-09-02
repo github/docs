@@ -1,4 +1,4 @@
-要申请教育工作者或研究人员折扣，您必须满足以下要求。
+To apply for teacher benefits and {% data variables.product.prodname_global_campus %} access, you must meet the following requirements.
 
 - 是教育者、教师或研究人员.
 - 具有学校分发的可验证电子邮件地址.

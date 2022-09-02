@@ -83,7 +83,7 @@ Puedes crear un grupo de ejecutores para administrar el acceso al ejecutor que a
 
 {% data variables.product.product_name %} agrega a todos los ejecutores nuevos a un grupo. Los ejecutores pueden estar en solo un grupo a la vez. Predeterminadamente, {% data variables.product.product_name %} agrega ejecutores nuevos al grupo "Predeterminado".
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. Para elegir una política para el acceso de la organización, debajo de "Acceso de la organización", selecciona el menú desplegable **Acceso de la organización** y haz clic en **Organizaciones selectas**.
 1. A la derecha del menú desplegable con la política de acceso de la organización, haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
 1. Selecciona las organizaciones a las cuales te gustaría otorgar acceso al grupo de ejecutores.
@@ -100,7 +100,7 @@ Puedes crear un grupo de ejecutores para administrar el acceso al ejecutor que a
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
+{% data reusables.actions.create-runner-group %}
 {%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Haz clic en la pestaña de "Ejecutores".
 1. En la lista de ejecutores, haz clic en aquél que hayas desplegado en la sección previa.
@@ -146,7 +146,7 @@ Opcionalmente, puedes crear herramientas personalizadas para escalar automática
    - "Habilitar el acceso automático a las acciones de {% data variables.product.prodname_dotcom_the_website %} utilizando {% data variables.product.prodname_github_connect %}" en la documentación de [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) o de [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)
    {%- endif %}
 
-- Puedes personalizar el software disponible en tus máquinas ejecutoras auto-hospedadas o configurar tus ejecutores para que ejecuten software similar a aquellos hospedados en {% data variables.product.company_short %}{% ifversion ghes or ghae %} disponible para los clientes que utilizan {% data variables.product.prodname_dotcom_the_website %}{% endif %}. El software que impulsa las máquinas ejecutoras para {% data variables.product.prodname_actions %} es de código abierto. Para obtener más información, consulta los repositorios [`actions/runner`](https://github.com/actions/runner) y [`actions/virtual-environments`](https://github.com/actions/virtual-environments).
+- Puedes personalizar el software disponible en tus máquinas ejecutoras auto-hospedadas o configurar tus ejecutores para que ejecuten software similar a aquellos hospedados en {% data variables.product.company_short %}{% ifversion ghes or ghae %} disponible para los clientes que utilizan {% data variables.product.prodname_dotcom_the_website %}{% endif %}. El software que impulsa las máquinas ejecutoras para {% data variables.product.prodname_actions %} es de código abierto. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
 
 ## Leer más
 

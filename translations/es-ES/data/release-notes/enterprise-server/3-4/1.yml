@@ -48,6 +48,7 @@ sections:
     - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
     - "Después de registrar un ejecutor auto-hospedado con el parámetro `--ephemeral` en más de un nivel (por ejemplo, tanto en la empresa como en la organización), el ejecutor podría atorarse en un estado inactivo y requerir un nuevo registro. [Actualizado: 2022-06-17]\n"
     - "Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]\n\nPara darle una solución a este problema, puedes tomar una de las dos acciones siguientes.\n- Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.\n- Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.\n"
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 3.0'
       notes:

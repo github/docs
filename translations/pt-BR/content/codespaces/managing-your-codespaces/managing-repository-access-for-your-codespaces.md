@@ -105,7 +105,7 @@ Para criar codespaces com permissões personalizadas definidas, você deve usar 
 
 ## Autorizando permissões solicitadas
 
-Se as permissões adicionais do repositório forem definidas no arquivo `devcontainer.json`, será apens solicitado que você revise e, opcionalmente, autorize as permissões ao criar um codespace para este repositório. Ao autorizar permissões para um repositório, {% data variables.product.prodname_codespaces %} não irá perguntar você novamente a menos que o conjunto das permissões solicitadas tenha sido alterado no repositório.
+Se as permissões adicionais do repositório forem definidas no arquivo `devcontainer.json`, será apens solicitado que você revise e, opcionalmente, autorize as permissões ao criar um codespace ou uma configuração de pré-compilação para este repositório. Ao autorizar permissões para um repositório, {% data variables.product.prodname_codespaces %} não irá perguntar você novamente a menos que o conjunto das permissões solicitadas tenha sido alterado no repositório.
 
 ![Página de permissões solicitadas](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
@@ -117,7 +117,7 @@ Você só pode autorizar as permissões que sua conta pessoal já possui. Se um 
 
 {% warning %}
 
-**Observação de depreciação**: A configuração de acesso e segurança, na seção {% data variables.product.prodname_codespaces %} das configurações da sua conta pessoal está obsoleta. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas à definição do contêiner de desenvolvimento para seu codespace, conforme descrito acima.
+**Observação de depreciação**: A configuração de acesso e segurança descrita abaixo está obsoleta e é documentada aqui apenas por referência. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas à definição do contêiner de desenvolvimento para seu codespace, conforme descrito acima.
 
 {% endwarning %}
 
@@ -132,7 +132,3 @@ Ao habilitar o acesso e a segurança de um repositório pertencente à sua conta
 1. Se você escolher "repositórios selecionados", selecione o menu suspenso e clique em um repositório para permitir que os codespaces do repositório tenham acesso a outros repositórios dos quais você é proprietário. Repita para todos os repositórios cujos codespaces você deseja que acessem outros repositórios dos quais você é proprietário.
 
   ![Menu suspenso "Repositórios selecionados"](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
-
-## Leia mais
-
-- "[Gerenciando o acesso ao repositório para os codespaces da sua organização](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"

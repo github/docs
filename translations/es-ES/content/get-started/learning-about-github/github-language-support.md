@@ -25,7 +25,7 @@ Algunos productos de {% data variables.product.prodname_dotcom %} tienen caracte
 
 Los lenguajes centrales para las características de {% data variables.product.prodname_dotcom %} incluyen a C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala y TypeScript. Para las características que son compatibles con los administradores de paquetes, los administradores de paquete que son actualmente compatibles se incluyen en la tabla con sus lenguajes relevantes.
 
-Algunas características son compatibles con administradores de paquetes o lenguajes adicionales. Si quieres conocer si algún otro lenguaje es compatible para alguna característica o si quieres solicitar la compatibilidad con algún lenguaje, visita el [Foro comunitario](https://github.community/).
+Algunas características son compatibles con administradores de paquetes o lenguajes adicionales. Si quieres saber si hay algún otro lenguaje compatible para una característica o si quieres solicitar compatibilidad para uno de ellos, visita el [debate de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions).
 
 | Lenguaje {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}

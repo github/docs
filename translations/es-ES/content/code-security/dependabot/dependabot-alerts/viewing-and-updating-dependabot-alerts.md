@@ -37,20 +37,40 @@ Puedes habilitar las alertas de seguridad automáticas para cualquier repositori
 
 {% data variables.product.product_name %} genera {% data variables.product.prodname_dependabot_alerts %} cuando detectamos que tu base de còdigo està utilizando dependencias con riesgos de seguridad conocidos. Para los repositorios en donde se habilitan las {% data variables.product.prodname_dependabot_security_updates %} cuando {% data variables.product.product_name %} detecta una dependencia vulnerable en la rama predeterminada, {% data variables.product.prodname_dependabot %} crea una solicitud de cambios para arreglarla. La solicitud de extracción mejorará la dependencia a la versión segura mínima que sea posible y necesaria para evitar la vulnerabilidad.
 
-{% ifversion dependabot-most-important-sort-option %} Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se muestran en la pestaña de {% data variables.product.prodname_dependabot_alerts %} según su importancia, pero puedes ordenarlas por otros criterios. {% endif %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}Puedes ordenar y filtrar las {% data variables.product.prodname_dependabot_alerts %} con los menús desplegables en la pestaña de {% data variables.product.prodname_dependabot_alerts %} o escribiendo filtros como pares de `key:value` en la barra de búsqueda. Los filtros disonibles son repositorio (por ejemplo, `repo:my-repository`), paquete (por ejemplo, `package:django`), ecosistema (por ejemplo, `ecosystem:npm`), manifiesto (por ejemplo, `manifest:webwolf/pom.xml`), estado (por ejemplo, `is:open`) y ya sea si una asesorìa tiene un parche o no (por ejemplo, `has: patch`).{% ifversion dependabot-alerts-development-label %} También puedes filtrar las alertas con datos de alcance de dependencias utilizando `scope`, por ejemplo: `scope:development` o `scope:runtime`. Con `scope:development`, la lista de alertas solo mostrará a las dependencias que se utilizaron durante el desarrolo y no durante la producción.{% endif %}
-
 Cada alerta del {% data variables.product.prodname_dependabot %} tiene un identificador numérico único y la pestaña de {% data variables.product.prodname_dependabot_alerts %} lista una alerta por cada vulnerabilidad detectada. Las {% data variables.product.prodname_dependabot_alerts %} tradicionales agrupan vulnerabilidades por dependencia y generan una sola alerta por dependencia. Si navegas a una alerta tradicional del {% data variables.product.prodname_dependabot %}, se te redirigirá a una pestaña de {% data variables.product.prodname_dependabot_alerts %} filtradas para este paquete. {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
+Puedes filtrar y clasificar las {% data variables.product.prodname_dependabot_alerts %} utilizando diversos filtros y opciones de clasificación disponibles en la interfaz de usuario. Para obtener más información, consulta la sección "[Priorizar las {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" a continuación.
+
+## Priorizar las {% data variables.product.prodname_dependabot_alerts %}
+
+{% data variables.product.company_short %} te ayuda a priorizar la corrección de las {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se clasifican por importancia. El orden de clasificación de "más importante" te ayuda a priorizar en qué {% data variables.product.prodname_dependabot_alerts %} debes enfocarte primero. Las alertas se clasifican con base en su impacto potencial, capacidad de acción y relevancia. Nuestro cálculo de priorización se está mejorando constantemente e incluye factores como la puntuación de CVSS, alcance de dependencia y si las llamadas a la función vulnerable se encuentran en la alerta.
+
+![Captura de pantalla del menú desplegable de clasificación con una clasificación de "Más importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-filters %}
+
+Adicionalmente a los filtros disponibles a través de la barra de búsqueda, puedes clasificar y filtrar las {% data variables.product.prodname_dependabot_alerts %} utilizando los menús desplegables en la parte superior de la lista de alertas. La barra de búsqueda también permite que busques por el texto completo de las alertas y por las asesorías de seguridad relacionadas. Puedes buscar por parte de un nombre de una asesoría de seguridad o descripción para que se devuelvan las alertas en tu repositorio que se relacionan con eta asesoría de seguridad. Por ejemplo, el buscar por `yaml.load() API could execute arbitrary code` devolverá las {% data variables.product.prodname_dependabot_alerts %} vinculadas con "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" ya que la secuencia de búsqueda se muestra en la descripción de la asesoría.
+
+{% endif %}
+
+{% ifversion dependabot-bulk-alerts %}
+  ![Captura de pantalla del filtro y menús de clasificación en la pestaña de las {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
+Puedes seleccionar un filtro en un menú desplegable en la parte superior de la lista y luego hacer clic en aquél que te gustaría aplicar. ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## Ecosistemas y manifiestos compatibles para el alcance de las dependencias
 
-<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
-Las alertas para los paquetes que se listan como dependencias de desarrollo se marcan con la etiqueta `Development` en la página de {% data variables.product.prodname_dependabot_alerts %} y también están disponibles para filtrarse mediante el filtro `scope`. ![Captura de pantalla que muestra la etiqueta "Development" en la lista de alertas](/assets/images/help/repository/dependabot-alerts-development-label.png)
+Las alertas para los paquetes que se listan como dependencias de desarrollo se marcan con la etiqueta `Development` en la página de {% data variables.product.prodname_dependabot_alerts %} y también están disponibles para filtrarse mediante el filtro `scope`.
 
-La página de detalles de la alerta en los pquetes con alcance de desarrollo muestra una sección de "Etiquetas" que contiene una etiqueta de `Development`. ![Captura de pantalla que muestra la sección "Tags" en la página de detalles de la alerta](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![Captura de pantalla que muestra la etiqueta "Development" en la lista de alertas](/assets/images/help/repository/dependabot-alerts-development-label.png)
+
+La página de detalles de la alerta en los pquetes con alcance de desarrollo muestra una sección de "Etiquetas" que contiene una etiqueta de `Development`.
+
+![Captura de pantalla que muestra la sección "Tags" en la página de detalles de la alerta](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
@@ -90,23 +110,10 @@ Para obtener más información, consulta la sección "[revisar y corregir las al
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Opcionalmente, para filtrar alertas, selecciona el menú desplegable de **Repositorio**, l **Paquete**, **Ecosistema** o **Manifiesto** y luego haz clic en el filtro que te gustaría aplicar. También puedes teclear filtros en la barra de búsqueda. Por ejemplo, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} o `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` o `scope:development`{% endif %}. Para ordenar las alertas, selecciona el menú desplegable de **Ordenar** y luego haz clic en la opción por la cual te gustaría ordenarlas o escribe `sort:` en la barra de búsqueda y elige una opción de entre las sugerencias (por ejemplo, `sort:newest`).
-
-   {% ifversion dependabot-most-important-sort-option %}
-   {% note %}
-
-   **Nota:** Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se ordenan por importancia. El ordenar por "Más importante" te permite priorizar en qué {% data variables.product.prodname_dependabot_alerts %} te enfocarás primero. Las alertas se clasifican con base en su impacto potencial, capacidad de acción y relevancia. Nuestro cálculo de priorización se está mejorando constantemente e incluye factores como la puntuación de CVSS, alcance de dependencia y si las llamadas a la función vulnerable se encuentran en la alerta.
-   {% endnote %}
-
-   ![Captura de pantalla del menú desplegable de clasificación con una clasificación de "Más importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-   {% endif %}
-
-   También puedes hacer clic en una etiqueta de una alerta para que solo muestre las alertas de ese tipo.{% ifversion dependabot-alerts-development-label %} Por ejemplo, el hacer clic en la etiqueta `Development` en la lista de alertas solo mostrará aquellas que se relacionen con las dependencias que se utilizan en desarrollo y no en producción. Para obtener más información sobre la lista de ecosistemas compatibles, consulta la sección "[Ecosistemas y manifiestos compatibles para el alcance de dependencias ](#supported-ecosystems-and-manifests-for-dependency-scope)".
-
-{% endif %}
+1. Opcionalmente, para filtrar las alertas, selecciona un filtro en un menú desplegable y haz clic en el que te gustaría aplicar. También puedes teclear filtros en la barra de búsqueda. Para obtener más información sobre cómo filtrar y clasificar alertas, consulta la sección "[Priorizar las {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)".
 {%- ifversion dependabot-bulk-alerts %}
   ![Captura de pantalla del filtro y menús de clasificación en la pestaña de las {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 1. Haz clic en la alerta que te gustaría ver.{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
 ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
@@ -156,7 +163,12 @@ Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot
 Si programas mucho trabajo para actualizar una dependencias o decides que una alerta no necesita corregirse, puedes descartar la alerta. El descartar alertas que ya valoraste facilita clasificar las nuevas que aparecen.
 
 1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las dependencias vulnerables](#viewing-dependabot-alerts)" (anteriormente).
-1. Selecciona el menú desplegable de "Descartar" y haz clic en una razón para descartar la alerta.{% ifversion reopen-dependabot-alerts %} Las alertas descartadas sin fijar pueden volverse a abrir posteriormente.{% endif %} ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. Selecciona el menú desplegable de "Descartar" y haz clic en una razón para descartar la alerta.{% ifversion reopen-dependabot-alerts %} Las alertas descartadas sin fijar pueden volverse a abrir posteriormente.{% endif %}
+{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. El comentario se contiene en el campo `dismissComment`. Para obtener más información, consulta la sección "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" en la documentación de la API de GraphQL.
+   ![Captura de pantalla que muestra cómo descartar una alerta a través del menú desplegable de "Descartar" con la opción para agregar un comentario de destitución](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. Haz clic en **Descargar alerta**.
+{% else %}
+   ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
 
 ### Descartar varias alertas al mismo tiempo
@@ -173,19 +185,28 @@ Si programas mucho trabajo para actualizar una dependencias o decides que una al
 
 ## Ver y actualziar las alertas cerradas
 
-{% tip %}
-
-**Tip:** Solo puedes volver a abrir alertas que se hayan descartado previamente. Las alertas cerradas que ya se hayan corregido no se pueden volver a abrir.
-{% endtip %}
+Puedes ver todas las alertas abiertas y puedes volver a abrir las que hayas descartado previamente. Las alertas cerradas que ya se hayan corregido no se pueden volver a abrir.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Para solo ver las alertas cerradas, haz clic en **Cerrada**.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. Haz clic en la alerta que te gustaría ver o actualizar.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. Opcionalmente, si se descartó la alerta y quieres volver a abrirla, haz clic en **Reabrir**. Las alertas que ya se hayan corregido no pueden volverse a abrir. ![Captura de pantalla que muestra el botón "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. Para ver únicamente las alertas cerradas, haz clic en **Cerradas**.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de pantalla que muestra la opción "Cerradas"](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   ![Captura de pantalla que muestra la opción "Cerradas"](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. Haz clic en la alerta que te gustaría ver o actualizar.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de pantalla que muestra una alerta del dependabot resaltada](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![Captura de pantalla que muestra una alerta del dependabot resaltada](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. Opcionalmente, si se descartó la alerta y quieres volver a abrirla, haz clic en **Reabrir**. Las alertas que ya se hayan corregido no pueden volverse a abrir.
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   ![Captura de pantalla que muestra el botón "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

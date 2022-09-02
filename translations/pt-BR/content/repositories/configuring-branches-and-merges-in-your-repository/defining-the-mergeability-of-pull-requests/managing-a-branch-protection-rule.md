@@ -77,14 +77,14 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 1. Opcionalmente, para fazer merge de pull requests usando uma fila de merge, selecione **Exigir fila de merge**. {% data reusables.pull_requests.merge-queue-references %} ![Opção de exigir fila de merge](/assets/images/help/repository/require-merge-queue.png)
   {% tip %}
 
-  **Dica:** O recurso de merge da fila de pull request está atualmente em versão beta pública limitada e sujeito a alterações. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **Dica:** O recurso de merge da fila de pull request está atualmente em versão beta pública limitada e sujeito a alterações. As organizações às quais os proprietários podem solicitar acesso antecipado ao beta entrando na [lista de espera](https://github.com/features/merge-queue/signup).
 
   {% endtip %}
 {%- endif %}
 {%- ifversion required-deployments %}
 1. Opcionalmente, para escolher em quais ambientes as alterações devem ser implantadas com sucesso antes de fazer merge, selecione **Exigir implantações para ser bem-sucedidas antes do merge** e, em seguida, selecione os ambientes. ![Exigir uma opção de implantação bem-sucedida](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
-1. Opcionalmente, selecione **Aplicar as regras acima aos administradores**. ![Aplicar as regras acima à caixa de seleção dos administradores](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Opcionalmente, selecione {% ifversion bypass-branch-protections %}**Não permita que sejam ignoradas as configurações acima**. ![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Aplicar as regras acima aos administradores**. ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
 1. Opcionalmente, {% ifversion fpt or ghec %} se o repositório pertencer a uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %},{% endif %} habilitar as restrições de branches.
    - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
    - Opcionalmente, para também restringir a criação de branches correspondentes, selecione **Restringir pushes que criam branches correspondentes**. ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}

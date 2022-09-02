@@ -4,9 +4,7 @@ import { fileURLToPath } from 'url'
 
 import { beforeAll, jest } from '@jest/globals'
 import nock from 'nock'
-import japaneseCharacters from 'japanese-characters'
 
-import '../../lib/feature-flags.js'
 import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
@@ -50,27 +48,10 @@ describe('featuredLinks', () => {
       ).toBe(true)
     })
 
-    test('localized intro links link to localized pages', async () => {
-      const $jaPages = await getDOM('/ja')
-      const $enPages = await getDOM('/en')
-      const $jaFeaturedLinks = $jaPages('[data-testid=article-list] a')
-      const $enFeaturedLinks = $enPages('[data-testid=article-list] a')
-      expect($jaFeaturedLinks.length).toBe($enFeaturedLinks.length)
-      expect($jaFeaturedLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
-
-      // Footer translations change very rarely if ever, so we can more
-      // reliably test those text values for the language
-      const footerText = []
-      $jaPages('footer a').each((index, element) => {
-        footerText.push($jaPages(element).text())
-      })
-      expect(footerText.some((elem) => japaneseCharacters.presentIn(elem)))
-    })
-
     test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(11)
+      expect($featuredLinks.length > 0).toBeTruthy()
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )

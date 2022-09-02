@@ -40,6 +40,8 @@ topics:
 
 如果添加具有超时约束的组织范围策略，则应将超时设置为可接受的最长期限。 然后，您可以添加单独的策略，将组织中特定存储库的最大超时时间设置为较短的时间段。
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## 添加策略以设置最大空闲超时期限
 
 {% data reusables.profile.access_org %}

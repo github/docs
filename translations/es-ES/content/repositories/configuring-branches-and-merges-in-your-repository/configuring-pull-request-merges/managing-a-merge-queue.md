@@ -19,20 +19,8 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. Los cambios en las solicitudes de cambios se agrupan entonces con la última versión de `base_branch`, así como con los cambios frente a ella en la cola. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
+La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. Los cambios en la solicitud de cambios se agrupan entonces en `merge_group` con la última versión de `base_branch` así como los cambios frente a esta en la cola. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
 
-Podrías necesitar actualizar tu configuración de Integración Continua (IC) para activar compilaciones en los nombres de rama que inicien con el prefijo especial `gh-readonly-queue/{base_branch}` después de que se crea el grupo.
-
-Por ejemplo, con {% data variables.product.prodname_actions %}, un flujo de trabajo con el siguiente activador se ejecutará cada vez que una solicitud de cambios que apunte a la rama base `main` se ponga en cola de fusión.
-
-```yaml
-on:
-  push:
-    branches:
-    - gh-readonly-queue/main/**
-```
-
-{% data reusables.pull_requests.merge-queue-merging-method %}
 
 Para obtener más información acerca de los métodos de fusión, consulta "[Acerca de la fusión de solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
@@ -45,6 +33,24 @@ Para obtener más información acerca de los métodos de fusión, consulta "[Ace
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+### Activar las verificaciones de grupo de fusión con {% data variables.product.prodname_actions %}
+
+Puedes utilizar el evento `merge_group` para activar tu flujo de trabajo de {% data variables.product.prodname_actions %} cuando se agrega una solicitud de cambios a una cola de fusión. Toma en cuenta que este es un evento diferente de los de `pull_request` y `push`.
+
+Un flujo de trabajo que reporta una verificación requerida por las protecciones de la rama destino se vería así:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+Para obtener más información, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+
+### Activar las verificaciones del grupo de fusión con otros proveedores de IC
+
+Con otros proveedores de IC, podrías necesitar actualizar tu configuración de IC para que se ejecute cuando se cree una rama que comienza con el prefijo especial `gh-readonly-queue/{base_branch}`.
 
 ## Administrar una cola de fusión
 

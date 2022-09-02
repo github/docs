@@ -75,11 +75,3 @@ Prior to migration, if a user has created a package in the {% data variables.pro
 {% data reusables.enterprise-accounts.packages-tab %}
 1. To the right of the number of packages to migrate, click **Re-run migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
 1. If the migration fails again, start from step 1 and re-run the migration.
-
-{% ifversion ghes %}
-
-## Monitoring traffic to the registries
-
-You can use visualize traffic to the Docker registry and {% data variables.product.prodname_container_registry %} from {% data variables.product.product_location %}'s monitor dashboard. The "GitHub Container Package Registry" graph can help you confirm that you've successfully migrated all images to the {% data variables.product.prodname_container_registry %}. In the graph, "v1" represents traffic to the Docker registry, and "v2" represents traffic to the {% data variables.product.prodname_container_registry %}. 更多信息请参阅“[访问监控仪表板](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)”。
-
-{% endif %}

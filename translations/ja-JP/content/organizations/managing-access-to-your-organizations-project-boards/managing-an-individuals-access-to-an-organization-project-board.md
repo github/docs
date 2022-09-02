@@ -1,6 +1,6 @@
 ---
-title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
+title: '{% data variables.product.prodname_project_v1 %}への個人のアクセス管理'
+intro: 'Organization のオーナーまたは{% data variables.projects.projects_v1_board %}の管理者は、Organization が所有する{% data variables.projects.projects_v1_board %}への個々のメンバーのアクセスを管理できます。'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -21,11 +21,11 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**ノート:** {% data reusables.project-management.cascading-permissions %} 詳しい情報については「[Organizatonの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endnote %}
 
-## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
+## Organizationのメンバーへの{% data variables.projects.projects_v1_board %}に対するアクセスの付与
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -39,7 +39,7 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
+## {% data variables.projects.projects_v1_board %}へのOrganizationメンバーのアクセスの変更
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -51,9 +51,9 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
+## {% data variables.projects.projects_v1_board %}へのOrganizationのメンバーのアクセスの削除
 
-When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+{% data variables.projects.projects_v1_board %}からコラボレータを削除しても、コラボレータは引き続き他のロールの権限に基づきボードにアクセスできることがあります。 {% data variables.projects.projects_v1_board %}へのアクセスを完全に削除するには、その人が持っている各ロールのアクセスを削除しなければなりません。 たとえば、ある人は{% data variables.projects.projects_v1_board %}へのアクセスをOrganizationのメンバーあるいはTeamのメンバーとして持っているかもしれません。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -67,4 +67,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## 参考リンク
 
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」
