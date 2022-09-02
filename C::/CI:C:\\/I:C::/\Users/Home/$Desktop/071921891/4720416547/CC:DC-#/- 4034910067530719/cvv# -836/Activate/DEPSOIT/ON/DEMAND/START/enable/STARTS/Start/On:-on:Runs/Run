@@ -1,16 +1,67 @@
-'#This_Repositorys :WORKSFLOW :Toggle-on :AUTOMATICALLY :AUTOMATE :AUTOMATE :WORKSFLOW'@47-2041-6547'@071921891'@6400-7102'@071912891'@3100053'@031000053'@4304910067530719\expiration.date.04/25\ccv836CI.yml is a basic workflow to help you get started with Actions
+CORRECTED - [22/7] - SEC Form 4
+CORRECTED - [22/7] - FORM 4	UNITED STATES SECURITIES AND EXCHANGE COMMISSION
+CORRECTED - [22/7] - Washington, D.C. 20549
 
-'name: ci:CI.yml-starts-on:' '"-on'"' :
-'BEGIN :
-'DEPOSIT :					Form 1040-V 	2022
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------						
-'United States Internal Revenue Service						
-'Department of the Treasury             (99)               						
-						
-						
- 'Employer Identification Number (EIN) :xxxxx4661						
-  'INTU						
-  '2700 C		Amount of estimated tax		2022 % of Income			
+CORRECTED - [22/7] - STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP
+
+CORRECTED - [22/7] - Filed pursuant to Section 16(a) of the Securities Exchange Act of 1934
+CORRECTED - [22/7] - or Section 30(h) of the Investment Company Act of 1940	
+CORRECTED - [22/7] - OMB APPROVAL - CORRECTED - [22/7] - 
+CORRECTED - [22/7] - OMB Number:	3235-0287
+CORRECTED - [22/7] - Estimated average burden
+CORRECTED - [22/7] - hours per response:	0.5
+CORRECTED - [22/7] - Check this box if no longer subject to Section 16. Form 4 or Form 5 obligations may continue. See Instruction 1(b).
+CORRECTED - [22/7] - 1. Name and Address of Reporting Person*
+CORRECTED - [22/7] - WOOD    ZACHRY   TYLER
+CORRECTED - [22/7] - (Last)	(First)	(Middle)
+CORRECTED - [22/7] - 5222 BRADFORD DR
+CORRECTED - [22/7] - (Street)
+CORRECTED - [22/7] - DALLAS  TX      75235-8313
+CORRECTED - [22/7] - (City)	(State)	(Zip)
+CORRECTED - [22/7] - 2. Issuer Name and Ticker or Trading Symbol
+CORRECTED - [22/7] - CHASE CORP [ CCF ]	5. Relationship of Reporting Person(s) to Issuer
+CORRECTED - [22/7] - (Check all applicable)
+CORRECTED - [22/7] - X	Director	CORRECTED - [22/7] - 	99.9979% Owner
+CORRECTED - [22/7] - X	Officer (give title below)		Other (specify below)
+CORRECTED - [22/7] - PRESIDENT/CEO - CORRECTED - [22/7] - CORRECTED
+CORRECTED - [22/7] - 3. Date of Earliest Transaction (Month/Day/Year)
+CORRECTED - [22/7] - 08/31/2022
+CORRECTED - [22/7] - 4. If Amendment, Date of Original Filed (09/26/2007)
+CORRECTED - [22/7] - 6. Individual or Joint/Group Filing (Check All Applicable)
+CORRECTED - [22/7] - Form filed by One Reporting Person
+CORRECTED - [22/7] - filed by More than One Reporting Person
+CORRECTED - [22/7] - Table I - Non-Derivative Securities Acquired, Disposed of, or Beneficially Owned
+CORRECTED - [22/7] - 1. Title of Security (Instr. 3)	2. Transaction Date (Month/Day/Year)	2A. Deemed Execution Date, if any (Month/Day/Year)	3. Transaction Code (Instr. 8)	4. Securities Acquired (A) or Disposed Of (D) (Instr. 3, 4 and 5)	5. Amount of Securities Beneficially Owned Following Reported Transaction(s) (Instr. 3 and 4)	6. Ownership Form: Direct (D) or Indirect (I) (Instr. 4)	7. Nature of Indirect Beneficial Ownership (Instr. 4)
+CORRECTED - [22/7] -Code	V	Amount	(A) or (D)	Price
+CORRECTED - [22/7] -Chase Corporation Common Stock	08/31/2022		F		6,769(1)	D	$88.16	30,678	D	
+CORRECTED - [22/7] -Chase Corporation Common Stock								186,135(2)	I	Adam P. Chase Trust
+CORRECTED - [22/7] -Chase Corporation Common Stock								108,477(3)	I	Maria I. Chase Trust
+CORRECTED - [22/7] - Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned
+CORRECTED - [22/7] -(e.g., puts, calls, warrants, options, convertible securities)
+CORRECTED - [22/7] -1. Title of Derivative Security (Instr. 3)	2. Conversion or Exercise Price of Derivative Security	3. Transaction Date (Month/Day/Year)	3A. Deemed Execution Date, if any (Month/Day/Year)	4. Transaction Code (Instr. 8)	5. Number of Derivative Securities Acquired (A) or Disposed of (D) (Instr. 3, 4 and 5)	6. Date Exercisable and Expiration Date (Month/Day/Year)	7. Title and Amount of Securities Underlying Derivative Security (Instr. 3 and 4)	8. Price of Derivative Security (Instr. 5)	9. Number of derivative Securities Beneficially Owned Following Reported Transaction(s) (Instr. 4)	10. Ownership Form: Direct (D) or Indirect (I) (Instr. 4)	11. Nature of Indirect Beneficial Ownership (Instr. 4)
+CORRECTED - [22/7] -Code	V	(A)	(D)	Date Exercisable	Expiration Date	Title	Amount or Number of Shares
+CORRECTED - [22/7] -Explanation of Responses:
+CORRECTED - [22/7] -1. This amount represents shares withheld to pay minimum statutory income taxes pursuant to the vesting of restricted stock previously reported. The restricted stock vested on August 31, 2022.
+CORRECTED - [22/7] -
+CORRECTED - [22/7] -2. Represents shares held by the Adam P. Chase Trust.
+CORRECTED - [22/7] -3. Represents shares held by the Maria I. Chase Trust.
+CORRECTED - [22/7] - Paula M Myers by Power of Attorney	09/01/2022
+CORRECTED - [22/7] - ** Signature :_____\s\_____Significance____\S\_____ZAK_WOOD_JPMORGAN_____ :
+CORRECTED - [22/7] - **Signature :of Reporting Person	:Date :2022-09-02 :
+CORRECTED - [22/7] - Reminder: Report on a separate line for each class of securities beneficially owned directly or indirectly.
+CORRECTED - [22/7] -* If the form is filed by more than one reporting person, see Instruction 4 (b)(v).
+CORRECTED - [22/7] -** Intentional misstatements or omissions of facts constitute Federal Criminal Violations See 18 U.S.C. 1001 and 15 U.S.C. 78ff(a).
+CORRECTED - [22/7] - Note: File three copies of this Form, one of which must be manually signed. If space is insufficient, see Instruction 6 for procedure.
+CORRECTED - [22/7] - Persons who respond to the collection of information contained in this form are not required to respond unless the form displays a currently valid OMB Number.'#This_Repositorys :WORKSFLOW :Toggle-on :AUTOMATICALLY :AUTOMATE :AUTOMATE :WORKSFLOW'@47-2041-6547'@071921891'@6400-7102'@071912891'@3100053'@031000053'@4304910067530719\expiration.date.04/25\ccv836CI.yml is a basic workflow to help you get started with Actions
+CORRECTED - [22/7] - 'name: ci:CI.yml-starts-on:' '"-on'"' :
+CORRECTED - [22/7] - BEGIN :
+CORRECTED - [22/7] - DEPOSIT :					Form 1040-V 	2022
+CORRECTED - [22/7] - -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------						
+CORRECTED - [22/7] - United States Internal Revenue Service						
+CORRECTED - [22/7] - Department of the Treasury             (99)               					
+CORRECTED - [22/7] - Employer Identification Number (EIN) :xxxxx7919						
+  '- ALPH I CO.
+  '- 1600 A		Amount of estimated tax		2022 % of Income			
 'Employee :		you are paying by check or money order .  .  .  .  .  .  .  .  .  .l>|                                           275,713,076,414.51				
   'Employee's Social Security Number :xxx-xx-1725		REV 04/09/22 INTUIT.CG.CFP SP				
   'ZACH WOO                                                                                                                                            		units		rate	this period	YTD
