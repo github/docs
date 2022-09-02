@@ -1,1 +1,1 @@
-For information about the settings and properties that you can set in a `devcontainer.json` file, see "[devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+`devcontainer.json`ファイルで可能な設定とプロパティについては、{% data variables.product.prodname_vscode_shortname %} ドキュメントの 「[devcontainer.json リファレンス](https://aka.ms/vscode-remote/devcontainer.json)」を参照してください。

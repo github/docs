@@ -12,7 +12,7 @@ topics:
 shortTitle: 自动发行说明
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/general'
 ---
 
 ## 关于自动生成的发行说明

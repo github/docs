@@ -70,9 +70,7 @@ shortTitle: 分支保护规则
    - 选中 **Require status checks to pass before merging（合并前必需状态检查通过）**。 ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
    - （可选）要确保使用受保护分支上的最新代码测试拉取请求，请选择 **Require branches to be up to date before merging（要求分支在合并前保持最新）**。 ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status.png)
    - 搜索状态检查，选择您想要求的检查。 ![可用状态检查的搜索界面，以及所需检查的列表](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 1. （可选）选中 **Require conversation resolution before merging（在合并前需要对话解决）**。 ![合并选项前需要对话解决](/assets/images/help/repository/require-conversation-resolution.png)
-{%- endif %}
 1. （可选）选择 **Require signed commits（必需签名提交）**。 ![必需签名提交选项](/assets/images/help/repository/require-signed-commits.png)
 1. （可选）选择 **Require linear history（必需线性历史记录）**。 ![必需的线性历史记录选项](/assets/images/help/repository/required-linear-history.png)
 {%- ifversion fpt or ghec %}
@@ -86,7 +84,7 @@ shortTitle: 分支保护规则
 {%- ifversion required-deployments %}
 1. （可选）要选择在合并之前必须将更改成功部署到哪些环境，请选择 **Require deployments to succeed before merging（在合并之前需要部署成功）**，然后选择环境。 ![需要成功部署选项](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
-1. （可选）选择 **Apply the rules above to administrators（将上述规则应用于管理员）**。 ![将上述规则应用于管理员复选框](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**. ![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**. ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
 1. （可选）{% ifversion fpt or ghec %}如果仓库由组织拥有，可使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}{% endif %} 启用分支限制。
    - 选择 **Restrict who can push to matching branches（限制谁可以推送到匹配分支）**。 ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
    - （可选）要同时限制创建匹配分支，请选择 **Restrict pushes that create matching branches（限制创建匹配分支的推送）**。 ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}

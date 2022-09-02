@@ -6,10 +6,8 @@ name: Node.js Tests
 
 on:
   workflow_dispatch:
+  merge_group:
   pull_request:
-  push:
-    branches:
-      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -20,6 +18,11 @@ permissions:
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
+
+env:
+  # Setting this will activate the jest tests that depend on actually
+  # sending real search queries to Elasticsearch
+  ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
   test:
@@ -43,6 +46,19 @@ jobs:
             translations,
           ]
     steps:
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.test-group == 'content' }}
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          elasticsearch version: '7.17.5'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
@@ -139,6 +155,12 @@ jobs:
 
       - name: Run build script
         run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.test-group == 'content' }}
+        run: npm run index-test-fixtures
 
       - name: Run tests
         env:

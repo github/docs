@@ -1,1 +1,1 @@
-Te recomendamos que solo utilices los ejecutores auto-hospedados con los repositorios privados. Esto se debe a que tu repositorio podría ejecutar código peligroso en tu máquina de ejecutor auto-hospedado potencialmente al crear una solicitud de cambios que excluya el código en un flujo de trabajo.
+Te recomendamos que solo utilices los ejecutores auto-hospedados con los repositorios privados. This is because forks of your public repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

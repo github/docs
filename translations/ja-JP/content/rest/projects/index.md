@@ -1,6 +1,6 @@
 ---
-title: プロジェクト
-intro: Projects APIを使うと、リポジトリ内のプロジェクトの作成、リスト、更新、削除、カスタマイズができます。
+title: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: '{% data variables.product.prodname_projects_v1 %} APIを使うと、{% data variables.projects.projects_v1_boards %}の作成、リスト、更新、削除、カスタマイズができます。'
 redirect_from:
   - /v3/projects
   - /rest/reference/projects
@@ -12,6 +12,7 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+allowTitleToDifferFromFilename: true
 children:
   - /projects
   - /cards

@@ -14,7 +14,7 @@ topics:
 
 ## 概览
 
-通常，在创建代码空间时，系统会为将运行代码空间的计算机提供一系列规范。 您可以选择最适合您需求的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。 如果您为使用 {% data variables.product.prodname_github_codespaces %} 付费，那么您选择的计算机类型将影响您的账单金额。 有关计价的更多信息，请参阅“[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
+通常，在创建代码空间时，系统会为将运行代码空间的计算机提供一系列规范。 您可以选择最适合您需求的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。 如果您为使用 {% data variables.product.prodname_github_codespaces %} 付费，那么您选择的计算机类型将影响您的账单金额。 有关定价的更多信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
 作为组织所有者，您可能希望对可用的计算机类型配置约束。 例如，如果组织中的工作不需要大量的计算能力或存储空间，则可以从用户可以选择的选项列表中删除资源丰富的计算机。 为此，您可以在组织的 {% data variables.product.prodname_codespaces %} 设置中定义一个或多个策略。
 
@@ -42,6 +42,8 @@ topics:
 例如，您可以创建一个组织范围的策略，将计算机类型限制为 2 核或 4 核。 然后，您可以为存储库 A 设置一个策略，将其限制为仅 2 核计算机。 为存储库 A 设置策略以将其限制为具有 2、4 或 8 核的计算机将导致仅选择 2 核和 4 核计算机，因为组织范围的策略会阻止访问 8 核计算机。
 
 如果添加组织范围的策略，则应将其设置为可用于组织中任何存储库的最大计算机类型选择范围。 然后，您可以添加特定于存储库的策略以进一步限制选择。
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## 添加策略以限制可用的计算机类型
 
@@ -76,4 +78,4 @@ topics:
 
 ## 延伸阅读
 
-- "[管理代码空间的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
+- “[管理 {% data variables.product.prodname_github_codespaces %} 的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)”

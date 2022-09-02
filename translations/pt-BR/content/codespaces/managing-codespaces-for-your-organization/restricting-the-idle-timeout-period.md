@@ -16,7 +16,7 @@ topics:
 
 Por padrão, os códigos vencem após 30 minutos de inatividade. Quando um tempo de um codespace se esgota, ele é interrompido e deixa de se cobrar pelo uso de computação.
 
-As configurações pessoais de um usuário {% data variables.product.prodname_dotcom %} permitem que ele defina seu próprio período de tempo limite para os codespaces que cria. Este período pode ser maior do que o período padrão de 30 minutos. Para obter mais informações, consulte "[Definindo seu período de tempo limite para os codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)".
+As configurações pessoais de um usuário {% data variables.product.prodname_dotcom %} permitem que ele defina seu próprio período de tempo limite para os codespaces que cria. Este período pode ser maior do que o período padrão de 30 minutos. Para obter mais informações, consulte "[Definir seu período de tempo limite para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)".
 
 Como proprietário da organização, você deve configurar restrições sobre o período máximo de tempo ocioso para codespaces criados para repositórios pertencentes à sua organização. Isso pode ajudar você a limitar os custos associados aos codespaces que ficam em tempo limite após longos períodos de inatividade. É possível definir o tempo limite máximo para os codespaces de todos os repositórios pertencentes à sua organização ou para os codespaces de repositórios específicos.
 
@@ -26,7 +26,7 @@ Como proprietário da organização, você deve configurar restrições sobre o 
 
 {% endnote %}
 
-Para obter mais informações sobre os preços para uso de computação de {% data variables.product.prodname_codespaces %}, consulte "[Sobre cobrança para os codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+Para obter mais informações sobre preços para o uso computação de {% data variables.product.prodname_github_codespaces %}, consulte "[Sobre cobranças para o {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 ### Comportamento ao definir uma restrição de tempo limite máximo
 
@@ -39,6 +39,8 @@ Se alguém definir o tempo ocioso padrão como 90 minutos nas suas configuraçõ
 Ao criar uma política, você define se ela se aplica a todos os repositórios da organização ou apenas a repositórios específicos. Se você criar uma política para toda a organização com restrição de tempo limite, as restrições de tempo limite em todas as políticas direcionadas a repositórios específicos devem estar dentro da restrição configurada para toda a organização. Aplica-se o período de tempo limite mais curto, em uma política para toda a organização, uma política orientada a determinados repositórios ou em configurações pessoais de alguém.
 
 Se você adicionar uma política para toda a organização com uma restrição de tempo limite, você deverá definir o tempo limite como o período de tempo mais longo. Em seguida, é possível adicionar políticas separadas que definam o tempo limite máximo para um período mais curto para repositórios específicos na sua organização.
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## Adicionando uma política para definir um período máximo de tempo ocioso
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso de um indivíduo a um quadro de projeto da organização
-intro: 'Como proprietário da organização ou administrador de quadro de projeto, você pode gerenciar o acesso de um integrante individual a um quadro de projeto pertencente à sua organização.'
+title: 'Gerenciando o acesso de um indivíduo a uma organização de {% data variables.product.prodname_project_v1 %}'
+intro: 'Como proprietário da organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode gerenciar o acesso de um integrante individual a um {% data variables.projects.projects_v1_board %} pertencente à sua organização.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -14,19 +14,23 @@ topics:
   - Organizations
   - Teams
 shortTitle: Gerenciar acesso individual
+allowTitleToDifferFromFilename: true
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**Observação:** {% data reusables.project-management.cascading-permissions %} para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+**Observação:** {% data reusables.project-management.cascading-permissions %} Para obter mais informações, consulte "[permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% endnote %}
 
-## Conceder a um integrante da organização acesso a um quadro de projeto
+## Aoncedendo acesso a um integrante da organização a um {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -35,24 +39,26 @@ shortTitle: Gerenciar acesso individual
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Alterar o acesso de um integrante da organização a um quadro de projeto
+## Alterando o acesso dos integrantes de uma organização para um {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Remover o acesso de um integrante da organização a um quadro de projeto
+## Removendo acesso do integrante da organização a um {% data variables.projects.projects_v1_board %}
 
-Quando você remove um colaborador de um quadro de projeto, a pessoa ainda pode ter acesso ao quadro com base nas permisões que tem para outras funções. Para remover completamente o acesso ao quadro de projeto, você deve remover o acesso à cada função que a pessoa tem. Por exemplo, uma pessoa pode ter acesso ao quadro de projeto como integrante de uma organização ou equipe. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+Ao remover um colaborador de um {% data variables.projects.projects_v1_board %}, ele ainda poderá manter o acesso ao quadro com base nas permissões para outras funções. Para remover completamente o acesso a um {% data variables.projects.projects_v1_board %}, você deverá remover o acesso para cada função que a pessoa possui. Por exemplo, uma pessoa pode ter acesso ao {% data variables.projects.projects_v1_board %} como integrante da organização ou integrante da equipe. Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Clique em **Projetos (clássico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -61,4 +67,4 @@ Quando você remove um colaborador de um quadro de projeto, a pessoa ainda pode 
 
 ## Leia mais
 
-- "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)"
+- "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"

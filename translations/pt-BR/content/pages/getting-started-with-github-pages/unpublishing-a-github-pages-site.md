@@ -20,6 +20,18 @@ topics:
 shortTitle: Cancelar a publicação do site de páginas
 ---
 
+{% ifversion pages-custom-workflow %}
+
+Quando você cancelar a publicação de seu site, o site não estará mais disponível. Todas as configurações de repositório ou o conteúdo não serão afetados.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Em **{% data variables.product.prodname_pages %}**, ao lado da mensagem **seu site está ativo em**, clique em {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. No menu que será exibido, selecione **Cancelar a publicação do site**.
+
+   ![Menu suspenso para cancelar a publicação do site](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
+
 ## Cancelar a publicação de um site de projeto
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -35,3 +47,5 @@ shortTitle: Cancelar a publicação do site de páginas
 {% data reusables.repositories.navigate-to-repo %}
 2. Exclua o branch que você está usando como fonte de publicação ou exclua todo o repositório. Para obter mais informações, consulte "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" e "[Excluir um repositório](/articles/deleting-a-repository)".
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

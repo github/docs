@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
+{% ifversion commit-signoffs %}
+Se o repositório com o qual você está se comprometendo tiver assinaturas de commit habilitadas e você estiver fazendo o commit por meio da interface web, você irá automaticamente assinar o commit como parte do processo de commit. Para obter mais informações, consulte "[Gerenciando a política de assinatura de commit para o seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)". {% endif %}
+
 Você pode adicionar um coautor em qualquer commit em que colaborar. Para obter mais informações, consulte "[Criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 
 {% ifversion fpt or ghec %}
@@ -44,7 +47,7 @@ Assim que o commit estiver no branch padrão, todas as tags que contêm o commit
 
 ## Usando a árvore de arquivos
 
-You can use the file tree to navigate between files in a commit.
+Você pode usar a árvore de arquivos para navegar entre os arquivos em um commit.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
@@ -53,7 +56,7 @@ You can use the file tree to navigate between files in a commit.
 
   {% note %}
 
-  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+  **Observação**: A árvore de arquivos não será exibida se a largura da tela for muito estreita ou se o commit incluir apenas um arquivo.
 
   {% endnote %}
 

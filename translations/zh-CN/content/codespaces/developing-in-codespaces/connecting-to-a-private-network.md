@@ -1,6 +1,6 @@
 ---
 title: 连接到专用网络
-intro: '可以将 {% data variables.product.prodname_codespaces %} 连接到专用网络上的资源，包括包注册表、许可证服务器和本地数据库。'
+intro: '可以将 {% data variables.product.prodname_github_codespaces %} 连接到专用网络上的资源，包括包注册表、许可证服务器和本地数据库。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -18,11 +18,26 @@ topics:
 
 ## 连接到专用网络上的资源
 
-当前支持的访问专用网络上资源的方法是使用 VPN。 目前不建议允许列表代码空间 IP，因为这将允许所有代码空间（包括您和其他客户的代码空间）访问受保护的网络资源。
+There are currently two methods of accessing resources on a private network within Codespaces.
+- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
+- Using a VPN.
+
+### Using the GitHub CLI extension to access remote resources
+
+{% note %}
+
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
+
+{% endnote %}
+
+The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+
+
 
 ### 使用 VPN 访问专用网络后面的资源
 
-要访问专用网络后面的资源，最简单方法是从代码空间内通过 VPN 进入该网络。
+As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
 
 我们建议使用 [OpenVPN](https://openvpn.net/) 等 VPN工具访问专用网络上的资源。 更多信息请参阅“[从 GitHub Codespaces 使用 OpenVPN 客户端](https://github.com/codespaces-contrib/codespaces-openvpn)”。
 
@@ -42,4 +57,4 @@ topics:
 
 目前，没有办法限制代码空间访问公共互联网，或者限制经过适当身份验证的用户访问转发端口。
 
-有关如何保护代码空间的详细信息，请参阅“[代码空间中的安全性](/codespaces/codespaces-reference/security-in-codespaces)”。
+有关如何保护代码空间的详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces)”。

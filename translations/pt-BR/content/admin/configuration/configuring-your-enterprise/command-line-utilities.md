@@ -34,7 +34,7 @@ $ ghe-announce -u
 ```
 
 {% ifversion ghe-announce-dismiss %}
-To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+Para permitir que cada usuário ignore o anúncio para si mesmo, use o sinalizador `-d`.
 ```shell
 # Sets a user-dismissible message that's visible to everyone
 $ ghe-announce -d -s MESSAGE
@@ -49,7 +49,7 @@ $ ghe-announce -u
 Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
 {% endif %}
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -205,7 +205,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-Este utilitário lista os repositórios no appliance que usam o {% data variables.product.prodname_dotcom %} Services, um método de integração que será descontinuado em 1 de outubro de 2018. Os usuários do seu appliance podem ter configurado o {% data variables.product.prodname_dotcom %} Services para criar notificações de pushes em determinados repositórios. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
+Este utilitário lista os repositórios no appliance que usam o {% data variables.product.prodname_dotcom %} Services, um método de integração que será descontinuado em 1 de outubro de 2018. Os usuários do seu appliance podem ter configurado o {% data variables.product.prodname_dotcom %} Services para criar notificações de pushes em determinados repositórios. Para obter mais informações, consulte "[Anunciar a depreciação dos serviços de {% data variables.product.prodname_dotcom %}](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" em {% data variables.product.prodname_blog %} ou "[Substituir serviços de {% data variables.product.prodname_dotcom %}](/developers/overview/replacing-github-services)". Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
 
 ```shell
 ghe-legacy-github-services-report
@@ -289,33 +289,6 @@ Use este comando para desbloquear imediatamente o {% data variables.enterprise.m
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-Este utilitário exibe informações sobre trabalhos em segundo plano, ativos e em fila. Ele fornece os mesmos números de contagem de trabalhos que a barra de estatísticas de administração, na parte superior de todas as páginas.
-
-Este utilitário pode ajudar a identificar se o servidor Resque está tendo problemas ao processar trabalhos em segundo plano. Quaisquer dos cenários a seguir podem indicar problemas com o Resque:
-
-* O número de trabalhos em segundo plano está aumentando, e os trabalhos ativos continuam iguais.
-* Os feeds de evento não estão sendo atualizados.
-* Webhooks não estão sendo acionados.
-* A interface web não atualiza após um push do Git.
-
-Se você desconfiar de falha no Resque, entre em contato com o {% data variables.contact.contact_ent_support %}.
-
-Com este comando, também é possível pausar ou retomar trabalhos na fila.
-
-```shell
-$ ghe-resque-info
-# lista filas e o número de trabalhos em fila
-$ ghe-resque-info -p <em>QUEUE</em>
-# pausa a fila especificada
-$ ghe-resque-info -r <em>QUEUE</em>
-# retoma a fila especificada
-```
-{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -370,6 +343,18 @@ Com `ghe-set-password`, você pode definir uma nova senha para autenticação no
 ```shell
 ghe-set-password <new_password>
 ```
+
+### ghe-setup-network
+
+Este utilitário permite que você configure a interface primária de rede.
+
+Para entrar no modo visual, que irá guiar você por meio das configurações de rede:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Para consultar opções adicionais, use o sinalizador -h.
 
 ### ghe-ssh-check-host-keys
 
@@ -433,7 +418,7 @@ Este utilitário permite instalar um certificado CA personalizado de raiz no seu
 
 Execute este utilitário para adicionar uma cadeia de certificados para verificação de assinatura de commits S/MIME. Para obter mais informações, consulte "[Sobre a verificação de assinatura de commit](/enterprise/user/articles/about-commit-signature-verification/)".
 
-Execute este utilitário quando a {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
+Execute este utilitário quando {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar isso é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` no {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
 
 ```
 SSL-Session:
@@ -543,7 +528,7 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 
 ### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+Verifique a saúde dos seus nós e serviços em uma implantação de clustering de {% data variables.product.prodname_ghe_server %}.
 
 ```shell
 $ ghe-cluster-status
@@ -649,7 +634,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -688,7 +673,7 @@ Você pode adicionar o argumento opcional `--prune` para remover objetos inacess
 
 {% warning %}
 
-**Aviso**: Antes de usar o argumento `--prune` para remover objetos Git inacessíveis, coloque {% data variables.product.product_location %} em modo de manutenção, ou certifique-se de que o repositório esteja off-line. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)".
+**Aviso**: Antes de usar o argumento `--prune` para remover objetos do Git inacessíveis, coloque {% data variables.product.product_location %} em modo de manutenção ou garantir que todos os repositórios da mesma rede de repositório estejam bloqueados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)".
 
 {% endwarning %}
 
@@ -739,31 +724,45 @@ git-import-detect
 
 ### git-import-hg-raw
 
-Este utilitário importa um repositório Mercurial para este repositório Git. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa um repositório Mercurial para este repositório Git. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## Segurança
+
+### ghe-find-insecure-git-operations
+
+Este utilitário pesquisa os logs da sua instância e identifica operações do Git por SSH que usam algoritmos inseguros ou funções hash, incluindo DSA, RSA-SHA-1, HMAC-SHA-1 e cifras CBC. Você pode usar a saída para ajudar a transição de cada cliente para uma conexão SSH mais segura. Para obter mais informações, consulte [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} e "[Configurando conexões SSH para sua instância](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)".{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## Suporte
 

@@ -4,14 +4,12 @@ import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
 import Page from '../../lib/page.js'
-import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import loadSiteData from '../../lib/site-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
 )
@@ -31,15 +29,6 @@ describe('Page class', () => {
     const page = await Page.init(opts)
     expect(page.relativePath).toBe(opts.relativePath)
     expect(page.fullPath.includes(page.relativePath)).toBe(true)
-  })
-
-  test('does not error out on translated TOC with no links', async () => {
-    const page = await Page.init({
-      relativePath: 'translated-toc-with-no-links-index.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(typeof page.title).toBe('string')
   })
 
   describe('showMiniToc page property', () => {
@@ -142,18 +131,6 @@ describe('Page class', () => {
       const last = $('a[href]').last()
       expect(last.text()).toBe('Version 3.2')
       expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
-    })
-
-    test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
-      const graphqlVersion =
-        allVersions[`enterprise-server@${enterpriseServerReleases.latest}`].miscVersionName
-      const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
-      expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
-      expect(
-        $(
-          `a[href^="/en/enterprise-server@${enterpriseServerReleases.latest}/graphql/reference/input-objects"]`
-        ).length
-      ).toBeGreaterThan(0)
     })
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
@@ -626,17 +603,6 @@ describe('Page class', () => {
     it('works for the homepage', () => {
       const variants = Page.getLanguageVariants('/en')
       expect(variants.find(({ code }) => code === 'en').href).toBe('/en')
-      // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja')
-    })
-
-    it('works for enterprise URLs', () => {
-      const variants = Page.getLanguageVariants(
-        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
-      )
-      expect(variants.find(({ code }) => code === 'en').href).toBe(
-        `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
-      )
-      // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja/enterprise/2.14/user/articles/github-glossary')
     })
   })
 

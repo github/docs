@@ -18,7 +18,9 @@ shortTitle: Solucione o problema de um domínio personalizado
 
 ## Erros _CNAME_
 
-Os domínios personalizados são armazenados em um arquivo _CNAME_ na raiz da fonte de publicação que pode ser adicionado ou atualizado manualmente ou por meio das configurações do repositório. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+{% ifversion pages-custom-workflow %}Se você publicando a partir de um fluxo de trabalho de {% data variables.product.prodname_actions %} personalizado, qualquer arquivo _CNAME_ será ignorado e não não será obrigatório.{% endif %}
+
+Se você estiver publicando a partir de um branch, os domínios personalizados serão armazenados em um arquivo _CNAME_ na raiz da fonte de publicação. que pode ser adicionado ou atualizado manualmente ou por meio das configurações do repositório. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
 Para que o site seja renderizado no domínio correto, verifique se o arquivo _CNAME_ ainda existe no repositório. Por exemplo, muitos geradores de site estáticos fazem push forçado para o repositório, o que pode substituir o arquivo _CNAME_ que foi adicionado ao repositório quando você configurou o domínio personalizado. Se você criar o site localmente e fizer push dos arquivos gerados para o {% data variables.product.product_name %}, primeiro insira o commit que adicionou o arquivo _CNAME_ ao repositório local, para que o arquivo seja incluído na criação.
 

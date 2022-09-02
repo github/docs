@@ -12,7 +12,7 @@
 
 如果评论中的建议超出您的拉取请求范围，您可以打开一个新的议题，追踪反馈并链接到原始评论。 更多信息请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
 #### 发现和导航对话
 
 您可以使用显示于 **Files Changed（更改的文件）**顶部的 **Conversations（对话）**菜单发现和导航到拉取请求中的所有对话。

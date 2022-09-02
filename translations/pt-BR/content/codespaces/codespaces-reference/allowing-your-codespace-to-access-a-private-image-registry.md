@@ -1,6 +1,6 @@
 ---
 title: Permitir que seu codespace acesse um registro de imagens privadas
-intro: 'Você pode usar segredos para permitir que {% data variables.product.prodname_codespaces %} acesse um registro de imagens privada'
+intro: 'Você pode usar segredos para permitir que {% data variables.product.prodname_github_codespaces %} acesse um registro de imagens privada'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,27 +10,27 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Registro de imagem privada
 ---
 
-## Sobre registros de imagens privadas e {% data variables.product.prodname_codespaces %}
+## Sobre registros de imagens privadas e {% data variables.product.prodname_github_codespaces %}
 
-Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar uma para armazenar uma ou mais imagens. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
+Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar uma para armazenar uma ou mais imagens. Existem muitos exemplos de registros, como {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry ou DockerHub.
 
-O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
+{% data variables.product.prodname_ghcr_and_npm_registry %} pode ser configurado para permitir que as imagens do contêiner sejam enviadas perfeitamente para {% data variables.product.prodname_github_codespaces %} durante a criação do codespace sem ter que fornecer nenhuma credencial de autenticação. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
 
-## Acessando imagens armazenadas no registro do contêiner de {% data variables.product.prodname_dotcom %}
+## Acessando imagens armazenadas em {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-O registro de contêiner de {% data variables.product.prodname_dotcom %} é a maneira mais fácil de {% data variables.product.prodname_github_codespaces %} de consumir imagens de contêiner de desenvolvimento.
+{% data variables.product.prodname_ghcr_and_npm_registry %} fornece a maneira mais fácil para {% data variables.product.prodname_codespaces %} consumir imagens de contêiner de desenvolvimento.
 
-Para obter mais informações, consulte "[Trabalhando com o registro do contêiner](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+Para obter mais informações, consulte "[Trabalhando com o Registro do Contêiner](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" e "[Trabalhando com o registro npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
 ### Acessar uma imagem publicada no mesmo repositório que o codespace
 
-Se você publicar uma imagem de contêiner do {% data variables.product.prodname_dotcom %} no mesmo repositório em que o codespace está sendo lançado, você poderá de buscar automaticamente essa imagem na criação de um codespace. Você não terá que fornecer qualquer credencial adicional, a menos a opção **Herdar acesso do repositório** tenha sido desmarcada quando a imagem do contêiner foi publicada.
+Se você publicar uma imagem do {% data variables.product.prodname_ghcr_or_npm_registry %} no mesmo repositório em que o codespace está sendo lançado, você poderá de buscar automaticamente essa imagem na criação de um codespace. Você não terá que fornecer qualquer credencial adicional, a menos a opção **Herdar acesso do repositório** tenha sido desmarcada quando a imagem do contêiner foi publicada.
 
 #### Herdando acesso a partir do repositório no qual uma imagem foi publicada
 
-Por padrão, quando você publica uma imagem de contêiner no registro do contêiner de {% data variables.product.prodname_dotcom %}, a imagem herda a configuração de acesso do repositório no qual a imagem foi publicada. Por exemplo, se o repositório for público, a imagem também é pública. Se o repositório for privado, a imagem também é privada, mas pode ser acessada a partir do repositório.
+Por padrão, ao publicar uma imagem de contêiner para {% data variables.product.prodname_ghcr_or_npm_registry %}, a imagem herda a configuração de acesso do repositório do qual a imagem foi publicada. Por exemplo, se o repositório for público, a imagem também é pública. Se o repositório for privado, a imagem também é privada, mas pode ser acessada a partir do repositório.
 
-Este comportamento é controlado pela opção de **Herdar acesso do repositório**. O **Acesso herdado do repo** é selecionado por padrão ao publicar {% data variables.product.prodname_actions %}, mas não ao publicar diretamente no registro do contêiner de {% data variables.product.prodname_dotcom %} usando um Token de Acesso Pessoal (PAT).
+Este comportamento é controlado pela opção de **Herdar acesso do repositório**. O **Acesso herdado do repo** é selecionado por padrão ao publicar {% data variables.product.prodname_actions %}, mas não ao publicar diretamente no {% data variables.product.prodname_ghcr_or_npm_registry %} usando um Token de Acesso Pessoal (PAT).
 
 Se a opção **Herdar acesso do repositório** não foi selecionada quando a imagem foi publicada, você pode adicionar o repositório manualmente aos controles de acesso da imagem de contêiner. Para obter mais informações, consulte "[Configurar o controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)".
 
@@ -46,19 +46,19 @@ Se você deseja permitir que um subconjunto de repositórios de uma organizaçã
 
 ### Publicando uma imagem de contêiner a partir de um codespace
 
-O acesso seguro a partir de um codespace para o registro de um contêiner de {% data variables.product.prodname_dotcom %} é limitado à extração de imagens de contêineres. Se você deseja publicar a imagem de um contêiner de dentro de um codespace, você deve usar um token de acesso pessoal (PAT) com o escopo `write:packages`.
+O acesso seguro a partir de um codespace para o {% data variables.product.prodname_ghcr_or_npm_registry %} é limitado à extração de imagens de contêineres. Se você deseja publicar a imagem de um contêiner de dentro de um codespace, você deve usar um token de acesso pessoal (PAT) com o escopo `write:packages`.
 
-Recomendamos publicar imagens via {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Publicar imagens Docker](/actions/publishing-packages/publishing-docker-images)".
+Recomendamos publicar imagens via {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Publicando imagens do Docker](/actions/publishing-packages/publishing-docker-images)" e "[Publicando pacotes do Node.js](/actions/publishing-packages/publishing-nodejs-packages)".
 
 ## Acessando as imagens armazenadas em outros registros de contêiner
 
-Se você estiver acessando um contêiner a partir de um registro que não é registro de contêiner de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_codespaces %} irá verificar a presença de três segredos, que define o nome de servidor, nome de usuário, e token de acesso pessoal (PAT) para um registro de contêiner. Se estes segredos forem encontrados, {% data variables.product.prodname_codespaces %} disponibilizará o registro dentro do seu codespace.
+Se você estiver acessando uma imagem de contêiner de um registro que não é {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_codespaces %} verifica a presença de três segredos, que define o nome de servidor, nome de usuário e token de acesso pessoal (PAT) para um registro de contêiner. Se estes segredos forem encontrados, {% data variables.product.prodname_github_codespaces %} disponibilizará o registro dentro do seu codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-É possível armazenar segredos a nível do usuário, repositório ou organização, permitindo que você os compartilhe de forma segura entre diferentes codespaces. Ao criar um conjunto de segredos para um registro de imagem privado, você deverá substituir o "<*>" no nome por um identificador consistente. Para mais informações, consulte "[Gerenciar segredos criptografados para seus códigos](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" e "[Gerenciar segredos criptografados para seu repositório e organização para os codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)".
+É possível armazenar segredos a nível do usuário, repositório ou organização, permitindo que você os compartilhe de forma segura entre diferentes codespaces. Ao criar um conjunto de segredos para um registro de imagem privado, você deverá substituir o "<*>" no nome por um identificador consistente. Para obter mais informações, consulte "[Gerenciando segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" e "[Gerenciando segredos criptografados para seu repositório e organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)".
 
 Se você estiver definindo os segredos no nível do usuário ou da organização. certifique-se de atribuir esses segredos para o repositório no qual você irá criar o codespace, escolhendo uma política de acesso na lista suspensa.
 

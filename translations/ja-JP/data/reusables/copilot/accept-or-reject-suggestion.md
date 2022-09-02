@@ -1,1 +1,1 @@
-1. To accept a suggestion, press <kbd>Tab</kbd>. To reject all suggestions, press <kbd>Esc</kbd>.
+1. 提案を受け入れるには<kbd>タブ</kbd>を押してください。 すべての提案を拒否するには<kbd>Esc</kbd>を押してください。

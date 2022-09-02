@@ -1,6 +1,6 @@
 ---
-title: Usando a paleta de comando do Visual Studio em codespaces
-intro: 'Você pode usar o recurso de Paleta de Comando de {% data variables.product.prodname_vscode %} para acessar muitos comandos em codespaces.'
+title: Usando a paleta de comando do Visual Studio no GitHub Codespaces
+intro: 'Você pode usar a função de Paleta de Comando de {% data variables.product.prodname_vscode %} para acessar muitos comandos em {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +17,7 @@ redirect_from:
 
 ## Sobre o {% data variables.product.prodname_vscode_command_palette %}
 
-A Paleta de Comando é uma das funcionalidades principais de {% data variables.product.prodname_vscode %} e está disponível para uso em codespaces. O {% data variables.product.prodname_vscode_command_palette %} permite que você acesse muitos comandos para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações sobre como usar o {% data variables.product.prodname_vscode_command_palette_shortname %}, consulte "[Interface de usuário](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" na documentação do {% data variables.product.prodname_vscode_shortname %}.
+A Paleta de Comando é uma das funcionalidades focais de {% data variables.product.prodname_vscode %} e está disponível para você usar em {% data variables.product.prodname_github_codespaces %}. O {% data variables.product.prodname_vscode_command_palette %} permite que você acesse muitos comandos para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações sobre como usar o {% data variables.product.prodname_vscode_command_palette_shortname %}, consulte "[Interface de usuário](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 ## Acessando o {% data variables.product.prodname_vscode_command_palette_shortname %}
 
@@ -31,9 +31,9 @@ Você pode acessar o {% data variables.product.prodname_vscode_command_palette_s
 
   ![Menu do aplicativo](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-## Comandos para {% data variables.product.prodname_github_codespaces %}
+## Comandos para {% data variables.product.prodname_codespaces %}
 
-Para ver todos os comandos relacionados a {% data variables.product.prodname_github_codespaces %}, [acesse o {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) e, em seguida, comece a digitar "Codespaces".
+Para ver todos os comandos relacionados a {% data variables.product.prodname_codespaces %}, [acesse o {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) e, em seguida, comece a digitar "Codespaces".
 
 ![Uma lista de todos os comandos que se referem a codespaces](/assets/images/help/codespaces/codespaces-command-palette.png)
 
@@ -63,6 +63,6 @@ Para reconstruir seu contêiner, [acesse o {% data variables.product.prodname_vs
 
 Você pode usar o {% data variables.product.prodname_vscode_command_palette_shortname %} para acessar os registros de criação do codespace ou você pode usá-lo para exportar todos os registros.
 
-Para recuperar os registros para os codespaces, [acesse o {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)e, em seguida, comece a digitar "registro". Selecione **Codespaces: Exportar registros** para exportar todos os registros relacionados aos codespaces ou selecione **Codespaces: Visualizar o registro de criação** para visualizar os registros relacionados à configuração.
+Para recuperar os logs para {% data variables.product.prodname_codespaces %}, [acesse o {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) e, em seguida, comece a digitar "log". Selecione **Codespaces: Exportar logs** para exportar todos os logs relacionados a {% data variables.product.prodname_codespaces %} ou selecione **Códigos: Visualizar logs de criação** para ver os logs relacionados à configuração.
 
 ![Comando para acessar os registros](/assets/images/help/codespaces/codespaces-logs.png)

@@ -47,7 +47,7 @@ Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% d
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} que estão instalados em uma organização ou um repositório dentro de uma empresa no {% data variables.product.product_location %} estão sujeitos a um limite de 15.000 solicitações por hora.
+{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
 
 {% endif %}
 
@@ -82,4 +82,4 @@ Os limites de taxa para as solicitações de servidor para servidor feitas por {
 ## Leia mais
 
 - "[Limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting)" na documentação da API REST
-- "[Limitações de recursos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" na documentação da API do GraphQL
+- "[Limitações de recursos](/graphql/overview/resource-limitations)" na documentação da API do GraphQL

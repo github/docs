@@ -1,10 +1,9 @@
 ---
 title: GitHub におけるコミュニティの会話のベストプラクティス
 shortTitle: コミュニティの会話のベストプラクティス
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
+intro: ディスカッションを使用してチームとブレインストーミングを行い、作業を確認する状況が整ったら、最終的に会話を Issue に移すことができます。
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ Issue のオープンおよびディスカッションの相互参照につい�
 
 希望する会話のタイプに応じて、ディスカッション、Issue、プルリクエストを作成して参加できます。
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and develop a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams if:
+You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and develop a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams in a number of scenarios.
 - You are in the discovery phase of a project and are still learning which direction your team wants to go in
 - より広いコミュニティからプロジェクトについてのフィードバックを収集する必要がある場合
 - バグ修正、機能リクエスト、一般的な会話を別々に保持する必要がある場合
@@ -34,7 +33,7 @@ Issueは、バグレポートや計画された改善など、プロジェクト
 
 ## コントリビューションガイドラインに従う
 
-Before you open a discussion in an open source repository, check to see if the repository has contributing guidelines. CONTRIBUTING ファイルには、リポジトリメンテナがプロジェクトにアイデアを提供する方法に関する情報が含まれています。
+Before you open a discussion in a repository, check to see if the repository has contributing guidelines. CONTRIBUTING ファイルには、リポジトリメンテナがプロジェクトにアイデアを提供する方法に関する情報が含まれています。
 
 詳しい情報については、「[健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 

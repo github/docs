@@ -32,7 +32,10 @@ topics:
 
 Por padrão, cada regra de proteção de branch desabilita push forçado para os branches correspondentes e impede que os branches correspondentes sejam excluídos. Você pode, opcionalmente, desabilitar essas restrições e habilitar configurações adicionais de proteção de branches.
 
-Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório. Opcionalmente, você também pode escolher incluir administradores.
+{% ifversion bypass-branch-protections %}
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório ou funções personalizadas com a permissão de "ignorar proteção de branch". Opcionalmente, você pode aplicar as restrições para administradores e funções com a permissão "ignorar proteção de branch". Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório. Opcionalmente, você também pode escolher incluir administradores.{% endif %}
 
 {% data reusables.repositories.branch-rules-example %} Para obter mais informações sobre os padrões de nomes do branch, consulte "[Gerenciar uma regra de proteção de branch](/github/administering-a-repository/managing-a-branch-protection-rule)".
 
@@ -43,8 +46,7 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
+- [Exigir resolução de conversa antes de merge](#require-conversation-resolution-before-merging)
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -53,7 +55,7 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 {%- ifversion required-deployments %}
 - [Exige implantações para ter sucesso antes do merge](#require-deployments-to-succeed-before-merging)
 {%- endif %}
-- [Incluir administradores](#include-administrators)
+{% ifversion bypass-branch-protections %}- [Não permita que as configurações acima sejam ignoradas](#do-not-allow-bypassing-the-above-settings){% else %}- [Incluir administradores](#include-administrators){% endif %}
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir push forçado](#allow-force-pushes)
 - [Permitir exclusões](#allow-deletions)
@@ -103,11 +105,9 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Exigir resolução de conversa antes de merge
 
 Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
-{% endif %}
 
 ### Exigir commits assinados
 
@@ -127,7 +127,7 @@ Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores
 
 {% endnote %}
 
-Você sempre pode fazer push de commits locais para o branch se os commits forem assinados e verificados. {% ifversion fpt or ghec %}Você também pode mesclar commits assinados e verificados no branch usando uma pull request no {% data variables.product.product_name %}. No entanto, você não pode combinar por squash e fazer o merge de uma pull request no branch em {% data variables.product.product_name %}, a menos que você seja o autor da pull request.{% else %} No entanto, você não pode mesclar as pull requests no branch no {% data variables.product.product_name %}.{% endif %} Você pode {% ifversion fpt or ghec %}combinar por squash e {% endif %}merge pull requests localmente. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
+Você sempre pode fazer push de commits locais para o branch se os commits forem assinados e verificados. {% ifversion fpt or ghec %}Você também pode fazer merge de commits assinados e verificados no branch usando um pull request em {% data variables.product.product_name %}. No entanto, você não pode realizar a combinação por squash e fazer o merge de um pull request no branch em {% data variables.product.product_name %} a menos que você seja o autor do pull request.{% else %}No entanto, você não pode fazer merge de pull requests no branch em {% data variables.product.product_name %}.{% endif %} Você pode {% ifversion fpt or ghec %}fazer combinação por squash e {% endif %} fazer merge de pull requests localmente. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
 
 {% ifversion fpt or ghec %} Para obter mais informações sobre métodos de merge, consulte "[Sobre métodos de merge em {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github){% endif %}
 
@@ -152,9 +152,15 @@ Antes de exigir um histórico de commit linear, seu repositório deve permitir m
 
 Você pode exigir que as alterações sejam implantadas em ambientes específicos antes de ua branch poder ser mesclado. Por exemplo, você pode usar essa regra para garantir que as alterações sejam implantadas com sucesso em um ambiente de teste antes das alterações sofrerem merge no seu branch padrão.
 
-### Incluir administradores
+{% ifversion bypass-branch-protections %}### Não permita que sejam ignoradas as configurações acima{% else %}
+### Incluir administradores{% endif %}
 
-Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. Você pode habilitar essa configuração para incluir administradores em suas regras de branch protegido.
+{% ifversion bypass-branch-protections %}
+Por padrão, as restrições de uma regra de proteção de branch não se aplicam a pessoas com permissões de administrador para o repositório ou funções personalizadas com a permissão de "ignorar proteção de branch" em um repositório.
+
+Você pode habilitar esta configuração para aplicar as restrições aos administradores e funções com a permissão "ignorar proteção de branch".  Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. Você pode habilitar essa configuração para incluir administradores em suas regras de proteção de branch.{% endif %}
 
 ### Restringir quem pode fazer push para branches correspondentes
 

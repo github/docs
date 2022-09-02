@@ -68,14 +68,6 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: Enterprise.userAccounts
-    description:
-      '`userAccounts` will be removed. Use the `Enterprise.members` field
-      instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: LockMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:

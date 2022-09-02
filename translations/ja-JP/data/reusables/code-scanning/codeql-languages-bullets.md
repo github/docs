@@ -9,9 +9,9 @@
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
+**ノート**: Rubyの{% data variables.product.prodname_codeql %}分析は現在ベータです。 このベータの間、Rubyの分析は他の言語の{% data variables.product.prodname_codeql %}分析よりも包括的ではありません。
 
 {% endnote %}
 
-For more information, see the documentation on the {% data variables.product.prodname_codeql %} website: "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)."
+詳しい情報については{% data variables.product.prodname_codeql %} Webサイトのドキュメンテーション「[サポートされている言語とフレームワーク](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)」を参照してください。
 {% endif %}

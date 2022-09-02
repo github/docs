@@ -1,6 +1,6 @@
 ---
 title: Buscar
-intro: 'The Search API lets you to search for specific items on {% data variables.product.product_name %}.'
+intro: 'La API de búsqueda te permite buscar elementos específicos en {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/search
 ---
 
-## About the Search API
+## Acerca de la API de búsquedas
 
 La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
 
@@ -107,7 +107,8 @@ Si utilizas cURL y también el [ejemplo de búsqueda de informe de problemas](#s
 
 ``` shell
 curl -H 'Accept: application/vnd.github.text-match+json' \
-'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug \
++language:python+state:open&sort=created&order=asc'
 ```
 
 La respuesta incluirá una matriz de `text_matches` para cada resultado de búsqueda. En el JSON que se muestra a continuación, tenemos dos objetos en la matriz `text_matches`.
@@ -123,7 +124,9 @@ La segunda coincidencia de texto ocurrió en la propiedad `body` de uno de los c
       "object_url": "https://api.github.com/repositories/215335/issues/132",
       "object_type": "Issue",
       "property": "body",
-      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly distributed windows font that supports them then no problem (we can use html font tags) but otherwise the '(21)' style is probably better.\n",
+      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly
+      distributed windows font that supports them then no problem (we can use html
+      font tags) but otherwise the '(21)' style is probably better.\n",
       "matches": [
         {
           "text": "windows",
@@ -145,7 +148,9 @@ La segunda coincidencia de texto ocurrió en la propiedad `body` de uno de los c
       "object_url": "https://api.github.com/repositories/215335/issues/comments/25688",
       "object_type": "IssueComment",
       "property": "body",
-      "fragment": " right after that are a bit broken IMHO :). I suppose we could have some hack that maxes out at whatever the font does...\n\nI'll check what the state of play is on Windows.\n",
+      "fragment": " right after that are a bit broken IMHO :). I suppose we could
+      have some hack that maxes out at whatever the font does...\n\nI'll check
+      what the state of play is on Windows.\n",
       "matches": [
         {
           "text": "Windows",

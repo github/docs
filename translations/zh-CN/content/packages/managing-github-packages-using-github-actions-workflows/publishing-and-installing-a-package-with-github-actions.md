@@ -24,15 +24,15 @@ shortTitle: Publish & install with Actions
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% ifversion fpt or ghec %}
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### Authenticating to the {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% endif %}
 
 ### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -40,7 +40,7 @@ You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle. {% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.{% endif %}
+**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.product.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
 
 {% endnote %}
 
@@ -49,11 +49,11 @@ When you enable GitHub Actions, GitHub installs a GitHub App on your repository.
 {% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
 
 {% ifversion fpt or ghec %}
-## About permissions and package access for {% data variables.product.prodname_container_registry %}
+## About permissions and package access for {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-The {% data variables.product.prodname_container_registry %} (`ghcr.io`) allows users to create and administer containers as free-standing resources at the organization level. Containers can be owned by an organization or personal account and you can customize access to each of your containers separately from repository permissions.
+The {% data variables.product.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
 
-All workflows accessing the {% data variables.product.prodname_container_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+All workflows accessing the {% data variables.product.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
 
 ## Default permissions and access settings for containers modified through workflows
 
@@ -89,10 +89,13 @@ Create a new workflow file in your repository (such as `.github/workflows/deploy
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
-```yaml{:copy}
-name: Create and publish a Docker image
 
+```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Create and publish a Docker image
 
 on:
   push:
@@ -138,7 +141,7 @@ jobs:
 
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes > 3.1 or ghae %}
+    needs: run-npm-test {% ifversion ghes or ghae %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -288,7 +291,6 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -303,7 +305,6 @@ permissions:
   Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
 </td>
 </tr> 
-{% endif %}
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -474,7 +475,6 @@ This new workflow will run automatically every time you push a change to a branc
 
 A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
 
-
 ## Installing a package using an action
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
@@ -484,9 +484,9 @@ Installing packages hosted by {% data variables.product.prodname_registry %} thr
 {% data reusables.package_registry.actions-configuration %}
 
 {% ifversion fpt or ghec %}
-## Upgrading a workflow that accesses `ghcr.io`
+## Upgrading a workflow that accesses a registry using a PAT
 
-The {% data variables.product.prodname_container_registry %} supports the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to `ghcr.io`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
+The {% data variables.product.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
 For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
@@ -504,9 +504,9 @@ Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, incr
   {% endnote %}
 1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
   ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Open your workflow file. On the line where you log in to `ghcr.io`, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Open your workflow file. On the line where you log in to the registry, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker image using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
 ```yaml{:copy}
 name: Demo Push
@@ -532,10 +532,10 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

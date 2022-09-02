@@ -33,15 +33,17 @@ El {% data variables.product.prodname_dependabot %} crea las solicitudes de camb
 El {% data variables.product.prodname_dependabot %} puede activar flujos de trabajo de las {% data variables.product.prodname_actions %} en sus solicitudes de cambios y comentarios; sin embargo, algunos eventos se tratan de forma distinta.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para el caso de los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) y que utilizan los eventos `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment` y `deployment_status`, aplican las siguientes restricciones:
+Las siguientes restricciones aplican para los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) y que utilizan los eventos `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment` y `deployment_status`:
 {% endif %}
 
 - {% ifversion ghes = 3.3 %} El `GITHUB_TOKEN` tiene permisos de solo lectura, a menos de que tu adminsitrador haya eliminado las restricciones.{% else %} El `GITHUB_TOKEN` tiene permisos de solo lectura predeterminadamente.{% endif %}
 - {% ifversion ghes = 3.3 %}No se puede acceder a los secretos a menos de que tu administrador haya eliminado las restricciones.{% else %}Los secretos se llenan desde los secretos del {% data variables.product.prodname_dependabot %}. Los secretos de las {% data variables.product.prodname_actions %} no están disponibles.{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para el caso de los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %}(`github.actor == "dependabot[bot]"`) y utilizan el evento `pull_request_target`, si {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) creó la ref base de la solicitud de cambios, entonces el `GITHUB_TOKEN` será de solo lectura y los secretos no estarán disponibles.
+Para los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) y que utilizan el evento `pull_request_target`, si el {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) creó la referencia base de la solicitud de cambios, el `GITHUB_TOKEN` será de solo lectura y los secretos no estarán disponibles.
 {% endif %}
+
+{% ifversion actions-stable-actor-ids %}Estas restricciones aplican incluso si un actor diferente vuelve a ejecutar el flujo de trabajo.{% endif %}
 
 Para obtener màs informaciòn, consulta la secciòn "[Mantener seguras tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de tipo pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)".
 
@@ -224,7 +226,15 @@ jobs:
 
 ### Volver a ejecutar un flujo de trabajo manualmente
 
+{% ifversion actions-stable-actor-ids %}
+
+Cuando vuelves a ejecutar un flujo de trabajo del Dependabot manualmente, este se ejecutará con los mismos privilegios que antes, incluso si el usuario que inició la re-ejecución tiene privilegios diferentes. Para obtener más información, consulta la sección "[Re-ejecución de flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+
+{% else %}
+
 También puedes volver a ejecutar un flujo de trabajo fallido del Dependabot manualmente y este seguirá ejecutándose con un token de lectura-escritura y con acceso a los secretos. Antes de volver a ejecutar los flujos de trabajo fallidos manualmente, siempre debes verificar la dependencia que se está actualizando para asegurarte de que el cambio no introduzca ningún comportamiento imprevisto o malicioso.
+
+{% endif %}
 
 ## Automatizaciones comunes del Dependabot
 
@@ -466,6 +476,7 @@ on: pull_request_target
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:
@@ -497,6 +508,7 @@ on: pull_request
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:

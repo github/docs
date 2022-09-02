@@ -59,7 +59,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 |--------|-------------
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 ## `audit_log_streaming` category actions
 
 | Action | Description
@@ -186,9 +186,9 @@ Action                        | Description
 | `codespaces.destroy` | A user [deleted a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
 | `codespaces.allow_permissions` | A codespace using custom permissions from its `devcontainer.json` file was launched.
 | `codespaces.attempted_to_create_from_prebuild` | An attempt to create a codespace from a prebuild was made.
-| `codespaces.create_an_org_secret` | A user created an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
-| `codespaces.update_an_org_secret` | A user updated an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `codespaces.remove_an_org_secret` | A user removed an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `codespaces.create_an_org_secret` | A user created an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
+| `codespaces.update_an_org_secret` | A user updated an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `codespaces.remove_an_org_secret` | A user removed an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
 | `codespaces.manage_access_and_security` | A user updated [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {%- endif %}
 
@@ -392,8 +392,14 @@ Action                        | Description
 | `gist.destroy` | A gist is deleted.
 | `gist.visibility_change` | The visibility of a gist is changed.
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
+{% ifversion git-events-audit-log %}
 ## `git` category actions
+
+{% ifversion enable-git-events %}
+Before you'll see `git` category actions, you must enable Git events in the audit log. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+{% endif %}
+
+{% data reusables.audit_log.git-events-not-in-search-results %}
 
 | Action | Description
 |--------|-------------
@@ -630,8 +636,8 @@ Action                        | Description
 | `org.clear_members_can_invite_outside_collaborators` | An organization owner cleared the outside collaborators invitation policy for an organization. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
 | `org.clear_new_repository_default_branch_setting`    | An organization owner cleared the default branch name for new repositories setting for an organization. For more information, see "[Setting the default branch name](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization#setting-the-default-branch-name)."
 {%- ifversion fpt or ghec %}
-| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_codespaces %} was granted trusted repository access to all other repositories in an organization. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
-| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_codespaces %} trusted repository access to all other repositories in an organization was revoked. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_github_codespaces %} was granted trusted repository access to all other repositories in an organization. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_github_codespaces %} trusted repository access to all other repositories in an organization was revoked. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
 {%- endif %}                                                                                                             |
 | `org.config.disable_collaborators_only` | The interaction limit for collaborators only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
 | `org.config.disable_contributors_only` | The interaction limit for prior contributors only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
@@ -829,10 +835,10 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `prebuild_configuration.create` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.destroy` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.update` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
+| `prebuild_configuration.create` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.destroy` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.update` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
 {%- endif %}
 
 {%- ifversion ghes %}
@@ -889,20 +895,20 @@ Action                        | Description
 | `project.update_team_permission` | A team's project board permission level was changed or when a team was added or removed from a project board. For more information, see "[Managing team access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)."
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
 
-{%- ifversion fpt or ghec %}
+{%- ifversion projects-v2 %}
 ## `project_field` category actions
 
 | Action | Description
 |--------|-------------
-| `project_field.create` | A field was created in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
-| `project_field.delete` | A field was deleted in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
+| `project_field.create` | A field was created in a project board. For more information, see "[Understanding field types](/issues/planning-and-tracking-with-projects/understanding-field-types)."
+| `project_field.delete` | A field was deleted in a project board. For more information, see "[Deleting fields](/issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields)."
 
 ## `project_view` category actions
 
 | Action | Description
 |--------|-------------
-| `project_view.create` | A view was created in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#creating-a-project-view)."
-| `project_view.delete` | A view was deleted in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)."
+| `project_view.create` | A view was created in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+| `project_view.delete` | A view was deleted in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
 {%- endif %}
 
 ## `protected_branch` category actions

@@ -71,13 +71,6 @@ upcoming_changes:
     criticality: 重大
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts` 将被删除。使用 `Enterprise.members` 字段代替。'
-    reason: '`Enterprise.userAccounts` 字段被删除。'
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: 重大
-    owner: jdennes
-  - 
     location: LockMergeQueueInput.branch
     description: '`branch` 将被删除。'
     reason: 存储库的默认分支的合并队列已锁定，“branch”参数现在是 no-op

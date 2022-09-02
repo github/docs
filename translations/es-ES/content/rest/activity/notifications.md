@@ -1,6 +1,6 @@
 ---
 title: Notificaciones
-intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
+intro: 'La API de notificaciones te permite administrar las notificaciones de {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Notifications API
+## Acerca de la API de notificaciones
 
-La API de notificaciones te permite administrar las notificaciones de {% data variables.product.product_name %}. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+La API de notificaciones te permite administrar las notificaciones de {% data variables.product.product_name %}. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)".
 
 Todas las llamadas de la API para notificaciones necesitan los alcances de la API para `notifications` o `repo`.  El hacerlo te dará acceso de solo lectura a algunos contenidos de informes de problemas y de confirmaciones. Aún necesitarás el alcance de `repo` para acceder a los informes de problemas y a las confirmaciones desde sus respectivas terminales.
 

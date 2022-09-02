@@ -20,6 +20,4 @@ Ao chamar a API do GraphQL, você deve especificar subcampos aninhados até reto
 
 Para obter mais informações, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#field)".
 
-{% for item in graphql.schemaForCurrentVersion.scalars %}
-  {% include graphql-scalar %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

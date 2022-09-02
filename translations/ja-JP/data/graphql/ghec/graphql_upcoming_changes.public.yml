@@ -85,13 +85,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts`は削除されます。代わりに`Enterprise.members`フィールドを使用してください。'
-    reason: '`Enterprise.userAccounts`フィールドは削除されています。'
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: jdennes
-  - 
     location: Query.sponsorables.dependencyEcosystem
     description: '`dependencyEcosystem`は削除されます。代わりにecosystem引数を使用してください。'
     reason: 型はSecurityAdvisoryEcosystemからDependencyGraphEcossystemに切り替わります。
@@ -997,6 +990,13 @@ upcoming_changes:
   - 
     location: ProjectView.groupBy
     description: '`groupBy`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.groupedItems
+    description: '`groupedItems`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
     reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 破壊的

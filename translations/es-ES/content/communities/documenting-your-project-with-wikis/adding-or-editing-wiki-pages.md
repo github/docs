@@ -34,7 +34,7 @@ shortTitle: Administrar las páginas de wiki
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. Desplázate hasta la página que deseas cambiar con la ayuda de la barra lateral wiki. En el ángulo superior derecho de la página, haz clic en **Edite** (Editar). ![Botón de la página para editar wikis](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Usa el editor de texto para editar el contenido de la página. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+5. Utiliza el editor de texto para editar el contenido de la página. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Escribe un mensaje de confirmación que describa tus cambios. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
 

@@ -19,7 +19,7 @@ shortTitle: Add locally hosted code
 
 If you have existing source code or repositories stored locally on your computer or private network you can add them to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
 
-{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.prodname_dotcom %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.prodname_dotcom %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. {% data variables.product.prodname_cli %}についてさらに学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
 {% tip %}
 
@@ -57,11 +57,21 @@ If you have existing source code or repositories stored locally on your computer
 1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
+
   ```shell
   $ git add .
   # ローカルリポジトリにファイルを追加し、コミットに備えてステージします。 {% data reusables.git.unstage-codeblock %}
@@ -92,10 +102,19 @@ If you have existing source code or repositories stored locally on your computer
 1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
   $ git add .
@@ -127,10 +146,19 @@ If you have existing source code or repositories stored locally on your computer
 1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+
+   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+
+   ``` shell
+   $ git init && git branch -m main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
   $ git add .

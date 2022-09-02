@@ -27,7 +27,7 @@ If your {% data variables.product.prodname_oauth_app %} doesn't have access to a
 Check headers to see what OAuth scopes you have, and what the API action accepts:
 
 ```shell
-$ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
 HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
@@ -42,7 +42,7 @@ Name | Description
 -----|-----------|{% ifversion not ghae %}
 **`(no scope)`** | Grants read-only access to public information (including user profile info, repository info, and gists){% endif %}{% ifversion ghes or ghae %}
 **`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/rest/reference/enterprise-admin).{% endif %}
-**`repo`** | Grants full access to repositories, including private repositories. That includes read/write access to code, commit statuses, repository and organization projects, invitations, collaborators, adding team memberships, deployment statuses, and repository webhooks for repositories and organizations. Also grants ability to manage user projects.
+**`repo`** | Grants full access to public{% ifversion ghec or ghes or ghae %}, internal,{% endif %} and private repositories including read and write access to code, commit statuses, repository invitations, collaborators, deployment statuses, and repository webhooks. **Note**: In addition to repository related resources, the `repo` scope also grants access to manage organization-owned resources including projects, invitations, team memberships and webhooks. This scope also grants the ability to manage projects owned by users.
 &emsp;`repo:status`| Grants read/write access to commit statuses in {% ifversion fpt %}public and private{% elsif ghec or ghes %}public, private, and internal{% elsif ghae %}private and internal{% endif %} repositories. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.
 &emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/reference/repos#deployments) for {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, *without* granting access to the code.{% ifversion not ghae %}
 &emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.{% endif %}
@@ -64,8 +64,8 @@ Name | Description
 &emsp;`read:user`| Grants access to read a user's profile data.
 &emsp;`user:email`| Grants read access to a user's email addresses.
 &emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
-**`project`** | Grants read/write access to user and organization projects (beta).
-&emsp;`read:project`| Grants read only access to user and organization projects (beta).{% endif %}
+**`project`** | Grants read/write access to user and organization {% data variables.projects.projects_v2 %}.
+&emsp;`read:project`| Grants read only access to user and organization {% data variables.projects.projects_v2 %}.{% endif %}
 **`delete_repo`** | Grants access to delete adminable repositories.
 **`write:discussion`** | Allows read and write access for team discussions.
 &emsp;`read:discussion` | Allows read access for team discussions.
@@ -75,9 +75,12 @@ Name | Description
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
-**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces#authentication)."{% endif %}
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
-
+**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."{% endif %}
+**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% ifversion not fpt %}
+**`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see "[Managing enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`{% ifversion ghec or ghes > 3.3 %}, `manage_billing:enterprise`,{% endif %} and `read:enterprise`. 
+&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)." {% ifversion ghec or ghes > 3.3 %}
+&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see "[Billing](/rest/billing)" in the REST API documentation. {% endif %}
+&emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}
 {% note %}
 
 **Note:** Your OAuth App can request the scopes in the initial redirection. You

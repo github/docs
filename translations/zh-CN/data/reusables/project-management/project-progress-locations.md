@@ -1,1 +1,1 @@
-如果启用了进度跟踪，进度条将出现在项目板上方、项目列表页面上、议题侧边栏中以及对其他项目板项目的引用中。
+If progress tracking is enabled, a progress bar appears above the {% data variables.projects.projects_v1_board %}, on the project listing page, in the issue sidebar, and in references to the project on other {% data variables.projects.projects_v1_boards %}.

@@ -74,7 +74,7 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 ### `inputs.<input_id>.required`
 
-**Requerido** Un `boolean` (booleano) para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
+**Opcional** Un `boolean` para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
 
 ### `inputs.<input_id>.default`
 
@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Opcional**  un `map` de los parámetros de entrada que define la acción. Cada parámetro de entrada es un par clave/valor.  Los parámetros de entrada se establecen como variables del entorno. La variable utiliza el prefijo INPUT_ y se convierte en mayúsculas.
+**Opcional**  un `map` de los parámetros de entrada que define la acción. Cada parámetro de entrada es un par clave/valor. Para obtener más información, consulta la sección [Ejemplo: Especificar entradas](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **Opcional** Impide que la acción falle cuando falla un paso. Se configura en `true` para permitir que la acción pase cuando falla este paso.
+
+{% endif %}
 
 ## `runs` para las acciones de contenedores de Docker
 
@@ -429,7 +433,7 @@ runs:
 
 Para obtener más información acerca de cómo se ejecuta el `entrypoint`, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
 
-### `post-entrypoint`
+### `runs.post-entrypoint`
 
 **Opcional** Te permite ejecutar un script de limpieza una vez que se haya completado la acción de `runs.entrypoint`. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción. Ya que {% data variables.product.prodname_actions %} ejecuta el script dentro de un contenedor nuevo utilizando la misma imagen base, el estado de tiempo de ejecución es diferente del contenedor principal de `entrypoint`. Puedes acceder a cualquier estado que necesites, ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `post-entrypoint:` siempre se ejecuta predeterminadamente, pero puedes anular esto utilizando [`runs.post-if`](#runspost-if).
 
@@ -451,7 +455,7 @@ Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si u
 
 {% data reusables.actions.dockerfile-guidelines %}
 
-Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entonces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
+Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
@@ -471,7 +475,7 @@ runs:
 
 ## `branding`
 
-Puedes usar un color y un icono de [Feather](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**Opcional** puedes utilizar un color e icono de [Pluma](https://feathericons.com/) para crear una insignia para personalizar y distinguir tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 ### Ejemplo: Configurar la personalización de una acción
 
@@ -483,7 +487,7 @@ branding:
 
 ### `branding.color`
 
-El color de fondo del distintivo. Puede ser: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, o `gray-dark`.
+El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `verde`, `anaranjado`, `rojo`, `púrpura` o `gris oscuro`.
 
 ### `branding.icon`
 

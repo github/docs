@@ -1,12 +1,12 @@
 ---
-title: Merging a pull request with a merge queue
-intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
+title: Fusionar una solicitud de cambios con una cola de fusión
+intro: 'Si el ajuste de protección de rama que tiene la rama requiere una cola de fusión, puedes agregar tus solicitudes de cambio a una cola de fusión y {% data variables.product.product_name %} las fusionará por ti una vez que pasen todas las verificaciones requeridas.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Merge PR with merge queue
+shortTitle: Fusionar una solicitud de cambios con cola de fusión
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
@@ -14,55 +14,55 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About merge queues
+## Acerca de las colas de fusión
 
 {% data reusables.pull_requests.merge-queue-overview %}
 {% data reusables.pull_requests.merge-queue-references %}
 
-## Adding a pull request to a merge queue
+## Agregar una solicitud de cambios a una cola de fusión
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
+1. En la lista de "Solicitudes de cambios", haz clic en la solicitud de cambios que te gustaría agregar a una cola de fusión.
 
-1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow. ![Fusionar las opciones de la cola](/assets/images/help/pull_requests/merge-queue-options.png)
+1. Haz clic en **Fusionar cuando esté lista** para agregar la solicitud de cambios a la cola de fusión. Como alternativa, si eres un administrador, puedes:
+   -  Fusiona la solicitud de cambios directamente seleccionando **Fusionar sin esperar que se cumplan los requisitos ({% ifversion bypass-branch-protections %}omitir protecciones de rama{% else %}solo administradores{% endif %})**, si es que lo permiten los ajustes de protección de rama y sigue el flujo estándar. ![Fusionar las opciones de la cola](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
-  **Tip:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+  **Tip:** Puedes hacer clic en **Fusionar cuando esté lista** cuando estés listo para fusionar tus cambios propuestos. {% data variables.product.product_name %} agregará la solicitud de cambios automáticamente a la cola de fusión una vez que se cumplan las condiciones de verificación de estado y las aprobaciones requeridas.
 
   {% endtip %}
 
-1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
+1. Confirma que quieres agregar la solicitud de cambios a la cola de fusión haciendo clic en **Confirmar la fusión cuando esté lista**.
 
-## Removing a pull request from a merge queue
+## Eliminar una solicitud de cambios de una cola de fusión
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to remove from a merge queue.
+1. En la lista de "Solicitudes de cambios", haz clic en la solicitud de cambios que te gustaría eliminar de una cola de fusión.
 
-1. To remove the pull request from the queue, click **Remove from queue**. ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
+1. Para eliminar la solicitud de cambios de la cola, haz clic en **Eliminar de la cola**. ![Eliminar la solicitud de cambios de la cola](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
-Alternatively, you can navigate to the merge queue page for the base branch, click **...** next to the pull request you want to remove, and select **Remove from queue**. For information on how to get to the merge queue page for the base branch, see the section below.
+Como alternativa, puedes navegar para fusionar la página de la cola para la rama base, hacer clic en **...** junto a la solicitud de cambios que quieres eliminar y seleccionar **Eliminar de la cola**. Para obtener más información sobre cómo llegar a la página de la cola de fusión para la rama base, consulta la siguiente sección.
 
-## Viewing merge queues
+## Ver las colas de fusión
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+Puedes ver la cola de fusión para una rama base en varios lugares de {% data variables.product.product_name %}.
 
-- En la página de **Ramas** del repositorio. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. Para obtener más información, consulta la sección "[Ver las ramas en tu repositorio](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)".
+- En la página de **Ramas** del repositorio. Te recomendamos utilizar esta ruta si no tienes o no sabes si una solicitud de cambios ya está en una cola y si quieres ver lo que hay en dicha cola. Para obtener más información, consulta la sección "[Ver las ramas en tu repositorio](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)".
 
   ![Ver la cola de fusión en la página de las ramas](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %} next to any pull request in the merge queue.
+- En la página de **Solicitudes de cambios** de tu repositorio, haz clic en {% octicon "clock" aria-label="The clock symbol" %} junto a cualquier solicitud de cambios en la cola de fusión.
 
   ![Ver la cola de fusión en la página de solicitudes de cambio](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
+- En la página de la solicitud de cambios cuando se requiere una cola de fusión para fusionar, desplázate hasta la parte inferior de la línea de tiempo y haz clic en el enlace **cola de fusión**.
 
-  ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
+  ![Enlace de cola de fusión en la solicitud de cambios](/assets/images/help/pull_requests/merge-queue-link.png)
 
 - La vista de cola de fusión muestra las solicitudes de cambios que están actualmente en cola, con tus solicitudes de cambios marcadas claramente.
 

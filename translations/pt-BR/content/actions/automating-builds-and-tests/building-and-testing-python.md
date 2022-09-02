@@ -380,6 +380,8 @@ Para este exemplo, você deverá criar dois [tokens da API do PyPI](https://pypi
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Upload Python Package
 
 on:

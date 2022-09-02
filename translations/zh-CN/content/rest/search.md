@@ -107,7 +107,8 @@ application/vnd.github.text-match+json
 
 ``` shell
 curl -H 'Accept: application/vnd.github.text-match+json' \
-'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug \
++language:python+state:open&sort=created&order=asc'
 ```
 
 对于每个搜索结果，响应将包含一个 `text_matches` 数组。 在下面的 JSON 中，我们在 `text_matches` 数组中有两个对象。
@@ -123,7 +124,9 @@ curl -H 'Accept: application/vnd.github.text-match+json' \
       "object_url": "https://api.github.com/repositories/215335/issues/132",
       "object_type": "Issue",
       "property": "body",
-      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly distributed windows font that supports them then no problem (we can use html font tags) but otherwise the '(21)' style is probably better.\n",
+      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly
+      distributed windows font that supports them then no problem (we can use html
+      font tags) but otherwise the '(21)' style is probably better.\n",
       "matches": [
         {
           "text": "windows",
@@ -145,7 +148,9 @@ curl -H 'Accept: application/vnd.github.text-match+json' \
       "object_url": "https://api.github.com/repositories/215335/issues/comments/25688",
       "object_type": "IssueComment",
       "property": "body",
-      "fragment": " right after that are a bit broken IMHO :). I suppose we could have some hack that maxes out at whatever the font does...\n\nI'll check what the state of play is on Windows.\n",
+      "fragment": " right after that are a bit broken IMHO :). I suppose we could
+      have some hack that maxes out at whatever the font does...\n\nI'll check
+      what the state of play is on Windows.\n",
       "matches": [
         {
           "text": "Windows",

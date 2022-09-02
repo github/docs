@@ -1,6 +1,6 @@
 ---
 title: 将 Azure 订阅连接到您的企业
-intro: '您可以使用 Microsoft 企业协议启用并支付 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %} 的使用。'
+intro: '您可以使用 Microsoft 企业协议启用并支付 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %} 的使用。'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -24,7 +24,7 @@ shortTitle: 连接 Azure 订阅
 
 - “[管理 {% data variables.product.prodname_registry %} 的支出限额](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)”
 - “[管理 {% data variables.product.prodname_actions %} 的支出限额](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”
-- “[管理 {% data variables.product.prodname_codespaces %} 的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”
+- “[管理 {% data variables.product.prodname_github_codespaces %} 的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”
 
 ## 将 Azure 订阅连接到您的企业帐户
 

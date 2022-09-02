@@ -19,6 +19,8 @@ This guide will walk you through setting up, configuring and managing your {% da
 
 The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
 If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
@@ -29,8 +31,6 @@ If you choose to let your members create and manage their own personal accounts 
 ### 1. Understanding the differences between an organization account and enterprise account
 
 Both organization and enterprise accounts are available with {% data variables.product.prodname_ghe_cloud %}. An organization is a shared account where groups of people can collaborate across many projects at once, and owners and administrators can manage access to data and projects. An enterprise account enables collaboration between multiple organizations, and allows owners to centrally manage policy, billing and security for these organizations. For more information on the differences, see "[Organizations and enterprise accounts](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)."
-
-
 
 If you choose an enterprise account, keep in mind that some policies can be set only at an organization level, while others can be enforced for all organizations in an enterprise.
 
@@ -197,7 +197,7 @@ Members of your organization or enterprise can use tools from the {% data variab
 ### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 ### 5. {% data variables.product.prodname_pages %}を使用する
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+{% data variables.product.prodname_pages %}は、HTML、CSS、JavaScriptファイルをリポジトリから直接取得してWebサイトを公開する、静的サイトホスティングサービスです。 You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community.
@@ -206,9 +206,9 @@ Members of your organization or enterprise can use GitHub's learning and support
 You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Learning with {% data variables.product.prodname_learning %}
-Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
+Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). 各コースは、GitHubのコミュニティが作成したハンズオンのレッスンで、親切なbotによって教えてもらえます。
 
-For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+詳しい情報については「[Gitと{% data variables.product.prodname_dotcom %}の学習リソース](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)」を参照してください。
 ### 3. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 

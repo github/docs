@@ -18,20 +18,22 @@ Los permisos de los paquetes pueden ser con alcance de repositorio o de usuario/
 
 Un paquete con alcance de repositorio hereda los permisos y la visibilidad del repositorio al que pertenece el paquete. Puedes encontrar un paquete con alcance de un repositorio específico si vas a la página principal de este y haces clic en el enlace de **Paquetes** a la derecha de la página. {% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Conectar un repositorio con un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".{% endif %}
 
-Los registros del {% data variables.product.prodname_registry %} que se mencionan a continuación utilizan permisos con alcance de repositorio:
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
   {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-  - Registro de npm
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
   - Registro de RubyGems
   - Registro de Apache maven
   - Registro de NuGet
+
+{% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Permisos granulares para paquetes con alcance de organización/usuario
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar el control de accesos y la visibilidad del paquete de forma separada desde un repositorio que esté conectado (o enlazado) a un paquete.
 
-Actualmente, solo el {% data variables.product.prodname_container_registry %} ofrece permisos granulares para tus paquetes de imagen de contenedor.
+Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
 ## Permisos de visibilidad y acceso para las imágenes de contenedor
 
@@ -47,7 +49,7 @@ Para utilizar o administrar un paquete que hospede un registro de paquetes, debe
 
 Por ejemplo:
 -  Para descargar e instalar los paquetes desde un repositorio, tu token debe tener el alcance de `read:packages` y tu cuenta de usuario debe tener permisos de lectura.
-- |{% ifversion fpt or ghes > 3.1 or ghec %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con esta característica. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% elsif ghae %}Para borrar una versión específica de un paquete en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
+- |{% ifversion fpt or ghes or ghec %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con esta característica. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% elsif ghae %}Para borrar una versión específica de un paquete en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 | Ámbito                                                                                                                                                                                                                                | Descripción                                                                          | Permiso requerido |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
 | `read:packages`                                                                                                                                                                                                                       | Descarga e instala paquetes de {% data variables.product.prodname_registry %}        | lectura           |

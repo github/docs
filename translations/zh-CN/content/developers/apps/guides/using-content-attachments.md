@@ -119,7 +119,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-有关 `node_id` 的更多信息，请参阅“[使用全局节点 ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)”。
+有关 `node_id` 的更多信息，请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”。
 
 ## 使用 Probot 和 GitHub 应用程序清单的示例
 

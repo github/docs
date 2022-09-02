@@ -1,8 +1,8 @@
 ---
-title: プロジェクトボードカード
+title: '{% data variables.product.prodname_project_v1_caps %}カード'
 shortTitle: カード
 allowTitleToDifferFromFilename: true
-intro: Project board cards APIを使うと、プロジェクトボード上のカードを作成及び管理できます。
+intro: '{% data variables.product.prodname_project_v1 %} cards APIを使うと、{% data variables.projects.projects_v1_board %}上でカードを作成及び管理できます。'
 versions:
   fpt: '*'
   ghes: '*'

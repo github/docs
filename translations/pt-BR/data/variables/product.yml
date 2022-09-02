@@ -39,8 +39,8 @@ prodname_importer_proper_name: 'Importador do GitHub Enterprise'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
-prodname_education_community_with_url: 'a [Comunidade de Treinamento do GitHub](https://github.com/orgs/github-community/discussions/categories/github-education)'
-prodname_education_forum_link: 'https://github.com/orgs/github-community/discussions/categories/github-education'
+prodname_education_community_with_url: 'a [Comunidade de Treinamento do GitHub](https://github.com/orgs/community/discussions/categories/github-education)'
+prodname_education_forum_link: 'https://github.com/orgs/community/discussions/categories/github-education'
 prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'Programa de campus do GitHub'
@@ -67,6 +67,16 @@ prodname_codeql_cli: 'CodeQL CLI'
 #Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
   {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
+#Projects v2
+prodname_projects_v2: 'Projetos'
+prodname_projects_v1: >-
+  {% ifversion ghes or ghae %}project boards{% else %}projects (classic){% endif %}
+prodname_projects_v1_caps: >-
+  {% ifversion ghes or ghae %}Project boards{% else %}Projects (classic){% endif %}
+prodname_project_v1: >-
+  {% ifversion ghes or ghae %}project board{% else %}project (classic){% endif %}
+prodname_project_v1_caps: >-
+  {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'aplicativo GitHub'
@@ -75,7 +85,7 @@ prodname_oauth_app: 'aplicativo OAuth'
 prodname_oauth_apps: 'Aplicativos OAuth'
 #API and developer docs
 prodname_enterprise_api: 'As APIs do {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %}'
-prodname_support_forum_with_url: '[Fórum de Suporte e Desenvolvimento de API GitHub](https://github.community/c/github-api-development-and-support/37)'
+prodname_support_forum_with_url: '[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
 prodname_unfurls: 'Anexos do conteúdo'
 #Azure AD
 ae_azure_ad_app_link: 'o [aplicativo GitHub AE](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
@@ -100,6 +110,12 @@ prodname_github_issues: 'Problemas do GitHub'
 #GitHub Packages
 prodname_registry: 'GitHub Package Registry'
 prodname_container_registry: 'Container registry'
+prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes or ghae %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
+prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes or ghae %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
+prodname_npm_registry: 'Registro de npm'
+prodname_ghcr_and_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_or_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} or {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_and_npm_registry_full: '{% data variables.product.prodname_container_registry %} (`ghcr.io`){% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %} (`npm.pkg.github.com`){% endif %}'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -114,6 +130,7 @@ prodname_github_codespaces: 'GitHub Codespaces'
 prodname_serverless: 'editor baseado na web'
 #GitHub resources: blog, jobs, skills
 prodname_gcf: 'Suporte à Comunidade GitHub'
+prodname_github_community: 'GitHub Community'
 prodname_blog: 'GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Skills'
@@ -148,7 +165,7 @@ prodname_code_scanning_capc: 'Varredura de código'
 prodname_codeql_runner: 'Executor do CodeQL'
 prodname_advisory_database: 'Banco de Dados Consultivo GitHub'
 prodname_codeql_workflow: 'Fluxo de trabalho de análise do CodeQL'
-prodname_dependency_review_action: 'Dependency Review GitHub Action'
+prodname_dependency_review_action: 'dependency review action'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS Code'
@@ -200,7 +217,7 @@ api_url_pre: >-
 oauth_host_code: >-
   {% ifversion fpt or ghec %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
-  [`https://github.com/login/device`](https://github.com/login/device)
+  {%- ifversion fpt or ghec %} [`https://github.com/login/device`](https://github.com/login/device) {%- elsif ghes %} `http(s)://[hostname]/login/device` {%- elsif ghae %} `https://[hostname]/login/device` {%- endif %}
 #Use this all other code blocks
 api_url_code: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}

@@ -1,1 +1,1 @@
-Self-hosted runners can be physical, virtual, in a container, on-premises, or in a cloud.
+自托管运行器可以是物理设备、虚拟设备、容器，也可以部署在本地或云端。

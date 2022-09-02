@@ -85,13 +85,6 @@ upcoming_changes:
     criticality: breaking
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: 'Se eliminarán las `userAccounts`. Utilice el campo `Enterprise.members` en su lugar.'
-    reason: Se eliminará el campo de `Enterprise.userAccounts`.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
     location: Query.sponsorables.dependencyEcosystem
     description: 'Se eliminará a `dependencyEcosystem`. Utiliza el argumento del ecosistema en su lugar.'
     reason: El tipo cambiará de SecurityAdvisoryEcosystem a DependencyGraphEcosystem.
@@ -1002,6 +995,13 @@ upcoming_changes:
     criticality: breaking
     owner: lukewar
   - 
+    location: ProjectView.groupedItems
+    description: 'Se eliminará a `groupedItems`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
+    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
     location: ProjectView.items
     description: 'Se eliminará a `items`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
@@ -1116,14 +1116,14 @@ upcoming_changes:
   - 
     location: RepositoryVulnerabilityAlert.fixReason
     description: 'Se eliminará a `fixReason`.'
-    reason: El campo `fixReason` se eliminará. Aún puedes utilizar `fixedAt` y `dismissReason`.
+    reason: El campo `fixReason` ya se eliminó. Aún puedes utilizar `fixedAt` y `dismissReason`.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
   - 
     location: UnlockAndResetMergeGroupInput.branch
     description: 'Se eliminará la `branch`.'
-    reason: El grupod e fusión actual para la rama predeterminada del repositorio, el argumento `branch` es ahora un no-op
+    reason: El grupo de fusión actual para la rama predeterminada del repositorio, el argumento `branch` es ahora un no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones

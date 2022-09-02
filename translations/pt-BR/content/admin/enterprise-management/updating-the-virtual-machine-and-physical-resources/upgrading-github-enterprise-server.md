@@ -38,8 +38,6 @@ shortTitle: Atualizando GHES
 
   {% endnote %}
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## Obter um instantâneo
 
 Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Apenas recomendamos tirar um instantâneo da VM quando o dispositivo estiver desligado ou em modo de manutenção e todos os trabalhos em segundo plano estiverem concluídos.

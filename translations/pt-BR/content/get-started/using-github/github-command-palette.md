@@ -39,8 +39,8 @@ Ao abrir a paleta de comando, ela mostra sua localização no canto superior esq
 {% note %}
 
 **Notas:**
-- Se você estiver editando o texto do Markdown, abra a paleta de comandos com <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows e Linux) ou <kbd>Comando</kbd>+<kbd>Opção</kbd>+<kbd>K</kbd> (Mac).
-- Se você estiver trabalhando em um projeto (beta), uma paleta de comandos específica do projeto será exibida no lugar. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+- Se você estiver editando o texto do Markdown, abra a paleta de comandos com <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows e Linux) ou <kbd>Command</kbd>+<kbd>Opção</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+- Se você estiver trabalhando em um {% data variables.projects.project_v2 %}, uma paleta de comandos específica do projeto será exibida no lugar. Para obter mais informações, consulte "[Personalizando uma visão](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
 
 {% endnote %}
 
@@ -151,7 +151,7 @@ Estes comandos estão disponíveis em todos os escopos.
 | `Importar repositório`                 | Criar um novo repositório importando um projeto de outro sistema de controle de versão. Para obter mais informações, consulte "[Importando um repositório com o Importador do GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)". |
 | `Novo gist`                            | Abra um novo gist. Para obter mais informações, consulte[Criando um gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."                                                                                                                                                   |
 | `Nova organização`                     | Criar uma nova organização Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".                                                                                                        |
-| `Novo projeto`                         | Criar um novo quadro de projeto. Para obter mais informações, consulte "[Criar um quadro de projeto](/issues/trying-out-the-new-projects-experience/creating-a-project)".                                                                                                                                           |
+| `Novo projeto`                         | Criar um novo quadro de projeto. Para obter mais informações, consulte "[Criar um quadro de projeto](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)".                                                                                                                            |
 | `Novo repositório`                     | Criar um novo repositório a partir do zero. Para obter mais informações, consulte "[Criar um novo repositório](/repositories/creating-and-managing-repositories/creating-a-new-repository)."                                                                                                                        |
 | `Alterar tema para <theme name>` | Mude diretamente para um tema diferente para a interface do usuário. Para obter mais informações, consulte "[Gerenciando as suas configurações de tema](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)".             |
 

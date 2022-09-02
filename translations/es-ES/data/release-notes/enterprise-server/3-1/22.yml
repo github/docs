@@ -5,8 +5,8 @@ sections:
     - Los paquetes se actualizaron a las últimas versiones de seguridad.
   bugs:
     - Un script interno para validar nombres de host en el archivo de configuración de {% data variables.product.prodname_ghe_server %} devolvió un error cuando la secuencia de nombre de host iniciaba con un "." (punto).
-    - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
-    - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
+    - En las configuraciones de disponibilidad alta en donde el nombre de host del nodo primario fue mayor a 60 caracteres, MySQL no se pudo configurar.
+    - El cálculo de "Cantidad máxima de confirmantes en toda la instancia" que se reportó en el tablero de administrador de sitio fue incorrecto.
     - Una entrada incorrecta en la base de datos para las réplicas de repositorio ocasionó que dicha base de datos se corrompiera al realizar una restauración utilizando {% data variables.product.prodname_enterprise_backup_utilities %}.
   changes:
     - En las configuraciones de disponibilidad alta en donde Elasticsearch reportó un estado amarillo válido, los cambios que se introdujeron en una corrección previa bloquearon el comando `ghe-repl-stop` y no permitieron que la replicación se detuviera. El utilizar `ghe-repo-stop --force` ahora forzará a Elasticsearch a detenerse cuando el servicio está en un estado amarillo válido o normal.

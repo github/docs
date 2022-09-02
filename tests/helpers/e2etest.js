@@ -10,7 +10,6 @@ export async function get(
     followRedirects: false,
     followAllRedirects: false,
     headers: {},
-    cookieJar: undefined,
   }
 ) {
   const method = opts.method || 'get'
@@ -22,7 +21,6 @@ export async function get(
       body: opts.body,
       headers: opts.headers,
       retry: { limit: 0 },
-      cookieJar: opts.cookieJar,
       throwHttpErrors: false,
       followRedirect: opts.followAllRedirects || opts.followRedirects,
     },
@@ -62,14 +60,13 @@ export function post(route, opts) {
 
 export async function getDOM(
   route,
-  { headers, allow500s, allow404, cookieJar } = {
+  { headers, allow500s, allow404 } = {
     headers: undefined,
     allow500s: false,
     allow404: false,
-    cookieJar: undefined,
   }
 ) {
-  const res = await get(route, { followRedirects: true, headers, cookieJar })
+  const res = await get(route, { followRedirects: true, headers })
   if (!allow500s && res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
   }
@@ -83,8 +80,8 @@ export async function getDOM(
 
 // For use with the ?json query param
 // e.g. await getJSON('/en?json=breadcrumbs')
-export async function getJSON(route) {
-  const res = await get(route, { followRedirects: true })
+export async function getJSON(route, opts) {
+  const res = await get(route, { ...opts, followRedirects: true })
   if (res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
   }

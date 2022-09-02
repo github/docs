@@ -38,8 +38,10 @@ Você pode adicionar a ação que você criou em {% data variables.product.prodn
 Para compartilhar uma nova versão e publicar a ação em {% data variables.product.prodname_marketplace %}, siga essas instruções:
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Se um repositório contiver um arquivo de metadados da ação (`action.yml` ou `action.yaml`), você verá um banner para publicar a ação em {% data variables.product.prodname_marketplace %}. Clique em **Elaborar uma versão**. ![Publique esta ação no botão marketplace](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
-1. Selecione **Publicar esta ação em {% data variables.product.prodname_marketplace %}**. Se não for possível marcar a caixa de seleção **Publicar esta ação em {% data variables.product.prodname_marketplace %}**, você deverá ler e aceitar o Contrato {% data variables.product.prodname_marketplace %} primeiro. ![Selecione publicar no "Marketplace"](/assets/images/help/repository/marketplace_actions_publish.png)
+1. Acesse o arquivo de metadados de ação no repositório (`action.yml` ou `. aml`), e você verá um banner para publicar a ação em {% data variables.product.prodname_marketplace %}. Clique em **Elaborar uma versão**.
+
+   ![Publicar esta ação no botão marketplace](/assets/images/help/repository/publish-github-action-to-marketplace-button.png)
+1. Em "Ação de versão", selecione a caixa de seleção para publicar a ação em {% data variables.product.prodname_marketplace %}. Se você não puder selecionar a caixa de seleção, primeiro clique no link para ler e aceitar o Contrato de Desenvolvedor de {% data variables.product.prodname_marketplace %}. ![Selecione publicar no "Marketplace"](/assets/images/help/repository/marketplace_actions_publish.png)
 1. Se as etiquetas do seu arquivo de metadados tiverem algum problema, você receberá uma mensagem de erro. ![Veja a notificação](/assets/images/help/repository/marketplace_actions_fixerrors.png)
 1. Se você ver alguma sugestão na tela, resolva-as atualizando o arquivo de metadados. Após a conclusão, você receberá a mensagem "Tudo está OK". ![Corrigir erros](/assets/images/help/repository/marketplace_actions_looksgood.png)
 1. Escolha uma "categoria primária" e, opcionalmente, "outra categoria", que ajudará as pessoas a encontrar a sua ação em {% data variables.product.prodname_marketplace %}. ![Escolha a categoria](/assets/images/help/repository/marketplace_actions_categories.png)

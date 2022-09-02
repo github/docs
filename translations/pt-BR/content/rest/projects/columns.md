@@ -1,8 +1,8 @@
 ---
-title: Colunas do quadro de projeto
+title: 'colunas de {% data variables.product.prodname_project_v1_caps %}'
 shortTitle: Colunas
 allowTitleToDifferFromFilename: true
-intro: A API de colunas do quadro de projetos permite que você crie e gerencie colunas em um quadro de projeto.
+intro: 'A API de colunas {% data variables.product.prodname_project_v1 %} permite que você crie e gerencie as colunas em um {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'

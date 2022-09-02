@@ -1,8 +1,8 @@
 ---
-title: プロジェクトボードの列
-shortTitle: カラム
+title: '{% data variables.product.prodname_project_v1_caps %}の列'
+shortTitle: 列
 allowTitleToDifferFromFilename: true
-intro: Project board columns APIを使うと、プロジェクトボード上の列の作成及び管理ができます。
+intro: '{% data variables.product.prodname_project_v1 %} columns APIを使うと、{% data variables.projects.projects_v1_board %}上の列の作成及び管理ができます。'
 versions:
   fpt: '*'
   ghes: '*'

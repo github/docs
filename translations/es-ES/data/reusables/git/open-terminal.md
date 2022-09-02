@@ -1,0 +1,1 @@
+1. Abre Terminal.

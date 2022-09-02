@@ -4,7 +4,7 @@ intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -31,6 +31,15 @@ shortTitle: 管理主题设置
    !["主题模式"下的下拉菜单用于选择主题首选项](/assets/images/help/settings/theme-mode-drop-down-menu.png)
 1. 单击想要使用的主题。
     - 如果您选择单个主题，请单击一个主题。
+
+      {%- ifversion ghes = 3.5 %}
+      {% note %}
+
+      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
+
+      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+      {% endnote %}
+      {%- endif %}
 
       {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - 如果您选择遵循系统设置，请单击白天主题和夜间主题。

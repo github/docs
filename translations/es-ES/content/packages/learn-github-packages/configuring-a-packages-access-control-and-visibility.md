@@ -16,7 +16,7 @@ shortTitle: Visibilidad & control de accesos
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar la visibilidad y el control de accesos de un paquete por separado desde el repositorio al cual está conectado (o enlazado).
 
-Actualmente, solo puedes utilizar permisos granulares con el {% data variables.product.prodname_container_registry %}. Los permisos granulares no son compatibles en nuestros otros registros de paquetes, tales como el registro de npm.
+Actualmente, solo puedes utilizar permisos granulares con el {% data variables.product.prodname_ghcr_and_npm_registry %}. Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 Para obtener más información sobre los permisos de los paquetes con alcance de repositorio, los alcances relacionados con paquetes para los PAT o para administrar permisos para los flujos de trabajo de tus acciones, consulta la sección "[Acerca de los permisos para los Paquetes de GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)".
 
@@ -95,7 +95,7 @@ Para personalizar aún más el acceso a tu imagen de contenedor, consulta la sec
 {% ifversion fpt or ghec %}
 ## Asegurarse de que {% data variables.product.prodname_codespaces %} puede acceder a tu paquete
 
-Predeterminadamente, un codespace puede acceder sin problema a algunos paquetes en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, tales como aquellos que se publican en el mismo repositorio con la opción de **Heredar acceso** seleccionada. Para obtener más información sobre qué tipo de acceso se configura automáticamente, consulta la sección "[Acceder a las imágenes almacenadas en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)".
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
 
 De otra manera, para asegurarte de que un codespace tiene acceso a tu paquete, debes otorgar acceso al repositorio en donde se esté lanzando dicho codespace.
 

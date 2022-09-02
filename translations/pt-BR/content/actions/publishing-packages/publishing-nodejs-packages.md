@@ -98,9 +98,9 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 
 ### Configurar o repositório de destino
 
-Se você não fornecer a chave do `repositório` no seu arquivo *package.json*, {% data variables.product.prodname_registry %} irá publicar um pacote no repositório de {% data variables.product.prodname_dotcom %} especificado no campo `nome` do arquivo *package.json*. Por exemplo, um pacote denominado `@my-org/test` é publicado no `my-org/test` repositório de {% data variables.product.prodname_dotcom %}.
+Vincular o seu pacote ao {% data variables.product.prodname_registry %} usando a chave do repositório `` é opcional. Se você optar por não fornecer a chave do `repositório` no seu arquivo *package.json*, {% data variables.product.prodname_registry %} irá publicar um pacote no repositório de {% data variables.product.prodname_dotcom %} especificado no campo `nome` do arquivo *package.json*. Por exemplo, um pacote denominado `@my-org/test` é publicado no `my-org/test` repositório de {% data variables.product.prodname_dotcom %}. Se a `url` especificada na chave do `repositório` é inválida, seu pacote ainda poderá ser publicado. No entanto ele não será vinculado à fonte do repositório, como esperado.
 
-No entanto, se você fornecer a chave `repositório`, o repositório nessa chave será usado como o registro de npm de destino para {% data variables.product.prodname_registry %}. Por exemplo, publicar os resultados *package.json* abaixo em um pacote denominado `my-amazing-package` publicado no repositório `octocat/meu-repo` de {% data variables.product.prodname_dotcom %}.
+Se você fornecer a chave do `repositório` no seu arquivo *package.json*, posteriormente, o repositório nessa chave será usado como registro npm de destino para {% data variables.product.prodname_registry %}. Por exemplo, publicar os resultados *package.json* abaixo em um pacote denominado `my-amazing-package` publicado no repositório `octocat/meu-repo` de {% data variables.product.prodname_dotcom %}. Uma vez publicada, apenas a fonte do repositório é atualizada, e o pacote não herda nenhuma permissão do repositório de destino.
 
 ```json
 {
@@ -128,10 +128,10 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages

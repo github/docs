@@ -98,9 +98,9 @@ Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo
 
 ### Configurar el repositorio de destino
 
-Si no proporcionas la clave del `repository` en tu archivo *package.json*, entonces el {% data variables.product.prodname_registry %} publicará un paquete en el repositorio de {% data variables.product.prodname_dotcom %} que especifiques en el campo `name` del archivo *package.json*. Por ejemplo, un paquete denominado `@my-org/test` se publicará en el repositorio `my-org/test` de {% data variables.product.prodname_dotcom %}.
+Linking your package to {% data variables.product.prodname_registry %} using the `repository` key is optional. If you choose not to provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. Por ejemplo, un paquete denominado `@my-org/test` se publicará en el repositorio `my-org/test` de {% data variables.product.prodname_dotcom %}. If the `url` specified in the `repository` key is invalid, your package may still be published however it won't be linked to the repository source as intended.
 
-Sin embargo, si no proporcionas la clave del `repository`, entonces el repositorio en esa clave se utilizará como el registro de npm de destino para el {% data variables.product.prodname_registry %}. Por ejemplo, el publicar el siguiente *package.json* dará como resultado un paquete denominado `my-amazing-package` que se publicará en el repositorio `octocat/my-other-repo` de {% data variables.product.prodname_dotcom %}.
+If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. Por ejemplo, el publicar el siguiente *package.json* dará como resultado un paquete denominado `my-amazing-package` que se publicará en el repositorio `octocat/my-other-repo` de {% data variables.product.prodname_dotcom %}. Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
 
 ```json
 {
@@ -128,10 +128,10 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages

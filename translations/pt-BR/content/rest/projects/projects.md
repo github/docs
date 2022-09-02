@@ -1,8 +1,8 @@
 ---
-title: Quadros de projeto
+title: '{% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: Quadros
 allowTitleToDifferFromFilename: true
-intro: A API de quadros de projetos permite criar e gerenciar projetos em um repositório.
+intro: 'A API de {% data variables.product.prodname_projects_v1 %} permite criar e gerenciar {% data variables.projects.projects_v1_boards %} em um repositório.'
 versions:
   fpt: '*'
   ghes: '*'

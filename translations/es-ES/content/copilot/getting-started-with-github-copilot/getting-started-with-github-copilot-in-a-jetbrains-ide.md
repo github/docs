@@ -23,8 +23,9 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
 
-1. In your JetBrains IDE, under the **File** menu, click **Settings**.
-1. At the top of the "Settings" dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**. ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
+2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
+3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**. ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**. ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
@@ -45,7 +46,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
    {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text, as shown below. The exact suggestion may vary.
    ![Screenshot of the Java class body suggestion](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
+1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. La sugerencia exacta podría variar.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 
    ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
@@ -74,7 +75,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+1. Para hacer que el {% data variables.product.prodname_copilot %} te muestre una sugerencia, escribe la siguiente línea en el archivo de Java.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 1. Open a new tab with multiple additional suggestions.
     - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
@@ -92,7 +93,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
     // and give them a red border
     void process () {
     ```
-  ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
+  ![Captura de pantalla de la sugerencia de cuerpo de función de Java](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 

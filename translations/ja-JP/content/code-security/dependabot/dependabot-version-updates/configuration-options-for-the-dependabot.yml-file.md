@@ -415,7 +415,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-デフォルトでは、{% data variables.product.prodname_dependabot %} は、バージョン更新に対して最大 5 つのプルリクエストをオープンします。 5 つのプルリクエストがオープンになると、オープンになっているリクエストの一部をマージまたはクローズするまで、新しいリクエストはブロックされます。オープンになっているリクエストの一部をマージまたはクローズしたら、その後の更新で新しいプルリクエストを開くことができます。 この制限を変更するには、`open-pull-requests-limit` を使用します。 これは、パッケージマネージャーのバージョン更新を一時的に無効にする簡単な方法としても使用できます。
+デフォルトでは、{% data variables.product.prodname_dependabot %} は、バージョン更新に対して最大 5 つのプルリクエストをオープンします。 {% data variables.product.prodname_dependabot %}からのオープンなPull Requestが5つあると、それらのオープンなリクエストからマージもしくはクローズされたものが出てくるまでは、{% data variables.product.prodname_dependabot %}は新しいリクエストをオープンしません。 この制限を変更するには、`open-pull-requests-limit` を使用します。 これは、パッケージマネージャーのバージョン更新を一時的に無効にする簡単な方法としても使用できます。
 
 このオプションはセキュリティアップデートに影響を与えません。セキュリティアップデートには、10 件のオープンプルリクエストの内部制限があります。
 
@@ -773,6 +773,12 @@ registries:
 {% endraw %}
 
 ### `docker-registry`
+
+{% note %}
+
+**ノート:** Azure Container Registry (ACR)はサポートされていません。
+
+{% endnote %}
 
 `docker-registry` タイプは、ユーザ名とパスワードをサポートします。
 

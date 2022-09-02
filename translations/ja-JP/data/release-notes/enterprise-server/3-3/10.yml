@@ -19,3 +19,4 @@ sections:
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -39,8 +39,8 @@ When you open the command palette, it shows your location at the top left and us
 {% note %}
 
 **ノート:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
-- If you are working on a project (beta), a project-specific command palette is displayed instead. 詳しい情報については「[プロジェクト（ベータ）のビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
+- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
 
 {% endnote %}
 
@@ -151,7 +151,7 @@ These commands are available from all scopes.
 | `Import repository`                  | Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)." |
 | `New gist`                           | Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."                                                                                                                                      |
 | `New organization`                   | Create a new organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。                                                                                                         |
-| `新規プロジェクト`                           | Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."                                                                                                                                           |
+| `新規プロジェクト`                           | Create a new project board. For more information, see "[Creating a project](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."                                                                                                                            |
 | `New repository`                     | Create a new repository from scratch. 詳しい情報については「[新しいリポジトリの作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)」を参照してください。                                                                                                                                      |
 | `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."                                 |
 
@@ -160,9 +160,9 @@ These commands are available from all scopes.
 
 These commands are available only within the scope of an organization.
 
-| Command    | Behavior                                                                                                                                                    |
-|:---------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New team` | Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)." |
+| Command    | Behavior                                                                                                                                     |
+|:---------- |:-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `New team` | Create a new team in the current organization. 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。 |
 
 ### Repository commands
 

@@ -91,12 +91,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Note: GitHub recommends sending OAuth tokens using the Authorization header.
+
+{% endnote %}
+
+{% note %}
+
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -184,7 +190,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Client errors
 
@@ -256,7 +262,7 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 ## HTTP verbs
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action.
+action. Note that HTTP verbs are case-sensitive.
 
 Verb | Description
 -----|-----------
@@ -342,6 +348,18 @@ Name | Description
 `first` |The link relation for the first page of results.
 `prev` |The link relation for the immediate previous page of results.
 
+## Timeouts
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## Rate limiting
 
 Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits. 
@@ -400,6 +418,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -407,6 +426,7 @@ Header Name | Description
 -----------|-----------|
 `x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
 `x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
+`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
 `x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
 If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
@@ -423,6 +443,7 @@ If you exceed the rate limit, an error response returns:
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -441,6 +462,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -699,4 +721,3 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 
 [pagination-guide]: /guides/traversing-with-pagination
-

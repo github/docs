@@ -1,5 +1,5 @@
 {% note %}
 
-To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %}についてさらに学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
 {% endnote %}

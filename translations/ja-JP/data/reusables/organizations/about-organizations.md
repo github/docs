@@ -1,1 +1,3 @@
-Your team can collaborate on {% data variables.product.product_name %} by using an organization account. Each person that uses {% data variables.product.prodname_dotcom %} signs into a personal account. Multiple personal accounts can collaborate on shared projects by joining the same organization account, which owns the repositories. A subset of these personal accounts can be given the role of organization owner, which allows those people to granularly manage access to the organization's resources using sophisticated security and administrative features.
+チームはOrganizationアカウントを使うことで{% data variables.product.product_name %}上で共同作業できます。Organizationアカウントは共有作業のコンテナとして働き、作業に固有の名前とブランドを与えます。
+
+{% data variables.product.prodname_dotcom %}を使う各人は、常に個人アカウントにサインインし、複数の個人アカウントが同じOrganizationアカウントに参加することによって、共有されたプロジェクト上で共同作業できます。 これらの個人アカウントの一部にOrganiationオーナーのロールを与えることができます。これによって、それらの人々は洗練されたセキュリティ及び管理機能を使い、詳細にOrganizationのリソースへのアクセスを管理できるようになります。

@@ -34,7 +34,7 @@ shortTitle: 管理 wiki 网页
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击 **Edit（编辑）**。 ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+5. Use the text editor to edit the page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. 输入提交消息，描述您的更改。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
 7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
 

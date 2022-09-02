@@ -16,11 +16,17 @@ topics:
 
 Data de entrada em vigor: **2 de abril de 2021**
 
+{% note %}
+
+**Observação:** As alterações para a lista de cookies nesta página estão pendentes.
+
+{% endnote %}
+
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para essa finalidade, disponibilizamos esta página, que detalha os [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
 
 ## Subprocessadores GitHub
 
-Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)). You can sign up to receive subprocessor list updates [here](https://www.github.com/privacy/subprocessors).
+Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)). Você pode se inscrever para receber atualizações da lista de subprocessadores [aqui](https://www.github.com/privacy/subprocessors).
 
 | Nome do subprocessador   | Descrição do processamento                                                  | Local do Processamento | Localização corporativa |
 |:------------------------ |:--------------------------------------------------------------------------- |:---------------------- |:----------------------- |

@@ -36,8 +36,6 @@ Você pode conceder {% data variables.product.prodname_managed_users %} acesso e
 
 Os nomes de usuário do {% data variables.product.prodname_managed_users %} da empresa e as suas informações de perfil como, por exemplo, nomes de exibição e endereços de e-mail, são definidos por meio do seu IdP e não podem ser alterados pelos próprios usuários. Para obter mais informações, consulte "[Nomes de usuário e informações do perfil](#usernames-and-profile-information)".
 
-{% data reusables.enterprise-accounts.emu-forks %}
-
 Os proprietários de empresas podem auditar todas as ações de {% data variables.product.prodname_managed_users %}' em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Eventos de log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)".
 
 Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo de conta corporativa separado com {% data variables.product.prodname_emus %} habilitado. Para obter mais informações sobre a criação desta conta, consulte "[Sobre empresas com usuários gerenciados](#about-enterprises-with-managed-users)".
@@ -66,7 +64,7 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 
 O {% data variables.product.prodname_managed_users_caps %} só pode contribuir para repositórios privados e internos da sua empresa e repositórios privados pertencentes à sua conta de usuário. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura a toda a comunidade de {% data variables.product.prodname_dotcom %} em geral. Estas restrições de acesso e visibilidade para usuários e conteúdo aplicam-se a todas as solicitações, incluindo solicitações da API.
 
-* {% data variables.product.prodname_managed_users %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
+* {% data variables.product.prodname_managed_users_caps %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
 * Os colaboradores externos não são compatíveis com {% data variables.product.prodname_emus %}.
 * {% data variables.product.prodname_managed_users_caps %} não pode criar problemas ou pull requests, comentar ou adicionar reações, nem estrelas, inspeção ou repositórios de bifurcação fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} pode visualizar todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, mas não pode fazer push de código para repositórios fora da empresa.
@@ -75,7 +73,8 @@ O {% data variables.product.prodname_managed_users_caps %} só pode contribuir p
 * {% data variables.product.prodname_managed_users_caps %} não pode criar gists ou comentários em gists.
 * {% data variables.product.prodname_managed_users_caps %} não pode instalar {% data variables.product.prodname_github_apps %} nas suas contas de usuário.
 * Outros usuários de {% data variables.product.prodname_dotcom %} não podem ver, mencionar ou convidar um {% data variables.product.prodname_managed_user %} para colaborar.
-* {% data variables.product.prodname_managed_users_caps %} só pode criar repositórios privados e {% data variables.product.prodname_managed_users %} só pode convidar outros integrantes da empresa para colaborar nos seus próprios repositórios.
+* Você pode escolher se {% data variables.product.prodname_managed_users %} consegue criar repositórios pertencentes às suas contas de usuário. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)".
+* Se você permitir que {% data variables.product.prodname_managed_users %} crie repositórios pertencentes às suas contas de usuário, eles somente poderão ser proprietários de repositórios privados e só podem convidar outros integrantes da empresa para colaborar em seus repositórios pertencentes aos usuários.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.product.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo.
 * {% data variables.product.prodname_managed_users_caps %} são limitados em seu uso de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
@@ -113,6 +112,8 @@ Antes que seus desenvolvedores possam usar {% data variables.product.prodname_gh
 
 5. Uma vez configurados a autenticação e provisionamento, você pode começar a provisionar os integrantes e gerenciar as equipes. Para obter mais informações, consulte "[Gerenciar associações de equipe com grupos de provedor de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
 
+Se os membros da sua empresa tiverem de usar uma estação de trabalho para contribuir com repositórios em {% data variables.product.product_location %} de uma conta de {% data variables.product.prodname_managed_user %} e uma conta pessoal, você pode prestar suporte. Para obter mais informações, consulte "[Ajudando os desenvolvedores com várias contas de usuário no {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
+
 ## Efetuar a autenticação um {% data variables.product.prodname_managed_user %}
 
 {% data variables.product.prodname_managed_users_caps %} deve efetuar a autenticação por meio de seu provedor de identidade. Para efetuar a autenticação, um {% data variables.product.prodname_managed_user %} pode acessar o seu portal de aplicativo do IdP ou usar a página de login no {% data variables.product.prodname_dotcom_the_website %}.
@@ -131,4 +132,10 @@ Antes que seus desenvolvedores possam usar {% data variables.product.prodname_gh
 
 Um conflito pode ocorrer quando os usuários de provisionamento das partes únicas do identificador fornecido pelo IdP são removidos durante a normalização. Se você não puder provisionar um usuário devido a um conflito de nome de usuário, você deverá modificar o nome de usuário fornecido pelo seu IdP. Para obter mais informações, consulte "[Resolvendo conflitos de nome de usuário](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts). "
 
-O nome do perfil e endereço de email de um {% data variables.product.prodname_managed_user %} também é fornecido pelo IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
+O nome do perfil e endereço de email de um {% data variables.product.prodname_managed_user %} também é fornecido pelo IdP. {% data variables.product.prodname_managed_users_caps %} não pode alterar seu nome de perfil ou endereço de e-mail em {% data variables.product.prodname_dotcom %}, e o IdP só pode fornecer um único endereço de e-mail.
+
+## Ajudando os desenvolvedores com várias contas de usuário em {% data variables.product.product_location %}
+
+As pessoas da sua equipe talvez precisem contribuir com recursos em {% data variables.product.product_location %} que estão fora do seu {% data variables.product.prodname_emu_enterprise %}. Por exemplo, você pode desejar manter uma empresa separada para os projetos de código aberto da sua empresa. Como {% data variables.product.prodname_managed_user %} não pode contribuir para recursos públicos, os usuários deverão manter uma conta pessoal separada para este trabalho.
+
+As pessoas que devem contribuir com de duas contas de usuário em {% data variables.product.product_location %} usando uma estação de trabalho podem configurar o Git para simplificar o processo. Para obter mais informações, consulte "[Gerenciando várias contas](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)".

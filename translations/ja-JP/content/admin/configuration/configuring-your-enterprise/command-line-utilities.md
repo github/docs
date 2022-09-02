@@ -49,7 +49,7 @@ $ ghe-announce -u
 {% data variables.product.product_name %} の Enterprise 設定を使用して、お知らせバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
 {% endif %}
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -289,33 +289,6 @@ ghe-org-admin-promote -a
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-このユーティリティは、アクティブでありかつキュー内にある、バックグラウンドジョブに関する情報を表示します。 あらゆるページの上部には、管理統計バーと同じジョブ数が表示されます。
-
-このユーティリティは、Resque サーバーでバックグラウンドジョブの処理に問題があるかどうかを識別するのに役立ちます。 以下のどのシナリオも Resque の問題を示している可能性があります。
-
-* 背景のジョブの数が増えていますが、実行中のジョブの数は同じままです。
-* イベントフィードが更新されない。
-* webhook はトリガーされていません。
-* Git プッシュ後、ウェブインタフェースが更新されない。
-
-Resque の故障を懸念している場合は、{% data variables.contact.contact_ent_support %} に連絡してください。
-
-このコマンドでは、キューでのジョブ停止または再開をすることができます。
-
-```shell
-$ ghe-resque-info
-# キューと現在キューに入っているジョブの数を表示する
-$ ghe-resque-info -p <em>QUEUE</em>
-# 特定のキューを停止する
-$ ghe-resque-info -r <em>QUEUE</em>
-# 特定のキューを再開する
-```
-{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -370,6 +343,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ```shell
 ghe-set-password <新しいパスワード>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+追加オプションを確認するには -h フラグを使用してください。
 
 ### ghe-ssh-check-host-keys
 
@@ -430,9 +415,9 @@ ghe-ssl-acme -e
 
 このユーティリティでは、{% data variables.product.prodname_enterprise %} のサーバにカスタムルートのCA証明書をインストールできます。 証明書は PEM 形式でなければなりません。 さらに、証明書の提供者が1つのファイルに複数のCA証明書を含めている場合は、それらを個別のファイルに分けて `ghe-ssl-ca-certificate-install` に各々を渡す必要があります。
 
-S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 詳細は「[コミット署名の検証について](/enterprise/user/articles/about-commit-signature-verification/)」を参照してください。
+S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 For more information, see "[About commit signature verification](/enterprise/user/articles/about-commit-signature-verification/)."
 
-他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {% data variables.product.product_location %} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{% data variables.product.product_location %} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
+Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
 
 ```
 SSL-Session:
@@ -447,7 +432,7 @@ SSL-Session:
     Verify return code: 0 (ok)
 ```
 
-リモートサーバの SSL 証明書を確認*できない*場合は、`SSL-Session` が0ではない終了コードを表示します。
+If, on the other hand, the remote server's SSL certificate can *not* be verified, your `SSL-Session` should have a nonzero return code:
 
 ```
 SSL-Session:
@@ -500,7 +485,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-このユーティリティは、{% data variables.product.product_location %} のバージョンやプラットフォーム、ビルドを表示します。
+This utility prints the version, platform, and build of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version
@@ -542,7 +527,7 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 
 ### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %} のクラスターデプロイメントでノードとサービスの健全性を確認します。
 
 ```shell
 $ ghe-cluster-status
@@ -648,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -687,7 +672,7 @@ ghe-repo <em>ユーザ名</em>/<em>reponame</em>
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"を参照してください。
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
 {% endwarning %}
 
@@ -763,6 +748,20 @@ git-import-tfs-raw
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## セキュリティ
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## サポート
 

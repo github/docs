@@ -1,5 +1,5 @@
-1. Optionally, narrow, expand, or completely change the scope for suggestions by editing the path in the command palette's text field.
+1. あるいは、コマンドパレットのテキストフィールド内のパスを編集することによって、候補のスコープを狭めたり、広げたり、完全に変更したりしてください。
 
-   - To narrow the scope within a user or organization account, highlight a repository then use <kbd>Tab</kbd> to add it to the scope.
-   - To expand the scope, highlight and remove an item in the scope using the <kbd>Backspace</kbd> or <kbd>delete</kbd> key.
-   - To clear the scope and text box, click **Clear** or use <kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Backspace</kbd> (Mac).
+   - スコープをユーザもしくはOragnizationアカウント内に狭めるには、リポジトリをハイライトしてから<kbd>Tab</kbd>を使ってそのリポジトリをスコープに追加してください。
+   - スコープを広げるには、スコープ内のアイテムをハイライトしてから<kbd>バックスペース</kbd>もしくは<kbd>削除</kbd>キーを使って削除してください。
+   - スコープとテキストボックスをクリアするには、**Clear（クリア）**をクリックするか、<kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows and Linux)もしくは<kbd>⌘</kbd><kbd>Backspace</kbd> (Mac)を使ってください。

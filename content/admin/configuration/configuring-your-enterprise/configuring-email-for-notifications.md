@@ -85,6 +85,26 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 ![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0. The feature will be available in an upcoming release.
+
+{% endnote %}
+{%- endif %}
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## Configuring DNS and firewall settings to allow incoming emails
 
 If you want to allow email replies to notifications, you must configure your DNS settings.

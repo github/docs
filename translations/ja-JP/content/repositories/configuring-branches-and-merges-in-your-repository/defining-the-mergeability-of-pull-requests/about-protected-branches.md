@@ -32,7 +32,10 @@ topics:
 
 デフォルト設定では、各ブランチ保護ルールは、一致するブランチへのフォースプッシュを無効にし、一致するブランチが削除されないようにします。 必要に応じて、これらの制限を無効にし、追加のブランチ保護設定を有効にすることができます。
 
-デフォルト設定では、ブランチ保護ルールの制限は、リポジトリへの管理者権限を持つユーザには適用されません。 必要に応じて、管理者を含めることもできます。
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+デフォルト設定では、ブランチ保護ルールの制限は、リポジトリへの管理者権限を持つユーザには適用されません。 You can optionally choose to include administrators, too.{% endif %}
 
 {% data reusables.repositories.branch-rules-example %} ブランチ名のパターンの詳細については、「[ブランチ保護ルールを管理する](/github/administering-a-repository/managing-a-branch-protection-rule)」を参照してください。
 
@@ -43,8 +46,7 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -53,7 +55,7 @@ topics:
 {%- ifversion required-deployments %}
 - [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
-- [管理者を含める](#include-administrators)
+{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
 - [一致するブランチにプッシュできるユーザを制限](#restrict-who-can-push-to-matching-branches)
 - [フォースプッシュを許可](#allow-force-pushes)
 - [削除を許可](#allow-deletions)
@@ -103,11 +105,9 @@ Any person or integration with write permissions to a repository can set the sta
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
-{% endif %}
 
 ### 署名済みコミットの必須化
 
@@ -152,9 +152,15 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
-### 管理者を含める
+{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+### Include administrators{% endif %}
 
-デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 この設定を有効化すると、保護されたブランチのルールを管理者にも適用できます。
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository.
+
+You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 You can enable this setting to include administrators in your protected branch rules.{% endif %}
 
 ### 一致するブランチにプッシュできるユーザを制限
 

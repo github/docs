@@ -65,8 +65,8 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 {% endwarning %}
 
 1. Conecta un nuevo disco a tu aparato {% data variables.product.prodname_ghe_server %}.
-1. Run the `lsblk` command to identify the new disk's device name.
-1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
+1. Ejecuta el comando `lsblk` para identificar el nombre de dispositivo del disco nuevo.
+1. Ejecuta el comando `parted` para formatear el disco, sustituyendo el nombre de tu dispositivo por `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

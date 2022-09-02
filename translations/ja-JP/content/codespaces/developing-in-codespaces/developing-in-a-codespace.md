@@ -2,7 +2,6 @@
 title: codespace で開発する
 intro: '{% data variables.product.product_name %} で codespace を開き、{% data variables.product.prodname_vscode %} の機能を使用して開発できます。'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
@@ -19,9 +18,9 @@ shortTitle: Develop in a codespace
 
  
 
-## About development with {% data variables.product.prodname_codespaces %}
+## About development with {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} は、{% data variables.product.prodname_vscode %} の完全な開発体験を提供します。 {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} は、{% data variables.product.prodname_vscode %} の完全な開発体験を提供します。 {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 
@@ -41,7 +40,7 @@ shortTitle: Develop in a codespace
 
 ### Codespace をパーソナライズする
 
-{% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)」を参照してください。
+{% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)」を参照してください。
 
 {% data reusables.codespaces.apply-devcontainer-changes %}詳しい情報については、「[プロジェクトの {% data variables.product.prodname_codespaces %} を設定する](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)」を参照してください。
 

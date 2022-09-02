@@ -73,6 +73,26 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 5. Cuando el correo electrónico de prueba es exitoso, en la parte inferior de la página, haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Requerir TLS para conexiones SMTP
+
+Puedes requerir el cifrado de TLS para todas las conexiones entrantes de SMTP, lo cual puede ayudar a satisfacer un requisito de certificación ISO-27017.
+
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0. The feature will be available in an upcoming release.
+
+{% endnote %}
+{%- endif %}
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Debajo de "Autenticación", selecciona **requerir la autenticación con TLS (recomendado)**.
+
+   ![Captura de pantalla de la casilla de verificación de "Requerir la autenticación con TLS (recomendado)"](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
 
 Si quieres permitir respuestas de correo electrónico para las notificaciones, debes configurar los parámetros de tu DNS.

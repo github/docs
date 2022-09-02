@@ -95,9 +95,9 @@ Predeterminadametne, la respuesta lleva el siguiente formato. Los parámetros de
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -108,13 +108,13 @@ Predeterminadametne, la respuesta lleva el siguiente formato. Los parámetros de
 
 El token de acceso del usuario permite que la GitHub App haga solicitudes a la API a nombre del usuario.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 Por ejemplo, en curl, puedes configurar el encabezado de autorización de la siguiente manera:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## Flujo de dispositivos
@@ -133,12 +133,12 @@ Este flujo de dispositivos te permite autorizar usuarios para una app sin encabe
 
 Ya que tengas un token de OAuth para un usuario, puedes revisar a qué instalaciones puede acceder.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
 También puedes verificar qué repositorios se encuentran accesibles para un usuario para una instalación.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
 Puedes encontrar más detalles en: [Listar instalaciones de app accesibles para el token de acceso del usuario](/rest/apps#list-app-installations-accessible-to-the-user-access-token) y [Listar repositorios accesibles para el token de acceso del usuario](/rest/apps#list-repositories-accessible-to-the-user-access-token).
@@ -159,7 +159,7 @@ Ya que los permisos a nivel de usuario se otorgan individualmente, puedes agrega
 
 ## Solicitudes de usuario a servidor
 
-Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando terminales de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST](/rest).
+Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando terminales de [GraphQL](/graphql) o de [REST](/rest).
 
 ### Terminales compatibles
 
@@ -913,10 +913,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener el uso de un flujo de trabajo](/rest/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## Leer más
 
 - "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}

@@ -49,8 +49,6 @@ curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.
 ```
 Use o número para estimar o espaço em disco necessário para os logs de auditoria do MySQL. O script também monitora seu espaço livre em disco durante o andamento da importação. Monitorar esse número é útil principalmente se o espaço livre em disco estiver próximo da quantidade de espaço em disco necessária para a migração.
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## Próximas etapas
 
 Após ler essas recomendações e requisitos, você poderá atualizar para o {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".

@@ -1,7 +1,7 @@
 {% ifversion ghes %}
 {% note %}
 
-If you have previously contacted {% data variables.contact.enterprise_support %} through the GitHub Enterprise Support portal, which is now deprecated, you should use the {% data variables.contact.contact_support_portal %} to open new tickets. You can still view your past tickets at [https://enterprise.githubsupport.com](https://enterprise.githubsupport.com).
+Si contactaste previamente a {% data variables.contact.enterprise_support %} mediante el portal de GitHub Enterprise Support, que ahora es obsoleto, deberás utilizar el {% data variables.contact.contact_support_portal %} para abrir tickets nuevos. Aún puedes ver tus tickets anteriores en [https://enterprise.githubsupport.com](https://enterprise.githubsupport.com).
 
 {% endnote %}
 {% endif %}

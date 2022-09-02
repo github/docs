@@ -1,1 +1,1 @@
-1. In the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Blocked users**.
+1. サイドバーで**{% octicon "report" aria-label="The report icon" %}Moderation（モデレーション）**を選択して、続いて**Blocked users（ブロックされたユーザ）**をクリックしてください。

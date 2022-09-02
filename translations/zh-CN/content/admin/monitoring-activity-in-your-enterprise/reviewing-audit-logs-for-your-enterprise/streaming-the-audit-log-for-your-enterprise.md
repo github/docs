@@ -3,7 +3,7 @@ title: 流式传输企业的审核日志
 intro: '您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## 关于审核日志流
 
 为了帮助保护您的知识产权并保持组织的合规性，您可以使用流式处理来保留审核日志数据的副本并监控：
@@ -24,11 +32,11 @@ permissions: Enterprise owners can configure audit log streaming.
 
 流式传输审计数据的好处包括：
 
-* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 流包含整个企业帐户中的审核事件和 Git 事件。
-* **数据连续性**。 您可以暂停流长达七天，而不会丢失任何审核数据。
+* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **数据连续性**。 You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **数据保留**。 您可以根据需要保留导出的审核日志和 Git 事件数据。
 
-企业所有者可以随时设置、暂停或删除流。 流导出企业中所有组织的审核数据。
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## 设置审核日志流
 
@@ -36,7 +44,8 @@ permissions: Enterprise owners can configure audit log streaming.
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
-- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
@@ -47,6 +56,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 - [使用访问密钥设置流式传输到 S3](#setting-up-streaming-to-s3-with-access-keys)
 - [使用 OpenID Connect 设置流式传输到 S3](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
 #### 使用访问密钥设置流式传输到 S3
 {% endif %}
@@ -75,6 +85,12 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% ifversion streaming-oidc-s3 %}
 #### 使用 OpenID Connect 设置流式传输到 S3
+
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
 
 1. 在 AWS 中，将 {% data variables.product.prodname_dotcom %} OIDC 提供商添加到 IAM。 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
 
@@ -123,6 +139,13 @@ permissions: Enterprise owners can configure audit log streaming.
    - 在“ARN Role（ARN 角色）”下，键入您之前记下的 ARN 角色。 例如 `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`。
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
 {% endif %}
 
 ### 设置流式传输到 Azure Blob Storage
@@ -209,6 +232,32 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion streaming-datadog %}
+### Setting up streaming to Datadog
+
+To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+
+After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+
+1. If you don't already have a Datadog account, create one.
+1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the **Configure stream** dropdown menu and click **Datadog**.
+
+   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Under "Token", paste the token  you copied earlier.
+
+   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+
+   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+
+   ![检查端点](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+{% endif %}
+
 ### 设置流式传输到 Google Cloud Storage
 
 要设置流式传输到 Google Cloud Storage，您必须在 Google Cloud 中使用适当的凭据和权限创建一个服务帐户，然后使用服务帐户的凭据在 {% data variables.product.product_name %} 中配置审核日志流以进行身份验证。
@@ -264,9 +313,14 @@ permissions: Enterprise owners can configure audit log streaming.
 1. 单击 **Check endpoint（检查端点）**以验证 {% data variables.product.prodname_dotcom %} 是否可以连接并写入 Splunk 端点。 ![检查端点](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## 暂停审核日志流
 
 暂停流允许您对接收应用程序执行维护，而不会丢失审核数据。 审核日志在 {% data variables.product.product_location %} 上最多存储七天，然后在取消暂停流时导出。
+
+{% ifversion streaming-datadog %}
+Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. 单击 **Pause stream（暂停流）**。
@@ -276,6 +330,7 @@ permissions: Enterprise owners can configure audit log streaming.
 1. 将显示一条确认消息。 单击 **Pause stream（暂停流）**以确认。
 
 当应用程序准备好再次接收审核日志时，单击 **Resume stream（恢复流）**以重新启动流式处理审核日志。
+{% endif %}
 
 ## 删除审核日志流
 

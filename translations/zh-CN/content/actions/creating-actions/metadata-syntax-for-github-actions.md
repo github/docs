@@ -74,7 +74,7 @@ inputs:
 
 ### `inputs.<input_id>.required`
 
-**必要** 表示操作是否需要输入参数的 `boolean`。 当参数为必要时设置为 `true`。
+**Optional** A `boolean` to indicate whether the action requires the input parameter. 当参数为必要时设置为 `true`。
 
 ### `inputs.<input_id>.default`
 
@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。  输入参数被设置为环境变量。 该变量的前缀为 INPUT_，并转换为大写。
+**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。 For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **可选**  防止在步骤失败时操作失败。 设置为 `true` 以允许在此步骤失败时通过操作。
+
+{% endif %}
 
 ## 用于 Docker 容器操作的 `runs`
 
@@ -429,7 +433,7 @@ runs:
 
 有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
 
-### `post-entrypoint`
+### `runs.post-entrypoint`
 
 **可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`runs.post-if`](#runspost-if) 覆盖该设置。
 
@@ -471,7 +475,7 @@ runs:
 
 ## `branding`
 
-您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
+**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
 
 ### 示例：为操作配置品牌宣传
 

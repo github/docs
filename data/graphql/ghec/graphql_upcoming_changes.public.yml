@@ -80,14 +80,6 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: Enterprise.userAccounts
-    description:
-      '`userAccounts` will be removed. Use the `Enterprise.members` field
-      instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: Query.sponsorables.dependencyEcosystem
     description:
       '`dependencyEcosystem` will be removed. Use the ecosystem argument
@@ -1386,6 +1378,16 @@ upcoming_changes:
   - location: ProjectView.groupBy
     description:
       '`groupBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.groupedItems
+    description:
+      '`groupedItems` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
       to find a suitable replacement.'
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`

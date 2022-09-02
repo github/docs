@@ -1,6 +1,6 @@
 ---
-title: Desabilitar quadros de projeto em um repositório
-intro: Os administradores de repositório podem desativar quadros de projeto de um repositório se você ou sua equipe gerenciam o trabalho de forma diferente.
+title: 'Desabilitando {% data variables.projects.projects_v1_boards %} em um repositório'
+intro: 'Os administradores do repositório podem desativar {% data variables.projects.projects_v1_boards %} para um repositório, se você ou sua equipe gerenciarem trabalhos de forma diferente.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -13,13 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Desabilitar quadro de projetos
+shortTitle: 'Desabilite {% data variables.projects.projects_v1_boards %}'
+allowTitleToDifferFromFilename: true
 ---
 
-Quando você desabilita quadros de projeto, deixa de ver informações relacionadas a eles em linhas do tempo ou [logs de auditoria](/articles/reviewing-your-security-log/).
+Ao desabilitar {% data variables.projects.projects_v1_boards %}, você não verá mais as informações de {% data variables.projects.projects_v1_board %} em linhas do tempo ou em [logs de auditoria](/articles/reviewing-your-security-log/).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Em "Features" (Recursos), desmarque a caixa de seleção **Projects** (Projetos). ![Caixa de seleção Remove Projects (Remover projetos)](/assets/images/help/projects/disable-projects-checkbox.png)
 
-Após a desabilitação dos quadros de projeto, não é mais possível acessar os quadros de projeto já existentes pelas URLs anteriores. {% data reusables.organizations.disable_project_board_results %}
+Após {% data variables.projects.projects_v1_boards %} ser desabilitado, {% data variables.projects.projects_v1_boards %} existente poderá ser acessado nas suas URLs anteriores. {% data reusables.organizations.disable_project_board_results %}

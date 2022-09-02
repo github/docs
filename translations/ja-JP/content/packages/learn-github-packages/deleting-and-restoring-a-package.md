@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: パッケージの削除と復元
@@ -23,12 +23,12 @@ shortTitle: パッケージの削除と復元
 - プライベートパッケージ全体
 - パッケージの全バージョンでダウンロード数が5000以下の場合、パブリックパッケージ全体
 - プライベートパッケージの特定のバージョン
-- パッケージバージョンのダウンロード数が5000以下の場合、パブリックパッケージの特定のバージョン
+- パッケージバージョンのダウンロード数が5,000以下の場合、パブリックパッケージの特定のバージョン
 
 {% note %}
 
 **注釈:**
-- パッケージのいずれかのパージョンでダウンロード数が5000を超えている場合は、パブリックパッケージを削除できません。 この場合は、[GitHubサポート](https://support.github.com/contact?tags=docs-packages)までお問い合わせください。
+- パッケージのいずれかのパージョンでダウンロード数が5,000を超えている場合は、パブリックパッケージを削除できません。 この場合は、[GitHubサポート](https://support.github.com/contact?tags=docs-packages)までお問い合わせください。
 - パブリックパッケージを削除する場合、そのパッケージに依存するプロジェクトを破壊する可能性があることに注意してください。
 
 {% endnote %}
@@ -46,7 +46,7 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 {% endif %}
 
-権限とアクセスをリポジトリから継承するパッケージでは、GraphQLを使って特定のパッケージバージョンを削除できます。{% ifversion fpt or ghec %}{% data variables.product.prodname_registry %}GraphQL APIは、パッケージの名前空間`https://ghcr.io/OWNER/PACKAGE-NAME`を使うコンテナあるいはDockerイメージをサポートしません。{% endif %}GraphQLサポートに関する詳しい情報については「[GraphQLでリポジトリをスコープとするパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
+権限とアクセスをリポジトリから継承するパッケージでは、GraphQLを使って特定のパッケージバージョンを削除できます。{% data reusables.package_registry.no-graphql-to-delete-packages %}GraphQLサポートに関する詳しい情報については「[GraphQLでリポジトリをスコープとするパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
 
 {% endif %}
 
@@ -54,17 +54,19 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 リポジトリからアクセス権限を継承しているパッケージの場合、そのリポジトリに対する管理者権限がある場合はパッケージを削除できます。
 
-{% data variables.product.prodname_registry %}上でリポジトリのスコープが付いたパッケージには、以下が挙げられます。
-- npm
-- RubyGems
-- maven
-- Gradle
-- NuGet
-{% ifversion not fpt or ghec %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
+以下の{% data variables.product.prodname_registry %}レジストリは、リポジトリスコープの権限**のみ**を使います。
+
+  {% ifversion not fpt or ghec %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
+  {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
+  - RubyGemsレジストリ
+  - Apache Mavenレジストリ
+  - NuGetレジストリ
+
+{% ifversion packages-npm-v2 %}{% data variables.product.prodname_ghcr_and_npm_registry %}については、パッケージがユーザ、Organizationをスコープとするか、あるいはリポジトリにリンクするかを選択できます。{% endif %}
 
 {% ifversion fpt or ghec %}
 
-`https://ghcr.io/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
+`https://ghcr.io/OWNER/PACKAGE-NAME`あるいは`https://npm.pkg.github.com/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
 {% endif %}
 
@@ -86,9 +88,7 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
 
-{% ifversion fpt or ghec %}
-`ghcr.io`にあるコンテナあるいはDockerイメージについては、GraphQLはサポートされていませんがREST APIが使えます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
-{% endif %}
+{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %}ただし、REST APIを使うことはできます。 詳しい情報については「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。{% endif %}
 
 GraphQL APIの`deletePackageVersion`ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo`スコープを持つトークンを使わなければなりません。 トークンに関する詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 
@@ -102,9 +102,9 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-{% data variables.product.prodname_registry %}に公開したすべてのプライベートパッケージをバージョンIDと合わせて見つけるには、`repository`オブジェクトを通じて`packages`コネクションを使うことができます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 詳しい情報については[`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository)コネクションあるいは[`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner)インターフェースを参照してください。
+{% data variables.product.prodname_registry %}に公開したすべてのプライベートパッケージをバージョンIDと合わせて見つけるには、`repository`オブジェクトを通じて`packages`コネクションを使うことができます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 詳しい情報については[`packages`](/graphql/reference/objects#repository)コネクションあるいは[`PackageOwner`](/graphql/reference/interfaces#packageowner)インターフェースを参照してください。
 
-`deletePackageVersion`ミューテーションに関する詳しい情報については「[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)」を参照してください。
+`deletePackageVersion`ミューテーションの詳しい情報については、「[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)」を参照してください。
 
 GraphQLを使用してパッケージ全体を直接削除することはできませんが、パッケージのすべてのバージョンを削除すれば、パッケージは{% data variables.product.product_name %}上に表示されなくなります。
 

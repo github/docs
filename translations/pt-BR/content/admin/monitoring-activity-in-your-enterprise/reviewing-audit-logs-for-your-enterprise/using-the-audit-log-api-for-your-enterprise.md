@@ -6,7 +6,7 @@ permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% e
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -22,7 +22,6 @@ Você pode interagir com o log de auditoria usando a API GraphQL{% ifversion ghe
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
-{% ifversion ghec or ghes > 3.0 or ghae %}
 ## Consultando o log auditoria da API do GraphQL
 
 Para garantir que a sua propriedade intelectual esteja protegida e que você mantenha a conformidade para a sua empresa, você pode usar a API do GraphQL do log de auditoria para guardar cópias dos seus dados de log de auditoria e para monitorar:
@@ -107,7 +106,6 @@ Essa consulta usa a interface [AuditEntry](/graphql/reference/interfaces#auditen
 
 Para obter mais exemplos de consulta, veja [o repositporio das amostras da plataforma](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-{% endif %}
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
 ## Consultando o log de auditoria da API REST
 
