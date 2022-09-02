@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de creación y borrado de Codespaces
+title: Troubleshooting creation and deletion of codespaces
 intro: 'Este artículo te muestra los pasos para la solución de problemas comunes que podrías experimentar al crear o borrar un codespace, incluyendo los de almacenamiento y configuración.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -15,6 +15,8 @@ shortTitle: Creación y borrado
 
 ### Sin acceso para crear un codespace
 Los {% data variables.product.prodname_codespaces %} no están disponibles para todos los repositorios. Si no se muestra el botón de "Abrir con Codespaces", {% data variables.product.prodname_github_codespaces %} podría no estar disponible para dicho repositorio. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
+
+You can't create a codespace for a private repository that is owned by an organization, unless you have write access to the repository or the organization has enabled forking for it.
 
 Si crees que tu organización sí [habilitó los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), asegúrate de que un propietario de la organización o gerente de facturación haya configurado el límite de gastos para los {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
