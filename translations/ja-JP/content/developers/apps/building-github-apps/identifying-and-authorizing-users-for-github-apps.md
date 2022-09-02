@@ -108,13 +108,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ユーザのアクセストークンを使用すると、GitHub App がユーザの代わりに API にリクエストを発行できます。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 たとえば、curlでは以下のようにAuthorizationヘッダを設定できます。
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## デバイスフロー
@@ -133,12 +133,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ユーザの OAuth トークンを取得したら、そのユーザがアクセスできるインストールされたアプリケーションを確認できます。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
 また、インストールされたアプリケーションでユーザがアクセスできるリポジトリも確認できます。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
 詳細については、[ユーザアクセストークンがアクセスできるインストールされたアプリケーションの一覧表示](/rest/apps#list-app-installations-accessible-to-the-user-access-token)および[ユーザアクセストークンがアクセスできるリポジトリの一覧表示](/rest/apps#list-repositories-accessible-to-the-user-access-token)でご確認ください。

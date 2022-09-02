@@ -1,9 +1,9 @@
 {% ifversion fpt %}
-1. セルフホストランナーがあるリポジトリもしくはOrganizationのメインページにアクセスしてください。
+1. Navigate to the main page of the repository or organization where your runner groups are located.
 2. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 {% elsif ghec or ghes or ghae %}
-1. セルフホストランナーがあるところへアクセスしてください。
+1. Navigate to where your runner groups are located:
    * **Organizationの場合**: メインページにアクセスして{% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
    * **Enterpriseレベルのグループを使っている場合**:
 

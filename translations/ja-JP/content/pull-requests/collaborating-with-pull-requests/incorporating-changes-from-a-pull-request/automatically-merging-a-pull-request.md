@@ -18,7 +18,7 @@ shortTitle: Merge PR automatically
 
 ## 自動マージについて
 
-プルリクエストの自動マージを有効にすると、必要なすべてのレビューを満たし、ステータスチェックに合格すると、プルリクエストが自動的にマージされます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
+If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
 
 プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳しい情報については、「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。
 
