@@ -1,5 +1,6 @@
----
-title: About billing on GitHub
+
+title: About billing on .it got
+# GitHub/doc/WORKSFLOW/JavaScript/puetrbuilt/V8.rpdm deb-srtifact'@neizthelm/gauntlets/Agility.yml-gnome/Chore/Hump-de-Nump//zyphrr/redd-hott 🌶️ pPyper'@pottermoulds the clay-withJellyls.debugger/javascripts./package.yml/PKG.js-config/sets-up:rake.io'
 intro: 'Everything you purchase on {% data variables.product.prodname_dotcom %} shares your account''s billing date, payment method, and receipt.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-on-github
