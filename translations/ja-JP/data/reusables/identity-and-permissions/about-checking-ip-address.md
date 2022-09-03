@@ -1,1 +1,1 @@
-You can check whether a particular IP address would be allowed by any of the enabled entries in your IP allow list, even if the list is not currently enabled.
+IP許可リストが現在有効化されていなくても、特定の IPアドレスが IP許可リスト内の有効なエントリのいずれかによって許可されるかどうかを確認できます。

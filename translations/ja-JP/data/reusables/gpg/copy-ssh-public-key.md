@@ -5,7 +5,7 @@
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+  # id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pubファイルの内容をクリップボードにコピー
   ```
 
   {% tip %}
@@ -18,7 +18,7 @@
 
   ```shell
   $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+  # id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pubファイルの内容をクリップボードにコピー
   ```
 
   {% tip %}
@@ -31,13 +31,13 @@
 
   ```shell
   $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
-  # displayed in the terminal to your clipboard
+  # 続いてターミナルに表示されたid_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # ファイルの内容を選択してコピー
   ```
 
   {% tip %}
 
-  **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+  **参考:** あるいは隠しフォルダの`.ssh`を見つけて、好きなテキストエディタでこのファイルを開き、クリップボードにコピーしてください。
 
   {% endtip %}
 {% endlinux %}

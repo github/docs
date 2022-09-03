@@ -155,9 +155,9 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 您可以通过在配置预定义容器时选择一些最常用的功能来添加这些功能。 有关可用功能的详细信息，请参阅 `vscode-dev-containers` 存储库中的[脚本库](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) 。
 
 
-1. 访问命令面板 (`Shift + Command + P` / `Ctrl + Shift + P`)，然后开始键入 "configure"。 选择 **Codespaces: Configure Devcontainer Features（代码空间：配置开发容器功能）**。
+1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "configure". 选择 **Codespaces: Configure Devcontainer Features（代码空间：配置开发容器功能）**。
 
-   ![命令面板中的 Configure Devcontainer Features 命令](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. 更新您的功能选择，然后单击**确定**。
 
@@ -165,7 +165,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 1. 要应用更改，请在屏幕右下角单击 **Rebuild now（立即重建）**。 有关重建容器的更多信息，请参阅“[应用对配置的更改](#applying-configuration-changes-to-a-codespace)”。
 
-   ![命令面板中的"Codespaces：重建容器"](/assets/images/help/codespaces/rebuild-prompt.png)
+   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ## 创建自定义开发容器配置
 

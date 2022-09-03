@@ -15,7 +15,7 @@ topics:
 shortTitle: Initiate failover to appliance
 ---
 
-フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。
+フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 20 分から 30 分です。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 

@@ -1,1 +1,1 @@
-建议仅将自托管运行器用于私有仓库。 这是因为，通过创建在工作流程中执行代码的拉取请求，仓库的复刻可能会在您的自托管运行器上运行危险代码。
+建议仅将自托管运行器用于私有仓库。 This is because forks of your public repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

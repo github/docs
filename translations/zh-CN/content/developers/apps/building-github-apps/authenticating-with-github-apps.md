@@ -147,18 +147,24 @@ $ curl -i -X POST \
 
 ```shell
 $ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` 是必须替换的值。
 
+{% note %}
+
+**注意：**{% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
+
 ## 作为安装访问 API 端点
 
 有关适用于使用安装访问令牌的 {% data variables.product.prodname_github_apps %} 的 REST API 端点列表，请参阅“[可用端点](/rest/overview/endpoints-available-for-github-apps)。”
 
-有关与安装相关的端点的列表，请参阅“[安装](/rest/reference/apps#installations)。”
+For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 
 ## 由安装验证基于 HTTP 的 Git 访问权限
 

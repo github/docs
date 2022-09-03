@@ -284,7 +284,7 @@ jobs:
 
    {% note %}
 
-   **Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. JSON web tokens (JWTs) only work with `Authorization: Bearer`.
+   **注意：**{% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 

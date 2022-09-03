@@ -2,6 +2,12 @@
 
 `container`を設定しない場合は、コンテナで実行されるよう設定されているアクションを参照しているステップを除くすべてのステップが、`runs-on`で指定したホストで直接実行されます。
 
+{% note %}
+
+**ノート:** コンテナ内の`run`ステップのデフォルトシェルは`bash`ではなく`sh`です。 これは、[`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun)もしくは[`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell)で上書きできます。
+
+{% endnote %}
+
 ### 例: コンテナ内でのジョブの実行
 
 ```yaml{:copy}

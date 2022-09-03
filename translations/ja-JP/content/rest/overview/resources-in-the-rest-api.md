@@ -79,12 +79,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### OAuth2 トークン（ヘッダに送信）
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 注: GitHub では、Authorization ヘッダを使用して OAuth トークンを送信することをお勧めしています。
+
+{% endnote %}
+
+{% note %}
+
+**ノート:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 

@@ -1,1 +1,1 @@
-- If the output doesn't include the name of a credential manager, there is no credential manager configured, and you can proceed to the next step.
+- 出力に認証情報マネージャーの名前が含まれていない場合、認証情報マネージャーは設定されておらず、次のステップに進むことができます。
