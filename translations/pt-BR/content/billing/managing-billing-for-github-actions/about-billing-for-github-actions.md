@@ -1,6 +1,7 @@
 ---
 title: Sobre a cobrança do GitHub Actions
 intro: 'Se você quiser usar {% data variables.product.prodname_actions %} além do armazenamento ou dos minutos incluídos em sua conta, você será cobrado pelo uso adicional.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -28,6 +29,13 @@ Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
 ### Armazenamento e minutos incluídos
 
+{% ifversion actions-hosted-runners %}
+{% note %}
+
+**Observação**: Os minutos de titularidade não podem ser usados nos executores do Windows e Ubuntu com 2 núcleos. Esses executores serão sempre cobrados, inclusive em repositórios públicos. Para obter mais informações, consulte "[Taxas por minuto para os executores](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
+
+{% endnote %}
+{% endif %}
 | Produto                                                             | Armazenamento | Minutos (por mês) |
 | ------------------------------------------------------------------- | ------------- | ----------------- |
 | {% data variables.product.prodname_free_user %}                   | 500 MB        | 2.000             |
@@ -58,15 +66,15 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 
 ### Taxa por minuto
 
-| Sistema operacional | Taxa por minuto (USD) |
-| ------------------- | --------------------- |
-| Linux               | $0,008                |
-| macOS               | $0,08                 |
-| Windows             | $0,016                |
+{% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
-
-{% data reusables.user-settings.context_switcher %}
+- O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
+- {% data reusables.user-settings.context_switcher %}
+{% ifversion actions-hosted-runners %}
+- Para {% data variables.actions.hosted_runner %}, não há custo adicional para configurações que atribuem endereços IP estáticos públicos a um {% data variables.actions.hosted_runner %}. Para obter mais informações sobre {% data variables.actions.hosted_runner %}s, consulte "[Usando {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)".
+- Os minutos de titularidade não podem ser usados para {% data variables.actions.hosted_runner %}s.
+{% endif %}
 
 ## Calculando minutos e gastos de armazenamento
 

@@ -83,7 +83,7 @@ Você pode criar um grupo de executor para gerenciar o acesso ao executor que vo
 
 {% data variables.product.product_name %} adiciona todos os novos executores a um grupo. Os executores podem estar em um grupo por vez. Por padrão, o {% data variables.product.product_name %} adiciona novos executores ao grupo "padrão".
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. Para escolher uma política para o acesso da organização, em "Acesso da organização", selecione a lista suspensa **Organização** e clique **Organizações selecionadas**.
 1. À direita da lista suspensa com a política de acesso da organização, clique em {% octicon "gear" aria-label="The Gear icon" %}.
 1. Selecione as organizações que você gostaria de conceder acesso ao grupo do executor.
@@ -100,7 +100,7 @@ Você pode criar um grupo de executor para gerenciar o acesso ao executor que vo
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
+{% data reusables.actions.create-runner-group %}
 {%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Clique na aba "Executores".
 1. Na lista de executores, clique no executor que você implantou na seção anterior.
