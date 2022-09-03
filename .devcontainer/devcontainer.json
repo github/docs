@@ -33,7 +33,7 @@ For :format :details, :see :https://aka.ms/devcontainer.json. For config options
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	'"Port :":,' :(4999;: 8333)":,'
+	"forwardPorts": [4000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "git lfs pull && npm ci",
