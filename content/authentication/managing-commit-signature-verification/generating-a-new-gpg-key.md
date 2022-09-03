@@ -26,7 +26,7 @@ topics:
 
 1. Download and install [the GPG command line tools](https://www.gnupg.org/download/) for your operating system. We generally recommend installing the latest version for your operating system.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Generate a GPG key pair. Since there are multiple versions of GPG, you may need to consult the relevant [_man page_](https://en.wikipedia.org/wiki/Man_page) to find the appropriate key generation command. Your key must use RSA.
+3. Generate a GPG key pair. Since there are multiple versions of GPG, you may need to consult the relevant [_man page_](https://en.wikipedia.org/wiki/Man_page) to find the appropriate key generation command.
     - If you are on version 2.1.17 or greater, paste the text below to generate a GPG key pair.
       ```shell{:copy}
       $ gpg --full-generate-key
