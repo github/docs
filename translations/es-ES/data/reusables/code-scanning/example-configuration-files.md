@@ -30,3 +30,22 @@ paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+El siguiente archivo de configuración solo ejecuta consultas que generan alertas de errores de gravedad. La configuración selecciona primero todas las consultas predeterminadas, todas las consultas en `./my-queries` y la suite predeterminada en `codeql/java-queries` para luego excluir todas las consultas que generan advertencias o recomendaciones.
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

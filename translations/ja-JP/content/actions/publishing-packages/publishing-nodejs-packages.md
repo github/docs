@@ -98,9 +98,9 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ### 宛先リポジトリの設定
 
-*package.json* ファイルで `repository` キーを指定しない場合、{% data variables.product.prodname_registry %} は *package.json* ファイルの `name` フィールドで指定した {% data variables.product.prodname_dotcom %} リポジトリにパッケージを公開します。 たとえば、`@my-org/test` という名前のパッケージは、`my-org/test` {% data variables.product.prodname_dotcom %} というリポジトリに公開されます。
+Linking your package to {% data variables.product.prodname_registry %} using the `repository` key is optional. If you choose not to provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. たとえば、`@my-org/test` という名前のパッケージは、`my-org/test` {% data variables.product.prodname_dotcom %} というリポジトリに公開されます。 If the `url` specified in the `repository` key is invalid, your package may still be published however it won't be linked to the repository source as intended.
 
-ただし、`repository` キーを指定すると、そのキーのリポジトリが {% data variables.product.prodname_registry %} の宛先 npm レジストリとして使用されます。 たとえば、以下の *package.json* を公開すると、`my-amazing-package` という名前のパッケージが `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} リポジトリに公開されます。
+If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. たとえば、以下の *package.json* を公開すると、`my-amazing-package` という名前のパッケージが `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} リポジトリに公開されます。 Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
 
 ```json
 {

@@ -1,6 +1,7 @@
 ---
 title: 关于 GitHub Actions 的计费
 intro: '如果要对 {% data variables.product.prodname_actions %} 的使用超出帐户所含存储容量或分钟数，您需要支付额外的使用费。'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -28,6 +29,13 @@ shortTitle: GitHub Actions 的计费
 
 ### 包括存储和分钟数
 
+{% ifversion actions-hosted-runners %}
+{% note %}
+
+**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+
+{% endnote %}
+{% endif %}
 | 产品                                                    | 存储器    | 分钟数（每月） |
 | ----------------------------------------------------- | ------ | ------- |
 | {% data variables.product.prodname_free_user %}     | 500 MB | 2,000   |
@@ -58,15 +66,15 @@ shortTitle: GitHub Actions 的计费
 
 ### 每分钟费率
 
-| 操作系统    | 每分钟费率（美元） |
-| ------- | --------- |
-| Linux   | $0.008    |
-| macOS   | $0.08     |
-| Windows | $0.016    |
+{% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-可在用户或组织帐户的所有仓库中同时运行的作业数量取决于您的 GitHub 计划。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
-
-{% data reusables.user-settings.context_switcher %}
+- 可在用户或组织帐户的所有仓库中同时运行的作业数量取决于您的 GitHub 计划。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
+- {% data reusables.user-settings.context_switcher %}
+{% ifversion actions-hosted-runners %}
+- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+{% endif %}
 
 ## 计算分钟和存储支出
 

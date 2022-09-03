@@ -13,7 +13,7 @@ shortTitle: Gerenciar a política de aprovação de commit
 
 Para afirmar que um commit está de acordo com as regras e licenciamento de um repositório, muitas organizações exigem que os desenvolvedores assinem em todos os commits. Se sua organização requer assinaturas do commit, você pode tornar a assinatura de uma parte ininterrupta do processo de commit, permitindo a aprovação obrigatória de commits para os usuários que fizerem commit da interface web de {% data variables.product.product_name %}. Após habilitar as assinaturas de commit obrigatórias para uma organização, cada commit criado nos repositórios dessa organização por meio da interface web de {% data variables.product.product_name %} será automaticamente assinado pelo autor do commit.
 
-Pessoas com acesso de administrador a um repositório também podem habilitar assinaturas de commit obrigatórias no nível de repositório. For more information, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+Pessoas com acesso de administrador a um repositório também podem habilitar assinaturas de commit obrigatórias no nível de repositório. Para obter mais informações, consulte "[Gerenciando a política de assinatura de commit para o seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)".
 
 {% data reusables.repositories.commit-signoffs %}
 

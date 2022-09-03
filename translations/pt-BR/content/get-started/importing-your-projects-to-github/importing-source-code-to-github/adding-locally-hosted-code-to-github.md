@@ -57,15 +57,15 @@ Se você tiver código-fonte ou repositórios armazenados localmente no computad
 1. [Crie um repositório ](/repositories/creating-and-managing-repositories/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *README*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use o comando `init` para inicializar o diretório local como um repositório do Git. Por padrão, o branch inicial é denominado `mestre`.
 
-   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+   Se você estiver usando o Git 2.28.0 ou uma versão posterior, você poderá definir o nome do branch padrão usando `-b`.
 
    ``` shell
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   Se estiver usando o Git 2.27. ou versão anterior, você poderá definir o nome do branch padrão usando  `&& git branch -m`.
 
    ``` shell
    $ git init && git branch -m main
@@ -102,15 +102,15 @@ Se você tiver código-fonte ou repositórios armazenados localmente no computad
 1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *README*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use o comando `init` para inicializar o diretório local como um repositório do Git. Por padrão, o branch inicial é denominado `mestre`.
 
-   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+   Se você estiver usando o Git 2.28.0 ou uma versão posterior, você poderá definir o nome do branch padrão usando `-b`.
 
    ``` shell
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   Se estiver usando o Git 2.27. ou versão anterior, você poderá definir o nome do branch padrão usando  `&& git branch -m`.
 
    ``` shell
    $ git init && git branch -m main
@@ -146,15 +146,15 @@ Se você tiver código-fonte ou repositórios armazenados localmente no computad
 1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *README*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use o comando `init` para inicializar o diretório local como um repositório do Git. Por padrão, o branch inicial é denominado `mestre`.
 
-   If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
+   Se você estiver usando o Git 2.28.0 ou uma versão posterior, você poderá definir o nome do branch padrão usando `-b`.
 
    ``` shell
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   Se estiver usando o Git 2.27. ou versão anterior, você poderá definir o nome do branch padrão usando  `&& git branch -m`.
 
    ``` shell
    $ git init && git branch -m main

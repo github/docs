@@ -44,13 +44,13 @@ curl -u my_user:my_password https://api.github.com/user/repos
 En vez de esto, utiliza un [token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) cuando pruebes las terminales o cuando realices desarrollos locales:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
 Para las Apps de Oauth, debes utilizar el [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar un token de OAuth para utilizar el encabezado de la llamada a la API:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
 ## Exceder el tiempo de espera

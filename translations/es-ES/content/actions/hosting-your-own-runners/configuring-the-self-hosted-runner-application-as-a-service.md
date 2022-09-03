@@ -18,15 +18,23 @@ shortTitle: Ejecutar la app del ejecutor al inicio
 
 {% capture service_first_step %}1. Detén la aplicación del ejecutor autoalojado si se está ejecutando actualmente.{% endcapture %}
 {% capture service_non_windows_intro_shell %}En la máquina del ejecutor, abre un shell en el directorio en el que instalaste la aplicación del ejecutor autoalojado. Usa los comandos que se indican a continuación para instalar y administrar el servicio de ejecutor autoalojado.{% endcapture %}
-{% capture service_nonwindows_intro %} Debes agregar un ejecutor a {% data variables.product.product_name %} antes de que puedas configurar la aplicación del ejecutor auto-hospedado como servicio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Nota:** Debes agregar un ejecutor a {% data variables.product.product_name %} antes de que puedas configurar la aplicación de ejecutor auto-hospedado como servicio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-Para los sistemas Linux que usan `systemd`, puedes usar el script `svc.sh` distribuido con la aplicación del ejecutor autoalojado para instalar y administrar el uso de la aplicación como un servicio.
+Para los sistemas Linux que utilizan `systemd`, puedes utilizar el script de `svc.sh` que se creó después de agregar el ejecutor con éxito para instala y administrar utilizando la aplicación como servicio.
 
 {{ service_non_windows_intro_shell }}
 

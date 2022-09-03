@@ -78,6 +78,14 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 
 Puedes requerir el cifrado de TLS para todas las conexiones entrantes de SMTP, lo cual puede ayudar a satisfacer un requisito de certificación ISO-27017.
 
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0. The feature will be available in an upcoming release.
+
+{% endnote %}
+{%- endif %}
+
 {% data reusables.enterprise_site_admin_settings.email-settings %}
 1. Debajo de "Autenticación", selecciona **requerir la autenticación con TLS (recomendado)**.
 

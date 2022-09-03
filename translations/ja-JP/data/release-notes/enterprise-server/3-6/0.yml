@@ -25,7 +25,9 @@ sections:
           -「[Enterpriseでのリポジトリ管理ポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」
           -「[インスタンスのホストキーの設定](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)」
         - |
-          インスタンスに接続してくるSMTPコネクションにTLS暗号化を要求できます。詳しい情報については「[通知のメールの設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」を参照してください。
+          インスタンスへのSMTP接続にTLS暗号化を必須とすることができます。詳しい情報については「[通知のためのメールの設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)」を参照してください。
+
+          -**ノート**: この機能はGitHub Enterprise Server 3.6.0では利用できません。この機能は今後のリリースで利用できるようになります。[更新: 2022 年8月26日]
     - 
       heading: 監査ログ
       notes:
@@ -210,3 +212,4 @@ sections:
     - リポジトリの設定で、読み取りアクセスを持つユーザにディスカッションの作成を許可するオプションを有効化しても、この機能は有効化されません。
     - ユーザが既存のIssueをディスカッションに変換できないことがあります。
     - Secret scanningのカスタムパターンは、特に"After secret"パターンにおいて`.*`を終了の区切り文字として持ちます。この区切り文字は、リポジトリにまたがるシークレットのスキャンにおいて矛盾を生じさせ、スキャンがまったく完了していないというリポジトリの履歴のギャップに気づくかもしれません。インクリメンタルなスキャンにも影響があるかもしれません。スキャンの問題を回避するために、パターンの終わりから`.*`という区切り文字を取り除く修正をしてください。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

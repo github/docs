@@ -73,7 +73,7 @@ topics:
 
 ### 关闭或停止代码空间
 
-要停止代码空间，您可以 [使用 {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows))。 如果在未运行停止命令的情况下退出代码空间（例如，关闭浏览器选项卡），或者让代码空间在没有交互的情况下运行，则代码空间及其正在运行的进程将继续运行，直到出现不活动窗口，之后代码空间将停止。  默认情况下，不活动窗口为 30 分钟。
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)). 如果在未运行停止命令的情况下退出代码空间（例如，关闭浏览器选项卡），或者让代码空间在没有交互的情况下运行，则代码空间及其正在运行的进程将继续运行，直到出现不活动窗口，之后代码空间将停止。  默认情况下，不活动窗口为 30 分钟。
 
 关闭或停止代码空间时，将保留所有未提交的更改，直到您再次连接到代码空间。
 

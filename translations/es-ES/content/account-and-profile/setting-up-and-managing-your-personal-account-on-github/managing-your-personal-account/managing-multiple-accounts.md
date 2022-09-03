@@ -14,7 +14,7 @@ shortTitle: Manage multiple accounts
 
 In some cases, you may need to use multiple accounts on {% data variables.product.product_location %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise.
 
-You cannot use your {% data variables.product.prodname_managed_user %} to contribute to public projects on {% data variables.product.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+You cannot use your {% data variables.product.prodname_managed_user %} to contribute to public projects on {% data variables.product.product_location %}, so you must contribute to those resources using your personal account. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% elsif ghec %}".{% endif %}
 
 If you want to use one workstation to contribute from both accounts, you can simplify contribution with Git by using a mixture of protocols to access repository data, or by using credentials on a per-repository basis.
 
@@ -98,7 +98,7 @@ To use a different SSH key for different repositories that you clone to your wor
 2. Choose the correct SSH key for authentication.
 3. Modify `GIT_SSH_COMMAND` accordingly. For more information about `GIT_SSH_COMMAND`, see [Environment Variables](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) in the Git documentation.
 
-For example, the following command sets the `GIT_SSH_COMMAND` environment variable to specify an SSH command that uses the private key file at **_PATH/TO/KEY/FILE_** for authentication to clone the repository named **_OWNER_**/**_REPOSITORY_** on {% data variables.product.product_location %}.
+Por ejemplo, el siguiente comando configura la variable de ambiente `GIT_SSH_COMMAND` para que especifique un comando SSH que utiliza el archivo de llave privada en **_PATH/TO/KEY/FILE_** para autenticación para clonar el repositorio que se llama **_OWNER_**/**_REPOSITORY_** en {% data variables.product.product_location %}.
 
 <pre>
 GIT_SSH_COMMAND='ssh -i <em>PATH/TO/KEY/FILE</em> -o IdentitiesOnly=yes' git clone git@github.com:<em>OWNER</em>/<em>REPOSITORY</em>

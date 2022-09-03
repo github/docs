@@ -108,13 +108,13 @@ shortTitle: 识别和授权用户
 
 用户的访问令牌允许 GitHub 应用程序代表用户向 API 发出请求。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 例如，您可以像以下这样在 curl 中设置“授权”标头：
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## 设备流程
@@ -133,12 +133,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 获得用户的 OAuth 令牌后，您可以检查该用户可以访问哪些安装。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
 您还可以检查用户可以访问哪些仓库进行安装。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
 更多信息请参阅：[列出用户访问令牌可访问的应用程序安装](/rest/apps#list-app-installations-accessible-to-the-user-access-token)和[列出用户访问令牌可访问的仓库](/rest/apps#list-repositories-accessible-to-the-user-access-token)。

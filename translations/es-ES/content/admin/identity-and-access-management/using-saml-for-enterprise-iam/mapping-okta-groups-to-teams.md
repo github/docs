@@ -1,7 +1,7 @@
 ---
-title: Mapping Okta groups to teams
-shortTitle: Map Okta groups to teams
-intro: 'You can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %} to automatically add and remove team members.'
+title: Mapear los grupos de Okta a los equipos
+shortTitle: Mapear los grupos de Okta a los equipos
+intro: 'Puedes mapear tus grupos de Okta a los equipos en {% data variables.product.prodname_ghe_managed %} para que agreguen y eliminen a los miembros automáticamente.'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:
   ghae: '*'
@@ -19,9 +19,9 @@ topics:
 
 {% data reusables.saml.okta-ae-sso-beta %}
 
-## About team mapping
+## Acerca del mapeo de equipos
 
-If you use Okta as your IdP, you can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. To configure this mapping, you can configure the Okta "GitHub AE" app to push the group and its members to {% data variables.product.prodname_ghe_managed %}. You can then choose which team in {% data variables.product.prodname_ghe_managed %} will be mapped to the Okta group.
+Si utilizas Okta como tu IdP, puedes mapear tu grupo de Okta a un equipo en {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. To configure this mapping, you can configure the Okta "GitHub AE" app to push the group and its members to {% data variables.product.prodname_ghe_managed %}. You can then choose which team in {% data variables.product.prodname_ghe_managed %} will be mapped to the Okta group.
 
 ## Prerrequisitos
 

@@ -83,7 +83,7 @@ Puedes crear un grupo de ejecutores para administrar el acceso al ejecutor que a
 
 {% data variables.product.product_name %} agrega a todos los ejecutores nuevos a un grupo. Los ejecutores pueden estar en solo un grupo a la vez. Predeterminadamente, {% data variables.product.product_name %} agrega ejecutores nuevos al grupo "Predeterminado".
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. Para elegir una política para el acceso de la organización, debajo de "Acceso de la organización", selecciona el menú desplegable **Acceso de la organización** y haz clic en **Organizaciones selectas**.
 1. A la derecha del menú desplegable con la política de acceso de la organización, haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
 1. Selecciona las organizaciones a las cuales te gustaría otorgar acceso al grupo de ejecutores.
@@ -100,7 +100,7 @@ Puedes crear un grupo de ejecutores para administrar el acceso al ejecutor que a
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
+{% data reusables.actions.create-runner-group %}
 {%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Haz clic en la pestaña de "Ejecutores".
 1. En la lista de ejecutores, haz clic en aquél que hayas desplegado en la sección previa.

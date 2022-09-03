@@ -23,11 +23,18 @@ topics:
 
 Em vez de copiar e colar trabalhos de implantação de um fluxo de trabalho para outro, é possível criar um fluxo de trabalho reutilizável que executa as etapas de implantação. Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se ele cumprir um dos requisitos de acesso descritos em "[Reutilizando os fluxos de trabalho](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)".
 
-Quando combinado com o OpenID Connect (OIDC), os fluxos de trabalho reutilizáveis permitem que você aplique implantações consistentes no seu repositório, organização ou empresa. Você pode fazer isso definindo condições de confiança nas funções da nuvem com base em fluxos de trabalho reutilizáveis.
+You should be familiar with the concepts described in "\[Reusing workflows\](/actions/learn-github-actions/reusing-workflows" and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 
-Para criar condições de confiança com base em fluxos de trabalho reutilizáveis, o seu provedor de nuvem deve ser compatível com reivindicações personalizadas para `job_workflow_ref`. Isso permite que seu provedor de nuvem identifique de qual repositório veio originalmente. Se o seu provedor de nuvem é compatível apenas as reivindicações padrão (_audiência_ e _assunto_), não poderá determinar que o trabalho teve origem no repositório do fluxo de trabalho reutilizável. Os provedores de nuvem que sao compatíveis com `job_workflow_ref` incluem Google Cloud Platform e HashiCorp Vault.
+## Defining the trust conditions
 
-Antes de prosseguir, você deve estar familiarizado com os conceitos de [fluxos de trabalho reutilizáveis](/actions/learn-github-actions/reusing-workflows) e [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+Quando combinado com o OpenID Connect (OIDC), os fluxos de trabalho reutilizáveis permitem que você aplique implantações consistentes no seu repositório, organização ou empresa. Você pode fazer isso definindo condições de confiança nas funções da nuvem com base em fluxos de trabalho reutilizáveis. The available options will vary depending on your cloud provider:
+
+- **Using `job_workflow_ref`**:
+  - To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. Isso permite que seu provedor de nuvem identifique de qual repositório veio originalmente.
+  - For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
+
+- **Customizing the token claims**:
+  - You can configure more granular trust conditions by customizing the issuer (`iss`) and subject (`sub`) claims included with the JWT. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
 
 ## Como o token funciona com fluxos de trabalho reutilizáveis
 

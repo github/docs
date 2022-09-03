@@ -23,7 +23,7 @@ topics:
 
 Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
 
-Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proved to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
+Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
 
 The diagram below shows three build jobs on the left of the diagram. After each of these jobs completes successfully a dependent job called "Deploy" runs. This job calls a reusable workflow that contains three jobs: "Staging", "Review", and "Production." The "Production" deployment job only runs after the "Staging" job has completed successfully. Using a reusable workflow to run deployment jobs allows you to run those jobs for each build without duplicating code in workflows.
 
@@ -127,7 +127,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/workflows/my-action
+         - uses: octo-org/my-action@v1
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -168,12 +168,13 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/my-action
+      - uses: octo-org/my-action@v1
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+
 {% ifversion actions-reusable-workflow-matrix %}
 ## Using a matrix strategy with a reusable workflow
 

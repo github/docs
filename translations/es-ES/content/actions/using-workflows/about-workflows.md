@@ -1,7 +1,7 @@
 ---
 title: Acerca de los flujos de trabajo
 shortTitle: Acerca de los flujos de trabajo
-intro: 'Get a high level overview {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: 'Obtén flujos de trabajo de {% data variables.product.prodname_actions %} de resumen de alto nivel, incluyendo activadores, sintaxis y características avanzadas.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,15 +20,15 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.about-workflows-long %}
 
-## Workflow basics
+## Puntos básicos de los flujos de trabajo
 
-A workflow must contain the following basic components:
+Un flujo de trabajo debe contener los siguientes componentes básicos:
 
-1. One or more _events_ that will trigger the workflow.
-1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
-1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+1. Uno o más _eventos_ que activarán el flujo de trabajo.
+1. Uno o más _jobs_, cada uno de los cuales se ejecutará en una máquina _ejecutora_ y ejecutará una serie de uno o más _pasos_.
+1. Cada paso puede ya sea ejecutar un script que defines o ejecutar una acción, la cual es una extensión reutilizable que puede simplificar tu flujo de trabajo.
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+Para obtener más información sobre estos componentes básicos, consulta la sección "[Entender las GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)".
 
 ![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-simple.png)
 
@@ -36,32 +36,32 @@ For more information on these basic components, see "[Understanding GitHub Actio
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+Para obtener más información, consulta la sección "[Activar un flujo de trabajo](/actions/using-workflows/triggering-a-workflow)" y para encontrar una lista completa de eventos, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows)".
 
 ## Sintaxis de flujos de trabajo
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+Los flujos de trabajo se definen utilizando YAML. Para encontrar una referencia completa de la sintaxis de YAML para flujos de trabajo de creación, consulta la sección "[Sintaxis de fluljo de trabajo para GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)".
 
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+Para ver más información sobre cómo manejar las ejecuciones de flujo de trabajo tales como re-ejecutar, cancelar o borrar una ejecución de flujo de trabajo, consulta la sección "[Administrar las ejecuciones de flujo de trabajo](/actions/managing-workflow-runs)".
 
 ## Utilizar flujos de trabajo iniciales
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+Para obtener más información sobre cómo utilizar y crear flujos de trabajo iniciales, consulta las secciones "[Utilizar flujos de trabajo iniciales](/actions/using-workflows/using-starter-workflows)" y "[Crear flujos de trabajo iniciales para tu organización](/actions/using-workflows/creating-starter-workflows-for-your-organization)".
 
 ## Características avanzadas de los flujos de trabajo
 
-This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+Esta sección describe brevemente algunas de las características avanzadas de {% data variables.product.prodname_actions %} que te ayudan a crear flujos de trabajo más complejos.
 
 ### Almacenar secretos
 
-Si tus flujos de trabajo utilizan datos sensibles tales como contraseñas o certificados, puedes guardarlos en {% data variables.product.prodname_dotcom %} como _secretos_ y luego usarlos en tus flujos de trabajo como variables de ambiente. This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+Si tus flujos de trabajo utilizan datos sensibles tales como contraseñas o certificados, puedes guardarlos en {% data variables.product.prodname_dotcom %} como _secretos_ y luego usarlos en tus flujos de trabajo como variables de ambiente. Esto significa que podrás crear y compartir flujos de trabajo sin tener que embeber valores sensibles directamente en la fuente de YAML del flujo de trabajo.
 
-This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+Este job de ejemplo demuestra como referenciar un secreto existente como una variable de ambiente y enviarlo como un parámetro a un comando de ejemplo.
 
 {% raw %}
 ```yaml
@@ -81,7 +81,7 @@ Para obtener más información, consulta la sección "[Secretos cifrados](/actio
 
 ### Crear jobs dependientes
 
-Predeterminadamente, los jobs en tu flujo de trabajo se ejecutan todos en paralelo y al mismo tiempo. If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+Predeterminadamente, los jobs en tu flujo de trabajo se ejecutan todos en paralelo y al mismo tiempo. Si tienes un job que solo se debe ejecutar después de que se complete otro, puedes utilizar la palabra clave `needs` para crear esta dependencia. Si uno de los jobs falla, todos los jobs dependientes se omiten; sin embargo, si necesites que estos continúen, puedes definir esto utilizando la declaración condicional `if`.
 
 En este ejemplo, los jobs de `setup`, `build`, y `test` se ejecutan en serie, y `build` y `test` son dependientes de que el job que las precede se complete con éxito:
 
@@ -107,7 +107,7 @@ Para obtener más información, consulta la sección "[Definir los jobs de prerr
 
 ### Utilizar una matriz
 
-{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} La matriz se crea utilizando la palabra clave `strategy`, la cual recibe las opciones de compilación como un arreglo. Por ejemplo, esta matriz ejecutará el job varias veces, utilizando versiones diferentes de Node.js:
 
 ```yaml
 jobs:
@@ -127,7 +127,7 @@ Para obtener más información, consulta la sección "[Utilizar una matriz para 
 {% ifversion actions-caching %}
 ### Almacenar dependencias en caché
 
-If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
+Si tus jobs utilizan dependencias con frecuencia, puedes considerar almacenar estos archivos en caché para ayudar a mejorar el desempeño. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
 
 Este ejemplo ilustra cómo almacenar el directorio `~/.npm` en el caché:
 
@@ -173,7 +173,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+Para obtener más información, consulta la sección "[Utilizar servicios en contenedores](/actions/using-containerized-services)".
 
 ### Utilizar etiquetas para enrutar los flujos de trabajo
 
@@ -187,12 +187,12 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-Un flujo de trabajo solo se ejecutará en un ejecutor que tenga todas las etiquetas en el arreglo `runs-on`. El job irá preferencialmente a un ejecutor auto-hospedado inactivo con las etiquetas especificadas. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
+Un flujo de trabajo solo se ejecutará en un ejecutor que tenga todas las etiquetas en el arreglo `runs-on`. El job irá preferencialmente a un ejecutor auto-hospedado inactivo con las etiquetas especificadas. {% ifversion fpt or ghec %}Si ninguno está disponible y existe un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con las etiquetes especificadas, el job irá al ejecutor hospedado en {% data variables.product.prodname_dotcom %}.{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+Para aprender más sobre las etiquetas de ejecución auto-hospedadas, consulta la sección "[Utilizar etiquetas con los ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
 {% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+Para aprender más sobre las etiquetas de ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Recursos de hardware y ejecutores compatibles](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -202,4 +202,4 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 ### Utilizar ambientes
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
+Puedes configurar ambientes con reglas de protección y secretos para controlar la ejecución de jobs en un flujo de trabajo. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".

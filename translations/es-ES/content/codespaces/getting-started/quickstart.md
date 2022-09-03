@@ -25,12 +25,7 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 ## Crea tu codespace
 
 1. Navega al [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
-
-1. Elige un propietario para el repositorio nuevo, ingresa un nombre de repositorio, selecciona tu ajuste de privacidad preferido y haz clic en **Crear repositorio desde plantilla**.
-
-1. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y la pestaña de **Codespaces** y haz clic en **Crear codespace en rama principal**.
-
-  ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
+{% data reusables.codespaces.open-codespace-from-template-repo %}
 
 ## Ejecutar la aplicación
 

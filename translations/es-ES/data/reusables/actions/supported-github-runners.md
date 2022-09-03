@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Runner image</b></th>
+    <th style="width:35%"><b>Imagen de ejecutor</b></th>
     <th style="width:25%"><b>Etiqueta de flujo de trabajo YAML</b></th>
     <th style="width:40%"><b>Notas</b></th>
   </tr>
@@ -54,7 +54,7 @@ Ubuntu 18.04 <sup>[deprecated]</sup>
 <code>ubuntu-18.04</code>
 </td>
 <td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. Para obtener más información, consulta <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">esta publicación del blog de GitHub</A>.
+Migrarse a <code>ubuntu-20.04</code> o <code>ubuntu-22.04</code>. Para obtener más información, consulta <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">esta publicación del blog de GitHub</A>.
 </td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ Migra a <code>macOS-11</code> o <code>macOS-12</code>. Para obtener más informa
 
 {% note %}
 
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Nota:** Las imágenes de ejecutor catalogadas como `-latest` son las imágenes más recientes que proporciona {% data variables.product.prodname_dotcom %} y podrían no ser la versión más reciente del sistema operativo disponible desde el proveedor de este.
 
 {% endnote %}
 

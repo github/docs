@@ -93,7 +93,7 @@ Como alternativa, se você quiser usar o protocolo HTTPS para ambas as contas, v
 
 Se você quiser usar o protocolo SSH para ambas as contas, você poderá usar chaves SSH diferentes para cada conta. Para obter mais informações sobre como usar SSH, consulte "[Conectando a {% data variables.product.prodname_dotcom %} com SSH](/authentication/connecting-to-github-with-ssh)".
 
-To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. A função deve executar as seguintes etapas.
+Para usar uma chave SSH diferente para diferentes repositórios que você clonar na sua estação de trabalho, você deve escrever uma função de wrapper do shell para operações do Git. A função deve executar as seguintes etapas.
 1. Determine o nome completo do repositório com proprietário, usando um comando como `git config --get remote.origin.url`.
 2. Escolha a chave SSH correta para autenticação.
 3. Modifique `GIT_SSH_COMMAND` apropriadamente. Para obter mais informações sobre `GIT_SSH_COMMAND`, consulte [Variáveis de Ambiente](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) na documentação do Git.
