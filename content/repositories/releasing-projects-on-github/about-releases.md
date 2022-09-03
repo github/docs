@@ -1,4 +1,27 @@
+From 9472a956208716e01c353f0269616716d5a024a9 Mon Sep 17 00:00:00 2001
+From: Nis Jespersen <nis@transmute.industries>
+Date: Thu, 14 Jul 2022 23:03:02 +0200
+Subject: [PATCH] feat: removing did oauth
+
 ---
+ docs/openapi/resources/did.yml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/docs/openapi/resources/did.yml b/docs/openapi/resources/did.yml
+index d35344a82..7cd30fd26 100644
+--- a/docs/openapi/resources/did.yml
++++ b/docs/openapi/resources/did.yml
+@@ -4,9 +4,6 @@ get:
+   description: Get a DID's latest keys, services and capabilities
+   tags:
+     - Identifiers
+-  security:
+-    - OAuth2:
+-        - 'resolve:dids'
+   parameters:
+     - $ref: "../parameters/path/did.yml"
+   responses:
+   ZachryTylerWood/Vscode/Cisco/Ciara's---
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
