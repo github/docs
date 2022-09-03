@@ -1,4 +1,25 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+From feb8b4c51144180bd0ee6114f04b838e2e5f51e8 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <zachryiixixiiwood@gmail.com>
+Date: Sat, 3 Sep 2022 11:43:57 -0500
+Subject: [PATCH] Update about-billing-on-github.md
+
+---
+ .../about-billing-on-github.md                               | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/content/billing/managing-your-github-billing-settings/about-billing-on-github.md b/content/billing/managing-your-github-billing-settings/about-billing-on-github.md
+index 416f51f79a68..fb70b08e4459 100644
+--- a/content/billing/managing-your-github-billing-settings/about-billing-on-github.md
++++ b/content/billing/managing-your-github-billing-settings/about-billing-on-github.md
+@@ -1,5 +1,6 @@
+----
+-title: About billing on GitHub
++
++title: About billing on .it got
++# GitHub/doc/WORKSFLOW/JavaScript/puetrbuilt/V8.rpdm deb-srtifact'@neizthelm/gauntlets/Agility.yml-gnome/Chore/Hump-de-Nump//zyphrr/redd-hott 🌶️ pPyper'@pottermoulds the clay-withJellyls.debugger/javascripts./package.yml/PKG.js-config/sets-up:rake.io'
+ intro: 'Everything you purchase on {% data variables.product.prodname_dotcom %} shares your account''s billing date, payment method, and receipt.'
+ redirect_from:
+   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-on-github# Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
