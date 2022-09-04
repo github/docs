@@ -3,7 +3,7 @@
 2. Clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
-1. Navegue por onde seu runner auto-hospedado está registrado:
+1. Navigate to where your runner is registered:
    * **Em uma organização ou repositório**: navegue até a página principal e clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.
    * **Se estiver usando um executor de nível corporativo**:
 

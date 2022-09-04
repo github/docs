@@ -79,12 +79,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### Token do OAuth2 (enviado em um cabeçalho)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de autorização.
+
+{% endnote %}
+
+{% note %}
+
+**Observação:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -233,7 +239,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação. Note that HTTP verbs are case-sensitive.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação. Note que os verbos HTTP diferenciam maiúsculas de minúsculas.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -306,7 +312,7 @@ Os valores de `rel` possíveis são:
 
 ## Tempo esgotado
 
-If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+Se {% data variables.product.prodname_dotcom %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.prodname_dotcom %} encerrará a solicitação e você receberá uma resposta de tempo esgotado dessa forma:
 
 ```json
 {
@@ -314,7 +320,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 }
 ```
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.product_name %} reserva-se o direito de alterar a janela de tempo limite para proteger a velocidade e a confiabilidade da API.
 
 ## Limite de taxa
 

@@ -28,7 +28,7 @@ Para fazer uma solicitação, primeiro encontre o método HTTP e o caminho para 
 
 {% note %}
 
-**Observação**: Você deve instalar {% data variables.product.prodname_cli %} para usar os comandos nos exemplos de {% data variables.product.prodname_cli %}. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+**Observação**: Você deve instalar {% data variables.product.prodname_cli %} para usar os comandos nos exemplos de {% data variables.product.prodname_cli %}. Para obter instruções de instalação, consulte o [repositório de {% data variables.product.prodname_cli %}](https://github.com/cli/cli#installation).
 
 {% endnote %}
 
@@ -46,11 +46,11 @@ gh api /octocat --method GET
 
 {% note %}
 
-**Observação**: Você deve instalar e importar o `octokit` para usar a biblioteca Octokit.js usada nos exemplos de JavaScript. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+**Observação**: Você deve instalar e importar o `octokit` para usar a biblioteca Octokit.js usada nos exemplos de JavaScript. Para obter mais informações, consulte [o README do Octokit.js](https://github.com/octokit/octokit.js/#readme).
 
 {% endnote %}
 
-Para fazer uma solicitação usando o JavaScript, você pode usar o Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+Para fazer uma solicitação usando o JavaScript, você pode usar o Octokit.js. Para obter mais informações, consulte [o README do Octokit.js](https://github.com/octokit/octokit.js/#readme).
 
 Primeiro, crie uma instância de `Octokit`.{% ifversion ghes or ghae %} Defina a URL de base como `{% data variables.product.api_url_code %}`. Substitua `[hostname]` pelo nome de {% data variables.product.product_location %}.{% endif %}
 
@@ -70,7 +70,7 @@ await octokit.request("GET /octocat", {});
 
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
+Anteponha a URL base para a API REST de {% data variables.product.prodname_dotcom %}, `{% data variables.product.api_url_code %}`, para o caminho para obter a URL completa: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Substitua `[hostname]` pelo nome de {% data variables.product.product_location %}.{% endif %}
 
 Use o comando `curl` na sua linha de comando. Use o sinalizador `--request` ou `-X` seguido do método HTTP. Use o sinalizador `--url` seguido da URL completa.
 
@@ -81,7 +81,7 @@ curl --request GET \
 
 {% note %}
 
-**Observação**: Se você receber uma mensagem semelhante a command not found: curl", talvez você tenha de fazer o download e instalar o cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**Observação**: Se você receber uma mensagem semelhante a command not found: curl", talvez você tenha de fazer o download e instalar o cURL. Para obter mais informações, consulte [a página de download do projeto do cURL](https://curl.se/download.html).
 
 {% endnote %}
 
@@ -113,7 +113,7 @@ Com {% data variables.product.prodname_cli %}, você não precisa criar um token
 gh auth login
 ```
 
-Você pode usar o sinalizador `--escopes` para especificar quais escopos você quer. Se você deseja efetuar a autenticação com um token que você criou, você pode usar o sinalizador `--with-token`. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+Você pode usar o sinalizador `--escopes` para especificar quais escopos você quer. Se você deseja efetuar a autenticação com um token que você criou, você pode usar o sinalizador `--with-token`. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_cli %} `login de autenticação`](https://cli.github.com/manual/gh_auth_login).
 
 {% endcli %}
 
@@ -121,13 +121,13 @@ Você pode usar o sinalizador `--escopes` para especificar quais escopos você q
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**Aviso**: Trate seu token de acesso como uma senha.
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+Para manter seu token seguro, você pode armazenar o seu token como um segredo e executar o seu script através de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
-{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e executar seu script em {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e executar seu script em {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+Se essas opções não forem possíveis, considere usar outro serviço como [o 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) para armazenar seu token de forma segura.
 
 {% endwarning %}
 
@@ -146,13 +146,13 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**Aviso**: Trate seu token de acesso como uma senha.
 
-Para ajudar a manter sua conta segura, você pode usar {% data variables.product.prodname_cli %} ao invés de cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+Para ajudar a manter sua conta segura, você pode usar {% data variables.product.prodname_cli %} ao invés de cURL. O {% data variables.product.prodname_cli %} cuidará da autenticação para você. Para obter mais informações, consulte a versão de {% data variables.product.prodname_cli %} desta página.
 
-{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e usar a linha de comando através de {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e usar a linha de comando através de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+Se essas opções não forem possíveis, considere usar outro serviço como [o 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) para armazenar seu token de forma segura.
 
 {% endwarning %}
 
@@ -166,7 +166,7 @@ curl --request GET \
 
 {% note %}
 
-**Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. Os tokens da web JSON (JWTs) só funcionarão com `Authorization: Bearer`.
+**Observação:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -176,9 +176,9 @@ curl --request GET \
 
 {% cli %}
 
-Você também pode usar a palavra-chave `executar` para executar comandos de {% data variables.product.prodname_cli %} nos seus fluxos de trabalho {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Você também pode usar a palavra-chave `executar` para executar comandos de {% data variables.product.prodname_cli %} nos seus fluxos de trabalho {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-Em vez de usar o comando de autenticação `gh login`, passe seu token como uma variável de ambiente denominada `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+Em vez de usar o comando de autenticação `gh login`, passe seu token como uma variável de ambiente denominada `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. Se isso não for possível, armazene seu token como um segredo e substitua `GITHUB_TOKEN` no exemplo abaixo pelo nome do seu segredo. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Autenticação automática de token](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ```yaml
 jobs:
@@ -196,18 +196,18 @@ jobs:
 
 {% javascript %}
 
-Você também pode usar a palavra-chave `executar` para executar seus scripts do JavaScript nos seus fluxos de trabalho de {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Você também pode usar a palavra-chave `executar` para executar seus scripts do JavaScript nos seus fluxos de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. Se isso não for possível, armazene seu token como um segredo e substitua `GITHUB_TOKEN` no exemplo abaixo pelo nome do seu segredo. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Autenticação automática de token](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
-The following example workflow:
+O seguinte exemplo de fluxo de trabalho:
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. Faz check-out do conteúdo do repositório
+1. Configura o Node.js
+1. Instala `octokit`
+1. Armazena o valor de `GITHUB_TOKEN` como uma variável de ambiente denominada `TOKEN` e executa `.github/actions-scripts/use-the-api.mjs`, que pode acessar essa variável de ambiente como `process.env.TOKEN`
 
-Example workflow:
+Exemplo de fluxo de trabalho:
 
 ```yaml
 on:
@@ -236,7 +236,7 @@ jobs:
           node .github/actions-scripts/use-the-api.mjs
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+Exemplo de script do JavaScript, com o caminho do arquivo `.github/actions-scripts/use-the-api.mjs`:
 
 ```javascript
 import { Octokit } from "octokit";
@@ -268,9 +268,9 @@ jobs:
 
 {% curl %}
 
-Você também pode usar a palavra-chave `executar` para executar comandos do cURL nos fluxos de trabalho {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Você também pode usar a palavra-chave `executar` para executar comandos do cURL nos fluxos de trabalho {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. Se isso não for possível, armazene seu token como um segredo e substitua `GITHUB_TOKEN` no exemplo abaixo pelo nome do seu segredo. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Autenticação automática de token](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ```yaml
 jobs:
@@ -560,9 +560,9 @@ Neste exemplo, o código de resposta é `200`, o que indica uma solicitação be
 
 {% javascript %}
 
-Ao fazer uma solicitação com o Octokit.js, o método `solicitação` retorna uma promessa. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
+Ao fazer uma solicitação com o Octokit.js, o método `solicitação` retorna uma promessa. Se a solicitação foi bem-sucedida, a promessa é resolvida em um objeto que inclui o código de status HTTP da resposta (`status`) e os cabeçalhos de resposta (`cabeçalhos`). Se um erro ocorrer, a promessa será resolvida em um objeto que inclui o código de status HTTP da resposta (`status`) e os cabeçalhos de resposta (`response.headers`).
 
-Você pode usar um bloco `try/catch` para capturar um erro, caso ocorra. Por exemplo, se o pedido no script seguinte for bem-sucedido, o script registrará o código de status e o valor do cabeçalho `x-ratelimit-restante`. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
+Você pode usar um bloco `try/catch` para capturar um erro, caso ocorra. Por exemplo, se o pedido no script seguinte for bem-sucedido, o script registrará o código de status e o valor do cabeçalho `x-ratelimit-restante`. Se a solicitação não for bem sucedida, o script registrará o código de status, o valor do cabeçalho `x-ratelimit-remaining` e a mensagem de erro.
 
 ```javascript
 try {
@@ -664,11 +664,11 @@ curl --request GET \
 
 {% endcurl %}
 
-Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
+Ao contrário da API do GraphQL, em que você especifica quais informações você quer, a API REST normalmente retorna mais informações do que você precisa. Se desejar, você pode analisar a resposta para extrair partes específicas da informação.
 
 {% cli %}
 
-For example, you can use `>` to redirect the response to a file:
+Por exemplo, você pode usar `>` para redirecionar a resposta para um arquivo:
 
 ```shell
 gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
@@ -722,7 +722,7 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file:
+Por exemplo, você pode usar `>` para redirecionar a resposta para um arquivo:
 
 ```shell
 curl --request GET \

@@ -2,16 +2,16 @@ date: '2022-08-11'
 sections:
   security_fixes:
     - |
-      **CRITICAL**: GitHub Enterprise Server's Elasticsearch container used a version of OpenJDK 8 that was vulnerable to an integer truncation issue when processing malicious XSLT stylesheets. The vulnerability is tracked as [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
+      **CRÍTICO**: O contêiner do Elasticsearch do GitHub Enterprise Server usou uma versão do OpenJDK 8 que era vulnerável a um problema de truncação integral ao processar folhas de estilo maliciosas do XSLT. A vulnerabilidade é rastreada como [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
     - |
-      **HIGH**: Previously installed apps on user accounts were automatically granted permission to access an organization on scoped access tokens after the user account was transformed into an organization account. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+      **ALTO**: Anteriormente foi concedida permissão para acessar uma organização em tokens de acesso com escopo depois que a conta de usuário foi transformada em uma conta da organização. Essa vulnerabilidade foi reportada por meio do [programa de Recompensas de Erros do GitHub](https://bounty.github.com).
   bugs:
-    - In some cases, GitHub Enterprise Server instances on AWS that used the `r4.4xlarge` instance type would fail to boot.
-    - 'When calculating committers for GitHub Advanced Security, it was not possible to specify individual repositories. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."'
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+    - Em alguns casos, as instâncias do GitHub Enterprise Server no AWS que usaram o tipo de instância `r4.4xlarge` falhariam ao inicializar.
+    - 'Ao calcular os committers para o GitHub Advanced Security, não foi possível especificar repositórios individuais. Para obter mais informações, consulte "[Painel de administração do site](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."'
+    - Quando foi fixado um limite de inatividade personalizado, a suspensão de todos os usuários inativos não respeitava de forma fiável o limite. Para obter mais informações sobre a inatividade, consulte "[Gerenciando usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
   changes:
-    - '`pre_receive_hook.rejected_push` events were not displayed in the enterprise audit log.'
-    - Both migration archives for repositories and archive exports for user accounts include release reactions.
+    - 'Os eventos `pre_receive_hook.rejected_push` não foram exibidos no log de auditoria corporativa.'
+    - Tanto os arquivos de migração para repositórios como as exportações de arquivos para contas de usuário incluem reações de versão.
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

@@ -47,7 +47,7 @@ Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% d
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
+{% data variables.product.prodname_github_apps %} que estão instalados em uma organização dentro de uma empresa em {% data variables.product.product_location %} estão sujeitos a um limite de 15000 solicitações por hora por organização que instalou o aplicativo.
 
 {% endif %}
 

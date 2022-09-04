@@ -32,10 +32,10 @@ sections:
     - 'Os repositórios excluídos não serão removidos do disco automaticamente após o período de retenção de 90 dias. Esse problema é resolvido na versão 3.5.1. [Atualizado: 2022-06-10]'
     - 'O Console de Gerenciamento pode aparecer preso na tela de _Starting_ depois de atualizar uma instância subprovisionada para o GitHub Enterprise Server 3.5. [Atualizado: 2022-06-20]'
     - |
-      The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+      Os seguintes recursos não estavam disponíveis para usuários no GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 e 3.5.3. Os recursos estão disponíveis na versão 3.5.4 e posterior. [Atualizado: 2022-08-16]
 
-      - Detection of GitHub Actions workflow files for the dependency graph
-      - Reopening of dismissed Dependabot alerts
-      - Enabling the **Update branch** button for all pull requests in a repository
-      - Light high contrast theme
+      - Detecção de arquivos de fluxo de trabalho do GitHub Actions para o gráfico de dependências
+      - Reabertura de alertas de Dependência ignorados
+      - Habilitando o botão **Atualizar branch** para todos os pull requests no repositório
+      - Tema de alto contraste leve
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
