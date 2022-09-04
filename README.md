@@ -1,70 +1,5 @@
 U.S.TREASURY SECURITIES
-
-
-STATE AND LOCAL GOVERNMENT SERIES
-
-#Scribe :by 09/15/2022
-
-07/30/2022
-
-NOTICE UNDER THE PAPERWORK REDUCTION ACT
-Bureau of the Fiscal Service, Forms Management Officer, Parkersburg, WV 26106-1328.
-
-
-
-FOR USE BY THE BUREAU OF THE FISCAL SERVICE
-
-E'-Customer ID Processed by
-/FS Form 4144 Department of the Treasury | Bureau of the Fiscal Service Revised August 2018
-Form Instructions
-Bureau of the Fiscal Service
-Special Investments Branch
-P.O. Box 396, Room 119
-Parkersburg, WV 26102-0396
-Telephone Number: (304) 480-5299
-Fax Number: (304) 480-5277
-Internet Address: https://www.slgs.gov/
-E-Mail Address: SLGS@fiscal.treasury.gov
-Governing Regulations: 31 CFR Part 344
-Please add the following information prior to mailing the form:
-• The name of the organization should be entered in the first paragraph.
-• If the user does not have an e-mail address, call SIB at 304-480-5299 for more information.
-• The user should sign and date the form.
-• If the access administrator or backup administrator also completes a user acknowledgment, both administrators
-should sign the 4144-5 Application for Internet Access.
-Regular Mail Address: Courier Service Address:
-Bureau of the Fiscal Service
-Special Investments Branch
-P.O. Box 396, Room 119
-Parkersburg, WV 26102-0396
-The Special Investments Branch (SIB) will only accept original signatures on this form. SIB will
-not accept faxed or emailed copies.							
-					Tax Periood Requested :  December, 2020																						Form W-2 Wage and Tax Statement					        	Important Notes																					
-on Form 8-K, as filed with the Commission on January 18, 2019).																																											
-			
-      Request Date : 07-29-2022				
-      
-      Period Beginning:			37151																		
-			
-      Response Date : 07-29-2022				
-      
-      Period Ending:			44833																		
-			
-      Tracking Number : 102393399156				
-      
-      Pay Date:			44591																		
-			
-      Customer File Number : 132624428	
-      
-      ZACHRY T. 			WOOD																		
-			
-      5323	BRADFORD DR																				          important information			Wage and Income Transcript																		
-      
-SSN Provided : XXX-XX-1725				DALLAS		TX 75235-8314												
-Submis
-sion Type :					Original document																									
-
-Wages, Tips and Other Compensation : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .From: <Saved by Blink>
+From: <Saved by Blink>
 Snapshot-Content-Location: chrome://media-app/
 Subject: Receipt from U.S. Department of the Treasury 26May2022.pdf
 Date: Thu, 18 Aug 2022 11:33:45 -0000
@@ -1983,7 +1918,72 @@ ar-size); }
 
 .ink-scrollbar-sizer-vert { width: 0.1px; height: 0px; visibility: hidden; }
 ------MultipartBoundary--nvyCrBZ35rOovtzu06pcMzyoPcgzCDvHeDo0xRcVaN------
-			         
+
+
+STATE AND LOCAL GOVERNMENT SERIES
+
+#Scribe :by 09/15/2022
+
+07/30/2022
+
+NOTICE UNDER THE PAPERWORK REDUCTION ACT
+Bureau of the Fiscal Service, Forms Management Officer, Parkersburg, WV 26106-1328.
+
+
+
+FOR USE BY THE BUREAU OF THE FISCAL SERVICE
+
+E'-Customer ID Processed by
+/FS Form 4144 Department of the Treasury | Bureau of the Fiscal Service Revised August 2018
+Form Instructions
+Bureau of the Fiscal Service
+Special Investments Branch
+P.O. Box 396, Room 119
+Parkersburg, WV 26102-0396
+Telephone Number: (304) 480-5299
+Fax Number: (304) 480-5277
+Internet Address: https://www.slgs.gov/
+E-Mail Address: SLGS@fiscal.treasury.gov
+Governing Regulations: 31 CFR Part 344
+Please add the following information prior to mailing the form:
+• The name of the organization should be entered in the first paragraph.
+• If the user does not have an e-mail address, call SIB at 304-480-5299 for more information.
+• The user should sign and date the form.
+• If the access administrator or backup administrator also completes a user acknowledgment, both administrators
+should sign the 4144-5 Application for Internet Access.
+Regular Mail Address: Courier Service Address:
+Bureau of the Fiscal Service
+Special Investments Branch
+P.O. Box 396, Room 119
+Parkersburg, WV 26102-0396
+The Special Investments Branch (SIB) will only accept original signatures on this form. SIB will
+not accept faxed or emailed copies.							
+					Tax Periood Requested :  December, 2020																						Form W-2 Wage and Tax Statement					        	Important Notes																					
+on Form 8-K, as filed with the Commission on January 18, 2019).																																											
+			
+      Request Date : 07-29-2022				
+      
+      Period Beginning:			37151																		
+			
+      Response Date : 07-29-2022				
+      
+      Period Ending:			44833																		
+			
+      Tracking Number : 102393399156				
+      
+      Pay Date:			44591																		
+			
+      Customer File Number : 132624428	
+      
+      ZACHRY T. 			WOOD																		
+			
+      5323	BRADFORD DR																				          important information			Wage and Income Transcript																		
+      
+SSN Provided : XXX-XX-1725				DALLAS		TX 75235-8314												
+Submis
+sion Type :					Original document																									
+
+Wages, Tips and Other Compensation : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5105000.00					510500000				         
 Advice number:			650001																		
 
 Federal Income Tax Withheld : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1881380.00			
