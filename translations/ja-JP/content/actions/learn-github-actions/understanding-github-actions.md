@@ -1,7 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understanding GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+title: GitHub Actionsを理解する
+shortTitle: GitHub Actionsを理解する
+intro: '{% data variables.product.prodname_actions %}の基本を理解し、中心となるコンセプトと重要な用語を紹介します。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -23,17 +23,17 @@ topics:
 
 ## 概要
 
-{% data reusables.actions.about-actions %}  You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
+{% data reusables.actions.about-actions %} レポジトリで各プルリクエストのビルドとテスト、製品へのプルリクエストのマージを行うワークフローを作ることができます。
 
-{% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+{% data variables.product.prodname_actions %} は単なるDevOpsを超え、その他のイベントがレポジトリ内に発生するときにワークフローを実行することが出来ます。例えば、レポジトリに新しいissueが作成されたとき、自動的に適切なラベルを付けることが出来ます。
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+{% data variables.product.prodname_dotcom %} が提供するワークフロー用のLinux, Windows, macOSの仮想マシン、またはあなたのデータセンターやクラウド環境であなたがホストするセルフホストのランナーを使用できます。
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+{% data variables.product.product_location %}でワークフローを実行するためのLinux, Windows, macOS仮想マシンをホストしなければなりません。 {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
@@ -45,7 +45,7 @@ For more information about introducing {% data variables.product.prodname_action
 
 ## {% data variables.product.prodname_actions %} のコンポーネント
 
-You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
+例えばプルリクエストが開かれたとか新しいissueが作成されたなど、レポジトリ内でイベントが発生したときに実行するための{% data variables.product.prodname_actions %} _ワークフロー_を設定することができます。ワークフローには1つ、または直列または並列に動作する複数のジョブを含むことが出来ます。各ジョブはその仮想マシン _ランナー_、 またはコンテナ内で実行し、1つまたは複数_ステップ_ のあなたが用意したスクリプトや、あなたのワークフローで再利用可能なアクションを実行します。
 
 ![ワークフローの概要](/assets/images/help/images/overview-actions-simple.png)
 
@@ -59,23 +59,27 @@ For more information about workflows, see "[Using workflows](/actions/using-work
 
 ### イベント
 
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow run on a schedule, by [posting to a REST API](/rest/reference/repos#create-a-repository-dispatch-event), or manually.
+イベントとは、ワークフローを実行するためレポジトリ内の特定のアクティビティを指します。例えば、誰かがプルリクエストを作成したり、issueを開いたり、レポジトリにコミットをpushしたりしたとき {% data variables.product.prodname_dotcom %} からアクティビティが発生します。
+ワークフローをスケジュールで実行したり、[REST APIをPOSTしたり](/rest/reference/repos#create-a-repository-dispatch-event)、手動で実行することもできます。
 
 ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
 
 ### ジョブ
 
-A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
+ジョブとは、同じランナー上で動作する各ワークフローの _ステップ_ のセットです。各ステップは、実行するシェルスクリプトか、実行する_アクション_です。
+ステップは順序ごとに実行されます。各ステップは同じランナー上で実行するため、１つのステップからその他にデータを共有することが出来ます。
+例えば、１つのステップでアプリケーションをビルドし、続くステップでビルドされたアプリケーションをテストすることができます。
 
-You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
+他のジョブに依存するジョブを設定することができます。デフォルトではジョブは依存関係を持たず、それぞれが並列に動きます。１つのジョブが他のジョブに依存するとき、そのジョブが実行する前に依存するジョブが完了するのを待ちます。例えば、依存関係のない異なるアーキテクチャ向けに複数のビルドし、それらに続いてパッケージをするジョブを持つことができます。ビルドするジョブは並列で行われ、それらが全て成功したとき、パッケージングのジョブが実行されます。
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+ジョブに関する詳しい情報は、 "[Using jobs](/actions/using-jobs)." を参照してください。
 
-### Actions
+### アクション
 
-An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+_アクション_とは、{% data variables.product.prodname_actions %}プラットフォームのためのカスカムアプリケーションで、複雑に、しかし定期的に繰り返されるタスクです。
+アクションを使うことで、ワークフローファイル内であなたが書く、繰り返されるコードの量を減らすことを助長します。アクションは、{% data variables.product.prodname_dotcom %}からあなたのgitレポジトリをpullしたり、ビルド環境に対する正しいツールチェインをセットアップしたり、クラウドプロバイダーに対する認証のセットアップを行ったりすることができます。
 
-You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+独自のアクションを書いたり、ワークフロー内で使用するアクションを {% data variables.product.prodname_marketplace %} で探したりできます。
 
 {% data reusables.actions.internal-actions-summary %}
 
@@ -83,11 +87,11 @@ You can write your own actions, or you can find actions to use in your workflows
 
 ### ランナー
 
-{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data reusables.actions.about-runners %} 各ランナーは各実行時に1つのジョブを実行できます。 {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} は Ubuntu Linux, Microsoft Windows, そして macOSのランナーをワークフロー実行環境として提供し、各ワークフローはフレッシュかつ新規な環境の仮想マシンで実行されます。{% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} はさらに、巨大なコンフィギュレーションのための {% data variables.actions.hosted_runner %}も提供します。詳しい情報は、"[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)"をお読みください。{% endif %}もし異なるオペレーティングシステムや特定のハードウェアが必要な場合は、あなたのランナーをあなたがホストすることができます。{% endif %} 詳しい情報は、{% ifversion fpt or ghec %} about self-hosted runners{% endif %},  "[Hosting your own runners](/actions/hosting-your-own-runners)"をお読みください。
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## More complex examples
+## 追加の複雑なサンプル
 {% data reusables.actions.link-to-example-library %}
 
 ## 次のステップ
