@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Actions
-intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
+title: GitHub Actions クイックスタート
+intro: '{% data variables.product.prodname_actions %}の機能を約5分で試してみましょう'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
@@ -18,17 +18,17 @@ shortTitle: Quickstart
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## イントロダクション
 
-You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
+必要なのは{% data variables.product.prodname_dotcom %} レポジトリを作り、{% data variables.product.prodname_actions %} ワークフローを実行するだけです。このガイドでは、{% data variables.product.prodname_actions %}のいくつかの重要な機能のデモンストレーションのワークフローを追加します。
 
-The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
+これから紹介する例では、{% data variables.product.prodname_actions %} が、どのようにジョブが自動的に開始し、どこで実行され、どのようにあなたのレポジトリ内のコードとやり取りするかを紹介します。
 
-## Creating your first workflow
+## 初めてのワークフローの作成
 
-1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-3. Copy the following YAML contents into the `github-actions-demo.yml` file:
+1. {% data variables.product.prodname_dotcom %}上のあなたのレポジトリ内に、もし`.github/workflows` ディレクトリが存在しなければ作成します。
+2. `.github/workflows`ディレクトリ内で、`github-actions-demo.yml`という名前のファイルを作成します。詳細は "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)." を参照してください。
+3. 以下のYAMLコンテンツを`github-actions-demo.yml`ファイルにコピーします。
     {% raw %}
     ```yaml{:copy}
     name: GitHub Actions Demo
@@ -51,45 +51,47 @@ The following example shows you how {% data variables.product.prodname_actions %
 
     ```
     {% endraw %}
-3. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
+3. ページ下部までスクロールし、**Create a new branch for this commit and start a pull request**を選択します。そして、プルリクエストを作成し、**Propose new file**をクリックします。
     ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
+あなたのレポジトリのブランチにワークフローファイルをコミットすることで、`push`イベントが発生し、ワークフローが実行されます。
 
-## Viewing your workflow results
+## ワークフローの実行結果を見る
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to see.
+
+1. 左のサイドバー内で、見たいワークフローを選択します。
 
    ![Workflow list in left sidebar](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
-1. From the list of workflow runs, click the name of the run you want to see.
+1. ワークフロー実行結果のリストから、見たいものの名前を選択します。
 
    ![Name of workflow run](/assets/images/help/repository/actions-quickstart-run-name.png)
-1. Under **Jobs** , click the **Explore-GitHub-Actions** job.
+1. **Jobs**の下にある**Explore-GitHub-Actions**ジョブをクリックします。
 
    ![Locate job](/assets/images/help/repository/actions-quickstart-job.png)
-1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
+1. 各ステップがどのように実行されたかのログが表示されます。各ステップの詳細は拡げて見ることが出来ます。
 
    ![Example workflow results](/assets/images/help/repository/actions-quickstart-logs.png)
    
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
    
-## More starter workflows
+## スターター向けの追加サンプル
 
 {% data reusables.actions.workflow-template-overview %}
 
-## More complex examples
+## さらに複雑なサンプル
 {% data reusables.actions.link-to-example-library %}
 
-## Next steps
+## 次のステップ
 
-The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
+今回追加したワークフローの例は、ブランチにコードをプッシュする度に実行するだけで、{% data variables.product.prodname_actions %} があなたのレポジトリのコンテンツを使って動作するかを示しています。でもそれは単に {% data variables.product.prodname_actions %}で出来ることの始まりに過ぎません。
 
-- Your repository can contain multiple workflows that trigger different jobs based on different events. 
-- You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
+- 異なるイベントで異なるジョブのためが動作するための複数のワークフローをレポジトリ内に持つことが出来ます。
+- ワークフローでアプリケーションをテストするためのソフトウェアをインストールしたり、{% data variables.product.prodname_dotcom %}のランナーを使って、あなたのコードを自動的にテストすることができます。
 
-{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+{% data variables.product.prodname_actions %} は、アプリケーション開発プロセスの各局面の自動化をヘルプします。
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
+
+- さらに詳しいチュートリアルは"[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" に進んでください。
