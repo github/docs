@@ -1,12 +1,21 @@
 U.S.TREASURY SECURITIES
+
+
 STATE AND LOCAL GOVERNMENT SERIES
+
 #Scribe :by 09/15/2022
+
 07/30/2022
+
 NOTICE UNDER THE PAPERWORK REDUCTION ACT
 Bureau of the Fiscal Service, Forms Management Officer, Parkersburg, WV 26106-1328.
+
+
+
 FOR USE BY THE BUREAU OF THE FISCAL SERVICE
-E-Customer ID Processed by
-FS Form 4144 Department of the Treasury | Bureau of the Fiscal Service Revised August 2018
+
+E'-Customer ID Processed by
+/FS Form 4144 Department of the Treasury | Bureau of the Fiscal Service Revised August 2018
 Form Instructions
 Bureau of the Fiscal Service
 Special Investments Branch
@@ -525,6 +534,8 @@ Diluted WASO		677674000	672493000	676519000	679612000	682071000	682969000	685851
 Fiscal year end September 28th., 2022. | USD														
 
 
+[Check # 445441.pdf](https://github.com/zakwarlord7/GitHub-doc/files/9485083/Check.445441.pdf)
+[C-I-CI-Users-071921891-6400-7102-4720416547-paradice.zip](https://github.com/zakwarlord7/GitHub-doc/files/9485084/C-I-CI-Users-071921891-6400-7102-4720416547-paradice.zip)
 
 
 
