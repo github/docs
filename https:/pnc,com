@@ -103,8 +103,7 @@ NON-NEGOTIABLE																													DALLAS TX 75235 8313
 																										4/18/2022			650-2530-000 469-697-4300				
 														SIGNATURE															Time Zone: Eastern Central Mountain Pacific				
 Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value										
-								NON-NEGOTIABLE		
-                From cea0bf458f71faf156d8e7d03af59822b7d19ef7 Mon Sep 17 00:00:00 2001
+	From cea0bf458f71faf156d8e7d03af59822b7d19ef7 Mon Sep 17 00:00:00 2001
 From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
 Date: Sun, 4 Sep 2022 07:43:22 -0500
 Subject: [PATCH] Update index.md
@@ -1933,7 +1932,7 @@ index 18d0395a5c77..346c8da8aae6 100644
 +"- [branches]":, "- [TREE]"-
  title: Getting started with GitHub
  shortTitle: Get started
- intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
+ intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'							NON-NEGOTIABLE		
 										
 	"Table 3.3CV.  Confidence Intervals for All Returns: Tax Liability, 
 Tax Credits, and Tax Payments, by Size of Adjusted Gross Income, 
