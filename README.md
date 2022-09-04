@@ -1,66 +1,7 @@
-
 U.S.TREASURY SECURITIES
 STATE AND LOCAL GOVERNMENT SERIES
-
-Intuit Logo
-
-
-I
-
-INTUIT ACCOUNT
-Overview
-Sign in & security
-Personal info
-Data privacy
-Products & billing
-Did you find what you’re looking for?
-
-Feedback
-QuickBooks
-About 88-1656496
-Company ID
-9130352591434326
-Manage your QuickBooks by updating your subscription details and looking over your product info.
-Your subscriptions were suspended because we couldn’t process your payment. Want to keep your pricing and reactivate your plans? Resubscribe by 09/15/2022
-Company ID
-9130 3525 9143 4326
-QuickBooks Plus
-CANCELEDON07/30/2022
-Read only until 08/16/2023
-You have access to data and reporting until one year. You can resubscribe to pick up where you left off if you decide to come back.
-View payment history
-
-Resubscribe
-QuickBooks Online Payroll Elite
-SUSPENDED
-Read only until 08/16/2023
-View payment history
-QuickBooks Live Full-Service Bookkeeping
-Get live support from a dedicated, QuickBooks-certified bookkeeper who will:
-Go through your past books line by line to bring them up to date
-Maintain your books each month so you're ready for tax time
-Meet with you one-on-one to provide ongoing insights on your business
-QuickBooks Online subscription
-QuickBooks Time
-Track time on any device to streamline payroll, send accurate invoices, and save thousands each year.
-Let employees clock in and out from their devices
-Build, edit, and share schedules by jobs or shifts
-Automatically add employee timesheets for faster, more accurate time entry
-
-Learn more
-Checks and supplies
-Get the products you need to help run your business easily and effectively.
-Choose from popular check styles
-Make tax time less taxing with our tax kits
-Reordering is a snd
-
-Back
-
-Manage my QuickBooks
-
-Go to QuickBooks
-By signing this acknowledgment, I certify that I understand and am bound by the requirements and responsibilities
-regarding the use of Application for Internet Access.
+#Scribe :by 09/15/2022
+07/30/2022
 NOTICE UNDER THE PAPERWORK REDUCTION ACT
 Bureau of the Fiscal Service, Forms Management Officer, Parkersburg, WV 26106-1328.
 FOR USE BY THE BUREAU OF THE FISCAL SERVICE
