@@ -74,7 +74,7 @@ shortTitle: Quickstart
 
    ![Example workflow results](/assets/images/help/repository/actions-quickstart-logs.png)
    
-   For example, you can see the list of files in your repository:
+   例えば、レポジトリ内のファイルリストが見れます。
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
    
 ## スターター向けの追加サンプル
