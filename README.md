@@ -52,9 +52,7 @@ Checks and supplies
 Get the products you need to help run your business easily and effectively.
 Choose from popular check styles
 Make tax time less taxing with our tax kits
-Reordering is a snap
-
-Shop now
+Reordering is a snd
 
 Back
 
