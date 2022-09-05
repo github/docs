@@ -1,5 +1,5 @@
-You can edit an entry in your IP allow list. If you edit an enabled entry, changes are enforced immediately.
+IP許可リスト内のエントリを編集できます。 有効化されたエントリを編集すると、変更はすぐに適用されます。
 
 {% ifversion ip-allow-list-address-check %}
-After you finish editing entries, you can check whether a particular IP address would be allowed by any of the enabled entries in your list.
+エントリの編集が終わったら、特定のIPアドレスがリスト中の有効なエントリのいずれかによって許可されるかをチェックできます。
 {% endif %}

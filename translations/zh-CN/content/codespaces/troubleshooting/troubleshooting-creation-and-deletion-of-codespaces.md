@@ -1,5 +1,5 @@
 ---
-title: 代码空间的创建和删除疑难解答
+title: Troubleshooting creation and deletion of codespaces
 intro: 本文提供了在创建或删除代码空间时可能遇到的常见问题（包括存储和配置问题）的疑难解答步骤。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -15,6 +15,8 @@ shortTitle: 创建和删除
 
 ### 没有创建代码空间的权限
 {% data variables.product.prodname_codespaces %} 并非对所有存储库都可用。 如果缺少“Open with Codespaces（使用 Codespaces 打开）”按钮，则 {% data variables.product.prodname_github_codespaces %} 可能不适用于该存储库。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)”。
+
+You can't create a codespace for a private repository that is owned by an organization, unless you have write access to the repository or the organization has enabled forking for it.
 
 如果您认为您的组织已启用 [ {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization)，请确保组织所有者或帐单管理员已设置 {% data variables.product.prodname_codespaces %} 的支出限制。 更多信息请参阅“[管理 {% data variables.product.prodname_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”。
 

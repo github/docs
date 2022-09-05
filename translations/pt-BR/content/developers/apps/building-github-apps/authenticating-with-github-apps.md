@@ -147,12 +147,18 @@ Para efetuar a autenticação com um token de acesso de instalação, inclua-o n
 
 ```shell
 $ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` é o valor que você deve substituir.
+
+{% note %}
+
+**Observação:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
 
 ## Acessar pontos finais da API como uma instalação
 

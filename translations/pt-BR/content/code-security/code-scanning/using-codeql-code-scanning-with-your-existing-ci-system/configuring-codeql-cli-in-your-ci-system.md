@@ -163,7 +163,20 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
     </td>
     
     <td>
-      Opcional. Use se você executar a CLI fora da raiz do check-out do repositório. Por padrão, o comando <code>criação de banco de dados</code> supõe que o diretório atual é o diretório raiz para os arquivos de origem, use esta opção para especificar uma localidade diferente.
+      Opcional. Use se você executar a CLI fora da raiz do check-out do repositório. Por padrão, o comando <code>criação de banco de dados</code> supõe que o diretório atual é o diretório raiz para os arquivos de origem, use esta opção para especificar uma localidade diferente. |{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <nobr>`--codescanning-config`</nobr>
+    </td>
+    
+    <td align="center">
+    </td>
+    
+    <td>
+      Opcional (Avançado). Use se você tiver um arquivo de configuração que especifica como criar os bancos de dados de {% data variables.product.prodname_codeql %} e quais consultas serão executadas em etapas posteriores. Para obter mais informações, consulte "<a href="/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-a-custom-configuration-file">Using a custom configuration file</a>" and "<a href="https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config">Criação de banco de dados</a>." |{% endif %}
     </td>
   </tr>
 </table>

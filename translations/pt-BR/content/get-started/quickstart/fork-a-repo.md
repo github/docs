@@ -113,7 +113,7 @@ Agora, você tem uma bifurcação do repositório Spoon-Knife, mas você não te
   > Clonando para `Spoon-Knife`...
   > remote: Contando objetos: 10, concluído.
   > remote: Compactando objetos: 100% (8/8), concluído.
-  > remove: Total 10 (delta 1), reused 10 (delta 1)
+  > remote: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
 
