@@ -1,5 +1,5 @@
-After you create an IP allow list, you can enable allowed IP addresses. When you enable allowed IP addresses, {% data variables.product.company_short %} immediately enforces any enabled entries in your IP allow list.
+IP許可リストを作成したら、許可されたIPアドレスを有効化できます。 許可IPアドレスを有効化すると、{% data variables.product.company_short %}はIP許可リスト内のすべての有効なエントリを適用します。
 
 {% ifversion ip-allow-list-address-check %}
-Before you enable allowed IP addresses, you can check whether a particular IP address would be allowed by any of the enabled entries in your list. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."
+許可されたIPアドレスを有効化する前に、特定のIPアドレスがリスト中の有効なエントリのいずれかによって許可されるかをチェックできます。 詳しい情報については「[IPアドレスが許可されているかのチェック](#checking-if-an-ip-address-is-permitted)」を参照してください。
 {% endif %}

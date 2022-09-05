@@ -329,6 +329,12 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
+{% warning %}
+
+**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+
+{% endwarning %}
+
 ### 示例：屏蔽环境变量
 
 当您在日志中打印变量 `MY_NAME` 或值 `"Mona The Octocat"` 时，您将看到 `"***"` 而不是 `"Mona The Octocat"`。

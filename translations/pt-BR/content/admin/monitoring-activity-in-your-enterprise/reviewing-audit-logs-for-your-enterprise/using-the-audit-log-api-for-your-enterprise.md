@@ -20,7 +20,7 @@ topics:
 
 Você pode interagir com o log de auditoria usando a API GraphQL{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} ou a API REST{% endif %}.
 
-Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
+Os registros de campo e data na resposta da API são medidos em [milissegundos da época UTC](http://en.wikipedia.org/wiki/Unix_time).
 
 ## Consultando o log auditoria da API do GraphQL
 
@@ -121,7 +121,7 @@ Para obter mais informações sobre a REST API do log de auditoria, consulte "[A
 A consulta abaixo procura eventos de log de auditoria criados em 1 de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com um máximo de 100 itens por página usando a [Paginação da API REST](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
@@ -133,7 +133,7 @@ Você pode especificar várias frases de pesquisa, como `criado` e `ator`, separ
 A consulta abaixo pesquisa eventos de log de auditoria para pull requests, em que o evento ocorreu em ou depois de 1 de janeiro de 2022 na empresa `avocado-corp` e a ação foi realizada pelo usuário do `octocat`:
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer <em>TOKEN</em>" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```

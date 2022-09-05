@@ -44,13 +44,13 @@ curl -u my_user:my_password https://api.github.com/user/repos
 エンドポイントをテストするとき、またはローカル開発を実行するときには、かわりに[個人アクセストークン](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)を使用してください。
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
 OAuth App の場合は、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)を使用して、API 呼び出しのヘッダーで使用する OAuth トークンを生成する必要があります。
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
 ## タイムアウト

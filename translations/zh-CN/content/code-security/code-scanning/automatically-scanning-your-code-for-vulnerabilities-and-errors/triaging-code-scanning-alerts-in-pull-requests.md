@@ -33,8 +33,6 @@ topics:
 - 拉取请求的 **Conversation（对话）** 选项卡，作为拉取请求审查的一部分{% endif %}
 - 拉取请求的 **Files changed（文件已更改）**选项卡
 
-{% ifversion code-scanning-pr-conversations-tab %} {% endif %}
-
 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}

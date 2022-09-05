@@ -147,18 +147,24 @@ Para autenticarte con un token de acceso de instalación, inclúyela en el encab
 
 ```shell
 $ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` es el valor que debes reemplazar.
 
+{% note %}
+
+**Nota:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
+
 ## Acceder a las terminales de la API como una instalación
 
 Para encontrar un listado de las terminales de la API de REST disponibles para utilizarse con las {% data variables.product.prodname_github_apps %} utilizando un token de acceso de instalación, consulta la sección "[Terminales Disponibles](/rest/overview/endpoints-available-for-github-apps)".
 
-Para encontrar un listad de terminales relacionado con las instalaciones, consulta la sección "[Instalaciones](/rest/reference/apps#installations)".
+For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 
 ## Acceso a Git basado en HTTP mediante una instalación
 

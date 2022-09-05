@@ -33,8 +33,6 @@ Em repositórios onde {% data variables.product.prodname_code_scanning %} está 
 - A guia **Conversa** do pull request, como parte de uma revisão de pull request {% endif %}
 - A aba **Arquivos alterarados** do pull request
 
-{% ifversion code-scanning-pr-conversations-tab %} {% endif %}
-
 Se você tiver permissão de gravação no repositório, você poderá ver qualquer alerta de {% data variables.product.prodname_code_scanning %} existente na aba **Segurança**. Para obter informações sobre os alertas do repositório, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}

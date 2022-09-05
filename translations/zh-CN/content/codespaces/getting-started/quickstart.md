@@ -25,12 +25,7 @@ From this quickstart, you'll learn how to create a codespace, connect to a forwa
 ## 创建代码空间
 
 1. 导航到 [template repository（模板存储库）](https://github.com/github/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
-
-1. Choose an owner for the new repository, enter a repository name, select your preferred privacy setting, and click **Create repository from template**.
-
-1. 导航到新创建的存储库的主页。 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
-
-  ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
+{% data reusables.codespaces.open-codespace-from-template-repo %}
 
 ## 运行应用程序
 

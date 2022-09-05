@@ -45,7 +45,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * Uma [lista de repositórios](/free-pro-team@latest/rest/repos#list-organization-repositories) que você pretende migrar:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
       -H "Accept: application/vnd.github+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
@@ -60,7 +60,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * `id` exclusivo da migração.
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
@@ -75,7 +75,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * `id` exclusivo da migração.
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
@@ -85,7 +85,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * `id` exclusivo da migração.
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X DELETE \
       -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive

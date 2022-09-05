@@ -19,6 +19,8 @@ Si configuras un nombre del host en lugar de una dirección IP codificada de for
 
 La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, tu ajuste de nombre de host podría ser `github.companyname.com.` Las solicitudes web y de la API se redireccionarán automáticamente al nombre de host que se configuró en la {% data variables.enterprise.management_console %}. Toma en cuenta que `localhost` no es un ajuste válido de nombre de host.
 
+Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Domain Names Specification RFC](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
+
 Después de que configuras un nombre de host, puedes habilitar el aislamiento de subdominios para incrementar la seguridad de {% data variables.product.product_location %} aún más. Para obtener más información, consulta "[Habilitar el aislamiento de subdominio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
 
 Para obtener más información sobre los tipos de nombres de host compatibles, consulta la [Sección 2.1 del RFC de HTTP](https://tools.ietf.org/html/rfc1123#section-2).

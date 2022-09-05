@@ -28,7 +28,7 @@ redirect_from:
 {% webui %}
 
 1. 如果在浏览器中使用 {% data variables.product.prodname_codespaces %} ，请确保已连接到要调试的代码空间。
-1. 打开 {% data variables.product.prodname_vscode %} 命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Export logs**。 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
 1. 定义保存日志 zip 存档的位置，然后单击 **Save（保存）**（桌面），或单击 **OK（确定）** (web)。
 1. 如果在浏览器中使用 {% data variables.product.prodname_codespaces %} ，请右键单击资源管理器视图中日志的 zip 存档，然后选择 **Download…（下载…）**将其下载到本地计算机。
 
@@ -36,7 +36,7 @@ redirect_from:
 
 {% vscode %}
 
-1. 打开 {% data variables.product.prodname_vscode %} 命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Export logs**。 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
 1. 定义保存日志 zip 存档的位置，然后单击 **Save（保存）**（桌面），或单击 **OK（确定）** (web)。
 
 {% endvscode %}
@@ -55,7 +55,7 @@ redirect_from:
 {% webui %}
 
 1. 连接到要调试的代码空间。
-2. 打开 {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Creation logs**。 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
+2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
 
 如果要与支持人员共享日志，可以将创建日志中的文本复制到文本编辑器中，并将文件保存在本地。
 
@@ -63,7 +63,7 @@ redirect_from:
 
 {% vscode %}
 
-打开命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows))，然后键入 **Creation logs**。 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
+Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
 
 如果要与支持人员共享日志，可以将创建日志中的文本复制到文本编辑器中，并将文件保存在本地。
 

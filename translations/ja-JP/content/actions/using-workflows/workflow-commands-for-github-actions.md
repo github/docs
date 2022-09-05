@@ -329,9 +329,15 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
+{% warning %}
+
+**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+
+{% endwarning %}
+
 ### Example: Masking an environment variable
 
-変数 `MY_NAME` または値 `"Mona The Octocat"` をログに出力すると。`"Mona The Octocat"` の代わりに `"***"` が表示されます。
+変数 `MY_NAME` または値 `"Mona The Octocat"` をログに出力すると、`"Mona The Octocat"` の代わりに `"***"` が表示されます。
 
 {% bash %}
 

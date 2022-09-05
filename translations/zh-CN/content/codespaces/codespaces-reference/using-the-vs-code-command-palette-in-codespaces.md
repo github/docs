@@ -17,7 +17,7 @@ redirect_from:
 
 ## 关于 {% data variables.product.prodname_vscode_command_palette %}
 
-命令面板是 {% data variables.product.prodname_vscode %} 的焦点功能之一，可用于 {% data variables.product.prodname_github_codespaces %}。 {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
+命令面板是 {% data variables.product.prodname_vscode %} 的焦点功能之一，可用于 {% data variables.product.prodname_github_codespaces %}。 命令调色板允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
 
 ## 访问 {% data variables.product.prodname_vscode_command_palette_shortname %}
 
