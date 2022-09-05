@@ -24,7 +24,7 @@ Para transferir um problema aberto para outro repositório, é preciso ter acess
 
 {% endnote %}
 
-Quando você transfere um problema, os comentários e responsáveis são mantidos. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
+Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e marcos também são mantidos se estiverem presentes no repositório de destino, com etiquetas correspondentes por nome e marcos correspondentes por nome e data de vencimento. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
 As pessoas ou equipes mencionadas no problema receberão uma notificação informando que o problema foi transferido para um novo repositório. O URL original redirecionará para o novo URL do problema. As pessoas que não tenham permissões de leitura no novo repositório verão um banner informando que o problema foi transferido para um novo repositório ao qual elas não têm acesso.
 

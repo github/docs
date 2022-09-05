@@ -23,7 +23,7 @@ topics:
 
 ## 通过 {% data variables.enterprise.management_console %} 启用依赖关系图
 
-如果您的 {% data variables.product.product_location %} 使用群集，则无法使用 {% data variables.enterprise.management_console %} 启用依赖关系图，而必须改用管理 shell。 更多信息请参阅“[通过管理 shell 启用依赖关系图](#enabling-the-dependency-graph-via-the-administrative-shell)”。
+If {% data variables.product.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. 更多信息请参阅“[通过管理 shell 启用依赖关系图](#enabling-the-dependency-graph-via-the-administrative-shell)”。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

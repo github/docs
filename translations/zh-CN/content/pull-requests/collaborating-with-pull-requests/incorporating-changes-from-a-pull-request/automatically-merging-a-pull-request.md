@@ -18,7 +18,7 @@ shortTitle: 自动合并 PR
 
 ## 关于自动合并
 
-如果启用拉取请求自动合并，则拉取请求在满足所有必需审查并且状态检查通过时将自动合并。 自动合并使您无需等待满足要求，可以继续执行其他任务。
+If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. 自动合并使您无需等待满足要求，可以继续执行其他任务。
 
 在使用拉取请求自动合并之前，必需对仓库启用自动合并。 更多信息请参阅“[管理仓库中的拉取请求自动合并](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)”。
 

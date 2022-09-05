@@ -1,6 +1,7 @@
 ---
 title: GitHub Actionsの支払いについて
 intro: 'アカウントに含まれるストレージや利用時間 (分) を超えて{% data variables.product.prodname_actions %}を使用したい場合は、追加の使用分が請求されます。'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -28,6 +29,13 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ### 含まれるストレージと分
 
+{% ifversion actions-hosted-runners %}
+{% note %}
+
+**ノート**: 利用権のある分は、2コア以上のWindows及びUbuntuランナーには使用できません。 これらのランナーは、パブリックリポジトリを含め、常に課金されます。 詳しい情報については「[ランナーの分ごとのレート](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)」を参照してください。
+
+{% endnote %}
+{% endif %}
 | 製品                                                               | ストレージ  | 分 (月あたり) |
 | ---------------------------------------------------------------- | ------ | -------- |
 | {% data variables.product.prodname_free_user %}                | 500 MB | 2,000    |
@@ -58,15 +66,15 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ### 分あたりの料金
 
-| オペレーティングシステム | 分あたりの料金（米ドル） |
-| ------------ | ------------ |
-| Linux        | $0.008       |
-| macOS        | $0.08        |
-| Windows      | $0.016       |
+{% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
-
-{% data reusables.user-settings.context_switcher %}
+- アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
+- {% data reusables.user-settings.context_switcher %}
+{% ifversion actions-hosted-runners %}
+- {% data variables.actions.hosted_runner %}については、{% data variables.actions.hosted_runner %}へパブリックの静的なIPアドレスを割り当てる設定について追加のコストはありません。 {% data variables.actions.hosted_runner %}に関する詳しい情報については「[{% data variables.actions.hosted_runner %}の利用](/actions/using-github-hosted-runners/using-larger-runners)」を参照してください。
+- 利用権のある分は{% data variables.actions.hosted_runner %}には使えません。
+{% endif %}
 
 ## 利用時間 (分) とストレージ消費量の計算
 

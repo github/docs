@@ -15,7 +15,7 @@ topics:
 shortTitle: 启动故障转移到设备
 ---
 
-故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
+故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 20-30 分钟。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 

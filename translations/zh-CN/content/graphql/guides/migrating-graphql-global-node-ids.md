@@ -32,7 +32,7 @@ shortTitle: 迁移全局节点 ID
 
 ```
 $ curl \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-Github-Next-Global-ID: 1" \
   https://api.github.com/graphql \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'

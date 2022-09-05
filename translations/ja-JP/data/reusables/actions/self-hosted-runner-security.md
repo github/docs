@@ -1,1 +1,1 @@
-セルフホストランナーは、プライベートリポジトリでのみ利用することをおすすめします。 これは、ワークフロー中でコードを実行するPull Requestを作成することによって、リポジトリのフォークが危険なコードをセルフホストランナーマシン上で実行できる可能性があるためです。
+セルフホストランナーは、プライベートリポジトリでのみ利用することをおすすめします。 This is because forks of your public repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

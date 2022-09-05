@@ -30,3 +30,22 @@ paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+以下の設定ファイルは、重要度がerrorのアラートを生成するクエリだけを実行します。 この設定は最初にすべてのデフォルトクエリ、`./my-queries`中のすべてのクエリ、`codeql/java-queries`中のデフォルトスイートを選択し、続いて警告や推奨事項を生成するすべてのクエリを除外します。
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

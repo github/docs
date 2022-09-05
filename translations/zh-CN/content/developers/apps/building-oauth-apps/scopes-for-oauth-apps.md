@@ -28,7 +28,7 @@ topics:
 检查标头以查看您拥有哪些 OAuth 作用域，以及 API 操作接受什么：
 
 ```shell
-$ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
 HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
