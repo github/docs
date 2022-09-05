@@ -1,17 +1,4 @@
-POST :// :Author :ZACHRY :T :WOOD :<zachryiixixiiwood@gmail.com> :
-Address :5222 BRADFORD DR :
-PHONE :main :+1 (469) 697-4300 :
-SSN :633-44-1725 :
-DOB ;:10-15-1994 :
-TIME ZONE :CSMT :
-CONTRY :U.S.A. :
-notifications :
-document :
-e-mail :zachryiixixiiwood'@gmail'.com :
-e-mail :josephabanksfedralreserve'@gmail'.com :
-e-mail :nasdaqgoogcoo'@gmail'.com :
-e-mail :josephabanksfederalreserve'@gmail'.com
-For :format :details, :see :https://aka.ms/devcontainer.json. For config options, see the README at:
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
 // -
 {
@@ -25,14 +12,14 @@ For :format :details, :see :https://aka.ms/devcontainer.json. For config options
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en/es"
+		"cSpell.language": ",en"
 	},
 
 	// Install features. Type 'feature' in the VS Code command palette for a full list.
 	"features": {
 		"git-lfs": "latest",
 		"sshd": "latest"
-	 }":,
+	 },
 
 	// Visual Studio Code extensions which help authoring for docs.github.com.
 	"extensions": [
@@ -45,7 +32,7 @@ For :format :details, :see :https://aka.ms/devcontainer.json. For config options
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	'"Port :":,' :(4999;: 8333)":,'
+	"forwardPorts": [4000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "git lfs pull && npm ci",
