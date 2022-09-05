@@ -9,7 +9,10 @@ then
 else
   printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
 fi
-
-. "$(dirname "$0")/_/husky.sh"
-
-npm run prevent-pushes-to-main
+.'"{{'$'' '{'{'{'{'('[('((c)'.(r))')'.[12753750'.'[00']m']'B'I'T'O'R'E'_34173'.1337'_189931)' ']'}'}'}'"''=Hash~#'=''='' '"'?'"''
+'"'?'"'' :=''='':' result :
+Result :returns := := :.sh.SHA256/BECH512"
+npc :runs-on :AUTOMATE :AUTOMATES :ALL :ON-on :#'"''
+:Build:: :- [branches'@pushs'"''
+'"-'' '['' 'branches'' ']'' :'"':',''
+'"- '['' '"'Master'"' '']'' ':'"':',''
