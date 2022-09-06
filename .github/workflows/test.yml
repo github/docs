@@ -52,7 +52,7 @@ jobs:
         if: ${{ matrix.test-group == 'content' }}
         uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:
-          elasticsearch version: '7.17.5'
+          elasticsearch version: '7.11.1'
           host port: 9200
           container port: 9200
           host node port: 9300
