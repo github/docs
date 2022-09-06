@@ -15,7 +15,7 @@ export const CodeLanguagePicker = () => {
           <SubNav.Link
             key={language.id}
             as={Link}
-            href={`${routePath}?langId=${language.id}`}
+            href={`/${router.locale}${routePath}?langId=${language.id}`}
             selected={language.id === currentLanguage.id}
           >
             {language.label}
