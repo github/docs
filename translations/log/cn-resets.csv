@@ -20,6 +20,7 @@ translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
+translations/zh-CN/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/zh-CN/content/actions/using-workflows/reusing-workflows.md,rendering error
 translations/zh-CN/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/using-workflows/using-github-cli-in-workflows.md,broken liquid tags

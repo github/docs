@@ -23,9 +23,9 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 ## GitHubと連携するインテグレーションがありますか？
 
 素晴らしいです！ プログラムに参加していただければ嬉しく思います。 以下のようにすれば、情報を展開できます。</p>
-* [あなたのインテグレーションについてお知らせください。](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
-* [OctocatもしくはGitHubロゴ](https://github.com/logos)を使って、あなたの製品がGitHubと動作することを示してください。
-* Webサイトにインテグレーションに関するビデオあるいはブログをポストしてください。
+* [Let us know about your integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration).
+* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
+* Post a video or a blog on your website about your integration.
 
 ## GitHub開発者プログラムに参加する準備はできましたか？
 

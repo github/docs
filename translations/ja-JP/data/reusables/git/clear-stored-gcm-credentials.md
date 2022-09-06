@@ -1,4 +1,4 @@
-- If the output is `manager-core`, you're using Git Credential Manager. To clear the credentials, run the following command.
+- 出力が`manager-core`であれば、Git Credential Managerが使われています。 認証情報をクリアするには、以下のコマンドを実行してください。
 
     ```shell{:copy}
     git credential-manager reject https://github.com

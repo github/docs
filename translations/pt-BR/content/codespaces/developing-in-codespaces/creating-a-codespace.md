@@ -149,3 +149,6 @@ Substitua `machine-type` por um identificador válido para um tipo de máquina d
 Para mais detalhes sobre as opções desse comando, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
+
+## Leia mais
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

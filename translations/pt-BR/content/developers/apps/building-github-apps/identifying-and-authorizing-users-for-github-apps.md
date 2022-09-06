@@ -108,13 +108,13 @@ Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `e
 
 O token de acesso do usuário permite que o aplicativo GitHub faça solicitações para a API em nome de um usuário.
 
-    Autorização: token OUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguinte forma:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## Fluxo de dispositivo
@@ -133,12 +133,12 @@ O fluxo de dispositivos permite que você autorize usuários para um aplicativo 
 
 Depois de ter um token OAuth para um usuário, você pode verificar quais instalações o usuário poderá acessar.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
 Você também pode verificar quais repositórios são acessíveis a um usuário para uma instalação.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
 Você pode encontrar mais informações em: [Listar instalações de aplicativos acessíveis para o token de acesso do usuário](/rest/apps#list-app-installations-accessible-to-the-user-access-token) e [Listar repositórios acessíveis para o token de acesso do usuário](/rest/apps#list-repositories-accessible-to-the-user-access-token).

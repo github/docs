@@ -28,7 +28,7 @@ Se seu {% data variables.product.prodname_oauth_app %} não tiver acesso a um na
 Verifique os cabeçalhos para ver quais escopos do OAuth você tem e o que a ação da API aceita:
 
 ```shell
-$ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
 HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user

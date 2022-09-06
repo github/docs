@@ -37,7 +37,7 @@ sections:
       heading: De modo geral, as atualizações do Dependabot estão disponíveis
       notes:
         - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+          A versão do Dependabot e as atualizações de segurança agora estão geralmente disponíveis no GitHub Enterprise Server 3.5. Agora todos os ecossistemas e funcionalidades populares que funcionam nos repositórios GitHub.com podem ser configurados na sua instância do GitHub Enterprise Server. O Dependabot no GitHub Enterprise Server exige o GitHub Actions e um conjunto de executores do Dependabot auto-hospedados, GitHub Connect habilitado e Dependabot habilitado por um administrador. Para obter mais informações, consulte "[Configurar atualizações de Dependabot](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
     - 
       heading: Estatísticas do Servidor na versão beta pública
       notes:
@@ -245,13 +245,13 @@ sections:
       heading: Eventos do Git no log de auditoria da empresa
       notes:
         - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
+          Os eventos a seguir relacionados ao Gits agora podem aparecer no log de auditorias corporativas. Se você habilitar o recurso e definir um período de retenção de registro de auditoria, os novos eventos estarão disponíveis para pesquisa por meio da interface do usuário e API, ou exportação via JSON ou CSV.
 
           - `git.clone`
           - `git.fetch`
-          - `git.push`
+          - `git. ush`
 
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+          Devido ao grande número de eventos do Git registrados, recomendamos que você monitore o armazenamento de arquivos da sua instância e revise as configurações de alerta relacionadas. Para obter mais informações, consulte "[Configurar o log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)".
     - 
       heading: Melhorias nos CODEOWNERS
       notes:

@@ -86,6 +86,15 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 
 ## Executores e recursos de hardware compatíveis
 
+{% ifversion actions-hosted-runners %}
+
+{% note %}
+
+**Observação**: {% data variables.product.prodname_dotcom %} também oferece {% data variables.actions.hosted_runner %}s, que estão disponíveis em configurações maiores. Para obter mais informações, consulte "[Usando {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)".
+
+{% endnote %}
+{% endif %}
+
 Especificação de hardware para máquinas virtuais do Windows e Linux:
 - CPU de 2 núcleos (x86_64)
 - 7 GB de RAM

@@ -21,9 +21,9 @@ GitHub を利用する際、数多くの追加製品や機能 (「追加製品�
 「追加製品および機能」を利用することにより、お客様は以下に挙げた該当する「GitHub 追加製品および機能の利用規約」にも同意することとなります。 A violation of these GitHub Terms for Additional Products and Features is a violation of the Agreement. かぎ括弧に括られた用語のうち、ここで定義されていないものについては、「契約」に示された意味を持つものとします。
 
 **Enterprise ユーザ向け**
-- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, and Pages.
+- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages, and Pages.
 
-- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
+- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
 
 - **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
@@ -105,19 +105,6 @@ GitHub Copilot (i) may, depending on your preferred telemetry settings, collect 
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
-
-## Learning Lab
-GitHub Learning Lab では、GitHub に組み込まれたインタラクティブなコースを無料で提供しており、自動の即時フィードバックやヘルプも備わっています。
-
-*コース資料。*GitHubは、自らが提供するコース資料の所有者であり、Learning Labの使用に関連した内部的な業務目的で、かかるコース資料を複製、保守、使用、および実行するための世界的で非独占的、期間限定、譲渡不可の無料ライセンスをお客様に付与します。
-
-コース資料で提供されるソースコードの一部には、オープンソースライセンスの条項が適用される場合があります。
-
-お客様が作成するコースはお客様が所有し、GitHubに対して、かかるコース資料を複製、保守、使用、および実行するための世界的で非独占的、期間限定、譲渡不可の無料ライセンスをGitHubに付与します。
-
-GitHubコースの使用、ならびにお客様ご自身によるコース資料の作成および保管は、いずれかの当事者による相手方の知的所有権の共同所有権を構成するものではありません。
-
-「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
 ## npm
 npm はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージをプライベートまたパブリックでホストでき、パッケージをプロジェクト中で依存関係として使えるようになります。 npm はJavaScriptエコシステムのためのレコードのレジストリです。 npm 公開レジストリの利用は無料ですが、プライベートパッケージを公開したり、チームを使用してプライベートパッケージを管理したい場合には有料となります。 [npm ドキュメント](https://docs.npmjs.com/)にはアカウントの種類の制限や、[プライベートパッケージ](https://docs.npmjs.com/about-private-packages)および[Organization](https://docs.npmjs.com/organizations)の管理方法についての詳細が記載されています。 npm registryレジストリの利用規程は、[オープンソース規約](https://www.npmjs.com/policies/open-source-terms)に概説されています。 また、npm [solo](https://www.npmjs.com/policies/solo-plan)と[org](https://www.npmjs.com/policies/orgs-plan)の両方のプランに補足条項があります。 npmの利用には、npm[利用規約](https://www.npmjs.com/policies/terms)が適用されます。

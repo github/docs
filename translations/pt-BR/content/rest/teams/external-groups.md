@@ -19,7 +19,7 @@ Para usar esta API, o usuário autenticado deve ser um mantenedor de equipe ou u
 
 **Notas:**
 
-- The external groups API is only available for organizations that are part of an enterprise using {% data variables.product.prodname_emus %}. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+- A API de grupos externos está disponível apenas para organizações que fazem parte de uma empresa que usa {% data variables.product.prodname_emus %}. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 - Se sua organização usar a sincronização de equipe, você poderá usar a API de sincronização de equipe. Para obter mais informações, consulte "[API de sincronização de equipe](#team-synchronization)".
 
 {% endnote %}

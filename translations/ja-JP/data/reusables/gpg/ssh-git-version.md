@@ -1,6 +1,6 @@
 
 {% note %}
 
-**Note:** SSH signature verification is available in Git 2.34 or later. Gitのバージョンをアップデートするには、[Git](https://git-scm.com/downloads)のWebサイトを参照してください。
+**ノート:** SSH署名検証は、Git 2.34以降で利用できます。 Gitのバージョンをアップデートするには、[Git](https://git-scm.com/downloads)のWebサイトを参照してください。
 
 {% endnote %}

@@ -17,4 +17,4 @@ versions:
 
 _インストール_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 インストールして認証し、特定のリポジトリへのアクセスを制限する方法については、「[インストールとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-Organization のすべての GitHub App インストールを一覧表示するには、「[Organization のアプリケーションインストールの一覧表示](/rest/reference/orgs#list-app-installations-for-an-organization)」を参照してください。
+Organization のすべての GitHub App インストールを一覧表示するには、「[Organization のアプリケーションインストールの一覧表示](/rest/orgs/orgs#list-app-installations-for-an-organization)」を参照してください。

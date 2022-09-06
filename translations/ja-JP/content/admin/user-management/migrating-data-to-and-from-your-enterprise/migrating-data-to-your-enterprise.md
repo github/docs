@@ -134,7 +134,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
   * 移行のユニーク`id`
   * アンロックするリポジトリの名前
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
@@ -143,7 +143,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 {% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 

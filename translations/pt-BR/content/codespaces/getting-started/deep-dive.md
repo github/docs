@@ -73,7 +73,7 @@ Durante a configuração de pós-criação, você ainda poderá usar o terminal 
 
 ### Fechando ou interrompendo seu codespace
 
-Para interromper o seu codespace, você pode [usar o {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
+Para interromper seu codespace, você pode [usar o {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Comando</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
 
 Ao fechar ou interromper o seu codespace, todas as alterações não autorizadas são preservadas até você conectar-se ao codespace novamente.
 
@@ -114,7 +114,7 @@ Se você já usa o {% data variables.product.prodname_vscode_shortname %}, você
 
 ## Leia mais
 
-- [Habilitando {% data variables.product.prodname_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Gerenciando a cobrança para {% data variables.product.prodname_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
-- [Configurando seu projeto para os codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Gerenciando a cobrança de {% data variables.product.prodname_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)"
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
