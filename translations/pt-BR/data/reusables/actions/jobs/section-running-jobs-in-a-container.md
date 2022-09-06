@@ -4,7 +4,7 @@ Se você não definir um `container`, todas as etapas serão executadas diretame
 
 {% note %}
 
-**Note:** The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+**Observação:** O shell padrão para a etapa `executar` dentro de um contêiner é `sh` em vez de `bash`. Isto pode ser substituído por [`jobs.<job_id>.defaults.execute`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) ou [jobs`.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
 
 {% endnote %}
 

@@ -27,7 +27,7 @@ Para configurar um LMS para conectar-se a {% data variables.product.prodname_cla
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_classroom %} previously supported import of roster data from LMSes that implement Learning Tools Interoperability (LTI) versions 1.0 and 1.1. On June 30, 2022, the Instructional Management System (IMS) Global Learning Consortium [ended support for LTI versions 1.0 and 1.1](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule). A fim de manter as informações confidenciais dos alunos seguras e protegidas, {% data variables.product.company_short %} desabilitou temporariamente a importação de dados da lista de participantes de LMSes em conformidade com LTI.<br><br>
+**Observação:** {% data variables.product.prodname_classroom %} era compatível com a importação de dados da lista do LMSes que implementam ferramentas de interoperabilidade de aprendizagem (LTI) das versões 1.0 e 1.1. On June 30, 2022, the Instructional Management System (IMS) Global Learning Consortium [ended support for LTI versions 1.0 and 1.1](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule). A fim de manter as informações confidenciais dos alunos seguras e protegidas, {% data variables.product.company_short %} desabilitou temporariamente a importação de dados da lista de participantes de LMSes em conformidade com LTI.<br><br>
 
 Suporte para a versão mais recente da interoperabilidade de ferramentas de aprendizagem, [LTI 1.3](https://www.imsglobal.org/activity/learning-tools-interoperability), está atualmente sendo trabalhado e será disponibilizado em {% data variables.product.prodname_classroom %} muito em breve.
 

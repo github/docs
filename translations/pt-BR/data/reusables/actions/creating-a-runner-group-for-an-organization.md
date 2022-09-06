@@ -1,15 +1,15 @@
 {% comment %}
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Sempre inclua uma advertência de segurança acima deste procedimento. Pode ser uma das definidas a seguir, dependendo se o contexto são executores auto-hospedados ou executores maiores.
 
 {% data reusables.actions.self-hosted-runner-security-admonition %}
 {% data reusables.actions.hosted-runner-security-admonition %}
 
 {% endcomment %}
 
-All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Os administradores da organização podem permitir o acesso de repositórios individuais a um grupo de executor. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
+Todas as organizações têm um único grupo padrão de executores. As organizações dentro de uma conta corporativa podem criar grupos adicionais. Os administradores da organização podem permitir o acesso de repositórios individuais a um grupo de executor. Para obter informações sobre como criar um grupo de executores com a API REST, consulte "[grupos de executores auto-hospedados](/rest/reference/actions#self-hosted-runner-groups)
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. Você pode mover um executor do grupo- padrão para qualquer grupo que você criar.
+Os executores são automaticamente atribuídos ao grupo padrão quando criados e só podem ser integrantes de um grupo por vez. Você pode mover um executor do grupo- padrão para qualquer grupo que você criar.
 
 Ao criar um grupo, você deve escolher uma política que defina quais repositórios{% ifversion restrict-groups-to-workflows %} e fluxos de trabalho{% endif %} têm acesso ao grupo do executor.
 

@@ -1,11 +1,11 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository.
+    - Depois de desbloquear um repositório para acesso temporário, um administrador do site não conseguiu gerenciar configurações para produtos de segurança no repositório.
     - As chaves SSH administrativas duplicadas podem aparecer tanto no Console de Gerenciamento quanto no arquivo `/home/admin/.ssh/authorized_keys`.
-    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster.
-    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error.
-    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear.
+    - Em alguns casos, a execução de `ghe-cluster-config-apply` poderia replicar uma configuração vazia para nós existentes em um cluster.
+    - Em alguns casos, as execuções da configuração começaram com 'ghe-config-apply' não foi concluído ou retornou um erro de 'Incompatibilidade de contagem de contêiner'.
+    - Depois de atualizar um certificado TLS autoassinado em uma instância do GitHub Enterprise Server, os elementos da interface de usuário não apareceram em algumas páginas.
     - Em alguns casos, as tarefas de segundo plano podem ser fixadas devido a uma biblioteca que foi usada simultaneamente apesar de não ser segura para correntes.
   changes:
     - A geração de pacotes de suporte é mais rápida como resultado de uma sanitização paralela de registros. Para obter mais informações sobre pacotes de suporte, consulte "[Fornecendo dados para o suporte do GitHub](/support/contacting-github-support/providing-data-to-github-support)."

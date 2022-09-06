@@ -15,7 +15,7 @@ topics:
 shortTitle: Iniciar falha no aplicativo
 ---
 
-O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. The average time ranges between 20-30 minutes.
+O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. O intervalo de tempo médio entre 20 e 30 minutos.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 

@@ -90,7 +90,7 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+**Observação**: {% data variables.product.prodname_dotcom %} também oferece {% data variables.actions.hosted_runner %}s, que estão disponíveis em configurações maiores. Para obter mais informações, consulte "[Usando {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)".
 
 {% endnote %}
 {% endif %}

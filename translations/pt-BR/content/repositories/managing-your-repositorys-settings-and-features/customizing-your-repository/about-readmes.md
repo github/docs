@@ -65,3 +65,6 @@ Um README deve conter apenas as informações necessárias para desenvolvedores 
 
 - "[Adicionar um arquivo a um repositório](/articles/adding-a-file-to-a-repository)"
 - "[Tornar READMEs legíveis](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)" da 18F
+{%- ifversion fpt or ghec %}
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
+{%- endif %}   
