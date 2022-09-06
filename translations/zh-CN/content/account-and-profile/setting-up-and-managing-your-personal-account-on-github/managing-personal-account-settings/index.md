@@ -25,6 +25,7 @@ children:
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-personal-accounts-project-boards
+  - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: 个人帐户设置

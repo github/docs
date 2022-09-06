@@ -147,18 +147,24 @@ $ curl -i -X POST \
 
 ```shell
 $ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` の値は置き換えてください。
 
+{% note %}
+
+**ノート:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
+
 ## インストールとして API エンドポイントにアクセスする
 
 インストールアクセストークンを使用して {% data variables.product.prodname_github_apps %} の概要を取得するために利用できる REST API エンドポイントの一覧については、「[利用可能なエンドポイント](/rest/overview/endpoints-available-for-github-apps)」を参照してください。
 
-インストールに関連するエンドポイントの一覧については、「[インストール](/rest/reference/apps#installations)」を参照してください。
+For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 
 ## インストールによる HTTP ベースの Git アクセス
 

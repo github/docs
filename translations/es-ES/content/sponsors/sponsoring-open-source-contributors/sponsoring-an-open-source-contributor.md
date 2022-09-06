@@ -25,7 +25,7 @@ shortTitle: Patrocina a un contribuyente
 
 Puedes patrocinar una cuenta en nombre de tu cuenta personal para invertir en los proyectos de los cuales te beneficies personalmente. Puedes patrocinar una cuenta en nombre de tu organización por varias razones.
 - Mantener bibliotecas específicas de las cuales dependa el trabajo de tu organización
-- Investing in the ecosystem you rely on as an organization (such as blockchain)
+- Invertir en el ecosistema del que dependes como organización (tal como blockchain)
 - Desarrollar una conciencia de marca como una organización que valora el código abierto
 - Agradecer a los desarrolladores de código abierto por crear bibliotecas que complementan el producto que ofrece tu organización
 

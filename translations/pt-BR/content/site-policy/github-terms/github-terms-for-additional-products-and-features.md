@@ -21,9 +21,9 @@ Ao usar o GitHub, você pode ter acesso a muitos produtos e funcionalidades adic
 Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os Termos do GitHub aplicáveis para Produtos Adicionais e Funcionalidades listados abaixo. Uma violação destes Termos do GitHub para Produtos e Funcionalidades é uma violação do Contrato. Os termos em maiúsculas não definidos aqui têm o significado consignado no Contrato.
 
 **Para usuários corporativos**
-- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança avançada, base de dados de consultores, códigos, pré-visualizações do Dependabot, importaor do GitHub Enterprise, laboratório de aprendizado, pacotes e páginas.
+- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança avançada, base de dados de consultores, códigos, pré-visualizações do Dependabot, importaor do GitHub Enterprise e pacotes e páginas.
 
-- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Importador do GitHub Enterprise, Laboratório de Aprendizado, Pacotes, Páginas e Imagens de Servidor SQL.
+- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Importador do GitHub Enterprise, Pacotes, Páginas e Imagens de Servidor SQL.
 
 - Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, conexões, visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
 
@@ -105,19 +105,6 @@ O GitHub Copilot (i) poderá, dependendo das suas configurações de telemetria 
 
 ## Importador do GitHub Enterprise
 O Importador é uma estrutura para exportar dados de outras fontes a serem importados para a plataforma GitHub. O Importador é fornecido como se apresenta.
-
-## Learning Lab
-O GitHub Learning Lab oferece cursos interativos grátis que são construídos no GitHub com feedback e ajuda automatizados instantaneamente.
-
-*Materiais do Curso.* O GitHub tem materiais de curso que fornece e concede a você um mundo inteiro, não exclusivo, limitado e não transferível, licença gratuita para copiar, manter, usar e executar tais materiais do curso para seus propósitos de negócio internos associados ao uso do Learning Lab.
-
-Os termos da licença de código aberto podem ser aplicados a partes do código-fonte fornecidas nos materiais do curso.
-
-Você tem materiais do curso que você cria e concede ao GitHub uma licença global, não exclusiva, perpétua, não transferível, livre de royalties para copiar, manter, usar, hospedar e executar tais materiais do curso.
-
-O uso de materiais e criação e armazenamento do seu próprio curso no GitHub não constituem uma propriedade conjunta para a propriedade intelectual de nenhuma das partes.
-
-O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ## npm
 npm é um serviço de hospedagem de pacotes de software que permite a você hospedar seus pacotes de software de forma privada ou pública e usar pacotes como dependências nos seus projetos. npm é o registro do ecossistema do JavaScript. O registro público do npm é gratuito para usar, mas os clientes são cobrados se quiserem publicar pacotes privados ou gerenciar pacotes privados usando equipes. A [documentação do npm](https://docs.npmjs.com/) inclui detalhes sobre a limitação dos tipos de conta e como gerenciar [pacotes privados](https://docs.npmjs.com/about-private-packages) e [organizações](https://docs.npmjs.com/organizations). O uso aceitável do registro npm está definido nos [termos do open-source](https://www.npmjs.com/policies/open-source-terms). Existem termos suplementares para os dois planos do npm [solo](https://www.npmjs.com/policies/solo-plan) e [org](https://www.npmjs.com/policies/orgs-plan). Os [Termos de Uso](https://www.npmjs.com/policies/terms) do npm aplicam-se ao seu uso do npm.

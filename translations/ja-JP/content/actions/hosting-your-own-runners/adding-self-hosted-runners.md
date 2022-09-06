@@ -72,7 +72,7 @@ You can set up automation to scale the number of self-hosted runners. For more i
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
-1. [**New runner**]をクリックしてください。
+{% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}

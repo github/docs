@@ -405,11 +405,11 @@ Este exemplo do contexto `trabalhos` contém o resultado e as saídas de um trab
 
 ```json
 {
-  example_job: {
-    result: success,
-    outputs: {
-      output1: hello,
-      output2: world
+  "example_job": {
+    "result": "success",
+    "outputs": {
+      "output1": "hello",
+      "output2": "world"
     }
   }
 }
@@ -468,7 +468,7 @@ O contexto `etapas` contém informações sobre as etapas do trabalho atual que 
 
 Este exemplo `passo` contexto mostra duas etapas anteriores que tinham um [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) especificado. O `id` da primeira etapa era denominado `checkout` e o segundo, `generate_number`. A etapa `generate_number` tinha uma saída denominada `random_number`.
 
-```yaml
+```json
 {
   "checkout": {
     "outputs": {},
@@ -529,7 +529,7 @@ A propriedade `runner.workspace` não é documentada propositalmente. É uma pro
 
 O contexto de exemplo a seguir é de um executor do Linux hospedado em {% data variables.product.prodname_dotcom %}.
 
-```yaml
+```json
 {
   "os": "Linux",
   "arch": "X64",
@@ -586,7 +586,7 @@ O contexto `segredos` contém os nomes e valores de segredos disponíveis para a
 
 O conteúdo de exemplo do contexto dos `segredos` mostra o `GITHUB_TOKEN` automático, assim como outros dois segredos disponíveis para a execução do fluxo de trabalho.
 
-```yaml
+```json
 {
   "github_token": "***",
   "NPM_TOKEN": "***",
@@ -614,7 +614,7 @@ Para fluxos de trabalho com uma matriz, o contexto `estratégia` contém informa
 
 O conteúdo de exemplo a seguir do contexto `estratégia` é de uma matriz com quatro trabalhos, e é tirada do trabalho final. Observe a diferença entre o número de `job-index` baseado em zero e o total de `job-job` que não é baseado em zero.
 
-```yaml
+```json
 {
   "fail-fast": true,
   "job-index": 3,
@@ -663,7 +663,7 @@ Não há propriedades padrão no contexto `matriz`, apenas as que são definidas
 
 O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz que tem as propriedades de matriz `os` e `nó` definidas no fluxo de trabalho. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
 
-```yaml
+```json
 {
   "os": "ubuntu-latest",
   "node": 16
@@ -712,7 +712,7 @@ O contexto `needs` contém saídas de todos os trabalhos definidos como uma depe
 
 O conteúdo de exemplo a seguir do contexto `needs` mostra informações para dois trabalhos dos quais o trabalho atual depende.
 
-```yaml
+```json
 {
   "build": {
     "result": "success",
@@ -783,7 +783,7 @@ O exemplo a seguir do contexto `entradas` é de um fluxo de trabalho que definiu
 
 
 
-```yaml
+```json
 {
   "build_id": 123456768,
   "deploy_target": "deployment_sys_1a",

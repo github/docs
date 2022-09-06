@@ -6,7 +6,7 @@ Use `jobs.<job_id>.runs-on` para definir o tipo de máquina para executar o trab
 
 ### Escolhendo executores hospedados em {% data variables.product.prodname_dotcom %}
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
+Se você usar um executor hospedado de {% data variables.product.prodname_dotcom %}, cada trabalho será executado em uma nova instância de um executor de imagem especificado por `runs-on`.
 
 Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
 

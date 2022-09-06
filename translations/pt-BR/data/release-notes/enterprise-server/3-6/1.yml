@@ -1,0 +1,33 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Depois de desbloquear um repositório para acesso temporário, um administrador do site não conseguiu gerenciar configurações para produtos de segurança no repositório.
+    - As chaves SSH administrativas duplicadas podem aparecer tanto no Console de Gerenciamento quanto no arquivo `/home/admin/.ssh/authorized_keys`.
+    - A página de administração do site para usuários individuais em <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> continha funcionalidades não destinadas ao GitHub Enterprise Server.
+    - Em alguns casos, a execução de `ghe-cluster-config-apply` poderia replicar uma configuração vazia para nós existentes em um cluster.
+    - Em alguns casos, as execuções da configuração começaram com 'ghe-config-apply' não foi concluído ou retornou um erro de 'Incompatibilidade de contagem de contêiner'.
+    - Depois de atualizar um certificado TLS autoassinado em uma instância do GitHub Enterprise Server, os elementos da interface de usuário não apareceram em algumas páginas.
+    - Em alguns casos, as tarefas de segundo plano podem ser fixadas devido a uma biblioteca que foi usada simultaneamente apesar de não ser segura para correntes.
+    - A barra de administração do site na parte superior da interface web continha um link quebrado para o SHA para a versão em execução do aplicativo.
+    - Os proprietários da organização não conseguiram definir o nível de acesso necessário para criar discussões.
+    - Os usuários das discussões foram redirecionados incorretamente para as diretrizes da comunidade para o GitHub.com.
+    - Em alguns casos, os usuários foram instruídos incorretamente a verificar seu e-mail antes de criar uma discussão.
+    - Os alertas da digitalização de segredo de clientes do GitHub Advanced Security estavam ausentes na interface do usuário web e API REST se um administrador do site não atualizasse diretamente para o GitHub Enterprise Server 3.4. Os alertas agora estão visíveis.
+  changes:
+    - A geração de pacotes de suporte é mais rápida como resultado de uma sanitização paralela de registros. Para obter mais informações sobre pacotes de suporte, consulte "[Fornecendo dados para o suporte do GitHub](/support/contacting-github-support/providing-data-to-github-support)."
+    - As APIs que contêm o encaminhamento `organização` ou `org` agora aceitam o slug ou o ID da organização. Anteriormente, as APIs só aceitavam slugs, o que fazia com que os cabeçalhos `Link` dos pontos de extremidade do GitHub Advanced Security não pudessem ser acessados. Para obter mais informações, consulte "[Organizations](https://docs.github.com/rest/orgs/orgs)" na documentação da API REST.
+    - 'O log de auditoria corporativo agora inclui mais eventos gerados pelo usuário, como `project.create`. A API REST também retorna eventos adicionais gerados pelo usuário, como `repo.create`. Para obter mais informações, consulte "[Acessando o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" e "[Usando a API de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."'
+    - Em alguns casos, as replicas de cache poderiam rejeitar algumas operações do Git em repositórios recentemente atualizados. Para obter mais informações sobre cache de repositórios, consulte "[Sobre cache de repositórios](/admin/enterprise-management/caching-repositórios/about-repository-caching)."
+    - 'Agora você pode configurar o banner de anúncio global para ser descartado usando a API REST. Para obter mais informações, consulte "[Personalizando mensagens de usuário para a sua empresa](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."'
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.

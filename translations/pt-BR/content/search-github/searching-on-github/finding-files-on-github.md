@@ -18,7 +18,7 @@ topics:
 
 **Dicas:**
 
-- Por padrão, os resultados da busca de arquivos excluem alguns diretórios como `criar`, `log`, `tmp` e `fornecedor`. To search for files in these directories, use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
+- Por padrão, os resultados da busca de arquivos excluem alguns diretórios como `criar`, `log`, `tmp` e `fornecedor`. Para pesquisar os arquivos nesses diretórios, use o qualificador de pesquisa do código [`nome do arquivo`](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Como alternativa, você pode personalizar quais diretórios são excluídos por padrão [usando um arquivo `.gitattributes`](#customizing-excluded-files).{% endif %}
 - É possível também abrir o file finder (localizador de arquivos) digitando `t` no teclado. Para obter mais informações, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts)".
 
 {% endtip %}

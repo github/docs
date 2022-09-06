@@ -18,7 +18,7 @@ redirect_from:
 Os codespaces são definidos para parar após 30 minutos sem atividade. Se você tentar interagir com um codespace depois de parar, é possível que você veja um erro `503 service unavailable`.
 
 - Se um botão **Iniciar** for exibido em {% data variables.product.prodname_vscode %} ou na janela do seu navegador, clique em **Iniciar** para reconectar ao codespace.
-- Redefina o seu codespace recarregando a janela. A partir da [paleta de comando](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) em {% data variables.product.prodname_vscode %}, clique em **Desenvolvedor: Recarregar Janela**.
+- Redefina o seu codespace recarregando a janela. Na [Paleta de comando](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) em {% data variables.product.prodname_vscode %}, clique em **Desenvolvedor: Recarregar janela**.
 
 ## Não foi possível conectar o navegador
 

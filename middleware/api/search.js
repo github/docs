@@ -1,6 +1,7 @@
 import express from 'express'
 
 import searchVersions from '../../lib/search/versions.js'
+import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { defaultCacheControl } from '../cache-control.js'
@@ -234,20 +235,42 @@ router.get(
   notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res, next) {
     const { indexName, query, page, size, debug, sort } = req.search
-    const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
+    try {
+      const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
 
-    if (process.env.NODE_ENV !== 'development') {
-      // The assumption, at the moment is that searches are never distinguished
-      // differently depending on a cookie or a request header.
-      // So the only distinguishing key is the request URL.
-      // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
-      // cache and hold on to this.
-      defaultCacheControl(res)
+      if (process.env.NODE_ENV !== 'development') {
+        // The assumption, at the moment is that searches are never distinguished
+        // differently depending on a cookie or a request header.
+        // So the only distinguishing key is the request URL.
+        // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
+        // cache and hold on to this.
+        defaultCacheControl(res)
+      }
+
+      // The v1 version of the output matches perfectly what comes out
+      // of the getSearchResults() function.
+      res.status(200).json({ meta, hits })
+    } catch (error) {
+      // If getSearchResult() throws an error that might be 404 inside
+      // elasticsearch, if we don't capture that here, it will propgate
+      // to the next middleware.
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error calling getSearchResults()', error)
+      } else {
+        await Promise.all(
+          FailBot.report(error, {
+            url: req.url,
+            indexName,
+            query,
+            page,
+            size,
+            debug,
+            sort,
+          })
+        )
+      }
+      res.status(500).send(error.message)
     }
-
-    // The v1 version of the output matches perfectly what comes out
-    // of the getSearchResults() function.
-    res.status(200).json({ meta, hits })
   })
 )
 
