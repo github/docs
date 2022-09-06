@@ -1,4 +1,4 @@
-You can use the configuration script to automatically add a new runner to a group. For example, this command registers a new runner and uses the `--runnergroup` parameter to add it to a group named `rg-runnergroup`.
+Você pode usar o script de configuração para adicionar automaticamente um novo executor a um grupo. Por exemplo, esse comando registra um novo executor e usa o parâmetro `--runnergroup` para adicioná-lo a um grupo denominado `rg-runnergroup`.
 
 ```sh
 ./config.sh --url $org_or_enterprise_url --token $token --runnergroup rg-runnergroup

@@ -155,9 +155,9 @@ Você pode adicionar funcionalidades à configuração de contêiner predefinida
 Você pode adicionar algumas das características mais comuns selecionando-as na configuração do contêiner predefinido. Para obter mais informações sobre as funcionalidades disponíveis, consulte a biblioteca de script [](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) no repositório `vscode-dev-containers`.
 
 
-1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "configure". Selecione **Codespaces: Configure as Funcionalidades do contêiner de desenvolvimento**.
+1. Acesse a paleta de comando (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) e, em seguida, comece a digitar "configurar". Selecione **Codespaces: Configure as Funcionalidades do contêiner de desenvolvimento**.
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![O comando Configurar Funcionalidades do Contêiner de Desenvolvimento na Paleta de Comando](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. Atualize as seleções das suas funcioanlidades e clique em **OK**.
 
@@ -165,7 +165,7 @@ Você pode adicionar algumas das características mais comuns selecionando-as na
 
 1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-configuration-changes-to-a-codespace)".
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   !["Codespaces: Recriar contêiner" na paleta de comando](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ## Criando uma configuração de contêiner de desenvolvimento personalizada
 

@@ -1,7 +1,7 @@
 ---
-title: Configuring dependency review for your appliance
+title: Configurando revisão de dependências para seu dispositivo
 shortTitle: Configurando a revisão de dependências
-intro: 'To helps users understand dependency changes when reviewing pull requests, you can enable, configure, and disable dependency review for {% data variables.product.product_location %}.'
+intro: 'Para ajudar os usuários a entender as alterações de dependências ao revisar pull requests, você pode habilitar, configurar e desabilitar a revisão de dependências para {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.dependency-review %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -20,33 +20,33 @@ topics:
 
 {% data reusables.dependency-review.feature-overview %}
 
-Some additional features, such as license checks, blocking of pull requests, and CI/CD integration, are available with the [dependency review action](https://github.com/actions/dependency-review-action).
+Algumas funcionalidades adicionais, como as verificações de licença, o bloqueio de pull requests, e a integração CI/CD, estão disponíveis com a [ação de revisão de dependência](https://github.com/actions/dependency-review-action).
 
 ## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for dependency review
+## Pré-requisitos para revisão da dependência
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
+- Uma licença para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
 
-- The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
+- O gráfico de dependências habilitado para a instância. Os administradores de sites podem habilitar o gráfico de dependências por meio do console de gerenciamento ou do shell administrativo (consulte [habilitando o gráfico de dependências para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
 
-- {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see "[Enabling Dependabot for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)").
+- {% data variables.product.prodname_github_connect %} habilitado para fazer o download e sincronizar vulnerabilidades do {% data variables.product.prodname_advisory_database %}. Isso geralmente é configurado como parte da configuração de {% data variables.product.prodname_dependabot %} (consulte "[habilitando o Dependabot para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)").
 
-## Enabling and disabling dependency review
+## Habilitando e desabilitando a revisão de dependências
 
-To enable or disable dependency review, you need to enable or disable the dependency graph for your instance.
+Para habilitar ou desabilitar a revisão da dependência, você deve habilitar ou desabilitar o gráfico de dependências para sua instância.
 
 Para obter mais informações, consulte "[Habilitando o gráfico de dependências para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".
 
-## Running dependency review using {% data variables.product.prodname_actions %}
+## Executando a revisão de dependência usando {% data variables.product.prodname_actions %}
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-The dependency review action is included in your installation of {% data variables.product.prodname_ghe_server %}. It is available for all repositories that have {% data variables.product.prodname_GH_advanced_security %} and dependency graph enabled.
+A ação de revisão de dependências foi incluída na sua instalação de {% data variables.product.prodname_ghe_server %}. Ele está disponível para todos os repositórios que têm {% data variables.product.prodname_GH_advanced_security %} e o gráfico de dependências habilitado.
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-Users run the dependency review action using a {% data variables.product.prodname_actions %} workflow. If you have not already set up runners for {% data variables.product.prodname_actions %}, you must do this to enable users to run workflows. É possível fornecer executores auto-hospedados no nível da conta do repositório, organização ou empresa. For information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+Os usuários executam a ação de revisão de dependências usando um fluxo de trabalho de {% data variables.product.prodname_actions %}. Se você ainda não configurou os executores para {% data variables.product.prodname_actions %}, você deve fazer isso para permitir que os usuários executem fluxos de trabalho. É possível fornecer executores auto-hospedados no nível da conta do repositório, organização ou empresa. Para obter informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 

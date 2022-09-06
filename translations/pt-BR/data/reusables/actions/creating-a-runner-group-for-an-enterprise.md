@@ -1,15 +1,15 @@
 {% comment %}
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Sempre inclua uma advertência de segurança acima deste procedimento. Pode ser uma das definidas a seguir, dependendo se o contexto são executores auto-hospedados ou executores maiores.
 
 {% data reusables.actions.self-hosted-runner-security-admonition %}
 {% data reusables.actions.hosted-runner-security-admonition %}
 
 {% endcomment %}
 
-Enterprises can add their runners to groups for access management. Enterprises can create groups of runners that are accessible to specific organizations in the enterprise account{% ifversion restrict-groups-to-workflows %} or to specific workflows{% endif %}. Os proprietários da organização podem atribuir políticas adicionais de acesso do repositório granular{% ifversion restrict-groups-to-workflows %} ou políticas de acesso do fluxo de trabalho {% endif %} para os grupos de executores corporativos. For information about how to create a runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
+As empresas podem adicionar seus executores a grupos para gerenciamento de acesso. As empresas podem criar grupos de executores que podem ser acessados por organizações específicas na conta corporativa{% ifversion restrict-groups-to-workflows %} ou por fluxos de trabalho específicos{% endif %}. Os proprietários da organização podem atribuir políticas adicionais de acesso do repositório granular{% ifversion restrict-groups-to-workflows %} ou políticas de acesso do fluxo de trabalho {% endif %} para os grupos de executores corporativos. Para obter informações sobre como criar um grupo de executores com a API REST, consulte os pontos de extremidade corporativos na [API REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
+Os executores são automaticamente atribuídos ao grupo padrão quando criados e só podem ser integrantes de um grupo por vez. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
 
 Ao criar um grupo, você deve escolher uma política que defina quais organizações têm acesso ao grupo de executores.
 
