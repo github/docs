@@ -19,6 +19,8 @@ Se configurar um nome de host em vez de um endereço IP codificado, você poder�
 
 A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.companyname.com.`As solicitações da web e da API serão automaticamente redirecionadas para o nome de host configurado no {% data variables.enterprise.management_console %}. Observe que `localhost` não é uma configuração válida para o nome de host.
 
+Nomes de host devem ter menos de 63 caracteres de comprimento a cada [Seção 2.3.4 do RFC da Especificação de Nomes de Domínio](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
+
 Depois de configurar um nome de host, você poderá habilitar o isolamento de subdomínio para aumentar ainda mais a segurança de {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".
 
 Para obter mais informações sobre os tipos de nome de host compatíveis, consulte a [seção 2.1 do HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).

@@ -78,6 +78,14 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 
 Você pode aplicar a criptografia TLS para todas as conexões SMTP recebidas, o que pode ajudar a satisfazer um requisito de certificação ISO-27017.
 
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Observação**: A execução de TLS para conexões SMTP não está disponível em {% data variables.product.product_name %} 3.6.0. O recurso estará disponível em uma versão futura.
+
+{% endnote %}
+{%- endif %}
+
 {% data reusables.enterprise_site_admin_settings.email-settings %}
 1. Em "Autenticação", selecione **Aplicar TLS auth (recomendado)**.
 

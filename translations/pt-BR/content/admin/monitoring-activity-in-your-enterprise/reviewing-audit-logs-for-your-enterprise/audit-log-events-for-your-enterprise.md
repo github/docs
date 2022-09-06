@@ -134,6 +134,9 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 {%- ifversion ghec or ghes %}
 | `business.set_fork_pr_workflows_policy` | A política para os fluxos de trabalho nas bifurcações de repositórios privados foi alterada. Para obter mais informações, consulte "{% ifversion ghec %}[Aplicando políticas para {% data variables.product.prodname_actions %} em uma empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Habilitando fluxos de trabalho para bifurcações do repositório privado](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}".
 {%- endif %}
+{%- ifversion audit-log-sso-response-events %}
+|`business.sso_response` | Uma resposta de logon único SAML (logon único) foi gerada quando um integrante tentou efetuar a autenticação com sua empresa. Este evento só está disponível por meio da transmissão do log de auditoria e da API REST.
+{%- endif %}
 {%- ifversion ghes %}
 | `business.update_actions_settings` | O proprietário de uma empresa ou administrador de site atualizou as configurações da política de {% data variables.product.prodname_actions %} para uma empresa. Para obter mais informações, consulte "[Aplicando as políticas para o GitHub Actions na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 {%- endif %}
@@ -663,8 +666,8 @@ Antes de ver as ações da categoria `git`, você deverá habilitar os eventos d
 {%- ifversion fpt or ghec or ghes %}
 | `org.set_fork_pr_workflows_policy` | A política para os fluxos de trabalho nas bifurcações de repositórios privados foi alterada. Para obter mais informações, consulte "[Habilitar fluxos de trabalho para bifurcações privadas do repositório](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)."
 {%- endif %}
-{%- ifversion ghes %}
-| `org.sso_response` | Uma resposta de logon único do SAML foi gerada quando um integrante tentou efetuar a autenticação com uma organização.
+{%- ifversion ghes or audit-log-sso-response-events %}
+| `org.sso_response` | Uma resposta do logon único SAML (SSO) foi gerada quando um integrante tentou efetuar a autenticação com sua organização. Este evento só está disponível por meio da transmissão do log de auditoria e da API REST.
 {%- endif %}
 {%- ifversion not ghae %}
 | `org.transform`    |  Uma conta de usuário foi convertida em uma organização. Para obter mais informações, consulte "[Converter um usuário em uma organização](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."

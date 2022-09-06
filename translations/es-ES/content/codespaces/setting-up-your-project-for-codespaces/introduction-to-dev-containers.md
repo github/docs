@@ -155,9 +155,9 @@ Puedes agregar características a tu configuración predefinida de contenedor pa
 Puedes agregar algunas de las características más comunes seleccionándolas cuando configures tu contenedor predefinido. Para obtener más información sobre las características disponibles, consulta la [librería de scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) en el repositorio `vscode-dev-containers`.
 
 
-1. Accede a la paleta de comandos (`Shift + Command + P` / `Ctrl + Shift + P`) y luego comienza a teclear "configurar". Selecciona **Codespaces: configurar las características del devcontainer**.
+1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "configure". Selecciona **Codespaces: configurar las características del devcontainer**.
 
-   ![El comando de configurar características del devcontainer en la paleta de comandos](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. Actualiza tus selecciones de características y luego haz clic en **OK**.
 
@@ -165,7 +165,7 @@ Puedes agregar algunas de las características más comunes seleccionándolas cu
 
 1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. Para obtener más información sobre cómo reconstruir tu contenedor, consulta la sección "[Aplicar los cambios a tu configuración](#applying-configuration-changes-to-a-codespace)".
 
-   !["Codespaces: Reconstruir contenedor" en la paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
+   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ## Crear una configuración de contenedor dev personalizada
 

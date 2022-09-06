@@ -76,10 +76,16 @@ Se você tem a autenticação de dois fatores ativada, certifique-se de entender
 
 {% endnote %}
 
+{% note %}
+
+**Observação:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
+
 Se você estiver usando a API para acessar uma organização que força o [SSO do SAML][saml-sso] para autenticação, você deverá criar um token de acesso pessoal (PAT) e [autorizar o token][allowlist] para essa organização. Visite a URL especificada no `X-GitHub-SSO` para autorizar o token para a organização.
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
+$ curl -v -H "Authorization: Bearer <em>TOKEN</em>" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
 
 > X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4
 {
@@ -91,7 +97,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 Ao solicitar dados que poderiam vir de várias organizações (por exemplo, [solicitando uma lista de problemas criados pelo usuário][user-issues]), o cabeçalho `X-GitHub-SSO` indica quais organizações exigem que você autorize seu token de acesso pessoal:
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/user/issues
+$ curl -v -H "Authorization: Bearer <em>TOKEN</em>" {% data variables.product.api_url_pre %}/user/issues
 
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```

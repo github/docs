@@ -1,3 +1,3 @@
 {%- ifversion ip-allow-list-address-check %}
-1. Optionally, check if a particular IP address would be allowed by any of the enabled entries in your list. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."
+1. あるいは、特定のIPアドレスがリスト中の有効なエントリのいずれかによって許可されているかチェックしてください。 詳しい情報については「[IPアドレスが許可されているかのチェック](#checking-if-an-ip-address-is-permitted)」を参照してください。
 {%- endif %}

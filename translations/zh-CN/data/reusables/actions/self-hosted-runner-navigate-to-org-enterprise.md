@@ -3,7 +3,7 @@
 2. 单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
-1. 导航到自托管运行器注册的位置：
+1. Navigate to where your runner is registered:
    * **在组织中**，导航到主页并单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。
    * **如果使用企业级运行器**：
 

@@ -16,7 +16,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // dedicated search results page works.
 // In a near future, we won't be needing this and assume it's always
 // true.
-const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(process.env.ELASTICSEARCH_URL)
+const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(
+  JSON.parse(process.env.ENABLE_SEARCH_RESULTS_PAGE || 'false')
+)
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)

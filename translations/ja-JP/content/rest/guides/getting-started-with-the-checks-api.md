@@ -41,7 +41,7 @@ GitHub Appは、単に合格/不合格の二択ではない、情報量の多い
 
 ![チェック実行のワークフロー](/assets/images/check_runs.png)
 
-If a check run is in an incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
+チェック実行が15日以上にわたり不完全な状態である場合は、チェック実行の`conclusion`が`stale`になり、{% data variables.product.prodname_dotcom %}に状態が{% octicon "issue-reopened" aria-label="The issue-reopened icon" %}と表示されます。 {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
 
 [`check_suite`](/webhooks/event-payloads/#check_suite) webhookを受け取ったら、チェックが完了していなくてもすぐにチェック実行を作成できます。 チェック実行の`status`は、`queued`、`in_progress`、または`completed`の値で更新でき、より詳細を明らかにして`output`を更新できます。 チェック実行にはタイムスタンプ、詳細情報が記載された外部サイトへのリンク、コードの特定の行に対するアノテーション、および実行した分析についての情報を含めることができます。
 

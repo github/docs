@@ -23,7 +23,7 @@ topics:
 
 Em vez de copiar e colar de um fluxo de trabalho para outro, você pode tornar os fluxos de trabalho reutilizáveis. Você e qualquer pessoa com acesso ao fluxo de trabalho reutilizável pode chamar o fluxo de trabalho reutilizável a partir de outro fluxo de trabalho.
 
-A reutilização dosfluxos de trabalho evita duplicação. Isso torna os fluxos de trabalho mais fáceis de manter e permite que você crie novos fluxos de trabalho mais rapidamente, desenvolvendo sobre o trabalho dos outros, assim como você faz com ações. A reutilização do fluxo de trabalho também promove práticas recomendadas, ajudando você a usar os fluxos de trabalho bem projetados, Já foram testados e sua eficiência é comprovada. Sua organização pode criar uma biblioteca de fluxos de trabalho reutilizáveis que pode ser mantida centralmente.
+A reutilização dosfluxos de trabalho evita duplicação. Isso torna os fluxos de trabalho mais fáceis de manter e permite que você crie novos fluxos de trabalho mais rapidamente, desenvolvendo sobre o trabalho dos outros, assim como você faz com ações. A reutilização do fluxo de trabalho também promove práticas recomendadas que ajuda você a usar os fluxos de trabalho bem projetados já foi testada e a sua eficiência é comprovada. Sua organização pode criar uma biblioteca de fluxos de trabalho reutilizáveis que pode ser mantida centralmente.
 
 O diagrama abaixo mostra três trabalhos de criação à esquerda do diagrama. Depois que cada um desses trabalhos é concluído com sucesso, executa-se uma tarefa dependente denominada "Implantação". Esse trabalho chama um fluxo de trabalho reutilizável que contém três trabalhos: "Treinamento", "Revisão" e "Produção". A tarefa de implantação "Produção" só é executada após a tarefa de "Treinamento" ter sido concluída com sucesso. O uso um fluxo de trabalho reutilizável para executar trabalhos de implantação permite que você execute esses trabalhos para cada compilação sem duplicar o código nos fluxos de trabalho.
 
@@ -127,7 +127,7 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/workflows/my-action
+         - uses: octo-org/my-action@v1
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -168,12 +168,13 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/my-action
+      - uses: octo-org/my-action@v1
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+
 {% ifversion actions-reusable-workflow-matrix %}
 ## Usando estratégia matrix com fluxo de trabalho reutilizável
 

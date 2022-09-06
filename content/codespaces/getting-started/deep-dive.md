@@ -73,7 +73,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
@@ -114,7 +114,7 @@ If you already use {% data variables.product.prodname_vscode_shortname %}, you c
 
 ## Further reading
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
-- [Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)"
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

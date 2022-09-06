@@ -134,7 +134,7 @@ Para desbloquear los repositorios en una organización{% data variables.product.
   * El `id` único de la migración
   * El nombre del repositorio a desbloquear
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
@@ -143,7 +143,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 Después de desbloquear los repositorios de organización de {% data variables.product.prodname_dotcom_the_website %} deberás borrar todos los repositorios que migraste previamente utilizando [la terminal de borrado de repositorios](/rest/repos/#delete-a-repository). Necesitarás tu token de acceso para la autenticación:
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 

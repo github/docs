@@ -1,1 +1,1 @@
-When you follow organizations on {% data variables.product.product_name %}, you'll see their {% ifversion fpt or ghec %}public{% endif %} activity on your personal dashboard. This activity includes new discussions, sponsorships, and repositories.
+{% data variables.product.product_name %}上のOrganizationをフォローすると、それらの{% ifversion fpt or ghec %}パブリックな{% endif %}アクティビティが個人ダッシュボードに表示されるようになります。 このアクティビティには、新しいディスカッション、スポンサーシップ、リポジトリが含まれます。

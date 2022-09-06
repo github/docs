@@ -2,6 +2,12 @@ Use `jobs.<job_id>.container` para criar um contêiner para executar todas as et
 
 Se você não definir um `container`, todas as etapas serão executadas diretamente no host especificado por `runs-on`, a menos que uma etapa se refira a uma ação configurada para execução em um contêiner.
 
+{% note %}
+
+**Observação:** O shell padrão para a etapa `executar` dentro de um contêiner é `sh` em vez de `bash`. Isto pode ser substituído por [`jobs.<job_id>.defaults.execute`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) ou [jobs`.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+
+{% endnote %}
+
 ### Exemplo: Executar um trabalho dentro de um contêiner
 
 ```yaml{:copy}

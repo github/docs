@@ -3,7 +3,7 @@
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
-1. 单击 **New runner（新运行器）**。
+{% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {%- elsif ghae or ghes < 3.4 %}
 要将自托管的运行器添加到企业，您必须是组织所有者。

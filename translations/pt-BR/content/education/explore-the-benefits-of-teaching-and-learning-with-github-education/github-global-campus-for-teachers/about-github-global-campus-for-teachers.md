@@ -12,7 +12,7 @@ versions:
 shortTitle: Para professores
 ---
 
-As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
+Se você é integrante do corpo docente de uma instituição de ensino credenciada, você pode solicitar benefícios de {% data variables.product.prodname_global_campus %}, que inclui benefícios e recursos de {% data variables.product.prodname_education %}. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
 
 {% data variables.product.prodname_global_campus %} é um portal que permite que a Comunidade GitHub Education acesse seus benefícios educacionais, tudo em um só lugar. Depois que o professor de {% data variables.product.prodname_global_campus %} for verificado, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o site [{% data variables.product.prodname_education %}](https://education.github.com).
 

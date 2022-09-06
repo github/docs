@@ -25,12 +25,7 @@ Para obter mais informações sobre exatamente como {% data variables.product.pr
 ## Criando seu codespace
 
 1. Acesse o r[repositório do modelo](https://github.com/github/haikus-for-codespaces) e selecione **Usar este modelo**.
-
-1. Escolha um proprietário para o novo repositório, insira um nome de repositório, selecione sua configuração de privacidade preferida e clique em **Criar repositório a partir do modelo**.
-
-1. Acesse a página principal do repositório recém-criado. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
-
-  ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
+{% data reusables.codespaces.open-codespace-from-template-repo %}
 
 ## Executando o aplicativo
 
@@ -115,5 +110,5 @@ Você criou com sucesso, personalizou e executou seu primeiro aplicativo em um c
 
 ## Leia mais
 
-- [Habilitando {% data variables.product.prodname_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Gerenciando a cobrança para {% data variables.product.prodname_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Gerenciando a cobrança de {% data variables.product.prodname_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

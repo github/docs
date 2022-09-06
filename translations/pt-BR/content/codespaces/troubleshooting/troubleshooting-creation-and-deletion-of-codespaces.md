@@ -16,6 +16,8 @@ shortTitle: Criação e exclusão
 ### Sem acesso para criar um codespace
 {% data variables.product.prodname_codespaces %} não estão disponíveis para todos os repositórios. Se o botão "Abrir com codespaces" estiver faltando, o {% data variables.product.prodname_github_codespaces %} pode não estar disponível para o repositório. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
 
+Não é possível criar um codespace para um repositório privado pertencente a uma organização, a menos que você tenha acesso de gravação ao repositório ou a organização tenha habilitado a bifurcação.
+
 Se você acredita que sua organização [habilitou {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), certifique-se de que um proprietário ou gerente de cobrança da organização definiu o limite de gastos para {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
 ### O codespace não abre quando criado

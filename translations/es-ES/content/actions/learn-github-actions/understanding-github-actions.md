@@ -2,6 +2,7 @@
 title: Entender las GitHub Actions
 shortTitle: Entendiendo las GitHub Actions
 intro: 'Aprende lo básico de las {% data variables.product.prodname_actions %}, incluyendo los conceptos nucleares y la terminología esencial.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -82,7 +83,7 @@ Para obtener más información, consulta la sección "[Crear acciones](/actions/
 
 ### Ejecutores
 
-{% data reusables.actions.about-runners %} Cada ejecutor puede ejecutar un job individual a la vez. {% ifversion ghes or ghae %} Debes hospedar tus propios ejecutores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} proporciona ejecutores de Ubuntu Linux, Microsoft Windows y macOS para ejecutar tus flujos de trabajo; cada flujo de trabajo se ejecuta en una máquina virtual nueva y recién aprovisionada. Si necesitas un sistema operativo diferente o si requieres una configuración de hardware específica, puedes hospedar tus propios ejecutores.{% endif %} Para obtener más información{% ifversion fpt or ghec %} sobre los ejecutores auto-hospedados{% endif %}, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
+{% data reusables.actions.about-runners %} Cada ejecutor puede ejecutar un job individual a la vez. {% ifversion ghes or ghae %} Debes hospedar tus propios ejecutores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} proporciona ejecutores de Ubuntu Linux, Microsoft Windows y macOS para ejecutar tus flujos de trabajo; cada flujo de trabajo se ejecuta en una máquina virtual nueva y recién aprovisionada. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 

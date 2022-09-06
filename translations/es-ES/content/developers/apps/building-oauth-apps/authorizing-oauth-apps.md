@@ -107,13 +107,13 @@ Accept: application/xml
 
 El token de acceso te permite hacer solicitudes a la API a nombre de un usuario.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 Por ejemplo, en curl, puedes configurar el encabezado de autorización de la siguiente manera:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## Flujo de dispositivos

@@ -3,7 +3,7 @@
 2. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
-1. セルフホストランナーが登録されているところへアクセスしてください:
+1. Navigate to where your runner is registered:
    * **Organizationの場合**: メインページにアクセスして{% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
    * **Enterpriseレベルのランナーを使っている場合**:
 
