@@ -1,0 +1,1 @@
+ 1. In the upper center of any page, click **Codespaces**.
