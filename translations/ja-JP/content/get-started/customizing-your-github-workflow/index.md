@@ -1,5 +1,5 @@
 ---
-title: GitHub ワークフローをカスタマイズする
+title: Customizing your GitHub workflow
 intro: 'Learn how you can customize your {% data variables.product.prodname_dotcom %} workflow with extensions, integrations, {% data variables.product.prodname_marketplace %}, and webhooks.'
 redirect_from:
   - /categories/customizing-your-github-workflow

@@ -1,6 +1,6 @@
 ---
-title: Oraganization の以前のメンバーを復帰させる
-intro: 'Organizationのオーナーは{% ifversion fpt or ghec %}Oraganization の以前のメンバーを招待して Oraganization に復帰させて{% else %}以前のメンバーを Oraganization に追加して{% endif%}、その個人の以前のロール、アクセス権、フォーク、設定をリストアするかどうかを選択することができます。'
+title: Reinstating a former member of your organization
+intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -13,46 +13,46 @@ permissions: Organization owners can reinstate a former member of an organizatio
 topics:
   - Organizations
   - Teams
-shortTitle: メンバーの復帰
+shortTitle: Reinstate a member
 ---
 
-## メンバーの復帰について
+## About member reinstatement
 
-以下のいずれかの方法でユーザがOrganizationから削除された場合、そのユーザのアクセス権限と設定は3ヶ月間保存されます。
+If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months. 
 
-- 手動でユーザをOrganizationから削除した。 詳しい情報については「[Organizationからのメンバーの削除](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)」を参照してください。{% ifversion not ghae %}
-- メンバーと外部のコラボレータに対して2要素認証（2FA）の有効化を必須としたためにユーザが削除された。 詳しい情報については「[Organizationでの2要素認証の必須化](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)」を参照してください。{% endif %}{% ifversion fpt or ghec %}
-- SAMLシングルサインオンを適用したためOrganizationからユーザが削除された。 詳しい情報については{% ifversion fpt %}、{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% else %}、{% endif %}「[OrganizationでのSAMLシングルサインオンの施行](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)を参照してください。{% endif %}
-- Organizationメンバーを外部のコラボレータに変換した。 詳しい情報については「[Organizationメンバーの外部コラボレータへの変換](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)」を参照してください。
+- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
+- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
+- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
 
-その期間内にユーザを Organization へ再度{% ifversion fpt or ghec %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
+You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% note %}
 
-**ノート:**{% data reusables.saml.removed-users-can-rejoin %} これらのユーザに再度参加するよう招待する必要はありません。 その代わりに、ユーザは自分の個人アカウントにサインインし、Organizationにアクセスし、バナーをクリックしてSAMLシングルサインオン経由で認証してもらうことができます。
+**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
 
 {% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-Oraganization の以前のメンバーを復帰させると、次のことがリストアできます:
- - Organization でのユーザのロール
- - Organization が所有しているリポジトリのあらゆるプライベートフォーク
- - Organization のチームでのメンバーシップ
- - Organization のリポジトリへの以前のアクセスと権限
- - Organization リポジトリでの Star
- - Organization での Issue 割り当て
- - リポジトリプラン (リポジトリのアクティビティを Watch するか Watch しないか無視するかについての通知設定)
+When you reinstate a former organization member, you can restore:
+ - The user's role in the organization
+ - Any private forks of repositories owned by the organization
+ - Membership in the organization's teams
+ - Previous access and permissions for the organization's repositories
+ - Stars for organization repositories
+ - Issue assignments in the organization
+ - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
 
 {% ifversion ghes %}
-Organization のメンバーが 2 要素認証を使用していなかったために Organization から削除された場合、Organization で 2 要素認証を使用するようメンバーに要求することに変わりないのであれば、以前のメンバーは 2 要素認証を有効化しないとメンバーとして復帰できません。
+If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-Organization にユーザ単位の有料プランがある場合、Organization の以前のメンバーを復帰させる前に、使用されていないライセンスを使用可能にしておく必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-scim %}
+If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
 {% endif %}
 
-## Oraganization の以前のメンバーを復帰させる
+## Reinstating a former member of your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -60,19 +60,23 @@ Organization にユーザ単位の有料プランがある場合、Organization 
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% ifversion fpt or ghec %}
-6. その個人の Organization での以前の権限をリストアするか、以前の権限をクリアして新たにアクセス権を設定するか、選択してから [**Invite and reinstate**] または [**Invite and start fresh**] をクリックします。 ![情報をリストアするか否かを選択](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
+6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Invite and reinstate** or **Invite and start fresh**.
+  ![Choose to restore info or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
-6. その個人の Organization での以前の権限をリストアするか、以前の権限をクリアして新たにアクセス権を設定するか、選択してから [**Add and reinstate**] または [**Add and start fresh**] をクリックします。 ![権限をリストアするかを選択](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
+6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Add and reinstate** or **Add and start fresh**.
+  ![Choose whether to restore privileges](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
 {% ifversion fpt or ghec %}
-7. Oraganization の以前のメンバーの以前の権限をクリアした場合は、そのユーザのロールを選択し、オプションでいくつかのチームに追加してから、[**Send invitation**] をクリックします。 ![ロールとTeamオプションと招待の送信ボタン](/assets/images/help/organizations/add-role-send-invitation.png)
+7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
+  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
-7. Oraganization の以前のメンバーの以前の権限をクリアした場合は、そのユーザのロールを選択し、オプションでいくつかのチームに追加してから、[**Add member**] をクリックします。 ![ロールと Team のオプションと [add member] ボタン](/assets/images/help/organizations/add-role-add-member.png)
+7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
+  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [Organizatin のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)
+- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

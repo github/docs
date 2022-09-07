@@ -1,7 +1,7 @@
 ---
-title: Setting your default region for GitHub Codespaces
+title: GitHub Codespaces の既定のリージョンを設定する
 shortTitle: Set the default region
-intro: 'You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.'
+intro: '{% data variables.product.prodname_github_codespaces %} プロファイル設定ページで既定のリージョンを設定して、データが保持されている場所をパーソナライズできます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,13 +12,18 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: bf658cadc1237ce0266f3b44f506446054fc3082
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111531'
 ---
+codespace が作成されるリージョンを手動で選択できます。セキュリティとコンプライアンスに関する厳格な要件を満たすことができます。 既定では、リージョンはお住まいの場所に基づいて自動的に設定されます。
 
-You can manually select the region that your codespaces will be created in, allowing you to meet stringent security and compliance requirements. By default, your region is set automatically, based on your location.
+## 既定のリージョンを設定する
 
-## Setting your default region
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Region", select the setting you want.
-2. If you chose "Set manually", select your region in the drop-down list. ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. [リージョン] で、目的の設定を選びます。
+2. [手動で設定] を選んだ場合、ドロップダウン リストでリージョンを選びます。
+   ![リージョンの選択](/assets/images/help/codespaces/select-default-region.png)

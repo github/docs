@@ -1,7 +1,7 @@
 ---
-title: Security hardening your deployments
+title: デプロイのセキュリティ強化
 shortTitle: Security hardening your deployments
-intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
+intro: ワークフロー内で OpenID Connect を使用して、クラウド プロバイダーでの認証を行います。
 versions:
   fpt: '*'
   ghae: issue-4856
@@ -15,5 +15,11 @@ children:
   - /configuring-openid-connect-in-hashicorp-vault
   - /configuring-openid-connect-in-cloud-providers
   - /using-openid-connect-with-reusable-workflows
+ms.openlocfilehash: 0480c3d495bf04efca4a3fe5a10114719f17fabf
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068722'
 ---
 

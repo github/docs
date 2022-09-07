@@ -1,5 +1,5 @@
 ---
-title: Git のワークフロー
+title: Git ワークフロー
 intro: '{% data variables.product.prodname_dotcom %} フローは、軽量でブランチベースのワークフローで、規則的にデプロイされる Team とプロジェクトをサポートしています。'
 redirect_from:
   - /articles/what-is-a-good-git-workflow
@@ -12,6 +12,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: da67c3430e7457b1fec3f1b0b9b480d6d8363c2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145112061'
 ---
-
-{% data variables.product.prodname_dotcom %} フローの手法を使うと、Team の機能と {% data variables.product.prodname_dotcom %} でのコラボレーションを標準化することができます。 For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."
+{% data variables.product.prodname_dotcom %} フローの手法を使うと、Team の機能と {% data variables.product.prodname_dotcom %} でのコラボレーションを標準化することができます。 詳細については、「[{% data variables.product.prodname_dotcom %} フロー](/github/getting-started-with-github/github-flow)」を参照してください。

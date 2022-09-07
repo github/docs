@@ -1,6 +1,6 @@
 ---
 title: GitHub Educationのドキュメント
-shortTitle: 教育
+shortTitle: Education
 intro: '{% data variables.product.prodname_education %}は、{% data variables.product.company_short %}のプラットフォームとコミュニティの支援により、ソフトウェア開発の教育や学習に役立ちます。'
 introLinks:
   quickstart: /education/quickstart
@@ -30,5 +30,11 @@ children:
   - /contribute-with-github-community-exchange
   - /manage-coursework-with-github-classroom
   - /guides
+ms.openlocfilehash: 7aa1b7c97f34dd2224abece6c85289316e7e06f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573941'
 ---
 

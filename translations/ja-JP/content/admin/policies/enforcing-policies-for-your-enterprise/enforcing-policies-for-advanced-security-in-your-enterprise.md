@@ -24,7 +24,7 @@ shortTitle: Advanced Security policies
 
 ## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
 
-{% data reusables.advanced-security.ghas-helps-developers %} 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/get-started/learning-about-github/about-github-advanced-security)」を参照してください。
+{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
 

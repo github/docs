@@ -1,14 +1,14 @@
-`jobs.<job_id>.container`を使って、コンテナをまだ指定していないジョブ内の任意のステップを実行するためのコンテナを作成してください。 スクリプトアクションとコンテナアクションの両方を使うステップがある場合、コンテナアクションは同じボリュームマウントを使用して、同じネットワーク上にある兄弟コンテナとして実行されます。
+Use `jobs.<job_id>.container` to create a container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
 
-`container`を設定しない場合は、コンテナで実行されるよう設定されているアクションを参照しているステップを除くすべてのステップが、`runs-on`で指定したホストで直接実行されます。
+If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
 
 {% note %}
 
-**ノート:** コンテナ内の`run`ステップのデフォルトシェルは`bash`ではなく`sh`です。 これは、[`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun)もしくは[`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell)で上書きできます。
+**Note:** The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
 
 {% endnote %}
 
-### 例: コンテナ内でのジョブの実行
+### Example: Running a job within a container
 
 ```yaml{:copy}
 name: CI
@@ -32,7 +32,7 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
-コンテナイメージのみを指定する場合、`image`は省略できます。
+When you only specify a container image, you can omit the `image` keyword.
 
 ```yaml
 jobs:

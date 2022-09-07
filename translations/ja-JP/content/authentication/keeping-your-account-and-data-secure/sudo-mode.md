@@ -1,5 +1,5 @@
 ---
-title: Sudo モード
+title: Sudo mode
 intro: 'To confirm access to your account before you perform a potentially sensitive action, {% data variables.product.product_location %} prompts for authentication.'
 redirect_from:
   - /articles/sudo-mode
@@ -29,7 +29,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% note %}
 
-**Note**: If {% data variables.product.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. 詳しい情報については、サイト管理者にお問い合わせください。
+**Note**: If {% data variables.product.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
 
 {% endnote %}
 
@@ -54,7 +54,7 @@ To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge
 
 ### Confirming access using a security key
 
-You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. 詳しい情報については、「[2 要素認証を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
+You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
@@ -78,7 +78,7 @@ You must install and sign into {% data variables.product.prodname_mobile %} to c
 
 ### Confirming access using a 2FA code
 
-You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. 詳しい情報については、「[2 要素認証を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」を参照してください。
+You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
 
