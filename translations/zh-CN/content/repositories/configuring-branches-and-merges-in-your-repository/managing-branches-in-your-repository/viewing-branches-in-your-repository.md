@@ -12,16 +12,20 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 查看分支
+shortTitle: View branches
+ms.openlocfilehash: 286c8eb8c717f5a002db0059e65c416ccc3981e8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129388'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
 3. 使用页面顶部的导航可查看特定的分支列表：
-    - **Your branches（您的分支）**：在您有推送权限的仓库中，**Yours（您的）**视图显示您已推送的所有分支（默认分支除外），最近的分支最先显示。
-    - **Active branches（活动分支）**：**Active（活动）**视图显示过去三个月内任何人提交的所有分支，按最近的提交最先显示的顺序排序分支。
-    - **Stale branches（过时的分支）**：**Stale（过时）**视图显示过去三个月内没有人提交的所有分支，按最早的提交最先显示的顺序排序分支。 使用此列表可确定[要删除的分支](/articles/creating-and-deleting-branches-within-your-repository)。
-    - **All branches（所有分支）**：**All（所有）**视图显示默认分支，后跟所有其他分支，按最近的提交最先显示的顺序排序分支。
+    - 你的分支：在具有推送访问权限的存储库中，“你的”视图显示已推送到的所有分支（不包括默认分支），最新分支排在最前 。
+    - 活动分支：“活动”视图显示过去三个月内任何人已提交的所有分支，按分支进行排序，最新提交分支排在最前 。
+    - 过时分支：“过时”视图显示过去三个月内没有人提交的所有分支，按分支进行排序，最早提交分支排在最前 。 使用此列表确定[要删除的分支](/articles/creating-and-deleting-branches-within-your-repository)。
+    - 所有分支：“所有”视图显示默认分支，后跟所有其他分支，按分支进行排序，最新提交分支排在最前 。
 
 4. （可选）使用右上角的搜索字段。 它在分支名称上提供简单、不区分大小写的子字符串搜索。 它不支持任何其他查询语法。
 
@@ -29,5 +33,5 @@ shortTitle: 查看分支
 
 ## 延伸阅读
 
-- “[在仓库内创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository)”
-- "[删除未使用的分支](/articles/deleting-unused-branches)"
+- [在存储库中创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository)
+- [删除未使用的分支](/articles/deleting-unused-branches)

@@ -1,6 +1,6 @@
 ---
-title: 创建代码空间
-intro: 您可以为仓库中的分支创建代码空间以便在线开发。
+title: Creating a codespace
+intro: You can create a codespace for a branch in a repository to develop online.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
@@ -13,28 +13,28 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: 创建代码空间
+shortTitle: Create a codespace
 ---
 
-## 关于代码空间的创建
+## About codespace creation
 
-可以在 {% data variables.product.prodname_dotcom_the_website %} 上、{% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 创建代码空间。 {% data reusables.codespaces.codespaces-are-personal %}
+You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %}
+Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %}
 
 
-创建代码空间时，需要执行一些步骤并将您连接到开发环境。
+When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
-- 第 1 步：虚拟机和存储被分配到您的代码空间。
-- 第 2 步：创建容器并克隆仓库。
-- 第 3 步：您可以连接到代码空间。
-- 第 4 步：代码空间继续创建后设置。
+- Step 1: VM and storage are assigned to your codespace.
+- Step 2: Container is created and your repository is cloned.
+- Step 3: You can connect to the codespace.
+- Step 4: Codespace continues with post-creation setup.
 
-有关创建代码空间时会发生什么的更多信息，请参阅“[深潜](/codespaces/getting-started/deep-dive)”。
+For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
 
-有关代码空间生命周期的更多信息，请参阅“[代码空间生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)”。
+For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
 
-如果要将 Git 挂钩用于代码空间，则应在步骤 4 中使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 由于代码空间容器是在克隆仓库后创建的，因此在容器映像中配置的任何 [git template directory](https://git-scm.com/docs/git-init#_template_directory) 将不适用于代码空间。 在创建代码空间后，必须改为安装挂钩。 有关使用 `postCreateCommand` 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) 。
+If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -42,9 +42,9 @@ shortTitle: 创建代码空间
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## 访问 {% data variables.product.prodname_github_codespaces %}
+## Access to {% data variables.product.prodname_github_codespaces %}
 
-当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
+When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
 You'll have access to {% data variables.product.prodname_github_codespaces %} under the following conditions:
 
@@ -61,21 +61,21 @@ Before {% data variables.product.prodname_codespaces %} can be used in an organi
 
 Organization owners can specify who can create and use codespaces at the organization's expense. Organization owners can also prevent any codespace usage being charged to the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
-## 创建代码空间
+## Creating a codespace
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. 在仓库名称下，使用“Branch（分支）”下拉菜单选择您要为其创建代码的分支。
+1. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
 
-   ![分支下拉菜单](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. 单击 **{% octicon "code" aria-label="The code icon" %} 代码**按钮，然后单击 **Codespaces** 选项卡。
+1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
-   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
+   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. 使用默认选项或在配置高级选项后创建代码空间：
-
+1. Create your codespace, either using the default options, or after configuring advanced options:
+ 
    * **Use the default options**
 
       To create a codespace using the default options, click **Create codespace on BRANCH**.
@@ -101,32 +101,32 @@ Organization owners can specify who can create and use codespaces at the organiz
          ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
 
          {% note %}
-
-         **注：**
-
+      
+         **Notes**
+      
          * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
          * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
          * For more information about the `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
          * For more information about machine types, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
-
+      
          {% endnote %}
 
       1. Click **Start session**.
 
 {% endwebui %}
-
+   
 {% vscode %}
 
 {% data reusables.codespaces.creating-a-codespace-in-vscode %}
 
 {% endvscode %}
-
+   
 {% cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a new codespace, use the `gh codespace create` subcommand.
+To create a new codespace, use the `gh codespace create` subcommand. 
 
 ```shell
 gh codespace create 
@@ -149,3 +149,6 @@ Replace `machine-type` with a valid identifier for an available machine type. Id
 For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
+
+## Further reading
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

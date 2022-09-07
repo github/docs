@@ -1,6 +1,6 @@
 ---
-title: Basics of authentication
-intro: Learn about the different ways to authenticate with some examples.
+title: 身份验证的基础知识
+intro: 通过一些示例了解几种不同的身份验证方法。
 redirect_from:
   - /guides/basics-of-authentication
   - /v3/guides/basics-of-authentication
@@ -12,39 +12,35 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 3e2796e83047f4e8bb6b7e9a503eee6dac63f019
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129066'
 ---
-
-
-In this section, we're going to focus on the basics of authentication. Specifically,
-we're going to create a Ruby server (using [Sinatra][Sinatra]) that implements
-the [web flow][webflow] of an application in several different ways.
+在本节中，我们将重点介绍身份验证的基础知识。 具体而言，我们将（使用 [Sinatra][Sinatra]）创建 Ruby 服务器，该服务器以多种不同的方式实现应用程序的 [Web 流][webflow]。
 
 {% tip %}
 
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
+可以在 [platform-samples 存储库](https://github.com/github/platform-samples/tree/master/api/)中下载此项目的完整源代码。
 
 {% endtip %}
 
-## Registering your app
+## 注册应用程序
 
-First, you'll need to [register your application][new oauth app]. Every
-registered OAuth application is assigned a unique Client ID and Client Secret.
-The Client Secret should not be shared! That includes checking the string
-into your repository.
+首先需要[注册应用程序][new oauth app]。 每个注册的 OAuth 应用程序都分配有一个唯一的客户端 ID 和客户端密码。
+不应共享客户端密钥！ 这包括将该字符串签入存储库。
 
-You can fill out every piece of information however you like, except the
-**Authorization callback URL**. This is easily the most important piece to setting
-up your application. It's the callback URL that {% data variables.product.product_name %} returns the user to after
-successful authentication.
+可以随意填写每条信息，但授权回叫 URL 除外。 这往往是设置应用程序中最重要的部分。 它是在身份验证成功后，{% data variables.product.product_name %} 将用户返回到的回叫 URL。
 
-Since we're running a regular Sinatra server, the location of the local instance
-is set to `http://127.0.0.1:4567`. Let's fill in the callback URL as `http://127.0.0.1:4567/callback`.
+由于我们运行的是常规 Sinatra 服务器，因此本地实例的位置设置为 `http://127.0.0.1:4567`。 让我们将回叫 URL 填写为 `http://127.0.0.1:4567/callback`。
 
-## Accepting user authorization
+## 接受用户授权
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
-Now, let's start filling out our simple server. Create a file called _server.rb_ and paste this into it:
+现在开始设置我们简单的服务器。 创建名为 server.rb 的文件，并将其粘贴到其中：
 
 ``` ruby
 require 'sinatra'
@@ -59,12 +55,9 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration
-page][app settings].{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
-[environment variables][about env vars]--which is exactly what we've done here.
+客户端 ID 和客户端密钥来自[应用程序的配置页][app settings]。{% ifversion fpt or ghec %} 永远不应将这些值存储在 {% data variables.product.product_name %} 中或任何其他公共位置。{% endif %} 我们建议将它们存储为[环境变量][about env vars] - 这正是我们在这里所做的。
 
-Next, in _views/index.erb_, paste this content:
+接下来，在 views/index.erb 中粘贴此内容：
 
 ``` erb
 <html>
@@ -85,26 +78,19 @@ Next, in _views/index.erb_, paste this content:
 </html>
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra guide].)
+（如果你不熟悉 Sinatra 的工作原理，建议你阅读 [Sinatra 指南][Sinatra guide]。）
 
-Also, notice that the URL uses the `scope` query parameter to define the
-[scopes][oauth scopes] requested by the application. For our application, we're
-requesting `user:email` scope for reading private email addresses.
+另请注意，URL 使用 `scope` 查询参数来定义应用程序请求的[范围][oauth scopes]。 对于我们的应用程序，我们请求 `user:email` 范围来读取私人电子邮件地址。
 
-Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you
-should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
-![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
+将浏览器导航到 `http://127.0.0.1:4567`。 单击链接后，应该会转到 {% data variables.product.product_name %}，并显示如下所示的对话框：![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
 
-If you trust yourself, click **Authorize App**. Wuh-oh! Sinatra spits out a
-`404` error. What gives?!
+如果你相信自己，请单击“授权应用”。 哇！ Sinatra 显示 `404` 错误。 是什么原因呢？
 
-Well, remember when we specified a Callback URL to be `callback`? We didn't provide
-a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
-the app. Let's fix that now!
+还记得我们何时将回叫 URL 指定为了 `callback` 吗？ 我们没有为它提供路由，因此 {% data variables.product.product_name %} 在用户授权应用后不知道将他们放置在什么位置。 现在我们来解决这个问题！
 
-### Providing a callback
+### 提供回调
 
-In _server.rb_, add a route to specify what the callback should do:
+在 server.rb 中，添加一个路由以指定回叫应执行的操作：
 
 ``` ruby
 get '/callback' do
@@ -123,18 +109,16 @@ get '/callback' do
 end
 ```
 
-After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
-You'll need to `POST` this code back to {% data variables.product.product_name %} in exchange for an `access_token`.
-To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
-Note that you'll probably never access the API through REST. For a more serious
-application, you should probably use [a library written in the language of your choice][libraries].
+在应用成功完成身份验证后，{% data variables.product.product_name %} 将提供一个临时的 `code` 值。
+需要将此代码 `POST` 回 {% data variables.product.product_name %} 以换取 `access_token`。
+为了简化 GET 和 POST HTTP 请求，我们将使用 [rest-client][REST Client]。
+请注意，您可能永远不会通过 REST 访问 API。 对于更重要的应用程序，可能应该使用[采用所选语言编写的库][libraries]。
 
-### Checking granted scopes
+### 检查授予的作用域
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求的范围和已授予的范围的详细信息，请参阅“[OAuth 应用的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
-The scopes that were granted are returned as a part of the response from
-exchanging a token.
+已授予的范围作为交换令牌的响应的一部分返回。
 
 ``` ruby
 get '/callback' do
@@ -148,34 +132,20 @@ get '/callback' do
 end
 ```
 
-In our application, we're using `scopes.include?` to check if we were granted
-the `user:email` scope needed for fetching the authenticated user's private
-email addresses. Had the application asked for other scopes, we would have
-checked for those as well.
+在我们的应用程序中，我们使用 `scopes.include?` 来检查我们是否被授予了获取经过身份验证的用户的私人电子邮件地址所需的 `user:email` 范围。 如果应用程序请求了其他范围，我们也会进行相应检查。
 
-Also, since there's a hierarchical relationship between scopes, you should
-check that you were granted the lowest level of required scopes. For example,
-if the application had asked for `user` scope, it might have been granted only
-`user:email` scope. In that case, the application wouldn't have been granted
-what it asked for, but the granted scopes would have still been sufficient.
+此外，由于作用域之间存在分层关系，因此你应该检查你是否被授予了最低层级的必需范围。 例如，如果应用程序请求 `user` 范围，则它可能仅被授予 `user:email` 范围。 在这种情况下，应用程序并未获得请求的范围，但已授予的作用域仍是足够的。
 
-Checking for scopes only before making requests is not enough since it's possible
-that users will change the scopes in between your check and the actual request.
-In case that happens, API calls you expected to succeed might fail with a `404`
-or `401` status, or return a different subset of information.
+仅在发出请求之前检查范围是不够的，因为用户可能会在检查与实际请求之间的时间段更改范围。
+如果发生这种情况，预期成功的 API 调用可能会失败，并显示 `404` 或 `401` 状态，或者返回不同的信息子集。
 
-To help you gracefully handle these situations, all API responses for requests
-made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
-This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %}
-[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
-Use this information to detect changes in token scopes, and inform your users of
-changes in available application functionality.
+为了帮助你正常处理这些情况，对于使用有效令牌发出的请求，所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。
+此标头包含用于发出请求的令牌的范围列表。 除此之外，OAuth 应用程序 API 还提供终结点以{% ifversion fpt or ghes or ghec %}[检查令牌有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌有效性](/rest/reference/apps#check-an-authorization){% endif %}。
+使用此信息来检测令牌范围的更改，并将可用的应用程序功能的更改告知用户。
 
-### Making authenticated requests
+### 发出经过身份验证的请求
 
-At last, with this access token, you'll be able to make authenticated requests as
-the logged in user:
+最后，使用此访问令牌，你将能够将在用户登录时发出经过身份验证的请求：
 
 ``` ruby
 # fetch user information
@@ -192,7 +162,7 @@ end
 erb :basic, :locals => auth_result
 ```
 
-We can do whatever we want with our results. In this case, we'll just dump them straight into _basic.erb_:
+我们可以用我们的结果做任何我们想做的事。 在这种情况下，我们只需将它们直接转储到 basic.erb 中：
 
 ``` erb
 <p>Hello, <%= login %>!</p>
@@ -211,29 +181,18 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 </p>
 ```
 
-## Implementing "persistent" authentication
+## 实现“持久”身份验证
 
-It'd be a pretty bad model if we required users to log into the app every single
-time they needed to access the web page. For example, try navigating directly to
-`http://127.0.0.1:4567/basic`. You'll get an error.
+如果我们要求用户每次访问网页时都必须登录应用，这将是一个非常糟糕的模式。 例如，尝试直接导航到 `http://127.0.0.1:4567/basic`。 您会收到一个错误。
 
-What if we could circumvent the entire
-"click here" process, and just _remember_ that, as long as the user's logged into
-{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
-because _that's exactly what we're going to do_.
+如果我们能够绕过整个“单击此处”的过程，并且记住，只要用户登录到 {% data variables.product.product_name %}，他们应该就能够访问此应用程序，应该怎么办呢？ 坚持此做法，因为这正是我们要做的。
 
-Our little server above is rather simple. In order to wedge in some intelligent
-authentication, we're going to switch over to using sessions for storing tokens.
-This will make authentication transparent to the user.
+我们的上述小服务器相当简单。 为了加入一些智能身份验证功能，我们将切换到使用会话来存储令牌。
+这将使身份验证对用户透明化。
 
-Also, since we're persisting scopes within the session, we'll need to
-handle cases when the user updates the scopes after we checked them, or revokes
-the token. To do that, we'll use a `rescue` block and check that the first API
-call succeeded, which verifies that the token is still valid. After that, we'll
-check the `X-OAuth-Scopes` response header to verify that the user hasn't revoked
-the `user:email` scope.
+此外，由于我们在会话中保留范围，因此我们需要处理用户在经过我们检查后更新范围或撤消令牌的情况。 为此，我们将使用 `rescue` 块，并检查第一个 API 调用是否成功，以验证令牌是否仍然有效。 之后，我们将检查 `X-OAuth-Scopes` 响应头，以验证用户是否尚未撤销 `user:email` 范围。
 
-Create a file called _advanced_server.rb_, and paste these lines into it:
+创建名为 advanced_server.rb 的文件，并将以下行粘贴到其中：
 
 ``` ruby
 require 'sinatra'
@@ -313,15 +272,11 @@ get '/callback' do
 end
 ```
 
-Much of the code should look familiar. For example, we're still using `RestClient.get`
-to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered
-in an ERB template (this time, it's called `advanced.erb`).
+许多代码应该看起来很熟悉。 例如，我们仍使用 `RestClient.get` 来调用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API，仍将结果传递到 ERB 模板（在此处称为 `advanced.erb`）中进行呈现。
 
-Also, we now have the `authenticated?` method which checks if the user is already
-authenticated. If not, the `authenticate!` method is called, which performs the
-OAuth flow and updates the session with the granted token and scopes.
+此外，我们现在有 `authenticated?` 方法，用于检查用户是否已通过身份验证。 如果未通过，则调用 `authenticate!` 方法，该方法执行 OAuth 流并使用授予的令牌和范围更新会话。
 
-Next, create a file in _views_ called _advanced.erb_, and paste this markup into it:
+接下来，在视图中创建一个名为 advanced.erb 的文件，并将此标记粘贴到其中 ：
 
 ``` erb
 <html>
@@ -346,18 +301,12 @@ Next, create a file in _views_ called _advanced.erb_, and paste this markup into
 </html>
 ```
 
-From the command line, call `ruby advanced_server.rb`, which starts up your
-server on port `4567` -- the same port we used when we had a simple Sinatra app.
-When you navigate to `http://127.0.0.1:4567`, the app calls `authenticate!`
-which redirects you to `/callback`. `/callback` then sends us back to `/`,
-and since we've been authenticated, renders _advanced.erb_.
+从命令行调用 `ruby advanced_server.rb`，它会在端口 `4567`（在具有一个简单的 Sinatra 应用时使用的相同端口）上启动服务器。
+导航到 `http://127.0.0.1:4567` 时，应用将调用重定向到 `/callback` 的 `authenticate!`。 然后 `/callback` 将我们发送回 `/`，并且由于我们已经过身份验证，因此会呈现 advanced.erb。
 
-We could completely simplify this roundtrip routing by simply changing our callback
-URL in {% data variables.product.product_name %} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
-the same callback URL, we've got to do a little bit of wonkiness to make it work.
+我们只需将 {% data variables.product.product_name %} 中的回叫 URL 更改为 `/` 即可完全简化此往返路由。 但是，由于 server.rb 和 advanced.rb 都依赖于同一回叫 URL，因此我们必须执行一些操作来使其正常运行 。
 
-Also, if we had never authorized this application to access our {% data variables.product.product_name %} data,
-we would've seen the same confirmation dialog from earlier pop-up and warn us.
+此外，如果我们从未授权此应用程序访问 {% data variables.product.product_name %} 数据，我们会在早期的弹出和警告窗口中看到相同的确认对话框。
 
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [Sinatra]: http://www.sinatrarb.com/

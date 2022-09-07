@@ -1,3 +1,10 @@
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-在运行中调用的所有操作和工作流程都具有对该运行项目的写入访问权限。
+---
+ms.openlocfilehash: 0e8b83115f22782f2e2788293d6bc8c9f62855e9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145065898"
+---
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %} 运行中调用的所有操作和工作流都具有该运行项目的写权限。
 {% endif %}

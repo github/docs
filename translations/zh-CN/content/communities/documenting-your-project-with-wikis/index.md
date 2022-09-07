@@ -1,6 +1,6 @@
 ---
 title: 使用 wiki 为项目写文档
-shortTitle: 使用 wiki
+shortTitle: Using wikis
 intro: 可使用 wiki 分享有关项目的详细、长式信息。
 redirect_from:
   - /categories/49/articles
@@ -23,5 +23,11 @@ children:
   - /viewing-a-wikis-history-of-changes
   - /changing-access-permissions-for-wikis
   - /disabling-wikis
+ms.openlocfilehash: a8d90ea14031f629ae764847c18b09f922f57365
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086603'
 ---
 

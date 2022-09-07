@@ -1,131 +1,141 @@
 ---
-title: 管理组织的自定义存储库角色
-intro: 通过创建自定义存储库角色，可以更精细地控制对组织存储库的访问。
+title: Managing custom repository roles for an organization
+intro: You can more granularly control access to your organization's repositories by creating custom repository roles.
 permissions: Organization owners can manage custom repository roles.
 versions:
   feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
-shortTitle: 自定义存储库角色
+shortTitle: Custom repository roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
 
-## 关于自定义存储库角色
+## About custom repository roles
 
-要对 {% data variables.product.product_name %} 执行任何操作，例如在存储库中创建拉取请求或更改组织的计费设置，人员必须具有对相关帐户或资源的足够访问权限。 此访问受权限控制。 权限是执行特定操作的能力。 例如，删除议题的能力是一种权限。 角色是可以分配给个人或团队的一组权限。
+To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
 
-在组织内，您可以在组织、团队和存储库级别分配角色。 有关不同级别角色的更多信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
+Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-通过创建最多三个自定义存储库角色，您可以更精细地控制在存储库级别授予的权限。 自定义存储库角色是一组可配置的权限，具有您选择的自定义名称。 创建自定义角色后，对存储库具有管理员访问权限的任何人都可以将该角色分配给个人或团队。 更多信息请参阅“[管理个人对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)”和“[管理团队对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
-## 关于继承的角色
+{% ifversion custom-repo-role-api %}
 
-创建自定义存储库角色时，首先从一组预定义选项中选择继承的角色。 继承的角色确定自定义角色中包含的初始权限集。 然后，您可以通过选择其他权限来授予角色，从而进一步自定义角色。 有关可用权限的完整列表，请参阅“[自定义角色的其他权限](#additional-permissions-for-custom-roles)”。
+You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
 
-继承角色的选项已针对存储库中不同类型的参与者进行了标准化。
+{% else %}
 
-| 继承的角色  | 适用于                             |
-| ------ | ------------------------------- |
-| **读取** | 想要查看或讨论项目的非代码参与者。               |
-| **分类** | 需要主动管理问题和在没有写入访问权限的情况下拉取请求的参与者。 |
-| **写入** | 积极推动项目的组织成员和协作者。                |
-| **维护** | 需要管理存储库而无法访问敏感或破坏性操作的项目经理。      |
+You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
 
-## 自定义角色示例
+{% endif %}
 
-以下是您可以配置的自定义存储库角色的一些示例。
+## About the inherited role
 
-| 自定义存储库角色 | 摘要                 | 继承的角色  | 其他权限                                                                                                                           |
-| -------- | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| 安全工程师    | 能够贡献代码并维护安全管道      | **维护** | 删除代码扫描结果                                                                                                                       |
-| 承包商      | 能够开发 web 挂钩集成      | **写入** | 管理 web 挂钩                                                                                                                      |
-| 社区经理     | 能够处理所有社区互动，而无需贡献代码 | **读取** | - 将问题标记为重复 <br> - 管理 GitHub Pages 设置 - <br> 管理 wiki 设置<br> - 设置社交预览 <br> - 编辑存储库元数据 <br> - 对讨论分类 |
+When you create a custom repository role, you start by choosing an inherited role from a set of pre-defined options. The inherited role determines the initial set of permissions included in the custom role. Then, you can further customize the role by choosing additional permissions to give the role. For the full list of available permissions, see "[Additional permissions for custom roles](#additional-permissions-for-custom-roles)."
 
-## 自定义角色的其他权限
+Your options for the inherited role are standardized for different types of contributors in your repository.
 
-选择继承角色后，您可以为自定义角色选择其他权限。
+| Inherited role | Designed for |
+|----|----|
+| **Read** | Non-code contributors who want to view or discuss your project. |
+| **Triage** | Contributors who need to proactively manage issues and pull requests without write access. |
+| **Write** | Organization members and collaborators who actively push to your project. |
+| **Maintain** | Project managers who need to manage the repository without access to sensitive or destructive actions.
 
-仅当继承的角色中尚未包含其他权限时，才能选择该权限。 例如，如果继承的角色提供对存储库**写入**访问权限，则“关闭拉取请求”权限将已包含在继承的角色中。
+## Custom role examples
+
+Here are some examples of custom repository roles you can configure.
+
+| Custom repository role | Summary | Inherited role | Additional permissions |
+|----|----|----|----|
+| Security engineer | Able to contribute code and maintain the security pipeline | **Maintain** | Delete code scanning results |
+| Contractor | Able to develop webhooks integrations | **Write** | Manage webhooks |
+| Community manager | Able to handle all the community interactions without being able to contribute code | **Read** | - Mark an issue as duplicate <br> - Manage GitHub Page settings <br> - Manage wiki settings <br> - Set the social preview <br> - Edit repository metadata <br> - Triage discussions |
+
+## Additional permissions for custom roles
+
+After choosing an inherited role, you can select additional permissions for your custom role.
+
+You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
 
 {% ifversion discussions %}
 ### Discussions
 
-- **创建讨论类别**：能够创建新的讨论类别。 更多信息请参阅“[创建新类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)”。
-- **编辑讨论类别**：编辑讨论类别的功能。 更多信息请参阅“[编辑讨论类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)”。
-- **删除讨论类别**：删除讨论类别的功能。 更多信息请参阅“[删除讨论类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)”。
-- **标记或取消标记讨论答案**：如果讨论的类别接受答案，则能够标记讨论的答案。 更多信息请参阅“[标记或取消标记讨论中的评论作为答案](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)”。
-- **隐藏或取消隐藏讨论评论**：能够隐藏和取消隐藏讨论中的评论。  更多信息请参阅“[主持讨论](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)”。
-- **将议题转换为讨论**：能够将议题转换为讨论。  更多信息请参阅“[将议题转换为讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。
+- **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
+- **Edit a discussion category**: Ability to edit a discussion category. For more information, see "[Editing a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)."
+- **Delete a discussion category**: Ability to delete a discussion category. For more information, see "[Deleting a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)."
+- **Mark or unmark discussion answers**: Ability to mark answers to a discussion, if the category for the discussion accepts answers. For more information, see "[Mark or unmark comments in a discussion as the answer](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)". 
+- **Hide or unhide discussion comments**: Ability to hide and unhide comments in a discussion.  For more information, see "[Moderating discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)."
+- **Convert issues to discussions**: Ability to convert an issue into a discussion.  For more information, see "[Converting issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
 {% endif %}
 
-### 议题和拉取请求
+### Issue and Pull Requests
 
-- **分配或删除用户**：将用户分配给问题或拉取请求，或从问题或拉取请求中删除用户。
-- **添加或删除标签**：向议题或拉取请求添加标签，或者从议题或拉取请求中删除标签。
+- **Assign or remove a user**: Assign a user to an issue or pull request, or remove a user from an issue or pull request.
+- **Add or remove a label**: Add a label to an issue or a pull request, or remove a label from an issue or pull request.
 
-### 议题
+### Issue
 
-- **关闭议题**
-- **重新打开已关闭的议题**
-- **删除议题**
-- **将议题标记为重复**
+- **Close an issue**
+- **Reopen a closed issue**
+- **Delete an issue**
+- **Mark an issue as a duplicate**
 
-### 拉取请求
+### Pull Request
 
-- **关闭拉取请求**
-- **重新打开已关闭的拉取请求**
-- **请求拉取请求审核**：请求用户或团队审核。
+- **Close a pull request**
+- **Reopen a closed pull request**
+- **Request a pull request review**: Request a review from a user or team.
 
-### 仓库
+### Repository
 
-- **设置里程碑**：将里程碑添加到议题或拉取请求。
-- **管理 wiki 设置**：打开存储库的 wiki。
-- **管理项目设置**：打开存储库的项目。
-- **管理拉取请求合并设置**：选择存储库中允许的合并提交类型，例如合并、压缩或变基。
-- **管理 {% data variables.product.prodname_pages %} 设置**：为存储库启用 {% data variables.product.prodname_pages %} ，然后选择要发布的分支。 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 站点的发布来源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”。
-- **管理 web 挂钩**：将 web 挂钩添加到存储库。
-- **管理部署密钥**：将部署密钥添加到存储库。
-- **编辑存储库元数据**：更新存储库描述以及存储库主题。
+- **Set milestones**: Add milestones to an issue or pull request.
+- **Manage wiki settings**: Turn on wikis for a repository.
+- **Manage project settings**: Turning on projects for a repository.
+- **Manage pull request merging settings**: Choose the type of merge commits that are allowed in your repository, such as merge, squash, or rebase.
+- **Manage {% data variables.product.prodname_pages %} settings**: Enable {% data variables.product.prodname_pages %} for the repository, and select the branch you want to publish. For more information, see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+- **Manage webhooks**: Add webhooks to the repository.
+- **Manage deploy keys**: Add deploy keys to the repository.
+- **Edit repository metadata**: Update the repository description as well as the repository topics.
 {%- ifversion ghec %}
-- **设置交互限制**：暂时限制某些用户在公共存储库中发表评论、打开议题或创建拉取请求，以强制执行一段有限的活动。 更多信息请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
+- **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 {%- endif %}
-- **设置社交预览**：将识别图像添加到存储库，该图像在链接存储库时显示在社交媒体平台上。 更多信息请参阅“[自定义仓库的社交媒体审查](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)”。
-- **推送提交到受保护分支**：推送到标记为受保护分支的分支。 Branch protection rules will still apply and could result in a push being rejected.
-- **创建受保护的标记**：创建与标记保护规则匹配的标记。 更多信息请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
-- **删除受保护的标记**：删除与标记保护规则匹配的标记。 For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
+- **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. For more information, see "[Customizing your repository's social media preview](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)."
+- **Push commits to protected branches**: Push to a branch that is marked as a protected branch. Branch protection rules will still apply and could result in a push being rejected.
+- **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
 - **Bypass branch protections**: Push to a protected branch without needing to comply with branch protection rules.{% endif %}
 
-### 安全
+### Security
 
-- **查看 {% data variables.product.prodname_code_scanning %} 结果**：能够查看 {% data variables.product.prodname_code_scanning %} 警报。
-- **忽略或重新打开 {% data variables.product.prodname_code_scanning %} 结果**：能够忽略或重新打开 {% data variables.product.prodname_code_scanning %} 警报。
-- **删除 {% data variables.product.prodname_code_scanning %} 结果**：能够删除 {% data variables.product.prodname_code_scanning %} 警报。
-- **查看 {% data variables.product.prodname_dependabot_alerts %}**：能够查看 {% data variables.product.prodname_dependabot_alerts %}。
-- **忽略或重新打开 {% data variables.product.prodname_dependabot_alerts %}**：能够忽略或重新打开 {% data variables.product.prodname_dependabot_alerts %}。
-- **查看 {% data variables.product.prodname_secret_scanning %} 结果**：能够查看 {% data variables.product.prodname_secret_scanning %} 警报。
-- **忽略或重新打开 {% data variables.product.prodname_secret_scanning %} 结果**：能够忽略或重新打开 {% data variables.product.prodname_secret_scanning %} 警报。
+- **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
+- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts.
+- **Delete {% data variables.product.prodname_code_scanning %} results**: Ability to delete {% data variables.product.prodname_code_scanning %} alerts.
+- **View {% data variables.product.prodname_dependabot_alerts %}**: Ability to view {% data variables.product.prodname_dependabot_alerts %}.
+- **Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}**: Ability to dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}.
+- **View {% data variables.product.prodname_secret_scanning %} results**: Ability to view {% data variables.product.prodname_secret_scanning %} alerts.
+- **Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts.
 
-## 不同级别访问的优先级
+## Precedence for different levels of access
 
-如果通过不同的途径（如团队成员身份和组织的基本权限）为某人授予不同级别的访问权限，则最高访问权限将覆盖其他访问权限。 例如，如果组织所有者向组织成员提供使用“读取”继承角色的自定义角色，然后组织所有者将组织的基本权限设置为“写入”，则此自定义角色将具有写入权限以及自定义角色中包含的任何其他权限。
+If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-要解决冲突的访问权限，您可以调整组织的基本权限或团队的访问权限，或编辑自定义角色。 更多信息请参阅：
-  - “[设置组织的基本权限](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)”
-  - "[管理团队对组织仓库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-  - "[编辑存储库角色](#editing-a-repository-role)"
+To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
+  - "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+  - "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+  - "[Editing a repository role](#editing-a-repository-role)"
 
-## 创建存储库角色
+## Creating a repository role
 
-要创建新的存储库角色，请向继承的角色添加权限并为自定义角色命名。
+To create a new repository role, you add permissions to an inherited role and give the custom role a name.
 
 {% ifversion ghec %}
 {% note %}
 
-**注意：** 只有使用 {% data variables.product.prodname_ghe_cloud %} 的组织才能创建自定义存储库角色。 {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can create custom repository roles. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
@@ -135,31 +145,41 @@ redirect_from:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-5. 单击 **Create a Role（创建角色）**。 ![" "创建角色" "按钮的屏幕截图](/assets/images/help/organizations/repository-role-create-role.png)
-4. 在“Name（名称）”下，键入存储库角色的名称。 ![用于键入存储库角色名称的字段](/assets/images/help/organizations/repository-role-name.png)
-5. 在“Description（描述）”下，键入存储库角色的描述。 ![用于键入存储库角色描述的字段](/assets/images/help/organizations/repository-role-description.png)
-6. 在“Choose a role to inherit（选择要继承的角色）”下，选择要继承的角色。 ![选择存储库角色基本角色选项](/assets/images/help/organizations/repository-role-base-role-option.png)
-7. 在“Add Permissions（添加权限）”下，使用下拉菜单选择您希望自定义角色包含的权限。 ![从存储库角色下拉列表中选择权限级别](/assets/images/help/organizations/repository-role-drop-down.png)
-7. 单击 **Create a role（创建角色）**。 ![确认创建存储库角色](/assets/images/help/organizations/repository-role-creation-confirm.png)
+5. Click **Create a Role**.
+  ![Screenshot of "Create a Role" button](/assets/images/help/organizations/repository-role-create-role.png)
+4. Under "Name", type the name of your repository role.
+  ![Field to type a name for the repository role](/assets/images/help/organizations/repository-role-name.png)
+5. Under "Description", type a description of your repository role.
+  ![Field to type a description for the repository role](/assets/images/help/organizations/repository-role-description.png)
+6. Under "Choose a role to inherit", select the role you want to inherit.
+  ![Selecting repository role base role option](/assets/images/help/organizations/repository-role-base-role-option.png)
+7. Under "Add Permissions", use the drop-down menu to select the permissions you want your custom role to include.
+  ![Selecting permission levels from repository role drop-down](/assets/images/help/organizations/repository-role-drop-down.png)
+7. Click **Create role**.
+  ![Confirm creating a repository role](/assets/images/help/organizations/repository-role-creation-confirm.png)
 
-## 编辑存储库角色
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-3. 在要删除的角色的右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Edit（编辑）**。 ![存储库角色下拉菜单中的编辑选项](/assets/images/help/organizations/repository-role-edit-setting.png)
-4. 编辑，然后单击 **Update role（更新角色）**。 ![编辑字段和更新存储库角色](/assets/images/help/organizations/repository-role-update.png)
-
-## 删除存储库角色
-
-如果您删除现有存储库角色，则所有具有自定义角色的待处理邀请、团队和用户都将被重新分配给组织的基本权限。
+## Editing a repository role
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-3. 在要删除的角色的右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Delete（删除）**。 ![存储库角色下拉菜单中的编辑选项](/assets/images/help/organizations/repository-role-delete-setting.png)
-4. 查看要删除的角色的更改，然后单击 **Delete role（删除角色）**。 ![确认删除存储库角色](/assets/images/help/organizations/repository-role-delete-confirm.png)
+3. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
+  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-edit-setting.png)
+4. Edit, then click **Update role**.
+  ![Edit fields and update repository roles](/assets/images/help/organizations/repository-role-update.png)
+
+## Deleting a repository role
+
+If you delete an existing repository role, all pending invitations, teams, and users with the custom role will be reassigned to the organization's base permissions.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.org-list %}
+{% data reusables.organizations.org-settings-repository-roles %}
+3. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
+  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-delete-setting.png)
+4. Review changes for the role you want to remove, then click **Delete role**.
+  ![Confirm deleting a repository role](/assets/images/help/organizations/repository-role-delete-confirm.png)

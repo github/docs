@@ -11,8 +11,13 @@ topics:
   - Fundamentals
   - Git
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 595fc79c5a656a3d6da8b5589ed384b545a418ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098888'
 ---
-
 ## 关于版本控制和 Git
 
 版本控制系统（VCS）跟踪人员和团队在项目上进行协作时的更改历史记录。 当开发人员对项目进行更改时，可以随时恢复项目的任何早期版本。
@@ -44,7 +49,7 @@ VCS 为每个贡献者提供统一且一致的项目视图，显示已经在进�
 
 {% data variables.product.product_name %} 托管 Git 存储库，并为开发人员提供工具，通过命令行功能、议题（线程讨论）、拉取请求、代码审查或使用 {% data variables.product.prodname_marketplace %} 中的一组免费和可购应用程序来交付更好的代码。 通过 {% data variables.product.product_name %} 流程等协作层、拥有 1500 万开发人员的社区以及具有数百个集成的生态系统，{% data variables.product.product_name %} 改变了软件的构建方式。
 
-{% data variables.product.product_name %} 将协作直接构建到开发过程中。 工作组织到存储库中，开发人员可以在其中概述要求或方向，并为团队成员设定期望。 然后，使用 {% data variables.product.product_name %} 流程，开发人员只需创建一个分支来处理更新，提交更改以保存它们，打开拉取请求以建议和讨论更改，并在每个人都在同一页面上时合并拉取请求。 更多信息请参阅“[GitHub 流](/get-started/quickstart/github-flow)”。
+{% data variables.product.product_name %} 将协作直接构建到开发过程中。 工作组织到存储库中，开发人员可以在其中概述要求或方向，并为团队成员设定期望。 然后，使用 {% data variables.product.product_name %} 流程，开发人员只需创建一个分支来处理更新，提交更改以保存它们，打开拉取请求以建议和讨论更改，并在每个人都在同一页面上时合并拉取请求。 有关详细信息，请参阅“[GitHub 流](/get-started/quickstart/github-flow)”。
 
 ## {% data variables.product.product_name %} 和命令行
 
@@ -70,7 +75,7 @@ VCS 为每个贡献者提供统一且一致的项目视图，显示已经在进�
 
 - `git push` 使用本地对分支所做的任何提交来更新远程存储库。
 
-更多信息请参阅 [Git 命令的完整参考指南](https://git-scm.com/docs)。
+有关详细信息，请参阅 [Git 命令的完整参考指南](https://git-scm.com/docs)。
 
 ### 示例：参与现有存储库
 
@@ -102,7 +107,7 @@ git push --set-upstream origin my-branch
 
 ### 示例：启动新存储库并将其发布到 {% data variables.product.product_name %}
 
-首先，您需要在 {% data variables.product.product_name %} 上创建一个新存储库。 更多信息请参阅“[Hello World](/get-started/quickstart/hello-world)”。 **不要**使用 README、.gitignore 或许可文件初始化存储库。 这个空存储库将等待您的代码。
+首先，您需要在 {% data variables.product.product_name %} 上创建一个新存储库。 有关详细信息，请参阅“[Hello World](/get-started/quickstart/hello-world)”。 不要使用 README、.gitignore 或 License 文件初始化存储库。 这个空存储库将等待您的代码。
 
 ```bash
 # create a new directory, and initialize it with git-specific functions
@@ -129,7 +134,7 @@ git push --set-upstream origin main
 
 ### 示例：为 {% data variables.product.product_name %} 的现有分支做出贡献
 
-此示例假定您的计算机上已有一个名为 `repo` 的项目，并且自上次在本地进行更改以来，已将新分支推送到 {% data variables.product.product_name %}。
+此示例假定计算机上已有一个名为 `repo` 的项目，并且自上次在本地进行更改以来，已将新分支推送到 {% data variables.product.product_name %}。
 
 ```bash
 # change into the `repo` directory
@@ -162,7 +167,7 @@ git push
 
 使用共享存储库，个人和团队被显式指定为具有读取、写入或管理员访问权限的参与者。 这种简单的权限结构与受保护的分支等功能相结合，可帮助团队在采用 {% data variables.product.product_name %} 时快速取得进展。
 
-对于开源项目，或者对于任何人都可以参与的项目，管理个人权限可能具有挑战性，但复刻和拉取模型允许任何可以查看项目的人做出贡献。 复刻是开发人员个人帐户下项目的副本。 每个开发人员都可以完全控制他们的分支，并可以自由地实现修复或新功能。 在复刻中完成的工作要么保持独立，要么通过拉取请求返回到原始项目。 在那里，维护者可以在合并之前查看建议的更改。 更多信息请参阅“[参与项目](/get-started/quickstart/contributing-to-projects)”。
+对于开源项目，或者对于任何人都可以参与的项目，管理个人权限可能具有挑战性，但复刻和拉取模型允许任何可以查看项目的人做出贡献。 复刻是开发人员个人帐户下项目的副本。 每个开发人员都可以完全控制他们的分支，并可以自由地实现修复或新功能。 在复刻中完成的工作要么保持独立，要么通过拉取请求返回到原始项目。 在那里，维护者可以在合并之前查看建议的更改。 有关详细信息，请参阅“[参与项目](/get-started/quickstart/contributing-to-projects)”。
 
 ## 延伸阅读
 
@@ -173,7 +178,7 @@ git push
 
 有关 Git 实践的详细介绍，下面的视频展示了如何充分利用某些 Git 命令。
 
-- [本地工作](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [在本地工作](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
 - [`git status`](https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3)
 - [两步提交](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
 - [`git pull` 和 `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)

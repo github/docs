@@ -1,6 +1,6 @@
 ---
 title: 大きなファイルを管理する
-intro: You can manage large files with Git Large File Storage.
+intro: Git Large File Storage を使うと、大きなファイルを管理することができます。
 redirect_from:
   - /categories/managing-large-files
   - /github/managing-large-files
@@ -23,5 +23,11 @@ children:
   - /moving-a-file-in-your-repository-to-git-large-file-storage
   - /removing-files-from-git-large-file-storage
   - /resolving-git-large-file-storage-upload-failures
+ms.openlocfilehash: 74ada6c4ff70b61ae3403749b9faf32c975bc30d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145131928'
 ---
 

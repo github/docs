@@ -1,1 +1,9 @@
-{% ifversion ghec %}{% data variables.product.prodname_emu_enterprise %}のメンバーは、所属するEnterpriseの一部であるリポジトリ内でのみ変更を行えます。 {% endif %}
+---
+ms.openlocfilehash: 8d1b7b8fcff29aeef03dce23e62448db69266940
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145068885"
+---
+{% ifversion ghec %} {% data variables.product.prodname_emu_enterprise %} のメンバーは、エンタープライズの一部であるリポジトリでのみ変更できます。 {% endif %}

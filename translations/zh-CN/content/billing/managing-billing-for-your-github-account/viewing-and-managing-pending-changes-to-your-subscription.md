@@ -15,28 +15,26 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: 待定订阅更改
+shortTitle: Pending subscription changes
+ms.openlocfilehash: 75cf19d56b61735ba39ddc943cf5b0c197416035
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084474'
 ---
-
 您可以取消对帐户订阅的待定更改，以及对其他付费功能和产品订阅的待定更改。
 
 取消待定更改时，您的订阅不会在下一结算日期更改（除非您在下一结算日期之前对订阅进行后续的更改）。
 
 ## 查看和管理对个人帐户订阅的待定更改
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ## 查看和管理对组织订阅的待定更改
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ## 延伸阅读
 
-- “[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”
+- [{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)

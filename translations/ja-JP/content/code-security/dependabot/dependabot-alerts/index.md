@@ -1,7 +1,7 @@
 ---
-title: Dependabotアラートによるプロジェクトの依存関係が持つ脆弱性の特定
-shortTitle: Dependabotアラート
-intro: '{% data variables.product.prodname_dependabot %}は、既知の脆弱性がプロジェクトが使用している依存関係に検出されたときに、{% data variables.product.prodname_dependabot_alerts %}を生成します。'
+title: Dependabot アラートを使ってプロジェクトの依存関係の脆弱性を特定する
+shortTitle: Dependabot alerts
+intro: 'プロジェクトで使用されている依存関係に既知の脆弱性が検出された場合、{% data variables.product.prodname_dependabot %} によって {% data variables.product.prodname_dependabot_alerts %}が生成されます。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -21,5 +21,11 @@ children:
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
+ms.openlocfilehash: 04365ffa391c8da15c34f1e0651d9efa4ebb1a42
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146455494'
 ---
 

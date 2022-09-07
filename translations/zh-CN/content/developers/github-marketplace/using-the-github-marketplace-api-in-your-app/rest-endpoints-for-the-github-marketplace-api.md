@@ -12,8 +12,13 @@ versions:
 topics:
   - Marketplace
 shortTitle: REST API
+ms.openlocfilehash: aac7df5600863521c482b8a13c31abf8fd103ecf
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098016'
 ---
-
 以下是一些可用于 Marketplace 上架产品的有用端点：
 
 * [列出计划](/rest/reference/apps#list-plans)
@@ -28,6 +33,6 @@ shortTitle: REST API
 
 {% note %}
 
-**注：**[REST API 的速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 端点。
+**注意**：[REST API 的速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 终结点。
 
 {% endnote %}

@@ -13,8 +13,13 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
+ms.openlocfilehash: 21467b459f1e7af1dd28e5b7a20c962786aed2b5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145125782'
 ---
-
 リポジトリの新しいクローンを作成した場合でも、フォルダを別のリポジトリに分割したとき、Git の履歴や変更を失うことはありません。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -31,41 +36,41 @@ shortTitle: Splitting a subfolder
    $ cd <em>REPOSITORY-NAME</em>
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
-   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. リポジトリ内の残りのファイルからサブフォルダーを除外するには、[`git filter-repo`](https://github.com/newren/git-filter-repo) を実行し、次の情報を指定します。
+   - `FOLDER-NAME`: 別のリポジトリを作成するプロジェクト内のフォルダー。
 
    {% windows %}
 
    {% tip %}
 
-   **ヒント:** Windows ユーザは、 フォルダを区切るために、`/` を使ってください。
+   **ヒント:** Windows ユーザーは `/` でフォルダーを区切る必要があります。
 
    {% endtip %}
 
    {% endwindows %}
-
+  
    ```shell
    $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
    > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
    ```
+   
+   これで、リポジトリにはサブフォルダー内にあったファイルだけが含まれるようになります。
 
-   The repository should now only contain the files that were in your subfolder(s).
+6. {% data variables.product.product_name %} に[新しいリポジトリを作成](/articles/creating-a-new-repository/)します。
 
-6. {% data variables.product.product_name %} 上で[新しいリポジトリを作成](/articles/creating-a-new-repository/)します。
-
-7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-
+7. {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} の [Quick Setup]\(クイック セットアップ\) ページにある新しいリポジトリのトップで、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモート リポジトリ URL をコピーします。
+    
    ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+   **ヒント:** HTTPS と SSH の URL の違いについては、「[リモート リポジトリについて](/github/getting-started-with-github/about-remote-repositories)」を参照してください。
 
    {% endtip %}
 
-8. リポジトリの既存のリモート名を確認します。 `origin` や `upstream` がよく使われます。
+8. リポジトリの既存のリモート名を確認します。 たとえば、`origin` や `upstream` の 2 つが一般的な選択肢です。
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)

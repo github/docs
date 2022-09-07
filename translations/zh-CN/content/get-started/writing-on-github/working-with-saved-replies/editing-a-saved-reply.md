@@ -11,17 +11,23 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 6fd0370ef93d70f5fbee414725b25a44a3e1e109
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066731'
 ---
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.saved_replies %}
-3. 使用位于要编辑已保存回复旁边的“Saved replies”（已保存回复），单击 {% octicon "pencil" aria-label="The pencil" %}。  
-   ![编辑已保存回复](/assets/images/help/settings/saved-replies-edit-existing.png)
-4. 在“ Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。 ![编辑标题和内容](/assets/images/help/settings/saved-replies-edit-existing-content.png)
-5. 单击 **Update saved reply（更新已保存回复）**。 ![更新已保存回复](/assets/images/help/settings/saved-replies-save-edit.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.saved_replies %}
+3. 在“已保存的回复”下，单击要编辑的已保存回复旁边的 {% octicon "pencil" aria-label="The pencil" %}。  
+![编辑已保存回复](/assets/images/help/settings/saved-replies-edit-existing.png)
+4. 在“ Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。
+![编辑标题和内容](/assets/images/help/settings/saved-replies-edit-existing-content.png)
+5. 单击“更新已保存的回复”。
+![更新已保存的回复](/assets/images/help/settings/saved-replies-save-edit.png)
 
 ## 延伸阅读
 
-- "[创建已保存回复](/articles/creating-a-saved-reply)"
-- "[删除已保存回复](/articles/deleting-a-saved-reply)"
-- "[使用已保存回复](/articles/using-saved-replies)"
+- [创建已保存的回复](/articles/creating-a-saved-reply)
+- [删除已保存的回复](/articles/deleting-a-saved-reply)
+- [使用已保存的回复](/articles/using-saved-replies)

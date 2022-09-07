@@ -1,6 +1,6 @@
 ---
-title: クイックスタート
-intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
+title: クイック スタート
+intro: '{% data variables.product.product_name %} を使用して Git リポジトリを管理し、他のユーザーと共同作業を開始します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,5 +25,11 @@ children:
   - /git-and-github-learning-resources
 redirect_from:
   - /github/getting-started-with-github/quickstart
+ms.openlocfilehash: 50362d8bb668b07cbf46e2324403a268266ae656
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145125861'
 ---
 

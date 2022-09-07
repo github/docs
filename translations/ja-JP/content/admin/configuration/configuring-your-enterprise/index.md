@@ -40,5 +40,11 @@ children:
   - /configuring-custom-footers
   - /configuring-web-commit-signing
 shortTitle: Configure your enterprise
+ms.openlocfilehash: 3cc7deccfdf71a0e339fca8055f0cd4b5027a32c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409240'
 ---
 

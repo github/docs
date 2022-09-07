@@ -1,6 +1,6 @@
 ---
 title: 使用 Dependabot 版本更新自动更新依赖项
-intro: '您可以使用 {% data variables.product.prodname_dependabot %} 自动将存储库中使用的依赖项和包更新到最新版本，即使它们没有任何已知的漏洞。'
+intro: '可以使用 {% data variables.product.prodname_dependabot %} 自动将存储库中使用的依赖项和包更新到最新版本，即使它们没有任何已知漏洞。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/administering-a-repository/keeping-your-dependencies-updated-automatically
@@ -21,6 +21,12 @@ children:
   - /listing-dependencies-configured-for-version-updates
   - /customizing-dependency-updates
   - /configuration-options-for-the-dependabot.yml-file
-shortTitle: Dependabot 版本更新
+shortTitle: Dependabot version updates
+ms.openlocfilehash: 7eec75884da9fed388c7f882fe870d993606cb00
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145101103'
 ---
 

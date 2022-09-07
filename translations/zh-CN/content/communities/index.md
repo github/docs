@@ -1,6 +1,6 @@
 ---
 title: 建设社区
-shortTitle: 建设社区
+shortTitle: Building communities
 intro: 使用 GitHub 社区测试过的工具，学习调解和设置协作、安全及有效社区的最佳实践。
 redirect_from:
   - /categories/building-a-strong-community
@@ -35,5 +35,11 @@ children:
   - /moderating-comments-and-conversations
   - /maintaining-your-safety-on-github
   - /documenting-your-project-with-wikis
+ms.openlocfilehash: f6149257ddb7cd77e8ed933d44229be5a46268bb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086599'
 ---
 

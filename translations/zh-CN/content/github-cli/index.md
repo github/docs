@@ -33,5 +33,11 @@ changelog:
   label: cli
 layout: product-landing
 beta_product: false
+ms.openlocfilehash: baa7f3b173c35a1629a57860f23eef57c88fc2f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066706'
 ---
 

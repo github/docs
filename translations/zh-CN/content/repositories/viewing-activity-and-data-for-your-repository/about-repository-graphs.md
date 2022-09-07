@@ -13,16 +13,21 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: a8e2b228e4729e0c86d0234aadc7f0eebab7d2d5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129288'
 ---
-
-仓库图提供有关 {% ifversion fpt or ghec %} 流量、依赖于仓库的项目、{% endif %}仓库贡献者和提交以及仓库复刻和网络的信息。 如果是您维护仓库，您可以使用此数据更好地了解谁在使用您的仓库，以及为什么使用。
+存储库图提供有关 {% ifversion fpt or ghec %} 流量、依赖于存储库的项目、{% endif %} 存储库贡献者和提交以及存储库分支和网络的信息。 如果是您维护仓库，您可以使用此数据更好地了解谁在使用您的仓库，以及为什么使用。
 
 {% ifversion fpt or ghec %}
 
 有些仓库图仅在具有 {% data variables.product.prodname_free_user %} 的公共仓库中可用：
 - 脉冲
-- 贡献者
-- 流量
+- 作者
+- 交通
 - 提交
 - 代码频率
 - 网络
