@@ -99,4 +99,4 @@ gh cs delete --repo octo-org/octo-repo --days 7
 {% endcli %}
 
 ## Leia mais
-- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

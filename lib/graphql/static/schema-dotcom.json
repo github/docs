@@ -61211,6 +61211,86 @@
       ]
     },
     {
+      "name": "SshSignature",
+      "kind": "objects",
+      "id": "sshsignature",
+      "href": "/graphql/reference/objects#sshsignature",
+      "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/interfaces#gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "keyFingerprint",
+          "description": "<p>Hex-encoded fingerprint of the key that signed this object.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#gitsignaturestate"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "StargazerConnection",
       "kind": "objects",
       "id": "stargazerconnection",
@@ -69724,6 +69804,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "runs",
+          "description": "<p>The runs of the workflow.</p>",
+          "type": "WorkflowRunConnection!",
+          "id": "workflowrunconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the connection.</p>",
+              "type": {
+                "name": "WorkflowRunOrder",
+                "id": "workflowrunorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#workflowrunorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -69910,6 +70050,72 @@
           "id": "workflow",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflow"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunConnection",
+      "kind": "objects",
+      "id": "workflowrunconnection",
+      "href": "/graphql/reference/objects#workflowrunconnection",
+      "description": "<p>The connection type for WorkflowRun.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[WorkflowRunEdge]",
+          "id": "workflowrunedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[WorkflowRun]",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunEdge",
+      "kind": "objects",
+      "id": "workflowrunedge",
+      "href": "/graphql/reference/objects#workflowrunedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "WorkflowRun",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
         }
       ]
     }
@@ -78002,6 +78208,19 @@
           "description": "<p>Order verifiable domains by the domain name.</p>"
         }
       ]
+    },
+    {
+      "name": "WorkflowRunOrderField",
+      "kind": "enums",
+      "id": "workflowrunorderfield",
+      "href": "/graphql/reference/enums#workflowrunorderfield",
+      "description": "<p>Properties by which workflow run connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order workflow runs by most recently created.</p>"
+        }
+      ]
     }
   ],
   "unions": [
@@ -81099,9 +81318,25 @@
           "href": "/graphql/reference/enums#checkruntype"
         },
         {
+          "name": "conclusions",
+          "description": "<p>Filters the check runs by these conclusions.</p>",
+          "type": "[CheckConclusionState!]",
+          "id": "checkconclusionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkconclusionstate"
+        },
+        {
           "name": "status",
-          "description": "<p>Filters the check runs by this status.</p>",
+          "description": "<p>Filters the check runs by this status. Superceded by statuses.</p>",
           "type": "CheckStatusState",
+          "id": "checkstatusstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkstatusstate"
+        },
+        {
+          "name": "statuses",
+          "description": "<p>Filters the check runs by this status. Overrides status.</p>",
+          "type": "[CheckStatusState!]",
           "id": "checkstatusstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#checkstatusstate"
@@ -90590,6 +90825,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunOrder",
+      "kind": "inputObjects",
+      "id": "workflowrunorder",
+      "href": "/graphql/reference/input-objects#workflowrunorder",
+      "description": "<p>Ways in which lists of workflow runs can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order workflow runs by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order workflows.</p>",
+          "type": "WorkflowRunOrderField!",
+          "id": "workflowrunorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#workflowrunorderfield"
         }
       ]
     }

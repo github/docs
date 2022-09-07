@@ -331,7 +331,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% warning %}
 
-**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+**Aviso:** Verifique se você registrou o segredo com 'add-mask' antes de colocá-lo nos logs de compilação ou usá-lo em qualquer outro comando de fluxo de trabalho.
 
 {% endwarning %}
 

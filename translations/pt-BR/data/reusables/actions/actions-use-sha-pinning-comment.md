@@ -1,3 +1,3 @@
-# GitHub recommends pinning actions to a commit SHA.
-# To get a newer version, you will need to update the SHA.
-# You can also reference a tag or branch, but the action may change without warning.
+# O GitHub recomenda a fixação de ações para um commit SHA.
+# Para obter uma versão mais recente, você deverá atualizar o SHA.
+# Você também pode fazer referência a uma tag ou branch, mas a ação pode mudar sem aviso.

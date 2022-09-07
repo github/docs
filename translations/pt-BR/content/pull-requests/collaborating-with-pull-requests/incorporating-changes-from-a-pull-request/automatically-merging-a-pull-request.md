@@ -18,7 +18,7 @@ shortTitle: Fazer merge do PR automaticamente
 
 ## Sobre o merge automático
 
-If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. O merge automático impede que você espere que os sejam atendidos para que você possa passar para outras tarefas.
+Se você habilitar o merge automático para um pull request, este será mesclado automaticamente quando todas as revisões necessárias forem atendidas e todas as verificações de status forem aprovadas. O merge automático impede que você espere que os sejam atendidos para que você possa passar para outras tarefas.
 
 Antes de usar o merge automático com um pull request, o merge automático deve ser habilitado para o repositório. Para obter mais informações, consulte "[Gerenciar merge automático para pull requests no seu repositório](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository).
 
