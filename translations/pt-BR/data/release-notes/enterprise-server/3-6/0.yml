@@ -3,44 +3,46 @@ deprecated: false
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+  **Observação:** Se {% data variables.product.product_location %} está executando uma compilação candidata a versão, você não pode atualizar com um hotpatch. Recomendamos que você só execute candidatos à versão em ambiente de teste.
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  Para obter instruções de atualização, consulte "[Atualizando {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
     - 
       heading: Infraestrutura
       notes:
         - |
-          Repository caching is generally available. Repository caching increases Git read performance for distributed developers, providing the data locality and convenience of geo-replication without impact on push workflows. With the general availability release, GitHub Enterprise Server caches both Git and Git LFS data. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+          De modo geral, o cache do repositório está disponível. O cache do repositório aumenta o desempenho de leitura do Git para desenvolvedores distribuídos, fornecendo a localidade e a conveniência de dados de georreplicação sem impacto em fluxos de trabalho de push. Com a versão de disponibilidade geral, o GitHub Enterprise Server armazena em cache os dados do Git e Git LFS. Para obter mais informações, consulte "[Sobre cache de repositórios](/admin/enterprise-management/caching-repositóries/about-repository-caching)."
     - 
-      heading: Instance security
+      heading: Segurança da instância
       notes:
         - |
-          GitHub has changed the supported algorithms and hash functions for all SSH connections to GitHub Enterprise Server, disabled the unencrypted and unauthenticated Git protocol, and optionally allowed the advertisement of an Ed25519 host key. For more information, see the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) and the following articles.
+          O GitHub mudou os algoritmos e funções hash compatíveis para todas as conexões SSH para o GitHub Enterprise Server, desabilitou o protocolo do Git não criptografado e não autenticado e, opcionalmente, permitiu o anúncio de uma chave de host Ed25519. Para obter mais informações, consulte o [Blogue do GitHub](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) e os artigos a seguir.
 
-          - "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
-          - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
-          - "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+          - "[Configurando conexões SSH para a sua instância](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
+          - "[Aplicando políticas de gerenciamento de repositórios na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
+          - "[Configurando chaves de hospedagem para sua instância](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
         - |
-          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+          Você pode exigir criptografia TLS para conexões SMTP recebidas para a sua instância. Para obter mais informações, consulte "[Configurando e-mail para notificações](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections).
+
+          - **Observação**: este recurso não está disponível no GitHub Enterprise Server 3.6.0. O recurso estará disponível em uma versão futura. [Atualizado: 2022-08-26]
     - 
       heading: Logs de auditoria
       notes:
         - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+          Você pode transmitir eventos de auditoria e do Git para sua instância para Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage ou Splunk. A transmissão de logs de auditoria está em beta público e sujeita a alterações. Para obter mais informações, consulte "[Transmitindo o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
     - 
       heading: GitHub Connect
       notes:
         - |
-          Server Statistics is now generally available. Server Statistics collects aggregate usage data from your GitHub Enterprise Server instance, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from GitHub Enterprise Server. For more information, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+          As estatísticas do servidor agora está amplamente disponível. As estatísticas do servidor coletam dados de uso agregado da sua instância do GitHub Enterprise Server, que você pode usar para antecipar melhor as necessidades da sua organização, entender como a sua equipe funciona e mostrar o valor que você recebe do GitHub Enterprise Server. Para obter mais informações, consulte "[Sobre as estatísticas de servidor](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
     - 
-      heading: Administrator experience
+      heading: Experiência do administrador
       notes:
         - |
-          Enterprise owners can join organizations on the instance as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+          Os proprietários da empresa podem participar de organizações na instância como integrante ou proprietário da página **Organizações** da conta corporativa. Para obter mais informações, consulte "[Gerenciando a sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
         - |
           Enterprise owners can allow users to dismiss the configured global announcement banner. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
     - 
@@ -211,3 +213,4 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

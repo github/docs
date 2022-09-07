@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 **ノート:**
 
-- 外部グループAPIは、{% data variables.product.prodname_emus %}を使用しているEnterpriseの一部であるOrganizationでのみ利用できます。 詳しい情報については「[Enterpriseが管理しているユーザ](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
+- External groups APIは、{% data variables.product.prodname_emus %}を使用しているEnterpriseの一部であるOrganizationでのみ利用できます。 詳しい情報については「[Enterpriseが管理しているユーザ](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
 - OrganizationがTeam同期を使用している場合、Team Synchronization APIが利用できます。 詳しい情報については「[Team synchronization API](#team-synchronization)」を参照してください。
 
 {% endnote %}

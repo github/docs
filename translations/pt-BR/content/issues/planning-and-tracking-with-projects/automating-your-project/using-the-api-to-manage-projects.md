@@ -70,7 +70,7 @@ Você pode encontrar o nó do projeto de uma organização se você souber o nom
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
@@ -94,7 +94,7 @@ Você também pode encontrar o ID do nó de todos os projetos na sua organizaç�
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
@@ -125,7 +125,7 @@ Você pode encontrar o ID do nó do projeto se você souber o número do projeto
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{user(login: \"<em>USER</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
@@ -149,7 +149,7 @@ Também é possível encontrar o ID do nó para todos os seus projetos. O exempl
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"{user(login: \"<em>USER</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
@@ -180,7 +180,7 @@ O exemplo a seguir retornará o ID, nome e a configuração para os primeiros 20
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2Field { id name } ... on ProjectV2IterationField { id name configuration { iterations { startDate id }}} ... on ProjectV2SingleSelectField { id name options { id name }}}}}}}"}'
 ```
 {% endcurl %}
@@ -284,7 +284,7 @@ Se você precisa apenas do nome e ID de um campo e não precisa de informações
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2FieldCommon { id name }}}}}}"}'
 ```
 {% endcurl %}
@@ -354,7 +354,7 @@ O exemplo a seguir retornará os primeiros 20 problemas, pull requests e rascunh
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
 ```
 {% endcurl %}
@@ -446,7 +446,7 @@ O exemplo a seguir adicionará um problema ou pull request ao seu projeto. Subst
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {addProjectV2ItemById(input: {projectId: \"<em>PROJECT_ID</em>\" contentId: \"<em>CONTENT_ID</em>\"}) {item {id}}}"}'
 ```
 {% endcurl %}
@@ -488,8 +488,8 @@ O exemplo a seguir adicionará o rascunho de um problema ao seu projeto. Substit
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {item {id}}}"}'
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
+  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {projectItem {id}}}"}'
 ```
 {% endcurl %}
 
@@ -498,7 +498,7 @@ curl --request POST \
 gh api graphql -f query='
   mutation {
     addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {
-      item {
+      projectItem {
         id
       }
     }
@@ -512,7 +512,7 @@ A resposta conterá a identificação do nó rascunho do problema recém-criado.
 {
   "data": {
     "addProjectV2ItemById": {
-      "item": {
+      "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
     }
@@ -528,7 +528,7 @@ O exemplo a seguir irá atualizar as configurações do seu projeto. Substitua `
 ```shell
 curl --request POST \
 --url https://api.github.com/graphql \
---header 'Authorization: token <em>TOKEN</em>' \
+--header 'Authorization: Bearer <em>TOKEN</em>' \
 --data '{"query":"mutation { updateProjectV2(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, readme: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectV2 { id, title, readme, shortDescription }}}"}'
 ```
 {% endcurl %}
@@ -565,7 +565,7 @@ O exemplo a seguir atualizará o valor de um campo de texto para um item. Substi
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { text: "Updated text" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -619,7 +619,7 @@ O exemplo a seguir atualizará o valor de um campo de seleção única para um i
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -659,7 +659,7 @@ O exemplo a seguir atualizará o valor de um campo de iteração para um item.
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -694,7 +694,7 @@ O exemplo a seguir excluirá um item de um projeto. Substitua `PROJECT_ID` pelo 
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {deleteProjectV2Item(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\"}) {deletedItemId}}"}'
 ```
 {% endcurl %}

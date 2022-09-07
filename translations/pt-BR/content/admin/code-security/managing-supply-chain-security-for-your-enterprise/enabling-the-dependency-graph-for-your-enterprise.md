@@ -23,7 +23,7 @@ Você pode habilitar o gráfico de dependências por meio do {% data variables.e
 
 ## Habilitando o gráfico de dependências por meio do {% data variables.enterprise.management_console %}
 
-Se o seu {% data variables.product.product_location %} usar clustering, você não poderá habilitar o gráfico de dependências com o {% data variables.enterprise.management_console %} e deverá usar o shell administrativo. Para obter mais informações, consulte[Habilitando o gráfico de dependências por meio do shell administrativo](#enabling-the-dependency-graph-via-the-administrative-shell)".
+If {% data variables.product.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. Para obter mais informações, consulte[Habilitando o gráfico de dependências por meio do shell administrativo](#enabling-the-dependency-graph-via-the-administrative-shell)".
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Labels API
+## Acerca de la API de etiquetas
 
-The Labels API supports managing labels for a repository and adding or removing labels to issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}
+La API de etiquetas es compatible con administrar etiquetas para un repositorio y agregar o eliminar etiquetas para las propuestas y solicitudes de cambio. {% data reusables.pull_requests.issues-pr-shared-api %}

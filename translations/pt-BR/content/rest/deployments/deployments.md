@@ -19,7 +19,7 @@ Os status de implantação externos permitem marcar implantações com `error`, 
 
 Os status de implantação também podem incluir uma `descrição` opcional e `log_url`, que são altamente recomendados porque tornam o status de implantação mais útil. O `log_url` é a URL completa para a saída de implantação e a `descrição` é um resumo de alto nível do que aconteceu com a implantação.
 
-O GitHub envia os eventos de `implantação` e `deployment_status` quando novas implantações de status de implantação são criadas. Esses eventos permitem que as integrações de terceiros recebam resposta para solicitações de implantação e atualizem o status de implantação conforme o progresso é feito.
+O GitHub envia os eventos de `implantação` e `deployment_status` quando novas implantações de status de implantação são criadas. Esses eventos permitem que as integrações de terceiros recebam e respondam às solicitações de implantação e atualizem o status de implantação conforme o progresso é feito.
 
 Abaixo está um diagrama de sequência sobre para como essas interações funcionariam.
 

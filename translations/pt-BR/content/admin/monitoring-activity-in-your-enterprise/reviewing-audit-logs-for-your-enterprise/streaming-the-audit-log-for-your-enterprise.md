@@ -44,7 +44,8 @@ Você configurou o fluxo do log de auditoria em {% data variables.product.produc
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Armazenamento do Azure Blob](#setting-up-streaming-to-azure-blob-storage)
-- [Centros de evento do Azure](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Armazenamento do Google Cloud](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
@@ -231,6 +232,32 @@ Você precisa de duas informações sobre seu centro de eventos: o nome da sua i
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion streaming-datadog %}
+### Configurando a transmissão para o Datadog
+
+Para configurar o streaming para Datadog, você deve criar um token de cliente ou uma chave de API no Datadog e, em seguida, configurar a transmissão do log de auditoria em {% data variables.product.product_name %} usando o token para autenticação. Você não precisa criar um bucket ou outro contêiner de armazenamento no Datadog.
+
+Depois de configurar a transmissão para o Datadog, você poderá ver seus dados do log de auditoria filtrando por "github.audit.streaming". Para obter mais informações, consulte [Gerenciamento de Log](https://docs.datadoghq.com/logs/).
+
+1. Se você ainda não tiver uma conta no Datadog, crie uma.
+1. No Datadog, gere um token do cliente ou uma chave da API e, em seguida, clique em **Copiar a chave**. Para obter mais informações, consulte [API e chaves do aplicativo](https://docs.datadoghq.com/account_management/api-app-keys/) na documentação do Datadog.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Selecione o menu suspenso **Configurar a transmissão** e clique **Datadog**.
+
+   ![Captura de tela do menu suspenso "Configurar transmissão" com "Datadog" destacado](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Em "Token", cole o token que você copiou anteriormente.
+
+   ![Captura de tela do campo "Token"](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Selecione o menu suspenso "Site" e clique no seu site do seu Datadog. Para determinar o seu site de Datadog, compare a URL do Datadog com a tabela em [sites do Datadog](https://docs.datadoghq.com/getting_started/site/) na documentação do Datadog.
+
+   ![Captura de tela do menu suspenso "Site"](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. Para verificar que {% data variables.product.prodname_dotcom %} pode conectar e escrever no ponto de extremidade do Datadog, clique em **Verificar ponto de extremidade**.
+
+   ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. Após alguns minutos, confirme que os dados do log de auditoria estão aparecendo na aba **Logs** no Datadog. Se os dados do log de auditoria não estiverem aparecendo, confirme que seu token e site estão corretos em {% data variables.product.prodname_dotcom %}.
+{% endif %}
+
 ### Configurando a transmissão para o Google Cloud Storage
 
 Para configurar a transmissão para o Google Cloud Storage, você deve criar uma conta de serviço no Google Cloud com as credenciais e permissões apropriadas e, em seguida, configurar a transmissão do log de auditoria em {% data variables.product.product_name %} usando as credenciais da conta de serviço para autenticação.
@@ -290,6 +317,10 @@ Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Spl
 ## Pausando a transmissão do log de auditoria
 
 A pausa da transmissão permite que você execute a manutenção no aplicativo de recebimento sem perder dados de auditoria. Os logs de auditoria são armazenados por até sete dias em {% data variables.product.product_location %} e, em seguida, são exportados quando você suspender a pausa da transmissão.
+
+{% ifversion streaming-datadog %}
+O Datadog só aceita registros das últimas 18 horas. Se você pausar uma transmissão para um ponto de extremidade do Datadog por mais de 18 horas, você correrá o risco de perder registros que o Datadog não aceitará depois que retomar a transmissão.
+{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Clique **Pausar transmissão**.

@@ -23,7 +23,7 @@ topics:
 {% ifversion ghec %}
 ## Errors when switching authentication configurations
 
-If you're experiencing problems while switching between different authentication configurations, such as changing your SAML SSO configuration from an organization to an enterprise account or migrating from SAML to OIDC for {% data variables.product.prodname_emus %}, ensure you're following our best practices for the change.
+Si estás teniendo problemas al cambiar entre las diferentes configuraciones de autenticación, tales como cambiar tu configuración del SSO de SAML de una organización a una cuenta empresarial o migrándote de SAML a OIDC para las {% data variables.product.prodname_emus %}, asegúrate de estar siguiendo nuestras mejores prácticas para dicho cambio.
 
 - "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
 - "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)"

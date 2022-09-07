@@ -28,7 +28,7 @@ These logs contain detailed information about the codespace, the container, the 
 {% webui %}
 
 1. If you are using {% data variables.product.prodname_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
 1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
 1. If you are using {% data variables.product.prodname_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
 
@@ -36,7 +36,7 @@ These logs contain detailed information about the codespace, the container, the 
 
 {% vscode %}
 
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
 1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
 
 {% endvscode %}
@@ -55,7 +55,7 @@ These logs contain information about the container, dev container, and their con
 {% webui %}
 
 1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
 
 If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
 
@@ -63,7 +63,7 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% vscode %}
 
-Open the Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
 
 If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
 

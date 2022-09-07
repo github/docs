@@ -1,6 +1,6 @@
 ---
 title: Firmar confirmaciones
-intro: Puedes firmar las confirmaciones localmente utilizando GPG o S/MIME.
+intro: 'Puedes firmar las confirmaciones localmente utilizando GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} o S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -52,9 +52,5 @@ Si tienes múltiples llaves o estás intentando firmar confirmaciones o etiqueta
 
 ## Leer más
 
-* "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-* "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
-* "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
-* "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Firmar etiquetas](/articles/signing-tags)"

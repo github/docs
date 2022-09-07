@@ -16,7 +16,7 @@ shortTitle: 访问控制和可见性
 
 具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
 
-目前，您只能对 {% data variables.product.prodname_container_registry %} 使用粒度权限。 我们的其他包注册表（如 npm 注册表）不支持粒度权限。{% ifversion docker-ghcr-enterprise-migration %} 有关迁移到 {% data variables.product.prodname_container_registry %} 的详细信息，请参阅“[从 Docker 注册表迁移到 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)”。{% endif %}
+目前，您只能对 {% data variables.product.prodname_ghcr_and_npm_registry %} 使用粒度权限。 Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 有关仓库作用域的包、与包相关的 PAT 作用域或管理操作工作流程的权限的更多信息，请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
 
@@ -95,7 +95,7 @@ shortTitle: 访问控制和可见性
 {% ifversion fpt or ghec %}
 ## 确保 {% data variables.product.prodname_codespaces %} 访问您的软件包
 
-默认情况下，代码空间可以无缝访问 {% data variables.product.prodname_dotcom %} 容器注册表中的某些包，例如在选中了 **Inherit access（继承访问）**选项的同一仓库中发布的包。 有关自动配置哪些访问权限的详细信息，请参阅“[访问存储在容器注册表 {% data variables.product.prodname_dotcom %} 中的映像](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)”。
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
 
 否则，为了确保代码空间能够访问您的软件包，必须授予对启动代码空间的仓库的访问权限。
 

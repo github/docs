@@ -78,6 +78,14 @@ shortTitle: 配置电子邮件通知
 
 您可以对所有传入的 SMTP 连接强制实施 TLS 加密，这有助于满足 ISO-27017 认证要求。
 
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0. The feature will be available in an upcoming release.
+
+{% endnote %}
+{%- endif %}
+
 {% data reusables.enterprise_site_admin_settings.email-settings %}
 1. 在“Authentication（身份验证）”下，选择 **Enforce TLS auth (recommended)（强制实施 TLS 身份验证[推荐]）**。
 

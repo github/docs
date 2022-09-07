@@ -2,6 +2,12 @@ Utiliza `jobs.<job_id>.container` para crear un contenedor para ejecutar cualqui
 
 Si no configuras un `container`, todos los pasos se ejecutan directamente en el host especificado por `runs-on` a menos que un paso se refiera a una acción configurada para ejecutarse en un contenedor.
 
+{% note %}
+
+**Note:** The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+
+{% endnote %}
+
 ### Ejemplo: Ejecutar un job dentro de un contenedor
 
 ```yaml{:copy}

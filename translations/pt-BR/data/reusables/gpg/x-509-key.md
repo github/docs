@@ -1,7 +1,7 @@
 
-### Contando ao Git sobre sua chave X.509
+## Contando ao Git sobre sua chave X.509
 
-Você pode usar [smimesign](https://github.com/github/smimesign) para assinar commits e tags usando S/MIME em vez de GPG.
+You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME.
 
 {% data reusables.gpg.smime-git-version %}
 

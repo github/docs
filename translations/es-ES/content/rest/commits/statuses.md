@@ -1,6 +1,6 @@
 ---
 title: Estados de confirmación
-intro: 'The Commit status API allows external services to mark commits with a status, which is then reflected in pull requests involving those commits.'
+intro: 'La API de estados de las confirmaciones permite que los servicios externos marquen las confirmaciones con estados, lo que se refleja posteriormente en las solicitudes de cambio que involucran dichas confirmaciones.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,13 +12,13 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Commit statuses API
+## Acerca de la API de estados de las confirmaciones
 
-The Commit status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits. Statuses can also include an optional `description` and `target_url`, and we highly recommend providing them as they make statuses much more useful in the GitHub UI.
+La API de estados de confirmaciones permite que los servicios externos marquen las confirmaciones con un estado de `error`, `failure`, `pending` o `success`, lo que se refleja entonces en las solicitudes de cambios que involucran a dichas confirmaciones. Los estados también pueden incluir una `description` y `target_url` opcionales y recomendamos ampliamente proporcionarlas, ya que hacen que los estados sean mucho más útiles en la IU de GitHub.
 
-As an example, one common use is for continuous integration services to mark commits as passing or failing builds using status.  The `target_url` would be the full URL to the build output, and the `description` would be the high level summary of what happened with the build.
+Como ejemplo, un uso común es que los servicios de integración continua marquen las confirmaciones como compilaciones que pasan o fallan utilizando los estados.  La `target_url` será la URL completa para la salida de la compilación y la `description` será el resumen de alto nivel de lo que pasó con la compilación.
 
-Los estados pueden incluir un `context` para indicar qué servicio está proporcionando ese estado. Por ejemplo, puedes hacer que tu servicio de integración continua cargue estados con un contexto de `ci`, y que una herramienta de auditoria de seguridad cargue estados con un contexto de `security`.  You can then use the [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
+Los estados pueden incluir un `context` para indicar qué servicio está proporcionando ese estado. Por ejemplo, puedes hacer que tu servicio de integración continua cargue estados con un contexto de `ci`, y que una herramienta de auditoria de seguridad cargue estados con un contexto de `security`.  Puedes utilizar entonces la función de [Obtener el estado combinado para una referencia específica](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) para recuperar todo el estado de una confirmación.
 
 Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo:status` otorga acceso dirigido a los estados **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código y también para los estados.
 

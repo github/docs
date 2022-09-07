@@ -72,7 +72,7 @@ Dica de **:** As opções `allow-licenses` e  `deny-licenses` são mutuamente ex
 {% endtip %}
 {% endif %}
 
-Este exemplo do arquivo de {% data variables.product.prodname_dependency_review_action %} ilustra como você pode usar essas opções de configuração.
+Este exemplo do arquivo de {% data variables.product.prodname_dependency_review_action %} ilustra como você pode usar essas opções de configuração. Observe que o exemplo usa o número de versão curta para a ação (`v2`) em vez de um número de versão do semver (por exemplo, `v2.0.8`). Isso garante que você use a versão menor mais recente da ação.
 
 ```yaml{:copy}
 name: 'Dependency Review'

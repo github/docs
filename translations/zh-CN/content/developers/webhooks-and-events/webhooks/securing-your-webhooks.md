@@ -37,12 +37,12 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## 验证来自 GitHub 的有效负载
 
-设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 此哈希签名包含在每个请求的标头中，作为 `X-Hub-Signature-256`。
+设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 This hash signature is included with the headers of each request as `x-hub-signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**注：** 为了向后兼容，我们还包括使用 SHA-1 哈希函数生成的 `X-Hub-Signature` 标头。 如果可能，我们建议您使用 `X-Hub-Signature-256` 标头以提高安全性。 下面的示例演示使用 `X-Hub-Signature-256` 标头。
+**Note:** For backward-compatibility, we also include the `x-hub-signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `x-hub-signature-256` header for improved security. The example below demonstrates using the `x-hub-signature-256` header.
 
 {% endnote %}
 {% endif %}

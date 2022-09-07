@@ -46,23 +46,20 @@ Se você quiser usar hooks do Git para o seu código, você deverá configurar h
 
 Quando você tem acesso a {% data variables.product.prodname_github_codespaces %}, você verá uma aba "Codespace" dentro do menu suspenso ** Código de{% octicon "code" aria-label="The code icon" %} ** ao visualizar um repositório.
 
-Você terá acesso a codespaces nas seguintes condições:
+Você terá acesso ao {% data variables.product.prodname_github_codespaces %} nas seguintes condições:
 
-* Você é um integrante de uma organização que habilitou {% data variables.product.prodname_codespaces %} e definiu um limite de gastos.
-* Um proprietário da organização concedeu a você acesso a {% data variables.product.prodname_codespaces %}.
-* O repositório pertence à organização que habilitou {% data variables.product.prodname_codespaces %}.
+Ou todos estes são verdadeiros:
+* Você é integrante, ou colaborador externo, de uma organização que permitiu {% data variables.product.prodname_codespaces %} e definiu um limite de gastos.
+* O proprietário da organização permitiu que você criasse codespaces às custas da organização.
+* O repositório para o qual você deseja criar um codespace pertence a esta organização.
 
-{% note %}
-
-**Observação:** As pessoas que já aderiram ao beta com sua conta pessoal do {% data variables.product.prodname_dotcom %} não perderão acesso a {% data variables.product.prodname_codespaces %}. No entanto, {% data variables.product.prodname_codespaces %} para as pessoas, continuará sendo beta.
-
-{% endnote %}
-
-Os proprietários da organização podem permitir que todos os integrantes da organização criem codespaces, limitem a criação de códigos aos integrantes selecionados da organização ou desabilitem a criação de codespace. Para obter mais informações sobre como gerenciar o acesso aos codespaces dentro da sua organização, consulte "[Habilitar codespace para usuários da sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)".
+Ou ambos são verdadeiros:
+* Você está participando do beta de {% data variables.product.prodname_codespaces %} para usuários individuais.
+* Ou você possui o repositório para o qual deseja criar um codespace ou ele pertence a uma organização da qual você é integrante ou colaborador externo.
 
 Antes de {% data variables.product.prodname_codespaces %} pode ser usado em uma organização, um proprietário ou gerente de cobrança deverá ter um limite de gastos. Para obter mais informações, consulte "[Sobre limites de gastos para codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)".
 
-Se você deseja criar um codespace para um repositório pertencente à sua conta pessoal ou outro usuário e você tem permissão para criar repositórios em uma organização que habilitou {% data variables.product.prodname_github_codespaces %}, você poderá criar uma bifurcação de repositórios pertencentes ao usuário na organização e, em seguida, criar um codespace para a bifurcação.
+Os proprietários da organização podem especificar quem pode criar e usar codespaces às expensas da organização. Os proprietários da organização também podem impedir que o uso de qualquer código seja cobrado da organização. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_github_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)".
 
 ## Criar um codespace
 
@@ -115,7 +112,7 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
 
          {% endnote %}
 
-      1. Clique **Iniciar sessão**.
+      1. Clique em **Iniciar sessão**.
 
 {% endwebui %}
 
@@ -129,7 +126,7 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
 
 {% data reusables.cli.cli-learn-more %}
 
-Para criar um novo codespace, use o subcomando `gh create`.
+Para criar um novo codespace, use o subcomando `gh codespace create`.
 
 ```shell
 gh codespace create 
@@ -152,3 +149,6 @@ Substitua `machine-type` por um identificador válido para um tipo de máquina d
 Para mais detalhes sobre as opções desse comando, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
+
+## Leia mais
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

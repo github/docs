@@ -12,7 +12,7 @@ versions:
 shortTitle: Para professores
 ---
 
-As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
+Se você é integrante do corpo docente de uma instituição de ensino credenciada, você pode solicitar benefícios de {% data variables.product.prodname_global_campus %}, que inclui benefícios e recursos de {% data variables.product.prodname_education %}. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
 
 {% data variables.product.prodname_global_campus %} é um portal que permite que a Comunidade GitHub Education acesse seus benefícios educacionais, tudo em um só lugar. Depois que o professor de {% data variables.product.prodname_global_campus %} for verificado, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o site [{% data variables.product.prodname_education %}](https://education.github.com).
 
@@ -24,11 +24,11 @@ Antes de solicitar um desconto individual, verifique se sua comunidade de estudo
 
 {% data variables.product.prodname_global_campus %} é um portal a partir do qual você pode acessar seus benefícios e recursos de {% data variables.product.prodname_education %}, tudo em um só lugar. No portal de {% data variables.product.prodname_global_campus %}, os professores de todos os níveis podem:
   {% data reusables.education.apply-for-team %}
-  - View an overview of your active [{% data variables.product.prodname_classroom %}](https://classroom.github.com), including recent assignments and your class's progress at a glance, as well as links to {% data variables.product.prodname_classroom %}.
-  - View and interact with [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) posted by your peers from around the world to discuss current trends in technology education, and see the latest posts from our [{% data variables.product.prodname_education %} blog](https://github.blog/category/education/).
-  - See student events curated by {% data variables.product.prodname_education %} and student leaders.
-  - Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
-  - Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
+  - Obtenha uma visão geral do seu [{% data variables.product.prodname_classroom %} ativo](https://classroom.github.com), incluindo recomendações recentes e o resumo do progresso da sua turma, bem como links para {% data variables.product.prodname_classroom %}.
+  - Visualize e interaja com [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) postado por seus pares de todo o mundo para discutir as tendências atuais na educação tecnológica e veja as últimas postagens do nosso blogue [{% data variables.product.prodname_education %}](https://github.blog/category/education/).
+  - Confira eventos de estudantes curados por {% data variables.product.prodname_education %} e líderes de estudantes.
+  - Mantenha-se atualizado sobre o que a comunidade de alunos está interessada ao assistir aos episódios recentes da [Campus TV](https://www.twitch.tv/githubeducation). A Campus TV é criada por {% data variables.product.prodname_dotcom %} e líderes da comunidade estudantil e pode ser assistida ao vivo ou sob demanda.
+  - Solicite brindes de {% data variables.product.prodname_dotcom %} com materiais educativos e benefícios para seus alunos.
 
 ## Leia mais
 
