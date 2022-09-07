@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: d4d034e987f33030354e0bb055d88e2a5963455d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146139402"
----
-Puede aprender aptitudes nuevas si completa proyectos divertidos y realistas en un repositorio de GitHub propio con [{% data variables.product.prodname_learning %}](https://skills.github.com/). Cada curso es una lección práctica que ha creado la comunidad de GitHub y lo imparte un simpático bot.
+Puedes aprender habilidades nuevas completando proyectos divertidos y realistas en tu propio repositorio de GitHub con [{% data variables.product.prodname_learning %}](https://skills.github.com/). Cada curso es una lección interactiva que creó la comunidad de GitHub, la cual imparte un bot amigable.
 
-Para más información, vea "[Recursos de aprendizaje para Git y {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)".
+Para obtener más información, consulta la sección "[Recursos de aprendizaje de Git y de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)".

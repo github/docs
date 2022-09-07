@@ -12,14 +12,9 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-shortTitle: Troubleshoot search queries
-ms.openlocfilehash: 2c90d144401974ebc44f4b80a1509593fe987329
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145118937'
+shortTitle: Solucionar problemas de las consultas de búsqueda
 ---
+
 ## Interrupciones potenciales
 
 Algunas consultas son costosas desde el punto de vista informático para que las ejecute nuestra infraestructura de búsqueda. Para que la búsqueda siga siendo rápida para todos, limitamos la cantidad de tiempo que se puede ejecutar una consulta individual. En pocas situaciones, cuando una consulta supera el límite de tiempo, la búsqueda devuelve todas las coincidencias que se encontraron antes de que se acabara el tiempo y te informa que se acabó el tiempo.
@@ -31,10 +26,10 @@ Llegar a una interrupción no necesariamente significa que los resultados de bú
 Existen algunos límites en la longitud de las consultas cuando se busca en {% data variables.product.product_name %}:
 
 * No se admiten consultas que superen los 256 caracteres
-* No se puede construir una consulta con más de cinco operadores `AND`, `OR` o `NOT`.
+* No puede elaborar una consulta que utilice más de cinco operadores `AND`, `OR` o `NOT`
 
 Los tipos de búsqueda específicos, como la búsqueda de código, pueden tener más limitaciones. Revisa la documentación de estos tipos de búsqueda para obtener más información.
 
-## Información adicional
+## Leer más
 
-- "[Acerca de la búsqueda en GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- "[Acerca de buscar en GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

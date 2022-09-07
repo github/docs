@@ -1,6 +1,6 @@
 ---
 title: Configurar copias de seguridad en tu aparato
-shortTitle: Configuring backups
+shortTitle: Configurar respaldos
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
   - /enterprise/admin/articles/backup-and-recovery
@@ -23,24 +23,19 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
-ms.openlocfilehash: 6a992c2861ce2c0de3b6d8672bf42f8818cda85a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332636'
 ---
+
 ## Acerca de {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} es un sistema de copias de seguridad que se instala en un host independiente, el cual realiza instantáneas de copias de seguridad de {% data variables.product.product_location %} en intervalos regulares a través de una conexión de red SSH segura. Puedes utilizar una instantánea para restablecer una instancia existente del {% data variables.product.prodname_ghe_server %} a su estado previo desde el host de copias de seguridad.
+{% data variables.product.prodname_enterprise_backup_utilities %} es un sistema de copias de seguridad que instalas en un host separado, el cual realiza instantáneas de copias de seguridad de {% data variables.product.product_location %} en intervalos regulares a través de una conexión de red SSH segura. Puedes utilizar una instantánea para restablecer una instancia existente del {% data variables.product.prodname_ghe_server %} a su estado previo desde el host de copias de seguridad.
 
 Solo se transferirán por la red y ocuparán espacio de almacenamiento físico adicional los datos que se hayan agregado después de esa última instantánea. Para minimizar el impacto en el rendimiento, las copias de seguridad se realizan en línea con la prioridad CPU/IO más baja. No necesitas programar una ventana de mantenimiento para realizar una copia de seguridad.
 
-Para obtener información más detallada sobre las características, los requisitos y el uso avanzado, consulte el [archivo README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+Para obtener información más detallada sobre las funciones, los requisitos y el uso avanzado, consulta [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
 
 ## Prerrequisitos
 
-Para utilizar {% data variables.product.prodname_enterprise_backup_utilities %}, debe tener un sistema de host Linux o Unix independiente de {% data variables.product.product_location %}.
+Para utilizar {% data variables.product.prodname_enterprise_backup_utilities %}, debes tener un sistema de host Linux o Unix separado de {% data variables.product.product_location %}.
 
 También puedes incorporar {% data variables.product.prodname_enterprise_backup_utilities %} en un entorno existente para almacenar los datos críticos de manera permanente y a largo plazo.
 
@@ -48,11 +43,11 @@ Recomendamos que exista una distancia geográfica entre el host de copias de seg
 
 Los requisitos de almacenamiento físico variarán en función del uso del disco del repositorio de Git y de los patrones de crecimiento esperados:
 
-| Hardware | Recomendación |
-| -------- | --------- |
-| **vCPU**  | 2 |
-| **Memoria** | 2 GB |
-| **Storage** | Cinco veces el almacenamiento asignado de la instancia principal |
+| Hardware           | Recomendación                                                    |
+| ------------------ | ---------------------------------------------------------------- |
+| **vCPU**           | 2                                                                |
+| **Memoria**        | 2 GB                                                             |
+| **Almacenamiento** | Cinco veces el almacenamiento asignado de la instancia principal |
 
 Es posible que se requieran más recursos según su uso, como la actividad del usuario y las integraciones seleccionadas.
 
@@ -60,88 +55,91 @@ Es posible que se requieran más recursos según su uso, como la actividad del u
 
 {% note %}
 
-**Nota:** Para garantizar que un dispositivo recuperado esté disponible de inmediato, realice copias de seguridad centradas en la instancia principal, incluso en una configuración de replicación geográfica.
+**Nota:** Para asegurar que un aparato recuperado esté disponible de inmediato, realiza copias de seguridad apuntando a la instancia principal, incluso en una configuración de replicación geográfica.
 
 {% endnote %}
 
-1. Descargue la versión más reciente de [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils/releases) y extraiga el archivo con el comando `tar`.
+1. Desgarga el último lanzamiento de [{% data variables.product.prodname_enterprise_backup_utilities %} ](https://github.com/github/backup-utils/releases) y extrae el archivo con el comando `tar`.
   ```shell
   $ tar -xzvf /path/to/github-backup-utils-v<em>MAJOR.MINOR.PATCH</em>.tar.gz     
   ```
-2. Copie el archivo `backup.config-example` incluido en `backup.config` y ábralo en un editor.
-3. Establezca el valor `GHE_HOSTNAME` en la dirección IP o el nombre del host de su instancia principal de {% data variables.product.prodname_ghe_server %}.
+2. Copia el archivo incluido `backup.config-example` en `backup.config` y ábrelo en un editor.
+3. Configura el valor `GHE_HOSTNAME` al {% data variables.product.prodname_ghe_server %} primario del nombre del host de tu instancia o dirección IP.
 
   {% note %}
 
-  **Nota:** Si su {% data variables.product.product_location %} se implementa como un clúster o en una configuración de alta disponibilidad utilizando un equilibrador de carga, el `GHE_HOSTNAME` puede ser el nombre de host del equilibrador de carga siempre y cuando permita acceso por SSH a {% data variables.product.product_location %} (por el puerto 122).
+  **Nota:** Si tu {% data variables.product.product_location %} se despliega como un clúster o en una configuración de disponibilidad alta utilizando un balanceador de carga, el `GHE_HOSTNAME` puede ser el nombre de host del balanceador de carga siempre y cuando permita acceso por SSH a {% data variables.product.product_location %} (por el puerto 122).
 
   {% endnote %}
 
-4. Establezca el valor `GHE_DATA_DIR` para la ubicación del sistema de archivos en la que quiera almacenar las instantáneas de copias de seguridad.
-5. Abra la página de configuración de la instancia principal en `https://HOSTNAME/setup/settings` y agregue la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulte "[Acceso al shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
-6. Compruebe la conectividad SSH con {% data variables.product.product_location %} con el comando `ghe-host-check`.
+4. Configura el valor `GHE_DATA_DIR` en la ubicación del sistema de archivos donde deseas almacenar las instantáneas de copia de seguridad.
+5. Abre la página de configuración de tu instancia primaria en `https://HOSTNAME/setup/settings` y agrega la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulta [Acceder al shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+6. Verifica la conectividad SSH con {% data variables.product.product_location %} con el comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
-  ```         
-  7. Para crear una copia de seguridad completa inicial, ejecute el comando `ghe-backup`.
+  ```
+  7. Para crear una copia de respaldo completa inicial, ejecuta el comando `ghe-backup`.
   ```shell
   $ bin/ghe-backup        
   ```
 
-Para obtener más información, consulte el [archivo README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+Para obtener más información sobre uso avanzado, consulta el archivo README en [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
 ## Programar una copia de seguridad
 
-Puede programar copias de seguridad con una determinada frecuencia en el host de copia de seguridad utilizando el comando `cron(8)` o un servicio de programación mediante comando similar. La frecuencia de copias de seguridad configurada dictará el peor caso de Punto Objetivo de Recuperación (RPO) de tu plan de recuperación. Por ejemplo, si has programado que la copia de seguridad se ejecute todos los días a la medianoche, podrías perder hasta 24 horas de datos en un escenario de desastre. Recomendamos comenzar con un cronograma de copias de seguridad por hora, que garantice un peor caso máximo de una hora de pérdida de datos, si los datos del sitio principal se destruyen.
+Puedes programar copias de seguridad regulares en el host de copia de seguridad utilizando el comando `cron(8)` o un servicio de programación de comando similar. La frecuencia de copias de seguridad configurada dictará el peor caso de Punto Objetivo de Recuperación (RPO) de tu plan de recuperación. Por ejemplo, si has programado que la copia de seguridad se ejecute todos los días a la medianoche, podrías perder hasta 24 horas de datos en un escenario de desastre. Recomendamos comenzar con un cronograma de copias de seguridad por hora, que garantice un peor caso máximo de una hora de pérdida de datos, si los datos del sitio principal se destruyen.
 
-Si los intentos de copias de seguridad se superponen, el comando `ghe-backup` se detendrá con un mensaje de error que indicará la existencia de una copia de seguridad simultánea. Si esto ocurre, recomendamos que disminuyas la frecuencia de tus copias de seguridad programadas. Para obtener más información, consulte el [archivo README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
+Si los intentos de copias de seguridad se superponen, el comando `ghe-backup` se detendrá con un mensaje de error que indicará la existencia de una copia de seguridad simultánea. Si esto ocurre, recomendamos que disminuyas la frecuencia de tus copias de seguridad programadas. Para obtener más información, consulta la sección "Programar copias de seguridad" del archivo README en [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
 
-## Restauración de una copia de seguridad
+## Recuperar una copia de seguridad
 
-En el caso de una interrupción de red prolongada o de un evento catastrófico en el sitio principal, puede restablecer {% data variables.product.product_location %} proporcionando otro dispositivo para {% data variables.product.prodname_enterprise %} y realizando un restablecimiento desde el host de copias de seguridad. Debes agregar la clave SSH del host de copias de seguridad en el aparato objetivo {% data variables.product.prodname_enterprise %} como una clave SSH autorizada antes de restablecer un aparato.
+En el caso de una interrupción de red prolongada o de un evento catastrófico en el sitio principal, puedes restablecer {% data variables.product.product_location %} proporcionando otro aparato para {% data variables.product.prodname_enterprise %} y haciendo un restablecimiento desde el host de copias de seguridad. Debes agregar la clave SSH del host de copias de seguridad en el aparato objetivo {% data variables.product.prodname_enterprise %} como una clave SSH autorizada antes de restablecer un aparato.
 
-{% ifversion ghes %} {% note %}
-
-**Nota:** Si {% data variables.product.product_location %} tiene habilitadas las {% data variables.product.prodname_actions %}, primero deberá configurar el proveedor de almacenamiento externo de {% data variables.product.prodname_actions %} en el dispositivo de repuesto antes de ejecutar el comando `ghe-restore`. Para obtener más información, consulte "[Copia de seguridad y restauración de {% data variables.product.prodname_ghe_server %} con {% data variables.product.prodname_actions %} habilitado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
-
-{% endnote %} {% endif %}
-
+{% ifversion ghes %}
 {% note %}
 
-**Nota:** Cuando realice restauraciones de copias de seguridad en {% data variables.product.product_location %}, se aplicarán las mismas reglas de compatibilidad de versión. Solo puedes restablecer datos de por lo mucho dos lanzamientos de características anteriores.
-
-Por ejemplo, si tomas un respaldo de GHES 3.0.x, puedes restablecerlo a la instancia GHES 3.2.x. Pero no puede restablecer datos desde una copia de seguridad de GHES 2.22.x en 3.2.x, ya que esto representaría tres saltos entre versiones (2.22 > 3.0 > 3.1 > 3.2). Primero necesitarías restablecer a una instancia 3.1.x y luego mejorar a una 3.2.x.
+**Nota:** Si {% data variables.product.product_location %} tiene habilitadas las {% data variables.product.prodname_actions %}, primero deberás configurar el proveedor de almacenamiento externo de {% data variables.product.prodname_actions %} en el aplicativo de repuesto antes de ejecutar el comando `ghe-restore`. Para obtener más información, consulta la sección "[Respaldar y restablecer a {% data variables.product.prodname_ghe_server %} con las {% data variables.product.prodname_actions %} habilitadas](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
 
 {% endnote %}
-
-Para restaurar {% data variables.product.product_location %} desde la última instantánea correcta, use el comando `ghe-restore`. Debería mostrarse una salida similar a esta:
-
-```shell
-$ ghe-restore -c 169.154.1.1
-> Checking for leaked keys in the backup snapshot that is being restored ...
-> * No leaked keys found
-> Connect 169.154.1.1:122 OK (v2.9.0)
-
-> WARNING: All data on GitHub Enterprise appliance 169.154.1.1 (v2.9.0)
->          will be overwritten with data from snapshot 20170329T150710.
-> Please verify that this is the correct restore host before continuing.
-> Type 'yes' to continue: <em>yes</em>
-
-> Starting restore of 169.154.1.1:122 from snapshot 20170329T150710
-# ...output truncated
-> Completed restore of 169.154.1.1:122 from snapshot 20170329T150710
-> Visit https://169.154.1.1/setup/settings to review appliance configuration.
-```
-
-{% ifversion ip-exception-list %} Opcionalmente, para validar la restauración, configura una lista de excepciones IP para permitir el acceso a una lista específica de direcciones IP. Para obtener más información, consulta "[Validación de cambios en el modo de mantenimiento mediante la lista de excepciones de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
 {% endif %}
 
 {% note %}
 
-**Nota:** La configuración de red se excluye de la instantánea de copia de seguridad. Debes configurar manualmente la red en el aparato objetivo para el {% data variables.product.prodname_ghe_server %} como obligatoria para tu entorno.
+**Nota:** Cuando realizas restauraciones de respaldo hacia {% data variables.product.product_location %} aplicarán las mismas reglas de compatibilidad de versión. Solo puedes restablecer datos de por lo mucho dos lanzamientos de características anteriores.
+
+Por ejemplo, si tomas un respaldo de GHES 3.0.x, puedes restablecerlo a la instancia GHES 3.2.x. Pero no puedes restablecer datos desde un respaldo de GHES 2.22.x hacia 3.2.x, ya que esto sería tres saltos entre versiones (2.22 > 3.0 > 3.1 > 3.2). Primero necesitarías restablecer a una instancia 3.1.x y luego mejorar a una 3.2.x.
 
 {% endnote %}
 
-Puede usar estas opciones adicionales con el comando `ghe-restore`:
-- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si este ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulte la sección "Uso de comandos de copia de seguridad y restauración" del [archivo README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
-- La marca `-s` le permite seleccionar una instantánea de copia de seguridad diferente.
+Para restablecer {% data variables.product.product_location %} desde la última instantánea exitosa, usa el comando `ghe-restore`. Debes ver un resultado similar a este:
+
+```shell
+$ ghe-restore -c 169.154.1.1
+> Comprobando claves filtradas en la instantánea de respaldo que se está restableciendo ...
+> * No se encontraron claves filtradas
+> Conectarse a 169.154.1.1:122 OK (v2.9.0)
+
+> ADVERTENCIA: Todos los datos del aparato GitHub Enterprise 169.154.1.1 (v2.9.0)
+>          se sobrescribirán con los datos de la instantánea 20170329T150710.
+> Antes de continuar, verifica que sea el host de restauración correcto.
+> Escribe 'yes' (sí) para continuar: <em>yes</em>
+
+> Comenzando la restauración de 169.154.1.1:122 desde la instantánea 20170329T150710
+# ...resultado truncado
+> Restauración completa de 169.154.1.1:122 desde la instantánea 20170329T150710
+> Visita https://169.154.1.1/setup/settings para revisar la configuración del aparato.
+```
+
+{% ifversion ip-exception-list %}
+Opcionalmente, para validar la restauración, configura una lista de excepción de IP para permitir el acceso una lista de direcciones IP específicas. Para obtener más información, consulta la sección "[Validar los cambios en modo de mantenimiento utilizando la lista de excepción de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
+
+{% note %}
+
+**Nota:** Los ajustes de red están excluidos de la instantánea de copias de seguridad. Debes configurar manualmente la red en el aparato objetivo para el {% data variables.product.prodname_ghe_server %} como obligatoria para tu entorno.
+
+{% endnote %}
+
+Puedes utilizar estas otras opciones con el comando `ghe-restore`:
+- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulta la sección "Utilizar los comandos de restablecimiento y respaldo" del [README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- La marca `-s` te permite seleccionar otra instantánea de copias de seguridad.

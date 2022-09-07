@@ -1,6 +1,6 @@
 ---
-title: Permitir cambios para una rama de solicitud de extracción creada desde una bifurcación
-intro: 'Para tener una mejor colaboración, puedes permitir confirmaciones en ramas que hayas creado a partir de bifurcaciones que pertenezcan a tu cuenta personal.'
+title: Allowing changes to a pull request branch created from a fork
+intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your personal account.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -15,29 +15,23 @@ versions:
 topics:
   - Pull requests
 shortTitle: Allow changes to a branch
-ms.openlocfilehash: 26255f5aeab3bcaa5ecc1aa6cf865981990c456a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145139178'
 ---
-Solo los autores de las solicitudes de extracción pueden otorgar permisos a los mantenedores del repositorio ascendente, o a aquellos con acceso de escritura en dicho repositorio, para realizar confirmaciones de cambios en sus solicitudes de extracción para comparar ramas en una bifurcación propiedad de un usuario. Para más información sobre los repositorios ascendentes, vea "[Acerca de las bifurcaciones](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
+Only pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. To learn more about upstream repositories, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
-Los autores de las solicitudes de extracción pueden otorgar estos permisos antes o después de crear dicha solicitud inicial. desde una bifurcación propiedad de un usuario. Para más información, vea "[Creación de una solicitud de incorporación de cambios a partir de una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)".
+Pull request authors can give these permissions when they initially create a pull request from a user-owned fork or after they create the pull request. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
-Puedes establecer permisos de confirmación al crear por primera vez una solicitud de extracción desde una bifurcación. Para más información, vea "[Creación de una solicitud de incorporación de cambios a partir de una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)". Además, puedes modificar una solicitud de extracción existente para permitir que los mantenedores de un repositorio realicen confirmaciones a tu rama.
+You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch.
 
-## Habilitar permisos del mantenedor del repositorio en solicitudes de extracción existentes
+## Enabling repository maintainer permissions on existing pull requests
 
-1. En {% data variables.product.product_name %}, desplázate hasta la página principal del repositorio ascendente de tu solicitud de extracción.
-2. En el nombre del repositorio ascendente, haga clic en {% octicon "git-pull-request" aria-label="The pull request icon" %} **Solicitudes de incorporación de cambios**.
-![Selección de la pestaña de incidencias y solicitudes de incorporación de cambios](/assets/images/help/repository/repo-tabs-pull-requests.png)
-3. En la lista de solicitudes de extracción, desplázate hasta la solicitud de extracción en la que deseas realizar las confirmaciones.
+1. On {% data variables.product.product_name %}, navigate to the main page of the upstream repository of your pull request.
+2. Under the upstream repository name, click {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**.
+![Issues and pull requests tab selection](/assets/images/help/repository/repo-tabs-pull-requests.png)
+3. In the list of pull requests, navigate to the pull request that you'd like to allow commits on.
 {% data reusables.repositories.allow-maintainers-user-forks %}
 
   ![allow-maintainers-to-make-edits-sidebar-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 
-## Información adicional
+## Further reading
 
-- "[Confirmación de cambios en una rama de solicitud de incorporación de cambios creada a partir de una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[Committing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

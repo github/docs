@@ -13,47 +13,46 @@ topics:
   - Enterprise
   - Infrastructure
   - Set up
-shortTitle: Install on OpenStack
-ms.openlocfilehash: 105201d2759b333d297278aa7fe32a9544c68839
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145115226'
+shortTitle: Instalar en OpenStack
 ---
-## Requisitos previos
+
+## Prerrequisitos
 
 - {% data reusables.enterprise_installation.software-license %}
-- Debes tener acceso a una instalación de OpenStack Horizon, la interfaz de usuario con base en la web para los servicios de OpenStack. Para más información, vea la [documentación de Horizon](https://docs.openstack.org/horizon/latest/).
+- Debes tener acceso a una instalación de OpenStack Horizon, la interfaz de usuario con base en la web para los servicios de OpenStack. Para obtener más información, consulta la [Documentación de Horizon](https://docs.openstack.org/horizon/latest/).
 
-## Consideraciones de hardware
+## Consideraciones relativas al hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ## Descargar la imagen {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
-4. En "{% data variables.product.prodname_dotcom %} Local", selecciona el menú desplegable "Seleccionar el hipervisor" y haz clic en **OpenStack KVM (QCOW2)** .
-5. Haga clic en **Descargar para OpenStack KVM (QCOW2)** .
+{% data reusables.enterprise_installation.download-license %}
+{% data reusables.enterprise_installation.download-appliance %}
+4. Debajo de "{% data variables.product.prodname_dotcom %} en las instalaciones"; selecciona el menú desplegable "Selecciona tu hipervisor" y haz clic en **OpenStack KVM (QCOW2)**.
+5. Haz clic en **Download for OpenStack KVM (QCOW2) (Descargar para OpenStack KVM (QCOW2))**.
 
-## Crear la instancia de {% data variables.product.prodname_ghe_server %}
+## Crear la instancia {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. En OpenStack Horizon, carga la imagen {% data variables.product.prodname_ghe_server %} que descargaste. Para obtener instrucciones, vea la sección "Carga de una imagen" de la guía de OpenStack en "[Carga y administración de imágenes](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
-{% data reusables.enterprise_installation.create-attached-storage-volume %} Para obtener instrucciones, vea la guía de OpenStack "[Creación y administración de volúmenes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)".
-3. Crea un grupo de seguridad, y agrega una nueva regla de grupo de seguridad para cada puerto en la tabla de abajo. Para obtener instrucciones, vea la guía de OpenStack "[Configuración del acceso y la seguridad de las instancias](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)".
+1. En OpenStack Horizon, carga la imagen {% data variables.product.prodname_ghe_server %} que descargaste. Para obtener instrucciones, dirígete a la sección "Cargar una imagen" en la guía de OpenStack "[Cargar y administrar imágenes](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Para encontrar instrucciones, consulta la guía de OpenStack "[Crear y administrar volúmenes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)".
+3. Crea un grupo de seguridad, y agrega una nueva regla de grupo de seguridad para cada puerto en la tabla de abajo. Para obtener instrucciones, consulta la guía de OpenStack "[Configurar acceso y seguridad para instancias](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)."
 
   {% data reusables.enterprise_installation.necessary_ports %}
-4. De forma opcional, asocia una IP flotante a la instancia. Según tu configuración de OpenStack, es posible que necesites asignar una IP flotante al proyecto y asociarla a la instancia. Contacta a tu administrador de sistema para determinar si este es tu caso. Para más información, vea "[Asignación de una dirección IP flotante a una instancia](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" en la documentación de OpenStack.
-5. Inicie {% data variables.product.product_location %} con la imagen, el volumen de datos y el grupo de seguridad creados en los pasos anteriores. Para obtener instrucciones, vea la guía de OpenStack "[Inicio y administración de instancias](https://docs.openstack.org/horizon/latest/user/launch-instances.html)".
+4. De forma opcional, asocia una IP flotante a la instancia. Según tu configuración de OpenStack, es posible que necesites asignar una IP flotante al proyecto y asociarla a la instancia. Contacta a tu administrador de sistema para determinar si este es tu caso. Para obtener más información, consulta "[Asignar una dirección de IP flotante a una instancia](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" en la documentación de OpenStack.
+5. Inicia {% data variables.product.product_location %} utilizando la imagen, el volumen de datos y el grupo de seguridad creado en los pasos previos. Para obtener instrucciones, consulta la guía OpenStack "[Iniciar y administrar instancias](https://docs.openstack.org/horizon/latest/user/launch-instances.html)."
 
 ## Configurar la instancia de {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para más información, vea "[Configuración del dispositivo {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)".
-{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para obtener más información, consulta "[Configurar el aparato de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+{% data reusables.enterprise_installation.visit-your-instance %}
 
-## Información adicional
+## Leer más
 
-- "[Información general del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[Acerca de las actualizaciones a nuevas versiones](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

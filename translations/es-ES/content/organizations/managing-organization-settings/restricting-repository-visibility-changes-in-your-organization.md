@@ -12,26 +12,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Set visibility changes policy
+shortTitle: Configurar la política de cambios de visibilidad
 permissions: Organization owners can restrict repository visibility changes for an organization.
-ms.openlocfilehash: e404d8dea2e188ff5b0b0a8b15c9767374269436
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145119249'
 ---
-Puedes restringir quién puede cambiar la visibilidad de los repositorios de la organización, como cambiar un repositorio de privado a público. Para más información sobre la visibilidad de los repositorios, consulta "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". 
 
-Puedes restringir la posibilidad de cambiar la visibilidad del repositorio solo a los propietarios de la organización, o puedes permitir que cualquier persona con acceso de administrador a un repositorio cambie la visibilidad.
+Puedes restringir quién tiene la capacidad de cambiar la visibilidad de los repositorios en tu organización, tal como cambiarlo de privado a público. Para obtener más información acerca de la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+
+Puedes restringir la capacidad de cambiar la visibilidad de los repositorios para que solo lo puedan hacer los propietarios de las organizaciones o puedes permitir que cualquier persona con permisos administrativos en dicho repositorio lo pueda hacer.
 
 {% warning %}
 
-**Advertencia**: Si está habilitada, esta opción permite a los usuarios con acceso de administrador elegir cualquier visibilidad para un repositorio existente, incluso si no permites crear ese tipo de repositorio. Para obtener más información sobre cómo restringir la visibilidad de los repositorios durante la creación, consulta "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
+**Advertencia**: De habilitarse, este ajuste permite que las personas con acceso administrativo elijan cualquier tipo de visibilidad en un repositorio existente, incluso si no permites que se cree ese tipo de repositorio. Para obtener más información acerca de cómo restringir la visibilidad de los repositorios durante su creación, consulta la sección "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
-5. En "Cambio en la visibilidad de los repositorios", anula la selección de **Permitir que los miembros cambien las visibilidades de los repositorios para esta organización**.
-![Casilla para permitir que los miembros cambien la visibilidad de los repositorios](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
-6. Haga clic en **Save**(Guardar).
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.member-privileges %}
+5. En "Repository visibility change" (Cambio en la visibilidad de los repositorios), anula la selección de **Allow members to change repository visibilities for this organization** (Permitir que los miembros cambien las visibilidades de los repositorios para esta organización). ![Casilla para permitir que los miembros cambien la visibilidad de los repositorios](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
+6. Haz clic en **Save ** (guardar).

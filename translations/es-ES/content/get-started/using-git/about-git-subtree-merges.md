@@ -7,29 +7,24 @@ redirect_from:
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
-intro: 'Si necesitas administrar múltiples proyectos dentro de un solo repositorio, puedes usar una *fusión de subárbol* para controlar todas las referencias.'
+intro: 'Si necesitas gestionar múltiples proyectos dentro de un solo repositorio, puedes usar una "fusión de subárbol" para manejar todas las referencias.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: cd553d4193f3e4ad5de54abc218df623b1d53276
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126240'
 ---
+
 ## Acerca de las fusiones de subárboles
 
 Habitualmente, una fusión de subárbol se usa para contener un repositorio dentro de otro repositorio. El "subrepositorio" se almacena en una carpeta del repositorio principal.
 
 La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Haremos lo siguiente:
 
-- Crear un repositorio vacío denominado `test` que representa el proyecto
-- Combinar otro repositorio en él como un subárbol denominado `Spoon-Knife`.
+- Crear un repositorio vacío llamado `test` que represente nuestro proyecto.
+- Fusionar otro repositorio en él como un subárbol llamado `Spoon-Knife`.
 - El proyecto `test` usará ese subproyecto como si fuera parte del mismo repositorio.
-- Capturar actualizaciones de `Spoon-Knife` en el proyecto `test`.
+- Recuperar actualizaciones desde `Spoon-Knife` hacia el proyecto `test`.
 
 ## Configurar el repositorio vacío para una fusión de subárbol
 
@@ -39,7 +34,7 @@ La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Ha
   $ mkdir test
   $ cd test
   ```
-3. Inicialice un nuevo repositorio de Git.
+3. Inicializar un repositorio de Git nuevo.
   ```shell
   $ git init
   > Initialized empty Git repository in /Users/octocat/tmp/test/.git/
@@ -69,7 +64,7 @@ La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Ha
   > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
-2. Combinar el proyecto `Spoon-Knife` en el proyecto de Git local. Esto no modifica ninguno de tus archivos localmente, pero prepara Git para el siguiente paso.
+2. Fusionar el proyecto `Spoon-Knife` en el proyecto de Git local. Esto no modifica ninguno de tus archivos localmente, pero prepara Git para el siguiente paso.
 
   Si estás usando Git 2.9 o superior:
   ```shell
@@ -82,7 +77,7 @@ La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Ha
   $ git merge -s ours --no-commit spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
-3. Cree un directorio con el nombre **spoon-knife** y copie el historial de Git del proyecto `Spoon-Knife` en él.
+3. Crear un nuevo directorio denominado **spoon-knife**, y copiar el historial de Git del proyecto `Spoon-Knife` en él.
   ```shell
   $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
   ```
@@ -96,7 +91,7 @@ Aunque solo hemos agregado un subproyecto, se puede incorporar cualquier número
 
 {% tip %}
 
-**Sugerencia**: Si más adelante crea un clon del repositorio, los repositorios remotos que haya agregado no se crearán automáticamente. Tendrá que agregarlos de nuevo mediante [el comando `git remote add`](/github/getting-started-with-github/managing-remote-repositories).
+**Sugerencia**: Si creas un clon nuevo del repositorio en el futuro, no se crearán los remotos que agregaste. Deberás volver a agregarlos mediante [el comando `git remote add`](/github/getting-started-with-github/managing-remote-repositories).
 
 {% endtip %}
 
@@ -114,7 +109,7 @@ Para el ejemplo de más arriba, esto sería:
 $ git pull -s subtree spoon-knife main
 ```
 
-## Información adicional
+## Leer más
 
-- [Capítulo "Combinación avanzada" del libro _Pro Git_](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
-- "[Procedimiento para usar la estrategia de combinación de subárboles](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"
+- [El capítulo de "Fusión Avanzada" del libro de _Pro Git_](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+- "[Cómo usar la estrategia de fusión de subárbol](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

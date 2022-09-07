@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 1122a6eba1b8e9e2501ddf011c36baf6d0a5f2e9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145069482"
----
-1. Asigne una directiva para el acceso de la organización.
+1. Asigna una política para acceso organizacional.
 
-    Puede configurar un grupo de ejecutores a fin de que sea accesible para una lista de organizaciones específica o para todas las organizaciones de la empresa.{% ifversion ghec or ghes %} De manera predeterminada, solo los repositorios privados pueden acceder a los ejecutores de un grupo, pero esto se puede invalidar. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
+    Puedes configurar un grupo de ejecutores para que una lista de organizaciones específica o todas las organizaciones de la empresa puedan acceder a él.{% ifversion ghec or ghes %} Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero esto se puede ignorar. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}

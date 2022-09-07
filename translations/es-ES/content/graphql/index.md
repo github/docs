@@ -1,7 +1,7 @@
 ---
-title: GitHub GraphQL API
+title: API de GraphQL de GitHub
 intro: 'Para crear integraciones, recuperar datos y automatizar tus flujos de trabajo, utiliza la API de GraphQL de {% data variables.product.prodname_dotcom %}. La API de GraphQL de {% data variables.product.prodname_dotcom %} ofrece consultas más precisas y flexibles que la API de REST de {% data variables.product.prodname_dotcom %}.'
-shortTitle: GraphQL API
+shortTitle: API de GraphQL
 introLinks:
   overview: /graphql/overview/about-the-graphql-api
 featuredLinks:
@@ -32,11 +32,5 @@ children:
   - /overview
   - /reference
   - /guides
-ms.openlocfilehash: f2667239f87135b080691b535eaf6d2669a53f76
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145069711'
 ---
 

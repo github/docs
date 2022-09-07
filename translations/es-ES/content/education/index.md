@@ -1,6 +1,6 @@
 ---
 title: Documentación de GitHub Education
-shortTitle: Education
+shortTitle: Educación
 intro: '{% data variables.product.prodname_education %} te permite enseñar o aprender sobre desarrollo de software con las herramientas y el apoyo de la plataforma y la comunidad de {% data variables.product.company_short %}.'
 introLinks:
   quickstart: /education/quickstart
@@ -30,11 +30,5 @@ children:
   - /contribute-with-github-community-exchange
   - /manage-coursework-with-github-classroom
   - /guides
-ms.openlocfilehash: 7aa1b7c97f34dd2224abece6c85289316e7e06f9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573944'
 ---
 

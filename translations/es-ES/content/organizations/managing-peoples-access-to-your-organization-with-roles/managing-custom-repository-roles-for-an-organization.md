@@ -18,17 +18,7 @@ To perform any actions on {% data variables.product.product_name %}, such as cre
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
-
-{% ifversion custom-repo-role-api %}
-
-You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
-
-{% else %}
-
-You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
-
-{% endif %}
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
 
 ## About the inherited role
 

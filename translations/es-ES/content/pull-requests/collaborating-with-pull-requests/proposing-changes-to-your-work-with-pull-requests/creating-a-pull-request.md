@@ -1,6 +1,6 @@
 ---
-title: Crear una solicitud de incorporación de cambios
-intro: 'Crea una solicitud de incorporación de cambios para proponer cambios en un repositorio y colaborar con ellos. Estos cambios se proponen en una *rama*, lo cual garantiza que la rama predeterminada contenga únicamente trabajo finalizado y aprobado.'
+title: Creating a pull request
+intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
 permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
@@ -13,56 +13,54 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-ms.openlocfilehash: de387cea338fb927d2baeedd79855eefbdbc82ec
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110998'
 ---
-Si deseas crear una rama nueva para tu solicitud de extracción y no tienes permisos de escritura para el repositorio, puedes bifurcarlo primero. Para más información, vea "[Creación de una solicitud de incorporación de cambios a partir de una bifurcación](/articles/creating-a-pull-request-from-a-fork)" y "[Acerca de las bifurcaciones](/articles/about-forks)".
 
-Puedes especificar en qué rama deseas fusionar tus cambios cuando creas tu solicitud de extracción. Las solicitudes de extracción solo se pueden abrir entre dos ramas que sean diferentes.
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)" and "[About forks](/articles/about-forks)."
+
+You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
 
 {% data reusables.pull_requests.perms-to-open-pull-request %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-## Cambiar el rango de la rama y el repositorio de destino
+## Changing the branch range and destination repository
 
-Predeterminadamente, las solicitudes de cambios se basan en la rama predeterminada del repositorio padre. Para más información, vea "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
+By default, pull requests are based on the parent repository's default branch. For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
-Si el repositorio padre predeterminado no es el correcto, puedes cambiar tanto el repositorio padre como la rama con las listas desplegables. También puedes intercambiar tus ramas base y encabezado con las listas desplegables para establecer diferencias entre los puntos de referencia. Las referencias que aparecen aquí deben ser nombres de ramas en tu repositorio GitHub.
+If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
 
-![Ramas para editar la solicitud de extracción](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
+![Pull Request editing branches](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
 
-Al pensar en las ramas, recuerde que la *rama base* es **donde** se deben aplicar los cambios y la *rama principal* contiene **lo que** se quiere aplicar.
+When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
 
-Cuando cambias el repositorio base, también puedes cambiar las notificaciones de la solicitud de extracción. Cualquier usuario que pueda subir al repositorio base recibirá una notificación por correo electrónico y verá la nueva solicitud de extracción en su tablero la próxima vez que inicie sesión.
+When you change the base repository, you also change notifications for the pull request. Everyone that can push to the base repository will receive an email notification and see the new pull request in their dashboard the next time they sign in.
 
-Cuando cambies alguna información en el rango de la rama, las áreas de vista previa modificadas Confirmar y Campos se actualizarán para mostrar tu nuevo rango.
+When you change any of the information in the branch range, the Commit and Files changed preview areas will update to show your new range.
 
 {% tip %}
 
-**Sugerencias**:
-- Usando la vista comparativa, puedes configurar comparaciones en todo el periodo. Para más información, vea "[Comparación de confirmaciones](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)".
-- Los mantenedores de proyecto pueden agregar una plantilla de solicitud de extracción para un repositorio. Las plantillas incluyen indicaciones para la información en el cuerpo de una solicitud de extracción. Para más información, vea "[Acerca de las plantillas de incidencias y solicitudes de incorporación de cambios](/articles/about-issue-and-pull-request-templates)".
+**Tips**:
+- Using the compare view, you can set up comparisons across any timeframe. For more information, see "[Comparing commits](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)."
+- Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
 {% endtip %}
 
-## Crear una solicitud de extracción
+## Creating the pull request
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. En el menú "Branch" (Rama), elige la rama que contiene tus confirmaciones.
-  ![Menú desplegable Rama](/assets/images/help/pull_requests/branch-dropdown.png) {% data reusables.repositories.new-pull-request %}
-4. Use el menú desplegable de la rama _base_ para seleccionar la rama en la que quiera combinar los cambios y, después, use el menú desplegable de la rama de _comparación_ para elegir la rama de tema en la que ha realizado los cambios.
-  ![Menús desplegables para elegir la ramas base y de comparación](/assets/images/help/pull_requests/choose-base-and-compare-branches.png) {% data reusables.repositories.pr-title-description %} {% data reusables.repositories.create-pull-request %}
+2. In the "Branch" menu, choose the branch that contains your commits.
+  ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
+{% data reusables.repositories.new-pull-request %}
+4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
 {% data reusables.repositories.asking-for-review %}
 
-Una vez que se haya revisado la solicitud de incorporación de cambios, se puede [combinar en el repositorio](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
+After your pull request has been reviewed, it can be [merged into the repository](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
 
 {% endwebui %}
 
@@ -70,55 +68,55 @@ Una vez que se haya revisado la solicitud de incorporación de cambios, se puede
 
 {% data reusables.cli.cli-learn-more %}
 
-Para crear una solicitud de incorporación de cambios, use el subcomando `gh pr create`.
+To create a pull request, use the `gh pr create` subcommand.
 
 ```shell
 gh pr create
 ```
 
-Para asignar una solicitud de incorporación de cambios a un individuo, use las marcas `--assignee` o `-a`. Puede usar `@me` para asignarse la solicitud de incorporación de cambios.
+To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
 
 ```shell
 gh pr create --assignee "@octocat"
 ```
 
-Para especificar la rama en la que quiere combinar la solicitud de incorporación de cambios, use las marcas `--base` o `-B`. Para especificar la rama que contiene confirmaciones para la solicitud de incorporación de cambios, use las marcas `--head` o `-H`.
+To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
 
 ```shell
 gh pr create --base my-base-branch --head my-changed-branch
 ```
 
-A fin de incluir un título y un cuerpo para la nueva solicitud de incorporación de cambios, use las marcas `--title` y `--body`.
+To include a title and body for the new pull request, use the `--title` and `--body` flags.
 
 ```shell
 gh pr create --title "The bug is fixed" --body "Everything works again"
 ```
 
-Para marcar una solicitud de incorporación de cambios como borrador, use la marca `--draft`.
+To mark a pull request as a draft, use the `--draft` flag.
 
 ```shell
 gh pr create --draft
 ```
 
-Para agregar etiquetas o hitos a la nueva solicitud de incorporación de cambios, use las marcas `--label` y `--milestone`.
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
 
 ```shell
 gh pr create --label "bug,help wanted" --milestone octocat-milestone
 ```
 
-Para agregar la nueva solicitud de incorporación de cambios a un proyecto concreto, use la marca `--project`.
+To add the new pull request to a specific project, use the `--project` flag.
 
 ```shell
 gh pr create --project octocat-project
 ```
 
-Para asignar a un usuario o equipo como revisores, use la marca `--reviewer`.
+To assign an individual or team as reviewers, use the `--reviewer` flag.
 
 ```shell
 gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
 ```
 
-Para crear la solicitud de incorporación de cambios en el explorador web predeterminado, use la marca `--web`.
+To create the pull request in your default web browser, use the `--web` flag.
 
 ```shell
 gh pr create --web
@@ -130,21 +128,25 @@ gh pr create --web
 
 {% mac %}
 
-1. Cambia a la rama para la cual quieras crear una solicitud de extracción. Para más información, vea "[Cambio de ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)".
-2. Haga clic en **Crear solicitud de incorporación de cambios**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado para llevarte a {% data variables.product.prodname_dotcom %}.
-  ![El botón Crear solicitud de incorporación de cambios](/assets/images/help/desktop/mac-create-pull-request.png)
-4. En {% data variables.product.prodname_dotcom %}, confirme que la rama en el menú desplegable **base:** es en la que quiere combinar los cambios. Confirme que la rama del menú desplegable **compare:** es la rama de temas en la que ha realizado los cambios.
-  ![Menús desplegables para elegir la ramas base y de comparación](/assets/images/help/desktop/base-and-compare-branches.png) {% data reusables.repositories.pr-title-description %} {% data reusables.repositories.create-pull-request %}
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/mac-create-pull-request.png)
+4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
 {% endmac %}
 
 {% windows %}
 
-1. Cambia a la rama para la cual quieras crear una solicitud de extracción. Para más información, vea "[Cambio de ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)".
-2. Haga clic en **Crear solicitud de incorporación de cambios**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado para llevarte a {% data variables.product.prodname_dotcom %}.
-  ![El botón Crear solicitud de incorporación de cambios](/assets/images/help/desktop/windows-create-pull-request.png)
-3. En {% data variables.product.prodname_dotcom %}, confirme que la rama en el menú desplegable **base:** es en la que quiere combinar los cambios. Confirme que la rama del menú desplegable **compare:** es la rama de temas en la que ha realizado los cambios.
-  ![Menús desplegables para elegir la ramas base y de comparación](/assets/images/help/desktop/base-and-compare-branches.png) {% data reusables.repositories.pr-title-description %} {% data reusables.repositories.create-pull-request %}
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
+3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
 {% endwindows %}
 
@@ -154,23 +156,23 @@ gh pr create --web
 
 {% codespaces %}
 
-1. Después de haber confirmado los cambios en la copia local del repositorio, haga clic en el icono **Crear solicitud de incorporación de cambios**.
-![Barra lateral de control de código fuente con el botón de almacenamiento provisional resaltado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. Verifica que el repositorio y la rama local desde la que estás haciendo la fusión y la rama y repositorio remotos hacia los que estés haciendo la fusión sean correctos. Después, asigna un nombre y descripción a la solicitud de cambios.
-![Barra lateral de solicitudes de incorporación de cambios de GitHub](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. Haga clic en **Crear**.
+1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
+![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
+![GitHub pull request side bar](/assets/images/help/codespaces/codespaces-commit-pr.png)
+1. Click **Create**.
 
-Para más información sobre cómo crear solicitudes de incorporación de cambios en {% data variables.product.prodname_github_codespaces %}, consulta "[Uso de {% data variables.product.prodname_github_codespaces %} para solicitudes de incorporación de cambios](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)".
+For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 
 {% endif %}
-## Información adicional
+## Further reading
 
-- "[Creación de una solicitud de incorporación de cambios desde una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- "[Mantenimiento de la solicitud de incorporación de cambios sincronizada con la rama base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
-- "[Cambio de la rama base de una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
-- "[Adición de incidencias y solicitudes de incorporación de cambios a un panel de proyecto desde la barra lateral](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
-- "[Acerca de la automatización para incidencias y solicitudes de incorporación de cambios con parámetros de consulta](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
-- "[Asignación de incidencias y solicitudes de incorporación de cambios a otros usuarios de GitHub](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
-- "[Escritura en GitHub](/github/writing-on-github)"
+- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
+- "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
+- "[Adding issues and pull requests to a project board from the sidebar](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
+- "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
+- "[Writing on GitHub](/github/writing-on-github)"

@@ -1,6 +1,6 @@
 ---
-title: Resolver un conflicto de fusión con la línea de comando
-intro: Puedes resolver conflictos de fusión con la línea de comando y un editor de texto.
+title: Resolving a merge conflict using the command line
+intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
   - /articles/resolving-a-merge-conflict-from-the-command-line
@@ -15,33 +15,27 @@ versions:
 topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
-ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137829'
 ---
-Los conflictos de fusión ocurren cuando se hacen cambios contrapuestos en la misma línea de un archivo o cuando una persona edita un archivo y otra persona borra el mismo archivo. Para más información, vea "[Acerca de los conflictos de combinación](/articles/about-merge-conflicts/)".
+Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
 
 {% tip %}
 
-**Sugerencia:** Puede usar el editor de conflictos de {% data variables.product.product_name %} para resolver conflictos de combinación de cambios de líneas contrapuestos entre ramas que forman parte de una solicitud de incorporación de cambios. Para más información, vea "[Resolución de un conflicto de combinación en GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)".
+**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
 
 {% endtip %}
 
-## Conflictos de fusión de cambios de líneas contrapuestos
+## Competing line change merge conflicts
 
-Para resolver un conflicto de fusión causado por cambios de líneas contrapuestos, debes decidir qué cambios incorporar desde las diferentes ramas de una confirmación nueva.
+To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
 
-Por ejemplo, si usted y otra persona han editado el archivo _styleguide.md_ en las mismas líneas de diferentes ramas del mismo repositorio de Git, recibirá un error de conflicto de combinación cuando intente combinar estas ramas. Debes resolver este conflicto de fusión con una confirmación nueva antes de que puedas fusionar estas ramas.
+For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navega en el repositorio de Git local que tiene el conflicto de fusión.
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-3. Genera una lista de los archivos afectados por el conflicto de fusión. En este ejemplo, el archivo *styleguide.md* tiene un conflicto de combinación.
+3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
   ```shell
   $ git status
   > # On branch branch-b
@@ -55,8 +49,8 @@ Por ejemplo, si usted y otra persona han editado el archivo _styleguide.md_ en l
   > #
   > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. Abra el editor de texto que prefiera, por ejemplo [Atom](https://atom.io/), y vaya al archivo que tiene conflictos de combinación.
-5. Para ver el origen de un conflicto de combinación en el archivo, busque el marcador de conflicto `<<<<<<<` en el archivo. Al abrir el archivo en el editor de texto, verá los cambios de la rama HEAD o de base después de la línea `<<<<<<< HEAD`. A continuación, verá `=======`, que divide los cambios de los de la otra rama, seguido de `>>>>>>> BRANCH-NAME`. En este ejemplo, una persona ha escrito "abrir una incidencia" en la rama HEAD o de base, y otra persona ha escrito "formula tu pregunta en IRC" en la rama comparada o `branch-a`.
+4. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
     ```
     If you have questions, please
@@ -66,34 +60,34 @@ Por ejemplo, si usted y otra persona han editado el archivo _styleguide.md_ en l
     ask your question in IRC.
     >>>>>>> branch-a
     ```
-{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}En este ejemplo, ambos cambios se incorporaron en la fusión final:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
   ```
-7. Agrega o lanza tus cambios.
+7. Add or stage your changes.
   ```shell
   $ git add .
   ```
-8. Confirma tus cambios con un comentario.
+8. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Ahora puede combinar las ramas en la línea de comandos, o bien [insertar los cambios en el repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [combinar los cambios](/articles/merging-a-pull-request/) en una solicitud de incorporación de cambios.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## Conflictos de fusión de archivos eliminados
+## Removed file merge conflicts
 
-Para resolver un conflicto de fusión causado por cambios contrapuestos en un archivo, cuando una persona elimina un archivo en una rama y otra persona edita el mismo archivo, debes decidir si eliminar o conservar el archivo eliminado en una confirmación nueva.
+To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
-Por ejemplo, si ha editado un archivo, como *README.md*, y otra persona ha eliminado el mismo archivo en otra rama del mismo repositorio de Git, recibirá un error de conflicto de combinación cuando intente combinar estas ramas. Debes resolver este conflicto de fusión con una confirmación nueva antes de que puedas fusionar estas ramas.
+For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navega en el repositorio de Git local que tiene el conflicto de fusión.
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-2. Genera una lista de los archivos afectados por el conflicto de fusión. En este ejemplo, el archivo *README.md* tiene un conflicto de combinación.
+2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell
   $ git status
   > # On branch main
@@ -106,32 +100,32 @@ Por ejemplo, si ha editado un archivo, como *README.md*, y otra persona ha elimi
   > # Unmerged paths:
   > #  (use "git add/rm <file>..." as appropriate to mark resolution)
   > #
-  > #   deleted by us:   README.md
+  > #	deleted by us:   README.md
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. Abra el editor de texto que prefiera, por ejemplo [Atom](https://atom.io/), y vaya al archivo que tiene conflictos de combinación.
-6. Decide si quieres conservar el archivo eliminado. Puede que quieras ver los últimos cambios hechos en el archivo eliminado en tu editor de texto.
+3. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
- Para volver a agregar el archivo eliminado a tu repositorio:
+ To add the removed file back to your repository:
   ```shell
   $ git add README.md
   ```
- Para eliminar este archivo de tu repositorio:
+ To remove this file from your repository:
   ```shell
   $ git rm README.md
   > README.md: needs merge
   > rm 'README.md'
   ```
-7. Confirma tus cambios con un comentario.
+7. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by keeping README.md file."
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Ahora puede combinar las ramas en la línea de comandos, o bien [insertar los cambios en el repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [combinar los cambios](/articles/merging-a-pull-request/) en una solicitud de incorporación de cambios.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## Información adicional
+## Further reading
 
-- "[Acerca de los conflictos de combinación](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-- "[Extracción del repositorio de las solicitudes de incorporación de cambios localmente](/articles/checking-out-pull-requests-locally/)"
+- "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
+- "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"

@@ -1,68 +1,63 @@
 ---
-title: Establecer tu perfil en privado
-intro: Un perfil privado muestra solo información limitada y oculta parte de la actividad.
+title: Configurar tu perfil como privado
+intro: Un perfil privado muestra información limitada únicamente y oculta algo de actividad.
 versions:
   fpt: '*'
 topics:
   - Profiles
-shortTitle: Set profile to private
-ms.openlocfilehash: 51fd476bc77856b525ce3e991e4eb30e8a881361
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062918'
+shortTitle: Configurar el perfil como privado
 ---
+
 ## Acerca de los perfiles privados
 
 {% note %}
 
-**Nota:** los perfiles privados están actualmente en versión beta y están sujetos a cambios.
+**Nota:** Los perfiles privados se encuentran actualmente en beta y están sujetos a cambios.
 
 {% endnote %}
 
-Para ocultar partes de la página de perfil, puedes hacer que tu perfil sea privado. Esto también oculta la actividad en varias características sociales en {% data variables.product.prodname_dotcom_the_website %}. Un perfil privado oculta la información a todos los usuarios; actualmente no hay ninguna opción para permitir que usuarios específicos vean tu actividad.
+Para ocultar partes de tu página de perfil, puedes hacer a tu perfil privado. Esto también oculta tu actividad en varias características sociales de {% data variables.product.prodname_dotcom_the_website %}. Un perfil privado oculta información para todos los usuarios y actualmente no hay una opción para permitir que usuarios específicos vea tu actividad.
 
-Después de hacer que tu perfil sea privado, todavía puedes ver toda la información cuando visites tu propio perfil.
+Después de hacer a tu perfil privado, aún puedes ver toda tu información cuando visitas tu propio perfil.
 
-Los perfiles privados no pueden recibir patrocinios con [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). Para poder optar a {% data variables.product.prodname_sponsors %}, el perfil no puede ser privado.
+Los perfiles privados no pueden recibir patrocinios bajo [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). Para que pueda ser elegible para {% data variables.product.prodname_sponsors %}, tu perfil no puede ser privado.
 
-## Diferencias entre perfiles privados y públicos
+## Diferencias entre los perfiles públicos y privados
 
-Cuando el perfil es privado, se oculta el siguiente contenido de la página del perfil:
+Cuando tu perfil es privado, el siguiente contenido se oculta de tu página de perfil:
 
-- Logros y aspectos destacados.
-- Información general de la actividad y fuente de actividades.
-- Gráfico de contribución.
-- Recuento de seguidores y de perfiles que sigues.
-- Botones Seguir y Patrocinar.
-- Pertenencias a organizaciones.
-- Estrellas, proyectos, paquetes y pestañas de patrocinador.
+- Los logros y puntos destacados.
+- El resumen de la actividad y la fuente de actividad.
+- La gráfica de contribuciones.
+- Los conteos de seguidores y seguidos.
+- Los botones de seguir y de patrocinar.
+- Las membrecías de organización.
+- Las pestañas de favoritos, proyectos, paquetes y patrocinando.
 
 {% note %}
 
-**Nota**: cuando el perfil es privado, algunos campos opcionales siguen siendo visibles públicamente, como el LÉAME, la biografía y la foto de perfil.
+**Nota**: Cuando tu perfil es privado, algunos de los campos opcionales aún se encuentran visibles para el público tal como el README, la biografía y la foto de perfil.
 
 {% endnote %}
 
-## Cambios en la generación de informes sobre sus actividades
+## Cambios a reportar en tus actividades
 
-Al hacer que tu perfil sea privado, no eliminarás u ocultarás la actividad pasada; esta opción solo se aplica a la actividad mientras la configuración privada está habilitada.
+Al hacer tu perfil privado, no eliminarás ni ocultarás la actividad anterior; este ajuste solo aplica a tu actividad mientras el ajuste privado esté habilitado.
 
-Cuando el perfil es privado, la actividad {% data variables.product.prodname_dotcom_the_website %} no aparecerá en las siguientes ubicaciones:
+Cuando tu perfil es privado, tu actividad de {% data variables.product.prodname_dotcom_the_website %} no se mostrará en las siguientes ubicaciones:
 
-- Fuentes de actividades para otros usuarios.
-- Tablas de clasificación de discusiones.
-- Página [Tendencias](https://github.com/trending).
+- Fuentes de actividad para otros usuarios.
+- Tablas de clasificación de debates.
+- La página de [Tendencias](https://github.com/trending).
 
 {% note %}
 
-**Nota**: la actividad en repositorios públicos seguirá siendo visible públicamente para cualquier persona que vea esos repositorios, y es posible que algunos datos de actividad sigan estando disponibles a través de la API {% data variables.product.prodname_dotcom %}.
+**Nota**: Cualquiera que vea estos repositorios tendrá visibilidad del público en general para tu actividad en los repositorios públicos y algunos datos de la actividad aún estarán disponibles mediante la API de {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
-## Cambio de la configuración de privacidad del perfil
+## Cambiar los ajustes de privacidad de tu perfil
 
 {% data reusables.user-settings.access_settings %}
-1. En «Contribuciones y actividad», activa la casilla situada junto a **Hacer que el perfil sea privado y ocultar actividad**.
+1. Dababjo de "Contribuciones & actividad", selecciona la casilla de verificación junto a **Hacer perfil privado y ocultar actividad**.
 {% data reusables.user-settings.update-preferences %}

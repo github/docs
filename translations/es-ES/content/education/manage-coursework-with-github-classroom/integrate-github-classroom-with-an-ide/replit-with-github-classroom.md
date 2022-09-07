@@ -1,6 +1,6 @@
 ---
 title: Repl.it con GitHub Classroom
-shortTitle: Repl.it with GitHub Classroom
+shortTitle: Repl.it con GitHub Classroom
 intro: 'Desde el 13 de julio de 2021, ya no está disponible la integración con Repl.it en {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
@@ -8,13 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-replit
   - /education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-replit-with-github-classroom
-ms.openlocfilehash: 4ecbb8e185475dafac8e2e768e89ebaa1051433b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145119562'
 ---
+
 ## Qué está cambiando con la integración de Repl.it
 
 Desde el 13 de julio de 2021, ya no está disponible la integración con Repl.it. Aquí te mostramos lo que cambió:
@@ -27,8 +22,8 @@ Tus repls existentes de GitHub Classroom se mantendrán privadas por siempre y p
 
 Si bien ya no puedes crea repls privados desde dentro de las aulas, puedes seguir creando repls privados en Replit hasta el 30 de septiembre.
 
-Sabemos que las integraciones con IDE en la nube son importantes para tu aula y estamos trabajando arduamente para traerte más opciones. 
+Sabemos que las integraciones con IDE en la nube son importantes para tu aula y estamos trabajando arduamente para traerte más opciones.
 
-## Información adicional
+## Leer más
 
-- "[Acerca de los archivos Léame](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

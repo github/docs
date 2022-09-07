@@ -1,7 +1,7 @@
 ---
-title: Uso de la API de registro de auditoría para la empresa
-intro: 'Puedes recuperar mediante programación eventos empresariales con la {% ifversion ghec or ghes > 3.2 %} API REST o{% endif %} GraphQL API.'
-shortTitle: Audit log API
+title: Utilizar la API de bitácora de auditoría para tu empresa
+intro: 'Puedes recuperar los eventos de empresa con programación utilizando la API de {% ifversion ghec or ghes > 3.2 %} REST o de{% endif %} GraphQL.'
+shortTitle: API de bitácora de auditoría
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -14,32 +14,28 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: 2fca8bbb9ccabe8fcb8fa8d48e4b7b8b1b5d1f3b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147717913'
 ---
+
 ## Utilizar la API de bitácoras de auditoría
 
-Puede interactuar con el registro de auditoría mediante GraphQL API{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} o la API REST{% endif %}. 
+Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} o la API de REST{% endif %}.
 
-Las marcas de tiempo y los campos de fecha de la respuesta de la API se miden en [milisegundos desde la época UTC](http://en.wikipedia.org/wiki/Unix_time).
+Las marcas de tiempo y campos de fecha en la respuesta de la API se miden en [milisegundos de época UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-## Consulta de GraphQL API del registro de auditoría
+## Consultar la API de bitácora de auditoría de GraphQL
 
-Para garantizar que la propiedad intelectual está segura y que mantiene el cumplimiento para la empresa, puede usar GraphQL API del registro de auditoría para de mantener copias de los datos del registro auditoría y la supervisión: {% data reusables.audit_log.audit-log-api-info %}
+Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu empresa, puedes utilizar la API de GraphQL para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
+{% data reusables.audit_log.audit-log-api-info %}
 
-Tenga en cuenta que no puede recuperar eventos de Git mediante la {% ifversion not ghec %}API de registro de auditoría.{% else %}GraphQL API. Para recuperar eventos de Git, utiliza mejor la API de REST. Para más información, vea las acciones de categoría `git` en "[Acciones de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" y también los puntos de conexión del registro de auditoría "[Administrar la empresa](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization) en la documentación de la API REST". {% endif %}
+Toma en cuenta que no puedes recuperar eventos de Git utilizando la {% ifversion not ghec %}API de bitácora de auditoría.{% else %}API de GraphQL. Para recuperar eventos de Git, utiliza mejor la API de REST. Para obtener más información, consulta las acciones de la categoría `git` en la sección "[Acciones de bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" y también las terminales de bitácoras de auditoría de [Administración de empresas](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization) en la documentación de la API de REST".{% endif %}
 
 La respuesta de GraphQL puede incluir datos de hasta 90 a 120 días.
 
-### Ejemplo 1: Miembros agregados o quitados de organizaciones de una empresa
+### Ejemplo 1: Los miembros que se agregaron o eliminaron de las organizaciones en una empresa
 
-La consulta siguiente captura los registros de auditoría de la empresa `avocado-corp` y devuelve las primeras 10 organizaciones de la empresa, donde las únicas acciones realizadas han sido agregar o quitar un miembro de una organización. Se devuelven las primeras 20 entradas del registro de auditoría de cada organización. 
+La siguiente consulta recupera las bitácoras de auditoría para la empresa `avocado-corp` y devuelve a las primeras 10 organizaciones en ella, en donde las únicas acciones que se llevaron a cabo fue la adición o eliminación de un miembro de una organización. Se devuelven las primeras 20 entradas de bitácora de auditoría para cada organización.
 
-Esta consulta usa el campo [auditlog](/graphql/reference/objects) del objeto Organization y los objetos [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) y [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). La cuenta de {% data variables.product.prodname_dotcom %} que consulta el registro de auditoría de la empresa debe ser propietaria en cada organización dentro de la empresa.
+Esta consulta utiliza el campo [auditlog](/graphql/reference/objects) del objeto de organización y los objetos [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) y [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). La cuenta de {% data variables.product.prodname_dotcom %} que está consultando la bitácora de auditoría empresarial debe ser un propietario de organización para cada organización dentro de la empresa.
 
 ```shell
 {
@@ -73,14 +69,14 @@ Esta consulta usa el campo [auditlog](/graphql/reference/objects) del objeto Org
 }
 ```
 
-GraphQL API devolverá como máximo 100 nodos por consulta. Para recuperar resultados adicionales, tendrá que implementar la paginación. Para más información, vea "[Limitaciones de recursos](/graphql/overview/resource-limitations#node-limit)" en la documentación de GraphQL API y [Paginación](https://graphql.org/learn/pagination/) en la documentación oficial de GraphQL.
-### Ejemplo 2: Eventos de una organización, para una fecha y un actor específicos
+La API de GraphQL devolverá por mucho 100 nodos por consulta. Para recuperar los resultados adicionales, necesitarás implementar la paginación. Para obtener más información, consulta la sección "[Limitaciones de recursos](/graphql/overview/resource-limitations#node-limit)" en la documentación de la API de GraphQL y [Paginación](https://graphql.org/learn/pagination/) en la documentación oficial de GraphQL.
+### Ejemplo 2: Eventos en una organización para una fecha y actor específicos
 
-Puede especificar varias frases de búsqueda, como `created` y `actor`, si las separa en la cadena de consulta con un espacio.
+Puedes especificar frases de búsqueda múltiples, tales como `created` y `actor`, si las separas en tu secuencia de consulta con un espacio.
 
-La consulta siguiente captura todos los registros de auditoría de la empresa `avocado-corp` relacionados con la organización `octo-org`, donde el usuario `octocat` ha realizado las acciones el 1 de enero de 2022 o después. Se devuelven las primeras 20 entradas del registro de auditoría, con la más reciente en primer lugar. 
+La siguiente consulta recupera todas las bitácoras de auditoría para la empresa `avocado-corp` que se relaciona con la organización `octo-org`, en donde el usuario `octocat` realizó las acciones en el 1 de enero de 2022 o después de esta fecha. Se devuelven las primeras 20 entradas de la bitácora de auditoría y la entrada más nueva se muestra primero.
 
-Esta consulta usa la interfaz [AuditEntry](/graphql/reference/interfaces#auditentry). La cuenta de {% data variables.product.prodname_dotcom %} que consulta el registro de auditoría de la empresa debe ser propietaria de la organización `octo-org`.
+Esta consulta utiliza la interfaz [AuditEntry](/graphql/reference/interfaces#auditentry). La cuenta de {% data variables.product.prodname_dotcom %} que está consultando la bitácora de auditoría empresarial debe ser propietaria de la organización `octo-org`.
 
 ```shell
 {
@@ -108,20 +104,21 @@ Esta consulta usa la interfaz [AuditEntry](/graphql/reference/interfaces#auditen
 }
 ```
 
-Para obtener más ejemplos de consultas, vea el [repositorio platform-samples](https://github.com/github/platform-samples/blob/master/graphql/queries).
+Para obtener más ejemplos de consultas, dirígete al [repositorio platform-samples](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
-## Consulta de la API REST del registro de auditoría
+## Consultar la API de REST de la bitácora de auditoría
 
-Para garantizar que la propiedad intelectual está segura y que mantiene el cumplimiento para la empresa, puede usar la API REST del registro de auditoría para de mantener copias de los datos del registro auditoría y la supervisión: {% data reusables.audit_log.audited-data-list %}
+Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu empresa, puedes utilizar la API de REST para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
+{% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-Para más información sobre la API REST del registro de auditoría, vea "[Administración de la empresa](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
+Para obtener más información sobre la API de REST de la bitácora de auditoría, consulta la sección "[Administración de empresas](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 
-### Ejemplo 1: Todos los eventos de una empresa, para una fecha específica, con paginación
+### Ejemplo 1: Todos los eventos de una empresa, para una fecha específica, con paginación
 
-La consulta siguiente busca eventos de registro de auditoría creados el 1 de enero de 2022 en la empresa `avocado-corp` y devuelve la primera página con un máximo de 100 elementos por página mediante la [paginación de la API REST](/rest/overview/resources-in-the-rest-api#pagination):
+La siguiente consulta busca los eventos de la bitácora de auditoría que se crearon el 1 de enero de 2022 en la empresa `avocado-corp` y devolvió la primera página con un máximo de 100 elementos por página utilizando la [Paginación de la API de REST](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
 curl -H "Authorization: Bearer <em>TOKEN</em>" \
@@ -129,11 +126,11 @@ curl -H "Authorization: Bearer <em>TOKEN</em>" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Ejemplo 2: Eventos para solicitudes de incorporación de cambios en una empresa, para una fecha y un actor específicos
+### Ejemplo 2: Eventos para las solicitudes de cambio en una empresa, para un actor y fecha específicos
 
-Puede especificar varias frases de búsqueda, como `created` y `actor`, si las separa en la dirección URL formada con el símbolo `+` o el código de caracteres ASCII `%20`.
+Puedes especificar frases de búsqueda múltiples, tales como `created` y `actor`, si las separas en tu URL formada con el símbolo `+` o con el código de caracteres ASCII `%20`.
 
-La consulta siguiente busca eventos de registro de auditoría para las solicitudes de incorporación de cambios, donde el evento se ha producido el 1 de enero de 2022 o después en la empresa `avocado-corp` y la acción la ha realizado el usuario `octocat`:
+La siguiente consulta busca los eventos de bitácora de auditoría para las solicitudes de cambios, en donde el evento ocurrió en o después del 1 de enero de 2022 en la empresa `avocado-corp` y el usuario `octocat` realizó la acción:
 
 ```shell
 curl -H "Authorization: Bearer <em>TOKEN</em>" \

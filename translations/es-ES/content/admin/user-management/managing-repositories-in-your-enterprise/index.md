@@ -15,12 +15,6 @@ children:
   - /disabling-git-ssh-access-on-your-enterprise
   - /restoring-a-deleted-repository
   - /troubleshooting-service-hooks
-shortTitle: Manage repositories
-ms.openlocfilehash: f4d2fd29e52414b7f842fced651ff6bf46d4b53b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145115122'
+shortTitle: Administrar los repositorios
 ---
 

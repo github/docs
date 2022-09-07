@@ -13,26 +13,25 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Create custom 404 page
-ms.openlocfilehash: 1b10946277d90773b847b929d85a3b6cf8212a4e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140309'
+shortTitle: Crear una página personalizada de error 404
 ---
-{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %} {% data reusables.files.add-file %}
-3. En el campo del nombre de archivo, escriba `404.html` o `404.md`.
-  ![Campo Nombre de archivo](/assets/images/help/pages/404-file-name.png)
-4. Si ha asignado el nombre `404.md` al archivo, agregue el siguiente texto preliminar de YAML al comienzo del archivo:
+
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.pages.navigate-publishing-source %}
+{% data reusables.files.add-file %}
+3. En el campo para el nombre de archivo, escribe `404.html` o `404.md`. ![Campo File name (Nombre de archivo)](/assets/images/help/pages/404-file-name.png)
+4. Si denominaste tu archivo `404.md`, agrega el siguiente texto preliminar de YAML al comienzo del archivo:
   ```yaml
   ---
   permalink: /404.html
   ---
   ```
 5. Debajo del texto preliminar de YAML, si aparece, agrega el contenido que quieras mostrar en tu página 404.
-{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
-## Información adicional
+## Leer más
 
 - [Texto preliminar](http://jekyllrb.com/docs/frontmatter) en la documentación de Jekyll

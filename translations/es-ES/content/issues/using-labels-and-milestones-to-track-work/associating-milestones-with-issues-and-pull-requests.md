@@ -12,28 +12,22 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Add to milestones
-ms.openlocfilehash: beb6b9683b7b69c33ddb9f23ab18cd7786f7754c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135301'
+shortTitle: Agregar a los hitos
 ---
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
-3. Selecciona la casilla de verificación junto a los elementos que deseas asociar a un hito.
-  ![Casilla de metadatos de incidencias](/assets/images/help/issues/issues_assign_checkbox.png)
-4. En la esquina superior derecha, haga clic en **Milestone** (Hito) y luego empiece a escribir el nombre de [un hito existente](/articles/creating-and-editing-milestones-for-issues-and-pull-requests). Haz clic en el nombre del hito para asociarlo con el elemento.
-  ![Lista desplegable de la asignación de los hitos de incidencias](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+3. Selecciona la casilla de verificación junto a los elementos que deseas asociar a un hito. ![Casilla de verificación de metadatos de propuestas](/assets/images/help/issues/issues_assign_checkbox.png)
+4. En el margen superior derecho, haz clic en **Milestone** (Hito), luego comienza a escribir el nombre de un [hito existente](/articles/creating-and-editing-milestones-for-issues-and-pull-requests). Haz clic en el nombre del hito para asociarlo con el elemento. ![Desplegable de la asignación de los hitos de propuestas](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
 
 {% tip %}
 
-A medida que trabaje en incidencias y solicitudes de incorporación de cambios, podrá [realizar un seguimiento del progreso del hito](/articles/viewing-your-milestone-s-progress).
+A medida que trabajas en las propuestas y las solicitudes de extracción, puedes [realizar el seguimiento del progreso de tu hito](/articles/viewing-your-milestone-s-progress).
 
 {% endtip %}
 
-## Información adicional
+## Leer más
 
 - "[Acerca de los hitos](/articles/about-milestones)"
-- "[Creación y edición de hitos para incidencias y solicitudes de incorporación de cambios](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[Filtrar incidencias y solicitudes de incorporación de cambios por hito](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[Crear y editar hitos para propuestas y solicitudes de extracción](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
+- "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"

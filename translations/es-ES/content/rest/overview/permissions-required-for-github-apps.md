@@ -12,21 +12,16 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-shortTitle: GitHub App permissions
-ms.openlocfilehash: 9b0344213069be96e86029adef157dba032f9de6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147560790'
+shortTitle: Permisos de las GitHub Apps
 ---
+
 ### Acerca de los permisos de las {% data variables.product.prodname_github_app %}
 
-Las {% data variables.product.prodname_github_apps %} se crean un con conjunto de permisos. Los permisos definen a qué recursos puede acceder la {% data variables.product.prodname_github_app %} a través de la API. Para obtener más información, consulte "[Establecer permisos para aplicaciones de GitHub](/apps/building-github-apps/setting-permissions-for-github-apps/)".
+Las {% data variables.product.prodname_github_apps %} se crean un con conjunto de permisos. Los permisos definen a qué recursos puede acceder la {% data variables.product.prodname_github_app %} a través de la API. Para obtener más información, consulta la sección "[Configurar los permisos para las GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)".
 
 ### Permisos de metadatos
 
-Las aplicaciones de GitHub tienen el permiso de metadatos `Read-only` de forma predeterminada. El permiso de metadatos proporciona acceso a una recopilación de terminales de solo lectura con los metadatos de varios recursos. Estas terminales no filtran información sensible de los repositorios privados.
+Las GitHub Apps tienen el permiso de metadatos de `Read-only` predeterminadamente. El permiso de metadatos proporciona acceso a una recopilación de terminales de solo lectura con los metadatos de varios recursos. Estas terminales no filtran información sensible de los repositorios privados.
 
 {% data reusables.apps.metadata-permissions %}
 
@@ -45,8 +40,10 @@ Las aplicaciones de GitHub tienen el permiso de metadatos `Read-only` de forma p
 - [`GET /orgs/:org/projects`](/rest/reference/projects#list-organization-projects)
 - [`GET /orgs/:org/repos`](/rest/reference/repos#list-organization-repositories)
 - [`GET /rate_limit`](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
-- [`GET /repos/:owner/:repo`](/rest/reference/repos#get-a-repository) {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/community/profile`](/rest/reference/repository-metrics#get-community-profile-metrics) {% endif -%}
+- [`GET /repos/:owner/:repo`](/rest/reference/repos#get-a-repository)
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/community/profile`](/rest/reference/repository-metrics#get-community-profile-metrics)
+{% endif -%}
 - [`GET /repos/:owner/:repo/contributors`](/rest/reference/repos#list-repository-contributors)
 - [`GET /repos/:owner/:repo/forks`](/rest/reference/repos#list-forks)
 - [`GET /repos/:owner/:repo/languages`](/rest/reference/repos#list-repository-languages)
@@ -108,7 +105,7 @@ _Miembros de la organización_
 - [`GET /orgs/:org/public_members`](/rest/reference/orgs#list-public-organization-members)
 - [`GET /orgs/:org/public_members/:username`](/rest/reference/orgs#check-public-organization-membership-for-a-user)
 
-_Búsqueda_
+_Buscar_
 - [`GET /search/code`](/rest/reference/search#search-code)
 - [`GET /search/commits`](/rest/reference/search#search-commits)
 - [`GET /search/issues`](/rest/reference/search#search-issues-and-pull-requests)
@@ -123,13 +120,17 @@ _Búsqueda_
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
 - [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write)
-- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read) {% ifversion actions-cache-management -%}
-- [`GET /repos/:owner/:repo/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-a-repository) (:read) {% endif -%}
+- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read)
+{% ifversion actions-cache-management -%}
+- [`GET /repos/:owner/:repo/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-a-repository) (:read)
+{% endif -%}
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
-- [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read) {% ifversion fpt or ghec -%}
-- [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write) {% endif -%}
+- [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
+{% ifversion fpt or ghec -%}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write)
+{% endif -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
@@ -138,7 +139,8 @@ _Búsqueda_
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/rerun`](/rest/reference/actions#re-run-a-workflow) (:write)
 - [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (:read)
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (:read)
-- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read) {% endif %}
+- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read)
+{% endif %}
 
 ### Permiso sobre la "administración"
 
@@ -153,22 +155,44 @@ _Búsqueda_
 - [`POST /repos/:owner/:repo/actions/runners/:runner_id/labels`](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository) (:write)
 - [`PUT /repos/:owner/:repo/actions/runners/:runner_id/labels`](/rest/reference/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id/labels`](/rest/reference/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository) (:write)
-- [`DELETE /repos/:owner/:repo/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository) (:write) {% ifversion fpt or ghec or ghes -%}
+- [`DELETE /repos/:owner/:repo/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository) (:write)
+{% ifversion fpt or ghec or ghes -%}
 - [`POST /repos/:owner/:repo/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-a-repository) (:write)
-- [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#enable-automated-security-fixes) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#disable-automated-security-fixes) (:write) {% endif -%}
-- [`POST /repos/:owner/:repo/forks`](/rest/reference/repos#create-a-fork) (:write) {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-a-repository) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-a-repository) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write) {% endif -%} {% ifversion ghes > 3.3 -%}
-- [`GET /repos/:owner/:repo/replicas/caches`](/rest/reference/repos#list-repository-cache-replication-status) (:read) {% endif -%}
+- [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#enable-automated-security-fixes) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#disable-automated-security-fixes) (:write)
+{% endif -%}
+- [`POST /repos/:owner/:repo/forks`](/rest/reference/repos#create-a-fork) (:write)
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-a-repository) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-a-repository) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
+{% endif -%}
+{% ifversion ghes > 3.3 -%}
+- [`GET /repos/:owner/:repo/replicas/caches`](/rest/reference/repos#list-repository-cache-replication-status) (:read)
+{% endif -%}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
-- [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write) {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#disable-vulnerability-alerts) (:write) {% endif -%}
+- [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#disable-vulnerability-alerts) (:write)
+{% endif -%}
 - [`PATCH /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#accept-a-repository-invitation) (:write)
 - [`DELETE /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#decline-a-repository-invitation) (:write)
 
@@ -219,16 +243,18 @@ _Claves_
 - [`GET /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#get-a-deploy-key) (:read)
 - [`DELETE /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#delete-a-deploy-key) (:write)
 
-_Teams_
+_Equipos_
 - [`GET /repos/:owner/:repo/teams`](/rest/reference/repos#list-repository-teams) (:read)
 - [`PUT /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#add-or-update-team-repository-permissions) (:write)
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
 
-{% ifversion fpt or ghec %} _Tráfico_
+{% ifversion fpt or ghec %}
+_Tráfico_
 - [`GET /repos/:owner/:repo/traffic/clones`](/rest/reference/repository-metrics#get-repository-clones) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/paths`](/rest/reference/repository-metrics#get-top-referral-paths) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/referrers`](/rest/reference/repository-metrics#get-top-referral-sources) (:read)
-- [`GET /repos/:owner/:repo/traffic/views`](/rest/reference/repository-metrics#get-page-views) (:read) {% endif %}
+- [`GET /repos/:owner/:repo/traffic/views`](/rest/reference/repository-metrics#get-page-views) (:read)
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ### Permiso sobre el "bloqueo"
@@ -236,7 +262,8 @@ _Teams_
 - [`GET /user/blocks`](/rest/reference/users#list-users-blocked-by-the-authenticated-user) (:read)
 - [`GET /user/blocks/:username`](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user) (:read)
 - [`PUT /user/blocks/:username`](/rest/reference/users#block-a-user) (:write)
-- [`DELETE /user/blocks/:username`](/rest/reference/users#unblock-a-user) (:write) {% endif %}
+- [`DELETE /user/blocks/:username`](/rest/reference/users#unblock-a-user) (:write)
+{% endif %}
 
 ### Permiso sobre las "verificaciones"
 
@@ -253,39 +280,84 @@ _Teams_
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (:read)
 
 {% ifversion fpt or ghec %}
-### Permiso sobre los "codespaces"
+### Permisos sobre los "codespaces"
 
-- [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository) {% endif %}
+- [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
+{% endif %}
 ### Permiso sobre el "contenido"
 
-- [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (:read) {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read) {% endif -%} {% ifversion fpt -%}
-- [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#download-workflow-run-logs) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#delete-workflow-run-logs) (:write) {% endif -%} {% ifversion fpt -%}
-- [`POST /repos/:owner/:repo/actions/runs/:run_id/rerun`](/rest/reference/actions#re-run-a-workflow) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/secrets`](/rest/reference/actions#list-repository-secrets) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#get-a-repository-secret) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#create-or-update-a-repository-secret) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#delete-a-repository-secret) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read) {% endif -%}
+- [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (:read)
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
+{% endif -%}
+{% ifversion fpt -%}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#download-workflow-run-logs) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#delete-workflow-run-logs) (:write)
+{% endif -%}
+{% ifversion fpt -%}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/rerun`](/rest/reference/actions#re-run-a-workflow) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/secrets`](/rest/reference/actions#list-repository-secrets) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#get-a-repository-secret) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#create-or-update-a-repository-secret) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#delete-a-repository-secret) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read)
+{% endif -%}
 - [`GET /repos/:owner/:repo/check-runs/:check_run_id`](/rest/reference/checks#get-a-check-run) (:read)
 - [`GET /repos/:owner/:repo/check-runs/:check_run_id/annotations`](/rest/reference/checks#list-check-run-annotations) (:read)
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id`](/rest/reference/checks#get-a-check-suite) (:read)
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite) (:read)
-- [`POST /repos/:owner/:repo/check-suites/:check_suite_id/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (:write) {% ifversion codeowners-errors %}
-- [`GET /repos/:owner/:repo/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (:read) {% endif %}
+- [`POST /repos/:owner/:repo/check-suites/:check_suite_id/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (:write)
+{% ifversion codeowners-errors %}
+- [`GET /repos/:owner/:repo/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (:read)
+{% endif %}
 - [`GET /repos/:owner/:repo/commits`](/rest/reference/commits#list-commits) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha`](/rest/reference/commits#get-a-commit) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (:read)
@@ -329,7 +401,8 @@ _Git_
 - [`POST /repos/:owner/:repo/git/trees`](/rest/reference/git#create-a-tree) (:write)
 - [`GET /repos/:owner/:repo/git/trees/:sha`](/rest/reference/git#get-a-tree) (:read)
 
-{% ifversion fpt or ghec %} _Importación_
+{% ifversion fpt or ghec %}
+_Importar_
 - [`GET /repos/:owner/:repo/import`](/rest/reference/migrations#get-an-import-status) (:read)
 - [`PUT /repos/:owner/:repo/import`](/rest/reference/migrations#start-an-import) (:write)
 - [`PATCH /repos/:owner/:repo/import`](/rest/reference/migrations#update-an-import) (:write)
@@ -337,7 +410,8 @@ _Git_
 - [`GET /repos/:owner/:repo/import/authors`](/rest/reference/migrations#get-commit-authors) (:read)
 - [`PATCH /repos/:owner/:repo/import/authors/:author_id`](/rest/reference/migrations#map-a-commit-author) (:write)
 - [`GET /repos/:owner/:repo/import/large_files`](/rest/reference/migrations#get-large-files) (:read)
-- [`PATCH /repos/:owner/:repo/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (:write) {% endif %}
+- [`PATCH /repos/:owner/:repo/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (:write)
+{% endif %}
 
 _Reacciones_
 
@@ -349,7 +423,7 @@ _Reacciones_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-_Versiones_
+_Lanzamientos_
 - [`GET /repos/:owner/:repo/releases`](/rest/reference/repos/#list-releases) (:read)
 - [`POST /repos/:owner/:repo/releases`](/rest/reference/repos/#create-a-release) (:write)
 - [`GET /repos/:owner/:repo/releases/:release_id`](/rest/reference/repos/#get-a-release) (:read)
@@ -376,11 +450,13 @@ _Versiones_
 ### Permiso sobre los "correos electrónicos"
 
 {% ifversion fpt or ghec -%}
-- [`PATCH /user/email/visibility`](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user) (:write) {% endif -%}
+- [`PATCH /user/email/visibility`](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user) (:write)
+{% endif -%}
 - [`GET /user/emails`](/rest/reference/users#list-email-addresses-for-the-authenticated-user) (:read)
 - [`POST /user/emails`](/rest/reference/users#add-an-email-address-for-the-authenticated-user) (:write)
 - [`DELETE /user/emails`](/rest/reference/users#delete-an-email-address-for-the-authenticated-user) (:write)
-- [`GET /user/public_emails`](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user) (:read) {% endif %}
+- [`GET /user/public_emails`](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user) (:read)
+{% endif %}
 
 ### Permiso sobre los "seguidores"
 
@@ -402,11 +478,12 @@ _Versiones_
 
 - [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
 - [`PUT /user/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-your-public-repositories) (:write)
-- [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write) {% endif %}
+- [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write)
+{% endif %}
 
 ### Permiso sobre los "informes de problemas"
 
-Los informes de problemas y las solicitudes de extracción están estrechamente relacionadas. Para obtener más información, consulte "[Enumerar las incidencias asignadas al usuario autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)". Si tu GitHub App tiene permisos sobre los informes de problemas pero no los tiene en las solicitudes de extracción, entonces estas terminales se limitaran a los informes de problemas. Se filtrarán las terminales que devuelvan tanto informes de problemas como solicitudes de extracción. Las terminales que permitan operaciones tanto en los informes de problemas como en las solicitudes de extracción se restringirán a los informes de problemas únicamente.
+Los informes de problemas y las solicitudes de extracción están estrechamente relacionadas. Para obtener más información, consulta la sección "[Listar informes de problemas asignados al usuario autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)". Si tu GitHub App tiene permisos sobre los informes de problemas pero no los tiene en las solicitudes de extracción, entonces estas terminales se limitaran a los informes de problemas. Se filtrarán las terminales que devuelvan tanto informes de problemas como solicitudes de extracción. Las terminales que permitan operaciones tanto en los informes de problemas como en las solicitudes de extracción se restringirán a los informes de problemas únicamente.
 
 - [`GET /repos/:owner/:repo/issues`](/rest/reference/issues#list-repository-issues) (:read)
 - [`POST /repos/:owner/:repo/issues`](/rest/reference/issues#create-an-issue) (:write)
@@ -426,7 +503,7 @@ Los informes de problemas y las solicitudes de extracción están estrechamente 
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 
-_Asignados_
+_Asignatarios_
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
@@ -480,25 +557,44 @@ _Claves_
 ### Permiso sobre los "miembros"
 
 {% ifversion fpt or ghec -%}
-- [`GET /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#list-idp-groups-for-a-team) (:write) {% endif -%} {% ifversion fpt or ghec  -%}
-- [`PATCH /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#create-or-update-idp-group-connections) (:write) {% endif -%}
+- [`GET /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#list-idp-groups-for-a-team) (:write)
+{% endif -%}
+{% ifversion fpt or ghec  -%}
+- [`PATCH /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#create-or-update-idp-group-connections) (:write)
+{% endif -%}
 - [`GET /orgs/:org/outside_collaborators`](/rest/reference/orgs#list-outside-collaborators-for-an-organization) (:read)
 - [`PUT /orgs/:org/outside_collaborators/:username`](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator) (:write)
-- [`DELETE /orgs/:org/outside_collaborators/:username`](/rest/reference/orgs#remove-outside-collaborator-from-an-organization) (:write) {% ifversion fpt or ghec -%}
-- [`GET /orgs/:org/team-sync/groups`](/rest/teams/team-sync#list-idp-groups-for-an-organization) (:write) {% endif -%}
-- [`GET /orgs/:org/team/:team_id`](/rest/teams/teams#get-a-team-by-name) (:read) {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`POST /scim/v2/orgs/:org/Users`](/rest/reference/scim#provision-and-invite-a-scim-user) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#set-scim-information-for-a-provisioned-user) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PATCH /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#update-an-attribute-for-a-scim-user) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#delete-a-scim-user-from-an-organization) (:write) {% endif %}
+- [`DELETE /orgs/:org/outside_collaborators/:username`](/rest/reference/orgs#remove-outside-collaborator-from-an-organization) (:write)
+{% ifversion fpt or ghec -%}
+- [`GET /orgs/:org/team-sync/groups`](/rest/teams/team-sync#list-idp-groups-for-an-organization) (:write)
+{% endif -%}
+- [`GET /orgs/:org/team/:team_id`](/rest/teams/teams#get-a-team-by-name) (:read)
+{% ifversion fpt or ghec -%}
+- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`POST /scim/v2/orgs/:org/Users`](/rest/reference/scim#provision-and-invite-a-scim-user) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#set-scim-information-for-a-provisioned-user) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PATCH /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#update-an-attribute-for-a-scim-user) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#delete-a-scim-user-from-an-organization) (:write)
+{% endif %}
 
-{% ifversion fpt or ghec %} _Invitaciones_
+{% ifversion fpt or ghec %}
+_Invitaciones_
 - [`GET /orgs/:org/invitations`](/rest/reference/orgs#list-pending-organization-invitations) (:read)
 - [`POST /orgs/:org/invitations`](/rest/reference/orgs#create-an-organization-invitation) (:write)
 - [`GET /orgs/:org/invitations/:invitation_id/teams`](/rest/reference/orgs#list-organization-invitation-teams) (:read)
-- [`GET /teams/:team_id/invitations`](/rest/reference/teams#list-pending-team-invitations) (:read) {% endif %}
+- [`GET /teams/:team_id/invitations`](/rest/reference/teams#list-pending-team-invitations) (:read)
+{% endif %}
 
 _Miembros de la organización_
 - [`DELETE /orgs/:org/members/:username`](/rest/reference/orgs#remove-an-organization-member) (:write)
@@ -517,7 +613,7 @@ _Miembros del equipo_
 - [`PUT /teams/:team_id/memberships/:username`](/rest/reference/teams#add-or-update-team-membership-for-a-user) (:write)
 - [`DELETE /teams/:team_id/memberships/:username`](/rest/reference/teams#remove-team-membership-for-a-user) (:write)
 
-_Teams_
+_Equipos_
 - [`GET /orgs/:org/teams`](/rest/reference/teams#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/rest/reference/teams#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/rest/reference/teams#get-a-team-by-name) (:read)
@@ -535,12 +631,20 @@ _Teams_
 
 ### Permiso sobre la "administración de la oprganización"
 
-- [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (:write) {% ifversion actions-cache-management -%}
+- [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (:write)
+{% ifversion actions-cache-management -%}
 - [`GET /orgs/:org/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-an-organization) (:read)
-- [`GET /orgs/:org/actions/cache/usage-by-repository`](/rest/reference/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`GET /orgs/:org/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-an-organization) (:read) {% endif -%} {% ifversion fpt or ghec -%}
-- [`PUT /orgs/:org/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-an-organization) (:write) {% endif -%} {% ifversion fpt or ghec -%}
-- [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write) {% endif %}
+- [`GET /orgs/:org/actions/cache/usage-by-repository`](/rest/reference/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`GET /orgs/:org/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-an-organization) (:read)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`PUT /orgs/:org/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-an-organization) (:write)
+{% endif -%}
+{% ifversion fpt or ghec -%}
+- [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
+{% endif %}
 
 ### Permisos para "eventos organizacionales"
 
@@ -555,7 +659,7 @@ _Teams_
 - [`DELETE /orgs/:org/hooks/:hook_id`](/rest/reference/orgs#webhooks/#delete-an-organization-webhook) (:write)
 - [`POST /orgs/:org/hooks/:hook_id/pings`](/rest/reference/orgs#webhooks/#ping-an-organization-webhook) (:write)
 
-_Teams_
+_Equipos_
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion ghes %}
@@ -564,7 +668,8 @@ _Teams_
 - [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (:read)
 - [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization) (:read)
 - [`PATCH /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization) (:write)
-- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (:write) {% endif %}
+- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
+{% endif %}
 
 ### Permiso sobre los "proyectos de la organización"
 
@@ -592,7 +697,8 @@ _Teams_
 - [`GET /orgs/:org/blocks`](/rest/reference/orgs#list-users-blocked-by-an-organization) (:read)
 - [`GET /orgs/:org/blocks/:username`](/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization) (:read)
 - [`PUT /orgs/:org/blocks/:username`](/rest/reference/orgs#block-a-user-from-an-organization) (:write)
-- [`DELETE /orgs/:org/blocks/:username`](/rest/reference/orgs#unblock-a-user-from-an-organization) (:write) {% endif %}
+- [`DELETE /orgs/:org/blocks/:username`](/rest/reference/orgs#unblock-a-user-from-an-organization) (:write)
+{% endif %}
 
 ### Permiso sobre las "páginas"
 
@@ -603,9 +709,11 @@ _Teams_
 - [`GET /repos/:owner/:repo/pages/builds`](/rest/reference/pages#list-github-pages-builds) (:read)
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/pages#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/pages#get-github-pages-build) (:read)
-- [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read) {% ifversion fpt or ghec -%}
+- [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read)
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
-- [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write) {% endif %}
+- [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write)
+{% endif %}
 
 ### Permiso sobre las "solicitudes de extracción"
 
@@ -635,7 +743,7 @@ Las solicitudes de cambios y las propuestas tienen una relación estrecha. Si tu
 - [`PATCH /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#update-a-review-comment-for-a-pull-request) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request) (:write)
 
-_Asignados_
+_Asignatarios_
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
@@ -714,7 +822,8 @@ _Revisiones_
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository) (:read)
 - [`PATCH /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository) (:write)
-- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (:write) {% endif %}
+- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
+{% endif %}
 
 ### Permiso sobre los "proyectos del repositorio"
 
@@ -737,7 +846,7 @@ _Revisiones_
 - [`GET /repos/:owner/:repo/projects`](/rest/reference/projects#list-repository-projects) (:read)
 - [`POST /repos/:owner/:repo/projects`](/rest/reference/projects#create-a-repository-project) (:write)
 
-_Teams_
+_Equipos_
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion fpt or ghec %}
@@ -756,7 +865,8 @@ _Teams_
 - [`PUT /orgs/:org/actions/secrets/:secret_name/repositories`](/rest/reference/actions#set-selected-repositories-for-an-organization-secret) (:write)
 - [`PUT /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id`](/rest/reference/actions#add-selected-repository-to-an-organization-secret) (:write)
 - [`DELETE /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id`](/rest/reference/actions#remove-selected-repository-from-an-organization-secret) (:write)
-- [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write) {% endif %}
+- [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write)
+{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3%}
 ### Permiso en "dependabot_secrets"
@@ -773,7 +883,8 @@ _Teams_
 - [`PUT /orgs/:org/dependabot/secrets/:secret_name/repositories`](/rest/reference/dependabot#set-selected-repositories-for-an-organization-secret) (:write)
 - [`PUT /orgs/:org/dependabot/secrets/:secret_name/repositories/:repository_id`](/rest/reference/dependabot#add-selected-repository-to-an-organization-secret) (:write)
 - [`DELETE /orgs/:org/dependabot/secrets/:secret_name/repositories/:repository_id`](/rest/reference/dependabot#remove-selected-repository-from-an-organization-secret) (:write)
-- [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write) {% endif %}
+- [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write)
+{% endif %}
 
 {% ifversion ghes or ghec %}
 ### Permiso en las "alertas de escaneo de secretos"
@@ -781,20 +892,31 @@ _Teams_
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#get-a-secret-scanning-alert) (:read)
 - [`PATCH /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#update-a-secret-scanning-alert) (:write)
-- [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number/locations`](/rest/reference/secret-scanning#list-locations-for-a-secret-scanning-alert) (:read) {% endif %}
+- [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number/locations`](/rest/reference/secret-scanning#list-locations-for-a-secret-scanning-alert) (:read)
+{% endif %}
 
 ### Permiso sobre los "eventos de seguridad"
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
-- [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write) {% ifversion fpt or ghec or ghes or ghae -%}
-- [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read) {% endif -%}
-- [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read) {% ifversion fpt or ghec or ghes or ghae -%}
-- [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read) {% endif -%} {% ifversion fpt or ghec or ghes -%}
-- [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write) {% endif -%}
-- [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write) {% ifversion fpt or ghec or ghes or ghae -%}
-- [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read) {% endif -%} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
-- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read) {% endif -%}
+- [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
+{% ifversion fpt or ghec or ghes or ghae -%}
+- [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read)
+{% endif -%}
+- [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read)
+{% ifversion fpt or ghec or ghes or ghae -%}
+- [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read)
+{% endif -%}
+{% ifversion fpt or ghec or ghes -%}
+- [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write)
+{% endif -%}
+- [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
+{% ifversion fpt or ghec or ghes or ghae -%}
+- [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
+{% endif -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
+{% endif -%}
 
 {% ifversion fpt or ghes or ghec %}
 ### Permiso sobre los "ejecutores auto-hospedados"
@@ -808,7 +930,8 @@ _Teams_
 - [`POST /orgs/:org/actions/runners/:runner_id/labels`](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization) (:write)
 - [`PUT /orgs/:org/actions/runners/:runner_id/labels`](/rest/reference/actions#set-custom-labels-for-a-self-hosted-runner-for-an-organization) (:write)
 - [`DELETE /orgs/:org/actions/runners/:runner_id/labels`](/rest/reference/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-an-organization) (:write)
-- [`DELETE /orgs/:org/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (:write) {% endif %}
+- [`DELETE /orgs/:org/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (:write)
+{% endif %}
 
 ### Permiso sobre "un archivo"
 

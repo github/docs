@@ -17,11 +17,5 @@ children:
   - /troubleshooting-authorization-request-errors
   - /troubleshooting-oauth-app-access-token-request-errors
   - /deleting-an-oauth-app
-ms.openlocfilehash: d88b40b663b70b8a09bc877e36b3631b3b2cc648
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092170'
 ---
 

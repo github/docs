@@ -1,6 +1,6 @@
 ---
 title: Utilizar condiciones para controlar la ejecución de jobs
-shortTitle: Using conditions to control job execution
+shortTitle: Utilizar condiciones para controlar la ejecución de jobs
 intro: Prevenir que un job se ejecute a menos de que tus condiciones se cumplan.
 versions:
   fpt: '*'
@@ -8,25 +8,21 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
-ms.openlocfilehash: 2f39111eb4dca06231b582d0d955d2ea68088926
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145120986'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Información general
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+
+## Resumen
 
 {% note %}
 
-**Nota**: Si se omite un trabajo, notificará su estado como "Correcto". No impedirá que una solicitud de incorporación de cambios se combine, incluso si es una comprobación necesaria.
+**Nota:** Un job que se omita reportará su estado como "Exitoso". No prevendrá que se fusione una solicitud de cambios, incluso si es una verificación requerida.
 
 {% endnote %}
 
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
 
-Verías el siguiente estado en un trabajo omitido:
+Verías el siguiente estado en un job omitido:
 
-![Detalles de una ejecución requerida que se ha omitido](/assets/images/help/repository/skipped-required-run-details.png)
+![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

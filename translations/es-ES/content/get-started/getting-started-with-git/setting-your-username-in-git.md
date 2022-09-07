@@ -11,20 +11,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Set your username
-ms.openlocfilehash: c713f21fdf91269764dd97f15770e7996bf9f4f0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135817'
+shortTitle: Configura tu nombre de usuario
 ---
+
 ## Acerca de los nombres de usuario de Git
-Puede cambiar el nombre asociado a las confirmaciones de Git mediante el comando `git config`. El nuevo nombre que configures será visible en cualquier confirmación futura que subas a {% data variables.product.product_name %} desde la línea de comando. Si deseas mantener tu nombre real privado, puedes utilizar cualquier texto como nombre de usuario de Git.
+Puedes cambiar el nombre que está asociado con tus confirmaciones de Git utilizando el comando `git config`. El nuevo nombre que configures será visible en cualquier confirmación futura que subas a {% data variables.product.product_name %} desde la línea de comando. Si deseas mantener tu nombre real privado, puedes utilizar cualquier texto como nombre de usuario de Git.
 
-El cambio del nombre asociado a las confirmaciones de Git con `git config` solo afectará a las confirmaciones futuras y no cambiará el nombre que se usa en las anteriores.
+Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config` afectará únicamente a las confirmaciones futuras y no cambiará el nombre utilizado para las confirmaciones anteriores.
 
-## Establecimiento del nombre de usuario de Git para *todos* los repositorios del equipo
+## Configurar tu nombre de usuario de Git para *cada* repositorio en tu computadora
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
@@ -56,7 +51,7 @@ El cambio del nombre asociado a las confirmaciones de Git con `git config` solo 
    > Mona Lisa
    ```
 
-## Información adicional
+## Leer más
 
-- "[Configuración de la dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)"
-- ["Configuración de Git" en el libro _Git de Pro_](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)
+- "[Establecer tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address)"
+- ["Configuración de Git" del libro _Pro Git_](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)

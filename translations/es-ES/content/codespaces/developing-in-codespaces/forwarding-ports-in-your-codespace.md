@@ -1,5 +1,5 @@
 ---
-title: Reenviar puertos en tu codespace
+title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -13,65 +13,60 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Forward ports
-ms.openlocfilehash: b7309a1f2f878860bd9faf34b5516bd10ef80887
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110694'
 ---
-## Acerca de los puertos reenviados
 
-La redirección de puertos te otorga acceso a los puertos CRP dentro de tu codespace. Por ejemplo, si estás ejecutando una aplicación web en un puerto específico en tu codespace, puedes reenviar dicho puerto. Esto te permite acceder a la aplicación desde el buscador en tu máquina local para hacer pruebas y correcciones de errores.
+## About forwarded ports
 
-Cuando una aplicación que se ejecuta dentro de un codespace imprime la salida en el terminal que contiene una dirección URL de localhost, como `http://localhost:PORT` o `http://127.0.0.1:PORT`, el puerto se reenvía de forma automática. Si estás utilizando {% data variables.product.prodname_github_codespaces %} en el explorador o en {% data variables.product.prodname_vscode %}, la secuencia de URL en la terminal se convertirá en un vínculo en el que puedes hacer clic para ver la página web en tu máquina local. Predeterminadamente, {% data variables.product.prodname_codespaces %} reenvía los puertos utilizando HTTP.
+Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on a particular port in your codespace, you can forward that port. This allows you to access the application from the browser on your local machine for testing and debugging.
 
-![Reenvío automático de puertos](/assets/images/help/codespaces/automatic-port-forwarding.png)
+When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_github_codespaces %} in the browser or in {% data variables.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP.
 
-También puedes reenviar un puerto de forma manual, etiquetar los puertos reenviados, compartir los puertos reenviados con los miembros de tu organización, compartir los puertos reenviados de forma pública y agregar puertos reenviados a la configuración del codespace.
+![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
+
+You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
 {% note %}
 
-**Nota**: {% data reusables.codespaces.restrict-port-visibility %}
+**Note**: {% data reusables.codespaces.restrict-port-visibility %}
 
 {% endnote %}
 
-## Reenviar un puerto
+## Forwarding a port
 
-Puedes reenviar manualmente a un puerto que no se haya reenviado automáticamente.
+You can manually forward a port that wasn't forwarded automatically.
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. En la lista de puertos, haga clic en **Agregar puerto**.
+1. Under the list of ports, click **Add port**.
 
-   ![Botón de agregar puerto](/assets/images/help/codespaces/add-port-button.png)
+   ![Add port button](/assets/images/help/codespaces/add-port-button.png)
 
-1. Teclea el número de puerto o de dirección y luego presiona enter.
+1. Type the port number or address, then press enter.
 
-   ![Botón de caja de texto para teclear el puerto](/assets/images/help/codespaces/port-number-text-box.png)
+   ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
 
-## Utilizar el reenvío HTTPS
+## Using HTTPS forwarding
 
-Predeterminadamente, {% data variables.product.prodname_codespaces %} reenvía los puertos utilizando HTTP, pero puedes actualizar cualquier puerto para que utilice HTTPS conforme lo requiera.
+By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Haga clic con el botón derecho en el puerto que quiera actualizar y, después, mantenga el mouse sobre **Cambiar protocolo de puerto**.
-  ![Opción para cambiar el protocolo del puerto](/assets/images/help/codespaces/update-port-protocol.png)
-1. Selecciona el protocolo necesario para este puerto. El protocolo que selecciones se recordará para este puerto durante toda la vida útil del codespace.
+1. Right click the port you want to update, then hover over **Change Port Protocol**.
+  ![Option to change port protocol](/assets/images/help/codespaces/update-port-protocol.png)
+1. Select the protocol needed for this port. The protocol that you select will be remembered for this port for the lifetime of the codespace.
 
 {% endwebui %}
 
 {% vscode %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. En la lista de puertos, haga clic en **Agregar puerto**.
+1. Under the list of ports, click **Add port**.
 
-   ![Botón de agregar puerto](/assets/images/help/codespaces/add-port-button.png)
+   ![Add port button](/assets/images/help/codespaces/add-port-button.png)
 
-1. Teclea el número de puerto o de dirección y luego presiona enter.
+1. Type the port number or address, then press enter.
 
-   ![Botón de caja de texto para teclear el puerto](/assets/images/help/codespaces/port-number-text-box.png)
+   ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
 
 {% endvscode %}
 
@@ -80,90 +75,92 @@ Predeterminadamente, {% data variables.product.prodname_codespaces %} reenvía l
 
 {% data reusables.cli.cli-learn-more %}
 
-Para reenviar un puerto, use el subcomando `gh codespace ports forward`. Reemplace `codespace-port:local-port` por los puertos remotos y locales que quiera conectar. Después de ingresar el comando, elige de la lista de codespaces que se muestra.
+To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
 gh codespace ports forward <em>codespace-port</em>:<em>local-port</em>
 ```
 
-Para más información sobre este comando, vea [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_ports_forward).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
 
-Para ver detalles de los puertos reenviados, escriba `gh codespace ports` y elija un codespace.
+To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
 
 {% endcli %}
 
-## Compartir un puerto
+## Sharing a port
 
 {% note %}
 
-**Nota:** Solo puede hacer que un puerto sea privado para una organización si en la organización se usa {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}.
+**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 
-Si quieres compartir un puerto reenviado con otros, puedes ya sea hacerlo privado para tu organización o hacerlo público. Después de hacer un puerto privado para tu organización, cualquier miembro de esta que tenga la URL de dicho puerto podrá ver la aplicación que se está ejecutando. Después de hacer un puerto público, cualquiera que sepa la URL y el número de puerto podrá ver la aplicación que se está ejecutando sin necesidad de autenticarse.
+If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
 
 {% note %}
 
-**Nota:** La elección de las opciones de visibilidad del puerto puede estar limitada por una directiva configurada para la organización. Para más información, vea "[Restricción de la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)".
+**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 
 {% endnote %}
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Haga clic con el botón derecho en el puerto que quiere compartir, seleccione el menú "Visibilidad del puerto" y, después, haga clic en **Privado para la organización** o **Público**.
-  ![Opción para seleccionar la visibilidad del puerto en el menú contextual](/assets/images/help/codespaces/make-public-option.png)
-1. A la derecha de la dirección local del puerto, haz clic en el icono de copiar.
-  ![Icono Copiar para la URL del puerto](/assets/images/help/codespaces/copy-icon-port-url.png)
-1. Envía la URL copiada a la persona con la que quieras compartir el puerto.
+1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
+  ![Option to select port visibility in right-click menu](/assets/images/help/codespaces/make-public-option.png)
+1. To the right of the local address for the port, click the copy icon.
+  ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. Send the copied URL to the person you want to share the port with.
 
 {% endwebui %}
 
 {% vscode %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Haga clic con el botón derecho en el puerto que quiere compartir, seleccione el menú "Visibilidad del puerto" y, después, haga clic en **Privado para la organización** o **Público**.
-  ![Opción para convertir el puerto en público en el menú contextual](/assets/images/help/codespaces/make-public-option.png)
-1. A la derecha de la dirección local del puerto, haz clic en el icono de copiar.
-  ![Icono Copiar para la URL del puerto](/assets/images/help/codespaces/copy-icon-port-url.png)
-1. Envía la URL copiada a la persona con la que quieras compartir el puerto.
+1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
+  ![Option to make port public in right-click menu](/assets/images/help/codespaces/make-public-option.png)
+1. To the right of the local address for the port, click the copy icon.
+  ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. Send the copied URL to the person you want to share the port with.
 
 {% endvscode %}
 
 {% cli %}
 
-Para cambiar la visibilidad de un puerto reenviado, use el subcomando `gh codespace ports visibility`. {% data reusables.codespaces.port-visibility-settings %}
+To change the visibility of a forwarded port, use the `gh codespace ports visibility` subcommand. {% data reusables.codespaces.port-visibility-settings %}
 
-Reemplace `codespace-port` por el número de puerto reenviado. Reemplace `setting` por `private`, `org` o `public`. Después de ingresar el comando, elige de la lista de codespaces que se muestra.
+Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
 gh codespace ports visibility <em>codespace-port</em>:<em>setting</em>
 ```
 
-Puedes configurar la visibilidad para varios puertos con un solo comando. Por ejemplo:
+You can set the visibility for multiple ports with one command. For example:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org
 ```
 
-Para más información sobre este comando, vea [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_ports_visibility).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_visibility).
 
 {% endcli %}
 
-## Etiquetar un puerto
+## Labeling a port
 
-Puedes etiquetar un puerto para hacerlo más fácil de identificar en una lista.
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Pasa el mouse sobre el puerto que quieras etiquetar y luego haz clic en el icono de etiqueta.
-  ![Icono de etiqueta para el puerto](/assets/images/help/codespaces/label-icon.png) {% data reusables.codespaces.type-port-label %}
-
-## Agregar el peurto a la configuración del codespace
-
-Puedes agregar un puerto reenviado a la configuración de {% data variables.product.prodname_github_codespaces %} del repositorio para que este pueda reenviarse automáticamente a todos los codespaces que se crearon desde el repositorio. Después de que actualizas la configuración, cualquier codespace creado debe reconstruirse para que el cambio se aplique. Para más información, vea "[Configuración de {% data variables.product.prodname_codespaces %} para el proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
-
-Puede configurar manualmente los puertos reenviados en un archivo `.devcontainer.json` mediante la propiedad `forwardPorts`, o bien puede usar el panel "Puertos" del codespace.
+You can label a port to make the port more easily identifiable in a list.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Haga clic con el botón derecho en el puerto que quiera agregar a la configuración del codespace y, después, haga clic en **Configurar etiqueta y actualizar devcontainer.json**.
-  ![Opción para establecer la etiqueta y agregar un puerto a devcontainer.json en el menú contextual](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png) {% data reusables.codespaces.type-port-label %}
+1. Hover over the port you want to label, then click the label icon.
+  ![Label icon for port](/assets/images/help/codespaces/label-icon.png)
+{% data reusables.codespaces.type-port-label %}
+
+## Adding a port to the codespace configuration
+
+You can add a forwarded port to the {% data variables.product.prodname_github_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)."
+
+You can manually configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
+
+{% data reusables.codespaces.navigate-to-ports-tab %}
+1. Right click the port you want to add to the codespace configuration, then click **Set Label and Update devcontainer.json**.
+  ![Option to set label and add port to devcontainer.json in the right-click menu](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
+{% data reusables.codespaces.type-port-label %}

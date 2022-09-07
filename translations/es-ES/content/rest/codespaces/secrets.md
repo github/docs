@@ -1,21 +1,16 @@
 ---
-title: Secretos de usuario de Codespaces
+title: Codespaces user secrets
 allowTitleToDifferFromFilename: true
 shortTitle: User secrets
-intro: 'La API de secretos de usuario de Codespaces permite que un usuario cree, enumere y elimine secretos (como los tokens de acceso para los servicios en la nube), así como asignar secretos a los repositorios a los que el usuario tenga acceso en un codespace.'
+intro: 'The Codespaces user secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) as well as assign secrets to repositories that the user has access to in a codespace.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 28588492685865888643b5ed1956b327c9ac838c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147067238'
 ---
-## Acerca de la API de secretos de usuario de Codespaces
 
-La API de secretos de usuario de Codespaces permite que un usuario cree, enumere y elimine secretos (como los tokens de acceso para los servicios en la nube) así como asignar secretos a los repositorios a los que el usuario tenga acceso. Estos secretos se hacen disponibles para el codespace en el tiempo de ejecución. Para más información, vea "[Administración de secretos cifrados para los codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".
+## About the Codespaces user secrets API
+
+The Codespaces user secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) as well as assign secrets to repositories that the user has access to. Estos secretos se hacen disponibles para el codespace en el tiempo de ejecución. Para obtener más información, consulta la sección "[Administrar los secretos cifrados para tu codespace](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".

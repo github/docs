@@ -1,5 +1,5 @@
 ---
-title: Crear y editar confirmaciones de cambios
+title: Creating and editing commits
 intro: ''
 redirect_from:
   - /articles/creating-and-editing-commits
@@ -15,11 +15,5 @@ children:
   - /creating-a-commit-on-behalf-of-an-organization
   - /changing-a-commit-message
 shortTitle: Create & edit commits
-ms.openlocfilehash: 934c50a9aac372bb650d82d9f48719dd0b155d87
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137113'
 ---
 

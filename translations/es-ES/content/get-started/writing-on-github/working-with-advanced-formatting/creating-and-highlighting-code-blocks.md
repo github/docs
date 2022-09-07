@@ -10,17 +10,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Create code blocks
-ms.openlocfilehash: ba0b49795df16fbafc77ef43c6fef58684162709
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147390373'
+shortTitle: Crear bloques de código
 ---
-## Bloques de código delimitados
 
-Puede crear bloques de código delimitados colocando comillas simples triples <code>\`\`\`</code> antes y después del bloque de código. Te recomendamos dejar una línea en blanco antes y después de los bloques de código para facilitar la lectura del formato sin procesar.
+## Bloques de código cercados
+
+Puedes crear bloques de código cercados al colocar comillas simples triples <code>\`\`\`</code> antes y después del bloque de código. Te recomendamos dejar una línea en blanco antes y después de los bloques de código para facilitar la lectura del formato sin procesar.
 
 <pre>
 ```
@@ -34,7 +29,7 @@ function test() {
 
 {% tip %}
 
-**Sugerencia**: Para preservar su formato en una lista, asegúrese de dejar una sangría de ocho espacios en los bloques de código no delimitados.
+**Sugerencia:** Para preservar tu formato en una lista, asegúrate de dejar una sangría de ocho espacios para los bloques de código no cercados.
 
 {% endtip %}
 
@@ -44,7 +39,7 @@ Para mostrar las comillas simples triples en un bloque de código cercado, enci�
 <pre>
 ````
 ```
-Look! You can see my backticks.
+Look! Puedes ver mis comillas inversas.
 ```
 ````
 </pre>
@@ -53,7 +48,7 @@ Look! You can see my backticks.
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Resaltado de sintaxis
+## Resaltado de la sintaxis
 
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
@@ -65,19 +60,20 @@ Por ejemplo, para resaltar la sintaxis del código Ruby:
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
+    puts markdown.to_html
     ```
 
 ![Bloque de código cercado representado con sintaxis de Ruby resaltada](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-Usamos [Linguist](https://github.com/github/linguist) (Lingüista) para realizar la detección de idioma y seleccionar [gramáticas de terceros](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de sintaxis. Puede averiguar qué palabras clave son válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+Usamos [Lingüista](https://github.com/github/linguist) para realizar la detección del idioma y seleccionar [gramáticas independientes](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de la sintaxis. Puedes conocer las palabra clave válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 {% ifversion mermaid %}
 ## Crear diagramas
 
-También puede usar bloques de código para crear diagramas en Markdown. GitHub admite la sintaxis Mermaid, GeoJSON, TopoJSON y STL ASCII. Para obtener más información, vea "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+También puedes usar bloques de código para crear diagramas en el lenguaje de marcado. GitHub es compatible con la sintaxis de Mermaid, GeoJSON, TopoJSON y ASCII STL. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
-## Información adicional
+## Leer más
 
-- [Especificación de {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

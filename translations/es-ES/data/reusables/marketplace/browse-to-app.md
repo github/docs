@@ -1,9 +1,1 @@
----
-ms.openlocfilehash: b59633f932737d866079969f4fe57f23eb3e9438
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145123361"
----
-1. Vaya a la aplicación que quiera instalar y, después, haga clic en el nombre de la aplicación.
+1. Navega hasta la app que deseas instalar y luego haz clic en el nombre de la app.

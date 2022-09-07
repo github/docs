@@ -1,6 +1,6 @@
 ---
-title: Solución de errores de TLS
-intro: 'Si surgen problemas de TLS en su dispositivo, puedes tomar medidas para resolverlos.'
+title: Troubleshooting TLS errors
+intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -19,13 +19,8 @@ topics:
   - Security
   - Troubleshooting
 shortTitle: Troubleshoot TLS errors
-ms.openlocfilehash: 855737f89f0380333b1f37c26d512c889f2ee786
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389405'
 ---
+
 ## Eliminar la contraseña de un archivo clave
 
 Si tienes una máquina linux con OpenSSL instalado, puedes eliminar tu contraseña.
@@ -41,25 +36,25 @@ Si tienes una máquina linux con OpenSSL instalado, puedes eliminar tu contrase�
 
 Se te pedirá la contraseña de la clave cuando ejecutes este comando.
 
-Para más información sobre OpenSSL, vea la [documentación de OpenSSL](https://www.openssl.org/docs/).
+Para más información sobre OpenSSL, consulta la documentación de OpenSSL [](https://www.openssl.org/docs/).
 
-## Conversión del certificado TSL o de la clave a un formato PEM
+## Converting your TLS certificate or key into PEM format
 
-Si tiene instalado OpenSSL, puede convertir la clave a formato PEM mediante el comando `openssl`. Por ejemplo, puedes convertir una clave de formato DER a formato PEM.
+Si tienes instalado OpenSSL, puedes convertir tu clave en formato PEM usando el comando `openssl`. Por ejemplo, puedes convertir una clave de formato DER a formato PEM.
 
 ```shell
 $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
-De lo contrario, puedes utilizar la herramienta SSL Converter para convertir tu certificado a formato PEM. Para más información, vea la [documentación de la herramienta SSL Converter](https://www.sslshopper.com/ssl-converter.html).
+De lo contrario, puedes utilizar la herramienta SSL Converter para convertir tu certificado a formato PEM. Para obtener más información, consulta la [Documentación de la herramienta SSL Converter](https://www.sslshopper.com/ssl-converter.html).
 
 ## Instalación sin respuesta después de cargar una clave
 
-Si {% data variables.product.product_location %} no responde después de cargar una clave TLS, [ponte en contacto con el equipo de soporte de {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/support) con detalles específicos, incluida una copia de tu certificado TLS. Asegúrate de que la clave privada **no está** incluida. 
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
 
 ## Errores de validez de certificado
 
-Los clientes como navegadores web y líneas de comando Git mostrarán un mensaje de error si no pueden verificar la validez de un certificado TLS. Esto sucede con frecuencia con los certificados autofirmados y los certificados de "raíz encadenada" emitidos por un certificado raíz intermedio que no es reconocido por el cliente.
+Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an TLS certificate. Esto sucede con frecuencia con los certificados autofirmados y los certificados de "raíz encadenada" emitidos por un certificado raíz intermedio que no es reconocido por el cliente.
 
 Si estás usando un certificado firmado por una autoridad de certificación (CA), el archivo del certificado que cargaste a {% data variables.product.prodname_ghe_server %} debe incluir una cadena de certificado con ese certificado raíz de CA. Para crear dicho archivo, concatena tu cadena de certificado entera (o "paquete de certificado") al final de tu certificado, garantizando que el certificado principal con tu nombre del host aparezca primero. En la mayoría de los sistemas puedes hacer esto con un comando similar a:
 
@@ -67,7 +62,7 @@ Si estás usando un certificado firmado por una autoridad de certificación (CA)
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-Deberías poder descargar un paquete de certificado (por ejemplo, `bundle-certificates.crt`) desde el proveedor de TLS o la autoridad de certificación.
+You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
 
 ## Instalar certificados raíz de autoridad de certificación (CA) autofirmados o que no son de confianza
 
@@ -87,6 +82,6 @@ Si tu aparato {% data variables.product.prodname_ghe_server %} interactúa con o
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
 
-## Actualización de un certificado TLS
+## Updating a TLS certificate
 
-Puedes generar un certificado autofirmado nuevo o actualizar un certificado TLS existente para {% data variables.product.product_location %} con la utilidad de línea de comandos `ghe-ssl-certificate-setup`. Para más información, vea "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".

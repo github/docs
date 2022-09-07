@@ -16,12 +16,6 @@ children:
   - /customizing-your-repository
   - /enabling-features-for-your-repository
   - /managing-repository-settings
-shortTitle: Manage repository settings
-ms.openlocfilehash: 34dfda5540e800f9424b77fab9a8f7e18fca539f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136752'
+shortTitle: Administrar la configuración de un repositorio
 ---
 

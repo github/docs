@@ -12,19 +12,16 @@ versions:
   ghec: '*'
 topics:
   - Community
-ms.openlocfilehash: 7676a5a17d22d683f953d894b04e864497145a66
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135187'
 ---
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-discussions-tab %}
-5. Haga clic en {% octicon "pin" aria-label="The pin icon" %} junto al debate de equipo que quiera anclar. También puedes desanclar un debate al hacer clic en el ícono.
-  ![Anclaje de un debate](/assets/images/help/projects/pin-discussion-button.png)
 
-## Lecturas adicionales
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
+5. Haz clic en {% octicon "pin" aria-label="The pin icon" %} al lado del debate de equipo que deseas anclar. También puedes desanclar un debate al hacer clic en el ícono. ![Anclar un debate](/assets/images/help/projects/pin-discussion-button.png)
 
-  - "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)"
-  - "[Crear un debate del equipo](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
+## Leer más
+
+  - "[Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)"
+  - "[Crear un debate de equipo](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
   - "[Editar o eliminar un debate de equipo](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

@@ -13,38 +13,31 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Transfer an issue
-ms.openlocfilehash: 4e4892468178e7440be7e0a730a948ce2465f1dc
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145135390'
+shortTitle: Transferir una propuesta
 ---
-Para transferir una propuesta abierta a otro repositorio, debes tener acceso de escritura en el repositorio en el cual se encuentra la propuesta y en el que la recibirá cuando la transfieras. Para más información, vea "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+
+Para transferir una propuesta abierta a otro repositorio, debes tener acceso de escritura en el repositorio en el cual se encuentra la propuesta y en el que la recibirá cuando la transfieras. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 {% note %}
 
-**Nota**: Solo puede transferir incidencias entre repositorios que son propiedad del mismo usuario o de la misma cuenta de la organización. {% ifversion fpt or ghes or ghec %}Una propuesta de repositorio privado no puede transferirse a un repositorio público.{% endif %}
+**Nota**: Solo puedes transferir propuestas entre los repositorios que pertenezcan a la misma cuenta de usuario o de organización. {% ifversion fpt or ghes or ghec %}Una propuesta de repositorio privado no puede transferirse a un repositorio público.{% endif %}
 
 {% endnote %}
 
-Cuando transfieres una propuesta, los comentarios, etiquetas y asignados se retienen. Los hitos de la propuesta no se retienen. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para más información, vea "[Acerca de los paneles de proyecto](/articles/about-project-boards)".
+Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
 Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 
-## <a name="transferring-an-open-issue-to-another-repository"></a>Transferir una propuesta abierta a otro repositorio
+## Transferir una propuesta abierta a otro repositorio
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. En la lista de propuestas, haz clic en la propuesta que quieres transferir.
-4. En la barra lateral derecha, haga clic en **Transferir incidencia**.
-![Botón para transferir la incidencia](/assets/images/help/repository/transfer-issue.png)
-5. Use el menú desplegable **Elegir un repositorio** y seleccione el repositorio al que quiera transferir la incidencia.
-![Elección de una selección de repositorio](/assets/images/help/repository/choose-a-repository.png)
-6. Haga clic en **Transferir incidencia**.
-![Botón Transferir incidencia](/assets/images/help/repository/transfer-issue-button.png)
+4. En la barra lateral derecha, haz clic en **Transfer issue** (Transferir propuesta). ![Botón para transferir propuesta](/assets/images/help/repository/transfer-issue.png)
+5. Utiliza el menú desplegable **Choose a repository** (Elegir un repositorio) y selecciona el repositorio al que quieres transferir la propuesta. ![Elige una selección de repositorio](/assets/images/help/repository/choose-a-repository.png)
+6. Haz clic en **Transfer issue** (Transferir propuesta). ![Botón Transfer issue (Transferir propuesta)](/assets/images/help/repository/transfer-issue-button.png)
 
 {% endwebui %}
 
@@ -52,7 +45,7 @@ Las personas o equipos que se mencionan en la propuesta recibirán una notificac
 
 {% data reusables.cli.cli-learn-more %}
 
-Para transferir una incidencia, use el subcomando `gh issue transfer`. Reemplace el parámetro `issue` por el número o la dirección URL de la incidencia. Reemplace el parámetro `{% ifversion ghes %}hostname/{% endif %}owner/repo` por la {% ifversion ghes %}URL{% else %}el nombre{% endif %} del repositorio al que quiera transferir la incidencia, como `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Para transferir una propuesta, utiliza el subcomando `gh issue transfer`. Reemplaza el parámetro `issue` con el número o URL de la propuesta. Reemplaza el parámetro `{% ifversion ghes %}hostname/{% endif %}owner/repo` con {% ifversion ghes %}la URL{% else %}el nombre{% endif %} del repositorio al que quieras transferir la propuesta, tal como `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -60,8 +53,8 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## <a name="further-reading"></a>Información adicional
+## Leer más
 
-- "[Acerca de las incidencias](/articles/about-issues)"
-- "[Revisión del registro de seguridad](/articles/reviewing-your-security-log)"
-- "[Revisión del registro de auditoría de la organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"
+- "[Acerca de las propuestas](/articles/about-issues)"
+- "[Revisar tu registro de seguridad](/articles/reviewing-your-security-log)"
+- "[Revisar el registro de auditoría para tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"

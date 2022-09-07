@@ -1,6 +1,6 @@
 ---
-title: Exportar datos de migración desde GitHub.com
-intro: 'Puedes exportar los dtos de migración desde una organización en {% data variables.product.prodname_dotcom_the_website %} si utilizas la API para seleccionar los repositorios que deseas migrar y luego generas un archivo de migración que puedas importar en una instancia de {% data variables.product.prodname_ghe_server %}.'
+title: Exporting migration data from GitHub.com
+intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -18,37 +18,31 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Export data from GitHub.com
-ms.openlocfilehash: 07c74c41312fe5818390bba206072bf95e5bc00c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147717873'
 ---
-## Preparar la orgnanización origen en {% data variables.product.prodname_dotcom %}
+## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
-1. Asegúrese de que tiene [permisos de propietario](/articles/permission-levels-for-an-organization/) en los repositorios de la organización de origen.
+1. Ensure that you have [owner permissions](/articles/permission-levels-for-an-organization/) on the source organization's repositories.
 
-2. {% data reusables.enterprise_migrations.token-generation %} en {% data variables.product.prodname_dotcom_the_website %}.
+2. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-## Exportar los repositorios de la organización
+## Exporting the organization's repositories
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-Para exportar datos de repositorio desde {% data variables.product.prodname_dotcom_the_website %}, use [Migrations API](/free-pro-team@latest/rest/migrations).
+To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use [the Migrations API](/free-pro-team@latest/rest/migrations).
 
-La API de Migraciones se encuentra actualmente en un período de previsualización, lo que significa que los puntos finales y los parámetros pueden cambiar en el futuro.
-## Generar un archivo de migración
+The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future.
+## Generating a migration archive
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
-1. Notifica a los miembros de tu organización que harás una migración. La exportación puede durar varios minutos, en función de la cantidad de repositorios que se exporten. La migración completa, incluida la importación, puede durar varias horas. Por lo tanto, te recomendamos que hagas una prueba para determinar cuánto tiempo tomará el proceso completo. Para más información, vea "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
+1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
 
-2. Para iniciar una migración, envíe una solicitud `POST` al [punto de conexión de migración](/free-pro-team@latest/rest/migrations#start-an-organization-migration). Necesitará:
-    * Tu token de acceso para autenticación.
-    * Una [lista de los repositorios](/free-pro-team@latest/rest/repos#list-organization-repositories) que quiere migrar:
+2. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
+    * Your access token for authentication.
+    * A [list of the repositories](/free-pro-team@latest/rest/repos#list-organization-repositories) you want to migrate:
       ```shell
       curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
@@ -56,29 +50,29 @@ La API de Migraciones se encuentra actualmente en un período de previsualizaci�
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
-    *  Si quiere bloquear los repositorios antes de migrarlos, asegúrese de que `lock_repositories` está establecido en `true`. Esto es altamente recomendable.
-    * Puede excluir los datos adjuntos de archivo si pasa `exclude_attachments: true` al punto de conexión. {% data reusables.enterprise_migrations.exclude-file-attachments %} El tamaño final del archivo debe ser inferior a 20 GB.
+    *  If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    * You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
-  Esta solicitud devuelve un valor `id` único que representa la migración. Lo necesitarás para solicitudes posteriores a la API de Migraciones.
+  This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
-3. Envíe una solicitud `GET` al [punto de conexión de estado de migración](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) para capturar el estado de una migración. Necesitará:
-    * Tu token de acceso para autenticación.
-    * Valor `id` único de la migración:
+3. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
-  Una migración puede estar en uno de los siguientes estados:
-    * `pending`, que significa que la migración todavía no se ha iniciado.
-    * `exporting`, que significa que la migración está en curso.
-    * `exported`, que significa que la migración ha finalizado correctamente.
-    * `failed`, que significa que se ha producido un error en la migración.
+  A migration can be in one of the following states:
+    * `pending`, which means the migration hasn't started yet.
+    * `exporting`, which means the migration is in progress.
+    * `exported`, which means the migration finished successfully.
+    * `failed`, which means the migration failed.
 
-4. Una vez que se exporte la migración, descargue el archivo de migración mediante el envío de una solicitud `GET` al [punto de conexión de descarga de migración](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). Necesitará:
-    * Tu token de acceso para autenticación.
-    * Valor `id` único de la migración:
+4. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
@@ -86,9 +80,9 @@ La API de Migraciones se encuentra actualmente en un período de previsualizaci�
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 
-5. El archivo de migración se elimina automáticamente después de siete días. Si prefiere eliminarla antes, puede enviar una solicitud `DELETE` al [punto de conexión de eliminación del archivo de migración](/free-pro-team@latest/rest/migrations#delete-an-organization-migration-archive). Necesitará:
-    * Tu token de acceso para autenticación.
-    * Valor `id` único de la migración:
+5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to [the migration archive delete endpoint](/free-pro-team@latest/rest/migrations#delete-an-organization-migration-archive). You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X DELETE \

@@ -1,7 +1,7 @@
 ---
-title: Escanear tu código automáticamente para encontrar vulnerabilidades y errores
+title: Automatically scanning your code for vulnerabilities and errors
 shortTitle: Scan code automatically
-intro: 'Puedes encontrar vulnerabilidades y errores en el código de tu proyecto en {% data variables.product.prodname_dotcom %}, así como ver, clasificar, entender y resolver las alertas de {% data variables.product.prodname_code_scanning %}.'
+intro: 'You can find vulnerabilities and errors in your project''s code on {% data variables.product.prodname_dotcom %}, as well as view, triage, understand, and resolve the related {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors
@@ -28,11 +28,5 @@ children:
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
-ms.openlocfilehash: 1024f707aee96ebeee6e941b3ee018267148535f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145091583'
 ---
 

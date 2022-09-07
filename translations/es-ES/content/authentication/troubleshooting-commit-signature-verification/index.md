@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de verificación de firma de confirmación
+title: Solucionar problemas de verificación de confirmación de firma
 intro: 'Puede que debas solucionar problemas imprevistos que surgen cuando se firman confirmaciones de forma local para la verificación en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/troubleshooting-gpg
@@ -16,12 +16,6 @@ topics:
 children:
   - /checking-your-commit-and-tag-signature-verification-status
   - /using-a-verified-email-address-in-your-gpg-key
-shortTitle: Troubleshoot verification
-ms.openlocfilehash: bcd12faa7912d9d32ebbea12afffe41528e63767
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147369293'
+shortTitle: Solucionar los problemas de la verificación
 ---
 

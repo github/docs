@@ -1,6 +1,6 @@
 ---
-title: Análisis de secretos
-intro: Utiliza la API de Análisis de secretos para recuperar y actualizar las alertas secretas de un repositorio.
+title: Secret scanning
+intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,20 +10,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/secret-scanning
-ms.openlocfilehash: d17aa63bb3d7e71adb310c66cabb05a83776b78f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066814'
 ---
+
 {% data reusables.secret-scanning.api-beta %}
 
-## Acerca de Secret scanning API
+## About the Secret scanning API
 
-La API de {% data variables.product.prodname_secret_scanning %} te permite lo siguiente:
+The {% data variables.product.prodname_secret_scanning %} API lets you:
 
-- Habilitar o deshabilitar {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} e insertar protección{% endif %} para un repositorio. Para obtener más información, vea "[Repositorios](/rest/repos/repos#update-a-repository)" y expanda la sección "Properties of the `security_and_analysis` object" (Propiedades del objeto `security_and_analysis`) en la documentación de la API REST.
-- Recupere y actualice las alertas de {% data variables.product.prodname_secret_scanning_GHAS %} de un repositorio. Para obtener más detalles, vea las secciones siguientes.
+- Enable or disable {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} and push protection{% endif %} for a repository. For more information, see "[Repositories](/rest/repos/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
+- Retrieve and update {% data variables.product.prodname_secret_scanning_GHAS %} alerts from a repository. For further details, see the sections below.
 
-Para obtener más información sobre {% data variables.product.prodname_secret_scanning %}, vea "[Acerca de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)."
+For more information about {% data variables.product.prodname_secret_scanning %}, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)."

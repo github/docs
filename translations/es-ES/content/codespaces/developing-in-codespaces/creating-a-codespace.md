@@ -149,6 +149,3 @@ Replace `machine-type` with a valid identifier for an available machine type. Id
 For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
-
-## Further reading
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

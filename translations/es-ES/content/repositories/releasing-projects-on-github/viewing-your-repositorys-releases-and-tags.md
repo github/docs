@@ -14,31 +14,27 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View releases & tags
-ms.openlocfilehash: c6cdad2626eb5b3260efd46a1d47dac499c73051
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136633'
+shortTitle: Visualizar lanzamientos & etiquetas
 ---
+
 {% tip %}
 
-**Sugerencia**: También puede ver una versión utilizando la {% data variables.product.prodname_cli %}. Para obtener más información, consulte "[`gh release view`](https://cli.github.com/manual/gh_release_view)" en la documentación de {% data variables.product.prodname_cli %}.
+**Tip**: También puedes ver un lanzamientos utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta la sección "[`gh release view`](https://cli.github.com/manual/gh_release_view)" en la documentación de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 
 ## Visualizar lanzamientos
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
-2. En la parte superior de la página Releases (Versiones), haga clic en **Releases** (Versiones).
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
+2. En la parte superior de la página de lanzamientos, da clic en **Lanzamientos**.
 
 ## Visualizar etiquetas
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
-2. En la parte superior de la página Versiones, haga clic en **Etiquetas**.
-![Página de etiquetas](/assets/images/help/releases/tags-list.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
+2. En la parte superior de la página de lanzamiento, haz clic en **Tags** (Etiqueta). ![Página de etiquetas](/assets/images/help/releases/tags-list.png)
 
-## Información adicional
+## Leer más
 
-- "[Firma de etiquetas](/articles/signing-tags)"
+- "[Firmar etiquetas](/articles/signing-tags)"

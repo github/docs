@@ -1,6 +1,6 @@
 ---
-title: 'Eliminación de una instancia de {% data variables.product.prodname_project_v1 %}'
-intro: 'Puedes eliminar una instancia de {% data variables.projects.projects_v1_board %} existente si ya no necesitas acceso a su contenido.'
+title: 'Borrar un {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes borrar un {% data variables.projects.projects_v1_board %} existente si ya no necesitas acceso a su contenido.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
@@ -11,29 +11,24 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 13de993715fa8e16f8cbce4555214e7940fb4917
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422976'
 ---
+
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Sugerencia**: Si quieres conservar el acceso a una instancia de {% data variables.projects.projects_v1_board %} completada o innecesaria sin perder el acceso a su contenido, puedes [cerrar la instancia de {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) en lugar de eliminarla.
+**Tip**: Si te gustaría retener el acceso a un {% data variables.projects.projects_v1_board %} completado o no necesario sin perder el acceso a su contenido, puedes [cerrar el {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) en vez de borrarlo.
 
 {% endtip %}
 
-1. Navega a la instancia de {% data variables.projects.projects_v1_board %} que quieras eliminar.
-{% data reusables.project-management.click-menu %} {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. Haga clic en **Eliminar proyecto**.
-![Botón Eliminar proyecto](/assets/images/help/projects/delete-project-button.png)
-5. Para confirmar que quiere eliminar el panel del proyecto, haga clic en **Aceptar**.
+1. Navega al {% data variables.projects.projects_v1_board %} que quieras borrar.
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
+4. Haz clic en **Eliminar proyecto**. ![Botón Eliminar proyecto](/assets/images/help/projects/delete-project-button.png)
+5. Para confirmar que deseas eliminar el tablero de proyecto, haz clic en **Aceptar**.
 
-## Información adicional
+## Leer más
 
-- "[Cierre de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
-- "[Deshabilitación de {% data variables.product.prodname_project_v1_caps %} en un repositorio](/articles/disabling-project-boards-in-a-repository)"
-- "[Deshabilitación de {% data variables.product.prodname_project_v1_caps %} en la organización](/articles/disabling-project-boards-in-your-organization)"
+- "[Cerrar un {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
+- "[Inhabilitar los {% data variables.product.prodname_project_v1_caps %} en un repositorio](/articles/disabling-project-boards-in-a-repository)"
+- "[Inhabilitar los {% data variables.product.prodname_project_v1_caps %} en tu organizaciòn](/articles/disabling-project-boards-in-your-organization)"

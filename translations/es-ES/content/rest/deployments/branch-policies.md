@@ -1,8 +1,8 @@
 ---
-title: Directivas de rama de implementación
+title: Deployment branch policies
 allowTitleToDifferFromFilename: true
 shortTitle: Deployment branch policies
-intro: La API de Deployment branch policies permite administrar directivas de rama de implementación personalizadas.
+intro: The Deployment branch policies API allows you to manage custom deployment branch policies.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,15 +11,10 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 70f5d05f0a28e9fa21bf7bc99abbac6bd4a6509a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147549124'
 ---
-## Información acerca de la API de Deployment branch policies
 
-La API de Deployment branch policies permite especificar patrones de nombre personalizados que las ramas deben cumplir con el fin de implementar en un entorno. La propiedad `deployment_branch_policy.custom_branch_policies` del entorno debe establecerse en `true` para usar estos puntos de conexión. Para actualizar la `deployment_branch_policy` para un entorno, consulte "[Crear o actualizar un entorno](/rest/deployments/environments#create-or-update-an-environment)". 
+## About the Deployment branch policies API
 
-Para obtener más información sobre cómo restringir las implementaciones de entorno a determinadas ramas, consulte "[Uso de entornos para la implementación](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)".
+The Deployment branch policies API allows you to specify custom name patterns that branches must match in order to deploy to an environment. The `deployment_branch_policy.custom_branch_policies` property for the environment must be set to `true` to use these endpoints. To update the `deployment_branch_policy` for an environment, see "[Create or update an environment](/rest/deployments/environments#create-or-update-an-environment)."
+
+For more information about restricting environment deployments to certain branches, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)."

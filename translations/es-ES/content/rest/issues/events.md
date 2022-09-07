@@ -1,8 +1,8 @@
 ---
-title: Eventos de incidencias
+title: Issue events
 allowTitleToDifferFromFilename: true
-shortTitle: Events
-intro: La API de eventos de incidencias puede devolver diferentes tipos de eventos que desencadena la actividad en las incidencias y las solicitudes de incorporación de cambios.
+shortTitle: Eventos
+intro: La API de eventos de propuestas puede devolver tipos de eventos diferentes que se desencadenan por la actividad en las propuestas y solicitudes de cambios.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,15 +11,10 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: ac884bef9931058f126ac875db65e99b8831657f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065784'
 ---
-## Acerca de la API de eventos de incidencias
 
-La API de eventos de incidencias puede devolver diferentes tipos de eventos que desencadena la actividad en las incidencias y las solicitudes de incorporación de cambios. Para más información sobre los eventos específicos que puedes recibir de la API de eventos de incidencias, consulta "[Tipos de eventos de incidencia](/developers/webhooks-and-events/issue-event-types)". Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos para Solicitudes de Extracción, consulta la sección "<a href="/developers/webhooks-and-events/issue-event-types">Tipos de evento de las Solicitudes de Extracción</a>". Para obtener más información, vea "[API de eventos](/developers/webhooks-and-events/github-event-types)".
+## About the Issue events API
+
+La API de eventos de propuestas puede devolver tipos de eventos diferentes que se desencadenan por la actividad en las propuestas y solicitudes de cambios. For more information about the specific events that you can receive from the Issue events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos para Solicitudes de Extracción, consulta la sección "[Tipos de evento de las Solicitudes de Extracción](/developers/webhooks-and-events/issue-event-types)". Para obtener más información, consulta la "[API de Eventos](/developers/webhooks-and-events/github-event-types)".
 
 {% data reusables.pull_requests.issues-pr-shared-api %}

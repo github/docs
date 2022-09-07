@@ -14,17 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Permanent links to files
-ms.openlocfilehash: 4e3d5ec282f7f7ba820094240698c88e298cdb69
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136464'
+shortTitle: Enlaces permanentes a los archivos
 ---
+
 {% tip %}
 
-**Sugerencia**: Presione "?" en cualquier página de {% data variables.product.product_name %} para ver todos los métodos abreviados de teclado disponibles.
+**Sugerencia**: Presiona "?" en cualquier página en {% data variables.product.product_name %} para ver todos los atajos del teclado disponibles.
 
 {% endtip %}
 
@@ -34,30 +29,30 @@ Cuando ves un archivo en {% data variables.product.product_location %}, por lo g
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-Hace referencia al repositorio `codeql` de GitHub y muestra la versión `main` actual del archivo `README.md` de la rama.
+se refiere al repositorio `codeql` de GitHub, y muestra la versión más reciente de la rama `main` del archivo `README.md`.
 
 La versión de un archivo en el encabezado de una rama puede cambiar cuando se realizan nuevas confirmaciones, por eso si copias la URL normal, el contenido del archivo puede no ser el mismo cuando alguien lo vea más tarde.
 
-## Vínculo permanente a un archivo en una confirmación específica mediante la tecla <kbd>Y</kbd>
+## Presiona <kbd>Y</kbd> para obtener un enlace permanente a un archivo en una confirmación específica
 
-Para crear un vínculo permanente a la versión específica de un archivo que ve, en lugar de usar el nombre de una rama en la dirección URL (p. ej., el elemento `main` en el ejemplo anterior), coloque un identificador de confirmación. Esto creará un vínculo permanente a esa versión exacta del archivo en esa confirmación.  Por ejemplo:
+Para encontrar un enlace permanente a la versión específica de un archivo que veas, en vez de utilizar el nombre de la rama en la URL (por ejemplo, la parte de `main` en el ejemplo anterior), coloca una id de confirmación.  Esto generará un enlace permanente a la versión exacta del archivo en esa confirmación.  Por ejemplo:
 
 * [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-Aquí se reemplaza `main` por el identificador de una confirmación específica y el contenido del archivo no cambiará.
+reemplaza `main` con la id de confirmación específica y el contenido del archivo no cambiará.
 
-Pero buscar el SHA de la confirmación de forma manual es un inconveniente, por lo que, a modo de acceso directo, puede escribir <kbd>y</kbd> para actualizar automáticamente la dirección URL a la versión del vínculo permanente.  Luego puedes copiar la URL sabiendo que todas las personas con quienes la compartas verán exactamente lo mismo que tú viste.
+Buscar de manera manual el SHA de confirmación es muy poco práctico. No obstante, a modo de atajo, puedes escribir <kbd>y</kbd> para actualizar automáticamente la URL para la versión del enlace permanente.  Luego puedes copiar la URL sabiendo que todas las personas con quienes la compartas verán exactamente lo mismo que tú viste.
 
 {% tip %}
 
-**Sugerencia**: Puede colocar cualquier identificador que se pueda resolver en una confirmación en la dirección URL, incluidos los nombres de rama, los SHA de las confirmaciones específicas o las etiquetas.
+**Sugerencia**: Puedes colocar un identificador que se puede resolver para una confirmación en la URL, incluidos los nombres de las ramas, los SHA de confirmación específicos o las etiquetas.
 
 {% endtip %}
 
 ## Crear un enlace permanente a un fragmento de código
 
-Puedes crear un enlace permanente a una línea específica o a un rango de líneas de código en una versión específica de un archivo o de una solicitud de extracción. Para obtener más información, vea "[Creación de un vínculo permanente a un fragmento de código](/articles/creating-a-permanent-link-to-a-code-snippet/)".
+Puedes crear un enlace permanente a una línea específica o a un rango de líneas de código en una versión específica de un archivo o de una solicitud de extracción. Para obtener más información, consulta "[Crear un enlace permanente al fragmento de código](/articles/creating-a-permanent-link-to-a-code-snippet/)".
 
-## Información adicional
+## Leer más
 
-- "[Archivado de un repositorio de GitHub](/articles/archiving-a-github-repository)"
+- "[Archivar un repositorio de GitHub](/articles/archiving-a-github-repository)"

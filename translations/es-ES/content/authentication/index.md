@@ -1,6 +1,6 @@
 ---
-title: Authentication
-intro: 'Mantén la cuenta y los datos seguros con características como {% ifversion not ghae %} la autenticación en dos fases, {% endif %}SSH{% ifversion not ghae %},{% endif %} y la verificación de la firma de comprobación.'
+title: Autenticación
+intro: 'Manten tu cuenta y datos seguros con características como {% ifversion not ghae %}la autenticación bifactoria, {% endif %}SSH{% ifversion not ghae %},{% endif %} y la verificación de firmas de las confirmaciones.'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh
@@ -56,11 +56,5 @@ children:
   - /troubleshooting-ssh
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
-ms.openlocfilehash: b5428934e7300a8e7581b03c7d43d2afd7c600bd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145115058'
 ---
 

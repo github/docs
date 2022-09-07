@@ -1,6 +1,6 @@
 ---
-title: Configuración de la revisión de dependencias
-intro: Puedes usar la revisión de dependencias para detectar vulnerabilidades antes de que se agreguen al proyecto.
+title: Configuring dependency review
+intro: You can use dependency review to catch vulnerabilities before they are added to your project.
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
@@ -14,59 +14,65 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: d032179f1d130509eb81e4629854dada7fd98b4c
-ms.sourcegitcommit: b19e5a6ac3fdc0a72c341f9a09e7a24aac060be9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2022
-ms.locfileid: '147424692'
 ---
+
 {% data reusables.dependency-review.beta %}
 
-## <a name="about-dependency-review"></a>Acerca de la revisión de dependencias
+## Acerca de la revisión de dependencias
 
-{% data reusables.dependency-review.feature-overview %}   
+{% data reusables.dependency-review.feature-overview %}
 
-Para obtener más información, consulta «[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)» y «[Revisión de los cambios de dependencia en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)».
+Para obtener más información, consulta las secciones "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" y "[revisar los cambios a las dependencias en una solicitud de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
-## <a name="about-configuring-dependency-review"></a>Acerca de la configuración de la revisión de dependencias
+## About configuring dependency review
 
-{% ifversion fpt %} La revisión de dependencias está disponible en todos los repositorios públicos de todos los productos y no puede deshabilitarse. La revisión de dependencias está disponible en repositorios privados propiedad de las organizaciones que usan GitHub Enterprise Cloud y que tienen una licencia para [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). Para más información, vea la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
+{% ifversion fpt %}
+La revisión de dependencias está disponible en todos los repositorios públicos con todos los productos y no puede inhabilitarse. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
-{% elsif ghec %} La revisión de dependencias se incluye en {% data variables.product.product_name %} para los repositorios públicos. Para usar la revisión de dependencias en repositorios privados propiedad de las organizaciones, debes tener una licencia para [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) y tener habilitado el gráfico de dependencias.
+{% elsif ghec %}
+La revisión de dependencias se incluye en {% data variables.product.product_name %} para los repositorios públicos. To use dependency review in private repositories owned by organizations, you must have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) and have the dependency graph enabled.
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
-1. Si «{% data variables.product.prodname_GH_advanced_security %}» no está habilitado, haz clic en **Habilitar** junto a la característica.
-   ![Captura de pantalla de la característica de seguridad avanzada de GitHub con el botón «Habilitar» resaltado](/assets/images/help/security/enable-ghas-private-repo.png)
+1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature. ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes %} La revisión de dependencias está disponible cuando el gráfico de dependencias está habilitado para {% data variables.product.product_location %}, y {% data variables.product.prodname_advanced_security %} está habilitado para la organización o el repositorio. Para más información, vea "[Habilitación de {% data variables.product.prodname_GH_advanced_security %} para la empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)".
+{% elsif ghes %}
+La revisión de dependencias se encuentra disponible cuando se habilita la gráfica de dependencias de {% data variables.product.product_location %} y cuando se habilita la {% data variables.product.prodname_advanced_security %} para la organización o el repositorio. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)".
 
-### <a name="checking-if-the-dependency-graph-is-enabled"></a>Comprobación de si el gráfico de dependencias está habilitado
+### Checking if the dependency graph is enabled
 
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. En «Configurar características de seguridad y análisis», comprueba si el gráfico de dependencias está habilitado. 
-1. Si el gráfico de dependencias está habilitado, haz clic en **Habilitar** junto a «{% data variables.product.prodname_GH_advanced_security %}» para habilitar {% data variables.product.prodname_advanced_security %}, incluida la revisión de dependencias. El botón Habilitar está deshabilitado si tu empresa no tiene licencias disponibles para {% data variables.product.prodname_advanced_security %}.{% ifversion ghes < 3.3 %} ![Captura de pantalla de las características «Seguridad y análisis del código»](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %} ![Captura de pantalla de las características de «Seguridad y análisis de código»](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %} {% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Configure security and analysis features", check if the dependency graph is enabled.
+1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. El botón de habilitar está inhabilitado si tu empresa no tiene licencias disponibles para la {% data variables.product.prodname_advanced_security %}.{% ifversion ghes < 3.3 %} ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %} ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+{% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## <a name="configuring-the--data-variablesproductprodname_dependency_review_action-"></a>Configuración de la {% data variables.product.prodname_dependency_review_action %}
+## Configuring the {% data variables.product.prodname_dependency_review_action %}
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %} {% data reusables.dependency-review.dependency-review-action-overview %}
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+{% data reusables.dependency-review.dependency-review-action-overview %}
 
-Están disponibles las siguientes opciones de configuración.
+The following configuration options are available.
 
-| Opción | Obligatorio | Uso |
-|------------------|-------------------------------|--------|
-| `fail-on-severity` | Opcionales | Define el umbral del nivel de gravedad (`low`, `moderate`, `high` y `critical`).</br>La acción generará un error en las solicitudes de incorporación de cambios que introduzcan vulnerabilidades del nivel de gravedad especificado o superior. |
-{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | Opcional | Contiene una lista de licencias permitidas. Encontrarás los valores posibles para este parámetro en la página [Licencias](/rest/licenses) de la documentación de la API.</br>La acción producirá un error en las solicitudes de incorporación de cambios que introducen dependencias con licencias que no coinciden con la lista.{% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` | Opcional | Contiene una lista de licencias prohibidas. Encontrarás los valores posibles para este parámetro en la página [Licencias](/rest/licenses) de la documentación de la API.</br>La acción producirá un error en las solicitudes de incorporación de cambios que introducen dependencias con licencias que coincidan con las de la lista.|{% endif %}
+| Opción             | Requerido | Uso                                                                                                                                                                                                          |
+| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fail-on-severity` | Opcional  | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
 
-{% ifversion dependency-review-action-licenses %} {% tip %}
+{% ifversion dependency-review-action-licenses %}
+{% tip %}
 
-**Sugerencia**: Las opciones `allow-licenses` y `deny-licenses` se excluyen mutuamente.
+**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
-{% endtip %} {% endif %}
+{% endtip %}
+{% endif %}
 
-En este archivo de ejemplo de {% data variables.product.prodname_dependency_review_action %} se muestra cómo se pueden usar estas opciones de configuración.
+This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
 
 ```yaml{:copy}
 name: 'Dependency Review'
@@ -98,5 +104,5 @@ jobs:
 {% endif %}
 ```
 
-Para obtener más información sobre las opciones de configuración, consulta [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

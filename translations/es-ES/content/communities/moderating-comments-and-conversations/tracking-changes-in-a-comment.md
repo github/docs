@@ -11,17 +11,12 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Track comment changes
-ms.openlocfilehash: 7da6b53f9b98ade8ee73411a80aaf2ff3f412700
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092364'
+shortTitle: Rastrear los cambios a los comentarios
 ---
+
 ## Ver detalles del historial de edición de un comentario
 
-Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición de un comentario.
+Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición del comentario.
 
 1. Navega hasta el comentario del que quieres ver el historial de edición.
 {% data reusables.repositories.edited-comment-list %}
@@ -34,11 +29,10 @@ Cuando eliminas información confidencial del historial de edición del comentar
 
 1. Navega hasta el comentario del que quieres eliminar la información confidencial del historial de edición.
 {% data reusables.repositories.edited-comment-list %}
-3. En el margen superior derecho de la ventana del historial de edición, haz clic en **Options** (Opciones). A continuación, haz clic en **Eliminar revisión del historial** para eliminar la diferencia que muestra el contenido que se va a agregar.
-  ![Eliminar detalles de edición de un comentario](/assets/images/help/repository/delete-comment-edit-details.png)
-4. Haz clic en **Aceptar** para confirmar la eliminación.
+3. En el margen superior derecho de la ventana del historial de edición, haz clic en **Options** (Opciones). Luego haz clic en **Delete revision from history** (Eliminar revisión del historial) para eliminar la diferencia que muestra el contenido que se agrega. ![Eliminar detalles de edición de un comentario](/assets/images/help/repository/delete-comment-edit-details.png)
+4. Para confirmar la eliminación, haz clic en **OK**.
 
-## Información adicional
+## Leer más
 
-{% ifversion fpt or ghec %}: "[Informar de abuso o correo no deseado](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
-- "[Edición de un comentario](/articles/editing-a-comment)"
+{% ifversion fpt or ghec %}- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
+- "[Editar un comentario](/articles/editing-a-comment)"

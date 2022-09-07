@@ -1,18 +1,10 @@
----
-ms.openlocfilehash: 059e56c6821926e1d6a604c95dd1fa167de2db6a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145136446"
----
 # REST
 
-En el directorio `/content/rest` se encuentra la documentación de la API REST de GitHub.
+¡El directorio `/content/rest` es donde viven los documentos de la API de REST de GitHub!
 
-* Los directorios `/content/rest/guides` y `/content/rest/overview` contienen artículos convencionales. Estos los puede editar una persona.
-* El directorio `/content/rest/reference` contiene un artículo para cada grupo de puntos de conexión de la API REST de GitHub. La mayor parte del contenido de este directorio se representa mediante etiquetas `include`.
+* Los directorios `/content/rest/guides` y `/content/rest/overview` contienen artículos normales. Estos los puede editar una persona.
+* El directorio `/content/rest/reference` contiene un artículo para cada grupo de terminales en la API de REST de GitHub. La mayoría del contenido en este directorio se procesa utilizando etiquetas de `include`.
 
-  El contenido representado por etiquetas `include` se origina en el directorio `/lib/rest/static`, que se genera automáticamente a partir del código fuente de la API internamente en GitHub, y los usuarios no lo deben editar. Para más información, vea [`/lib/rest/README.md`](/lib/rest/README.md).
+  El contenido que se procesa con las etiquetas de `include` se toma del directorio `/lib/rest/static`, el cual se genera automáticamente desde el código abierto de la API en GitHub y no debe editarlo ninguna persona. Para obtener más información, consulta el archivo [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **No se pueden aceptar cambios en el contenido representado por etiquetas `include`. Pero puede abrir una incidencia que describa los cambios que quiere ver.**
+  **No podemos aceptar cambios al contenido que interpretan las etiquetas de `include`. Sin embargo, puedes abrir una propuesta que describa los cambios que te gustaría ver.**

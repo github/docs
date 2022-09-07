@@ -1,7 +1,7 @@
 ---
-title: Documentación de Codespaces de GitHub
+title: GitHub Codespaces Documentation
 shortTitle: GitHub Codespaces
-intro: 'Crea un codespace o comienza a desarrollar en un ambiente de desarrollo seguro, configurable y dedicado que funciona donde y como tu quieras.'
+intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
@@ -56,11 +56,5 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
-ms.openlocfilehash: 078b2c2ba743f2332ffda5a03ba9b0589cfdd12c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147652633'
 ---
 

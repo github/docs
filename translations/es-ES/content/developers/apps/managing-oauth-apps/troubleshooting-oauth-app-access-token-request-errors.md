@@ -12,23 +12,18 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
-shortTitle: Troubleshoot token request
-ms.openlocfilehash: 7764d0e1f23a3d2dac841412ea0120487c8f6560
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092163'
+shortTitle: Solucionar los problemas de la solicitud de token
 ---
+
 {% note %}
 
-**Nota:** Estos ejemplos solo muestran respuestas JSON.
+**Nota:** Estos ejemplos solo muestran respuestas de JSON.
 
 {% endnote %}
 
 ## Credenciales de cliente incorrectas
 
-Si los valores de client\__id y/o client\_secret que pasas son incorrectos, recibirás este error como respuesta.
+Si la client\_id y/o el client\_secret que pasas son incorrectos, recibirás este error como respuesta.
 
 ```json
 {
@@ -38,11 +33,11 @@ Si los valores de client\__id y/o client\_secret que pasas son incorrectos, reci
 }
 ```
 
-Para resolver este error, asegúrate de que tienes las credenciales correctas para tu {% data variables.product.prodname_oauth_app %}. Comprueba `client_id` y `client_secret` para asegurarte de que son correctos y que se pasan correctamente a {% data variables.product.product_name %}.
+Para resolver este error, asegúrate de que tienes las credenciales correctas para tu {% data variables.product.prodname_oauth_app %}. Revisa dos veces la `client_id` y el `client_secret` para asegurarte de que sean correctos y de que se pasen correctamente en {% data variables.product.product_name %}.
 
 ## Redirigir una discordancia de URI
 
-Si proporcionas un elemento `redirect_uri` que no coincida con lo que registraste con tu {% data variables.product.prodname_oauth_app %}, recibirás este mensaje de error:
+Si proporcionas una `redirect_uri` que no empate con lo que registraste con tu {% data variables.product.prodname_oauth_app %}, recibirás este mensaje de error:
 
 ```json
 {
@@ -52,7 +47,7 @@ Si proporcionas un elemento `redirect_uri` que no coincida con lo que registrast
 }
 ```
 
-Para corregir este error, puedes proporcionar un valor `redirect_uri` que coincida con lo que hayas registrado, o bien excluir este parámetro y usar el predeterminado que hayas registrado con la aplicación.
+Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coincida con lo que registraste o dejar este parámetro para utilizar aquél predeterminado que se registró con tu aplicación.
 
 ## Código de verificación incorrecto
 
@@ -65,7 +60,7 @@ Para corregir este error, puedes proporcionar un valor `redirect_uri` que coinci
 }
 ```
 
-Si el código de verificación que pasaste no es correcto, ha expirado, o no coincide con lo que recibiste en la primera solicitud de autorización, recibirás este error.
+Si el código de verificación que pasaste es incorrecto, está caduco, o no coincide con lo que recibiste en la primera solicitud de autorización, recibirás este error.
 
 ```json
 {
@@ -75,4 +70,4 @@ Si el código de verificación que pasaste no es correcto, ha expirado, o no coi
 }
 ```
 
-Para resolver este error, vuelve a iniciar el [proceso de autorización de OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/) y obtén un nuevo código.
+Para resolver este error, inicia el [proceso de autorización de OAuth nuevamente](/apps/building-oauth-apps/authorizing-oauth-apps/) y obtén un código nuevo.

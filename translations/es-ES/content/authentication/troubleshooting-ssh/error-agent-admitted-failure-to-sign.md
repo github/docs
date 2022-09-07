@@ -1,6 +1,6 @@
 ---
 title: 'Error: El agente admitió una falla para registrarse'
-intro: 'En raras circunstancias, la conexión a {% data variables.product.product_name %} a través de SSH en Linux genera el error `"Agent admitted failure to sign using the key"`. Sigue los pasos siguientes para resolver el problema.'
+intro: 'En circunstancias muy poco frecuentes, al conectarse con {% data variables.product.product_name %} mediante SSH en Linux produce el error "El agente admitió una falla para registrarse usando la clave". Sigue los pasos siguientes para resolver el problema.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -13,14 +13,9 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Agent failure to sign
-ms.openlocfilehash: eceb783df61b403a6b94b8eda84be62e63aa5ead
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145091747'
+shortTitle: El agente no pudo iniciar sesión
 ---
+
 Cuando intentes implementar SSH en {% data variables.product.product_location %} en una computadora con Linux, posiblemente veas el siguiente mensaje en tu terminal:
 
 ```shell
@@ -31,11 +26,11 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-Para más información, vea <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>este informe de incidencias</a>.
+Para conocer más detalles, consulta <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>este informe de propuesta</a>.
 
-## Solución
+## Resolución
 
-Debería poder solucionar este error mediante la carga de las claves en el agente de SSH con `ssh-add`:
+Deberías poder solucionar este error al cargar tus claves en tu agente de SSH con `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background
@@ -46,7 +41,7 @@ $ ssh-add
 > Identity added: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
 ```
 
-Si la clave no tiene el nombre de archivo predeterminado (`/.ssh/id_rsa`), tendrá que pasar esa ruta a `ssh-add`:
+Si tu clave no tiene el nombre de archivo predeterminado (`/.ssh/id_rsa`), deberás pasar esa ruta a `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background

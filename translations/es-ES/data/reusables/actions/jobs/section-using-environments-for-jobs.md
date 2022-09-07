@@ -1,14 +1,6 @@
----
-ms.openlocfilehash: 5b827a2f598a6067ae3c486dbe046effda95bb7f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145092082"
----
-Use `jobs.<job_id>.environment` para definir el entorno al que hace referencia el trabajo. Todas las reglas de protección del ambiente deben pasar antes de que un job que referencie dicho ambiente se envie a un ejecutor. Para más información, vea "[Uso de entornos para la implementación](/actions/deployment/using-environments-for-deployment)".
+Utiliza `jobs.<job_id>.environment` para definir el ambiente al que hace referencia el job. Todas las reglas de protección del ambiente deben pasar antes de que un job que referencie dicho ambiente se envie a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 
-Puede proporcionar el entorno como solo el entorno `name`, o bien como un objeto de entorno con `name` y `url`. La dirección URL se asigna a `environment_url` en la API de implementaciones. Para más información sobre la API de implementaciones, vea "[Implementaciones](/rest/reference/repos#deployments)".
+Puedes proporcionar el ambiente como solo el `name` de éste, o como un objeto de ambiente con el `name` y `url`. La URL mapea hacia `environment_url` en la API de despliegues. Para obtener más información sobre la API de despliegues, consulta la sección "[Despliegues](/rest/reference/repos#deployments)".
 
 ### Ejemplo: Utilizar un solo nombre de ambiente
 {% raw %}
@@ -17,7 +9,7 @@ environment: staging_environment
 ```
 {% endraw %}
 
-### Ejemplo: Uso de un nombre y una URL de entorno
+### Ejemplo: Utilizar una URL y nombre de ambiente
 
 ```yaml
 environment:
@@ -25,9 +17,9 @@ environment:
   url: https://github.com
 ```
 
-La URL puede ser una expresión y puede utilizar cualquier contexto con excepción del [contexto `secrets`](/actions/learn-github-actions/contexts#contexts). Para más información sobre las expresiones, vea "[Expresiones](/actions/learn-github-actions/expressions)".
+La URL puede ser una expresión y puede utilizar cualquier contexto, excepto el de [`secrets`](/actions/learn-github-actions/contexts#contexts). Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
-### Ejemplo: Uso de la salida como dirección URL
+### Ejemplo: Utilizar una salida como URL
 {% raw %}
 ```yaml
 environment:

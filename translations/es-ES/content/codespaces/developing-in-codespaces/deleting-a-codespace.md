@@ -1,6 +1,6 @@
 ---
-title: Borrar un codespace
-intro: Puedes borrar un codespace que ya no necesites.
+title: Deleting a codespace
+intro: You can delete a codespace you no longer need.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
@@ -14,30 +14,27 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: b55d350e439953defac182eae23423b839ff7cf7
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145126103'
 ---
+
+
+
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
 {% note %}
 
-**Nota:** Solo el usuario que ha creado un codespace puede eliminarlo. Actualmente no hay forma de que los propietarios de las organizaciones borren los codespaces que se crearon dentro de su organización.
+**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
 
 {% endnote %}
 
-## <a name="deleting-a-codespace"></a>Borrar un codespace
+## Deleting a codespace
 
 {% webui %}
 
-1. Vaya a la página "Sus codespaces" en [github.com/codespaces](https://github.com/codespaces).
+1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
 
-2. A la derecha del codespace que quiera eliminar, haga clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y después en **{% octicon "trash" aria-label="The trash icon" %} Eliminar**
+2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
-   ![Botón Eliminar](/assets/images/help/codespaces/delete-codespace.png)
+   ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 
@@ -52,48 +49,48 @@ ms.locfileid: '145126103'
 
 {% data reusables.cli.cli-learn-more %}
 
-Para eliminar un codespace, use el subcomando `gh codespace delete` y, después, elija un codespace en la lista que se muestra.
+To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
 
 ```shell
 gh codespace delete
 ```
 
-Si tienes cambios sin guardar, se te pedirá confirmar el borrado. Puede usar la marca `--force` para forzar la eliminación y evitar este aviso.
+If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `--force` flag to force deletion, avoiding this prompt.
 
-Para más información sobre este comando, vea [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
 
-## <a name="bulk-deleting-codespaces"></a>Eliminación masiva de codespaces
+## Bulk deleting codespaces
 
 {% webui %}
 
-Puedes usar {% data variables.product.prodname_cli %} para eliminar varios o todos los codespaces con un solo comando. Para obtener más información, haz clic en la pestaña **{% data variables.product.prodname_cli %}** que se encuentra cerca de la parte superior de esta página.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
 
 {% endwebui %}
 
 {% vscode %}
 
-Puedes usar {% data variables.product.prodname_cli %} para eliminar varios codespaces con un solo comando, o todos ellos. Para obtener más información, haz clic en la pestaña **{% data variables.product.prodname_cli %}** que se encuentra cerca de la parte superior de esta página.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
 
 {% endvscode %}
 
 
 {% cli %}
 
-Puedes eliminar varios codespaces, o todos ellos, con un solo comando mediante `gh codespace delete` seguido de una de estas marcas:
+You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:
 
-`--all`: elimina todos los codespaces.
+`--all` - Delete all of your codespaces.
 
-`--repo REPOSITORY`: elimina todos los codespaces de este repositorio. O bien, úsalo junto con la marca `--days` para filtrar por antigüedad del codespace.
+`--repo REPOSITORY` - Delete all of your codespaces for this repository. Or use together with the `--days` flag to filter by age of the codespace.
 
-`--days NUMBER`: elimina todos los codespaces anteriores al número de días especificado. Se puede usar junto con la marca `--repo`.
+`--days NUMBER` - Delete all of your codespaces that are older than the specified number of days. Can be used together with the `--repo` flag.
 
-De manera predeterminada, se te pedirá que confirmes la eliminación de los codespaces que contengan cambios no guardados. Puedes usar la marca `--force` para omitir esta confirmación. 
+By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation. 
 
-### <a name="example"></a>Ejemplo
+### Example
 
-Elimina todos los codespaces del repositorio `octo-org/octo-repo` que has creado hace más de 7 días.
+Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
 ```
 gh cs delete --repo octo-org/octo-repo --days 7
@@ -101,5 +98,5 @@ gh cs delete --repo octo-org/octo-repo --days 7
 
 {% endcli %}
 
-## <a name="further-reading"></a>Información adicional
-- [Ciclo de vida de Codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+## Further reading
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)

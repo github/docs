@@ -12,18 +12,17 @@ topics:
   - Contacting sponsors
   - Privacy
   - Open Source
-ms.openlocfilehash: 24f2e13d2ab55abb7c43aa52ddf641b45772d76f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140178'
 ---
+
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
 ## Administrar la configuración de privacidad para tu patrocinio
 
-{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.manage-sponsorship %} {% data reusables.sponsors.who-can-see-your-sponsorship %} {% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.manage-sponsorship %}
+{% data reusables.sponsors.who-can-see-your-sponsorship %}
+{% data reusables.sponsors.update-sponsorship %}
 
 ## Administrar las actualizaciones de correo electrónico para tu patrocinio
 
@@ -31,9 +30,13 @@ Puedes elegir si una cuenta que patrocinas puede enviarte actualizaciones por co
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.manage-sponsorship %} {% data reusables.sponsors.choose-updates %} {% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.manage-sponsorship %}
+{% data reusables.sponsors.choose-updates %}
+{% data reusables.sponsors.update-sponsorship %}
 
-## Información adicional
+## Leer más
 
-- "[Actualizar un patrocinador](/articles/upgrading-a-sponsorship)"
-- "[Cambiar a una versión anterior a un patrocinador](/articles/downgrading-a-sponsorship)"
+- "[Mejorar un patrocinio](/articles/upgrading-a-sponsorship)"
+- "[Degradar un patrocinio](/articles/downgrading-a-sponsorship)"

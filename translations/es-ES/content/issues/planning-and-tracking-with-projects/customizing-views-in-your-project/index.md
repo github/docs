@@ -1,7 +1,7 @@
 ---
-title: 'Personalización de vistas en las instancias de {% data variables.projects.project_v2 %}'
+title: 'Customizing views in your {% data variables.projects.project_v2 %}'
 shortTitle: Customizing views
-intro: 'Puedes crear varias vistas para examinar el proyecto desde distintos ángulos, decidir qué elementos mostrar y cómo presentarlos.'
+intro: 'You can create multiple views to look at your project from different angles, deciding which items to show and how to present them.'
 versions:
   feature: projects-v2
 topics:
@@ -12,11 +12,5 @@ children:
   - /filtering-projects
   - /managing-your-views
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: c5a7f7f8aff5ab61a4711f6fbb30f64cf9fea002
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424419'
 ---
 

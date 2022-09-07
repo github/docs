@@ -1,20 +1,9 @@
----
-ms.openlocfilehash: 55be1692eaf41dbee91aa298eeb9a969e5b91b42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147549080"
----
 {%- ifversion custom-pattern-dry-run-ga %}
-1. Seleccione los repositorios en los que desea realizar el simulacro.
-   * Para realizar el simulacro en toda la organización, seleccione **Todos los repositorios de la organización**.
-   ![Captura de pantalla en la que se muestran los repositorios seleccionados para el simulacro](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-all-repos.png)
-   * Para especificar los repositorios en los que desea realizar el simulacro, seleccione **Repositorios seleccionados**, busque y seleccione hasta 10 repositorios.
-   ![Captura de pantalla en la que se muestran los repositorios seleccionados para el simulacro](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repos-option.png)
-1. Cuando tenga todo listo para probar el nuevo patrón personalizado, haga clic en **Ejecutar**.
+1. Select the repositories where you want to perform the dry run.
+   * To perform the dry run across the entire organization, select **All repositories in the organization**. ![Screenshot showing repositories selected for the dry run](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-all-repos.png)
+   * To specify the repositories where you want to perform the dry run, select **Selected repositories**, then search for and select up to 10 repositories. ![Screenshot showing repositories selected for the dry run](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repos-option.png)
+1. When you're ready to test your new custom pattern, click **Run**.
 {%- else %}
-1. Busca y selecciona hasta 10 repositorios en los que quieras realizar el simulacro.
-   ![Captura de pantalla en la que se muestran los repositorios seleccionados para el simulacro](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. Cuando estés listo para probar el nuevo patrón personalizado, haz clic en **Simulacro**.
+1. Search for and select up to 10 repositories where you want to perform the dry run. ![Screenshot showing repositories selected for the dry run](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
+1. Cuando estés listo para probar tu nuevo patrón personalizado, haz clic en **Simulacro**.
 {%- endif %}

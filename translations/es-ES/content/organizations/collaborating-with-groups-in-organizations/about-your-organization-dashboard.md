@@ -12,14 +12,9 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organization dashboard
-ms.openlocfilehash: c5f25d589e7b640fa411cd26f004961081c9d8e8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135252'
+shortTitle: Tablero de la organización
 ---
+
 ## Acceder al tablero de tu organización
 
 {% data reusables.dashboard.access-org-dashboard %}
@@ -40,7 +35,7 @@ En la barra lateral izquierda de tu tablero, puedes acceder a los principales re
 
 En la sección "All activity" (Toda la actividad) de tus noticias, puedes ver actualizaciones de otros equipos y repositorios en tu organización.
 
-La sección "All activity" (Toda la actividad) muestra toda la actividad reciente en la organización, incluida la actividad en los repositorios a los que no estás suscrito y de las personas que no sigues. Para obtener más información, consulta "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" y "[Seguimiento de personas](/articles/following-people)".
+La sección "All activity" (Toda la actividad) muestra toda la actividad reciente en la organización, incluida la actividad en los repositorios a los que no estás suscrito y de las personas que no sigues. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" y "[Seguir a las personas](/articles/following-people)".
 
 Por ejemplo, las noticias de la organización muestran actualizaciones cuando alguien en la organización:
  - Crea una rama nueva.
@@ -48,9 +43,9 @@ Por ejemplo, las noticias de la organización muestran actualizaciones cuando al
  - Envía un comentario de revisión de solicitud de extracción.
  - Bifurca un repositorio.
  - Crea una página wiki.
- - Inserta confirmaciones. {% ifversion fpt or ghes or ghec %}
+ - Sube las confirmaciones.{% ifversion fpt or ghes or ghec %}
  - Crea un repositorio público.{% endif %}
 
-## Más información
+## Información adicional
 
-- "[Acerca de su tablero personal](/articles/about-your-personal-dashboard)"
+- "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)"

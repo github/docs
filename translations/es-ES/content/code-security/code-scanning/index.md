@@ -1,6 +1,6 @@
 ---
 title: Encontrar errores y vulnerabilidades de seguridad en tu código con el escaneo de código
-shortTitle: Code scanning
+shortTitle: Escaneo de código
 intro: 'Mantén tu código seguro utilizando el {% data variables.product.prodname_code_scanning %} para identificar y arreglar vulnerabilidades de seguridad potenciales y otros errores en tu código.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -20,11 +20,5 @@ children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
   - /integrating-with-code-scanning
   - /using-codeql-code-scanning-with-your-existing-ci-system
-ms.openlocfilehash: 5957996adfd4caa94fdecd9a4e13c066e7270bc0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145116833'
 ---
 

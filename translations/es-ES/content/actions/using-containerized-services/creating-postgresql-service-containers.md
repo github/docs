@@ -1,6 +1,6 @@
 ---
 title: Crear contenedores de servicios PostgreSQL
-shortTitle: PostgreSQL service containers
+shortTitle: Contenedores de servicio de PostgreSQL
 intro: 'Puedes crear un contenedor de servicios PostgreSQL para usar en tu flujo de trabajo. En esta guía se muestran ejemplos de cómo crear un servicio PostgreSQL para trabajos que se ejecutan en contenedores o, directamente, en la máquina del ejecutor.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
@@ -15,18 +15,14 @@ type: tutorial
 topics:
   - Containers
   - Docker
-ms.openlocfilehash: 9d5ad3e32e5df22101b61aa7ba134e7fe69333e5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145121114'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
-En esta guía se muestran ejemplos de flujo de trabajo que configuran un contenedor de servicios mediante la imagen `postgres` de Docker Hub. El flujo de trabajo ejecuta un script que se conecta con el servicio de PostgreSQL, crea una tabla y luego la llena de datos. Para probar que el flujo de trabajo crea y puebla la tabla de PostgreSQL, el script imprimie los datos de esta en la consola.
+En esta guía se muestran ejemplos de flujos de trabajo que configuran un contenedor de servicios mediante la imagen `postgres` de Docker Hub. El flujo de trabajo ejecuta un script que se conecta con el servicio de PostgreSQL, crea una tabla y luego la llena de datos. Para probar que el flujo de trabajo crea y puebla la tabla de PostgreSQL, el script imprimie los datos de esta en la consola.
 
 {% data reusables.actions.docker-container-os-support %}
 
@@ -34,9 +30,9 @@ En esta guía se muestran ejemplos de flujo de trabajo que configuran un contene
 
 {% data reusables.actions.service-container-prereqs %}
 
-También puede ser útil tener un conocimiento básico de YAML, la sintaxis para las {% data variables.product.prodname_actions %}, y de PostgreSQL. Para más información, consulte:
+También puede ser útil tener un conocimiento básico de YAML, la sintaxis para las {% data variables.product.prodname_actions %}, y de PostgreSQL. Para obtener más información, consulta:
 
-- "[Más información sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 - "[Tutorial de PostgreSQL](https://www.postgresqltutorial.com/)" en la documentación de PostgreSQL
 
 ## Ejecutar trabajos en contenedores
@@ -89,13 +85,13 @@ jobs:
         run: node client.js
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
-          # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: postgres
-          # The default PostgreSQL port
+          # Nombre del host utilizado para comunicarse con el contenedor de servicios PostgreSQL
+          POSTGRES_HOST: Postgres
+          # Puerto PostgreSQL predeterminado
           POSTGRES_PORT: 5432
 ```
 
-### Configurar el trabajo del ejecutor
+### Configurar el trabajo del ejecutador
 
 {% data reusables.actions.service-container-host %}
 
@@ -103,25 +99,20 @@ jobs:
 
 ```yaml{:copy}
 jobs:
-  # Label of the container job
+  # Etiqueta del trabajo del contenedor
   container-job:
-    # Containers must run in Linux based operating systems
+    # Los contenedores deben ejecutarse en sistemas operativos basados en Linux
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    # Imagen de Docker Hub que `container-job` ejecuta en el contenedor: node:10.18-jessie
 
-    # Service containers to run with `container-job`
-    services:
-      # Label used to access the service container
-      postgres:
-        # Docker Hub image
-        image: postgres
-        # Provide the password for postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
+    # Contenedores de servicios para ejecutar con servicios de `container-job`:
+      # Etiqueta utilizada para acceder al contenedor de servicios
+      redis:
+        # Imagen de Docker Hub
+        image: redis
+        # Establece revisiones de estado para esperar hasta que Redis inicie las
+        opciones: >-
+          --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -149,19 +140,19 @@ steps:
     # Environment variable used by the `client.js` script to create
     # a new PostgreSQL client.
     env:
-      # The hostname used to communicate with the PostgreSQL service container
-      POSTGRES_HOST: postgres
-      # The default PostgreSQL port
+      # Nombre del host utilizado para comunicarse con el contenedor de servicios PostgreSQL
+      POSTGRES_HOST: Postgres
+      # Puerto PostgreSQL predeterminado
       POSTGRES_PORT: 5432
 ```
 
 {% data reusables.actions.postgres-environment-variables %}
 
-El nombre de host del servicio PostgreSQL es la etiqueta que configuró en su flujo de trabajo, en este caso, `postgres`. Dado que los contenedores de Docker de la misma red de puentes definida por el usuario abren todos los puertos por defecto, podrás acceder al contenedor de servicios en el puerto 5432 PostgreSQL predeterminado.
+El nombre del host del servicio PostgreSQL es la etiqueta que configuraste en tu flujo de trabajo, en este caso, `postgres`. Dado que los contenedores de Docker de la misma red de puentes definida por el usuario abren todos los puertos por defecto, podrás acceder al contenedor de servicios en el puerto 5432 PostgreSQL predeterminado.
 
 ## Ejecutar trabajos directamente en la máquina del ejecutor
 
-Cuando ejecutes un trabajo directamente en la máquina del ejecutor, deberás asignar los puertos del contenedor de servicios a los puertos del host de Docker. Puede acceder a los contenedores de servicios desde el host de Docker mediante `localhost` y el número de puerto del host de Docker.
+Cuando ejecutes un trabajo directamente en la máquina del ejecutor, deberás asignar los puertos del contenedor de servicios a los puertos del host de Docker. Puedes acceder a los contenedores de servicios desde el host de Docker utilizando `localhost` y el número de puerto del host de Docker.
 
 {% data reusables.actions.copy-workflow-file %}
 
@@ -211,45 +202,44 @@ jobs:
         # Environment variables used by the `client.js` script to create
         # a new PostgreSQL table.
         env:
-          # The hostname used to communicate with the PostgreSQL service container
+          # Nombre del host utilizado para comunicarse con el contenedor de servicios PostgreSQL
           POSTGRES_HOST: localhost
-          # The default PostgreSQL port
+          # Puerto PostgreSQL predeterminado
           POSTGRES_PORT: 5432
 ```
 
-### Configurar el trabajo del ejecutor
+### Configurar el trabajo del ejecutador
 
 {% data reusables.actions.service-container-host-runner %}
 
 {% data reusables.actions.postgres-label-description %}
 
-El flujo de trabajo asigna el puerto 5432 del contenedor de servicios PostgreSQL al host de Docker. Para obtener más información sobre la palabra clave `ports`, consulte "[Acerca de los contenedores de servicios](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
+El flujo de trabajo asigna el puerto 5432 del contenedor de servicios PostgreSQL al host de Docker. Para obtener más información acerca de la palabra clave `ports`, consulta "[Acerca de los contenedores de servicio](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
 ```yaml{:copy}
 jobs:
-  # Label of the runner job
-  runner-job:
-    # You must use a Linux environment when using service containers or container jobs
+  # Etiqueta del trabajo del ejecutador
+  Runner-Job:
+    # Debes usar un entorno Linux cuando uses contenedores de servicios o trabajos del contenedor
     runs-on: ubuntu-latest
 
-    # Service containers to run with `runner-job`
-    services:
-      # Label used to access the service container
-      postgres:
-        # Docker Hub image
+    # Contenedores de servicios para ejecutar con servicios 'runner-job':
+      # Etiqueta usada para acceder al contenedor de servicios
+      Postgres:
+        # Imagen de Docker Hub
         image: postgres
-        # Provide the password for postgres
-        env:
+        # Proporciona la contraseña para postgres
+        Env:
           POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
+        # Establece chequeos de estado para esperar hasta que postgres inicie las
+        opciones: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          # Maps tcp port 5432 on service container to the host
-          - 5432:5432
+        Ports:
+          # Asigna el puerto tcp 5432 del contenedor de servicios al host
+          -5432:5432
 ```
 
 ### Configurar los pasos
@@ -274,9 +264,9 @@ steps:
     # Environment variables used by the `client.js` script to create
     # a new PostgreSQL table.
     env:
-      # The hostname used to communicate with the PostgreSQL service container
+      # Nombre del host utilizado para comunicarse con el contenedor de servicios PostgreSQL
       POSTGRES_HOST: localhost
-      # The default PostgreSQL port
+      # Puerto PostgreSQL predeterminado
       POSTGRES_PORT: 5432
 ```
 
@@ -286,9 +276,9 @@ steps:
 
 ## Probar el contenedor de servicios de PostgreSQL
 
-Puedes probar tu flujo de trabajo utilizando el siguiente script, el cual se conecta con el servicio de PostgreSQL y agrega una tabla nueva con algunos datos de marcador de posición. Entonces, el script imprime los valores almacenados en la tabla de PostgreSQL en la terminal. Su script puede usar el lenguaje que quiera, pero en este ejemplo se usa Node.js y el módulo npm `pg`. Para obtener más información, consulte el [módulo npm pg](https://www.npmjs.com/package/pg).
+Puedes probar tu flujo de trabajo utilizando el siguiente script, el cual se conecta con el servicio de PostgreSQL y agrega una tabla nueva con algunos datos de marcador de posición. Entonces, el script imprime los valores almacenados en la tabla de PostgreSQL en la terminal. Tu script puede usar el lenguaje que quieras, pero este ejemplo usa Node.js y el módulo npm de `pg`. Para obtener más información, consulta el [módulo npm de pg](https://www.npmjs.com/package/pg).
 
-Puede modificar *client.js* para incluir las operaciones de PostgreSQL necesarias para el flujo de trabajo. En este ejemplo, el script se conecta al servicio PostgreSQL, agrega la tabla a la base de datos de `postgres`, inserta algunos datos de marcador de posición y recupera los datos.
+Puedes modificar *client.js* para incluir cualquier operación de PostgreSQL que necesite tu flujo de trabajo. En este ejemplo, el script se conecta al servicio de PostgreSQL, agrega la tabla a la base de datos de `postgres`, inserta algunos datos de marcador de posición y luego recupera los datos.
 
 {% data reusables.actions.service-container-add-script %}
 
@@ -324,9 +314,9 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-El script crea una nueva conexión con el servicio PostgreSQL y usa las variables de entorno `POSTGRES_HOST` y `POSTGRES_PORT` para especificar la dirección IP y el puerto del servicio PostgreSQL. Si `host` y `port` no están definidos, el host predeterminado es `localhost` y el puerto predeterminado es 5432.
+El script crea una conexión nueva con el servicio de PostgreSQL y utiliza las variables de ambiente `POSTGRES_HOST` y `POSTGRES_PORT` para especificar el puerto y dirección IP del servicio de PostgreSQL. Si `host` y `port` no están definidos, el host predeterminado es `localhost` y el puerto predeterminado es 5432.
 
-El script crea una tabla y la rellena con datos de marcador de posición. Para probar que la base de datos de `postgres` contiene los datos, el script imprime el contenido de la tabla en el registro de la consola.
+El script crea una tabla y la rellena con datos de marcador de posición. Para probar que la base de datos de `postgres` contenga los datos, el script imprime el contenido de la tabla en la bitácora de la consola.
 
 Cuando ejecutas este flujo de trabajo, debes ver la siguiente salida en el paso de "Connect to PostgreSQL", la cual te confirma que creaste exitosamente la tabla de PostgreSQL y agregaste los datos:
 

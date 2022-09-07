@@ -6,19 +6,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Example workflows
-ms.openlocfilehash: 7fea4fc0be69505843fb0857338fc7f6d6be555e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140493'
+shortTitle: Flujos de trabajo de ejemplo
 ---
-{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-Puede encontrar flujos de trabajo de ejemplo en "[Publicación e instalación de un paquete con {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" o en cualquiera de estas guías de {% data variables.product.prodname_actions %}:
+{% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
-  - [Publicación de paquetes de Node.js](/actions/guides/publishing-nodejs-packages)
-  - [Publicación de imágenes de Docker](/actions/guides/publishing-docker-images)
-  - [Publicación de paquetes de Java con Maven](/actions/guides/publishing-java-packages-with-maven)
-  - [Publicación de paquetes de Java con Gradle](/actions/guides/publishing-java-packages-with-gradle)
+Puedes encontrar flujos de trabajo de ejemplo en la sección "[Publicar e instalar un paquete con {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" o en cualquiera de estas guías de {% data variables.product.prodname_actions %}:
+
+  - [Publicar paquetes Node.js](/actions/guides/publishing-nodejs-packages)
+  - [Publicar imágenes de Docker](/actions/guides/publishing-docker-images)
+  - [Publicar paquetes Java con Maven](/actions/guides/publishing-java-packages-with-maven)
+  - [Publicar paquetes Java con Gradle](/actions/guides/publishing-java-packages-with-gradle)

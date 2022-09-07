@@ -13,25 +13,20 @@ redirect_from:
   - /github/getting-started-with-github/github-cli
   - /github/getting-started-with-github/using-github/github-cli
   - /actions/guides/managing-github-actions-with-github-cli
-ms.openlocfilehash: b467665eb07ef3f67716af9c47839cf52447d716
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145069795'
 ---
-## Acerca de la {% data variables.product.prodname_cli %}
+
+## Acerca de {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %}
 
 {% data reusables.cli.cli-features %}
 
-Para obtener más información acerca de lo que puede hacer con la {% data variables.product.prodname_cli %}, vea el [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
+Para obtener más información acerca de lo que puedes hacer con {% data variables.product.prodname_cli %}, consulta el [{% data variables.product.prodname_cli %}manual](https://cli.github.com/manual).
 
-## Instalar la {% data variables.product.prodname_cli %}
+## Instalar {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
 
-## Compartir la retroalimentación
+## Compartir retroalimentación
 
-Si tiene comentarios o solicitudes de características, puede abrir una incidencia en el [repositorio `cli/cli`](https://github.com/cli/cli).
+Si tienes retroalimentación o solicitudes de características, puedes abrir un informe de problemas en el [repositorio `cli/cli`](https://github.com/cli/cli).

@@ -9,24 +9,19 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 327d47eeee98a2b8a3fd5e1a7a07ae671c691686
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147064302'
 ---
-## Acerca de Feeds API
 
-Para ver qué fuentes están disponibles, usa la operación [Obtener fuentes](#get-feeds). Después, puedes obtener una fuente enviando una solicitud a una de las direcciones URL de la fuente.
+## Acerca de la API de fuentes
+
+Para ver qué fuentes están disponibles para ti, utiliza la operación [Obtener fuentes](#get-feeds). Entonces, podrás obtener una fuente enviando una solicitud a una de las URL de fuentes.
 
 ### Ejemplo de obtención de un canal de Atom
 
-Para obtener una fuente en formato Atom, debe especificar el tipo `application/atom+xml` en el encabezado `Accept`. Por ejemplo, para obtener un canal de Atom para las asesorías de seguridad de GitHub:
+Para obtener un canal en formato de Atom, debes especificar el tipo `application/atom+xml` en el encabezado `Accept`. Por ejemplo, para obtener un canal de Atom para las asesorías de seguridad de GitHub:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### Response
+#### Respuesta
 
 ```shell
 HTTP/2 200

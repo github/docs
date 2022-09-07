@@ -1,60 +1,49 @@
 ---
-title: "Configuración de GitHub\_Copilot en Visual\_Studio"
-intro: 'Puede habilitar, configurar y deshabilitar {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}.'
+title: Configuring GitHub Copilot in Visual Studio
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147786033'
 ---
-## Sobre {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}
 
-Si usas {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} puede autocompletar el código mientras escribes. Después de la instalación, puede habilitar o deshabilitar {% data variables.product.prodname_copilot %}, y configurar opciones avanzadas en {% data variables.product.prodname_vs %} o en {% data variables.product.prodname_dotcom_the_website %}.
+## Acerca de los {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}
+
+If you use {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vs %} or on {% data variables.product.prodname_dotcom_the_website %}.
 
 ## Prerrequisitos
 
-Para configurar {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}, hay que instalar el complemento {% data variables.product.prodname_copilot %}. Para más información, ve "[Introducción a {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)".
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
 
-## Métodos abreviados de teclado para {% data variables.product.prodname_copilot %}
+## Atajos de teclado para el {% data variables.product.prodname_copilot %}
 
-Puedes usar los métodos abreviados de teclado predeterminados en {% data variables.product.prodname_vs %} al usar {% data variables.product.prodname_copilot %}. Como alternativa, puedes volver a enlazar los accesos directos en la configuración herramientas de {% data variables.product.prodname_vs %} mediante los métodos abreviados de teclado preferidos para cada comando específico. Puedes buscar cada método abreviado de teclado por su nombre de comando en el editor de Métodos abreviados de teclado.
+You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
 
-| Acción | Acceso directo | Nombre de comando |
-|:---|:---|:---|
-|Mostrar la sugerencia insertada siguiente|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
-|Mostrar sugerencia insertada anterior|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
-|Desencadenar sugerencia insertada|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
+| Acción                                              | Atajo                                        | Nombre del comando                   |
+|:--------------------------------------------------- |:-------------------------------------------- |:------------------------------------ |
+| Mostrar la siguiente sugerencia dentro de una línea | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
+| Mostrar la sugerencia anterior en la línea          | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
+| Activar las sugerencias dentro de las líneas        | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
 
-## Reenlazamiento de métodos abreviados de teclado
+## Atajos de teclado revinculantes
 
-Si no quieres usar los métodos abreviados de teclado predeterminados en {% data variables.product.prodname_vs %} al usar datos {% data variables.product.prodname_copilot %}, puedes volver a enlazar los métodos abreviados de teclado en el editor de Teclado y usar tus preferidos para cada comando específico.
+If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
-1. En la barra de herramientas de {% data variables.product.prodname_vs %}, en **Herramientas**, haz clic en **Opciones**.
-   ![Captura de pantalla de la opción Opciones en la barra de herramientas de {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
-1. En el cuadro de diálogo "Opciones", en **Entorno**, haz clic en **Teclado**.
-   ![Captura de pantalla de la opción Teclado en el cuadro de diálogo "Opciones"](/assets/images/help/copilot/vs-options-dialogue.png)
-1. En "Mostrar los comandos que contengan:", busca el comando que quieres volver a enlazar.
-   ![Captura de pantalla de la barra de búsqueda Mostrar los comandos que contengan](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. En "Presionar las teclas de método abreviado", escribe el método abreviado que quieres asignar al comando y, después, haz clic en **Asignar**.
-   ![Captura de pantalla de la asignación de método abreviado de teclado](/assets/images/help/copilot/vs-rebind-shortcut.png)
+1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**. ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the "Options" dialog, under **Environment**, click **Keyboard**. ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
+1. Under "Show commands containing:", search for the command you want to rebind. ![Screenshot of the show commands containing searchbar](/assets/images/help/copilot/vs-show-commands-containing.png)
+1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**. ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
-## Configuración de ReSharper para {% data variables.product.prodname_copilot %}
+## Configuring ReSharper for {% data variables.product.prodname_copilot %}
 
-Si se usa ReSharper, {% data variables.product.prodname_copilot %} puede funcionar mejor al configurar ReSharper para usar IntelliSense nativo de {% data variables.product.prodname_copilot %}. Para más información sobre ReSharper, consulta la [documentación de ReSharper](https://www.jetbrains.com/resharper/documentation/documentation.html)
+If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. En la barra de herramientas de {% data variables.product.prodname_vs %}, en **Herramientas**, haz clic en **Opciones**.
-   ![Captura de pantalla de la opción Opciones en la barra de herramientas de {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
-1. En el cuadro de diálogo "Opciones", en **Entorno**, haz clic en **IntelliSense** y, después, en **General**.
-    ![Captura de pantalla de la opción IntelliSense en el cuadro de diálogo "Opciones"](/assets/images/help/copilot/vs-options-intellisense.png)
-1. En "General", selecciona **Visual Studio** y, después, **Guardar**.
+1. En la barra de herramientas de {% data variables.product.prodname_vs %}, debajo de **Herramientas**, haz clic en **Opciones**. ![Captura de pantalla de la opción de "Opciones" en la barra de herramientas de {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**. ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
+1. Under "General" select **Visual Studio** and then click **Save**.
 
 {% data reusables.copilot.dotcom-settings %}

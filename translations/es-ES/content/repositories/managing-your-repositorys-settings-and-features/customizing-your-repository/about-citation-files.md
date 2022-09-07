@@ -1,6 +1,6 @@
 ---
-title: Acerca de los archivos de CITATION
-intro: Puedes agregar un archivo de CITATION a tu repositorio para ayudar a que los usuarios citen tu software correctamente.
+title: About CITATION files
+intro: You can add a CITATION file to your repository to help users correctly cite your software.
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files
 versions:
@@ -10,18 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 2f7869e9218679c3c18c3182b15835bcd24e134d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145193806'
 ---
-## Acerca de los archivos de CITATION
+## About CITATION files
 
-Puede agregar un archivo `CITATION.cff` a la raíz de un repositorio para que otros usuarios sepan cómo le gustaría que citaran su trabajo. El formato de archivo de cita es texto simple con información de cita legible para humanos y máquinas.
+You can add a `CITATION.cff` file to the root of a repository to let others know how you would like them to cite your work. The citation file format is plain text with human- and machine-readable citation information.
 
-Archivo `CITATION.cff` de ejemplo:
+Example `CITATION.cff` file:
 
 ```
 cff-version: 1.2.0
@@ -40,7 +34,7 @@ date-released: 2017-12-18
 url: "https://github.com/github/linguist"
 ```
 
-El mensaje de cita de GitHub en el repositorio mostrará el contenido de `CITATION.cff` de ejemplo en estos formatos:
+The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
 
 **APA**
 
@@ -64,35 +58,35 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Tenga en cuenta que en el ejemplo anterior se genera una cita de _software_ (es decir, tipo `@software` en BibTeX en lugar de `@article`).
+Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
 
-Para más información, vea el sitio web [Citation File Format](https://citation-file-format.github.io/).
+For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
 
-Al agregar un archivo `CITATION.cff` a la rama predeterminada del repositorio, se enlaza automáticamente desde la página de aterrizaje del repositorio. Esto hace fácil que otros usuarios citen tu proyecto de software, utilizando la información que proporcionaste.
+When you add a `CITATION.cff` file to the default branch of your repository, it is automatically linked from the repository landing page. This makes it easy for other users to cite your software project, using the information you've provided.
 
-![Enlaze de cita en la página de inicio de un repositorio](/assets/images/help/repository/citation-link.png)
+![Citation link on repository landing page](/assets/images/help/repository/citation-link.png)
 
-## Citar algo que no sea software
+## Citing something other than software
 
-Si prefiere que la información de cita de {% data variables.product.prodname_dotcom %} se vincule a otro recurso como un artículo de investigación, puede utilizar la invalidación de `preferred-citation` en CFF con los siguientes tipos.
+If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-| Resource | Tipo CFF | Tipo BibTeX | Anotación APA |
+| Resource | CFF type | BibTeX type | APA annotation |
 |----------|----------|-------------|----------------|
-| Artículo de revista | `article` | `@article` | |
+| Journal article/paper | `article` | `@article` | |
 | Book | `book` | `@book` | |
-| Folleto (lligado pero no publicado) | `pamphlet` | `@booklet` | |
-| Arículo de conferencia/revista | `conference-paper` | `@inproceedings` | [Artículo de conferencia] |
-| Memorias de una conferencia | `conference`, `proceedings` | `@proceedings` | |
-| Conjunto de datos | `data`, `database` | `@misc` | [Conjunto de datos] |
-| Artículo de revista | `magazine-article` | `@article` | |
+| Booklet (bound but not published) | `pamphlet` | `@booklet` | |
+| Conference article/paper | `conference-paper` | `@inproceedings` | [Conference paper] |
+| Conference proceedings | `conference`, `proceedings` | `@proceedings` | |
+| Data set | `data`, `database` | `@misc` | [Data set] |
+| Magazine article | `magazine-article` | `@article` | |
 | Manual | `manual` | `@manual` | |
-| Misceláneo/genérico/otro | `generic`, cualquier otro tipo de CFF | `@misc` | |
-| Artículo de periódico | `newspaper-article` | `@article` | |
-| Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Software de cómputo] |
-| Reporte/reporte técnico | `report` | `@techreport` | |
-| Publicación anulada | `unpublished` | `@unpublished` | |
+| Misc/generic/other | `generic`, any other CFF type | `@misc` | |
+| Newspaper article | `newspaper-article` | `@article` | |
+| Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Computer software] |
+| Report/technical report | `report` | `@techreport` | |
+| Unpublished | `unpublished` | `@unpublished` | |
 
-Archivo de CITATION.cff extendido que describe el software, pero vincula a un artículo de investigación como la cita preferida:
+Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
 ```
 cff-version: 1.2.0
@@ -129,7 +123,7 @@ preferred-citation:
   year: 2021
 ```
 
-El archivo `CITATION.cff` anterior generará los resultados siguientes en el mensaje de cita de GitHub:
+The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
 
 **APA**
 
@@ -155,15 +149,15 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 ```
 {% endraw %}
 
-## Citar un conjunto de datos
+## Citing a dataset
 
-Si el repositorio contiene un conjunto de datos, puede establecer `type: dataset` en el nivel superior del archivo `CITATION.cff` para generar una salida de cadena de cita de datos en el mensaje de cita de {% data variables.product.prodname_dotcom %}.
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
-## Otros archivos de cita
+## Other citation files
 
-La característica de cita de GitHub también detectará una cantidad pequeña de archivos adicionales que a menudo se utilizan en las comunidades y proyectos para describir cómo quieren que se cite su trabajo.
+The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
 
-GitHub vinculará estos archivos en el mensaje de _Citar este repositorio_, pero no intentará analizarlos en otros formatos de cita.
+GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
 
 ```
 # Note these are case-insensitive and must be in the root of the repository
@@ -178,8 +172,8 @@ CITATIONS.md
 inst/CITATION
 ```
 
-## Formatos de cita
+## Citation formats
 
-Actualmente tenemos compatibilidad con formatos de archivo en APA y BibTex.
+We currently support APA and BibTex file formats.
 
-¡Estás buscando formatos de cita adicionales? GitHub usa una biblioteca de Ruby para analizar los archivos `CITATION.cff`. Puede solicitar formatos adicionales en el repositorio [ruby-cff](https://github.com/citation-file-format/ruby-cff) o contribuir personalmente.
+Are you looking for additional citation formats? GitHub uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.

@@ -13,24 +13,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Request OAuth App approval
-ms.openlocfilehash: 250de09ddc116aca7f4cdb8d07b6b267b7789dcf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145165176'
+shortTitle: Solicitar la aprobación de OAuth
 ---
+
 ## Solicitar aprobación de la organización para una {% data variables.product.prodname_oauth_app %} que ya has autorizado para tu cuenta personal
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %}
-3. En la lista de aplicaciones, haz clic en el nombre de la {% data variables.product.prodname_oauth_app %} para la que quieres solicitar acceso.
-![Botón para ver la aplicación](/assets/images/help/settings/settings-third-party-view-app.png)
-4. Junto a la organización a la que quiera que acceda {% data variables.product.prodname_oauth_app %}, haga clic en **Request access**.
-![Botón de solicitud de acceso](/assets/images/help/settings/settings-third-party-request-access.png)
-5. Después de revisar la información sobre la solicitud de acceso a {% data variables.product.prodname_oauth_app %}, haga clic en **Request approval from owners**.
-![Botón de solicitud de aprobación](/assets/images/help/settings/oauth-access-request-approval.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+3. En la lista de aplicaciones, haz clic en el nombre de la {% data variables.product.prodname_oauth_app %} para la que quieres solicitar acceso. ![Botón View application (Ver aplicación)](/assets/images/help/settings/settings-third-party-view-app.png)
+4. Al lado de la organización a la que quieres que {% data variables.product.prodname_oauth_app %} acceda, haz clic en **Request access** (Solicitar acceso). ![Botón Request access (Solicitar acceso)](/assets/images/help/settings/settings-third-party-request-access.png)
+5. Después de revisar la información acerca de solicitarle a {% data variables.product.prodname_oauth_app %} acceso, haz clic en **Request approval from owners** (Solicitar aprobación de los propietarios). ![Botón Request approval (Solicitar aprobación)](/assets/images/help/settings/oauth-access-request-approval.png)
 
-## Información adicional
+## Leer más
 
 - "[Acerca de las restricciones de acceso a {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"

@@ -11,14 +11,10 @@ versions:
 type: overview
 topics:
   - Project management
-shortTitle: Actions for project management
-ms.openlocfilehash: 5f5d1cb222824bbb451ad603e35b4986384645e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145116849'
+shortTitle: Acciones apra la administración de proyectos
 ---
+
+
 Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar tus tareas de administración de proyectos si creas flujos de trabajo. Cada flujo de trabajo contiene una serie de tareas que se llevan a cabo automáticamente cada que se ejecuta el flujo de trabajo. Por ejemplo, puedes crear un flujo de trabajo que se ejecute cada vez que se crea una propuesta para que se agregue una etiqueta, se deje un comentario y se mueva la propuesta a otro tablero de proyecto.
 
 ## ¿Cuándo se ejecutan los flujos de trabajo?
@@ -32,7 +28,7 @@ Muchos de los activadores de flujos de trabajo sirven para automatizar la admini
 - Para cuando se crea o mueve una tarjeta de proyecto.
 - Para una programación de itinerarios.
 
-Para obtener una lista completa de eventos que se pueden usar para desencadenar flujos de trabajo, vea "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+Si quieres encontrar una lista completa de eventos que pueden activar los flujos de trabajo, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
 ## ¿Qué pueden hacer los flujos de trabajo?
 
@@ -40,9 +36,9 @@ Los flujos de trabajo pueden hacer muchas cosas, tales como comentar en una prop
 
 Puedes aprender sobre cómo utilizar las {% data variables.product.prodname_actions %} para la administración de proyectos si sigues estos tutoriales, los cuales incluyen ejemplos de flujo de trabajo que puedes adaptar para satisfacer tus necesidades.
 
-- "[Adición de etiquetas a incidencias](/actions/guides/adding-labels-to-issues)"
-- "[Eliminación de una etiqueta cuando se agrega una tarjeta a una columna del panel de proyecto](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
-- "[Traslado de incidencias asignadas en paneles de proyecto](/actions/guides/moving-assigned-issues-on-project-boards)"
-- "[Comentarios sobre una incidencia cuando se agrega una etiqueta](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
-- "[Cierre de incidencias inactivas](/actions/guides/closing-inactive-issues)"
-- "[Programación de la creación de incidencias](/actions/guides/scheduling-issue-creation)"
+- "[Agregar etiquetas a las propuestas](/actions/guides/adding-labels-to-issues)"
+- "[Eliminar una etiqueta cuando se agrega una tarjeta a una columna de un tablero de proyecto](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
+- "[Mover las propuestas asignadas en los tableros de proyecto](/actions/guides/moving-assigned-issues-on-project-boards)"
+- "[Comentar en una propuesta cuando se agrega una etiqueta](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
+- "[Cerrar las propuestas inactivas](/actions/guides/closing-inactive-issues)"
+- "[Programar la creación de propuestas](/actions/guides/scheduling-issue-creation)"

@@ -1,6 +1,6 @@
 ---
-title: Signing tags
-intro: You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.
+title: Firmar etiquetas
+intro: 'You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -15,22 +15,23 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. To sign a tag, add `-s` to your `git tag` command.
+1. Para firmar una etiqueta, agrega `-s` a tu comando `git tag`.
   ```shell
   $ git tag -s <em>mytag</em>
   # Creates a signed tag
   ```
-2. Verify your signed tag by running `git tag -v [tag-name]`.
+2. Verifica tu etiqueta firmada al ejecutar `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
   # Verifies the signed tag
   ```
 
-## Further reading
+## Leer más
 
-- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits](/articles/signing-commits)"
+- [Ver las etiquetas de tu repositorio](/articles/viewing-your-repositorys-tags)"
+- "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
+- "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
+- "[Firmar confirmaciones](/articles/signing-commits)"

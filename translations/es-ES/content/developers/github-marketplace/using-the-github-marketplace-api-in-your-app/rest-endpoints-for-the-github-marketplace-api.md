@@ -11,28 +11,23 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: REST API
-ms.openlocfilehash: aac7df5600863521c482b8a13c31abf8fd103ecf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145112497'
+shortTitle: API de REST
 ---
+
 Aquí te mostramos algunas terminales útiles que están disponibles para los listados de Marketplace:
 
-* [Enumerar planes](/rest/reference/apps#list-plans)
-* [Enumerar cuentas de un plan](/rest/reference/apps#list-accounts-for-a-plan)
+* [Listar planes](/rest/reference/apps#list-plans)
+* [Listar cuentas para un plan](/rest/reference/apps#list-accounts-for-a-plan)
 * [Obtener un plan de suscripción para una cuenta](/rest/reference/apps#get-a-subscription-plan-for-an-account)
-* [Enumerar las suscripciones del usuario autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
+* [Listar las suscripciones del usuario autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 
 Consulta estas páginas para encontrar más detalles sobre cómo autenticarte cuando utilices la API de {% data variables.product.prodname_marketplace %}:
 
-* [Opciones de autorización para las aplicaciones de OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/)
-* [Opciones de autenticación para las aplicaciones de GitHub](/apps/building-github-apps/authenticating-with-github-apps/)
+* [Opciones de autorización para las Apps de OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/)
+* [Opciones de autenticación para las GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/)
 
 {% note %}
 
-**Nota:** [Los límites de velocidad de la API REST](/rest/overview/resources-in-the-rest-api#rate-limiting) se aplican a todos los puntos de conexión de API de {% data variables.product.prodname_marketplace %}.
+**Nota:** [Los límites de tasa para la API de REST](/rest/overview/resources-in-the-rest-api#rate-limiting) aplican para todas las terminales de la API de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}

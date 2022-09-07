@@ -17,12 +17,6 @@ children:
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
   - /importing-data-from-third-party-version-control-systems
-shortTitle: Migration for an enterprise
-ms.openlocfilehash: 1f08da59c2b9330f2230f8377230132bc2a57704
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145116201'
+shortTitle: Migración para una empresa
 ---
 

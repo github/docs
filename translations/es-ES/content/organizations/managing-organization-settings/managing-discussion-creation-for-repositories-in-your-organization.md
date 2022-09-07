@@ -9,26 +9,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage repository discussions
-ms.openlocfilehash: 0fba2cb5ad49411d8027cef61202cabe9d37d2b3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410135'
+shortTitle: Administrar los debates de repositorio
 ---
+
+
 ## Permitir o dejar de permitir usuarios con acceso de lectura para crear debates
 
 Predeterminadamente, los miembros de la organización que tengan acceso de lectura pueden crear debates si un administrador de repositorio o propietario de organización habilita los debates en cualquier repositorio que pertenezca a ella.
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
-5. En "Repository discussions" (Debates del repositorio), seleccione o anule la selección de **Allow users with read access to create discussions** (Permitir que los usuarios con acceso de lectura creen debates).
-  ![Casilla de verificación para permitir que las personas con acceso de lectura creen debates](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
-6. Haga clic en **Save**(Guardar).
-  ![Botón "Save" (Guardar) para la configuración de debates](/assets/images/help/discussions/click-save.png)
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.member-privileges %}
+5. Debajo de "Debates del repositorio", selecciona o deselecciona **Permitir que los usuarios con acceso de lectura creen debates**. ![Casilla de verificación para permitir que las personas con acceso de lectura creen debates](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
+6. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración de debates](/assets/images/help/discussions/click-save.png)
 
-## Información adicional
+## Leer más
 
 - "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Administrar debates para la comunidad](/discussions/managing-discussions-for-your-community)"
-- [Habilitación o deshabilitación de los debates de GitHub para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization).
+- "[Administrar debates para tu comunidad](/discussions/managing-discussions-for-your-community)"
+- "[Habilitar o inhabilitar los debates de GitHub para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".

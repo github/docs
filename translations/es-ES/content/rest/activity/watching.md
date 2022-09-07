@@ -1,6 +1,6 @@
 ---
-title: Observando
-intro: La API de inspección permite a los usuarios suscribirse a notificaciones de actividad en un repositorio.
+title: Observar
+intro: La API de observados permite que los usuarios se suscriban a las notificaciones de la actividad de un repositorio.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,13 +9,8 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 5a336aaf770129cc853735c2a35406c09cfb6a9e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147064238'
 ---
-## Acerca de la API de inspección
 
-La API de inspección permite a los usuarios suscribirse a notificaciones de actividad en un repositorio. Para marcar un repositorio en su lugar, consulta "[Marcado con una estrella](/rest/reference/activity#starring)".
+## Acerca de la API de observar
+
+La API de observados permite que los usuarios se suscriban a las notificaciones de la actividad de un repositorio. Para marcar un repositorio como favorito, en su lugar, utiliza "[Estrellas](/rest/reference/activity#starring)".

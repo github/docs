@@ -1,12 +1,4 @@
----
-ms.openlocfilehash: 88a69a366831804ab19144c1bff77a3fe53349b2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145139037"
----
-6. Presione **Entrar** para crear el clon local.
+6. Presiona **Enter** para crear tu clon local.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Cloning into `Spoon-Knife`...

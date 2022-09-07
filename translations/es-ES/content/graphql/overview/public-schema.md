@@ -10,14 +10,9 @@ versions:
   ghae: '*'
 topics:
   - API
-ms.openlocfilehash: cb1c990506512c252b488b9d265cf8eb052435e2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145069679'
 ---
-Puede [realizar la introspección](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) directamente en GraphQL API.
+
+Puedes [realizar una introspección](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) contra la API de GraphQL directamente.
 
 Como alternativa, puedes descargar la última versión del modelo público aquí:
 

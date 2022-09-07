@@ -1,7 +1,7 @@
 ---
-title: Configuración de precompilaciones
-shortTitle: Configure prebuilds
-intro: Puedes configurar tu proyecto para precompilar un codespace automáticamente cada vez que insertas un cambio en el repositorio.
+title: Configurar las precompilaciones
+shortTitle: Configurar las precompilaciones
+intro: Puedes configurar tu proyecto para que pre-configure un codespace automáticamente cada que subes un cambio a tu repositorio.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,104 +11,100 @@ topics:
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
-ms.openlocfilehash: be511c99a876ef7c318a9c55f40c6c1610f0e353
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147548068'
 ---
-Puedes configurar una configuración de precompilación para la combinación de una rama específica del repositorio con un archivo de configuración de contenedor de desarrollo específico.
 
-Las ramas creadas a partir de una rama primaria habilitada previamente para la compilación normalmente también obtendrán precompilaciones para la misma configuración de contenedor de desarrollo. El motivo es que la precompilación para ramas secundarias que usan la misma configuración de contenedor de desarrollo que la rama primaria es, en su mayor parte, idéntica, por lo que los desarrolladores también se pueden beneficiar de tiempos de creación de codespaces más rápidos en esas ramas. Para más información, vea "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+Puedes configurar una configuración de precompilación para la combinación de una rama específica de tu repositorio con un archivo de configuración de un contenedor dev específico.
 
-Normalmente, al configurar precompilaciones para una rama, estarán disponibles para varios tipos de equipo. Pero si el repositorio es mayor de 32 GB, las precompilaciones no estarán disponibles para los tipos de máquina de 2 y 4 núcleos, ya que el almacenamiento que proporcionan está limitado a 32 GB.
+Cualquier rama que se cree desde una rama padre con precompilación habilitada habitualmente también obtendrá precompilaciones para la misma configuración de contenedor dev. Esto se debe a que la precompilación de las ramas hijas que utilizan la misma configuración de contenedor dev que la rama padre sean, en su mayoría, idénticas, para que los desarrolladores también se puedan beneficiar de tiempos de creación más rápidos para codespaces en dichas ramas. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
-## Requisitos previos 
+Habitualmente, cuando configuras precompilaciones para una rama, estas estarán disponibles para múltiples tipos de máquina. Sin embargo, si tu repositorio es mayor a 32 GB, las precompilaciones no estarán disponibles para los tipos de máquina de 2 y 4 núcleos, ya que el almacenamiento que estos proporcionan se limita a 32 GB.
 
-A fin de poder configurar precompilaciones para el proyecto, se debe cumplir lo siguiente: 
-* {% data variables.product.prodname_github_codespaces %} debe estar habilitado para la organización. Para más información, consulta ["Habilitación de {% data variables.product.prodname_github_codespaces %} para la organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
-* {% data variables.product.prodname_actions %} debe estar habilitado para el repositorio. Cada configuración de precompilación debe ser capaz de desencadenar un flujo de trabajo de acciones asociado. Para más información, vea "[Administración de la configuración de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
+## Prerrequisitos
 
-## Configuración de una precompilación
+Antes de que configures las precompilaciones para tu proyecto, se debe cumplir con lo siguiente:
+* Se deben habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización. Para obtener más información, consulta la sección "[Habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
+* {% data variables.product.prodname_actions %} debe estar habilitado para tu repositorio. Cada configuración de precompilación necesita poder activar un flujo de trabajo de acciones asociado. Para obtener más información, consulta la sección "[Administrar la configuración de {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
-1. En la sección "Código y automatización" de la barra lateral, haga clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}** .
-1. En la sección "Configuración de la precompilación" de la página, haz clic en **Configurar precompilación**.
+## Configurar una precompilación
 
-   ![Botón "Configurar precompilaciones"](/assets/images/help/codespaces/prebuilds-set-up.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. En la sección de "Automatización & código" de la barra lateral, haz clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
+1. En la sección de "Configuración de precompilación" de la página, haz clic en **Configurar una precompilación**.
 
-1. Elija la rama para la que quiera configurar una precompilación.
+   ![El botón de 'Configurar precompilaciones'](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-   ![Menú desplegable de la rama](/assets/images/help/codespaces/prebuilds-choose-branch.png)
+1. Elige la rama para la cual quieres configurar una precompilación.
 
-   {% note %} 
-
-   **Nota**: Las ramas creadas a partir de una rama base habilitada previamente para la compilación normalmente también obtendrán precompilaciones para la misma configuración de contenedor de desarrollo. Por ejemplo, si habilita las precompilaciones para un archivo de configuración de contenedor de desarrollo en la rama predeterminada del repositorio, las ramas basadas en la predeterminada también obtendrán precompilaciones en la mayoría de los casos para la misma configuración de contenedor de desarrollo.
-
-   {% endnote %}
-
-1. Opcionalmente, en el menú desplegable **Archivo de configuración** que se muestra, elija el archivo de configuración de `devcontainer.json` que quiera usar para esta plantilla de precompilación. Para más información, vea "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)".
-
-   ![Menú desplegable del archivo de configuración](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
-
-1. Elija cómo quiere desencadenar automáticamente las actualizaciones de la precompilación.
-
-   * **Todas las inserciones** (configuración predeterminada): con esta configuración, las configuraciones de precompilación se actualizarán en cada inserción realizada en la rama especificada. Esto garantizará que los codespaces generados a partir de una precompilación siempre contengan la configuración de codespace más reciente, incluidas las dependencias agregadas o actualizadas recientemente.
-   * **Al cambiar la configuración**: con esta opción, las configuraciones de precompilación se actualizarán cada vez que se actualicen los archivos de configuración asociados para un repositorio y una rama determinados. Esto garantiza que los cambios en los archivos de configuración del contenedor de desarrollo para el repositorio se usan cuando se genera un codespace a partir de una precompilación. El flujo de trabajo de Acciones que actualiza la precompilación se ejecutará con menos frecuencia, por lo que esta opción usará menos minutos de Acciones. Pero esta opción no garantizará que los codespaces siempre incluyan dependencias agregadas o actualizadas recientemente, por lo que es posible que tengan que agregarse o actualizarse manualmente después de crear un codespace.
-   * **Programado:** con esta configuración, puedes actualizar las configuraciones de precompilación en una programación personalizada que definas. Esto puede reducir el consumo de minutos de acciones; sin embargo, con esta opción, se pueden crear codespaces que no usen los cambios más recientes en la configuración del contenedor de desarrollo.
-
-   ![Opciones del desencadenador de precompilación](/assets/images/help/codespaces/prebuilds-triggers.png)
-
-1. Opcionalmente, seleccione **Reducir precompilación disponible a solo las regiones específicas** para limitar el acceso a la precompilación y, después, seleccione las regiones en las que quiere que esté disponible. Los desarrolladores solo pueden crear codespaces a partir de uno precompilado si se encuentran en una región que selecciones. De forma predeterminada, la precompilación está disponible para todas las regiones donde los codespaces están disponibles y se aplican costos de almacenamiento a cada región.
-
-   ![Opciones de selección de región](/assets/images/help/codespaces/prebuilds-regions.png)
+   ![El menú desplegable de la rama](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
    {% note %}
 
-   **Notas**: 
-   * La precompilación de cada región incurrirá en cargos individuales. Por tanto, solo debe habilitar las precompilaciones para las regiones en las que sabe que se van a usar. Para más información, consulta "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
-   * Los desarrolladores pueden establecer su región predeterminada para {% data variables.product.prodname_codespaces %}, lo que le permite habilitar precompilaciones para menos regiones. Para más información, consulta "[Configuración de la región predeterminada para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)".
+   **Nota**: Cualquier rama que se cree de una rama base habilitada para precompilaciones habitualmente también obtendrá precompilaciones para la misma configuración de contenedor dev. Por ejemplo, si habilitas precompilaciones para un archivo de configuración de contenedor dev en la rama predeterminada del repositorio, las ramas basadas en la predeterminada también obtendrán precompilaciones para la misma configuración del contenedor dev en la mayoría de los casos.
 
    {% endnote %}
 
-1. Opcionalmente, establezca el número de versiones de precompilaciones que se conservarán. Puedes especificar cualquier número entre 1 y 5. El número predeterminado de versiones guardadas es 2, lo que significa que solo se guardan la versión de plantilla más reciente y la versión anterior.
+1. Opcionalmente, en el menú desplegable de **Archivo de configuración** que se muestra, elige el archivo de configuración `devcontainer.json` que quieras utilizar para esta precompilación. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
 
-   En función de la configuración del desencadenador de precompilaciones, la precompilación podría cambiar con cada inserción o en cada cambio de configuración del contenedor de desarrollo. Conservar las versiones anteriores de las precompilaciones permite crear una precompilación a partir de una confirmación anterior con una configuración de contenedor de desarrollo diferente a la de la precompilación actual. Dado que hay un costo de almacenamiento asociado con la retención de versiones de precompilaciones, puede elegir el número de versiones que se conservarán en función de las necesidades de su equipo. Para más información sobre la facturación, consulta "[Acerca de la facturación de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+   ![El menú desplegable de archivo de configuración](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
 
-   Si establece el número de versiones de precompilaciones para guardar en 1, {% data variables.product.prodname_codespaces %} solo se guardará la más reciente y se eliminará la versión anterior cada vez que se actualice la plantilla. Esto significa que no obtendrás un codespace precompilado si vuelves a una configuración de contenedor de desarrollo anterior.
+1. Elige cómo quieres activar actualizaciones automáticamente para la precompilación.
 
-   ![Configuración del historial de precompilaciones](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+   * **Cada subida** (el ajuste predeterminado) - Con este ajuste, las configuraciones de precompilación se actualizarán en cada subida que se haga a la rama predeterminada. Esto garantizará que los codespaces que se generen de una precompilación siempre contengan la configuración de codespace más reciente, incluyendo cualquier dependencia que se haya actualizado o agregado recientemente.
+   * **En el cambio de configuración** - Con este ajuste, as configuraciones de precompilación se actualizarán cada que lo hagan los archivos de configuración asociados para cada repositorio y rama en cuestión. Esto garantiza que los cambios a los archivos de configuración del contenedor dev para el repositorio se utilicen cuando se genera un codespace desde una precompilación. El flujo de trabajo de acciones que actualiza la precompilación se ejecutará con menor frecuencia, así que esta opción utilizará menos minutos de las acciones. Sin embargo, esta opción no garantiza que los cdespaces siempre incluyan dependencias recientemente actualizadas o agregadas, así que estas podrían tener que agregarse o actualizarse manualmente después de que un codespace se haya creado.
+   * **Programado** - Con este ajuste, puedes hacer que tus configuraciones de precompilación se actualicen en un itinerario personalizado que tú defines. Esto puede reducir el consumo de minutos de acciones, sin embargo, con esta opción, pueden crearse codespaces que no utilicen los últimos cambios de configuración de contenedores dev.
 
-1. Opcionalmente, agrega usuarios o equipos a quienes notificar cuando se produzca un error en la ejecución del flujo de trabajo de precompilación de esta configuración. Para empezar, puedes escribir un nombre de usuario, un nombre de equipo o un nombre completo y, luego, hacer clic en ellos cuando aparezcan para agregarlos a la lista. Los usuarios o equipos que agregues recibirán un correo electrónico cuando se produzcan errores de precompilación, con un vínculo a los registros de ejecución del flujo de trabajo para que puedan investigarlo más a fondo.
+   ![Las opciones de activación de precompilación](/assets/images/help/codespaces/prebuilds-triggers.png)
 
-   ![Configuración de notificaciones de error de precompilación](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
+1. Opcionalmente, selecciona **reducir la precompilación disponible para solo las regiones específicas** para limitar el acceso a tu precompilación y luego selecciona en qué regiones quieres que esté disponible. Los desarrolladores solo pueden crear condespaces desde una precompilación si estos se ubican en una región que selecciones. Predeterminadamente, tu precompilación está disponible para todas las regiones en donde los codespaces estén disponibles y los costos de almacenamiento aplican para cada región.
 
-1. Haga clic en **Crear**.
+   ![Las opciones de selección de región](/assets/images/help/codespaces/prebuilds-regions.png)
+
+   {% note %}
+
+   **Notas**:
+   * La precompilación para cada región incurrirá en cargos individuales. Por lo tanto, solo deberías habilitar las precompilaciones para las regiones en las que sabes que se utilizarán. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
+   * Los desarrolladores pueden configurar su región predeterminada para {% data variables.product.prodname_codespaces %}, lo que te puede permitir habilitar las precompilaciones para menos regiones. Para obtener más información, consulta la sección "[Configurar tu región predeterminada para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)".
+
+   {% endnote %}
+
+1. Opcionalmente, establezca el número de versiones de precompilación que se deban retener. Puedes ingresar cualquier número entre 1 y 5. La cantidad predeterminada de versiones guardadas es de 2, lo que significa que solo la versión de plantilla más reciente y la versión previa se guardan.
+
+   Dependiendo de los ajustes de activación de la precompilación, esta podría cambiar con cada subida o en cada cambio de configuración de contenedor dev. El retener versiones anteriores de precompilaciones te permite crear una precompilación desde una confirmación más antigua con una configuración de contenedor dev diferente que la de la precompilación actual. Ya que existe un costo de almacenamiento asociado con la retención de versiones de precompilación, puedes elegir la cantidad de versiones a retener con base en las necesidades de tu equipo. Para obtener más información sobre la facturación, consulta la sección "[Acerca de la facturación para los {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+
+   Si configuras la cantidad de versiones de precompilación a guardar en 1, {% data variables.product.prodname_codespaces %} solo guardará la última versión de la precompilación y borrará la versión antigua cada que se actualice la plantilla. Esto significa que no obtendrás un codespace precompilado si regresas a una configuración de contenedor dev antigua.
+
+   ![El ajuste de historial de precompilación](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+
+1. Opcionalmente, agrega usuarios o equipos para notificarles cuando una ejecución de flujo de trabajo de precompilación falle para esta configuración. Puedes comenzar a escribir un nombre de usuario, de equipo o nombre completo y luego hacer clic en el nombre una vez que aparezca para agregarlos a la lista. Los usuarios o equipos que agregues recibirán un correo electrónico cuando ocurran fallas en la precompilación, los cuales contienen un enlace a las bitácoras de ejecución de flujo de trabajo para ayudar con las investigaciones subsecuentes.
+
+   ![El ajuste de notificación de falla de precompilación](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
+
+1. Da clic en **Crear**.
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-Después de crear una configuración de precompilación, esta aparece en la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio. Se pone en cola un flujo de trabajo de {% data variables.product.prodname_actions %} y, después, se ejecuta para crear precompilaciones en las regiones especificadas, en función de la rama y el archivo de configuración de contenedor de desarrollo seleccionados. 
+Después crear una configuración de precompilación, esta se lista en la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio. Un flujo de trabajo de {% data variables.product.prodname_actions %} se pone en cola y luego se ejecuta para crear precompilaciones en las regiones que especificaste, con base en la rama y archivo de configuración de contenedor dev que seleccionaste.
 
 ![Captura de pantalla de la lista de configuraciones de precompilación](/assets/images/help/codespaces/prebuild-configs-list.png)
 
-Para obtener información sobre cómo editar y eliminar configuraciones de precompilación, consulta "[Administración de precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds)".
+Para obtener más información sobre cómo editar y borrar configuraciones de precompilación, consulta la sección "[Administrar las precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds)".
 
 ## Configurar variables de ambiente
 
-Para permitir que el proceso de precompilación acceda a las variables de entorno necesarias para crear el entorno de desarrollo, puede establecerlas como secretos de repositorio de {% data variables.product.prodname_codespaces %}, o bien como secretos de organización de {% data variables.product.prodname_codespaces %}. Para más información, vea "[Adición de secretos para un repositorio](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" y "[Adición de secretos para una organización](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)". 
+Para permitir que el proceso de precompilación acceda a las variables de ambiente que se requieren para crear tu ambiente de desarrollo, puedes configurarlas ya sea como secretos de repositorio de {% data variables.product.prodname_codespaces %} o como secretos de organización de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta las secciones "[Agregar secretos para un repositorio](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" y "[Agregar secretos para una organización](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)".
 
-Los secretos que crees de esta manera serán accesibles para cualquiera que cree un codespace desde este repositorio. Si no quiere este comportamiento, también puede establecer el secreto `CODESPACES_PREBUILD_TOKEN`. El secreto `CODESPACES_PREBUILD_TOKEN` solo se usa para la precompilación y su valor no es accesible en los codespaces de los usuarios. 
+Cualquiera que cree un codespace desde este repositorio podrá acceder a los secretos de que crees de esta forma. Si no quieres esto, como alternativa, puedes configurar el secreto `CODESPACES_PREBUILD_TOKEN`. El secreto `CODESPACES_PREBUILD_TOKEN` solo se utiliza para precompilar y no se puede acceder a su valor en los codespaces de los usuarios.
 
-Las precompilaciones no pueden usar ningún secreto de nivel de usuario al compilar el entorno, ya que no están disponibles hasta después de crear el codespace.
+Las precompilaciones no pueden utilizar secretos a nivel de usuario al compilar tu ambiente nuevo, ya que estos no están disponibles sino hasta después de que se haya creado el codespace.
 
-## Configuración de tareas que requieren mucho tiempo para incluirse en la precompilación
+## Configurar tareas que llevan mucho tiempo para que se incluyan en la precompilación
 
-Puede usar los comandos `onCreateCommand` y `updateContentCommand` en `devcontainer.json` para incluir procesos lentos como parte de la creación de la precompilación. Para más información, consulta la documentación de {% data variables.product.prodname_vscode %} "[referencia de devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)".
+Puedes utilizar los comandos `onCreateCommand` y `updateContentCommand` en tu `devcontainer.json` para incluir los procesos que llevan mucho tiempo como parte de la creación de la precompilación. Para obtener más información, consulta la documentación de {% data variables.product.prodname_vscode %} "[referencia de devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)".
 
-`onCreateCommand` solo se ejecuta una vez, cuando se crea la precompilación, mientras que `updateContentCommand` se ejecuta en la creación de plantillas y en las actualizaciones de plantilla posteriores. Las compilaciones incrementales se deben incluir en `updateContentCommand`, ya que representan el origen del proyecto y deben incluirse para cada actualización de precompilación.
+`onCreateCommand` solo se ejecuta una vez, cuando se crea la precompilación, mientras que `updateContentCommand` se ejecuta cuando se crea la plantilla y en las actualizaciones de plantilla posteriores. Las compilaciones incrementales deben incluirse en `updateContentCommand`, ya que estas representan el origen de tu proyecto y necesitan incluirse para cada actualización de precompilación.
 
-## Información adicional
+## Leer más
 
-- "[Permiso para que una precompilación acceda a otros repositorios](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
-- "[Solución de problemas de precompilaciones](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Permitir que una precompilación acceda a otros repositorios](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
+- "[Solucionar problemas de las compilaciones previas](/codespaces/troubleshooting/troubleshooting-prebuilds)"

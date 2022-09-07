@@ -12,37 +12,46 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage default labels
-ms.openlocfilehash: a2591c84d3844bfdadc3c7321d7ce8eec2adf293
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126222'
+shortTitle: Administrar las etiquetas predeterminadas
 ---
+
 Los propietarios de la organización pueden administrar las etiquetas predeterminadas para los repositorios de la organización.
 
 Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de tu organización, pero luego cualquier usuario con acceso de escritura al repositorio puede editar o eliminar las etiquetas de ese repositorio. Agregar, editar o eliminar una etiqueta predeterminada no agrega, edita o elimina la etiqueta de los repositorios existentes.
 
 ## Crear una etiqueta predeterminada
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 
-5. En "Etiquetas de repositorio", haga clic en **Nueva etiqueta**.
-  ![Botón Nueva etiqueta](/assets/images/help/organizations/new-label-button.png) {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.create-label %}
+5. Debajo de "Repository labels" (Etiquetas del repositorio), haz clic en **New label** (Etiqueta nueva). ![Botón New update (Actualización nueva)](/assets/images/help/organizations/new-label-button.png)
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.create-label %}
 
 ## Editar una etiqueta predeterminada
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 
-{% data reusables.project-management.edit-label %} {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.save-label %}
+{% data reusables.project-management.edit-label %}
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.save-label %}
 
 ## Eliminar una etiqueta predeterminada
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 
-{% data reusables.project-management.delete-label %} {% data reusables.project-management.confirm-label-deletion %}
+{% data reusables.project-management.delete-label %}
+{% data reusables.project-management.confirm-label-deletion %}
 
-## Información adicional
+## Leer más
 
 - "[Acerca de las etiquetas](/articles/about-labels)"

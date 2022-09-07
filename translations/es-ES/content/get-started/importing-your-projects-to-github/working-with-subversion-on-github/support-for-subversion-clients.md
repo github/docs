@@ -9,25 +9,21 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Support for Subversion clients
-ms.openlocfilehash: 49422fbd5dd07b84975172f077091e92bcd5b543
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135738'
+shortTitle: Soporte para clientes de Subversion
 ---
+
 GitHub admite clientes de Subversion por medio del protocolo HTTPS. Utilizamos el puente de Subversion para comunicar los comandos svn a GitHub.
 
 ## Funciones de Subversion admitidas en GitHub
 
-### Restauración
+### Control
 
 La primera cosa que desearás realizar es un control de Subversion.  Ya que los clones de Git mantienen un directorio de trabajo (donde editas los archivos) separado de los datos del repositorio, solo hay una rama en el directorio de trabajo a la vez.
 
-Las extracciones del repositorio de Subversion son diferentes: mezclan los datos del repositorio en los directorios de trabajo, por lo que hay un directorio de trabajo para cada rama y etiqueta que haya extraído. En el caso de los repositorios con muchas ramas y etiquetas, la extracción del repositorio de todo puede ser una carga de ancho de banda, por lo que debe empezar con una extracción parcial.
+Los controles de Subversion son diferentes: combinan los datos del repositorio en los directorios de trabajo, por lo que hay un directorio de trabajo para cada rama y etiqueta que has revisado.  Para los repositorios con muchas ramas y etiquetas, revisar cada cosa puede ser una sobrecarga del ancho de banda, por lo que deberías comenzar con un control parcial.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Realiza un control vacío del repositorio:
   ```shell
@@ -36,7 +32,7 @@ Las extracciones del repositorio de Subversion son diferentes: mezclan los datos
   $ cd <em>repo</em>
   ```
 
-4. Vaya a la rama `trunk`. El puente de Subversion mapea a trunk en la rama HEAD de Git.
+4. Llega hasta la rama `trunk` (tronco). El puente de Subversion mapea a trunk en la rama HEAD de Git.
   ```shell
   $ svn up trunk
   > A    trunk
@@ -45,7 +41,7 @@ Las extracciones del repositorio de Subversion son diferentes: mezclan los datos
   > Updated to revision 1.
   ```
 
-5. Obtenga una extracción vacía del directorio `branches`.  Aquí se encuentran todas las ramas que no son `HEAD` y donde creará ramas de característica.
+5. Consigue un control vacío del directorio de `branches` (ramas).  Aquí es donde están todas las ramas non-`HEAD` (no encabezado), y donde harás las ramas de características.
   ```shell
   $ svn up --depth empty branches
   Updated to revision 1.
@@ -55,20 +51,20 @@ Las extracciones del repositorio de Subversion son diferentes: mezclan los datos
 
 También puedes crear ramas usando el puente de Subversion a GitHub.
 
-Desde el cliente de svn, para asegurarse de que la rama predeterminada es la más reciente, actualice `trunk`:
+Desde tu cliente de svn, asegúrate de que la rama predeterminada es la más reciente actualizando `trunk`:
 ```shell
 $ svn up trunk
 > At revision 1.
 ```
 
-A continuación, puede usar `svn copy` para crear una rama:
+A continuación, puedes utilizar `svn copy` para crear una nueva rama:
 ```shell
 $ svn copy trunk branches/more_awesome
 > A    branches/more_awesome
 $ svn commit -m 'Added more_awesome topic branch'
 > Adding    branches/more_awesome
 
-> Committed revision 2.
+> Revisión confirmada 2.
 ```
 
 Puedes confirmar que la nueva rama existe en el menú desplegable de la rama del repositorio:
@@ -85,15 +81,15 @@ $ git fetch
 
 ### Realizar confirmaciones de cambios en Subversion
 
-Después de haber agregado algunas características y corregido algunos errores, querrá confirmar estos cambios en GitHub. Esto funciona de la misma forma en la que estás acostumbrado en Subversion. Edite los archivos y use `svn commit` para registrar los cambios:
+Después de haber agregado algunas características y haber arreglado algunos errores, desearás confirmar estos cambios en GitHub. Esto funciona de la misma forma en la que estás acostumbrado en Subversion. Edita tus archivos y utiliza `svn commit` para registrar tus cambios:
 
 ```shell
 $ svn status
 > M    gizmo.rb
 $ svn commit -m 'Guard against known problems'
 > Sending    more_awesome/gizmo.rb
-> Transmitting file data .
-> Committed revision 3.
+> Transmitiendo los datos del archivo.
+> Revisión confirmada 3.
 $ svn status
 > ?    test
 $ svn add test
@@ -102,13 +98,13 @@ $ svn add test
 $ svn commit -m 'Test coverage for problems'
 > Adding    more_awesome/test
 > Adding    more_awesome/test/gizmo_test.rb
-> Transmitting file data .
-> Committed revision 4.
+> Transmitiendo los datos del archivo.
+> Revisión confirmada 4.
 ```
 
-### Cambiar de una rama a otra
+### Alternar entre ramas
 
-Para alternar entre ramas, probablemente quiera comenzar con un extracción del repositorio de `trunk`:
+Para alternar entre ramas, probablemente desearás comenzar con un control del `trunk` (tronco):
 
 ```shell
 $ svn co --depth empty https://github.com/<em>user</em>/<em>repo</em>/trunk
@@ -124,7 +120,7 @@ $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesom
 
 El servidor de Subversion de GitHub muestra el sha de confirmación de Git para cada confirmación de Subversion.
 
-Para ver el SHA de confirmación, debe solicitar la propiedad remota sin versión `git-commit`.
+Para ver el SHA de confirmación, deberías solicitar la propiedad remota sin versión de `git-commit`.
 
 ```shell
 $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>repo</em>
@@ -133,6 +129,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 Con este SHA de confirmación, puedes, por ejemplo, consultar la correspondiente confirmación Git en GitHub.
 
-## Información adicional
+## Leer más
 
 * "[Propiedades de Subversion admitidas por GitHub](/articles/subversion-properties-supported-by-github)"

@@ -1,5 +1,5 @@
 ---
-title: Directiva del Sitio
+title: Política del sitio
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy
@@ -18,11 +18,5 @@ children:
   - /security-policies
   - /github-company-policies
   - /site-policy-deprecated
-ms.openlocfilehash: a4be89273e55ac0b29bc879f150781c39f161b4d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556800'
 ---
 

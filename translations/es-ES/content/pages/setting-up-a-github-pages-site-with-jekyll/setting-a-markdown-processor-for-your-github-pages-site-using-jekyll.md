@@ -14,27 +14,25 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Set Markdown processor
-ms.openlocfilehash: 218877ee598afd47352d1e72a2ecb845f901c8b9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137858'
+shortTitle: Configurar un procesador de lenguaje de marcado
 ---
+
 Las personas con permisos de escritura para un repositorio pueden configurar el procesador Markdown para un sitio de {% data variables.product.prodname_pages %}.
 
-{% data variables.product.prodname_pages %} admite dos procesadores de Markdown: [kramdown](http://kramdown.gettalong.org/) y el propio procesador de Markdown de {% data variables.product.prodname_dotcom %}, que se usa para representar [{% data variables.product.prodname_dotcom %} Flavored Markdown (GFM)](https://github.github.com/gfm/) desde {% data variables.product.product_name %}. Para más información, vea "[Acerca de la escritura y el formato en {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+{% data variables.product.prodname_pages %} es compatible con dos procesadores de lenguaje de marcado: [kramdown](http://kramdown.gettalong.org/) y el procesador de lenguaje de marcado propio de {% data variables.product.prodname_dotcom %}, el cual se utiliza para procesar el [{% data variables.product.prodname_dotcom %} Lenguaje de marcado enriquecido (GFM)](https://github.github.com/gfm/) a través de {% data variables.product.product_name %}. Para obtener más información, consulta "[Acerca de la escritura y el formato en {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
 
 Puedes utilizar el Lenguaje de Marcado Enriquecido de {% data variables.product.prodname_dotcom %} con cualquier procesador, pero solo tu procesador de GFM empatará siempre con los resultados que ves en {% data variables.product.product_name %}.
 
 {% data reusables.pages.navigate-site-repo %}
-2. En el repositorio, vaya hasta el archivo *_config.yml*.
+2. En tu repositorio, navega hasta el archivo *_config.yml*.
 {% data reusables.repositories.edit-file %}
-4. Busque la línea que comienza por `markdown:` y cambie el valor a `kramdown` o `GFM`.
-  ![Configuración de Markdown en config.yml](/assets/images/help/pages/config-markdown-value.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
+4. Encuentra la línea que comienza con `markdown:` y cambia el valor a `kramdown` o `GFM`. ![Configuración Markdown en config.yml](/assets/images/help/pages/config-markdown-value.png)
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
-## Información adicional
+## Leer más
 
 - [Documentación de kramdown](https://kramdown.gettalong.org/documentation.html)
-- [Especificación de {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)

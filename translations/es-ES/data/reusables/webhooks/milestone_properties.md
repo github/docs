@@ -1,16 +1,8 @@
----
-ms.openlocfilehash: 59b68e124208e167e58e295905ff993ecf0530ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145091961"
----
-Clave | Tipo | Descripción
-----|------|-------------
-`action` |`string` | La acción que se ha realizado. Puede ser `created`, `closed`, `opened` (se vuelve a abrir un hito cerrado), `edited` o `deleted`.
-`milestone`  |`object` | El hito mismo.
-`changes`|`object`| Cambios en el hito si la acción ha sido `edited`.
-`changes[description][from]`|`string` | Versión anterior de la descripción si la acción ha sido `edited`.
-`changes[due_on][from]`|`string` | Versión anterior de la fecha de vencimiento si la acción ha sido `edited`.
-`changes[title][from]`|`string` | Versión anterior del título si la acción ha sido `edited`.
+| Clave                        | Tipo        | Descripción                                                                                                                                        |
+| ---------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Acción`                     | `secuencia` | La acción que se realizó. Puede ser uno de entre `created`, `closed`, `opened` (cuando se abre un hito previamente cerrado), `edited` o `deleted`. |
+| `hito`                       | `objeto`    | El hito mismo.                                                                                                                                     |
+| `changes`                    | `objeto`    | Los cambios al hito si la acción se encuentra como `edited`.                                                                                       |
+| `changes[description][from]` | `secuencia` | La versión previa de la descripción si la acción está como `edited`.                                                                               |
+| `changes[due_on][from]`      | `secuencia` | La versión previa de la fecha límite si la acción se puso como `edited`.                                                                           |
+| `changes[title][from]`       | `secuencia` | La versión previa del título si la acción se puso como `edited`.                                                                                   |

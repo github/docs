@@ -1,6 +1,6 @@
-1. Under "Repository creation", select a policy.
+1. Debajo de "Repository creation" (Creación de repositorios), selecciona una política.
   {% ifversion enterprise-namespace-repo-setting %}
-    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/restrict-personal-namespace-setting.png)
+    ![Menú desplegable con opciones de políticas de creación de repositorios](/assets/images/help/business-accounts/restrict-personal-namespace-setting.png)
   {% else %}
-    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
+    ![Menú desplegable con opciones de políticas de creación de repositorios](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
   {% endif %}

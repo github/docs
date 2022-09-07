@@ -12,13 +12,8 @@ versions:
   ghec: '*'
 topics:
   - SSH
-ms.openlocfilehash: db2a47ad6029790cdbf9f0212087acc659326941
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145091746'
 ---
+
 Cuando ejecutes comandos Git remotos o SSH, tu conexión puede quedar inactiva:
 
 ```shell
@@ -32,9 +27,9 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 ## Resolver el problema
 
-### Use HTTPS
+### Usa HTTPS
 
-A menudo la solución más sencilla es simplemente evitar por completo el SSH. La mayoría de los firewalls y los proxys permiten el tráfico de HTTPS sin problemas. Para aprovechar esto, cambie [la dirección URL remota](/github/getting-started-with-github/about-remote-repositories) que usa:
+A menudo la solución más sencilla es simplemente evitar por completo el SSH. La mayoría de los firewalls y los proxys permiten el tráfico de HTTPS sin problemas. Para aprovechar esto, cambia [la URL remota](/github/getting-started-with-github/about-remote-repositories) que estás usando:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
@@ -51,16 +46,16 @@ Si puedes conectar la computadora a otra red que no tenga un firewall, puedes tr
 
 {% ifversion fpt or ghec %}
 
-### Utilizar SSH a través del puerto HTTPS
+### Uso de SSH a través del puerto HTTPS
 
-Si no puede usar HTTPS y el administrador de firewall no permite las conexiones SSH, en su lugar puede intentar usar [SSH sobre el puerto HTTPS](/articles/using-ssh-over-the-https-port).
+Si usar HTTPS no es una opción y tu administrador de firewall no permite las conexiones de SSH, puedes intentar usar [SSH a través del puerto HTTPS](/articles/using-ssh-over-the-https-port).
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Información adicional
+## Leer más
 
-- "[Solución de problemas de conectividad](/articles/troubleshooting-connectivity-problems)"
+- "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"
 
 {% endif %}

@@ -13,12 +13,7 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Permission denied other-user
-ms.openlocfilehash: b46df8f9e8671008b37d3db69e2094e96e0413b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145091742'
+shortTitle: Permiso negado para otro usuario
 ---
-Para resolverlo, el propietario del repositorio (`user`) debe agregar su cuenta (`other-user`) como colaborador en el repositorio o en un equipo que tenga acceso de escritura al repositorio.
+
+Para resolverlo, el propietario del repositorio (`user`) debe agregar tu cuenta (`other-user`) como colaborador en el repositorio o en un equipo que tenga acceso de escritura al repositorio.
