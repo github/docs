@@ -12,30 +12,36 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 5b9287030169ecac751b407ad915d4fa69bf8182
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145996221'
 ---
-
-Ahor que [configuraste tu servidor local](/webhooks/configuring/), podrías estar interesado en llevar tu código a sus límites. Para ello, la vista de webhooks de GitHub te proporciona herramientas para probar tus cargas útiles desplegadas.
+Ahora que ha [configurado el servidor local](/webhooks/configuring/), es posible que le interese superar los límites del código. Para ello, la vista de webhooks de GitHub le proporciona herramientas para probar las cargas útiles implementadas.
 
 ## Listar las entregas recientes
 
 Cada webhook tiene su propia sección de "Entregas Recientes", la cual lista rápidamente si una entrega fue exitosa (paloma verde) o fallida (x roja). También puedes identificar cuando se intentó cada entrega.
 
-{% data variables.product.product_name %} mantiene una bitácora de cada entrega de webhook para {% ifversion fpt or ghec %}30 {% else %} 8 {% endif %} días.
+{% data variables.product.product_name %} mantiene un registro de cada entrega de webhook durante {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} días.
 
-![Vista de entregas recientes](/assets/images/webhooks_recent_deliveries.png)
+![Vista de Entregas Recientes](/assets/images/webhooks_recent_deliveries.png)
 
 ## Profundizar en los resultados
 
-Si expandes una entrega individual podrás presenciar *exactamente* qué información de GitHub se está intentando enviar a tu servidor. Esto incluye tanto la solicitud de HTTP como la respuesta.
+Si expande una entrega individual podrá presenciar *exactamente* qué información de GitHub se está intentando enviar a su servidor. Esto incluye la solicitud de HTTP y la respuesta.
 
 ### Solicitud
 
-La vista de entregas del webhook te proporciona información sobre qué encabezados se enviaron a través de GitHub. También incluye detalles acerca de la carga útil de JSON.
+La vista de entregas del webhook te proporciona información sobre qué encabezados se enviaron a través de GitHub.
+También incluye detalles acerca de la carga útil de JSON.
 
 ![Visualizar la solicitud de una carga útil](/assets/images/payload_request_tab.png)
 
-### Respuesta
+### Response
 
-La pestaña de respuesta lista la forma en que tu servidor respondió una vez que recibió la carga útil de GitHub. Esto incluye al código de estado, a los encabezados y a cualquier dato adicional dentro del cuerpo de la respuesta.
+La pestaña de respuesta muestra la forma en que su servidor ha respondido una vez que ha recibido la carga útil de GitHub. Esto incluye el código de estado, los encabezados y cualquier dato adicional en el cuerpo de la respuesta.
 
 ![Visualizar la respuesta de una carga útil](/assets/images/payload_response_tab.png)

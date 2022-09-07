@@ -11,9 +11,14 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Error sin avance rápido
+shortTitle: Non-fast-forward error
+ms.openlocfilehash: 59e1957bf2376462c1267527b1bc29ed9de49db9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126239'
 ---
-
 Si otra persona ha subido cambios en la misma rama que tú, Git no podrá subir tus cambios:
 
 ```shell
@@ -26,7 +31,7 @@ $ git push origin main
 > 'Note about fast-forwards' section of 'git push --help' for details.
 ```
 
-Puedes resolver este problema [extrayendo y fusionando](/github/getting-started-with-github/getting-changes-from-a-remote-repository) los cambios realizados en la rama remota con los cambios que has hecho localmente:
+Para solucionarlo, [capture y combine](/github/getting-started-with-github/getting-changes-from-a-remote-repository) los cambios realizados en la rama remota con los cambios realizados a nivel local:
 
 ```shell
 $ git fetch origin
@@ -35,7 +40,7 @@ $ git merge origin <em>YOUR_BRANCH_NAME</em>
 # Merges updates made online with your local work
 ```
 
-O bien, puedes simplemente usar `git pull` para ejecutar al mismo tiempo ambos comandos:
+O bien, puede usar `git pull` para ejecutar ambos comandos a la vez:
 
 ```shell
 $ git pull origin <em>YOUR_BRANCH_NAME</em>

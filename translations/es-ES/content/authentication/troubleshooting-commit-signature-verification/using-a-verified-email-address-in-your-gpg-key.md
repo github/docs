@@ -13,16 +13,20 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Utilizar un correo electrónico verificado en la llave GPG
+shortTitle: Use verified email in GPG key
+ms.openlocfilehash: bb9f4fbbfdb70ba55870ab068a33c566791fbaf2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145091756'
 ---
+{% ifversion fpt or ghec %} Si tiene que comprobar la dirección de correo electrónico de GitHub, vea "[Comprobación de la dirección de correo electrónico](/articles/verifying-your-email-address/)". {% endif %} Si tiene que actualizar o agregar una dirección de correo electrónico a la clave de GPG, vea "[Asociación de un correo electrónico con la clave de GPG](/articles/associating-an-email-with-your-gpg-key)".
 
-{% ifversion fpt or ghec %}
-Si debes verificar tu dirección de correo electrónico de GitHub, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address/)". {% endif %}Si debes actualizar o agregar una dirección de correo electrónico para tu llave GPG, consulta "[Asociar un correo electrónico a tu llave GPG](/articles/associating-an-email-with-your-gpg-key)".
+Las confirmaciones y etiquetas pueden contener varias direcciones de correo electrónico. Para las confirmaciones, está el autor —la persona que escribió el código— y la persona que confirma el cambio —la persona que agregó la confirmación al árbol—. Cuando se firma una confirmación con Git, sea durante una combinación, selección exclusiva o `git commit` normal, la dirección de correo electrónico del responsable de la confirmación será la suya, incluso si la del creador no lo es. Con las etiquetas es más simple: la dirección de correo electrónico del etiquetador es siempre la del usuario que creó la etiqueta.
 
-Las confirmaciones y etiquetas pueden contener varias direcciones de correo electrónico. Para las confirmaciones, está el autor —la persona que escribió el código— y la persona que confirma el cambio —la persona que agregó la confirmación al árbol—. Cuando se firma una confirmación con Git, sea durante una fusión, cherry-picking o `confirmación git` normal, la dirección de correo electrónico de la persona que confirma el cambio debe ser la tuya, incluso si la dirección de correo electrónico del autor no lo es. Con las etiquetas es más simple: la dirección de correo electrónico del etiquetador es siempre la del usuario que creó la etiqueta.
+Si tiene que cambiar la dirección de correo electrónico del responsable de la confirmación o la etiqueta, vea "[Configuración de la dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address/)".
 
-Si debes cambiar la dirección de correo electrónico de la persona que confirma el cambio o del etiquetador, consulta "[Establecer tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address/)".
+## Información adicional
 
-## Leer más
-
-- "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"
+- "[Acerca de la verificación de firma de confirmación](/articles/about-commit-signature-verification)"

@@ -1,6 +1,6 @@
-Utiliza `jobs.<job_id>.container` para crear un contenedor para ejecutar cualquier paso en un job que aún no especifique un contenedor. Si tienes pasos que usan tanto acciones de script como de contenedor, las acciones de contenedor se ejecutarán como contenedores hermanos en la misma red con los mismos montajes de volumen.
+Use `jobs.<job_id>.container` to create a container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
 
-Si no configuras un `container`, todos los pasos se ejecutan directamente en el host especificado por `runs-on` a menos que un paso se refiera a una acción configurada para ejecutarse en un contenedor.
+If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
 
 {% note %}
 
@@ -8,7 +8,7 @@ Si no configuras un `container`, todos los pasos se ejecutan directamente en el 
 
 {% endnote %}
 
-### Ejemplo: Ejecutar un job dentro de un contenedor
+### Example: Running a job within a container
 
 ```yaml{:copy}
 name: CI
@@ -32,7 +32,7 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
-Cuando solo especificas una imagen de contenedor, puedes omitir la palabra clave `image`.
+When you only specify a container image, you can omit the `image` keyword.
 
 ```yaml
 jobs:

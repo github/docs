@@ -1,4 +1,12 @@
-Los alcances y valores de acceso disponibles:
+---
+ms.openlocfilehash: 56ed7762c2325d0328bd52ca89fe7879b5ce4601
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145092109"
+---
+Alcances y valores de acceso disponibles:
 
 ```yaml
 permissions:
@@ -17,7 +25,7 @@ permissions:
   statuses: read|write|none
 ```
 
-Si especificas el acceso para cualquiera de estos alcances, todos aquellos que no se especifiquen se configuran como `none`.
+Si especifica el acceso para cualquiera de estos ámbitos, todos los que no se especifiquen se establecen en `none`.
 
 Puedes utilizar la siguiente sintaxis para definir el acceso de lectura o escritura para todos los alcances disponibles:
 

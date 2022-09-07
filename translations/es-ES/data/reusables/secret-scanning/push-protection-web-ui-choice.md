@@ -1,13 +1,13 @@
-Cuando utilizas la IU web para intentar confirmar un secreto compatible en un repositorio u organización con el escaneo de secretos como protección contra subidas habilitada, {% data variables.product.prodname_dotcom %} la bloqueará.
+When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. 
 
-Puedes ver un letrero en la parte superior de la página con información sobre la ubicación del secreto y este también se subrayará en el archivo para que lo puedas encontrar con facilidad.
+You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
 
 {% ifversion push-protection-custom-link-orgs %}
 
-  ![Captura de pantalla que muestra una confirmación bloqueada en la IU web debido a la protección contra subidas del escaneo de secretos](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
 
 {% else %}
 
-  ![Captura de pantalla que muestra una confirmación bloqueada en la IU web debido a la protección contra subidas del escaneo de secretos](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
-
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  
 {% endif %}

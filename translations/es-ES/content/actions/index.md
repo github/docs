@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions Documentation
+title: Documentación de GitHub Actions
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: 'Automatiza, personaliza y ejecuta tus flujos de trabajo de desarrollo de software directamente en tu repositorio con {% data variables.product.prodname_actions %}. Puedes descubrir, crear y compartir acciones para realizar cualquier trabajo que quieras, incluido CI/CD, y combinar acciones en un flujo de trabajo completamente personalizado.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -68,5 +68,11 @@ children:
   - /security-guides
   - /creating-actions
   - /guides
+ms.openlocfilehash: 4001c855ac5f80d36f93746693a247cdd15a1f60
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066510'
 ---
 

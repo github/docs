@@ -1,6 +1,14 @@
-Cuando se utiliza el evento `workflow_dispatch`, puedes especificar opcionalmente entradas que se pasan al flujo de trabajo.
+---
+ms.openlocfilehash: 6a71d461562c3d6e390549739ac1f17cb274f3f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146199798"
+---
+Cuando se usa el evento `workflow_dispatch`, puede especificar opcionalmente entradas que se pasan al flujo de trabajo.
 
-El flujo de trabajo activado recibe las entradas en el contexto {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para obtener más información, consulta la sección "[Contextos]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})".
+El flujo de trabajo desencadenado recibe las entradas en el contexto {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para más información, vea "[Contextos]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})".
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

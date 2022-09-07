@@ -1,6 +1,6 @@
 ---
-title: Proteger las subidas con el escaneo de secretos
-intro: 'Puedes utilizar el {% data variables.product.prodname_secret_scanning %} para prevenir que los secretos compatibles se suban a tu organización o repositorio si habilitas la protección contra subidas.'
+title: Protecting pushes with secret scanning
+intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your organization or repository by enabling push protection.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,32 +13,32 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Habilitar la protección de subida
+shortTitle: Enable push protection
 ---
 
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 {% data reusables.secret-scanning.push-protection-beta %}
 
-## Acerca de la protección contra subidas para los secretos
+## About push protection for secrets
 
-Has ahora, el {% data variables.product.prodname_secret_scanning_GHAS %} verifica secretos _después_ de una subida y alerta a los usuarios sobre los secretos expuestos. {% data reusables.secret-scanning.push-protection-overview %}
+Up to now, {% data variables.product.prodname_secret_scanning_GHAS %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %}
 
-Si un contribuyente omite un bloque de protección de subida para un secreto, {% data variables.product.prodname_dotcom %}:
-- genera una alerta.
-- crea una alerta en la pestaña de "Seguridad" del repositorio.
-- agrega un evento de omisión en la bitácora de auditoría.{% ifversion secret-scanning-push-protection-email %}
-- envía una alerta por correo electrónico a los propietarios de la organización, administradores de seguridad y administradores de repositorio con un enlace al secreto relacionado y con la razón por la cual se permitió.{% endif %}
+If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
+- generates an alert.
+- creates an alert in the "Security" tab of the repository.
+- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
+- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
 
-Para obtener información sobre los proveedores de servicios y secretos compatibles para la protección contra subida, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)".
+For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
-## Habilitar el {% data variables.product.prodname_secret_scanning %} como una protección contra subidas
+## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
-Para que puedas utilizar el {% data variables.product.prodname_secret_scanning %} como protección contra subidas, el repositorio u organización necesita tener habilitados tanto la {% data variables.product.prodname_GH_advanced_security %} como el {% data variables.product.prodname_secret_scanning %}. Para obtener más información, consulta las secciones "[Administrar los ajustes de seguridad y análisis de tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)", "[Administrar los ajustes de seguridad y análisis de tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" y "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".
+For you to use {% data variables.product.prodname_secret_scanning %} as a push protection, the organization or repository needs to have both {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)," "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
-Los propietarios de las organizaciones, administradores de seguridad y administradores de repositorio pueden habilitar la protección de subida para {% data variables.product.prodname_secret_scanning %} a través de la IU y de la API. Para obtener más información, consulta la sección "[Repositorios](/rest/reference/repos#update-a-repository)" y expande la sección de "Propiedades del objeto `security_and_analysis`" en la documentación de la API de REST.
+Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
-### Habilitar el {% data variables.product.prodname_secret_scanning %} como protección contra subida para una organización
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -46,7 +46,7 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-org %}
 
-### Habilitar el {% data variables.product.prodname_secret_scanning %} como protección de subida para un repositorio
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -54,83 +54,84 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
-## Utilizar el escaneo de secretos como protección contra subida desde la línea de comandos
+## Using secret scanning as a push protection from the command line
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
-Se mostrarán hasta cinco secretos detectados a la vez en la línea de comandos. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
+Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret. 
 
-{% ifversion push-protection-custom-link-orgs %}
+{% ifversion push-protection-custom-link-orgs %} 
 
-Los administradores de las organizaciones pueden proporcionar un enlace personalizado que se mostrará cuando se bloquee una subida de información. Este enlace personalizado puede contener consejos y recursos específicos para la organización, tal como las instrucciones para utilizar una bóveda de secretos recomendada o a quién contactar para hacer preguntas relacionadas con el secreto bloqueado.
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
 
 {% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
 
-![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
 
 {% else %}
 
-![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
 {% endif %}
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos de remediación bloqueados, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Los secretos reales que se expusieron deben revocarse para evitar un acceso no autorizado. Podrías considerar rotar el secreto primero antes de revocarlo. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-### Permitir que se suba un secreto bloqueado
+### Allowing a blocked secret to be pushed
 
-Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-1. Visita la URL que devolvió {% data variables.product.prodname_dotcom %} cuando se bloqueó tu subida. ![Captura de pantalla que muestra un formulario con opciones para desbloquear la subida de un secreto](/assets/images/help/repository/secret-scanning-unblock-form.png)
+1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked.
+  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
-1. Haz clic en **Permitirme subir este secreto**.
-2. Vuelve a intentar la subida en la línea de comandos al cabo de tres horas. Si no has realizado una subida a cabo de tres horas, necesitarás repetir este proceso.
+1. Click **Allow me to push this secret**.
+2. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
-## Utilizar el escaneo de secretos como una protección de subida desde la IU web
+## Using secret scanning as a push protection from the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-{% data variables.product.prodname_dotcom %} solo mostrará un secreto detectado a la vez en la IU web. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
+{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-{% ifversion push-protection-custom-link-orgs %}
+{% ifversion push-protection-custom-link-orgs %} 
 
-Los administradores de las organizaciones pueden proporcionar un enlace personalizado que se mostrará cuando se bloquee una subida de información. Este enlace personalizado puede contener recursos y consejos específicos para tu organización. Por ejemplo, el enlace personalizado puede apuntar a un archivo README con información sobre la bóveda de secretos de la organización, a qué individuos y equipos escalar las preguntas o la política aprobada de la organización para trabajar con secretos y reescribir el historial de confirmaciones.
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 
 {% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
 
 {% endif %}
 
-Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimines el secreto, el letrero en la parte superior de la página cambiará y te dirá que ahora puedes confirmar tus cambios.
+You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
 
-  ![Captura de pantalla que muestra la confirmación en la Iu web después de que se corrigió un secreto](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+  ![Screenshot showing commit in web ui allowed after secret fixed](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
-### Saltar la protección contra subidas para un secreto
+### Bypassing push protection for a secret
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} Para obtener más información sobre los secretos de remediación bloqueados, consulta la sección "[Subir una rama que se bloqueó por una protección contra subida](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)".
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)." 
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
-Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
 
-1. En el letrero que aparece en la parte superior de la página cuando {% data variables.product.prodname_dotcom %} bloqueó tu confirmación, haz clic en **Saltar protección**.
+1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
-  ![Captura de pantalla que muestra un formulario con opciones para desbloquear la subida de un secreto](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
+  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
-1. Haz clic en **Permitir secreto**.
+1. Click **Allow secret**.
 
 {% endif %}

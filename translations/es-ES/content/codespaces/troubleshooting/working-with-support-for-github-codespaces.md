@@ -1,6 +1,6 @@
 ---
 title: Working with support for GitHub Codespaces
-intro: 'Tips para obtener la mejor ayuda del soporte para {% data variables.product.prodname_github_codespaces %}.'
+intro: 'Tips on getting the best help from support for {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -8,30 +8,32 @@ versions:
 type: reference
 topics:
   - Codespaces
-shortTitle: Trabajar con soporte
+shortTitle: Working with support
 redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-Antes de que soporte pueda ayudarte con los problemas de los codespaces, necesitas saber el nombre del codespace y su ID de codespaces (identificador). Adicionalmente, soporte podría pedirte que le compartas algunas bitácoras. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
+Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
-### Nombres de los codespaces
+### Codespace names
 
-Cada codespace tiene un nombre único que es una combinación de tu manejo de {% data variables.product.company_short %}, el nombre del repositorio, y algunos caracteres aleatorios. Los caracteres adicionales te permiten tener codespaces para ramas diferentes en el mismo repositorio. Por ejemplo: `octocat-myrepo-gmc7`.
+Each codespace has a unique name that is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. The additional characters allow you to have codespaces for different branches in the same repository. For example: `octocat-myrepo-gmc7`.
 
-Para encontrar el nombre de un codespace:
+To find the name of a codespace:
 
-- Abre el codespace en el buscador. El subdominio de la URL es el nombre del codespace. Por ejemplo: `https://octocat-myrepo-gmc7.github.dev` es la URL del codespace `octocat-myrepo-gmc7`.
-- Si no puedes abrir un codespace, puedes acceder al nombre en {% data variables.product.product_name %} en https://github.com/codespaces. El nombre se muestra en una ventana emergente cuando pasas el puntero del mouse sobre la opción **Open in browser** en https://github.com/codespaces. ![Nombre del codespace que se muestra al pasar el puntero del mouse](/assets/images/help/codespaces/find-codespace-name-github.png)
+- Open the codespace in the browser. The subdomain of the URL is the name of the codespace. For example: `https://octocat-myrepo-gmc7.github.dev` is the URL for the `octocat-myrepo-gmc7` codespace.
+- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
+  ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-El nombre del codespace también se incluye en muchos otros archivos de bitácora. Por ejemplo, en las bitácoras de codespace como el valor de `friendlyName`, en la bitácora de extensiones de {% data variables.product.prodname_github_codespaces %} después de `making GET request for` y en la bitácora de consola del buscador, después de `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
+The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
-### ID de los codespaces
+### Codespaces IDs
 
-Cada codespace también tiene un ID (identificador). Este no se muestra predeterminadamente en {% data variables.product.prodname_vscode %}, así que podrías tener que actualizar los ajustes para la extensión de {% data variables.product.prodname_github_codespaces %} antes de que puedas acceder a la ID.
+Every codespace also has an ID (identifier). This is not shown by default in {% data variables.product.prodname_vscode %} so you may need to update the settings for the {% data variables.product.prodname_github_codespaces %} extension before you can access the ID.
 
-1. En {% data variables.product.prodname_vscode %}, ya sea la versión de buscador o de escritorio, en la barra de actividad a la izquierda, haz clic en **Explorador remoto** para que se muestren los detalles del codespace.
+1. In {% data variables.product.prodname_vscode %}, browser or desktop, in the Activity Bar on the left, click **Remote Explorer** to show details for the codespace.
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
-1. Si la barra lateral incluye una sección de "Rendimiento del Codespace", pasa el puntero del mouse sobre "ID del Codespace" y haz clic en el icono de portapapeles para copiar la ID.
-1. Si no se muestra la información, haz clic en {% octicon "gear" aria-label="The gear icon" %} en la esquina inferior izquierda de la barra de actividad para mostrar la pestaña de "Ajustes".
-1. Expande las **Extensiones** y haz clic en **{% data variables.product.prodname_github_codespaces %}** para mostrar los ajustes de la extensión. Entonces, habilita el **Explorador para mostrar el rendmiento** para mostrar la sección de "Rendimiento del Codespace" en la barra lateral. ![ID y ajustes del codespace requeridos para mostrar la información de rendimiento](/assets/images/help/codespaces/find-codespace-id.png)
+1. If the sidebar includes a "Codespace Performance" section, hover over the "Codespace ID" and click the clipboard icon to copy the ID.
+1. If the information is not shown, click {% octicon "gear" aria-label="The gear icon" %}, in the bottom-left corner of the Activity Bar, to display the "Settings" tab.
+1. Expand **Extensions** and click **{% data variables.product.prodname_github_codespaces %}** to display the settings for the extension. Then enable **Show Performance Explorer** to display the "Codespace Performance" section in the sidebar.
+  ![Codespace ID and settings required to display performance information](/assets/images/help/codespaces/find-codespace-id.png)

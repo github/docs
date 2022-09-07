@@ -1,6 +1,6 @@
 ---
 title: Documentación de GitHub Packages
-shortTitle: Registro del paquete de GitHub
+shortTitle: GitHub Packages
 intro: 'Aprende a publicar y consumir paquetes de forma segura, almacena tus paquetes junto con tu código y comparte tus paquetes de forma privada con tu equipo o de manera pública con la comunidad de código abierto. También puedes automatizar tus paquetes con {% data variables.product.prodname_actions %}.'
 introLinks:
   quickstart: /packages/quickstart
@@ -38,6 +38,11 @@ children:
   - /learn-github-packages
   - /working-with-a-github-packages-registry
   - /managing-github-packages-using-github-actions-workflows
+ms.openlocfilehash: 768e5ea20b7e4242afe7a8880982052ff818df63
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147704935'
 ---
-
 <!--This section is needed to determine the order of the left sidebar for now-->

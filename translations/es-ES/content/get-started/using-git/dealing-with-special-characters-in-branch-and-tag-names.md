@@ -6,26 +6,31 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Caracteres especiales en los nombres
+shortTitle: Special characters in names
+ms.openlocfilehash: e03b6ba963cef465f775620d353f14f0f5d92d36
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115978'
 ---
-
 ## Acerca de los nombres de las ramas y etiquetas
 
-La mayoría de los repositorios utilizan nombres de rama simples, tales como `main` o `update-icons`. Los nombres de etiqueta también siguen un formato básico, tal como un número de versión como `v1.2.3`. Tanto los nombres de rama como los de etiqueta podrían utilizar el separador de ruta (`/`) para dar estructura, por ejemplo `area/item` o `level-1/level-2/level-3`. Exceptuando un par de casos &mdash; tales como el no iniciar o finalizar un nombre con una diagonal o tener diagonales consecutivas en los nombres &mdash; Git tiene muy pocas restricciones sobre qué caracteres pueden utilizarse en los nombres de etiqueta y de rama. Para obtener más información, consulta "[git-check-ref-format](https://git-scm.com/docs/git-check-ref-format) en la documentación de Git.
+La mayoría de los repositorios usan nombres de rama simples, como `main` o `update-icons`. Los nombres de etiqueta también siguen un formato básico, por ejemplo, un número de versión como `v1.2.3`. Tanto los nombres de rama como los nombres de etiqueta pueden usar el separador de ruta de acceso (`/`) para la estructura, por ejemplo, `area/item` o `level-1/level-2/level-3`. Exceptuando un par de casos &mdash; tales como el no iniciar o finalizar un nombre con una barra o colocar barras consecutivas en los nombres &mdash; Git tiene muy pocas restricciones sobre qué caracteres pueden utilizarse en los nombres de etiqueta y de rama. Para obtener más información, "[consulte git-check-ref-format](https://git-scm.com/docs/git-check-ref-format)" en la documentación de Git.
 
 ## Por qué necesitas escapar los caracteres especiales
 
 Cuando utilizas un CLI, podrías encontrarte con situaciones en donde el nombre de rama o etiqueta contiene caracteres especiales que tienen un significado especial para tu ambiente de shell. Para utilizar estos caracteres de forma segura en un comando de Git, deben citarse o escaparse, de otra manera, los comandos podrían tener efectos sin atender.
 
-Por ejemplo, muchos shells utilizan el caracter `$` para referirse a una variable. La mayoría de los shells interpretarían un nombre de rama válido como `hello-$USER` como un equivalente de la palabra "hellO", seguida de un guion, seguida del valor actual de la variable `USER`, en vez de la secuencia literal `hello-$USER`. Si un nombre de rama incluye el caracter `$`, entonces el shell no debe expandirlo como una referencia de variable. De forma similar, si un nombre de rama contiene un punto y coma (`;`), la mayoría de los shells lo interpretarán como un separador de comandos, así que necesita citarse o escaparse.
+Por ejemplo, muchos shells utilizan el carácter `$` para referirse a una variable. La mayoría de los shells interpretarán un nombre de rama válido como `hello-$USER` equivalente a la palabra "hello", seguido de un guión, seguido del valor actual de la variable `USER`, en lugar de la cadena literal `hello-$USER`. Si un nombre de rama incluye el carácter `$`, entonces el shell no debe expandirlo como una referencia de variable. De forma similar, si un nombre de rama contiene un punto y coma (`;`), la mayoría de los shells lo interpretarán como un separador de comandos, así que necesita estar entre comillas o caracteres de escape.
 
 ## Cómo escapar los caracteres especiales en nombres de rama y etiqueta
 
-La mayoría de los nombres de etiquetas y ramas con caracteres especiales se pueden manejar si incluyen el nombre entre comillas sencillas, por ejemplo `'hello-$USER'`.
+La mayoría de los nombres de etiquetas y ramas con caracteres especiales se pueden gestionar si incluyen el nombre entre comillas simples, por ejemplo `'hello-$USER'`.
 
-* En el shell de [Bas](https://www.gnu.org/software/bash/), el encerrar una secuencia de caracteres entre comillas simples preserva el valor literal de estos dentro de dichas comillas sencillas.
-* [Zsh](https://www.zsh.org/) se comporta de forma similar a Bash, sin embargo, este comportamiento se puede configurar utilizando la opción `RC_QUOTES`.
-* [PowerShell](https://microsoft.com/powershell) también trata a los caracteres literalmente cuando están entre comillas sencillas.
+* En el shell [Bash](https://www.gnu.org/software/bash/), al escribir una cadena de caracteres entre comillas simples, se conserva el valor literal de los caracteres entre las comillas.
+* [Zsh](https://www.zsh.org/) se comporta de forma similar a Bash, aunque este comportamiento se puede configurar mediante la opción `RC_QUOTES`.
+* [PowerShell](https://microsoft.com/powershell) también trata los caracteres de manera literal cuando están entre comillas simples.
 
 Para estos shells, la excepción principal es cuando el nombre de etiqueta o rama mismo contiene una comilla sencilla. En este caso, debes consultar la documentación oficial de tu shell:
 
@@ -38,12 +43,12 @@ Para estos shells, la excepción principal es cuando el nombre de etiqueta o ram
 
 De ser posible, crea nombres de rama y de etiqueta que no contengan caracteres especiales, ya que necesitarás escaparlos. Un conjunto predeterminado de caracteres seguros a utilizar para los nombres de rama y etiqueta es:
 
-* El alfabeto inglés (de la `a` a la `z` y de la `A` a la `Z`)
-* Números (`0` to `9`)
+* Alfabeto inglés (`a` a `z` y `A` a `Z`)
+* Números (`0` a `9`)
 * Un conjunto limitado de caracteres de puntuación:
   * punto (`.`)
   * guion (`-`)
   * guion bajo (`_`)
-  * diagonal (`/`)
+  * barra diagonal (`/`)
 
 Para evitar la confusión, deberías iniciar los nombres de rama con una letra.
