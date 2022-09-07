@@ -1,53 +1,46 @@
 ---
 title: Versões do GitHub Enterprise Server
-intro: '{% data variables.product.company_short %} lança novas versões de {% data variables.product.product_name %} regularmente. Você pode rever versões compatíveis, ver datas de obsolescência e consultar a documentação para a versão que você instalou.'
+intro: '{% data variables.product.company_short %} lança novas versões de {% data variables.product.product_name %} regularmente. Você pode examinar as versões com suporte, ver as datas de substituição e procurar a documentação da versão implantada.'
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
 topics:
   - Enterprise
   - Upgrades
-shortTitle: Versões
+shortTitle: Releases
+ms.openlocfilehash: 85b0848f77b12920ba853bc674327392b6a89389
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147062903'
 ---
+## Sobre versões do {% data variables.product.product_name %}
 
-## Sobre as versões de {% data variables.product.product_name %}
+{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} dá suporte às quatro versões de recursos mais recentes. Para obter mais informações, confira "[Sobre os upgrades para novas versões](/admin/overview/about-upgrades-to-new-releases)".
 
-{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} é compatível com as quatro versões de recurso mais recentes. Para obter mais informações, consulte[Sobre atualizações para novas versões de](/admin/overview/about-upgrades-to-new-releases)."
+Você pode ver as novidades de cada versão nas [notas de versão](/admin/release-notes) e exibir a documentação do administrador e do usuário para todas as versões aqui no {% data variables.product.prodname_docs %}. Ao ler a documentação, selecione a versão que reflete seu produto. Para obter mais informações, confira "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
-Você pode ver o que há de novo para cada versão nas [observações da versão](/admin/release-notes) e você pode visualizar a documentação de administrador e usuário para todas as versões aqui em {% data variables.product.prodname_docs %}. Ao ler a documentação, certifique-se de selecionar a versão que reflete o seu produto. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+## Versões com suporte no momento
 
-## Versões atualmente compatíveis
+O {% data variables.product.company_short %} dá suporte às seguintes versões do {% data variables.product.product_name %}. Para obter informações sobre a versão mais recente, confira o site do [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
-{% data variables.product.company_short %} é compatível com as seguintes versões de {% data variables.product.product_name %}. Para obter mais informações sobre a última versão, consulte o [side de {% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
+| Versão | Versão | Reprovação | Notas de versão | Documentação |
+| :- | :- | :- | :- | :- |
+{%- for version in enterpriseServerReleases.supported %} | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [Notas de versão da {{version}}](/enterprise-server@{{version}}/admin/release-notes) | [Documentação da {{version}}](/enterprise-server@{{version}}) | {%- endfor %}
 
-| Versão | Versão | Descontinuação | Notas de lançamento | Documentação |
-|:------ |:------ |:-------------- |:------------------- |:------------ |
-|        |        |                |                     |              |
-{%- for version in enterpriseServerReleases.supported %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} observações da versão](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
-{%- endfor %}
+## Versões preteridas
 
-## Versões obsoletas
+O {% data variables.product.company_short %} fornece documentação para versões preteridas, mas não mantém nem atualiza a documentação.
 
-{% data variables.product.company_short %} fornece documentação para versões obsoletas, mas não mantém ou atualiza a documentação.
-
-| Versão | Versão | Descontinuação | Notas de lançamento | Documentação |
-|:------ |:------ |:-------------- |:------------------- |:------------ |
-|        |        |                |                     |              |
-{%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} observações da versão](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
-{%- endfor %}
-{%- for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} observações sobre a versão](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} documentação](/enterprise/{{version}}) |
-{%- endfor %}
+| Versão | Versão | Reprovação | Notas de versão | Documentação |
+| :- | :- | :- | :- | :- |
+{%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %} | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [Notas de versão da {{version}}](/enterprise-server@{{version}}/admin/release-notes) | [Documentação da {{version}}](/enterprise-server@{{version}}) | {%- endfor %} {%- for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %} | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [Notas de versão da {{version}}](https://enterprise.github.com/releases/series/{{version}}) | [Documentação da {{version}}](/enterprise/{{version}}) | {%- endfor %}
 
 ### Documentação de desenvolvedor descontinuada
 
-{% data variables.product.company_short %} hospedou a documentação do desenvolvedor para {% data variables.product.product_name %} em um site separado até a versão 2.17. {% data variables.product.company_short %} continua fornecendo a documentação de desenvolvedor para a versão 2.16 e anterior, mas não mantém ou atualiza a documentação.
+Documentação do desenvolvedor hospedado do {% data variables.product.company_short %} para {% data variables.product.product_name %} em um site separado até a versão 2.17. O {% data variables.product.company_short %} continua fornecendo a documentação do desenvolvedor para a versão 2.16 e anterior, mas não mantém nem atualiza a documentação.
 
-| Versão | Versão | Descontinuação | Documentação do desenvolvedor |
-|:------ |:------ |:-------------- |:----------------------------- |
-|        |        |                |                               |
-{%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} documentação do desenvolvedor](https://developer.github.com/enterprise/{{version}}) |
-{%- endfor %}
+| Versão | Versão | Reprovação | Documentação do desenvolvedor |
+| :- | :- | :- | :- |
+{%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %} | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [Documentação do desenvolvedor da {{version}}](https://developer.github.com/enterprise/{{version}}) | {%- endfor %}

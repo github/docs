@@ -9,15 +9,20 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 327d47eeee98a2b8a3fd5e1a7a07ae671c691686
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064295'
 ---
-
 ## Sobre a API de Feeds
 
-Para ver quais feeds estão disponíveis para você, use a operação [Obter feeds](#get-feeds). Em seguida, você poderá obter um feed enviando uma solicitação para uma das URLs do feed.
+Para ver quais feeds estão disponíveis para você, use a operação [Obter feeds](#get-feeds). Para obter um feed, você pode enviar uma solicitação para uma das URLs do feed.
 
 ### Exemplo de como obter um feed do Atom
 
-Para obter um feed no formato Atom você deve especificar o tipo `application/atom+xml` no cabeçalho `Aceitar`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
+Para obter um feed no formato Atom, você deve especificar o tipo `application/atom+xml` no cabeçalho `Accept`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 

@@ -10,6 +10,12 @@ children:
   - /backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /using-a-staging-environment
   - /troubleshooting-github-actions-for-your-enterprise
-shortTitle: HA & solução de problemas
+shortTitle: HA & troubleshooting
+ms.openlocfilehash: ad7da43fc544a81c2e77140725726d0f4e86f04f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145095913'
 ---
 

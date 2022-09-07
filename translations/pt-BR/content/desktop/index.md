@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop
 shortTitle: GitHub Desktop
-intro: 'Com o GitHub Desktop, você pode interagir com o GitHub usando um GUI em vez da linha de comando ou um navegador da web. Você pode usar o GitHub Desktop para realizar a maioria dos comandos do git da sua área de trabalho como, por exemplo, push, pull, cloncar repositórios remotos, atribuir commits e criar pull requests, com confirmação visual de alterações.'
+intro: 'Com o GitHub Desktop, você pode interagir com o GitHub usando uma GUI em vez da linha de comando ou um navegador da Web. Você pode usar o GitHub Desktop para concluir a maioria dos comandos Git da área de trabalho, como enviar por push, extrair e clonar repositórios remotos, atribuir commits e criar solicitações de pull, com confirmação visual das alterações.'
 introLinks:
   overview: /desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop
 featuredLinks:
@@ -34,5 +34,11 @@ topics:
 children:
   - /installing-and-configuring-github-desktop
   - /contributing-and-collaborating-using-github-desktop
+ms.openlocfilehash: c01564ef3eb2777fb49bd9fae0ce791c19b77e4d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146200015'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Criar comunidades
-shortTitle: Criar comunidades
+shortTitle: Building communities
 intro: 'Aprenda as práticas recomendadas para moderar e configurar comunidades colaborativas, seguras e eficazes usando as ferramentas testadas pela comunidade do GitHub.'
 redirect_from:
   - /categories/building-a-strong-community
@@ -35,5 +35,11 @@ children:
   - /moderating-comments-and-conversations
   - /maintaining-your-safety-on-github
   - /documenting-your-project-with-wikis
+ms.openlocfilehash: f6149257ddb7cd77e8ed933d44229be5a46268bb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084128'
 ---
 
