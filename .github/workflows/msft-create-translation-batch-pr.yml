@@ -153,7 +153,7 @@ jobs:
       - name: Create translation batch pull request
         env:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-          TITLE: '[DO NOT MERGE] Msft: New translation batch for ${{ matrix.language }}'
+          TITLE: 'New translation batch for ${{ matrix.language }}'
           BASE: 'main'
           HEAD: ${{ steps.set-branch.outputs.BRANCH_NAME }}
           LANGUAGE: ${{ matrix.language }}
