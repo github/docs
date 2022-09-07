@@ -17,6 +17,12 @@ children:
   - /pricing-plans-for-github-marketplace-apps
   - /billing-customers
   - /receiving-payment-for-app-purchases
-shortTitle: Vender las apps en Marketplace
+shortTitle: Sell apps on the Marketplace
+ms.openlocfilehash: f969db42c6da5ccb2cd6657c776332f54d57b561
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092124'
 ---
 

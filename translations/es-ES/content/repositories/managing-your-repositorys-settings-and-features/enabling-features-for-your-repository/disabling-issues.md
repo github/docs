@@ -13,11 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: a706b1431f4f43c9866fb6ef0f01f6d25d6edc46
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136795'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. En Características, quita la marca de selección de la casilla de verificación **Propuestas**. ![Casilla de verificación Eliminar propuestas](/assets/images/help/issues/issues_settings_remove_from_repo.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En Características, anula la selección de la casilla **Propuestas**.
+  ![Casilla de verificación Eliminar propuestas](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 Si decides habilitar las propuestas nuevamente en el futuro, todas las propuestas que se hayan agregado previamente estarán disponibles.
 

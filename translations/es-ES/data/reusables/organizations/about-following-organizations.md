@@ -1,1 +1,0 @@
-When you follow organizations on {% data variables.product.product_name %}, you'll see their {% ifversion fpt or ghec %}public{% endif %} activity on your personal dashboard. This activity includes new discussions, sponsorships, and repositories.

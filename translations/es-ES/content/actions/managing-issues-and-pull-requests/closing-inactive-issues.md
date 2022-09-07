@@ -12,16 +12,20 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+ms.openlocfilehash: 7d0cab4c1ef7ac5fda67a0487b50817adfb5dfd8
+ms.sourcegitcommit: fbc89bcee79c2cda1d3d6e99d5571873ca3b2686
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/31/2022
+ms.locfileid: '147063614'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
-Este tutorial ilustra cómo utilizar la [acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues) para comentar y cerrar las propuestas que han estado inactivas por algún tiempo. Por ejemplo, puedes comentar si una propúesta ha estado inactiva durante 30 días para pedir a los participantes que tomen alguna acción. Posteriormente, si no hay ningún tipo de actividad en los siguientes 14 días, puedes cerrar la propuesta.
+En este tutorial se muestra cómo usar la [acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues) para comentar y cerrar incidencias que han estado inactivas durante un determinado período de tiempo. Por ejemplo, puedes comentar si una propúesta ha estado inactiva durante 30 días para pedir a los participantes que tomen alguna acción. Posteriormente, si no hay ningún tipo de actividad en los siguientes 14 días, puedes cerrar la propuesta.
 
-En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
+En el tutorial, primero creará un archivo de flujo de trabajo en el que se usa la [acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
 
 ## Crear un flujo de trabajo
 
@@ -55,25 +59,25 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
     ```
 
 4. Personaliza los parámetros en tu archivo de flujo de trabajo:
-   - Cambia el valor de `on.schedule` para que dicte cuándo quieres que se ejecute este flujo de trabajo. En el ejemplo anterior, el flujo de trabajo se ejecutará diario a la 1:30 UTC. Para obtener más información sobre los flujos de trabajo que has programado, consulta la sección "[Ejemplos programados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
-   - Cambia el valor de `days-before-issue-stale` a la cantidad de días de inactividad para esperar antes de que la acción `actions/stale` etiquete una propuesta. Si quieres que esta acción jamás etiquete las propuestas, configura el valor en `-1`.
-   - Cambia el valor de `days-before-issue-close` a la cantidad de días sin actividad a esperar antes de que la acción `actions/stale` cierre una propuesta. Si quieres que esta acción jamás cierre las propuestas, configura el valor en `-1`.
-   - Cambia el valor de `stale-issue-label` a la etiqueta que quieras aplicar a las propuestas que hayan estado inactivas por la cantidad de tiempo que especificaste en `days-before-issue-stale`.
-   - Cambia el valor de `stale-issue-message` al comentario que quieres agregar a las propuestas que etiqueta la acción `actions/stale`.
-   - Cambia el valor de `close-issue-message` al comentario que quieres agregar a las propuestas que cerró la acción `actions/stale`.
+   - Cambie el valor de `on.schedule` para determinar cuándo quiere que se ejecute este flujo de trabajo. En el ejemplo anterior, el flujo de trabajo se ejecutará diario a la 1:30 UTC. Para obtener más información sobre los flujos de trabajo programados, consulte "[Eventos programados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
+   - Cambie el valor de `days-before-issue-stale` por el número de días sin actividad antes de que la acción `actions/stale` etiquete una incidencia. Si quiere que esta acción no etiquete nunca las incidencias, establezca este valor en `-1`.
+   - Cambie el valor de `days-before-issue-close` por el número de días sin actividad antes de que la acción `actions/stale` cierre una incidencia. Si quiere que esta acción no cierre nunca las incidencias, establezca este valor en `-1`.
+   - Cambie el valor de `stale-issue-label` por la etiqueta que quiere aplicar a las incidencias que han estado inactivas durante el período de tiempo especificado por `days-before-issue-stale`.
+   - Cambie el valor de `stale-issue-message` por el comentario que quiere agregar a la incidencias etiquetadas por la acción `actions/stale`.
+   - Cambie el valor de `close-issue-message` por el comentario que quiere agregar a la incidencias cerradas por la acción `actions/stale`.
 5. {% data reusables.actions.commit-workflow %}
 
 ## Resultados esperados
 
-Con base en el parámetro `schedule` (por ejemplo, todos los días a la 1:39 UTC), tu flujo de trabajo encontrará propuestas que hayan estado inactivas por el periodo de tiempo que especificaste y agregará el comentario y etiqueta que especificaste. Adicionalmente, tu flujo de trabajo cerrará cualquier propuesta que se haya etiquetado previamente si no ha habido ningún tipo de actividad adicional en el periodo de tiempo que especificaste.
+En función del parámetro `schedule` (por ejemplo, todos los días a la 1:30 UTC), el flujo de trabajo encontrará incidencias que han estado inactivas durante el período de tiempo especificado y les agregará el comentario y etiqueta que ha indicado. Adicionalmente, tu flujo de trabajo cerrará cualquier propuesta que se haya etiquetado previamente si no ha habido ningún tipo de actividad adicional en el periodo de tiempo que especificaste.
 
 {% data reusables.actions.schedule-delay %}
 
-Puedes ver el historial de tus ejecuciones de flujo de trabajo para ver que este flujo de trabajo se ejecute regularmente. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+Puedes ver el historial de tus ejecuciones de flujo de trabajo para ver que este flujo de trabajo se ejecute regularmente. Para más información, vea "[Visualización del historial de ejecución de flujos de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-Este flujo de trabajo solo etiquetará o cerrará 30 propuestas a la vez para evitar exceder el límite de tasa. Puedes configurar esto con el ajuste de `operations-per-run`. Para obtener más información, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
+Este flujo de trabajo solo etiquetará o cerrará 30 propuestas a la vez para evitar exceder el límite de tasa. Puede configurarlo con el valor `operations-per-run`. Para más información, vea la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Pasos siguientes
 
-- Para aprender más sobre las cosas adicionales que puedes hacer con la acción `actions/stale`, como cerrar las solicitudes de cambios inactivas, ignorar las propuestas que tengan ciertas etiquetas o hitos, o verificar solo las propuestas que tengan ciertas etiquetas, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
-- [Busca en GitHub](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code) los ejemplos de los flujos de trabajo utilizando esta acción.
+- Para obtener más información sobre otras cosas que puede hacer con la acción `actions/stale` (como cerrar solicitudes de incorporación de cambios inactivas, omitir incidencias con determinadas etiquetas o hitos o solo comprobar las incidencias con determinadas etiquetas), consulte la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
+- [Busque en GitHub](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code) ejemplos de flujos de trabajo mediante esta acción.
