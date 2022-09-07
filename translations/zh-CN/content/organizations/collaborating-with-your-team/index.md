@@ -17,6 +17,12 @@ children:
   - /creating-a-team-discussion
   - /editing-or-deleting-a-team-discussion
   - /pinning-a-team-discussion
-shortTitle: 与您的团队协作
+shortTitle: Collaborate with your team
+ms.openlocfilehash: ceba22c39b408d9fa60a2d362a024daac15ed84e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128567'
 ---
 

@@ -12,24 +12,29 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: 启动故障转移到副本
+shortTitle: Initiate a failover to replica
+ms.openlocfilehash: 14889e5d861475bc2d887062fb12450194cd6505
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100045'
 ---
-
 ## 关于到副本群集的故障转移
 
 如果为主动群集中的每个节点配置被动副本节点，当主数据中心发生故障时可以故障转移到辅助数据中心的副本节点。
 
 故障转移所需的时间取决于手动升级副本群集和重定向流量所需的时长。
 
-升级副本群集不会自动为现有群集创建副本。 升级副本群集后，可以重新配置新的主动群集复制。 更多信息请参阅“[为群集配置高可用性](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)”。
+升级副本群集不会自动为现有群集创建副本。 升级副本群集后，可以重新配置新的主动群集复制。 有关详细信息，请参阅“[为群集配置高可用性](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)”。
 
-## 基本要求
+## 先决条件
 
-要故障转移到被动副本节点，必须为群集配置了高可用性。 更多信息请参阅“[为群集配置高可用性](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)”。
+要故障转移到被动副本节点，必须为群集配置了高可用性。 有关详细信息，请参阅“[为群集配置高可用性](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)”。
 
 ## 发起到副本群集的故障转移
 
-1. SSH 到群集的辅助数据中心中的任何被动节点。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)。”
+1. SSH 到群集的辅助数据中心中的任何被动节点。 有关详细信息，请参阅“[访问管理 shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)”。
 
 2. 初始化到辅助群集的故障转移并将其配置为主动节点。
 

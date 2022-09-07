@@ -1,6 +1,6 @@
 ---
-title: 使用工作流程
-shortTitle: 使用工作流程
+title: 使用工作流
+shortTitle: Using workflows
 intro: '创建和管理 {% data variables.product.prodname_actions %} 工作流程。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
@@ -33,5 +33,11 @@ children:
   - /using-starter-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
   - /using-github-cli-in-workflows
+ms.openlocfilehash: 0e9acb10f5c68cdd9fdc1a018a5859ed9a578429
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100130'
 ---
 

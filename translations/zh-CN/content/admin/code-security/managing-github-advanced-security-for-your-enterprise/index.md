@@ -16,5 +16,11 @@ children:
   - /configuring-code-scanning-for-your-appliance
   - /configuring-dependency-review-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
+ms.openlocfilehash: 1bc8afef1516d59a5e0b84174eb13c45787098f1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147773200'
 ---
 

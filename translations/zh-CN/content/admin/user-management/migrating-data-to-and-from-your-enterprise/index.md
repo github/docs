@@ -1,6 +1,6 @@
 ---
 title: 将数据迁移到企业或从企业迁移数据
-intro: '您可以从 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_dotcom_the_website %} 导出用户、组织和仓库数据，然后将此数据导入至 {% data variables.product.product_location %}。'
+intro: '可以从 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_dotcom_the_website %} 导出用户、组织和存储库数据，然后将此数据导入至 {% data variables.product.product_location %}。'
 redirect_from:
   - /enterprise/admin/articles/moving-a-repository-from-github-com-to-github-enterprise
   - /enterprise/admin/categories/migrations-and-upgrades
@@ -17,6 +17,12 @@ children:
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
   - /importing-data-from-third-party-version-control-systems
-shortTitle: 为企业迁移
+shortTitle: Migration for an enterprise
+ms.openlocfilehash: 1f08da59c2b9330f2230f8377230132bc2a57704
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098942'
 ---
 

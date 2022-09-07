@@ -11,10 +11,14 @@ versions:
 type: overview
 topics:
   - Project management
-shortTitle: 项目管理操作
+shortTitle: Actions for project management
+ms.openlocfilehash: 5f5d1cb222824bbb451ad603e35b4986384645e4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099104'
 ---
-
-
 您可以创建工作流程以使用 {% data variables.product.prodname_actions %} 自动化项目管理任务。 每个工作流程都包含一系列任务，每当工作流程运行时都会自动执行。 例如，您可以创建一个工作流程，在每次创建议题时运行，以添加标签、 留下评论并将议题移动到项目板。
 
 ## 工作流程何时运行？
@@ -28,7 +32,7 @@ shortTitle: 项目管理操作
 - 项目卡创建或移动。
 - 计划的时间。
 
-有关可触发工作流程的事件的完整列表，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
+有关可以触发工作流的事件的完整列表，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows)”。
 
 ## 工作流程可以做什么？
 
@@ -36,9 +40,9 @@ shortTitle: 项目管理操作
 
 您可以通过遵循这些教程（包括可以改编以满足您需求的示例工作流程）来了解如何使用 {% data variables.product.prodname_actions %} 进行项目管理。
 
-- "[添加标签到议题](/actions/guides/adding-labels-to-issues)"
-- "[当卡片添加到项目板列时删除标签](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
-- "[在项目板上移动分配的议题](/actions/guides/moving-assigned-issues-on-project-boards)"
-- "[在添加标签时评论议题](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
-- "[关闭不活跃的议题](/actions/guides/closing-inactive-issues)"
-- "[计划议题创建](/actions/guides/scheduling-issue-creation)"
+- “[向议题添加标签](/actions/guides/adding-labels-to-issues)”
+- “[将卡片添加到项目板列时删除标签](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)”
+- “[在项目板上移动分配的议题](/actions/guides/moving-assigned-issues-on-project-boards)”
+- “[添加标签时评论议题](/actions/guides/commenting-on-an-issue-when-a-label-is-added)”
+- “[关闭不活跃的议题](/actions/guides/closing-inactive-issues)”
+- “[计划议题的创建](/actions/guides/scheduling-issue-creation)”

@@ -14,27 +14,31 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 查看版本和标记
+shortTitle: View releases & tags
+ms.openlocfilehash: c6cdad2626eb5b3260efd46a1d47dac499c73051
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129289'
 ---
-
 {% tip %}
 
-**提示**：您也可以使用 {% data variables.product.prodname_cli %} 查看发行版。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 发行版视图`](https://cli.github.com/manual/gh_release_view)”。
+提示：还可以使用 {% data variables.product.prodname_cli %} 查看发行版。 有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh release view`](https://cli.github.com/manual/gh_release_view)”。
 
 {% endtip %}
 
 ## 查看发行版
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. 在 Releases（发行版）页面的顶部，单击 **Releases（发行版）**。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. 在“版本”页顶部，单击“版本”。
 
 ## 查看标记
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. 在 Releases（版本）页面的顶部，单击 **Tags（标记）**。 ![标记页面](/assets/images/help/releases/tags-list.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. 在“版本”页面顶部，单击“标记”。
+![标记页](/assets/images/help/releases/tags-list.png)
 
 ## 延伸阅读
 
-- "[对标记签名](/articles/signing-tags)"
+- [对标记签名](/articles/signing-tags)

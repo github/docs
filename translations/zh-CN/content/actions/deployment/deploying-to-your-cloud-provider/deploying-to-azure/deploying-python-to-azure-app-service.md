@@ -11,26 +11,30 @@ topics:
   - CD
   - Python
   - Azure App Service
+ms.openlocfilehash: c9f1bc719068a250aaabfbb8dcb3581335dabdb1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409457'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
-本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Python 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建 Python 项目并将其部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
+注意：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
 {% endif %}
 
-## 基本要求
+## 先决条件
 
 在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
@@ -48,11 +52,11 @@ topics:
        --runtime "python|3.8"
    ```
 
-   在上面的命令中，将参数替换为您自己的值，其中 `MY_WEBAPP_NAME` 是 Web 应用的新名称。
+   在上面的命令中，将参数替换为你自己的值，其中 `MY_WEBAPP_NAME` 是 Web 应用的新名称。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. 添加名为 `SCM_DO_BUILD_DURING_DEPLOYMENT` 的应用设置，并将该值设置为 `1`。
+1. 添加名为 `SCM_DO_BUILD_DURING_DEPLOYMENT` 的应用设置并将值设置为 `1`。
 
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
@@ -60,9 +64,9 @@ topics:
 
 完成先决条件后，可以继续创建工作流程。
 
-以下示例工作流演程示在推送到 `main` 分支时，如何构建 Python 项目并将其部署到 Azure App Service。
+以下示例工作流演示如何在推送到 `main` 分支时构建 Python 项目并将其部署到 Azure 应用服务。
 
-确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 如果使用的 Python 版本不是 `3.8x`，请将 `NODE_VERSION` 更改为您使用的版本。
+确保在工作流 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为创建的 Web 应用的名称。 如果使用的 Python 版本不是 `3.8`，请将 `PYTHON_VERSION` 更改为你使用的版本。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -98,7 +102,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Set up dependency caching for faster installs
         uses: {% data reusables.actions.action-cache %}
         with:
@@ -145,6 +149,6 @@ jobs:
 
 以下资源也可能有用：
 
-* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml)。
-* 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
-* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。
+* 对于原始初学者工作流，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 存储库中的 [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml)。
+* 用于部署 Web 应用的操作是官方 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
+* 有关部署到 Azure 的 GitHub 操作工作流的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

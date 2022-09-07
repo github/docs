@@ -10,10 +10,15 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: 支持短信的国家/地区
+shortTitle: Countries supporting SMS
+ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084597'
 ---
-
-如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 支持 SMS 身份验证的国家/地区
 
@@ -42,14 +47,14 @@ shortTitle: 支持短信的国家/地区
 <li>佛得角</li>
 <li>开曼群岛</li>
 <li>圣诞岛</li>
-<li>科科斯</li>
+<li>Cocos</li>
 <li>刚果民主共和国</li>
 <li>克罗地亚</li>
 <li>塞浦路斯</li>
 <li>捷克共和国</li>
 <li>丹麦</li>
-<li>多米尼加</li>
-<li>多明尼加共和国</li>
+<li>多米尼克</li>
+<li>多米尼加共和国</li>
 <li>厄瓜多尔</li>
 <li>赤道几内亚</li>
 <li>爱沙尼亚</li>
@@ -95,7 +100,7 @@ shortTitle: 支持短信的国家/地区
 <li>莫桑比克</li>
 <li>纳米比亚</li>
 <li>荷兰</li>
-<li>荷属安的列斯</li>
+<li>荷属安列</li>
 <li>新西兰</li>
 <li>尼日利亚</li>
 <li>挪威</li>
@@ -134,4 +139,4 @@ shortTitle: 支持短信的国家/地区
 
 ## 延伸阅读
 
-- "[关于双重身份验证](/articles/about-two-factor-authentication)"
+- “[关于双因素身份验证](/articles/about-two-factor-authentication)”

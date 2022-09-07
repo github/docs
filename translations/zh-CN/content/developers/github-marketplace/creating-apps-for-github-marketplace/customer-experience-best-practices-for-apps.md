@@ -1,7 +1,7 @@
 ---
 title: 应用程序的客户体验最佳实践
 intro: 指导您创建易于使用和理解的应用程序。
-shortTitle: 客户体验最佳实践
+shortTitle: Customer experience best practice
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,11 +9,16 @@ topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
+ms.openlocfilehash: f45e3f88e7fdeb4c1d82264abb4e59c1057fe711
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084992'
 ---
-
 遵循这些最佳实践将有助于您提供良好的客户体验。
 
-## 客户沟通
+## 客户通信
 
 - 应用程序的营销材料应准确反映应用程序的行为。
 - 应用程序应包含面向用户的文档的链接，这些文档介绍如何设置和使用应用程序。

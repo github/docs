@@ -9,12 +9,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 2FA 和 SAML 单点登录
+shortTitle: 2FA & SAML single sign-on
+ms.openlocfilehash: 1dc8eff35906a5f2c59f097d3bf53482547bd1f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127540'
 ---
+双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。 有关 2FA 的详细信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
 
-双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。 有关 2FA 的更多信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
-
-为增加额外的身份验证措施，组织管理员也可[启用 SAML 单点登录 (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)，这样组织成员必须使用单点登录来访问组织。 有关 SAML SSO 的更多信息，请参阅“[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)”。
+若要添加其他身份验证措施，组织管理员也可以[启用 SAML 单一登录 (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)，组织成员必须使用单一登录才能访问组织。 有关 SAML SSO 的详细信息，请参阅“[关于使用 SAML 单一登录进行标识和访问管理](/articles/about-identity-and-access-management-with-saml-single-sign-on)”。
 
 如果同时启用了 2FA 和 SAML SSO，组织成员必须执行以下操作：
 - 使用 2FA 登录其在 {% data variables.product.product_location %} 上的帐户
@@ -23,4 +28,4 @@ shortTitle: 2FA 和 SAML 单点登录
 
 ## 延伸阅读
 
-- "[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+- [为组织强制执行 SAML 单一登录](/articles/enforcing-saml-single-sign-on-for-your-organization)

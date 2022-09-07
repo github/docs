@@ -23,6 +23,12 @@ children:
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
   - /unpublishing-a-github-pages-site
-shortTitle: 入门
+shortTitle: Get started
+ms.openlocfilehash: 7e9d3b9bb171a596b84b814eac52d4c5d22134de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147643875'
 ---
 

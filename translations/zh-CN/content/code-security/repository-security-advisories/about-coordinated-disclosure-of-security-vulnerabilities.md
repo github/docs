@@ -11,14 +11,19 @@ type: overview
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: 协调披露
+shortTitle: Coordinated disclosure
+ms.openlocfilehash: a5d4445525b46536cbfd3301cccb78140589de22
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084365'
 ---
-
 ## 关于披露行业漏洞
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
-漏洞的初始报告是私下发布的，并且只有在维护者确认问题后才会公布全部详细信息，最好提供补救或修补程序，有时会延迟，以便有更多的时间安装修补程序。 更多信息请参阅 OWASP Cheat Sheet Series 网站上的“[关于漏洞披露的 OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)”。
+漏洞的初始报告是私下发布的，并且只有在维护者确认问题后才会公布全部详细信息，最好提供补救或修补程序，有时会延迟，以便有更多的时间安装修补程序。 有关详细信息，请参阅 OWASP 备忘单系列网站上的“[关于漏洞披露的 OWASP 备忘单系列](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)”。
 
 ### 漏洞报告者的最佳实践
 
@@ -28,9 +33,9 @@ shortTitle: 协调披露
 - 在代码的修复版可用之前披露漏洞。
 - 在没有公共奖励方案的情况下，报告某个问题时期望得到补偿。
 
-漏洞报告者如果已尝试联系维护者但未收到回复，或与已联系他们但被要求等待很久才能披露，则在一段时间后公开披露漏洞是可以接受的。
+漏洞报告者如果已尝试联系维护者但未收到回复，或与已联系他们但被要求等待很久才能披露，则在一段时间后公开披露漏洞是可以接受的。 
 
-我们建议漏洞报告者在报告过程中明确说明其披露政策的条款。 即使漏洞报告者不遵守严格的政策，最好在预期漏洞披露的时间表上对维护者设定明确的期望。 关于披露政策的示例，请在 GitHub Security Lab 网站上查看“[Security Lab 的披露政策](https://securitylab.github.com/advisories#policy)”。
+我们建议漏洞报告者在报告过程中明确说明其披露政策的条款。 即使漏洞报告者不遵守严格的政策，最好在预期漏洞披露的时间表上对维护者设定明确的期望。 有关披露策略的示例，请参阅 GitHub 安全实验室网站上的“[安全实验室披露策略](https://securitylab.github.com/advisories#policy)”。
 
 ### 维护者最佳实践
 
@@ -51,21 +56,21 @@ shortTitle: 协调披露
 
 在 {% data variables.product.prodname_dotcom_the_website %} 上报告和披露项目漏洞的流程如下：
 
- 如果您是要报告漏洞的漏洞报告者（例如安全研究人员），请先检查相关仓库是否有安全策略。 更多信息请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果有的话，请先了解该流程，然后再联系该仓库的安全团队。
-
+ 如果您是要报告漏洞的漏洞报告者（例如安全研究人员），请先检查相关仓库是否有安全策略。 有关详细信息，请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果有的话，请先了解该流程，然后再联系该仓库的安全团队。 
+ 
  如果没有安全策略，与维护者建立私人通信手段的最有效办法是制造一个要求优先安全联系的问题。 值得注意的是，这个问题将立即公开可见，所以它不应该包括任何有关漏洞的信息。 建立通信后，您可以建议维护者制定安全策略以供将来使用。
 
 {% note %}
 
-**注意**：_仅限 npm_ - 如果我们收到 npm 软件包中有恶意软件的报告，我们试着私下联系您。 如果您不及时解决问题，我们将予以披露。 更多信息请参阅 npm 文档网站上的“[报告 npm 包中的恶意软件](https://docs.npmjs.com/reporting-malware-in-an-npm-package)。
+注意：如果我们收到 npm 包中的恶意软件报告，我们会尝试私下与你联系（仅适用于 npm）。 如果您不及时解决问题，我们将予以披露。 有关详细信息，请参阅 npm Docs 网站上的“[报告 npm 包中的恶意软件](https://docs.npmjs.com/reporting-malware-in-an-npm-package)”。
 
 {% endnote %}
 
- 如果您在 {% data variables.product.prodname_dotcom_the_website %} 中发现了安全漏洞，请通过我们协调的披露流程报告该漏洞。 更多信息请参阅 [{% data variables.product.prodname_dotcom %} 安全漏洞奖金](https://bounty.github.com/)网站。
+ 如果您在 {% data variables.product.prodname_dotcom_the_website %} 中发现了安全漏洞，请通过我们协调的披露流程报告该漏洞。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %}  安全 Bug 赏金](https://bounty.github.com/)”网站。
 
- 如果您是维护者， 您可以在管道开始时通过为您的仓库设置安全策略来掌控这一过程，或者以其他方式使安全报告说明清楚可用，例如在项目的 README 文件中。 有关添加安全策略的更多信息，请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果没有安全策略，漏洞报告者可能会尝试向您发送电子邮件或以其他方式私下与您联系。 或者，有人可能会开一个（公共）议题讨论安全问题的细节。
+ 如果您是维护者， 您可以在管道开始时通过为您的仓库设置安全策略来掌控这一过程，或者以其他方式使安全报告说明清楚可用，例如在项目的 README 文件中。 有关添加安全策略的信息，请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果没有安全策略，漏洞报告者可能会尝试向您发送电子邮件或以其他方式私下与您联系。 或者，有人可能会开一个（公共）议题讨论安全问题的细节。
 
- 作为维护者，要在您的代码中披露漏洞，请先在 {% data variables.product.prodname_dotcom %} 中软件包的仓库内创建安全通告。 {% data reusables.security-advisory.security-advisory-overview %} 更多信息请参阅“[关于存储库的 {% data variables.product.prodname_security_advisories %}](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)”。
+ 作为维护者，要在您的代码中披露漏洞，请先在 {% data variables.product.prodname_dotcom %} 中软件包的仓库内创建安全通告。 {% data reusables.security-advisory.security-advisory-overview %}有关详细信息，请参阅“[关于存储库的 {% data variables.product.prodname_security_advisories %}](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)”。
 
 
- 要开始，请参阅“[创建仓库安全通告](/code-security/repository-security-advisories/creating-a-repository-security-advisory)”。
+ 要开始使用，请参阅“[创建存储库安全公告](/code-security/repository-security-advisories/creating-a-repository-security-advisory)”。

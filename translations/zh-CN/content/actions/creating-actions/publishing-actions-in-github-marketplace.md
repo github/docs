@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub Marketplace 中发布操作
-intro: '您可以在 {% data variables.product.prodname_marketplace %} 中发布操作，以及与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。'
+title: Publishing actions in GitHub Marketplace
+intro: 'You can publish actions in {% data variables.product.prodname_marketplace %} and share actions you''ve created with the {% data variables.product.prodname_dotcom %} community.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
@@ -9,51 +9,60 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-shortTitle: 在 GitHub Marketplace 中发布
+shortTitle: Publish in GitHub Marketplace
 ---
 
-您必须接受服务条款才能在 {% data variables.product.prodname_marketplace %} 中发布操作。
+You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
-## 关于发布操作
+## About publishing actions
 
-必须先在您的仓库中创建操作，然后才可发布操作。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
+Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
 
-计划发布操作到 {% data variables.product.prodname_marketplace %} 时， 您需要确保仓库仅包含该操作的元数据文件、代码和文件。 为操作创建单个仓库允许您在单一单元中标记、发布和打包代码。 {% data variables.product.prodname_dotcom %} 还使用 {% data variables.product.prodname_marketplace %} 页面上的操作元数据。
+When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
-操作立即发布到 {% data variables.product.prodname_marketplace %}，只要符合以下要求，就不会受到 {% data variables.product.prodname_dotcom %} 审查：
+Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
 
-- 操作必须位于公共仓库中。
-- 每个仓库必须包含单个操作。
-- 操作的元数据文件（`action.yml` 或 `action.yaml`）必须在仓库的根目录中。
-- 操作元数据文件中的 `name` 必须是唯一的。
-  - `name` 无法匹配 {% data variables.product.prodname_marketplace %} 上发布的现有操作名称。
-  - `name` 无法匹配 {% data variables.product.prodname_dotcom %} 上的用户或组织，除非用户或组织所有者正在发布该操作。 例如，只有 {% data variables.product.prodname_dotcom %} 组织可以发布名为 `github` 的操作。
-  - `name` 无法匹配现有的 {% data variables.product.prodname_marketplace %} 类别。
-  - {% data variables.product.prodname_dotcom %} 将保留 {% data variables.product.prodname_dotcom %} 功能的名称。
+- The action must be in a public repository.
+- Each repository must contain a single action.
+- The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
+- The `name` in the action's metadata file must be unique.
+  - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
+  - The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
+  - The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
+  - {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
 
-## 发布操作
+## Publishing an action
 
-您可以将已创建的操作标记为新发行版并发布，便可将其添加到 {% data variables.product.prodname_marketplace %}。
+You can add the action you've created to {% data variables.product.prodname_marketplace %} by tagging it as a new release and publishing it.
 
-要草拟新发行版并将操作发布到 {% data variables.product.prodname_marketplace %}，请遵循以下说明：
+To draft a new release and publish the action to {% data variables.product.prodname_marketplace %}, follow these instructions:
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. 单击 **Draft a release（草拟发行版）**。
+1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
 
    ![Publish this action to marketplace button](/assets/images/help/repository/publish-github-action-to-marketplace-button.png)
-1. Under "Release Action", select the checkbox to publish the action to the {% data variables.product.prodname_marketplace %}. If you can't select the checkbox, you must first click the link to read and accept the {% data variables.product.prodname_marketplace %} Developer Agreement. ![选择发布到 Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
-1. 如果元数据文件中的标签包含任何问题，您将看到一条错误消息。 ![查看通知](/assets/images/help/repository/marketplace_actions_fixerrors.png)
-1. 如果您看到任何屏幕上的建议，请通过更新元数据文件来解决这些问题。 完成后，您将看到一条“Everything looks good!（一切看起来都不错！）”的消息。 ![修复错误](/assets/images/help/repository/marketplace_actions_looksgood.png)
-1. 选择“Primary Category（主要类别）”，然后按需要选择“Another Category（另一个类别）”，这将有助于人们找到您的 {% data variables.product.prodname_marketplace %} 中的操作。 ![选择类别](/assets/images/help/repository/marketplace_actions_categories.png)
-1. 使用版本标记操作，并添加发行版标题。 这有助于人们知道发行版包含哪些变化或特征。 人们将在操作的专门 {% data variables.product.prodname_marketplace %} 页面中看到版本。 ![标记版本](/assets/images/help/repository/marketplace_actions_version.png)
-1. 完成所有其他字段，然后单击 **Publish release（发布发行版）**。 发布需要使用双重身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication/)”。 ![发布版本](/assets/images/help/repository/marketplace_actions_publishrelease.png)
+1. Under "Release Action", select the checkbox to publish the action to the {% data variables.product.prodname_marketplace %}. If you can't select the checkbox, you must first click the link to read and accept the {% data variables.product.prodname_marketplace %} Developer Agreement.
+![Select publish to Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
+1. If the labels in your metadata file contain any problems, you will see an error message.
+![See notification](/assets/images/help/repository/marketplace_actions_fixerrors.png)
+1. If you see any on-screen suggestions, address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
+![Fix errors](/assets/images/help/repository/marketplace_actions_looksgood.png)
+1. Choose a "Primary Category" and, optionally, "Another Category" which will help people find your action in {% data variables.product.prodname_marketplace %}.
+![Choose category](/assets/images/help/repository/marketplace_actions_categories.png)
+1. Tag your Action with a version, and add a release title. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
+![Tag a version](/assets/images/help/repository/marketplace_actions_version.png)
+1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication/)."
+![Publish the release](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-## 从 {% data variables.product.prodname_marketplace %} 删除操作
+## Removing an action from {% data variables.product.prodname_marketplace %}
 
-要从 {% data variables.product.prodname_marketplace %} 删除已发布的操作，您需要更新每个已发布的发行版。 对已发布到 {% data variables.product.prodname_marketplace %} 的操作的每个发行版执行以下步骤。
+To remove a published action from {% data variables.product.prodname_marketplace %}, you'll need to update each published release. Perform the following steps for each release of the action you've published to {% data variables.product.prodname_marketplace %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. 在发行版页面上，要编辑的发行版右侧，单击 **Edit（编辑）**。 ![发行版编辑按钮](/assets/images/help/releases/release-edit-btn.png)
-4. 选择**将此操作发布到 {% data variables.product.prodname_marketplace %}**以取消勾选此复选框。 ![发布此操作按钮](/assets/images/help/repository/actions-marketplace-unpublish.png)
-5. 单击页面底部的 **Update release（更新发行版）**。 ![更新发行版按钮](/assets/images/help/repository/actions-marketplace-update-release.png)
+3. On the Releases page, to the right of the release you want to edit, click **Edit**.
+![Release edit button](/assets/images/help/releases/release-edit-btn.png)
+4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
+![Publish this action button](/assets/images/help/repository/actions-marketplace-unpublish.png)
+5. Click **Update release** at the bottom of the page.
+![Update release button](/assets/images/help/repository/actions-marketplace-update-release.png)
