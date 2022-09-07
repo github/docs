@@ -283,6 +283,8 @@ sections:
   changes:
     - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
     - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
+    - |
+      VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
