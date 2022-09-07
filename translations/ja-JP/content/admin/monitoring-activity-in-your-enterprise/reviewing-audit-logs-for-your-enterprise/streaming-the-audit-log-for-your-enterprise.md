@@ -61,7 +61,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 #### Setting up streaming to S3 with access keys
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information.
+To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
 * The name of your Amazon S3 bucket
@@ -116,7 +116,7 @@ For information on creating or accessing your access key ID and secret key, see 
    ```
    For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
 1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
-
+  
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
      ```
@@ -150,23 +150,23 @@ Then, set up streaming with access keys until the vulnerability is resolved. For
 
 ### Setting up streaming to Azure Blob Storage
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)."
+Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)." 
 
 To configure the stream in {% data variables.product.prodname_dotcom %} you need the URL of a SAS token.
 
 **On Microsoft Azure portal**:
 1. On the Home page, click **Storage Accounts**.
 2. Click the name of the storage account you want to use, then click **Containers**.
-
+   
    ![The Containers link in Azure](/assets/images/azure/azure-storage-containers.png)
 
 1. Click the name of the container you want to use.
-1. Click **Shared access tokens**.
-
+1. Click **Shared access tokens**. 
+   
    ![The shared access token link in Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
 
 1. In the **Permissions** drop-down menu, change the permissions to only allow `Create` and `Write`.
-
+   
    ![The permissions drop-down menu](/assets/images/azure/azure-storage-permissions.png)
 
 1. Set an expiry date that complies with your secret rotation policy.
@@ -176,59 +176,59 @@ To configure the stream in {% data variables.product.prodname_dotcom %} you need
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Configure stream** and select **Azure Blob Storage**.
-
+   
    ![Choose Azure Blob Storage from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
 
 1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
 
    ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
-
+  
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
-
-   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 ### Setting up streaming to Azure Event Hubs
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)."
+Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)." 
 
-You need two pieces of information about your event hub: its instance name and the connection string.
+You need two pieces of information about your event hub: its instance name and the connection string. 
 
 **On Microsoft Azure portal**:
 1. Search for "Event Hubs".
 
-   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png)
+   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png )
 
-1. Select **Event Hubs**. The names of your event hubs are listed.
-
+1. Select **Event Hubs**. The names of your event hubs are listed. 
+   
    ![A list of event hubs](/assets/images/help/enterprises/azure-event-hubs-list.png)
 
 1. Make a note of the name of the event hub you want to stream to.
 1. Click the required event hub. Then, in the left menu, select **Shared Access Policies**.
 1. Select a shared access policy in the list of policies, or create a new policy.
-
+   
    ![A list of shared access policies](/assets/images/help/enterprises/azure-shared-access-policies.png)
 
 1. Click the button to the right of the **Connection string-primary key** field to copy the connection string.
-
+   
    ![The event hub connection string](/assets/images/help/enterprises/azure-connection-string.png)
 
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Configure stream** and select **Azure Event Hubs**.
-
+   
    ![Choose Azure Events Hub from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azure.png)
 
 1. On the configuration page, enter:
    * The name of the Azure Event Hubs instance.
    * The connection string.
-
+  
    ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
-
+   
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
-
-   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -243,7 +243,7 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Datadog**.
-
+   
    ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
 1. Under "Token", paste the token  you copied earlier.
 
@@ -252,8 +252,8 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 
    ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
 1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
-
-   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
 {% endif %}
@@ -279,7 +279,7 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 
    ![Screenshot of the "JSON Credentials" text field](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
 
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**.
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**. 
 
    ![Screenshot of the "Check endpoint" button](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
 
@@ -291,26 +291,27 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Configure stream** and select **Splunk**.
-
+   
    ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 
 1. On the configuration page, enter:
    * The domain on which the application you want to stream to is hosted.
-
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. たとえば、`http-inputs-mycompany.splunkcloud.com` などです。
+  
+     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`. 
 
    * The port on which the application accepts data.<br>
 
      If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
    * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
-
+  
    ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
 1. Leave the **Enable SSL verification** check box selected.
 
     Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint. ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check-splunk.png)
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
@@ -324,7 +325,7 @@ Datadog only accepts logs from up to 18 hours in the past. If you pause a stream
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Pause stream**.
-
+   
    ![Pause the stream](/assets/images/help/enterprises/audit-stream-pause.png)
 
 1. A confirmation message is displayed. Click **Pause stream** to confirm.
@@ -336,7 +337,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Click **Delete stream**.
-
+   
    ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.

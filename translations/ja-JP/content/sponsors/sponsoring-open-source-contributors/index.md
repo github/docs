@@ -14,5 +14,11 @@ children:
   - /attributing-sponsorships-to-your-organization
   - /paying-for-github-sponsors-by-invoice
 shortTitle: Sponsor contributors
+ms.openlocfilehash: d395c72299f3727aa22ac3221e6f1100e867a8a1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140180'
 ---
 

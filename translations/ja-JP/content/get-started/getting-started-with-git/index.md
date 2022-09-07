@@ -1,6 +1,6 @@
 ---
-title: Getting started with Git
-intro: 'Set up Git, a distributed version control system, to manage your {% data variables.product.product_name %} repositories from your computer.'
+title: Git の概要
+intro: '分散バージョン管理システムである Git を設定して、コンピューターから {% data variables.product.product_name %} リポジトリを管理します。'
 redirect_from:
   - /articles/getting-started-with-git-and-github
   - /github/using-git/getting-started-with-git-and-github
@@ -23,5 +23,11 @@ children:
   - /associating-text-editors-with-git
   - /configuring-git-to-handle-line-endings
   - /ignoring-files
+ms.openlocfilehash: 42c758ca98c96d451660d089434d6d8dc61501d6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145131283'
 ---
 

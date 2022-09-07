@@ -1,5 +1,13 @@
-Organizationの様々なアクションや機能について、権限とポリシーを管理できます。
+---
+ms.openlocfilehash: bd349781c232db93e07ee8f888fa97f92bb22263
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145110445"
+---
+組織内のさまざまなアクションと機能のアクセス許可とポリシーを管理できます。
 
-たとえば、Organizationのデータを保護するために、Organizationでのリポジトリの作成を制限できます。 また、Organizationが所有するプライベートリポジトリのフォークを許可したり禁止したりすることもできます。 詳しい情報については「[Organizationでのリポジトリ作成の制限](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)」及び「[Organizationのフォークのポリシーの管理](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
+たとえば、組織のデータを保護するために、組織でのリポジトリ作成を制限できます。 組織が所有するプライベート リポジトリのフォークを許可または禁止することもできます。 詳細については、「[組織内でのリポジトリの作成を制限する](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)」と「[組織のフォーク ポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
 
-Organizationで可能な設定の完全なリストについては「[Organizationの設定の管理](/organizations/managing-organization-settings)」を参照してください。
+組織に構成できる設定の完全な一覧については、「[組織の設定を管理する](/organizations/managing-organization-settings)」を参照してください。

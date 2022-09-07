@@ -16,13 +16,13 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 概要
+## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
 
 This guide gives an overview of how to configure GCP to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action that uses tokens to authenticate to GCP and access resources.
 
-## 必要な環境
+## Prerequisites
 
 {% data reusables.actions.oidc-link-to-intro %}
 
@@ -34,7 +34,7 @@ To configure the OIDC identity provider in GCP, you will need to perform the fol
 
 1. Create a new identity pool.
 2. Configure the mapping and add conditions.
-3. Connect the new pool to a service account.
+3. Connect the new pool to a service account. 
 
 Additional guidance for configuring the identity provider:
 
@@ -42,7 +42,7 @@ Additional guidance for configuring the identity provider:
 - For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. For more information, see [the GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
 - The Issuer URL to use: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
-## {% data variables.product.prodname_actions %} ワークフローを更新する
+## Updating your {% data variables.product.prodname_actions %} workflow
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.

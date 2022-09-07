@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}{% data variables.product.prodname_registry %} GraphQL APIはパッケージ名前空間`https://ghcr.io/OWNER/PACKAGE-NAME`を使うコンテナあるいはDockerイメージ、あるいはパッケージ名前空間`https://npm.pkg.github.com/OWNER/PACKAGE-NAME`を使うnpmイメージをサポートしません。{% endif %}

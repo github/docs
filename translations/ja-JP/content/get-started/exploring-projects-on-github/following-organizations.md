@@ -40,7 +40,7 @@ You can unfollow an organization if you do not wish to see their {% ifversion fp
   ![User following](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
-## 参考リンク
+## Further reading
 
 - "[Following people](/get-started/exploring-projects-on-github/following-people)"
 {% endif %}

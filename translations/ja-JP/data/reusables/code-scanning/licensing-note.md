@@ -1,11 +1,11 @@
 {% note %}
 
-**ノート:** {% ifversion fpt %}
-- {% data variables.product.prodname_codeql_cli %}は、パブリックリポジトリでは無料で利用できます。 {% data variables.product.prodname_codeql_cli %}は、{% data variables.product.prodname_ghe_cloud %}を使用し、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているOrganizationが所有するプライベートリポジトリでも使用できます。 詳細については「[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %}の利用規約](https://securitylab.github.com/tools/codeql/license)」及び「[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)」を参照してください。
+**Notes:** {% ifversion fpt %}
+- The {% data variables.product.prodname_codeql_cli %} is free to use on public repositories. The {% data variables.product.prodname_codeql_cli %} is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. For information, see "[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} Terms and Conditions](https://securitylab.github.com/tools/codeql/license)" and "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
 {%- elsif ghec %}
-- {% data variables.product.prodname_codeql_cli %}は{% data variables.product.prodname_dotcom_the_website %}でメンテナンスされているパブリックリポジトリでは無料で使用でき、{% data variables.product.prodname_advanced_security %}ライセンスを持っているお客様が所有するプライベートリポジトリでも使用できます。 詳細については「[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %}の利用規約](https://securitylab.github.com/tools/codeql/license)」及び「[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)」を参照してください。
+- The {% data variables.product.prodname_codeql_cli %} is free to use on public repositories that are maintained on {% data variables.product.prodname_dotcom_the_website %}, and available to use on private repositories that are owned by customers with an {% data variables.product.prodname_advanced_security %} license. For information, see "[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} Terms and Conditions](https://securitylab.github.com/tools/codeql/license)" and "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
 {%- elsif ghes or ghae %}
-- {% data variables.product.prodname_codeql_cli %}は{% data variables.product.prodname_advanced_security %}ライセンスを持つお客様にご利用いただけます。
+- The {% data variables.product.prodname_codeql_cli %} is available to customers with an {% data variables.product.prodname_advanced_security %} license.
 {% endif %}
 - {% data reusables.code-scanning.non-glibc-linux-support %}
 

@@ -1,6 +1,6 @@
 ---
-title: Exporting changes to a branch
-intro: This article provides steps for exporting your codespace changes to a branch.
+title: ブランチへの変更のエクスポート
+intro: この記事では、codespace の変更をブランチにエクスポートする手順について説明します。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,20 +9,25 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Exporting changes
+ms.openlocfilehash: 676a94ae33b7dba4990014d472cbf28992437a2c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111003'
 ---
+## ブランチへの変更のエクスポート
 
-## Exporting changes to a branch
+{% data variables.product.prodname_github_codespaces %} を使用しているときに、codespace を起動せずにブランチに変更をエクスポートする場合があります。
 
-While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace.
+これは、[使用制限](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)に達した場合や、codespace へのアクセスで一般的な問題が発生している場合に便利です。
 
-This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace.
+変更をエクスポートするには、次の操作を行います。
 
-To export your changes:
+1. [github.com/codespaces](https://github.com/codespaces) の "Your Codespaces" に移動するか、個々のリポジトリの場合は、 **[{% octicon "code" aria-label="The code icon" %} コード]** メニューをクリックします。
+2. エクスポートする元の codespace の右側にある省略記号 ( **...** ) をクリックします。
+3. **[{% octicon "git-branch" aria-label="The git branch icon" %} ブランチへの変更のエクスポート]** を選択します。
 
-1. Browse to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces) or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
-2. Click the ellipsis (**...**) to the right of the codespace you want to export from.
-3. Select **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to branch**.
+  ![ブランチへの変更をエクスポートする](/assets/images/help/codespaces/export-changes-to-a-branch.png)
 
-  ![Export changes to a branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
-
-4. From the popover, select **Create branch**.
+4. ポップオーバーから、 **[ブランチの作成]** を選択します。

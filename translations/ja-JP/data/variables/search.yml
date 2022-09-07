@@ -1,5 +1,0 @@
----
-advanced_url: >-
-  {% ifversion fpt or ghec %}[高度な検索](https://github.com/search/advanced) ページ{% else %}高度な検索ページ (`https://[hostname]/search/advanced`){% endif %}
-search_page_url: >-
-  {% ifversion fpt or ghec %}[検索](https://github.com/search) ページ{% else %}検索ページ (`https://[hostname]/search`){% endif %}

@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.projects.project_v2 %}へのアイテムの追加'
-shortTitle: アイテムの追加
-intro: Pull Request、Issue、ドラフトIssueをプロジェクトに個別あるいはまとめて追加する方法を学んでください。
+title: '{% data variables.projects.project_v2 %} への項目の追加'
+shortTitle: Adding items
+intro: pull request、issue、issue のドラフトをプロジェクトに個別または一括で追加する方法について説明します。
 miniTocMaxHeadingLevel: 4
 versions:
   feature: projects-v2
@@ -9,67 +9,82 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: e49758bbf751ddd1cced46719f9740147a1b7b32
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423987'
 ---
-
-プロジェクトは、ドラフトのIssue、Issue、Pull Requestを追跡できます。
+プロジェクトは、ドラフトのIssue、Issue、Pull Requestを追跡できます。 
 
 {% note %}
 
-**ノート:** プロジェクトには最大で1,200個のアイテム及び10,000個のアーカイブされたアイテムを含めることができます。
+**注:** プロジェクトには、最大 1,200 個の項目と 10,000 個のアーカイブ済み項目を含めることができます。 
 
 {% endnote %}
 
-### プロジェクトへのIssueやPull Requestの追加
+### プロジェクトへの issue と pull request の追加
 
-#### IssueあるいはPull RequestのURLの貼り付け
+#### issue または pull request の URL の貼り付け
 
 {% data reusables.projects.add-item-via-paste %}
 
 #### IssueあるいはPull Requestの検索
 
 {% data reusables.projects.add-item-bottom-row %}
-2. <kbd>#</kbd>を入力してください。
-3. Pull RequestあるいはIssueがあるリポジトリを選択してください。 リポジトリ名の一部を入力して、選択肢を狭めることができます。 ![IssueのURLを貼り付けてプロジェクトに追加しているスクリーンショット](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. IssueあるいはPull Requestを選択してください。 タイトルの一部を入力して、選択肢を狭めることができます。 ![IssueのURLを貼り付けてプロジェクトに追加しているスクリーンショット](/assets/images/help/projects-v2/add-item-select-issue.png)
+2. <kbd>#</kbd> を入力します。
+3. Pull RequestあるいはIssueがあるリポジトリを選択してください。 リポジトリ名の一部を入力して、選択肢を狭めることができます。
+  ![issue の URL を貼り付けてプロジェクトに追加するところを示すスクリーンショット](/assets/images/help/projects-v2/add-item-select-repo.png)
+4. IssueあるいはPull Requestを選択してください。 タイトルの一部を入力して、選択肢を狭めることができます。
+  ![issue の URL を貼り付けてプロジェクトに追加するところを示すスクリーンショット](/assets/images/help/projects-v2/add-item-select-issue.png)
 
-#### IssueやPull Requestの一括での追加
+#### issue と pull request の一括追加
 
-1. プロジェクトの最下行で{% octicon "plus" aria-label="plus icon" %}をクリックしてください。 ![プロジェクトの下部に+ボタンが表示されているスクリーンショット](/assets/images/help/projects-v2/omnibar-add.png)
-1. **Add item from repository（リポジトリからアイテムを追加）**をクリックしてください。 !["add item from repository" メニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/add-bulk-menu-item.png)
-{% data reusables.projects.bulk-add %}
+1. プロジェクトの一番下の行で、{% octicon "plus" aria-label="plus icon" %} をクリックします。
+  ![プロジェクトの一番下の + ボタンを示すスクリーンショット](/assets/images/help/projects-v2/omnibar-add.png)
+1. **[リポジトリから項目を追加]** をクリックします。
+  ![[リポジトリから項目を追加する] メニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/add-bulk-menu-item.png) {% data reusables.projects.bulk-add %}
 
-#### リポジトリから複数のIssueあるいはPull Requestを追加する
+#### リポジトリからの複数の issue または pull request を追加する
 
-1. {% data variables.product.product_location %}で、プロジェクトに追加したいIssueあるいはPull Requestが含まれているリポジトリにアクセスしてください。
+1. {% data variables.product.product_location %} で、プロジェクトに追加する issue または pull request を含むリポジトリに移動します。
 {% data reusables.repositories.sidebar-issue-pr %}
-1. それぞれのIssueのタイトルの左で、プロジェクトに追加したいIssueを選択してください。 ![IssueあるいはPull Requestを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-issue-checkbox.png)
-1. あるいは、ページ上のすべてのIssueあるいはPull Requestを選択するには、IssueあるいはPull Requestのリストの上部で、すべてを選択してください。 ![画面上のすべてを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-all-checkbox.png)
-1. IssueあるいはPull Requestのリストの上で**Projects（プロジェクト）**をクリックしてください。 ![プロジェクトのオプションが表示されているスクリーンショット](/assets/images/help/projects-v2/issue-index-project-menu.png)
-1. 選択されたIssueあるいはPull Requestを追加したいプロジェクトをクリックしてください。 ![画面上のすべてを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/projects-v2/issue-index-select-project.png)
+1. プロジェクトに追加する各 issue を、そのタイトルの左側で選びます。
+  ![issue または pull request を選ぶチェック ボックスを示すスクリーンショット](/assets/images/help/issues/select-issue-checkbox.png)
+1. ページ上のすべての issue または pull request を選ぶ必要がある場合は、issue または pull request の一覧の先頭ですべてを選びます。 
+  ![画面上のすべての項目を選ぶチェック ボックスを示すスクリーンショット](/assets/images/help/issues/select-all-checkbox.png)
+1. issue または pull request のリストの上にある **[プロジェクト]** をクリックします。 
+  ![[プロジェクト] オプションを示すスクリーンショット](/assets/images/help/projects-v2/issue-index-project-menu.png)
+1. 選んだ issue または pull request を追加するプロジェクトをクリックします。
+  ![画面上のすべての項目を選ぶチェック ボックスを示すスクリーンショット](/assets/images/help/projects-v2/issue-index-select-project.png)
 
 #### IssueあるいはPull Requestの中からプロジェクトをアサインする
 
 1. プロジェクトに追加したいIssueあるいはPull Requestにアクセスしてください。
-2. サイドバーで**Projects（プロジェクト）**をクリックしてください。 ![Issueサイドバーに"Projects"が表示されているスクリーンショット](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. IssueあるいはPull Requestを追加したいプロジェクトを選択してください。 ![Issueサイドバーからプロジェクトを選択しているところが表示されているスクリーンショット](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
-4. あるいは、カスタムフィールドに入力してください。 ![プロジェクトサイドバー](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
+2. サイド バーの **[プロジェクト]** をクリックします。
+  ![issue のサイドバーの "プロジェクト" を示すスクリーンショット](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+3. IssueあるいはPull Requestを追加したいプロジェクトを選択してください。
+  ![issue のサイドバーからプロジェクトを選んだことを示すスクリーンショット](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
+4. あるいは、カスタムフィールドに入力してください。
+  ![プロジェクトサイドバー](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
 
-#### コマノン度パレットを使用してIssueあるいはPull Requestを追加する
+#### コマンド パレットを使用して issue または pull request を追加する
 
 1. {% data reusables.projects.open-command-palette %}
-1. "Add items"と入力し、<kbd>Return</kbd>を押してください。
+1. 「項目の追加」と入力し、<kbd>Return</kbd> キーを押します。
 {% data reusables.projects.bulk-add %}
 
 ### ドラフトIssueの作成
 
-ドラフトIssueは、素早くアイデアを捕捉するのに役立ちます。 リポジトリから参照されるIssueやPull Requestとは異なり、ドラフトIssueはプロジェクトの中にだけ存在します。
+ドラフトIssueは、素早くアイデアを捕捉するのに役立ちます。 リポジトリから参照される issue や pull request とは異なり、issue のドラフトはプロジェクトにのみ存在します。
 
 {% data reusables.projects.add-draft-issue %}
 
-ドラフトIssueには、タイトル、テキストの本文、アサインされた人、プロジェクトからの任意のカスタムフィールドを持たせることができます。 ドラフトIssueのリポジトリ、ラベル、マイルストーンを展開するには、まずドラフトIssueをIssueに変換しなければなりません。 詳しい情報については「[ドラフトIssueのIssueへの変換](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)」を参照してください。
+ドラフトIssueには、タイトル、テキストの本文、アサインされた人、プロジェクトからの任意のカスタムフィールドを持たせることができます。 ドラフトIssueのリポジトリ、ラベル、マイルストーンを展開するには、まずドラフトIssueをIssueに変換しなければなりません。 詳細については、「[ドラフト Issue の Issue への変換](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)」を参照してください。
 
 {% note %}
 
-**ノート**: ドラフトIssueがIssueに変換されなければ、ドラフトIssueにアサインされたりメンションされたりした人は、通知を受けません。
+**注:** ドラフト Issue が Issue に変換されなければ、ドラフト Issue に割り当てられたりメンションされたりした人は、通知を受けません。
 
 {% endnote %}

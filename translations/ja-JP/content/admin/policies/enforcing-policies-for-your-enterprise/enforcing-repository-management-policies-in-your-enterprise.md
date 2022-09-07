@@ -1,5 +1,5 @@
 ---
-title: Enterprise でリポジトリ管理ポリシーを適用する
+title: Enforcing repository management policies in your enterprise
 intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 redirect_from:
@@ -54,9 +54,9 @@ You can enforce policies to control how members of your enterprise on {% data va
 
 ## Configuring the default visibility of new repositories
 
-Each time someone creates a new repository within your enterprise, that person must choose a visibility for the repository. その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」を参照してください。
+Each time someone creates a new repository within your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
+If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes or ghae %}
@@ -65,7 +65,8 @@ Enterprise オーナーがメンバーによる特定のタイプのリポジト
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. "Default repository visibility（デフォルトのリポジトリの可視性）"の下で、ドロップダウンメニューを使ってデフォルトの可視性を選択してください。![Enterprise におけるデフォルトのリポジトリの可視化性を選択するためのドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
+1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
+  ![Drop-down menu to choose the default repository visibility for your enterprise](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
@@ -79,12 +80,13 @@ Across all organizations owned by your enterprise, you can set a base repository
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Base permissions", use the drop-down menu and choose a policy. ![リポジトリ権限ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+5. Under "Base permissions", use the drop-down menu and choose a policy.
+  ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
 
 ## Enforcing a policy for repository creation
 
-Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. 
 
 If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
 
@@ -92,21 +94,22 @@ If you allow members to create repositories in your organizations, you can choos
 {% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
 {% endif %}
 
-{% data reusables.repositories.internal-repo-default %} 詳しい情報については「[内部リポジトリを作成する](/articles/creating-an-internal-repository)」を参照してください。
+{% data reusables.repositories.internal-repo-default %} For more information about internal repositories, see "[Creating an internal repository](/articles/creating-an-internal-repository)."
 
 {% data reusables.organizations.repo-creation-constants %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. [Repository creation] で、設定変更に関する情報を読みます。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
-1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**. ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
+1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**.
+  ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Enforcing a policy for forking private or internal repositories
 
-Enterprise が所有しているすべての Organization 全体で、ユーザーにリポジトリのフォーク用にプライベートまたは内部リポジトリへのアクセスを許可したり、プライベートまたは内部リポジトリのフォークを一切禁止したり、オーナーが Organization レベルで設定を管理できるようにしたりすることができます。
+Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
 
 {% ifversion enterprise-namespace-repo-setting %}
 {% note %}
@@ -120,13 +123,13 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. [Repository forking] で、ドロップダウンメニューを使用してポリシーを選択します。
+4. Under "Repository forking", use the drop-down menu and choose a policy.
 
-  ![リポジトリ フォーク ポリシー オプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
+  ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
 
     ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
-
+  
 ## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
 
 Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% ifversion prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
@@ -138,32 +141,36 @@ Across all organizations owned by your enterprise, you can allow members to invi
 4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
 
   {% ifversion ghec %}
-  ![外部コラボレーター招待ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+  ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
-  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
+  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)  
   {% endif %}
 
 ## Enforcing a policy for the default branch name
 
-Across all organizations owned by your enterprise, you can set the default branch name for any new repositories that members create. すべての Organization 全体でそのデフォルトブランチ名を施行することも、Organization ごとに異なる名前を設定することもできます。
+Across all organizations owned by your enterprise, you can set the default branch name for any new repositories that members create. You can choose to enforce that default branch name across all organizations or allow individual organizations to set a different one.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. [**Repository policies**] タブの [Default branch name] で、新しいリポジトリに使用するデフォルトブランチ名を入力します。 ![デフォルトブランチ名を入力するテキストフィールド](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. オプションで、Enterprise のすべての Organization に対してデフォルトブランチ名を施行する場合は [**Enforce across this enterprise**] を選択します。 ![[Enforcement] チェックボックス](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/business-accounts/default-branch-name-update.png)
+3. On the **Repository policies** tab, under "Default branch name", enter the default branch name that new repositories should use.
+    ![Text box for entering default branch name](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
+    ![Enforcement checkbox](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. Click **Update**.
+    ![Update button](/assets/images/help/business-accounts/default-branch-name-update.png)
 
 ## Enforcing a policy for changes to repository visibility
 
-Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
+Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
 
-Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
+If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-1. [Repository visibility change] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-1. "Repository visibility change（リポジトリの可視性の変更）"の下で、ドロップダウンメニューを使ってポリシーを選択してください。 ![リポジトリの可視性のポリシーの選択肢があるドロップダウンメニュー](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
+1. Under "Repository visibility change", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository visibility change", use the drop-down menu and choose a policy.
+   ![Drop-down menu with repository visibility policy options](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
 
 ## Enforcing a policy for repository deletion and transfer
 
@@ -172,7 +179,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 「Repository deletion and transfer」で、設定変更に関する情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Repository deletion and transfer", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
@@ -182,24 +189,26 @@ Across all organizations owned by your enterprise, you can allow members with ad
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. [**Repository policies**] タブの [Repository issue deletion] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. [Repository issue deletion] で、ドロップダウンメニューを使用してポリシーを選択します。
+3. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Repository issue deletion", use the drop-down menu and choose a policy.
 
-  ![Issue 削除ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+  ![Drop-down menu with issue deletion policy options](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}
 
 ## Enforcing a policy for Git push limits
 
-リポジトリのサイズを管理しやすくして、パフォーマンスの問題を防ぐために、Enterprise 内のリポジトリのファイルサイズ制限を設定できます。
+To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
 
-デフォルトでは、リポジトリのアップロード制限を適用すると、100MB以上のファイルの追加やアップロードができなくなります。
+By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. [Repository upload limit] で、ドロップダウンメニューを使用して最大オブジェクトサイズをクリックします。 ![最大オブジェクトサイズのオプションを備えたドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. 必要に応じて、すべてのリポジトリにアップロードの最大制限を適用するには [**Enforce on all repositories**] を選択します。 ![すべてのリポジトリにオブジェクトの最大サイズを適用するオプション](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+4. Under "Repository upload limit", use the drop-down menu and click a maximum object size.
+![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
+5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
+![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
 {% ifversion profile-name-enterprise-setting %}
 
@@ -207,7 +216,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 
 Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
 
-![コメントに表示されたコメント作者の名前](/assets/images/help/issues/commenter-full-name.png)
+![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
 
 {% note %}
 
@@ -218,14 +227,16 @@ Across all organizations owned by your enterprise, you can allow members to see 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
-5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy.
+![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**.
+![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
 {% endif %}
 
-## リポジトリ間のプルリクエストのためのマージコンフリクトエディタを設定する
+## Configuring the merge conflict editor for pull requests between repositories
 
-ユーザが自分のコンピュータ上でローカルにマージコンフリクトを解決するように要求すれば、うっかりフォークから上流のリポジトリに書き込んでしまうことを回避できます。
+Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes or ghae %}
@@ -234,9 +245,10 @@ Across all organizations owned by your enterprise, you can allow members to see 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. "Conflict editor for pull requests between repositories（リポジトリ間のプルリクエストのコンフリクトエディタ）"の下でドロップダウンメニューを使い、**Disabled（無効化）**を選択してください。 ![マージコンフリクトエディタを無効化するオプションを持つドロップダウンメニュー](/assets/images/enterprise/settings/conflict-editor-settings.png)
+1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
+ ![Drop-down menu with option to disable the merge conflict editor](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
-## フォースプッシュを設定する
+## Configuring force pushes
 
 Each repository inherits a default force push setting from the settings of the user account or organization that owns the repository. Each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
 
@@ -245,10 +257,11 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. [Force pushes] の下のドロップダウンメニューから、[**Allow**]、[**Block**]、[**Block to the default branch**] のいずれかをクリックしてください。 ![フォースプッシュのドロップダウン](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
-5. [**Enforce on all repositories（すべてのリポジトリに強制）**] を選択して、フォースプッシュに関する Organization およびリポジトリレベルの設定をオーバーライドすることもできます。
+4. Under "Force pushes", use the drop-down menu, and click **Allow**, **Block** or **Block to the default branch**.
+![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
+5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
 
-### 特定のリポジトリへのフォースプッシュをブロックする
+### Blocking force pushes to a specific repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -258,13 +271,14 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. [**Push and Pull**] の下で [**Block**] または [**Block to the default branch**] を選択してください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
+4. Select **Block** or **Block to the default branch** under **Push and Pull**.
+   ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-### ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック
+### Blocking force pushes to repositories owned by a user account or organization
 
-リポジトリは、所属するユーザアカウントもしくはOrganizationからフォースプッシュの設定を引き継ぎます。 そして、それぞれの Organization およびユーザアカウントは、フォースプッシュの設定を Enterprise のフォースプッシュの設定から引き継ぎます。
+Repositories inherit force push settings from the user account or organization to which they belong. User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
 
-引き継がれたデフォルトの設定は、ユーザアカウントもしくはOrganizationの設定をすることで上書きできます。
+You can override the default inherited settings by configuring the settings for a user account or organization.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -272,22 +286,24 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. [Repository default settings（リポジトリのデフォルト設定）] の下の [Force pushes（フォースプッシュ）] セクションで、以下から選択してください。
-    - [**Block（ブロック）**] ですべてのブランチへのフォースプッシュがブロックされます。
-    - [**Block to the default branch（デフォルトブランチへのブロック）**] でデフォルトブランチへのフォースプッシュのみがブロックされます。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. **Enforce on all repositories（すべてのリポジトリに対して強制）**を選択して、リポジトリ固有の設定を上書きすることもできます。 これは、Enterprise 全体のポリシーを**上書きしません**のでご注意ください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+5. Under "Repository default settings" in the "Force pushes" section, select
+    - **Block** to block force pushes to all branches.
+    - **Block to the default branch** to only block force pushes to the default branch.
+  ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
+6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an enterprise-wide policy.
+   ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 {% endif %}
 
 {% ifversion ghes %}
 
-## 匿名 Git 読み取りアクセスを設定する
+## Configuring anonymous Git read access
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
 If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.product.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
-匿名 Git 読み取りアクセスを有効化すると、ユーザは Enterprise 上のカスタムツールの認証をバイパスできるようになります。 あなたもしくはリポジトリ管理者がこのアクセス設定をリポジトリで有効化すると、認証を受けていない Git の操作 (そして {% data variables.product.product_name %} へのネットワークアクセスができる人はだれでも) は、認証なしでリポジトリに読み取りアクセスできることになります。
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
 
 Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
 
@@ -295,19 +311,19 @@ Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
-If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. 詳細は [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server) を参照してください。
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
 
 
 
-必要に応じて、リポジトリのアクセス設定をロックすることで、リポジトリ管理者が Enterprise のリポジトリの匿名 Git アクセス設定を変更不可にすることができます。 リポジトリのGit読み取りアクセス設定をロックすると、サイト管理者だけがこの設定を変更できるようになります。
+If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. After you lock a repository's Git read access setting, only a site administrator can change the setting.
 
 {% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-### すべてのリポジトリに対する匿名 Git 読み取りアクセスを設定する
+### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes or ghae %}
@@ -316,18 +332,23 @@ If you wish to support the unathenticated Git protocol in your environment, you 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. [Anonymous Git read access（匿名 Git 読み取りアクセス）] の下で、ドロップダウンメニューを使って [**Enabled（有効化）**] をクリックしてください。 ![[Enabled] と [Disabled] のメニューオプションが表示されている [Anonymous Git read access] ドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. Enterprise のすべてのリポジトリでリポジトリ管理者が匿名 Git 読み取りアクセス設定を変更するのを避けるために、[**Prevent repository admins from changing anonymous Git read access**] を選択することもできます。 ![Enterprise のすべてのリポジトリへの匿名 Git 読み取りアクセス設定をリポジトリ管理者が変更するのを避けるための選択チェックボックス](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+4. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
+![Anonymous Git read access drop-down menu showing menu options "Enabled" and "Disabled"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
+3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.
+![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
-### 特定のリポジトリでの匿名 Git 読み取りアクセスを設定する
+### Setting anonymous Git read access for a specific repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.repository-search %}
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-6. "Danger Zone（危険区域）"の下で、"Enable Anonymous Git read access（匿名Git読み取りアクセスの有効化）"の隣の**Enable（有効化）**をクリックしてください。 ![リポジトリのサイト管理設定の危険地域内の "匿名 Git 読み取りアクセスの有効化" の下の "有効化" ボタン ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
-7. 変更を確認します。 確定するには、[**Yes, enable anonymous Git read access**] をクリックします。 ![ポップアップウィンドウの [Confirm anonymous Git read access] 設定](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
-8. このリポジトリの設定をリポジトリ管理者が変更するのを避けるために、[**Prevent repository admins from changing anonymous Git read access（リポジトリ管理者による匿名Git読み取りアクセスの変更の回避）**] を選択することもできます。 ![このリポジトリへの匿名Git読み取りアクセス設定をリポジトリ管理者が変更するのを避けるための選択チェックボックス](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
+6. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
+!["Enabled" button under "Enable anonymous Git read access" in danger zone of a repository's site admin settings ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
+7. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
+![Confirm anonymous Git read access setting in pop-up window](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
+8. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from changing anonymous Git read access**.
+![Select checkbox to prevent repository admins from changing anonymous Git read access for this repository](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 
 {% endif %}
