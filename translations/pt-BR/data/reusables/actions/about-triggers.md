@@ -1,7 +1,15 @@
+---
+ms.openlocfilehash: 27c764ba249fba171877221492b486d59bde7230
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094520"
+---
 Os acionadores de fluxo de trabalho são eventos que fazem com que um fluxo de trabalho seja executado. Esses eventos podem ser:
 
 - Eventos que ocorrem no repositório do fluxo de trabalho
-- Eventos que ocorrem fora de {% data variables.product.product_name %} e acionam um evento `repository_dispatch` em {% data variables.product.product_name %}
+- Eventos que ocorrem fora do {% data variables.product.product_name %} e que disparam um evento `repository_dispatch` no {% data variables.product.product_name %}
 - Horários agendados
 - Manual
 

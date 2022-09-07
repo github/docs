@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9030eae8492863ee750f2a02eeac584fd13513a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145065362"
+---
 
 ### Verificando se o seu executor auto-hospedado foi adicionado com sucesso
 

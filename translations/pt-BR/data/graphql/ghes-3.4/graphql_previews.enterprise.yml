@@ -1,8 +1,5 @@
----
-- 
-  title: Acesso à exclusão de versão pacote
-  description: >-
-    Esta pré-visualização adiciona suporte para a mudança do DeletePackageVersion que permite a exclusão de versões privadas de pacotes.
+- title: Acesso à exclusão de versão pacote
+  description: Esta pré-visualização adiciona suporte para a mudança do DeletePackageVersion que permite a exclusão de versões privadas de pacotes.
   toggled_by: ':package-deletes-preview'
   announcement: null
   updates: null
@@ -10,10 +7,8 @@
     - Mutation.deletePackageVersion
   owning_teams:
     - '@github/pe-package-registry'
-- 
-  title: Implantações
-  description: >-
-    Esta visualização adiciona suporte para mudanças e novos recursos nos deployments.
+- title: Implantações
+  description: Esta visualização adiciona suporte para mudanças e novos recursos nos deployments.
   toggled_by: ':flash-preview'
   announcement: null
   updates: null
@@ -27,11 +22,8 @@
     - CreateDeploymentPayload
   owning_teams:
     - '@github/c2c-actions-service'
-- 
-  title: >-
-    >- MergeInfoPreview - Mais informações detalhadas sobre o estado de merge de uma pull request.
-  description: >-
-    Esta visualização adiciona suporte para acessar campos que fornecem informações mais detalhadas sobre o estado de merge de uma pull request.
+- title: MergeInfoPreview - Mais informações detalhadas sobre o estado de merge de uma pull request.
+  description: Esta visualização adiciona suporte para acessar campos que fornecem informações mais detalhadas sobre o estado de merge de uma pull request.
   toggled_by: ':merge-info-preview'
   announcement: null
   updates: null
@@ -40,8 +32,7 @@
     - PullRequest.mergeStateStatus
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: UpdateRefsPreview - Atualiza vários refs em uma única operação.
+- title: UpdateRefsPreview - Atualiza vários refs em uma única operação.
   description: Essa pré-visualização adiciona suporte para atualizar múltiplas refs em uma única operação.
   toggled_by: ':update-refs-preview'
   announcement: null
@@ -54,10 +45,8 @@
     - UpdateRefsPayload
   owning_teams:
     - '@github/reponauts'
-- 
-  title: Detalhes Tarefa Projeto
-  description: >-
-    Esta visualização adiciona detalhes de projeto, cartão de projeto e coluna de projetos para eventos de questões relacionadas ao projeto.
+- title: Detalhes Tarefa Projeto
+  description: 'Esta visualização adiciona detalhes de projeto, cartão de projeto e coluna de projetos para eventos de questões relacionadas ao projeto.'
   toggled_by: ':starfox-preview'
   announcement: null
   updates: null
@@ -76,10 +65,8 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: Visualização de Etiquetas
-  description: >-
-    Esta visualização adiciona suporte para adicionar, atualizar, criar e excluir etiquetas.
+- title: Visualização de Etiquetas
+  description: 'Esta visualização adiciona suporte para adicionar, atualizar, criar e excluir etiquetas.'
   toggled_by: ':bane-preview'
   announcement: null
   updates: null
@@ -95,8 +82,7 @@
     - UpdateLabelInput
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: Importar Projeto
+- title: Importar projeto
   description: Esta visualização adiciona suporte para a importação de projetos.
   toggled_by: ':slothette-preview'
   announcement: null
@@ -105,10 +91,8 @@
     - Mutation.importProject
   owning_teams:
     - '@github/pe-issues-projects'
-- 
-  title: Pré-visualização da Revisão da Equipe
-  description: >-
-    Esta pré-visualização adiciona suporte para atualizar as configurações da atribuição de revisão de equipe.
+- title: Pré-visualização da Revisão da Equipe
+  description: Esta pré-visualização adiciona suporte para atualizar as configurações da atribuição de revisão de equipe.
   toggled_by: ':stone-crop-preview'
   announcement: null
   updates: null
