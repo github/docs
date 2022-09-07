@@ -23,7 +23,7 @@ const langWalksTable = nonEnglish.map(([code, lang]) => [
   lang,
   new Set(walk(`${lang.dir}/content`, {
     directories: false,
-    ignore: ['**/README.md'],
+    ignore: ['**/README.md', 'search'],
   }))
 ])
 
