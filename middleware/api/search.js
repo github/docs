@@ -257,17 +257,19 @@ router.get(
       if (process.env.NODE_ENV === 'development') {
         console.error('Error calling getSearchResults()', error)
       } else {
-        await Promise.all(
-          FailBot.report(error, {
-            url: req.url,
-            indexName,
-            query,
-            page,
-            size,
-            debug,
-            sort,
-          })
-        )
+        const reports = FailBot.report(error, {
+          url: req.url,
+          indexName,
+          query,
+          page,
+          size,
+          debug,
+          sort,
+        })
+        // It might be `undefined` if no backends are configured which
+        // is likely when using production NODE_ENV on your laptop
+        // where you might not have a HATSTACK_URL configured.
+        if (reports) await Promise.all(reports)
       }
       res.status(500).send(error.message)
     }
