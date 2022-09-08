@@ -13,7 +13,7 @@ ms.locfileid: "145084822"
 
 如果要包含标记名称模式或要同时包含和排除标记名称模式，请使用 `tags` 筛选器。 只需要排除标记名称模式时，请使用 `tags-ignore` 筛选器。 不能对工作流中的同一事件同时使用 `tags` 和 `tags-ignore` 筛选器。
 
-如果仅定义 `tags`/`tags-ignore` 或 `branches`/`branches-ignore`，则工作流不会针对影响未定义的 Git ref 的事件运行。如果两者 `tags`/`tags-ignore` 或 `branches`/`branches-ignore` 均未定义，则工作流将针对影响分支或标记的事件运行。 如果你同时定义 `branches`/`branches-ignore` 筛选器和 [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore) 筛选器，则工作流将只在这两个筛选器都满足条件时运行。
+如果仅定义 `tags`/`tags-ignore` 或 `branches`/`branches-ignore`，则工作流不会针对影响未定义的 Git ref 的事件运行。如果两者 `tags`/`tags-ignore` 或 `branches`/`branches-ignore` 均未定义，则工作流将针对影响分支或标记的事件运行。 如果你同时定义 `branches`/`branches-ignore` 筛选器和 tags`/`tags-ignore` 筛选器，则工作流将只在这两个筛选器都满足条件时运行。
 
 `branches`、`branches-ignore`、`tags` 和 `tags-ignore` 关键词接受使用 `*`、`**`、`+`、`?` 和 `!` 等字符匹配多个分支或标记名称的 glob 模式。 如果名称包含其中任一字符，而你想要逐字匹配，则需要使用 `\` 转义每个特殊字符。 有关 glob 模式的更多信息，请参阅“[筛选器模式速查表](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
