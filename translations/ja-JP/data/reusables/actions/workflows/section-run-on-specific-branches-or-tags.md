@@ -13,7 +13,7 @@ ms.locfileid: "145089104"
 
 タグ名パターンを含める場合、またはタグ名パターンを含める/除外の両方を行う場合は、`tags` フィルターを使用します。 タグ名パターンの除外のみを行う場合は、`tags-ignore` フィルターを使用します。 `tags` と `tags-ignore` のフィルターの両方をワークフロー内の同じイベントで使うことはできません。
 
-`tags`/`tags-ignore` または `branches`/`branches-ignore` だけを定義する場合、定義されていない Git ref に影響を与えるイベントに対してワークフローは実行されません。`tags`/`tags-ignore` および `branches`/`branches-ignore` のどちらも定義しない場合、ワークフローはブランチまたはタグに影響を与えるイベントに対して実行されます。 `branches`/`branches-ignore` と [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore) の両方を定義すると、ワークフローは両方のフィルターが満たされた場合にのみ実行されます。
+`tags`/`tags-ignore` または `branches`/`branches-ignore` だけを定義する場合、定義されていない Git ref に影響を与えるイベントに対してワークフローは実行されません。`tags`/`tags-ignore` および `branches`/`branches-ignore` のどちらも定義しない場合、ワークフローはブランチまたはタグに影響を与えるイベントに対して実行されます。 `branches`/`branches-ignore` と tags`/`tags-ignore` の両方を定義すると、ワークフローは両方のフィルターが満たされた場合にのみ実行されます。
 
 `branches`、`branches-ignore`、`tags`、および `tags-ignore` のキーワードは、複数のブランチまたはタグ名に一致する文字 (`*`、`**`、`+`、`?`、`!` など) を使用する glob パターンを許容します。 名前にこれらの文字のいずれかが含まれており、リテラルの一致が必要な場合は、`\` でこれらの各特殊文字を *エスケープ* する必要があります。 glob パターンの詳細については、「[フィルター パターンのチート シート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
