@@ -1,13 +1,21 @@
-When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. 
+---
+ms.openlocfilehash: 7ebce174e896689b1976b9d43f1f0884ce065229
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147683803"
+---
+Cuando se usa la interfaz de usuario web para intentar confirmar un secreto admitido en un repositorio u organización con el examen de secretos como protección de inserción habilitada, {% data variables.product.prodname_dotcom %} bloqueará la confirmación. 
 
-You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
+Verás un banner en la parte superior de la página con información sobre la ubicación del secreto, y el secreto también estará subrayado en el archivo para que puedas encontrarlo fácilmente.
 
 {% ifversion push-protection-custom-link-orgs %}
 
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+  ![Captura de pantalla que muestra la confirmación en la interfaz de usuario web bloqueada debido a la protección de inserción de análisis de secretos](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
 
 {% else %}
 
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  ![Captura de pantalla que muestra la confirmación en la interfaz de usuario web bloqueada debido a la protección de inserción de análisis de secretos](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
   
 {% endif %}

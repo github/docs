@@ -11,10 +11,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: c664d164136504f695a3954b03b01e0d47191eab
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556711'
 ---
 En esta guía se describe la información que necesita GitHub para procesar una solicitud de retirada de la DMCA. Si tiene preguntas más generales sobre qué es la DMCA o cómo procesa GitHub las solicitudes de retirada de la DMCA, consulte nuestra [Directiva de Retirada de la DMCA](/articles/dmca-takedown-policy).
@@ -23,11 +23,11 @@ Debido al tipo de contenido que aloja GitHub (principalmente código de software
 
 Al igual que sucede con todos los asuntos legales, siempre es mejor consultar a un profesional las preguntas o situaciones específicas. Le recomendamos encarecidamente que lo haga antes de emprender cualquier acción que pueda afectar a sus derechos. Esta guía no constituye asesoramiento legal ni debe tomarse como tal.
 
-## <a name="before-you-start"></a>Antes de Empezar
+## Antes de Empezar
 
 ***Diga la verdad.** _ La DMCA exige que jure los hechos en su reclamación de derechos de autor bajo pena de perjurio *. Es un delito federal mentir intencionadamente en una declaración jurada. (* Consulte el* [Código de EE. UU., Título 18, Apartado 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Enviar información falsa también podría derivar en una responsabilidad civil, es decir, podría ser demandado por daños económicos. La propia DMCA [prevé la imposición de una indemnización por daños y perjuicios](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) a cualquier persona que, a sabiendas, tergiverse de forma importante el material o la actividad que está infringiendo.
 
-***Investigue.*** Millones de usuarios y organizaciones ponen todo su empeño en los proyectos que crean y en los que colaboran en GitHub. Presentar una queja a la DMCA contra un proyecto de este tipo es una acusación legal grave que tiene consecuencias reales para personas reales. Por eso, le pedimos que realice una investigación exhaustiva y consulte a un abogado antes de enviar una solicitud de retirada para asegurarse de que ese uso no esté permitido de verdad.
+***Investigar.*** Millones de usuarios y organizaciones ponen todo su empeño en los proyectos que crean y en los que colaboran en GitHub. Presentar una queja a la DMCA contra un proyecto de este tipo es una acusación legal grave que tiene consecuencias reales para personas reales. Por eso, le pedimos que realice una investigación exhaustiva y consulte a un abogado antes de enviar una solicitud de retirada para asegurarse de que ese uso no esté permitido de verdad.
 
 ***Pregunte educadamente primero.*** Un buen primer paso antes de enviarnos una notificación de retirada es intentar ponerse en contacto con el usuario directamente. Puede que haya incluido la información de contacto en la página del perfil público o en el archivo LÉAME, o podría ponerse en contacto con él abriendo una incidencia o una solicitud de incorporación de cambios en el repositorio. Esto no es estrictamente necesario, pero es un gesto que se agradece.
 
@@ -56,7 +56,7 @@ Esta lista no es exhaustiva, por eso es doblemente importante hablar con un prof
 ***GitHub no es el juez.***
 GitHub tiene poco poder de decisión en el proceso, aparte de determinar si las notificaciones cumplen los requisitos mínimos de la DMCA. Corresponde a las partes (y a sus abogados) evaluar el fundamento de sus reclamaciones, teniendo en cuenta que las notificaciones deben hacerse bajo pena de perjurio.
 
-## <a name="your-complaint-must-"></a>Su Queja Debe...
+## Su Queja Debe...
 
 1. **Incluya la siguiente declaración: «He leído y entiendo la Guía de GitHub para presentar una notificación a la DMCA».** No nos negaremos a procesar una queja completa si no incluye esta declaración, pero eso nos dará a entender que no ha leído estas directrices y es posible que le pidamos que lo haga.
 
@@ -77,14 +77,14 @@ GitHub tiene poco poder de decisión en el proceso, aparte de determinar si las 
 
 9. **Incluya su firma física o electrónica.**
 
-## <a name="complaints-about-anti-circumvention-technology"></a>Quejas sobre la Tecnología Antielusión
+## Quejas sobre la Tecnología Antielusión
 
 La Ley de Derechos de Autor prohíbe eludir las medidas tecnológicas que controlan de forma eficiente el acceso a las obras protegidas por derechos de autor. Si cree que el contenido alojado en GitHub infringe esta prohibición, envíenos una denuncia a través de nuestro {% data variables.contact.contact_dmca %}. Una notificación de elusión debe incluir los siguientes detalles sobre las medidas técnicas implementadas y sobre la forma en que el proyecto denunciado las elude. En concreto, la notificación enviada a GitHub debe incluir indicaciones detalladas que describan:
 1. cuáles son las medidas técnicas;
 2. cómo controlan de forma eficaz el acceso al material protegido por derechos de autor; y 
 3. por qué el proyecto denunciado está diseñado para eludir las medidas tecnológicas de protección descritas anteriormente.
 
-## <a name="how-to-submit-your-complaint"></a>Cómo Enviar su Queja
+## Cómo Enviar su Queja
 
 La forma más rápida de obtener una respuesta es introducir su información y responder todas las preguntas en nuestro {% data variables.contact.contact_dmca %}.
 

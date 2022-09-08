@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 25e713f275e6a0dd04aefc8652d16d168470bfd8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556768'
 ---
 ¡Bienvenido a GitHub Marketplace («Marketplace»)! Estamos encantados de que esté aquí. Lea con atención estos Términos de Servicio («Términos de Marketplace») antes de acceder o usar GitHub Marketplace. GitHub Marketplace es una plataforma que permite seleccionar aplicaciones o acciones para desarrolladores (gratuitas o de pago) que pueden utilizarse con su cuenta de GitHub.com («Productos para Desarrolladores»). Aunque los ofrece GitHub, Inc. («GitHub», «nosotros», «nos»), GitHub o proveedores de software de terceros pueden desarrollar y mantener los Productos para Desarrolladores. La selección o el uso de los Productos para Desarrolladores están sujetos a estos Términos de Marketplace y a cualquier tarifa aplicable, y pueden requerir que acepte términos adicionales como los proporcionados por el tercero que otorga la licencia de ese Producto para Desarrolladores (el «Proveedor del Producto»).
@@ -21,25 +21,25 @@ Al usar Marketplace, acepta quedar obligado por estos Términos de Marketplace.
 
 Fecha de entrada en vigor: 20 de noviembre de 2020
 
-## <a name="a-githubcoms-terms-of-service"></a>A. Términos de Servicio de GitHub.com
+## A. Términos de Servicio de GitHub.com
 
 Marketplace lo proporciona GitHub y se rige por los [Términos de Servicio](/articles/github-terms-of-service/) o los [Términos de Servicio Corporativos](/articles/github-corporate-terms-of-service/) («Términos de GitHub»), en función del tipo de cuenta que tenga, así como estos Términos de Marketplace. Si configura los Productos para Desarrolladores para que funcionen con una o varias cuentas en el sitio web de GitHub.com, el uso de los Productos para Desarrolladores también se regirá por los Términos de GitHub aplicables. Cualquier término en mayúscula que no esté definido en este documento estará definido en los Términos de GitHub aplicables.
 
 No puede usar un Producto para Desarrolladores para infringir los Términos de GitHub aplicables. Muchos de estos Productos para Desarrolladores se utilizan exclusivamente para llevar a cabo tareas automatizadas. Asimismo, varios Usuarios pueden dirigir las acciones de un Producto para Desarrolladores. No obstante, si adquiere y/o configura un Producto para Desarrolladores en su cuenta, o es propietario de una cuenta con un Producto para Desarrolladores integrado, entonces será responsable de las acciones del Producto para Desarrolladores que se lleven a cabo en su cuenta o a través de la misma.
 
-## <a name="b-use-requirements"></a>B. Requisitos de Uso
+## B. Requisitos de Uso
 
 Para usar Marketplace, debe ser mayor de 13 años de edad (si reside en los Estados Unidos; si reside en otro país, debe tener la edad mínima exigida por la ley del país), tener una cuenta de GitHub válida y haber aceptado los Términos de GitHub aplicables y estos Términos de Marketplace.
 
 Si acepta estos Términos de Marketplace en nombre de una empresa, organización u otra persona jurídica, declara que tiene autoridad para vincular a dicha entidad, a sus entidades afiliadas y a todos los usuarios que accedan al Marketplace en su nombre a estos Términos de Marketplace. Si no tiene autoridad, no debe aceptar estos Términos de Marketplace y no puede usar los servicios del Marketplace.
 
-## <a name="c-developer-products-and-product-providers"></a>C. Productos para Desarrolladores y Proveedores de Productos
+## C. Productos para Desarrolladores y Proveedores de Productos
 
 Si instala y/o compra un Producto para Desarrolladores, está comprando los Productos para Desarrolladores de GitHub y debe realizar los pagos relacionados directamente a GitHub. No obstante, está recibiendo acceso a ese Producto para Desarrolladores y los derechos para usarlo de un Proveedor del Producto, no de GitHub (a menos que sea un Producto para Desarrolladores propiedad de GitHub). El Proveedor del Producto es el único responsable del Producto para Desarrolladores que proporciona, del contenido del mismo y de cualquier reclamación que usted o cualquier otra parte pueda tener en relación con dicho Producto para Desarrolladores o su uso de ese Producto para Desarrolladores.
 
 No somos parte del acuerdo entre usted y el Proveedor del Producto con respecto a ese Producto para Desarrolladores. No somos responsables de dicho Producto para Desarrolladores, del contenido del mismo ni de cualquier reclamación que usted o cualquier otra parte pueda tener en relación con dicho Producto para Desarrolladores o su uso de ese Producto para Desarrolladores. No obstante, nosotros somos un tercero beneficiario del acuerdo entre usted y el Proveedor del Producto para cada Producto para Desarrolladores, y tendremos el derecho (y se considerará que se ha aceptado el derecho) de hacer cumplir ese acuerdo ante usted como tercero beneficiario.
 
-## <a name="d-payment-billing-schedule-and-cancellation"></a>D. Pago, Calendario de Pagos y Cancelación
+## D. Pago, Calendario de Pagos y Cancelación
 
 Todos los pagos de los Productos para Desarrolladores se realizarán a través de GitHub. Los términos del pago y de las tarifas se regirán por el [Apartado K. Pago](/articles/github-terms-of-service/#k-payment) o el apartado análogo de los Términos de GitHub aplicables. Al usar Marketplace, acepta pagar a GitHub cualquier cargo en el que incurra en relación con su compra del Producto para Desarrolladores. Cada compra es un contrato electrónico entre usted y GitHub, y usted y el Proveedor del Producto. Usted tiene la responsabilidad de facilitarnos un medio de pago válido para las compras de Productos para Desarrolladores. Si solo adquiere Productos para Desarrolladores gratuitos, no es necesario que facilite ninguna información de pago.
 
@@ -47,27 +47,27 @@ Todos los pagos de los Productos para Desarrolladores se realizarán a través d
 
 Si tiene alguna pregunta, duda o desacuerdo con respecto a su facturación, póngase en contacto con el [Soporte Técnico de GitHub](https://support.github.com/contact?tags=docs-policy).
 
-## <a name="e-your-data-and-githubs-privacy-policy"></a>E. Sus Datos y la Directiva de Privacidad de GitHub
+## E. Sus Datos y la Directiva de Privacidad de GitHub
 
 **Privacidad.** Al seleccionar o usar un Producto para Desarrolladores, GitHub puede compartir determinada Información Personal (tal como se define en la [Declaración de Privacidad de GitHub](/articles/github-privacy-statement/)) con el Proveedor del Producto (si se recibe dicha Información Personal de usted) a fin de proporcionarle el Producto para Desarrolladores, con independencia de su configuración de privacidad. En función de los requisitos del Producto para Desarrolladores que elija, GitHub puede compartir tan solo su nombre de cuenta, id. y dirección de correo electrónico principal o tanto como el acceso al contenido de sus repositorios, incluida la capacidad de leer y modificar sus datos privados. Podrá ver el alcance de los permisos que solicita el Producto para Desarrolladores, y aceptarlos o denegarlos, cuando se le otorgue autorización a través de OAuth. 
 
 Si deja de usar el Producto para Desarrolladores y revoca el acceso a través de la configuración de su cuenta, el Proveedor del Producto ya no podrá acceder a su cuenta. El Proveedor del Producto es responsable de eliminar su Información Personal de sus sistemas dentro del plazo definido. Póngase en contacto con el Proveedor del Producto para asegurarse de que su cuenta se haya cancelado correctamente.
 
-**Exención de Responsabilidad sobre la Seguridad y la Privacidad de los Datos** Cuando selecciona o usa un Producto para Desarrolladores, la seguridad del Producto para Desarrolladores y la custodia de sus datos, incluida su Información Personal (si la hubiera), es responsabilidad del Proveedor del Producto. Usted es responsable de entender las consideraciones de seguridad y privacidad de la selección o el uso del Producto para Desarrolladores para sus propios riesgos de seguridad y privacidad y consideraciones de cumplimiento.
+**Exención de Responsabilidad sobre la Seguridad y la Privacidad de los Datos.** Cuando selecciona o usa un Producto para Desarrolladores, la seguridad del Producto para Desarrolladores y la custodia de sus datos, incluida su Información Personal (si la hubiera), es responsabilidad del Proveedor del Producto. Usted es responsable de entender las consideraciones de seguridad y privacidad de la selección o el uso del Producto para Desarrolladores para sus propios riesgos de seguridad y privacidad y consideraciones de cumplimiento.
 
-## <a name="f-rights-to-developer-products"></a>F. Derechos de los Productos para Desarrolladores
+## F. Derechos de los Productos para Desarrolladores
 
 Los derechos que se le otorgan para usar cualquier Producto para Desarrolladores son personales y no son transferibles a terceros, por ejemplo, a sus usuarios finales. Cualquier derecho para ofrecer o revender Productos para Desarrolladores a terceros lo debe otorgar directamente el Proveedor del Producto.
 
-## <a name="g-updates-to-developer-products"></a>G. Actualizaciones de los Productos para Desarrolladores
+## G. Actualizaciones de los Productos para Desarrolladores
 
 Ocasionalmente, GitHub.com puede consultar los servidores remotos (alojados por GitHub o por terceros) para comprobar si hay actualizaciones disponibles para los Productos para Desarrolladores, incluidas, entre otras cosas, la corrección de errores o la mejora de la funcionalidad. Usted acepta que dichas actualizaciones se solicitarán, descargarán e instalarán de forma automática sin previo aviso.
 
-## <a name="h-developer-product-blocking"></a>H. Bloqueo de Productos para Desarrolladores
+## H. Bloqueo de Productos para Desarrolladores
 
 GitHub puede bloquear un Producto para Desarrolladores de nuestros servidores o deshabilitar su funcionalidad por motivos legales o de directiva. En caso de que debamos bloquear o deshabilitar un Producto para Desarrolladores, colaboraremos con el Proveedor del Producto para notificárselo a los usuarios afectados.
 
-## <a name="i-disclaimer-limitation-of-liability-release-and-indemnification"></a>I. Exención de responsabilidad; Limitación de Responsabilidad; Liberación e Indemnización
+## I. Exención de responsabilidad; Limitación de Responsabilidad; Liberación e Indemnización
 
 **Exención de Responsabilidad.** El uso de Marketplace y cualquier Producto para Desarrolladores obtenido a través del Marketplace se realiza por su cuenta y riesgo. Aparte de lo expresamente indicado, GitHub proporciona Marketplace y los Productos para Desarrolladores «TAL CUAL» y «SEGÚN DISPONIBILIDAD». GitHub no ofrece ni asume ninguna garantía o compromiso sobre Marketplace y los Productos para Desarrolladores, incluidos, entre otros, la funcionalidad específica disponible a través de Marketplace y los Productos para Desarrolladores, su fiabilidad, disponibilidad o capacidad para satisfacer sus necesidades.
 
@@ -79,7 +79,7 @@ Nos reservamos el derecho en cualquier momento y de forma periódica de modifica
 
 Usted se compromete a indemnizarnos, defendernos y eximirnos de toda reclamación, responsabilidad y gastos, incluidos los honorarios de los abogados, que se deriven del uso que haga de Marketplace, incluidos, a título meramente enunciativo, la infracción de estos Términos de Marketplace, siempre que GitHub (1) le notifique por escrito y sin demora la reclamación, demanda, pleito o procedimiento; (2) le otorgue el control exclusivo de la defensa y la resolución de la reclamación, demanda, pleito o procedimiento (siempre que usted no pueda resolver ninguna reclamación, demanda, pleito o procedimiento a menos que el acuerdo libere incondicionalmente a GitHub de toda responsabilidad); y (3) le proporcione toda la asistencia razonable, a su cargo.
 
-## <a name="j-miscellanea"></a>J. Otras disposiciones
+## J. Otras disposiciones
 
 1. **Legislación Aplicable.** Usted acepta que estos Términos de Marketplace y su uso de los Productos para Desarrolladores se rigen por la legislación de California y que cualquier conflicto relacionado con los Productos para Desarrolladores debe presentarse ante un tribunal competente situado en San Francisco, California, o sus alrededores.
 
@@ -93,4 +93,4 @@ Usted se compromete a indemnizarnos, defendernos y eximirnos de toda reclamació
 
 6. **Directivas de Concesión de Licencias a GitHub.** Los Términos de Marketplace se otorgan bajo esta [Licencia Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obtener más información, consulte nuestro [repositorio de directivas del sitio](https://github.com/github/site-policy#license).
 
-7. **Contacto.** ¿Tiene alguna pregunta sobre los Términos de Marketplace? [Póngase en contacto con nosotros](https://support.github.com/contact?tags=docs-policy).
+7. **Contacto.** ¿Tiene alguna pregunta sobre los Términos de Marketplace? [Contáctenos](https://support.github.com/contact?tags=docs-policy).
