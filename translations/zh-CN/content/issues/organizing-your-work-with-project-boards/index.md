@@ -1,7 +1,7 @@
 ---
-title: 'Organizing your work with {% data variables.product.prodname_projects_v1 %}'
+title: '使用 {% data variables.product.prodname_projects_v1 %} 组织你的工作'
 shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
-intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
+intro: '使用 {% data variables.product.prodname_projects_v1 %} 在 {% data variables.product.prodname_dotcom %} 上管理你的工作'
 allowTitleToDifferFromFilename: true
 versions:
   feature: projects-v1
@@ -17,6 +17,11 @@ redirect_from:
   - /tracking-progress-on-your-project-board
   - /filtering-cards-on-a-project-board
   - /archiving-cards-on-a-project-board
+ms.openlocfilehash: c498a1e93008276aebe022dcc53a66086b86def7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422986'
 ---
-
 {% data reusables.projects.project_boards_old %}

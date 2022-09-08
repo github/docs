@@ -9,32 +9,37 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students
 versions:
   fpt: '*'
-shortTitle: Para alunos
+shortTitle: For students
+ms.openlocfilehash: a34da8bd0f37646bfaad0dbff3b09c6f2df440e4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574157'
 ---
-
 Usar o {% data variables.product.prodname_dotcom %} nos projetos da sua escola é uma maneira prática de colaborar com outras pessoas e de criar um portfólio que demonstra experiência no mundo real.
 
-Cada pessoa com uma conta do {% data variables.product.prodname_dotcom %} pode colaborar em repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}. Como estudante, você também pode candidatar-se aos benefícios do aluno de {% data variables.product.prodname_education %}. Os seus benefícios e recursos de {% data variables.product.prodname_education %} de aluno estão todos incluídos em {% data variables.product.prodname_global_campus %}, um portal que permite que você acesse seus benefícios de educação, tudo em um só lugar. Para obter mais informações, consulte "[Candidatar-se ao GitHub Global Campus como aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)" e [{% data variables.product.prodname_education %}](https://education.github.com/).
+Cada pessoa com uma conta do {% data variables.product.prodname_dotcom %} pode colaborar em repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}. Como aluno, você também pode se candidatar a benefícios para alunos do {% data variables.product.prodname_education %}. Seus recursos e os benefícios para alunos do {% data variables.product.prodname_education %} estão incluídos em {% data variables.product.prodname_global_campus %}, um portal que permite acessar seus benefícios educacionais, tudo em um só lugar. Para obter mais informações, confira "[Candidatar-se para o GitHub Global Campus como aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)" e [{% data variables.product.prodname_education %}](https://education.github.com/).
 
-Antes de se candidatar ao Global Campus, verifique se sua comunidade de aprendizado já tem parceria conosco como escola de {% data variables.product.prodname_campus_program %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)."
+Antes de se candidatar para o Global Campus, verifique se a sua comunidade de aprendizado já tem parceria conosco como uma escola {% data variables.product.prodname_campus_program %}. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_campus_program %} ](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)".
 
-Se você é integrante de um clube escolar, um professor pode candidatar-se a {% data variables.product.prodname_global_campus %} para que sua equipe possa colaborar usando {% data variables.product.prodname_team %}, que permite usuários ilimitados e repositórios privados, gratuitamente. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
+Se você for integrante de uma associação escolar, um professor poderá candidatar-se para o {% data variables.product.prodname_global_campus %} para que sua equipe possa colaborar usando o {% data variables.product.prodname_team %}, que permite repositórios privados e de usuários ilimitados, gratuitamente. Para obter mais informações, confira "[Candidatar-se para o {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
 
-Depois que o aluno de {% data variables.product.prodname_global_campus %} for verificado, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o site [{% data variables.product.prodname_education %}](https://education.github.com).
+Depois de ser um aluno verificado do {% data variables.product.prodname_global_campus %}, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o [site {% data variables.product.prodname_education %}](https://education.github.com). 
 
-![Portal de {% data variables.product.prodname_global_campus %} para alunos](/assets/images/help/education/global-campus-portal-students.png)
+![Portal do {% data variables.product.prodname_global_campus %} para alunos](/assets/images/help/education/global-campus-portal-students.png)
 
-## Funcionalidades de {% data variables.product.prodname_global_campus %} para os alunos
+## Recursos do {% data variables.product.prodname_global_campus %} para alunos
 
-{% data variables.product.prodname_global_campus %} é um portal a partir do qual você pode acessar seus benefícios e recursos de {% data variables.product.prodname_education %}, tudo em um só lugar. No portal {% data variables.product.prodname_global_campus %}, os alunos podem:
-- Conectar-se com um especialista de campus. Para obter mais informações sobre especialistas de campus, consulte "[Sobre especialistas de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-experts)."
-- Explore e reivindique ofertas para ferramentas grátis no setor a partir do [pacote de desenvolvedor para estudantes](https://education.github.com/pack).
-- Veja os próximos eventos presenciais e virtuais para estudantes, curados por {% data variables.product.prodname_education %} e líderes estudantes.
-- Veja as atividades no [GitHub Classroom](https://classroom.github.com/) com as próximas datas de vencimento.
-- Mantenha-se atualizado sobre o que a comunidade está interessada ao assistir os episódios recentes de [Campus TV](https://www.twitch.tv/githubeducation). Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
-- Descubra repositórios criados pelos alunos do GitHub Community Exchange. Para obter mais informações, consulte "[Sobre o GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)".
+O {% data variables.product.prodname_global_campus %} é um portal do qual você pode acessar seus recursos e benefícios do {% data variables.product.prodname_education %}, tudo em um só lugar. No portal do {% data variables.product.prodname_global_campus %}, os alunos podem:
+- Conectar-se com um especialista local de campus. Para obter mais informações sobre especialistas do campus, confira "[Sobre especialistas do campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-experts)".
+- Explore e reivindique ofertas para ferramentas gratuitas do setor do [Pacote para Alunos Desenvolvedores](https://education.github.com/pack).
+- Confira os próximos eventos virtuais e presenciais para os alunos, com a curadoria de {% data variables.product.prodname_education %} e dos líderes estudantis.
+- Exiba as atribuições da [Sala de aula do GitHub](https://classroom.github.com/) com as próximas datas de conclusão.
+- Mantenha-se informado sobre no que a comunidade está interessada assistindo novamente episódios recentes da [Campus TV](https://www.twitch.tv/githubeducation). A Campus TV é criada por {% data variables.product.prodname_dotcom %} e líderes da comunidade estudantil e pode ser assistida ao vivo ou sob demanda.
+- Descubra repositórios criados por alunos do GitHub Community Exchange. Para obter mais informações, confira "[Sobre o GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)".
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre {% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)"
-- "[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)"
+- "[Sobre o {% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)"
+- "[Sobre o {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)"

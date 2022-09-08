@@ -1,4 +1,12 @@
-6. 按 **Enter** 创建本地克隆。
+---
+ms.openlocfilehash: 88a69a366831804ab19144c1bff77a3fe53349b2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145129951"
+---
+6. 按 Enter 创建本地克隆。
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Cloning into `Spoon-Knife`...

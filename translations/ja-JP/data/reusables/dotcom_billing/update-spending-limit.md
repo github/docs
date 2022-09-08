@@ -1,1 +1,10 @@
-1. 料金を制限するように選択した場合、"Limit spending（料金の制限）"の下で限度額を入力し、**Update limit（制限を更新）**をクリックしてください。 ![料金の制限の入力フィールドと制限の更新ボタン](/assets/images/help/billing/update-limit.png)
+---
+ms.openlocfilehash: 65025cf3544901230de4032b699c0d2058cd7b15
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145124365"
+---
+1. 使用制限を選択した場合は、[Limit spending]\(使用制限\) に制限を入力し、 **[Update limit]\(制限の更新\)** をクリックします。
+  ![使用制限を入力するフィールドと [Update limit]\(制限の更新\) ボタン](/assets/images/help/billing/update-limit.png)

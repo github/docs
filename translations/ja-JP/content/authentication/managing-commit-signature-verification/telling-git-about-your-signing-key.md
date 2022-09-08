@@ -1,6 +1,6 @@
 ---
-title: Git へ署名キーを伝える
-intro: ローカルでコミットに署名するには、使用する GPG または X.509 キーがあることを Git に知らせる必要があります。
+title: Telling Git about your signing key
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -16,31 +16,30 @@ topics:
   - Access management
 shortTitle: Tell Git your signing key
 ---
-
 {% mac %}
 
-## Git へ GPG キーを伝える
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-コミッターアイデンティティにマッチする GPG キーを持っていない場合、既存のキーとメールアドレスを関連付ける必要があります。 詳細は「[メールを GPG キーに関連付ける](/articles/associating-an-email-with-your-gpg-key)」を参照してください。
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. GPG スイートを使用していない場合は、`zsh` シェルで次のコマンドを実行して、GPG キーがある場合に `.zshrc` ファイル、または `.zprofile` ファイルに追加します。
+1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  または、`bash` シェルを使用する場合は、次のコマンドを実行します。
+  Alternatively, if you use the `bash` shell, run this command:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
@@ -52,46 +51,42 @@ If you're using a GPG key that matches your committer identity and your verified
   $ killall gpg-agent
   ```
 
-{% data reusables.gpg.x-509-key %}
-
 {% endmac %}
 
 {% windows %}
 
-## Git へ GPG キーを伝える
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-コミッターアイデンティティにマッチする GPG キーを持っていない場合、既存のキーとメールアドレスを関連付ける必要があります。 詳細は「[メールを GPG キーに関連付ける](/articles/associating-an-email-with-your-gpg-key)」を参照してください。
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
 
-{% data reusables.gpg.x-509-key %}
-
 {% endwindows %}
 
 {% linux %}
 
-## Git へ GPG キーを伝える
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-コミッターアイデンティティにマッチする GPG キーを持っていない場合、既存のキーとメールアドレスを関連付ける必要があります。 詳細は「[メールを GPG キーに関連付ける](/articles/associating-an-email-with-your-gpg-key)」を参照してください。
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
@@ -101,15 +96,25 @@ If you're using a GPG key that matches your committer identity and your verified
   ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-
 {% endlinux %}
+{% ifversion ssh-commit-verification %}
 
-## 参考リンク
+## Telling Git about your SSH key
 
-- [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
-- [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-- [GPG キーで検証済みのメールアドレスを使う](/articles/using-a-verified-email-address-in-your-gpg-key)
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-- [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
-- 「[コミットに署名する](/articles/signing-commits)」
-- 「[タグに署名する](/articles/signing-tags)」
+You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+
+{% data reusables.gpg.ssh-git-version %}
+
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-ssh-signing %}
+{% data reusables.gpg.copy-ssh-public-key %}
+{% data reusables.gpg.paste-ssh-public-key %}
+
+{% endif %}
+
+{% data reusables.gpg.x-509-key %}
+## Further reading
+
+- "[Adding a new SSH key to your GitHub account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"

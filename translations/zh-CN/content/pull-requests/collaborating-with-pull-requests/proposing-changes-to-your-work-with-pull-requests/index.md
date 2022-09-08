@@ -1,5 +1,5 @@
 ---
-title: 发起提案，请求改进项目
+title: 通过拉取请求提议工作更改
 intro: 在添加更改到主题分支或复刻后，您可以打开拉取请求，要求协作者或仓库管理员审查您的更改，然后将其合并到项目中。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests
@@ -25,6 +25,12 @@ children:
   - /keeping-your-pull-request-in-sync-with-the-base-branch
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
-shortTitle: 提议更改
+shortTitle: Propose changes
+ms.openlocfilehash: 6c13c67b6dd3dcd798274f3cc9ef608a4a8117a5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130092'
 ---
 

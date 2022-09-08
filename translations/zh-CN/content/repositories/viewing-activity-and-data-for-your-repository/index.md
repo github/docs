@@ -22,6 +22,12 @@ children:
   - /viewing-a-projects-contributors
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
-shortTitle: 查看活动和数据
+shortTitle: View activity and data
+ms.openlocfilehash: 93ee6e343390540cb05551f4f8cb888eebdf63e2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129286'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: GitHub を使ってみる
-shortTitle: 始めましょう！
+title: GitHub の概要
+shortTitle: Get started
 intro: '{% data variables.product.prodname_dotcom %} を使用してソフトウェアの構築、出荷、および保守を始める方法を学びます。 当社の製品を探索し、アカウントにサインアップして、世界最大の開発コミュニティと繋がりましょう。'
 redirect_from:
   - /categories/54/articles
@@ -61,5 +61,11 @@ children:
   - /using-git
   - /customizing-your-github-workflow
   - /privacy-on-github
+ms.openlocfilehash: 4178e22c506d32b0736305936b56c4c1ff348357
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580696'
 ---
 

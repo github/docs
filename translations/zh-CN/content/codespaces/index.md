@@ -56,5 +56,11 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
+ms.openlocfilehash: 078b2c2ba743f2332ffda5a03ba9b0589cfdd12c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147652627'
 ---
 

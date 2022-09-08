@@ -21,33 +21,33 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: 添加到收据中
+shortTitle: Add to your receipts
+ms.openlocfilehash: 1b7495e5d23266816ca106defa7b695ff184ea43
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084462'
 ---
-
 收据包括 {% data variables.product.prodname_dotcom %} 订阅以及[其他付费功能和产品](/articles/about-billing-on-github)的订阅。
 
 {% warning %}
 
-**警告**：为安全起见，强烈建议不要在收据中包含任何机密或财务信息（如信用卡号）。
+警告：为安全起见，强烈建议不要在收据中包含任何机密或财务信息（如信用卡号）。
 
 {% endwarning %}
 
 ## 添加信息到个人帐户的收据
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.user-settings.payment-info-link %}
-{% data reusables.dotcom_billing.extra_info_receipt %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.user-settings.payment-info-link %} {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## 添加信息到组织的收据
 
 {% note %}
 
-**注**：{% data reusables.dotcom_billing.org-billing-perms %}
+注意：{% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.user-settings.payment-info-link %}
-{% data reusables.dotcom_billing.extra_info_receipt %}
+{% data reusables.organizations.billing-settings %} {% data reusables.user-settings.payment-info-link %} {% data reusables.dotcom_billing.extra_info_receipt %}

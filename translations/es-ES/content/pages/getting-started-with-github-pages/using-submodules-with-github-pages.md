@@ -11,16 +11,21 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Utilizar submódulos con páginas
+shortTitle: Use submodules with Pages
+ms.openlocfilehash: cfe863c3a7d77d006ee4c78e9d58302fb01e4dd4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140274'
 ---
-
 Si el repositorio para tu sitio de {% data variables.product.prodname_pages %} contiene submódulos, sus contenidos se extraerán automáticamente cuando se compile tu sitio.
 
 Solo puedes usar submódulos que apunten a los repositorios públicos, porque el servidor de {% data variables.product.prodname_pages %} no puede acceder a los repositorios privados.
 
-Utiliza la URL de solo lectura `https://` para tus submódulos, incluidos los submódulos anidados. Puedes hacer este cambio en tu archivo _.gitmodules_.
+Use la dirección URL `https://` de solo lectura para los submódulos, incluidos los submódulos anidados. Puede realizar este cambio en el archivo _.gitmodules_.
 
-## Leer más
+## Información adicional
 
-- "[Heramientas Git - Submódulos](https://git-scm.com/book/en/Git-Tools-Submodules)" del libro _Pro Git_
-- "[Solucionar problemas de errores de construcción de Jekyll para sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- "[Herramientas de Git - submódulos](https://git-scm.com/book/en/Git-Tools-Submodules)" del libro _Pro Git_
+- "[Solución de problemas de errores de compilación de Jekyll para sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

@@ -12,8 +12,13 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Non-fast-forward error
+ms.openlocfilehash: 59e1957bf2376462c1267527b1bc29ed9de49db9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145125797'
 ---
-
 別の人が同じブランチにすでにプッシュしてしまった場合、Git はあなたの変更をプッシュできません:
 
 ```shell
@@ -26,18 +31,18 @@ $ git push origin main
 > 'Note about fast-forwards' section of 'git push --help' for details.
 ```
 
-これを修正するには、リモートブランチで行った変更を、ローカルで行った変更に[フェッチおよびマージ](/github/getting-started-with-github/getting-changes-from-a-remote-repository)します:
+リモート ブランチで行われた変更をローカルで行った変更に[フェッチしてマージ](/github/getting-started-with-github/getting-changes-from-a-remote-repository)することで、これを修正することができます。
 
 ```shell
 $ git fetch origin
-# オンラインリポジトリへの更新をフェッチする
+# Fetches updates made to an online repository
 $ git merge origin <em>YOUR_BRANCH_NAME</em>
-# オンラインで行われた更新をローカル作業にマージする
+# Merges updates made online with your local work
 ```
 
-または、単純に `git pull` を使用して両方のコマンドを一度に実行できます:
+または、単純に `git pull` を使って一度に両方のコマンドを実行することもできます。
 
 ```shell
 $ git pull origin <em>YOUR_BRANCH_NAME</em>
-# オンライン更新をつかみ、ローカル作業にマージする
+# Grabs online updates and merges them with your local work
 ```

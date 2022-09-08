@@ -1,39 +1,45 @@
 ---
-title: Reordering commits
-intro: 'You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch''s history.'
+title: コミットの並べ替え
+intro: '{% data variables.product.prodname_desktop %} を使用して、ブランチの履歴内のコミットを並べ替えることができます。'
 versions:
   fpt: '*'
+ms.openlocfilehash: 5f68af5f2798e6780a91515886130f2b3ca7e6aa
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117494'
 ---
+## コミットの並べ替えについて
 
-## About reordering a commit
+並べ替えを行うと、コミット履歴を変更して、コミットの進捗をさらにわかりやすく示すことができます。 {% data variables.product.prodname_desktop %} を使うと、ブランチの履歴でコミットをドラッグ アンド ドロップして並べ替えることができます。
 
-Reordering allows you to alter your commit history to provide a more meaningful progression of commits. {% data variables.product.prodname_desktop %} allows you to drag-and-drop commits in your branch's history to reorder them.
-
-## Reordering a commit
+## コミットの並べ替え
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, click the branch with the commits that you want to reorder.
+2. ブランチのリストで、並べ替えたいコミットがあるブランチをクリックします。
 {% data reusables.desktop.history-tab %}
-4. Drag the commit that you want to reorder and drop it between two adjoining commits. ![reorder drag and drop](/assets/images/help/desktop/reorder-drag-and-drop.png) While the application reorders the commits, a **Reorder in process** dialog indicates the progress of the change.
+4. 並べ替えたいコミットをドラッグして、隣どうしの 2 つのコミットの間にドロップします。
+  ![並べ替え時のドラッグ アンド ドロップ](/assets/images/help/desktop/reorder-drag-and-drop.png) アプリケーションによるコミットの並べ替え中は、 **[並べ替えが進行中]** ダイアログが変更の進捗を示します。
 
-## Error messages when reordering commits
+## コミットを並べ替えるときのエラー メッセージ
 
-When you reorder commits, you may see one of the following notifications or error messages.
+コミットを並べ替えるときに、次のような通知やエラー メッセージが表示されることがあります。
 
-* A notification states that the requested change to the branch will require a force push to update the remote branch. This is shown when the commits that you reordered were previously pushed to the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin reorder** to start the reorder, and then click **Force push origin** to push your changes.
+* 通知は、ブランチに対してリクエストされている変更で、リモート ブランチを更新するために強制プッシュが必要となることを示しています。 これは、並べ替えたコミットがリモート ブランチに以前プッシュされていた場合に表示されます。 強制的にプッシュすると、ブランチのコミット履歴が変更され、そのブランチで作業している他のコラボレーターが影響を受けます。  **[並べ替えの開始]** を選んで並べ替えを開始したら、 **[Origin に強制プッシュ]** をクリックして、変更をプッシュします。
 
-  ![reorder force push dialog](/assets/images/help/desktop/reorder-force-push-dialog.png)
+  ![並べ替えの強制プッシュのダイアログ](/assets/images/help/desktop/reorder-force-push-dialog.png)
 
-* An error states that the reorder failed because there is a merge commit among the reordered commits.
+* エラーは、並べ替えられたコミット間にマージ コミットがあるため、並べ替えが失敗したことを示しています。
 
-  ![reorder merge commit dialog](/assets/images/help/desktop/reorder-merge-commit-dialog.png)
+  ![マージ コミットの並べ替えのダイアログ](/assets/images/help/desktop/reorder-merge-commit-dialog.png)
 
-* A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes, you can reorder your commits.
+* 現在のブランチにコミットされていない変更が存在していることを示す通知が表示されます。 **[変更を一時退避して続ける]** を選び、変更を保存して続けるか、 **[閉じる]** を選び、メッセージを閉じて変更をコミットします。 コミットされていない変更がなくなったら、コミットを並べ替えることができます。
 
-  ![reorder stash dialog](/assets/images/help/desktop/reorder-stash-dialog.png)
+  ![一時退避エントリの並べ替えのダイアログ](/assets/images/help/desktop/reorder-stash-dialog.png)
 
-* A message states that there are merge conflicts that you must resolve before the application can continue reordering commits on your branch.
-    1. Click **View conflicts** to see the conflicts. ![reorder resolve conflicts message](/assets/images/help/desktop/reorder-resolve-conflicts.png)
-    {% data reusables.desktop.resolve-merge-conflicts %}
-   3. When all conflicts are resolved, you can reorder your commits.
+* メッセージは、アプリケーションで引き続きブランチのコミットを並べ替えられるように、競合するマージを解決する必要があることを示しています。
+    1. **[競合の表示]** をクリックして、競合を表示します。
+      ![並べ替え時の競合の解決のメッセージ](/assets/images/help/desktop/reorder-resolve-conflicts.png) {% data reusables.desktop.resolve-merge-conflicts %}
+   3. すべての競合を解決したら、コミットを並べ替えることができます。
   

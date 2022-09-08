@@ -1,5 +1,13 @@
-1. Optionally, narrow, expand, or completely change the scope for suggestions by editing the path in the command palette's text field.
+---
+ms.openlocfilehash: 68dc501963fdcecc7d42f2eac31da442a7ba746f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145127909"
+---
+1. Opcionalmente, restrinja, expanda ou altere completamente o escopo das sugestões editando o caminho no campo de texto da paleta de comandos.
 
-   - To narrow the scope within a user or organization account, highlight a repository then use <kbd>Tab</kbd> to add it to the scope.
-   - To expand the scope, highlight and remove an item in the scope using the <kbd>Backspace</kbd> or <kbd>delete</kbd> key.
-   - To clear the scope and text box, click **Clear** or use <kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Backspace</kbd> (Mac).
+   - Para restringir o escopo dentro de uma conta de usuário ou organização, realce um repositório e use <kbd>Tab</kbd> para adicioná-lo ao escopo.
+   - Para expandir o escopo, realce e remova um item no escopo usando a tecla <kbd>Backspace</kbd> ou <kbd>delete</kbd>.
+   - Para limpar o escopo e a caixa de texto, clique em **Limpar** ou use <kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows e Linux) ou <kbd>⌘</kbd><kbd>Backspace</kbd> (Mac).

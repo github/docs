@@ -9,21 +9,25 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Subversion 客户端支持
+shortTitle: Support for Subversion clients
+ms.openlocfilehash: 49422fbd5dd07b84975172f077091e92bcd5b543
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128931'
 ---
-
 GitHub 通过 HTTPS 协议支持 Subversion 客户端。 我们使用 Subversion 网桥将 svn 命令传递给 GitHub。
 
 ## GitHub 上支持的 Subversion 功能
 
-### 检出
+### 签出
 
 您首先要进行 Subversion 检出。  由于 Git 克隆将工作目录（您编辑文件的位置）与仓库数据分开，因此工作目录中一次只有一个分支。
 
-Subversion 检出则不同：它们混合工作目录中的仓库数据，因此存在用于您已检出的每个分支和标记的工作目录。  对于具有许多分支和标记的仓库，检出所有内容可能会造成带宽负担，因此应从部分检出开始。
+Subversion 签出则不同：它们混合工作目录中的存储库数据，因此存在用于你已签出的每个分支和标记的工作目录。对于具有许多分支和标记的存储库，签出所有内容可能会造成带宽负担，因此应从部分签出开始。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.copy-clone-url %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %}
 
 3. 进行仓库的空检出：
   ```shell
@@ -41,7 +45,7 @@ Subversion 检出则不同：它们混合工作目录中的仓库数据，因此
   > Updated to revision 1.
   ```
 
-5. 获取 `branches` 目录的空检出。  这是所有非 `HEAD` 分支所在的位置，您将在此处进行功能分支。
+5. 获取 `branches` 目录的空签出。  这是所有非 `HEAD` 分支所在的位置，你将在此处创建功能分支。
   ```shell
   $ svn up --depth empty branches
   Updated to revision 1.
@@ -51,13 +55,13 @@ Subversion 检出则不同：它们混合工作目录中的仓库数据，因此
 
 您还可以使用到 GitHub 的 Subversion 网桥创建分支。
 
-从 svn 客户端更新 `trunk`，以确保 "master" 是最新的：
+从 svn 客户端更新 `trunk`，以确保默认分支是最新的：
 ```shell
 $ svn up trunk
 > At revision 1.
 ```
 
-接下来，您可以使用 `svn copy` 创建新分支：
+接下来，你可以使用 `svn copy` 创建新分支：
 ```shell
 $ svn copy trunk branches/more_awesome
 > A    branches/more_awesome
@@ -81,7 +85,7 @@ $ git fetch
 
 ### 对 Subversion 进行提交
 
-添加一些功能并修复一些漏洞后，您想要将这些更改提交到 GitHub。 此工作正如您惯用的 Subversion 一样。 编辑文件，然后使用 `svn commit` 记录您的更改：
+添加一些功能并修复一些 bug 后，你想要将这些更改提交到 GitHub。 此工作正如您惯用的 Subversion 一样。 编辑文件，然后使用 `svn commit` 记录你的更改：
 
 ```shell
 $ svn status
@@ -104,7 +108,7 @@ $ svn commit -m 'Test coverage for problems'
 
 ### 在分支间切换
 
-要在分支之间切换，您可能想要从 `trunk` 的检出开始：
+要在分支之间切换，建议首先签出 `trunk`：
 
 ```shell
 $ svn co --depth empty https://github.com/<em>user</em>/<em>repo</em>/trunk
@@ -131,4 +135,4 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 ## 延伸阅读
 
-* “[GitHub 支持的 Subversion 属性](/articles/subversion-properties-supported-by-github)”
+* [GitHub 支持的 Subversion 属性](/articles/subversion-properties-supported-by-github)

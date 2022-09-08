@@ -1,1 +1,9 @@
-サンプルのワークフローは、{% data variables.product.prodname_actions %}の以下の機能を紹介しています:
+---
+ms.openlocfilehash: 8ffe50010748096a7557c44d2297dc9db28cabf2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147061091"
+---
+このワークフロー例は、{% data variables.product.prodname_actions %} の次の機能を示しています。

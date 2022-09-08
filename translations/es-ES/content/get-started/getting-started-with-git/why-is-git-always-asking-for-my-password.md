@@ -11,17 +11,22 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Contraseñas de Git
+shortTitle: Git passwords
+ms.openlocfilehash: 06a8cf617072075f39a880ec58173e7cfbc5bc8a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135804'
 ---
-
-Utilizar una URL remota de tipo HTTPS tiene algunas ventajas comparadas con el uso de SSH. Es más fácil de configurar que SSH, y habitualmente trabaja mediante cortafuectos y proxies estrictos. Sin embargo, también te solicita que ingreses tus credenciales de {% data variables.product.product_name %} cada vez que extraes o subes un repositorio.
+Utilizar una URL remota de tipo HTTPS tiene algunas ventajas comparadas con el uso de SSH. Es más fácil de configurar que SSH, y habitualmente trabaja mediante cortafuectos y proxies estrictos. Sin embargo, también te solicita que ingreses tus credenciales de {% data variables.product.product_name %} cada vez que extraes o subes un repositorio. 
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-Puedes evitar que se te solicite tu contraseña si configuras Git para que [almacene tus credenciales en el caché](/github/getting-started-with-github/caching-your-github-credentials-in-git). Ya que hayas configurado el almacenamiento de credenciales en caché, Git utilizará to token de acceso personal almacenado en caché automáticamente cada que extraigas o subas información a un repositorio utilizando HTTPS.
+Puede evitar que se le pida la contraseña si configura Git para que [almacene en caché las credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git) de forma automática. Ya que hayas configurado el almacenamiento de credenciales en caché, Git utilizará to token de acceso personal almacenado en caché automáticamente cada que extraigas o subas información a un repositorio utilizando HTTPS.
 
-## Leer más
+## Información adicional
 
-- "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)."
+- "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
 - "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
-- "[Agregar tu llave SSH al ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"
+- "[Adición de la clave SSH al agente ssh](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"

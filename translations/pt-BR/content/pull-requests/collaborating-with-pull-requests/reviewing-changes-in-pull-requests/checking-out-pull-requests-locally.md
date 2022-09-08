@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Fazer checkout de um PR localmente
+shortTitle: Check out a PR locally
+ms.openlocfilehash: bdb63d3951c92996ca4d6dc393bdc49b8d37acce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128036'
 ---
-
 {% note %}
 
-  **Observação:** Autores de pull request podem fornecer a mantenedores do repositório upstream, ou àqueles com acesso push para o repositório upstream,  permissão para fazer commits no branch de comparação de sua pull request em uma bifurcação de propriedade de usuário. Para obter mais informações, consulte "[Permitir alterações no branch de uma pull request criada de uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
+  **Observação:** os autores de solicitações de pull podem conceder aos mantenedores do repositório upstream ou àqueles com acesso de push no repositório upstream a permissão para fazer commits para o branch de comparação da solicitação de pull em um fork pertencente ao usuário. Para obter mais informações, confira "[Como permitir alterações em um branch de solicitação de pull criado com base em um fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
 
   {% endnote %}
 
@@ -28,10 +33,13 @@ shortTitle: Fazer checkout de um PR localmente
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. Na lista de pull requests, clique no pull request que você gostaria de modificar.{% ifversion fpt or ghec %}
-3. Para escolher onde você gostaria de abrir a pull request, selecione **Abrir com o menu suspenso {% octicon "triangle-down" aria-label="The down triangle icon" %}** e clique em uma das abas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
-3. Na caixa de merge, clique em **instruções para linha de comando**. Siga a sequência de etapas para rebaixar a pull request proposta. ![Link para acessar instruções de pull request da linha de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. Como opção, para exibir as alterações propostas no {% data variables.product.prodname_desktop %}, clique em **abrir em {% data variables.product.prodname_desktop %}**. ![Link para abrir uma pull request localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+2. Na lista de solicitações de pull, clique na solicitação de pull que deseja modificar.{% ifversion fpt or ghec %}
+3. Para escolher o local em que deseja abrir a solicitação de pull, selecione o menu suspenso **Abrir com {% octicon "triangle-down" aria-label="The down triangle icon" %}** e clique em uma das guias.
+  ![Link para acessar as instruções da solicitação de pull na linha de comando](/assets/images/help/pull_requests/open-with-button.png){% else %}
+3. Na caixa de mesclagem, clique em **Instruções da linha de comando**. Siga a sequência de etapas para rebaixar a pull request proposta.
+  ![Link para acessar as instruções de solicitação de pull na linha de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
+4. Opcionalmente, para ver as alterações propostas no {% data variables.product.prodname_desktop %}, clique em **Abrir isto no {% data variables.product.prodname_desktop %}** .
+  ![Link para abrir uma solicitação de pull localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 {% endwebui %}
 
@@ -39,7 +47,7 @@ shortTitle: Fazer checkout de um PR localmente
 
 {% data reusables.cli.cli-learn-more %}
 
-Para fazer check-out de um pull request localmente, use o subcomando `gh pr check-out`. Substitua `pull request` pelo número, URL ou branch principal do pull request.
+Para fazer check-out de uma solicitação de pull localmente, use o subcomando `gh pr checkout`. Substitua `pull-request` pelo número, pela URL ou pelo branch principal da solicitação de pull.
 
 ```shell
 gh pr checkout <em>pull-request</em>
@@ -56,9 +64,9 @@ Depois que uma pull request for aberta, {% data variables.product.product_name %
 Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar trabalhando nela, testá-la ou, até mesmo, abrir uma nova pull request com alterações adicionais. No entanto, somente colaboradores com acesso push podem fazer merge de pull requests.
 
 {% data reusables.repositories.sidebar-issue-pr %}
-2. Na lista "Pull Requests", clique na pull request da qual deseja fazer merge.
-3. Encontre o número da ID da pull request inativa. Essa é a sequência de dígitos certa após o título da pull request. ![Número da ID de pull requests](/assets/images/help/pull_requests/pull_request_id_number.png)
-{% data reusables.command_line.open_the_multi_os_terminal %}
+2. Na lista "Pull Requests", clique na pull request que deseja fazer merge.
+3. Encontre o número da ID da pull request inativa. Essa é a sequência de dígitos certa após o título da pull request.
+  ![Número da ID das Solicitações de Pull](/assets/images/help/pull_requests/pull_request_id_number.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Faça fetch da referência à pull request com base no número da ID, criando um branch no processo.
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -66,7 +74,7 @@ Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar 
 6. Alterne para o novo branch que se baseia nesta pull request:
   ```shell
   [main] $ git checkout <em>BRANCHNAME</em>
-  > Alternado para um novo branch '<em>BRANCHNAME</em>'
+  > Switched to a new branch '<em>BRANCHNAME</em>'
   ```
 7. Nesse ponto, você pode fazer qualquer coisa que desejar com este branch. É possível executar alguns testes locais ou fazer merge de outros branches no branch.
 8. Quando estiver pronto, você poderá fazer push do novo branch:
@@ -80,7 +88,7 @@ Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar 
   > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
-9. [Crie uma pull request](/articles/creating-a-pull-request) com seu novo branch.
+9. [Crie uma solicitação de pull](/articles/creating-a-pull-request) com seu novo branch.
 
 ## Erro: falha ao fazer push de algumas refs
 
@@ -92,6 +100,6 @@ error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOS
 
 {% tip %}
 
-**Dica:** ao remover ou renomear uma referência remote, seu namespace `refs/pull/origin/` local não será afetado pelas chamadas a `git-remote`.
+**Dica:** quando você remover ou renomear uma referência remota, o namespace `refs/pull/origin/` local não será afetado por chamadas a `git-remote`.
 
 {% endtip %}

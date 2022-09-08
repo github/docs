@@ -1,6 +1,6 @@
 ---
 title: Documentación de GitHub Sponsors
-shortTitle: Patrocinadores de GitHub
+shortTitle: GitHub Sponsors
 intro: 'Invierte en los proyectos de código abierto de los cuales dependes, apoya la infraestructura digital y haz posibles las carreras de código abirto patrocinando a los contribuyentes de código abierto y a sus proyectos. Crea un perfil de {% data variables.product.prodname_sponsors %} y recibe una compensación para tu trabajo de código abierto.'
 introLinks:
   quickstart: /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
@@ -38,8 +38,13 @@ children:
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
   - /guides
+ms.openlocfilehash: 1878df4a6915a3e1336f79705d4ac4e70794e7ed
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147431876'
 ---
-
 <!---->
 <!---->
 <!---->

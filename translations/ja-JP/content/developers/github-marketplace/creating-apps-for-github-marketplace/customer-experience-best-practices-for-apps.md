@@ -1,7 +1,7 @@
 ---
 title: アプリケーションの顧客体験のベストプラクティス
 intro: 使いやすく、分かりやすいアプリケーションを作成するためのガイドライン。
-shortTitle: 顧客体験のベストプラクティス
+shortTitle: Customer experience best practice
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,8 +9,13 @@ topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
+ms.openlocfilehash: f45e3f88e7fdeb4c1d82264abb4e59c1057fe711
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089784'
 ---
-
 以下のベストプラクティスに従えば、優れた顧客体験を提供するための役に立つでしょう。
 
 ## 顧客とのコミュニケーション

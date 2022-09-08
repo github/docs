@@ -15,28 +15,26 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Alterações de assinatura pendentes
+shortTitle: Pending subscription changes
+ms.openlocfilehash: 75cf19d56b61735ba39ddc943cf5b0c197416035
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145083452'
 ---
-
 Você pode cancelar alterações pendentes na assinatura da sua conta ou de outros recursos e produtos pagos.
 
 Quando você cancela uma alteração pendente, sua assinatura não é alterada na próxima data de cobrança (a menos que você faça uma alteração subsequente na assinatura antes da próxima data de cobrança).
 
 ## Exibir e gerenciar alterações pendentes na assinatura da sua conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ## Exibir e gerenciar alterações pendentes na assinatura da sua organização
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

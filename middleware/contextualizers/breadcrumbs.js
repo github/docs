@@ -17,6 +17,8 @@ export default async function breadcrumbs(req, res, next) {
   return next()
 }
 
+const earlyAccessExceptions = ['insights', 'enterprise-importer']
+
 async function getBreadcrumbs(req, isEarlyAccess = false) {
   const crumbs = []
   const { currentPath, currentVersion } = req.context
@@ -30,11 +32,11 @@ async function getBreadcrumbs(req, isEarlyAccess = false) {
     // top-level like "/github"
     cutoff++
 
-    // The only exception to this rule is for the
-    // /{version}/early-access/insights/... URLs because they're a
+    // There are a few exceptions to this rule for the
+    // /{version}/early-access/<product-name>/... URLs because they're a
     // bit different.
-    // If there are more known exceptions, extend this conditional.
-    if (!split.includes('insights')) {
+    // If there are more known exceptions, add them to the array above.
+    if (!earlyAccessExceptions.some((product) => split.includes(product))) {
       cutoff++
     }
 

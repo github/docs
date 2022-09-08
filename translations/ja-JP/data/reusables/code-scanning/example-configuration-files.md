@@ -1,4 +1,4 @@
-この設定ファイルは、コードのスキャン時に {% data variables.product.prodname_codeql %} によって実行されるクエリのリストに `security-and-quality` クエリスイートを追加します。 使用可能なクエリスイートの詳細については、「[追加のクエリを実行する](#running-additional-queries)」を参照してください。
+This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-以下の設定ファイルはデフォルトのクエリを無効化し、その代わりに実行するカスタムクエリのセットを指定します。 また、{% data variables.product.prodname_codeql %}が_src/node_modules_ディレクトリと_.test.js_で名前が終わるファイルを除く、_src_ディレクトリ（ルートに対する相対）内のファイルをスキャンするようにも設定します。 したがって、 _src/node_modules_内のファイル や、_.test.js_で名前が終わるファイルは分析から除外されます。
+The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -30,3 +30,22 @@ paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: GitHubのIssue
-shortTitle: GitHubのIssue
+title: GitHub イシュー
+shortTitle: GitHub Issues
 intro: '作業を計画し、追跡するために{% data variables.product.prodname_github_issues %}を使う方法を学んでください。'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
@@ -73,5 +73,11 @@ redirect_from:
   - /disabling-issues
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
+ms.openlocfilehash: 77ed4853ea625e6c4daa2548086e84ab0979ed5b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147443681'
 ---
 

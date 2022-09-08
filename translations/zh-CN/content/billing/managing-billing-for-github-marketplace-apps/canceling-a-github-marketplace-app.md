@@ -17,47 +17,38 @@ topics:
   - Organizations
   - Trials
   - User account
-shortTitle: 取消 Marketplace app
+shortTitle: Cancel a Marketplace app
+ms.openlocfilehash: 9295f8ab1c5d9f4f3bef027dd6def79fcaa51df4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084518'
 ---
+取消订阅后，您的订阅在当前结算周期结束之前将保持有效。 取消在下一个结算日期生效。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
-取消订阅后，您的订阅在当前结算周期结束之前将保持有效。 取消在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
-
-当您取消付费计划中的免费试用时，您的订阅将立即被取消，您将失去对该应用程序的访问权限。 如果您在试用期内未取消免费试用，则您将在试用期结束时，通过您的帐户中备案的付款方式为您选择的计划付费。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
+当您取消付费计划中的免费试用时，您的订阅将立即被取消，您将失去对该应用程序的访问权限。 如果您在试用期内未取消免费试用，则您将在试用期结束时，通过您的帐户中备案的付款方式为您选择的计划付费。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
 ## 取消个人帐户的应用程序
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.marketplace.cancel-app-billing-settings %}
-{% data reusables.marketplace.cancel-app %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.marketplace.cancel-app-billing-settings %} {% data reusables.marketplace.cancel-app %}
 
 ## 取消个人帐户的应用程序免费试用
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.marketplace.cancel-free-trial-billing-settings %}
-{% data reusables.marketplace.cancel-app %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.marketplace.cancel-free-trial-billing-settings %} {% data reusables.marketplace.cancel-app %}
 
 ## 取消组织的应用程序
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.marketplace.cancel-app-billing-settings %}
-{% data reusables.marketplace.cancel-app %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.marketplace.cancel-app-billing-settings %} {% data reusables.marketplace.cancel-app %}
 
 ## 取消组织的应用程序免费试用
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.marketplace.cancel-free-trial-billing-settings %}
-{% data reusables.marketplace.cancel-app %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.marketplace.cancel-free-trial-billing-settings %} {% data reusables.marketplace.cancel-app %}
