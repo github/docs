@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting a codespace
-intro: 'to do'
+intro: 'You can stop and start your codespace to save resources and to pause work.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
