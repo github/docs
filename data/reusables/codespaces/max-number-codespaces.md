@@ -1,0 +1,1 @@
+You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one.
