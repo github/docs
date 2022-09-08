@@ -10,11 +10,16 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 2f7869e9218679c3c18c3182b15835bcd24e134d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145193800'
 ---
-
 ## 关于 CITION 文件
 
-您可以将 `CITATION.cff` 文件添加到存储库的根目录中，让其他人知道您希望他们如何引用您的工作。 引文文件格式为纯文本，具有人类和机器可读的引文信息。
+可以将 `CITATION.cff` 文件添加到存储库的根目录，让其他人知道你希望他们如何引用你的工作。 引文文件格式为纯文本，具有人类和机器可读的引文信息。
 
 示例 `CITATION.cff` 文件：
 
@@ -59,33 +64,33 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-请注意，上面的示例生成 _software_ 引文（即，在 BibTeX 中键入 `@software` 而不是 `@article`）。
+请注意，上面的示例会生成软件引文（即，在 BibTeX 中键入 `@software` 而不是 `@article`）。
 
-更多信息请参阅[引文文件格式](https://citation-file-format.github.io/)网站。
+有关详细信息，请参阅[引文文件格式](https://citation-file-format.github.io/)网站。
 
-当您将 `CITATION.cff` 文件添加到存储库的默认分支时，该文件会自动从存储库登录页面链接。 这使得其他用户可以使用您提供的信息轻松引用您的软件项目。
+当你将 `CITATION.cff` 文件添加到存储库的默认分支时，该文件会自动从存储库登录页面链接。 这使得其他用户可以使用您提供的信息轻松引用您的软件项目。
 
 ![存储库登录页上的引文链接](/assets/images/help/repository/citation-link.png)
 
 ## 引用软件以外的内容
 
-如果您希望 {% data variables.product.prodname_dotcom %} 引文信息链接到其他资源（如研究文章），则可以在 CFF 中使用 `preferred-citation` 覆盖以下类型。
+如果希望 {% data variables.product.prodname_dotcom %} 引文信息链接到其他资源（如研究文章），则可以在 CFF 中使用 `preferred-citation` 覆盖以下类型。
 
-| 资源          | CFF 类型                                                                                               | BibTeX 类型        | APA 注释  |
-| ----------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------- |
-| 期刊文章/论文     | `article`                                                                                            | `@article`       |         |
-| 书籍          | `book`                                                                                               | `@book`          |         |
-| 小册子（装订但未出版） | `pamphlet`                                                                                           | `@booklet`       |         |
-| 会议文章/论文     | `conference-paper`                                                                                   | `@inproceedings` | [会议论文]  |
-| 会议论文集       | `conference`, `proceedings`                                                                          | `@proceedings`   |         |
-| 数据集         | `data`, `database`                                                                                   | `@misc`          | [数据集]   |
-| 杂志文章        | `magazine-article`                                                                                   | `@article`       |         |
-| 手册          | `manual`                                                                                             | `@manual`        |         |
-| 杂项/通用/其他    | `generic`，任何其他 CFF 类型                                                                                | `@misc`          |         |
-| 新闻报道        | `newspaper-article`                                                                                  | `@article`       |         |
-| 软件          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [计算机软件] |
-| 报告/技术报告     | `report`                                                                                             | `@techreport`    |         |
-| 已取消发布       | `unpublished`                                                                                        | `@unpublished`   |         |
+| 资源 | CFF 类型 | BibTeX 类型 | APA 注释 |
+|----------|----------|-------------|----------------|
+| 期刊文章/论文 | `article` | `@article` | |
+| 书籍 | `book` | `@book` | |
+| 小册子（装订但未出版） | `pamphlet` | `@booklet` | |
+| 会议文章/论文 | `conference-paper` | `@inproceedings` | [会议论文] |
+| 会议论文集 | `conference`, `proceedings` | `@proceedings` | |
+| 数据集 | `data`, `database` | `@misc` | [数据集] |
+| 杂志文章 | `magazine-article` | `@article` | |
+| 手动 | `manual` | `@manual` | |
+| 杂项/通用/其他 | `generic`、任何其他 CFF 类型 | `@misc` | |
+| 新闻报道 | `newspaper-article` | `@article` | |
+| 软件 |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [计算机软件] |
+| 报告/技术报告 | `report` | `@techreport` | |
+| 已取消发布 | `unpublished` | `@unpublished` | |
 
 扩展的 CITATION.cff 文件描述了该软件，但链接到研究文章作为首选引用：
 
@@ -124,7 +129,7 @@ preferred-citation:
   year: 2021
 ```
 
-上面的示例 `CITATION.cff` 文件将在 GitHub 引文提示中产生以下输出：
+上面的示例 `CITATION.cff` 文件将在 GitHub 引文提示中生成以下输出：
 
 **APA**
 
@@ -152,13 +157,13 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 
 ## 引用数据集
 
-如果存储库包含数据集，则可以在 `CITATION.cff` 文件的顶层设置 `type: dataset` ，以便在 {% data variables.product.prodname_dotcom %} 引文提示中生成数据引文字符串输出。
+如果存储库包含数据集，则可以在 `CITATION.cff` 文件的顶层设置 `type: dataset`，以在 {% data variables.product.prodname_dotcom %} 引文提示中生成数据引文字符串输出。
 
 ## 其他引文文件
 
 GitHub 引用功能还将检测社区和项目经常使用的少量其他文件，以描述他们希望如何引用他们的工作。
 
-GitHub 将在 _Cite this repository_ 提示中链接到这些文件，但不会尝试将它们解析为其他引文格式。
+GitHub 将在“Cite this repository”提示中链接到这些文件，但不会尝试将它们分析为其他引文格式。
 
 ```
 # Note these are case-insensitive and must be in the root of the repository
@@ -177,4 +182,4 @@ inst/CITATION
 
 我们目前支持 APA 和 BibTex 文件格式。
 
-您是否正在寻找其他引文格式？ GitHub 使用 Ruby 库来解析 `CITATION.cff` 文件。 您可以在 [ruby-cff](https://github.com/citation-file-format/ruby-cff) 存储库中请求其他格式，也可以自己贡献它们。
+您是否正在寻找其他引文格式？ GitHub 使用 Ruby 库来分析 `CITATION.cff` 文件。 可以在 [ruby-cff](https://github.com/citation-file-format/ruby-cff) 存储库中请求其他格式，或自行提供这些格式。

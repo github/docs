@@ -14,12 +14,17 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: 计费流程
+shortTitle: Billing process
+ms.openlocfilehash: 9908e230f5b34b00ee7e62865a26a4796632c329
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084481'
 ---
-
 对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。
 
-更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”和“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
+有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”和“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
 
 ## 取消个人帐户或组织订阅的示例
 
@@ -39,7 +44,7 @@ Stefan 的组织在每年 5 月 20 日支付 50 个席位。 如果 Stefan 在 9
 
 ## 延伸阅读
 
-- "[管理 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)"
-- "[管理 {% data variables.product.prodname_marketplace %} 应用程序的计费](/articles/managing-billing-for-github-marketplace-apps)"
-- "[管理 {% data variables.large_files.product_name_long %} 的计费](/articles/managing-billing-for-git-large-file-storage)"
-- “[关于每用户定价](/articles/about-per-user-pricing)”
+- [管理 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)
+- [管理 {% data variables.product.prodname_marketplace %} 应用的计费](/articles/managing-billing-for-github-marketplace-apps)
+- [管理 {% data variables.large_files.product_name_long %} 的计费](/articles/managing-billing-for-git-large-file-storage)
+- [关于每用户定价](/articles/about-per-user-pricing)

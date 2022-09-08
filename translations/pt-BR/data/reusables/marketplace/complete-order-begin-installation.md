@@ -1,1 +1,10 @@
-1. Clique em **Complete order and begin installation** (Concluir pedido e comece a instalação). ![Botão de concluir o pedido e iniciar a instalação](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png)
+---
+ms.openlocfilehash: 30e2460c0d56e5aa22c5432e4b5e26cc30e680fc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145096621"
+---
+1. Selecione **Concluir pedido e iniciar instalação**.
+  ![Botão Concluir pedido e iniciar instalação](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png)

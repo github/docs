@@ -1,49 +1,54 @@
 ---
-title: Dealing with special characters in branch and tag names
-intro: 'Git is very permissive about what characters are allowed in branch and tag names. When using Git from a command-line shell, you may need to escape or quote special characters.'
+title: ブランチとタグの名前に含まれる特殊文字の処理
+intro: Git は、ブランチとタグの名前で許可される文字について非常に制限が少ないです。 コマンド ライン シェルから Git を使用する場合は、特殊文字をエスケープまたは引用符で囲む必要があることがあります。
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Special characters in names
+ms.openlocfilehash: e03b6ba963cef465f775620d353f14f0f5d92d36
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115981'
 ---
+## ブランチ名とタグ名について
 
-## About branch and tag names
+多くのリポジトリでは、`main` や `update-icons` などの単純なブランチ名を使っています。 通常、タグ名も `v1.2.3` のようなバージョン番号などの基本的な形式に従います。 ブランチ名とタグ名の両方で、パス区切り記号 (`/`) を使って、`area/item` や `level-1/level-2/level-3` のように構造化することもできます。 いくつかの例外 &mdash; 名前の最初と最後にスラッシュを使わない、名前に連続したスラッシュを使わない、など &mdash; を除いて、Git にはブランチやタグの名前に使用できる文字の制約がほとんどありません。 詳細については、Git のドキュメントの「[git-check-ref-format](https://git-scm.com/docs/git-check-ref-format)」を参照してください。
 
-Most repositories use simple branch names, such as `main` or `update-icons`. Tag names also usually follow a basic format, such as a version number like `v1.2.3`. Both branch names and tag names may also use the path separator (`/`) for structure, for example `area/item` or `level-1/level-2/level-3`. Other than some exceptions &mdash; such as not starting or ending a name with a slash, or having consecutive slashes in the name &mdash; Git has very few restrictions on what characters may be used in branch and tag names. For more information, see "[git-check-ref-format](https://git-scm.com/docs/git-check-ref-format)" in the Git documentation.
+## 特殊文字のエスケープが必要な理由
 
-## Why you need to escape special characters
+CLI を使っているとき、ブランチやタグの名前に、シェル環境にとって特別な意味を持つ特殊文字が含まれている場合があります。 これらの文字を Git コマンドで安全に使うには、引用符で囲むかエスケープする必要があります。そうしないと、コマンドが意図しない影響を受ける可能性があります。
 
-When using a CLI, you might have situations where a branch or tag name contains special characters that have a special meaning for your shell environment. To use these characters safely in a Git command, they must be quoted or escaped, otherwise the command may have unintended effects.
+たとえば、`$` 文字は多くのシェルで変数を参照するために使われます。 ほとんどのシェルは `hello-$USER` のような有効なブランチ名を、リテラル文字列 `hello-$USER` ではなく、単語 "hello"、ハイフン、変数 `USER` の現在の値の順に連続するものと解釈します。 ブランチ名に `$` 文字が含まれている場合、シェルがそれを変数参照として展開しないようにする必要があります。 同様に、ブランチ名にセミコロン (`;`) が含まれている場合、ほとんどのシェルはこれをコマンド区切り記号として解釈するので、引用符で囲むかエスケープする必要があります。
 
-For example, the `$` character is used by many shells to refer to a variable. Most shells would interpret a valid branch name like `hello-$USER` as equivalent to the word "hello", followed by a hyphen, followed by the current value of the `USER` variable, rather than the literal string `hello-$USER`. If a branch name includes the `$` character, then the shell must be stopped from expanding it as a variable reference. Similarly, if a branch name contains a semi-colon (`;`), most shells interpret it as a command separator, so it needs to be quoted or escaped.
+## ブランチ名やタグ名に含まれる特殊文字のエスケープ方法
 
-## How to escape special characters in branch and tag names
+特殊文字を含むほとんどのブランチやタグの名前は、`'hello-$USER'` のように、一重引用符で囲むことで処理できます。
 
-Most branch and tag names with special characters can be handled by including the name in single quotes, for example `'hello-$USER'`.
+* [Bash](https://www.gnu.org/software/bash/) シェルでは、文字列を一重引用符で囲むと、一重引用符内の文字リテラル値が保持されます。
+* [Zsh](https://www.zsh.org/) は Bash と同様の動作をしますが、この動作は `RC_QUOTES` オプションを使って構成可能です。
+* [PowerShell](https://microsoft.com/powershell) も一重引用符内の文字をリテラルとして扱います。
 
-* In the [Bash](https://www.gnu.org/software/bash/) shell, enclosing a string of characters in single quotes preserves the literal value of the characters within the single quotes.
-* [Zsh](https://www.zsh.org/) behaves similar to Bash, however this behavior is configurable using the `RC_QUOTES` option.
-* [PowerShell](https://microsoft.com/powershell) also treats characters literally when inside single quotes.
+これらのシェルでは、主な例外はブランチまたはタグ名自体に単一引用符が含まれている場合です。 この場合は、シェルの公式ドキュメントを参照してください。
 
-For these shells, the main exception is when the branch or tag name itself contains a single quote. In this case, you should consult the official documentation for your shell:
+* [Bash のドキュメント](https://www.gnu.org/software/bash/manual/)
+* [Zsh のドキュメント](https://zsh.sourceforge.io/Doc/)
+* [Fish のドキュメント](https://fishshell.com/docs/current/)
+* [PowerShell のドキュメント](https://docs.microsoft.com/en-gb/powershell/)
 
-* [Bash documentation](https://www.gnu.org/software/bash/manual/)
-* [Zsh documentation](https://zsh.sourceforge.io/Doc/)
-* [Fish documentation](https://fishshell.com/docs/current/)
-* [PowerShell documentation](https://docs.microsoft.com/en-gb/powershell/)
+## ブランチとタグの名前付け
 
-## Naming branches and tags
+可能であれば、特殊文字を含まないブランチ名やタグ名を作成してください。これらはエスケープする必要があります。 ブランチ名とタグ名に使う、安全な既定の文字セットは次のとおりです。
 
-If possible, create branch and tag names that don't contain special characters, as these would need to be escaped. A safe default set of characters to use for branch names and tag names is:
+* 英語のアルファベット (`a` から `z`、`A` から `Z`)
+* 数字 (`0` から `9`)
+* 限定された句読点文字のセット:
+  * ピリオド (`.`)
+  * ハイフン (`-`)
+  * アンダースコア (`_`)
+  * スラッシュ (`/`)
 
-* The English alphabet (`a` to `z` and `A` to `Z`)
-* Numbers (`0` to `9`)
-* A limited set of punctuation characters:
-  * period (`.`)
-  * hyphen (`-`)
-  * underscore (`_`)
-  * forward slash (`/`)
-
-To avoid confusion, you should start branch names with a letter.
+混同を避けるために、ブランチ名は文字で始める必要があります。

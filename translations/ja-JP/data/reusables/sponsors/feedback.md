@@ -1,1 +1,1 @@
-{% data variables.product.prodname_sponsors %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 会話に参加するには、「[スポンサーのフィードバック](https://github.com/orgs/community/discussions/categories/sponsors)」を参照してください。
+You can share your feedback about {% data variables.product.prodname_sponsors %} with {% data variables.product.company_short %}. To join the conversation, see "[Sponsors Feedback](https://github.com/orgs/community/discussions/categories/sponsors)."

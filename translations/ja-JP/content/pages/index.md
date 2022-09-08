@@ -1,7 +1,7 @@
 ---
 title: GitHub Pagesのドキュメンテーション
 shortTitle: GitHub Pages
-intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上のリポジトリから直接Webサイトを作成する方法を学んでください。 JekyllのようなWebサイトの構築ツールを調べて、{% data variables.product.prodname_pages %}サイトの問題をトラブルシュートしてください。'
+intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上のリポジトリから Web サイトを直接作成する方法について説明します。 Jekyll などの Web サイト構築ツールを調べ、{% data variables.product.prodname_pages %} サイトに関する issue をトラブルシューティングします。'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -12,7 +12,6 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll{% endif %}'
     - '{% ifversion ghec %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site{% endif %}'
-    - '{% ifversion fpt %}/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll{% endif %}'
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'
@@ -50,5 +49,11 @@ children:
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
+ms.openlocfilehash: 8f1e83a8329a023f49a73a3716a88f61b2438adb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147643926'
 ---
 

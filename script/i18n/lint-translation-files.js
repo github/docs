@@ -7,6 +7,8 @@
 //
 // [end-readme]
 
+// Remove this when removing translations directory B504EDD0
+
 import { execSync } from 'child_process'
 import { program } from 'commander'
 import fs from 'fs'

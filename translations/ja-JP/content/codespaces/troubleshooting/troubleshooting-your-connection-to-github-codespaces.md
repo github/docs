@@ -8,17 +8,17 @@ versions:
 type: reference
 topics:
   - Codespaces
-shortTitle: コネクション
+shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
 ---
 
 ## 503 codespace service unavailable
 
-Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error.
+Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error. 
 
 - If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-- Reset your codespace by reloading the window. From the [command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+- Reset your codespace by reloading the window. From the [Command Palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## Browser cannot connect
 

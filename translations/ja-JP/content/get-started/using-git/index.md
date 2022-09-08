@@ -1,6 +1,6 @@
 ---
-title: Git を使用する
-intro: 'Use Git to manage your {% data variables.product.product_name %} repositories from your computer.'
+title: Git の使用
+intro: 'Git を使用して、コンピューターから {% data variables.product.product_name %} リポジトリを管理します。'
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands
@@ -26,5 +26,11 @@ children:
   - /using-git-rebase-on-the-command-line
   - /resolving-merge-conflicts-after-a-git-rebase
   - /dealing-with-special-characters-in-branch-and-tag-names
+ms.openlocfilehash: 806e5bb24731d651ed3fe416dc8f250aa2472710
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115974'
 ---
 

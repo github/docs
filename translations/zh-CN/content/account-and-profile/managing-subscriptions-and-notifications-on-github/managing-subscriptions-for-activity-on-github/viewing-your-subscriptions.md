@@ -23,12 +23,17 @@ versions:
   ghec: '*'
 topics:
   - Notifications
-shortTitle: 查看订阅
+shortTitle: View subscriptions
+ms.openlocfilehash: 34faad79004d34f5beb14e8992b9aff4e6a3ab39
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099202'
 ---
+接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 有关详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
 
-接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
-
-我们建议将审核订阅和取消订阅作为健康通知工作流程的一部分。 有关取消订阅选项的更多信息，请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
+我们建议将审核订阅和取消订阅作为健康通知工作流程的一部分。 有关取消订阅的选项的详细信息，请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
 
 ## 诊断收到太多通知的原因
 
@@ -36,21 +41,21 @@ shortTitle: 查看订阅
 
 ![自动关注](/assets/images/help/notifications-v2/automatic-watching-example.png)
 
-更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)”。
+有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)”。
 
-To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
-{% tip %}
+若要查看存储库订阅概述，请参阅“[查看正在关注的存储库](#reviewing-repositories-that-youre-watching)”。 {% tip %}
 
-**提示：**您可以在[关注页面](https://github.com/watching)或 {% data variables.product.product_name %} 上的任何仓库页面，使用 **Watch/Unwatch（关注/取消关注）**下拉列表中的 **Custom（自定义）**选项选择要通知的事件类型。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
+**提示：** 你可以在 [关注页面](https://github.com/watching)或 {% data variables.product.product_name %} 上的任何存储库页面，使用“关注/取消关注”下拉列表中的“自定义”选项选择要通知的事件类型 。 有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 
 {% endtip %}
 
-许多人忘记了他们过去选择关注的仓库。 从“Watched repositories（已关注仓库）”页面，您可以快速取消关注仓库。 有关取消订阅的方式的更多信息，请参阅 {% data variables.product.prodname_blog %} 上的“[取消关注建议](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)”和“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。 您也可以创建分类工作流程来帮助整理收到的通知。 有关分类工作流程的指导，请参阅“[自定义对通知分类的工作流程](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)”。
+许多人忘记了他们过去选择关注的仓库。 从“Watched repositories（已关注仓库）”页面，您可以快速取消关注仓库。 有关取消订阅的方式的详细信息，请参阅 {% data variables.product.prodname_blog %} 上的“[取消关注建议](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)”和“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。 您也可以创建分类工作流程来帮助整理收到的通知。 有关分类工作流的指导，请参阅“[自定义对通知进行分类的工作流](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)”。
 
 ## 查看所有订阅
 
 {% data reusables.notifications.access_notifications %}
-1. 在左侧边栏中您接收其通知的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Subscriptions（订阅）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. 在左侧边栏中你接收其通知的存储库列表下，在“管理通知”下拉菜单中单击“订阅”。
+  ![“管理通知”下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. 使用过滤器和排序来缩小订阅列表，并开始取消订阅您不想再接收其通知的对话。
 
@@ -67,13 +72,15 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 ## 查看您目前关注的仓库
 
-1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉菜单单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
-2. 评估您正在关注的仓库，确定它们更新是否仍然相关和有用。 关注某仓库后，您将收到该仓库所有对话的通知。 ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+1. 在左侧边栏的存储库列表下，在“管理通知”下拉菜单中单击“已关注的存储库”。
+  ![“管理通知”下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
+2. 评估您正在关注的仓库，确定它们更新是否仍然相关和有用。 关注某仓库后，您将收到该仓库所有对话的通知。
+![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 
   {% tip %}
 
-  **提示：**不是关注存储库，而是考虑仅在 {% data reusables.notifications-v2.custom-notification-types %} 更新（如已为存储库启用）或这些选项的任意组合时接收通知，或者完全取消关注存储库。
-
-  取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 当您配置接收某些事件类型的通知时，仅在仓库中有这些事件类型的更新、您参与了线程或者您或您所在团队被 @提及时才收到通知。
+  **提示：** 不要关注存储库，而是考虑仅当 {% data reusables.notifications-v2.custom-notification-types %}（如已为存储库启用）或这些选项的任意组合有更新时接收通知，或者完全取消关注存储库。
+  
+  取消关注存储库后，当你被 @mentioned 或参与帖子时仍然会收到通知。 当配置为接收某些事件类型的通知时，仅当存储库中有这些事件类型的更新、你参与了线程或者你或你所在团队被 @mentioned 时才会收到通知。
 
   {% endtip %}

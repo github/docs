@@ -14,16 +14,21 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: 使用 Jekyll 本地测试站点
+shortTitle: Test site locally with Jekyll
+ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129655'
 ---
-
 任何拥有仓库读取权限的人都可以在本地测试 {% data variables.product.prodname_pages %} 站点。
 
-## 基本要求
+## 先决条件
 
 在使用 Jekyll 测试站点之前，您必须：
-  - 安装 [Jekyll](https://jekyllrb.com/docs/installation/)。
-  - 创建一个 Jekyll 站点。 更多信息请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
+  - 安装 [Jekyll](https://jekyllrb.com/docs/installation/)
+  - 创建一个 Jekyll 站点。 有关详细信息，请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -31,8 +36,7 @@ shortTitle: 使用 Jekyll 本地测试站点
 
 ## 本地构建网站
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.pages.navigate-publishing-source %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.pages.navigate-publishing-source %}
 3. 运行 `bundle install`。
 3. 在本地运行您的 Jekyll 站点。
   ```shell
@@ -48,22 +52,22 @@ shortTitle: 使用 Jekyll 本地测试站点
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
-3. 要预览站点，请在 web 浏览器中导航到 `http://localhost:4000`。
+3. 若要预览网站，请在 Web 浏览器中导航到 `http://localhost:4000`。
 
 {% note %}
 
-**注意：** 如果您使用的是 Ruby 3.0 和 Jekyll 4.2.x 或更早版本，则需要在运行 `bundle install` 之前，将 `webrick` gem 添加到项目的 Gemfile 中。
+注意：如果使用 Ruby 3.0 和 Jekyll 4.2.x 或更低版本，则需要在运行 `bundle install` 之前将 `webrick` gem 添加到项目的 Gemfile 中。
 
 {% endnote %}
 
 ## 更新 {% data variables.product.prodname_pages %} gem
 
-Jekyll 是一个活跃的开源项目，经常更新。 如果您计算机上的 `github-pages` gem 版本落后于 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 版本，则您的站点在本地构建时的外观与在 {% data variables.product.product_name %} 上发布时的外观可能不同。 为避免这种情况，请定期更新计算机上的 `github-pages` gem。
+Jekyll 是一个活跃的开源项目，经常更新。 如果计算机上的 `github-pages` gem 与 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 已过期，则站点外观在本地构建时可能与在 {% data variables.product.product_name %} 上发布时不同。 为避免这种情况，请定期更新计算机上的 `github-pages` gem。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 更新 `github-pages` gem。
-    - 如果您安装了 Bundler，请运行 `bundle update github-pages`。
-    - 如果未安装 Bundler，则运行 `gem update github-pages`.
+    - 如果已安装 Bundler，请运行 `bundle update github-pages`。
+    - 如果尚未安装 Bundler，请运行 `gem update github-pages`。
 
 ## 延伸阅读
 

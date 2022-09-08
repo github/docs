@@ -18,38 +18,41 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: c399ac1a0881fe593087dada707296b226a5d9d8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129385'
 ---
-
 {% tip %}
 
-**提示：**所有者可限制组织中的仓库创建权限。 更多信息请参阅“[限制在组织中创建仓库](/articles/restricting-repository-creation-in-your-organization)”。
+提示：所有者可以限制组织中的存储库创建权限。 有关详细信息，请参阅“[限制组织中的存储库创建](/articles/restricting-repository-creation-in-your-organization)”。
 
 {% endtip %}
 
 {% tip %}
 
-**提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。
+提示：还可以使用 {% data variables.product.prodname_cli %} 创建存储库。 有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh repo create`](https://cli.github.com/manual/gh_repo_create)”。
 
 {% endtip %}
 
 {% data reusables.repositories.create_new %}
-2. （可选）要创建具有现有仓库的目录结构和文件的仓库，请使用 **Choose a template（选择模板）**下拉菜单并选择一个模板仓库。 您将看到由您和您所属组织拥有的模板仓库，或者您以前使用过的模板仓库。 更多信息请参阅“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。 ![模板下拉菜单](/assets/images/help/repository/template-drop-down.png)
-3. （可选）如果您选择使用模板，要包括模板中所有分支的目录结构和文件，而不仅仅是默认分支，请选择 **Include all branches（包括所有分支）**。 ![包括所有分支复选框](/assets/images/help/repository/include-all-branches.png)
-3. 在“Owner（所有者）”下拉菜单中，选择要在其上创建仓库的帐户。 ![所有者下拉菜单](/assets/images/help/repository/create-repository-owner.png)
-{% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}
-6. 如果您不使用模板，可以使用许多可选项预填充仓库。 如果要将现有仓库导入 {% data variables.product.product_name %}，请不要选择上述任何选项，否则可能会导致合并冲突。 您可以通过用户界面添加或创建新文件，或者选择稍后使用命令行添加新文件。 更多信息请参阅“[使用命令行导入 Git 存储库](/articles/importing-a-git-repository-using-the-command-line/)”、“[将文件添加到存储库](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)”和“[解决合并冲突](/articles/addressing-merge-conflicts/)”。
-    - 您可以创建自述文件以介绍您的项目。 更多信息请参阅“[关于自述文件](/articles/about-readmes/)”。
-    - 您可以创建 *.gitignore* 文件以设置忽略规则。 更多信息请参阅“[忽略文件](/github/getting-started-with-github/ignoring-files)”。{% ifversion fpt or ghec %}
-    - 您可以选择为项目添加软件许可。 更多信息请参阅“[许可仓库](/articles/licensing-a-repository)”。{% endif %}
-{% data reusables.repositories.select-marketplace-apps %}
-{% data reusables.repositories.create-repo %}
-{% ifversion fpt or ghec %}
-9. 在生成的 Quick Setup（快速设置）页面底部的“Import code from an old repository（从旧仓库导入代码）”下，您可以选择将项目导入新仓库。 为此，请单击 **Import code（导入代码）**。
+2. （可选）要使用现有存储库的目录结构和文件创建存储库，请使用“选择模板”下拉列表并选择一个模板存储库。 您将看到由您和您所属组织拥有的模板仓库，或者您以前使用过的模板仓库。 有关详细信息，请参阅“[通过模板创建存储库](/articles/creating-a-repository-from-a-template)”。
+  ![“模板”下拉菜单](/assets/images/help/repository/template-drop-down.png)
+3. （可选）如果选择使用模板，要在模板中包含来自所有分支的目录结构和文件，而不仅仅是默认分支，请选择“包含所有分支”。
+    ![“包含所有分支”复选框](/assets/images/help/repository/include-all-branches.png)
+3. 在“Owner（所有者）”下拉菜单中，选择要在其上创建仓库的帐户。
+   ![“所有者”下拉菜单](/assets/images/help/repository/create-repository-owner.png) {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+6. 如果您不使用模板，可以使用许多可选项预填充仓库。 如果要将现有仓库导入 {% data variables.product.product_name %}，请不要选择上述任何选项，否则可能会导致合并冲突。 您可以通过用户界面添加或创建新文件，或者选择稍后使用命令行添加新文件。 有关详细信息，请参阅“[使用命令行导入 Git 存储库](/articles/importing-a-git-repository-using-the-command-line/)”、“[将文件添加到存储库](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)”和“[解决合并冲突](/articles/addressing-merge-conflicts/)”。
+    - 您可以创建自述文件以介绍您的项目。 有关详细信息，请参阅“[关于自述文件](/articles/about-readmes/)”。
+    - 可以创建一个 .gitignore 文件，该文件是一组忽略规则。 有关详细信息，请参阅“[忽略文件](/github/getting-started-with-github/ignoring-files)”。{% ifversion fpt or ghec %}
+    - 您可以选择为项目添加软件许可。 有关详细信息，请参阅“[授权存储库](/articles/licensing-a-repository)”。{% endif %} {% data reusables.repositories.select-marketplace-apps %} {% data reusables.repositories.create-repo %} {% ifversion fpt or ghec %}
+9. 在生成的 Quick Setup（快速设置）页面底部的“Import code from an old repository（从旧仓库导入代码）”下，您可以选择将项目导入新仓库。 为此，请单击“导入代码”。
 {% endif %}
 
 ## 延伸阅读
 
-- “[管理对组织仓库的访问](/articles/managing-access-to-your-organization-s-repositories)”
+- “[管理对组织存储库的访问权限](/articles/managing-access-to-your-organization-s-repositories)”
 - [开源指南](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

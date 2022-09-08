@@ -19,5 +19,11 @@ children:
   - /github-open-source-applications-terms-and-conditions
   - /github-event-terms
   - /github-event-code-of-conduct
+ms.openlocfilehash: 43ee4f13711b6fdd8dc9d29eb8e6aa33c13f3c82
+ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/12/2022
+ms.locfileid: '144556509'
 ---
 

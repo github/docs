@@ -1,6 +1,6 @@
 ---
-title: Managing the publication of GitHub Pages sites for your organization
-intro: 'You can control whether organization members can publish {% data variables.product.prodname_pages %} sites from repositories in the organization{% ifversion ghec %} and restrict the visibilities that members can choose for the sites{% endif %}.'
+title: 管理组织的 GitHub Pages 站点发布
+intro: '你可以控制组织成员是否可以从组织存储库中发布 {% data variables.product.prodname_pages %} 站点，{% ifversion ghec %}并限制成员是否可以为站点选择可见性{% endif %}。'
 permissions: 'Organization owners can manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization.'
 product: '{% data reusables.gated-features.pages %}'
 versions:
@@ -15,33 +15,34 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage Pages site publication
+ms.openlocfilehash: cce086c19dd6f20de28dde599c13074c48851753
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130358'
 ---
-
-{% ifversion fpt %}
-You can choose to allow or disallow organization members from publishing {% data variables.product.prodname_pages %} sites. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
-{% elsif ghec %}
-You can choose to allow organization members to create publicly published sites, privately published sites, both, or neither. For more information about access control for {% data variables.product.prodname_pages %} sites, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% ifversion fpt %} 可以选择允许或禁止组织成员发布 {% data variables.product.prodname_pages %} 站点。 使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以选择允许公开发布的站点和/或私下发布的站点。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)。
+{% elsif ghec %} 你可以选择允许组织成员创建公开发布的站点和/或私下发布的站点。 有关 {% data variables.product.prodname_pages %} 站点的访问控制的详细信息，请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
 {% endif %}
 
-If you disallow publication of {% data variables.product.prodname_pages %} sites, any sites that are already published will remain published. You can manually unpublish the site. For more information, see "[Unpublishing a {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)."
+禁止发布 {% data variables.product.prodname_pages %} 站点后，任何已发布的站点仍将保持已发布状态。 您可以手动取消发布站点。 有关详细信息，请参阅“[取消发布 {% data variables.product.prodname_pages %} 站点](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)”。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion fpt %}
-1. Under "Pages creation, select or deselect **Public**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}{% ifversion fpt %}
+1. 在“页面创建”下，选择或取消选择“公共”。
 
-   ![Checkboxes to allow or disallow creation of {% data variables.product.prodname_pages %} sites](/assets/images/help/organizations/github-pages-creation-checkboxes-fpt.png){% elsif ghec %}
-1. Under "Pages creation", select the visibilities you want to allow and deselect the visibilities you want to disallow.
+   ![允许或禁止创建 {% data variables.product.prodname_pages %} 站点的复选框](/assets/images/help/organizations/github-pages-creation-checkboxes-fpt.png){% elsif ghec %}
+1. 在“Pages creation（页面创建）”下，选择要允许的可见性，取消选择要禁止的可见性。
 
-   ![Checkboxes to allow or disallow creation of {% data variables.product.prodname_pages %} sites](/assets/images/help/organizations/github-pages-creation-checkboxes.png){% else %}
-1. Under "Pages creation", select or deselect **Allow members to publish sites**.
+   ![允许或禁止创建 {% data variables.product.prodname_pages %} 站点的复选框](/assets/images/help/organizations/github-pages-creation-checkboxes.png){% else %}
+1. 在“页面创建”下，选择或取消选择“允许成员发布站点”。
 
-   ![Unselected checkbox for "Allow members to publish sites" option](/assets/images/help/organizations/org-settings-pages-disable-publication-checkbox.png){% endif %}{% ifversion fpt or ghec %}
+   ![取消选中“允许成员发布站点”选项的复选框](/assets/images/help/organizations/org-settings-pages-disable-publication-checkbox.png){% endif %}{% ifversion fpt or ghec %}
 
    {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3%}{% endif %}
 
-1. Click **Save**.
+1. 单击“ **保存**”。
 
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)"
+- “[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)”

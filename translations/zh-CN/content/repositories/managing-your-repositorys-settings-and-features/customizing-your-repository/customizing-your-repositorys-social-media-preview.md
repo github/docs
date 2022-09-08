@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 社交媒体预览
+shortTitle: Social media preview
+ms.openlocfilehash: a778b0fd95533a15806cc0034769fbf0feb3b217
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129348'
 ---
-
 在添加图像之前，请展开仓库链接以显示关于仓库和所有者头像的基本信息。 为仓库添加图像有助于在各种社交平台上识别您的项目。
 
 ## 添加图像以自定义存储库的社交媒体预览
@@ -23,27 +28,26 @@ shortTitle: 社交媒体预览
 
 {% tip %}
 
-**提示**：图像应为大小在 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。
+**提示：** 图像应为小于 1 MB 的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。
 
 {% endtip %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. 在“Social preview（社交预览）”下，单击 **Edit（编辑）**
-    - 要添加新图像，请单击 **Upload an image...（上传图像）**
-    - 要删除图像，请单击 **Remove image（删除图像）**
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. 在“社交预览”下，单击“编辑”
+    - 若要添加新图像，请单击“上传图像…”。
+    - 若要删除图像，请单击“删除图像”
 
     ![社交预览下拉菜单](/assets/images/help/repository/social-preview.png)
 
 ## 关于透明度
 
-我们支持具有透明度的 PNG 图像。 许多通信平台都支持深色模式，因此使用透明的社交预览可能会有所帮助。 下面的透明图像在深色背景上是可以接受的；但情况可能并非总是如此。
+我们支持具有透明度的 PNG 图像。 许多通信平台支持深色模式，因此使用透明的社交媒体预览可能会有所帮助。 下面的透明图像可在深色背景上使用；但并非始终可行。 
 
-使用具有透明度的图像时，请记住它在不支持透明度的不同颜色背景或平台上的外观。
+使用具有透明度的图像时，需记住它在不同颜色背景或不支持透明度的平台上的外观。
 
 {% tip %}
 
-**提示：** 如果不确定，建议使用背景纯色的图像。
+**提示：** 如果不确定，建议使用具有纯色背景的图像。
 {% endtip %}
 
-![社交预览透明度](/assets/images/help/repository/social-preview-transparency.png)
+![社交媒体预览透明度](/assets/images/help/repository/social-preview-transparency.png)

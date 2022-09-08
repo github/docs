@@ -11,14 +11,16 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 保持期間の設定
+shortTitle: Configure retention period
+ms.openlocfilehash: e70c9194d1dc009dd481737b276c866475e8e625
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109750'
 ---
-
 {% data reusables.actions.about-artifact-log-retention %}
 
 ## Organization の保持期間を設定する
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.change-retention-period-for-artifacts-logs  %}

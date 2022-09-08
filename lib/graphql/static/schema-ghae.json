@@ -46044,6 +46044,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "mergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when merging a pull request.</p>",
+          "type": "MergeCommitMessage!",
+          "id": "mergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommitmessage"
+        },
+        {
+          "name": "mergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when merging a pull request.</p>",
+          "type": "MergeCommitTitle!",
+          "id": "mergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommittitle"
+        },
+        {
           "name": "milestone",
           "description": "<p>Returns a single milestone from the current repository by number.</p>",
           "type": "Milestone",
@@ -46873,6 +46889,22 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "squashMergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitMessage!",
+          "id": "squashmergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommitmessage"
+        },
+        {
+          "name": "squashMergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitTitle!",
+          "id": "squashmergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommittitle"
         },
         {
           "name": "squashPrTitleUsedAsDefault",
@@ -49880,6 +49912,86 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#gitsignaturestate"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "SshSignature",
+      "kind": "objects",
+      "id": "sshsignature",
+      "href": "/graphql/reference/objects#sshsignature",
+      "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/interfaces#gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "keyFingerprint",
+          "description": "<p>Hex-encoded fingerprint of the key that signed this object.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "payload",
@@ -57388,6 +57500,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "runs",
+          "description": "<p>The runs of the workflow.</p>",
+          "type": "WorkflowRunConnection!",
+          "id": "workflowrunconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the connection.</p>",
+              "type": {
+                "name": "WorkflowRunOrder",
+                "id": "workflowrunorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#workflowrunorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -57574,6 +57746,72 @@
           "id": "workflow",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflow"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunConnection",
+      "kind": "objects",
+      "id": "workflowrunconnection",
+      "href": "/graphql/reference/objects#workflowrunconnection",
+      "description": "<p>The connection type for WorkflowRun.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[WorkflowRunEdge]",
+          "id": "workflowrunedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[WorkflowRun]",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunEdge",
+      "kind": "objects",
+      "id": "workflowrunedge",
+      "href": "/graphql/reference/objects#workflowrunedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "WorkflowRun",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
         }
       ]
     }
@@ -61295,6 +61533,44 @@
       ]
     },
     {
+      "name": "MergeCommitMessage",
+      "kind": "enums",
+      "id": "mergecommitmessage",
+      "href": "/graphql/reference/enums#mergecommitmessage",
+      "description": "<p>The possible default commit messages for merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeCommitTitle",
+      "kind": "enums",
+      "id": "mergecommittitle",
+      "href": "/graphql/reference/enums#mergecommittitle",
+      "description": "<p>The possible default commit titles for merges.</p>",
+      "values": [
+        {
+          "name": "MERGE_MESSAGE",
+          "description": "<p>Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -61372,16 +61648,8 @@
           "description": "<p>A Bitbucket Server migration source.</p>"
         },
         {
-          "name": "GITHUB",
-          "description": "<p>A GitHub migration source.</p>"
-        },
-        {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
-        },
-        {
-          "name": "GITLAB",
-          "description": "<p>A GitLab migration source.</p>"
         }
       ]
     },
@@ -63312,6 +63580,44 @@
       ]
     },
     {
+      "name": "SquashMergeCommitMessage",
+      "kind": "enums",
+      "id": "squashmergecommitmessage",
+      "href": "/graphql/reference/enums#squashmergecommitmessage",
+      "description": "<p>The possible default commit messages for squash merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGES",
+          "description": "<p>Default to the branch's commit messages.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitTitle",
+      "kind": "enums",
+      "id": "squashmergecommittitle",
+      "href": "/graphql/reference/enums#squashmergecommittitle",
+      "description": "<p>The possible default commit titles for squash merges.</p>",
+      "values": [
+        {
+          "name": "COMMIT_OR_PR_TITLE",
+          "description": "<p>Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "StarOrderField",
       "kind": "enums",
       "id": "starorderfield",
@@ -63610,6 +63916,19 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunOrderField",
+      "kind": "enums",
+      "id": "workflowrunorderfield",
+      "href": "/graphql/reference/enums#workflowrunorderfield",
+      "description": "<p>Properties by which workflow run connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order workflow runs by most recently created.</p>"
         }
       ]
     }
@@ -66097,9 +66416,25 @@
           "href": "/graphql/reference/enums#checkruntype"
         },
         {
+          "name": "conclusions",
+          "description": "<p>Filters the check runs by these conclusions.</p>",
+          "type": "[CheckConclusionState!]",
+          "id": "checkconclusionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkconclusionstate"
+        },
+        {
           "name": "status",
-          "description": "<p>Filters the check runs by this status.</p>",
+          "description": "<p>Filters the check runs by this status. Superceded by statuses.</p>",
           "type": "CheckStatusState",
+          "id": "checkstatusstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkstatusstate"
+        },
+        {
+          "name": "statuses",
+          "description": "<p>Filters the check runs by this status. Overrides status.</p>",
+          "type": "[CheckStatusState!]",
           "id": "checkstatusstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#checkstatusstate"
@@ -73702,6 +74037,31 @@
           "id": "userstatusorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#userstatusorderfield"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunOrder",
+      "kind": "inputObjects",
+      "id": "workflowrunorder",
+      "href": "/graphql/reference/input-objects#workflowrunorder",
+      "description": "<p>Ways in which lists of workflow runs can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order workflow runs by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order workflows.</p>",
+          "type": "WorkflowRunOrderField!",
+          "id": "workflowrunorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#workflowrunorderfield"
         }
       ]
     }

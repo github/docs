@@ -1,6 +1,6 @@
 ---
-title: Secret scanningでのプッシュの保護
-intro: '{% data variables.product.prodname_secret_scanning %}を使い、プッシュ保護を有効化することによって、サポートされているシークレットがOrganizationもしくはリポジトリにプッシュされるのを避けることができます。'
+title: Protecting pushes with secret scanning
+intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your organization or repository by enabling push protection.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,32 +13,32 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: プッシュ保護の有効化
+shortTitle: Enable push protection
 ---
 
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 {% data reusables.secret-scanning.push-protection-beta %}
 
-## シークレットのプッシュ保護について
+## About push protection for secrets
 
-これまでのところ、{% data variables.product.prodname_secret_scanning_GHAS %}はプッシュの_後に_シークレットをチェックし、公開されたシークレットについてユーザにアラートします。 {% data reusables.secret-scanning.push-protection-overview %}
+Up to now, {% data variables.product.prodname_secret_scanning_GHAS %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %}
 
-コントリビューターがシークレットに対するプッシュ保護のブロックをバイパスした場合、{% data variables.product.prodname_dotcom %}は:
-- アラートを生成します。
-- リポジトリの "Security"タブにアラートを生成します。
-- Audit logにバイパスイベントを追加します。{% ifversion secret-scanning-push-protection-email %}
-- Organizationのオーナー、セキュリティ管理者、リポジトリ管理者に、関連するシークレットへのリンクと、プッシュが許可された理由を付けてメールアラートを送信します。{% endif %}
+If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
+- generates an alert.
+- creates an alert in the "Security" tab of the repository.
+- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
+- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
 
-プッシュ保護でサポートされているシークレットとサービスプロバイダに関する情報については「[{% data variables.product.prodname_secret_scanning_caps %}パターン](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)」を参照してください。
+For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
-## プッシュ保護としての{% data variables.product.prodname_secret_scanning %}の有効化
+## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
-{% data variables.product.prodname_secret_scanning %}をプッシュ保護として使うには、Organizationもしくはリポジトリで{% data variables.product.prodname_GH_advanced_security %}と{% data variables.product.prodname_secret_scanning %}がどちらも有効化されていなければなりません。 詳しい情報については「[Organizationのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」、「[リポジトリのセキュリティ及び分析設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)」、「[{% data variables.product.prodname_GH_advanced_security %}について](/get-started/learning-about-github/about-github-advanced-security)」を参照してください。
+For you to use {% data variables.product.prodname_secret_scanning %} as a push protection, the organization or repository needs to have both {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)," "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
-組織の所有者、セキュリティマネージャー、およびリポジトリ管理者は、UI と API を介して {% data variables.product.prodname_secret_scanning %} のプッシュ保護を有効にできます。 詳しい情報については「[リポジトリ](/rest/reference/repos#update-a-repository)」を参照し、REST APIドキュメンテーションの「`security_and_analysis`のプロパティ」セクションを展開してください。
+Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
-### Organizationでのプッシュ保護としての{% data variables.product.prodname_secret_scanning %}の有効化
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -46,7 +46,7 @@ shortTitle: プッシュ保護の有効化
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-org %}
 
-### リポジトリでのプッシュ保護としての{% data variables.product.prodname_secret_scanning %}の有効化
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -54,63 +54,84 @@ shortTitle: プッシュ保護の有効化
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
-## プッシュ保護としてのSecret scanningのコマンドラインからの利用
+## Using secret scanning as a push protection from the command line
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
-コマンドラインでは、一度に最大で5つの検出されたシークレットが表示されます。 特定のシークレットが既にリポジトリ中で検出されており、アラートが既に存在するなら、{% data variables.product.prodname_dotcom %}はそのシークレットをブロックしません。
+Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret. 
 
-![ユーザがシークレットをリポジトリにプッシュしようとしたときにプッシュがブロックされたことを示しているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+{% ifversion push-protection-custom-link-orgs %} 
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} ブロックされたシークレットの修復に関する詳しい情報については「[プッシュ保護によってブロックされたブランチのプッシュ](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)」を参照してください。
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
 
-シークレットが本物であることが確認され、後で修復しようと考えているなら、できるかぎり早くそのシークレットを修復すべきです。 たとえば、そのシークレットを取り消して、リポジトリのコミット履歴から削除することになるでしょう。 露出してしまった実際のシークレットは、不正アクセスを避けるために取り消さなければなりません。 取り消す前にシークレットをまずローテートすることを検討すべきかもしれません。 詳しい情報については「[センシティブなデータをリポジトリから削除する](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)」を参照してください。
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+
+{% endif %}
+
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
+
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-### ブロックされたシークレットのプッシュの許可
+### Allowing a blocked secret to be pushed
 
-プッシュしても安全だと信じられるシークレットを{% data variables.product.prodname_dotcom %}がブロックした場合、そのシークレットを許可し、許可されるべき理由を指定できます。
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-1. プッシュがブロックされたときに{% data variables.product.prodname_dotcom %}が返したURLにアクセスしてください。 ![シークレットのプッシュのブロック解除の選択肢を持つフォームが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-unblock-form.png)
+1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked.
+  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
-1. **Allow me to push this secret（このシークレットのプッシュを許可）**をクリックしてください。
-2. 3時間以内のコマンドラインからプッシュを再試行してください。 3時間以内にプッシュをしなかった場合には、このプロセスを繰り返す必要があります。
+1. Click **Allow me to push this secret**.
+2. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
-## Web UIからのプッシュ保護としてのSecret scanningの利用
+## Using secret scanning as a push protection from the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-Web UIでは、{% data variables.product.prodname_dotcom %}は検出されたシークレットを一度に1つだけしか表示しません。 特定のシークレットが既にリポジトリ中で検出されており、アラートが既に存在するなら、{% data variables.product.prodname_dotcom %}はそのシークレットをブロックしません。
+{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-Web UIを使って、シークレットをファイルから削除できます。 シークレットを削除すると、ページ上部のバナーは変化し、変更をコミットできるようになったことを知らせてくれます。
+{% ifversion push-protection-custom-link-orgs %} 
 
-  ![シークレットの修正後にコミットが許可されたことをWeb Uiで表示しているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 
-### シークレットに対するプッシュ保護のバイパス
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} ブロックされたシークレットの修復に関する詳しい情報については「[プッシュ保護によってブロックされたブランチのプッシュ](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)」を参照してください。
+{% endif %}
 
-シークレットが本物であることが確認され、後で修復しようと考えているなら、できるかぎり早くそのシークレットを修復すべきです。 詳しい情報については「[センシティブなデータをリポジトリから削除する](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)」を参照してください。
+You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
 
-プッシュしても安全だと信じられるシークレットを{% data variables.product.prodname_dotcom %}がブロックした場合、そのシークレットを許可し、許可されるべき理由を指定できます。
+  ![Screenshot showing commit in web ui allowed after secret fixed](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+
+### Bypassing push protection for a secret
+
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)." 
+
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-シークレットが本物であることが確認され、後で修復しようと考えているなら、できるかぎり早くそのシークレットを修復すべきです。
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
 
-1. {% data variables.product.prodname_dotcom %}がコミットをブロックした際にページの上部に表示されるバナー内で、**Bypass protection（保護のバイパス）**をクリックしてください。
+1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
-  ![シークレットのプッシュのブロック解除の選択肢を持つフォームが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
+  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
-1. **Allow secret（シークレットの許可）**をクリックしてください。
+1. Click **Allow secret**.
 
 {% endif %}

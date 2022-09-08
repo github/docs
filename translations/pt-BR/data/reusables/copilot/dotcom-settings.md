@@ -1,25 +1,31 @@
-## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
+---
+ms.openlocfilehash: e1df21c0657c55fb934b9c1d837a0ee19df7e37b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147419742"
+---
+## Como definir as configurações do {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_dotcom_the_website %}
 
-Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
+Quando você tiver uma assinatura ou uma avaliação ativa do {% data variables.product.prodname_copilot %}, ajuste as configurações do {% data variables.product.prodname_copilot %} para sua conta pessoal no {% data variables.product.prodname_dotcom %} nas configurações do [{% data variables.product.prodname_copilot %}](https://github.com/settings/copilot). As configurações se aplicam a todos os locais em que o {% data variables.product.prodname_copilot %} é usado. Você pode configurar as sugestões que o {% data variables.product.prodname_copilot %} oferece e como o {% data variables.product.company_short %} usa os dados telemétricos.
 
-## Enabling or disabling duplication detection
+## Como habilitar ou desabilitar a detecção de duplicação
 
-{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions matching public code on {% data variables.product.prodname_dotcom %}. You can choose to enable or disable the filter. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
+O {% data variables.product.prodname_copilot %} inclui um filtro que detecta sugestões de código correspondentes ao código público no {% data variables.product.prodname_dotcom %}. Você pode optar por habilitar ou desabilitar o filtro. Quando o filtro está habilitado, o {% data variables.product.prodname_copilot %} verifica sugestões de código com o código ao redor de cerca de 150 caracteres em relação ao código público no {% data variables.product.prodname_dotcom %}. Se houver uma correspondência exata ou próxima, a sugestão não será mostrada a você.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.copilot-settings %}
-1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code. ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
-{% data reusables.copilot.save-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.copilot-settings %}
+1. Em **Sugestões que correspondem ao código público**, selecione o menu suspenso e clique em **Permitir** permitir sugestões correspondentes ao código público ou **Bloquear** para bloquear sugestões correspondentes ao código público.
+  ![Captura de tela da opção de detecção de duplicação](/assets/images/help/copilot/duplication-detection.png) {% data reusables.copilot.save-settings %}
 
-## Enabling or disabling telemetry
+## Como habilitar ou desabilitar a telemetria
 
-You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy).
+Para escolher se os snippets de código são coletados e retidos pelo GitHub e processados e compartilhados com a Microsoft e o OpenAI, ajuste as configurações do usuário. Para obter mais informações sobre dados que o {% data variables.product.prodname_copilot %} pode coletar dependendo das configurações de telemetria, confira "[Termos para produtos e recursos adicionais do {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" e [Perguntas frequentes sobre privacidade do {% data variables.product.prodname_copilot %}](https://github.com/features/copilot/#faq-privacy).
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**. ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
-{% data reusables.copilot.save-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.copilot-settings %}
+1. Para permitir ou impedir que o {% data variables.product.prodname_dotcom %} use seus dados de telemetria, marque ou desmarque a opção **Permitir que o {% data variables.product.prodname_dotcom %} use meus snippets de código para aprimoramentos de produto**.
+  ![Captura de tela da opção de telemetria](/assets/images/help/copilot/telemetry-option.png) {% data reusables.copilot.save-settings %}
 
-## Leia mais
+## Leitura adicional
 
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
+- [Perguntas frequentes do {% data variables.product.prodname_copilot %}](https://github.com/features/copilot/#faq)

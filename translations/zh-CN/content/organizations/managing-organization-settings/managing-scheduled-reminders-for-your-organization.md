@@ -9,9 +9,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 管理预定提醒
+shortTitle: Manage scheduled reminders
+ms.openlocfilehash: 870e22581488689a72cc70f317b6d97fdc4f5ed5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109452'
 ---
-
 ## 关于拉取请求的预定提醒
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
@@ -21,42 +26,17 @@ shortTitle: 管理预定提醒
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ## 为组织创建预定提醒
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.reminders.scheduled-reminders %}
-{% data reusables.reminders.add-reminder %}
-{% data reusables.reminders.authorize-slack %}
-{% data reusables.reminders.slack-channel %}
-{% data reusables.reminders.days-dropdown %}
-{% data reusables.reminders.times-dropdowns %}
-{% data reusables.reminders.tracked-repos %}
-1.  在“Filter by team assigned to review code（按分配给审查代码的团队过滤）”下，单击 **Add a team（添加团队）**下拉列表并选择一个或多个团队。 您最多可以添加 100 个团队。 如果您选择的团队无法访问上面选择的“跟踪的仓库”，您将无法创建预定提醒。 ![添加团队下拉菜单](/assets/images/help/organizations/scheduled-reminders-add-teams.png)
-{% data reusables.reminders.ignore-drafts %}
-{% data reusables.reminders.no-review-requests %}
-{% data reusables.reminders.author-reviews %}
-{% data reusables.reminders.approved-prs %}
-{% data reusables.reminders.min-age %}
-{% data reusables.reminders.min-staleness %}
-{% data reusables.reminders.ignored-terms %}
-{% data reusables.reminders.ignored-labels %}
-{% data reusables.reminders.required-labels %}
-{% data reusables.reminders.create-reminder %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.reminders.scheduled-reminders %} {% data reusables.reminders.add-reminder %} {% data reusables.reminders.authorize-slack %} {% data reusables.reminders.slack-channel %} {% data reusables.reminders.days-dropdown %} {% data reusables.reminders.times-dropdowns %} {% data reusables.reminders.tracked-repos %}
+1.  在“筛选已分配进行评审代码的团队”下，单击“添加团队”下拉列表并选择一个或多个团队。 您最多可以添加 100 个团队。 如果您选择的团队无法访问上面选择的“跟踪的仓库”，您将无法创建预定提醒。
+![添加团队下拉列表](/assets/images/help/organizations/scheduled-reminders-add-teams.png) {% data reusables.reminders.ignore-drafts %} {% data reusables.reminders.no-review-requests %} {% data reusables.reminders.author-reviews %} {% data reusables.reminders.approved-prs %} {% data reusables.reminders.min-age %} {% data reusables.reminders.min-staleness %} {% data reusables.reminders.ignored-terms %} {% data reusables.reminders.ignored-labels %} {% data reusables.reminders.required-labels %} {% data reusables.reminders.create-reminder %}
 
 ## 管理组织的预定提醒
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.reminders.scheduled-reminders %}
-{% data reusables.reminders.edit-existing %}
-{% data reusables.reminders.edit-page %}
-{% data reusables.reminders.update-buttons %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.reminders.scheduled-reminders %} {% data reusables.reminders.edit-existing %} {% data reusables.reminders.edit-page %} {% data reusables.reminders.update-buttons %}
 
 ## 删除组织的预定提醒
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.reminders.scheduled-reminders %}
-{% data reusables.reminders.delete %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.reminders.scheduled-reminders %} {% data reusables.reminders.delete %}
 
 ## 延伸阅读
 
-- “[管理您的预定提醒](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)”
-- “[管理团队的预定提醒](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)”
+- [管理你的计划提醒](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)
+- [管理团队的计划提醒](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)

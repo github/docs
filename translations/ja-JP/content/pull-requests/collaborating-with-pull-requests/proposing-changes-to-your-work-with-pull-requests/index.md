@@ -1,5 +1,5 @@
 ---
-title: プルリクエストで、作業に対する変更を提案する
+title: pull request を使用して作業に対する変更を提案する
 intro: トピックブランチまたはフォークに変更を加えた後で、それらをプロジェクトにマージする前に、プルリクエストをオープンしてコラボレーターまたはリポジトリ管理者に変更のレビューを依頼することができます。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests
@@ -26,5 +26,11 @@ children:
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
 shortTitle: Propose changes
+ms.openlocfilehash: 6c13c67b6dd3dcd798274f3cc9ef608a4a8117a5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145139603'
 ---
 

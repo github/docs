@@ -1,5 +1,5 @@
 ---
-title: Declaración de Privacidad de GitHub Codespaces
+title: GitHub Codespaces Privacy Statement
 redirect_from:
   - /github/site-policy/github-codespaces-privacy-policy
   - /github/site-policy/github-codespaces-privacy-statement
@@ -10,14 +10,14 @@ topics:
   - Legal
 ---
 
-Fecha Efectiva: 10 de agosto de 2021
+Effective Date: August 10, 2021
 
-El uso de los GitHub Codespaces está sujeto a la [Declaración de Privacidad de GitHub](/github/site-policy/github-privacy-statement).
+Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
-La actividad en github.dev está sujeta a los [Términos de las Vistas Previas Beta de GitHub](/github/site-policy/github-terms-of-service#j-beta-previews)
+Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
 
-## Uso de {% data variables.product.prodname_vscode %}
+## Using {% data variables.product.prodname_vscode %}
 
-GitHub Codespaces y github.dev permiten el uso de {% data variables.product.prodname_vscode %} en el buscador web. Cuando se utiliza {% data variables.product.prodname_vscode_shortname %} en el buscador, la recopilación de algunos datos de telemetría se habilita predeterminadamente y esto se [explica a detalle en el sitio web de {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/getstarted/telemetry). Los usuarios pueden decidir no participar en la telemetría siguiendo la ruta Archivo > Preferencias > Ajustes, debajo del menú superior izquierdo.
+GitHub Codespaces and github.dev allow for use of {% data variables.product.prodname_vscode %} in the web browser. When using {% data variables.product.prodname_vscode_shortname %} in the web browser, some telemetry collection is enabled by default and is [explained in detail on the {% data variables.product.prodname_vscode_shortname %} website](https://code.visualstudio.com/docs/getstarted/telemetry). Users can opt out of telemetry by going to File > Preferences > Settings under the top left menu.
 
-Si un usuario elige no participar en la captura de la telemetría en {% data variables.product.prodname_vscode_shortname %} mientras está dentro de un codespace como se describe, esto sincronizará la preferencia de inhabilitar telemetría en todas las sesiones web futuras de GitHub Codespaces y github.dev.
+If a user chooses to opt out of telemetry capture in {% data variables.product.prodname_vscode_shortname %} while inside of a codespace as outlined, this will sync the disable telemetry preference across all future web sessions in GitHub Codespaces and github.dev.

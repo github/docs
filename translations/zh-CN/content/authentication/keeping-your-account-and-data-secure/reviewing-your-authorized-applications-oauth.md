@@ -13,15 +13,17 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 查看 OAuth 应用程序
+shortTitle: Review OAuth apps
+ms.openlocfilehash: fbc35fdca9ab64bf97224911d9adff560ba62eab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084647'
 ---
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %} {% data reusables.user-settings.review-oauth-apps %}
 
 ## 延伸阅读
 {% ifversion fpt or ghec %}
 - “[关于集成](/articles/about-integrations)”{% endif %}
-- “[审查授权的集成](/articles/reviewing-your-authorized-integrations)”
+- “[查看授权的集成](/articles/reviewing-your-authorized-integrations)”

@@ -10,13 +10,18 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 37a60c269d856835a12100271f767920ba2d24fe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066754'
 ---
-
 ![已保存回复](/assets/images/help/settings/saved-replies.png)
 
 已保存回复用于创建可重复使用的议题和拉取请求响应。 创建回复作为常用响应可节省时间。
 
-已保存回复在添加后，可用于议题和拉取请求。 已保存回复与您的个人帐户关联。 在它们创建后，便可用于不同的仓库和组织。
+已保存回复在添加后，可用于议题和拉取请求。 已保存的回复与你的个人帐户关联。 在它们创建后，便可用于不同的仓库和组织。
 
 最多可以创建 100 个已保存回复。 如果已达到最大限制，可以删除不再使用的已保存回复，或者编辑现有的已保存回复。
 
@@ -24,7 +29,7 @@ versions:
 
 ## 延伸阅读
 
-- "[创建已保存回复](/articles/creating-a-saved-reply)"
-- "[使用已保存回复](/articles/using-saved-replies)"
-- "[编辑已保存回复](/articles/editing-a-saved-reply)"
-- "[删除已保存回复](/articles/deleting-a-saved-reply)"
+- [创建已保存回复](/articles/creating-a-saved-reply)
+- [使用已保存的回复](/articles/using-saved-replies)
+- [编辑已保存的回复](/articles/editing-a-saved-reply)
+- [删除已保存的回复](/articles/deleting-a-saved-reply)

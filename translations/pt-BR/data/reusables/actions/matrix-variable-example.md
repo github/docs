@@ -1,4 +1,12 @@
-Neste exemplo, as entradas da matriz de `node-version` são configuradas para usar valores diferentes para as variáveis de ambiente do `site` e dos `centros de dados`. Em seguida, a etapa de `Echo site details` usa {% raw %}`env: ${{ matrix.env }}`{% endraw %} para referir-se às variáveis personalizadas:
+---
+ms.openlocfilehash: 0e843d106ae2cdac0dbc2fc37baec5d035b6a3c2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094340"
+---
+Neste exemplo, as entradas de matriz para `node-version` cada uma são configuradas para usar valores diferentes para as variáveis e `site` de `datacenter` ambiente. Em `Echo site details` seguida, a etapa usa {% raw %}`env: ${{ matrix.env }}`{% endraw %} para se referir às variáveis personalizadas:
 
 {% raw %}
 ```yaml

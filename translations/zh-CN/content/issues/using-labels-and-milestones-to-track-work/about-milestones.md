@@ -12,11 +12,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: eab1d31cb7c7099d047306348afed01c3cfd9817
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128643'
 ---
+[创建里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)时，可以[将其与议题及拉取请求相关联](/articles/associating-milestones-with-issues-and-pull-requests)。
 
-在[创建里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)时，您可以[将其与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)。
-
-为更好地管理项目，您可以[查看关于里程碑的详细信息](/articles/viewing-your-milestone-s-progress)。 从里程碑页面，可以看到：
+若要更好地管理项目，可以查看[有关里程碑的详细信息](/articles/viewing-your-milestone-s-progress)。 从里程碑页面，可以看到：
 
 - 用户提供的里程碑说明，可包括项目概述、相关团队和预计到期日期等信息
 - 里程碑的到期日期
@@ -34,7 +39,7 @@ topics:
 
 {% note %}
 
-**注：**如果里程碑中的开放议题超过 500 个，则无法排列议题的优先级。
+注意：如果里程碑中的开放议题超过 500 个，则无法排列议题的优先级。
 
 {% endnote %}
 
@@ -42,7 +47,7 @@ topics:
 
 ## 延伸阅读
 
-- "[创建和编辑议题及拉取请求的里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[按里程碑过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)"
-- "[查看里程碑的进度](/articles/viewing-your-milestone-s-progress)"
+- “[创建和编辑议题及拉取请求的里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)”
+- “[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)”
+- “[按里程碑筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)”
+- “[查看里程碑的进度](/articles/viewing-your-milestone-s-progress)”

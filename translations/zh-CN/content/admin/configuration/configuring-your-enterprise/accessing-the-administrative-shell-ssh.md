@@ -19,9 +19,14 @@ topics:
   - Enterprise
   - Fundamentals
   - SSH
-shortTitle: 访问管理 shell (SSH)
+shortTitle: Access the admin shell (SSH)
+ms.openlocfilehash: 8d8b9cd71a436c0874355b1bdd53ba2e400660a0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100077'
 ---
-
 ## 关于管理 shell 访问
 
 如果您有权限通过 SSH 访问管理 shell，可运行 {% data variables.product.prodname_ghe_server %} 的命令行实用程序。 SSH 访问也可用于故障排查、运行备份和配置复制。 管理 SSH 访问与 Git SSH 访问分开管理，仅可通过端口 122 访问。
@@ -32,14 +37,13 @@ shortTitle: 访问管理 shell (SSH)
 
 {% tip %}
 
-**提示**：对授权 SSH 密钥进行的变更会立即生效。
+提示：对授权 SSH 密钥进行的变更会立即生效。
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. 在“SSH access”下，将密钥粘贴到文本框中，然后单击 **Add key**。 ![添加 SSH 密钥的文本框和按钮](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. 在“SSH 访问”下，将密钥粘贴到文本框中，然后单击“添加密钥”。
+  ![添加 SSH 密钥的文本框和按钮](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png) {% data reusables.enterprise_management_console.save-settings %}
 
 ## 通过 SSH 连接到管理 shell
 
@@ -53,15 +57,15 @@ admin@github-example-com:~$ █
 
 ### 排查 SSH 连接问题
 
-如果在尝试通过 SSH 连接到 {% data variables.product.product_location %} 时发生 `Permission denied (publickey)` 错误，请确认您是否是通过端口 122 连接的。 您可能需要明确指定要使用的 SSH 私钥。
+如果在尝试通过 SSH 连接到 {% data variables.product.product_location %} 时发生 `Permission denied (publickey)` 错误，请确认是否是通过端口 122 进行连接的。 您可能需要明确指定要使用的 SSH 私钥。
 
-要使用命令行指定 SSH 私钥，请运行包含 `-i` 参数的 `ssh`。
+要使用命令行指定 SSH 私钥，请使用 `-i` 参数运行 `ssh`。
 
 ```shell
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-您也可以使用 SSH 配置文件 (`~/.ssh/config`) 指定 SSH 私钥。
+还可以使用 SSH 配置文件 (`~/.ssh/config`) 指定 SSH 私钥。
 
 ```shell
 Host <em>hostname</em>

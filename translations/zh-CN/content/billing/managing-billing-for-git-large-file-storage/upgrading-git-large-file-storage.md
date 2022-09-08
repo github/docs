@@ -16,29 +16,27 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: 升级 Git LFS 存储
+shortTitle: Upgrade Git LFS storage
+ms.openlocfilehash: 261ef75ee139cf8c1bcec01c09d95444d64ecc89
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084549'
 ---
-
 ## 为个人帐户购买额外的存储空间和带宽
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
 
 ## 为组织购买额外的存储空间和带宽
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
 
 ## 延伸阅读
 
-- "[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)"
-- "[关于存储空间和带宽的使用](/articles/about-storage-and-bandwidth-usage)"
-- "[查看您的 {% data variables.large_files.product_name_long %} 使用情况](/articles/viewing-your-git-large-file-storage-usage)"
-- “[大文件版本管理](/articles/versioning-large-files)”
+- [关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)
+- [关于存储和带宽使用情况](/articles/about-storage-and-bandwidth-usage)
+- [查看 {% data variables.large_files.product_name_long %} 的使用情况](/articles/viewing-your-git-large-file-storage-usage)
+- [大文件版本管理](/articles/versioning-large-files)

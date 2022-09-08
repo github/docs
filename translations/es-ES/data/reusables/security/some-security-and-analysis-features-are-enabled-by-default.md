@@ -1,7 +1,13 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: 22004624bd07598949b85766f5087a7978731437
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145137517"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Nota**: No puedes inhabilitar algunas características de seguridad y análisis que están habilitadas predeterminadamente para los repositorios públicos.
+**Nota**: No puede deshabilitar algunas características de seguridad y análisis que están habilitadas de manera predeterminada para los repositorios públicos.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

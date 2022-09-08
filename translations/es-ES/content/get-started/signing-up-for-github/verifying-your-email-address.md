@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Verificar tu dirección de correo electrónico
+shortTitle: Verify your email address
+ms.openlocfilehash: 75c455907ab0cc89f1ba8b30d6fa1d37f2d9798f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126241'
 ---
-
 ## Acerca de la verificación del correo electrónico
 
 Puedes verificar tu dirección de correo electrónico después de registrarte con una cuenta nueva o cuando agregas una dirección de correo electrónico nueva. Si una dirección de correo electrónico no es válida para el envío o devuelve correos, quedará como no verificada.
@@ -22,7 +27,7 @@ Puedes verificar tu dirección de correo electrónico después de registrarte co
 Si no verificas tu dirección de correo electrónico, no podrás hacer lo siguiente:
   - Crear o bifurcar repositorios
   - Crear propuestas o solicitudes de extracción
-  - Comentar sobre las propuestas, solicitudes de extracción o confirmaciones
+  - Comentar propuestas, solicitudes de extracción o confirmaciones
   - Autorizar aplicaciones de {% data variables.product.prodname_oauth_app %}
   - Generar tokens de acceso personal
   - Recibir notificaciones por correo electrónico
@@ -43,10 +48,11 @@ Si no verificas tu dirección de correo electrónico, no podrás hacer lo siguie
 
 ## Verificar tu dirección de correo electrónico
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-1. Debajo de tu dirección de correo electrónico, da clic en **Reenviar correo de verificación**. ![Reenviar enlace de verificación por correo electrónico](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} te enviará un correo electrónico con un enlace. Después de hacer clic en el enlace, se te llevará a tu tablero {% data variables.product.prodname_dotcom %} y verás un mensaje emergente de confirmación. ![Mensaje emergente que confirma que se verificó tu correo electrónico](/assets/images/help/settings/email-verification-confirmation-banner.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+1. En la dirección de correo electrónico, haga clic en **Resend verification email**.
+  ![Vínculo para reenviar el correo electrónico de verificación](/assets/images/help/settings/email-verify-button.png)
+4. {% data variables.product.prodname_dotcom %} te enviará un correo electrónico con un enlace. Después de hacer clic en el enlace, se te llevará a tu tablero {% data variables.product.prodname_dotcom %} y verás un mensaje emergente de confirmación.
+  ![Banner que confirma que se verificó el correo electrónico](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
 ## Solución de problemas de verificación de correo electrónico
 
@@ -56,7 +62,7 @@ Si no verificas tu dirección de correo electrónico, no podrás hacer lo siguie
 
 ### Página de error después de hacer clic en el enlace de verificación
 
-El enlace de verificación vence después de 24 horas. Si no verificas tu correo electrónico dentro de las 24 horas, puedes solicitar otro enlace de verificación de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
+El enlace de verificación vence después de 24 horas. Si no verificas tu correo electrónico dentro de las 24 horas, puedes solicitar otro enlace de verificación de correo electrónico. Para obtener más información, consulte "[Comprobar la dirección de correo electrónico](/articles/verifying-your-email-address)".
 
 Si haces clic en el enlace del correo electrónico de confirmación dentro de las siguientes 24 horas y se te dirige a una página de error, deberías garantizar que estés firmado en la cuenta correcta de {% data variables.product.product_location %}.
 
@@ -65,6 +71,6 @@ Si haces clic en el enlace del correo electrónico de confirmación dentro de la
 3. {% data variables.product.signin_link %} a tu cuenta personal de {% data variables.product.product_location %}.
 4. Haz clic en el enlace de verificación del correo electrónico que te enviamos.
 
-## Leer más
+## Información adicional
 
 - "[Cambiar tu dirección principal de correo electrónico](/articles/changing-your-primary-email-address)"

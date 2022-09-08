@@ -12,32 +12,21 @@ topics:
   - Clustering
   - Enterprise
   - Infrastructure
+ms.openlocfilehash: 4b4a34424803179d27aa245ad6ccb416ff926c59
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145116778'
 ---
-
 {% warning %}
 
-**Advertencia** El nodo de reemplazo debe usar un nodo de nombre de host que no haya sido usado anteriormente en la agrupación para evitar conflictos.
+**Advertencia:** El nodo de reemplazo debe usar un nombre de host que no se haya usado antes en el clúster para evitar conflictos.
 
 {% endwarning %}
 
 ## Reemplazar un nodo funcional
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
+{% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
 ## Reemplazar un nodo en una emergencia
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
+{% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %} {% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}

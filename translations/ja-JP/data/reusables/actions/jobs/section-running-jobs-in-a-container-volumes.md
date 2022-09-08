@@ -1,12 +1,20 @@
-`jobs.<job_id>.container.volumes`を使って、コンテナが使用するボリュームの`配列`を設定してください。 volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
+---
+ms.openlocfilehash: 286ed6049cd19b1d7f4c5c7dfb4d737dd0f68475
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145089488"
+---
+`jobs.<job_id>.container.volumes` を使用して、コンテナーで使用するボリュームの `array` を設定します。 volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
 
 ボリュームを指定するには、ソースパスとターゲットパスを指定してください。
 
 `<source>:<destinationPath>`.
 
-`<source>`は、ホストマシン上のボリューム名または絶対パス、`<destinationPath>`はコンテナでの絶対パスです。
+`<source>` は、ホスト マシン上のボリューム名または絶対パスであり、`<destinationPath>` は、コンテナー内の絶対パスです。
 
-#### 例: コンテナでのボリュームのマウント
+#### 例: コンテナーにボリュームをマウントする
 
 ```yaml
 volumes:

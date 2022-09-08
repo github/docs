@@ -11,11 +11,16 @@ versions:
   ghec: '*'
 topics:
   - Events
+ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147080822'
 ---
+问题事件由问题和拉取请求中的活动触发，在[问题事件 API](/rest/reference/issues#events) 和[时间线事件 API](/rest/reference/issues#timeline) 中可用。 每个事件类型指定事件是否可用于议题事件或时间表事件 API。
 
-议题事件由议题和拉取请求中的活动触发，可用于[议题事件 API](/rest/reference/issues#events) 和[时间表事件 API](/rest/reference/issues#timeline)。 每个事件类型指定事件是否可用于议题事件或时间表事件 API。
-
-GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，议题事件和时间表事件端点可能在响应中同时返回议题和拉取请求。 拉取请求在 `issue` 对象中具有 `pull_request` 属性。 因为拉取请求也是议题，因此议题和拉取请求编号在仓库中不会重叠。 例如，如果您在仓库中打开了您的第一个议题，则编号将为 1。 如果您随后打开了一个拉取请求，则编号将为 2。 每个事件类型指定事件是否发生在拉取请求和/或议题中。
+GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，议题事件和时间表事件端点可能在响应中同时返回议题和拉取请求。 拉取请求在 `issue` 对象中有一个 `pull_request` 属性。 因为拉取请求也是议题，因此议题和拉取请求编号在仓库中不会重叠。 例如，如果您在仓库中打开了您的第一个议题，则编号将为 1。 如果您随后打开了一个拉取请求，则编号将为 2。 每个事件类型指定事件是否发生在拉取请求和/或议题中。
 
 ## 议题事件对象公共属性
 
@@ -29,17 +34,15 @@ GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
 ## 已分配
 
@@ -47,14 +50,13 @@ GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X**  |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
 
 ## automatic_base_change_failed
 
@@ -62,9 +64,9 @@ GitHub 尝试自动更改拉取请求的基本分支未成功。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |           |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** |  |
 
 ### 事件对象属性
 
@@ -76,9 +78,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |           |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | |
 
 ### 事件对象属性
 
@@ -90,23 +92,23 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |           |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## closed
+## 已关闭
 
-议题或拉取请求已关闭。 当 `commit_id` 存在时，它使用 "closes / fixes" 语法来标识关闭议题的提交。 有关该语法的更多信息请参阅“[将拉取请求链接到议题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
+议题或拉取请求已关闭。 `commit_id` 存在时，它会使用“closes/fixes”语法标识关闭问题的提交。 有关语法的详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -118,66 +120,66 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |          |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称                   | 类型    | 描述                                                   |
-| -------------------- | ----- | ---------------------------------------------------- |
-| `url`                | `字符串` | 用于检索议题评论的 REST API URL。                              |
-| `html_url`           | `字符串` | 议题评论的 HTML URL。                                      |
-| `issue_url`          | `字符串` | 议题的 HTML URL。                                        |
-| `id`                 | `整数`  | 事件的唯一标识符。                                            |
-| `node_id`            | `字符串` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。 |
-| `用户`                 | `对象`  | 对议题发表评论的人。                                           |
-| `created_at`         | `字符串` | 指示评论添加时间的时间戳。                                        |
-| `updated_at`         | `字符串` | 指示评论更新或创建（如果从未更新）时间的时间戳。                             |
-| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。        |
-| `正文`                 | `字符串` | 评论正文文本。                                              |
-| `event`              | `字符串` | 事件值为 `"commented"`。                                  |
-| `actor`              | `对象`  | 生成事件的人。                                              |
+名称 | 类型 | 说明
+-----|------|--------------
+`url` | `string` | 用于检索议题评论的 REST API URL。
+`html_url` | `string` | 议题评论的 HTML URL。
+`issue_url` | `string` | 议题的 HTML URL。
+`id` | `integer` | 事件的唯一标识符。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`user` | `object` | 对议题发表评论的人。
+`created_at` | `string` | 指示评论添加时间的时间戳。
+`updated_at` | `string` | 指示评论更新或创建（如果从未更新）时间的时间戳。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`body` | `string` | 评论正文文本。
+`event` | `string` | 事件值为 `"commented"`。
+`actor` | `object` | 生成事件的人。
 
-## committed
+## 提交
 
-提交已添加到拉取请求的 `HEAD` 分支。
+已将提交添加到拉取请求的 `HEAD` 分支。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |          |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> |  | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称         | 类型     | 描述                                                              |
-| ---------- | ------ | --------------------------------------------------------------- |
-| `sha`      | `字符串`  | 拉取请求中提交的 SHA。                                                   |
-| `node_id`  | `字符串`  | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。            |
-| `url`      | `字符串`  | 用于检索提交的 REST API URL。                                           |
-| `html_url` | `字符串`  | 提交的 HTML URL。                                                   |
-| `作者`       | `对象`   | 编写提交的人。                                                         |
-| `提交者`      | `对象`   | 代表作者进行提交的人。                                                     |
-| `树`        | `对象`   | 提交的 Git 树。                                                      |
-| `message`  | `字符串`  | 提交消息.                                                           |
-| `父项`       | `对象数组` | 父提交的列表。                                                         |
-| `验证`       | `对象`   | 验证提交签名的结果。 更多信息请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。 |
-| `event`    | `字符串`  | 事件值为 `"committed"`。                                             |
+名称 | 类型 | 说明
+-----|------|--------------
+`sha` | `string` | 拉取请求中提交的 SHA。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`url` | `string` | 用于检索提交的 REST API URL。
+`html_url` | `string` | 提交的 HTML URL。
+`author` | `object` | 编写提交的人。
+`committer` | `object` | 代表作者进行提交的人。
+`tree` | `object` | 提交的 Git 树。
+`message` | `string` | 提交消息。
+`parents` | `array of objects` | 父提交的列表。
+`verification` | `object` | 验证提交签名的结果。 有关详细信息，请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。
+`event` | `string` | 事件值为 `"committed"`。
 
-## connected
+## 已连接
 
-议题或拉取请求已链接到另一个议题或拉取请求。 更多信息请参阅“[将拉取请求链接到议题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
+议题或拉取请求已链接到另一个议题或拉取请求。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -189,9 +191,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                      | 议题事件 API | 时间表事件 API |
-|:------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -203,17 +205,15 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
 ## cross-referenced
 
@@ -221,23 +221,23 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |          |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称              | 类型    | 描述                                                                                                                           |
-| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `actor`         | `对象`  | 生成事件的人。                                                                                                                      |
-| `created_at`    | `字符串` | 指示交叉引用添加时间的时间戳。                                                                                                              |
-| `updated_at`    | `字符串` | 指示交叉引用更新或创建（如果从未更新）时间的时间戳。                                                                                                   |
-| `source`        | `对象`  | 添加交叉引用的议题或拉取请求。                                                                                                              |
-| `source[type]`  | `字符串` | 此值将始终为 `"issue"`，因为拉取请求是议题类型。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 要确定触发事件的议题是否为拉取请求，您可以检查 `source[issue][pull_request` 对象是否存在。 |
-| `source[issue]` | `对象`  | 添加交叉引用的 `issue` 对象。                                                                                                          |
-| `event`         | `字符串` | 事件值为 `"cross-referenced"`。                                                                                                   |
+名称 | 类型 | 说明
+-----|------|--------------
+`actor` | `object` | 生成事件的人。
+`created_at` | `string` | 指示交叉引用添加时间的时间戳。
+`updated_at` | `string` | 指示交叉引用更新或创建（如果从未更新）时间的时间戳。
+`source` | `object` | 添加交叉引用的议题或拉取请求。
+`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request` 对象是否存在。
+`source[issue]` | `object` | 添加交叉引用的 `issue` 对象。
+`event` | `string` | 事件值为 `"cross-referenced"`。
 
 ## demilestoned
 
@@ -245,14 +245,14 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | 里程碑对象。 `milestone[title]` | `string` | 里程碑的标题。
+{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | 里程碑对象。
+`milestone[title]` | `string` | 里程碑的标题。
 
 ## deployed
 
@@ -260,9 +260,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -274,23 +274,23 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |           |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** |  |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## disconnected
+## 已断开连接
 
-议题或拉取请求与另一个议题或拉取请求取消链接。 更多信息请参阅“[将拉取请求链接到议题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
+议题或拉取请求与另一个议题或拉取请求取消链接。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -302,9 +302,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -312,13 +312,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## head_ref_restored
 
-拉取请求的 `HEAD` 分支已还原到上次已知提交。
+拉取请求的 `HEAD` 分支已还原为上一个已知提交。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ## head_ref_force_pushed
 
@@ -326,28 +326,27 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## labeled
+## 已标记
 
 标签已添加到议题或拉取请求。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
 
 ## locked
 
@@ -355,24 +354,23 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | 议题或拉取请求对话被锁定的原因（如果有）。
+{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | 锁定问题或拉取请求对话的原因（如果已提供）。
 
-## 已提及
+## mentioned
 
-`actor` 在议题或拉取请求正文中被 `@mentioned`。
+在问题或拉取请求正文中，`actor` 是 `@mentioned`。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -384,23 +382,23 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## merged
+## 合并
 
-拉取请求已合并。 `commit_id` 属性是已合并 `HEAD` 提交的 SHA1。 `commit_repository` 始终与主仓库相同。
+拉取请求已合并。 `commit_id` 属性是已合并的 `HEAD` 提交的 SHA1。 `commit_repository` 始终与主存储库相同。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -412,14 +410,14 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | 里程碑对象。 `milestone[title]` | `string` | 里程碑的标题。
+{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | 里程碑对象。
+`milestone[title]` | `string` | 里程碑的标题。
 
 ## moved_columns_in_project
 
@@ -427,28 +425,25 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-`previous_column_name` | `string` | 从中移动议题的列的名称。
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %} `previous_column_name` | `string` | 从中移动问题的列的名称。
 
-## 已固定
+## pinned
 
 该议题已被置顶。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -460,9 +455,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -470,13 +465,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## referenced
 
-议题引用自提交消息。 `commit_id` 属性是发生位置的提交 SHA1，commit_repository 提交被推送的地方。
+议题引用自提交消息。 `commit_id` 属性是提交位置的 SHA1，commit_repository 是推送提交的位置。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -488,17 +483,15 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
 ## renamed
 
@@ -506,24 +499,25 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`rename` | `object` | 名称详细信息。 `rename[from]` | `string` | 以前的名称。 `rename[to]` | `string` | 新名称。
+{% data reusables.issue-events.issue-event-common-properties %} `rename` | `object` | 名称详细信息。
+`rename[from]` | `string` | 之前的名称。
+`rename[to]` | `string` | 新名称。
 
-## reopened
+## 已重新打开
 
 问题或拉取请求已重新打开。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -535,14 +529,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-dismissed-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-dismissed-properties %}
 
 ## review_requested
 
@@ -550,14 +543,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
 
 ## review_request_removed
 
@@ -565,14 +557,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
 
 ## reviewed
 
@@ -580,28 +571,28 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |          |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>拉取请求</li></ul> |  | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称                   | 类型    | 描述                                                               |
-| -------------------- | ----- | ---------------------------------------------------------------- |
-| `id`                 | `整数`  | 事件的唯一标识符。                                                        |
-| `node_id`            | `字符串` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。             |
-| `用户`                 | `对象`  | 对议题发表评论的人。                                                       |
-| `正文`                 | `字符串` | 审查摘要文本。                                                          |
-| `commit_id`          | `字符串` | 审查时拉取请求中最新提交的 SHA。                                               |
-| `submitted_at`       | `字符串` | 指示审查提交时间的时间戳。                                                    |
-| `state`              | `字符串` | 已提交审查的状态。 可以是以下项之一：`commented`、`changes_requested` 或 `approved`。 |
-| `html_url`           | `字符串` | 审查的 HTML URL。                                                    |
-| `pull_request_url`   | `字符串` | 用于检索拉取请求的 REST API URL。                                          |
-| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。                    |
-| `_links`             | `对象`  | `html_url` 和 `pull_request_url`。                                 |
-| `event`              | `字符串` | 事件值为 `"reviewed"`。                                               |
+名称 | 类型 | 说明
+-----|------|--------------
+`id` | `integer` | 事件的唯一标识符。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`user` | `object` | 对议题发表评论的人。
+`body` | `string` | 审查摘要文本。
+`commit_id` | `string` | 审查时拉取请求中最新提交的 SHA。
+`submitted_at` | `string` | 指示审查提交时间的时间戳。
+`state` | `string` | 已提交审查的状态。 可以是下述之一：`commented`、`changes_requested` 或 `approved`。
+`html_url` | `string` | 审查的 HTML URL。
+`pull_request_url` | `string` | 用于检索拉取请求的 REST API URL。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`_links` | `object` | `html_url` 和 `pull_request_url`。
+`event` | `string` | 事件值为 `"reviewed"`。
 
 ## subscribed
 
@@ -609,9 +600,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -623,28 +614,27 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## unassigned
+## 未分配
 
 已从议题中取消分配用户。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
 
 ## unlabeled
 
@@ -652,29 +642,27 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
 
-## unlocked
+## 未锁定
 
 议题已解锁。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | 议题或拉取请求对话被锁定的原因（如果有）。
+{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | 锁定问题或拉取请求对话的原因（如果已提供）。
 
 ## unmarked_as_duplicate
 
@@ -682,9 +670,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -696,9 +684,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 
@@ -710,9 +698,9 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |          |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
 ### 事件对象属性
 
@@ -721,13 +709,13 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 {% ifversion fpt or ghec %}
 ## user_blocked
 
-组织所有者阻止了用户访问组织。 其方法是[阻止用户对议题发表评论](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)。
+组织所有者阻止了用户访问组织。 这是[通过被阻止的用户对该问题的注释之一](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)完成的。
 
 ### 可用性
 
-| 议题类型                       | 议题事件 API | 时间表事件 API |
-|:-------------------------- |:--------:|:---------:|
-| <ul><li>议题</li><li>拉取请求</li></ul> |  **X**   |   **X**   |
+|问题类型 | 议题事件 API | 时间表事件 API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
 ### 事件对象属性
 

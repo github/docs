@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 8a031fd9c9178cf743b4dcc1bc401b51fd2eab5b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094320"
+---
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. Na barra lateral esquerda, clique em **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}**.
+1. Na barra lateral esquerda, clique em **Segredos {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}** .
 {% else %}
-1. Na barra lateral esquerda, clique em **Secrets** (Segredos).
+1. Na barra lateral esquerda, clique em **Segredos**.
 {% endif %}

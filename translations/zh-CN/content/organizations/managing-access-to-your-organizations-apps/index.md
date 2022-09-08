@@ -16,6 +16,12 @@ topics:
 children:
   - /adding-github-app-managers-in-your-organization
   - /removing-github-app-managers-from-your-organization
-shortTitle: 管理对应用的访问
+shortTitle: Manage access to apps
+ms.openlocfilehash: d40873a01f9027b517868c7dfa43df7ead3c33f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127502'
 ---
 

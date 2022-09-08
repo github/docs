@@ -10,22 +10,27 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: PAT com SAML
+shortTitle: PAT with SAML
+ms.openlocfilehash: a6e1d4c2e1fa5cf1f4738e06127c5e7875a2ef5d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145094846'
 ---
-
-Você pode autorizar um token de acesso pessoal existente ou [criar um](/github/authenticating-to-github/creating-a-personal-access-token) e autorizá-lo.
+Você pode autorizar um token de acesso pessoal existente ou [criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token) e autorizá-lo.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.personal_access_tokens %}
-3. Ao lado do token que você gostaria de autorizar, clique em **Configurar SSO**. ![Captura de tela do menu suspenso para configurar o SSO para um token de acesso pessoal](/assets/images/help/settings/sso-allowlist-button.png)
-4. À direita da organização para autorizar o token, clique em **Autorizar**. ![Botão de autorização do token](/assets/images/help/settings/token-authorize-button.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.personal_access_tokens %}
+3. Ao lado do token que deseja autorizar, clique em **Configurar SSO**.
+   ![Captura de tela do menu suspenso para configurar o SSO para um token de acesso pessoal](/assets/images/help/settings/sso-allowlist-button.png)
+4. À direita da organização para a qual deseja autorizar o token, clique em **Autorizar**.
+   ![Botão de autorização do token](/assets/images/help/settings/token-authorize-button.png)
 
-## Leia mais
+## Leitura adicional
 
-- "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)"
-- "[Sobre a autenticação com logon único SAML](/articles/about-authentication-with-saml-single-sign-on)"
+- "[Como criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)"
+- "[Sobre a autenticação com o logon único do SAML](/articles/about-authentication-with-saml-single-sign-on)"

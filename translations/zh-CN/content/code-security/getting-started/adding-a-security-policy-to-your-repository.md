@@ -1,5 +1,5 @@
 ---
-title: 添加安全政策到仓库
+title: 将安全策略添加到存储库
 intro: 您可以为仓库添加安全政策，说明如何报告项目中的安全漏洞。
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
@@ -16,48 +16,48 @@ topics:
   - Vulnerabilities
   - Repositories
   - Health
-shortTitle: 添加安全策略
+shortTitle: Add a security policy
+ms.openlocfilehash: f081d6e6bd99f604e7e86bc094f76de9041adf4b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084382'
 ---
-
 ## 关于安全政策
 
-要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes or ghec %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
+要向人们提供报告项目中安全漏洞的说明，{% ifversion fpt or ghes or ghec %}可以将 _SECURITY.md_ 文件添加到存储库的根目录、`docs` 或 `.github` 文件夹。{% else %}可以将 _SECURITY.md_ 文件添加到存储库的根目录或 `docs` 文件夹。{% endif %}当有人在你的存储库中创建问题时，他们将会看到一个指向你的项目的安全策略的链接。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-您可以为组织或个人帐户创建默认的安全政策。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+你可以为组织或个人帐户创建默认的安全政策。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 {% endif %}
 
 {% tip %}
 
-**提示：**为帮助人们查找安全政策，您可以从仓库中的其他位置（如自述文件）链接到 _SECURITY.md_ 文件。 更多信息请参阅“[关于自述文件](/articles/about-readmes)”。
+提示：为帮助人们查找安全策略，可以从存储库中的其他位置（如 README 文件）链接到 SECURITY.md 文件。 有关详细信息，请参阅“[关于 README](/articles/about-readmes)”。
 
 {% endtip %}
 
-{% ifversion fpt or ghec %}
-当有人报告您的项目中的安全漏洞后，您可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的更多信息，请参阅“[关于协调披露安全漏洞](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关 {% data variables.product.prodname_security_advisories %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+{% ifversion fpt or ghec %} 当有人报告项目中的安全漏洞后，可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的详细信息，请参阅“[关于安全漏洞的协调披露](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关 {% data variables.product.prodname_security_advisories %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-{% data reusables.repositories.github-security-lab %}
-{% endif %}
-{% ifversion ghes or ghae %}
+{% data reusables.repositories.github-security-lab %} {% endif %} {% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}
 
-## 添加安全政策到仓库
+## 将安全策略添加到存储库
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-3. 在左侧边栏中，单击 **Security policy（安全策略）**。 ![安全策略选项卡](/assets/images/help/security/security-policy-tab.png)
-4. 单击 **Start setup（开始设置）**。 ![开始设置按钮](/assets/images/help/security/start-setup-security-policy-button.png)
-5. 在新的 _SECURITY.md_ 文件中，添加关于项目受支持版本以及如何报告漏洞的信息。
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %}
+3. 在左边栏中，单击“安全策略”。
+  ![“安全策略”选项卡](/assets/images/help/security/security-policy-tab.png)
+4. 单击“开始设置”。
+  ![“开始设置”按钮](/assets/images/help/security/start-setup-security-policy-button.png)
+5. 在新的 SECURITY.md 文件中，添加关于项目受支持版本以及如何报告漏洞的信息。
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
 ## 延伸阅读
 
-- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
+- [保护存储库](/code-security/getting-started/securing-your-repository){% ifversion not ghae %}
+- [设置项目的健康贡献](/communities/setting-up-your-project-for-healthy-contributions){% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

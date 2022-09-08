@@ -1,5 +1,5 @@
 ---
-title: Por que a minha candidatura para o Campus Global para estudantes não foi aprovado?
+title: Por que minha candidatura ao Global Campus para alunos não foi aprovada?
 intro: 'Analise os motivos comuns para a reprovação de candidaturas ao {% data variables.product.prodname_global_campus %} e veja dicas para se candidatar novamente sem problemas.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -11,9 +11,14 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
   fpt: '*'
-shortTitle: Solicitação recusada
+shortTitle: Application not approved
+ms.openlocfilehash: 929d64e8a33f53d1292ae75e09e0200af6b2ab73
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574151'
 ---
-
 {% tip %}
 
 **Dica:** {% data reusables.education.about-github-education-link %}
@@ -48,27 +53,27 @@ Se seu endereço de e-mail acadêmico já foi usado para solicitar um {% data va
 
 {% note %}
 
-**Observação:** é contra os [Termos de serviço](/articles/github-terms-of-service/#3-account-requirements) do {% data variables.product.prodname_dotcom %} manter mais de uma conta individual.
+**Observação:** é contra os [Termos de Serviço](/articles/github-terms-of-service/#3-account-requirements) do {% data variables.product.prodname_dotcom %} manter mais de uma conta individual.
 
 {% endnote %}
 
-Se você tem mais de uma conta pessoal, você deverá fazer merge das suas contas. Para não perder o desconto, mantenha a conta que recebeu o desconto. Você pode renomear a conta mantida e permanecer com o histórico de contribuições adicionando todos os seus endereços de e-mail à conta mantida.
+Se você tiver mais de uma conta pessoal, precisará mesclá-las. Para não perder o desconto, mantenha a conta que recebeu o desconto. Você pode renomear a conta mantida e permanecer com o histórico de contribuições adicionando todos os seus endereços de e-mail à conta mantida.
 
 Para obter mais informações, consulte:
-- "[Fazendo merge de várias contas pessoais](/articles/merging-multiple-user-accounts)"
-- "[Alterar seu nome de usuário do {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)"
-- "[Adicionar um endereço de e-mail à sua conta do {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account)"
+- "[Mesclando várias contas pessoais](/articles/merging-multiple-user-accounts)"
+- "[Como alterar seu nome de usuário do {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)"
+- "[Como adicionar um endereço de email à sua conta do {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account)"
 
 ## Status de aluno não qualificado
 
 Você não estará qualificado para um {% data variables.product.prodname_student_pack %} se:
-- Você está inscrito em um programa de aprendizagem informal que não faz parte de [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) e não está inscrito em curso que irá conceder uma título ou diploma.
+- Você está registrado em um programa de aprendizagem informal que não faz parte do [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) e não está registrado em um curso de estudo de graduação ou diploma.
 - Você irá obter um título que não estará mais disponível na sessão acadêmica atual.
 - Tiver menos de 13 anos.
 
-Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você é um estudante em uma escola de programação ou bootcamp, você irá tornar-se elegível a {% data variables.product.prodname_student_pack %}, caso sua escola ingresse em [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
+Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você for um aluno em uma escola de codificação ou em um bootcamp, você se tornará qualificado para um {% data variables.product.prodname_student_pack %} se a sua escola ingressar no [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
-## Leia mais
+## Leitura adicional
 
-- "[Como obter o Pacote de Desenvolvedor de Alunos do GitHub sem um ID de aluno](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" em {% data variables.product.prodname_blog %}
-- "[Candidatar-se a {% data variables.product.prodname_global_campus %} como aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"
+- "[Como obter o Pacote de Desenvolvedor para Alunos do GitHub sem uma ID de aluno](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" no {% data variables.product.prodname_blog %}
+- "[Candidatar-se para o {% data variables.product.prodname_global_campus %} como aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"

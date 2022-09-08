@@ -8,9 +8,14 @@ type: overview
 topics:
   - GraphQL
   - API
-shortTitle: API para GraphQL Sponsors
+shortTitle: Sponsors GraphQL API
+ms.openlocfilehash: 1afbeef41cfbc0aa5bd51b2edb6fa475244b04a5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147081069'
 ---
+Para começar a usar a API do GraphQL, confira "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)".
 
-Para começar com a API do GraphQL, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)".
-
-Você pode encontrar os detalhes sobre a API do GraphQL Sponsors na documentação de referência. Para obter mais informações, consulte " "[referência do GraphQL](/graphql/reference)". Recomendamos usar o explorador GraphQL para criar suas chamadas do GraphQL. Para obter mais informações, consulte "[Usando o explorador](/graphql/guides/using-the-explorer).
+Você pode encontrar os detalhes sobre a API do GraphQL de Patrocinadores nos documentos de referência. Para obter mais informações, confira "[Referência do GraphQL](/graphql/reference)". Recomendamos usar o explorador GraphQL para criar suas chamadas do GraphQL. Para obter mais informações, confira "[Como usar o Explorer](/graphql/guides/using-the-explorer)".
