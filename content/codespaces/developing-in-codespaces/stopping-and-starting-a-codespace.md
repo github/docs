@@ -46,9 +46,9 @@ Regardless of where you created or access your codespaces, you can view and mana
 
  {% vscode %}
 
- 1. From within {% data variables.product.prodname_vscode %}, open the Command Palette.
-    - In macOS: Press <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
-    - In Windows/Linux: Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
+{% data reusables.vs-code.open-command-palette %}
+1. In the list of options, select **Codespaces: Stop Codespace**.
+1. In the list of codespaces, select the codespace you want to stop.
 
  {% endvscode %}
 
@@ -84,4 +84,11 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
  {% vscode %}
 
+{% data reusables.vs-code.open-command-palette %}
+1. In the list of options, select **Codespaces: Connect to Codespace**.
+1. In the list of codespaces, select the codespace you want to restart.
+
  {% endvscode %}
+
+ ## Further reading
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
