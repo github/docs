@@ -19,6 +19,12 @@ children:
   - /about-email-notifications-for-pushes-to-your-repository
   - /configuring-autolinks-to-reference-external-resources
   - /configuring-tag-protection-rules
-shortTitle: 管理仓库设置
+shortTitle: Manage repository settings
+ms.openlocfilehash: 6da601d8c1e9317bd382997f9e0c3b0897793b25
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409593'
 ---
 

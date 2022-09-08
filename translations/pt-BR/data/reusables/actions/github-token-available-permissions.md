@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 56ed7762c2325d0328bd52ca89fe7879b5ce4601
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145083919"
+---
 Valores de acesso e escopos disponíveis:
 
 ```yaml
@@ -17,7 +25,7 @@ permissions:
   statuses: read|write|none
 ```
 
-Se você especificar o acesso para qualquer um desses escopos, todos os que não são especificados são definidos como `nenhum`.
+Se você especificar o acesso para um desses escopos, todos aqueles que não são especificados serão definidos como `none`.
 
 Você pode usar a sintaxe a seguir para definir o acesso de leitura ou gravação para todos os escopos disponíveis:
 

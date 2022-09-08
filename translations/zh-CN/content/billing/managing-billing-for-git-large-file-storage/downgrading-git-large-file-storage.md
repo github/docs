@@ -16,22 +16,22 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: 降级 Git LFS 存储
+shortTitle: Downgrade Git LFS storage
+ms.openlocfilehash: 9e23d3d8eaee5362375ca427a7b58505eccbaa05
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084553'
 ---
-
-降级数据包数量后，更改将在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage) 的计费”。
+降级数据包数量后，更改将在下一个结算日期生效。 有关详细信息，请参阅“[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)”。
 
 ## 降级个人帐户的存储和带宽
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-remove-data %} {% data reusables.large_files.downgrade_data_packs %}
 
 ## 降级组织的存储和带宽
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-remove-data %} {% data reusables.large_files.downgrade_data_packs %}

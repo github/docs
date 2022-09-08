@@ -1,6 +1,6 @@
 ---
 title: Usando trabalhos
-shortTitle: Usando trabalhos
+shortTitle: Using jobs
 intro: 'Criando e gerenciando trabalhos de {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/jobs
@@ -20,5 +20,11 @@ children:
   - /setting-default-values-for-jobs
   - /assigning-permissions-to-jobs
   - /defining-outputs-for-jobs
+ms.openlocfilehash: 6de2fd2719c09a2a6c569ca3e423b08cd526db88
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145096058'
 ---
 

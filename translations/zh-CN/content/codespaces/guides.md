@@ -1,6 +1,6 @@
 ---
 title: 代码空间指南
-shortTitle: 指南
+shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
 intro: 了解如何充分利用 GitHub
 allowTitleToDifferFromFilename: true
@@ -15,6 +15,7 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   - /codespaces/developing-in-codespaces/creating-a-codespace
@@ -49,5 +50,11 @@ includeGuides:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
+ms.openlocfilehash: 54ba7cc4fbacd536f0438626281d1b59252eb3f1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147783109'
 ---
 

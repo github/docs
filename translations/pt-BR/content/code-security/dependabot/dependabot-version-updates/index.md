@@ -21,6 +21,12 @@ children:
   - /listing-dependencies-configured-for-version-updates
   - /customizing-dependency-updates
   - /configuration-options-for-the-dependabot.yml-file
-shortTitle: Atualizações de versão do Dependabot
+shortTitle: Dependabot version updates
+ms.openlocfilehash: 7eec75884da9fed388c7f882fe870d993606cb00
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097009'
 ---
 

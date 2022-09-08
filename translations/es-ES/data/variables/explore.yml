@@ -1,7 +1,0 @@
----
-explore_github: >-
-  {% ifversion fpt or ghec %}[Explore GitHub](https://github.com/explore){% else %}Explorar GitHub (`https://[hostname]/explore`){% endif %}
-your_stars_page: >-
-  {% ifversion fpt or ghec %}[stars page](https://github.com/stars){% else %}página de estrellas (`https://[hostname]/stars`){% endif %}
-trending_page: >-
-  {% ifversion fpt or ghec %}[Trending page](https://github.com/trending){% else %}Página de tendencias (`https://[hostname]/trending`){% endif %}

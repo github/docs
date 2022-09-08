@@ -1,7 +1,7 @@
 
 ## Telling Git about your X.509 key
 
-You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
+You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME.
 
 {% data reusables.gpg.smime-git-version %}
 

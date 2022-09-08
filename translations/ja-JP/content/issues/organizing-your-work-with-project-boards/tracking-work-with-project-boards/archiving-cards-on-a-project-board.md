@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_project_v1 %}上のカードのアーカイブ'
-intro: '{% data variables.projects.projects_v1_board %}カードをアーカイブして、プロジェクトの履歴のコンテキストを失うことなくワークフローを整理できます。'
+title: '{% data variables.product.prodname_project_v1 %}でのカードのアーカイブ'
+intro: '{% data variables.projects.projects_v1_board %}のカードをアーカイブすることにより、プロジェクトの履歴コンテキストを失うことなくワークフローを整理できます。'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
@@ -9,21 +9,30 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: '{% data variables.product.prodname_project_v1 %}上のカードのアーカイブ'
+shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: de1d0a4981a46c4ceddd73b5d1f49b74f111601f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423589'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_board %}内の自動化は、アーカイブされた{% data variables.projects.projects_v1_board %}カードには適用されません。 たとえば、{% data variables.projects.projects_v1_board %}のアーカイブ内のIssueをクローズしても、アーカイブされたカードは自動的に"Done"列に移動しません。 カードを{% data variables.projects.projects_v1_board %}アーカイブから復元すれば、そのカードはアーカイブされたときの列に戻ります。
+{% data variables.projects.projects_v1_board %}の自動化は、アーカイブされた{% data variables.projects.projects_v1_board %} カードには適用されません。 たとえば{% data variables.projects.projects_v1_board %}のアーカイブで issue をクローズしても、アーカイブされたカードは自動的に [完了] 列には移動されません。 {% data variables.projects.projects_v1_board %} アーカイブからカードを復元すると、そのカードはアーカイブされていた列に戻ります。
 
-## {% data variables.projects.projects_v1_board %}上のカードのアーカイブ
+## {% data variables.projects.projects_v1_board %}でのカードのアーカイブ
 
-1. {% data variables.projects.projects_v1_board %}で、アーカイブしたいカードを見つけて {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![プロジェクトボードカードの編集オプションのリスト](/assets/images/help/projects/select-archiving-options-project-board-card.png)
-2. [**Archive**] をクリックします。 ![メニューからのアーカイブオプションの選択](/assets/images/help/projects/archive-project-board-card.png)
+1. {% data variables.projects.projects_v1_board %}で、アーカイブしたいカードを見つけて {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。
+![プロジェクト ボード カードを編集するためのオプションの一覧](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+2. **[アーカイブ]** をクリックします。
+![メニューからアーカイブ オプションを選択する](/assets/images/help/projects/archive-project-board-card.png)
 
-## サイドバーからの{% data variables.projects.projects_v1_board %}上のカードの復元
+## サイドバーから{% data variables.projects.projects_v1_board %}のカードを復元する
 
 {% data reusables.project-management.click-menu %}
-2. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、続いて [** View archive**] をクリックします。 ![メニューからのアーカイブの表示オプションの選択](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. アーカイブを解除したい{% data variables.projects.projects_v1_board %}カードの上の**Restore（復元）**をクリックしてください。 ![プロジェクトボードカードのリストアの選択](/assets/images/help/projects/restore-card.png)
+2. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、 **[アーカイブの表示]** をクリックします。
+  ![メニューから [アーカイブの表示] オプションを選択する](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+3. アーカイブ解除する{% data variables.projects.projects_v1_board %} カードの上にある **[復元]** をクリックします。
+  ![プロジェクト ボード カードの復元を選択する](/assets/images/help/projects/restore-card.png)

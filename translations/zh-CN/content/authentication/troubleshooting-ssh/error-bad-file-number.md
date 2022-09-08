@@ -12,8 +12,13 @@ versions:
   ghec: '*'
 topics:
   - SSH
+ms.openlocfilehash: db2a47ad6029790cdbf9f0212087acc659326941
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084578'
 ---
-
 运行远程 Git 命令或 SSH 时，您的连接可能会超时：
 
 ```shell
@@ -29,7 +34,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 ### 使用 HTTPS
 
-通常，最简单的解决方案是完全避免使用 SSH。 大多数防火墙和代理都允许无问题的 HTTPS 流量。 要利用此解决方案，请更改正在使用的[远程 URL](/github/getting-started-with-github/about-remote-repositories)：
+通常，最简单的解决方案是完全避免使用 SSH。 大多数防火墙和代理都允许无问题的 HTTPS 流量。 若要利用这一点，请更改你正在使用的[远程 URL](/github/getting-started-with-github/about-remote-repositories)：
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
@@ -48,7 +53,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 ### 在 HTTPS 端口使用 SSH
 
-如果使用 HTTPS 不是一个选项，并且防火墙管理员拒绝允许 SSH 连接，则可以尝试使用 [HTTPS 端口上的 SSH](/articles/using-ssh-over-the-https-port) 来代替。
+如果使用 HTTPS 不是一个选项，并且防火墙管理员拒绝允许 SSH 连接，则可以尝试使用[端口上的 SSH](/articles/using-ssh-over-the-https-port) 来代替。
 
 {% endif %}
 
@@ -56,6 +61,6 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 ## 延伸阅读
 
-- "[连接问题故障排除](/articles/troubleshooting-connectivity-problems)"
+- “[排查连接问题](/articles/troubleshooting-connectivity-problems)”
 
 {% endif %}

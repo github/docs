@@ -24,6 +24,12 @@ children:
   - /addressing-merge-conflicts
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
-shortTitle: 协作处理拉取请求
+shortTitle: Collaborate with pull requests
+ms.openlocfilehash: 19b7ca93912d7368f7a727262d684ae158f98849
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129631'
 ---
 

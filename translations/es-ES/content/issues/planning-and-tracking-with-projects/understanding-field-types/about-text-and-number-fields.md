@@ -1,33 +1,42 @@
 ---
-title: About text and number fields
-shortTitle: Acerca de los campos de número y de texto
-intro: You can add custom text and number fields to your project.
+title: Acerca de los campos numéricos y de texto
+shortTitle: About text and number fields
+intro: Puedes agregar campos numéricos y de texto personalizados al proyecto.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: d6ab274812f4f35ff4f6afa9e1e2139abf86dd54
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424383'
 ---
+Puedes usar campos de texto para incluir notas o cualquier otro texto de forma libre en el proyecto.
 
-You can use text fields to include notes or any other freeform text in your project.
+Los campos de texto se pueden usar en filtros, por ejemplo: `field:"exact text"`. También se usarán campos de texto y títulos de elemento si filtras por texto sin especificar un campo. 
 
-Text fields can be used in filters, for example: `field:"exact text"`. Text fields and item titles will also be used if you filter for text without specifying a field.
+Los campos numéricos también se pueden usar en filtros. Puedes usar las consultas de intervalo `>`, `>=`, `<`, `<=` y `..` para filtrar por un campo numérico. Por ejemplo: `field:5..15` o `field:>=20`. Para obtener más información, consulta "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 
-Number fields can also be used in filters. You can use `>`, `>=`, `<`, `<=`, and `..` range queries to filter by a number field. For example: `field:5..15` or `field:>=20`. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
-
-## Adding a text field
-
-{% data reusables.projects.new-field %}
-1. Select **Text** ![Screenshot showing the text option](/assets/images/help/projects-v2/new-field-text.png)
-1. Haz clic en **Save ** (guardar). ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
-
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
-
-## Adding a number field
+## Adición de un campo de texto
 
 {% data reusables.projects.new-field %}
-1. Select **Number** ![Screenshot showing the number option](/assets/images/help/projects-v2/new-field-number.png)
-1. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save.png)
+1. Selecciona **Texto**
+   ![Captura de pantalla en la que se muestra la opción Texto](/assets/images/help/projects-v2/new-field-text.png)
+1. Haga clic en **Save**(Guardar).
+   ![Captura de pantalla en la que se muestra el botón Guardar](/assets/images/help/projects-v2/new-field-save.png)
 
-Como alternativa, abre la paleta de comandos del proyecto presionando {% data variables.projects.command-palette-shortcut %} y comienza a escribir "Create new field".
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Crear campo".
+
+## Adición de un campo numérico
+
+{% data reusables.projects.new-field %}
+1. Selecciona **Número**
+   ![Captura de pantalla en la que se muestra la opción Número](/assets/images/help/projects-v2/new-field-number.png)
+1. Haga clic en **Save**(Guardar).
+   ![Captura de pantalla en la que se muestra el botón Guardar](/assets/images/help/projects-v2/new-field-save.png)
+
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Crear campo".

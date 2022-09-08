@@ -11,9 +11,14 @@ versions:
 type: overview
 topics:
   - Marketplace
-shortTitle: GitHub Marketplace 的计费
+shortTitle: Billing for GitHub Marketplace
+ms.openlocfilehash: 815303fa5c0c1a006a0bd4bd017039cf1e035f15
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084520'
 ---
-
 {% data variables.product.prodname_marketplace %} 包含的应用程序中有免费和付费定价计划。 在购买并安装应用程序后，您可以随时升级、降级或取消。
 
 {% data reusables.marketplace.marketplace-apps-only %}
@@ -45,7 +50,7 @@ shortTitle: GitHub Marketplace 的计费
 
 ## 单元计划限制
 
-如果选择单元计划（例如每用户收费计划）但您超过要付费的单元数，则在您升级应用程序之前，集成商将禁用您的访问权限。 更多信息请参阅"[升级 {% data variables.product.prodname_marketplace %} 应用程序的计费计划](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)"。
+如果选择单元计划（例如每用户收费计划）但您超过要付费的单元数，则在您升级应用程序之前，集成商将禁用您的访问权限。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_marketplace %} 应用的计费计划](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)”。
 
 ## 降级 {% data variables.product.prodname_marketplace %} 应用程序
 
@@ -55,10 +60,10 @@ shortTitle: GitHub Marketplace 的计费
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-如果您取消付费计划的免费试用，您的订阅将立即取消，您无法访问应用程序。 更多信息请参阅“[取消 {% data variables.product.prodname_marketplace %} 应用程序](/articles/canceling-a-github-marketplace-app)”。
+如果您取消付费计划的免费试用，您的订阅将立即取消，您无法访问应用程序。 有关详细信息，请参阅“[取消 {% data variables.product.prodname_marketplace %} 应用](/articles/canceling-a-github-marketplace-app)”。
 
 ## 延伸阅读
 
-- "[关于 {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
-- "[在 {% data variables.product.prodname_marketplace %} 中购买和安装应用程序](/articles/purchasing-and-installing-apps-in-github-marketplace)"
-- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
+- [关于 {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)
+- [在 {% data variables.product.prodname_marketplace %} 中购买和安装应用](/articles/purchasing-and-installing-apps-in-github-marketplace)
+- [{% data variables.product.prodname_marketplace %} 支持](/articles/github-marketplace-support)

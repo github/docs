@@ -66,10 +66,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   
@@ -113,10 +113,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -159,10 +159,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell

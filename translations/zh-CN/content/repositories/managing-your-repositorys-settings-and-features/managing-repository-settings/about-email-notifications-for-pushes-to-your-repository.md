@@ -16,9 +16,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 用于推送的电子邮件通知
+shortTitle: Email notifications for pushes
+ms.openlocfilehash: ee12b8f8270921abd1fe70c748449e46fd472e2c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129327'
 ---
-
 {% data reusables.notifications.outbound_email_tip %}
 
 对于推送到仓库所发送的每封电子邮件通知都会列出新提交，以及只包含这些提交的差异的链接。 在电子邮件通知中，您会看到：
@@ -31,17 +36,18 @@ shortTitle: 用于推送的电子邮件通知
 - 作为提交一部分所更改的文件
 - 提交消息
 
-您可以过滤因推送到仓库而收到的电子邮件通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)”。
+您可以过滤因推送到仓库而收到的电子邮件通知。 有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)”。
 
 ## 对推送到仓库启用电子邮件通知
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-notifications %}
-5. 输入最多两个您希望通知发送到的电子邮件地址，用空格分隔。 如果要将电子邮件发送到两个以上的帐户，请将其中一个电子邮件地址设为群组电子邮件地址。 ![电子邮件地址文本框](/assets/images/help/settings/email_services_addresses.png)
-1. 如果您操作自己的服务器，可通过 **Approved 标头**验证电子邮件的真实性。 **Approved 标头**是您在此字段中输入的令牌或密码，它将随电子邮件一起发送。 如果电子邮件的 `Approved` 标头与令牌匹配，则可以信任该电子邮件来自 {% data variables.product.product_name %}。 ![电子邮件已批准标头文本框](/assets/images/help/settings/email_services_approved_header.png)
-7. 单击 **Setup notifications（设置通知）**。 ![设置通知按钮](/assets/images/help/settings/setup_notifications_settings.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-notifications %}
+5. 输入最多两个您希望通知发送到的电子邮件地址，用空格分隔。 如果要将电子邮件发送到两个以上的帐户，请将其中一个电子邮件地址设为群组电子邮件地址。
+![电子邮件地址文本框](/assets/images/help/settings/email_services_addresses.png)
+1. 如果操作自己的服务器，可通过“Approved 标头”验证电子邮件的完整性。 “Approved 标头”是在此字段中键入的令牌或机密，该令牌或机密随电子邮件一起发送。 如果电子邮件的 `Approved` 标头与令牌匹配，则可以信任该电子邮件来自 {% data variables.product.product_name %}。
+![电子邮件 approved 标头文本框](/assets/images/help/settings/email_services_approved_header.png)
+7. 单击“设置通知”。
+![“设置通知”按钮](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## 延伸阅读
-- "[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
+- [关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)
 

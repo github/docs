@@ -19,25 +19,30 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578938'
 ---
-
 ## 添加链接
 
 您可以使用页面支持的标准标记或使用 MediaWiki 语法在 wiki 中创建链接。 例如：
 
-- 如果您的页面使用 Markdown 渲染，则链接语法为 `[链接文本](wiki 页面的完整 URL)`。
-- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
+- 如果页面使用 Markdown 呈现，则链接语法为 `[Link Text](full-URL-of-wiki-page)`。
+- 使用 MediaWiki 语法时，链接语法为 `[[nameofwikipage|Link Text]]`。
 
 ## 添加图像
 
 Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. 使用 wiki 边栏，导航至要更改的页面，然后单击 **Edit（编辑）**。
-4. 在 wiki 工具栏上，单击 **Image（图像）**。 ![Wiki 添加图像按钮](/assets/images/help/wiki/wiki_add_image.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. 使用 Wiki 边栏，导航到要更改的页面，然后单击“编辑”。
+4. 在 Wiki 工具栏上，单击“图像”。
+   ![Wiki“添加图像”按钮](/assets/images/help/wiki/wiki_add_image.png)
 5. 在“Insert Image”（插入图像）对话框，输入 URL 和 alt 文本（由搜索引擎和屏幕阅读器使用）。
-6. 单击 **OK（确定）**。
+6. 单击" **确定**"。
 
 ### 链接到仓库中的图片
 
@@ -46,7 +51,7 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
 {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
-## Adding mathematical expressions and diagrams{% endif %}
+## 添加数学表达式和关系图{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
@@ -54,11 +59,11 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
 无论您的 wiki 页面以哪种标记语言编写，始终可使用某些 MediaWiki 语法。
 - 链接（[AsciiDoc 除外](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b)）
-- 水平规则通过 `---`
-- 简明符号实体（例如 `&delta;` 或 `&euro;`）
+- 借助于 `---` 的水平规则
+- 简明符号实体（例如 `&delta;` 或者 `&euro;`）
 
 出于安全和性能原因，某些语法不受支持。
 - [嵌入包含](https://www.mediawiki.org/wiki/Transclusion)
 - 定义列表
-- 首行缩进
+- 缩进
 - 目录

@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-shortTitle: 搜索查询故障排除
+shortTitle: Troubleshoot search queries
+ms.openlocfilehash: 2c90d144401974ebc44f4b80a1509593fe987329
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099626'
 ---
-
 ## 可能的超时
 
 对于我们要执行的搜索基础架构来说，有些查询的计算成本很高。 为了让所有人都能快速搜索，我们会限制任何单个查询能够运行的时长。 在查询超过时间限制的极少数情况下，搜索将返回超时之前找到的所有匹配项，并通知您发生了超时。
@@ -26,10 +31,10 @@ shortTitle: 搜索查询故障排除
 在 {% data variables.product.product_name %} 上搜索时，查询的长度有一些限制：
 
 * 不支持长度超过 256 个字符的查询
-* 您无法使用超过五个 `AND`、`OR` 或 `NOT` 运算符构造查询
+* 不能使用超过五个 `AND`、`OR` 或 `NOT` 运算符构造查询
 
 特定搜索类型（例如，代码搜索）可能有其他限制。 查看这些搜索类型的文档以了解更多信息。
 
 ## 延伸阅读
 
-- “[关于在 GitHub 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”
+- [关于在 GitHub 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)

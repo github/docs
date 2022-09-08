@@ -1,4 +1,12 @@
-Para crear una lista de tareas, lista los elementos por prefacio con un guion y espacio, seguido de `[ ]`. Para marcar una tarea como completada, utiliza `[x]`.
+---
+ms.openlocfilehash: 12f5510dcd08a964f4b19618afd3607b080632f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145117889"
+---
+Para crear una lista de tareas, debe añadir como prefijo un guion y espacio, seguido de `[ ]` a los elementos de la lista. Para marcar una tarea como completada, use `[x]`.
 
 ```
 - [x] #739

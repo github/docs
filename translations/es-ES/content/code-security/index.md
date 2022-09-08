@@ -1,7 +1,7 @@
 ---
-title: Code security
+title: Seguridad de código
 shortTitle: Code security
-intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
+intro: 'Crea la seguridad de tu flujo de trabajo de {% data variables.product.prodname_dotcom %} con características para mantener tus secretos y vulnerabilidades fuera de tu codebase {% ifversion not ghae %}, y para mantener la cadena de suministro de tu software{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -58,5 +58,11 @@ children:
   - /dependabot
   - /security-overview
   - /guides
+ms.openlocfilehash: 90d3ad046a6531849edd8e783db265866f118d90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145243'
 ---
 

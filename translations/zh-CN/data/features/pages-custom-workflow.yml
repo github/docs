@@ -1,5 +1,0 @@
-#Issue 7066
-#Publishing Pages via custom Actions workflow
-versions:
-  fpt: '*'
-  ghec: '*'

@@ -1,6 +1,6 @@
 ---
-title: Primeiros passos com a API REST
-intro: 'Aprenda a usar a API REST de {% data variables.product.prodname_dotcom %}.'
+title: Getting started with the REST API
+intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,33 +8,33 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Usando a API
+shortTitle: Using the API
 miniTocMaxHeadingLevel: 3
 ---
 
-## Sobre a API REST de {% data variables.product.prodname_dotcom %}
+## About the {% data variables.product.prodname_dotcom %} REST API
 
-Esse artigo descreve como usar a API REST de {% data variables.product.prodname_dotcom %}, usando {% data variables.product.prodname_cli %}, JavaScript ou cURL. Para um guia de início rápido, consulte " Quickstart[Início rápido para a API REST do GitHub](/rest/quickstart)."
+This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
 
-Ao fazer uma solicitação para a API REST, você especifica um método HTTP e um caminho. Além disso, você também pode especificar cabeçalhos de solicitação e caminho, consulta ou parâmetros de texto. A API retornará o código de status de resposta, cabeçalhos de resposta e, potencialmente, um texto de resposta.
+When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
 
-A documentação de referência da API REST descreve o método HTTP, o caminho e os parâmetros para cada operação. Els também exibe exemplos de solicitações e respostas para cada operação. Para obter mais informações, consulte a [Documentação de referência de REST](/rest).
+The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
 
-## Fazendo uma solicitação
+## Making a request
 
-Para fazer uma solicitação, primeiro encontre o método HTTP e o caminho para a operação que você deseja usar. Por exemplo, a operação "Obter Octocat" usa o método `GET` e o caminho `/octocat`. Para a documentação completa de referência para esta operação, consulte "[Obter Octocat](/rest/meta#get-octocat)".
+To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
 
 {% cli %}
 
 {% note %}
 
-**Observação**: Você deve instalar {% data variables.product.prodname_cli %} para usar os comandos nos exemplos de {% data variables.product.prodname_cli %}. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
 
 {% endnote %}
 
-Se você ainda não está efetuando a autenticação em {% data variables.product.prodname_cli %}, você deve usar o subcomando de autenticação `gh login` para efetuar a autenticação antes de fazer qualquer solicitação. Para obter mais informações, consulte "[Efetuando a autenticação](#authenticating)".
+If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
 
-Para fazer uma solicitação usando {% data variables.product.prodname_cli %}, use o subcomando `api` junto com o caminho. Use o sinalizador `--method` ou `-X` para especificar o método.
+To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
 
 ```shell
 gh api /octocat --method GET
@@ -46,13 +46,13 @@ gh api /octocat --method GET
 
 {% note %}
 
-**Observação**: Você deve instalar e importar o `octokit` para usar a biblioteca Octokit.js usada nos exemplos de JavaScript. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
 {% endnote %}
 
-Para fazer uma solicitação usando o JavaScript, você pode usar o Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
-Primeiro, crie uma instância de `Octokit`.{% ifversion ghes or ghae %} Defina a URL de base como `{% data variables.product.api_url_code %}`. Substitua `[hostname]` pelo nome de {% data variables.product.product_location %}.{% endif %}
+First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -60,7 +60,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 {% endif %}});
 ```
 
-Em seguida, use o método `solicitação` para fazer solicitações. Passe o método HTTP e o caminho como o primeiro argumento.
+Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
 
 ```javascript
 await octokit.request("GET /octocat", {});
@@ -72,7 +72,7 @@ await octokit.request("GET /octocat", {});
 
 Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
 
-Use o comando `curl` na sua linha de comando. Use o sinalizador `--request` ou `-X` seguido do método HTTP. Use o sinalizador `--url` seguido da URL completa.
+Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
 
 ```shell
 curl --request GET \
@@ -81,39 +81,39 @@ curl --request GET \
 
 {% note %}
 
-**Observação**: Se você receber uma mensagem semelhante a command not found: curl", talvez você tenha de fazer o download e instalar o cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
 
 {% endnote %}
 
 {% endcurl %}
 
-Continue lendo para aprender como efetuar a autenticação, enviar parâmetros e usar a resposta.
+Continue reading to learn how to authenticate, send parameters, and use the response.
 
-## Autenticando
+## Authenticating
 
-Muitas operações exigem autenticação ou devolução de informações adicionais se você estiver autenticado. Além disso, você pode fazer mais solicitações quando estiver autenticado.{% cli %} Embora algumas operações da API REST possam ser acessadas sem autenticação, você deve efetuar a autenticação em {% data variables.product.prodname_cli %} para usar o subcomando `api` .{% endcli %}
+Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
 
-### Sobre tokens
+### About tokens
 
-Você pode autenticar a sua solicitação adicionando um token.
+You can authenticate your request by adding a token.
 
-Se você deseja usar a API REST de {% data variables.product.company_short %} para uso pessoal, você pode criar um token de acesso pessoal (PAT). As operações da API REST usadas neste artigo exigem um escopo `repo` para tokens de acesso pessoal. Outras operações podem exigir diferentes escopos. Para obter mais informações sobre a criação de um token de acesso pessoal, consulte[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a personal access token (PAT). The REST API operations used in this article require `repo` scope for personal access tokens. Other operations may require different scopes. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-Se você quiser usar a API em nome de uma organização ou outro usuário, {% data variables.product.company_short %} recomenda que você use um {% data variables.product.prodname_github_app %}. Se uma operação estiver disponível para {% data variables.product.prodname_github_apps %}, a documentação de referência REST para essa operação dirá "Funciona com aplicativos GitHub". As operações da API REST usadas neste artigo exigem permissões de leitura e gravação de `problemas` para {% data variables.product.prodname_github_apps %}. Outras operações podem exigir diferentes permissões. Para obter mais informações, consulte "[Criando um aplicativo GitHub](/developers/apps/building-github-apps/creating-a-github-app)", "[Efetuando a autenticação com aplicativos GitHub](/developers/apps/building-github-apps/authenticating-with-github-apps) e "[Identificando e autorizando os usuários pelos aplicativos GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)".
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
-Se você quiser usar a API em um fluxo de trabalho de {% data variables.product.prodname_actions %}, {% data variables.product.company_short %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` ao invés de criar um token. Você pode conceder permissões para o `GITHUB_TOKEN` com a tecla `permissões`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)".
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
-### Exemplo de autenticação
+### Authentication example
 
 {% cli %}
 
-Com {% data variables.product.prodname_cli %}, você não precisa criar um token de acesso antecipadamente. Use o subcomando `auth login` para efetuar a autenticação em {% data variables.product.prodname_cli %}:
+With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
 
 ```shell
 gh auth login
 ```
 
-Você pode usar o sinalizador `--escopes` para especificar quais escopos você quer. Se você deseja efetuar a autenticação com um token que você criou, você pode usar o sinalizador `--with-token`. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
 
 {% endcli %}
 
@@ -123,15 +123,15 @@ Você pode usar o sinalizador `--escopes` para especificar quais escopos você q
 
 **Warning**: Treat your access token like a password.
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
-{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e executar seu script em {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
 If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
 
 {% endwarning %}
 
-Para efetuar a autenticação com a biblioteca do Octokit.js, você pode passar seu token ao criar uma instância de `Octokit`. Substitua `YOUR-TOKEN` pelo seu token.{% ifversion ghes or ghae %} Substitua `[hostname]` pelo nome de {% data variables.product.product_location %}.{% endif %}
+To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -148,15 +148,15 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 **Warning**: Treat your access token like a password.
 
-Para ajudar a manter sua conta segura, você pode usar {% data variables.product.prodname_cli %} ao invés de cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
 
-{% ifversion ghec or fpt %}Você também pode armazenar seu token como um segredo de {% data variables.product.prodname_codespaces %} e usar a linha de comando através de {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
 If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
 
 {% endwarning %}
 
-Com cURL, você enviará um cabeçalho `Autorização` com seu token. Substitua `YOUR-TOKEN` pelo seu token:
+With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
 
 ```shell
 curl --request GET \
@@ -166,19 +166,19 @@ curl --request GET \
 
 {% note %}
 
-**Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. Os tokens da web JSON (JWTs) só funcionarão com `Authorization: Bearer`.
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
 {% endcurl %}
 
-### Exemplo de autenticação para {% data variables.product.prodname_actions %}
+### Authentication example for {% data variables.product.prodname_actions %}
 
 {% cli %}
 
-Você também pode usar a palavra-chave `executar` para executar comandos de {% data variables.product.prodname_cli %} nos seus fluxos de trabalho {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-Em vez de usar o comando de autenticação `gh login`, passe seu token como uma variável de ambiente denominada `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ```yaml
 jobs:
@@ -196,9 +196,9 @@ jobs:
 
 {% javascript %}
 
-Você também pode usar a palavra-chave `executar` para executar seus scripts do JavaScript nos seus fluxos de trabalho de {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 The following example workflow:
 
@@ -249,7 +249,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 await octokit.request("GET /octocat", {});
 ```
 
-Em vez de armazenar seu script em um arquivo separado e executar o script do seu fluxo de trabalho, você pode usar a ação `actions/github-script` para executar um script. Para obter mais informações, consulte [actions/github-script README](https://github.com/actions/github-script).
+Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
 
 ```yaml
 jobs:
@@ -268,9 +268,9 @@ jobs:
 
 {% curl %}
 
-Você também pode usar a palavra-chave `executar` para executar comandos do cURL nos fluxos de trabalho {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recomenda que você efetue a autenticação com o `GITHUB_TOKEN` integrado em vez de criar um token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ```yaml
 jobs:
@@ -288,13 +288,13 @@ jobs:
 
 {% endcurl %}
 
-## Usando cabeçalhos
+## Using headers
 
-A maioria das operações especifica que você deve passar um cabeçalho `Aceitar` com um valor de `application/vnd.github.v3+json`. Outras operações podem especificar que você deve enviar um cabeçalho `Aceitar` diferente ou cabeçalhos adicionais.
+Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github.v3+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
 
 {% cli %}
 
-Para enviar um cabeçalho com {% data variables.product.prodname_cli %}, utilize o sinalizador `--header` ou `-H` seguido pelo formato de cabeçalho em `key: value`.
+To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
 gh api --header 'Accept: application/vnd.github.v3+json' --method GET /octocat
@@ -304,7 +304,7 @@ gh api --header 'Accept: application/vnd.github.v3+json' --method GET /octocat
 
 {% javascript %}
 
-A biblioteca do Octokit.js passa automaticamente o cabeçalho <`Accept: application/vnd.github.v3+json`. Para passar cabeçalhos adicionais ou um outro cabeçalho `Aceitar`, adicione uma propriedade de `cabeçalhos` ao objeto que é passado como um segundo argumento ao mpetodo de `solicitação`. O valor da propriedade dos `cabeçalhos` propriedade é um objeto com os nomes de cabeçalho como chaves e valores de cabeçalho como valores. Por exemplo, para enviar um cabeçalho `content-type` com um valor de `text/plain`:
+The Octokit.js library automatically passes the `Accept: application/vnd.github.v3+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
 
 ```javascript
 await octokit.request("GET /octocat", {
@@ -318,7 +318,7 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-Para enviar um cabeçalho com cURL, use o sinalizador `--header` ou `-H` seguido pelo cabeçalho no formato `key: value`.
+To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
 curl --request GET \
@@ -329,21 +329,21 @@ curl --request GET \
 
 {% endcurl %}
 
-## Usando parâmetros de caminho
+## Using path parameters
 
-Os parâmetros de caminho modificam o caminho da operação. Por exemplo, o caminho "Listar problemas de repositório" é `/repos/{owner}/{repo}/issues`. As chaves `{}` denotam parâmetros de caminhos que você precisa especificar. Neste caso, você deve especificar o proprietário e o nome do repositório. Para a documentação de referência para esta operação, consulte "[Listar problemas com o repositório](/rest/issues/issues#list-repository-issues)".
+Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
 
 {% cli %}
 
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Observação:** Para que este comando funcione para {% data variables.product.product_location %}, substitua `octocat/Spoon-Knife` por um repositório pertencente ao {% data variables.product.product_location %}. Caso contrário, execute novamente o comando `gh login` para efetuar a autenticação em {% data variables.product.prodname_dotcom_the_website %} em vez de {% data variables.product.product_location %}.
+**Note:** In order for this command to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.product.product_location %}.
 
 {% endnote %}
 {% endif %}
 
-Para obter problemas do repositório `octocat/Spoon-Knife`, substitua `{owner}` por `octocat` e `{repo}` por `Spoon-Knife`.
+To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
 
 ```shell
 gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues
@@ -356,12 +356,12 @@ gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/oct
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Observação:** Para que este exemplo funcione para {% data variables.product.product_location %}, substitua `octocat/Spoon-Knife` por um repositório pertencente ao {% data variables.product.product_location %}. Caso contrário, crie uma nova instância `Octokit` e não especifique `baseURL`.
+**Note:** In order for this example to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
 
 {% endnote %}
 {% endif %}
 
-Ao fazer uma solicitação com Octokit.js, todos os parâmetros, incluindo os parâmetros de caminho, são passados em um objeto como o segundo argumento para o método `solicitação`. Para obter problemas do repositório `octocat/Spoon-Knife`, especifique `proprietário` como `octocat` e `repo` como `Spoon-Knife`.
+When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -374,12 +374,12 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-Para obter problemas do repositório `octocat/Spoon-Knife`, substitua `{owner}` por `octocat` e `{repo}` por `Spoon-Knife`. Para criar o caminho completo, preencha a URL de base para a API REST de {% data variables.product.prodname_dotcom %}, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
+To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
 
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Observação:** Se você quiser usar {% data variables.product.product_location %} em vez de {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` em vez de `https://api.github.com` e substitua `[hostname]` pelo nome de {% data variables.product.product_location %}. Substitua `octocat/Spoon-Knife` por um repositório pertencente a {% data variables.product.product_location %}.
+**Note:** If you want to use {% data variables.product.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.product.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}.
 
 {% endnote %}
 {% endif %}
@@ -393,21 +393,21 @@ curl --request GET \
 
 {% endcurl %}
 
-A operação retorna uma lista de problemas e dados sobre cada problema. Para obter mais informações sobre como usar a resposta, consulte a seção "[Usando a resposta](#using-the-response).
+The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
 
-## Usando parâmetros de consulta
+## Using query parameters
 
-Os parâmetros de consulta permitem que você controle quais dados são retornados para uma solicitação. Por exemplo, um parâmetro de consulta pode permitir que você especifique quantos itens são retornados quando a resposta é paginada.
+Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
 
-Por padrão, a operação "Listar problemas do repositório" retorna trinta problemas, ordenados em ordem decrescente pela data em que eles foram criados. Você pode usar o parâmetro `per_page` para retornar dois problemas em vez de 30. Você pode usar o parâmetro `ordenar` para classificar os problemas pela data em que foram atualizados pela última vez de ordenar pela data em que foram criados. Você pode usar o parâmetro `direção` para classificar os resultados em ordem ascendente em vez de descemdente.
+By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
 
 {% cli %}
 
-Para {% data variables.product.prodname_cli %}, use o sinalizador `-F` para passar um parâmetro que é um número, booleano ou nulo. Use `-f` para passar parâmetros de string
+For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
 
 {% note %}
 
-**Observação**: {% data variables.product.prodname_cli %} no momento não aceita parâmetros que são matrizes. Para obter mais informações, consulte [este problema](https://github.com/cli/cli/issues/1484).
+**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
 
 {% endnote %}
 
@@ -419,7 +419,7 @@ gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/oct
 
 {% javascript %}
 
-Ao fazer uma solicitação com Octokit.js, todos os parâmetros, incluindo os parâmetros de consulta, são passados em um objeto como o segundo argumento para o método `solicitação`.
+When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -435,7 +435,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-Para o cURL, adicione um `?` ao final do caminho e, em seguida, anexe o nome e o valor do parâmetro de consulta na forma `parameter_name=value`. Separe os parâmetros múltiplos de consulta com `&`.
+For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
 
 ```shell
 curl --request GET \
@@ -446,21 +446,21 @@ curl --request GET \
 
 {% endcurl %}
 
-A operação retorna uma lista de problemas e dados sobre cada problema. Para obter mais informações sobre como usar a resposta, consulte a seção "[Usando a resposta](#using-the-response).
+The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
 
-## Usando parâmetros do texto
+## Using body parameters
 
-Os parâmetros do texto permitem que você passe dados adicionais para a API. Por exemplo, a operação "Criar um problema" exige que você especifique um título para o novo problema. Ela também permite especificar outras informações, como texto para colocar no texto do problema. Para a documentação completa de referência para esta operação, consulte "[Criar um problema](/rest/issues/issues#create-an-issue)".
+Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
 
-A operação "Criar um problema" usa o mesmo caminho da operação "Listar problemas de repositório" nos exemplos acima, mas usa um método `POST` em vez de um método `GET`.
+The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
 
 {% cli %}
 
-Para {% data variables.product.prodname_cli %}, use o sinalizador `-F` para passar um parâmetro que é um número, booleano ou nulo. Use `-f` para passar parâmetros de string
+For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
 
 {% note %}
 
-**Observação**: {% data variables.product.prodname_cli %} no momento não aceita parâmetros que são matrizes. Para obter mais informações, consulte [este problema](https://github.com/cli/cli/issues/1484).
+**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
 
 {% endnote %}
 
@@ -472,7 +472,7 @@ gh api --header 'Accept: application/vnd.github.v3+json' --method POST /repos/oc
 
 {% javascript %}
 
-Ao fazer uma solicitação com Octokit.js, todos os parâmetros, incluindo os parâmetros de texto, são passados em um objeto como o segundo argumento para o método `solicitação`.
+When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
 
 ```javascript
 await octokit.request("POST /repos/{owner}/{repo}/issues", {
@@ -487,7 +487,7 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-Para o cURL, use o sinalizador `--data` para passar os parâmetros de texto em um objeto do JSON.
+For cURL, use the `--data` flag to pass the body parameters in a JSON object.
 
 ```shell
 curl --request POST \
@@ -502,27 +502,27 @@ curl --request POST \
 
 {% endcurl %}
 
-A operação cria um problema e retorna dados sobre o novo problema. Na resposta, encontre o `html_url` do seu problema e acesse o seu problema no navegador. Para obter mais informações sobre como usar a resposta, consulte a seção "[Usando a resposta](#using-the-response).
+The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
 
-## Usando a resposta
+## Using the response
 
-### Sobre o código de resposta e cabeçalhos
+### About the response code and headers
 
-Cada solicitação retornará um código de status HTTP que indica o sucesso da resposta. Para obter mais informações sobre códigos de resposta, consulte [a documentação de código de status de resposta de HTTP MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+Every request will return an HTTP status code that indicates the success of the response. For more information about response codes, see [the MDN HTTP response status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-Além disso, a resposta incluirá cabeçalhos que fornecem mais detalhes sobre a resposta. Os cabeçalhos que começam com `X-` ou `x-` são personalizados para {% data variables.product.company_short %}. Por exemplo, os cabeçalhos `x-ratelimit-remaining` e `x-ratelimit-reset` mostram quantas solicitações você pode fazer em um período de tempo.
+Additionally, the response will include headers that give more details about the response. Headers that start with `X-` or `x-` are custom to {% data variables.product.company_short %}. For example, the `x-ratelimit-remaining` and `x-ratelimit-reset` headers tell you how many requests you can make in a time period.
 
 {% cli %}
 
-Para ver o código de status e os cabeçalhos, use o sinalizador `--include` ou `--i` ao enviar sua solicitação.
+To view the status code and headers, use the `--include` or `--i` flag when you send your request.
 
-Por exemplo, essa solicitação:
+For example, this request:
 
 ```shell
 gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
 ```
 
-retorna o código de resposta e cabeçalhos como:
+returns the response code and headers like:
 
 ```shell
 HTTP/2.0 200 OK
@@ -554,15 +554,15 @@ X-Ratelimit-Used: 4
 X-Xss-Protection: 0
 ```
 
-Neste exemplo, o código de resposta é `200`, o que indica uma solicitação bem-sucedida.
+In this example, the response code is `200`, which indicates a successful request. 
 
 {% endcli %}
 
 {% javascript %}
 
-Ao fazer uma solicitação com o Octokit.js, o método `solicitação` retorna uma promessa. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
+When you make a request with Octokit.js, the `request` method returns a promise. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
 
-Você pode usar um bloco `try/catch` para capturar um erro, caso ocorra. Por exemplo, se o pedido no script seguinte for bem-sucedido, o script registrará o código de status e o valor do cabeçalho `x-ratelimit-restante`. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
+You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
 
 ```javascript
 try {
@@ -583,9 +583,9 @@ try {
 
 {% curl %}
 
-Para ver o código de status e os cabeçalhos, use o sinalizador `--include` ou `--i` ao enviar sua solicitação.
+To view the status code and headers, use the `--include` or `--i` flag when you send your request.
 
-Por exemplo, essa solicitação:
+For example, this request:
 
 ```shell
 curl --request GET \
@@ -595,7 +595,7 @@ curl --request GET \
 --include
 ```
 
-retorna o código de resposta e cabeçalhos como:
+returns the response code and headers like:
 
 ```shell
 HTTP/2 200
@@ -625,13 +625,13 @@ content-length: 4936
 x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
 ```
 
-Neste exemplo, o código de resposta é `200`, o que indica uma solicitação bem-sucedida.
+In this example, the response code is `200`, which indicates a successful request. 
 
 {% endcurl %}
 
-### Sobre o texto de resposta
+### About the response body
 
-Muitas operações retornarão um texto de resposta. A menos que seja especificado, o texto da resposta está em formato JSON. Por exemplo, esta solicitação retorna uma lista de problemas com dados sobre cada problema:
+Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
 
 {% cli %}
 
@@ -674,13 +674,13 @@ For example, you can use `>` to redirect the response to a file:
 gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
 ```
 
-Em seguida, você pode usar jq para obter o título e o ID do autor de cada problema:
+Then you can use jq to get the title and author ID of each issue:
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-Os dois comandos anteriores retornam algo parecido a:
+The previous two commands return something like:
 
 ```
 {
@@ -693,13 +693,13 @@ Os dois comandos anteriores retornam algo parecido a:
 }
 ```
 
-Para obter mais informações sobre jq, consulte [a documentação do jq](https://stedolan.github.io/jq/) e [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
 
 {% endcli %}
 
 {% javascript %}
 
-Por exemplo, você pode obter o ID do autor e título de cada problema:
+For example, you can get the title and author ID of each issue:
 
 ```javascript
 try {
@@ -731,13 +731,13 @@ curl --request GET \
 --header "Authorization: Bearer <em>YOUR-TOKEN</em>" > data.json
 ```
 
-Em seguida, você pode usar jq para obter o título e o ID do autor de cada problema:
+Then you can use jq to get the title and author ID of each issue:
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-Os dois comandos anteriores retornam algo parecido a:
+The previous two commands return something like:
 
 ```
 {
@@ -750,12 +750,12 @@ Os dois comandos anteriores retornam algo parecido a:
 }
 ```
 
-Para obter mais informações sobre jq, consulte [a documentação do jq](https://stedolan.github.io/jq/) e [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
 
 {% endcurl %}
 
-## Próximas etapas
+## Next steps
 
-Este artigo demonstrou como listar e criar problemas em um repositório. Para mais adquirir prática, tente comentar sobre um problema, editar o título de um problema ou fechar um problema. Para obter mais informações sobre essas operações, consulte "[Criar um comentário de problema](/rest/issues#create-an-issue-comment)" e "[Atualizar um problema](/rest/issues/issues#update-an-issue)".
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
 
-Para obter mais informações sobre as operações que você pode usar, consulte a [documentação de referência de REST](/rest).
+For more information about the operations that you can use, see the [REST reference documentation](/rest).

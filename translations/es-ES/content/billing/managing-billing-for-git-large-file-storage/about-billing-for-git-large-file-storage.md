@@ -12,9 +12,14 @@ type: overview
 topics:
   - LFS
   - Upgrades
-shortTitle: Acerca de la facturación de LFS de Git
+shortTitle: About Git LFS billing
+ms.openlocfilehash: e09a093aa827d3ed4a25236f42cee65c1c195f14
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145091722'
 ---
-
 ## Acerca de la facturación para {% data variables.large_files.product_name_long %}
 
 {% data reusables.large_files.free-storage-bandwidth-amount %} {% data reusables.large_files.does_not_carry %}
@@ -33,11 +38,11 @@ La compra de paquetes de datos para {% data variables.large_files.product_name_s
 
 Si bajas de categoría tu cantidad de paquetes de datos adicionales, tus cambios entrarán en vigencia en tu próxima fecha de facturación.
 
-## Leer más
+## Información adicional
 
 - "[Acerca de {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[Instalar {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
-- "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"
-- "[Ver tu uso de {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Actualizar {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)"
-- "[Bajar de categoría {% data variables.large_files.product_name_long %}](/articles/downgrading-git-large-file-storage)"
+- "[Instalación de {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
+- "[Acerca del uso del almacenamiento y del ancho de banda](/articles/about-storage-and-bandwidth-usage)"
+- "[Visualización del uso de {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Actualización de {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)"
+- "[Desactualización de {% data variables.large_files.product_name_long %}](/articles/downgrading-git-large-file-storage)"

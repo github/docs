@@ -88,5 +88,11 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
+ms.openlocfilehash: 0d88d53ceab2204eec9038d6726eb851d55ab495
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578552'
 ---
 

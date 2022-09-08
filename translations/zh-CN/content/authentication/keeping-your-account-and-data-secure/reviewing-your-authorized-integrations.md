@@ -13,24 +13,26 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 授权集成
+shortTitle: Authorized integrations
+ms.openlocfilehash: ec67e7b18b4ad898cd53b4773b299d90bc3dc9e5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084643'
 ---
-
 ## 审查授权的 {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %} {% data reusables.user-settings.review-oauth-apps %}
 
 ## 审查授权的 {% data variables.product.prodname_github_apps %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-3. 单击 **Authorized {% data variables.product.prodname_github_apps %}s（授权的 GitHub 应用程序）**选项卡。 ![授权的 {% data variables.product.prodname_github_apps %}选项卡](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
-3. 审查有您帐户访问权限的 {% data variables.product.prodname_github_apps %}。 对于您无法识别或已过期的应用程序，请单击 **Revoke（撤销）**。 要撤销所有 {% data variables.product.prodname_github_apps %}，请单击 **Revoke all（全部撤销）**。 ![授权的 {% data variables.product.prodname_github_app %}列表](/assets/images/help/settings/revoke-github-app.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %}
+3. 单击“授权的 {% data variables.product.prodname_github_apps %}”选项卡。![“授权的 {% data variables.product.prodname_github_apps %}”选项卡](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
+3. 审查有您帐户访问权限的 {% data variables.product.prodname_github_apps %}。 对于无法识别或已过期的密钥，请单击“撤销”。 要撤销所有 {% data variables.product.prodname_github_apps %}，请单击“全部撤销”。
+   ![授权的 {% data variables.product.prodname_github_app %}列表](/assets/images/help/settings/revoke-github-app.png)
 
 ## 延伸阅读
 {% ifversion fpt or ghec %}
-- “[关于集成](/articles/about-integrations)”{% endif %}
-- “[审查您的授权应用程序 (OAuth)](/articles/reviewing-your-authorized-applications-oauth)”
+- [关于集成](/articles/about-integrations){% endif %}
+- [审查授权的应用程序 (OAuth)](/articles/reviewing-your-authorized-applications-oauth)

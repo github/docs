@@ -16,27 +16,37 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: 管理 wiki 网页
+shortTitle: Manage wiki pages
+ms.openlocfilehash: f163818a903d7c8261bd4c0b0268d748f578702f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147425262'
 ---
-
 ## 添加 wiki 页面
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. 在页面的右上角，单击 **New Page（新页面）**。 ![Wiki 新页面按钮](/assets/images/help/wiki/wiki_new_page_button.png)
-4. 或者，要以 Markdown 以外的格式，请使用 Edit（编辑）模式下拉菜单，并单击不同的格式。 ![Wiki 标记选择](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. 输入提交消息，描述所添加的新文件。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
-7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. 在页面的右上角，单击“新页面”。
+  ![Wiki 新页面按钮](/assets/images/help/wiki/wiki_new_page_button.png)
+4. 或者，要以 Markdown 以外的格式，请使用 Edit（编辑）模式下拉菜单，并单击不同的格式。
+  ![Wiki 标记选择](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. 使用文本编辑器添加页面内容。
+  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 输入提交消息，描述所添加的新文件。
+  ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
+7. 要将更改提交到 Wiki，请单击“保存页面”。
 
 ## 编辑 wiki 页面
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击 **Edit（编辑）**。 ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor to edit the page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. 输入提交消息，描述您的更改。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
-7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击“编辑”。
+   ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. 使用文本编辑器编辑页面内容。
+   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 输入提交消息，描述您的更改。
+   ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
+7. 要将更改提交到 Wiki，请单击“保存页面”。
 
 ## 本地添加或编辑 wiki 页面
 
@@ -44,7 +54,8 @@ Wiki 是 Git 仓库的一部分，因此您可以在本地进行更改，然后�
 
 ### 克隆 wiki 到计算机
 
-每个 wiki 都提供一种将其内容克隆到计算机的简易方式。 在 {% data variables.product.product_name %} 上创建初始页面后，您可以使用提供的 URL 将存储库克隆到您的计算机：
+每个 wiki 都提供一种将其内容克隆到计算机的简易方式。
+在 {% data variables.product.product_name %} 上创建初始页面后，可以使用提供的 URL 将存储库克隆到计算机：
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
@@ -57,6 +68,6 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 文件名确定 wiki 页面的标题，文件扩展名确定 wiki 内容如何呈现。
 
-Wiki 使用[我们的开源 Markup 库](https://github.com/github/markup)转换标记，它根据文件扩展名确定要使用的转换器。 例如，如果您将文件命名为 *foo.md* 或 *foo.markdown*，wiki 将会使用 Markdown 转换器，而名为 *foo.textile* 的文件将使用 Textile 转换器。
+Wiki 使用[开放源代码 Markup 库](https://github.com/github/markup)转换标记，它根据文件扩展名确定要使用的转换器。 例如，如果将文件命名为 foo.md 或 foo.markdown，Wiki 将会使用 Markdown 转换器，而名为 foo.textile 的文件将使用 Textile 转换器  。
 
-不要在 wiki 页面标题中使用以下字符：`\ / : * ? " < > |`。 有些操作系统的用户不能使用包含这些字符的文件名。 请确保使用符合扩展名的标记语言编写内容，否则您的内容无法正确呈现。
+请勿在 Wiki 页面标题中使用以下字符：`\ / : * ? " < > |`。 有些操作系统的用户不能使用包含这些字符的文件名。 请确保使用符合扩展名的标记语言编写内容，否则您的内容无法正确呈现。

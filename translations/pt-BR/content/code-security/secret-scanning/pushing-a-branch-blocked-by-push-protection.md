@@ -1,6 +1,6 @@
 ---
-title: Enviar por push um branch bloqueado por proteção de push
-intro: 'O recurso de proteção de push do {% data variables.product.prodname_secret_scanning %} protege você proativamente contra segredos vazados nos seus repositórios. Você pode resolver pushes bloqueados e, uma vez que o segredo detectado for removido, você poderá fazer push das alterações para seu branch de trabalho pela linha de comando ou pela interface da web.'
+title: Pushing a branch blocked by push protection
+intro: 'The push protection feature of {% data variables.product.prodname_secret_scanning %} proactively protects you against leaked secrets in your repositories. You can resolve blocked pushes and, once the detected secret is removed, you can push changes to your working branch from the command line or the web UI.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,54 +11,55 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Enviar por push um branch bloqueado
+shortTitle: Push a blocked branch
 ---
 
-## Sobre a proteção push para {% data variables.product.prodname_secret_scanning %}
+## About push protection for {% data variables.product.prodname_secret_scanning %}
 
-O recurso de proteção de push do {% data variables.product.prodname_secret_scanning %} ajuda a evitar fugas de segurança por meio da digitalização de segredos antes de fazer push das alterações no seu repositório. {% data reusables.secret-scanning.push-protection-overview %} Para obter informações sobre os segredos e prestadores de serviço compatíveis com a proteção de push, consulte "[Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)".
+The push protection feature of {% data variables.product.prodname_secret_scanning %} helps to prevent security leaks by scanning for secrets before you push changes to your repository. {% data reusables.secret-scanning.push-protection-overview %} For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
 {% data reusables.secret-scanning.push-protection-remove-secret %}
 
 {% tip %}
 
-**Dica** Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro para enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido. Para obter mais informações sobre ignorar a proteção push para um segredo, consulte "[Permitindo que um segredo bloqueado seja enviado por push](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)" e "[Ignorando proteção de push para um segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)" para a linha de comando e a interface web, respectivamente.
+**Tip** 
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. For more information about bypassing push protection for a secret, see "[Allowing a blocked secret to be pushed](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)" and "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)" for the command line and the web UI, respectively. 
 
 {% endtip %}
 
-{% ifversion push-protection-custom-link-orgs %}
+{% ifversion push-protection-custom-link-orgs %} 
 
-Os administradores da organização podem fornecer um link personalizado que será incluído na mensagem de {% data variables.product.product_name %} quando seu push estiver bloqueado. Este link personalizado pode conter recursos e conselhos específicos para sua organização e suas políticas.
+Organization admins can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
 
 {% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
 
 {% endif %}
 
-## Resolvendo um push bloqueado na linha de comando
+## Resolving a blocked push on the command line
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-Se o segredo bloqueado foi introduzido pelo último commit no seu branch, você pode seguir as orientações abaixo.
+If the blocked secret was introduced by the latest commit on your branch, you can follow the guidance below.
 
-1. Remova o segredo do seu código.
-1. Envie as alterações usando `git commit --amend`.
-1. Faça push das suas alterações com `git push`.
+1. Remove the secret from your code.
+1. Commit the changes, by using `git commit --amend`.
+1. Push your changes with `git push`.
 
-Você também pode remover o segredo se o segredo aparecer em um commit anterior no histórico do Git.
+You can also remove the secret if the secret appears in an earlier commit in the Git history.
 
-1. Use `git log` para determinar qual commit surgiu primeiro no erro de push no histórico.
-1. Inicie um rebase interativo com `git rebase -i <commit-id>~1`. <commit-id> é o id do commit da etapa 1.
-1. Identifique seu commit a ser editado alterando `escolha` para `editar` na primeira linha do texto que aparece no editor.
-1. Remova o segredo do seu código.
-1. Faça commit da alteração com `git commit --amend`.
-1. Executar `git rebase --continue` para terminar o rebase.
+1. Use `git log` to determine which commit surfaced in the push error came first in history.
+1. Start an interactive rebase with `git rebase -i <commit-id>~1`. <commit-id> is the id of the commit from step 1.
+1. Identify your commit to edit by changing `pick` to `edit` on the first line of the text that appears in the editor.
+1. Remove the secret from your code.
+1. Commit the change with `git commit --amend`.
+1. Run `git rebase --continue` to finish the rebase.
 
-## Resolvendo um commit bloqueado na interface web
+## Resolving a blocked commit in the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-Para resolver um commit bloqueado na interface do usuário web, você deverá remover o segredo do arquivo, ou use o menu suspenso **Proteção de Bypass** para permitir o segredo. Para obter mais informações sobre como contornar a proteção de push da interface de usuário da web, consulte "[Protegendo pushes com a digitalização de segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)".
+To resolve a blocked commit in the web UI, you need to remove the secret from the file, or use the **Bypass protection** dropdown to allow the secret. For more information about bypassing push protection from the web UI, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
 
-Se você confirmar um segredo é real, você deverá remover o segredo do arquivo. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.
+If you confirm a secret is real, you need to remove the secret from the file. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.

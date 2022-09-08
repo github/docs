@@ -1,63 +1,68 @@
 ---
-title: Configuring notifications in GitHub Desktop
-shortTitle: Configurar notificaciones
-intro: '{% data variables.product.prodname_desktop %} will keep you up-to-date with notifications about events that occur in your pull request branch.'
+title: Configuración de notificaciones en GitHub Desktop
+shortTitle: Configuring notifications
+intro: '{% data variables.product.prodname_desktop %} te mantendrá al día con las notificaciones sobre los eventos que se producen en la rama de la solicitud de incorporación de cambios.'
 versions:
   fpt: '*'
+ms.openlocfilehash: e7d99c4c81b64facae41b7697cde9d454e15e96a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060438'
 ---
+## Acerca de las notificaciones en {% data variables.product.prodname_desktop %}
 
-## About notifications in {% data variables.product.prodname_desktop %}
+{% data variables.product.prodname_desktop %} mostrará una notificación del sistema para los eventos que se producen en el repositorio seleccionado actualmente. Las notificaciones se mostrarán en los casos siguientes:
 
-{% data variables.product.prodname_desktop %} will show a system notification for events that occur in the currently selected repository. Notifications will be shown when:
+- Cuando se han producido errores en las comprobaciones de una solicitud de incorporación de cambios.
+- Cuando la revisión de una solicitud de incorporación de cambios se deja con un comentario, una aprobación o cambios solicitados.
 
-- Pull request checks have failed.
-- A pull request review is left with a comment, approval, or requested changes.
+Al hacer clic en la notificación, el foco de la aplicación cambiará a {% data variables.product.prodname_desktop %} y se proporcionará información más detallada.
 
-Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more detailed information.
+## Notificaciones sobre errores en la comprobación de solicitudes de incorporación de cambios
 
-## Notifications about pull request check failures
+Cuando se realicen cambios en una rama de solicitud de incorporación de cambios, recibirás una notificación si se produce un error en las comprobaciones.
 
-When changes are made to a pull request branch, you will receive a notification if the checks fail.
+![Notificación de errores en las comprobaciones de una solicitud de incorporación de cambios](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
+Al hacer clic en la notificación, se mostrará un cuadro de diálogo con más información sobre las comprobaciones. Una vez que hayas revisado por qué se han producido errores en las comprobaciones, puedes volver a ejecutarlas o cambiar rápidamente a la rama de solicitud de incorporación de cambios para empezar a corregir los errores. Para obtener más información, consulta "[Visualización y nueva ejecución de comprobaciones en GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
 
-Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed, you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. Para obtener más información, consulta la sección "[Ver y volver a ejecutar las verificaciones en GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
+![Cuadro de diálogo de errores en la comprobación](/assets/images/help/desktop/checks-failed-dialog.png)
+## Notificaciones para las revisiones de solicitudes de incorporación de cambios
 
-![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
-## Notifications for pull request reviews
+{% data variables.product.prodname_desktop %} mostrará una notificación del sistema cuando un compañero de equipo haya aprobado, comentado o solicitado cambios en tu solicitud de incorporación de cambios. Consulta "[Acerca de las revisiones de solicitudes de incorporación de cambios](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)" para obtener más información sobre dichas revisiones.
 
-{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See "[About pull request reviews](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)" for more information on pull request reviews.
+![Notificación de revisión de solicitudes de incorporación de cambios](/assets/images/help/desktop/pull-request-review-notification.png)
 
-![Pull request review notification](/assets/images/help/desktop/pull-request-review-notification.png)
+Al hacer clic en la notificación, el foco de la aplicación cambiará a {% data variables.product.prodname_desktop %} y se proporcionará más contexto sobre el comentario de revisión de la solicitud de incorporación de cambios.
 
-Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more context for the pull request review comment.
+![Cuadro de diálogo de revisión de la solicitud de incorporación de cambios](/assets/images/help/desktop/pull-request-review-dialog.png)
+## Habilitación de las notificaciones
 
-![pull request review dialog](/assets/images/help/desktop/pull-request-review-dialog.png)
-## Enabling notifications
-
-If system notifications are disabled for {% data variables.product.prodname_desktop %} you can follow the steps below to enable them.
+Si las notificaciones del sistema están deshabilitadas para {% data variables.product.prodname_desktop %}, sigue los pasos que se indican a continuación para habilitarlas.
 
 {% mac %}
 
-1. Click the **Apple** menu, then select **System Preferences**.
-2. Select **Notifications & Focus**.
-3. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
-4. Click **Allow Notifications**.
+1. Haz clic en el menú **Apple** y selecciona **Preferencias del sistema**.
+2. Selecciona **Notificaciones y foco**.
+3. Selecciona **{% data variables.product.prodname_desktop %}** en la lista de aplicaciones.
+4. Haz clic en **Permitir notificaciones**.
 
-![macOS Notifications & Focus](/assets/images/help/desktop/mac-enable-notifications.png)
+![Notificaciones y foco en macOS](/assets/images/help/desktop/mac-enable-notifications.png)
 
-For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
+Para obtener más información sobre las notificaciones del sistema en macOS, consulta "[Uso de notificaciones en el equipo Mac](https://support.apple.com/en-us/HT204079)".
 
 {% endmac %}
 
 {% windows %}
 
-1. Open the **Start** menu, then select **Settings**.
-2. Select **System**, then click **Notifications**.
-3. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
+1. Abre el menú **Inicio** y selecciona **Configuración**.
+2. Selecciona **Sistema** y haz clic en **Notificaciones**.
+3. Busca **{% data variables.product.prodname_desktop %}** en la lista de aplicaciones y haz clic en **Activar**.
 
-![Enable Windows Notifications](/assets/images/help/desktop/windows-enable-notifications.png)
+![Habilitación de notificaciones en Windows](/assets/images/help/desktop/windows-enable-notifications.png)
 
-For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
+Para obtener más información sobre las notificaciones del sistema en Windows, consulta "[Cambio de la configuración de notificación en Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)".
 
 {% endwindows %}

@@ -1,6 +1,6 @@
 ---
 title: GitHub Sponsors 文档
-shortTitle: GitHub 赞助者
+shortTitle: GitHub Sponsors
 intro: '投资于您依赖的开源项目，支持数字基础设施，并通过赞助开放源码贡献者及其项目实现开放源码事业。 创建 {% data variables.product.prodname_sponsors %} 个人资料并为您的开源工作获得补偿。'
 introLinks:
   quickstart: /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
@@ -38,8 +38,13 @@ children:
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
   - /guides
+ms.openlocfilehash: 1878df4a6915a3e1336f79705d4ac4e70794e7ed
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147431870'
 ---
-
 <!---->
 <!---->
 <!---->
