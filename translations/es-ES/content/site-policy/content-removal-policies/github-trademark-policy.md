@@ -9,39 +9,39 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 289a04f894172d8adcaf0c32fe129efb524d8941
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556722'
 ---
-## <a name="what-is-a-github-trademark-policy-violation"></a>¿Qué es una infracción de la directiva de marcas comerciales de GitHub?
+## ¿Qué es una infracción de la directiva de marcas comerciales de GitHub?
 
 El uso del nombre, logotipo u otros materiales protegidos por marcas comerciales de una empresa o negocio de una manera que pueda inducir a error o confundir a otras personas con respecto a su marca o afiliación comercial puede considerarse una infracción de la directiva de marcas comerciales.
 
-## <a name="what-is-not-a-github-trademark-policy-violation"></a>¿Qué no es una infracción de la directiva de marcas comerciales de GitHub?
+## ¿Qué no es una infracción de la directiva de marcas comerciales de GitHub?
 
 El uso de la marca comercial de otra persona de una manera que no tenga nada que ver con el producto o servicio para el que se otorgó la marca comercial no constituye una infracción de la directiva de marcas comerciales. Los nombres de usuario de GitHub están disponibles para los primeros que los soliciten y no se pueden reservar. Una cuenta de GitHub con un nombre de usuario que es igual a una marca comercial registrada no constituye, en sí misma, una infracción de nuestra directiva de marcas comerciales.
 
-## <a name="how-does-github-respond-to-reported-trademark-policy-violations"></a>¿Cómo responde GitHub a las infracciones de la directiva de marcas comerciales denunciadas?
+## ¿Cómo responde GitHub a las infracciones de la directiva de marcas comerciales denunciadas?
 
 Cuando recibimos denuncias de infracciones de la directiva de marcas comerciales de los titulares de registros de marcas comerciales internacionales o federales, revisamos la cuenta y podemos tomar las siguientes medidas:
 
 * Si existe una intención clara de engañar a otras personas mediante el uso no autorizado de una marca comercial, GitHub suspenderá la cuenta y se lo notificará al titular.
 * Cuando determinemos que una cuenta parece confundir a los usuarios, pero no se hace pasar deliberadamente por el producto o servicio de la marca comercial, le damos al titular de la cuenta la oportunidad de aclarar cualquier posible confusión. También podemos publicar un nombre de usuario para el uso activo del titular de la marca.
 
-## <a name="how-do-i-report-a-trademark-policy-violation"></a>¿Cómo denuncio una infracción de la directiva de marcas comerciales?
+## ¿Cómo denuncio una infracción de la directiva de marcas comerciales?
 
 Los titulares de marcas comerciales registradas pueden denunciar posibles infracciones de la directiva de marcas comerciales a GitHub a través de nuestro [formulario de contacto](https://support.github.com/contact?tags=docs-trademark). Envíe las solicitudes relacionadas con las marcas registradas utilizando la dirección de correo electrónico de su empresa e incluya toda la información que indicamos a continuación para acelerar nuestra respuesta. Asegúrese también de describir claramente por qué la cuenta puede confundirse con su marca o cómo la cuenta puede perjudicar a su marca.
 
-## <a name="what-information-is-required-when-reporting-trademark-policy-violations"></a>¿Qué información se necesita para denunciar infracciones de la directiva de marcas comerciales?
+## ¿Qué información se necesita para denunciar infracciones de la directiva de marcas comerciales?
 
 Para investigar las infracciones de la directiva de marcas comerciales, proporcione toda la información siguiente:
 
 * Nombre de usuario de la cuenta denunciada
 * El nombre de su empresa
 * La cuenta de GitHub de su empresa (si existe)
-* Sitio Web de la empresa
+* Sitio web de la empresa
 * La palabra, símbolo, etc., de la marca comercial
 * Número de registro de marca comercial
 * Oficina del registro de marcas (por ejemplo, USPTO)

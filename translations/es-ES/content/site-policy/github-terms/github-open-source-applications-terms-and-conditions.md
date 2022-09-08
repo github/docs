@@ -9,21 +9,21 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 0e0eae030624b3b465c321690d9d9e08c6483bed
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556792'
 ---
 Estos Términos y Condiciones de las Aplicaciones de Código Abierto de GitHub («Términos de Aplicaciones») son un acuerdo legal entre usted (ya sea como particular o en nombre de una entidad) y GitHub, Inc. con respecto a su uso de las aplicaciones de GitHub, como GitHub Desktop™ y la documentación asociada («Software»). Estos Términos de Aplicaciones se aplican a la versión del código ejecutable del Software. El código fuente del Software está disponible por separado y de forma gratuita según los acuerdos de licencia del software de código abierto. Si no está de acuerdo con todos los términos de estos Términos de Aplicaciones, no descargue, instale, use ni copie el Software.
 
-## <a name="connecting-to-github"></a>Conexión a GitHub
+## Conexión a GitHub
 
 Si configura el Software para que funcione con una o varias cuentas en el sitio web GitHub.com o con una instancia de GitHub Enterprise, el uso del Software también se regirá por los Términos de Servicio del sitio web GitHub.com aplicables y/o el acuerdo de licencia correspondiente a su instancia de GitHub Enterprise («Términos de GitHub»).
 
 Cualquier uso del Software que infrinja los Términos de GitHub aplicables también supondrá un infracción de estos Términos de Aplicaciones.
 
-## <a name="open-source-licenses-and-notices"></a>Avisos y Licencias de Código Abierto
+## Avisos y Licencias de Código Abierto
 
 La licencia de código abierto para el Software se incluye en la documentación «Avisos de Código Abierto» que se incluye con el Software. Dicha documentación también incluye copias de todas las licencias de código abierto aplicables.
 
@@ -31,17 +31,17 @@ En la medida en que los términos de las licencias aplicables a los componentes 
 
 A menos que se acuerde lo contrario por escrito con GitHub, el acuerdo con GitHub siempre incluirá, como mínimo, estos Términos de Aplicaciones. Las licencias de software de código abierto para el código fuente del Software constituyen acuerdos por escrito independientes. Con el limitado alcance en que las licencias de software de código abierto sustituyan expresamente estos Términos de Aplicaciones, las licencias de código abierto rigen el acuerdo con GitHub para el uso del Software o de componentes específicos incluidos en el Software.
 
-## <a name="githubs-logos"></a>Logotipos de GitHub
+## Logotipos de GitHub
 
 La licencia otorgada incluida con el Software no es para las marcas comerciales de GitHub, que incluyen los diseños del logotipo del Software. GitHub se reserva todos los derechos de marca registrada y de derechos de autor en y para todas las marcas registradas de GitHub. Los logotipos de GitHub incluyen, por ejemplo, los diseños estilizados que contienen «logo» en el título del archivo en la carpeta «logos».
 
 Los nombres GitHub, GitHub Desktop, GitHub para Mac, GitHub para Windows, Atom, the Octocat y los logotipos y/o nombres estilizados de GitHub relacionados son marcas comerciales de GitHub. Usted se compromete a no mostrar ni utilizar estas marcas registradas en modo alguno sin el permiso previo y por escrito de GitHub, salvo lo permitido por la Directiva de Uso y Logotipos de GitHub: https://github.com/logos.
 
-## <a name="privacy"></a>Privacidad
+## Privacidad
 
 El Software puede recopilar datos personales. Usted puede controlar los datos que recopila el Software en el panel de configuración. Si el Software recopila datos personales en nombre de GitHub, GitHub tratará dichos datos de acuerdo con la [Declaración de Privacidad de GitHub](/articles/github-privacy-statement/).
 
-## <a name="additional-services"></a>Servicios adicionales
+## Servicios adicionales
 
 **Servicios de Actualización Automática**
 
@@ -55,7 +55,7 @@ USTED ENTIENDE Y ACEPTA EXPRESAMENTE QUE GITHUB NO SERÁ RESPONSABLE DE NINGÚN 
 
 GitHub se reserva el derecho en cualquier momento y de forma periódica de modificar o interrumpir, de forma temporal o permanente, el Servicio (o cualquier parte del mismo) con o sin previo aviso. GitHub no será responsable ante usted ni ante ningún tercero por ningún cambio de precio, suspensión o interrupción del Servicio.
 
-## <a name="miscellanea"></a>Otras disposiciones
+## Otras disposiciones
 
 1. Prohibición de renuncias. El hecho de que GitHub no ejerza ni exija ningún derecho o disposición de estos Términos de Aplicaciones no constituirá una renuncia a dicho derecho o disposición.
 
@@ -69,4 +69,4 @@ GitHub se reserva el derecho en cualquier momento y de forma periódica de modif
 
 6. Directivas de Concesión de Licencias a GitHub. La licencia de estos Términos de Aplicaciones se otorga bajo esta [Licencia Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obtener más información, consulte nuestro [repositorio de directivas del sitio](https://github.com/github/site-policy#license).
 
-7. Contacto. ¿Tiene alguna pregunta sobre los Términos del Servicio? [Póngase en contacto con nosotros](https://support.github.com/contact?tags=docs-policy).
+7. Contacto. ¿Tiene alguna pregunta sobre los Términos del Servicio? [Contáctenos](https://support.github.com/contact?tags=docs-policy).

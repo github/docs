@@ -11,10 +11,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: ee7ad9a57437858e33a51bedf6b03fcf48606079
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556832'
 ---
 ¿Es un agente de la ley que está realizando una investigación para la que podría necesitar contenido de usuario alojado en GitHub?
@@ -28,7 +28,7 @@ Sin embargo, antes de entrar en detalles, aquí tiene algunos datos importantes 
 - No revelaremos **datos de seguimiento de la ubicación**, como registros de direcciones IP, sin una [orden judicial válida o una orden de registro](#with-a-court-order-or-a-search-warrant).
 - No revelaremos ningún **contenido de usuario privado**, incluido el contenido de repositorios privados, sin una [orden de registro](#only-with-a-search-warrant) válida.
 
-## <a name="about-these-guidelines"></a>Acerca de estas directrices
+## Acerca de estas directrices
 
 Nuestros usuarios nos confían sus proyectos de software y su código, algo que muchas veces son sus activos comerciales o personales más valiosos.
 Mantener esa confianza es esencial para nosotros, lo que significa que los datos de los usuarios deben mantenerse seguros, protegidos y privados.
@@ -42,7 +42,7 @@ Nuestros usuarios deben saber que valoramos su información privada y que hacemo
 Como mínimo, esto significa que solo divulgamos datos a terceros cuando se cumplan los requisitos legales correspondientes.
 Del mismo modo, también esperamos educar a los profesionales de las fuerzas del orden sobre los sistemas de GitHub para que puedan adaptar de manera más eficiente sus solicitudes de datos y enfocarse solo en la información necesaria para realizar su investigación.
 
-## <a name="github-terminology"></a>Terminología de GitHub
+## Terminología de GitHub
 
 Antes de pedirnos que divulguemos datos, podría ser útil saber cómo está implementado nuestro sistema.
 GitHub aloja millones de repositorios de datos con el [sistema de control de versiones Git](https://git-scm.com/video/what-is-version-control).
@@ -69,7 +69,7 @@ Si un usuario u organización tiene una página de GitHub, esta se suele encontr
 Al igual que los repositorios normales de GitHub, los Gists se crean con Git, por lo que se versionan, bifurcan y descargan automáticamente.
 Los Gists pueden ser públicos o secretos (solo se puede acceder a ellos a través de una URL conocida). Los Gists públicos no se pueden convertir en Gists secretos.
 
-## <a name="user-data-on-githubcom"></a>Datos de usuario en GitHub.com
+## Datos de usuario en GitHub.com
 
 Esta es una lista no exhaustiva de los tipos de datos que mantenemos sobre usuarios y proyectos en GitHub.
 
@@ -139,11 +139,11 @@ Esto puede incluir:
 - <a name="other-data"></a>
 **Otros datos**: además, GitHub recopila datos analíticos, como visitas a páginas e información que ocasionalmente nos ofrecen voluntariamente nuestros usuarios (como comunicaciones con nuestro equipo de soporte, información de encuestas y/o registros en el sitio).
 
-## <a name="we-will-notify-any-affected-account-owners"></a>Notificamos a los propietarios de las cuentas afectadas.
+## Notificamos a los propietarios de las cuentas afectadas.
 
 Nuestra directiva nos obliga a notificar a los usuarios sobre cualquier solicitud pendiente con respecto a sus cuentas o repositorios, a menos que nos lo prohíba la ley o una orden judicial. Antes de divulgar la información del usuario, haremos todo el esfuerzo razonable para notificar a los propietarios de las cuentas afectadas enviándoles un mensaje a su dirección de correo electrónico verificada con una copia de la citación, orden judicial u orden de registro para que tengan la oportunidad de impugnar el proceso legal si así lo desean. En circunstancias extremas (muy raras), podríamos retrasar la notificación si determinamos que esa demora es necesaria para evitar una muerte o daños graves o porque hay una investigación en curso.
 
-## <a name="disclosure-of-non-public-information"></a>Divulgación de información no pública
+## Divulgación de información no pública
 
 Es nuestra política divulgar información de usuario no pública en relación con una investigación civil o penal solo con el consentimiento del usuario o cuando recibimos una citación válida, una demanda de investigación civil, una orden judicial, una orden de registro u otro procedimiento legal válido similar. En ciertas circunstancias extremas (descritas a continuación), también podríamos compartir información limitada, pero solo si se aplica a la naturaleza de las circunstancias. Por lo demás, necesitamos que haya un procedimiento legal.
 GitHub se reserva el derecho de oponerse a cualquier solicitud de información no pública.
@@ -189,7 +189,7 @@ Además de la información no pública de la cuenta y los registros de acceso a 
 - <a name="in-exigent-circumstances"></a>
 **En circunstancias extremas**: si recibimos una solicitud de información bajo ciertas circunstancias extremas (cuando creamos que es necesario divulgarla para evitar una emergencia que implique un peligro mortal o lesiones físicas graves para una persona), podemos divulgar la información limitada que determinemos necesaria para permitir que las fuerzas del orden atiendan la emergencia. Para cualquier otra información, necesitaríamos una citación, una orden de registro o una orden judicial, como se ha explicado más arriba. Por ejemplo, no divulgaremos el contenido de repositorios privados sin una orden de registro. Antes de divulgar información, confirmamos que la solicitud proviene de un organismo del orden público, que una autoridad ha enviado una notificación oficial en la que se resume la emergencia y cómo la información solicitada ayudará a atender la emergencia.
 
-## <a name="cost-reimbursement"></a>Reembolso de los gastos
+## Reembolso de los gastos
 
 De acuerdo con la ley estatal y federal, GitHub puede solicitar el reembolso de los gastos asociados con el cumplimiento de una demanda legal válida, como una citación, una orden judicial o una orden de registro. Solo cobramos algunos gastos y estos reembolsos cubren solo una parte de los gastos en los que realmente incurrimos para cumplir las órdenes legales.
 
@@ -200,11 +200,11 @@ Aunque no cobramos en situaciones de emergencia o en otras circunstancias extrem
 - Entrega de información/datos de suscriptores de más de cinco (5) cuentas: 20 USD por cuenta
 - Búsquedas secundarias: 10 USD por búsqueda
 
-## <a name="data-preservation"></a>Conservación de datos
+## Conservación de datos
 
 Tomaremos medidas para conservar los registros de las cuentas hasta 90 días a petición formal de las fuerzas del orden de los EE. UU. en relación con investigaciones penales oficiales y en espera de que se emita una orden judicial o se inicie otro procedimiento.
 
-## <a name="submitting-requests"></a>Envío de solicitudes
+## Envío de solicitudes
 
 Envíe las solicitudes a:
 
@@ -228,12 +228,12 @@ Procure que sus solicitudes sean lo más específicas y concretas posible, y que
 
 Espere al menos dos semanas a que podamos examinar su solicitud.
 
-## <a name="requests-from-foreign-law-enforcement"></a>Solicitudes de fuerzas del orden extranjeras
+## Solicitudes de fuerzas del orden extranjeras
 
 Como empresa de Estados Unidos con sede en California, GitHub no está obligada a proporcionar datos a gobiernos extranjeros en respuesta a procedimientos legales iniciados por autoridades extranjeras.
 Los agentes de las fuerzas del orden extranjeros que deseen solicitar información de GitHub deben comunicarse con la Oficina de Asuntos Internacionales de la División Penal del Departamento de Justicia de los Estados Unidos.
 GitHub responderá de inmediato a las solicitudes que se emitan a través de un tribunal de los EE. UU. por medio de un tratado de asistencia legal mutua («MLAT») o carta rogatoria.
 
-## <a name="questions"></a>Preguntas
+## Preguntas
 
 ¿Tiene otras preguntas, comentarios o sugerencias? Póngase en contacto con {% data variables.contact.contact_support %}.
