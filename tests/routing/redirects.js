@@ -108,7 +108,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([, to]) => !to.includes('://'))
+        .filter(([from_, to]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -142,7 +142,7 @@ describe('redirects', () => {
   describe('external redirects', () => {
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([, to]) => to.includes('://'))
+        .filter(([from_, to]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)

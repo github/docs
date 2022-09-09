@@ -671,7 +671,7 @@ function getRetryAfterSleep(headerValue) {
   return ms
 }
 
-function checkImageSrc(src) {
+function checkImageSrc(src, $) {
   const pathname = new URL(src, 'http://example.com').pathname
   if (!pathname.startsWith('/')) {
     return { WARNING: "External images can't not be checked" }
