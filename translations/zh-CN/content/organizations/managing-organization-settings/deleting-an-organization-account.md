@@ -12,13 +12,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 删除组织
+shortTitle: Delete organization
+ms.openlocfilehash: e923dcf7fb9135243c5bfe0e68a310719e87ef2e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097328'
 ---
+{% ifversion fpt or ghec %} {% tip %}
 
-{% ifversion fpt or ghec %}
-{% tip %}
-
-**提示**：如果要取消已付费的订阅，可以[将组织下载到 {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) 而非删除组织及其内容。
+提示：如果要取消已付费的订阅，可以[将组织降级到 {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription)，而不是删除组织及其内容。
 
 {% endtip %}
 
@@ -26,18 +30,16 @@ shortTitle: 删除组织
 
 ## 1. 备份组织内容
 
-{% ifversion not ghes %} 删除组织后， {% data variables.product.company_short %} **无法恢复内容**。 因此，在删除组织{% else %}之前{% endif %}，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
+{% ifversion not ghes %} 删除组织后，{% data variables.product.company_short %} 无法恢复内容。 因此，在删除组织{% else %}之前{% endif %}，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**注意：** 如有必要，{% data variables.product.product_location %} 的站点管理员或能部分恢复已删除的组织。 更多信息请参阅“[恢复删除的组织](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)”。
+注意：如有必要，{% data variables.product.product_location %} 的站点管理员或能部分恢复已删除的组织。 有关详细信息，请参阅“[恢复已删除的组织](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)”。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 ## 2. 删除组织
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. 在组织设置页面底部附近，单击 **Delete this Organization（删除此组织）**。 ![删除此组织按钮](/assets/images/help/settings/settings-organization-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. 在组织设置页面底部附近，单击“删除此组织”。
+   ![“删除此组织”按钮](/assets/images/help/settings/settings-organization-delete.png)

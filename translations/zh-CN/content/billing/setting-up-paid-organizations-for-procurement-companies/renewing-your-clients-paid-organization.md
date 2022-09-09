@@ -12,20 +12,24 @@ versions:
 type: how_to
 topics:
   - Organizations
-shortTitle: 更新付费组织
+shortTitle: Renewing paid organization
+ms.openlocfilehash: 2b3f7e96a44cad8acaf782afb6f1c911c74f1c2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084426'
 ---
-
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
 {% tip %}
 
-**提示**：帐单管理员还可以随时[更改组织的付费席位数量](/articles/upgrading-or-downgrading-your-client-s-paid-organization)。
+提示：账单管理员还可随时[更改组织的付费席位数](/articles/upgrading-or-downgrading-your-client-s-paid-organization)。
 
 {% endtip %}
 
 ## 更新组织的信用卡
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.update_payment_method %}
-1. 在“Payment method（付款方式）”下，单击 **New Card（新卡）**。 ![计费新卡按钮](/assets/images/help/billing/billing-new-card-button.png)
-{% data reusables.dotcom_billing.enter-payment-info %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.update_payment_method %}
+1. 在“付款方式”下，单击“新卡”。
+![计费新卡按钮](/assets/images/help/billing/billing-new-card-button.png) {% data reusables.dotcom_billing.enter-payment-info %}

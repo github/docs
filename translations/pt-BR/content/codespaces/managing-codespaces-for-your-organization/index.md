@@ -1,6 +1,6 @@
 ---
 title: Gerenciando codespaces para a sua organização
-shortTitle: Gerenciando sua organização
+shortTitle: Managing your organization
 intro: 'Você pode gerenciar e revisar como os usuários da sua organização podem usar {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -18,5 +18,11 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
+ms.openlocfilehash: d92214a4fd120b5e3833c84dfa453ce181cb1858
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145078'
 ---
 

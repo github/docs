@@ -15,6 +15,7 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   - /codespaces/developing-in-codespaces/creating-a-codespace
@@ -40,7 +41,6 @@ includeGuides:
   - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-  - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types
   - /codespaces/managing-codespaces-for-your-organization/retricting-the-idle-timeout-period
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces

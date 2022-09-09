@@ -1,7 +1,13 @@
-{% ifversion ghec%}
-{% note %}
+---
+ms.openlocfilehash: 03fc37872f6b1894507ab5241402d6a185abbefa
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145068884"
+---
+{% ifversion ghec%} {% note %}
 
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you must follow a different process to configure SAML single sign-on. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+**注**: エンタープライズが {% data variables.product.prodname_emus %} を使っている場合は、別のプロセスに従って SAML シングル サインオンを構成する必要があります。 詳細については、「[エンタープライズ マネージド ユーザーの SAML シングル サインオンの構成](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)」を参照してください。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

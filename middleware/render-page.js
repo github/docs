@@ -1,5 +1,6 @@
 import { get } from 'lodash-es'
 
+import FailBot from '../lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
@@ -7,12 +8,7 @@ import statsd from '../lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
-import { cacheControlFactory } from './cache-control.js'
-
-const browserCacheControl = cacheControlFactory(60) // 1 minute for browsers
-const cdnCacheControl = cacheControlFactory(60 * 60 * 24, {
-  key: 'surrogate-control',
-}) // 24 hours for CDN, we purge this with each deploy
+import { defaultCacheControl } from './cache-control.js'
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -38,12 +34,17 @@ async function buildMiniTocItems(req) {
   return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
 }
 
-export default async function renderPage(req, res, next) {
+export default async function renderPage(req, res) {
   const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
   const { page } = context
   const path = req.pagePath || req.path
-  browserCacheControl(res)
-  cdnCacheControl(res)
 
   // render a 404 page
   if (!page) {
@@ -121,6 +122,8 @@ export default async function renderPage(req, res, next) {
       })
     }
   }
+
+  defaultCacheControl(res)
 
   return nextHandleRequest(req, res)
 }

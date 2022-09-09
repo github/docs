@@ -51,7 +51,7 @@ For more information on workflow run artifacts, see "[Persisting workflow data u
 
 A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`). On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
 
 Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
 
@@ -121,7 +121,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -172,12 +172,12 @@ npm-d5ea0750
 
 ### Using the output of the `cache` action
 
-You can use the output of the `cache` action to do something based on whether a cache hit or miss occurred. If there is a cache miss (an exact match for a cache was not found for the specified `key`), the `cache-hit` output is set to `false`.
+You can use the output of the `cache` action to do something based on whether a cache hit or miss occurred. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
 In the example workflow above, there is a step that lists the state of the Node modules if a cache miss occurred:
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

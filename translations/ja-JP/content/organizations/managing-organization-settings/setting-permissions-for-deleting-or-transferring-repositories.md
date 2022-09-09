@@ -13,13 +13,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: リポジトリ管理ポリシーの設定
+shortTitle: Set repo management policy
+ms.openlocfilehash: 3d5aff7d4a06dae2d3b3bb010ecbf68e186b58d0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145119238'
 ---
-
 コードオーナーは、Organization 内のリポジトリについて、削除や移譲の権限を設定できます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. [Repository deletion and transfer] の下で、[**Allow members to delete or transfer repositories for this organization**] を選択または選択解除します。 ![リポジトリの削除をメンバーに許可するためのチェックボックス](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
-6. [**Save**] をクリックします。
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. [リポジトリの削除と移譲] で **[この Organization のリポジトリの削除または移譲をメンバーに許可する]** を選択するか、選択解除します。
+![リポジトリの削除をメンバーに許可するためのチェックボックス](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
+6. **[保存]** をクリックします。

@@ -8,9 +8,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: 安装应用组织
+shortTitle: Install app organization
+ms.openlocfilehash: bf64ee38839197262852d07c024c72a0742d0e6e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099763'
 ---
-
 {% data reusables.marketplace.marketplace-apps-only %}
 
 {% data reusables.marketplace.marketplace-org-perms %}
@@ -21,31 +26,18 @@ shortTitle: 安装应用组织
 
 ## 在组织中安装 {% data variables.product.prodname_github_app %}
 
-{% data reusables.marketplace.visit-marketplace %}
-{% data reusables.marketplace.browse-to-app %}
-{% data reusables.marketplace.choose-plan %}
-{% data reusables.marketplace.install-buy %}
-{% data reusables.marketplace.confirm-install-account-org %}
-{% data reusables.marketplace.add-payment-method-org %}
-{% data reusables.marketplace.complete-order-begin-installation %}
-8. 如果应用程序需要访问仓库，请决定允许应用程序访问您的所有仓库还是某些仓库，然后选择 **All repositories（所有仓库）**或 **Only select repositories（仅所选仓库）**。 ![用于在所有仓库或某些仓库上安装应用程序的选项单选按钮](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png)
-{% data reusables.marketplace.select-installation-repos %}
-{% data reusables.marketplace.review-app-perms-install %}
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. 如果应用需要访问存储库，请决定是让应用有权访问所有存储库还是某些存储库，然后选择“所有存储库”或“仅所选存储库” 。
+  ![单选按钮，其中包含用于在所有存储库或某些存储库上安装应用的选项](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png) {% data reusables.marketplace.select-installation-repos %} {% data reusables.marketplace.review-app-perms-install %}
 
 ## 在组织中安装 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.saml.saml-session-oauth %}
 
-{% data reusables.marketplace.visit-marketplace %}
-{% data reusables.marketplace.browse-to-app %}
-{% data reusables.marketplace.choose-plan %}
-{% data reusables.marketplace.install-buy %}
-{% data reusables.marketplace.confirm-install-account-org %}
-{% data reusables.marketplace.add-payment-method-org %}
-{% data reusables.marketplace.complete-order-begin-installation %}
-8. 检查有关应用程序对您的个人帐户、组织和数据访问权限的信息，然后单击 **Authorize application（授权应用程序）**。
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. 检查有关应用对个人帐户、组织和数据访问权限的信息，然后单击“授权应用程序”。
 
 ## 延伸阅读
 
-- "[更新组织的支付方式](/articles/updating-your-organization-s-payment-method)"
-- "[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)"
+- [更新组织的付款方式](/articles/updating-your-organization-s-payment-method)
+- [在个人帐户中安装应用](/articles/installing-an-app-in-your-personal-account)

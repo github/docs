@@ -1,6 +1,6 @@
 ---
 title: 关于预接收挂钩
-intro: '*预接收挂钩*是在 {% data variables.product.prodname_ghe_server %} 设备上运行的脚本，可用于实施质量检查。'
+intro: '预接收挂钩是在 {% data variables.product.prodname_ghe_server %} 设备上运行的脚本，可用于实施质量检查。'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,11 +12,16 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+ms.openlocfilehash: a62d5391f9733c4a79ea8ba5d5f8f0d821d47d5c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098022'
 ---
-
 当发生推送时，每个脚本都在隔离的环境中运行，并且可以对推送的内容执行检查。 如果 exit status 为 0，脚本将导致接受推送，如果 exit status 不为零，则会拒绝接受推送。
 
-## 使用场景
+## 使用方案
 使用预接收挂钩来满足业务规则、强制执行法规遵从性，并防止出现某些常见错误。
 
 如何使用预接收挂钩的示例：

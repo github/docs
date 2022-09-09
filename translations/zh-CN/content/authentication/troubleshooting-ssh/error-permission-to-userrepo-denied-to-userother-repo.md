@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 拒绝其他仓库的权限
+shortTitle: Permission denied other-repo
+ms.openlocfilehash: 4d4898e947338e39c5ade86b5ea0a71f54f36f03
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084573'
 ---
+若要解决此问题，请从存储库中移除部署密钥，并改为[将密钥添加到个人帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 
-要解决此问题，请从仓库中删除部署密钥，改为[将密钥添加到您的个人帐户](/articles/adding-a-new-ssh-key-to-your-github-account) 。
-
-如果您正在使用的密钥旨在作为一个 deploy key，请查看[我们的 deploy key 指南](/guides/managing-deploy-keys)了解详细信息。
+如果要使用的密钥为部署密钥，请查看[部署密钥指南](/guides/managing-deploy-keys)了解更多详细信息。

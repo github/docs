@@ -12,25 +12,31 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Automatizar formulários de versão
+shortTitle: Automate release forms
+ms.openlocfilehash: 75c7fe4b79a6103060151742f1277861f23785c4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145193560'
 ---
-  Os parâmetros de consulta são partes opcionais de um URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa, um modelo de problema ou a página de formulário da versão no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
+Os parâmetros de consulta são partes opcionais de um URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa, um modelo de problema ou a página de formulário da versão no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
 
-Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para criar versões que preencham previamente o formulário de versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
+Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para criar versões que preencham previamente o formulário de versões. Para obter mais informações, confira "[Como gerenciar as versões do repositório](/github/administering-a-repository/managing-releases-in-a-repository)".
 
-Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver as permissões adequadas, o URL retornará uma página de erro 404.
+Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver as permissões adequadas, o URL retornará uma página de erro 404.  
 
 ## Parâmetros de consulta compatíveis
 
-| Parâmetro de consulta | Exemplo                                                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tag`                 | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1` cria uma versão com base em uma tag chamada "v1.0.1".                                           |
-| `target`              | `https://github.com/octo-org/octo-repo/releases/new?target=release-1.0.1` cria uma versão com base no commit mais recente para o branch "release-1.0.1".        |
-| `title`               | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1&title=octo-1.0.1` cria uma versão chamada "octo-1.0.1" com base em uma tag chamada "v1.0.1". |
-| `texto`               | `https://github.com/octo-org/octo-repo/releases/new?body=Adds+widgets+support` cria uma versão com a descrição "Adiciona suporte ao widget" no texto da versão. |
-| `prerelease`          | `https://github.com/octo-org/octo-repo/releases/new?prerelease=1` cria uma versão que será identificada como não estando pronta para produção.                  |
+Parâmetro de consulta | Exemplo
+---  | ---
+`tag` | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1` cria uma versão com base em uma tag chamada "v1.0.1".
+`target` | `https://github.com/octo-org/octo-repo/releases/new?target=release-1.0.1` cria uma versão com base no commit mais recente do branch "release-1.0.1".
+`title` | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1&title=octo-1.0.1` cria uma versão chamada "octo-1.0.1" com base em uma tag chamada "v1.0.1".
+`body` | `https://github.com/octo-org/octo-repo/releases/new?body=Adds+widgets+support` cria uma versão com a descrição "Adiciona suporte ao widget" no corpo da versão.
+`prerelease` | `https://github.com/octo-org/octo-repo/releases/new?prerelease=1` cria uma versão que será identificada como pronta para não produção.
 
-## Leia mais
+## Leitura adicional
 
-- "[Criando um problema a partir da consulta de um URL](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
-- "[Usando parâmetros de consulta para criar um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)"
+- "[Como criar um problema por meio de uma consulta de URL](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
+- "[Com usar parâmetros de consulta para criar uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)"

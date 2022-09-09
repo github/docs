@@ -1,6 +1,6 @@
 ---
-title: 'Acerca de las {% data variables.product.prodname_projects_v1 %}'
-intro: 'Los {% data variables.product.prodname_projects_v1_caps %} en {% data variables.product.product_name %} te permiten organizar y priorizar tu trabajo. Puedes crear {% data variables.projects.projects_v1_boards %} para trabajo de características específicas, itinerarios integrales o incluso listas de verificación de lanzamientos. Con {% data variables.product.prodname_projects_v1 %}, tienes la flexibilidad de crear flujos de trabajo personalizados que se acopñlen a tus necesidades.'
+title: 'Acerca de {% data variables.product.prodname_projects_v1 %}'
+intro: '{% data variables.product.prodname_projects_v1_caps %} en {% data variables.product.product_name %} te ayudan a organizar y priorizar el trabajo. Puedes crear instancias de {% data variables.projects.projects_v1_boards %} para un trabajo con características específicas, hojas de ruta completas y hasta listas de comprobación de versiones. Con {% data variables.product.prodname_projects_v1 %}, tienes la flexibilidad de crear flujos de trabajo personalizados adaptados a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
@@ -11,62 +11,69 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 5ec81cf456ddca503e58ca6703ae3372875bd62c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614243'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-Los {% data variables.projects.projects_v1_boards_caps %} se componen de propuestas, solicitudes de cambios y notas que se categorizan como tarjetas en las columnas de tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
+Las instancias de {% data variables.projects.projects_v1_boards_caps %} están formadas por incidencias, solicitudes de incorporación de cambios y notas que se categorizan como tarjetas en las columnas que elijas. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
 
-Las tarjetas de los {% data variables.projects.projects_v1_board_caps %} contienen metadatos relevantes para las propuestas y solicitudes de cambios, como etiquetas, asignados, el estado y quién la abrió. {% data reusables.project-management.edit-in-project %}
+Las tarjetas de {% data variables.projects.projects_v1_board_caps %} contienen metadatos relevantes para las incidencias y las solicitudes de incorporación de cambios, como etiquetas, usuarios asignados, el estado y quién las ha abierto. {% data reusables.project-management.edit-in-project %}
 
-Puedes crear notas dentro de las columnas para que sirvan como recordatorios de tareas, referencias a las propuestas y solicitudes de cambio de cualquier repositorio en {% data variables.product.product_location %} o para agregar la información relacionada con el {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otro {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para obtener más información sobre cómo convertir las notas en propuestas, consulta la sección "[Agregar notas a un {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
+Puedes crear notas dentro de las columnas que sirvan como recordatorios de tareas, referencias a incidencias y solicitudes de incorporación de cambios desde cualquier repositorio en {% data variables.product.product_location %}, o bien para agregar información relacionada con la instancia de {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otra instancia de {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para más información sobre cómo convertir notas en incidencias, consulta "[Adición de notas a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
 
 Tipos de tableros de proyecto:
 
-- **{% data variables.projects.projects_v1_board %} perteneciente a un usuario** puede contener propuestas y solicitudes de cambio de cualquier repositorio personal.
-- **{% data variables.projects.projects_v1_board %} de toda la organización** puede contener propuestas y solicitudes de cambio de cualquier repositorio que le pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta la sección "[Enlazar un repositorio a un {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
-- **{% data variables.projects.projects_v1_board %} de repositorio** se le da un alcance para propuestas y solicitudes de cambios dentro de un repositorio específico. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
+- **Las instancias de {% data variables.projects.projects_v1_board %}** pueden contener incidencias y solicitudes de incorporación de cambios de cualquier repositorio personal.
+- **Las instancias de {% data variables.projects.projects_v1_board %} para toda la organización** pueden contener incidencias y solicitudes de incorporación de cambios de cualquier repositorio que pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para más información, consulta "[Vinculación de un repositorio a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
+- **Las instancias de {% data variables.projects.projects_v1_board %} de repositorio** tienen como ámbito incidencias y solicitudes de incorporación de cambios dentro de un único repositorio. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
 
-## Crear y ver los {% data variables.projects.projects_v1_boards %}
+## Creación y visualización de {% data variables.projects.projects_v1_boards %}
 
-Para crear un {% data variables.projects.projects_v1_board %} de organización, debes ser miembro de ella. Los propietarios de las organizaciones y las personas con permisos administrativos de {% data variables.projects.projects_v1_board %} pueden personalizar el acceso al {% data variables.projects.projects_v1_board %}.
+A fin de crear una instancia de {% data variables.projects.projects_v1_board %} para la organización, debes ser miembro de la organización. Los propietarios de la organización y los usuarios con permisos de administrador de {% data variables.projects.projects_v1_board %} pueden personalizar el acceso a la instancia de {% data variables.projects.projects_v1_board %}.
 
-Si un {% data variables.projects.projects_v1_board %} perteneciente a una organización incluye propuestas o solicitudes de cambio de un repositorio en el cual no tienes permisos de visualización, la tarjeta se redactará.  Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-La vista de actividad muestra el historial reciente del {% data variables.projects.projects_v1_board %}, tal como las tarjetas que haya creado alguien o movido entre columnas. Para acceder a la vista actividad, haz clic en **Menú** y desplázate hacia abajo.
+Si una instancia de {% data variables.projects.projects_v1_board %} propiedad de la organización incluye incidencias o solicitudes de incorporación de cambios de un repositorio del que no tienes permiso para ver, la tarjeta será censurada.  Para más información, consulta "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-Para encontrar tarjetas específicas en un {% data variables.projects.projects_v1_board %} o vista de un subconjunto de las tarjetas, puedes filtrar las tarjetas de {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta la sección "[Filtrar las tarjetas en un {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)".
+En la vista de actividad se muestra el historial reciente de la instancia de {% data variables.projects.projects_v1_board %}, como las tarjetas que alguien ha creado o movido entre las columnas. Para acceder a la vista de actividad, haz clic en **Menú** y desplázate hacia abajo.
 
-Para simplificar tu flujo de trabajo y mantener las tareas completadas fuera de tu {% data variables.projects.projects_v1_board %}, puedes archivarlas. Para obtener más información, consulta la sección "[Archivar las tarjetas en un {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)".
+Para buscar tarjetas específicas en una instancia de {% data variables.projects.projects_v1_board %} o ver un subconjunto de las tarjetas, puedes filtrar las tarjetas de {% data variables.projects.projects_v1_board %}. Para más información, consulta "[Filtrado de tarjetas en una instancia de {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)".
 
-Si completaste todas las tareas de tu {% data variables.projects.projects_v1_board %} o si ya no necesitas utilizar tu {% data variables.projects.projects_v1_board %}, puedes cerrar el {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta la sección "[Cerrar un {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
+Para simplificar el flujo de trabajo y mantener las tareas completadas fuera de la instancia de {% data variables.projects.projects_v1_board %}, puedes archivar tarjetas. Para más información, consulta "[Archivado de tarjetas en una instancia de {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)".
 
-También puedes [inhabilitar los {% data variables.projects.projects_v1_boards %} en un repositorio](/articles/disabling-project-boards-in-a-repository) o [inhabilitar los {% data variables.projects.projects_v1_boards %} en tu organización](/articles/disabling-project-boards-in-your-organization) si prefieres rastrear tu trabajo de otra forma.
+Si ha completado todas las tareas de {% data variables.projects.projects_v1_board %} o ya no necesita usar los datos {% data variables.projects.projects_v1_board %}, puede cerrar los datos {% data variables.projects.projects_v1_board %}. Para más información, consulta "[Cierre de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)".
+
+También puedes [deshabilitar {% data variables.projects.projects_v1_boards %} en un repositorio](/articles/disabling-project-boards-in-a-repository) o [deshabilitar {% data variables.projects.projects_v1_boards %} en la organización](/articles/disabling-project-boards-in-your-organization), si prefieres realizar el seguimiento del trabajo de otra manera.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Plantillas para los {% data variables.projects.projects_v1_boards %}
+## Plantillas para {% data variables.projects.projects_v1_boards %}
 
-Puedes utilizar plantillas para configurar un {% data variables.projects.projects_v1_board %} nuevo. Cuando utilizas una plantilla para crear un {% data variables.projects.projects_v1_board %}, tu tablero nuevo incluirá columnas así como tarjetas con consejos para utilizar {% data variables.product.prodname_projects_v1 %}. También puedes elegir una plantilla con la automatización ya configurada.
+Puedes usar plantillas para configurar rápidamente una nueva instancia de {% data variables.projects.projects_v1_board %}. Al usar una plantilla para crear una instancia de {% data variables.projects.projects_v1_board %}, el nuevo panel incluirá columnas, así como tarjetas con sugerencias para usar {% data variables.product.prodname_projects_v1 %}. También puedes elegir una plantilla con la automatización ya configurada.
 
-| Plantilla                       | Descripción                                                                                                                                                                         |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Kanban básico                   | Hace un seguimiento de tus tareas con las columnas Tareas pendientes, En progreso y Hecho                                                                                           |
-| Kanban automatizado             | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho                                                                                    |
+| Plantilla | Descripción |
+| --- | --- |
+| Kanban básico | Hace un seguimiento de tus tareas con las columnas Tareas pendientes, En progreso y Hecho |
+| Kanban automatizado | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho | 
 | Kanba automatizado con revisión | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho, con disparos adicionales para el estado de la revisión de solicitud de extracción |
-| Evaluación de error             | Evalúa y prioriza errores con las columnas Tareas pendientes, Prioridad alta, Prioridad baja y Cerrado                                                                              |
+| Evaluación de error | Evalúa y prioriza errores con las columnas Tareas pendientes, Prioridad alta, Prioridad baja y Cerrado |
 
-Para obtener más información sobre cómo automatizar los {% data variables.product.prodname_projects_v1 %}, consulta la sección "[Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
+Para más información sobre la automatización de {% data variables.product.prodname_projects_v1 %}, consulta "[Acerca de la automatización de {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
-![{% data variables.product.prodname_project_v1 %} con una plantilla básica de kanban](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![{% data variables.product.prodname_project_v1 %} con plantilla Kanban básica](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
-## Leer más
+## Información adicional
 
-- "[Crear un {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
-- "[Editar un {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copiar un {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
-- "[Agregar propuestas y solicitudes de cambios a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"
-- "[Atajos del teclado](/articles/keyboard-shortcuts/#project-boards)"
+- "[Creación de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
+- "[Edición de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copia de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- "[Adición de incidencias y solicitudes de incorporación de cambios a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+- "[Métodos abreviados de teclado](/articles/keyboard-shortcuts/#project-boards)"

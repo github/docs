@@ -11,66 +11,71 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Web 挂钩事件
+shortTitle: Webhook events
+ms.openlocfilehash: 63b99005c5b0da23c59794d8fd7ad724f5afd13a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710401'
 ---
-
 ## {% data variables.product.prodname_marketplace %} 购买 web 挂钩有效负载
 
-Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[web 挂钩递送标头](/webhooks/event-payloads/#delivery-headers)”。 GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。
+Webhook `POST` 请求具有特殊的标头。 有关详细信息，请参阅“[Webhook 传递头](/webhooks/event-payloads/#delivery-headers)”。 GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。
 
-取消和降级在下一个结算周期的第一天生效。 如果新计划在下一个结算周期开始时生效，则将发送降级和取消事件。 新的购买和升级事件会立即生效。 使用 web 挂钩有效负载中的 `effective_date` 可确定更改何时开始生效。
+取消和降级在下一个结算周期的第一天生效。 如果新计划在下一个结算周期开始时生效，则将发送降级和取消事件。 新的购买和升级事件会立即生效。 使用 Webhook 有效负载中的 `effective_date` 来确定何时开始更改。
 
 {% data reusables.marketplace.marketplace-malicious-behavior %}
 
-每个 `marketplace_purchase` web 挂钩有效负载都含有以下信息：
+每个 `marketplace_purchase` Webhook 有效负载将含有以下信息：
 
 
-| 键                      | 类型    | 描述                                                                                                                                                                                                                                                                    |
-| ---------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`               | `字符串` | 为生成 web 挂钩而执行的操作。 可以是 `purchased`、`cancelled`、`pending_change`、`pending_change_cancelled` 或 `changed`。 更多信息请参阅下面的 web 挂钩有效负载示例。 **注：**`pending_change` 和 `pending_change_cancelled` 有效负载包含与 [`changed` 有效负载示例](#example-webhook-payload-for-a-changed-event)中所示键相同的键。 |
-| `effective_date`       | `字符串` | `action` 开始生效的日期。                                                                                                                                                                                                                                                     |
-| `sender`               | `对象`  | 执行 `action` 触发 web 挂钩的人。                                                                                                                                                                                                                                              |
-| `marketplace_purchase` | `对象`  | {% data variables.product.prodname_marketplace %} 购买信息。                                                                                                                                                                                                               |
+密钥 | 类型 | 说明
+----|------|-------------
+`action` | `string` | 为生成 web 挂钩而执行的操作。 可以是 `purchased`、`cancelled`、`pending_change`、`pending_change_cancelled` 或 `changed`。 更多信息请参阅下面的 web 挂钩有效负载示例。 注意：`pending_change` 和 `pending_change_cancelled` 有效负载包含的键与 [`changed` 有效负载示例](#example-webhook-payload-for-a-changed-event)中所示的键相同。
+`effective_date` | `string` | `action` 生效日期。
+`sender` | `object` | 采取 `action` 触发 Webhook 的人。
+`marketplace_purchase` | `object` | {% data variables.product.prodname_marketplace %} 购买信息。
 
-`marketplace_purchase` 对象含有以下键：
+`marketplace_purchase` 对象具有以下键：
 
-| 键                    | 类型    | 描述                                                                                                                                                                             |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `帐户`                 | `对象`  | 与订阅关联的 `organization` 或 `user` 帐户。 组织帐户将包含 `Organization_billing_email`, 这是组织的行政电子邮件地址。 要查找个人帐户的电子邮件地址，您可以使用[获取经过身份验证的用户](/rest/reference/users#get-the-authenticated-user)端点。 |
-| `billing_cycle`      | `字符串` | 可以是 `yearly` 或 `monthly`。 如果 `account` 所有者拥有免费 GitHub 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `billing_cycle` 将为 `nil`。                               |
-| `unit_count`         | `整数`  | 购买的单位数。                                                                                                                                                                        |
-| `on_free_trial`      | `布尔值` | 当 `account` 处于免费试用期时，该值为 `true`。                                                                                                                                               |
-| `free_trial_ends_on` | `字符串` | 免费试用到期日期。                                                                                                                                                                      |
-| `next_billing_date`  | `字符串` | 下一个结算周期开始日期。 如果 `account` 所有者拥有免费 GitHub.com 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `next_billing_date` 将为 `nil`。                                    |
-| `plan`               | `对象`  | `user` 或 `organization` 购买的计划。                                                                                                                                                 |
+密钥 | 类型 | 说明
+----|------|-------------
+`account` | `object` | 与订阅关联的 `organization` 或 `user` 帐户。 组织帐户将包括 `organization_billing_email`，这是组织的管理电子邮件地址。 若要查找个人帐户的电子邮件地址，可使用[获取已通过身份验证的用户](/rest/reference/users#get-the-authenticated-user)终结点。
+`billing_cycle` | `string` | 可以是 `yearly` 或 `monthly`。 如果 `account` 所有者拥有免费的 GitHub 计划并且已购买免费的 {% data variables.product.prodname_marketplace %} 计划，`billing_cycle` 将为 `nil`。
+`unit_count`  | `integer` | 购买的单位数。
+`on_free_trial` | `boolean` | 当 `account` 免费试用时，该值为 `true`。
+`free_trial_ends_on` | `string` | 免费试用到期日期。
+`next_billing_date` | `string` | 下一个结算周期开始日期。 如果 `account` 所有者拥有免费的 GitHub.com 计划并且已购买免费的 {% data variables.product.prodname_marketplace %} 计划，`next_billing_date` 将为 `nil`。
+`plan` | `object` | `user` 或 `organization` 购买的计划。
 
-`plan` 对象含有以下键：
+`plan` 对象具有以下键：
 
-| 键                        | 类型      | 描述                                                  |
-| ------------------------ | ------- | --------------------------------------------------- |
-| `id`                     | `整数`    | 此计划的唯一标识符。                                          |
-| `name`                   | `字符串`   | 计划的名称。                                              |
-| `说明`                     | `字符串`   | 此计划的说明。                                             |
-| `monthly_price_in_cents` | `整数`    | 此计划的每月价格（以美分为单位）。 例如，每月费用 10 美元的商品将显示价格 1000 美分。    |
-| `yearly_price_in_cents`  | `整数`    | 此计划的每年价格（以美分为单位）。 例如，每月费用 100 美元的商品将显示价格 120000 美分。 |
-| `price_model`            | `字符串`   | 此商品的定价模型。 可以是 `flat-rate`、`per-unit` 或 `free` 之一。   |
-| `has_free_trial`         | `布尔值`   | 当此商品提供免费试用时，该值为 `true`。                             |
-| `unit_name`              | `字符串`   | 单位的名称。 如果定价模型不是 `per-unit`，则该值为 `nil`。              |
-| `bullet`                 | `字符串数组` | 定价计划中设置的项目符号的名称。                                    |
+密钥 | 类型 | 说明
+----|------|-------------
+`id` | `integer` | 此计划的唯一标识符。
+`name` | `string` | 计划的名称。
+`description` | `string` | 此计划的说明。
+`monthly_price_in_cents` | `integer` | 此计划的每月价格（以美分为单位）。 例如，每月费用 10 美元的商品将显示价格 1000 美分。
+`yearly_price_in_cents` | `integer` | 此计划的每年价格（以美分为单位）。 例如，每月费用 100 美元的商品将显示价格 120000 美分。
+`price_model` | `string` | 此商品的定价模型。 可以是 `flat-rate`、`per-unit` 或 `free` 之一。
+`has_free_trial` | `boolean` | 当此商品提供免费试用时，该值为 `true`。
+`unit_name` | `string` | 单位的名称。 如果定价模型不是 `per-unit`，则它将为 `nil`。
+`bullet` | `array of strings` | 定价计划中设置的项目符号的名称。
 
 <br/>
 
-### `purchased` 事件的 web 挂钩有效负载示例
+### `purchased` 事件的 Webhook 有效负载示例
 此示例提供 `purchased` 事件有效负载。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-### `changed` 事件的 web 挂钩有效负载示例
+### `changed` 事件的 Webhook 有效负载示例
 
 计划中的更改包括升级和降级。 此示例表示 `changed`、`pending_change` 和 `pending_change_cancelled` 事件有效负载。 该操作标识这三个事件中发生了哪一个。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-### `cancelled` 事件的 web 挂钩有效负载示例
+### `cancelled` 事件的 Webhook 有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

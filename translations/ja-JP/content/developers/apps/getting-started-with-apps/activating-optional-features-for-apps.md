@@ -11,25 +11,26 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: オプション機能の有効化
+shortTitle: Activate optional features
+ms.openlocfilehash: 918fe1dd7ba466fccc4d54d02fca6b13fe6e4e86
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089975'
 ---
-
 {% warning %}
 
-**Warning:**  Optional features are subject to change.
+**警告:** これらの機能は、変更されることがあります。
 
 {% endwarning %}
 
-## Activating optional features for {% data variables.product.prodname_github_apps %}
+## {% data variables.product.prodname_github_apps %} のオプションの機能をアクティブ化する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+3. オプションの機能を有効化する {% data variables.product.prodname_github_app %} を選びます。
 {% data reusables.apps.optional_feature_activation %}
 
-## Activating optional features for {% data variables.product.prodname_oauth_apps %}
+## {% data variables.product.prodname_oauth_apps %} のオプションの機能をアクティブ化する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.oauth_apps %}
-{% data reusables.apps.optional_feature_activation %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %} {% data reusables.apps.optional_feature_activation %}

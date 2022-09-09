@@ -1,7 +1,7 @@
 ---
-title: Dependabotでの作業
-shortTitle: Dependabotでの作業
-intro: '{% data variables.product.prodname_dependabot %}が起こしたPull Requestの管理、{% data variables.product.prodname_dependabot %}と{% data variables.product.prodname_actions %}の利用、{% data variables.product.prodname_dependabot %}エラーのトラブルシューティングなど、{% data variables.product.prodname_dependabot %}で作業をするためのガイダンスと推奨事項。'
+title: Working with Dependabot
+shortTitle: Work with Dependabot
+intro: 'Guidance and recommendations for working with {% data variables.product.prodname_dependabot %}, such as managing pull requests raised by {% data variables.product.prodname_dependabot %}, using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_dependabot %}, and troubleshooting {% data variables.product.prodname_dependabot %} errors.'
 versions:
   fpt: '*'
   ghec: '*'

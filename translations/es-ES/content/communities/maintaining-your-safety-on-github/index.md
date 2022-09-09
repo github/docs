@@ -1,6 +1,6 @@
 ---
 title: Mantener tu seguridad en GitHub
-shortTitle: Mantener la seguridad
+shortTitle: Maintaining safety
 intro: 'Para construir un ambiente seguro y positivo para ti y para la comunidad de tu proyecto en {% data variables.product.prodname_dotcom %}, puedes bloquear y desbloquear a los usuarios y reportar el contenido ofensivo.'
 redirect_from:
   - /articles/encouraging-positive-contributions-in-your-organization
@@ -21,5 +21,11 @@ children:
   - /viewing-users-who-are-blocked-from-your-organization
   - /unblocking-a-user-from-your-organization
   - /reporting-abuse-or-spam
+ms.openlocfilehash: efb5a58d8a9be4b6c6c4a2903bc714d35cd1ac9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092403'
 ---
 

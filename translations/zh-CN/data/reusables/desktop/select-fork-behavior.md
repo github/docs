@@ -1,4 +1,12 @@
-1. 单击 **Fork behavior（复刻行为）**，然后选择您想如何使用复刻。
+---
+ms.openlocfilehash: 1baaac068c008a45a8a9446dfccaf83c5901b1ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145129732"
+---
+1. 单击“分支行为”，然后选择要使用分支的方式。
 
   {% mac %}
 
@@ -12,7 +20,7 @@
 
   {% endwindows %}
 
-2. 单击 **Save（保存）**。
+2. 单击“ **保存**”。
 
   {% mac %}
 

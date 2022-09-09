@@ -12,24 +12,24 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: '{% data variables.product.prodname_project_v1_caps %} の権限'
+shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-## 権限の概要
+## Permissions overview
 
 There are three levels of permissions to a {% data variables.projects.projects_v1_board %} for people and teams:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. 外部コラボレーターとは、Organization のメンバーではないが、Organization でコラボレーションの権限を付与されたユーザーのことです。
+Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. An outside collaborator is someone who is not an organization member but given permissions to collaborate in your organization.
 
 Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
-- すべての Organization メンバーに対して、デフォルトのプロジェクトボード権限を設定する。
-- Organization メンバー、Team、外部コラボレーターについてプロジェクトボードへのアクセスを管理する。 For more information, see "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
-- プロジェクトボードの可視性を管理する。 For more information, see "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Set default project board permissions for all organization members.
+- Manage access to the project board for organization members, teams, and outside collaborators. For more information, see "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Manage project board visibility. For more information, see "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
 
 ## Cascading permissions for {% data variables.projects.projects_v1_boards %}
 
@@ -39,9 +39,11 @@ For example, if an organization owner has given all organization members read pe
 
 ## {% data variables.projects.projects_v1_board_caps %} visibility
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 {% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
 
-## 参考リンク
+## Further reading
 
 - "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)"
 - "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"

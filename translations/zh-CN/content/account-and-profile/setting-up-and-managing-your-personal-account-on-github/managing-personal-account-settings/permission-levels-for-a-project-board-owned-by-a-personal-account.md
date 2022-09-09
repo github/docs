@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 项目板权限
+shortTitle: Project board permissions
+ms.openlocfilehash: 353b9ac497abc7110437aafdf691ca48a3ff6cec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164778'
 ---
-
 ## 权限概述
 
 用户拥有的项目板只有一个所有者，此权限无法与其他个人帐户共享。 除了所有者之外，其他人可以在项目板上协作。
@@ -29,7 +34,7 @@ shortTitle: 项目板权限
 项目板所有者和具有管理员权限的协作者对项目板有完全控制权限。 除了项目板协作者拥有的所有权限之外，项目板所有者和具有管理员权限的协作者还可以：
 
 - [管理、查看和添加协作者](/articles/managing-access-to-your-user-account-s-project-boards)
-- [将项目板配置为{% ifversion ghae %}内部{% else %}公共{% endif %}或私有](/articles/changing-project-board-visibility)
+- [将项目板配置为{% ifversion ghae %}内部{% else %}公共{% endif %}或专用](/articles/changing-project-board-visibility)
 - [删除项目板](/articles/deleting-a-project-board/)
 - [关闭项目板](/articles/closing-a-project-board/)
 - [重新打开关闭的项目板](/articles/reopening-a-closed-project-board)
@@ -58,8 +63,8 @@ shortTitle: 项目板权限
 
 ## 项目板可见性
 
-您可以将项目板的可见性从私有更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。 默认情况下，用户拥有的项目板为私有。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
+可以将项目板的可见性从专用更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。 默认情况下，用户拥有的项目板为私有。 有关详细信息，请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
 
 ## 延伸阅读
 
-  - "[管理对个人帐户项目板的访问](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - “[管理对个人帐户的项目板的访问权限](/articles/managing-access-to-your-user-account-s-project-boards)”

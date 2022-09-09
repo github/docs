@@ -1,63 +1,68 @@
 ---
-title: Setting your profile to private
-intro: 'A private profile displays only limited information, and hides some activity.'
+title: プロファイルをプライベートに設定する
+intro: プライベート プロファイルには限られた情報のみが表示され、一部のアクティビティは表示されません。
 versions:
   fpt: '*'
 topics:
   - Profiles
 shortTitle: Set profile to private
+ms.openlocfilehash: 51fd476bc77856b525ce3e991e4eb30e8a881361
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147062915'
 ---
-
-## About private profiles
-
-{% note %}
-
-**Note:** Private profiles are currently in beta and are subject to change.
-
-{% endnote %}
-
-To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
-
-After making your profile private, you can still view all your information when you visit your own profile.
-
-Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
-
-## Differences between private and public profiles
-
-When your profile is private, the following content is hidden from your profile page:
-
-- Achievements and highlights.
-- Activity overview and activity feed.
-- Contribution graph.
-- Follower and following counts.
-- Follow and Sponsor buttons.
-- Organization memberships.
-- Stars, projects, packages, and sponsoring tabs.
+## プライベート プロファイルについて
 
 {% note %}
 
-**Note**: When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
+**注:** プライベート プロファイルは現在ベータ版であり、変更される可能性があります。
 
 {% endnote %}
 
-## Changes to reporting on your activities
+プロファイル ページの一部を非表示にするには、プロファイルをプライベートにします。 これにより、{% data variables.product.prodname_dotcom_the_website %} のさまざまなソーシャル機能のアクティビティも非表示になります。 プライベート プロファイルでは、すべてのユーザーに対し情報が非表示になります。現在、指定したユーザーにアクティビティを表示するオプションはありません。
 
-By making your profile private, you will not remove or hide past activity; this setting only applies to your activity while the private setting is enabled.
+プロファイルをプライベートにした後も、自分のプロファイルにアクセスした場合、すべての情報が表示されます。
 
-When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
+プライベート プロファイルでは、[{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors) のスポンサーシップを受けることができません。 {% data variables.product.prodname_sponsors %} の対象になるには、プロファイルをプライベートにしないでください。
 
-- Activity feeds for other users.
-- Discussions leaderboards.
-- The [Trending](https://github.com/trending) page.
+## プライベートおよびパブリック プロファイルの違い
+
+プロファイルがプライベートの場合、プロファイル ページで次のコンテンツが非表示になります。
+
+- 実績とハイライト。
+- アクティビティの概要とアクティビティ フィード。
+- コントリビューション グラフ。
+- フォロワーと次の数。
+- フォローとスポンサーのボタン。
+- Organization メンバーシップ。
+- スター、プロジェクト、パッケージ、スポンサー タブ。
 
 {% note %}
 
-**Note**: Your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
+**注**: プロファイルがプライベートの場合、README、経歴、プロフィール写真などの一部のオプション フィールドは引き続きパブリックに表示されます。
 
 {% endnote %}
 
-## Changing your profile's privacy settings
+## アクティビティに対する通知の変更
+
+プロフィールをプライベートにしても、過去のアクティビティは削除または非表示になりません。この設定は、プライベート設定が有効になっている間のアクティビティにのみ適用されます。
+
+プロファイルがプライベートの場合、{% data variables.product.prodname_dotcom_the_website %} アクティビティは次の場所に表示されません。
+
+- 他のユーザーのアクティビティ フィード。
+- ディスカッション ランキング。
+- [[トレンド]](https://github.com/trending) ページ。
+
+{% note %}
+
+**注**: パブリック リポジトリ上のアクティビティは、それらのリポジトリを表示しているユーザーには引き続きパブリックに表示され、一部のアクティビティ データは {% data variables.product.prodname_dotcom %} API を通じて引き続き使用できます。
+
+{% endnote %}
+
+## プロファイルのプライバシー設定を変更する
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Contributions & Activity", select the checkbox next to **Make profile private and hide activity**.
+1. [コントリビューションとアクティビティ] で、 **[プロファイルを非公開にしてアクティビティを非表示にする]** の横にあるチェックボックスをオンにします。
 {% data reusables.user-settings.update-preferences %}

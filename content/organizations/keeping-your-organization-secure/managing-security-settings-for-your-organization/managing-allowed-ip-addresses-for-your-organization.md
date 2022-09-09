@@ -36,14 +36,21 @@ You can also configure allowed IP addresses for the organizations in an enterpri
 
 ## Adding an allowed IP address
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ## Enabling allowed IP addresses
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -71,6 +78,8 @@ For more information about how to create an allow list for a {% data variables.p
 
 ## Editing an allowed IP address
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
@@ -78,6 +87,18 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 1. Click **Update**.
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+## Checking if an IP address is permitted
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ## Deleting an allowed IP address
 

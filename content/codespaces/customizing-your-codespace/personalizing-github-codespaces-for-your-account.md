@@ -48,7 +48,7 @@ Your dotfiles repository might include your shell aliases and preferences, any t
 
 You can configure {% data variables.product.prodname_codespaces %} to use dotfiles from any repository you own by selecting that repository in your [personal {% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces).
 
-When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected repository to the codespace environment, and looks for one of the following files to set up the environment.
+When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
 
 * _install.sh_
 * _install_
@@ -90,15 +90,13 @@ You can add further script, preferences, configuration files to your dotfiles re
 
 If your codespace fails to pick up configuration settings from dotfiles, see "[Troubleshooting dotfiles for {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)."
 
-## Other available settings
-
 You can also personalize {% data variables.product.prodname_codespaces %} using additional [{% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces):
 
-- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
-- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-- To add encrypted secrets, see "[Managing encrypted secrets for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 - To enable GPG verification, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
-- To allow your codespaces to access other repositories, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+- To set how long a codespace can remain unused before it is automatically stopped, see "[Setting your timeout period for GitHub Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+- To set the period for which your unused codespaces are retained, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
 ## Further reading
 

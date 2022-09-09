@@ -1,6 +1,6 @@
 ---
-title: Guides for code security
-intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
+title: Guías para la seguridad del código
+intro: 'Aprende sobre las formas diferentes en las que {% data variables.product.product_name %} puede ayudarte a mejorar la seguridad de tu código.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -28,6 +28,8 @@ includeGuides:
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
+  - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
   - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
@@ -86,5 +88,11 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
+ms.openlocfilehash: 0d88d53ceab2204eec9038d6726eb851d55ab495
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578558'
 ---
 

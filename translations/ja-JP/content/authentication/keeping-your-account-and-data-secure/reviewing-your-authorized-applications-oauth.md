@@ -14,14 +14,16 @@ topics:
   - Identity
   - Access management
 shortTitle: Review OAuth apps
+ms.openlocfilehash: fbc35fdca9ab64bf97224911d9adff560ba62eab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145088427'
 ---
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %} {% data reusables.user-settings.review-oauth-apps %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
-
-## 参考リンク
+## 参考資料
 {% ifversion fpt or ghec %}
-- "[インテグレーションについて](/articles/about-integrations)"{% endif %}
+- 「[インテグレーションについて](/articles/about-integrations)」{% endif %}
 - 「[許可されたインテグレーションをレビューする](/articles/reviewing-your-authorized-integrations)」

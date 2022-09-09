@@ -1,6 +1,6 @@
 ---
-title: パッケージを検索する
-intro: '{% data variables.product.product_name %} 上のパッケージを検索し、検索修飾子を使用して検索結果を絞ることができます。'
+title: Searching for packages
+intro: 'You can search for packages on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 product: '{% data reusables.gated-features.packages %}'
 permissions: Anyone can search for packages they have access to.
 versions:
@@ -14,12 +14,11 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
   - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## パッケージの検索について
+## About searching for packages
 
-{% data variables.product.product_name %} 全体にわたってグローバルにパッケージを検索できます。あるいは、特定の Organization のみのパッケージの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
+You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% ifversion ghes %}
 You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
@@ -27,20 +26,20 @@ You can only search for packages on {% data variables.product.product_name %}, n
 
 {% data reusables.search.syntax_tips %}
 
-## ユーザまたは Organization のパッケージ内の検索
+## Searching within a user's or organization's packages
 
-特定のユーザまたは Organization が所有するパッケージを検索するには、`user` 修飾子または `org` 修飾子を使います。
+To find packages owned by a certain user or organization, use the `user` or `org` qualifier.
 
-| 修飾子                       | サンプル                                                                                                                                                                       |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                         |
-| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization |
+| Qualifier        | Example
+| ------------- | -------------
+| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat
+| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization
 
-## パッケージの可視性によるフィルタリング
+## Filtering by package visibility
 
-パッケージがパブリックかプライベートかを基準に検索をフィルタリングするには、`is` 修飾子を使用します。
+To filter your search by whether a package is public or private, use the `is` qualifier.
 
-| 修飾子          | サンプル                                                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `is:public`  | [**is:public angular**](https://github.com/search?q=is%3Apublic+angular&type=RegistryPackages) は、「angular」という単語を含むパブリックパッケージにマッチします。 |
-| `is:private` | [**is:private php**](https://github.com/search?q=is%3Aprivate+php&type=RegistryPackages) は、「php」という単語を含むプライベートパッケージにマッチします。          |
+| Qualifier  | Example |
+| ------------- | -------------
+| `is:public`| [**is:public angular**](https://github.com/search?q=is%3Apublic+angular&type=RegistryPackages) matches public packages that contain the word "angular"
+| `is:private`| [**is:private php**](https://github.com/search?q=is%3Aprivate+php&type=RegistryPackages) matches private packages that contain the word "php"

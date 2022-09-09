@@ -1,6 +1,6 @@
 ---
 title: Issueで作業を追跡する
-shortTitle: Issue
+shortTitle: Issues
 intro: '{% data variables.product.prodname_github_issues %}を使って、{% data variables.product.prodname_dotcom %}でのアイデアや作業を追跡してください。'
 versions:
   fpt: '*'
@@ -28,5 +28,11 @@ children:
 redirect_from:
   - /issues/tracking-your-work-with-issues/creating-issues
   - /issues/tracking-your-work-with-issues/managing-issues
+ms.openlocfilehash: 8c25125f19da47492585ab5fc8a6a539cea13c5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139121'
 ---
 

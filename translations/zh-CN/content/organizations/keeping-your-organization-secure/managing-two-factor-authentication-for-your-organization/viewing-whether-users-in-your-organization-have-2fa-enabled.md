@@ -12,22 +12,28 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 查看 2FA 的使用
+shortTitle: View 2FA usage
+ms.openlocfilehash: 20659ea2e1979123b15d9ee5d333655ad188b2e9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127504'
 ---
-
 {% note %}
 
-**注：**您可以要求所有成员{% ifversion fpt or ghec %}（包括组织中的所有者、帐单管理员和{% else %}{% endif %} 外部协作者）均启用双因素身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
+注意：可以要求所有成员{% ifversion fpt or ghec %}（包括组织中的所有者、帐单管理员和{% else %}和{% endif %}外部协作者）均启用双因素身份验证。 有关详细信息，请参阅“[要求在组织中进行双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. 要查看已启用或已禁用双因素身份验证的组织成员（包括组织所有者），在右侧单击 **2FA**，然后选择 **Enabled（启用）**或 **Disabled（禁用）**。 ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
-5. 要查看组织中的外部协作者，在“People（人员）”选项卡下，单击 **Outside collaborators（外部协作者）**。 ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)
-6. 要查看哪些外部协作者已启用或已禁用双因素身份验证，在右侧单击 **2FA**，然后选择 **Enabled（启用）**或 **Disabled（禁用）**。 ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. 若要查看组织成员（包括已启用或禁用双因素身份验证的组织所有者），请在右侧单击“2FA”，然后选择“启用”或“禁用”  。
+ ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
+5. 若要查看组织中的外部协作者，请在“人员”选项卡下单击“外部协作者”。
+![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)
+6. 若要查看哪些外部协作者已启用或禁用双因素身份验证，请在右侧单击“2FA”，然后选择“启用”或“禁用”  。
+![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
 ## 延伸阅读
 
-- “[查看组织中人员的角色](/articles/viewing-people-s-roles-in-an-organization)”
+- [查看组织中人员的角色](/articles/viewing-people-s-roles-in-an-organization)

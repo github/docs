@@ -1,6 +1,6 @@
 ---
 title: 关注他人
-intro: '您可以在 {% data variables.product.product_name %} 上关注他人，以接收有关其活动的通知{% ifversion fpt or ghec %} 和发现其社区中的项目{% endif %}。'
+intro: '你可以在 {% data variables.product.product_name %} 上关注他人，以接收有关其活动的通知{% ifversion fpt or ghec %}和发现其社区中的项目{% endif %}。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
@@ -13,11 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Profile
+ms.openlocfilehash: 2ec3672f4dbcc2b1e4b643ef71659876e2033c30
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149205'
 ---
-
 ## 关于 {% data variables.product.product_name %} 上的关注者
 
-关注用户后，您会在个人仪表板看到他们的公开活动。{% ifversion fpt or ghec %} 如果您关注的人将某个公共存储库标星， {% data variables.product.product_name %} 可能会向您推荐该存储库。{% endif %} 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
+关注他人后，你将在个人仪表板中看到其公开活动。{% ifversion fpt or ghec %}如果你关注的人标注了某个公共存储库，{% data variables.product.product_name %} 可能会向你推荐该存储库。{% endif %}有关详细信息，请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 
 如果您不希望在 {% data variables.product.product_name %} 上看到某人的公开活动，则可以取消关注他们。
 
@@ -27,7 +32,7 @@ topics:
 
   ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. 在个人资料图片下点击 **Follow（关注）**。
+2. 在个人资料图像下单击“关注”。
 
   ![关注用户按钮](/assets/images/help/profile/follow-user-button.png)
 
@@ -37,7 +42,7 @@ topics:
 
   ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2.  在其个人资料图片下点击 **Unfollow（取消关注）**。
+2.  在个人资料图像下单击“取消关注”。
 
   ![用户个人资料按钮](/assets/images/help/profile/user-profile-unfollow-button.png)
 
@@ -47,7 +52,7 @@ topics:
 
   ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. 在其个人资料图片下点击**关注**。
+2. 在其个人资料图像下单击“关注”。
 
   ![用户关注](/assets/images/help/profile/user-profile-following.png)
 
@@ -57,7 +62,7 @@ topics:
 
   ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. 在个人资料图片下点击**关注者**。
+2. 在个人资料图像下单击“关注者”。
 
   ![用户关注](/assets/images/help/profile/user-profile-followers.png)
 
@@ -66,6 +71,5 @@ topics:
 {% ifversion fpt or ghec %}
 ## 延伸阅读
 
-- "[使用星标保存仓库](/articles/saving-repositories-with-stars/)"
-- "[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)"
-{% endif %}
+- “[使用星标保存存储库](/articles/saving-repositories-with-stars/)”
+- “[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码贡献内容的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”{% endif %}

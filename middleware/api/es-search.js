@@ -1,6 +1,9 @@
 import { Client } from '@elastic/elasticsearch'
 
-const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL || 'http://localhost:9200'
+// The reason this is exported is so the middleware endpoints can
+// find out if the environment variable has been set (and is truthy)
+// before attempting to call the main function in this file.
+export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
@@ -45,22 +48,24 @@ export async function getSearchResults({
   const highlight = getHighlightConfiguration(query)
 
   const searchQuery = {
-    index: indexName,
     highlight,
     from,
     size,
-    // Since we know exactly which fields from the source we're going
-    // need we can specify that here. It's an inclusion list.
-    // We can save precious network by not having to transmit fields
-    // stored in Elasticsearch to here if it's not going to be needed
-    // anyway.
-    _source_includes: [
-      'title',
-      'url',
-      'breadcrumbs',
-      // 'headings'
-      'popularity',
-    ],
+
+    // COMMENTED out because of ES 7.11.
+    // Once we're on ES >7.11  we can add this option in.
+    // // Since we know exactly which fields from the source we're going
+    // // need we can specify that here. It's an inclusion list.
+    // // We can save precious network by not having to transmit fields
+    // // stored in Elasticsearch to here if it's not going to be needed
+    // // anyway.
+    // _source_includes: [
+    //   'title',
+    //   'url',
+    //   'breadcrumbs',
+    //   // 'headings'
+    //   'popularity',
+    // ],
   }
 
   if (includeTopics) {
@@ -104,15 +109,17 @@ export async function getSearchResults({
     throw new Error(`Unrecognized sort enum '${sort}'`)
   }
 
-  const result = await client.search(searchQuery)
+  const result = await client.search({ index: indexName, body: searchQuery })
 
-  const hits = getHits(result.hits.hits, { indexName, debug, includeTopics })
+  // const hitsAll = result.hits  // ES >7.11
+  const hitsAll = result.body // ES <=7.11
+  const hits = getHits(hitsAll.hits.hits, { indexName, debug, includeTopics })
   const t1 = new Date()
 
   const meta = {
-    found: result.hits.total,
+    found: hitsAll.hits.total,
     took: {
-      query_msec: result.took,
+      query_msec: hitsAll.took,
       total_msec: t1.getTime() - t0.getTime(),
     },
     page,
