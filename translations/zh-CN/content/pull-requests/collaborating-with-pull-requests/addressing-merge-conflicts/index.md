@@ -16,6 +16,12 @@ children:
   - /about-merge-conflicts
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
-shortTitle: 地址合并冲突
+shortTitle: Address merge conflicts
+ms.openlocfilehash: 1b4fc4964cc804f321ab085f8f996fffc649323b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129652'
 ---
 

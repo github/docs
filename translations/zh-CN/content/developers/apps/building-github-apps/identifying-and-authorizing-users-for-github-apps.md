@@ -1,5 +1,5 @@
 ---
-title: 识别和授权 GitHub 应用程序用户
+title: Identifying and authorizing users for GitHub Apps
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
   - /early-access/integrations/user-identification-authorization
@@ -13,85 +13,84 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 识别和授权用户
+shortTitle: Identify & authorize users
 ---
-
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-当 GitHub 应用程序代表用户时，它执行用户到服务器请求。 这些请求必须使用用户的访问令牌进行授权。 用户到服务器请求包括请求用户的数据，例如确定要向特定用户显示哪些仓库。 这些请求还包括用户触发的操作，例如运行构建。
+When your GitHub App acts on behalf of a user, it performs user-to-server requests. These requests must be authorized with a user's access token. User-to-server requests include requesting data for a user, like determining which repositories to display to a particular user. These requests also include actions triggered by a user, like running a build.
 
 {% data reusables.apps.expiring_user_authorization_tokens %}
 
-## 识别站点上的用户
+## Identifying users on your site
 
-要授权用户使用在浏览器中运行的标准应用程序，请使用 [web 应用程序流程](#web-application-flow)。
+To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-要授权用户使用不直接访问浏览器的无头应用程序（例如 CLI 工具或 Git 凭据管理器），请使用[设备流程](#device-flow)。 设备流程使用 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)。
+To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 
-## Web 应用程序流程
+## Web application flow
 
-使用 web 应用程序流程时，识别您站点上用户的过程如下：
+Using the web application flow, the process to identify users on your site is:
 
-1. 用户被重定向，以请求他们的 GitHub 身份
-2. 用户被 GitHub 重定向回您的站点
-3. 您的 GitHub 应用程序使用用户的访问令牌访问 API
+1. Users are redirected to request their GitHub identity
+2. Users are redirected back to your site by GitHub
+3. Your GitHub App accesses the API with the user's access token
 
-如果您在创建或修改应用程序时选择**在安装过程中请求用户授权 (OAuth)**，则步骤 1 将在应用程序安装过程中完成。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。
+If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
 
-### 1. 请求用户的 GitHub 身份
-将用户引导到其浏览器中的以下URL：
+### 1. Request a user's GitHub identity
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-当您的 GitHub 应用程序指定 `login` 参数后，它将提示拥有特定账户的用户可以用来登录和授权您的应用程序。
+When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
-#### 参数
+#### Parameters
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                                       |
-| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`    | `字符串` | **必填。**GitHub 应用程序的客户端 ID。 选择应用程序时，您可以在 [GitHub 应用程序设置](https://github.com/settings/apps)中找到它。 **注意：** 应用程序 ID 和客户端 ID 不相同，无法互换。                                                                                         |
-| `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
-| `state`        | `字符串` | 它应该包含一个随机字符串以防止伪造攻击，并且可以包含任何其他任意数据。                                                                                                                                                                                      |
-| `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                      |
-| `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 {% data variables.product.prodname_dotcom %} 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                          |
-
-{% note %}
-
-**注** ：不需要在授权请求中提供作用域。 不同于传统的 OAuth，授权令牌仅限于与您的 GitHub 应用程序和用户的应用程序相关联的权限。
-
-{% endnote %}
-
-### 2. 用户被 GitHub 重定向回您的站点
-
-如果用户接受您的请求，GitHub 将重定向回您的站点，其中，代码参数为临时 `code`，`state` 参数为您在上一步提供的状态。 如果状态不匹配，则请求是由第三方创建的，该过程应中止。
+Name | Type | Description
+-----|------|------------
+`client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
+`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
+`allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
 {% note %}
 
-**注：**如果您在创建或修改应用程序时选择**在安装过程中请求用户授权 (OAuth)**，则 GitHub 将返回需要交换访问令牌的临时 `code`。 当 GitHub 在应用程序安装过程中启动 OAuth 流程时，不会返回 `state` 参数。
+**Note:** You don't need to provide scopes in your authorization request. Unlike traditional OAuth, the authorization token is limited to the permissions associated with your GitHub App and those of the user.
 
 {% endnote %}
 
-将此 `code` 交换为访问令牌。  启用令牌有效期时，访问令牌在 8 小时后过期，刷新令牌在 6 个月后过期。 每次刷新令牌时都会得到一个新的刷新令牌。 更多信息请参阅“[刷新用户到服务器访问令牌](/developers/apps/refreshing-user-to-server-access-tokens)”。
+### 2. Users are redirected back to your site by GitHub
 
-过期用户令牌目前是一个可选的功能，可能会更改。 要选择使用用户到服务器令牌过期功能，请参阅“[激活应用程序的可选功能](/developers/apps/activating-optional-features-for-apps)”。
+If the user accepts your request, GitHub redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. If the states don't match, the request was created by a third party and the process should be aborted.
 
-向以下端点提出请求以接收访问令牌：
+{% note %}
+
+**Note:** If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, GitHub returns a temporary `code` that you will need to exchange for an access token. The `state` parameter is not returned when GitHub initiates the OAuth flow during app installation.
+
+{% endnote %}
+
+Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### 参数
+#### Parameters
 
-| 名称              | 类型    | 描述                                                                                                                                                                                                                       |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`     | `字符串` | **必填。**GitHub 应用程序的客户端 ID。                                                                                                                                                                                               |
-| `client_secret` | `字符串` | **必填。**GitHub 应用程序的客户端密钥。                                                                                                                                                                                                |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                                                                                                                   |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                                                                                                                    |
+Name | Type | Description
+-----|------|------------
+`client_id` | `string` | **Required.** The  client ID for your GitHub App.
+`client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
+`code` | `string`   | **Required.** The code you received as a response to Step 1.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`state` | `string` | The unguessable random string you provided in Step 1.
 
-#### 响应
+#### Response
 
-默认情况下，响应采用以下形式。 响应参数 `expires_in`、`refresh_token` 和 `refresh_token_expires_in` 仅当您启用过期用户到服务器访问令牌功能时才会返回。
+By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 
 ```json
 {
@@ -104,816 +103,816 @@ shortTitle: 识别和授权用户
 }
 ```
 
-### 3. 您的 GitHub 应用程序使用用户的访问令牌访问 API
+### 3. Your GitHub App accesses the API with the user's access token
 
-用户的访问令牌允许 GitHub 应用程序代表用户向 API 发出请求。
+The user's access token allows the GitHub App to make requests to the API on behalf of a user.
 
     Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-例如，您可以像以下这样在 curl 中设置“授权”标头：
+For example, in curl you can set the Authorization header like this:
 
 ```shell
 curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-## 设备流程
+## Device flow
 
 {% note %}
 
-**注：**设备流程处于公开测试阶段，可能会有变化。
+**Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
 
-设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
+The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
-{% ifversion device-flow-is-opt-in %}在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关启用设备流的详细信息，请参阅“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”。 {% endif %}有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
+{% ifversion device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
-## 检查用户可以访问哪些安装资源
+## Check which installation's resources a user can access
 
-获得用户的 OAuth 令牌后，您可以检查该用户可以访问哪些安装。
+Once you have an OAuth token for a user, you can check which installations that user can access.
 
     Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
-您还可以检查用户可以访问哪些仓库进行安装。
+You can also check which repositories are accessible to a user for an installation.
 
     Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
-更多信息请参阅：[列出用户访问令牌可访问的应用程序安装](/rest/apps#list-app-installations-accessible-to-the-user-access-token)和[列出用户访问令牌可访问的仓库](/rest/apps#list-repositories-accessible-to-the-user-access-token)。
+More details can be found in: [List app installations accessible to the user access token](/rest/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/apps#list-repositories-accessible-to-the-user-access-token).
 
-## 处理已撤销的 GitHub 应用程序授权
+## Handling a revoked GitHub App authorization
 
-默认情况下，如果用户撤销对 GitHub 应用程序的授权，该应用程序将收到 [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) web 挂钩。 GitHub 应用程序无法取消订阅此事件。 {% data reusables.webhooks.authorization_event %}
+If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {% data reusables.webhooks.authorization_event %}
 
-## 用户级别的权限
+## User-level permissions
 
-您可以向 GitHub 应用程序添加用户级别的权限，以访问用户电子邮件等用户资源，这些权限是单个用户在[用户授权流程](#identifying-users-on-your-site)中授予的。 用户级别的权限不同于[仓库和组织级别的权限](/rest/overview/permissions-required-for-github-apps)，后者是在组织或个人帐户上安装时授予的。
+You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/overview/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
-您可以在 **Permissions & webhooks（权限和 web 挂钩）**页面 **User permissions（用户权限）**部分的 GitHub 应用程序设置中选择用户级别的权限。 有关选择权限的更多信息，请参阅“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
+You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
 
-当用户在他们的帐户上安装您的应用程序时，安装提示将列出应用程序请求的用户级别权限，并说明应用程序会向各个用户请求这些权限。
+When a user installs your app on their account, the installation prompt will list the user-level permissions your app is requesting and explain that the app can ask individual users for these permissions.
 
-由于用户级别的权限是基于单个用户授予的，因此您可以将它们添加到现有应用中，而无需提示用户升级。 但是，您需要通过用户授权流程发送现有用户，以授权新权限并为这些请求获取新的用户到服务器令牌。
+Because user-level permissions are granted on an individual user basis, you can add them to your existing app without prompting users to upgrade. You will, however, need to send existing users through the user authorization flow to authorize the new permission and get a new user-to-server token for these requests.
 
-## 用户到服务器请求
+## User-to-server requests
 
-虽然大多数 API 交互应使用服务器到服务器安装访问令牌进行，但某些端点允许您使用用户访问令牌通过 API 执行操作。 您的应用程序可以使用[GraphQL](/graphql) 或 [REST](/rest) 端点发出以下请求。
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL](/graphql) or [REST](/rest) endpoints.
 
-### 支持的端点
+### Supported endpoints
 
 {% ifversion fpt or ghec %}
-#### 操作运行器
+#### Actions Runners
 
-* [列出仓库的运行器应用程序](/rest/actions#list-runner-applications-for-a-repository)
-* [列出仓库的自托管运行器](/rest/actions#list-self-hosted-runners-for-a-repository)
-* [获取仓库的自托管运行器](/rest/actions#get-a-self-hosted-runner-for-a-repository)
-* [从仓库删除自托管运行器](/rest/actions#delete-a-self-hosted-runner-from-a-repository)
-* [为仓库创建注册令牌](/rest/actions#create-a-registration-token-for-a-repository)
-* [为仓库创建删除令牌](/rest/actions#create-a-remove-token-for-a-repository)
-* [列出组织的运行器应用程序](/rest/actions#list-runner-applications-for-an-organization)
-* [列出组织的自托管运行器](/rest/actions#list-self-hosted-runners-for-an-organization)
-* [获取组织的自托管运行器](/rest/actions#get-a-self-hosted-runner-for-an-organization)
-* [从组织删除自托管运行器](/rest/actions#delete-a-self-hosted-runner-from-an-organization)
-* [为组织创建注册令牌](/rest/actions#create-a-registration-token-for-an-organization)
-* [为组织创建删除令牌](/rest/actions#create-a-remove-token-for-an-organization)
+* [List runner applications for a repository](/rest/actions#list-runner-applications-for-a-repository)
+* [List self-hosted runners for a repository](/rest/actions#list-self-hosted-runners-for-a-repository)
+* [Get a self-hosted runner for a repository](/rest/actions#get-a-self-hosted-runner-for-a-repository)
+* [Delete a self-hosted runner from a repository](/rest/actions#delete-a-self-hosted-runner-from-a-repository)
+* [Create a registration token for a repository](/rest/actions#create-a-registration-token-for-a-repository)
+* [Create a remove token for a repository](/rest/actions#create-a-remove-token-for-a-repository)
+* [List runner applications for an organization](/rest/actions#list-runner-applications-for-an-organization)
+* [List self-hosted runners for an organization](/rest/actions#list-self-hosted-runners-for-an-organization)
+* [Get a self-hosted runner for an organization](/rest/actions#get-a-self-hosted-runner-for-an-organization)
+* [Delete a self-hosted runner from an organization](/rest/actions#delete-a-self-hosted-runner-from-an-organization)
+* [Create a registration token for an organization](/rest/actions#create-a-registration-token-for-an-organization)
+* [Create a remove token for an organization](/rest/actions#create-a-remove-token-for-an-organization)
 
-#### 操作密钥
+#### Actions Secrets
 
-* [获取仓库公钥](/rest/actions#get-a-repository-public-key)
-* [列出仓库密钥](/rest/actions#list-repository-secrets)
-* [获取仓库密钥](/rest/actions#get-a-repository-secret)
-* [创建或更新仓库密钥](/rest/actions#create-or-update-a-repository-secret)
-* [删除仓库密钥](/rest/actions#delete-a-repository-secret)
-* [获取组织公钥](/rest/actions#get-an-organization-public-key)
-* [列出组织密钥](/rest/actions#list-organization-secrets)
-* [获取组织密钥](/rest/actions#get-an-organization-secret)
-* [创建或更新组织密钥](/rest/actions#create-or-update-an-organization-secret)
-* [列出组织密钥的所选仓库](/rest/actions#list-selected-repositories-for-an-organization-secret)
-* [设置组织密钥的所选仓库](/rest/actions#set-selected-repositories-for-an-organization-secret)
-* [向组织密钥添加所选仓库](/rest/actions#add-selected-repository-to-an-organization-secret)
-* [从组织密钥删除所选仓库](/rest/actions#remove-selected-repository-from-an-organization-secret)
-* [删除组织密钥](/rest/actions#delete-an-organization-secret)
+* [Get a repository public key](/rest/actions#get-a-repository-public-key)
+* [List repository secrets](/rest/actions#list-repository-secrets)
+* [Get a repository secret](/rest/actions#get-a-repository-secret)
+* [Create or update a repository secret](/rest/actions#create-or-update-a-repository-secret)
+* [Delete a repository secret](/rest/actions#delete-a-repository-secret)
+* [Get an organization public key](/rest/actions#get-an-organization-public-key)
+* [List organization secrets](/rest/actions#list-organization-secrets)
+* [Get an organization secret](/rest/actions#get-an-organization-secret)
+* [Create or update an organization secret](/rest/actions#create-or-update-an-organization-secret)
+* [List selected repositories for an organization secret](/rest/actions#list-selected-repositories-for-an-organization-secret)
+* [Set selected repositories for an organization secret](/rest/actions#set-selected-repositories-for-an-organization-secret)
+* [Add selected repository to an organization secret](/rest/actions#add-selected-repository-to-an-organization-secret)
+* [Remove selected repository from an organization secret](/rest/actions#remove-selected-repository-from-an-organization-secret)
+* [Delete an organization secret](/rest/actions#delete-an-organization-secret)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### 构件
+#### Artifacts
 
-* [列出仓库的构件](/rest/actions#list-artifacts-for-a-repository)
-* [列出工作流程运行构件](/rest/actions#list-workflow-run-artifacts)
-* [获取构件](/rest/actions#get-an-artifact)
-* [删除构件](/rest/actions#delete-an-artifact)
-* [下载构件](/rest/actions#download-an-artifact)
+* [List artifacts for a repository](/rest/actions#list-artifacts-for-a-repository)
+* [List workflow run artifacts](/rest/actions#list-workflow-run-artifacts)
+* [Get an artifact](/rest/actions#get-an-artifact)
+* [Delete an artifact](/rest/actions#delete-an-artifact)
+* [Download an artifact](/rest/actions#download-an-artifact)
 {% endif %}
 
-#### 检查运行
+#### Check Runs
 
-* [创建检查运行](/rest/checks#create-a-check-run)
-* [获取检查运行](/rest/checks#get-a-check-run)
-* [更新检查运行](/rest/checks#update-a-check-run)
-* [列出检查运行注释](/rest/checks#list-check-run-annotations)
-* [列出检查套件中的检查运行](/rest/checks#list-check-runs-in-a-check-suite)
-* [列出 Git 引用的检查运行](/rest/checks#list-check-runs-for-a-git-reference)
+* [Create a check run](/rest/checks#create-a-check-run)
+* [Get a check run](/rest/checks#get-a-check-run)
+* [Update a check run](/rest/checks#update-a-check-run)
+* [List check run annotations](/rest/checks#list-check-run-annotations)
+* [List check runs in a check suite](/rest/checks#list-check-runs-in-a-check-suite)
+* [List check runs for a Git reference](/rest/checks#list-check-runs-for-a-git-reference)
 
-#### 检查套件
+#### Check Suites
 
-* [创建检查套件](/rest/checks#create-a-check-suite)
-* [获取检查套件](/rest/checks#get-a-check-suite)
-* [重新请求检查套件](/rest/checks#rerequest-a-check-suite)
-* [更新检查套件的仓库首选项](/rest/checks#update-repository-preferences-for-check-suites)
-* [列出 Git 引用的检查套件](/rest/checks#list-check-suites-for-a-git-reference)
+* [Create a check suite](/rest/checks#create-a-check-suite)
+* [Get a check suite](/rest/checks#get-a-check-suite)
+* [Rerequest a check suite](/rest/checks#rerequest-a-check-suite)
+* [Update repository preferences for check suites](/rest/checks#update-repository-preferences-for-check-suites)
+* [List check suites for a Git reference](/rest/checks#list-check-suites-for-a-git-reference)
 
-#### 行为准则
+#### Codes Of Conduct
 
-* [获取所有行为准则](/rest/codes-of-conduct#get-all-codes-of-conduct)
-* [获取行为准则](/rest/codes-of-conduct#get-a-code-of-conduct)
+* [Get all codes of conduct](/rest/codes-of-conduct#get-all-codes-of-conduct)
+* [Get a code of conduct](/rest/codes-of-conduct#get-a-code-of-conduct)
 
-#### 部署状态
+#### Deployment Statuses
 
-* [列出部署状态](/rest/deployments#list-deployment-statuses)
-* [创建部署状态](/rest/deployments#create-a-deployment-status)
-* [获取部署状态](/rest/deployments#get-a-deployment-status)
+* [List deployment statuses](/rest/deployments#list-deployment-statuses)
+* [Create a deployment status](/rest/deployments#create-a-deployment-status)
+* [Get a deployment status](/rest/deployments#get-a-deployment-status)
 
-#### 部署
+#### Deployments
 
-* [列出部署](/rest/deployments#list-deployments)
-* [创建部署](/rest/deployments#create-a-deployment)
-* [获取部署](/rest/deployments#get-a-deployment)
-* [删除部署](/rest/deployments#delete-a-deployment)
+* [List deployments](/rest/deployments#list-deployments)
+* [Create a deployment](/rest/deployments#create-a-deployment)
+* [Get a deployment](/rest/deployments#get-a-deployment)
+* [Delete a deployment](/rest/deployments#delete-a-deployment)
 
-#### 事件
+#### Events
 
-* [列出仓库网络的公开事件](/rest/activity#list-public-events-for-a-network-of-repositories)
-* [列出公开组织事件](/rest/activity#list-public-organization-events)
+* [List public events for a network of repositories](/rest/activity#list-public-events-for-a-network-of-repositories)
+* [List public organization events](/rest/activity#list-public-organization-events)
 
-#### 馈送
+#### Feeds
 
-* [获取馈送](/rest/activity#get-feeds)
+* [Get feeds](/rest/activity#get-feeds)
 
-#### Git Blob
+#### Git Blobs
 
-* [创建 Blob](/rest/git#create-a-blob)
-* [获取 Blob](/rest/git#get-a-blob)
+* [Create a blob](/rest/git#create-a-blob)
+* [Get a blob](/rest/git#get-a-blob)
 
-#### Git 提交
+#### Git Commits
 
-* [创建提交](/rest/git#create-a-commit)
-* [获取提交](/rest/git#get-a-commit)
+* [Create a commit](/rest/git#create-a-commit)
+* [Get a commit](/rest/git#get-a-commit)
 
-#### Git 引用
+#### Git Refs
 
-* [创建引用](/rest/git#create-a-reference)
-* [获取引用](/rest/git#get-a-reference)
-* [列出匹配的引用](/rest/git#list-matching-references)
-* [更新引用](/rest/git#update-a-reference)
-* [删除引用](/rest/git#delete-a-reference)
+* [Create a reference](/rest/git#create-a-reference)
+* [Get a reference](/rest/git#get-a-reference)
+* [List matching references](/rest/git#list-matching-references)
+* [Update a reference](/rest/git#update-a-reference)
+* [Delete a reference](/rest/git#delete-a-reference)
 
-#### Git 标记
+#### Git Tags
 
-* [创建标记对象](/rest/git#create-a-tag-object)
-* [获取标记](/rest/git#get-a-tag)
+* [Create a tag object](/rest/git#create-a-tag-object)
+* [Get a tag](/rest/git#get-a-tag)
 
-#### Git 树
+#### Git Trees
 
-* [创建树](/rest/git#create-a-tree)
-* [获取树](/rest/git#get-a-tree)
+* [Create a tree](/rest/git#create-a-tree)
+* [Get a tree](/rest/git#get-a-tree)
 
-#### Gitignore 模板
+#### Gitignore Templates
 
-* [获取所有 gitignore 模板](/rest/gitignore#get-all-gitignore-templates)
-* [获取 gitignore 模板](/rest/gitignore#get-a-gitignore-template)
+* [Get all gitignore templates](/rest/gitignore#get-all-gitignore-templates)
+* [Get a gitignore template](/rest/gitignore#get-a-gitignore-template)
 
-#### 安装设施
+#### Installations
 
-* [列出用户访问令牌可访问的仓库](/rest/apps#list-repositories-accessible-to-the-user-access-token)
+* [List repositories accessible to the user access token](/rest/apps#list-repositories-accessible-to-the-user-access-token)
 
 {% ifversion fpt or ghec %}
-#### 交互限制
+#### Interaction Limits
 
-* [获取组织的交互限制](/rest/interactions#get-interaction-restrictions-for-an-organization)
-* [设置组织的交互限制](/rest/interactions#set-interaction-restrictions-for-an-organization)
-* [删除组织的交互限制](/rest/interactions#remove-interaction-restrictions-for-an-organization)
-* [获取仓库的交互限制](/rest/interactions#get-interaction-restrictions-for-a-repository)
-* [设置仓库的交互限制](/rest/interactions#set-interaction-restrictions-for-a-repository)
-* [删除仓库的交互限制](/rest/interactions#remove-interaction-restrictions-for-a-repository)
+* [Get interaction restrictions for an organization](/rest/interactions#get-interaction-restrictions-for-an-organization)
+* [Set interaction restrictions for an organization](/rest/interactions#set-interaction-restrictions-for-an-organization)
+* [Remove interaction restrictions for an organization](/rest/interactions#remove-interaction-restrictions-for-an-organization)
+* [Get interaction restrictions for a repository](/rest/interactions#get-interaction-restrictions-for-a-repository)
+* [Set interaction restrictions for a repository](/rest/interactions#set-interaction-restrictions-for-a-repository)
+* [Remove interaction restrictions for a repository](/rest/interactions#remove-interaction-restrictions-for-a-repository)
 {% endif %}
 
-#### 议题受理人
+#### Issue Assignees
 
-* [向议题添加受理人](/rest/issues#add-assignees-to-an-issue)
-* [从议题删除受理人](/rest/issues#remove-assignees-from-an-issue)
+* [Add assignees to an issue](/rest/issues#add-assignees-to-an-issue)
+* [Remove assignees from an issue](/rest/issues#remove-assignees-from-an-issue)
 
-#### 议题评论
+#### Issue Comments
 
-* [列出议题评论](/rest/issues#list-issue-comments)
-* [创建议题评论](/rest/issues#create-an-issue-comment)
-* [列出仓库的议题评论](/rest/issues#list-issue-comments-for-a-repository)
-* [获取议题评论](/rest/issues#get-an-issue-comment)
-* [更新议题评论](/rest/issues#update-an-issue-comment)
-* [删除议题评论](/rest/issues#delete-an-issue-comment)
+* [List issue comments](/rest/issues#list-issue-comments)
+* [Create an issue comment](/rest/issues#create-an-issue-comment)
+* [List issue comments for a repository](/rest/issues#list-issue-comments-for-a-repository)
+* [Get an issue comment](/rest/issues#get-an-issue-comment)
+* [Update an issue comment](/rest/issues#update-an-issue-comment)
+* [Delete an issue comment](/rest/issues#delete-an-issue-comment)
 
-#### 议题事件
+#### Issue Events
 
-* [列出议题事件](/rest/issues#list-issue-events)
+* [List issue events](/rest/issues#list-issue-events)
 
-#### 议题时间表
+#### Issue Timeline
 
-* [列出议题的时间表事件](/rest/issues#list-timeline-events-for-an-issue)
+* [List timeline events for an issue](/rest/issues#list-timeline-events-for-an-issue)
 
-#### 议题
+#### Issues
 
-* [列出分配给经验证用户的议题](/rest/issues#list-issues-assigned-to-the-authenticated-user)
-* [列出受理人](/rest/issues#list-assignees)
-* [检查是否可以分配给用户](/rest/issues#check-if-a-user-can-be-assigned)
-* [列出仓库议题](/rest/issues#list-repository-issues)
-* [创建议题](/rest/issues#create-an-issue)
-* [获取议题](/rest/issues#get-an-issue)
-* [更新议题](/rest/issues#update-an-issue)
-* [锁定议题](/rest/issues#lock-an-issue)
-* [解锁议题](/rest/issues#unlock-an-issue)
+* [List issues assigned to the authenticated user](/rest/issues#list-issues-assigned-to-the-authenticated-user)
+* [List assignees](/rest/issues#list-assignees)
+* [Check if a user can be assigned](/rest/issues#check-if-a-user-can-be-assigned)
+* [List repository issues](/rest/issues#list-repository-issues)
+* [Create an issue](/rest/issues#create-an-issue)
+* [Get an issue](/rest/issues#get-an-issue)
+* [Update an issue](/rest/issues#update-an-issue)
+* [Lock an issue](/rest/issues#lock-an-issue)
+* [Unlock an issue](/rest/issues#unlock-an-issue)
 
 {% ifversion fpt or ghec %}
 #### Jobs
 
-* [获取工作流程运行的作业](/rest/actions#get-a-job-for-a-workflow-run)
-* [下载工作流程运行的作业日志](/rest/actions#download-job-logs-for-a-workflow-run)
-* [列出工作流程运行的作业](/rest/actions#list-jobs-for-a-workflow-run)
+* [Get a job for a workflow run](/rest/actions#get-a-job-for-a-workflow-run)
+* [Download job logs for a workflow run](/rest/actions#download-job-logs-for-a-workflow-run)
+* [List jobs for a workflow run](/rest/actions#list-jobs-for-a-workflow-run)
 {% endif %}
 
-#### 标签
+#### Labels
 
-* [列出议题的标签](/rest/issues#list-labels-for-an-issue)
-* [向议题添加标签](/rest/issues#add-labels-to-an-issue)
-* [为议题设置标签](/rest/issues#set-labels-for-an-issue)
-* [删除议题的所有标签](/rest/issues#remove-all-labels-from-an-issue)
-* [删除议题的一个标签](/rest/issues#remove-a-label-from-an-issue)
-* [列出仓库的标签](/rest/issues#list-labels-for-a-repository)
-* [创建标签](/rest/issues#create-a-label)
-* [获取标签](/rest/issues#get-a-label)
-* [更新标签](/rest/issues#update-a-label)
-* [删除标签](/rest/issues#delete-a-label)
-* [获取里程碑中每个议题的标签](/rest/issues#list-labels-for-issues-in-a-milestone)
+* [List labels for an issue](/rest/issues#list-labels-for-an-issue)
+* [Add labels to an issue](/rest/issues#add-labels-to-an-issue)
+* [Set labels for an issue](/rest/issues#set-labels-for-an-issue)
+* [Remove all labels from an issue](/rest/issues#remove-all-labels-from-an-issue)
+* [Remove a label from an issue](/rest/issues#remove-a-label-from-an-issue)
+* [List labels for a repository](/rest/issues#list-labels-for-a-repository)
+* [Create a label](/rest/issues#create-a-label)
+* [Get a label](/rest/issues#get-a-label)
+* [Update a label](/rest/issues#update-a-label)
+* [Delete a label](/rest/issues#delete-a-label)
+* [Get labels for every issue in a milestone](/rest/issues#list-labels-for-issues-in-a-milestone)
 
-#### 许可
+#### Licenses
 
-* [获取所有常用许可](/rest/licenses#get-all-commonly-used-licenses)
-* [获取许可](/rest/licenses#get-a-license)
+* [Get all commonly used licenses](/rest/licenses#get-all-commonly-used-licenses)
+* [Get a license](/rest/licenses#get-a-license)
 
 #### Markdown
 
-* [渲染 Markdown 文档](/rest/markdown#render-a-markdown-document)
-* [在原始模式下渲染 Markdown 文档](/rest/markdown#render-a-markdown-document-in-raw-mode)
+* [Render a Markdown document](/rest/markdown#render-a-markdown-document)
+* [Render a markdown document in raw mode](/rest/markdown#render-a-markdown-document-in-raw-mode)
 
-#### 元数据
+#### Meta
 
-* [元数据](/rest/meta#meta)
+* [Meta](/rest/meta#meta)
 
-#### 里程碑
+#### Milestones
 
-* [列出里程碑](/rest/issues#list-milestones)
-* [创建里程碑](/rest/issues#create-a-milestone)
-* [获取里程碑](/rest/issues#get-a-milestone)
-* [更新里程碑](/rest/issues#update-a-milestone)
-* [删除里程碑](/rest/issues#delete-a-milestone)
+* [List milestones](/rest/issues#list-milestones)
+* [Create a milestone](/rest/issues#create-a-milestone)
+* [Get a milestone](/rest/issues#get-a-milestone)
+* [Update a milestone](/rest/issues#update-a-milestone)
+* [Delete a milestone](/rest/issues#delete-a-milestone)
 
-#### 组织挂钩
+#### Organization Hooks
 
-* [列出组织 web 挂钩](/rest/orgs#webhooks/#list-organization-webhooks)
-* [创建组织 web 挂钩](/rest/orgs#webhooks/#create-an-organization-webhook)
-* [获取组织 web 挂钩](/rest/orgs#webhooks/#get-an-organization-webhook)
-* [更新组织 web 挂钩](/rest/orgs#webhooks/#update-an-organization-webhook)
-* [删除组织 web 挂钩](/rest/orgs#webhooks/#delete-an-organization-webhook)
-* [Ping 组织 web 挂钩](/rest/orgs#webhooks/#ping-an-organization-webhook)
+* [List organization webhooks](/rest/orgs#webhooks/#list-organization-webhooks)
+* [Create an organization webhook](/rest/orgs#webhooks/#create-an-organization-webhook)
+* [Get an organization webhook](/rest/orgs#webhooks/#get-an-organization-webhook)
+* [Update an organization webhook](/rest/orgs#webhooks/#update-an-organization-webhook)
+* [Delete an organization webhook](/rest/orgs#webhooks/#delete-an-organization-webhook)
+* [Ping an organization webhook](/rest/orgs#webhooks/#ping-an-organization-webhook)
 
 {% ifversion fpt or ghec %}
-#### 组织邀请
+#### Organization Invitations
 
-* [列出待处理的组织邀请](/rest/orgs#list-pending-organization-invitations)
-* [创建组织邀请](/rest/orgs#create-an-organization-invitation)
-* [列出组织邀请团队](/rest/orgs#list-organization-invitation-teams)
+* [List pending organization invitations](/rest/orgs#list-pending-organization-invitations)
+* [Create an organization invitation](/rest/orgs#create-an-organization-invitation)
+* [List organization invitation teams](/rest/orgs#list-organization-invitation-teams)
 {% endif %}
 
-#### 组织成员
+#### Organization Members
 
-* [列出组织成员](/rest/orgs#list-organization-members)
-* [检查用户的组织成员身份](/rest/orgs#check-organization-membership-for-a-user)
-* [删除组织成员](/rest/orgs#remove-an-organization-member)
-* [获取用户的组织成员身份](/rest/orgs#get-organization-membership-for-a-user)
-* [设置用户的组织成员身份](/rest/orgs#set-organization-membership-for-a-user)
-* [删除用户的组织成员身份](/rest/orgs#remove-organization-membership-for-a-user)
-* [列出公共组织成员](/rest/orgs#list-public-organization-members)
-* [检查用户的公共组织成员身份](/rest/orgs#check-public-organization-membership-for-a-user)
-* [设置经验证用户的公共组织成员身份](/rest/orgs#set-public-organization-membership-for-the-authenticated-user)
-* [删除经验证用户的公共组织成员身份](/rest/orgs#remove-public-organization-membership-for-the-authenticated-user)
+* [List organization members](/rest/orgs#list-organization-members)
+* [Check organization membership for a user](/rest/orgs#check-organization-membership-for-a-user)
+* [Remove an organization member](/rest/orgs#remove-an-organization-member)
+* [Get organization membership for a user](/rest/orgs#get-organization-membership-for-a-user)
+* [Set organization membership for a user](/rest/orgs#set-organization-membership-for-a-user)
+* [Remove organization membership for a user](/rest/orgs#remove-organization-membership-for-a-user)
+* [List public organization members](/rest/orgs#list-public-organization-members)
+* [Check public organization membership for a user](/rest/orgs#check-public-organization-membership-for-a-user)
+* [Set public organization membership for the authenticated user](/rest/orgs#set-public-organization-membership-for-the-authenticated-user)
+* [Remove public organization membership for the authenticated user](/rest/orgs#remove-public-organization-membership-for-the-authenticated-user)
 
-#### 组织外部协作者
+#### Organization Outside Collaborators
 
-* [列出组织的外部协作者](/rest/orgs#list-outside-collaborators-for-an-organization)
-* [将组织成员转换为外部协作者](/rest/orgs#convert-an-organization-member-to-outside-collaborator)
-* [删除组织的外部协作者](/rest/orgs#remove-outside-collaborator-from-an-organization)
+* [List outside collaborators for an organization](/rest/orgs#list-outside-collaborators-for-an-organization)
+* [Convert an organization member to outside collaborator](/rest/orgs#convert-an-organization-member-to-outside-collaborator)
+* [Remove outside collaborator from an organization](/rest/orgs#remove-outside-collaborator-from-an-organization)
 
 {% ifversion ghes %}
-#### 组织预接收挂钩
+#### Organization Pre Receive Hooks
 
-* [列出组织的预接收挂钩](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
-* [获取组织的预接收挂钩](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
-* [更新组织的预接收挂钩实施](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
-* [删除组织的预接收挂钩实施](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
+* [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
+* [Get a pre-receive hook for an organization](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
+* [Update pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
+* [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-#### 组织团队项目
+#### Organization Team Projects
 
-* [列出团队项目](/rest/teams#list-team-projects)
-* [检查项目的团队权限](/rest/teams#check-team-permissions-for-a-project)
-* [添加或更新团队项目权限](/rest/teams#add-or-update-team-project-permissions)
-* [从团队删除项目](/rest/teams#remove-a-project-from-a-team)
+* [List team projects](/rest/teams#list-team-projects)
+* [Check team permissions for a project](/rest/teams#check-team-permissions-for-a-project)
+* [Add or update team project permissions](/rest/teams#add-or-update-team-project-permissions)
+* [Remove a project from a team](/rest/teams#remove-a-project-from-a-team)
 
-#### 组织团队仓库
+#### Organization Team Repositories
 
-* [列出团队仓库](/rest/teams#list-team-repositories)
-* [检查仓库的团队权限](/rest/teams#check-team-permissions-for-a-repository)
-* [添加或更新团队仓库权限](/rest/teams#add-or-update-team-repository-permissions)
-* [从团队删除仓库](/rest/teams#remove-a-repository-from-a-team)
+* [List team repositories](/rest/teams#list-team-repositories)
+* [Check team permissions for a repository](/rest/teams#check-team-permissions-for-a-repository)
+* [Add or update team repository permissions](/rest/teams#add-or-update-team-repository-permissions)
+* [Remove a repository from a team](/rest/teams#remove-a-repository-from-a-team)
 
 {% ifversion fpt or ghec %}
-#### 组织团队同步
+#### Organization Team Sync
 
-* [列出团队的 IdP 组](/rest/teams#list-idp-groups-for-a-team)
-* [创建或更新 IdP 组连接](/rest/teams#create-or-update-idp-group-connections)
-* [列出组织的 IdP 组](/rest/teams#list-idp-groups-for-an-organization)
+* [List IdP groups for a team](/rest/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/teams#create-or-update-idp-group-connections)
+* [List IdP groups for an organization](/rest/teams#list-idp-groups-for-an-organization)
 {% endif %}
 
-#### 组织团队
+#### Organization Teams
 
-* [列出团队](/rest/teams#list-teams)
-* [创建团队](/rest/teams#create-a-team)
-* [按名称获取团队](/rest/teams#get-a-team-by-name)
-* [更新团队](/rest/teams#update-a-team)
-* [删除团队](/rest/teams#delete-a-team)
+* [List teams](/rest/teams#list-teams)
+* [Create a team](/rest/teams#create-a-team)
+* [Get a team by name](/rest/teams#get-a-team-by-name)
+* [Update a team](/rest/teams#update-a-team)
+* [Delete a team](/rest/teams#delete-a-team)
 {% ifversion fpt or ghec %}
-* [列出待处理的团队邀请](/rest/teams#list-pending-team-invitations)
+* [List pending team invitations](/rest/teams#list-pending-team-invitations)
 {% endif %}
-* [列出团队成员](/rest/teams#list-team-members)
-* [获取用户的团队成员身份](/rest/teams#get-team-membership-for-a-user)
-* [添加或更新用户的团队成员身份](/rest/teams#add-or-update-team-membership-for-a-user)
-* [删除用户的团队成员身份](/rest/teams#remove-team-membership-for-a-user)
-* [列出子团队](/rest/teams#list-child-teams)
-* [列出经验证用户的团队](/rest/teams#list-teams-for-the-authenticated-user)
+* [List team members](/rest/teams#list-team-members)
+* [Get team membership for a user](/rest/teams#get-team-membership-for-a-user)
+* [Add or update team membership for a user](/rest/teams#add-or-update-team-membership-for-a-user)
+* [Remove team membership for a user](/rest/teams#remove-team-membership-for-a-user)
+* [List child teams](/rest/teams#list-child-teams)
+* [List teams for the authenticated user](/rest/teams#list-teams-for-the-authenticated-user)
 
-#### 组织
+#### Organizations
 
-* [列出组织](/rest/orgs#list-organizations)
-* [获取组织](/rest/orgs#get-an-organization)
-* [更新组织](/rest/orgs#update-an-organization)
-* [列出经验证用户的组织成员身份](/rest/orgs#list-organization-memberships-for-the-authenticated-user)
-* [获取经验证用户的组织成员身份](/rest/orgs#get-an-organization-membership-for-the-authenticated-user)
-* [更新经验证用户的组织成员身份](/rest/orgs#update-an-organization-membership-for-the-authenticated-user)
-* [列出经验证用户的组织](/rest/orgs#list-organizations-for-the-authenticated-user)
-* [列出用户的组织](/rest/orgs#list-organizations-for-a-user)
-
-{% ifversion fpt or ghec %}
-#### 组织凭据授权
-
-* [列出组织的 SAML SSO 授权](/rest/orgs#list-saml-sso-authorizations-for-an-organization)
-* [删除组织的 SAML SSO 授权](/rest/orgs#remove-a-saml-sso-authorization-for-an-organization)
-{% endif %}
+* [List organizations](/rest/orgs#list-organizations)
+* [Get an organization](/rest/orgs#get-an-organization)
+* [Update an organization](/rest/orgs#update-an-organization)
+* [List organization memberships for the authenticated user](/rest/orgs#list-organization-memberships-for-the-authenticated-user)
+* [Get an organization membership for the authenticated user](/rest/orgs#get-an-organization-membership-for-the-authenticated-user)
+* [Update an organization membership for the authenticated user](/rest/orgs#update-an-organization-membership-for-the-authenticated-user)
+* [List organizations for the authenticated user](/rest/orgs#list-organizations-for-the-authenticated-user)
+* [List organizations for a user](/rest/orgs#list-organizations-for-a-user)
 
 {% ifversion fpt or ghec %}
-#### 组织 SCIM
+#### Organizations Credential Authorizations
 
-* [列出 SCIM 预配标识](/rest/scim#list-scim-provisioned-identities)
-* [预配并邀请 SCIM 用户](/rest/scim#provision-and-invite-a-scim-user)
-* [获取用户的 SCIM 预配信息](/rest/scim#get-scim-provisioning-information-for-a-user)
-* [为预配用户设置 SCIM 信息](/rest/scim#set-scim-information-for-a-provisioned-user)
-* [更新 SCIM 用户的属性](/rest/scim#update-an-attribute-for-a-scim-user)
-* [从组织中删除 SCIM 用户](/rest/scim#delete-a-scim-user-from-an-organization)
+* [List SAML SSO authorizations for an organization](/rest/orgs#list-saml-sso-authorizations-for-an-organization)
+* [Remove a SAML SSO authorization for an organization](/rest/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### 源导入
+#### Organizations Scim
 
-* [获取导入状态](/rest/migrations#get-an-import-status)
-* [开始导入](/rest/migrations#start-an-import)
-* [更新导入](/rest/migrations#update-an-import)
-* [取消导入](/rest/migrations#cancel-an-import)
-* [获取提交作者](/rest/migrations#get-commit-authors)
-* [映射提交作者](/rest/migrations#map-a-commit-author)
-* [获取大文件](/rest/migrations#get-large-files)
-* [更新 Git LFS 首选项](/rest/migrations#update-git-lfs-preference)
+* [List SCIM provisioned identities](/rest/scim#list-scim-provisioned-identities)
+* [Provision and invite a SCIM user](/rest/scim#provision-and-invite-a-scim-user)
+* [Get SCIM provisioning information for a user](/rest/scim#get-scim-provisioning-information-for-a-user)
+* [Set SCIM information for a provisioned user](/rest/scim#set-scim-information-for-a-provisioned-user)
+* [Update an attribute for a SCIM user](/rest/scim#update-an-attribute-for-a-scim-user)
+* [Delete a SCIM user from an organization](/rest/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
-
-#### 项目协作者
-
-* [列出项目协作者](/rest/projects#list-project-collaborators)
-* [添加项目协作者](/rest/projects#add-project-collaborator)
-* [删除项目协作者](/rest/projects#remove-project-collaborator)
-* [获取用户的项目权限](/rest/projects#get-project-permission-for-a-user)
-
-#### 项目
-
-* [列出组织项目](/rest/projects#list-organization-projects)
-* [创建组织项目](/rest/projects#create-an-organization-project)
-* [获取项目](/rest/projects#get-a-project)
-* [更新项目](/rest/projects#update-a-project)
-* [删除项目](/rest/projects#delete-a-project)
-* [列出项目列](/rest/projects#list-project-columns)
-* [创建项目列](/rest/projects#create-a-project-column)
-* [获取项目列](/rest/projects#get-a-project-column)
-* [更新项目列](/rest/projects#update-a-project-column)
-* [删除项目列](/rest/projects#delete-a-project-column)
-* [列出项目卡](/rest/projects#list-project-cards)
-* [创建项目卡](/rest/projects#create-a-project-card)
-* [移动项目列](/rest/projects#move-a-project-column)
-* [获取项目卡](/rest/projects#get-a-project-card)
-* [更新项目卡](/rest/projects#update-a-project-card)
-* [删除项目卡](/rest/projects#delete-a-project-card)
-* [移动项目卡](/rest/projects#move-a-project-card)
-* [列出仓库项目](/rest/projects#list-repository-projects)
-* [创建仓库项目](/rest/projects#create-a-repository-project)
-
-#### 拉取注释
-
-* [列出拉取请求的审查注释](/rest/pulls#list-review-comments-on-a-pull-request)
-* [为拉取请求创建审查注释](/rest/pulls#create-a-review-comment-for-a-pull-request)
-* [列出仓库中的审查注释](/rest/pulls#list-review-comments-in-a-repository)
-* [获取拉取请求的审查注释](/rest/pulls#get-a-review-comment-for-a-pull-request)
-* [更新拉取请求的审查注释](/rest/pulls#update-a-review-comment-for-a-pull-request)
-* [删除拉取请求的审查注释](/rest/pulls#delete-a-review-comment-for-a-pull-request)
-
-#### 拉取请求审查事件
-
-* [忽略拉取请求审查](/rest/pulls#dismiss-a-review-for-a-pull-request)
-* [提交拉取请求审查](/rest/pulls#submit-a-review-for-a-pull-request)
-
-#### 拉取请求审查请求
-
-* [列出拉取请求的请求审查者](/rest/pulls#list-requested-reviewers-for-a-pull-request)
-* [请求拉取请求的审查者](/rest/pulls#request-reviewers-for-a-pull-request)
-* [删除拉取请求的请求审查者](/rest/pulls#remove-requested-reviewers-from-a-pull-request)
-
-#### 拉取请求审查
-
-* [列出拉取请求审查](/rest/pulls#list-reviews-for-a-pull-request)
-* [创建拉取请求审查](/rest/pulls#create-a-review-for-a-pull-request)
-* [获取拉取请求审查](/rest/pulls#get-a-review-for-a-pull-request)
-* [更新拉取请求审查](/rest/pulls#update-a-review-for-a-pull-request)
-* [列出拉取请求审查的注释](/rest/pulls#list-comments-for-a-pull-request-review)
-
-#### 拉取
-
-* [列出拉取请求](/rest/pulls#list-pull-requests)
-* [创建拉取请求](/rest/pulls#create-a-pull-request)
-* [获取拉取请求](/rest/pulls#get-a-pull-request)
-* [更新拉取请求](/rest/pulls#update-a-pull-request)
-* [列出拉取请求上的提交](/rest/pulls#list-commits-on-a-pull-request)
-* [列出拉取请求文件](/rest/pulls#list-pull-requests-files)
-* [检查拉取请求是否已合并](/rest/pulls#check-if-a-pull-request-has-been-merged)
-* [合并拉取请求（合并按钮）](/rest/pulls#merge-a-pull-request)
-
-#### 反应
-
-* [删除反应](/rest/reactions)
-* [列出提交注释的反应](/rest/reactions#list-reactions-for-a-commit-comment)
-* [创建提交注释的反应](/rest/reactions#create-reaction-for-a-commit-comment)
-* [列出议题的反应](/rest/reactions#list-reactions-for-an-issue)
-* [创建议题的反应](/rest/reactions#create-reaction-for-an-issue)
-* [列出议题注释的反应](/rest/reactions#list-reactions-for-an-issue-comment)
-* [创建议题注释的反应](/rest/reactions#create-reaction-for-an-issue-comment)
-* [列出拉取请求审查注释的反应](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
-* [创建拉取请求审查注释的反应](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
-* [列出团队讨论注释的反应](/rest/reactions#list-reactions-for-a-team-discussion-comment)
-* [创建团队讨论注释的反应](/rest/reactions#create-reaction-for-a-team-discussion-comment)
-* [列出团队讨论的反应](/rest/reactions#list-reactions-for-a-team-discussion)
-* [为团队讨论创建反应](/rest/reactions#create-reaction-for-a-team-discussion)
-* [删除提交注释反应](/rest/reactions#delete-a-commit-comment-reaction)
-* [删除议题反应](/rest/reactions#delete-an-issue-reaction)
-* [删除对提交注释的反应](/rest/reactions#delete-an-issue-comment-reaction)
-* [删除拉取请求注释反应](/rest/reactions#delete-a-pull-request-comment-reaction)
-* [删除团队讨论反应](/rest/reactions#delete-team-discussion-reaction)
-* [删除团队讨论评论反应](/rest/reactions#delete-team-discussion-comment-reaction)
-
-#### 仓库
-
-* [列出组织仓库](/rest/repos#list-organization-repositories)
-* [为经验证的用户创建仓库。](/rest/repos#create-a-repository-for-the-authenticated-user)
-* [获取仓库](/rest/repos#get-a-repository)
-* [更新仓库](/rest/repos#update-a-repository)
-* [删除仓库](/rest/repos#delete-a-repository)
-* [比较两个提交](/rest/commits#compare-two-commits)
-* [列出仓库贡献者](/rest/repos#list-repository-contributors)
-* [列出复刻](/rest/repos#list-forks)
-* [创建复刻](/rest/repos#create-a-fork)
-* [列出仓库语言](/rest/repos#list-repository-languages)
-* [列出仓库标记](/rest/repos#list-repository-tags)
-* [列出仓库团队](/rest/repos#list-repository-teams)
-* [转让仓库](/rest/repos#transfer-a-repository)
-* [列出公共仓库](/rest/repos#list-public-repositories)
-* [列出经验证用户的仓库](/rest/repos#list-repositories-for-the-authenticated-user)
-* [列出用户的仓库](/rest/repos#list-repositories-for-a-user)
-* [使用仓库模板创建仓库](/rest/repos#create-repository-using-a-repository-template)
-
-#### 仓库活动
-
-* [列出标星者](/rest/activity#list-stargazers)
-* [列出关注者](/rest/activity#list-watchers)
-* [列出用户标星的仓库](/rest/activity#list-repositories-starred-by-a-user)
-* [检查仓库是否被经验证用户标星](/rest/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
-* [标星经验证用户的仓库](/rest/activity#star-a-repository-for-the-authenticated-user)
-* [取消标星经验证用户的仓库](/rest/activity#unstar-a-repository-for-the-authenticated-user)
-* [列出用户关注的仓库](/rest/activity#list-repositories-watched-by-a-user)
 
 {% ifversion fpt or ghec %}
-#### 仓库自动安全修复
+#### Source Imports
 
-* [启用自动安全修复](/rest/repos#enable-automated-security-fixes)
-* [禁用自动安全修复](/rest/repos#disable-automated-security-fixes)
+* [Get an import status](/rest/migrations#get-an-import-status)
+* [Start an import](/rest/migrations#start-an-import)
+* [Update an import](/rest/migrations#update-an-import)
+* [Cancel an import](/rest/migrations#cancel-an-import)
+* [Get commit authors](/rest/migrations#get-commit-authors)
+* [Map a commit author](/rest/migrations#map-a-commit-author)
+* [Get large files](/rest/migrations#get-large-files)
+* [Update Git LFS preference](/rest/migrations#update-git-lfs-preference)
 {% endif %}
 
-#### 仓库分支
+#### Project Collaborators
 
-* [列出分支](/rest/branches#list-branches)
-* [获取分支](/rest/branches#get-a-branch)
-* [获取分支保护](/rest/branches#get-branch-protection)
-* [更新分支保护](/rest/branches#update-branch-protection)
-* [删除分支保护](/rest/branches#delete-branch-protection)
-* [获取管理员分支保护](/rest/branches#get-admin-branch-protection)
-* [设置管理员分支保护](/rest/branches#set-admin-branch-protection)
-* [删除管理员分支保护](/rest/branches#delete-admin-branch-protection)
-* [获取拉取请求审查保护](/rest/branches#get-pull-request-review-protection)
-* [更新拉取请求审查保护](/rest/branches#update-pull-request-review-protection)
-* [删除拉取请求审查保护](/rest/branches#delete-pull-request-review-protection)
-* [获取提交签名保护](/rest/branches#get-commit-signature-protection)
-* [创建提交签名保护](/rest/branches#create-commit-signature-protection)
-* [删除提交签名保护](/rest/branches#delete-commit-signature-protection)
-* [获取状态检查保护](/rest/branches#get-status-checks-protection)
-* [更新状态检查保护](/rest/branches#update-status-check-protection)
-* [删除状态检查保护](/rest/branches#remove-status-check-protection)
-* [获取所有状态检查上下文](/rest/branches#get-all-status-check-contexts)
-* [添加状态检查上下文](/rest/branches#add-status-check-contexts)
-* [设置状态检查上下文](/rest/branches#set-status-check-contexts)
-* [删除状态检查上下文](/rest/branches#remove-status-check-contexts)
-* [获取访问限制](/rest/branches#get-access-restrictions)
-* [删除访问限制](/rest/branches#delete-access-restrictions)
-* [列出有权访问受保护分支的团队](/rest/repos#list-teams-with-access-to-the-protected-branch)
-* [添加团队访问限制](/rest/branches#add-team-access-restrictions)
-* [设置团队访问限制](/rest/branches#set-team-access-restrictions)
-* [删除团队访问限制](/rest/branches#remove-team-access-restrictions)
-* [列出受保护分支的用户限制](/rest/repos#list-users-with-access-to-the-protected-branch)
-* [添加用户访问限制](/rest/branches#add-user-access-restrictions)
-* [设置用户访问限制](/rest/branches#set-user-access-restrictions)
-* [删除用户访问限制](/rest/branches#remove-user-access-restrictions)
-* [合并分支](/rest/branches#merge-a-branch)
+* [List project collaborators](/rest/projects#list-project-collaborators)
+* [Add project collaborator](/rest/projects#add-project-collaborator)
+* [Remove project collaborator](/rest/projects#remove-project-collaborator)
+* [Get project permission for a user](/rest/projects#get-project-permission-for-a-user)
 
-#### 仓库协作者
+#### Projects
 
-* [列出仓库协作者](/rest/collaborators#list-repository-collaborators)
-* [检查用户是否为仓库协作者](/rest/collaborators#check-if-a-user-is-a-repository-collaborator)
-* [添加仓库协作者](/rest/collaborators#add-a-repository-collaborator)
-* [删除仓库协作者](/rest/collaborators#remove-a-repository-collaborator)
-* [获取用户的仓库权限](/rest/collaborators#get-repository-permissions-for-a-user)
+* [List organization projects](/rest/projects#list-organization-projects)
+* [Create an organization project](/rest/projects#create-an-organization-project)
+* [Get a project](/rest/projects#get-a-project)
+* [Update a project](/rest/projects#update-a-project)
+* [Delete a project](/rest/projects#delete-a-project)
+* [List project columns](/rest/projects#list-project-columns)
+* [Create a project column](/rest/projects#create-a-project-column)
+* [Get a project column](/rest/projects#get-a-project-column)
+* [Update a project column](/rest/projects#update-a-project-column)
+* [Delete a project column](/rest/projects#delete-a-project-column)
+* [List project cards](/rest/projects#list-project-cards)
+* [Create a project card](/rest/projects#create-a-project-card)
+* [Move a project column](/rest/projects#move-a-project-column)
+* [Get a project card](/rest/projects#get-a-project-card)
+* [Update a project card](/rest/projects#update-a-project-card)
+* [Delete a project card](/rest/projects#delete-a-project-card)
+* [Move a project card](/rest/projects#move-a-project-card)
+* [List repository projects](/rest/projects#list-repository-projects)
+* [Create a repository project](/rest/projects#create-a-repository-project)
 
-#### 仓库提交注释
+#### Pull Comments
 
-* [列出仓库的提交注释](/rest/commits#list-commit-comments-for-a-repository)
-* [获取提交注释](/rest/commits#get-a-commit-comment)
-* [更新提交注释](/rest/commits#update-a-commit-comment)
-* [删除提交注释](/rest/commits#delete-a-commit-comment)
-* [列出提交注释](/rest/commits#list-commit-comments)
-* [创建提交注释](/rest/commits#create-a-commit-comment)
+* [List review comments on a pull request](/rest/pulls#list-review-comments-on-a-pull-request)
+* [Create a review comment for a pull request](/rest/pulls#create-a-review-comment-for-a-pull-request)
+* [List review comments in a repository](/rest/pulls#list-review-comments-in-a-repository)
+* [Get a review comment for a pull request](/rest/pulls#get-a-review-comment-for-a-pull-request)
+* [Update a review comment for a pull request](/rest/pulls#update-a-review-comment-for-a-pull-request)
+* [Delete a review comment for a pull request](/rest/pulls#delete-a-review-comment-for-a-pull-request)
 
-#### 仓库提交
+#### Pull Request Review Events
 
-* [列出提交](/rest/commits#list-commits)
-* [获取提交](/rest/commits#get-a-commit)
-* [列出头部提交分支](/rest/commits#list-branches-for-head-commit)
-* [列出与提交关联的拉取请求](/rest/repos#list-pull-requests-associated-with-commit)
+* [Dismiss a review for a pull request](/rest/pulls#dismiss-a-review-for-a-pull-request)
+* [Submit a review for a pull request](/rest/pulls#submit-a-review-for-a-pull-request)
 
-#### 仓库社区
+#### Pull Request Review Requests
 
-* [获取仓库的行为准则](/rest/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
+* [List requested reviewers for a pull request](/rest/pulls#list-requested-reviewers-for-a-pull-request)
+* [Request reviewers for a pull request](/rest/pulls#request-reviewers-for-a-pull-request)
+* [Remove requested reviewers from a pull request](/rest/pulls#remove-requested-reviewers-from-a-pull-request)
+
+#### Pull Request Reviews
+
+* [List reviews for a pull request](/rest/pulls#list-reviews-for-a-pull-request)
+* [Create a review for a pull request](/rest/pulls#create-a-review-for-a-pull-request)
+* [Get a review for a pull request](/rest/pulls#get-a-review-for-a-pull-request)
+* [Update a review for a pull request](/rest/pulls#update-a-review-for-a-pull-request)
+* [List comments for a pull request review](/rest/pulls#list-comments-for-a-pull-request-review)
+
+#### Pulls
+
+* [List pull requests](/rest/pulls#list-pull-requests)
+* [Create a pull request](/rest/pulls#create-a-pull-request)
+* [Get a pull request](/rest/pulls#get-a-pull-request)
+* [Update a pull request](/rest/pulls#update-a-pull-request)
+* [List commits on a pull request](/rest/pulls#list-commits-on-a-pull-request)
+* [List pull requests files](/rest/pulls#list-pull-requests-files)
+* [Check if a pull request has been merged](/rest/pulls#check-if-a-pull-request-has-been-merged)
+* [Merge a pull request (Merge Button)](/rest/pulls#merge-a-pull-request)
+
+#### Reactions
+
+* [Delete a reaction](/rest/reactions)
+* [List reactions for a commit comment](/rest/reactions#list-reactions-for-a-commit-comment)
+* [Create reaction for a commit comment](/rest/reactions#create-reaction-for-a-commit-comment)
+* [List reactions for an issue](/rest/reactions#list-reactions-for-an-issue)
+* [Create reaction for an issue](/rest/reactions#create-reaction-for-an-issue)
+* [List reactions for an issue comment](/rest/reactions#list-reactions-for-an-issue-comment)
+* [Create reaction for an issue comment](/rest/reactions#create-reaction-for-an-issue-comment)
+* [List reactions for a pull request review comment](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
+* [Create reaction for a pull request review comment](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
+* [List reactions for a team discussion comment](/rest/reactions#list-reactions-for-a-team-discussion-comment)
+* [Create reaction for a team discussion comment](/rest/reactions#create-reaction-for-a-team-discussion-comment)
+* [List reactions for a team discussion](/rest/reactions#list-reactions-for-a-team-discussion)
+* [Create reaction for a team discussion](/rest/reactions#create-reaction-for-a-team-discussion)
+* [Delete a commit comment reaction](/rest/reactions#delete-a-commit-comment-reaction)
+* [Delete an issue reaction](/rest/reactions#delete-an-issue-reaction)
+* [Delete a reaction to a commit comment](/rest/reactions#delete-an-issue-comment-reaction)
+* [Delete a pull request comment reaction](/rest/reactions#delete-a-pull-request-comment-reaction)
+* [Delete team discussion reaction](/rest/reactions#delete-team-discussion-reaction)
+* [Delete team discussion comment reaction](/rest/reactions#delete-team-discussion-comment-reaction)
+
+#### Repositories
+
+* [List organization repositories](/rest/repos#list-organization-repositories)
+* [Create a repository for the authenticated user](/rest/repos#create-a-repository-for-the-authenticated-user)
+* [Get a repository](/rest/repos#get-a-repository)
+* [Update a repository](/rest/repos#update-a-repository)
+* [Delete a repository](/rest/repos#delete-a-repository)
+* [Compare two commits](/rest/commits#compare-two-commits)
+* [List repository contributors](/rest/repos#list-repository-contributors)
+* [List forks](/rest/repos#list-forks)
+* [Create a fork](/rest/repos#create-a-fork)
+* [List repository languages](/rest/repos#list-repository-languages)
+* [List repository tags](/rest/repos#list-repository-tags)
+* [List repository teams](/rest/repos#list-repository-teams)
+* [Transfer a repository](/rest/repos#transfer-a-repository)
+* [List public repositories](/rest/repos#list-public-repositories)
+* [List repositories for the authenticated user](/rest/repos#list-repositories-for-the-authenticated-user)
+* [List repositories for a user](/rest/repos#list-repositories-for-a-user)
+* [Create repository using a repository template](/rest/repos#create-repository-using-a-repository-template)
+
+#### Repository Activity
+
+* [List stargazers](/rest/activity#list-stargazers)
+* [List watchers](/rest/activity#list-watchers)
+* [List repositories starred by a user](/rest/activity#list-repositories-starred-by-a-user)
+* [Check if a repository is starred by the authenticated user](/rest/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
+* [Star a repository for the authenticated user](/rest/activity#star-a-repository-for-the-authenticated-user)
+* [Unstar a repository for the authenticated user](/rest/activity#unstar-a-repository-for-the-authenticated-user)
+* [List repositories watched by a user](/rest/activity#list-repositories-watched-by-a-user)
+
 {% ifversion fpt or ghec %}
-* [获取社区资料指标](/rest/metrics#get-community-profile-metrics)
+#### Repository Automated Security Fixes
+
+* [Enable automated security fixes](/rest/repos#enable-automated-security-fixes)
+* [Disable automated security fixes](/rest/repos#disable-automated-security-fixes)
 {% endif %}
 
-#### 仓库内容
+#### Repository Branches
 
-* [下载仓库存档](/rest/repos#download-a-repository-archive)
-* [获取仓库内容](/rest/repos#get-repository-content)
-* [创建或更新文件内容](/rest/repos#create-or-update-file-contents)
-* [删除文件](/rest/repos#delete-a-file)
-* [获取仓库自述文件](/rest/repos#get-a-repository-readme)
-* [获取仓库许可](/rest/licenses#get-the-license-for-a-repository)
+* [List branches](/rest/branches#list-branches)
+* [Get a branch](/rest/branches#get-a-branch)
+* [Get branch protection](/rest/branches#get-branch-protection)
+* [Update branch protection](/rest/branches#update-branch-protection)
+* [Delete branch protection](/rest/branches#delete-branch-protection)
+* [Get admin branch protection](/rest/branches#get-admin-branch-protection)
+* [Set admin branch protection](/rest/branches#set-admin-branch-protection)
+* [Delete admin branch protection](/rest/branches#delete-admin-branch-protection)
+* [Get pull request review protection](/rest/branches#get-pull-request-review-protection)
+* [Update pull request review protection](/rest/branches#update-pull-request-review-protection)
+* [Delete pull request review protection](/rest/branches#delete-pull-request-review-protection)
+* [Get commit signature protection](/rest/branches#get-commit-signature-protection)
+* [Create commit signature protection](/rest/branches#create-commit-signature-protection)
+* [Delete commit signature protection](/rest/branches#delete-commit-signature-protection)
+* [Get status checks protection](/rest/branches#get-status-checks-protection)
+* [Update status check protection](/rest/branches#update-status-check-protection)
+* [Remove status check protection](/rest/branches#remove-status-check-protection)
+* [Get all status check contexts](/rest/branches#get-all-status-check-contexts)
+* [Add status check contexts](/rest/branches#add-status-check-contexts)
+* [Set status check contexts](/rest/branches#set-status-check-contexts)
+* [Remove status check contexts](/rest/branches#remove-status-check-contexts)
+* [Get access restrictions](/rest/branches#get-access-restrictions)
+* [Delete access restrictions](/rest/branches#delete-access-restrictions)
+* [List teams with access to the protected branch](/rest/repos#list-teams-with-access-to-the-protected-branch)
+* [Add team access restrictions](/rest/branches#add-team-access-restrictions)
+* [Set team access restrictions](/rest/branches#set-team-access-restrictions)
+* [Remove team access restriction](/rest/branches#remove-team-access-restrictions)
+* [List user restrictions of protected branch](/rest/repos#list-users-with-access-to-the-protected-branch)
+* [Add user access restrictions](/rest/branches#add-user-access-restrictions)
+* [Set user access restrictions](/rest/branches#set-user-access-restrictions)
+* [Remove user access restrictions](/rest/branches#remove-user-access-restrictions)
+* [Merge a branch](/rest/branches#merge-a-branch)
 
-#### 仓库事件调度
+#### Repository Collaborators
 
-* [创建仓库调度事件](/rest/repos#create-a-repository-dispatch-event)
+* [List repository collaborators](/rest/collaborators#list-repository-collaborators)
+* [Check if a user is a repository collaborator](/rest/collaborators#check-if-a-user-is-a-repository-collaborator)
+* [Add a repository collaborator](/rest/collaborators#add-a-repository-collaborator)
+* [Remove a repository collaborator](/rest/collaborators#remove-a-repository-collaborator)
+* [Get repository permissions for a user](/rest/collaborators#get-repository-permissions-for-a-user)
 
-#### 仓库挂钩
+#### Repository Commit Comments
 
-* [列出仓库 web 挂钩](/rest/webhooks#list-repository-webhooks)
-* [创建仓库 web 挂钩](/rest/webhooks#create-a-repository-webhook)
-* [获取仓库 web 挂钩](/rest/webhooks#get-a-repository-webhook)
-* [更新仓库 web 挂钩](/rest/webhooks#update-a-repository-webhook)
-* [删除仓库 web 挂钩](/rest/webhooks#delete-a-repository-webhook)
-* [Ping 仓库 web 挂钩](/rest/webhooks#ping-a-repository-webhook)
-* [测试推送仓库 web 挂钩](/rest/repos#test-the-push-repository-webhook)
+* [List commit comments for a repository](/rest/commits#list-commit-comments-for-a-repository)
+* [Get a commit comment](/rest/commits#get-a-commit-comment)
+* [Update a commit comment](/rest/commits#update-a-commit-comment)
+* [Delete a commit comment](/rest/commits#delete-a-commit-comment)
+* [List commit comments](/rest/commits#list-commit-comments)
+* [Create a commit comment](/rest/commits#create-a-commit-comment)
 
-#### 仓库邀请
+#### Repository Commits
 
-* [列出仓库邀请](/rest/collaborators#list-repository-invitations)
-* [更新仓库邀请](/rest/collaborators#update-a-repository-invitation)
-* [删除仓库邀请](/rest/collaborators#delete-a-repository-invitation)
-* [列出经验证用户的仓库邀请](/rest/collaborators#list-repository-invitations-for-the-authenticated-user)
-* [接受仓库邀请](/rest/collaborators#accept-a-repository-invitation)
-* [拒绝仓库邀请](/rest/collaborators#decline-a-repository-invitation)
+* [List commits](/rest/commits#list-commits)
+* [Get a commit](/rest/commits#get-a-commit)
+* [List branches for head commit](/rest/commits#list-branches-for-head-commit)
+* [List pull requests associated with commit](/rest/repos#list-pull-requests-associated-with-commit)
 
-#### 仓库密钥
+#### Repository Community
 
-* [列出部署密钥](/rest/deployments#list-deploy-keys)
-* [创建部署密钥](/rest/deployments#create-a-deploy-key)
-* [获取部署密钥](/rest/deployments#get-a-deploy-key)
-* [删除部署密钥](/rest/deployments#delete-a-deploy-key)
+* [Get the code of conduct for a repository](/rest/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
+{% ifversion fpt or ghec %}
+* [Get community profile metrics](/rest/metrics#get-community-profile-metrics)
+{% endif %}
 
-#### 仓库页面
+#### Repository Contents
 
-* [获取 GitHub Pages 站点](/rest/pages#get-a-github-pages-site)
-* [创建 GitHub Pages 站点](/rest/pages#create-a-github-pages-site)
-* [更新关于 GitHub Pages 站点的信息](/rest/pages#update-information-about-a-github-pages-site)
-* [删除 GitHub Pages 站点](/rest/pages#delete-a-github-pages-site)
-* [列出 GitHub Pages 构建](/rest/pages#list-github-pages-builds)
-* [请求 GitHub Pages 构建](/rest/pages#request-a-github-pages-build)
-* [获取 GitHub Pages 构建](/rest/pages#get-github-pages-build)
-* [获取最新页面构建](/rest/pages#get-latest-pages-build)
+* [Download a repository archive](/rest/repos#download-a-repository-archive)
+* [Get repository content](/rest/repos#get-repository-content)
+* [Create or update file contents](/rest/repos#create-or-update-file-contents)
+* [Delete a file](/rest/repos#delete-a-file)
+* [Get a repository README](/rest/repos#get-a-repository-readme)
+* [Get the license for a repository](/rest/licenses#get-the-license-for-a-repository)
+
+#### Repository Event Dispatches
+
+* [Create a repository dispatch event](/rest/repos#create-a-repository-dispatch-event)
+
+#### Repository Hooks
+
+* [List repository webhooks](/rest/webhooks#list-repository-webhooks)
+* [Create a repository webhook](/rest/webhooks#create-a-repository-webhook)
+* [Get a repository webhook](/rest/webhooks#get-a-repository-webhook)
+* [Update a repository webhook](/rest/webhooks#update-a-repository-webhook)
+* [Delete a repository webhook](/rest/webhooks#delete-a-repository-webhook)
+* [Ping a repository webhook](/rest/webhooks#ping-a-repository-webhook)
+* [Test the push repository webhook](/rest/repos#test-the-push-repository-webhook)
+
+#### Repository Invitations
+
+* [List repository invitations](/rest/collaborators#list-repository-invitations)
+* [Update a repository invitation](/rest/collaborators#update-a-repository-invitation)
+* [Delete a repository invitation](/rest/collaborators#delete-a-repository-invitation)
+* [List repository invitations for the authenticated user](/rest/collaborators#list-repository-invitations-for-the-authenticated-user)
+* [Accept a repository invitation](/rest/collaborators#accept-a-repository-invitation)
+* [Decline a repository invitation](/rest/collaborators#decline-a-repository-invitation)
+
+#### Repository Keys
+
+* [List deploy keys](/rest/deployments#list-deploy-keys)
+* [Create a deploy key](/rest/deployments#create-a-deploy-key)
+* [Get a deploy key](/rest/deployments#get-a-deploy-key)
+* [Delete a deploy key](/rest/deployments#delete-a-deploy-key)
+
+#### Repository Pages
+
+* [Get a GitHub Pages site](/rest/pages#get-a-github-pages-site)
+* [Create a GitHub Pages site](/rest/pages#create-a-github-pages-site)
+* [Update information about a GitHub Pages site](/rest/pages#update-information-about-a-github-pages-site)
+* [Delete a GitHub Pages site](/rest/pages#delete-a-github-pages-site)
+* [List GitHub Pages builds](/rest/pages#list-github-pages-builds)
+* [Request a GitHub Pages build](/rest/pages#request-a-github-pages-build)
+* [Get GitHub Pages build](/rest/pages#get-github-pages-build)
+* [Get latest pages build](/rest/pages#get-latest-pages-build)
 
 {% ifversion ghes %}
-#### 仓库预接收挂钩
+#### Repository Pre Receive Hooks
 
-* [列出仓库的预接收挂钩](/enterprise/user/rest/enterprise-admin#list-pre-receive-hooks-for-a-repository)
-* [获取仓库的预接收挂钩](/enterprise/user/rest/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
-* [更新仓库的预接收挂钩实施](/enterprise/user/rest/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
-* [删除仓库的预接收挂钩实施](/enterprise/user/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
+* [List pre-receive hooks for a repository](/enterprise/user/rest/enterprise-admin#list-pre-receive-hooks-for-a-repository)
+* [Get a pre-receive hook for a repository](/enterprise/user/rest/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
+* [Update pre-receive hook enforcement for a repository](/enterprise/user/rest/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
+* [Remove pre-receive hook enforcement for a repository](/enterprise/user/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
 {% endif %}
 
-#### 仓库发行版
+#### Repository Releases
 
-* [列出发行版](/rest/repos#list-releases)
-* [创建发行版](/rest/repos#create-a-release)
-* [获取发行版](/rest/repos#get-a-release)
-* [更新发行版](/rest/repos#update-a-release)
-* [删除发行版](/rest/repos#delete-a-release)
-* [列出发行版资产](/rest/repos#list-release-assets)
-* [获取发行版资产](/rest/repos#get-a-release-asset)
-* [更新发行版资产](/rest/repos#update-a-release-asset)
-* [删除发行版资产](/rest/repos#delete-a-release-asset)
-* [获取最新发行版](/rest/repos#get-the-latest-release)
-* [按标记名称获取发行版](/rest/repos#get-a-release-by-tag-name)
+* [List releases](/rest/repos#list-releases)
+* [Create a release](/rest/repos#create-a-release)
+* [Get a release](/rest/repos#get-a-release)
+* [Update a release](/rest/repos#update-a-release)
+* [Delete a release](/rest/repos#delete-a-release)
+* [List release assets](/rest/repos#list-release-assets)
+* [Get a release asset](/rest/repos#get-a-release-asset)
+* [Update a release asset](/rest/repos#update-a-release-asset)
+* [Delete a release asset](/rest/repos#delete-a-release-asset)
+* [Get the latest release](/rest/repos#get-the-latest-release)
+* [Get a release by tag name](/rest/repos#get-a-release-by-tag-name)
 
-#### 仓库统计
+#### Repository Stats
 
-* [获取每周提交活动](/rest/metrics#get-the-weekly-commit-activity)
-* [获取最近一年的提交活动](/rest/metrics#get-the-last-year-of-commit-activity)
-* [获取所有参与者提交活动](/rest/metrics#get-all-contributor-commit-activity)
-* [获取每周提交计数](/rest/metrics#get-the-weekly-commit-count)
-* [获取每天的每小时提交计数](/rest/metrics#get-the-hourly-commit-count-for-each-day)
+* [Get the weekly commit activity](/rest/metrics#get-the-weekly-commit-activity)
+* [Get the last year of commit activity](/rest/metrics#get-the-last-year-of-commit-activity)
+* [Get all contributor commit activity](/rest/metrics#get-all-contributor-commit-activity)
+* [Get the weekly commit count](/rest/metrics#get-the-weekly-commit-count)
+* [Get the hourly commit count for each day](/rest/metrics#get-the-hourly-commit-count-for-each-day)
 
 {% ifversion fpt or ghec %}
-#### 仓库漏洞警报
+#### Repository Vulnerability Alerts
 
-* [启用漏洞警报](/rest/repos#enable-vulnerability-alerts)
-* [禁用漏洞警报](/rest/repos#disable-vulnerability-alerts)
+* [Enable vulnerability alerts](/rest/repos#enable-vulnerability-alerts)
+* [Disable vulnerability alerts](/rest/repos#disable-vulnerability-alerts)
 {% endif %}
 
-#### 根
+#### Root
 
-* [根端点](/rest#root-endpoint)
-* [表情符号](/rest/emojis#emojis)
-* [获取经验证用户的速率限制状态](/rest/rate-limit#get-rate-limit-status-for-the-authenticated-user)
+* [Root endpoint](/rest#root-endpoint)
+* [Emojis](/rest/emojis#emojis)
+* [Get rate limit status for the authenticated user](/rest/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 
-#### 搜索
+#### Search
 
-* [搜索代码](/rest/search#search-code)
-* [搜索提交](/rest/search#search-commits)
-* [搜索标签](/rest/search#search-labels)
-* [搜索仓库](/rest/search#search-repositories)
-* [搜索主题](/rest/search#search-topics)
-* [搜索用户](/rest/search#search-users)
+* [Search code](/rest/search#search-code)
+* [Search commits](/rest/search#search-commits)
+* [Search labels](/rest/search#search-labels)
+* [Search repositories](/rest/search#search-repositories)
+* [Search topics](/rest/search#search-topics)
+* [Search users](/rest/search#search-users)
 
-#### 状态
+#### Statuses
 
-* [获取特定引用的组合状态](/rest/commits#get-the-combined-status-for-a-specific-reference)
-* [列出引用的提交状态](/rest/commits#list-commit-statuses-for-a-reference)
-* [创建提交状态](/rest/commits#create-a-commit-status)
+* [Get the combined status for a specific reference](/rest/commits#get-the-combined-status-for-a-specific-reference)
+* [List commit statuses for a reference](/rest/commits#list-commit-statuses-for-a-reference)
+* [Create a commit status](/rest/commits#create-a-commit-status)
 
-#### 团队讨论
+#### Team Discussions
 
-* [列出讨论](/rest/teams#list-discussions)
-* [创建讨论](/rest/teams#create-a-discussion)
-* [获取讨论](/rest/teams#get-a-discussion)
-* [更新讨论](/rest/teams#update-a-discussion)
-* [删除讨论](/rest/teams#delete-a-discussion)
-* [列出讨论注释](/rest/teams#list-discussion-comments)
-* [创建讨论注释](/rest/teams#create-a-discussion-comment)
-* [获取讨论注释](/rest/teams#get-a-discussion-comment)
-* [更新讨论注释](/rest/teams#update-a-discussion-comment)
-* [删除讨论注释](/rest/teams#delete-a-discussion-comment)
+* [List discussions](/rest/teams#list-discussions)
+* [Create a discussion](/rest/teams#create-a-discussion)
+* [Get a discussion](/rest/teams#get-a-discussion)
+* [Update a discussion](/rest/teams#update-a-discussion)
+* [Delete a discussion](/rest/teams#delete-a-discussion)
+* [List discussion comments](/rest/teams#list-discussion-comments)
+* [Create a discussion comment](/rest/teams#create-a-discussion-comment)
+* [Get a discussion comment](/rest/teams#get-a-discussion-comment)
+* [Update a discussion comment](/rest/teams#update-a-discussion-comment)
+* [Delete a discussion comment](/rest/teams#delete-a-discussion-comment)
 
-#### 主题
+#### Topics
 
-* [获取所有仓库主题](/rest/repos#get-all-repository-topics)
-* [替换所有仓库主题](/rest/repos#replace-all-repository-topics)
+* [Get all repository topics](/rest/repos#get-all-repository-topics)
+* [Replace all repository topics](/rest/repos#replace-all-repository-topics)
 
 {% ifversion fpt or ghec %}
-#### 流量
+#### Traffic
 
-* [获取仓库克隆](/rest/metrics#get-repository-clones)
-* [获取主要推荐途径](/rest/metrics#get-top-referral-paths)
-* [获取主要推荐来源](/rest/metrics#get-top-referral-sources)
-* [获取页面视图](/rest/metrics#get-page-views)
+* [Get repository clones](/rest/metrics#get-repository-clones)
+* [Get top referral paths](/rest/metrics#get-top-referral-paths)
+* [Get top referral sources](/rest/metrics#get-top-referral-sources)
+* [Get page views](/rest/metrics#get-page-views)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### 用户阻止
+#### User Blocking
 
-* [列出经验证用户阻止的用户](/rest/users#list-users-blocked-by-the-authenticated-user)
-* [检查用户是否被经验证的用户阻止](/rest/users#check-if-a-user-is-blocked-by-the-authenticated-user)
-* [列出被组织阻止的用户](/rest/orgs#list-users-blocked-by-an-organization)
-* [检查用户是否被组织阻止](/rest/orgs#check-if-a-user-is-blocked-by-an-organization)
-* [阻止用户访问组织](/rest/orgs#block-a-user-from-an-organization)
-* [取消阻止用户访问组织](/rest/orgs#unblock-a-user-from-an-organization)
-* [阻止用户](/rest/users#block-a-user)
-* [取消阻止用户](/rest/users#unblock-a-user)
+* [List users blocked by the authenticated user](/rest/users#list-users-blocked-by-the-authenticated-user)
+* [Check if a user is blocked by the authenticated user](/rest/users#check-if-a-user-is-blocked-by-the-authenticated-user)
+* [List users blocked by an organization](/rest/orgs#list-users-blocked-by-an-organization)
+* [Check if a user is blocked by an organization](/rest/orgs#check-if-a-user-is-blocked-by-an-organization)
+* [Block a user from an organization](/rest/orgs#block-a-user-from-an-organization)
+* [Unblock a user from an organization](/rest/orgs#unblock-a-user-from-an-organization)
+* [Block a user](/rest/users#block-a-user)
+* [Unblock a user](/rest/users#unblock-a-user)
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-#### 用户电子邮件
+#### User Emails
 
 {% ifversion fpt or ghec %}
-* [设置经验证用户的主电子邮件地址可见性](/rest/users#set-primary-email-visibility-for-the-authenticated-user)
+* [Set primary email visibility for the authenticated user](/rest/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
-* [列出经验证用户的电子邮件地址](/rest/users#list-email-addresses-for-the-authenticated-user)
-* [添加电子邮件地址](/rest/users#add-an-email-address-for-the-authenticated-user)
-* [删除电子邮件地址](/rest/users#delete-an-email-address-for-the-authenticated-user)
-* [列出经验证用户的公开电子邮件地址](/rest/users#list-public-email-addresses-for-the-authenticated-user)
+* [List email addresses for the authenticated user](/rest/users#list-email-addresses-for-the-authenticated-user)
+* [Add email address(es)](/rest/users#add-an-email-address-for-the-authenticated-user)
+* [Delete email address(es)](/rest/users#delete-an-email-address-for-the-authenticated-user)
+* [List public email addresses for the authenticated user](/rest/users#list-public-email-addresses-for-the-authenticated-user)
 {% endif %}
 
-#### 用户关注者
+#### User Followers
 
-* [列出用户的关注者](/rest/users#list-followers-of-a-user)
-* [列出用户关注的人](/rest/users#list-the-people-a-user-follows)
-* [检查用户是否被经验证用户关注](/rest/users#check-if-a-person-is-followed-by-the-authenticated-user)
-* [关注用户](/rest/users#follow-a-user)
-* [取消关注用户](/rest/users#unfollow-a-user)
-* [检查用户是否关注其他用户](/rest/users#check-if-a-user-follows-another-user)
+* [List followers of a user](/rest/users#list-followers-of-a-user)
+* [List the people a user follows](/rest/users#list-the-people-a-user-follows)
+* [Check if a person is followed by the authenticated user](/rest/users#check-if-a-person-is-followed-by-the-authenticated-user)
+* [Follow a user](/rest/users#follow-a-user)
+* [Unfollow a user](/rest/users#unfollow-a-user)
+* [Check if a user follows another user](/rest/users#check-if-a-user-follows-another-user)
 
-#### 用户 Gpg 密钥
+#### User Gpg Keys
 
-* [列出经验证用户的 GPG 密钥](/rest/users#list-gpg-keys-for-the-authenticated-user)
-* [为经验证用户创建 GPG 密钥](/rest/users#create-a-gpg-key-for-the-authenticated-user)
-* [获取经验证用户的 GPG 密钥](/rest/users#get-a-gpg-key-for-the-authenticated-user)
-* [删除经验证用户的 GPG 密钥](/rest/users#delete-a-gpg-key-for-the-authenticated-user)
-* [列出用户的 Gpg 密钥](/rest/users#list-gpg-keys-for-a-user)
+* [List GPG keys for the authenticated user](/rest/users#list-gpg-keys-for-the-authenticated-user)
+* [Create a GPG key for the authenticated user](/rest/users#create-a-gpg-key-for-the-authenticated-user)
+* [Get a GPG key for the authenticated user](/rest/users#get-a-gpg-key-for-the-authenticated-user)
+* [Delete a GPG key for the authenticated user](/rest/users#delete-a-gpg-key-for-the-authenticated-user)
+* [List gpg keys for a user](/rest/users#list-gpg-keys-for-a-user)
 
-#### 用户公钥
+#### User Public Keys
 
-* [列出经验证用户的 SSH 公钥](/rest/users#list-public-ssh-keys-for-the-authenticated-user)
-* [为经验证用户创建 SSH 公钥](/rest/users#create-a-public-ssh-key-for-the-authenticated-user)
-* [获取经验证用户的 SSH 公钥](/rest/users#get-a-public-ssh-key-for-the-authenticated-user)
-* [删除经验证用户的 SSH 公钥](/rest/users#delete-a-public-ssh-key-for-the-authenticated-user)
-* [列出用户的公钥](/rest/users#list-public-keys-for-a-user)
+* [List public SSH keys for the authenticated user](/rest/users#list-public-ssh-keys-for-the-authenticated-user)
+* [Create a public SSH key for the authenticated user](/rest/users#create-a-public-ssh-key-for-the-authenticated-user)
+* [Get a public SSH key for the authenticated user](/rest/users#get-a-public-ssh-key-for-the-authenticated-user)
+* [Delete a public SSH key for the authenticated user](/rest/users#delete-a-public-ssh-key-for-the-authenticated-user)
+* [List public keys for a user](/rest/users#list-public-keys-for-a-user)
 
-#### 用户
+#### Users
 
-* [获取经验证的用户](/rest/users#get-the-authenticated-user)
-* [列出用户访问令牌可访问的应用程序安装设施](/rest/apps#list-app-installations-accessible-to-the-user-access-token)
+* [Get the authenticated user](/rest/users#get-the-authenticated-user)
+* [List app installations accessible to the user access token](/rest/apps#list-app-installations-accessible-to-the-user-access-token)
 {% ifversion fpt or ghec %}
-* [列出经验证用户的订阅](/rest/apps#list-subscriptions-for-the-authenticated-user)
+* [List subscriptions for the authenticated user](/rest/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
-* [列出用户](/rest/users#list-users)
-* [获取用户](/rest/users#get-a-user)
-
-{% ifversion fpt or ghec %}
-#### 工作流程运行
-
-* [列出仓库的工作流程运行](/rest/actions#list-workflow-runs-for-a-repository)
-* [获取工作流程运行](/rest/actions#get-a-workflow-run)
-* [取消工作流程运行](/rest/actions#cancel-a-workflow-run)
-* [下载工作流程运行日志](/rest/actions#download-workflow-run-logs)
-* [删除工作流程运行日志](/rest/actions#delete-workflow-run-logs)
-* [重新运行工作流程](/rest/actions#re-run-a-workflow)
-* [列出工作流程运行](/rest/actions#list-workflow-runs)
-* [获取工作流程运行使用情况](/rest/actions#get-workflow-run-usage)
-{% endif %}
+* [List users](/rest/users#list-users)
+* [Get a user](/rest/users#get-a-user)
 
 {% ifversion fpt or ghec %}
-#### 工作流程
+#### Workflow Runs
 
-* [列出仓库工作流程](/rest/actions#list-repository-workflows)
-* [获取工作流程](/rest/actions#get-a-workflow)
-* [获取工作流程使用情况](/rest/actions#get-workflow-usage)
+* [List workflow runs for a repository](/rest/actions#list-workflow-runs-for-a-repository)
+* [Get a workflow run](/rest/actions#get-a-workflow-run)
+* [Cancel a workflow run](/rest/actions#cancel-a-workflow-run)
+* [Download workflow run logs](/rest/actions#download-workflow-run-logs)
+* [Delete workflow run logs](/rest/actions#delete-workflow-run-logs)
+* [Re run a workflow](/rest/actions#re-run-a-workflow)
+* [List workflow runs](/rest/actions#list-workflow-runs)
+* [Get workflow run usage](/rest/actions#get-workflow-run-usage)
 {% endif %}
 
-## 延伸阅读
+{% ifversion fpt or ghec %}
+#### Workflows
 
-- “[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)”
+* [List repository workflows](/rest/actions#list-repository-workflows)
+* [Get a workflow](/rest/actions#get-a-workflow)
+* [Get workflow usage](/rest/actions#get-workflow-usage)
+{% endif %}
+
+## Further reading
+
+- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 

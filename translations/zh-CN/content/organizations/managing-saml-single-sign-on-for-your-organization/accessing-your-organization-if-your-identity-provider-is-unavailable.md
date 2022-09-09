@@ -9,10 +9,15 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 不可用的身份提供程序
+shortTitle: Unavailable identity provider
+ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099685'
 ---
-
-组织管理员可以使用[下载或保存的恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)绕过单点登录。 您可能已将这些保存到密码管理器，如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。
+组织管理员可以使用[下载或保存的恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)绕过单一登录。 你可能已将这些保存到密码管理器，如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。
 
 {% data reusables.saml.recovery-code-caveats %}
 
@@ -20,4 +25,4 @@ shortTitle: 不可用的身份提供程序
 
 ## 延伸阅读
 
-- "[关于使用 SAML SSO 管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- [关于使用 SAML SSO 进行的标识和访问管理](/articles/about-identity-and-access-management-with-saml-single-sign-on)

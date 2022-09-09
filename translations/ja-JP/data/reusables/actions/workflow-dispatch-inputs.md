@@ -1,6 +1,14 @@
-`workflow_dispatch`イベントを使う場合、ワークフローに渡す入力を指定することもできます。
+---
+ms.openlocfilehash: 6a71d461562c3d6e390549739ac1f17cb274f3f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146199794"
+---
+`workflow_dispatch` イベントを使用すると、必要に応じてワークフローに渡される入力を指定できます。
 
-トリガーされたワークフローは、入力を{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}コンテキストで受け取ります。 詳しい情報については「[コンテキスト]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})」を参照してください。
+トリガーされたワークフローは、{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} コンテキストの入力を受け取ります。 詳細については、「[コンテキスト]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})」を参照してください。
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

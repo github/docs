@@ -11,17 +11,22 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Git 密码
+shortTitle: Git passwords
+ms.openlocfilehash: 06a8cf617072075f39a880ec58173e7cfbc5bc8a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128975'
 ---
-
-与使用 SSH 相比，使用 HTTPS 远程 URL 具有一些优势。 它比 SSH 更容易设置，通常通过严格的防火墙和代理进行工作。 但是，每次拉取或推送仓库时，它也会提示您输入 {% data variables.product.product_name %} 凭据。
+与使用 SSH 相比，使用 HTTPS 远程 URL 具有一些优势。 它比 SSH 更容易设置，通常通过严格的防火墙和代理进行工作。 但是，每次拉取或推送仓库时，它也会提示您输入 {% data variables.product.product_name %} 凭据。 
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-通过配置 Git 为您[缓存凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)，您可以避免提示输入密码。 在配置凭据缓存后，当您使用 HTTPS 拉取或推送仓库时，Git 会自动使用缓存的个人访问令牌。
+可以通过将 Git 配置为用于[缓存凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)来避免系统提示输入密码。 在配置凭据缓存后，当您使用 HTTPS 拉取或推送仓库时，Git 会自动使用缓存的个人访问令牌。
 
 ## 延伸阅读
 
-- “[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”。
-- “[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”
-- “[添加 SSH 密钥到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”
+- “[关于远程存储库](/github/getting-started-with-github/about-remote-repositories)”。
+- “[关于向 {% data variables.product.prodname_dotcom %} 进行身份验证](/github/authenticating-to-github/about-authentication-to-github)”
+- “[将 SSH 密钥添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”

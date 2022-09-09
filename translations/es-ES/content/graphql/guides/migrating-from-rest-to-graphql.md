@@ -11,25 +11,30 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: Migrarse de REST a GraphQL
+shortTitle: Migrate from REST to GraphQL
+ms.openlocfilehash: dbafde83c8acac664b6a0f712927af82c646d397
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145069730'
 ---
-
 ## Diferencias en la lógica de la API
 
-Migrar desde Rest hacia GraphQL represente un cambio significativo en la lógica de las API. Las diferencias entre REST como un estilo y GraphQL como una especificación hacen difícil &mdash;y a menudo indeseable&mdash; reemplazar los llamados de la API de REST con las consultas de la API de GraphQL de una forma uno a uno. Hemos incluido ejemplos específicos de migración a continuación.
+Migrar desde Rest hacia GraphQL represente un cambio significativo en la lógica de las API. Las diferencias entre REST como un estilo y GraphQL como una especificación hacen difícil &mdash;y a menudo desaconsejable&mdash; reemplazar las llamadas a la API REST con las consultas de la API de GraphQL de una forma uno a uno. Hemos incluido ejemplos específicos de migración a continuación.
 
-Para migrar tu código desde la [API de REST](/rest) hacia la API de GraphQL:
+Para migrar el código de la [API REST](/rest) a la API de GraphQL:
 
-- Revisa las [especificaciones de GraphQL](https://graphql.github.io/graphql-spec/June2018/)
-- Revisa el [Modelo de GraphQL](/graphql/reference) de GitHUb
+- Revise la [especificación de GraphQL](https://graphql.github.io/graphql-spec/June2018/).
+- Revise el [esquema de GraphQL](/graphql/reference) de GitHub.
 - Considera la manera en la que cualquier código existente que tengas interactúa con la API de REST de GitHub
-- Utiliza las [ID de nodo global](/graphql/guides/using-global-node-ids) para referenciar los objetos entre las versiones de la API
+- Use [identificadores de nodo global](/graphql/guides/using-global-node-ids) para hacer referencia a objetos entre versiones de API.
 
 Las ventajas significativas de GraphQL incluyen:
 
-- [Obtener los datos que necesitas y únicamente eso](#example-getting-the-data-you-need-and-nothing-more)
+- [Obtención de los datos que necesita y nada más](#example-getting-the-data-you-need-and-nothing-more)
 - [Campos anidados](#example-nesting)
-- [Escritura inflexible](#example-strong-typing)
+- [Tipado fuerte](#example-strong-typing)
 
 Aquí hay algunos ejemplos de cada una.
 
@@ -57,17 +62,17 @@ query {
 }
 ```
 
-Considera otro ejemplo: recuperar una lista de solicitudes de extracción y revisar si cada una es fusionable. El hacer una llamada a la API de REST recupera una lista de solicitudes de cambios y su [resumen de representaciones](/rest#summary-representations):
+Considera otro ejemplo: recuperar una lista de solicitudes de extracción y revisar si cada una es fusionable. Una llamada a la API REST recupera una lista de solicitudes de incorporación de cambios y sus [representaciones de resumen](/rest#summary-representations):
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-El determinar si una solicitud de cambios se puede fusionar requiere que se recupere cada solicitud de cambios individualmente de acuerdo con su [representación detallada](/rest#detailed-representations) (una carga útil grande) y verificar si su atributo de `mergeable` es verdadero o falso:
+Para determinar si una solicitud de incorporación de cambios se puede fusionar es necesario recuperar cada solicitud individualmente de acuerdo con su [representación detallada](/rest#detailed-representations) (una carga útil grande) y comprobar si su atributo `mergeable` es verdadero o falso:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
-Con GraphQL, puedes recuperar únicamente los atributos `number` y `mergeable` para cada solicitud de extracción:
+Con GraphQL, solo se pueden recuperar los atributos `number` y `mergeable` para cada solicitud de incorporación de cambios:
 
 ```graphql
 query {
@@ -86,7 +91,7 @@ query {
 
 ## Ejemplo: Anidar
 
-Hacer consultas con campos anidados te permite reemplazar varios llamados de REST con menos consultas de GraphQL. Por ejemplo, recuperar una solicitud de extracción junto con sus confirmaciones, comentarios no revisados, y revisiones utilizando la **API de REST** requiere de cuatro llamados por separado:
+Hacer consultas con campos anidados te permite reemplazar varios llamados de REST con menos consultas de GraphQL. Por ejemplo, para recuperar una solicitud de incorporación de cambios junto con sus confirmaciones, comentarios no revisados y revisiones mediante la **API REST** se necesitan cuatro llamadas independientes:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
@@ -94,7 +99,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:numb
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
-Utilizando la **API de GraphQL**, puedes recuperar los datos con una sola consulta utilizando los campos anidados:
+Con la **API de GraphQL**, puede recuperar los datos con una sola consulta mediante campos anidados:
 
 ```graphql
 {
@@ -132,17 +137,17 @@ Utilizando la **API de GraphQL**, puedes recuperar los datos con una sola consul
 }
 ```
 
-También puedes extender la capacidad de esta consulta si [sustituyes una variable](/graphql/guides/forming-calls-with-graphql#working-with-variables) para el número de la solicitud de extracción.
+También puede ampliar la eficacia de esta consulta [sustituyendo una variable](/graphql/guides/forming-calls-with-graphql#working-with-variables) por el número de solicitudes de incorporación de cambios.
 
 ## Ejemplo: Escritura inflexible
 
 Los modelos de GraphQL tienen una escritura inflexible, lo cual hace más seguro el manejo de los datos.
 
-Considera como ejemplo agregar un comentario a un informe de problemas o solicitud de extracción utilizando una [mutación](/graphql/reference/mutations) de GraphQL, y por error, especificar un integral en vez de una cadena para el valor de [`clientMutationId`](/graphql/reference/mutations#addcomment):
+Imagínese, por ejemplo, que agrega un comentario a una incidencia o solicitud de incorporación de cambios con una [mutación](/graphql/reference/mutations) de GraphQL y, por error, especifica un entero en lugar de una cadena para el valor de [`clientMutationId`](/graphql/reference/mutations#addcomment):
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) "Looks good to me!"}) {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {
       node {
@@ -189,7 +194,7 @@ Ejecutar esta consulta recuperará errores que especificarán los tipos esperado
 }
 ```
 
-Poner comillas en `1234` transformará el valor de un integral al de una cadena, el tipo esperado:
+Al entrecomillar `1234`, se transforma el valor de un entero a una cadena, el tipo esperado:
 
 ```graphql
 mutation {

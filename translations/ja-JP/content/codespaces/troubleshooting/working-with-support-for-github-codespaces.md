@@ -22,7 +22,8 @@ Each codespace has a unique name that is a combination of your {% data variables
 To find the name of a codespace:
 
 - Open the codespace in the browser. The subdomain of the URL is the name of the codespace. For example: `https://octocat-myrepo-gmc7.github.dev` is the URL for the `octocat-myrepo-gmc7` codespace.
-- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
+- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
+  ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
 
 The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
@@ -34,4 +35,5 @@ Every codespace also has an ID (identifier). This is not shown by default in {% 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
 1. If the sidebar includes a "Codespace Performance" section, hover over the "Codespace ID" and click the clipboard icon to copy the ID.
 1. If the information is not shown, click {% octicon "gear" aria-label="The gear icon" %}, in the bottom-left corner of the Activity Bar, to display the "Settings" tab.
-1. Expand **Extensions** and click **{% data variables.product.prodname_github_codespaces %}** to display the settings for the extension. Then enable **Show Performance Explorer** to display the "Codespace Performance" section in the sidebar. ![Codespace ID and settings required to display performance information](/assets/images/help/codespaces/find-codespace-id.png)
+1. Expand **Extensions** and click **{% data variables.product.prodname_github_codespaces %}** to display the settings for the extension. Then enable **Show Performance Explorer** to display the "Codespace Performance" section in the sidebar.
+  ![Codespace ID and settings required to display performance information](/assets/images/help/codespaces/find-codespace-id.png)

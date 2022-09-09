@@ -2,7 +2,7 @@
 
 {% note %}
 
-**注意**：{% data variables.product.prodname_container_registry %} 目前正在测试用于 {% data variables.product.product_name %} ，可能会有变化。
+**Note**: {% data variables.product.prodname_container_registry %} is currently in beta for {% data variables.product.product_name %} and subject to change. 
 
 Both {% data variables.product.prodname_registry %} and subdomain isolation must be enabled to use {% data variables.product.prodname_container_registry %}. For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 

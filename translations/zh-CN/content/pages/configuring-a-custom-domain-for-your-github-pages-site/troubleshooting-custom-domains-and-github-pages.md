@@ -13,23 +13,28 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: 排除自定义域的故障
+shortTitle: Troubleshoot a custom domain
+ms.openlocfilehash: ce6251dbe96d531462c5c664dc9000f138059889
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147428386'
 ---
+## CNAME 错误
 
-## _CNAME_ 错误
+{% ifversion pages-custom-workflow %}如果从自定义 {% data variables.product.prodname_actions %} 工作流进行发布，则忽略且无需任何 CNAME 文件。{% endif %}
 
-{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+如果从分支进行发布，自定义域存储在发布源根目录下的 CNAME 文件中。 您可以通过仓库设置或手动添加或更新此文件。 有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
 
-If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. 您可以通过仓库设置或手动添加或更新此文件。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+要让站点呈现在正确的域中，请确保 CNAME 文件仍存在于存储库中。 例如，许多静态站点生成器会强制推送到存储库，这可能会覆盖在配置自定义域时添加到存储库的 CNAME 文件。 如果在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请确保先将添加 CNAME 文件的提交拉取到本地存储库，使该文件包含在构建中。
 
-要让您的站点呈现在正确的域中，请确保您的 _CNAME_ 文件仍存在于仓库中。 例如，许多静态站点生成器会强制推送到您的仓库，这可能会覆盖在配置自定义域时添加到仓库中的 _CNAME_ 文件。 如果您在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请确保先将添加 _CNAME_ 文件的提交拉取到本地仓库，使该文件纳入到构建中。
+然后，请确保 CNAME 文件的格式正确。
 
-然后，确保 _CNAME_ 文件格式正确。
-
-- _CNAME_ 文件名必须全部大写。
-- _CNAME_ 文件只能包含一个域。 要将多个域指向您的站点，必须通过 DNS 提供程序设置重定向。
-- _CNAME_ 文件只能包含一个域名。 例如，`www.example.com`、`blog.example.com` 或 `example.com`。
-- 域名在所有 {% data variables.product.prodname_pages %} 站点中必须是唯一的。 例如，如果另一个仓库的 _CNAME_ 文件包含 `example.com`，则不能在您仓库的 _CNAME_ 文件中使用 `example.com`。
+- CNAME 文件名必须全部大写。
+- CNAME 文件只能包含一个域。 要将多个域指向您的站点，必须通过 DNS 提供程序设置重定向。
+- CNAME 文件必须仅包含域名。 例如，`www.example.com`、`blog.example.com` 或 `example.com`。
+- 域名在所有 {% data variables.product.prodname_pages %} 站点中必须是唯一的。 例如，如果另一个存储库的 CNAME 文件包含 `example.com`，则不能在存储库的 CNAME 文件中使用 `example.com` 。
 
 ## DNS 配置错误
 
@@ -37,7 +42,7 @@ If you are publishing from a branch, custom domains are stored in a _CNAME_ file
 
 您还可以使用以下方法之一来测试自定义域的 DNS 记录是否正确配置：
 
-- CLI 工具，如 `dig`。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+- CLI 工具，例如 `dig`。 有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
 - 在线 DNS 查找工具。
 
 ## 自定义域名不受支持
@@ -45,11 +50,11 @@ If you are publishing from a branch, custom domains are stored in a _CNAME_ file
 如果您的自定义域不受支持，则可能需要将您的域更改为受支持的域。 也可以联系您的 DNS 提供商，看他们是否提供域名转发服务。
 
 确保您的站点没有：
-- 使用多个 apex 域。 例如，同时使用 `example.com` 和 `anotherexample.com`。
-- 使用多个 `www` 子域。 例如，同时使用 `www.example.com` 和 `www.anotherexample.com`。
-- 同时使用 apex 域和自定义子域。 例如，同时使用 `example.com` 和 `docs.example.com`。
+- 使用多个 apex 域。 例如，`example.com` 和 `anotherexample.com`。
+- 使用多个 `www` 子域。 例如，`www.example.com` 和 `www.anotherexample.com`。
+- 同时使用 apex 域和自定义子域。 例如，`example.com` 和 `docs.example.com`。
 
-  一个例外是 `www` 子域。 如果配置正确， `www` 子域将自动重定向到 apex 域。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)。
+  一个例外是 `www` 子域。 如果配置正确， `www` 子域将自动重定向到 apex 域。 有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)”。
 
 {% data reusables.pages.wildcard-dns-warning %}
 
@@ -57,15 +62,15 @@ If you are publishing from a branch, custom domains are stored in a _CNAME_ file
 
 ## HTTPS 错误
 
-通过 `CNAME`、`ALIAS`、`ANAME` 或 `A` DNS 记录正确配置的使用自定义域的 {% data variables.product.prodname_pages %} 站点可通过 HTTPS 进行访问。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
+可以通过 HTTPS 访问使用正确配置了 `CNAME`、`ALIAS`、`ANAME` 或 `A` DNS 记录的自定义域的 {% data variables.product.prodname_pages %} 站点。 有关详细信息，请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
 
-配置自定义域后，您的站点可能需要最多一个小时才能通过 HTTPS 访问。 更新现有 DNS 设置后，您可能需要删除自定义域并将其重新添加到站点仓库，以触发启用 HTTPS 的进程。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+配置自定义域后，您的站点可能需要最多一个小时才能通过 HTTPS 访问。 更新现有 DNS 设置后，您可能需要删除自定义域并将其重新添加到站点仓库，以触发启用 HTTPS 的进程。 有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
 
-如果您使用的是证书颁发机构授权 (CAA) 记录，则必须存在至少一个值为 `letsencrypt.org` 的 CAA 记录，才能通过 HTTPS 访问您的站点。 更多信息请参阅 Let's Encrypt 文档中的“[证书颁发机构授权 (CAA)](https://letsencrypt.org/docs/caa/)”。
+如果使用的是证书颁发机构授权 (CAA) 记录，则必须存在至少一个值为 `letsencrypt.org` 的 CAA 记录，才能通过 HTTPS 访问站点。 有关详细信息，请参阅 Let's Encrypt 文档中的“[证书颁发机构授权 (CAA)](https://letsencrypt.org/docs/caa/)”。
 
 ## Linux 上的 URL 格式
 
-如果您站点的 URL 包含以破折号开头或结尾的用户名或组织名称，或者包含连续破折号，则使用 Linux 浏览的用户在尝试访问您的站点时会收到服务器错误。 要解决此问题，请更改您的 {% data variables.product.product_name %} 用户名以删除非字母数字字符。 更多信息请参阅“[更改 {% data variables.product.prodname_dotcom %} 用户名](/articles/changing-your-github-username/)”。
+如果您站点的 URL 包含以破折号开头或结尾的用户名或组织名称，或者包含连续破折号，则使用 Linux 浏览的用户在尝试访问您的站点时会收到服务器错误。 要解决此问题，请更改您的 {% data variables.product.product_name %} 用户名以删除非字母数字字符。 有关详细信息，请参阅“[更改 {% data variables.product.prodname_dotcom %} 用户名](/articles/changing-your-github-username/)。”
 
 ## 浏览器缓存
 

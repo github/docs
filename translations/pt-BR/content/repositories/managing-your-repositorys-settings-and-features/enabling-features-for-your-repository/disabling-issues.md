@@ -13,11 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: a706b1431f4f43c9866fb6ef0f01f6d25d6edc46
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127055'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Em Features (Recursos), desmarque a caixa de seleção **Issues** (Problemas). ![Caixa de seleção Remove Issues (Remover problemas)](/assets/images/help/issues/issues_settings_remove_from_repo.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. Em Recursos, desmarque a caixa de seleção **Problemas**.
+  ![Caixa de seleção Remover Problemas](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 Se você decidir habilitar problemas novamente no futuro, qualquer problema que tenha sido adicionado anteriormente ficará disponível.
 

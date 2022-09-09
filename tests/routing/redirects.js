@@ -16,7 +16,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // dedicated search results page works.
 // In a near future, we won't be needing this and assume it's always
 // true.
-const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(process.env.ELASTICSEARCH_URL)
+const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(
+  JSON.parse(process.env.ENABLE_SEARCH_RESULTS_PAGE || 'false')
+)
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -106,7 +108,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => !to.includes('://'))
+        .filter(([, to]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -140,7 +142,7 @@ describe('redirects', () => {
   describe('external redirects', () => {
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => to.includes('://'))
+        .filter(([, to]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)

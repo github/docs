@@ -10,14 +10,19 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: de0a12e638a7f98f34b1704e272b040a6178eaeb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147496609'
 ---
-
 ## Sobre interfaces
 
-As [Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) servem como objetos principais dos quais outros objetos receberão sua herança.
+As [interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) servem como objetos pai dos quais outros objetos podem herdar.
 
-Por exemplo, [`Bloqueável`](/graphql/reference/interfaces#lockable) é uma interface porque os objetos [`problema`](/graphql/reference/objects#issue) e [`PullRequest`](/graphql/reference/objects#pullrequest) objetos podem ser bloqueados. Uma interface possui sua própria lista de campos nomeados que são compartilhados mediante os objetos de implementação.
+Por exemplo, [`Lockable`](/graphql/reference/interfaces#lockable) é uma interface porque os objetos [`Issue`](/graphql/reference/objects#issue) e [`PullRequest`](/graphql/reference/objects#pullrequest) podem ser bloqueados. Uma interface possui sua própria lista de campos nomeados que são compartilhados mediante os objetos de implementação.
 
-Para obter mais informações, consulte "[Implementação](/graphql/guides/introduction-to-graphql#implementation)".
+Para obter mais informações, confira "[Implementação](/graphql/guides/introduction-to-graphql#implementation)".
 
 <!-- Content after this section is automatically generated -->

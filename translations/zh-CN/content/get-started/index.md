@@ -1,6 +1,6 @@
 ---
-title: 开始使用 GitHub
-shortTitle: 入门
+title: GitHub 入门
+shortTitle: Get started
 intro: '了解如何开始构建、运输和维护具有 {% data variables.product.prodname_dotcom %} 的软件。 了解我们的产品，注册一个帐户，与世界上最大的发展社区建立联系。'
 redirect_from:
   - /categories/54/articles
@@ -61,5 +61,11 @@ children:
   - /using-git
   - /customizing-your-github-workflow
   - /privacy-on-github
+ms.openlocfilehash: 4178e22c506d32b0736305936b56c4c1ff348357
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580693'
 ---
 

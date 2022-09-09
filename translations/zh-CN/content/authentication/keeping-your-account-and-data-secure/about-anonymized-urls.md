@@ -13,9 +13,14 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099894'
 ---
-
-为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https:///<subdomain>.githubusercontent.com/` 开头，并且根据您如何上传映像而有不同的子域。
+为托管图像，{% data variables.product.product_name %} 使用[开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https://<subdomain>.githubusercontent.com/` 开头，子域不同，具体取决于图像的上传方式。 
 
 视频还可以使用与图像 URL 相同的格式获得匿名化 URL，但不会通过 Camo 进行处理。 这是因为 {% data variables.product.prodname_dotcom %} 不支持外部托管的视频，所以匿名 URL 是由 {% data variables.product.prodname_dotcom %} 托管的已上传视频的链接。
 
@@ -50,7 +55,7 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. 检查 `Content-Type` 的值。 本例中为 `image/x-png`。
+3. 检查 `Content-Type` 的值。 在本例中，该值为 `image/x-png`。
 4. 根据 [Camo 支持的类型列表](https://github.com/atmos/camo/blob/master/mime-types.json)检查内容类型。
 
 如果您的内容类型不受 Camo 支持，可尝试以下几项操作：
@@ -73,11 +78,11 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-检查 `Cache-Control` 的值。 本例中没有 `Cache-Control`。 在这种情况下：
-  * 如果您拥有托管该图像的服务器，请修改它以让其返回图像的 `no-cache` 的 `Cache-Control`。
+检查 `Cache-Control` 的值。 在本例中，没有 `Cache-Control`。 在这种情况下：
+  * 如果拥有承载该图像的服务器，请修改它以让其返回图像的 `no-cache` 的 `Cache-Control`。
   * 如果使用外部服务托管图像，请联系该服务的支持。
 
- 如果 `Cache-Control` *设置*为 `no-cache`，请联系 {% data variables.contact.contact_support %} 或搜索 {% data variables.contact.community_support_forum %}。
+ 如果 `Cache-Control` 设置为 `no-cache`，请联系 {% data variables.contact.contact_support %} 或搜索 {% data variables.contact.community_support_forum %}。
 
 ### 从 Camo 的缓存中删除图像
 
@@ -98,4 +103,4 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
 
 ## 延伸阅读
 
-- {% data variables.product.prodname_blog %} 上的"[代理用户图像](https://github.com/blog/1766-proxying-user-images)"
+- {% data variables.product.prodname_blog %} 上的“[代理用户图像](https://github.com/blog/1766-proxying-user-images)”

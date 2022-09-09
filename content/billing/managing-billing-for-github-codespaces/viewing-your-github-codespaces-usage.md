@@ -20,7 +20,8 @@ redirect_from:
 Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.codespaces-minutes %}
+1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+  ![Details of minute usage](/assets/images/help/billing/codespaces-compute-storage.png)
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
 

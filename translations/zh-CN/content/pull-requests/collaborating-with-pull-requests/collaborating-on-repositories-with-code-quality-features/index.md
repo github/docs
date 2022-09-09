@@ -16,6 +16,12 @@ topics:
 children:
   - /about-status-checks
   - /working-with-pre-receive-hooks
-shortTitle: 代码质量功能
+shortTitle: Code quality features
+ms.openlocfilehash: ba28472ee86b566f5b72d445d9a06d7b4756f01a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130111'
 ---
 

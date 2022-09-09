@@ -9,17 +9,20 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: 查看组织中被阻止的用户
+shortTitle: View blocked users in org
+ms.openlocfilehash: 2d61ec620c87da63d72dad0b536d2dd7333923ff
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086571'
 ---
-
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.block_users %}
-5. 在“Blocked users（被阻止的用户）”下，查看被阻止访问组织的用户的列表。 ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users-for-org.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.block_users %}
+5. 在“Blocked users（被阻止的用户）”下，查看被阻止访问组织的用户的列表。
+  ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
 ## 延伸阅读
 
 - “[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”
-- “[解除阻止用户访问组织](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”
-- “[查看您阻止访问您个人帐户的用户](/articles/viewing-users-you-ve-blocked-from-your-personal-account)”
+- “[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”
+- [查看你已阻止访问你个人帐户的用户](/articles/viewing-users-you-ve-blocked-from-your-personal-account)

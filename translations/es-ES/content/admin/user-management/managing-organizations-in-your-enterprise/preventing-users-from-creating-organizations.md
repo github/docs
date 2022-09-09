@@ -14,14 +14,14 @@ topics:
   - Enterprise
   - Organizations
   - Policies
-shortTitle: Prevenir la creación de organizaciones
+shortTitle: Prevent organization creation
+ms.openlocfilehash: 418a2ceb1f8c059764d84e4565d0719c38ed4d9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145116298'
 ---
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
-{% data reusables.enterprise-accounts.options-tab %}
-4. En "Los usuarios pueden crear organizaciones", usa el menú desplegable y haz clic en **Activado** o **Desactivado**. ![Desplegable Los usuarios pueden crear organizaciones](/assets/images/enterprise/site-admin-settings/users-create-orgs-dropdown.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% ifversion ghes or ghae %} {% data reusables.enterprise-accounts.policies-tab %} {% else %} {% data reusables.enterprise-accounts.settings-tab %} {% endif %} {% data reusables.enterprise-accounts.options-tab %}
+4. En "Users can create organizations" (Los usuarios pueden crear organizaciones), use el menú desplegable y haga clic en **Enabled** (Habilitado) o **Disabled** (Deshabilitado).
+![Menú desplegable Los usuarios pueden crear organizaciones](/assets/images/enterprise/site-admin-settings/users-create-orgs-dropdown.png)

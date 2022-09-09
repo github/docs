@@ -1,8 +1,8 @@
 ---
-title: GitHub Codespaces overview
-shortTitle: 概要
+title: GitHub Codespaces の概要
+shortTitle: Overview
 product: '{% data reusables.gated-features.codespaces %}'
-intro: 'This guide introduces {% data variables.product.prodname_github_codespaces %} and provides details on how it works and how to use it.'
+intro: 'このガイドでは、{% data variables.product.prodname_github_codespaces %} について紹介し、そのしくみと使用方法について詳しく説明します。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
@@ -16,28 +16,33 @@ versions:
 type: overview
 topics:
   - Codespaces
+ms.openlocfilehash: ea92784b32d63e5f5d9268a1077009ea7bf8b382
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111219'
 ---
+## codespace とは
 
-## What is a codespace?
+codespace は、クラウドでホストされている開発環境です。 [構成ファイル](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project)をリポジトリにコミットすることで、{% data variables.product.prodname_github_codespaces %} のプロジェクトをカスタマイズできます (コードとしての構成とよく呼ばれます)。これにより、プロジェクトのすべてのユーザーに対して繰り返し可能な codespace 構成が作成されます。
 
-A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_github_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
+{% data variables.product.prodname_github_codespaces %} は、{% data variables.product.product_location %} によってホストされるさまざまな VM ベースのコンピューティング オプションで実行されます。2 コアのコンピューターから最大 32 コアのコンピューターまで構成できます。 codespace には、ブラウザーから、または {% data variables.product.prodname_vscode %} を使用してローカルに、接続できます。
 
-{% data variables.product.prodname_github_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.product.product_location %}, which you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
+![{% data variables.product.prodname_codespaces %} のしくみを示す図](/assets/images/help/codespaces/codespaces-diagram.png)
 
-![A diagram showing how {% data variables.product.prodname_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
+## {% data variables.product.prodname_github_codespaces %} の使用
 
-## {% data variables.product.prodname_github_codespaces %}を使用する
+任意のブランチから codespace を作成するか、リポジトリにコミットして、クラウドベースのコンピューティング リソースを使用した開発を開始できます。 {% data reusables.codespaces.links-to-get-started %}
 
-You can create a codespace from any branch or commit in your repository and begin developing using cloud-based compute resources. {% data reusables.codespaces.links-to-get-started %}
+codespace のランタイムとツールをカスタマイズするには、リポジトリ用に 1 つ以上の開発コンテナー構成を作成できます。 開発コンテナー構成をリポジトリに追加すると、ユーザーがリポジトリで実行する作業に適したさまざまな開発環境の選択肢を定義できます。 
 
-To customize the runtimes and tools in your codespace, you can create one or more dev container configurations for your repository. Adding dev container configurations to your repository allows you to define a choice of different development environments that are appropriate for the work people will do in your repository.
+開発コンテナー構成を追加しない場合、{% data variables.product.prodname_github_codespaces %} によって、多くのツール、言語、ランタイム環境が含まれる既定の codespace イメージを含む環境に、リポジトリがクローンされます。 詳細については、「[開発コンテナーの概要](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」をご覧ください。
 
-If you don't add a dev container configuration, {% data variables.product.prodname_github_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+パブリックの [dotfiles](https://dotfiles.github.io/tutorials/) リポジトリと[設定同期](https://code.visualstudio.com/docs/editor/settings-sync)を使用して、codespace 環境の側面をパーソナル化することもできます。パーソナル化には、シェルの基本設定、追加のツール、エディターの設定、{% data variables.product.prodname_vscode_shortname %} 拡張機能を含めることができます。 詳細については、「[codespace のカスタマイズ](/codespaces/customizing-your-codespace)」を参照してください。
 
-You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and {% data variables.product.prodname_vscode_shortname %} extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
+## {% data variables.product.prodname_codespaces %} の支払いについて
 
-## {% data variables.product.prodname_codespaces %}の支払いについて
+{% data variables.product.prodname_codespaces %} の価格、ストレージ、使用の詳細については、[{% data variables.product.prodname_codespaces %} の課金の管理](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)に関するページを参照してください。
 
-For information on pricing, storage, and usage for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
-
-{% data reusables.codespaces.codespaces-spending-limit-requirement %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an organization, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+{% data reusables.codespaces.codespaces-spending-limit-requirement %}組織の所有者と課金マネージャーが組織の {% data variables.product.prodname_codespaces %} の使用制限を管理する方法については、「[{% data variables.product.prodname_codespaces %} の利用制限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)」を参照してください。

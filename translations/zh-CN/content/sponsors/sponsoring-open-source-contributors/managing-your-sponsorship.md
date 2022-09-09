@@ -12,17 +12,18 @@ topics:
   - Contacting sponsors
   - Privacy
   - Open Source
+ms.openlocfilehash: 24f2e13d2ab55abb7c43aa52ddf641b45772d76f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130236'
 ---
-
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
 ## 管理赞助的隐私设置
 
-{% data reusables.sponsors.navigate-to-sponsored-account %}
-{% data reusables.sponsors.sponsorship-dashboard %}
-{% data reusables.sponsors.manage-sponsorship %}
-{% data reusables.sponsors.who-can-see-your-sponsorship %}
-{% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.manage-sponsorship %} {% data reusables.sponsors.who-can-see-your-sponsorship %} {% data reusables.sponsors.update-sponsorship %}
 
 ## 管理赞助的电子邮件更新
 
@@ -30,13 +31,9 @@ topics:
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-{% data reusables.sponsors.navigate-to-sponsored-account %}
-{% data reusables.sponsors.sponsorship-dashboard %}
-{% data reusables.sponsors.manage-sponsorship %}
-{% data reusables.sponsors.choose-updates %}
-{% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.manage-sponsorship %} {% data reusables.sponsors.choose-updates %} {% data reusables.sponsors.update-sponsorship %}
 
 ## 延伸阅读
 
-- "[升级赞助](/articles/upgrading-a-sponsorship)"
-- "[降级赞助](/articles/downgrading-a-sponsorship)"
+- [升级赞助](/articles/upgrading-a-sponsorship)
+- [降级赞助](/articles/downgrading-a-sponsorship)

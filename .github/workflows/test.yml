@@ -23,6 +23,9 @@ env:
   # Setting this will activate the jest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
+  # Hopefully the name is clear enough. By enabling this, we're testing
+  # the future code.
+  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
   test:

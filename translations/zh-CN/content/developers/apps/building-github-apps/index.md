@@ -22,5 +22,11 @@ children:
   - /creating-a-github-app-from-a-manifest
   - /creating-a-github-app-using-url-parameters
   - /creating-a-custom-badge-for-your-github-app
+ms.openlocfilehash: ad6d995a68414247849ef52a96f576b755ca4541
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099207'
 ---
 

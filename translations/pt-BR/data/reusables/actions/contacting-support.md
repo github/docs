@@ -1,9 +1,9 @@
-Se você precisar de ajuda com algo relacionado à configuração do fluxo de trabalho como, por exemplo, a sintaxe, os executores hospedados em {% data variables.product.prodname_dotcom %} ou ações de compilação, procure um tópico existente ou comece um novo na categoria de [{% data variables.product.prodname_github_community %} {% data variables.product.prodname_actions %} e{% data variables.product.prodname_registry %}](https://github.com/orgs/github-community/discussions/categories/actions-and-packages).
+If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_github_community %}'s {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} category](https://github.com/orgs/github-community/discussions/categories/actions-and-packages).
 
-Se você tiver comentários ou solicitações de recursos para {% data variables.product.prodname_actions %}, compartilhe-os na {% data variables.contact.contact_feedback_actions %}.
+If you have feedback or feature requests for {% data variables.product.prodname_actions %}, share those in the {% data variables.contact.contact_feedback_actions %}.
 
-Contatar {% data variables.contact.contact_support %} para qualquer uma das seguintes opções, se o uso ou uso pretendido se enquadra nas categorias limite:
+Contact {% data variables.contact.contact_support %} for any of the following, whether your use or intended use falls into the usage limit categories:
 
-* Se você acredita que sua conta foi restrita incorretamente
-* Se você encontrar um erro inesperado ao executar uma de suas ações
-* Se você encontrar uma situação onde o comportamento existente contradiz o esperado, mas nem sempre documentado, comportamento
+* If you believe your account has been incorrectly restricted
+* If you encounter an unexpected error when executing one of your actions
+* If you encounter a situation where existing behavior contradicts expected, but not always documented, behavior

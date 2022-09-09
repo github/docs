@@ -1,6 +1,6 @@
 ---
 title: Configurando OpenID Connect em provedores da nuvem
-shortTitle: Configurando OpenID Connect em provedores da nuvem
+shortTitle: Configuring OpenID Connect in cloud providers
 intro: Use o OpenID Connect dentro de seus fluxos de trabalho para efetuar a autenticação com provedores de nuvem.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,14 +11,18 @@ versions:
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 5f23d33f9f8199acfd78e105531b2b07fbf60c27
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145065593'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Visão geral
 
-## Visão Geral
-
-O OpenID Connect (OIDC) permite que os seus fluxos de trabalho de {% data variables.product.prodname_actions %} acessem recursos no seu provedor da nuvem, sem ter que armazenar qualquer credencial como segredos de {% data variables.product.prodname_dotcom %} de longa duração.
+O OpenID Connect (OIDC) permite que os seus fluxos de trabalho de {% data variables.product.prodname_actions %} acessem recursos no seu provedor da nuvem, sem ter que armazenar qualquer credencial como segredos de {% data variables.product.prodname_dotcom %} de longa duração. 
 
 Para usar o OIDC, você primeiro precisará configurar seu provedor de nuvem para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada e, em seguida, atualizar seus fluxos de trabalho para efetuar a autenticação usando tokens.
 
@@ -38,7 +42,7 @@ Se seu provedor de nuvem ainda não oferece uma ação oficial, você pode atual
 
 ### Adicionando configurações de permissões
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Usando ações oficiais
 
@@ -46,9 +50,9 @@ Se seu provedor de nuvem criou uma ação oficial para usar o OIDC com {% data v
 
 ## Usando ações personalizadas
 
-Se seu provedor de nuvem não tiver uma ação oficial, ou se você preferir criar scripts personalizados, você poderá solicitar manualmente o token web do JSON (JWT) do provedor OIDC de {% data variables.product.prodname_dotcom %}.
+Se seu provedor de nuvem não tiver uma ação oficial, ou se você preferir criar scripts personalizados, você poderá solicitar manualmente o token web do JSON (JWT) do provedor OIDC de {% data variables.product.prodname_dotcom %}. 
 
-Se você não estiver usando uma ação oficial, então {% data variables.product.prodname_dotcom %} recomenda que você use o kit de ferramentas principal das Ações. Como alternativa, você pode usar as seguintes variáveis de ambiente para recuperar o token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
+Se você não estiver usando uma ação oficial, então {% data variables.product.prodname_dotcom %} recomenda que você use o kit de ferramentas principal das Ações. Como alternativa, você pode usar as seguintes variáveis de ambiente para recuperar o token: `ACTIONS_RUNTIME_TOKEN` e `ACTIONS_ID_TOKEN_REQUEST_URL`.
 
 Para atualizar seus fluxos de trabalho usando esta abordagem, você deverá fazer três alterações no seu YAML:
 
@@ -58,7 +62,7 @@ Para atualizar seus fluxos de trabalho usando esta abordagem, você deverá faze
 
 ### Solicitando o JWT que usa a o kit de ferramentas principal das Ações
 
-O exemplo a seguir demonstra como usar `actions/github-script` com o kit de ferramentas `principal` para solicitar o JWT do provedor do OIDC de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[" Adicionando pacotes de kit de ferramentas de ações](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
+O exemplo a seguir demonstra como usar `actions/github-script` com o kit de ferramentas `core` para solicitar o JWT do provedor OIDC do {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Como adicionar pacotes do kit de ferramentas de ações](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 ```yaml
 jobs:
@@ -82,7 +86,7 @@ jobs:
 
 O exemplo a seguir demonstra como usar variáveis de ambiente para solicitar um token web do JSON.
 
-Para o seu trabalho de implantação, você deverá definir as configurações do token, usando `actions/github-script` com o kit de ferramentas `principal`. Para obter mais informações, consulte "[" Adicionando pacotes de kit de ferramentas de ações](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
+Para seu trabalho de implantação, você precisará definir as configurações de token usando `actions/github-script` com o kit de ferramentas `core`. Para obter mais informações, confira "[Como adicionar pacotes do kit de ferramentas de ações](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 Por exemplo:
 
@@ -103,7 +107,7 @@ jobs:
           core.setOutput('IDTOKENURL', runtimeUrl.trim())
 ```
 
-Você pode usar `curl` para recuperar um JWT do provedor do OIDC do {% data variables.product.prodname_dotcom %}. Por exemplo:
+Em seguida, use `curl` para recuperar um JWT do provedor OIDC do {% data variables.product.prodname_dotcom %}. Por exemplo:
 
 ```yaml
     - run: |
@@ -126,8 +130,9 @@ Você precisará apresentar o token web JSON do OIDC para seu provedor de nuvem 
 
 Para cada implantação, seus fluxos de trabalho devem usar ações de login em nuvem (ou scripts personalizados) que buscam o token do OIDC e o apresentam ao seu provedor de nuvem. O provedor da nuvem valida as reivindicações no token; se for bem sucedido, ele fornece um token de acesso à nuvem que está disponível apenas para a execução do trabalho. O token de acesso fornecido pode ser usado por ações subsequentes no trabalho para conectar-se à nuvem e fazer a implantação nos seus recursos.
 
-As etapas para trocar o token do OIDC por um token de acesso irão variar para cada provedor de nuvem.
-
+As etapas para trocar o token do OIDC por um token de acesso irão variar para cada provedor de nuvem. 
+ 
 ### Acessando recursos no seu provedor da nuvem
 
-Depois de obter o token de acesso, você pode usar as ações específicas da nuvem ou scripts para efetuar a autenticação no provedor da nuvem e fazer a implantação nos seus recursos. Essas etapas podem ser diferentes para cada provedor da nuvem. Além disso, o tempo de expiração padrão desse token de acesso pode variar entre as nuvens e pode ser configurável no lado do provedor de nuvem.
+Depois de obter o token de acesso, você pode usar as ações específicas da nuvem ou scripts para efetuar a autenticação no provedor da nuvem e fazer a implantação nos seus recursos. Essas etapas podem ser diferentes para cada provedor da nuvem.
+Além disso, o tempo de expiração padrão desse token de acesso pode variar entre as nuvens e pode ser configurável no lado do provedor de nuvem.

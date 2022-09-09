@@ -11,31 +11,35 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129461'
 ---
-
 ## 重写最近的提交消息
 
-您可以使用 `git commit --amend` 命令更改最近的提交消息。
+可以使用 `git commit --amend` 命令更改最新的提交消息。
 
 在 Git 中，提交消息的文本是提交的一部分。 更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。 实际上，您是创建一个新提交以替换旧提交。
 
 ## 提交尚未推送上线
 
-如果提交仅存在于您的本地仓库中，尚未推送到 {% data variables.product.product_location %}，您可以使用 `git commit --amend` 命令修改提交消息。
+如果提交仅存在于你的本地存储库中，尚未推送到 {% data variables.product.product_location %}，则可使用 `git commit --amend` 命令修改提交消息。
 
 1. 在命令行上，导航到包含要修改的提交的仓库。
-2. 键入 `git commit --amend`，然后按 **Enter** 键。
+2. 键入 `git commit --amend`，然后按“Enter”。
 3. 在文本编辑器中编辑提交消息，然后保存该提交。
-    - 通过在提交中添加尾行可添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
+    - 通过在提交中添加尾行可添加合作作者。 有关详细信息，请参阅“[创建具有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
 {% ifversion fpt or ghec %}
-    - 通过在提交中添加尾行可创建代表组织的提交。 更多信息请参阅“[创建代表组织的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)”
-{% endif %}
+    - 通过在提交中添加尾行可创建代表组织的提交。 有关详细信息，请参阅“[代表组织创建提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)”{% endif %}
 
 在下次推送时，新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
 {% tip %}
 
-通过更改 `core.editor` 设置可更改 Git 的默认文本编辑器。 更多信息请参阅 Git 手册中的“[基本客户端配置](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)”。
+通过更改 `core.editor` 设置可更改 Git 的默认文本编辑器。 有关详细信息，请参阅 Git 手册中的“[基本客户端配置](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)”。
 
 {% endtip %}
 
@@ -45,24 +49,24 @@ versions:
 
 {% warning %}
 
-我们很不提倡强制推送，因为这会改变仓库的历史记录。 如果强制推送，已克隆仓库的人员必须手动修复其本地历史记录。 更多信息请参阅 Git 手册中的“[从上游变基恢复](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)”。
+我们很不提倡强制推送，因为这会改变仓库的历史记录。 如果强制推送，已克隆仓库的人员必须手动修复其本地历史记录。 有关详细信息，请参阅 Git 手册中的“[从上游变基恢复](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)”。
 
 {% endwarning %}
 
-**修改最近推送提交的消息**
+**更改最近推送提交的消息**
 
 1. 按照[上述步骤](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)修改提交消息。
-2. 使用 `push --force-with-lease` 命令强制推送经修改的旧提交。
+2. 使用 `push --force-with-lease` 命令强制推送旧提交。
   ```shell
   $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
-**修改旧提交或多个提交的消息**
+**更改旧提交或多个提交的消息**
 
 如果需要修改多个提交或旧提交的消息，您可以使用交互式变基，然后强制推送以更改提交历史记录。
 
 1. 在命令行上，导航到包含要修改的提交的仓库。
-2. 使用 `git rebase -i HEAD~n` 命令在默认文本编辑器中显示最近 `n` 个提交的列表。
+2. 使用 `git rebase -i HEAD~n` 命令在默认文本编辑器中显示最后一次 `n` 提交的列表。
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
@@ -93,7 +97,7 @@ versions:
     #
     # Note that empty commits are commented out
     ```
-3. 在要更改的每个提交消息的前面，用 `reword` 替换 `pick`。
+3. 在要更改的每个提交消息的前面，将 `pick` 替换为 `reword`。
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
@@ -106,7 +110,7 @@ versions:
 $ git push --force origin <em>example-branch</em>
 ```
 
-有关交互式变基的更多信息，请参阅 Git 手册中的“[交互模式](https://git-scm.com/docs/git-rebase#_interactive_mode)”。
+有关交互式变基的详细信息，请参阅 Git 手册中的“[交互式模式](https://git-scm.com/docs/git-rebase#_interactive_mode)”。
 
 {% tip %}
 
@@ -122,4 +126,4 @@ $ git push --force origin <em>example-branch</em>
 
 ## 延伸阅读
 
-* "[对提交签名](/articles/signing-commits)"
+* [对提交签名](/articles/signing-commits)

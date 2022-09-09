@@ -39,7 +39,7 @@ const legacyEnterpriseServerVersions = Object.fromEntries(
     .filter(([fullName]) => {
       return fullName.startsWith('enterprise-server@')
     })
-    .map(([_, shortName]) => {
+    .map(([, shortName]) => {
       return [shortName, `ghes-${shortName}`]
     })
 )
@@ -86,7 +86,7 @@ function notConfiguredMiddleware(req, res, next) {
 router.get(
   '/legacy',
   notConfiguredMiddleware,
-  catchMiddlewareError(async function legacySearch(req, res, next) {
+  catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
       throw new Error('not implemented yet')
@@ -233,7 +233,7 @@ router.get(
   '/v1',
   validationMiddleware,
   notConfiguredMiddleware,
-  catchMiddlewareError(async function search(req, res, next) {
+  catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
     try {
       const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
@@ -257,17 +257,19 @@ router.get(
       if (process.env.NODE_ENV === 'development') {
         console.error('Error calling getSearchResults()', error)
       } else {
-        await Promise.all(
-          FailBot.report(error, {
-            url: req.url,
-            indexName,
-            query,
-            page,
-            size,
-            debug,
-            sort,
-          })
-        )
+        const reports = FailBot.report(error, {
+          url: req.url,
+          indexName,
+          query,
+          page,
+          size,
+          debug,
+          sort,
+        })
+        // It might be `undefined` if no backends are configured which
+        // is likely when using production NODE_ENV on your laptop
+        // where you might not have a HATSTACK_URL configured.
+        if (reports) await Promise.all(reports)
       }
       res.status(500).send(error.message)
     }
@@ -275,7 +277,7 @@ router.get(
 )
 
 // Alias for the latest version
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   // At the time of writing, the latest version is v1. (July 2022)
   // Use `req.originalUrl` because this router is "self contained"
   // which means that `req.url` will be `/` in this context.
