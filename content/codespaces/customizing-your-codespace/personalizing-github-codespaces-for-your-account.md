@@ -48,7 +48,7 @@ Your dotfiles repository might include your shell aliases and preferences, any t
 
 You can configure {% data variables.product.prodname_codespaces %} to use dotfiles from any repository you own by selecting that repository in your [personal {% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces).
 
-When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected repository to the codespace environment, and looks for one of the following files to set up the environment.
+When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
 
 * _install.sh_
 * _install_
