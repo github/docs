@@ -1,5 +1,5 @@
 ---
-title: High Availability の設定
+title: 高可用性の構成
 redirect_from:
   - /enterprise/admin/installation/configuring-github-enterprise-server-for-high-availability
   - /enterprise/admin/guides/installation/high-availability-cluster-configuration
@@ -19,5 +19,11 @@ children:
   - /removing-a-high-availability-replica
   - /about-geo-replication
 shortTitle: Configure high availability
+ms.openlocfilehash: 8df1e6b70d68fc09ffce4783e0c41ace51a089c7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145120541'
 ---
 

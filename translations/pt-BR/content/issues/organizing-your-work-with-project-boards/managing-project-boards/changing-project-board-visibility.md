@@ -1,5 +1,5 @@
 ---
-title: 'Alterando a visibilidade de {% data variables.product.prodname_project_v1 %}'
+title: 'Alterar a visibilidade do {% data variables.product.prodname_project_v1 %}'
 intro: 'Como proprietário da organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode tornar um {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
@@ -9,10 +9,15 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Alterar visibilidade
+shortTitle: Change visibility
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: c288e72dccb5c1212e6e01d24197289cc77c18ce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614476'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.project-board-visibility %}
@@ -22,12 +27,10 @@ allowTitleToDifferFromFilename: true
 **{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
 * {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. Você pode dar permissões de gravação ou de administrador a certos integrantes da organização, dando acesso a equipes nas quais estão ou adicionando-os ao {% data variables.projects.projects_v1_board %} como colaborador. Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
+* {% endif %}Quando você torna o {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, por padrão, os membros da organização recebem acesso de leitura. Você pode conceder a membros específicos da organização permissões de gravação ou de administrador dando às equipes acesso ao {% data variables.projects.projects_v1_board %} em que eles estão ativos ou adicionando-os como um colaborador. Para obter mais informações, confira "[Permissões {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% endnote %}
 
-1. Acesse o quadro de projeto que você deseja tornar {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.choose-visibility %}
-1. Clique em **Salvar**.
+1. Navegue até o quadro de projetos que deseja tornar {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.
+{% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.choose-visibility %}
+1. Clique em **Save** (Salvar).

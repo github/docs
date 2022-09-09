@@ -1,6 +1,6 @@
 ---
-title: 关注
-intro: 关注 API 允许用户订阅存储库中活动的通知。
+title: 关注中
+intro: 监视 API 允许用户订阅存储库中活动的通知。
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,8 +9,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5a336aaf770129cc853735c2a35406c09cfb6a9e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064232'
 ---
+## 关于监视 API
 
-## 关于关注 API
-
-关注 API 允许用户订阅存储库中活动的通知。 要改为将存储库添加为书签，请参阅“[星标](/rest/reference/activity#starring)”。
+监视 API 允许用户订阅存储库中活动的通知。 若要改为为存储库添加书签，请参阅“[标星](/rest/reference/activity#starring)”。

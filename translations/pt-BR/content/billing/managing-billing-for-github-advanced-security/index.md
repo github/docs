@@ -1,6 +1,6 @@
 ---
 title: Gerenciando a cobrança para o GitHub Advanced Security
-shortTitle: Segurança Avançada GitHub
+shortTitle: GitHub Advanced Security
 intro: 'Você pode visualizar e gerenciar seu uso de estações em uma licença para {% data variables.product.prodname_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
@@ -13,5 +13,11 @@ versions:
 children:
   - /about-billing-for-github-advanced-security
   - /viewing-your-github-advanced-security-usage
+ms.openlocfilehash: 4907fa9b0fa59ac8407547541cdc6bb1d22c3d95
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145083512'
 ---
 

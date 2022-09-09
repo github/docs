@@ -83,12 +83,6 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
     })
-
-    test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/get-started/learning-about-github')
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/ja/get-started')
-    })
   })
 
   describeInternalOnly('early access rendering', () => {

@@ -1,6 +1,6 @@
 ---
-title: About branches
-intro: 'Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.'
+title: 关于分支
+intro: 使用分支隔离开发工作而不影响仓库中的其他分支。 每个仓库都有一个默认分支，也可有多个其他分支。 您可以使用拉取请求将一个分支合并到另一个分支。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
   - /articles/working-with-protected-branches
@@ -14,69 +14,74 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 0262a7a8fb0bb8556c3f6062e3fc8512eb9fa1c6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130106'
 ---
-## About branches
+## 关于分支
 
-Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+分支允许您在仓库的包含区域中开发功能、修复错误或安全地试验新的想法。
 
-You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository. A branch you create to build a feature is commonly referred to as a feature branch or topic branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository/)."
+始终可以从现有分支创建分支。 通常，您可能会从仓库的默认分支创建新的分支。 然后，您可以单独处理这个新分支，不受其他人对仓库所做更改的影响。 为构建功能而创建的分支通常称为功能分支或主题分支。 有关详细信息，请参阅“[在存储库中创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository/)”。
 
-You can also use a branch to publish a {% data variables.product.prodname_pages %} site. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)."
+也可以使用分支发布 {% data variables.product.prodname_pages %} 网站。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)”。
 
-You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
+必须对仓库有写入权限才可在拉取请求中创建分支、打开拉取请求或者删除和恢复分支。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
-## About the default branch
+## 关于默认分支
 
-{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} 默认分支是任何人访问您的仓库时 {% data variables.product.prodname_dotcom %} 显示的分支。 默认分支也是初始分支，当有人克隆存储库时，Git 会在本地检出该分支。 {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
+默认情况下，{% data variables.product.product_name %} 将任何新存储库中的默认分支命名为 `main`。
 
 {% data reusables.branches.change-default-branch %}
 
 {% data reusables.branches.set-default-branch %}
 
-## Working with branches
+## 使用分支
 
-Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+你对你的工作感到满意后，可以提交拉取请求以将当前分支（头部分支）的更改合并到另一分支（基础分支） 。 有关详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
-After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
+在拉取请求合并或关闭后，可以删除头分支，因为不再需要。 您必须对仓库具有写入权限才能删除分支。 无法删除与打开的拉取请求直接关联的分支。 有关详细信息，请参阅“[删除和还原拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)”
 
-{% data reusables.pull_requests.retargeted-on-branch-deletion %}
-The following diagrams illustrate this.
+{% data reusables.pull_requests.retargeted-on-branch-deletion %} 下图说明了这一点。
 
- Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, `feature1` is the base branch for `feature2`. If the pull request for `feature2` is merged now, the `feature2` branch will be merged into `feature1`.
+ 在这里，有人从 `main` 分支创建了一个名为 `feature1` 的分支，而你已经从 `feature1` 创建了一个名为 `feature2` 的分支。 两个分支都有打开的拉取请求。 箭头指示每个拉取请求的当前基础分支。 此时，`feature1` 是 `feature2` 的基础分支。 如果现在合并 `feature2` 的拉取请求，则 `feature2` 分支将合并到 `feature1` 中。
 
  ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram1.png)
 
-In the next diagram, someone has merged the pull request for `feature1` into the `main` branch, and they have deleted the `feature1` branch. As a result, {% data variables.product.prodname_dotcom %} has automatically retargeted the pull request for `feature2` so that its base branch is now `main`.
+在下一个关系图中，有人已将 `feature1` 的拉取请求合并到 `main` 分支中，并删除了 `feature1` 分支。 因此，{% data variables.product.prodname_dotcom %} 自动重新定位了 `feature2` 的拉取请求，使其基础分支现在变成了 `main`。
 
  ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram2.png)
 
-Now when you merge the `feature2` pull request, it'll be merged into the `main` branch.
+现在，当你合并 `feature2` 拉取请求时，该请求将合并到 `main` 分支中。
 
-## Working with protected branches
+## 使用受保护分支
 
-Repository administrators can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
+仓库管理员可对分支启用保护。 如果您处理的是受保护分支，将无法删除或强制推送到该分支。 在分支可以合并之前，仓库管理员可以另外启用几项其他受保护分支设置来实施不同的工作流程。
 
 {% note %}
 
-**Note:** If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
+**注意：** 如果你是存储库管理员，则即使拉取请求不符合要求，也可在启用了分支保护的分支上合并拉取请求，除非分支保护设置为“包括管理员”。
 
 {% endnote %}
 
-To see if your pull request can be merged, look in the merge box at the bottom of the pull request's **Conversation** tab. For more information, see "[About protected branches](/articles/about-protected-branches)."
+若要查看是否可以合并拉取请求，可在拉取请求的“对话”选项卡底部的合并框中查看。有关详细信息，请参阅“[关于受保护的分支](/articles/about-protected-branches)”。
 
-When a branch is protected:
+当分支受保护时：
 
-- You won't be able to delete or force push to the branch.
-- If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
-- If required pull request reviews are enabled on the branch, you won't be able to merge changes into the branch until all requirements in the pull request review policy have been met. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
-- If required review from a code owner is enabled on a branch, and a pull request modifies code that has an owner, a code owner must approve the pull request before it can be merged. For more information, see "[About code owners](/articles/about-code-owners)."
-- If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
-- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)."
+- 您无法删除或强制推送到该分支。
+- 如果对分支启用了必需状态检查，则在所有必需 CI 测试通过之前，无法将更改合并到分支。 有关详细信息，请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
+- 如果对分支启用了必需拉取请求审查，则在满足拉取请求审查策略中的所有要求之前，无法将更改合并到分支。 有关详细信息，请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。
+- 如果对分支启用了代码所有者的必需审查，并且拉取请求修改具有所有者的代码，则代码所有者必须批准拉取请求后才可合并。 有关详细信息，请参阅“[关于代码所有者](/articles/about-code-owners)”。
+- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 有关详细信息，请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。
+- 如果您使用 {% data variables.product.prodname_dotcom %} 的冲突编辑器来解决从受保护分支创建拉取请求的冲突，{% data variables.product.prodname_dotcom %} 可帮助您为拉取请求创建一个备用分支，以解决合并冲突。 有关详细信息，请参阅“[解决 {% data variables.product.prodname_dotcom %} 上的合并冲突](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)”。
 
-## Further reading
+## 延伸阅读
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
+- “[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”
+- {% data variables.product.prodname_dotcom %} 术语表中的“[分支](/articles/github-glossary/#branch)”
+- Git 文档中的“[果壳中的分支](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)”

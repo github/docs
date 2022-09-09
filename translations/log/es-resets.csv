@@ -29,6 +29,7 @@ translations/es-ES/content/actions/quickstart.md,Listed in localization-support#
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-actions.md,broken liquid tags
 translations/es-ES/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
@@ -293,6 +294,7 @@ translations/es-ES/content/repositories/working-with-files/managing-large-files/
 translations/es-ES/content/rest/activity/events.md,broken liquid tags
 translations/es-ES/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/es-ES/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
+translations/es-ES/content/rest/secret-scanning.md,broken liquid tags
 translations/es-ES/content/search-github/searching-on-github/searching-code.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-commits.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,Listed in localization-support#489

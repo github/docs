@@ -1,1 +1,9 @@
-日付の形式は [ISO8601](http://en.wikipedia.org/wiki/ISO_8601)標準に従い、`YYYY-MM-DD`(年-月-日) とする必要があります。
+---
+ms.openlocfilehash: 6ff3758774dfe499c542c47a0073b7b21235fbf2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145139220"
+---
+日付の書式設定は、[ISO8601](http://en.wikipedia.org/wiki/ISO_8601) 標準の `YYYY-MM-DD` (年-月-日) に従う必要があります。

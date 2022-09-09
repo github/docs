@@ -1,1 +1,9 @@
-1. Na sua organização ou repositório, navegue até a página principal e clique no {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+---
+ms.openlocfilehash: da28e3f2aebde989f155fdacc13fc5314e1698af
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145083813"
+---
+1. Na sua organização ou no seu repositório, navegue até a página principal e clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.

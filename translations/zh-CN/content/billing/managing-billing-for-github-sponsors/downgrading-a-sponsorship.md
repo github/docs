@@ -13,9 +13,14 @@ topics:
   - Cancellation
   - Downgrades
   - Sponsors
+ms.openlocfilehash: 5948b9a666ec1cecd4e5640138f278abf787386e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084499'
 ---
-
-{% data reusables.sponsors.org-sponsors-release-phase %}
+{% data reusables.sponsors.org-sponsors-release-phase %} 
 
 ## 关于赞助降级
 
@@ -23,16 +28,12 @@ topics:
 
 ## 降级赞助
 
-{% data reusables.sponsors.navigate-to-sponsored-account %}
-{% data reusables.sponsors.sponsorship-dashboard %}
-{% data reusables.sponsors.review-tiers-to-select %}
-{% data reusables.sponsors.select-a-tier %}
-{% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.review-tiers-to-select %} {% data reusables.sponsors.select-a-tier %} {% data reusables.sponsors.update-sponsorship %}
 
 ## 取消赞助
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.sponsors.billing-switcher %}
-3. 在“{% data variables.product.prodname_sponsors %}”下的被赞助开源贡献者右侧，单击被赞助帐户旁边的 {% octicon "triangle-down" aria-label="The down triangle octicon" %}，然后单击 **Cancel sponsorship（取消赞助）**。 ![取消赞助按钮](/assets/images/help/billing/edit-sponsor-billing.png)
-4. 审查有关取消赞助的信息，然后单击 **OK（确定）**。 ![取消确认框](/assets/images/help/billing/confirm-sponsorship-cancellation.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.sponsors.billing-switcher %}
+3. 在“{% data variables.product.prodname_sponsors %}”下的被赞助开源参与者右侧，单击被赞助金额旁边的 {% octicon "triangle-down" aria-label="The down triangle octicon" %}，然后单击“取消赞助”。
+  ![“取消赞助”按钮](/assets/images/help/billing/edit-sponsor-billing.png)
+4. 审查有关取消赞助的信息，然后单击“确定”。
+  ![“取消确认”框](/assets/images/help/billing/confirm-sponsorship-cancellation.png)

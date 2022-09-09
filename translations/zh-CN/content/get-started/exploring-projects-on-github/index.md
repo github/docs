@@ -1,5 +1,5 @@
 ---
-title: 在 GitHub 上探索项目
+title: 在 GitHub 上浏览项目
 intro: '在 {% data variables.product.product_name %} 上发现有趣的项目，并与其他人合作为开源做贡献。'
 redirect_from:
   - /categories/stars
@@ -19,6 +19,12 @@ children:
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations
-shortTitle: 探索项目
+shortTitle: Explore projects
+ms.openlocfilehash: f2f835e68e6146d34691bb21b7ea2b8ff08673ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097911'
 ---
 

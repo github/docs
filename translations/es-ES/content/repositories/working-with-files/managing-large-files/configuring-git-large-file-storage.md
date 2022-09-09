@@ -1,6 +1,6 @@
 ---
 title: Configurar el almacenamiento de archivos Git de gran tamaño
-intro: 'Una vez que {[{% data variables.large_files.product_name_short %} está instalado], (/articles/installing-git-large-file-storage/), deberás asociarlo con un archivo de gran tamaño en tu repositorio.'
+intro: 'Una vez [instalado {% data variables.large_files.product_name_short %}](/articles/installing-git-large-file-storage/), debes asociarlo con un archivo grande del repositorio.'
 redirect_from:
   - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
@@ -11,10 +11,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Configurar el LFS de Git
+shortTitle: Configure Git LFS
+ms.openlocfilehash: 363e89be0c729b8ea6d5313cec0c7ce61654f229
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331764'
 ---
-
-Si hay archivos existentes en tu repositorio con los que te gustaría usar {% data variables.product.product_name %}, primero debes eliminarlos del repositorio y luego agregarlas a {% data variables.large_files.product_name_short %} localmente. Para obtener más información, consulta "[Mover un archivo en tu repositorio a {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
+Si hay archivos existentes en tu repositorio con los que te gustaría usar {% data variables.product.product_name %}, primero debes eliminarlos del repositorio y luego agregarlas a {% data variables.large_files.product_name_short %} localmente. Para obtener más información, consulte "[Mover un archivo del repositorio a {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -22,7 +27,7 @@ Si hay archivos existentes en tu repositorio con los que te gustaría usar {% da
 
 {% tip %}
 
-**Nota:** Antes de que intentes subir un archivo grande a {% data variables.product.product_name %}, asegúrate de haber habilitado {% data variables.large_files.product_name_short %} en tu empresa. Para obtener más información, consulta "[Configurar almacenamiento de archivos Git de gran tamaño en GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
+**Nota:** Antes de intentar subir un archivo grande a {% data variables.product.product_name %}, asegúrese de haber habilitado {% data variables.large_files.product_name_short %} en su empresa. Para obtener más información, consulte "[Configuración de Git Large File Storage en GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 
@@ -30,22 +35,22 @@ Si hay archivos existentes en tu repositorio con los que te gustaría usar {% da
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cambia tu directorio de trabajo actual a un repositorio existente que desees usar con {% data variables.large_files.product_name_short %}.
-3. Para asociar un tipo de archivo en tu repositorio con {% data variables.large_files.product_name_short %}, escribe `git {% data variables.large_files.command_name %} track` seguido por el nombre de la extensión de archivo a la que deseas cargar automáticamente {% data variables.large_files.product_name_short %}.
+3. Para asociar un tipo de archivo del repositorio con {% data variables.large_files.product_name_short %}, escriba `git {% data variables.large_files.command_name %} track` seguido del nombre de la extensión de archivo que desea cargar automáticamente en {% data variables.large_files.product_name_short %}.
 
-  Por ejemplo, para asociar un archivo _.psd_, escribe el siguiente comando:
+  Por ejemplo, para asociar un archivo _.psd_, escriba el siguiente comando:
   ```shell
   $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  Cada tipo de archivo que desees asociar con {% data variables.large_files.product_name_short %} deberá agregarse con `got{% data variables.large_files.command_name %} track`. Este comando enmienda tu archivo *.gitattributes* del repositorio y asocia archivos de gran tamaño {% data variables.large_files.product_name_short %}.
+  Todos los tipos de archivo que quiera asociar con {% data variables.large_files.product_name_short %} deberán agregarse con `git {% data variables.large_files.command_name %} track`. Este comando modifica el archivo *.gitattributes* del repositorio y asocia archivos de gran tamaño con {% data variables.large_files.product_name_short %}.
 
   {% note %}
 
-  **Nota:** Te recomendamos ampliamente que confirmes tu archivo local de *.gitatributes* en tu repositorio.
+  **Nota**: Se recomienda encarecidamente que confirmes el archivo *.gitattributes* local en el repositorio.
 
-    - Basándose en un archivo global *.gitattributes* asociado con {% data variables.large_files.product_name_short %} puede causar conflictos al contribuir con otros proyectos Git.
-    - El incluir el archivo *.gitattributes* en el repositorio le permite a las personas crear bifurcaciones o clones nuevos para colaborar más fácilmente utilizando {% data variables.large_files.product_name_short %}.
-    - El incluir el archivo *.gitattributes* en el repositorio permite que los objetos de {% data variables.large_files.product_name_short %} se incluyan opcionalmente en los archivos .tar y ZIP.
+    - Basarse en un archivo global *.gitattributes* asociado con {% data variables.large_files.product_name_short %} puede causar conflictos a la hora de contribuir con otros proyectos de Git.
+    - La inclusión del archivo *.gitattributes* en el repositorio permite a los usuarios crear bifurcaciones o clones desde cero para colaborar más fácilmente con {% data variables.large_files.product_name_short %}.
+    - La inclusión del archivo *.gitattributes* en el repositorio permite que los objetos {% data variables.large_files.product_name_short %} se incluyan opcionalmente en archivos ZIP y tarball.
 
   {% endnote %}
 
@@ -65,7 +70,7 @@ Si hay archivos existentes en tu repositorio con los que te gustaría usar {% da
   > 64.74 MB / 81.04 MB  79.21 % 3s
   ```
 
-## Leer más
+## Información adicional
 
 - "[Colaboración con {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
-- "[Administrar objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[Administración de objetos de {% data variables.large_files.product_name_short %} en archivos del repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

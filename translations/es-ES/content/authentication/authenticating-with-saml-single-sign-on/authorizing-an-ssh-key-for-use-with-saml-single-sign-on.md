@@ -10,10 +10,15 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: Llave SSH con SAML
+shortTitle: SSH Key with SAML
+ms.openlocfilehash: 11df62f1a4adc5a0de1f54efbccafe71ad0feb83
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145120041'
 ---
-
-Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre la creación de una nueva clave SSH, consulta "[Generar una nueva clave SSH y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
+Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre cómo crear una nueva clave SSH, consulte "[Generación de una nueva clave SSH y adición al agente de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -21,17 +26,18 @@ Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego a
 
 {% note %}
 
-**Nota:** Si tu autorización de clave SSH es revocada por una organización, no podrás volver a autorizar la misma clave. Deberás crear una nueva clave SSH y autorizarla. Para más información sobre la creación de una nueva clave SSH, consulta "[Generar una nueva clave SSH y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
+**Nota:** Si una organización revoca su autorización de clave SSH, no podrá volver a autorizar la misma clave. Deberás crear una nueva clave SSH y autorizarla. Para más información sobre cómo crear una nueva clave SSH, consulte "[Generación de una nueva clave SSH y adición al agente de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. Junto a la clave SSH que deseas autorizar, haz clic en **Enable SSO** (Habilitar SSO) o **Disable SSO** (Deshabilitar SSO). ![Botón para autorizar el token SSO](/assets/images/help/settings/ssh-sso-button.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. Junto a la clave SSH que quiere autorizar, haga clic en **Enable SSO** (Habilitar SSO) o **Disable SSO** (Deshabilitar SSO).
+![Botón para autorizar el token de SSO](/assets/images/help/settings/ssh-sso-button.png)
 4. Busca la organización para la que deseas autorizar la clave SSH.
-5. Da clic en **Autorizar**. ![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)
+5. Haga clic en **Autorizar**.
+![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)
 
-## Leer más
+## Información adicional
 
-- "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
-- "[Acerca de la autenticación con inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)"
+- "[Búsqueda de claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
+- "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)"

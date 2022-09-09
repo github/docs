@@ -16,7 +16,7 @@ Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/si
 
 Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
 
-## {% data variables.product.prodname_vscode %}を使用する
+## Using {% data variables.product.prodname_vscode %}
 
 GitHub Codespaces and github.dev allow for use of {% data variables.product.prodname_vscode %} in the web browser. When using {% data variables.product.prodname_vscode_shortname %} in the web browser, some telemetry collection is enabled by default and is [explained in detail on the {% data variables.product.prodname_vscode_shortname %} website](https://code.visualstudio.com/docs/getstarted/telemetry). Users can opt out of telemetry by going to File > Preferences > Settings under the top left menu.
 

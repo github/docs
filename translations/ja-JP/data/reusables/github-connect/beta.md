@@ -1,7 +1,7 @@
 {% ifversion ghae %}
 {% note %}
 
-**ノート:** {% data variables.product.prodname_github_connect %} for {% data variables.product.product_name %}は現在ベータであり、変更されることがあります。
+**Note:** {% data variables.product.prodname_github_connect %} for {% data variables.product.product_name %} is currently in beta and subject to change.
 
 {% endnote %}
 {% endif %}

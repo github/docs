@@ -7,16 +7,21 @@ versions:
 type: quick_start
 topics:
   - Open Source
-shortTitle: 快速入门
+shortTitle: Quickstart
+ms.openlocfilehash: 334d0b78547732480d0bcf708c1d2194eebbae17
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099601'
 ---
-
 ## 探索您依赖的项目
 
-当您考虑在哪里查找要赞助的开源贡献者时，请考虑从 https://github.com/sponsors/community 开始。
+当你考虑在哪里查找要赞助的开源贡献者时，请考虑从 https://github.com/sponsors/community 开始。
 
 如果您已登录，赞助者结果将从仓库所依赖的公共依赖项开始。
 
-![Babel 开源项目使用的高亮文本表示"您有 4 个仓库依赖于此项目"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
+![Babel 开源项目其中突出显示了以下文本：“你有 4 个存储库依赖于此项目”](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
 您还可以切换查看哪个帐户的结果，并进一步过滤或搜索。
 
@@ -33,21 +38,21 @@ shortTitle: 快速入门
  - 设计
  - 翻译
  - 时事通讯
- - 代码审查
+ - 代码评审
  - 教程
  - 指导
  - 对议题分类和帮助项目管理
  - 回答问题
- - 活动策划
+ - 事件计划
 
-有关不同类型开源贡献的更多信息，请参阅[开源指南](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code)。
+有关不同类型的开源贡献的详细信息，请参阅[开源指南](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code)。
 
-您可以在 https://github.com/sponsors/community 上搜索来检查您从 {% data variables.product.prodname_sponsors %} 个人资料中获益的贡献者。
+你可以在 https://github.com/sponsors/community 上搜索来检查你受益的贡献者是否拥有 {% data variables.product.prodname_sponsors %} 个人资料。
 
 ## 搜索特定项目或贡献者
 
-在 https://github.com/sponsors/community 上，您可以按生态系统、最常用、最近更新等搜索。 您可以筛选个人帐户或您是其成员的组织的搜索结果。
+在 https://github.com/sponsors/community 上，你可以按生态系统、最常用、最近更新等搜索。 你可以筛选个人帐户或你是其成员的组织的搜索结果。
 
 ## 后续步骤
 
-有关开始赞助的更多信息，请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”。
+有关开始赞助的详细信息，请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”。

@@ -1,7 +1,7 @@
 ---
 title: Managing accessibility settings
 shortTitle: Manage accessibility settings
-intro: '{% data variables.product.product_name %}''s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs.'
+intro: "{% data variables.product.product_name %}'s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs."
 versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
@@ -22,7 +22,7 @@ You can decide whether you want to use some or all keyboard shortcuts on {% ifve
 
 You can perform actions across the {% data variables.product.product_name %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
 
-By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. 詳細は「[キーボードのショートカット](/get-started/using-github/keyboard-shortcuts)」を参照してください。
+By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}

@@ -86,6 +86,15 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 ## Supported runners and hardware resources
 
+{% ifversion actions-hosted-runners %}
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." 
+
+{% endnote %}
+{% endif %}
+
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU (x86_64)
 - 7 GB of RAM

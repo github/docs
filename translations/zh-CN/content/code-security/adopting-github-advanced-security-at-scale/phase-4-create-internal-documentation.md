@@ -1,32 +1,37 @@
 ---
 title: 第 4 阶段：创建内部文档
-intro: '您将创建内部文档，然后将其传达给 {% data variables.product.prodname_GH_advanced_security %} 的使用者。'
+intro: '你将创建内部文档，然后将其传达给 {% data variables.product.prodname_GH_advanced_security %} 的使用者。'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 4. 创建内部文档
+shortTitle: 4. Create internal documentation
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: e9852eacc95b98eca5358aafb9a9b13811888f15
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145331'
 ---
-
 {% note %}
 
-本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 有关本系列的上一篇文章，请参阅“[第 3 阶段：试点计划](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)”。
+本文是大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列的一部分。 有关本系列的上一篇文章，请参阅“[第 3 阶段：试点计划](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)”。
 
 {% endnote %}
 
-在启用 {% data variables.product.prodname_GH_advanced_security %} 之前，应创建内部文档，用于定义团队要遵循的流程。 每个人都需要知道在收到安全警报时该怎么做，即使该流程只是要求团队运用他们的最佳判断。 文档还可以防止开发人员在遇到问题时束手无策。 您应将有关 GHAS 的文档与现有的以开发人员为中心的文档（例如开发人员门户或自定义知识库）放在一起。
+启用 {% data variables.product.prodname_GH_advanced_security %} 之前，应创建定义过程的内部文档，供团队遵循。 每个人都需要知道在收到安全警报时该怎么做，即使安全警报只是要求团队应用最佳判断。 创建文档还将避免开发人员在遇到问题时受阻。 应将有关 GHAS 的文档与现有的以开发人员为中心的文档（例如开发人员门户或自定义知识库）放在一起。
 
-如果您运行了试点计划，请使用参与这些试点的团队的经验和反馈来影响您的文档。 如果您遇到特定于公司的问题，这尤其有用，其他团队也可能会遇到这些问题。
+如果运行试点计划，请根据参与这些试点的团队的经验和反馈来修改文档。 如果遇到特定于贵公司且其他团队也可能遇到的问题，这将特别有用。
 
-如果您跳过创建内部文档，部署将无法按预期速度进行。 创建内部文档可能会使初始部署速度减慢一两周，但是当开发人员可以回答自己的问题而不是来到您的团队时，这段时间将被弥补。
+如果跳过内部文档创建，推出将不会按照预期速度进行。 创建内部文档可能会使最初的推出时间延长一到两周，但创建后开发人员可以通过查阅文档解决自己的问题，无需咨询你的团队，从而弥补这个时间。
 
-教育可能是推出过程中最关键的部分，因为它教会开发人员在不同情况下该怎么做。 您应该确保开发人员有权维护其存储库的安全性，并且安全团队有权验证开发人员正在执行的操作以及这是否符合安全性的最佳利益。 除内部文档外，教育还可以采取在线会议、问答等形式。
+培训可能是推出的最关键部分，因为通过培训可指导开发人员在不同情况下应该执行什么操作。 你应确保开发人员能够维护其存储库的安全性，并确保安全团队有权验证开发人员正在执行的操作及其是否符合安全的最佳利益。 除了内部文档，还可以采取在线会议、问答等形式进行培训。
 
 {% note %}
 
-有关本系列的下一篇文章，请参阅“[第 5 阶段：推出和扩展代码扫描](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)”。
+有关本系列的下一篇文章，请参阅“[第 5 阶段：推出和缩放代码扫描](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)”。
 
 {% endnote %}

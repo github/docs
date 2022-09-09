@@ -1,1 +1,10 @@
-1. [**Propose file change**] をクリックします。 ![ファイル変更の提案ボタン](/assets/images/help/repository/propose-file-change-quick-pull.png)
+---
+ms.openlocfilehash: d54f4d7bef49c1fe252045617133fc5080c23606
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145110973"
+---
+1. **[ファイルの変更の提案]** をクリックします。
+![[ファイルの変更の提案] ボタン](/assets/images/help/repository/propose-file-change-quick-pull.png)

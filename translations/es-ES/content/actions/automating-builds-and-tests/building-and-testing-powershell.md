@@ -1,6 +1,6 @@
 ---
-title: Building and testing PowerShell
-intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
+title: Compilar y probar PowerShell
+intro: Puedes crear un flujo de trabajo de integración continua (IC) para compilar y probar tu proyecto de PowerShell.
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
@@ -15,37 +15,39 @@ topics:
   - CI
   - PowerShell
 shortTitle: Build & test PowerShell
+ms.openlocfilehash: 572c2ee17c948f44a8f8e4006d3729498269a215
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146180219'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Introducción
 
-## Introduction
+Esta guía te muestra cómo utilizar PowerShell para la IC. Describimos cómo utilizar Pester, instalar dependencias, probar tu módulo y publicarlo en la galería de PowerShell.
 
-This guide shows you how to use PowerShell for CI. It describes how to use Pester, install dependencies, test your module, and publish to the PowerShell Gallery.
+Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software pre-instalado, lo cual incluye a PowerShell y a Pester. 
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. 
-
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% else %}Para obtener una lista completa de software actualizado y las versiones preinstaladas de PowerShell y Pester, vea "[Especificaciones para ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## Prerequisites
+## Requisitos previos
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para más información, vea "[Más información sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-We recommend that you have a basic understanding of PowerShell and Pester. For more information, see:
-- [Getting started with PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
+Te recomendamos tener un entendimiento básico de PowerShell y de Pester. Para más información, consulte:
+- [Introducción a PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
 - [Pester](https://pester.dev)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Adding a workflow for Pester
+## Agregar un flujo de trabajo para Pester
 
-To automate your testing with PowerShell and Pester, you can add a workflow that runs every time a change is pushed to your repository. In the following example, `Test-Path` is used to check that a file called `resultsfile.log` is present.
+Para automatizar tus pruebas con PowerShell y con Pester, puedes agregar un flujo de trabajo que se ejecute cada que se sube un cambio en tu repositorio. En el ejemplo siguiente, se usa `Test-Path` para comprobar que existe un archivo con el nombre `resultsfile.log`.
 
-This example workflow file must be added to your repository's `.github/workflows/` directory:
+Este archivo de flujo de trabajo de ejemplo se debe agregar al directorio `.github/workflows/` del repositorio:
 
 ```yaml
 name: Test PowerShell on Ubuntu
@@ -67,15 +69,15 @@ jobs:
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
 
-* `shell: pwsh` - Configures the job to use PowerShell when running the `run` commands.
-* `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
-* `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
+* `shell: pwsh`: configura el trabajo para que use PowerShell al ejecutar los comandos `run`.
+* `run: Test-Path resultsfile.log`: comprueba si existe un archivo con el nombre `resultsfile.log` en el directorio raíz del repositorio.
+* `Should -Be $true`: usa Pester para definir un resultado esperado. Si el resultado es inesperado, entonces {% data variables.product.prodname_actions %} lo marca como una prueba fallida. Por ejemplo:
 
   
-  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  ![Prueba fallida de Pester](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   
 
-* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
+* `Invoke-Pester Unit.Tests.ps1 -Passthru`: usa Pester para ejecutar pruebas definidas en un archivo denominado `Unit.Tests.ps1`. Por ejemplo, para realizar la misma prueba que se ha descrito antes, `Unit.Tests.ps1` contendrá lo siguiente:
   ```
   Describe "Check results file is present" {
       It "Check results file is present" {
@@ -84,29 +86,29 @@ jobs:
   }
   ```
 
-## PowerShell module locations
+## Ubicaciones de los módulos de PowerShell
 
-The table below describes the locations for various PowerShell modules in each {% data variables.product.prodname_dotcom %}-hosted runner.
+En la siguiente tabla se describen las ubicaciones para varios módulos de PowerShell en cada ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
 || Ubuntu | macOS | Windows |
 |------|-------|------|----------|
-|**PowerShell system modules** |`/opt/microsoft/powershell/7/Modules/*`|`/usr/local/microsoft/powershell/7/Modules/*`|`C:\program files\powershell\7\Modules\*`|
-|**PowerShell add-on modules**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
-|**User-installed modules**|`/home/runner/.local/share/powershell/Modules/*`|`/Users/runner/.local/share/powershell/Modules/*`|`C:\Users\runneradmin\Documents\PowerShell\Modules\*`|
+|**Módulos de sistema de PowerShell** |`/opt/microsoft/powershell/7/Modules/*`|`/usr/local/microsoft/powershell/7/Modules/*`|`C:\program files\powershell\7\Modules\*`|
+|**Módulos de complementos de PowerShell**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
+|**Módulos instalados por el usuario**|`/home/runner/.local/share/powershell/Modules/*`|`/Users/runner/.local/share/powershell/Modules/*`|`C:\Users\runneradmin\Documents\PowerShell\Modules\*`|
 
-## Installing dependencies
+## Instalación de dependencias
 
-{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
+Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen PowerShell 7 y Pester instalados. Puede usar `Install-Module` para instalar dependencias adicionales desde la Galería de PowerShell antes de compilar y probar el código.
 
 {% note %}
 
-**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
+**Nota:** Los paquetes preinstalados (Pester) que usan los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se actualizan frecuentemente y pueden introducir cambios significativos. Como resultado, se recomienda especificar siempre las versiones de paquete necesarias mediante `Install-Module` con `-MaximumVersion`.
 
 {% endnote %}
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}También puedes almacenar en caché las dependencias para acelerar el flujo de trabajo. Para obtener más información, consulta "[Almacenamiento en caché de dependencias para acelerar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
-For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
+Por ejemplo, el siguiente trabajo instala los módulos `SqlServer`y `PSScriptAnalyzer`:
 
 ```yaml
 jobs:
@@ -124,17 +126,17 @@ jobs:
 
 {% note %}
 
-**Note:** By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
+**Nota:** De forma predeterminada, PowerShell no confía en ningún repositorio. Al instalar módulos desde la Galería de PowerShell, debe establecer de forma explícita la directiva de instalación de `PSGallery` en `Trusted`.
 
 {% endnote %}
 
 {% ifversion actions-caching %}
 
-### Caching dependencies
+### Almacenar dependencias en caché
 
-You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+Puedes almacenar dependencias de PowerShell en caché con una clave única, lo que te permite restaurar las dependencias para flujos de trabajo futuros con la acción [`cache`](https://github.com/marketplace/actions/cache). Para más información, vea "[Almacenamiento en caché de dependencias para acelerar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 
-PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
+PowerShell guarda sus dependencias en caché en ubicaciones diferentes, dependiendo del sistema operativo del ejecutor. Por ejemplo, la ubicación `path` que se usa en el siguiente ejemplo de Ubuntu será diferente a la de un sistema operativo Windows.
 
 ```yaml
 steps:
@@ -155,13 +157,13 @@ steps:
 
 {% endif %}
 
-## Testing your code
+## Probar el código
 
-You can use the same commands that you use locally to build and test your code.
+Puedes usar los mismos comandos que usas de forma local para construir y probar tu código.
 
-### Using PSScriptAnalyzer to lint code
+### Utilizar PSScriptAnalyzer para limpiar el código
 
-The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` files in the repository. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
+En el ejemplo siguiente se instala `PSScriptAnalyzer` y se usa para el lint de todos los archivos `ps1` del repositorio. Para más información, vea [PSScriptAnalyzer en GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
 
 ```yaml
   lint-with-PSScriptAnalyzer:
@@ -187,11 +189,11 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` 
           }
 ```
 
-## Packaging workflow data as artifacts
+## Empaquetar datos de flujo de trabajo como artefactos
 
-You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+Puedes cargar artefactos para ver después de que se complete un flujo de trabajo. Por ejemplo, es posible que debas guardar los archivos de registro, los vaciados de memoria, los resultados de las pruebas o las capturas de pantalla. Para más información, vea "[Conservación de datos de flujo de trabajo mediante artefactos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
-The following example demonstrates how you can use the `upload-artifact` action to archive the test results received from `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
+En el ejemplo siguiente se muestra cómo puede usar la `upload-artifact` acción para archivar los resultados de la prueba recibidos de `Invoke-Pester`. Para más información, vea la [acción `upload-artifact`](https://github.com/actions/upload-artifact).
 
 ```yaml
 name: Upload artifact from Ubuntu
@@ -215,13 +217,13 @@ jobs:
     if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)."
+La función `always()` configura el trabajo para que el procesamiento continúe aunque se produzcan fallos en las pruebas. Para más información, vea "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)".
 
-## Publishing to PowerShell Gallery
+## Publicar en la galería de PowerShell
 
-You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Puedes configurar tu flujo de trabajo para que publique tu módulo de PowerShell en la galería de PowerShell cuando pasen tus pruebas de IC. Puedes utilizar los secretos para almacenar cualquier token o credencial que se necesiten para publicar tu paquete. Para más información, vea ["Creación y uso de secretos cifrados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
+En el ejemplo siguiente se crea un paquete y se usa `Publish-Module` para publicarlo en la Galería de PowerShell:
 
 ```yaml
 name: Publish PowerShell Module

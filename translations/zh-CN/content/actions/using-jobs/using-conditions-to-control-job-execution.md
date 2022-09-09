@@ -1,6 +1,6 @@
 ---
 title: 使用条件控制作业执行
-shortTitle: 使用条件控制作业执行
+shortTitle: Using conditions to control job execution
 intro: 除非满足条件，否则阻止作业运行。
 versions:
   fpt: '*'
@@ -8,21 +8,25 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 2f39111eb4dca06231b582d0d955d2ea68088926
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100139'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## 概览
+## 概述
 
 {% note %}
 
-**注意：** 跳过的作业将报告其状态为“成功”。 它不会阻止拉取请求合并，即使它是必需的检查。
+注意：跳过的作业将报告其状态为“成功”。 即使是必需检查，也不会阻止拉取请求合并。
 
 {% endnote %}
 
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
 
-您将在跳过的作业上看到以下状态：
+你将在跳过的作业上看到以下状态：
 
 ![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

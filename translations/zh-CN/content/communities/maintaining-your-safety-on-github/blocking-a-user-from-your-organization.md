@@ -1,6 +1,6 @@
 ---
 title: 阻止用户访问组织
-intro: 组织所有者和版主可以阻止任何非组织成员的人协作处理组织的存储库。
+intro: 组织所有者和版主可以阻止非组织成员的任何人在组织的存储库上进行协作。
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -9,16 +9,21 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: 阻止您的组织
+shortTitle: Block from your org
+ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086591'
 ---
+可以从组织的设置中或从用户发表的特定评论中阻止非成员用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
 
-您可以从组织的设置中或从用户发表的特定评论中阻止非成员。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
-
-阻止用户时，您可以选择无限期或在特定时间段内阻止他们。 如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。 如果无限期阻止某人，您可以随时手动解除阻止。 更多信息请参阅“[解除阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
+阻止用户时，您可以选择无限期或在特定时间段内阻止他们。 如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。 如果无限期阻止某人，您可以随时手动解除阻止。 有关详细信息，请参阅“[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
 
 {% tip %}
 
-**提示：** 如果您因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 更多信息请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
+**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
 
 {% endtip %}
 
@@ -43,27 +48,33 @@ shortTitle: 阻止您的组织
 ## 在评论中阻止用户
 
 1. 导航到您要阻止其作者的评论。
-2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Block user（阻止用户）**。 ![显示阻止用户选项的水平烤肉串图标和评论审核菜单](/assets/images/help/repository/comment-menu-block-user.png)
-3. 如果要设置阻止的时限，请使用 Block user（阻止用户）下拉菜单，选择要阻止该用户的时间段。 ![阻止用户下拉菜单中的阻止时限](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
-4. 如果要隐藏该用户在组织中发表的所有评论，请选择 **Hide this user's comments（隐藏此用户的评论）**并选择原因。 ![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
-5. 如果要将阻止的原因告知用户，请选择 **Send a notification to this user（向此用户发送通知）**。 ![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
-6. 要阻止用户，请单击 **Block user from organization（阻止用户访问组织）**或 **Block user from organization and send message（阻止用户访问组织并发送消息）**。 ![阻止用户按钮](/assets/images/help/organizations/org-block-user-button-in-comment.png)
+2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击“阻止用户”。
+![显示阻止用户选项的水平烤肉串图标和评论审核菜单](/assets/images/help/repository/comment-menu-block-user.png)
+3. 如果要设置阻止的时限，请使用 Block user（阻止用户）下拉菜单，选择要阻止该用户的时间段。
+![阻止用户下拉菜单中的阻止时限](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
+4. 如果要隐藏该用户在组织中发表的所有评论，请选择“隐藏此用户的评论”并选择原因。
+![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
+5. 如果要将阻止的原因告知用户，请选择“向此用户发送通知”。
+![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
+6. 若要阻止用户，请单击“阻止用户访问组织”或“阻止用户访问组织并发送消息” 。
+![阻止用户按钮](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
 ## 在组织设置中阻止用户
 
-1. 要阻止组织成员，请先从组织中[删除用户](/articles/removing-a-member-from-your-organization) 。
+1. 若要阻止组织成员，请首先从组织中[删除用户](/articles/removing-a-member-from-your-organization)。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.block_users %}
-6. 在“Block a user（阻止用户）”下，键入要阻止的用户的用户名。 ![用户名字段](/assets/images/help/organizations/org-block-username-field.png)
-7. 如果要设置阻止的时限，请使用 Block options（阻止选项）下拉菜单，选择要阻止该用户的时间段。 ![阻止选项下拉菜单](/assets/images/help/organizations/org-block-options-menu.png)
-8. 单击 **Block user（阻止用户）**。 ![阻止按钮](/assets/images/help/organizations/org-block-user-button.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.block_users %}
+6. 在“Block a user（阻止用户）”下，键入要阻止的用户的用户名。
+![用户名字段](/assets/images/help/organizations/org-block-username-field.png)
+7. 如果要设置阻止的时限，请使用 Block options（阻止选项）下拉菜单，选择要阻止该用户的时间段。
+![阻止选项下拉菜单](/assets/images/help/organizations/org-block-options-menu.png)
+8. 单击“阻止用户”。
+![阻止按钮](/assets/images/help/organizations/org-block-user-button.png)
 
 ## 延伸阅读
 
 - “[查看被阻止访问组织的用户](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)”
-- “[解除阻止用户访问组织](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”
-- “[阻止用户访问您的个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”
-- “[解除阻止用户访问您的个人帐户](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)”
+- “[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”
+- “[阻止用户访问你的个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”
+- “[取消阻止用户对个人帐户的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)”
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”

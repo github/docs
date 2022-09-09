@@ -13,16 +13,22 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: 使用控制台设置 IP
+shortTitle: Set the IP using the console
+ms.openlocfilehash: db183677409757e516515a5ac7def5a70affd01f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100085'
 ---
-
 {% note %}
 
-**注意：** 我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。
+注意：我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。
 
 {% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-3. 选择配置 `IPv4` 或 `IPv6` 协议。 ![用于选择 IPv4 或 IPv6 协议的选项](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
-4. 配置所选协议的选项。 ![含 IP 协议选项的菜单](/assets/images/enterprise/network-configuration/network-settings-selection.png)
-{% data reusables.enterprise_installation.vm-console-done %}
+3. 选择配置 `IPv4` 或 `IPv6` 协议。
+  ![用于选择 IPv4 或 IPv6 协议的选项](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
+4. 配置所选协议的选项。
+  ![含 IP 协议选项的菜单](/assets/images/enterprise/network-configuration/network-settings-selection.png) {% data reusables.enterprise_installation.vm-console-done %}

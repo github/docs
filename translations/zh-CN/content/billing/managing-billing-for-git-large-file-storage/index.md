@@ -16,5 +16,11 @@ children:
   - /viewing-your-git-large-file-storage-usage
   - /upgrading-git-large-file-storage
   - /downgrading-git-large-file-storage
+ms.openlocfilehash: 6691e8291de4dc3dc7962bc4e202122438de9ec5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084552'
 ---
 

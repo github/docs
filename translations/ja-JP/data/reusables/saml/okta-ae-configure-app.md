@@ -1,3 +1,11 @@
-1. Click on the {% data variables.product.prodname_ghe_managed %} app.
+---
+ms.openlocfilehash: 52bc39b7edea195e3dd18f8b7c9dacddb3e6486b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145130484"
+---
+1. {% data variables.product.prodname_ghe_managed %} アプリをクリックします。
 
-  ![Configure app](/assets/images/help/saml/okta-ae-configure-app.png)
+  ![アプリの構成](/assets/images/help/saml/okta-ae-configure-app.png)

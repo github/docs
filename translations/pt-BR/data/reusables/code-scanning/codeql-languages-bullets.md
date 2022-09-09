@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9363f9b1d77977b8e2bb215bde3a1f0e4177199
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094693"
+---
 <!-- If you update the list of supported languages for CodeQL, update docs-internal/content/get-started/learning-about-github/github-language-support.md to reflect the changes. -->
 - C/C++
 - C#
@@ -9,9 +17,9 @@
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
+**Observação**: atualmente, a análise do {% data variables.product.prodname_codeql %} para o Ruby está em versão beta. Durante a versão beta, a análise do Ruby será menos abrangente do que a análise do {% data variables.product.prodname_codeql %} de outras linguagens.
 
 {% endnote %}
 
-For more information, see the documentation on the {% data variables.product.prodname_codeql %} website: "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)."
+Para obter mais informações, confira a documentação no site do {% data variables.product.prodname_codeql %}: "[Linguagens e estruturas compatíveis](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)".
 {% endif %}

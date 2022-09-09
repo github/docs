@@ -1,6 +1,6 @@
 ---
 title: 在 HTTPS 端口使用 SSH
-intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，您可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
+intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -10,12 +10,17 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 在 HTTPS 端口使用 SSH
+shortTitle: Use SSH over HTTPS port
+ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084556'
 ---
-
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} 用户**：目前不支持经 SSH 通过 HTTPS 端口访问 {% data variables.product.prodname_ghe_server %}。
+{% data variables.product.prodname_ghe_server %} 用户：目前不支持经 SSH 通过 HTTPS 端口访问 {% data variables.product.prodname_ghe_server %}。
 
 {% endtip %}
 
@@ -27,13 +32,13 @@ $ ssh -T -p 443 git@ssh.github.com
 > provide shell access.
 ```
 
-如果这样有效，万事大吉！ 如果无效，您可能需要[遵循我们的故障排除指南](/articles/error-permission-denied-publickey)。
+如果这样有效，万事大吉！ 否则，可能需要[遵循我们的故障排除指南](/articles/error-permission-denied-publickey)。
 
 ## 启用通过 HTTPS 的 SSH 连接
 
-如果您能在端口 443 上通过 SSH 连接到 `git@ssh.{% data variables.command_line.backticks %}`，则可以覆盖您的 SSH 设置以强制与 {% data variables.product.product_location %} 的任何连接均通过该服务器和端口运行。
+如果你能在端口 443 上通过 SSH 连接到 `git@ssh.{% data variables.command_line.backticks %}`，则可覆盖你的 SSH 设置来强制与 {% data variables.product.product_location %} 的任何连接均通过该服务器和端口运行。
 
-要在 SSH 配置文件中设置此设置，请在 `~/.ssh/config` 编辑该文件，并添加以下部分：
+要在 SSH 配置文件中设置此行为，请在 `~/.ssh/config` 编辑该文件，并添加以下部分：
 
 ```
 Host {% data variables.command_line.codeblock %}

@@ -13,19 +13,23 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 部署密钥
+shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084641'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. 在边栏的“Security（安全性）”部分中，单击 **{% octicon "key" aria-label="The key icon" %} Deploy keys（部署密钥）**。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. 在边栏的“安全性”部分中，单击“{% octicon "key" aria-label="The key icon" %} 部署密钥”。
 {% else %}
-3. 在左侧边栏中，单击 **Deploy keys（部署密钥）**。 ![部署密钥设置](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. 在 Deploy keys（部署密钥）页面中，记下与您的帐户关联的部署密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效部署密钥，请单击 **Approve（批准）**。 ![部署密钥列表](/assets/images/help/settings/settings-deploy-key-review.png)
+3. 在左边栏中，单击“部署密钥”。
+![部署密钥设置](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
+4. 在 Deploy keys（部署密钥）页面中，记下与您的帐户关联的部署密钥。 对于无法识别或已过期的密钥，请单击“删除”。 如果有要保留的有效部署密钥，请单击“批准”。
+    ![部署密钥列表](/assets/images/help/settings/settings-deploy-key-review.png)
 
-更多信息请参阅“[管理部署密钥](/guides/managing-deploy-keys)”。
+有关详细信息，请参阅“[管理部署密钥](/guides/managing-deploy-keys)”。
 
 ## 延伸阅读
 - [配置通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

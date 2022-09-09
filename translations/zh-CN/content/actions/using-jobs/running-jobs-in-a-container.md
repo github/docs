@@ -1,6 +1,6 @@
 ---
 title: 在容器中运行作业
-shortTitle: 在容器中运行作业
+shortTitle: Running jobs in a container
 intro: 使用容器运行作业中的步骤。
 versions:
   fpt: '*'
@@ -8,12 +8,16 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 1ccae14ba6d242bd05dd3c8375375ef83b6c01cf
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100151'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## 概览
+## 概述
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 

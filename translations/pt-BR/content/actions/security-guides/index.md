@@ -1,6 +1,6 @@
 ---
 title: Guias de segurança
-shortTitle: Guias de segurança
+shortTitle: Security guides
 intro: 'Enrijecimento de segurança e práticas recomendadas para {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
@@ -11,5 +11,11 @@ children:
   - /security-hardening-for-github-actions
   - /encrypted-secrets
   - /automatic-token-authentication
+ms.openlocfilehash: 3deac3e698cec0e3008defd38d681a1ffa30a5d2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145096083'
 ---
 

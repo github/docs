@@ -1,4 +1,12 @@
-1. Para agregar el nodo de reemplazo proporcionado recientemente, en cualquier nodo, modifica el archivo `cluster.conf` para eliminar el nodo fallido y agregar el nodo de reemplazo. Por ejemplo, este archivo `cluster.conf` modificado reemplaza el `ghe-data-node-3` con el nodo proporcionado recientemente, `ghe-replacement-data-node-3`:
+---
+ms.openlocfilehash: 66c4be7b876bad3641ec56200dd5c79e1d0433c5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123817"
+---
+1. Para agregar el nodo de reemplazo recién aprovisionado, en cualquier nodo, `cluster.conf` para quitar el nodo con error y agregar el de reemplazo. Por ejemplo, este archivo `cluster.conf` modificado reemplaza `ghe-data-node-3` por el nodo recién aprovisionado, `ghe-replacement-data-node-3`:
 
   <pre>
   [cluster "<em>ghe-replacement-data-node-3</em>"]

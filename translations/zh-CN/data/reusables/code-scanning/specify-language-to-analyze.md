@@ -1,1 +1,9 @@
-如果仓库中包含多种支持的语言的代码，您可以选择要分析的语言。 在有些情况下您可能需要阻止分析某种语言。 例如，项目中可能存在与代码主体语言不同的依赖项，并且您可能不希望看到关于这些依赖项的警报。
+---
+ms.openlocfilehash: 9802ef046824c424dd2301bf483acff8794d90b8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145098767"
+---
+如果存储库包含的代码支持多种语言，可以选择要分析的语言。 有几种原因可能使你想阻止对某种语言进行分析。 例如，项目中可能有其他语言的代码主体依赖项，你可能不想看到这些依赖项的警报。

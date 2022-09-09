@@ -10,24 +10,30 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: cdedced45968eae09bb3ad4ef203949aab45eee5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066726'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 2. 单击所需的议题或拉取请求。
-3. 要添加已保存回复，在评论字段中，单击 {% octicon "reply" aria-label="The mail reply" %}。 ![已保存回复按钮](/assets/images/help/writing/saved-replies-button.png)
-4. 从列表中，选择您想要添加到评论的已保存回复。 ![已保存回复](/assets/images/help/settings/saved-replies.png)
+3. 要添加已保存的回复，请在评论字段中单击 {% octicon "reply" aria-label="The mail reply" %}。
+   ![已保存回复按钮](/assets/images/help/writing/saved-replies-button.png)
+4. 从列表中，选择您想要添加到评论的已保存回复。
+   ![已保存回复](/assets/images/help/settings/saved-replies.png)
 
 {% tip %}
 
 **提示：**
-- 您可以使用键盘快捷键通过已保存回复自动填充评论。 更多信息请参阅“[键盘快捷键](/articles/keyboard-shortcuts/#comments)”。
+- 您可以使用键盘快捷键通过已保存回复自动填充评论。 有关详细信息，请参阅“[键盘快捷方式](/articles/keyboard-shortcuts/#comments)”。
 - 您可通过输入已保存回复的标题来过滤该列表。
 
 {% endtip %}
 
 ## 延伸阅读
 
-- "[创建已保存回复](/articles/creating-a-saved-reply)"
-- "[编辑已保存回复](/articles/editing-a-saved-reply)"
-- "[删除已保存回复](/articles/deleting-a-saved-reply)"
+- [创建已保存的回复](/articles/creating-a-saved-reply)
+- [编辑已保存的回复](/articles/editing-a-saved-reply)
+- [删除已保存的回复](/articles/deleting-a-saved-reply)

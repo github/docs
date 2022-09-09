@@ -93,6 +93,15 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### File and directory names
+
+Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+
+- **Use:** In your `README.md` file, add info about your repository.
+- **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
+- **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
+- **Avoid:** Delete the **example.js** file.
+
 ### Indentation
 
 In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.

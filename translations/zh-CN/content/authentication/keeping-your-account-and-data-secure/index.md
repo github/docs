@@ -32,6 +32,12 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
-shortTitle: 帐户安全
+shortTitle: Account security
+ms.openlocfilehash: 39ccc832d4584952bc03cd484cfe72080ccfaa18
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084653'
 ---
 
