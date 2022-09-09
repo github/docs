@@ -1,5 +1,15 @@
 {
   "dotcom": {
+    "2023-01-01": [
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "User.recentProjectsNext",
@@ -1438,6 +1448,16 @@
     ]
   },
   "ghec": {
+    "2023-01-01": [
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "User.recentProjectsNext",
@@ -3590,6 +3610,16 @@
     ]
   },
   "ghae": {
+    "2023-01-01": [
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UnlockAndResetMergeGroupInput.branch",

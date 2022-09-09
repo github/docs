@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556668'
 ---
 GitHub tiene la suerte de contar con muchos desarrolladores que integran su código en nuestra plataforma. Creemos que es algo fantástico y queremos hacer que esta experiencia resulte aún mejor.  El Programa para Desarrolladores de GitHub (el «Programa») nos ayuda a contactar con usted, a compartir información y a apoyar sus esfuerzos creativos mejor que nunca. La relación especial entre GitHub y la comunidad de desarrolladores que crea el Programa requiere una serie especial de términos. Este es el Acuerdo de Desarrollador Registrado («Acuerdo»).
@@ -125,6 +125,6 @@ Este Acuerdo es un acuerdo legal entre usted («usted») y GitHub, Inc. («GitHu
 
   Este Acuerdo no puede modificarse, excepto mediante un escrito firmado por ambas partes. Cualquier renuncia a las disposiciones de este Acuerdo o a los derechos o recursos de una de las partes en virtud de este Acuerdo debe hacerse por escrito para que sea efectiva. Si se determina que algún término, condición o disposición de este Acuerdo es inválido o inaplicable, los términos restantes seguirán siendo válidos y aplicables en la mayor medida permitida por la ley. Cada una de las partes acepta de forma expresa que no hay terceros beneficiarios de este Acuerdo.
 
-21. **Acuerdo Completo**
+21. **Acuerdo completo**
 
   Este Acuerdo, los TDS y los Términos del Programa contienen el acuerdo completo entre las partes con respecto a su objeto y sustituyen a todas las comunicaciones, declaraciones, entendimientos y acuerdos anteriores, ya sean de palabra o por escrito.  Los términos o condiciones de cualquiera de las órdenes de compra, reconocimientos u otros documentos que nos envíe en relación con este Acuerdo serán nulos y sin efecto.

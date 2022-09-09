@@ -4,6 +4,29 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EnterpriseAllowPrivateRepositoryForkingPolicyValue</code> was added</p>",
+          "<p>Field <code>changedFilesIfAvailable</code> was added to object type <code>Commit</code></p>",
+          "<p>Field <code>allowPrivateRepositoryForkingSettingPolicyValue</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Input field <code>policyValue</code> was added to input object type <code>UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Commit.changedFiles</code>:<code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>SshSignature</code> was added</p>",
           "<p>Type <code>WorkflowRunConnection</code> was added</p>",
           "<p>Type <code>WorkflowRunEdge</code> was added</p>",

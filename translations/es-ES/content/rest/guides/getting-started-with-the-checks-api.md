@@ -9,20 +9,20 @@ versions:
 topics:
   - API
 shortTitle: Get started - Checks API
-ms.openlocfilehash: b08d5a0a3c95f052c08a38b1aa46dbc0dc83da0e
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 6d98940d9cf4f4fd534034e142aa3d86a0900406
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '147062230'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710247'
 ---
-## <a name="overview"></a>Información general
+## Información general
 
 En vez de proporcionar estados de creación de pase/fallo, las GitHub Apps pueden reportar estados enriquecidos, anotar información detallada en las líneas de código y re-ejecutar las pruebas. La funcionalidad de la API de Verificaciones se encuentra disponible exclusivamente para tus GitHub Apps.
 
 Para obtener un ejemplo de cómo usar Checks API con un {% data variables.product.prodname_github_app %}, vea "[Creación de pruebas de CI con Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)".
 
-## <a name="about-check-suites"></a>Acerca de las suites de verificaciones
+## Acerca de las suites de verificaciones
 
 Cuando alguien carga código a un repositorio, GitHub crea una suite de verificación para la última confirmación. Un conjunto de comprobaciones es una colección de [ejecuciones de comprobación](/rest/reference/checks#check-runs) creada por una única aplicación de GitHub para una confirmación concreta. Las suites de Verificación resumen el estado y la conclusión de la ejecución de verificación que incluye dicha suite.
 
@@ -40,7 +40,7 @@ Para usar la API de conjuntos de comprobaciones, la aplicación de GitHub debe t
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-## <a name="about-check-runs"></a>Acerca de las ejecuciones de verificación
+## Acerca de las ejecuciones de verificación
 
 Una ejecución de verificación es una prueba individual que forma parte de una suite de verificación. Cada ejecución incluye un estado y una conclusión.
 
@@ -58,7 +58,7 @@ Una verificación también puede volverse a ejecutar en la IU de GitHub. Vea "[A
 
 Para usar Check Runs API, la aplicación de GitHub debe tener el permiso `checks:write` y también se puede suscribir al webhook [check_run](/webhooks/event-payloads#check_run).
 
-## <a name="check-runs-and-requested-actions"></a>Ejecuciones de verificación y acciones solicitadas
+## Ejecuciones de verificación y acciones solicitadas
 
 Cuando configuras una ejecución de verificación con las acciones solicitadas (no se debe confundir esto con {% data variables.product.prodname_actions %}), puedes mostrar un botón en la vista de la solicitud de extracción en {% data variables.product.prodname_dotcom %} que permita a las personas solicitar tu {% data variables.product.prodname_github_app %} para llevar a cabo tareas adicionales.
 
@@ -81,6 +81,6 @@ Cuando un usuario hace clic en el botón, {% data variables.product.prodname_dot
 Para obtener un ejemplo detallado de cómo configurar acciones solicitadas con Checks API, vea "[Creación de pruebas de CI con Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)".
 
 {% ifversion fpt or ghec %}
-## <a name="retention-of-checks-data"></a>Retención de los datos de las comprobaciones
+## Retención de los datos de las comprobaciones
 
 {% data reusables.pull_requests.retention-checks-data %} {% endif %}
