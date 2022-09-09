@@ -39,8 +39,7 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
 
-Edit the trust policy to add the `sub` field to the validation conditions. 
-For example:
+Edit the trust policy to add the `sub` field to the validation conditions. For example:
 
 ```json{:copy}
 "Condition": {
@@ -51,11 +50,7 @@ For example:
 }
 ```
 
-A more complete, practical example is shown below. 
-
-Here `ForAllValues` is used to match on multiple condition keys and `StringLike` is used to match any ref on the specified repo.
-Note that `ForAllValues` is [overly permissive](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) and should not be used alone on an `Allow` effect. 
-In this example, the inclusion of `StringLike` means that an empty set in `ForAllValues` will still not pass the condition.
+In the following example, `ForAllValues` is used to match on multiple condition keys, and `StringLike` is used to match any ref in the specified repository. Note that `ForAllValues` is [overly permissive](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) and should not be used on its own in an `Allow` effect. For this example, the inclusion of `StringLike` means that an empty set in `ForAllValues` will still not pass the condition:
 
 ```json{:copy}
 {

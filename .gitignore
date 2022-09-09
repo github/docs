@@ -2,7 +2,6 @@
 .DS_Store
 .env
 .vscode/settings.json
-*.code-workspace
 .idea/
 /node_modules/
 npm-debug.log
