@@ -72,8 +72,8 @@ export class Tokens extends Array {
   }
 
   diff(otherTokens) {
-    const a = this.onlyText()
-    const b = otherTokens.onlyText()
+    const a = this.onlyText().sort()
+    const b = otherTokens.onlyText().sort()
 
     const diff = getGitDiff(a.join('\n'), b.join('\n'))
 
