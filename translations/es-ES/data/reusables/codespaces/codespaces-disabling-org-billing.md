@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 1cdc3ee40b5fc702a07eb41e05a5bc9248338846
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147677244"
+---
 {% note %}
 
-**Note**:  If you disable billable codespaces use for your organization, anyone who can create codespaces as an individual user, and can clone a repository in your organization, will still be able to create a codespace for that repository. However, this will not incur any charge for your organization. Para obtener más información sobre cómo restringir el acceso a un repositorio, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
+**Nota**: Si deshabilitas el uso de espacios de código facturables para tu organización, cualquier persona que pueda crear espacios de código como usuario individual y pueda clonar un repositorio en tu organización, podrá crear un espacio de código para ese repositorio. Pero esto no supondrá ningún cargo para tu organización. Para obtener información sobre cómo restringir el acceso a un repositorio, consulta "[Administración de equipos y personas con acceso al repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
 
 {% endnote %}

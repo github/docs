@@ -6,28 +6,29 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
 versions:
   fpt: '*'
+ms.openlocfilehash: f6cf6f120beff99bdb1c8bfd7868bb157e68d5dd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084066'
 ---
-
 Ao reverter para um commit anterior, a reversão também passa a ser um commit. Além disso, o commit original fica no histórico do repositório.
 
 {% tip %}
 
-**Dica:** ao reverter vários commits, é melhor fazer a reversão do mais recente para o mais antigo. Reverter commits em outra ordem pode gerar conflitos de merge.
+**Dica:** quando você reverte vários commits, é melhor fazer a reversão do mais recente para o mais antigo. Reverter commits em outra ordem pode gerar conflitos de merge.
 
 {% endtip %}
 
 {% mac %}
 
-{% data reusables.desktop.history-tab %}
-{% data reusables.desktop.revert-commit %}
-  ![Opção Revert (Reverter) acima da exibição diff](/assets/images/help/desktop/commit-revert-mac.png)
+{% data reusables.desktop.history-tab %} {% data reusables.desktop.revert-commit %} ![A opção Reverter acima da exibição de comparação](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{% data reusables.desktop.history-tab %}
-{% data reusables.desktop.revert-commit %}
-  ![Opção Revert (Reverter) acima da exibição diff](/assets/images/help/desktop/commit-revert-win.png)
+{% data reusables.desktop.history-tab %} {% data reusables.desktop.revert-commit %} ![A opção Reverter acima da exibição de comparação](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

@@ -11,11 +11,16 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
+ms.openlocfilehash: 86f012c4a74d010ddaed9ec495ae2f5d8a8dd9eb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084957'
 ---
-
 ## 了解结算周期
 
-客户在购买您的应用程序时可选择月度或年度结算周期、 客户对结算周期和计划选择所做的所有更改都将触发 `marketplace_purchase` 事件。 您可以参考 `marketplace_purchase` web 挂钩有效负载，以查看客户选择了哪个结算周期以及下一个计费日期 (`effective_date`) 何时开始 。 有关 web 挂钩有效负载的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} API 的 web 挂钩事件](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)”。
+客户在购买您的应用程序时可选择月度或年度结算周期、 客户对计费周期所做的所有更改和计划选择都会触发 `marketplace_purchase` 事件。 可以参考 `marketplace_purchase` Webhook 有效负载来查看客户选择的计费周期，以及下一个计费日期的开始时间 (`effective_date`)。 有关 Webhook 有效负载的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} API 的 Webhook 事件](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)”。
 
 ## 在应用程序 UI 中提供帐单服务
 
@@ -25,9 +30,9 @@ topics:
 
 ## 升级、降级和取消的帐单服务
 
-请遵循以下升级、降级和取消指南，以维护清晰一致的帐单流程。 有关 {% data variables.product.prodname_marketplace %} 购买事件的详细说明，请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+请遵循以下升级、降级和取消指南，以维护清晰一致的帐单流程。 有关 {% data variables.product.prodname_marketplace %} 购买事件的更详细说明，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-您可以使用 `marketplace_purchase` web 挂钩的 `effective_date` 键来确定计划何时发生更改，并定期同步[列出计划的帐户](/rest/reference/apps#list-accounts-for-a-plan)。
+可以使用 `marketplace_purchase` Webhook 的 `effective_date` 键来确定计划更改发生的时间并定期同步[列出计划的帐户](/rest/reference/apps#list-accounts-for-a-plan)。
 
 ### 升级
 
@@ -35,16 +40,16 @@ topics:
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-有关为应用程序构建升级或降级工作流程的信息，请参阅“[处理计划更改](/developers/github-marketplace/handling-plan-changes)”。
+有关在应用中生成升级和降级工作流的信息，请参阅“[处理计划更改](/developers/github-marketplace/handling-plan-changes)”。
 
 ### 降级和取消
 
-当客户从付费计划转为免费计划、选择成本比其当前计划低的计划或将结算周期从每年更改为每月时，就会发生降级。 当降级或取消发生时，您不需要提供退款。 相反，当前计划将保持有效状态，直到当前结算周期的最后一天。 `marketplace-purpose` 事件将在客户的新计划生效，即下一个结算周期开始时发送。
+当客户从付费计划转为免费计划、选择成本比其当前计划低的计划或将结算周期从每年更改为每月时，就会发生降级。 当降级或取消发生时，您不需要提供退款。 相反，当前计划将保持有效状态，直到当前结算周期的最后一天。 `marketplace_purchase` 事件将在新计划生效，即在客户的下一个结算周期开始时发送。
 
 当客户取消计划时，您必须：
 - 自动降级到免费计划（如果有）。
-
+  
   {% data reusables.marketplace.cancellation-clarification %}
 - 让他们能够通过 GitHub 升级计划（如果他们以后想要继续订阅计划）。
 
-有关为应用程序构建取消工作流程的信息，请参阅“[处理计划取消](/developers/github-marketplace/handling-plan-cancellations)”。
+有关在应用中生成取消工作流的信息，请参阅“[处理计划取消](/developers/github-marketplace/handling-plan-cancellations)”。

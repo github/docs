@@ -1,6 +1,6 @@
 ---
 title: About authentication for your enterprise
-shortTitle: 認証について
+shortTitle: About authentication
 intro: 'You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise''s resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.'
 versions:
   ghec: '*'
@@ -19,7 +19,7 @@ topics:
 
 {% ifversion ghec %}
 
-Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources.
+Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. 
 
 You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses.
 
@@ -45,7 +45,7 @@ If you use a standalone organization with {% data variables.product.product_name
 
 ### Authentication with {% data variables.product.prodname_emus %} and federation
 
-If you need more control of the accounts for your enterprise members on {% data variables.product.product_location %}, you can use {% data variables.product.prodname_emus %}. With {% data variables.product.prodname_emus %}, you provision and manage accounts for your enterprise members on {% data variables.product.product_location %} using your IdP. Each member signs into an account that you create, and your enterprise manages the account. Contributions to the rest of {% data variables.product.prodname_dotcom_the_website %} are restricted. 詳しい情報については「[{% data variables.product.prodname_emus %}について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)」を参照してください。
+If you need more control of the accounts for your enterprise members on {% data variables.product.product_location %}, you can use {% data variables.product.prodname_emus %}. With {% data variables.product.prodname_emus %}, you provision and manage accounts for your enterprise members on {% data variables.product.product_location %} using your IdP. Each member signs into an account that you create, and your enterprise manages the account. Contributions to the rest of {% data variables.product.prodname_dotcom_the_website %} are restricted. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 
 ## Identifying the best authentication method for your enterprise
 
@@ -62,9 +62,9 @@ To determine whether your enterprise would benefit more from SAML SSO or {% data
 
 ### Do you want to control the user accounts for your users?
 
-{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources.
+{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources. 
 
-With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts.
+With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts. 
 
 If you currently require your users to create a new account on {% data variables.product.prodname_dotcom_the_website %} to use with your enterprise only, {% data variables.product.prodname_emus %} might be right for you. However, SAML SSO may be a better option if using your IdP as the source of truth for your user and access management would add too much complexity. For example, perhaps your enterprise does not have an established process for onboarding new users in your IdP.
 
@@ -86,7 +86,7 @@ These restrictions are unacceptable for some enterprises. To determine whether {
 
 Some companies maintain repositories within an existing enterprise using SAML SSO on {% data variables.product.product_location %}, and also create an {% data variables.product.prodname_emu_enterprise %}. Developers who contribute to repositories owned by both enterprises from a single workstation must switch between the accounts on {% data variables.product.product_location %} within a single browser, or use a different browser for each account. The developer may also need to customize the workstation's Git configuration to accommodate the two accounts. The complexity of this workflow can increase the risk of mistakenly leaking internal code to the public.
 
-If you decide to create an {% data variables.product.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. 詳しい情報については「[{% data variables.product.prodname_emus %}について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)」を参照してください。
+If you decide to create an {% data variables.product.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)."
 
 ### Does your enterprise rely on outside collaborators?
 
@@ -115,11 +115,11 @@ The following authentication methods are available for {% data variables.product
 
 ### Built-in authentication
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. 詳しい情報については、「[ビルトイン認証の設定](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)」を参照してください。
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
 
 ### External authentication
 
-If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.product.product_location %}. 詳しい情報については、以下を参照してください。
+If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.product.product_location %}. For more information, see the following.
 
 - "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
 - "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
@@ -133,10 +133,10 @@ If you choose to use external authentication, you can also configure fallback au
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- 「[{% data variables.product.company_short %}アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」
-- 「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」
+- "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts)"
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
 {%- ifversion ghec %}
 - "[Can I create accounts for people in my organization?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
 {% endif %}

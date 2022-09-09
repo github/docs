@@ -1,6 +1,6 @@
 ---
 title: Gerenciando as configurações de segurança da sua organização
-shortTitle: Gerenciar configurações de segurança
+shortTitle: Manage security settings
 intro: 'Você pode gerenciar as configurações de segurança e revisar o log de auditoria{% ifversion ghec %}, relatórios de conformidade,{% endif %} e integrações para a sua organização.'
 versions:
   fpt: '*'
@@ -17,5 +17,11 @@ children:
   - /reviewing-the-audit-log-for-your-organization
   - /accessing-compliance-reports-for-your-organization
   - /reviewing-your-organizations-installed-integrations
+ms.openlocfilehash: f3170c9636a6d298ba1faad74018a7f8798215d3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126501'
 ---
 

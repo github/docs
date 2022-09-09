@@ -1,5 +1,5 @@
 ---
-title: 管理提交签名验证
+title: Managing commit signature verification
 intro: '{% data variables.product.product_name %} will verify GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signatures so other people will know that your commits come from a trusted source.{% ifversion fpt %} {% data variables.product.product_name %} will automatically sign commits you make using the {% data variables.product.product_name %} web interface.{% endif %}'
 redirect_from:
   - /articles/generating-a-gpg-key
@@ -24,6 +24,6 @@ children:
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
   - /signing-tags
-shortTitle: 验证提交签名
+shortTitle: Verify commit signatures
 ---
 

@@ -14,29 +14,33 @@ topics:
   - CD
   - Containers
   - Amazon ECS
-shortTitle: 部署到 Amazon ECS
+shortTitle: Deploy to Amazon ECS
+ms.openlocfilehash: 259a3fd5bc0076f60d0c08f356b3ec9914effe89
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410185'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
-本指南介绍如何使用 {% data variables.product.prodname_actions %} 构建容器化应用程序，将其推送到 [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/)，以及要推送到 `main` 分支时将其部署到 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)。
+本指南介绍如何使用 {% data variables.product.prodname_actions %} 构建容器化应用程序，将其推送到 [Amazon 弹性容器注册表 (ECR)](https://aws.amazon.com/ecr/)，以及要推送到 `main` 分支时将其部署到 [Amazon 弹性容器服务 (ECS)](https://aws.amazon.com/ecs/)。
 
-在每次推送到 {% data variables.product.company_short %} 仓库中的 `main` 时，{% data variables.product.prodname_actions %} 工作流程将构建新的容器映像并将其推送到 Amazon ECR，然后将新的任务定义部署到 Amazon ECS。
+在每次推送到 {% data variables.product.company_short %} 存储库中的 `main` 时，{% data variables.product.prodname_actions %} 工作流将生成新的容器映像并将其推送到 Amazon ECR，然后将新的任务定义部署到 Amazon ECS。
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**注意**：{% data reusables.actions.about-oidc-short-overview %} 和[“在 Amazon Web Services 中配置 OpenID Connect”](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)。
+注意：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Amazon Web Services 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)”。
 
 {% endnote %}
 
 {% endif %}
 
-## 基本要求
+## 先决条件
 
 在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要对 Amazon ECR 和 ECS 完成以下设置步骤：
 
@@ -44,9 +48,9 @@ shortTitle: 部署到 Amazon ECS
 
    例如，使用 [AWS CLI](https://aws.amazon.com/cli/)：
 
-   {% raw %}```bash{:copy}
-   aws ecr create-repository \
-    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   {% raw %}```bash{:copy} aws ecr create-repository \
+       --repository-name MY_ECR_REPOSITORY \
+       --region MY_AWS_REGION
    ```{% endraw %}
 
    Ensure that you use the same Amazon ECR repository name (represented here by `MY_ECR_REPOSITORY`) for the `ECR_REPOSITORY` variable in the workflow below.
@@ -164,12 +168,12 @@ jobs:
 
 ## 其他资源
 
-有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml)。
+对于原始初学者工作流，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 存储库中的 [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml)。
 
 有关这些示例中使用的服务的详细信息，请参阅以下文档：
 
-* Amazon AWS 文档中的“[IAM 中的安全最佳实践](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)”。
-* 正式 AWS“[配置 AWS 凭据](https://github.com/aws-actions/configure-aws-credentials)”操作。
-* 正式 AWS [Amazon ECR“登录”](https://github.com/aws-actions/amazon-ecr-login)操作。
-* 正式 AWS [Amazon ECS“渲染任务定义”](https://github.com/aws-actions/amazon-ecs-render-task-definition)操作。
-* 正式 AWS [Amazon ECS“部署任务定义”](https://github.com/aws-actions/amazon-ecs-deploy-task-definition)操作。
+* Amazon AWS 文档中的“[IAM 安全最佳做法](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)”。
+* 官方 AWS“[配置 AWS 凭据](https://github.com/aws-actions/configure-aws-credentials)”操作。
+* 官方 AWS [Amazon ECR“登录”](https://github.com/aws-actions/amazon-ecr-login)操作。
+* 官方 AWS [Amazon ECS“呈现任务定义”](https://github.com/aws-actions/amazon-ecs-render-task-definition)操作。
+* 官方 AWS [Amazon ECS“部署任务定义”](https://github.com/aws-actions/amazon-ecs-deploy-task-definition)操作。

@@ -1,6 +1,6 @@
 ---
-title: About teams
-intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
+title: 关于团队
+intro: 团队是组织成员构成的小组，反映了公司或小组具有级联访问权限和提及功能的结构。
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
@@ -12,71 +12,76 @@ versions:
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 7b899cf08ca58170acdf8fb2fb2ad13d251b76e3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149843'
 ---
+![组织中的团队列表](/assets/images/help/teams/org-list-of-teams.png)
 
-![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
+组织所有者和团队维护员可向团队授予对组织存储库的管理、读取或写权限。 组织成员可通过提及团队的名称，向整个团队发送通知。 此外，组织成员可通过请求团队评审，向整个团队发送通知。 组织成员组可请求有权读取打开拉取请求的存储库的特定团队进行评审。 可在 CODEOWNERS 文件中将团队指定为某些代码类型或区域的所有者。
 
-Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+有关详细信息，请参阅：
+- “[管理团队对组织存储库的访问](/articles/managing-team-access-to-an-organization-repository)”
+- “[提及人员和团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”
+- “[关于代码所有者](/articles/about-code-owners/)”
 
-For more information, see:
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[About code owners](/articles/about-code-owners/)"
-
-![Image of a team mention](/assets/images/help/teams/team-mention.png)
+![团队提及图像](/assets/images/help/teams/team-mention.png)
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.product.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+还可以使用 LDAP 同步根据确定的 LDAP 组同步 {% data variables.product.product_location %} 团队成员和团队角色。 这使你能够从 LDAP 服务器为用户建立基于角色的访问控制，而不是在 {% data variables.product.product_location %} 中手动建立。 有关详细信息，请参阅“[启用 LDAP 同步](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)”。
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-## Team visibility
+## 团队可见性
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+您可以在个人仪表板上查看您所属的所有团队。 有关详细信息，请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)”。
 
-## Team pages
+## 团队页面
 
-Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
+每个团队都在组织中有自己的页面。 在团队的页面上，您可以查看团队成员、子团队和团队的仓库。 组织所有者和团队维护员可从团队页面访问团队设置以及更新团队的说明和头像。
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+组织成员可以创建和参与团队讨论。 有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
-![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![列出团队成员和讨论的团队页面](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-## Nested teams
+## 嵌套团队
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+您可以在 {% data variables.product.product_name %} 组织中通过多级嵌套团队反映您的组或公司的层级。 父级团队可具有多个子级团队，而每个子级团队只有一个父级团队。 不可嵌套机密团队。
 
-Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
+子级团队会继承父级团队的访问权限，这简化了大型组的权限管理。 当父团队被 @提及时，子团队的成员也会收到通知，这简化了与多组人员的通信。
 
-For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification.
+例如，如果您的团队结构是“员工 > 工程 > 应用工程 > 身份”，则向“工程”授予对仓库的写入权限意味着“应用工程”和“身份”也会获得该访问权限。 如果你 @提及标识团队或组织层次结构底部的任何团队，则它们将是唯一会收到通知的团队。
 
-![Teams page with a parent team and child teams](/assets/images/help/teams/nested-teams-eng-example.png)
+![包含父团队和子团队的团队页面](/assets/images/help/teams/nested-teams-eng-example.png)
 
-To easily understand who shares a parent team's permissions and mentions, you can see all of the members of a parent team's child teams on the Members tab of the parent team's page. Members of a child team are not direct members of the parent team.
+要轻松了解谁共享父团队的权限和提及，可以在父团队页面的 Members（成员）选项卡上查看其子团队的所有成员。 子团队的成员不是父团队的直接成员。
 
-![Parent team page with all members of child teams](/assets/images/help/teams/team-and-subteam-members.png)
+![包含子团队所有成员的父团队页面](/assets/images/help/teams/team-and-subteam-members.png)
 
-You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+在创建团队时您可以选择父团队，或者以后在组织的层次结构中移动团队。 有关详细信息，请参阅“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-## Preparing to nest teams in your organization
+## 准备在组织中嵌套团队
 
-If your organization already has existing teams, you should audit each team's repository access permissions before you nest teams above or below it. You should also consider the new structure you'd like to implement for your organization.
+如果您的组织已经有团队，则在其上面或下面嵌套团队之前，应审计每个团队的仓库访问权限。 也应考虑要为组织实施的新结构。
 
-At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
+在团队层次结构的顶部，应向父团队授予对父团队及其子团队每个成员都安全的仓库访问权限。 随着在向层次结构底部的移动，可以更细致地向子团队成员授予访问敏感仓库的其他权限。
 
-1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. 从现有团队删除所有成员
+2. 审计并调整每个团队的仓库访问权限，并为每个团队指定一个父团队
+3. 创建需要的任何新团队，为每个新团队选择一个父团队，并向他们授予仓库访问权限
+4. 直接向团队添加人员
 
-## Further reading
+## 延伸阅读
 
-- "[Creating a team](/articles/creating-a-team)"
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- “[创建团队](/articles/creating-a-team)”
+- “[将组织成员添加到团队](/articles/adding-organization-members-to-a-team)”

@@ -1,7 +1,7 @@
 ---
-title: Adotando o GitHub Advanced Security em escala
-shortTitle: Adotando o GHAS em escala
-intro: 'Uma abordagem faseada para implantar o GitHub Advanced Security na sua empresa, fazendo uso das práticas recomendadas do setor e do GitHub.'
+title: Adoção do GitHub Advanced Security em escala
+shortTitle: Adopting GHAS at scale
+intro: Uma abordagem em fases para a distribuição do GitHub Advanced Security em sua empresa de acordo com as práticas recomendadas do setor e do GitHub.
 versions:
   ghes: '*'
   ghae: '*'
@@ -18,5 +18,11 @@ children:
   - /phase-4-create-internal-documentation
   - /phase-5-rollout-and-scale-code-scanning
   - /phase-6-rollout-and-scale-secret-scanning
+ms.openlocfilehash: c5624ca33d347e1be1c7bfc9a687f1c06bb828ed
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145329'
 ---
 

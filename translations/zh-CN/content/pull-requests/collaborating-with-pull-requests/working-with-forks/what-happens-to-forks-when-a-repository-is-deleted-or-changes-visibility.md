@@ -14,9 +14,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 删除或更改可见性
+shortTitle: Deleted or changes visibility
+ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332727'
 ---
-
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ## 删除私有仓库
@@ -41,10 +46,9 @@ shortTitle: 删除或更改可见性
 
 如果将公共仓库设为私有，其公共复刻将拆分到新网络中。 与删除公共仓库一样，选择现有的公共分支之一作为新的父仓库，并且所有其他仓库都从这个新的父仓库中复刻。 后续的拉取请求都转到这一新的父仓库。
 
-换句话说，即使将父仓库设为私有后，公共仓库的复刻也将在其各自的仓库网络中保持公开。 这样复刻所有者便可继续工作和协作，而不会中断。 如果公共复刻没有通过这种方式移动到单独的网络中，则这些复刻的所有者将需要获得适当的[访问权限](/articles/access-permissions-on-github)以从（现在私有的）父仓库中拉取更改并提交拉取请求 — 即使它们以前不需要这些权限。
+换句话说，即使将父仓库设为私有后，公共仓库的复刻也将在其各自的仓库网络中保持公开。 这样复刻所有者便可继续工作和协作，而不会中断。 如果公共分支没有通过这种方式移动到单独的网络中，则这些分支的所有者将需要获得适当的[访问权限](/articles/access-permissions-on-github)以从（现在私有的）父存储库中拉取更改并提交拉取请求 - 即使它们以前不需要这些权限。
 
-{% ifversion ghes or ghae %}
-如果公共仓库启用了匿名 Git 读取权限并且该仓库设为私有，则所有仓库的复刻都将失去匿名 Git 读取权限并恢复为默认的禁用设置。 如果将复刻的仓库设为公共，则仓库管理员可以重新启用 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
+{% ifversion ghes or ghae %} 如果公共存储库启用了匿名 Git 读取权限并且该存储库设为私有，则所有存储库的分支都将失去匿名 Git 读取权限并恢复为默认的禁用设置。 如果将复刻的仓库设为公共，则仓库管理员可以重新启用 Git 读取权限。 有关详细信息，请参阅“[为存储库启用匿名 Git 读取访问](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。
 {% endif %}
 
 ### 删除私有仓库
@@ -67,7 +71,7 @@ shortTitle: 删除或更改可见性
 
 
 
-如果企业策略允许复刻，则内部仓库的任何复刻都将是私有的。 如果您更改内部仓库的可见性，组织或个人帐户拥有的任何复刻都将保持私有。
+如果企业策略允许复刻，则内部仓库的任何复刻都将是私有的。 如果更改内部存储库的可见性，组织或个人帐户拥有的任何分支都将保持私有。
 
 ### 删除内部仓库
 
@@ -77,8 +81,8 @@ shortTitle: 删除或更改可见性
 
 ## 延伸阅读
 
-- “[设置仓库可见性](/articles/setting-repository-visibility)”
-- "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[管理组织的复刻策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- “[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)”
+- [设置存储库可见性](/articles/setting-repository-visibility)
+- [关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
+- [管理存储库的分支策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)
+- [管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)
+- [在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)

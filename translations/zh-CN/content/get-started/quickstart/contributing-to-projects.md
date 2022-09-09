@@ -12,29 +12,40 @@ topics:
   - Forks
   - GitHub
   - Open Source
+ms.openlocfilehash: 190bfbbfc799a802a082aa01e9f93f2ad379e471
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147425229'
 ---
-
 ## 关于复刻
 
 在自己使用 GitHub 一段时间后，您可能会发现自己也想参与别人的项目。 或者，也许您想使用某人的项目作为自己项目的起点。 此过程称为复刻。
 
-创建“复刻”就是生成他人项目的个人副本。 复刻可作为原始存储库和个人副本之间的桥梁。 您可以提交拉取请求，通过提供对原始项目的更改来帮助改善其他人的项目。 复刻是 GitHub 社交编码的核心。 更多信息请参阅“[复刻仓库](/get-started/quickstart/fork-a-repo)”。
+创建“复刻”就是生成他人项目的个人副本。 复刻可作为原始存储库和个人副本之间的桥梁。 您可以提交拉取请求，通过提供对原始项目的更改来帮助改善其他人的项目。 复刻是 GitHub 社交编码的核心。 有关详细信息，请参阅“[为存储库创建分支](/get-started/quickstart/fork-a-repo)”。
 
 ## 复刻仓库
 
-本教程使用 [Spoon-Knife 项目](https://github.com/octocat/Spoon-Knife)，这是一个托管在 {% data variables.product.prodname_dotcom_the_website %} 上的测试存储库，可让您测试复刻和拉取请求工作流程。
+本教程使用 [Spoon-Knife 项目](https://github.com/octocat/Spoon-Knife)，这是一个托管在 {% data variables.product.prodname_dotcom_the_website %} 上的测试存储库，可让你测试分支和拉取请求工作流。
 
-1. 导航到 `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife。
-2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
-3. Select an owner for the forked repository. ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
-5. Optionally, add a description of your fork. ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
-6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied. ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
-7. Click **Create fork**. ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+1. 导航到位于 https://github.com/octocat/Spoon-Knife 的 `Spoon-Knife` 项目。
+2. 单击“分支”。
+   ![分支按钮](/assets/images/help/repository/fork_button.png)
+3. 为分支存储库选择所有者。
+   ![创建一个突出显示所有者下拉菜单的新分支页](/assets/images/help/repository/fork-choose-owner.png)
+4. 默认情况下，分支的名称与其父存储库的相同。 可更改分支的名称以进一步区分它。 
+   ![创建一个突出显示存储库名称字段的新分支页](/assets/images/help/repository/fork-choose-repo-name.png)
+5. 可以选择性地添加分支的说明。
+   ![创建一个突出显示说明字段的新分支页](/assets/images/help/repository/fork-description.png)
+6. 选择是仅将默认分支还是将所有分支复制到新分支。 对于许多分支场景（例如参与开源项目），你只需复制默认分支。 默认情况下，只复制默认分支。
+   ![只复制默认分支的选项](/assets/images/help/repository/copy-default-branch-only.png)
+7. 单击“创建分支”。
+   ![突出显示的“创建分支”按钮](/assets/images/help/repository/fork-create-button.png)
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. 更多信息请参阅“[创建和删除仓库中的分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)”。
+注意：如果要从父存储库复制其他分支，可从“分支”页执行此操作 。 有关详细信息，请参阅“[创建和删除存储库中的分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)”。
 
 {% endnote %}
 
@@ -46,16 +57,14 @@ topics:
 
 {% webui %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-4. 键入 `git clone`，然后粘贴先前复制的 URL。 它将如下所示，使用您的 {% data variables.product.product_name %} 用户名替换 `YOUR-USERNAME`：
+1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 存储库的分支。
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
+4. 键入 `git clone`，然后粘贴之前复制的 URL。 它将如下所示，使用你的 {% data variables.product.product_name %} 用户名替换 `YOUR-USERNAME`：
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
-5. 按 **Enter** 键。 将创建您的本地克隆。
+5. 按 **Enter**。 将创建您的本地克隆。
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   > Cloning into `Spoon-Knife`...
@@ -71,7 +80,7 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-要创建复刻的克隆，请使用 `--clone` 标记。
+若要创建分支的克隆，请使用 `--clone` 标记。
 
 ```shell
 gh repo fork <em>repository</em> --clone=true
@@ -81,19 +90,15 @@ gh repo fork <em>repository</em> --clone=true
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
 ## 创建和推送更改
 
-继续使用您喜欢的文本编辑器对项目进行一些更改，例如 [Visual Studio Code](https://code.visualstudio.com)。 例如，您可以更改 `index.html` 中的文本以添加您的 GitHub 用户名。
+继续使用你喜欢的文本编辑器（例如 [Visual Studio Code](https://code.visualstudio.com)）对项目进行一些更改。 例如，可以更改 `index.html` 中的文本以添加你的 GitHub 用户名。
 
-当您准备好提交更改时，请暂存并提交更改。 `git add .` 告诉 Git 您希望在下一次提交中包含所有更改。 `git commit` 会拍摄这些更改的快照。
+当您准备好提交更改时，请暂存并提交更改。 `git add .` 告诉 Git 你希望在下一次提交中包含所有更改。 `git commit` 会拍摄这些更改的快照。
 
 {% webui %}
 
@@ -115,7 +120,7 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-有关如何在 {% data variables.product.prodname_desktop %} 中暂存和提交更改的详细信息，请参阅“[提交和审阅对项目的更改](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)”。
+有关如何在 {% data variables.product.prodname_desktop %} 中暂存和提交更改的详细信息，请参阅“[提交和查看项目的更改](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)”。
 
 {% enddesktop %}
 
@@ -149,11 +154,11 @@ git push
 
 最后，您可以对主项目提出更改建议了！ 这是产生他人项目复刻的最后一步，可以说是最重要的一步。 如果您做了您认为有益于整个社区的改变，绝对应该考虑回馈社区。
 
-为此，请转到项目所在的 {% data variables.product.product_name %} 存储库。 对于此示例，它将位于 `https://www.github.com/<your_username>/Spoon-Knife`。 您将看到一个横幅，指示您的分支是 `octocat:main` 之前的一个提交。 单击 **Contribute（贡献）**，然后单击 **Open a pull request（打开拉取请求）**。
+为此，请转到项目所在的 {% data variables.product.product_name %} 存储库。 在本示例中，它位于 `https://www.github.com/<your_username>/Spoon-Knife`。 你将看到一个横幅，指示你的分支是 `octocat:main` 之前的一个提交。 单击“参与”，然后单击“打开拉取请求” 。
 
-{% data variables.product.product_name %} 将带您进入一个页面，其中显示了您的复刻与 `octocat/Spoon-Knife` 存储库之间的差异。 单击 **Create pull request（创建拉取请求）**。
+{% data variables.product.product_name %} 会将你带到一个页面，其中显示了分支和 `octocat/Spoon-Knife` 存储库之间的差异。 单击“创建拉取请求”。
 
-{% data variables.product.product_name %} 将带您进入一个页面，您可以在其中输入更改的标题和说明。 重要的是要提供尽可能多的有用信息，在首要位置说明您提出此拉取请求的理由。 项目所有者需要能够确定您的更改是否像您认为的那样对每个人都有用。 最后，单击 **Create pull request（创建拉取请求）**。
+{% data variables.product.product_name %} 将带您进入一个页面，您可以在其中输入更改的标题和说明。 重要的是要提供尽可能多的有用信息，在首要位置说明您提出此拉取请求的理由。 项目所有者需要能够确定您的更改是否像您认为的那样对每个人都有用。 最后，单击“创建拉取请求”。
 
 ## 管理反馈
 
@@ -161,4 +166,4 @@ git push
 
 ## 查找项目
 
-您已成功复刻并回馈存储库。 去吧， 再贡献一些！{% ifversion fpt %} 更多信息请参阅“[在 GitHub上查找为开源做出贡献的方法](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+您已成功复刻并回馈存储库。 来吧，再贡献一些！{% ifversion fpt %}有关详细信息，请参阅“[查找在 GitHub 上为开放源代码做出贡献的方法](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}

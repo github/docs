@@ -13,6 +13,12 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
-shortTitle: 监控、管理和更新您的设备
+shortTitle: 'Monitor, manage, and update your appliance'
+ms.openlocfilehash: 1d2a9dfb22d8243617ba5844df93e5bfcaf6d99d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100024'
 ---
 

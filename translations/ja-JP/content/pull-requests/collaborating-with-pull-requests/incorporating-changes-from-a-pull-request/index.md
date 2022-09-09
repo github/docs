@@ -1,5 +1,5 @@
 ---
-title: プルリクエストから変更を取り込む
+title: pull request から変更を取り込む
 intro: '{% data variables.product.product_name %} での作業に対する変更は、プルリクエストを通じて提案できます。 プルリクエストを作成、管理、マージする方法を学びましょう。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request
@@ -20,5 +20,11 @@ children:
   - /closing-a-pull-request
   - /reverting-a-pull-request
 shortTitle: Incorporate changes
+ms.openlocfilehash: d1acfbbe1fa68bdc80363e6e3abb804a1f268316
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145137764'
 ---
 

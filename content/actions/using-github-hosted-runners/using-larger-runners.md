@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-20.04-16core
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses:{% data reusables.actions.action-setup-node %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
       - run: npm install -g bats

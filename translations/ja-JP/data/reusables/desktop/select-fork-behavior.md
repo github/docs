@@ -1,4 +1,12 @@
-1. **Fork behavior（フォークの動作）**をクリックし、続いてこのフォークの使用方法を選択してください。
+---
+ms.openlocfilehash: 1baaac068c008a45a8a9446dfccaf83c5901b1ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138163"
+---
+1. **[フォークの動作]** をクリックし、フォークの使用方法を選択します。
 
   {% mac %}
 
@@ -12,7 +20,7 @@
 
   {% endwindows %}
 
-2. [**Save**] をクリックします。
+2. **[保存]** をクリックします。
 
   {% mac %}
 

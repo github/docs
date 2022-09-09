@@ -1,7 +1,7 @@
 ---
-title: 关于对 IdP 的条件访问策略的支持
-shortTitle: 条件访问策略
-intro: '当您的企业使用 OIDC SSO 时，{% data variables.product.prodname_dotcom %} 将使用 IdP 的条件访问策略 (CAP) 验证对您的企业及其资源的访问。'
+title: About support for your IdP's Conditional Access Policy
+shortTitle: Conditional access policy
+intro: 'When your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} will validate access to your enterprise and its resources using your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -14,13 +14,13 @@ topics:
 
 {% data reusables.enterprise-accounts.oidc-beta-notice %}
 
-## 关于对条件访问策略的支持
+## About support for Conditional Access Policies
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-对于启用 OIDC SSO 的任何 {% data variables.product.prodname_emu_enterprise %}，CAP 支持都会自动启用，并且无法禁用。 {% data variables.product.prodname_dotcom %} 强制执行 IdP 的 IP 条件，但不强制执行设备合规性条件。
+CAP support is enabled automatically for any {% data variables.product.prodname_emu_enterprise %} that enables OIDC SSO and cannot be disabled. {% data variables.product.prodname_dotcom %} enforces your IdP's IP conditions but not device compliance conditions.
 
-有关将 OIDC 与 {% data variables.product.prodname_emus %} 配合使用的更多信息，请参阅“[为企业托管用户配置 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)”和“[从 SAML 迁移到 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)”。
+For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
 {% note %}
 
@@ -28,22 +28,22 @@ topics:
 
 {% endnote %}
 
-## 集成和自动化的注意事项
+## Considerations for integrations and automations
 
-{% data variables.product.prodname_dotcom %} 将原始 IP 地址发送到您的 IdP，以便对您的 CAP 进行验证。 要确保操作和应用程序未被 IdP 的 CAP 阻止，您需要对配置进行更改。
+{% data variables.product.prodname_dotcom %} sends the originating IP address to your IdP for validation against your CAP. To make sure  actions and apps are not blocked by your IdP's CAP, you will need to make changes to your configuration.
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
 ### {% data variables.product.prodname_actions %}
 
-使用个人访问令牌的操作可能会被 IdP 的 CAP 阻止。 我们建议由服务帐户创建个人访问令牌，然后从 IdP CAP 中的 IP 控制中免除该帐户。
+Actions that use a personal access token will likely be blocked by your IdP's CAP. We recommend that personal access tokens are created by a service account which is then exempted from IP controls in your IdP's CAP. 
 
-如果无法使用服务帐户，则取消阻止使用个人访问令牌的操作的另一个选项是允许 {% data variables.product.prodname_actions %} 使用的 IP 范围。 更多信息请参阅“[关于 GitHub 的 IP 地址](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)”。
+If you're unable to use a service account, another option for unblocking actions that use personal access tokens is to allow the IP ranges used by {% data variables.product.prodname_actions %}. For more information, see "[About GitHub's IP addresses](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
 
-### {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %}
+### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} 
 
-当 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 代表成员发出请求时，{% data variables.product.prodname_dotcom %} 会将应用程序服务器的 IP 地址发送到您的 IdP 进行验证。 如果应用程序服务器的 IP 地址未通过 IdP 的 CAP 验证，则请求将失败。
+When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} make requests on a member's behalf, {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail.
 
-您可以联系要使用的应用程序的所有者，询问他们的 IP 范围，并配置 IdP 的 CAP 以允许从这些 IP 范围进行访问。 如果您无法联系所有者，可以查看 IdP 登录日志以查看请求中看到的 IP 地址，然后允许列出这些地址。
+You can contact the owners of the apps you want to use, ask for their IP ranges, and configure your IdP's CAP to allow access from those IP ranges. If you're unable to contact the owners, you can review your IdP sign-in logs to review the IP addresses seen in the requests, then allow-list those addresses. 
 
-您还可以为已安装的 {% data variables.product.prodname_github_apps %} 启用 IP 允许列表配置。 启用后，无论原始 IP 地址如何，所有 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 都将继续工作。 更多信息请参阅“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps)”。
+You can also enable IP allow list configuration for installed {% data variables.product.prodname_github_apps %}. When enabled, all {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} will continue working regardless of the originating IP address. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps)."

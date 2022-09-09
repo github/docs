@@ -1,6 +1,6 @@
 ---
-title: 'Reopening a closed {% data variables.product.prodname_project_v1 %}'
-intro: 'You can reopen a closed {% data variables.projects.projects_v1_board %} and restart any workflow automation that was configured for the {% data variables.projects.projects_v1_board %}.'
+title: '重新打开已关闭的 {% data variables.product.prodname_project_v1 %}'
+intro: '可以重新打开已关闭的 {% data variables.projects.projects_v1_board %} 并且重启为 {% data variables.projects.projects_v1_board %} 配置的任何工作流自动化。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
@@ -11,20 +11,27 @@ topics:
   - Pull requests
 shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: d865d4b61000857c943276c45a9ec02163e9f59b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423306'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-When you close a {% data variables.projects.projects_v1_board %}, any workflow automation that was configured for the {% data variables.projects.projects_v1_board %} will pause by default. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
+关闭 {% data variables.projects.projects_v1_board %} 时，为 {% data variables.projects.projects_v1_board %} 配置的任何工作流自动化都将默认暂停。 有关详细信息，请参阅“[关闭 {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)”。
 
-When you reopen a {% data variables.projects.projects_v1_board %}, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board.
+重新打开 {% data variables.projects.projects_v1_board %} 时，可以选择同步自动化，便于根据为板配置的自动化设置更新板上卡的位置。
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to reopen.
+1. 导航到要重新打开的 {% data variables.projects.projects_v1_board %}。
 {% data reusables.project-management.click-menu %}
-3. Choose whether to sync automation for your {% data variables.projects.projects_v1_board %} or reopen your {% data variables.projects.projects_v1_board %} without syncing.
-    - To reopen your {% data variables.projects.projects_v1_board %} and sync automation, click **Reopen and sync project**. ![选择“重新打开并重新同步项目”按钮](/assets/images/help/projects/reopen-and-sync-project.png)
-    - To reopen your {% data variables.projects.projects_v1_board %} without syncing automation, using the reopen drop-down menu, click **Reopen only**. 然后单击 **Reopen only（仅重新打开）**。 ![重新打开关闭的项目板下拉菜单](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+3. 选择是同步你的 {% data variables.projects.projects_v1_board %} 自动化，还是在不同步的情况下重新打开 {% data variables.projects.projects_v1_board %}。
+    - 若要重新打开 {% data variables.projects.projects_v1_board %} 并同步自动化，请单击“重新打开并同步项目”。
+  ![选择“重新打开并重新同步项目”按钮](/assets/images/help/projects/reopen-and-sync-project.png)
+    - 若要在不同步自动化的情况下重新打开 {% data variables.projects.projects_v1_board %}，请使用重新打开下拉菜单，在其中单击“仅重新打开”。 然后单击“仅重新打开”。
+  ![重新打开关闭的项目板下拉菜单](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
 ## 延伸阅读
 
-- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"
+- [为 {% data variables.product.prodname_projects_v1 %} 配置自动化](/articles/configuring-automation-for-project-boards)

@@ -1,5 +1,5 @@
 ---
-title: ネットワークを設定する
+title: ネットワーク設定の構成
 redirect_from:
   - /enterprise/admin/guides/installation/dns-hostname-subdomain-isolation-and-ssl
   - /enterprise/admin/articles/about-dns-ssl-and-subdomain-settings
@@ -24,5 +24,11 @@ children:
   - /network-ports
   - /using-github-enterprise-server-with-a-load-balancer
 shortTitle: Configure network settings
+ms.openlocfilehash: 6c6e7149a63683cf003671d37e14d39ea3ffb9af
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145112909'
 ---
 

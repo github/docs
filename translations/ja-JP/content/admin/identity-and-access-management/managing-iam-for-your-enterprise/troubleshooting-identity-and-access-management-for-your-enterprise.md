@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting identity and access management for your enterprise
 shortTitle: Troubleshoot IAM
-intro: Review common issues and solutions for identity and access management for your enterprise.
+intro: "Review common issues and solutions for identity and access management for your enterprise."
 versions:
   ghec: '*'
   ghes: '*'
@@ -38,7 +38,7 @@ When a configuration error or an issue with your identity provider IdP prevents 
 If users are experiencing errors when attempting to authenticate with SAML, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication)."
 
 {% ifversion ghec %}
-## 参考リンク
+## Further reading
 
 - "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)"
 {% endif %}

@@ -52,9 +52,9 @@ Generally, we name our supported ecosystems after the software programming langu
 - Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
 - Erlang (registry: https://hex.pm/){% endif %}
 - Go (registry: https://pkg.go.dev/)
-{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7508 %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7508 %}
 - GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
-- Maven (registry: https://repo1.maven.org/maven2/org/)
+- Maven (registry: https://repo.maven.apache.org/maven2)
 - npm (registry: https://www.npmjs.com/)
 - NuGet (registry: https://www.nuget.org/)
 - pip (registry: https://pypi.org/)

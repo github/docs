@@ -14,6 +14,12 @@ versions:
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
-shortTitle: Comece a escrever no GitHub
+shortTitle: Start writing on GitHub
+ms.openlocfilehash: 42aa9a6eac67875c7e590c29fff5133be24366f1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145065572'
 ---
 

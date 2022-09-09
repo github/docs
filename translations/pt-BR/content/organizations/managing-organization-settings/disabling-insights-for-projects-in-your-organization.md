@@ -1,25 +1,32 @@
 ---
-title: 'Desabilitando insights para {% data variables.projects.projects_v2 %} na sua organização'
-intro: 'Os proprietários da organização podem desativar informações sobre {% data variables.product.prodname_projects_v2 %} na sua organização.'
+title: 'Desabilitar insights para {% data variables.projects.projects_v2 %} em sua organização'
+intro: 'Os proprietários da organização podem desligar os insights para {% data variables.product.prodname_projects_v2 %} na organização.'
 versions:
   feature: projects-v2
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
-shortTitle: 'Desabilitar insights de {% data variables.product.prodname_projects_v2 %}'
+shortTitle: 'Disable {% data variables.product.prodname_projects_v2 %} insights'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 06ab0f550603e3810bf860f01efe9113766c0fb3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423762'
 ---
+Depois de desabilitar os insights para projetos em sua organização, não será possível acessar insights para nenhum projeto pertencente à organização.
 
-Depois que você desabilitar insights para projetos na sua organização, não será possível acessar os insights para projetos pertencentes à organização.
 
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Na barra lateral, clique em **{% octicon "sliders" aria-label="The sliders icon" %} Recursos**.
+   ![Captura de tela mostrando o item de menu Recursos](/assets/images/help/projects-v2/features-org-menu.png)
+1. Em "Insights", desmarque **Habilitar insights para a organização**.
+   ![Captura de tela mostrando a caixa de seleção Habilitar insights para a organização](/assets/images/help/projects-v2/disable-insights-checkbox.png)
+1. Clique em **Salvar**.
+   ![Captura de tela mostrando o botão Salvar](/assets/images/help/projects-v2/disable-insights-save.png)
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. Na barra lateral, clique em **Funcionalidades de {% octicon "sliders" aria-label="The sliders icon" %}**. ![Captura de tela que mostra o item de menu das funcionalidades](/assets/images/help/projects-v2/features-org-menu.png)
-1. Em "Insights", desmarque **HabilitarInsights para a organização**. ![Captura de tela que mostra Habilitar Insights para a caixa de seleção da organização](/assets/images/help/projects-v2/disable-insights-checkbox.png)
-1. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/disable-insights-save.png)
+## Leitura adicional
 
-## Leia mais
-
-- "[Sobre o {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
+- "[Sobre {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
 - "[Sobre insights para {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)"

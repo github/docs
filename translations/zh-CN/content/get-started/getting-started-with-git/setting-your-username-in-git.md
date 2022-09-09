@@ -11,15 +11,20 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 设置用户名
+shortTitle: Set your username
+ms.openlocfilehash: c713f21fdf91269764dd97f15770e7996bf9f4f0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128984'
 ---
-
 ## 关于 Git 用户名
-您可以使用 `git config` 命令更改与您的 Git 提交关联的名称。 您设置的新名称将在从命令行推送到 {% data variables.product.product_name %} 的任何未来提交中显示。 如果您想要将真实姓名保密，则可以使用任意文本作为您的 Git 用户名。
+可使用 `git config` 命令更改与 Git 提交关联的名称。 您设置的新名称将在从命令行推送到 {% data variables.product.product_name %} 的任何未来提交中显示。 如果您想要将真实姓名保密，则可以使用任意文本作为您的 Git 用户名。
 
-使用 `git config` 更改与 Git 提交关联的名称仅影响未来的提交，不会更改用于过去提交的名称。
+使用 `git config` 更改与 Git 提交关联的名称仅影响未来的提交，而不会更改用于过去提交的名称。
 
-## 为计算机上的*每个*仓库设置 Git 用户名
+## 为计算机上的每个存储库设置 Git 用户名
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
@@ -53,5 +58,5 @@ shortTitle: 设置用户名
 
 ## 延伸阅读
 
-- "[设置提交电子邮件地址](/articles/setting-your-commit-email-address)"
-- [_Pro Git_ 书籍中的“Git 配置”](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)
+- “[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”
+- [Pro Git 书中的“Git 配置”](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)

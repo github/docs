@@ -796,9 +796,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `organization_projects_change.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
 {%- endif %}
 
 ## `packages` category actions
@@ -1113,7 +1113,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[Enforcing project board policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise)."
+| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)."
 | `repository_projects_change.disable` | Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 

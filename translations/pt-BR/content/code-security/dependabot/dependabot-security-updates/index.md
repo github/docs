@@ -12,9 +12,15 @@ topics:
   - Security updates
   - Dependencies
   - Pull requests
-shortTitle: Atualizações de segurança do Dependabot
+shortTitle: Dependabot security updates
 children:
   - /about-dependabot-security-updates
   - /configuring-dependabot-security-updates
+ms.openlocfilehash: 046ef28084ce31c1a4178355f5db6644b5ba0f12
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097021'
 ---
 

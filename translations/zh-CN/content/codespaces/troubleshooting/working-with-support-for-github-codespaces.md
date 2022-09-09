@@ -1,6 +1,6 @@
 ---
-title: 使用对 GitHub Codespaces 的支持
-intro: '有关从 {% data variables.product.prodname_github_codespaces %} 的支持中获得最佳帮助的提示。'
+title: Working with support for GitHub Codespaces
+intro: 'Tips on getting the best help from support for {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -8,30 +8,32 @@ versions:
 type: reference
 topics:
   - Codespaces
-shortTitle: 使用支持
+shortTitle: Working with support
 redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-在支持人员帮助您解决代码空间问题之前，您需要知道代码空间的名称及其代码空间 ID（标识符）。 此外，支持人员可能会要求您与他们共享一些日志。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 日志](/codespaces/troubleshooting/github-codespaces-logs)”和“[关于 GitHub 支持](/github/working-with-github-support/about-github-support)”。
+Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
-### 代码空间名称
+### Codespace names
 
-每个代码空间都有一个唯一的名称，该名称是 {% data variables.product.company_short %} 句柄、存储库名称和一些随机字符的组合。 附加字符允许您为同一存储库中的不同分支提供代码空间。 例如： `octocat-myrepo-gmc7`。
+Each codespace has a unique name that is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. The additional characters allow you to have codespaces for different branches in the same repository. For example: `octocat-myrepo-gmc7`.
 
-要查找代码空间的名称：
+To find the name of a codespace:
 
-- 在浏览器中打开代码空间。 URL 的子域是代码空间的名称。 例如： `https://octocat-myrepo-gmc7.github.dev` 是 `octocat-myrepo-gmc7` 代码空间的 URL。
-- 如果无法打开代码空间，则可以在 https://github.com/codespaces 上访问 {% data variables.product.product_name %} 中的名称。 当您将鼠标悬停在 https://github.com/codespaces 上的 **Open in browser（在浏览器中打开）**选项上时，该名称将显示在弹出窗口中。 ![将鼠标悬停在上方时显示的代码空间名称](/assets/images/help/codespaces/find-codespace-name-github.png)
+- Open the codespace in the browser. The subdomain of the URL is the name of the codespace. For example: `https://octocat-myrepo-gmc7.github.dev` is the URL for the `octocat-myrepo-gmc7` codespace.
+- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
+  ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-代码空间的名称也包含在许多日志文件中。 例如，在代码空间日志中作为 `friendlyName` 的值，在 `发出 GET 请求`后的 {% data variables.product.prodname_github_codespaces %} 扩展日志中，以及在 `clientUrl` 之后的浏览器控制台日志中。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 日志](/codespaces/troubleshooting/github-codespaces-logs)”。
+The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
-### 代码空间 ID
+### Codespaces IDs
 
-每个代码空间还有一个 ID（标识符）。 默认情况下，这在 {% data variables.product.prodname_vscode %} 中不显示，因此您可能需要先更新 {% data variables.product.prodname_github_codespaces %} 扩展的设置，然后才能访问该 ID。
+Every codespace also has an ID (identifier). This is not shown by default in {% data variables.product.prodname_vscode %} so you may need to update the settings for the {% data variables.product.prodname_github_codespaces %} extension before you can access the ID.
 
-1. 在 {% data variables.product.prodname_vscode %}、浏览器或桌面中的左侧活动栏中，单击 **Remote Explorer（远程资源管理器）**以显示代码空间的详细信息。
+1. In {% data variables.product.prodname_vscode %}, browser or desktop, in the Activity Bar on the left, click **Remote Explorer** to show details for the codespace.
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
-1. 如果侧边栏包含“Codespace Performance（代码空间性能）”部分，请将鼠标悬停在“Codespace ID（代码空间 ID）”上，然后单击剪贴板图标以复制 ID。
-1. 如果未显示信息，请单击活动栏左下角的 {% octicon "gear" aria-label="The gear icon" %} 以显示“Settings（设置）”选项卡。
-1. 展开 **Extensions（扩展）**，然后单击 **{% data variables.product.prodname_github_codespaces %}** 以显示扩展的设置。 然后启用 **Show Performance Explorer（显示性能资源管理器）**在边栏中显示“Codespace Performance（代码空间性能）”部分。 ![显示性能信息所需的代码空间 ID 和设置](/assets/images/help/codespaces/find-codespace-id.png)
+1. If the sidebar includes a "Codespace Performance" section, hover over the "Codespace ID" and click the clipboard icon to copy the ID.
+1. If the information is not shown, click {% octicon "gear" aria-label="The gear icon" %}, in the bottom-left corner of the Activity Bar, to display the "Settings" tab.
+1. Expand **Extensions** and click **{% data variables.product.prodname_github_codespaces %}** to display the settings for the extension. Then enable **Show Performance Explorer** to display the "Codespace Performance" section in the sidebar.
+  ![Codespace ID and settings required to display performance information](/assets/images/help/codespaces/find-codespace-id.png)

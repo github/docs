@@ -1,1 +1,0 @@
-{% data variables.product.product_name %}上のOrganizationをフォローすると、それらの{% ifversion fpt or ghec %}パブリックな{% endif %}アクティビティが個人ダッシュボードに表示されるようになります。 このアクティビティには、新しいディスカッション、スポンサーシップ、リポジトリが含まれます。

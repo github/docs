@@ -15,26 +15,30 @@ versions:
 topics:
   - Repositories
 shortTitle: View releases & tags
+ms.openlocfilehash: c6cdad2626eb5b3260efd46a1d47dac499c73051
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132055'
 ---
-
 {% tip %}
 
-**ヒント**: {% data variables.product.prodname_cli %} を使用してリリースを表示することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh release view`](https://cli.github.com/manual/gh_release_view)」を参照してください。
+**ヒント**: {% data variables.product.prodname_cli %} を使用してリリースを表示することもできます。 詳細については、{% data variables.product.prodname_cli %} ドキュメントの "[`gh release view`](https://cli.github.com/manual/gh_release_view)" を参照してください。
 
 {% endtip %}
 
 ## リリースを表示する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. [Releases] ページの上部にある [**Releases**] をクリックします。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. [リリース] ページの上部にある **[リリース]** をクリックします。
 
 ## タグを表示する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. [Releases] ページの上部にある [**Tags**] をクリックします。 ![[Tags] ページ](/assets/images/help/releases/tags-list.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. [Releases]\(リリース\) ページの上部にある **[Tags]\(タグ\)** をクリックします。
+![[Tags]\(タグ\) ページ](/assets/images/help/releases/tags-list.png)
 
-## 参考リンク
+## 参考資料
 
-- 「[タグに署名する](/articles/signing-tags)」
+- [タグに署名する](/articles/signing-tags)

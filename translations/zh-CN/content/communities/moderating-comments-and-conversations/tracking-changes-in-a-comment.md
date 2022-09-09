@@ -11,9 +11,14 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: 跟踪评论更改
+shortTitle: Track comment changes
+ms.openlocfilehash: 7da6b53f9b98ade8ee73411a80aaf2ff3f412700
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086539'
 ---
-
 ## 查看评论的编辑历史记录详细信息
 
 对仓库具有读取权限的任何人都可查看评论的编辑历史记录。
@@ -29,10 +34,11 @@ shortTitle: 跟踪评论更改
 
 1. 导航到您要从编辑历史记录删除敏感信息的评论。
 {% data reusables.repositories.edited-comment-list %}
-3. 在编辑历史记录窗口的右上角，单击 **Options（选项）**。 然后单击 **Delete revision from history（从历史记录中删除修订）**以删除显示所添加内容的差异。 ![删除评论编辑详细信息](/assets/images/help/repository/delete-comment-edit-details.png)
-4. 要确认删除，请单击 **OK（确定）**。
+3. 在编辑历史记录窗口的右上角，单击“选项”。 然后单击“从历史记录中删除修订”以删除显示所添加内容的差异。
+  ![删除评论编辑详细信息](/assets/images/help/repository/delete-comment-edit-details.png)
+4. 若要确认删除，请单击“确定”。
 
 ## 延伸阅读
 
-{% ifversion fpt or ghec %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”{% endif %}
-- “[编辑评论](/articles/editing-a-comment)”
+{% ifversion fpt or ghec %}-“[报告滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”{% endif %}
+- [编辑评论](/articles/editing-a-comment)

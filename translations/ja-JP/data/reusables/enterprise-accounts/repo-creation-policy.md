@@ -1,6 +1,6 @@
-1. "Repository creation（リポジトリの作成）"の下で、ポリシーを選択してください。
+1. Under "Repository creation", select a policy.
   {% ifversion enterprise-namespace-repo-setting %}
-    ![リポジトリ作成ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/restrict-personal-namespace-setting.png)
+    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/restrict-personal-namespace-setting.png)
   {% else %}
-    ![リポジトリ作成ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
+    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
   {% endif %}

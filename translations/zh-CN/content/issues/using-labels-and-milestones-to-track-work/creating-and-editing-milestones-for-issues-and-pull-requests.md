@@ -15,30 +15,34 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: 创建和编辑里程碑
+shortTitle: Create & edit milestones
 type: how_to
+ms.openlocfilehash: c0e812b9f91f91d88d7512974f1df52efbf8c65b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128636'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
 4. 选择以下选项之一：
-    - 要创建新里程碑，请单击 **New Milestone（新建里程碑）**。 ![新建里程碑按钮](/assets/images/help/repository/new-milestone.png)
-    - 要编辑里程碑，请在要编辑的里程碑旁边，单击 **Edit（编辑）**。 ![编辑里程碑选项](/assets/images/help/repository/edit-milestone.png)
-5. 键入里程碑的标题、说明或其他更改，然后单击 **Create milestone（创建里程碑）**或 **Save changes（保存更改）**。 里程碑将呈现 Markdown 语法。 有关 Markdown 语法的更多信息，请参阅“[基本撰写和格式语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
+    - 若要创建新里程碑，请单击“新建里程碑”。
+  ![“新建里程碑”按钮](/assets/images/help/repository/new-milestone.png)
+    - 要编辑里程碑，请在要编辑的里程碑旁边，单击“编辑”。
+  ![编辑里程碑选项](/assets/images/help/repository/edit-milestone.png)
+5. 键入里程碑的标题、说明或其他更改，然后单击“创建里程碑”或“保存更改” 。 里程碑将呈现 Markdown 语法。 有关 Markdown 语法的详细信息，请参阅“[基本编写和格式设置语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
 
 ## 删除里程碑
 
 删除里程碑时，议题和提取请求不会受到影响。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. 在要删除的里程碑旁边，单击 **Delete（删除）**。 ![删除里程碑选项](/assets/images/help/repository/delete-milestone.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
+4. 在要删除的里程碑旁边，单击“删除”。
+![删除里程碑选项](/assets/images/help/repository/delete-milestone.png)
 
 ## 延伸阅读
 
-- "[关于里程碑](/articles/about-milestones)"
-- "[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[查看里程碑的进度](/articles/viewing-your-milestone-s-progress)"
-- "[按里程碑过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- [关于里程碑](/articles/about-milestones)
+- [将里程碑与问题和拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)
+- [查看里程碑的进度](/articles/viewing-your-milestone-s-progress)
+- [按里程碑筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)

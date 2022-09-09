@@ -12,7 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Terminales habilitadas para las GitHub Apps
+shortTitle: GitHub App-enabled endpoints
+ms.openlocfilehash: ab79abe1df9a14f7fdcc73f863e7bce5aa4abd4c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410367'
 ---
-
 <!-- The content of this page is rendered as a NextJS page component. -->

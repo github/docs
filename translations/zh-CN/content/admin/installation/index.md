@@ -1,6 +1,6 @@
 ---
 title: '安装 {% data variables.product.prodname_enterprise %}'
-shortTitle: 安装
+shortTitle: Installing
 intro: '系统管理员以及操作和安全专业人员可以安装 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
   - /enterprise/admin-guide
@@ -18,10 +18,15 @@ topics:
   - Set up
 children:
   - /setting-up-a-github-enterprise-server-instance
+ms.openlocfilehash: 3c68586dada3fc76733611ad7a05d4119102736e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098042'
 ---
-
-如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
+如需更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
-如果对安装过程存在疑问，请参阅“[使用 {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)”。
+如果对安装过程有疑问，请参阅“[使用 {% data variables.product.prodname_enterprise %} 支持](/enterprise/admin/guides/enterprise-support/)”。

@@ -10,10 +10,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 创建代码块
+shortTitle: Create code blocks
+ms.openlocfilehash: ba0b49795df16fbafc77ef43c6fef58684162709
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147390367'
 ---
-
-## 围栏代码块
+## 隔离代码块
 
 通过在代码块的前后输入三反引号 <code>\`\`\`</code>，可创建围栏代码块。 我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
 
@@ -29,7 +34,7 @@ function test() {
 
 {% tip %}
 
-**提示：**要在列表中保留格式，请确保将非围栏代码块缩进八个空格。
+**提示：** 要在列表中保留格式，请确保将非围栏代码块缩进八个空格。
 
 {% endtip %}
 
@@ -48,7 +53,7 @@ Look! You can see my backticks.
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## 语法突显
+## 语法突出显示
 
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
@@ -60,20 +65,19 @@ Look! You can see my backticks.
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
-    puts markdown.to_html
     ```
 
 ![渲染的启用 Ruby 语法突显的代码块](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-我们使用 [Linguist](https://github.com/github/linguist) 来执行语言检测并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md)进行语法突显。 您可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键词有效。
+我们使用 [Linguist](https://github.com/github/linguist) 执行语言检测，并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md) 以强调语法。 你可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键字有效。
 
 {% ifversion mermaid %}
-## 创建图表
+## 创建关系图
 
-您还可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、GeoJSON、TopoJSON 和 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
+你也可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、GeoJSON、TopoJSON 和 ASCII STL 语法。 有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
 
 {% endif %}
 ## 延伸阅读
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
-- "[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)"
+- [{% data variables.product.prodname_dotcom %} 样式的 Markdown 规范](https://github.github.com/gfm/)
+- [基本撰写和格式设置语法](/articles/basic-writing-and-formatting-syntax)

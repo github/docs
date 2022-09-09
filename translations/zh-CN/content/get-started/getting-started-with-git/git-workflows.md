@@ -1,5 +1,5 @@
 ---
-title: Git 工作流程
+title: Git 工作流
 intro: '{% data variables.product.prodname_dotcom %} 流是一个基于分支的轻量级工作流程，支持定期部署的团队和项目。'
 redirect_from:
   - /articles/what-is-a-good-git-workflow
@@ -12,6 +12,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: da67c3430e7457b1fec3f1b0b9b480d6d8363c2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097907'
 ---
-
-您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 流程](/github/getting-started-with-github/github-flow)”。
+您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 流](/github/getting-started-with-github/github-flow)”。

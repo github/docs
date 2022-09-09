@@ -12,7 +12,7 @@ topics:
   - Codespaces
 ---
 
-## 概要
+## Overview
 
 Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
@@ -66,7 +66,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Click the name of the policy you want to edit.
 1. Make the required changes then click **Save**.
 
-## Deleting a policy
+## Deleting a policy 
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the delete button to the right of the policy you want to delete.
