@@ -244,7 +244,11 @@ Optionally, to validate the restore, configure an IP exception list to allow acc
 
 {% note %}
 
-**Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+**Note:** 
+
+- The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+
+- When restoring to new disks on the same target instance, stale UUIDs may exist until properly torn down using `ghe-repl-teardown`.
 
 {% endnote %}
 
