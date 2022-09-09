@@ -118,6 +118,7 @@ apps/ @octocat
 ```
 
 {% warning %}
+
 **Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
