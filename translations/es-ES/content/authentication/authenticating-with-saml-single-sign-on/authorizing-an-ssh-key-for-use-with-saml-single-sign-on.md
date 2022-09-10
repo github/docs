@@ -11,12 +11,12 @@ versions:
 topics:
   - SSO
 shortTitle: SSH Key with SAML
-ms.openlocfilehash: 11df62f1a4adc5a0de1f54efbccafe71ad0feb83
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f4b11c123c01d56263de883cbdd0f87c48eee04b
+ms.sourcegitcommit: c0ac2ca826e2bb2e9355b57c2fd9b334d8f63b67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145120041'
+ms.lasthandoff: 09/06/2022
+ms.locfileid: '147854287'
 ---
 Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre cómo crear una nueva clave SSH, consulte "[Generación de una nueva clave SSH y adición al agente de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
@@ -31,11 +31,12 @@ Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego a
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
-3. Junto a la clave SSH que quiere autorizar, haga clic en **Enable SSO** (Habilitar SSO) o **Disable SSO** (Deshabilitar SSO).
-![Botón para autorizar el token de SSO](/assets/images/help/settings/ssh-sso-button.png)
-4. Busca la organización para la que deseas autorizar la clave SSH.
-5. Haga clic en **Autorizar**.
-![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)
+1. A la derecha de la clave SSH que deseas autorizar, haz clic en **Configurar SSO**.
+
+   ![Captura de pantalla del botón autorización del token de SSO](/assets/images/help/settings/ssh-sso-button.png)
+1. A la derecha de la organización para la que te gustaría autorizar el token, haz clic en **Autorizar**.
+
+   ![Captura de pantalla del botón autorización del token](/assets/images/help/settings/ssh-sso-authorize.png)
 
 ## Información adicional
 
