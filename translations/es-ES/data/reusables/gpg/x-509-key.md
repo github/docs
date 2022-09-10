@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: 3aa2f76a2abdf35ef89c8e083cf01e5a021d23eb
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 3661ae0cbef8282faa12b3d71bef77d503fcc0c6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145110114"
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147785414"
 ---
 
-### <a name="telling-git-about-your-x509-key"></a>Informarle a Git acerca de tu llave X.509
+## Informarle a Git acerca de tu llave X.509
 
-Puede usar [smimesign](https://github.com/github/smimesign) para firmar confirmaciones y etiquetas mediante S/MIME en lugar de GPG.
+Puedes usar [smimesign](https://github.com/github/smimesign) para firmar confirmaciones y etiquetas mediante S/MIME.
 
 {% data reusables.gpg.smime-git-version %}
 
