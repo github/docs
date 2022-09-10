@@ -21,7 +21,7 @@ shortTitle: Remove members
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Select the person or people you'd like to remove.
+- 4. Select the person or people you'd like to remove.
   ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Remove from team**.
+- 5. Above the list of team members, use the drop-down menu and click **Remove from team**.
   ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
