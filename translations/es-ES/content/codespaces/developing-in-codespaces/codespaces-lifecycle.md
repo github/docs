@@ -19,9 +19,9 @@ The lifecycle of a codespace begins when you create a codespace and ends when yo
 
 When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. {% data reusables.codespaces.max-number-codespaces %} For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+{% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
 
-If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
+If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
