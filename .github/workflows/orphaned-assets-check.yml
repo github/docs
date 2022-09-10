@@ -5,7 +5,7 @@ name: 'Orphaned assets check'
 # **Who does it impact**: Docs content.
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   schedule:
     - cron: '13 10 * * *' # Once a day at 10:13 UTC
 
