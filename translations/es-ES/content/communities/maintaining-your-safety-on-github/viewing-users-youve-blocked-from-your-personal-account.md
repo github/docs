@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: View blocked users in account
 ms.openlocfilehash: 622a6c066175ecc909c0f129f1a7e5e1849eac7e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145092388'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}

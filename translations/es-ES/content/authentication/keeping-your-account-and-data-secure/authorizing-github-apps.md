@@ -12,10 +12,10 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps
 ms.openlocfilehash: 050f437f411919c4be488e61c032a8543a301e02
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145115057'
 ---
 Las aplicaciones de terceros que necesitan verificar tu identidad de {% data variables.product.prodname_dotcom %} o interactuar con los datos de {% data variables.product.prodname_dotcom %} en tu nombre pueden pedirte que autorices la {% data variables.product.prodname_github_app %} para hacerlo. 

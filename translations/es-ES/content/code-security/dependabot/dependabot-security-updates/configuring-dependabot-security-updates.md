@@ -23,10 +23,10 @@ topics:
   - Pull requests
   - Repositories
 ms.openlocfilehash: d45ba3ee3e45bcab91d9ddafdb8fb23da4963c8e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146027959'
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->

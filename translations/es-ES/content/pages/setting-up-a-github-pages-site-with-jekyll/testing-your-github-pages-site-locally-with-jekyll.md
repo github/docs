@@ -16,11 +16,11 @@ topics:
   - Pages
 shortTitle: Test site locally with Jekyll
 ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137853'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878579'
 ---
 Cualquier persona con permisos de lectura para un repositorio puede probar un sitio de {% data variables.product.prodname_pages %} localmente.
 

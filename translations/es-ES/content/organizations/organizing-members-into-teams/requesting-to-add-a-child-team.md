@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Add a child team
 ms.openlocfilehash: e8012645bb4cdedc2a3aa8f7196adc18253a2600
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145119442'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879384'
 ---
 Cuando solicitas agregar un equipo como hijo, se envía una solicitud a los mantenedores del equipo hijo. Una vez que un mantenedor del equipo hijo aprueba tu solicitud, el equipo hijo se anida en el equipo padre de la jerarquía de tu organización.
 

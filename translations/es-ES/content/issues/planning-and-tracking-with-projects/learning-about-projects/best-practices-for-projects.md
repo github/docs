@@ -13,11 +13,11 @@ topics:
   - Issues
   - Project management
 ms.openlocfilehash: 71cf84e26bdbed717fd5b434e92f071550764cdc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424440'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880040'
 ---
 Puedes usar {% data variables.product.prodname_projects_v2 %} para administrar tu trabajo en {% data variables.product.company_short %}, donde se encuentran tus incidencias y solicitudes de incorporación de cambios. Lee los tips para administrar tus proyectos de forma eficaz y eficiente. Para más información sobre {% data variables.product.prodname_projects_v2 %}, consulta "[Acerca de {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".
 

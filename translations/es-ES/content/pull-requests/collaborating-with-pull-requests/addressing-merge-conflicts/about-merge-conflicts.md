@@ -15,10 +15,10 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: 5902f74a9c51772dc3f1d8883b60723ffec3e1d1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145137845'
 ---
 Por lo general, Git puede resolver las diferencias entre las ramas y fusionarlas automáticamente. Generalmente, los cambios están en diferentes líneas o incluso en diferentes archivos, lo que hace que sea simple para los equipos comprender la fusión. Sin embargo, a veces hay cambios contrapuestos que Git no puede resolver sin tu ayuda. Por lo general, los conflictos de fusión suceden cuando las personas realizan diferentes cambios en la misma línea en el mismo archivo o cuando una persona edita un archivo y otra persona elimina el mismo archivo.

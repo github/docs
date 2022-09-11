@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Add or change parent team
 ms.openlocfilehash: d277f8177e6a09e308792b1f7c01832851aec878
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140653'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880472'
 ---
 Cuando solicitas agregar o modificar el padre de tu equipo, se envía una solicitud a los mantenedores del equipo padre. Cuando un mantenedor del nuevo equipo padre aprueba tu solicitud, tu equipo se anida como equipo hijo en bajo el equipo padre en la jerarquía de tu organización.
 
