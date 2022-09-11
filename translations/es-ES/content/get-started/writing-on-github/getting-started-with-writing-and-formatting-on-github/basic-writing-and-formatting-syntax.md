@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Basic formatting syntax
 ms.openlocfilehash: 83b3b6c673ec0b970dd2527664adebff7f0d8aa5
-ms.sourcegitcommit: ab164fb4ca250c2cf5fc24be2a18b93facd0f055
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147860846'
 ---
 ## Encabezados

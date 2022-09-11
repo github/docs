@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: Dismiss a PR review
 ms.openlocfilehash: 658f0b69a24c622a3b5f75d6e330d132040d62c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145139538'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147879296'
 ---
 {% data reusables.pull_requests.dismiss_review %} Esto cambia el estado de la revisión, que pasa a ser un comentario de revisión. Cuando descartas una revisión, debes agregar un comentario que explique por qué la descartaste. Tu comentario se agregará a la conversación de la solicitud de extracción.
 

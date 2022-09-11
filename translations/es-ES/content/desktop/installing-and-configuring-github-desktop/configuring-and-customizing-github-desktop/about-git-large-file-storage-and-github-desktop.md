@@ -8,10 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: 68f03ff9a52dce73fead084ab728f20e93524e96
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145117418'
 ---
 Cuando instalas {% data variables.product.prodname_desktop %}, también se instala {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). {% data variables.large_files.product_name_short %} te permite subir archivos a {% data variables.product.prodname_dotcom %} que excedan el límite normal de {% data variables.large_files.max_github_size %}. Para más información sobre {% data variables.large_files.product_name_short %}, vea "[Acerca de {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage)".

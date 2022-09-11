@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 4795fdc557dbb103d64f7b97d0fa58f445434bca
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145114417"
 ---
 Puedes especificar un ambiente para cada job de tu flujo de trabajo. Para ello, agregue una clave `jobs.<job_id>.environment` seguida del nombre del entorno.

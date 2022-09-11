@@ -11,10 +11,10 @@ topics:
   - Organizations
   - Teams
 ms.openlocfilehash: 8071909478d52770f2e8107df31e61b7111f73c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145069623'
 ---
 ## Acerca de SCIM para las organizaciones

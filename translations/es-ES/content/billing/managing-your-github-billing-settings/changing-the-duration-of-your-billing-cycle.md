@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Billing cycle
 ms.openlocfilehash: 164b0192f1b055b95ad83fc2845e9af59058b6a7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091627'
 ---
 Al cambiar la duración de tu ciclo de facturación, tu suscripción a {% data variables.product.prodname_dotcom %}, junto con otras características y productos remunerados, se moverán al nuevo ciclo de facturación en tu próxima fecha de facturación.

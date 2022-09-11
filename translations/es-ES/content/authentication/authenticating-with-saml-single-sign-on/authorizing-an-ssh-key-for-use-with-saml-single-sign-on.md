@@ -12,10 +12,10 @@ topics:
   - SSO
 shortTitle: SSH Key with SAML
 ms.openlocfilehash: f4b11c123c01d56263de883cbdd0f87c48eee04b
-ms.sourcegitcommit: c0ac2ca826e2bb2e9355b57c2fd9b334d8f63b67
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147854287'
 ---
 Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre cómo crear una nueva clave SSH, consulte "[Generación de una nueva clave SSH y adición al agente de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".

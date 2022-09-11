@@ -45,10 +45,10 @@ topics:
   - Security
 shortTitle: Repository management policies
 ms.openlocfilehash: 4abffb820c09b8d5896598fa1d233143e3872955
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147683715'
 ---
 ## Acerca de las políticas para la administración de repositorios en tu empresa

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c3b2efb791822e1cf240094eb5c3351b5d795a23
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: "147682832"
 ---
 {%- ifversion ghec or ghes > 3.4 or ghae-issue-7875 %}

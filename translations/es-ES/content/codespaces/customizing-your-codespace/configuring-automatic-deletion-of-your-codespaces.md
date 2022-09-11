@@ -10,10 +10,10 @@ topics:
   - Codespaces
 type: how_to
 ms.openlocfilehash: 886b9207c3637127c1abbe3f3088ae3e69e7a7e1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147110758'
 ---
 De forma predeterminada, {% data variables.product.prodname_codespaces %} se eliminan automáticamente una vez que se hayan detenido y hayan permanecido inactivos durante 30 días.
