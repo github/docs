@@ -9,10 +9,10 @@ versions:
   fpt: '*'
   ghec: '*'
 ms.openlocfilehash: b105bd1ea712aff86e47891d2be24ce82f8d6b19
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145112130'
 ---
 En [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), puede descubrir, buscar e instalar herramientas gratuitas y de pago, incluidas {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %} y {% data variables.product.prodname_actions %}.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d17db880abec30208e0a5b5150e6a18c3030e6f7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145092603"
 ---
 Si un repositorio cuenta con alguna rama protegida, no podrás editar o cargar archivos en ésta utilizando {% data variables.product.prodname_dotcom %}. Para más información, vea "[Acerca de las ramas protegidas](/articles/about-protected-branches)".

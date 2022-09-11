@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 27ed9d55b8199298dc1cfdf8b4d3da925e08aa8d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145069452"
 ---
 1. La imagen y arquitectura de tu sistema operativo para tu máquina del ejecutor auto-hospedado.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6d982c0371125b4bf2536b0f7840abe05281db2d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145069619"
 ---
 # Glosarios

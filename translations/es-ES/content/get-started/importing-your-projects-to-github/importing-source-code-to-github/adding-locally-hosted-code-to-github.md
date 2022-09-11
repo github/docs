@@ -14,10 +14,10 @@ versions:
   ghec: '*'
 shortTitle: Add locally hosted code
 ms.openlocfilehash: 646ea2b0267ffebe546cf014ba7af74ab3c36284
-ms.sourcegitcommit: f4e3a8d53078409382c84d26a350dae6e35ba3aa
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147855044'
 ---
 ## Acerca de cómo agregar código fuente existente a {% data variables.product.product_name %}

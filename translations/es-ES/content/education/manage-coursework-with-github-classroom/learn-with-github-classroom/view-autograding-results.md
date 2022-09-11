@@ -7,10 +7,10 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
 ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145119553'
 ---
 ## Acerca de las calificaciones automáticas

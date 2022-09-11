@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Download SAML recovery codes
 ms.openlocfilehash: 9b17e3e4fc20cc9eaedf59afe45e393054d7d8e5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145126207'
 ---
 Los códigos de recuperación no se deben compartir ni distribuir. Se recomienda guardarlos con un administrador de contraseñas, como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).

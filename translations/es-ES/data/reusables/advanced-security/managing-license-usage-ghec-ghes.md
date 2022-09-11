@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c47a4efc23963dcfa0be69207387cd2d02704aef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145114009"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879352"
 ---
 Cuando habilitas o inhabilitas la {% data variables.product.prodname_advanced_security %} para repositorios, {% data variables.product.prodname_dotcom %} muestra un resumen de cambios en el uso de tu licencia. Si inhabilitas el acceso a {% data variables.product.prodname_GH_advanced_security %}, se liberará cualquier plaza que utilice un confirmante "único".
 

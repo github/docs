@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2f91982841899ea65993a71edec22ee264e1aad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145069322"
 ---
 Puedes crear hasta 10 niveles de patrocinio de una sola ocasión y 10 niveles mensuales para que los patrocinadores escojan entre ellos. Cada nivel tiene su propia cantidad de pago mensual o de única ocasión en dólares estadounidenses y puedes elegir habilitar los niveles para cantidades personalizadas. Adicionalmente, puedes elegir habilitar los niveles para las cantidades personalizadas (mensuales y de única ocasión).

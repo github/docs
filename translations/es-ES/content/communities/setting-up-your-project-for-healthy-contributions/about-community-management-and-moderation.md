@@ -10,10 +10,10 @@ topics:
   - Community
 shortTitle: Management & moderation
 ms.openlocfilehash: 93e540042965ef7f31b5f270837b5641c29e72dd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147431988'
 ---
 ## Acerca de la gestión y moderación de la comunidad

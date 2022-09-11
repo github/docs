@@ -18,11 +18,11 @@ topics:
 shortTitle: Create & edit milestones
 type: how_to
 ms.openlocfilehash: c0e812b9f91f91d88d7512974f1df52efbf8c65b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135295'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879332'
 ---
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
 4. Elija una de estas opciones:
