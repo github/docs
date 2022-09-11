@@ -1,1 +1,1 @@
-You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one.
+There are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. These limits vary based on a number of factors. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.

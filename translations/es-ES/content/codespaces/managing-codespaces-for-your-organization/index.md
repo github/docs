@@ -19,11 +19,11 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
-ms.openlocfilehash: d92214a4fd120b5e3833c84dfa453ce181cb1858
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 98b47ce0337b3309c8318eebef001455a3ec5e52
+ms.sourcegitcommit: 81faf43a57101e75d40b5f8f77b9b129699e5d41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145085'
+ms.lasthandoff: 09/08/2022
+ms.locfileid: '147865157'
 ---
 
