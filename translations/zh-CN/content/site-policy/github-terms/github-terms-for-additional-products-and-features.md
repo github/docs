@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 1289037f8ed1c2a0f725976567e52156870828c0
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: 31b10a4119a78f8c98767f185a6ba65bbbbc012a
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556504'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099210'
 ---
 版本生效日期：2021 年 8 月 10 日
 
@@ -32,8 +32,8 @@ ms.locfileid: '144556504'
 
 - **GitHub AE** 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、GitHub Enterprise Importer、Packages 和 Pages。
 
-## <a name="actions"></a>Actions
-GitHub Actions 使您能够直接在您的 GitHub 存储库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用情况和设置使用限制。 
+## Actions
+GitHub Actions 使你能够直接在 GitHub 存储库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用情况和设置使用限制。 
 
 对 Actions 以及任何 Action 产品或服务元素的使用不得违反协议、[GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)或 [Actions 文档](/actions/reference/usage-limits-billing-and-administration)规定的 GitHub Actions 服务限制。 此外，无论操作是否使用自托管运行器，Actions 都不应用于：
 - 加密货币挖矿；
@@ -60,12 +60,12 @@ GitHub Actions 使您能够直接在您的 GitHub 存储库中创建自定义软
 
 如果您使用自托管运行器，则可以关闭自动更新，但 GitHub 保留覆盖您选择的重要安全更新的权利。
 
-## <a name="advanced-security"></a>Advanced Security
+## Advanced Security
 GitHub 根据 Advanced Security 许可证向客户提供额外的安全功能。 这些功能包括代码扫描、秘密扫描和依赖项审查。 [Advanced Security 文档](/github/getting-started-with-github/about-github-advanced-security)提供更多详细信息。
 
 Advanced Security 基于“唯一提交者”获得许可。 “唯一提交者”是 GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server 或 GitHub AE 的许可用户，他们在过去 90 天内在激活了 GitHub Advanced Security 功能的任何存储库中进行过提交。 您必须为每个唯一提交者获取 GitHub Advanced Security 用户许可。 您只能对由您开发或为您开发的代码库使用 GitHub Advanced Security。 对于 GitHub Enterprise Cloud 用户，一些 Advanced Security 功能还需要使用 GitHub Actions。 
 
-## <a name="advisory-database"></a>Advisory Database
+## Advisory Database
 GitHub Advisory Database 允许您浏览或搜索影响 GitHub 上开源项目的漏洞。
 
 _向我们授予许可_
@@ -76,7 +76,7 @@ _GitHub Advisory Database 的许可_
 
 GitHub Advisory Database 根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得许可。 要履行署名条款，可链接至 <https://github.com/advisories> 上的 GitHub Advisory Database，或者所使用的单独 GitHub Advisory Database 记录（以 <https://github.com/advisories> 为前缀）。
 
-## <a name="codespaces"></a>Codespaces
+## Codespaces
 _注意：可在存储库上按下`.`或直接导航到 github.dev 来使用 github.dev 服务，此服务受 [GitHub 试用版服务条款](/github/site-policy/github-terms-of-service#j-beta-previews)约束。_
 
 GitHub Codespaces 使您能够直接从浏览器中使用 GitHub 存储库中的代码来开发代码。 使用 Codespaces 和 Codespaces 服务的任何元素时不得违反协议或可接受使用政策。 此外，Codespaces 不得用于：
@@ -92,16 +92,29 @@ Codespaces 允许您从 Microsoft Visual Studio Marketplace 加载扩展（“Ma
 
 Codespaces 的通用版本当前不适用于美国政府客户。 美国政府客户可以在单独条款下继续使用 Codespaces Beta 预览版。 请参阅 [Beta 预览版条款](/github/site-policy/github-terms-of-service#j-beta-previews)。
 
-## <a name="connect"></a>Connect
-使用 GitHub Connect，您可以在 GitHub Enterprise Server 或 GitHub AE 实例与您的 GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server 或 GitHub AE 实例。 您通过 Connect 对 GitHub Enterprise Cloud 或 GitHub.com 的使用受您许可 GitHub Enterprise Cloud 或 GitHub.com 所依据的条款管理。 对个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管理。
+## Connect
+使用 GitHub Connect，你可以在 GitHub Enterprise Server 或 GitHub AE 实例与你的 GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server 或 GitHub AE 实例。 您通过 Connect 对 GitHub Enterprise Cloud 或 GitHub.com 的使用受您许可 GitHub Enterprise Cloud 或 GitHub.com 所依据的条款管理。 对个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管理。
 
-## <a name="github-enterprise-importer"></a>GitHub Enterprise Importer
+## GitHub Copilot
+如果要使用 GitHub Copilot，需要将一个扩展安装到集成的开发环境 (IDE) 或编辑器。 根据协议，你使用 GitHub Copilot 扩展在 IDE 或编辑器中编写的代码（以下称为“你的代码”）在你将其上传到 GitHub.com 前不是“内容”。
+
+GitHub Copilot 返回给你的代码、函数和其他输出称为“建议”。 GitHub 不对建议主张任何权利，你对你的代码（包括你的代码中包含的建议）具有所有权和责任。
+
+_可接受的使用方式_
+
+你的代码受 GitHub [可接受的使用方式政策](/site-policy/acceptable-use-policies/github-acceptable-use-policies)约束。 例如，不得向 GitHub Copilot 提示非法或 GitHub.com 上的 GitHub 可接受的使用方式政策禁止的内容。
+
+_数据_
+
+GitHub Copilot (i) 可以收集你的代码的片段，以及 (ii) 通过绑定到你的帐户的 IDE 或编辑器收集其他使用信息，具体取决于你的首选遥测设置。 这可能包括个人数据，如 [GitHub 隐私声明](/site-policy/privacy-policies/github-privacy-statement)中所述。 可以通过 [GitHub Copilot 常见问题解答](https://github.com/features/copilot#faq-privacy)详细了解 GitHub Copilot 数据的收集和使用。
+
+## GitHub Enterprise Importer
 Importer 是将数据从其他源导出到 GitHub 平台的框架。 Importer“按原样”提供。
 
-## <a name="learning-lab"></a>Learning Lab
+## Learning Lab
 GitHub Learning Lab 提供已内置于 GitHub 的免费交互式课程，并提供即时自动反馈和帮助。
 
-*课程材料。* GitHub 对其提供的课程材料具备所有权，并授予您在全球范围内有效的非独占、有限期、不可转让、免版税的许可，以便您出于与 Learning Lab 使用相关的内部业务目的而复制、维护、使用和运行这些课程材料。 
+课程材料。 GitHub 对其提供的课程材料具备所有权，并授予您在全球范围内有效的非独占、有限期、不可转让、免版税的许可，以便您出于与 Learning Lab 使用相关的内部业务目的而复制、维护、使用和运行这些课程材料。 
 
 开源许可证条款可能适用于课程材料中提供的源代码部分。 
 
@@ -111,13 +124,13 @@ GitHub Learning Lab 提供已内置于 GitHub 的免费交互式课程，并提�
 
 对个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管理。
 
-## <a name="npm"></a>npm
+## npm
 npm 是一种软件包托管服务，允许您以私有方式或公开方式托管软件包，并将软件包用作项目中的依赖项。 npm 是 JavaScript 生态系统的记录注册表。 npm 公共注册表可以免费使用，但客户如果想要发布私有包或使用团队管理私有包，则需收取费用。 [npm 文档](https://docs.npmjs.com/)包含有关帐户类型限制以及如何管理[私有包](https://docs.npmjs.com/about-private-packages)和[组织](https://docs.npmjs.com/organizations)的详细信息。 [开源条款](https://www.npmjs.com/policies/open-source-terms)概述了可接受的 npm 注册表使用。 npm [solo](https://www.npmjs.com/policies/solo-plan) 和 [org](https://www.npmjs.com/policies/orgs-plan) 计划都有补充条款。 npm [使用条款](https://www.npmjs.com/policies/terms)适用于您对 npm 的使用。
 
-## <a name="packages"></a>服务包
+## 服务包
 GitHub Packages 是一种软件包托管服务，允许您以私有方式或公开方式托管软件包，并将软件包用作项目中的依赖项。 GitHub Packages 按使用情况计费。 [Packages 文档](/packages/learn-github-packages/introduction-to-github-packages)包含详细信息，包括带宽和存储量（取决于您的帐户计划）以及如何监控您的 Packages 使用和设置使用限制。 Packages 带宽使用受 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)的限制。
 
-## <a name="pages"></a>Pages
+## Pages
 
 每个帐户都可以访问 [GitHub Pages 静态托管服务](/github/working-with-github-pages/about-github-pages)。 GitHub Pages 旨在托管静态网页，但主要用作个人和组织项目的展示。 
 
@@ -133,14 +146,14 @@ _禁止的使用情形_
 
 如果您对用途或预期用途是否归入这些类别有疑问，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
 
-## <a name="previews"></a>预览版
+## 预览版
 
 预览版是指为预览、评估、演示或试用目的而提供的软件、在线服务以及附加产品和功能或者它们的预发布版本，如 Alpha 版、Beta 版或抢先体验版。 如果协议不包含涉及预览版的条款和条件，则以下条款适用。 GitHub 授予使用预览版非生产实例的有限权限。 预览版按“原样”、“可能存在各种缺陷”和“可用”的形式提供。 GitHub 可能随时更改或终止预览版，恕不另行通知。 我们提供的有关私人预览版的任何信息都将被视为 GitHub 的机密信息。 如果您选择提供有关预览版的评论或建议，我们可能会出于任何目的使用该反馈，而无需承担任何义务。 GitHub 的最高赔偿责任仅限于直接损害赔偿，最高 5,000 美元。 对于因您对预览版的使用而导致第三方提出的索赔，GitHub 没有义务为您辩护、赔偿或使您免受损害。
 
-## <a name="sponsors-program"></a>赞助商计划
+## 赞助商计划
 
 GitHub 赞助商计划允许开发人员社区直接在 GitHub 上为设计、构建和维护自身所依赖的开源项目的人员及组织提供经济支持。 要成为受赞助开发人员，您必须同意 [GitHub 赞助商计划附加条款](/github/site-policy/github-sponsors-additional-terms)。
 
-## <a name="sql-server-images"></a>SQL Server Images
+## SQL Server Images
 
 您可以下载适用于 Linux 文件的 Microsoft SQL Server 标准版容器映像（“SQL Server Images”）。 当您对该软件的使用权利终止时，您必须卸载 SQL Server Images。 Microsoft Corporation 可随时禁用 SQL Server Images。

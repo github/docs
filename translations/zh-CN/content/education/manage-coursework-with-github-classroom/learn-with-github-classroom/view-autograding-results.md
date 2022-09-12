@@ -1,30 +1,36 @@
 ---
-title: View autograding results
-intro: You can see results from autograding within the repository for your assignment.
+title: 查看自动评分结果
+intro: 您可以在作业仓库中查看自动评分结果。
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099780'
 ---
-## About autograding
+## 关于自动分级
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.product.product_location %}.
+教师可以配置测试在您推送到 {% data variables.product.product_location %} 上的作业仓库时自动检查您的工作。
 
-If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
+如果您是学生，并且讲师已为 {% data variables.product.prodname_classroom %} 中的作业配置自动评分，则您会在整个作业仓库找到自动评分测试结果。 如果提交的所有测试都成功，您将看到绿色复选标记。 如果提交的任何测试失败，您会看到红色的 X。您可以通过单击绿色复选标记或红色 X 查看详细日志。
 
-## Viewing autograding results for an assignment repository
+## 查看作业仓库的自动评分结果
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+{% data variables.product.prodname_classroom %} 使用 {% data variables.product.prodname_actions %} 来运行自动评分测试。 有关查看自动评分测试日志的详细信息，请参阅“[使用工作流运行日志](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)”。
 
-The **Actions** tab shows the full history of test runs.
+“操作”选项卡显示测试运行的完整历史记录。
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![“所有工作流”处于选中状态的“操作”选项卡](/assets/images/help/classroom/autograding-actions-tab.png)
 
-You can click a specific test run to review log output, like compilation errors and test failures.
+您可以单击特定的测试运行来查看日志输出，如编译错误和测试失败。
 
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![{% data variables.product.prodname_actions %} 中的“{% data variables.product.prodname_classroom %} 自动评分工作流”测试结果日志 ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Further reading
+## 延伸阅读
 
-- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- [关于状态检查](/github/collaborating-with-issues-and-pull-requests/about-status-checks)

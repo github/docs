@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 88ff6aa57365fe0413a0fb1a9c814f517936f6fd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145099468"
 ---
 1. 要创建可供审查的拉取请求，请单击“创建拉取请求”。

@@ -13,10 +13,10 @@ topics:
   - Code scanning
   - CodeQL
 ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098908'
 ---
 # 从 {% data variables.product.prodname_codeql_runner %} 迁移到 {% data variables.product.prodname_codeql_cli %}

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ec9ff0fb1eb8f9fd06d4da13716b3e8e31a758e5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145883575"
 ---
 使用 `jobs.<job_id>.needs` 标识运行此作业之前必须成功完成的所有作业。 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件表达式。 如果运行包含一系列相互需要的作业，则故障将从故障点开始，应用于依赖项链中的所有作业。

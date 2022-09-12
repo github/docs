@@ -14,10 +14,10 @@ children:
   - /uninstalling-github-desktop
 shortTitle: Install & authenticate
 ms.openlocfilehash: d2d0628d3d3c861e4528845b538cbf44828ad96f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099228'
 ---
 

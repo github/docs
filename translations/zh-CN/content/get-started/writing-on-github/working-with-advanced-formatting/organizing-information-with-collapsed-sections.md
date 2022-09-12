@@ -10,10 +10,10 @@ redirect_from:
   - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Collapsed sections
 ms.openlocfilehash: 1a1f0669ce401946f4a7a08dd1fd41893078e3d0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146273096'
 ---
 ## 创建折叠部分

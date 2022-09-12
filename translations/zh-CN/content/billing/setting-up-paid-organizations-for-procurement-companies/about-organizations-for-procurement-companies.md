@@ -14,11 +14,11 @@ topics:
   - Organizations
 shortTitle: About organizations
 ms.openlocfilehash: 9a4b4012e4de7b2aee3cc10a4c03fe18d8dc6309
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084433'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877158'
 ---
 要访问组织，每个成员都必须登录到其自己的个人帐户。
 

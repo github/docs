@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1830b28932a5480c65bc0f28cef13ccd93d60fb1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145129753"
 ---
     - 选择“帐户”以添加或删除 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 帐户。

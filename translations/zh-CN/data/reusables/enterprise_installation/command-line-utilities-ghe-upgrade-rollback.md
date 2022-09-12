@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ea162bdacad3d8e4a85c343eb9c3c08afd2b9056
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145097819"
 ---
 回滚升级时，必须使用一个带 .pkg 扩展的升级包文件。 不支持带 .hpkg 扩展的热补丁包文件。

@@ -14,10 +14,10 @@ versions:
 topics:
   - OAuth Apps
 ms.openlocfilehash: e7d943c95dc3d8fea6e025cbae8c5b65f9ccf864
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717939'
 ---
 在 GitHub 上设置 OAuth 应用程序时，请求的作用域会在授权表单上显示给用户。

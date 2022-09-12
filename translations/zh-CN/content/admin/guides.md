@@ -148,10 +148,10 @@ includeGuides:
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ms.openlocfilehash: 832e990d9b1c30895fce286f1357ef540a96af6f
-ms.sourcegitcommit: fd8ebcd1ce75cc30bf063dbcc886e3df98c4c871
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147854122'
 ---
 

@@ -22,10 +22,10 @@ children:
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-with-github-cli
 ms.openlocfilehash: 32f6b6c874d4a117928e8766ded4a8c02f027c8e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147763618'
 ---
 

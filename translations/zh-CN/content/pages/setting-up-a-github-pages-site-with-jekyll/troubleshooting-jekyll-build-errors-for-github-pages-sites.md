@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Jekyll build errors for GitHub Pages sites
-intro: 'You can use Jekyll build error messages to troubleshoot problems with your {% data variables.product.prodname_pages %} site.'
+title: 排查 GitHub Pages 站点的 Jekyll 构建错误
+intro: '您可以使用 Jekyll 构建错误消息来排查 {% data variables.product.prodname_pages %} 站点的问题。'
 redirect_from:
   - /articles/page-build-failed-missing-docs-folder
   - /articles/page-build-failed-invalid-submodule
@@ -34,160 +34,165 @@ versions:
 topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
+ms.openlocfilehash: 224f626df144ad249a799767984118778202e7b4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147428330'
 ---
+## 排查构建错误
 
-## Troubleshooting build errors
+如果在本地或 {% data variables.product.product_name %} 上构建 {% data variables.product.prodname_pages %} 站点时发生 Jekyll 错误，您可以使用错误消息排查故障。 有关错误消息以及如何查看它们的详细信息，请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+如果您收到一般错误消息，请检查常见问题。
+- 您使用的插件不受支持。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll#plugins)。”{% ifversion fpt or ghec %}
+- 您的仓库已超过我们的仓库大小限制。 有关详细信息，请参阅“[我的磁盘配额是多少？](/articles/what-is-my-disk-quota)”{% endif %}
+- 你更改了 _config.yml 文件中的 `source` 设置。 {% ifversion pages-custom-workflow %}如果从分支发布站点，{% endif %}{% data variables.product.prodname_pages %} 在生成过程中会覆盖此设置。
+- 已发布文件中的文件名包含不支持的冒号 (`:`)。
 
-If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
-- Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your published files contains a colon (`:`) which is not supported.
+如果您收到特定的错误消息，请查看下面的错误消息疑难解答信息。
 
-If you received a specific error message, review the troubleshooting information for the error message below.
+{% ifversion pages-custom-workflow %}修复任何错误后，通过将更改推送到站点的源分支（如果从分支发布）或通过触发自定义 {% data variables.product.prodname_actions %} 工作流（如果使用 {% data variables.product.prodname_actions %} 发布）来触发另一个生成。{% else %}修复任何错误后，将更改推送到站点的发布源，以在 {% data variables.product.product_name %} 上触发另一个生成。{% endif %}
 
-{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
+## Config 文件错误
 
-## Config file error
+此错误意味着站点构建失败，因为 _config.yml 文件包含语法错误。
 
-This error means that your site failed to build because the *_config.yml* file contains syntax errors.
-
-To troubleshoot, make sure that your *_config.yml* file follows these rules:
+若要排除故障，请确保 _config.yml 文件遵循以下规则：
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-## Date is not a valid datetime
+## 日期不是有效的日期时间
 
-This error means that one of the pages on your site includes an invalid datetime.
+此错误意味着站点上的某个页面包含无效的日期时间。
 
-To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
+要排除故障，请搜索错误消息中的文件和文件布局，以调用任何与日期相关的 Liquid 过滤器。 确保传递给与日期相关的 Liquid 筛选器的任何变量在所有情况下都具有值，并且永远不会传递 `nil` 或 `""`。 有关详细信息，请参阅 Liquid 文档中的“[Liquid 筛选器](https://help.shopify.com/en/themes/liquid/filters)”。
 
-## File does not exist in includes directory
+## 文件在包含目录中不存在
 
-This error means that your code references a file that doesn't exist in your *_includes* directory.
+此错误意味着代码引用了 _includes 目录中不存在的文件。
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 如果你引用的任何文件不在 _includes 目录中，请将这些文件复制或移动到 _includes 目录 。
 
-## File is a symlink
+## 文件是符号链接
 
-This error means that your code references a symlinked file that does not exist in the published files for your site.
+此错误意味着你的代码引用了站点已发布文件中不存在的符号链接文件。
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 如果你引用的任何文件是符号链接的文件，请将这些文件复制或移动到 _includes 目录中。
 
-## File is not properly UTF-8 encoded
+## 文件未采用正确的 UTF-8 编码
 
-This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
+此错误意味着你使用了非拉丁字符（例如 `日本語`）但没有告诉计算机预期这些符号。
 
-To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
+若要排除故障，请通过在 _config.yml 文件中添加以下行来强制使用 UTF-8 编码：
 ```yaml
 encoding: UTF-8
 ```
 
-## Invalid highlighter language
+## 高亮插件语言无效
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+此错误意味着你在配置文件中指定了除 [Rouge](https://github.com/jneen/rouge) 或 [Pygments](http://pygments.org/) 之外的任何语法高亮插件。
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[About {% data variables.product.product_name %} and Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)."
+若要排除故障，请更新 _config.yml 文件以指定 [Rouge](https://github.com/jneen/rouge) 或 [Pygments](http://pygments.org/)。 有关详细信息，请参阅“[关于 {% data variables.product.product_name %} 和 Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)”。
 
-## Invalid post date
+## 帖子日期无效
 
-This error means that a post on your site contains an invalid date in the filename or YAML front matter.
+此错误意味着站点上的帖子在文件名或 YAML 前页中包含无效的日期。
 
-To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like `2014-04-18 11:30:00 +0800`.
+要排除故障，请确保所有日期的 UTC 格式均为 YYYY-MM-DD HH:MM:SS， 并且都是实际日历日期。 若要指定与 UTC 偏移的时区，请使用格式 YYYY-MM-DD HH:MM:SS +/-TTTT，例如 `2014-04-18 11:30:00 +0800`。
 
-If you specify a date format in your *_config.yml* file, make sure the format is correct.
+如果你在 _config.yml 文件中指定日期格式，请确保格式正确。
 
-## Invalid Sass or SCSS
+## Sass 或 SCSS 无效
 
-This error means your repository contains a Sass or SCSS file with invalid content.
+此错误意味着您的仓库包含内容无效的 Sass 或 SCSS 文件。
 
-To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.
+要排除故障，请查看指示 Sass 或 SCSS 无效的错误消息中包含的行号。 为防止以后出错，请在您的常用文本编辑器中安装 Sass 或 SCSS 语法检查插件。
 
-## Invalid submodule
+## 子模块无效
 
-This error means that your repository includes a submodule that hasn't been properly initialized.
+此错误意味着您的仓库包含尚未正确初始化的子模块。
 
 {% data reusables.pages.remove-submodule %}
 
-If do you want to use the submodule, make sure you use `https://` when referencing the submodule (not `http://`) and that the submodule is in a public repository.
+如果要使用子模块，请确保在引用子模块时使用 `https://`（而不是 `http://`），并且子模块位于公共存储库中。
 
-## Invalid YAML in data file
+## 数据文件中的 YAML 无效
 
-This error means that one of more files in the *_data* folder contains invalid YAML.
+此错误意味着 _data 文件夹中的多个文件之一包含无效的 YAML。
 
-To troubleshoot, make sure the YAML files in your *_data* folder follow these rules:
+若要排除故障，请确保 _data 文件夹中的 YAML 文件遵循以下规则：
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
+有关 Jekyll 数据文件的详细信息，请参阅 Jekyll 文档中的“[数据文件](https://jekyllrb.com/docs/datafiles/)”。
 
-## Markdown errors
+## Markdown 错误
 
-This error means that your repository contains Markdown errors.
+此错误意味着您的仓库包含 Markdown 错误。
 
-To troubleshoot, make sure you are using a supported Markdown processor. For more information, see "[Setting a Markdown processor for your {% data variables.product.prodname_pages %} site using Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)."
+要排除故障，请确保使用受支持的 Markdown 处理器。 有关详细信息，请参阅“[使用 Jekyll 为 {% data variables.product.prodname_pages %} 站点设置 Markdown 处理器](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)”。
 
-Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
+然后，确认错误消息中的文件使用有效的 Markdown 语法。 有关详细信息，请参阅 Daring Fireball 上的“[Markdown：语法](https://daringfireball.net/projects/markdown/syntax)”。
 
-## Missing docs folder
+## 缺少 docs 文件夹
 
-This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
+此错误意味着你已选择分支上的 `docs` 文件夹作为发布源，但该分支上存储库的根目录中没有 `docs` 文件夹。
 
-To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-- Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[Creating new files](/articles/creating-new-files)."
-- Change your publishing source. For more information, see "[Configuring a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)."
+若要排除故障，如果 `docs` 文件夹被意外移动，请尝试将 `docs` 文件夹移回你为发布源选择的分支上的存储库根目录。 如果 `docs` 文件夹被意外删除，你可以执行以下任一操作：
+- 使用 Git 还原或撤消删除。 有关详细信息，请参阅 Git 文档中的“[git-revert](https://git-scm.com/docs/git-revert.html)”。
+- 在为发布源选择的分支上的存储库根目录中创建一个新的 `docs` 文件夹，并将站点的源文件添加到该文件夹中。 有关详细信息，请参阅“[创建新文件](/articles/creating-new-files)”。
+- 更改发布源。 有关详细信息，请参阅“[为 {% data variables.product.prodname_pages %} 配置发布源](/articles/configuring-a-publishing-source-for-github-pages)”。
 
-## Missing submodule
+## 缺少子模块
 
-This error means that your repository includes a submodule that doesn't exist or hasn't been properly initialized.
+此错误意味着您的仓库包含不存在或尚未正确初始化的子模块。
 
 {% data reusables.pages.remove-submodule %}
 
-If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
+如果要使用子模块，请初始化子模块。 有关详细信息，请参阅 _Pro Git_ 书中的“[Git 工具 - 子模块](https://git-scm.com/book/en/v2/Git-Tools-Submodules)”。
 
-## Relative permalinks configured
+## 配置了相对永久链接
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
+此错误意味着 _config.yml 文件中存在 {% data variables.product.prodname_pages %} 不支持的相对永久链接。
 
-Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
+永久链接是引用站点上特定页面的永久 URL。 绝对永久链接以站点的根目录开头，而相对永久链接以包含引用页面的文件夹开头。 {% data variables.product.prodname_pages %} 和 Jekyll 不再支持相对永久链接。 有关永久链接的详细信息，请参阅 Jekyll 文档中的“[永久链接](https://jekyllrb.com/docs/permalinks/)”。
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+若要排除故障，请从 _config.yml 文件中删除 `relative_permalinks` 行，并将站点中的任何相对永久链接重新格式化为绝对永久链接。 有关详细信息，请参阅“[编辑文件](/repositories/working-with-files/managing-files/editing-files)”。
 
-## Symlink does not exist within your site's repository
+## 符号链接不存在于站点的仓库中
 
-This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
+此错误意味着你的站点包含站点已发布文件中不存在的符号链接。 有关符号链接的详细信息，请参阅 Wikipedia 上的“[符号链接](https://en.wikipedia.org/wiki/Symbolic_link)”。
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+要排除故障，请确定错误消息中的文件是否用于构建站点。 如果否，或者您不希望文件成为符号链接，请删除该文件。 如果符号链接文件是生成站点的必需项，请确保符号链接引用的文件或目录存在于站点已发布文件中。 若要包含外部资产，请考虑使用 {% ifversion fpt or ghec %}`git submodule` 或{% endif %}第三方包管理器，例如 [Bower](https://bower.io/)。{% ifversion fpt or ghec %} 有关详细信息，请参阅“[将子模块用于 {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)”。{% endif %}
 
-## Syntax error in 'for' loop
+## 'for' 循环中的语法错误
 
-This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
+此错误意味着代码在 Liquid `for` 循环声明中包含无效语法。
 
-To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
+若要排除故障，请确保错误消息所指文件中的所有 `for` 循环都具有正确的语法。 有关 `for` 循环的正确语法的详细信息，请参阅 Liquid 文档中的“[迭代标记](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)”。
 
-## Tag not properly closed
+## 标记未正确关闭
 
-This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
+此错误消息意味着您的代码包含未正确关闭的逻辑标记。 例如，{% raw %}`{% capture example_variable %}` 必须由 `{% endcapture %}`{% endraw %} 关闭。
 
-To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
+要排除故障，请确保错误消息所指文件中的所有逻辑标记都正确关闭。 有关详细信息，请参阅 Liquid 文档中的“[Liquid 标记](https://help.shopify.com/en/themes/liquid/tags)”。
 
-## Tag not properly terminated
+## 标记未正确终止
 
-This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
+此错误意味着您的代码包含未正确终止的输出标记。 例如，是 {% raw %}`{{ page.title }` 而不是 `{{ page.title }}`{% endraw %}。
 
-To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
+若要排除故障，请确保错误消息所指文件中的所有输出标记都以 `}}` 终止。 有关详细信息，请参阅 Liquid 文档中的“[Liquid 对象](https://help.shopify.com/en/themes/liquid/objects)”。
 
-## Unknown tag error
+## 未知标记错误
 
-This error means that your code contains an unrecognized Liquid tag.
+此错误意味着您的代码包含无法识别的 Liquid 标记。
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+要排除故障，请确保错误消息所指文件中的所有 Liquid 标记都与 Jekyll 的默认变量相匹配，并且标记名称没有拼写错误。 有关默认变量的列表，请参阅 Jekyll 文档中的“[变量](https://jekyllrb.com/docs/variables/)”。
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."
+不受支持的插件是无法识别标记的常见来源。 如果您通过在本地生成站点并将静态文件推送到 {% data variables.product.product_name %} 的方法在站点中使用不受支持的插件，请确保该插件未引入 Jekyll 默认变量中没有的标记。 有关受支持插件的列表，请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll#plugins)”。

@@ -19,10 +19,10 @@ topics:
   - Identity
   - SSO
 ms.openlocfilehash: 4bd9c8baf32ab09c593a251ca4f1cb698e075501
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098060'
 ---
 ## 关于 {% data variables.product.product_name %} 的 CAS 身份验证

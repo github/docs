@@ -19,10 +19,10 @@ children:
   - /receiving-payment-for-app-purchases
 shortTitle: Sell apps on the Marketplace
 ms.openlocfilehash: f969db42c6da5ccb2cd6657c776332f54d57b561
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084956'
 ---
 

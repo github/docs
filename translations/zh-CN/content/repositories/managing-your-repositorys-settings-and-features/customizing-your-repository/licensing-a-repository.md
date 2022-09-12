@@ -1,6 +1,6 @@
 ---
-title: Licensing a repository
-intro: 'Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you''ll need to license it so that others are free to use, change, and distribute the software.'
+title: 许可仓库
+intro: GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。
 redirect_from:
   - /articles/open-source-licensing
   - /articles/licensing-a-repository
@@ -12,87 +12,93 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f49dad5c20909647b1d7da7bb44a80a771337966
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145129345'
 ---
-## Choosing the right license
+## 选择合适的许可
 
-We created [choosealicense.com](https://choosealicense.com), to help you understand how to license your code. A software license tells others what they can and can't do with your source code, so it's important to make an informed decision.
+我们创建了 [choosealicense.com](https://choosealicense.com)，帮助你了解如何授权代码。 软件许可是告诉其他人，他们能够对您的代码做什么，不能做什么，因此做明智的决定很重要。
 
-You're under no obligation to choose a license. However, without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work. If you're creating an open source project, we strongly encourage you to include an open source license. The [Open Source Guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) provides additional guidance on choosing the correct license for your project.
+您没有选择许可的义务， 但如果没有许可，就会默认实施版权法，因此您会保留对您的源代码的所有权利，任何人都不能复制、分发您的工作或创建其派生作品。 如果您创建开源项目，强烈建议您包含开源许可。 [开放源代码指南](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project)为项目选择正确许可证提供了额外指导。
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+注意：{% ifversion fpt or ghec %}根据[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)，如果你在 {% data variables.product.product_name %} 的公共存储库中发布源代码，{% endif %}{% data variables.product.product_location %} 的其他用户有权查看你的存储库并为其创建分支。 如果您已创建仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将仓库的可见性变为私有时，其他用户创建的现有复刻或本地副本仍将存在。 有关详细信息，请参阅“[设置存储库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 
 {% endnote %}
 
-## Determining the location of your license
+## 确定许可的位置
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+大多数用户都会将许可证文本放在存储库根中名为 `LICENSE.txt`（或者 `LICENSE.md` 或 `LICENSE.rst`）的文件中；[此处有来自 Hubot 的示例](https://github.com/github/hubot/blob/master/LICENSE.md)。
 
-Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
+有些项目在其自述文件中包含许可的相关信息。 例如，项目的自述文件可能包含一条注释，表示“此项目根据 MIT 许可的条款进行许可”。
 
-As a best practice, we encourage you to include the license file with your project.
+作为最佳实践，我们建议您的项目随附许可文件。
 
-## Searching GitHub by license type
+## 按许可类型搜索 GitHub
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+你可以使用 `license` 限定符和精确的许可证关键字，根据存储库的许可证或许可证系列来筛选存储库：
 
-License | License keyword
+许可证 | 许可关键字
 ---  | ---
-| Academic Free License v3.0 | `afl-3.0` |
-| Apache license 2.0 | `apache-2.0` |
-| Artistic license 2.0 | `artistic-2.0` |
-| Boost Software License 1.0 | `bsl-1.0` |
-| BSD 2-clause "Simplified" license | `bsd-2-clause` |
-| BSD 3-clause "New" or "Revised" license | `bsd-3-clause` |
-| BSD 3-clause Clear license | `bsd-3-clause-clear` |
-| Creative Commons license family | `cc` |
-| Creative Commons Zero v1.0 Universal | `cc0-1.0` |
-| Creative Commons Attribution 4.0 | `cc-by-4.0` |
-| Creative Commons Attribution Share Alike 4.0 | `cc-by-sa-4.0` |
-| Do What The F*ck You Want To Public License | `wtfpl` |
-| Educational Community License v2.0 | `ecl-2.0` |
-| Eclipse Public License 1.0 | `epl-1.0` |
-| Eclipse Public License 2.0 | `epl-2.0` |
-| European Union Public License 1.1 | `eupl-1.1` |
-| GNU Affero General Public License v3.0 | `agpl-3.0` |
-| GNU General Public License family | `gpl` |
-| GNU General Public License v2.0 | `gpl-2.0` |
-| GNU General Public License v3.0 | `gpl-3.0` |
-| GNU Lesser General Public License family | `lgpl` |
-| GNU Lesser General Public License v2.1 | `lgpl-2.1` |
-| GNU Lesser General Public License v3.0 | `lgpl-3.0` |
+| 学术自由许可证 v3.0 | `afl-3.0` |
+| Apache 许可证 2.0 | `apache-2.0` |
+| 艺术许可协议 2.0 | `artistic-2.0` |
+| Boost 软件许可证 1.0 | `bsl-1.0` |
+| 二条款 BSD“简化版”许可证 | `bsd-2-clause` |
+| 三条款 BSD“新版”或“修改版”许可证 | `bsd-3-clause` |
+| BSD 3 条款净化版许可证 | `bsd-3-clause-clear` |
+| 知识共享许可证系列 | `cc` |
+| 免费知识共享 v1.0 通用 | `cc0-1.0` |
+| 知识共享署名 4.0 | `cc-by-4.0` |
+| 知识共享署名相同方式共享 4.0 | `cc-by-sa-4.0` |
+| 你想干嘛就干嘛公共许可证 | `wtfpl` |
+| 教育社区许可证 v2.0 | `ecl-2.0` |
+| Eclipse 公共许可证 1.0 | `epl-1.0` |
+| Eclipse 公共许可证 2.0 | `epl-2.0` |
+| 欧盟公共许可证 1.1 | `eupl-1.1` |
+| GNU Affero 通用公共许可证 v3.0 | `agpl-3.0` |
+| GNU 通用公共许可证系列 | `gpl` |
+| GNU 通用公共许可证 v2.0 | `gpl-2.0` |
+| GNU 通用公共许可证 v3.0 | `gpl-3.0` |
+| GNU 宽通用公共许可证系列 | `lgpl` |
+| GNU 宽通用公共许可证 v2.1 | `lgpl-2.1` |
+| GNU 宽通用公共许可证 v3.0 | `lgpl-3.0` |
 | ISC | `isc` |
-| LaTeX Project Public License v1.3c | `lppl-1.3c` |
-| Microsoft Public License | `ms-pl` |
+| LaTeX 项目公共许可证 v1.3c | `lppl-1.3c` |
+| Microsoft 公共许可证 | `ms-pl` |
 | MIT | `mit` |
-| Mozilla Public License 2.0 | `mpl-2.0` |
-| Open Software License 3.0 | `osl-3.0` |
-| PostgreSQL License | `postgresql` |
-| SIL Open Font License 1.1 | `ofl-1.1` |
-| University of Illinois/NCSA Open Source License | `ncsa` |
+| Mozilla 公共许可证 2.0 | `mpl-2.0` |
+| 开放软件许可证 3.0 | `osl-3.0` |
+| PostgreSQL 许可证 | `postgresql` |
+| SIL 开源字体许可 1.1 | `ofl-1.1` |
+| 伊利诺伊大学/NCSA 开源许可证 | `ncsa` |
 | The Unlicense | `unlicense` |
-| zLib License | `zlib` |
+| zLib 许可证 | `zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-license)."
+按系列许可搜索时，搜索结果将包含该系列的所有许可。 例如，使用查询 `license:gpl` 时，搜索结果将包括由 GNU 通用公共许可证 v2.0 和 GNU 通用公共许可证 v3.0 许可的存储库。 有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories/#search-by-license)”。
 
-## Detecting a license
+## 检测许可
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[开放源代码 Ruby gem 被许可方](https://github.com/licensee/licensee)将存储库的许可证文件与已知许可证的简短列表进行比较。 被许可方还提供[许可证 API](/rest/reference/licenses)，[让我们了解 {% data variables.product.product_name %} 上的存储库如何获得许可](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果存储库使用的许可证未在[选择许可证网站](https://choosealicense.com/appendix/)上列出，可以[请求包括许可证](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
 
-If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
+如果您的仓库使用的许可列在“选择许可”网站中，但未明确显示在仓库页面顶部，其中可能包含多个许可或存在其他复杂性。 为使你的许可证被检测到，请简化许可证文件，并在其他地方（例如存储库的自述文件中）注明复杂度 。
 
-## Applying a license to a repository with an existing license
+## 将许可应用到带现有许可的仓库
 
-The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)."
+许可选择器仅当您在 GitHub 上创建新项目时可用。 您可以使用浏览器手动添加许可。 有关将许可证添加到存储库的详细信息，请参阅“[将许可证添加到存储库](/articles/adding-a-license-to-a-repository)”。
 
-![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
+![GitHub.com 上许可选择器的屏幕截图](/assets/images/help/repository/repository-license-picker.png)
 
-## Disclaimer
+## 免责声明
 
-The goal of GitHub's open source licensing efforts is to provide a starting point to help you make an informed choice. GitHub displays license information to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers and that we make mistakes like everyone else. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. If you have any questions regarding the right license for your code or any other legal issues relating to it, it’s always best to consult with a professional.
+GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决定。 GitHub 显示许可信息以帮助用户了解开源许可以及使用它们的项目。 我们希望它有帮助，但请记住，我们不是律师，像其他人一样，我们也会犯错。 因此，GitHub“按原样”提供信息，对提供或通过其提供的任何信息或许可不做任何保证，并对使用许可信息所造成的损害不承担责任。 如果对适合您的代码的许可有任何疑问，或有任何其他相关的问题，最好咨询专业人员。
 
-## Further reading
+## 延伸阅读
 
-- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+- 《开放源代码指南》的“[开放源代码的法律层面](https://opensource.guide/legal/)”部分{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) {% endif %}

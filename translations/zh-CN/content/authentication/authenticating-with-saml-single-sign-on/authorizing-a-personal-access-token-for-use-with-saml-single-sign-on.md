@@ -12,10 +12,10 @@ topics:
   - SSO
 shortTitle: PAT with SAML
 ms.openlocfilehash: a6e1d4c2e1fa5cf1f4738e06127c5e7875a2ef5d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145098940'
 ---
 可以授权现有的个人访问令牌，也可以[创建新的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)然后对其进行授权。
