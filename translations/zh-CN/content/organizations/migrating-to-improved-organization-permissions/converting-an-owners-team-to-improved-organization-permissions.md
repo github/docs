@@ -13,9 +13,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 转换所有者团队
+shortTitle: Convert Owners team
+ms.openlocfilehash: ff4845a8d36ecc757a989ef669b645543addff2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145101331'
 ---
-
 您可以通过几种方式转换旧所有者团队：
 
 - 给团队一个新名称以表明其成员在组织中具有特殊地位。
@@ -25,30 +30,27 @@ shortTitle: 转换所有者团队
 
 {% tip %}
 
-   **注：**由于“管理员”是用于[对某些仓库具有特定权限](/articles/repository-permission-levels-for-an-organization)的组织成员的术语，因此我们建议在您决定的任何团队名称中避免使用该术语。
+   注意：由于“管理员”是组织中具有[某些存储库的特定访问](/articles/repository-permission-levels-for-an-organization)的组织成员的术语，因此建议在决定的任何团队名称中避免使用该术语。
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.owners-team %}
-{% data reusables.organizations.convert-owners-team-confirm %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.owners-team %} {% data reusables.organizations.convert-owners-team-confirm %}
 5. 在团队名称字段中，为所有者团队选择一个新名称。 例如：
     - 如果组织中只有极少数成员是所有者团队的成员，您可以将该团队命名为“核心”。
-    - 如果组织中的所有成员都是所有者团队的成员（以便他们能够 [@提及团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)），您可以将该团队命名为“员工”。 ![在团队名称字段将所有者团队重命名为核心](/assets/images/help/teams/owners-team-new-name.png)
-6. 在团队说明下，单击 **Save and continue（保存并继续）**。 ![保存并继续按钮](/assets/images/help/teams/owners-team-save-and-continue.png)
-7. （可选）[让团队*公开*](/articles/changing-team-visibility)。
+    - 如果组织的所有成员都是所有者团队的成员，以便他们可以 [@mention 团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)，则可以将团队命名为“员工”。
+  ![在团队名称字段将所有者团队重命名为核心](/assets/images/help/teams/owners-team-new-name.png)
+6. 在团队说明下，单击“保存并继续”。
+![“保存并继续”按钮](/assets/images/help/teams/owners-team-save-and-continue.png)
+7. （可选）[使团队公开](/articles/changing-team-visibility)。
 
 ## 删除旧所有者团队
 
 {% warning %}
 
-**警告：**如果所有者团队中有成员不是其他团队的成员，则删除该团队将导致从组织中删除这些成员。 在删除该团队之前，请确保其成员已经是组织的直接成员，或者具有对必要仓库的协作者权限。
+警告：如果所有者团队中有成员不是其他团队的成员，则删除该团队将导致从组织中删除这些成员。 在删除该团队之前，请确保其成员已经是组织的直接成员，或者具有对必要仓库的协作者权限。
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.owners-team %}
-{% data reusables.organizations.convert-owners-team-confirm %}
-5. 在页面底部，查看警告，然后单击 **Delete the Owners team（删除所有者团队）**。 ![删除所有者团队的链接](/assets/images/help/teams/owners-team-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.owners-team %} {% data reusables.organizations.convert-owners-team-confirm %}
+5. 在页面底部，查看警告，然后单击“删除所有者团队”。
+  ![删除所有者团队的链接](/assets/images/help/teams/owners-team-delete.png)

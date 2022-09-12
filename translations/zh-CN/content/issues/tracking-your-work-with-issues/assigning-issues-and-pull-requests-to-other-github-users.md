@@ -14,32 +14,40 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 分配议题和 PR
+shortTitle: Assign issues & PRs
+ms.openlocfilehash: 0e1f4029ddcd180e892e43257ae3a75d0046ce1d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128748'
 ---
-
 ## 关于议题和拉取请求受理人
 
-每个议题和拉取请求可分配给多个人，包括您自己、 任何评论了议题或拉取请求的人、任何对仓库有写入权限的人以及对仓库有读取权限的组织成员 。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
+可向每个问题或拉取请求分配多名用户，包括你自己、任何评论了问题或拉取请求的用户、任何对存储库有写入权限的用户以及对存储库有读取权限的组织成员。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 的访问权限](/articles/access-permissions-on-github)”。
 
-公共仓库和付费帐户的私有仓库中的议题和拉取请求最多可以分配 10 个人。 免费计划中的私有仓库限制为每个议题或拉取请求一个人。
+公共存储库以及付费帐户的专用存储库中的问题和拉取请求最多可分配有 10 名用户。 使用免费计划的专用存储库限制为每个问题或拉取请求分配给一位用户。
 
 ## 分配单个议题或拉取请求
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 3. 打开要分配给某人的议题或拉取请求。
-4. 如果没有人被分配到议题或拉取请求，单击 **assign yourself（分配自己）**以分配您自己。 ![分配您自己的项目](/assets/images/help/issues/assign_yourself.png)
-5. 在右侧菜单中，单击 **Assignees（受理人）**。 ![Assignees（受理人）菜单项](/assets/images/help/issues/assignee_menu.png)
-6. 要分配议题或拉取请求给某用户，先输入其用户名，然后单击显示的名称。 您可以选择并添加最多十个受理人到议题或拉取请求。 ![议题分配下拉菜单](/assets/images/help/issues/issues_assigning_dropdown.png)
+4. 如果未向问题或拉取请求分配任何人，请单击“分配自己”以分配你自己。
+  ![为你自己分配项目](/assets/images/help/issues/assign_yourself.png)
+5. 在右侧菜单中，单击“分配”。
+   ![“代理人”菜单项](/assets/images/help/issues/assignee_menu.png)
+6. 要分配议题或拉取请求给某用户，先输入其用户名，然后单击显示的名称。 您可以选择并添加最多十个受理人到议题或拉取请求。
+  ![“问题分配”下拉菜单](/assets/images/help/issues/issues_assigning_dropdown.png)
 
 ## 分配多个议题或拉取请求
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-3. 选中要分配给某人的项目旁边的复选框。 ![议题元数据复选框](/assets/images/help/issues/issues_assign_checkbox.png)
-4. 在右上角单击 **Assign（分配）**。
-5. 要分配项目给某用户，先输入其用户名，然后单击显示的名称。 您可以选择并添加最多十个受理人到议题或拉取请求。 ![议题分配下拉菜单](/assets/images/help/issues/issues_assigning_dropdown.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
+3. 选中要分配给某人的项目旁边的复选框。
+  ![“问题元数据”复选框](/assets/images/help/issues/issues_assign_checkbox.png)
+4. 在右上角单击“分配”
+5. 要分配项目给某用户，先输入其用户名，然后单击显示的名称。 您可以选择并添加最多十个受理人到议题或拉取请求。
+  ![“问题分配”下拉菜单](/assets/images/help/issues/issues_assigning_dropdown.png)
 
 ## 延伸阅读
 
-* "[按受理人过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-assignees)"
+* [按代理人筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-assignees)

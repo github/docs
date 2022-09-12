@@ -1,6 +1,6 @@
 ---
-title: 查看包
-intro: 您可以查看已发布到仓库的包的详细信息，也可以按组织或用户缩小结果范围。
+title: Viewing packages
+intro: 'You can see details about packages published to a repository, and narrow results by organization or user.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
@@ -19,50 +19,51 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-## 查看仓库的包
+## About package views
 
-查看包的权限取决于几个因素。 默认情况下，您可以查看您发布的所有包。
+Your ability to view a package depends on several factors. By default, you can view all packages you have published.
 
-仓库作用域的包从拥有该包的仓库继承权限和可见性。 The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
-- Docker 注册表 (`docker.pkg.github.com`){% endif %}
+Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
+- Docker registry (`docker.pkg.github.com`){% endif %}
 {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- RubyGems 注册表
-- Apache Maven 注册表
-- NuGet 注册表
+- RubyGems registry
+- Apache Maven registry
+- NuGet registry
 
 {% ifversion fpt or ghec %}
-The {% data variables.product.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. 您可以选择使用粒度权限或连接包到仓库并继承它的权限。 更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
+The {% data variables.product.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 {% endif %}
 
-更多信息请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”{% ifversion fpt or ghec %} 或“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。{% endif %}
+For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 
-## 查看仓库的包
+## Viewing a repository's packages
 
-您可以查找并查看位于特定仓库中的包。
+You can find and view a package located in a particular repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
-## 查看组织的包
+## Viewing an organization's packages
 
-您可以查找并查看位于您所属组织的仓库中的包。
+You can find and view a package located in the repositories of an organization you belong to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-3. 在组织名称下，单击 {% octicon "package" aria-label="The package icon" %} **Packages（包）**。
+3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
-## 查看您的包
+## Viewing your packages
 
-您可以跨所有组织和仓库查找并查看您发布的任何包。
+You can find and view any package you've published across all organizations and repositories. 
 
 {% data reusables.profile.access_profile %}
-2. 在个人资料页面顶部的主导航栏中，单击 **Packages（包）**。 ![项目选项卡](/assets/images/help/package-registry/user-packages-tab.png)
+2. On the top of the profile page, in the main navigation, click **Packages**.
+  ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
 {% data reusables.package_registry.navigate-to-packages %}
 
-## 延伸阅读
+## Further reading
 
-- “[搜索包](/search-github/searching-on-github/searching-for-packages)”
+- "[Searching for packages](/search-github/searching-on-github/searching-for-packages)"

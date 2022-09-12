@@ -1,6 +1,6 @@
 ---
-title: 'Archivar tarjetas en un {% data variables.product.prodname_project_v1 %}'
-intro: 'Puedes archivar tarjetas de {% data variables.projects.projects_v1_board %} para despejar tu flujo de trabajo sin perder el contexto histórico de un proyecto.'
+title: 'Archivado de tarjetas en una instancia de {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes archivar tarjetas de {% data variables.projects.projects_v1_board %} para organizar tu flujo de trabajo sin perder el contexto histórico de un proyecto.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
@@ -9,21 +9,30 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Archivar tarjetas en un {% data variables.product.prodname_project_v1 %}'
+shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: de1d0a4981a46c4ceddd73b5d1f49b74f111601f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423592'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-La automatización en tu {% data variables.projects.projects_v1_board %} no aplica a las tarjetas archivadas del {% data variables.projects.projects_v1_board %}. Por ejemplo, si cierras una propuesta en el archivo de un {% data variables.projects.projects_v1_board %}, la tarjeta archivada no se mueve automáticamente a la columna de "Hecho". Cuando restableces una tarjeta desde el archivo del {% data variables.projects.projects_v1_board %}, esta se devolverá a la columna en donde estaba archivada.
+La automatización en las instancias de {% data variables.projects.projects_v1_board %} no se aplica a las tarjetas de {% data variables.projects.projects_v1_board %} archivadas. Por ejemplo, si cierras una incidencia en el archivo de una instancia de {% data variables.projects.projects_v1_board %}, la tarjeta archivada no se mueve automáticamente a la columna "Listo". Al restaurar una tarjeta desde el archivo de la instancia de {% data variables.projects.projects_v1_board %}, la tarjeta volverá a la columna donde se haya archivado.
 
-## Archivar tarjetas en un {% data variables.projects.projects_v1_board %}
+## Archivado de tarjetas en una instancia de {% data variables.projects.projects_v1_board %}
 
-1. En un {% data variables.projects.projects_v1_board %}, encuentra la tarjeta que quieras archivar y luego haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Lista de opciones para editar una tarjeta del tablero de proyecto](/assets/images/help/projects/select-archiving-options-project-board-card.png)
-2. Da clic en **Archivo**. ![Opción para seleccionar archivos desde el menú.](/assets/images/help/projects/archive-project-board-card.png)
+1. En una instancia de {% data variables.projects.projects_v1_board %}, busca la tarjeta que quieres archivar y, luego, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+![Lista de opciones para editar una tarjeta del panel de proyecto](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+2. Haga clic en **Archive** (Archivar).
+![Selección de la opción archivar desde el menú](/assets/images/help/projects/archive-project-board-card.png)
 
-## Restablecer las tarjetas en un {% data variables.projects.projects_v1_board %} desde la barra lateral
+## Restauración de tarjetas en una instancia de {% data variables.projects.projects_v1_board %} desde la barra lateral
 
 {% data reusables.project-management.click-menu %}
-2. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, luego haz clic en **View archive** (Ver archivo). ![Seleccionar la opción para ver el archivo desde el menú](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. Sobre la tarjeta del {% data variables.projects.projects_v1_board %} que quieres dejar de archivar, haz clic en **Restablecer**. ![Seleccionar la restauración de la tarjeta del tablero de proyecto](/assets/images/help/projects/restore-card.png)
+2. Haga clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y después en **View archive** (Ver archivo).
+  ![Selección de la opción ver archivo desde el menú](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+3. Encima de la tarjeta de {% data variables.projects.projects_v1_board %} que quieras desarchivar, haz clic en **Restaurar**.
+  ![Selección de restaurar panel del proyecto](/assets/images/help/projects/restore-card.png)

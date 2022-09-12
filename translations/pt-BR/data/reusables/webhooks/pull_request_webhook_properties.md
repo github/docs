@@ -1,3 +1,11 @@
-| Tecla  | Tipo     | Descrição                                                                           |
-| ------ | -------- | ----------------------------------------------------------------------------------- |
-| `Ação` | `string` | A ação que foi executada. Pode ser uma das ações a seguir:<ul><li>`assigned`</li><li>`auto_merge_disabled`</li><li>`auto_merge_enabled`</li><li>`closed`: If the action is `closed` and the `merged` key is `false`, the pull request was closed with unmerged commits. If the action is `closed` and the `merged` key is `true`, the pull request was merged.</li><li>`converted_to_draft`</li><li>`edited`</li><li>`labeled`</li><li>`locked`</li><li>`opened`</li><li>`ready_for_review`</li><li>`reopened`</li><li>`review_request_removed`</li><li>`review_requested`</li><li>`synchronize`: Triggered when a pull request's head branch is updated. For example, when the head branch is updated from the base branch, when new commits are pushed to the head branch, or when the base branch is changed.</li><li>`unassigned`</li><li>`unlabeled`</li><li>`unlocked`</li></ul> |
+---
+ms.openlocfilehash: b7fde4d22f9d5e5e8b7a3d8f55b3ab19dee1185a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145083272"
+---
+Chave | Tipo | Descrição
+----|------|-------------
+`action`|`string` | A ação que foi executada. Pode ser uma das ações a seguir:<ul><li>`assigned`</li><li>`auto_merge_disabled`</li><li>`auto_merge_enabled`</li><li>`closed`: se a ação é `closed` e a chave `merged` é `false`, a solicitação de pull foi fechada com commits não mesclados. Se a ação é `closed` e a chave `merged` é `true`, a solicitação de pull foi mesclada.</li><li>`converted_to_draft`</li><li>`edited`</li><li>`labeled`</li><li>`locked`</li><li>`opened`</li><li>`ready_for_review`</li><li>`reopened`</li><li>`review_request_removed`</li><li>`review_requested`</li><li>`synchronize`: disparada quando o branch principal de uma solicitação de pull é atualizado. Por exemplo, quando o branch principal é atualizado com base no branch base, quando novos commits são enviados por push para o branch principal ou quando o branch base é alterado.</li><li>`unassigned`</li><li>`unlabeled`</li><li>`unlocked`</li></ul>

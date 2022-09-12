@@ -10,8 +10,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e7c6be7286d1221970c9e4e50b477fb82b4d3652
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109528'
 ---
-
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}
   {% data glossaries.external[forloop.index0].description %}

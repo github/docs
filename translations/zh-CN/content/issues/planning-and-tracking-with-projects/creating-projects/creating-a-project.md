@@ -1,6 +1,6 @@
 ---
 title: '创建 {% data variables.projects.project_v2 %}'
-intro: Learn how to create an organization or user project.
+intro: 了解如何创建组织或用户项目。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,21 +10,26 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 0827845ea3dff3a641d99bbac20b8febdfaca885
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423920'
 ---
-
-{% data variables.product.prodname_projects_v2 %} are an adaptable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you note down. 您可以添加自定义字段并为特定目的创建视图。
+{% data variables.product.prodname_projects_v2 %} 是与 {% data variables.product.company_short %} 数据保持同步的自适应项集合。 你的项目可以跟踪问题、拉取请求以及你记下的想法。 您可以添加自定义字段并为特定目的创建视图。
 
 ## 创建项目
 
 ### 创建组织项目
 
-Organization projects can track issues and pull requests from the organization's repositories.
+组织项目可以从组织的存储库中跟踪问题和拉取请求。
 
 {% data reusables.projects.create-project %}
 
 ### 创建用户项目
 
-User projects can track issues and pull requests from the repositories owned by your personal account.
+用户项目可以从你的个人帐户拥有的存储库中跟踪问题和拉取请求。
 
 {% data reusables.projects.create-user-project %}
 
@@ -34,6 +39,6 @@ User projects can track issues and pull requests from the repositories owned by 
 
 ## 延伸阅读
 
-- "[Adding your project to a repository](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- [将项目添加到存储库](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)
+- [将项添加到项目](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+- [自定义视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)

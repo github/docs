@@ -394,4 +394,3 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"

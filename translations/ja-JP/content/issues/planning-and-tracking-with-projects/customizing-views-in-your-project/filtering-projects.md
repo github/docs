@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.projects.projects_v2 %}のフィルタリング'
-intro: フィルタを使ってプロジェクトのビューに表示されるアイテムを選択してください。
+title: '{% data variables.projects.projects_v2 %}のフィルター処理'
+intro: フィルターを使用して、プロジェクトのビューに表示する項目を選びます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,15 +10,20 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 820a9b22deab6ecaf7fa06129e2205267b22812c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424183'
 ---
+Issueにアサインされた人やラベルといったアイテムのメタデータやプロジェクトのフィールドに対するフィルタを使って、ビューをカスタマイズできます。 フィルタを組み合わせて、ビューとして保存できます。 詳しくは、「[プロジェクトのビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」をご覧ください。
 
-Issueにアサインされた人やラベルといったアイテムのメタデータやプロジェクトのフィールドに対するフィルタを使って、ビューをカスタマイズできます。 フィルタを組み合わせて、ビューとして保存できます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。
+プロジェクトをフィルタするには、{% octicon "filter" aria-label="The Filter icon" %}をクリックし、フィルタリングしたいフィールドとその値を入力していってください。 入力していくと、利用できる値が表示されます。 また、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Filter by」と入力して、使用可能なフィルターから選ぶこともできます。
 
-プロジェクトをフィルタするには、{% octicon "filter" aria-label="The Filter icon" %}をクリックし、フィルタリングしたいフィールドとその値を入力していってください。 入力していくと、利用できる値が表示されます。 {% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"Filter by" と入力して利用可能なフィルターから選択することもできます。
+複数のフィルターを使用すると、論理 AND フィルターとして機能します。 たとえば、`label:bug status:"In progress"` とすると、"進行中" 状態の `bug` ラベルの付いた項目が返されます。 現在、{% data variables.product.prodname_projects_v2 %} で複数のフィールドにわたる論理 OR フィルターはサポートされていません。
 
-複数のフィルタを使用すると、論理ANDのフィルタとして働きます。 たとえば、`label:bug status:"In progress"`は`bug`ラベルを持ち、"In progress"ステータスのアイテムを返します。 {% data variables.product.prodname_projects_v2 %}は、現在のところ複数のフィールドでの論理ORのフィルタをサポートしていません。
-
-同じフィルタが、{% data variables.product.prodname_projects_v2 %}のインサイトを使って作成しているグラフでも利用でき、グラフを作成するために使われるデータをフィルタリングできます。 詳しい情報については「[プロジェクトでのインサイトの利用](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」を参照してください。
+{% data variables.product.prodname_projects_v2 %} の分析情報を使用して作成するグラフでも同じフィルターを使用でき、グラフの作成に使用するデータをフィルター処理できます。 詳しくは、「[プロジェクトのインサイトの利用](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」をご覧ください。
 
 ## アイテムのフィルタリング
 
@@ -26,6 +31,6 @@ Issueにアサインされた人やラベルといったアイテムのメタデ
 
 {% data reusables.projects.projects-filters %}
 
-または、{% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"Filter by"と入力していってください。
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Filter by」と入力を始めます。
 
 ボードレイアウトでは、アイテムデータをクリックして、その値を持つアイテムにフィルタリングできます。 たとえば、アサインされた人をクリックして、そのアサインされた人のアイテムだけを表示させられます。 このフィルタを削除するには、そのアイテムデータをもう一度クリックします。

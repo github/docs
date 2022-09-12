@@ -11,21 +11,26 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 9b3b768d66199fda62bc5e644da9539d5425215e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145135901'
 ---
+Para cualquier solicitud de incorporación de cambios, {% data variables.product.product_name %} proporciona tres tipos de vistas de comentarios: [comentarios en la solicitud de incorporación de cambios][PR comment] en su conjunto, [comentarios en una línea específica][PR line comment] dentro de la solicitud de incorporación de cambios y [comentarios sobre una confirmación concreta][commit comment] dentro de la solicitud de incorporación de cambios. 
 
-
-
-Para cualquier solicitud de extracción, {% data variables.product.product_name %} proporciona tres tipos de visualizaciones de comentario: [comentarios en la solicitud de extracción][PR comment] integrales, [comentarios en una línea específica][PR line comment] dentro de la solicitud de extracción, y [comentarios sobre una confirmación específica][commit comment] dentro de la solicitud de extracción.
-
-Cada uno de estos tipos de comentarios pasan por una porción diferente de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
+Cada uno de estos tipos de comentarios pasan por una porción diferente de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.
+En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. Para cada ejemplo, se usará [esta solicitud de incorporación de cambios de ejemplo realizada][sample PR] en el repositorio "octocat". Como siempre, los ejemplos se pueden encontrar en [nuestro repositorio platform-samples][platform-samples].
 
 ## Comentarios de las Solicitudes de Extracción
 
-Para acceder a loscomentarios de una solicitud de cambios, deberás de pasar por la [API de propuestas][issues]. Esto puede parecer contraintuitivo al principio. Pero una vez que entiendes que una Solicitud de Extracción es solo un informe de problemas con código, tendrá sentido utuilizar la API de Informes de Problemas para crear comentarios en una solicitud de extracción.
+Para acceder a los comentarios de una solicitud de incorporación de cambios, tendrá que usar [Issues API][issues].
+Esto puede parecer contraintuitivo al principio. Pero una vez que comprenda que una solicitud de incorporación de cambios es solo una incidencia con código, tendrá sentido usar Issues API para crear comentarios en una solicitud de incorporación de cambios.
 
-Demostraremos cómo obtener comentarios de una solicitud de extracción mediante la creación de un script de Ruby que utilice [Octokit.rb][octokit.rb]. También deberás crear un [token de acceso personal][personal token].
+Se mostrará la captura de comentarios de solicitud de incorporación de cambios mediante la creación de un script de Ruby con [Octokit.rb][octokit.rb]. También querrá crear un [token de acceso personal][personal token].
 
-El código siguiente debería ayudarte a empezar a acceder a los comentarios de una solicitud de extracción utilizando Octokit.rb:
+El código siguiente debería ayudarle a empezar a acceder a los comentarios de una solicitud de incorporación de cambios con Octokit.rb:
 
 ``` ruby
 require 'octokit'
@@ -43,11 +48,11 @@ client.issue_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Aquí estamos llamando específicamente a la API de Informes de problemas para obtener los comentarios (`issue_comments`), proporcionando tanto el nombre del repositorio (`octocat/Spoon-Knife`) como la ID de la solicitud de extracción en la que estamos interesados (`1176`). Después, solo es cuestión de iterar a través de los comentarios para obtener la información sobre cada uno.
+Aquí, se llama específicamente a Issues API para obtener los comentarios (`issue_comments`), y se proporcionan el nombre del repositorio (`octocat/Spoon-Knife`) y el identificador de la solicitud de incorporación de cambios que interesa (`1176`). Después, solo es cuestión de iterar por los comentarios para capturar la información sobre cada uno.
 
 ## Comentarios en una línea de una solicitud de extracción
 
-Dentro de la vista de diferencias, puedes iniciar un debate sobre algún aspecto específico de un cambio particular que se haya hecho dentro de la solicitud de extracción. Estos comentarios ocurren en las líneas individuales dentro de un archivo que ha cambiado. La URL de la terminal para este debate veien de [la API de Revisión de Solicitudes de Cambios][PR Review API].
+Dentro de la vista de diferencias, puede iniciar un debate sobre un aspecto específico de un cambio concreto que se haya realizado dentro de la solicitud de incorporación de cambios. Estos comentarios aparecen en las líneas individuales dentro de un archivo que ha cambiado. La dirección URL del punto de conexión de este debate procede de [la API de revisión de solicitudes de incorporación de cambios][PR Review API].
 
 El código siguiente obtiene todos los comentarios de la solicitud de extracción que se hayan hecho en los archivos, si se le da un número particular de solicitud de extracción:
 
@@ -69,13 +74,15 @@ client.pull_request_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Te darás cuenta de que es increíblemente similar al ejemplo anterior. La diferencia entre esta vista y el comentario de la solicitud de extracción es el enfoque de la conversación. El comentario que se haga en una solicitud de extracción deberá reservarse para debatir ideas sobre el enfoque general del código. Cualquier comentario que se haga como parte de una revisión de una Solicitud de Extracción deberá tratar específicamente la forma en la que se implementa un cambio específico dentro de un archivo.
+Te darás cuenta de que es increíblemente similar al ejemplo anterior. La diferencia entre esta vista y el comentario de la solicitud de extracción es el enfoque de la conversación.
+Un comentario realizado en una solicitud de incorporación de cambios se debe reservar para debatir ideas sobre el enfoque general del código. Un comentario realizado como parte de una revisión de una solicitud de incorporación de cambios deberá tratar específicamente la forma en la que se ha implementado un cambio concreto dentro de un archivo.
 
 ## Comentarios de las confirmaciones
 
-El último tipo de comentarios suceden específicamente en confirmaciones individuales. Es por esto que utilizan [la API de comentarios de confirmaciones][commit comment API].
+El último tipo de comentarios suceden específicamente en confirmaciones individuales. Por este motivo, usan [la API de comentario de confirmación][commit comment API].
 
-Para recuperar los comentarios en una confirmación, necesitarás utilizar el SHA1 de ésta. Es decir, no utilizarás ningún identificador relacionado con la Solicitud de Extracción. Aquí hay un ejemplo:
+Para recuperar los comentarios en una confirmación, necesitarás utilizar el SHA1 de ésta.
+Es decir, no utilizarás ningún identificador relacionado con la Solicitud de Extracción. Este es un ejemplo:
 
 ``` ruby
 require 'octokit'
@@ -93,7 +100,7 @@ client.commit_comments("octocat/Spoon-Knife", "cbc28e7c8caee26febc8c013b0adfb97a
 end
 ```
 
-Ten en cuenta que esta llamada a la API recuperará comentarios de una sola línea, así como aquellos que se hagan en toda la confirmación.
+Tenga en cuenta que esta llamada API recuperará comentarios de una sola línea, así como los realizados en toda la confirmación.
 
 [PR comment]: https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792
 [PR line comment]: https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889

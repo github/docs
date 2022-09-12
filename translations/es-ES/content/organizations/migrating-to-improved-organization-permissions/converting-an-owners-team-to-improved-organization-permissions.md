@@ -13,9 +13,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Convertir el equipo de propietarios
+shortTitle: Convert Owners team
+ms.openlocfilehash: ff4845a8d36ecc757a989ef669b645543addff2d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880384'
 ---
-
 Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 
 - Coloca un nuevo nombre al equipo que denote que los miembros tienen un estado especial en la organización.
@@ -25,30 +30,27 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 
 {% tip %}
 
-   **Nota:** Dado que "admin" es un término para los miembros de la organización con [acceso específico a determinados repositorios](/articles/repository-permission-levels-for-an-organization) en la organización, te recomendamos evitar ese término en cualquier nombre de equipo sobre el que puedas decidir.
+   **Nota:** Dado que "admin" es un término para los miembros de la organización con [acceso específico a determinados repositorios](/articles/repository-permission-levels-for-an-organization) de la organización, se recomienda evitar ese término en cualquier nombre de equipo que decida.
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.owners-team %}
-{% data reusables.organizations.convert-owners-team-confirm %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.owners-team %} {% data reusables.organizations.convert-owners-team-confirm %}
 5. En el campo de nombre del equipo, escoge un nuevo nombre para el equipo Propietarios. Por ejemplo:
     - Si muy pocos miembros de tu organización fuesen miembros del equipo Propietarios, puedes designarlo como equipo "Central".
-    - Si todos los miembros de tu organización fuesen miembros del equipo Propietarios de manera que puedan [@mencionar equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), puedes designar al equipo como "Empleados". ![El campo de nombre del equipo, con el equipo Propietarios con el nuevo nombre Central](/assets/images/help/teams/owners-team-new-name.png)
-6. Debajo de la descripción del equipo, haz clic en **Save and continue** (Guardar y continuar). ![El botón para guardar y continuar](/assets/images/help/teams/owners-team-save-and-continue.png)
-7. Opcionalmente, [puedes hacer que el equipo sea *público*](/articles/changing-team-visibility).
+    - Si todos los miembros de su organización eran miembros del equipo propietarios para que pudieran usar [@mention con equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), podría asignarle el nombre "Empleados".
+  ![El campo de nombre del equipo, con el equipo de propietarios con el nuevo nombre "Core" (Central)](/assets/images/help/teams/owners-team-new-name.png)
+6. Debajo de la descripción del equipo, haga clic en **Save and continue** (Guardar y continuar).
+![Botón para guardar y continuar](/assets/images/help/teams/owners-team-save-and-continue.png)
+7. Opcionalmente, [haga que el equipo sea *público*](/articles/changing-team-visibility).
 
 ## Eliminar el equipo de Propietarios heredado
 
 {% warning %}
 
-**Advertencia**: Si hay miembros del equipo de Propietarios heredado que no son miembros de otros equipos, la eliminación del equipo eliminará a esos miembros de la organización. Antes de eliminar el equipo, asegúrate de que los miembros ya sean miembros directos de la organización, o que tengan acceso de colaborador a los repositorios necesarios.
+**Advertencia**: Si hay miembros del equipo de propietarios heredado que no son miembros de otros equipos, la eliminación del equipo eliminará a esos miembros de la organización. Antes de eliminar el equipo, asegúrate de que los miembros ya sean miembros directos de la organización, o que tengan acceso de colaborador a los repositorios necesarios.
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.owners-team %}
-{% data reusables.organizations.convert-owners-team-confirm %}
-5. En la parte inferior de la página, revisa la advertencia y haz clic en **Delete the Owners team** (Eliminar el equipo de Propietarios). ![Enlace para eliminar el equipo de Propietarios](/assets/images/help/teams/owners-team-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.owners-team %} {% data reusables.organizations.convert-owners-team-confirm %}
+5. En la parte inferior de la página, revise la advertencia y haga clic en **Delete the Owners team** (Eliminar el equipo de propietarios).
+  ![Enlace para eliminar el equipo de propietarios](/assets/images/help/teams/owners-team-delete.png)

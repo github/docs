@@ -1,6 +1,6 @@
 ---
-title: タグに署名する
-intro: 'You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
+title: Signing tags
+intro: You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -15,23 +15,22 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. タグに署名するには、`git tag` コマンドに `-s` を追加します。
+1. To sign a tag, add `-s` to your `git tag` command.
   ```shell
   $ git tag -s <em>mytag</em>
-  # 署名済みのタグを作成する
+  # Creates a signed tag
   ```
 2. Verify your signed tag by running `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
-  # 署名済みのタグを検証する
+  # Verifies the signed tag
   ```
 
-## 参考リンク
+## Further reading
 
-- [リポジトリのタグを表示する](/articles/viewing-your-repositorys-tags)
-- 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
-- [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
-- 「[コミットに署名する](/articles/signing-commits)」
+- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
+- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
+- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
+- "[Signing commits](/articles/signing-commits)"

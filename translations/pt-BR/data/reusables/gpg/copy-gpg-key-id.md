@@ -1,4 +1,12 @@
-1. Da lista de chaves GPG, copie a forma longa do ID da chave GPG que você gostaria de usar. Neste exemplo, o ID da chave GPG é `3AA5C34371567BD2`:
+---
+ms.openlocfilehash: 78f339bf711757c45cae1fac32bc100f60816036
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147694205"
+---
+1. Da lista de chaves GPG, copie a forma longa do ID da chave GPG que você gostaria de usar. Neste exemplo, a ID da chave GPG é `3AA5C34371567BD2`:
     ```shell{:copy}
   $ gpg --list-secret-keys --keyid-format=long
   /Users/hubot/.gnupg/secring.gpg

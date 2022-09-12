@@ -43,7 +43,7 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% data reusables.actions.cd-templates-actions %}
 
-## 参考リンク
+## Further reading
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
 - [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}

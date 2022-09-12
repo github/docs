@@ -1,6 +1,6 @@
 ---
-title: 为您的团队或项目规划和跟踪工作
-intro: '使用 {% data variables.product.prodname_dotcom %} 的规划和跟踪工具来管理团队或项目工作的要点。'
+title: Planning and tracking work for your team or project
+intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,120 +11,119 @@ topics:
   - Project management
   - Projects
 ---
+## Introduction
+You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-## 简介
-您可以使用 {% data variables.product.prodname_dotcom %} 仓库、议题、项目板及其他工具来规划和跟踪您的工作，无论是单个项目或跨职能团队。
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion fpt or ghec %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
-在本指南中，您将学习如何创建和设置一个与一群人合作的仓库，创建议题模板{% ifversion fpt or ghec %} 和表单{% endif %}，打开议题并使用任务列表来分解工作，并建立项目委员会来组织和跟踪议题。
+## Creating a repository
+When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 
-## 创建仓库
-启动新项目、计划或功能时，第一步是创建仓库。 仓库包含您项目的所有文件，并为您提供了一个与他人合作和管理您工作的地方。 更多信息请参阅“[创建新仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)”。
+You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-您可以根据您的需要为不同的目的设置仓库。 以下是一些常见用例：
+- **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product. 
+- **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
+- **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
+- **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others. 
 
-- **产品仓库**：围绕特定产品跟踪其工作和目标的大型组织可能有一个或多个包含代码和其他文件的仓库。 这些仓库也可用于文档、产品健康报告或产品未来计划。
-- **项目仓库**：您可以为您正在处理的单个项目创建仓库，也可以为正在与他人协作的项目创建仓库。 对于跟踪为短期计划或项目工作的组织，如咨询公司，需要报告项目的健康情况，并根据技能和需求在不同项目之间移动人员。 项目代码通常包含在单个仓库中。
-- **团队仓库**：对于将人员分组到团队并将项目（如开发工具团队）的组织，代码可能会分散到许多仓库中，以进行所需的不同工作。 在这种情况下，将特定于团队的仓库作为跟踪团队参与的所有工作的一个地方可能会有所帮助。
-- **个人仓库**：您可以创建个人仓库以在一个地方跟踪您的所有工作、规划未来的任务，甚至添加您想要保存的笔记或信息。 如果您想与他人共享此信息，您还可以添加协作者。
+You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[Creating an issues-only repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)."
 
-如果您想要源代码以及跟踪问题和讨论的不同访问权限，则可以创建多个单独的仓库。 更多信息请参阅“[创建仅议题仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)”。
+For the following examples in this guide, we will be using an example repository called Project Octocat.
+## Communicating repository information
+You can create a README.md file for your repository to introduce your team or project and communicate important information about it. A README is often the first item a visitor to your repository will see, so you can also provide information on how users or contributors can get started with the project and how to contact the team. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)."
 
-对于本指南中的以下示例，我们将使用称为 Octocat 项目的示例仓库。
-## 沟通仓库信息
-您可以为您的仓库创建 README.md 文件来介绍您的团队或项目并传递有关它的重要信息。 README 通常是访问仓库的访客看到的第一项，因此您还可以提供有关用户或贡献者如何开始项目以及如何联系团队的信息。 更多信息请参阅“[关于自述文件](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)”。
+You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+### README example
+We can create a README.md to introduce our new project, Project Octocat. 
 
-您还可以创建一个 CONTRIBUTING.md 文件，专门包含有关用户或贡献者如何参与及与团队或项目互动的准则，例如如何打开错误修复问题或请求改进。 更多信息请参阅“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
-### README 示例
-我们可以创建一个 README.md 来介绍我们的新项目：Octocat项目。
+![Creating README example](/assets/images/help/issues/quickstart-creating-readme.png)
+## Creating issue templates
 
-![创建 README 示例](/assets/images/help/issues/quickstart-creating-readme.png)
-## 创建议题模板
+You can use issues to track the different types of work that your cross-functional team or project covers, as well as gather information from those outside of your project. The following are a few common use cases for issues.
 
-您可以使用议题来跟踪跨职能团队或项目涵盖的不同类型的工作，以及从项目外部收集信息。 下面是一些常见的问题案例。
+- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
+- Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues.
+- Feature requests: Your team or users can create issues to request an improvement to your product or project.
+- Bugs: Your team or users can create issues to report a bug. 
 
-- 发布跟踪：您可以使用议题来跟踪发布进度或发布当天完成的步骤。
-- 大型倡议：您可以使用议题来跟踪大型计划或项目的进度，然后这些计划或项目将链接到较小的议题。
-- 功能请求：您的团队或用户可以创建议题，要求改进您的产品或项目。
-- 错误：您的团队或用户可以创建议题来报告错误。
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion fpt or ghec %}and forms{% endif %} for your repository. Issue templates {% ifversion fpt or ghec %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
-根据您处理的仓库和项目类型，您可以将某些类型的议题置于其他议题之上。 在为团队确定最常见的议题类型后，您可以为仓库创建议题模板{% ifversion fpt or ghec %}和表单{% endif %}。 议题模板{% ifversion fpt or ghec %}和表单{% endif %}允许您创建标准化的模板列表，供贡献者在您的仓库中打开议题时选择。 更多信息请参阅“[为仓库配置议题模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)”。
+### Issue template example
+Below we are creating an issue template for reporting a bug in Project Octocat.
 
-### 议题模板示例
-下面我们创建一个议题模板，用于报告 Octocat 项目中的错误。
+![Creating issue template example](/assets/images/help/issues/quickstart-creating-issue-template.png)
 
-![创建议题模板示例](/assets/images/help/issues/quickstart-creating-issue-template.png)
+Now that we created the bug report issue template, you are able to select it when creating a new issue in Project Octocat.
 
-现在我们已经创建了错误报告模板，您在项目 Octocat 中创建新议题时可以选择它。
+![Choosing issue template example](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
 
-![选择议题模板示例](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
+## Opening issues and using task lists to track work
+You can organize and track your work by creating issues. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+### Issue example
+Here is an example of an issue created for a large initiative, front-end work, in Project Octocat.
 
-## 打开议题并使用任务列表来跟踪工作
-您可以通过创建议题来组织和跟踪您的工作。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)”。
-### 议题示例
-下面是 Octocat 项目中为大型计划（前端工作）创建的议题示例。
+![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
+### Task list example
 
-![创建一个大型计划议题示例](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
-### 任务列表示例
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
-您可以使用任务列表将较大的议题分解成较小的任务，并将追踪议题作为更大目标的一部分。 {% ifversion fpt or ghec %} 任务列表添加到议题正文时具有额外的功能。 在议题顶端可以看到全部完成的任务数量，如果有人关闭任务列表中链接的议题，复选框将自动标记为完成。{% endif %} 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
+Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
-下面，我们在 Octocat 项目议题中添加了任务列表，将其分解为较小的议题。
+![Adding task list to issue example](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
-![向议题添加任务示例](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
+## Making decisions as a team
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
 
-## 以团队身份作出决定
-您可以利用议题和讨论作为团队来沟通和决定计划的项目改进或优先级。 当您创建议题以讨论特定详细信息（如错误或绩效报告、下个季度的规划或新计划的设计）时，议题很有用。 讨论有助于在代码库之外和跨仓库进行开放式的集思广益或反馈。 更多信息请参阅“[我应使用哪种讨论？](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)”
+As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
+### Issue example with project collaborators
+Here is an example of project collaborators giving a status update on their work on the Project Octocat issue.
 
-作为一个团队，您还可以在议题中传达日常任务的最新信息，以便每个人都知道工作状态。 例如，您可以为多人正在处理的大功能创建议题，每个团队成员都可以在该议题中添加其状态更新或未决问题。
-### 与项目协作者合作的议题示例
-下面是项目协作者就 Octocat 项目问题的工作提供状态更新的示例。
+![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
+## Using labels to highlight project goals and status
+You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
 
-![协作处理议题示例](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
-## 使用标签突出项目目标和状态
-您可以为仓库创建标签来分类议题、拉取请求和讨论。 {% data variables.product.prodname_dotcom %} 还为您可以编辑或删除的每个新仓库提供默认标签。 标签可用于跟踪项目目标、错误、工作类型和议题状态。
+For more information, see "[Creating a label](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)."
 
-更多信息请参阅“[创建标签](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)”。
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+### Label example
+Below is an example of a `front-end` label that we created and added to the issue.
 
-在仓库中创建标签后，您可以将其应用于仓库中的任何议题、拉取请求或讨论。 然后您可以通过标签过滤问题和拉取请求来查找所有相关的工作。 例如，过滤具有 `front-end` 和 `bug` 标签的议题，在项目中找到所有前端错误。 更多信息请参阅“[筛选和搜索问题以及拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)”。
-### 标签示例
-下面是我们创建并添加到议题的 `front-end` 标签示例。
+![Adding a label to an issue example](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-![向议题添加标签的示例](/assets/images/help/issues/quickstart-add-label-to-issue.png)
-
-## 添加议题到项目板
+## Adding issues to a project board
 
 {% ifversion projects-v2 %}
 
-You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
 ### Project example
-以下是一个示例项目的表布局，其中填充了我们创建的 Octocat 项目议题。
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
 ![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
-我们也可以将同一个项目视为一个板。
+We can also view the same project as a board.
 
 ![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以为功能工作、高级路线图甚至发布检查表创建项目板。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
-### 项目板示例
-下面是我们的示例项目 Octocat 的项目板， 其中我们创建了议题，并且分解成较小议题 添加到项目板。
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+### Project board example
+Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![项目板示例](/assets/images/help/issues/quickstart-project-board.png)
+![Project board example](/assets/images/help/issues/quickstart-project-board.png)
 
 {% endif %}
 
-## 后续步骤
+## Next steps
 
-您现在已经了解了 {% data variables.product.prodname_dotcom %} 提供的用于规划和跟踪您工作的工具，并且已经开始设置您的跨功能团队或项目仓库！ 以下是一些有用的资源，可进一步定制您的仓库和组织您的工作。
+You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
-- “[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”，用于了解更多关于创建仓库的信息
-- “[跟踪您的议题工作](/issues/tracking-your-work-with-issues)”，用于了解更多不同的议题创建和管理方式
-- “[关于议题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”，用于了解有关议题模板的更多信息
-- “[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)”，用于学习如何创建、编辑和删除标签
-- “[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”，用于了解有关任务列表的更多内容
+- "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
+- "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
+- "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
+- "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
 {% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
 - "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
 {% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

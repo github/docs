@@ -1,8 +1,8 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-shortTitle: Tableros
+shortTitle: Boards
 allowTitleToDifferFromFilename: true
-intro: 'La API de {% data variables.product.prodname_projects_v1 %} te permite crear y fusionar {% data variables.projects.projects_v1_boards %} en un repositorio.'
+intro: 'La API {% data variables.product.prodname_projects_v1 %} permite crear y administrar instancias de {% data variables.projects.projects_v1_boards %} en un repositorio.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,11 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: f5c7d3e39f4de88bd071fecab159b08d540e5055
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423056'
 ---
-
 {% data reusables.projects.projects-api %}

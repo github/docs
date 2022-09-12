@@ -21,5 +21,11 @@ children:
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
 shortTitle: Set up an instance
+ms.openlocfilehash: 23fe586f2c4baa87a2e2b388685bf8e42d5e10a4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145116533'
 ---
 

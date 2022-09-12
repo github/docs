@@ -1,5 +1,5 @@
 ---
-title: 管理个人资料上的贡献设置
+title: 管理个人资料中的贡献设置
 intro: 您的贡献（包括提交、提议的拉取请求和打开的议题）将显示在个人资料中，便于人们轻松看到您所做的工作。
 redirect_from:
   - /articles/managing-contribution-graphs-on-your-profile
@@ -19,6 +19,12 @@ children:
   - /sending-enterprise-contributions-to-your-githubcom-profile
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
-shortTitle: 管理贡献设置
+shortTitle: Manage contribution settings
+ms.openlocfilehash: 022a9afdb91a5c65cea12c4bbeef5c4ba9673be6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079526'
 ---
 

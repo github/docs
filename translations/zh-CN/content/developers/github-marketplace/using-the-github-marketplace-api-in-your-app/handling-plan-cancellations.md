@@ -1,6 +1,6 @@
 ---
 title: 处理计划取消
-intro: '取消 {% data variables.product.prodname_marketplace %} 应用程序将触发 [`marketplace_purchase` 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) web 挂钩，挂钩中带有可启动取消流程的 `cancelled` 操作。'
+intro: '取消 {% data variables.product.prodname_marketplace %} 应用会触发 [`marketplace_purchase` 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) Webhook 和 `cancelled` 操作，该操作会启动取消流。'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans
   - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
@@ -11,14 +11,19 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: 计划取消
+shortTitle: Plan cancellations
+ms.openlocfilehash: 253506f1ac32f55649dd533559a7a16508cca98f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084949'
 ---
+有关与计费相关的取消的更多信息，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)”。
 
-有关与计费相关之取消的更多信息，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)”。
+## 步骤 1。 取消事件
 
-## 步骤 1. 取消事件
-
-如果客户选择取消 {% data variables.product.prodname_marketplace %}，则在取消生效时，GitHub 会向您的应用程序发送带有操作 `cancelled` 的 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) web 挂钩。 如果客户在免费试用期间取消，您的应用程序将立即收到此事件。 如果客户取消付费计划，则取消将在客户结算周期结束时生效。
+如果客户选择取消 {% data variables.product.prodname_marketplace %} 订单，则在取消生效时，GitHub 会向你的应用发送带有操作 `cancelled` 的 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) Webhook。 如果客户在免费试用期间取消，您的应用程序将立即收到此事件。 如果客户取消付费计划，则取消将在客户结算周期结束时生效。
 
 ## 步骤 2. 停用客户帐户
 
@@ -31,6 +36,6 @@ shortTitle: 计划取消
 
 {% note %}
 
-**注：**我们建议使用 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) web 挂钩的 `effective_date` 来确定计划更改何时生效，并定期同步[列出计划的帐户](/rest/reference/apps#list-accounts-for-a-plan)。 有关 web 挂钩的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)”。
+注意：建议使用 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook 的 `effective_date` 来确定计划更改的时间并定期同步[计划的帐户列表](/rest/reference/apps#list-accounts-for-a-plan)。 有关 Webhook 的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} Webhook 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)”。
 
 {% endnote %}

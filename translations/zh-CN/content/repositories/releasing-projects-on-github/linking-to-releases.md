@@ -12,20 +12,15 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 9b07e71c6e6d35839d485e5e37c795ac3c663d0b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129301'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
 3. 要将唯一 URL 复制到剪贴板，请找到要链接到的版本，右键单击标题，然后复制 URL。
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![版本标题](/assets/images/help/releases/release-title.png)
-{% else %}
-  ![版本标题](/assets/images/help/releases/release-title-old.png)
-{% endif %}
-1. 或者，右键单击 **Latest Release（最新发行版）**并复制 URL 以共享它。 此 URL 的后缀始终是 `/releases/latest`。
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-   ![比较发行版标记菜单](/assets/images/help/releases/refreshed-release-latest.png)
-   {% else %}
-   ![最新发行版标记](/assets/images/help/releases/release_latest_release_tag.png)
-   {% endif %}
-要直接链接到手动上传的最新版本资产的下载，请链接到 `/owner/name/releases/latest/download/asset-name.zip`。
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![版本标题](/assets/images/help/releases/release-title.png){% else %}![版本标题](/assets/images/help/releases/release-title-old.png){% endif %}
+1. 或者，右键单击“最新版本”并复制 URL 以共享它。 此 URL 的后缀始终是 `/releases/latest`。
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![比较版本标记菜单](/assets/images/help/releases/refreshed-release-latest.png){% else %}![最新版本标记](/assets/images/help/releases/release_latest_release_tag.png){% endif %}要直接链接到手动上传的最新版本资产的下载，请链接到 `/owner/name/releases/latest/download/asset-name.zip`。

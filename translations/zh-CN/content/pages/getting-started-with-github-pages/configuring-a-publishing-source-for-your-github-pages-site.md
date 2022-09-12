@@ -1,6 +1,6 @@
 ---
 title: 配置 GitHub Pages 站点的发布源
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+intro: '{% ifversion pages-custom-workflow %}可以将 {% data variables.product.prodname_pages %} 站点配置为在将更改推送到特定分支时进行发布，也可以编写 {% data variables.product.prodname_actions %} 工作流来发布站点。{% else%}如果使用 {% data variables.product.prodname_pages %} 站点的默认发布源，会自动发布你的站点。 你也可以选择从不同的分支或文件夹发布你的站点。{% endif %}'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -14,84 +14,85 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: 配置发布源
+shortTitle: Configure publishing source
+ms.openlocfilehash: d08b5c150da5be18700312237c374059228c563d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529637'
 ---
-
-## About publishing sources
+## 关于发布源
 
 {% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-## Publishing from a branch
+## 从分支进行发布
 
-1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. 确保你要用作发布源的分支已经存在于你的存储库中。
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% ifversion pages-custom-workflow %}
+1. 在“生成和部署”的“源”下，选择“从分支进行部署”。
+1. 在“生成和部署”的“分支”下，使用“无”或“分支”下拉菜单并选择发布源 。
 
-   ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-3. 在“{% data variables.product.prodname_pages %}”下，使用 **None（无）**或 **Branch（分支）**下拉菜单选择发布源。 ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
-4. （可选）使用下拉菜单选择发布源的文件夹。 ![用于选择发布源文件夹的下拉菜单](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. 单击 **Save（保存）**。 ![用于保存对发布源设置的更改的按钮](/assets/images/help/pages/publishing-source-save.png)
+   ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png) {% else %}
+3. 在“{% data variables.product.prodname_pages %}”下，使用“无”或“分支”下拉菜单，选择发布源 。
+  ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png) {% endif %}
+4. （可选）使用下拉菜单选择发布源的文件夹。
+  ![用于选择发布源文件夹的下拉菜单](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+5. 单击“ **保存**”。
+  ![用于保存对发布源设置的更改的按钮](/assets/images/help/pages/publishing-source-save.png)
 
-### Troubleshooting publishing from a branch
+### 从分支进行发布疑难解答
 
 {% data reusables.pages.admin-must-push %}
 
-如果选择任意分支上的 `docs` 文件夹作为发布源，然后从仓库的该分支中删除了 `/docs` 文件夹，则您的站点将不会构建，并且您将收到提示缺失 `/docs` 文件夹的页面构建错误。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误疑难排解](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)”。
+如果选择任意分支上的 `docs` 文件夹作为发布源，稍后从存储库中的该分支中删除 `/docs` 文件夹，则站点不会生成，并且你将收到缺失 `/docs` 文件夹的页面生成错误消息。 有关详细信息，请参阅“[对 {% data variables.product.prodname_pages %} 站点的 Jekyll 生成错误进行故障排除](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)”。
 
 {% ifversion build-pages-with-actions %}
 
-{% data variables.product.prodname_pages %} 站点将始终使用 {% data variables.product.prodname_actions %} 工作流程运行进行部署，即使您已将 {% data variables.product.prodname_pages %} 站点配置为使用其他 CI 工具构建也是如此。 大多数外部 CI 工作流程通过将构建输出提交到仓库的 `gh-pages` 分支来“部署”到 GitHub Pages，并且通常包含一个 `.nojekyll` 文件。 发生这种情况时， {% data variables.product.prodname_actions %} 工作流程将检测分支不需要构建步骤的状态，并且仅执行将站点部署到 {% data variables.product.prodname_pages %} 服务器所需的步骤。
+{% data variables.product.prodname_pages %} 站点将始终使用 {% data variables.product.prodname_actions %} 工作流程运行进行部署，即使您已将 {% data variables.product.prodname_pages %} 站点配置为使用其他 CI 工具构建也是如此。 大多数外部 CI 工作流通过将生成输出提交到存储库的 `gh-pages` 分支来“部署”到 GitHub Pages，且通常包含 `.nojekyll` 文件。 发生这种情况时， {% data variables.product.prodname_actions %} 工作流程将检测分支不需要构建步骤的状态，并且仅执行将站点部署到 {% data variables.product.prodname_pages %} 服务器所需的步骤。
 
-若要查找构建或部署的潜在错误，可以通过查看仓库的工作流程运行来检查 {% data variables.product.prodname_pages %} 站点的工作流程运行情况。 更多信息请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。 有关如何在出现错误时重新运行工作流程的详细信息，请参阅”[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)“。
+若要查找构建或部署的潜在错误，可以通过查看仓库的工作流程运行来检查 {% data variables.product.prodname_pages %} 站点的工作流程运行情况。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。 有关如何在出现错误时重新运行工作流的详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 
 {% endif %}
 
 {% ifversion pages-custom-workflow %}
 
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+## 使用自定义 {% data variables.product.prodname_actions %} 工作流进行发布
 
 {% data reusables.pages.pages-custom-workflow-beta %}
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
+若要将站点配置为使用 {% data variables.product.prodname_actions %} 进行发布，请执行以下操作：
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. 在“生成和部署”的“源”下，选择“GitHub Actions”。
+1. {% data variables.product.product_name %} 将推荐多个入门工作流。 如果已有用于发布站点的工作流，可跳过此步骤。 否则，请选择其中一个选项来创建 {% data variables.product.prodname_actions %} 工作流。 有关创建自定义工作流的详细信息，请参阅“[创建自定义 {% data variables.product.prodname_actions %} 工作流以发布站点](#creating-a-custom-github-actions-workflow-to-publish-your-site)”。
 
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+   {% data variables.product.prodname_pages %} 不会将特定工作流与 {% data variables.product.prodname_pages %} 设置相关联。 但 {% data variables.product.prodname_pages %} 设置将链接到最近部署你的站点的工作流运行。
 
-### Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site
+### 创建自定义 {% data variables.product.prodname_actions %} 工作流以发布站点
 
-For more information about {% data variables.product.prodname_actions %}, see "[Actions](/actions)."
+有关 {% data variables.product.prodname_actions %} 的详细信息，请参阅“[Actions](/actions)”。
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+将站点配置为使用 {% data variables.product.prodname_actions %} 进行发布时，{% data variables.product.product_name %} 将针对常见发布方案推荐入门工作流。 工作流的一般流程如下：
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever a pull request that targets the default branch is opened, reopened, or updated.
-1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
-1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
+1. 在推送到存储库的默认分支时，或者在已打开、已重新打开或已更新针对默认分支的拉取请求时触发。
+1. 使用 [`actions/checkout`](https://github.com/actions/checkout) 操作签出存储库内容。
+1. 如果站点需要，请生成任何静态站点文件。
+1. 使用 [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) 操作将静态文件作为项目上传。
+1. 如果推送到默认分支触发了工作流，请使用 [`actions/deploy-pages`](https://github.com/actions/deploy-pages) 操作来部署项目。 如果拉取请求触发了工作流，则跳过此步骤。
 
-The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. 更多信息请参阅“[使用环境进行部署](/actions/deployment/targeting-different-environments/using-environments-for-deployment)”。
+入门工作流使用名为 `github-pages` 的部署环境。 如果存储库尚未包含名为 `github-pages` 的环境，则自动创建该环境。 建议添加环境保护规则，确保仅默认分支可部署到该环境。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/targeting-different-environments/using-environments-for-deployment)”。
 
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**注意**：存储库文件中的 `CNAME` 文件不会自动添加或删除自定义域。 必须通过存储库设置或 API 配置自定义域。 有关详细信息，请参阅“[管理 GitHub Pages 站点的自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)”和 [Pages API 参考文档](/rest/pages#update-information-about-a-github-pages-site)。
 
 {% endnote %}
 
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+### 使用自定义 {% data variables.product.prodname_actions %} 工作流进行发布故障排除
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
+有关如何对 {% data variables.product.prodname_actions %} 工作流进行故障排除的信息，请参阅“[关于监视和故障排除](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)”。
 
 {% endif %}

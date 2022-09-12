@@ -36,6 +36,12 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
-shortTitle: 在 GitHub 上搜索
+shortTitle: Search on GitHub
+ms.openlocfilehash: ca3fe13d3d3ae3c5016948bcd458d636a106a9da
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099623'
 ---
 

@@ -20,9 +20,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Analizar cambios
+shortTitle: Analyze changes
+ms.openlocfilehash: 7b6c9918b5d3de0fbae3b94fb8e90ece694a4076
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136627'
 ---
-
 ## Ver confirmaciones en un repositorio
 
 Puedes ver todas las confirmaciones realizadas a un repositorio en el último año (excluidas las confirmaciones de fusión) en el gráfico de confirmación.
@@ -37,9 +42,9 @@ El gráfico inferior muestra la cantidad promedio de confirmaciones por día de 
 
 ### Acceder al gráfico de confirmación
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Commits (Confirmaciones)**. ![Pestaña de confirmaciones](/assets/images/help/graphs/commits_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. En la barra lateral de la izquierda, haga clic en **Commits** (Confirmaciones).
+![Pestaña de confirmaciones](/assets/images/help/graphs/commits_tab.png)
 
 ## Ver incorporaciones y eliminaciones del contenido de un repositorio
 
@@ -53,6 +58,6 @@ El gráfico de frecuencia de código muestra las incorporaciones y eliminaciones
 
 ### Acceder al gráfico de frecuencia de código
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Code frequency (Frecuencia del código)**. ![Pestaña de frecuencia de código](/assets/images/help/graphs/code_frequency_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. En la barra lateral izquierda, haga clic en **Code frequency** (Frecuencia de código).
+![Pestaña de frecuencia de código](/assets/images/help/graphs/code_frequency_tab.png)

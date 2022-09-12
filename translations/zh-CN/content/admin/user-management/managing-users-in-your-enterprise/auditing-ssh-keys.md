@@ -14,8 +14,13 @@ topics:
   - Enterprise
   - Security
   - SSH
+ms.openlocfilehash: 6ffcbdc698b6eb3a4736fdb2b4713e2871dcaac2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147508430'
 ---
-
 发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。 审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。
 
 ## 发起审核
@@ -52,17 +57,17 @@ fatal: The remote end hung up unexpectedly
 
 {% ifversion ghes %}
 
-When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+当新用户向帐户添加 SSH 密钥时，为确认该用户的访问权限，{% data variables.product.product_name %} 将提示进行身份验证。 有关详细信息，请参阅“[Sudo 模式](/authentication/keeping-your-account-and-data-secure/sudo-mode)”。
 
 {% endif %}
 
 在用户添加密钥时，他们会收到如下所示的通知电子邮件：
 
     The following SSH key was added to your account:
-    
+
     [title]
     ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
-    
+
     If you believe this key was added in error, you can remove the key and disable access at the following location:
-    
+
     http(s)://HOSTNAME/settings/ssh

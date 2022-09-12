@@ -13,18 +13,21 @@ redirect_from:
 topics:
   - Organizations
   - Teams
-shortTitle: Crear una organización nueva
+shortTitle: Create new organization
+ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879330'
 ---
+Cuando creas una organización nueva desde cero, esta no tiene ningún repositorio asociado. Para más información sobre cómo agregar repositorios a la organización, vea "[Creación de un repositorio](/articles/creating-a-new-repository)" y "[Transferencia de un repositorio](/articles/transferring-a-repository)".
 
-Cuando creas una organización nueva desde cero, esta no tiene ningún repositorio asociado. Para obtener más información acerca de cómo agregar repositorios a tu organización, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)" y "[Transferir un repositorio](/articles/transferring-a-repository)".
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
+4. Sigue las propuestas para crear tu organización. {% ifversion fpt or ghec %}Para más información sobre los planes disponibles para el equipo, vea "[Productos de {% data variables.product.prodname_dotcom %}](/articles/githubs-products)".{% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-{% data reusables.organizations.new-organization %}
-4. Sigue las propuestas para crear tu organización. {% ifversion fpt or ghec %}Para obtener más información sobre los planes disponibles para tu equipo, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/githubs-products)."{% endif %}
-
-## Leer más
+## Lecturas adicionales
 
 {% ifversion fpt or ghec %}
-- "[Establecer tu correo electrónico de facturación](/articles/setting-your-billing-email)"{% endif %}
+- "[Configuración del correo electrónico de facturación](/articles/setting-your-billing-email)"{% endif %}
 - "[Acerca de las organizaciones](/articles/about-organizations)"

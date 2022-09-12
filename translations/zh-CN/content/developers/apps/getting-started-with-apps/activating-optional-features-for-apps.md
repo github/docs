@@ -11,25 +11,26 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 激活可选功能
+shortTitle: Activate optional features
+ms.openlocfilehash: 918fe1dd7ba466fccc4d54d02fca6b13fe6e4e86
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145085039'
 ---
-
 {% warning %}
 
-**警告：**可选功能可能会更改。
+警告：可选功能随时会变化。
 
 {% endwarning %}
 
 ## 激活 {% data variables.product.prodname_github_apps %} 的可选功能
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
 3. 选择您要为其启用可选功能的 {% data variables.product.prodname_github_app %}。
 {% data reusables.apps.optional_feature_activation %}
 
 ## 激活 {% data variables.product.prodname_oauth_apps %} 的可选功能
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.oauth_apps %}
-{% data reusables.apps.optional_feature_activation %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %} {% data reusables.apps.optional_feature_activation %}

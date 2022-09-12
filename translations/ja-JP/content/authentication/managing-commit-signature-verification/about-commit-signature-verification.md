@@ -1,6 +1,6 @@
 ---
-title: コミット署名の検証について
-intro: 'Using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME, you can sign tags and commits locally. これらのタグやコミットは {% data variables.product.product_name %} で検証済みとしてマークされているため、他のユーザはその変更が信頼できるソースからのものであると確信できます。'
+title: About commit signature verification
+intro: 'Using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures
   - /articles/about-gpg
@@ -17,12 +17,11 @@ topics:
   - Access management
 shortTitle: Commit signature verification
 ---
+## About commit signature verification
 
-## コミット署名の検証について
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
-コミットとタグにローカルで署名して、行った変更の根拠を他のユーザに信頼してもらうことができます。 If a commit or tag has a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
-
-![検証されたコミット](/assets/images/help/commits/verified-commit.png)
+![Verified commit](/assets/images/help/commits/verified-commit.png)
 
 {% ifversion ghes or ghae %}
 If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
@@ -39,20 +38,20 @@ Commits and tags have the following verification statuses, depending on whether 
 
 Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
 
-### デフォルトのステータス
+### Default statuses
 
-| 状況                     | 説明                            |
-| ---------------------- | ----------------------------- |
-| **Verified**           | コミットが署名され、署名が正常に検証されました。      |
-| **Unverified**         | コミットは署名されていますが、署名を検証できませんでした。 |
-| No verification status | コミットが署名されていません。               |
+| Status         | Description |
+| -------------- | ----------- |
+| **Verified**   | The commit is signed and the signature was successfully verified.
+| **Unverified** | The commit is signed but the signature could not be verified.
+| No verification status | The commit is not signed.
 
 ### Signature verification for rebase and merge
 {% data reusables.pull_requests.rebase_and_merge_verification %}
 
 For more information, see "[Rebasing and merging your commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
-### 警戒モードが有効になっているステータス
+### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
@@ -70,7 +69,7 @@ Repository administrators can enforce required commit signing on a branch to blo
 You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
 {% endif %}
 
-## GPG コミット署名の検証
+## GPG commit signature verification
 
 You can use GPG to sign commits with a GPG key that you generate yourself.
 
@@ -78,17 +77,18 @@ You can use GPG to sign commits with a GPG key that you generate yourself.
 
 To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [既存の GPG キーがあるかチェックする](/articles/checking-for-existing-gpg-keys)
-2. [新しい GPG キーを生成する](/articles/generating-a-new-gpg-key)
+1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
+2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
 3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
-4. [Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)
-5. [コミットに署名する](/articles/signing-commits)
-6. [タグに署名する](/articles/signing-tags)
+4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+5. [Sign commits](/articles/signing-commits)
+6. [Sign tags](/articles/signing-tags)
 
 {% ifversion ssh-commit-verification %}
 ## SSH commit signature verification
 
-You can use SSH to sign commits with an SSH public key that you generate yourself. If you already use an SSH key to authenticate with {% data variables.product.product_name %}, you can also upload that same key again for use as a signing key. There's no limit on the number of signing keys you can add to your account.
+You can use SSH to sign commits with an SSH public key that you generate yourself. If you already use an SSH key to authenticate with {% data variables.product.product_name %},
+you can also upload that same key again for use as a signing key. There's no limit on the number of signing keys you can add to your account.
 
 {% data variables.product.product_name %} uses [ssh_data](https://github.com/github/ssh_data), an open source Ruby library, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
@@ -99,9 +99,9 @@ To sign commits using SSH and have those commits verified on {% data variables.p
 1. [Check for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 2. [Generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 3. [Add a SSH signing key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
-4. [Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)
-5. [コミットに署名する](/articles/signing-commits)
-6. [タグに署名する](/articles/signing-tags)
+4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+5. [Sign commits](/articles/signing-commits)
+6. [Sign tags](/articles/signing-tags)
 
 {% endif %}
 ## S/MIME commit signature verification
@@ -114,9 +114,9 @@ You can use S/MIME to sign commits with an X.509 key issued by your organization
 
 To sign commits using S/MIME and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)
-2. [コミットに署名する](/articles/signing-commits)
-3. [タグに署名する](/articles/signing-tags)
+1. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+2. [Sign commits](/articles/signing-commits)
+3. [Sign tags](/articles/signing-tags)
 
 You don't need to upload your public key to {% data variables.product.product_name %}.
 
@@ -128,8 +128,8 @@ Organizations and {% data variables.product.prodname_github_apps %} that require
 Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- 「[コミットに署名する](/articles/signing-commits)」
-- 「[タグに署名する](/articles/signing-tags)」
-- 「[コミット署名検証のトラブルシューティング](/articles/troubleshooting-commit-signature-verification)」
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"
+- "[Troubleshooting commit signature verification](/articles/troubleshooting-commit-signature-verification)"

@@ -11,8 +11,13 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Resolve upload failures
+ms.openlocfilehash: d2f776561f08132e1ca05d0864368943098c5ddc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145131910'
 ---
-
 {% data variables.large_files.product_name_short %} の整合性チェックでは、プッシュで参照されたすべての {% data variables.large_files.product_name_short %} ファイルが正しくアップロードされていることを確認します。 そのチェックによりアップロードされていない参照ファイルが検出されると、エラー メッセージが表示されてプッシュはブロックされます。
 
 エラー メッセージを解決するには、ローカルの {% data variables.large_files.product_name_short %} クライアントを再インストールして、参照された {% data variables.large_files.product_name_short %} ファイルを今後正しくアップロードできるようにする必要があります。

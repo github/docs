@@ -8,88 +8,93 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
   - /github/searching-for-information-on-github/searching-on-github/searching-discussions
+ms.openlocfilehash: 4a1224d05cd78a0b701e7bc2a9e93a1c5a837bcd
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147410455'
 ---
-
 ## Acerca de buscar debates
 
-Puedes buscar debates globalmente a través de todo {% data variables.product.product_name %}, o buscar debates dentro de una organización o repositorio específicos. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
+Puedes buscar debates globalmente a través de todo {% data variables.product.product_name %}, o buscar debates dentro de una organización o repositorio específicos. Para más información, vea "[Acerca de la investigación en {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
 
 {% data reusables.search.syntax_tips %}
 
 ## Buscar por título, cuerpo o comentarios
 
-Puedes restringir la búsqueda de debates al título, cuerpo o comentarios si utilizas el calificador `in`. También puedes combinar los calificadores para buscar una combinación de título, cuerpo o comentarios. Cuando omites el calificador `in`, {% data variables.product.product_name %} busca el título, cuerpo y comentarios.
+Puede restringir la búsqueda de debates al título, el cuerpo o los comentarios mediante el calificador `in`. También puedes combinar los calificadores para buscar una combinación de título, cuerpo o comentarios. Cuando omite el calificador `in`, {% data variables.product.product_name %} busca el título, el cuerpo y los comentarios.
 
-| Qualifier     | Ejemplo                                                                                                                                                                        |
-|:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `in:title`    | [**welcome in:title**](https://github.com/search?q=welcome+in%3Atitle&type=Discussions) coincide con los debates que tengan "welcome" en el título.                            |
-| `in:body`     | [**onboard in:title,body**](https://github.com/search?q=onboard+in%3Atitle%2Cbody&type=Discussions) coincide con los debates que tengan "onboard" en el título o en el cuerpo. |
-| `in:comments` | [**thanks in:comments**](https://github.com/search?q=thanks+in%3Acomment&type=Discussions) coincide con los debates que tengan "thanks" en sus comentarios.                    |
+| Calificador: | Ejemplo |
+| :- | :- |
+| `in:title` | [**welcome in:title**](https://github.com/search?q=welcome+in%3Atitle&type=Discussions) busca debates con "welcome" en el título. |
+| `in:body` | [**onboard in:title,body**](https://github.com/search?q=onboard+in%3Atitle%2Cbody&type=Discussions) busca debates con "onboard" en el título o el cuerpo. |
+| `in:comments` | [**thanks in:comments**](https://github.com/search?q=thanks+in%3Acomment&type=Discussions) busca debates con "thanks" en los comentarios. |
 
 ## Buscar dentro de los repositorios de un usuario u organización
 
-Para buscar los debates en todos los repositorios que pertenezcan a algún usuario u organización, puedes utilizar el calificador `user` o `org`. Para buscar los debates en un repositorio específico, puedes utilizar el calificador `repo`.
+Para buscar debates en todos los repositorios que son propiedad de una determinada organización o un determinado usuario, puede utilizar el calificador `user` o `org`. Para buscar debates en un repositorio específico, puede utilizar el calificador `repo`.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                                         |
-|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:octocat feedback**](https://github.com/search?q=user%3Aoctocat+feedback&type=Discussions) coincide con debates con la palabra "retroalimentación" de los repositorios que pertenezcan a @octocat.                                                       |
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Discussions&utf8=%E2%9C%93) coincide con los debates en los repositorios que pertenezcan a la organización GitHub.                                                                               |
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:nodejs/node created:<2021-01-01**](https://github.com/search?q=repo%3Anodejs%2Fnode+created%3A%3C2020-01-01&type=Discussions) coincide con los debates del proyecto de tiempo de ejecución de Node.js de @nodejs que se crearon antes de enero de 2021. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>user:<em>USERNAME</em></code> | [**user:octocat feedback**](https://github.com/search?q=user%3Aoctocat+feedback&type=Discussions) busca debates con la palabra "feedback" en los repositorios propiedad de @octocat. |
+| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Discussions&utf8=%E2%9C%93) busca debates en repositorios propiedad de la organización de GitHub. |
+| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:nodejs/node created:<2021-01-01**](https://github.com/search?q=repo%3Anodejs%2Fnode+created%3A%3C2020-01-01&type=Discussions) busca debates del proyecto de runtime Node.js de @nodejs creados antes de enero de 2021. |
 
 ## Filtrar por visibilidad de repositorio
 
-Puedes filtrar los resultados por la visibilidad del repositorio que contenga los debates que utilicen el calificador `is`. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+Puede filtrar los resultados por la visibilidad del repositorio que contenga los debates con el calificador `is`. Para más información, vea "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Calificador | Ejemplo | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) coincide con los debates en repositorios públicos.{% endif %}{% ifversion ghec %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) coincide con los debates en los repositorios internos.{% endif %} | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) coincide con los debates que contengan la palabra "tiramisu" en los repositorios privados a los cuales puedas acceder.
+| Calificador | Ejemplo | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) busca debates en repositorios públicos.{% endif %}{% ifversion ghec %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) busca debates en repositorios internos.{% endif %} | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) busca debates que contienen la palabra "tiramisu" en repositorios privados a los que puede acceder.
 
 ## Buscar por autor
 
-El calificador `author` encuentra debates crean usuarios específicos.
+El calificador `author` busca debates creados por un usuario determinado.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                              |
-|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) coincide con debates que tienen la palabra "cool" y que creó @octocat.                                                 |
-|                           | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) coincide con debates que creó @octocat y que contienen la palabra "bootstrap" enel cuerpo. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>author:<em>USERNAME</em></code> | [**cool author:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) busca debates con la palabra "cool" creados por @octocat. |
+| | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) busca debates creados por @octocat que contienen la palabra "bootstrap" en el cuerpo. |
 
 ## Buscar por comentarista
 
-El calificador `commenter` encuentra debates que contienen un comentario de un usuario específico.
+El calificador `commenter` busca debates que contienen un comentario de un usuario concreto.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                                                          |
-|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) coincide con debates en los repositorios que pertenecen a GitHub, los cuales contengan la palabra "github" y un comentario de @becca. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) busca debates en repositorios propiedad de GitHub que contienen la palabra "github," y tienen un comentario de @becca.
 
 ## Buscar por un usuario que está involucrado en un debate
 
-Puedes utilizar el calificador `involves` para encontrar debates que involucren a algún usuario. El calificador devuelve los debates que un usuario haya creado, que mencionen al usuario, o que contengan sus comentarios. El calificador `involves` es un operador lógico OR (o) entre los calificadores `author`, `mentions`, y `commenter` para un usuario único.
+Puede usar el calificador `involves` para buscar debates que impliquen a un usuario determinado. El calificador devuelve los debates que un usuario haya creado, que mencionen al usuario, o que contengan sus comentarios. El calificador `involves` es un OR lógico entre los calificadores `author`, `mentions` y `commenter` para un único usuario.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                          |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** coincide con debates en los que se involucre ya sea a @becca o a @octocat.                                               |
-|                           | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) coincide con debates en los que se involucre a @becca, en los cuales no se contenga la palabra "beta" dentro del cuerpo. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** busca debates en los que participan @becca o @octocat.
+| | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) busca debates en los que participa @becca que no contienen la palabra "beta" en el cuerpo.
 
 ## Buscar por cantidad de comentarios
 
-Puedes utilizar el calificador `comments` junto con los calificadores de mayor que, menor que y de rango para buscar por cantidad de comentarios. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/github/searching-for-information-on-github/understanding-the-search-syntax)".
+Puede usar el calificador `comments` junto con los calificadores mayor que, menor que y rango para buscar por número de comentarios. Para más información, vea "[Descripción de la sintaxis de búsqueda](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
-| Qualifier                 | Ejemplo                                                                                                                                                    |
-|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) coincide con debates de más de 100 comentarios.               |
-|                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) coincide con debates que tengan entre 500 y 1,000 comentarios. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) busca debates con más de 100 comentarios.
+| | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) busca debates con entre 500 y 1000 comentarios.
 
 ## Buscar por cuándo se creó o actualizó por última vez un debate
 
-Puedes filtrar los debates con base en las fechas de creación o por cuándo se actualizaron por última vez. Para la creación de debates, puedes utilizar el calificador `created`; para saber cuándo se actualizó por última vez el debate, utiliza el calificador `updated`.
+Puedes filtrar los debates con base en las fechas de creación o por cuándo se actualizaron por última vez. Para crear debates, puede usar el calificador `created`; para averiguar cuándo se actualizó por última vez un debate, use el calificador `updated`.
 
 Ambos calificadores toman la fecha como parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                                    |
-|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) coincide con debates que se crearon después del 15 de noviembre de 2020.                                                                                |
-| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) coincide con debates que tengan la palabra "weird" en el cuerpo y que se hayan actualizado después de diciembre de 2020. |
+| Calificador: | Ejemplo |
+| :- | :- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) busca debates creados después del 15 de noviembre de 2020.
+| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) busca debates con la palabra "weird" en el cuerpo actualizados después de diciembre de 2020.
 
-## Leer más
+## Información adicional
 
-- "[Clasificar los resultados de la búsqueda](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Ordenar los resultados de la búsqueda](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

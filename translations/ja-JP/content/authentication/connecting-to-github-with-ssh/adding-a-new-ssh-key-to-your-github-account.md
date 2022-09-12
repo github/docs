@@ -1,5 +1,5 @@
 ---
-title: GitHub アカウントへの新しい SSH キーの追加
+title: Adding a new SSH key to your GitHub account
 intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
@@ -23,16 +23,16 @@ shortTitle: Add a new SSH key
 
 After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
 
-## 必要な環境
+## Prerequisites
 
 Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, complete the following steps.
 
 1. Check for existing SSH keys. For more information, see "[Checking for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
-1. Generate a new SSH key and add it to your machine's SSH agent. 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
+1. Generate a new SSH key and add it to your machine's SSH agent. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 ## Adding a new SSH key to your account
 
-After adding a new SSH authentication key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)を参照してください。
+After adding a new SSH authentication key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
 
 {% data reusables.ssh.key-type-support %}
 
@@ -41,23 +41,24 @@ After adding a new SSH authentication key to your account on {% ifversion ghae %
 {% data reusables.gpg.copy-ssh-public-key %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-4. [**New SSH key**] または [**Add SSH key**] をクリックします。
+4. Click **New SSH key** or **Add SSH key**.
 {% ifversion ssh-commit-verification %}
-  ![SSH キーボタン](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png)
+  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png)
 {% else %}
-  ![SSH キーボタン](/assets/images/help/settings/ssh-add-ssh-key.png)
+  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 {% endif %}
-5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 For example, if you're using a personal laptop, you might call this key "Personal laptop".
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
 {% ifversion ssh-commit-verification %}
 6. Select the type of key, either authentication or signing. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 {% endif %}
-7. キーを [Key] フィールドに貼り付けます。
+7. Paste your key into the "Key" field.
 {% ifversion ssh-commit-verification %}
-  ![キーフィールド](/assets/images/help/settings/ssh-key-paste-with-type.png)
+  ![The key field](/assets/images/help/settings/ssh-key-paste-with-type.png)
 {% else %}
-  ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
+  ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 {% endif %}
-8. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
+8. Click **Add SSH key**.
+  ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
@@ -91,7 +92,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% endcli %}
 
 {% ifversion fpt or ghec %}
-## 参考リンク
+## Further reading
 
-- [SAMLシングルサインオンで使うためにSSHキーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}

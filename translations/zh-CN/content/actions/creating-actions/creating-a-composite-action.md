@@ -11,27 +11,31 @@ versions:
 type: tutorial
 topics:
   - Action development
-shortTitle: 组合操作
+shortTitle: Composite action
+ms.openlocfilehash: fae29972e9ce4a19485e2f13ed2ff80b589a1a0a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084710'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
-在本指南中，您将了解创建和使用打包的组合操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
+在本指南中，您将了解创建和使用打包的组合操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还会将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
 
 完成此项目后，您应了解如何构建自己的组合操作和在工作流程测试该操作。
 
 {% data reusables.actions.context-injection-warning %}
 
-## 基本要求
+## 先决条件
 
 在开始之前，您将在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上创建一个存储库。
 
-1. 在 {% data variables.product.product_location %} 上创建公共仓库 您可以选择任何仓库名称，或者使用下面的 `hello-world-composite-action` 示例。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建公共仓库 可以选择任何存储库名称，或使用以下 `hello-world-composite-action` 示例。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 有关详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”。
 
-1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
+1. 将仓库克隆到计算机。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
 
 1. 从您的终端，将目录更改为新仓库。
 
@@ -39,19 +43,19 @@ shortTitle: 组合操作
   cd hello-world-composite-action
   ```
 
-2. 在 `hello-world-composite-action` 仓库中，创建一个名为 `goodbye.sh` 的新文件，并添加以下示例代码：
+2. 在 `hello-world-composite-action` 存储库中，新建一个名为 `goodbye.sh` 的文件，并添加以下示例代码：
 
   ```bash
   echo "Goodbye"
   ```
 
-3. 从您的终端创建 `goodbye.sh` 可执行文件。
+3. 在终端中，生成 `goodbye.sh` 可执行文件。
 
   ```shell
   chmod +x goodbye.sh
   ```
 
-1. 从终端检入 `goodbye.sh` 文件。
+1. 从终端签入 `goodbye.sh` 文件。
   ```shell
   git add goodbye.sh
   git commit -m "Add goodbye script"
@@ -60,10 +64,9 @@ shortTitle: 组合操作
 
 ## 创建操作元数据文件
 
-1. 在 `hello-world-composite-action` 仓库中，创建一个名为 `action.yml` 的新文件，并添加以下示例代码： 有关此语法的更多信息，请参阅“组合运行步骤的[`运行`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)”。
+1. 在 `hello-world-composite-action` 存储库中，新建一个名为 `action.yml` 的文件，并添加以下示例代码。 有关此语法的详细信息，请参阅“[组合操作的 `runs`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)”。
 
-    {% raw %}
-    **action.yml**
+    {% raw %} action.yml
     ```yaml
     name: 'Hello World'
     description: 'Greet someone'
@@ -89,14 +92,13 @@ shortTitle: 组合操作
         - run: goodbye.sh
           shell: bash
     ```
-    {% endraw %}
-  此文件定义 `who-greet` 输入，将随机生成的数字映射到 `random-number` 输出变量，并运行 `goodbye.sh` 脚本。 它还告诉运行器如何执行组合操作。
+    {% endraw %} 此文件定义 `who-to-greet` 输入，将随机生成的数字映射到 `random-number` 输出变量，并运行 `goodbye.sh` 脚本。 它还告诉运行器如何执行组合操作。
 
-  有关管理输出的更多信息，请参阅“组合运行步骤的[`输出`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)”。
+  有关管理输出的详细信息，请参阅“[组合操作的 `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)”。
 
-  有关如何使用 `github.action_path` 的更多信息，请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
+  有关如何使用 `github.action_path` 的详细信息，请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 
-1. 从终端检入 `action.yml` 文件。
+1. 从终端签入 `action.yml` 文件。
 
   ```shell
   git add action.yml
@@ -104,7 +106,7 @@ shortTitle: 组合操作
   git push
   ```
 
-1. 从终端添加标记。 此示例使用名为 `v1` 的标记。 更多信息请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
+1. 从终端添加标记。 本示例使用名为 `v1` 的标记。 有关详细信息，请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -113,11 +115,11 @@ shortTitle: 组合操作
 
 ## 在工作流程中测试您的操作
 
-以下工作流程代码使用您在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)”中设置的已完成 hello world 操作。
+以下工作流代码使用你在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)”中完成的 hello world 操作。
 
-将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-composite-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
+将工作流代码复制到另一个存储库中的 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-composite-action@v1` 替换为你创建的存储库和标记。 还可以将 `who-to-greet` 输入替换为你的名称。
 
-**.github/workflows/main.yml**
+.github/workflows/main.yml
 ```yaml
 on: [push]
 
@@ -135,4 +137,4 @@ jobs:
         shell: bash
 ```
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 输出应包括："Hello Mona the Octocat"、"Goodbye" 脚本的结果以及随机数字。
+从存储库中，单击“操作”选项卡，然后选择最新的工作流运行。 输出应包括："Hello Mona the Octocat"、"Goodbye" 脚本的结果以及随机数字。

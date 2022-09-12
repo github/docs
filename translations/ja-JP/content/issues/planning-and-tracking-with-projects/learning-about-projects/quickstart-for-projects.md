@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_projects_v2 %}のクイックスタート'
-intro: 'このインタラクティブガイドでプロジェクトを作成して、{% data variables.product.prodname_projects_v2 %}のスピード、柔軟性、カスタマイズを体験してください。'
+title: '{% data variables.product.prodname_projects_v2 %} のクイック スタート'
+intro: 'この対話型ガイドでプロジェクトを作成し、{% data variables.product.prodname_projects_v2 %} の速度、柔軟性、カスタマイズを体験します。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,19 +10,24 @@ redirect_from:
 type: quick_start
 topics:
   - Projects
+ms.openlocfilehash: 165f12f1f76bcc571a7f7c47c33106bad2d6ff42
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424053'
 ---
-
 ## はじめに
 
-このガイドは、作業を計画して追跡するための{% data variables.product.prodname_projects_v2 %}の使い方を紹介します。 このガイドでは、新しいプロジェクトを作成し、タスクの優先度を追跡するためにカスタムフィールドを追加します。 また、コラボレータと優先度や進捗について伝えるための役に立つ、保存されるビューも作成します。
+このガイドでは、{% data variables.product.prodname_projects_v2 %} を使って作業を計画して追跡する方法を示します。 このガイドでは、新しいプロジェクトを作成し、タスクの優先度を追跡するためにカスタムフィールドを追加します。 また、コラボレータと優先度や進捗について伝えるための役に立つ、保存されるビューも作成します。
 
-## 必要な環境
+## 前提条件
 
-Organizationプロジェクトもしくはユーザプロジェクトを作成できます。 Organizationプロジェクトを作成するには、{% data variables.product.prodname_dotcom %} Organizationが必要です。 Organizationの作成に関する詳しい情報については「[新しいOrganizationを最初から作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) 」を参照してください。
+Organizationプロジェクトもしくはユーザプロジェクトを作成できます。 Organizationプロジェクトを作成するには、{% data variables.product.prodname_dotcom %} Organizationが必要です。 Organization の作成の詳細については、「[新しい Organization をゼロから作成](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 
-このガイドでは、新しいプロジェクトに対して自分のOrganizationが所有するリポジトリから既存のIssueを追加する（Organizationプロジェクトの場合）か、自分が所有するリポジトリから追加（ユーザプロジェクトの場合）します。 Issueの作成に関する詳しい情報については「[Issueの作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
+このガイドでは、新しいプロジェクトに対して自分のOrganizationが所有するリポジトリから既存のIssueを追加する（Organizationプロジェクトの場合）か、自分が所有するリポジトリから追加（ユーザプロジェクトの場合）します。 Issue の作成の詳細については、「[Issue の作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
 
-## プロジェクトの作成
+## プロジェクトを作成する
 
 まず、Organizationプロジェクトもしくはユーザプロジェクトを作成してください。
 
@@ -46,7 +51,7 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 
 上記のステップを何回か繰り返し、複数のIssueをプロジェクトに追加してください。
 
-プロジェクトにIssueを追加する他の方法、あるいはプロジェクトに追加できる他のアイテムに関する情報については、「[プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)」を参照してください。
+プロジェクトに issue を追加するその他の方法、またはプロジェクトに追加できるその他のアイテムについて詳しくは、「[プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)」を参照してください。
 
 ## プロジェクトへのドラフトIssueの追加
 
@@ -56,22 +61,28 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 
 ## 繰り返しフィールドの追加
 
-次に、繰り返しフィールドを作成して、繰り返される時間のブロックに対して作業を計画して追跡できるようにしましょう。 繰り返しは、長さがカスタマイズ可能で休憩を挟むことがき、あなたとあなたのチームの作業に合わせて設定できます。
+次に、繰り返しフィールドを作成し、繰り返し時間ブロックで作業を計画して追跡できるようにします。 繰り返しは、自分とチームの作業に合わせて構成でき、長さをカスタマイズしたり、休憩を挿入することができます。
 
 {% data reusables.projects.new-field %}
-1. **Iteration（繰り返し）**を選択してください。 ![繰り返しのオプションを表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-iteration.png)
-3. それぞれの繰り返しの期間を変更するには、新しい数値を入力し、ドロップダウンを選択して**days（日）**もしくは**weeks（週）**をクリックしてください。 ![繰り返しの期間を表示しているスクリーンショット](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. [**Save**] をクリックします。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-save-and-create.png)
+1. **[繰り返し]** を選びます
+   ![[繰り返し] オプションを示すスクリーンショット](/assets/images/help/projects-v2/new-field-iteration.png)
+3. 各イテレーションの期間を変更するには、新しい数値を入力し、ドロップダウンを選択して、**日** または **週** のいずれかをクリックします。
+   ![繰り返し期間を示すスクリーンショット](/assets/images/help/projects-v2/iteration-field-duration.png)
+4. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 ## 優先度を追跡するためのフィールドの作成
 
-さあ、`High`、`Medium`、`Low`のいずれかの値を含む`Priority`という名前のカスタムフィールドを作成してください。
+次に、値 `High`、`Medium`、または `Low` を含む `Priority` という名前のカスタム フィールドを作成します。
 
 {% data reusables.projects.new-field %}
-1. **Single select（単一選択）**を選択してください。 ![単一選択オプションを表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-single-select.png)
-1. "Options（オプション）"の下で、最初の選択肢の"High"を入力してください。 ![単一選択オプションを表示しているスクリーンショット](/assets/images/help/projects-v2/priority-example.png)
-1. "Medium"と"Low"のためのフィールドを追加するため、**Add option（選択肢の追加）**をクリックしてください。
-1. [**Save**] をクリックします。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
+1. **[単一選択]** を選びます
+   ![[単一選択] オプションを示すスクリーンショット](/assets/images/help/projects-v2/new-field-single-select.png)
+1. [オプション] の下に、最初のオプション [High] を入力します。
+   ![[単一選択] オプションを示すスクリーンショット](/assets/images/help/projects-v2/priority-example.png)
+1. フィールドをさらに追加するには、[Medium] と [Low] の **[オプションの追加]** をクリックします。
+1. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
 
 プロジェクト中のすべてのIssueに優先度を指定してください。
 
@@ -82,8 +93,10 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 次に、高優先度のアイテムに集中しやすくするために、プロジェクト中のすべてのアイテムを優先度でグループ化します。
 
 {% data reusables.projects.open-view-menu %}
-1. {% octicon "rows" aria-label="the rows icon" %} **Group（グループ）**をクリックしてください。 ![グループメニューアイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/group-menu-item.png)
-1. **Priority（優先度）**をクリックしてください。 ![グループメニューを表示しているスクリーンショット](/assets/images/help/projects-v2/group-menu.png)
+1. [{% octicon "rows" aria-label="the rows icon" %} **グループ**] をクリックします。
+   ![グループ メニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/group-menu-item.png)
+1. **[優先順位]** をクリックします。
+   ![グループ メニューを示すスクリーンショット](/assets/images/help/projects-v2/group-menu.png)
 
 さあ、優先度を変更するために、Issueをグループ間で移動させてください。
 
@@ -117,7 +130,8 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 次に、ボードレイアウトに切り替えてください。
 
 {% data reusables.projects.open-view-menu %}
-1. "Layout（レイアウト）"の下で、**Board（ボード）**をクリックしてください。 ![レイアウトオプションを表示しているスクリーンショット](/assets/images/help/projects-v2/table-or-board.png)
+1. [レイアウト] で、 **[ボード]** をクリックします。
+   ![[レイアウト] オプションを示すスクリーンショット](/assets/images/help/projects-v2/table-or-board.png)
 
 ![優先度の例](/assets/images/help/projects/example_board.png)
 
@@ -128,24 +142,31 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 ビューの目的を示すために、分かりやすい名前を付けてください。
 
 {% data reusables.projects.open-view-menu %}
-1. {% octicon "pencil" aria-label="the pencil icon" %} **Rename view（ビューの名前の変更）**をクリックしてください。 ![名前の変更のメニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
-1. ビューの新しい名前を入力してください。
-1. 変更を保存するために<kbd>Return</kbd>を押してください。
+1. [{% octicon "pencil" aria-label="the pencil icon" %} **ビューの名前変更**] をクリックします。
+   ![名前変更のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
+1. ビューの新しい名前を入力します。
+1. 変更を保存するには、<kbd>Return</kbd> キーを押します。
 
 ![優先度の例](/assets/images/help/projects/project-view-switch.gif)
 
 ## 組み込みの自動化の設定
 
-最後に、組み込みのワークフローを追加して、アイテムがプロジェクトに追加されたときにステータスが**Todo**に設定されるようにしてください。
+最後に、組み込みのワークフローを追加して、アイテムがプロジェクトに追加されたときに状態が **Todo** に設定されるようにします。
 
-1. 右上で{% octicon "kebab-horizontal" aria-label="The menu icon" %}をクリックしてメニューを開いてください。 ![メニューアイコンを表示しているスクリーンショット](/assets/images/help/projects-v2/open-menu.png)
-1. メニューで{% octicon "workflow" aria-label="The workflow icon" %} **Workflows（ワークフロー）**をクリックしてください。 !['Workflows'メニューアイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/workflows-menu-item.png)
-1. **Default workflows（デフォルトのワークフロー）**の下で、**Item added to project（アイテムがプロジェクトに追加）**をクリックしてください。 ![デフォルトのワークフローを表示しているスクリーンショット](/assets/images/help/projects-v2/default-workflows.png)
-1. **When（時期）**の隣で、`issues`と`pull requests`がどちらも選択されていることを確認してください。 ![ワークフローの"when"設定を表示しているスクリーンショット](/assets/images/help/projects-v2/workflow-when.png)
-1. **Set（設定）**の隣で、**Status:Todo**を選択してください。 ![ワークフローの"set"設定を表示しているスクリーンショット](/assets/images/help/projects-v2/workflow-set.png)
-1. **Disabled（無効）**トグルをクリックして、ワークフローを有効化してください。 ![ワークフローの"enable"コントロールを表示しているスクリーンショット](/assets/images/help/projects-v2/workflow-enable.png)
+1. 右上の {% octicon "kebab-horizontal" aria-label="The menu icon" %} をクリックして、メニューを開きます。
+  ![メニュー アイコンを示すスクリーンショット](/assets/images/help/projects-v2/open-menu.png)
+1. メニューで {% octicon "workflow" aria-label="The workflow icon" %} **[ワークフロー]** をクリックします。
+  ![[ワークフロー] メニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/workflows-menu-item.png)
+1. **[既定のワークフロー]** で、 **[プロジェクトに追加されたアイテム]** をクリックします。
+  ![[既定のワークフロー] を示すスクリーンショット](/assets/images/help/projects-v2/default-workflows.png)
+1. **[タイミング]** の横で、`issues` と `pull requests` が両方選択されていることを確認します。
+  ![ワークフローの [タイミング] 構成を示すスクリーンショット](/assets/images/help/projects-v2/workflow-when.png)
+1. **[設定]** の横にある **[状態:Todo]** を選択します。
+  ![ワークフローの [設定] 構成を示すスクリーンショット](/assets/images/help/projects-v2/workflow-set.png)
+1. **[無効]** トグルをクリックしてワークフローを有効にします。
+  ![ワークフローの [有効化] コントロールを示すスクリーンショット](/assets/images/help/projects-v2/workflow-enable.png)
 
-## 参考リンク
+## 参考資料
 
-- 「[プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)」
-- 「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」
+- [プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+- [ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)

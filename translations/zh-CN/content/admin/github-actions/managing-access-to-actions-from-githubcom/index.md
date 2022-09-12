@@ -14,6 +14,12 @@ children:
   - /manually-syncing-actions-from-githubcom
   - /using-the-latest-version-of-the-official-bundled-actions
   - /setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
-shortTitle: 管理对操作的访问
+shortTitle: Manage access to actions
+ms.openlocfilehash: 080be2c0f08cf3ec7f5a0b8cc3d9220691a9e1e6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099062'
 ---
 

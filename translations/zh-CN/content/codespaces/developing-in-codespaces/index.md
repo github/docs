@@ -21,5 +21,11 @@ children:
   - /getting-started-with-github-codespaces-for-machine-learning
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-with-github-cli
+ms.openlocfilehash: 32f6b6c874d4a117928e8766ded4a8c02f027c8e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147763618'
 ---
 

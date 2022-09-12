@@ -1,5 +1,13 @@
-When you enable organization discussions, you will choose a repository in the organization to be the source repository for your organization discussions. You can use an existing repository or create a repository specifically to hold your organization discussions. Discussions will appear both on the discussions page for the organization and on the discussion page for the source repository.
+---
+ms.openlocfilehash: bbc607de914bb87c81b24eaf777033bd1419edd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147409584"
+---
+Ao habilitar as discussões da organização, você escolherá um repositório na organização para ser o repositório de origem para as discussões. Você pode usar um repositório existente ou criar um repositório especificamente para manter as discussões da sua organização. As discussões serão exibidas na página de discussões da organização e na página de discussão do repositório de origem.
 
-Permission to participate in or manage discussions in your organization is based on permission in the source repository. For example, a user needs write permission to the source repository in order to delete an organization discussion. This is identical to how a user needs write permission in a repository in order to delete a repository discussion.
+A permissão para participar ou gerenciar discussões em sua organização baseia-se na permissão no repositório de origem. Por exemplo, um usuário precisa de permissão de gravação no repositório de origem para excluir uma discussão da organização. Isso é idêntico à forma como um usuário precisa de permissão de gravação em um repositório para excluir uma discussão do repositório.
 
-You can change the source repository at any time. If you change the source repository, discussions are not transferred to the new source repository.
+Você pode alterar o repositório de origem a qualquer momento. Se você alterar o repositório de origem, as discussões não serão transferidas para o novo repositório de origem.

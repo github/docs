@@ -19,7 +19,7 @@ topics:
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 概要
+## Overview
 
 Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
 
@@ -39,7 +39,7 @@ You can view the reused workflows referenced in your {% data variables.product.p
 
 ### Reusable workflows and starter workflows
 
-スターターワークフローを使うと、Organizationでワークフローの作成権限を持つ人は誰でも、ワークフローを素早く容易に作成できます。 When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
+Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
 
 For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
@@ -57,7 +57,7 @@ A reusable workflow can be used by another workflow if {% ifversion ghes or ghec
 
 ### Using GitHub-hosted runners
 
-The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」を参照してください。
+The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 ### Using self-hosted runners
 
@@ -67,7 +67,7 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 * In the caller repository
 * In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
 
-## 制限事項
+## Limitations
 
 {% ifversion nested-reusable-workflow %}
 * You can connect up to four levels of workflows. For more information, see "[Calling a nested reusable workflow](#calling-a-nested-reusable-workflow)."
@@ -109,7 +109,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step. 
 
    {% note %}
 
@@ -137,7 +137,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    {% note %}
 
-   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. 詳しい情報については「[デプロイメントへの環境の利用](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)」を参照してください。
+   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 
    {% endnote %}
 
@@ -180,11 +180,11 @@ jobs:
 
 Jobs using the matrix strategy can call a reusable workflow.
 
-マトリックス戦略を使うと、単一のジョブ定義中で変数を使って、変数の組み合わせに基づく複数のジョブの実行を自動的に生成できます。 For example, you can use a matrix strategy to pass different inputs to a reusable workflow. マトリクスに関する詳しい情報については「[ジョブでのマトリクスの利用](/actions/using-jobs/using-a-matrix-for-your-jobs)」を参照してください。
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ### Example matrix strategy with a reusable workflow
 
-This workflow file references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. このワークフローは、変数中のそれぞれの値に対して1つずつ、3つのジョブを実行します。 The workflow file also calls a reusable workflow by using the `uses` keyword.
+This workflow file references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. The workflow file also calls a reusable workflow by using the `uses` keyword.
 
 {% raw %}
 ```yaml{:copy}
@@ -241,9 +241,9 @@ When you call a reusable workflow, you can only use the following keywords in th
 
    {% note %}
 
-   **注釈:**
+   **Note:**
 
-   * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+   * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
    * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
 
    {% endnote %}
@@ -321,14 +321,15 @@ jobs:
 
 A workflow that contains nested reusable workflows will fail if any of the nested workflows is inaccessible to the initial caller workflow. For more information, see "[Access to reusable workflows](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)."
 
-`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
+`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 {% endif %}
 
 ## Using outputs from a reusable workflow
 
 A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value. That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
+If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value. 
+That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
 
@@ -410,7 +411,7 @@ For information about using the REST API to query the audit log for an organizat
 
 {% endif %}
 
-## 次のステップ
+## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)."
 

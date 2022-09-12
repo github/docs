@@ -10,9 +10,14 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: cb1c990506512c252b488b9d265cf8eb052435e2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145065987'
 ---
-
-您可以直接对 GraphQL API [执行内省](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)。
+可以直接对 GraphQL API [执行自检](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)。
 
 或者，您也可以在此处下载公共架构的最新版本：
 

@@ -1,33 +1,45 @@
 ---
-title: About single select fields
+title: 关于单选字段
 shortTitle: About single select fields
-intro: You can create single select fields with defined options that can be selected from a dropdown menu.
+intro: 可以使用可从下拉菜单中选择的已定义选项创建单选字段。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: 50251608201f6a5e199c235cb0c715449bc99882
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423913'
 ---
+可以通过指定选项按单选字段进行筛选，例如：`fieldname:option`。 可以通过提供以逗号分隔的选项列表来筛选多个值，例如：`fieldname:option,option`。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 
-You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. 更多信息请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+单选字段最多可以包含 50 个选项。 
 
-Single select fields can contain up to 50 options.
-
-## Adding a single select field
+## 添加单选字段
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Below "Options", type the first option. ![Screenshot showing the single select option](/assets/images/help/projects-v2/single-select-create-with-options.png)
-   - To add additional options, click **Add option**.
-1. 单击 **Save（保存）**。 ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. 选择“单选”
+   ![显示“单选”选项的屏幕截图](/assets/images/help/projects-v2/new-field-single-select.png)
+1. 在“选项”下方，键入第一个选项。
+   ![显示“单选”选项的屏幕截图](/assets/images/help/projects-v2/single-select-create-with-options.png)
+   - 若要添加其他选项，请单击“添加选项”。
+1. 单击“ **保存**”。
+   ![显示“保存”按钮的屏幕截图](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+或者，通过按 {% data variables.projects.command-palette-shortcut %} 打开项目命令面板，然后开始键入“创建新字段”。
 
-## Editing a single select field
+## 编辑单选字段
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the single select field you want to adjust. ![Screenshot showing an single select field](/assets/images/help/projects-v2/select-single-select.png)
-1. Edit existing options or click **Add option**. ![Screenshot showing single select options](/assets/images/help/projects-v2/single-select-edit-options.png)
-1. Optionally, to delete an option, click {% octicon "x" aria-label="The x icon" %}. ![Screenshot showing delete button](/assets/images/help/projects-v2/single-select-delete.png)
-1. Click **Save options**. ![Screenshot showing save button](/assets/images/help/projects-v2/save-options.png)
+1. 单击要调整的单选字段的名称。
+   ![显示单选字段的屏幕截图](/assets/images/help/projects-v2/select-single-select.png)
+1. 编辑现有选项或单击“添加选项”。
+   ![显示“单选”选项的屏幕截图](/assets/images/help/projects-v2/single-select-edit-options.png)
+1. （可选）若要删除某个选项，请单击 {% octicon "x" aria-label="The x icon" %}。
+   ![“删除”按钮的屏幕截图](/assets/images/help/projects-v2/single-select-delete.png)
+1. 单击“保存”选项。
+   ![显示“保存”按钮的屏幕截图](/assets/images/help/projects-v2/save-options.png)

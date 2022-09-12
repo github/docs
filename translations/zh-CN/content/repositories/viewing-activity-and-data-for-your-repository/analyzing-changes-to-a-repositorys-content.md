@@ -20,9 +20,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 分析更改
+shortTitle: Analyze changes
+ms.openlocfilehash: 7b6c9918b5d3de0fbae3b94fb8e90ece694a4076
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129287'
 ---
-
 ## 可视化仓库中的提交
 
 您可以在提交图中查看过去一年里对仓库进行的所有提交（不包括合并提交）。
@@ -37,9 +42,9 @@ shortTitle: 分析更改
 
 ### 访问提交图
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. 在左侧边栏中，单击 **Commits（提交）**。 ![提交选项卡](/assets/images/help/graphs/commits_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 在左侧边栏中，单击“提交”。
+![“提交”选项卡](/assets/images/help/graphs/commits_tab.png)
 
 ## 可视化仓库内容的添加和删除
 
@@ -53,6 +58,6 @@ shortTitle: 分析更改
 
 ### 访问代码频率图
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. 在左侧边栏中，单击 **Code frequency（代码频率）**。 ![代码频率选项卡](/assets/images/help/graphs/code_frequency_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 在左侧边栏中，单击“代码频率”。
+![“代码频率”选项卡](/assets/images/help/graphs/code_frequency_tab.png)

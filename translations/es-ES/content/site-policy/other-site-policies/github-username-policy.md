@@ -1,5 +1,5 @@
 ---
-title: Política de nombre de usuario de GitHub
+title: Directiva de Nombres de Usuario de GitHub
 redirect_from:
   - /articles/name-squatting-policy
   - /articles/github-username-policy
@@ -10,20 +10,25 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 55225fc4c60503e4cb9dbce4d41e51a13926d79e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556816'
 ---
+Los nombres de cuenta de GitHub están disponibles para las primeras personas que los solicitan y están destinados a ser utilizados de una manera inmediata y activa.
 
-Los nombres de cuentas de GitHub se proporcionan dependiendo de quién los reclame primero, y se pretende que se comiencen a utilizar activamente de inmediato.
+## ¿Qué pasa si el nombre de usuario que quiero ya lo ha elegido alguien?
 
-## ¿Qué pasa si el nombre de usuario que quiero ya está en uso?
+Tenga en cuenta que no toda la actividad de GitHub es visible de forma pública; es posible que haya en uso cuentas cuya actividad no es visible.
 
-Ten en mente que no toda la actividad en GitHub está disponible públicamente para su consulta; puede que las cuentas sin actividad visible estén activas.
+Si el nombre de usuario que desea ya lo ha elegido alguien, piense otros nombres o variaciones únicas. Puede utilizar un número, un guion o una forma alternativa de escribir ese nombre para encontrar un nombre de usuario de su preferencia que aún esté disponible.
 
-Si ya han reclamado el nombre de usuario que quieres, considera otros nombres o variaciones únicas de éste. Puedes identificar un nombre de usuario aún disponible si utilizas números, guiones, o una morfología alterna.
+## Directiva de Marcas Comerciales
 
-## Política de marcas
+Si cree que la cuenta de alguien está infringiendo sus derechos de marca comercial, encontrará más información sobre cómo presentar una queja sobre la marca comercial en nuestra página [Directiva de Marcas Comerciales](/articles/github-trademark-policy/).
 
-Si consideras que la cuenta de alguien está violando tus derechos de marca, puedes encontrar más información sobre cómo hacer una queja de marca en nuestra página de [Política de Marca](/articles/github-trademark-policy/).
+## Directiva sobre Ocupación de Nombres
 
-## Política de ocupación de nombre
-
-GitHub prohibe el acaparamiento de nombres de cuenta, y dichos nombres de cuenta no pueden reservarse o mantenerse en inactividad para reclamarse posteriormente. Las cuentas que violen esta política de acaparamiento serán eliminadas o renombradas sin previo aviso. Los intentos de vender, comprar o solicitar otras formas de pago a cambio de nombres de cuenta están prohibidos y pueden resultar en una suspensión de cuenta permanente.
+GitHub prohíbe la ocupación de nombres de cuenta y los nombres de cuenta no pueden reservarse ni mantenerse inactivos para utilizarlos en el futuro. Las cuentas que infrinjan esta directiva de ocupación de nombres podrán eliminarse o cambiarse de nombre sin previo aviso. Los intentos de vender, comprar o solicitar cualquier otro pago a cambio de nombres de cuenta están prohibidos y pueden dar lugar a la suspensión permanente de la cuenta.

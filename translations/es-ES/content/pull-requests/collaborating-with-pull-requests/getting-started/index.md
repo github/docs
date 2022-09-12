@@ -1,7 +1,7 @@
 ---
-title: Getting started
+title: Introducción
 shortTitle: Getting started
-intro: 'Learn about the {% data variables.product.prodname_dotcom %} flow and different ways to collaborate on and discuss your projects.'
+intro: 'Aprende sobre el flujo de {% data variables.product.prodname_dotcom %} y las formas diferentes para debatir y colaborar en tus proyectos.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started
   - /github/collaborating-with-issues-and-pull-requests/overview
@@ -18,5 +18,11 @@ topics:
   - Fundamentals
 children:
   - /about-collaborative-development-models
+ms.openlocfilehash: f8f4e6547b525ceebf1131db468c5a81b3b9d6fd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145137778'
 ---
 
