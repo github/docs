@@ -1,31 +1,38 @@
 ---
-title: Arquivar cartões em um quadro de projeto
-intro: Você pode arquivar cartões de quadro de projeto para limpar seu fluxo de trabalho sem perder o contexto histórico de um projeto.
+title: 'Arquivar cartões de arquivamento em um {% data variables.product.prodname_project_v1 %}'
+intro: 'Você pode arquivar cartões do {% data variables.projects.projects_v1_board %} para organizar seu fluxo de trabalho sem perder o contexto histórico de um projeto.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
   - /github/managing-your-work-on-github/archiving-cards-on-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Arquivar cartões no quadro
+shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: de1d0a4981a46c4ceddd73b5d1f49b74f111601f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423585'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-A automação no quadro de projeto não se aplica a cartões do quadro de projeto arquivados. Por exemplo, se você fechar um problema no arquivamento de um quadro de projeto, o cartão arquivado não será movido automaticamente para a coluna "Done" (Concluído). Quando você restaura um cartão do arquivamento do quadro de projeto, o cartão retorna à coluna em que foi arquivada.
+A automação no seu {% data variables.projects.projects_v1_board %} não se aplica a cartões arquivados do {% data variables.projects.projects_v1_board %}. Por exemplo, se você fechar um problema nos arquivos do {% data variables.projects.projects_v1_board %}, o cartão arquivado não será movido automaticamente para a coluna "Concluído". Quando você restaura um cartão dos arquivos do {% data variables.projects.projects_v1_board %}, o cartão retorna à coluna em que ele estava arquivado.
 
-## Arquivar cartões em um quadro de projeto
+## Arquivar cartões em um {% data variables.projects.projects_v1_board %}
 
-1. Em um quadro de projeto, encontre o cartão que você deseja arquivar e clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Lista de opções para edição de um cartão do quadro de projeto](/assets/images/help/projects/select-archiving-options-project-board-card.png)
-2. Clique em **Arquivar**. ![Opção de seleção de arquivamento no menu](/assets/images/help/projects/archive-project-board-card.png)
+1. Em um {% data variables.projects.projects_v1_board %}, encontre o cartão que você deseja arquivar e clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+![Lista de opções para edição de um cartão do quadro de projetos](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+2. Clique em **Arquivar**.
+![Seleção da opção Arquivar no menu](/assets/images/help/projects/archive-project-board-card.png)
 
-## Restaurar cartões em um quadro de projeto usando a barra lateral
+## Restaurar cartões em um {% data variables.projects.projects_v1_board %} da barra lateral
 
 {% data reusables.project-management.click-menu %}
-2. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **View archive** (Exibir arquivamento). ![Opção de seleção de exibição de arquivamento no menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. Acima do cartão do quadro de projeto que deseja desarquivar, clique em **Restore** (Restaurar). ![Seleção da restauração do cartão do quadro de projeto](/assets/images/help/projects/restore-card.png)
+2. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Exibir arquivos**.
+  ![Seleção da opção Exibir arquivos no menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+3. Acima do cartão do {% data variables.projects.projects_v1_board %} que você deseja desarquivar, clique em **Restaurar**.
+  ![Seleção da opção Restaurar cartão do quadro de projetos](/assets/images/help/projects/restore-card.png)

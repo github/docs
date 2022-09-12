@@ -1,21 +1,26 @@
 ---
-title: GitHub Copilotの支払いについて
-intro: '{% data variables.product.prodname_copilot %}を使いたい場合、{% data variables.product.prodname_dotcom %}アカウントのプランが必要です。'
+title: GitHub Copilot の課金について
+intro: '{% data variables.product.prodname_copilot %} を使用する場合は、{% data variables.product.prodname_dotcom %} アカウントのサブスクリプションが必要です。'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: GitHub Copilotの支払い
+shortTitle: Billing for GitHub Copilot
+ms.openlocfilehash: 38bdf5dcef235faef0c04fa207e3dca8a4420105
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573789'
 ---
+## {% data variables.product.prodname_copilot %} の課金について
 
-## {% data variables.product.prodname_copilot %}の支払いについて
+{% data variables.product.prodname_copilot %} を使用する場合は、{% data variables.product.prodname_dotcom %} 個人アカウントのサブスクリプションが必要です。 {% data variables.product.prodname_copilot %} の詳しい情報については、「[{% data variables.product.prodname_copilot %} について](/en/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。
 
-{% data variables.product.prodname_copilot %}を使いたい場合、{% data variables.product.prodname_dotcom %}の個人アカウントにプランが必要になります。 {% data variables.product.prodname_copilot %} の詳細については、「[{% data variables.product.prodname_copilot %} について](/en/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。
+有料サブスクリプションを開始する前に、{% data variables.product.prodname_copilot %} を評価するための 60 日間の 1 回限りの試用版を設定できます。 試用版を開始するには、月単位または年単位の請求期間を選び、支払い方法を指定する必要があります。 60 日以内に試用版をキャンセルしない場合、試用版は自動的に有料サブスクリプションに変換されます。 {% data variables.product.prodname_copilot %} 試用版は、60 日間いつでもキャンセルすることができます。料金は発生しません。 試用期間が終了する前にキャンセルした場合、60 日間の試用期間が終了するまで、{% data variables.product.prodname_copilot %} に引き続きアクセスできます。 詳しくは、「[GitHub Copilot サブスクリプションの管理](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)」を参照してください。
 
-有料プランを始める前に、{% data variables.product.prodname_copilot %}を評価するために1回限定の60日の試用をセットアップできます。 試用を開始するには、月次もしくは年次の支払いサイクルを選択し、支払い方法を提供しなければなりません。 60日の終わりまでに試用をキャンセルしなかった場合、試用は自動的に有料プランに変換されます。 {% data variables.product.prodname_copilot %}の試用は、60日の間いつでもキャンセルでき、そうすれば課金されることはありません。 試用の終了前にキャンセルした場合、60日の試用期間が終了するまでは{% data variables.product.prodname_copilot %}にアクセスできます。 詳しい情報については「[GitHub Copilotのプランの管理](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)」を参照してください。
+## {% data variables.product.prodname_copilot %} の価格
 
-## {% data variables.product.prodname_copilot %}の価格
+{% data variables.product.prodname_copilot %} サブスクリプションは、月単位または年単位のサイクルで利用できます。 月単位の請求期間を選ぶと、1 か月あたり 10 ドルが課金されます。 年単位の請求期間を選ぶと、1 年あたり 100 ドルが課金されます。 請求期間はいつでも変更でき、変更は次の請求期間の開始時から反映されます。
 
-{% data variables.product.prodname_copilot %}プランは、月次もしくは年次のサイクルで利用できます。 月次の支払いサイクルを選択した場合、カレンダーの月ごとに$10が請求されます。 年次の支払いサイクルを選択した場合、年間で$100が請求されます。 支払いサイクルはいつでも変更でき、変更は次の支払いサイクルの開始時点から反映されます。
-
-{% data variables.product.prodname_copilot %}の無料プランは、確認済みの学生、及び{% data variables.product.company_short %}上の人気のあるオープンソースリポジトリのメンテナが利用できます。 オープンソースメンテナとしての基準を満たしているなら、{% data variables.product.prodname_copilot %}プランのページにアクセスすると自動的に通知されます。 学生として現在{% data variables.product.prodname_student_pack %}を受け取っている場合、{% data variables.product.prodname_copilot %}プランのページにアクセスすると無料のプランも提供されます。 {% data variables.product.prodname_student_pack %}に関する詳しい情報については「[学生向け開発者パックへの応募](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack)」を参照してください。
+{% data variables.product.prodname_copilot %} の無料サブスクリプションは、検証済みの学生、および {% data variables.product.company_short %} の一般的なオープンソース リポジトリの保守担当者が利用できます。 オープンソースの保守担当者として条件を満たしている場合、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスすると、自動的に通知されます。 学生として、現在 {% data variables.product.prodname_student_pack %} を受け取っている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスすると、無料のサブスクリプションも提供されます。 {% data variables.product.prodname_student_pack %} について詳しくは、「[学生として {% data variables.product.prodname_global_campus %} に応募する](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)」を参照してください。

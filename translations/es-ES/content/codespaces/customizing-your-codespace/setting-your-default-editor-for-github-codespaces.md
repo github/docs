@@ -1,6 +1,6 @@
 ---
-title: Setting your default editor for GitHub Codespaces
-shortTitle: Configurar el editor predeterminado
+title: Configuración del editor predeterminado para GitHub Codespaces
+shortTitle: Set the default editor
 intro: 'Puedes configurar tu editor predeterminado para {% data variables.product.prodname_codespaces %} en tu página de ajustes personal.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -12,14 +12,20 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 7cfc188cb265482ea9dd40f3fc653af870aa6982
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147111669'
 ---
-
 En la página de ajustes, puedes configurar las preferencias de tu editor para que los codespaces recién creados se abran automáticamente, ya sea en {% data variables.product.prodname_vscode %} para la Web o en {% data variables.product.prodname_vscode %} para escritorio.
 
-Si quieres utilizar {% data variables.product.prodname_vscode %} como tu editor predeterminado para {% data variables.product.prodname_codespaces %}, necesitas instalar {% data variables.product.prodname_vscode %} y la extensión de {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la [página de descarga de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) y la [ extensión de {% data variables.product.prodname_github_codespaces %} en el mercado de {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+Si quieres utilizar {% data variables.product.prodname_vscode %} como tu editor predeterminado para {% data variables.product.prodname_codespaces %}, necesitas instalar {% data variables.product.prodname_vscode %} y la extensión de {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %}. Para más información, vea la [página de descarga de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) y la [extensión {% data variables.product.prodname_github_codespaces %} en el marketplace de {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 ## Configurar tu editor predeterminado
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Debajo de "Preferencia de editor", selecciona la opción que desees. ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)Si eliges **{% data variables.product.prodname_vscode %}**, los {% data variables.product.prodname_codespaces %} se abrirán automáticamente en la aplicación de escritorio cuando crees el siguiente codespace. Podrías necesitar permitir acceso tanto a tu buscador como a {% data variables.product.prodname_vscode %} para que abra con éxito. ![Configurar tu editor](/assets/images/help/codespaces/launch-default-editor.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Debajo de "Preferencia de editor", selecciona la opción que desees.
+   ![Configuración del editor](/assets/images/help/codespaces/select-default-editor.png) Si elige **{% data variables.product.prodname_vscode %}** , {% data variables.product.prodname_codespaces %} se abrirá automáticamente en la aplicación de escritorio la próxima vez que cree un codespace. Podrías necesitar permitir acceso tanto a tu buscador como a {% data variables.product.prodname_vscode %} para que abra con éxito.
+   ![Configuración del editor](/assets/images/help/codespaces/launch-default-editor.png)

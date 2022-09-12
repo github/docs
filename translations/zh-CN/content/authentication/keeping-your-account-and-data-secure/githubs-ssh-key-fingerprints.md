@@ -13,9 +13,14 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: SSH 密钥指纹
+shortTitle: SSH key fingerprints
+ms.openlocfilehash: 29f61df463d014e6a72ad7dd21049a2b338b893e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084654'
 ---
-
 以下是 {% data variables.product.prodname_dotcom %} 的公钥指纹：
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)

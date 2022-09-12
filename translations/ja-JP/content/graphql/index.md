@@ -1,5 +1,5 @@
 ---
-title: GitHubのGraphQL API
+title: GitHub GraphQL API
 intro: 'インテグレーションを作成し、データを取り出し、ワークフローを自動化するために、{% data variables.product.prodname_dotcom %}のGraphQL APIを使ってください。 {% data variables.product.prodname_dotcom %}のGraphQL APIは、{% data variables.product.prodname_dotcom %} REST APIよりも正確で柔軟なクエリを提供します。'
 shortTitle: GraphQL API
 introLinks:
@@ -32,5 +32,11 @@ children:
   - /overview
   - /reference
   - /guides
+ms.openlocfilehash: f2667239f87135b080691b535eaf6d2669a53f76
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068423'
 ---
 

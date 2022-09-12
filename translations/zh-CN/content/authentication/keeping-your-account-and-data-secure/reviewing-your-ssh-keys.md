@@ -15,19 +15,24 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 4f15ea8fd56994de4d9b30c21e6afb081e20a327
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084636'
 ---
-
 您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
 
 {% mac %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+    ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     注意：如果由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未经验证的密钥将在 SSH 密钥列表中突出显示。
 
   {% endtip %}
 
@@ -35,53 +40,53 @@ topics:
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. 找到并记录公钥指纹。 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. {% data variables.product.product_name %} 上的 SSH 密钥应匹配计算机上的相同密钥。
 
 {% endmac %}
 
 {% windows %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+    ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     注意：如果由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未经验证的密钥将在 SSH 密钥列表中突出显示。
 
   {% endtip %}
 
-4. 打开 Git Bash。
+4. 打开 Git Bash。 
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. 找到并记录公钥指纹。 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. {% data variables.product.product_name %} 上的 SSH 密钥应匹配计算机上的相同密钥。
 
 {% endwindows %}
 
 {% linux %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+    ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     注意：如果由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未经验证的密钥将在 SSH 密钥列表中突出显示。
 
   {% endtip %}
 
@@ -89,18 +94,18 @@ topics:
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. 找到并记录公钥指纹。 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. {% data variables.product.product_name %} 上的 SSH 密钥应匹配计算机上的相同密钥。
 
 {% endlinux %}
 
 {% warning %}
 
-**警告**：如果在 {% data variables.product.product_name %} 上看到您不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %}寻求进一步的帮助。 无法识别的公钥可能表示安全问题。
+警告：如果在 {% data variables.product.product_name %} 上看到不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %} 寻求进一步的帮助。 无法识别的公钥可能表示安全问题。
 
 {% endwarning %}

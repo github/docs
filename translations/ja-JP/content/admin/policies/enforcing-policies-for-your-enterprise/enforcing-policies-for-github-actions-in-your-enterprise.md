@@ -13,6 +13,7 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -35,41 +36,41 @@ shortTitle: GitHub Actions policies
 
 ## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
-Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 You can also limit the use of public actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your enterprise.
+You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. "Policies（ポリシー）"の下で、オプションを選択してください。
+1. Under "Policies", select your options.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. 詳しい情報については「[GitHub Connectを使用したGitHub.comのアクションへの自動アクセスの有効化](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
+   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
    {% endnote %}
    {%- endif %}
    {% ifversion actions-workflow-policy %}
-   ![この Enterprise アカウントについてアクションを無効化、無効化、または制限](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
    {%- else %}
-   ![この Enterprise アカウントについてアクションを無効化、無効化、または制限](/assets/images/help/organizations/enterprise-actions-policy.png)
+   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy.png)
    {%- endif %}
-1. [**Save**] をクリックします。
+1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. "Policies（ポリシー）"の下で、{% data reusables.actions.policy-label-for-select-actions-workflows %}を選択し、必要なアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}をリストに追加してください。
+1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
    {% ifversion actions-workflow-policy %}
-   ![許可リストへのアクションと再利用可能なワークフローの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes or ghae %}
-   ![許可リストへのアクションの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![許可リストへのアクションの追加](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
@@ -125,7 +126,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
-### デフォルトの`GITHUB_TOKEN`権限の設定
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
 By default, when you create a new enterprise, `GITHUB_TOKEN` only has read access for the `contents` scope.
@@ -134,13 +135,13 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [Workflow permissions]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
    ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
-1. **Save（保存）**をクリックして、設定を適用してください。
+1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-### {% data variables.product.prodname_actions %}がPull Requestの作成もしくは承認をできないようにする
+### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
@@ -152,7 +153,7 @@ By default, when you create a new enterprise, workflows are not allowed to creat
 1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
 
    ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
-1. **Save（保存）**をクリックして、設定を適用してください。
+1. Click **Save** to apply the settings.
 
 {% endif %}
 {% endif %}

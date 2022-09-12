@@ -1,5 +1,5 @@
 ---
-title: GitHubのプライバシーについての声明
+title: GitHub のプライバシーに関する声明
 redirect_from:
   - /privacy
   - /privacy-policy
@@ -13,310 +13,336 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 0c4a10889f021936677433b5dbf08b2166c2c9e0
+ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 05/12/2022
+ms.locfileid: '144556753'
 ---
+発効日: 2020 年 12 月 19 日
 
-Effective date: May 31, 2022
+ソース コード、プロジェクト、および個人情報を GitHub Inc. (以下「GitHub」または「当社」といいます) に委託していただき、ありがとうございます。 お客様の個人情報を保持することは重大な責任であり、その取り扱い方法をお客様に知っていただきたいと思います。
 
-Thanks for entrusting GitHub Inc. or GitHub B.V. (“GitHub”, “we”, "us" or "our") with your source code, your projects, and your personal data. This Privacy Statement explains our practices regarding the collection, use, and disclosure of your data, including any personal data we collect and process in connection with our website and any applications, software, products, and services provided by GitHub, including any Beta Previews (collectively “Service”).
+すべての用語については、本書に別途規定する場合を除き、[GitHub のサービス条件](/github/site-policy/github-terms-of-service)内に別途定義するとおりとします。
 
 
-本文で注釈のない限り、すべての大文字の用語の定義は、[GitHub利用規約](/github/site-policy/github-terms-of-service)にあります。
+## <a name="the-short-version"></a>要約
 
+当社は、本プライバシーに関する声明に記載されているとおり、お客様の個人情報を使用します。 当社は、お客様の現在地、居住地、または市民権にかかわらず、出身国や地域に関係なく、プライバシー保護に関して世界中のすべてのユーザーに同レベルの高い標準を提供しています。
 
-## ショートバージョン
+この要約と以下の概要には一部しか記載されていません。詳細については、続きをお読みください。
 
-Githubではお客様の個人情報をプライバシーステートメントに記載のとおり使用します。 お客様の所在地や住所、どこの国の市民かに関係なく、出身国や所在地を問わず世界中のすべてのユーザーに対して等しく高水準のプライバシー保護を提供します。
+## <a name="summary"></a>概要
 
-To see our Privacy Notice to residents of California, please go to [GitHub's Notice about the California Consumer Privacy Act](#githubs-notice-to-california-residents) or scroll down.
+| セクション | 本セクションの内容 |
+|---|---|
+| [GitHub が収集する情報](#what-information-github-collects) | GitHub は、お客様の登録、支払い、取引、およびユーザー プロファイルについてお客様から直接情報を収集します。 また、必要であればお客様の同意に基づいて、使用状況に関する情報、Cookie、およびデバイス情報をお客様から自動的に収集します。 GitHub は、第三者からユーザー個人情報を収集する場合もあります。 当社は、お客様がさらに提供することを選択しない限り、お客様から必要最小限の個人情報のみを収集します。 |
+| [GitHub が収集 _しない_ 情報](#what-information-github-does-not-collect) | 当社は、13 歳未満の子どもから意図的に情報を収集せず、[機密性の高い個人情報](https://gdpr-info.eu/art-9-gdpr/)を収集しません。 |
+| [GitHub は情報をどのように使用するか](#how-github-uses-your-information) | 本セクションでは、お客様にサービスを提供する、お客様に連絡する、当社のサービスを向上させる目的や、セキュリティや法令遵守上の目的などで、当社は情報をどのように使用するかについて説明します。 法的に義務付けられている場合は、情報を処理する法的根拠についても説明します。 |
+| [当社は収集した情報をどのように共有するか](#how-we-share-the-information-we-collect) | 当社は以下のいずれかの場合に、お客様の情報を第三者と共有することがあります。お客様の同意を得て、サービス プロバイダーに対し、セキュリティ上の目的で、法的義務を遵守するため、管理の変更や法人または事業単位の売却が行われた場合などです。 当社が個人情報を売却したり、GitHub で広告をホストしたりすることはありません。 お客様は、情報にアクセスするサービス プロバイダーのリストを確認できます。 |
+| [その他の重要な情報](#other-important-information) | 当社は、GitHub 上のリポジトリ コンテンツ、公開情報、および組織アカウントに固有の追加情報を提供します。 |
+| [追加サービス](#additional-services) | 当社は、第三者のアプリケーション、GitHub Pages、GitHub アプリケーションなど、追加サービスに関する情報を提供します。 |
+| [当社が収集した情報にお客様がどのようにアクセスし、管理するか](#how-you-can-access-and-control-the-information-we-collect) | 当社は、お客様が個人情報にアクセス、変更、または削除するための方法を提供しています。 |
+| [当社による Cookie の使用と追跡](#our-use-of-cookies-and-tracking) | 当社は、サービスの提供、保護、および向上に厳密に必要な Cookie のみを使用しています。 当社は、その透明性を高めるページを提供しています。 詳細については、本セクションを参照してください。 |
+| [GitHub は情報をどのように保護するか](#how-github-secures-your-information) | 当社は、GitHub 上の個人情報の秘密保持、整合性、可用性を守り、サーバーの復元力を保護するために必要なあらゆる対策を講じます。 |
+| [GitHub のグローバル プライバシー規定](#githubs-global-privacy-practices) | 当社は、プライバシー保護に関して世界中のすべてのユーザーに同レベルの高い標準を提供しています。 |
+| [当社はお客様とどのように連絡するか](#how-we-communicate-with-you) | 当社は電子メールでお客様とのコミュニケーションを図ります。 お客様は、アカウントの設定で、または当社に連絡することにより、連絡方法を管理できます。 |
+| [苦情の解決](#resolving-complaints) | 当社が万が一プライバシーに関する懸念を迅速かつ完全に解決できない場合、紛争解決の道筋が用意されています。 |
+| [プライバシーに関する声明の変更](#changes-to-our-privacy-statement) | 当社は、かかる変更が有効になる 30 日前に、本プライバシーに関する声明の重要な変更をお客様に通知します。 当社のサイト ポリシー リポジトリで変更を追跡することもできます。 |
+| [ライセンス](#license) | 本プライバシーに関する声明は、[クリエイティブ コモンズ ゼロ ライセンス](https://creativecommons.org/publicdomain/zero/1.0/)の下でライセンスされています。 |
+| [GitHub への問い合わせ](#contacting-github) | 当社のプライバシーに関する声明についてご質問がございましたら、お気軽にお問い合わせください。 |
+| [翻訳](#translations) | 当社は、プライバシーに関する声明の一部の翻訳へのリンクを提供しています。 |
 
+## <a name="github-privacy-statement"></a>GitHub のプライバシーに関する声明
 
-## 概要
+## <a name="what-information-github-collects"></a>GitHub が収集する情報
 
-| セクション                                                                                                                       | 各セクションの内容                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Who is responsible for the processing of your information](#who-is-responsible-for-the-processing-of-your-information)     | Subject to limited exceptions, GitHub is the controller and entity responsible for the processing of your personal data in connection with the Website or Service.                                                                                                                                                              |
-| [GitHubが収集する情報](#what-information-github-collects)                                                                          | GitHubは、お客様の登録内容や支払い、取引、ユーザプロフィールから直接情報を収集します。 当社は、また、お客様の同意が必要な場合は同意を得て、自動的に利用情報、クッキー、およびデバイス情報から収集します。 GitHub may also collect personal data from third parties. We only collect the minimum amount of personal data necessary from you, unless you choose to provide more.                                                   |
-| [当社のお客様情報の利用方法](#how-github-uses-your-information)                                                                          | In this section, we describe the ways in which we use your information, including to provide you the Service, to communicate with you, for security and compliance purposes, and to improve our Website or Service or develop new features and functionality of our Website or Service. 法令が要求している場合、さらに、お客様の情報を処理する法的な根拠を記載します。 |
-| [当社が収集したお客様の情報の共有方法](#how-we-share-the-information-we-collect)                                                              | 次のいずれかの場合において、当社はお客様の情報を第三者と共有することがあります。 ・お客様の同意がある場合 ・当社のサービスプロバイダ間と共有する場合 ・セキュリティを目的とする場合 ・当社の法的義務を遵守する必要がある場合 ・事業法人または事業部門について支配者の変更または売却が行われた場合 当社が個人情報を販売することはありません。GitHubでは広告を掲載することもありません。                                                                                                                               |
-| [Your choices regarding our processing of your personal data](#your-choices-regarding-our-processing-of-your-personal-data) | 当社は、お客様に対して、お客様の個人情報にアクセス、変更または削除する方法を提供します。                                                                                                                                                                                                                                                                                    |
-| [クッキー](#cookies)                                                                                                            | We only use strictly necessary cookies to provide, secure, and improve our Website or Service or develop new features and functionality of our Website or Service. 当社は、このクッキーとトラッキングについて透明性の高いページを提供します。 We do not send any information to third-party analytics services.                                                      |
-| [お客様情報についての当社の保護方法](#how-github-secures-your-information)                                                                   | We take all measures reasonably necessary to protect the confidentiality, integrity, and availability of your personal data on GitHub and to protect the resilience of our servers.                                                                                                                                             |
-| [Communication preferences](#communication-preferences)                                                                     | 当社は、お客様にemailでご連絡します。 アカウント設定または当社にご連絡いただければ、当社からお客様への方法を管理できます。                                                                                                                                                                                                                                                                |
-| [苦情の解決](#resolving-complaints)                                                                                              | 万が一、当社がプライバシーに関する懸念を迅速かつ十分に解決できない場合、当社は紛争解決の方法を提案します。                                                                                                                                                                                                                                                                           |
-| [プライバシーステートメントの変更](#changes-to-our-privacy-statement)                                                                       | 当社は、本プライバシーステートメントの重大な変更について当該変更が有効となる30日前に、お客様に通知します。 お客様は、変更を当社のサイトポリシーリポジトリにおいて確認することもできます。                                                                                                                                                                                                                                  |
-| [ライセンス](#license)                                                                                                           | 本プライバシーステートメントは、[Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/)の元でライセンス付与されています。                                                                                                                                                                                                            |
-| [GitHubへの連絡](#contacting-github)                                                                                            | 当社のプライバシーステートメントに関するご質問がある場合はお気軽にお問い合わせください。                                                                                                                                                                                                                                                                                    |
-| [翻訳](#translations)                                                                                                         | 当社では、一部のプライバシーステートメントの翻訳のリンクを提供しています。                                                                                                                                                                                                                                                                                           |
+「**ユーザー個人情報**」とは、当社のいずれかのユーザーに関する情報であり、この情報だけで、または他の情報と共に、ユーザー個人を特定できるか、あるいは合理的に結び付けることができます。 「ユーザー個人情報」の例として、ユーザー名とパスワード、電子メール アドレス、実名、インターネット プロトコル (IP) アドレスなどの情報と写真があります。
 
-## GitHubのプライバシーについての声明
+ユーザー個人情報には、ユーザーを特定できない、あるいはユーザーと合理的に結び付けることができない、個人を特定できない集計情報は含まれていません。 当社は、個人を特定できない集計情報を、リサーチ目的や、Web サイトおよびサービスの運用、分析、向上、および最適化のために使用する場合があります。
 
-## Who is responsible for the processing of your information?
-The data controller of your personal data is GitHub, Inc. For individuals outside North America, the data controller is GitHub B.V.
+### <a name="information-users-provide-directly-to-github"></a>ユーザーが GitHub に直接提供する情報
 
-This privacy statement does not apply to personal data we process as a service provider or data processor on behalf of our enterprise customers. Our data processing activities as service processor or data processor is governed by our [Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement). If you are a consumer end-user of one of those organizations, you should read that organization’s privacy statement and direct any privacy inquiries to that organization.
+#### <a name="registration-information"></a>登録情報
+当社は、アカウントの作成時に基本情報の入力を要求します。 お客様が自分のユーザー名とパスワードを作成する際に、当社はお客様に有効な電子メール アドレスの入力を求めます。
 
-## GitHub acting on your behalf
+#### <a name="payment-information"></a>支払情報
+お客様が有料アカウントにサインオンし、GitHub スポンサー プログラムを通じて送金したり、GitHub Marketplace でアプリケーションを購入したりする場合、当社はお客様の氏名、住所、クレジット カード情報または PayPal 情報を収集します。 クレジット カード情報または PayPal 情報の処理や保管は、GitHub ではなく、当社の第三者支払処理者が行います。
 
-In some cases, GitHub is acting only on your behalf for the personal data we collect and process in connection with our Service (for example, for the personal data added to a repository by the contributors to such repository). In such cases, GitHub will only process the data in order to provide the Service requested by you. Please note that subject to our [Private Information Removal  Policy](/site-policy/content-removal-policies/github-private-information-removal-policy) contributors’ requests to remove personal data generally require notice to and action from the repository owner.
+お客様が [GitHub Marketplace](https://github.com/marketplace) でアプリケーションを掲載し、販売する場合、当社はお客様のバンキング情報を要求します。 お客様が [GitHub スポンサー プログラム](https://github.com/sponsors)を通じて資金を集める場合、お客様がプログラムに加入し、これらのサービスを通じて資金を受け取るには、当社は法令遵守上の目的で、登録プロセスを通じて[追加情報](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information)を要求します。
 
-## GitHubが収集する情報
+#### <a name="profile-information"></a>プロファイル情報
+お客様は、氏名、アバター (写真も使用可能)、人物詳細、住所、勤務先、第三者の Web サイトの URL などのアカウント プロファイルに、さらに情報を提供することもできます。 この情報には、ユーザー個人情報が含まれている場合があります。 お客様のプロファイル情報が、当社のサービスを利用している他のユーザーに表示される場合がある点にご注意ください。
 
-The personal data we collect depends on how you interact with us, the services you use, and the choices you make. We collect information about you from different sources and in various ways when you use our Service, including information you provide directly, information collected automatically, third-party data sources, and data we infer or generate from other data.
+### <a name="information-github-automatically-collects-from-your-use-of-the-service"></a>お客様によるサービスの利用から GitHub が自動的に収集する情報
 
+#### <a name="transactional-information"></a>取引情報
+当社で有料アカウントをお持ちの場合、[GitHub Marketplace](https://github.com/marketplace) に掲載したアプリケーションを販売する場合、または[GitHub スポンサー プログラム](https://github.com/sponsors)を通じて資金を集める場合、当社は、日付、時刻、請求額などの本サービスで行われた取引に関する特定の情報を自動的に収集します。
 
-### ユーザがGitHubに直接提供する情報
-We collect personal data you provide to us. 例:
+#### <a name="usage-information"></a>使用状況に関する情報
+お客様が当社のサービスや Web サイトにアクセスする場合、当社は、必要であればお客様の同意に基づいて、ほとんどのサービスが収集するのと同じ基本的な情報を自動的に収集します。 これには、お客様が閲覧したページ、参照サイト、お客様の IP アドレスとセッション情報、各要求の日時など、お客様によるサービスの使用状況に関する情報が含まれます。 これは、アカウントを持っているかどうかにかかわらず、当社が Web サイトへのすべての訪問者から収集する情報です。 この情報には、ユーザー個人情報が含まれている場合があります。
 
-#### 登録情報
-We collect information such as your username, email address, and password during account creation.
+#### <a name="cookies"></a>Cookie
+以下に詳しく説明するとおり、当社は Cookie (Cookie ID や設定など) から自動的に情報を収集して、お客様のログインの維持、基本設定の保持、お客様とそのデバイスの識別、お客様による当社のサービスの使用状況の分析を行っています。
 
-#### Demographic information
-In some cases, we request that you provide age, gender, and similar demographic details.
+#### <a name="device-information"></a>デバイス情報
+当社は、IP アドレス、ブラウザーやクライアント アプリケーションの情報、言語設定、オペレーティング システムやアプリケーションのバージョン、デバイスの種類と ID、デバイス モデルと製造元など、お客様のデバイスに関する特定の情報を収集する場合があります。 この情報には、ユーザー個人情報が含まれている場合があります。
 
-#### Payment and billing information
-If you make a purchase or other financial transaction, we collect credit card numbers, financial account information, and other payment details.
+### <a name="information-we-collect-from-third-parties"></a>当社が第三者から収集する情報
 
-#### Content and files
-We collect any photographs, documents, or other files you upload to our Service; and if you send us email messages or other communications, we collect and retain those communications. For example, you may choose to give us more information for your Account profile, such as your full name, an avatar which may include a photograph, your biography, your location, your company, and a URL to a third-party website. プロフィール情報は、当社のサービスを使用する他のユーザからも閲覧ができますのでご注意ください。
+GitHub は、第三者からユーザー個人情報を収集する場合があります。 これは、たとえば当社のベンダー、パートナー、関連会社のいずれかによる研修や、GitHub に関する情報の受信にサインアップした場合に行われる場合があります。 GitHub が第三者のデータ ブローカーからユーザー個人情報を購入することはありません。
 
-### Information GitHub automatically collects.
-When you visit or use our Service, we collect some information automatically. 例:
+## <a name="what-information-github-does-not-collect"></a>GitHub が収集しない情報
 
-#### Transaction information
-If you have a paid Account with us, or make a purchase or sale using our Service, we automatically collect certain information about your transactions on the Service, such as your full name, address, region, state, country, zip code, the date, time, and amount charged.
+当社は、人種的または民族的起源、政治的意見、宗教的または哲学的信念、労働組合への加入を明らかにする個人データや、遺伝データ、自然人を一意に識別するための生体認証データ、医療に関するデータ、自然人の性生活または性的指向に関するデータの処理など、「**[機密性の高い個人情報](https://gdpr-info.eu/art-9-gdpr/)**」を意図的に収集しません。 お客様が機密性の高い個人情報を当社のサーバーで保管することを選択した場合、そのデータに関する規制当局の管理に従う責任は、お客様にあります。
 
-#### 利用情報
-If you're accessing or using our Service, we may automatically collect information about how you use the Service, such as the pages you view, the referring site, your IP address and information about your device, session information, the date and time of each request, information contained in or relating to your contributions to individual repositories, and telemetry data (i.e., information about how a specific feature or service is performing) regarding your use of other features and functionality of the Service.
+13 未満の子どもの場合、GitHub でアカウントを保有することはできません。 GitHub は、13 歳未満の子どもから意図的に情報を収集せず、13 歳未満の子どもを対象としたコンテンツを提供しません。 当社は、お客様が 13 歳未満のユーザーであることを知った場合、またはそうであると疑う理由がある場合、お客様のアカウントを閉鎖する必要があります。 当社はお客様がコードを学習することに反対したくはありませんが、これらは規則なのです。 アカウントの終了については、当社の[サービス条件](/github/site-policy/github-terms-of-service)を参照してください。 最低年齢の制限は、国によって異なります。国内でのデータ収集に同意する最低年齢を下回っているお客様は、GitHub でアカウントを保有できません。
 
-#### クッキー
-As further described below, we automatically collect information from cookies (such as cookie ID and settings) in connection with our Service.
+**お客様のリポジトリに保存されている** ユーザー個人情報や、その他の自由形式で入力されたコンテンツを当社が意図的に収集することはありません。 ユーザーのリポジトリ内の個人情報に対する責任は、リポジトリ所有者にあります。
 
-#### デバイス情報
-We may collect information about your device, such as its IP address, browser or client application information, language preference, operating system and application version, device type and ID, and device model and manufacturer.
+## <a name="how-github-uses-your-information"></a>GitHub はお客様の情報をどのように使用するか
 
-#### Geolocation information
-In connection with certain features and depending on the functionality of the Service, we collect geolocation information such as through IP addresses or the location information you choose to provide in your Account profile.
+当社はお客様の情報を次の目的で使用する場合があります。
+- 当社はお客様の[登録情報](#registration-information)を使用して、アカウントを作成し、サービスを提供します。
+- 当社はお客様の[支払情報](#payment-information)を使用して、有料アカウント サービス、Marketplace サービス、スポンサー プログラム、またはお客様が要求するその他の GitHub 有料サービスを提供します。
+- 当社はユーザー個人情報 (特にお客様のユーザー名) を使用して、GitHub でお客様を識別します。
+- 当社はお客様の[プロファイル情報](#profile-information)を使用して、アカウント プロファイルに入力し、お客様が要求した場合に他のユーザーとそのプロファイルを共有します。
+- 当社は、お客様が了承した場合に **、お客様が了承した理由でのみ**、お客様の電子メール アドレスを使用してお客様に連絡します。 詳細については、[電子メールによる連絡](#how-we-communicate-with-you)に関するセクションを参照してください。
+- 当社はユーザー個人情報を使用して、サポート要請に対応します。
+- 当社はユーザー個人情報とその他のデータを使用して、継続の見込みがあるプロジェクトの推奨など、お客様への推奨を行います。 当社はお客様の GitHub での公的な行動 (星印を付けたプロジェクトなど) から学習して、お客様のコード作成に対する興味を調べ、類似するプロジェクトを推奨します。 これらの推奨は自動的な決定ですが、お客様の権利に法的な影響は与えません。
+- 当社は、必要であればお客様の同意に基づいて、ユーザー個人情報を使用して、調査、ベータ プログラム、またはその他のリサーチ プロジェクトへの参加を呼びかけます。
+- 当社は[ユーザー情報](#usage-information)と[デバイス情報](#device-information)を使用して、ユーザーによる GitHub の使用状況と当社の Web サイトやサービスの改善方法をより的確に把握します。
+- 当社は、セキュリティ上の目的で、もしくは不正行為や GitHub またはそのユーザーに害を及ぼそうとする試みを調査するために必要がある場合にユーザー個人情報を使用することがあります。
+- ユーザー個人情報を使用して、法的義務を遵守し、知的財産権を保護して、[サービス条件](/github/site-policy/github-terms-of-service)を履行します。
+- 当社は、お客様のユーザー個人情報の使用を、本プライバシーに関する声明に記載されている目的に制限します。 お客様のユーザー個人情報を他の目的で使用する必要がある場合、当社はまずお客様の許可を求めます。 お客様は、当社が保持している情報、その使用方法、およびお客様が[ユーザー プロファイル](https://github.com/settings/admin)で当社に与えた許可をいつでも確認することができます。
 
-### Information we create or generate
-We infer new information from other data we collect, including using automated means to generate information about your likely preferences or other characteristics (“inferences”). For example, we infer your general geographic location (such as city, state, and country) based on your IP address.
+### <a name="our-legal-bases-for-processing-information"></a>情報の処理に関する当社の法的根拠
 
-### 当社から第三者から収集する情報
+当社によるユーザー個人情報の処理に、特定の国際法 (欧州連合の一般データ保護規則 (GDPR) を含みますが、これに限定されません) が適用される限りにおいて、GitHub はユーザー個人情報の法的根拠に関してお客様に通知する必要があります。 GitHub は次の法的根拠に基づいてユーザー個人情報を処理します。
 
-Other companies with whom you choose to engage. GitHub may collect personal data about you from third parties. たとえば、お客様が、トレーニングにサインアップしたり、当社のベンダー、パートナーや関連会社からGitHubについての情報を受け取る場合に、行われる可能性があります。 GitHub does not purchase personal data from third-party data brokers.
+- 契約の履行: 
+  * お客様は GitHub アカウントを作成する際に、[登録情報](#registration-information)を提供します。 お客様が当社とサービス条件契約を締結するには、この情報が必要です。当社はその契約を履行するという根拠に基づいて、その情報を処理します。 また、以下に説明するとおり、他の法的根拠に基づいてユーザー名と電子メール アドレスを処理します。
+  * お客様が当社で有料アカウントを保有している場合、当社はその契約の履行という根拠に基づいて、追加の[支払情報](#payment-information)を収集し、処理します。
+  * お客様が Marketplace に掲載されているアプリケーションを購入または販売する場合や、GitHub スポンサー プログラムを通じて資金を送金または受領する場合、当社は、これらのサービスに適用される契約を履行するために、[支払情報](#payment-information)と追加の要素を処理します。
+- 同意
+  * 当社は、お客様の同意に基づいて、[ユーザー プロファイル](https://github.com/settings/admin)に情報を入力した場合、ユーザーが GitHub の研修、リサーチ プロジェクト、ベータ プログラム、または調査に参加することに決めた場合、および該当する場合はマーケティング目的でお客様のユーザー個人情報を使用します。 このユーザー個人情報はすべて、完全に任意であり、お客様はいつでもこの情報にアクセス、変更、および削除することができます。 電子メール アドレスを完全に削除できない場合は、それを非公開にすることができます。 お客様は、いつでも同意を撤回することができます。
+- 正当な利益
+  * 一般に、当社が行うユーザー個人情報の処理の残りの部分は、当社の正当な利益のために必要です。たとえば、法令遵守およびセキュリティ上の目的や、GitHub のシステム、Web サイト、サービスの継続的な機密性、整合性、可用性、および復元力を維持するためです。
+- 当社が同意に基づいて処理したデータの削除をお客様が要求する場合や、当社による個人情報の処理に反対する場合は、[プライバシー連絡フォーム](https://support.github.com/contact/privacy)を使用してください。
 
-Service Providers. We may also receive information from processors or service providers who process the data on our behalf, such as our payment processor who process payment and billing information in connection with our Service.
+## <a name="how-we-share-the-information-we-collect"></a>当社は収集した情報をどのように共有するか
 
-Content you post on our Service. Information you store in, or contribute to, a public repository, provide for use in connection with a Community Feature or make otherwise publicly available through the Service will be collected by GitHub as described in this Privacy Statement. Such information may also be available to the GitHub user community as well as the general public. For more information, please review details regarding public repositories and community features [here](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
+当社は以下のいずれかの場合に、ユーザー個人情報を第三者と共有することがあります。
 
-Co-branding/marketing partners. We may receive information from partners with which we offer co-branded services or engage in joint marketing activities.
+### <a name="with-your-consent"></a>お客様の同意を得た場合
+当社は、お客様の同意を得た場合、共有する情報、その共有先と理由をお客様に知らせたうえで、ユーザー個人情報を共有します。 たとえば、お客様が当社の Marketplace に掲載されたアプリケーションを購入する場合、当社はアプリケーション開発者がお客様にサービスを提供できるように、お客様のユーザー名を共有します。 さらに、お客様は GitHub でのアクションを通じて、ユーザー個人情報を共有するように当社に指示できます。 たとえば、お客様が組織アカウントに参加する場合、組織アカウントの所有者が組織アカウントのアクセス ログでお客様のアクティビティを表示することを認める意思を示すことができます。
 
-Publicly available sources. We may also obtain information from publicly available sources as GitHub repositories.
+### <a name="with-service-providers"></a>サービス プロバイダーと共有する場合
+当社は、当社のサービスを提供または改善するために当社に代わってユーザー個人情報を処理する、限られた数のサービス プロバイダーとユーザー個人情報を共有します。また、彼らはデータ保護契約を締結するか、同様の約束をすることで、当社のプライバシーに関する声明にある制限と同様のプライバシーに関する制限に同意しています。 当社のサービス プロバイダーは、支払処理、カスタマー サポートのチケット発行、ネットワーク データ転送、セキュリティ、およびその他の同様のサービスを行います。 GitHub はすべてのユーザー個人情報を米国で処理していますが、当社のサービス プロバイダーは米国国外または欧州連合の域外でデータを処理する場合があります。 当社のサービス プロバイダーを確認する場合は、当社の[下請処理者](/github/site-policy/github-subprocessors-and-cookies)のページを参照してください。
 
-When you are asked to provide personal data, you may decline. And you may use web browser or operating system controls to prevent certain types of automatic data collection. But if you choose not to provide or allow information that is necessary for certain services or features, those services or features may not be available or fully functional.
+### <a name="for-security-purposes"></a>セキュリティ上の目的で
+お客様が組織アカウントのメンバーである場合、GitHub は、その組織アカウントに関連するお客様のユーザー名、[使用状況に関する情報](#usage-information)、および[デバイス情報](#device-information)を、組織アカウントの所有者や管理者と共有することがあります。ただし、その特定の組織アカウントのセキュリティに影響を与えるか侵害するセキュリティ インシデントを調査または対応する目的でのみ、かかる情報が提供される場合に限ります。
 
-## 当社のお客様情報の利用方法
-We may use your information to provide, administer, analyze, manage, and operate our Service. For example, we use your information for the following purposes:
-- Provide our products and deliver our services including troubleshooting, improving, and personalizing the features on the Service.
-- Business operations such as billing, accounting, improving our internal operations, securing our systems, detecting fraudulent or illegal activity, and meeting our legal obligations.
-- Improve and develop our products and services including to develop new services or features, and conduct research.
-- Personalization of our Service by understanding you and your preferences to enhance your experience and enjoyment using our Service.
-- Provide customer support and respond to your questions.
-- Deliver promotional communications with you about new services, features, offers, promotions, and other information about our Service.
-- Send you information, including confirmations, invoices, technical notices, updates, security alerts, support and administrative messages.
+### <a name="for-legal-disclosure"></a>法的開示のため
+GitHub は、司法手続きと法的義務の遵守における透明性の確保に努めています。 法令または裁判所命令によりそれを回避することにならない限り、またはまれにある緊急事態でない限り、当社は法的に強制または義務付けられたユーザー情報の開示をユーザーに通知するために合理的な努力を尽くします。 GitHub は、有効な召喚状、裁判所命令、捜索令状、同様の政府機関の命令に対応して必要な場合、または当社もしくは第三者や一般の人々の財産や権利を守るため、当社の法的義務の遵守に情報開示が必要であると誠意を持って判断する場合、ユーザー個人情報またはお客様に関して収集したその他の情報を法執行機関に開示する場合があります。
 
-We combine data we collect from different sources for these purposes and to give you a more seamless, consistent, and personalized experience.
+法的要求に対応した当社の情報開示の詳細については、[ユーザー データの法的要求に関するガイドライン](/github/site-policy/guidelines-for-legal-requests-of-user-data)を参照してください。
 
-## 当社が収集したお客様の情報の共有方法
+### <a name="change-in-control-or-sale"></a>管理または売却での変更
+当社が法人または事業単位の合併、売却、または買収に関与する場合、ユーザー個人情報を共有することがあります。 かかる所有権の変更が行われる場合、当社は、ユーザー個人情報の機密性を維持するという条件の下で確実に行われるようにし、ユーザー個人情報の移転前に当社の Web サイトまたは電子メールでお客様に通知します。 ユーザー個人情報を受け取った組織は、当社がプライバシーに関する声明またはサービス条件で行った約束に応じる必要があります。
 
-We share personal data with your consent or as necessary to complete your transactions or provide the services you have requested or authorized. In addition, we may share each of the categories of your personal data described above with the types of third parties  described below for the following business purposes:
+### <a name="aggregate-non-personally-identifying-information"></a>個人を特定できない集計情報
+当社は、ユーザーが集合的に GitHub をどのように使用しているか、また会議やイベントなどの当社の他のサービスにどのように反応しているかに関して、個人を特定できない一定の集計情報を、他の関係者と共有します。
 
-### Public information
-You may select options available through our Service to publicly display and share your name and/or username and certain other information, such as your profile, demographic data, content and files, or geolocation data. For example, if you would like your email address to remain private, even when you’re commenting on public repositories, [you can adjust your setting for your email address to be private in your user profile](https://github.com/settings/emails). You can also [update your local Git configuration to use your private email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). コミットメッセージ内のメールアドレスに関する詳細については、[こちら](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)を参照してください。
+当社が金銭やその他の報酬を得るためにユーザー個人情報を販売することは **ありません**。
 
-Please note that if you would like to compile GitHub data, you must comply with our [Terms of Service](/site-policy/github-terms/github-terms-of-service) regarding information usage and privacy, and you may only use any public-facing information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards, or for commercial advertising. We expect you to reasonably secure information you have gathered from GitHub, and to respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or GitHub users.
+注意:2018 年カリフォルニア州消費者プライバシー法 (「CCPA」) では、企業がそのプライバシー ポリシーにおいて、金銭またはその他の有価約因と引き換えに個人情報を開示するかどうかを明記するように要求しています。 CCPA はカリフォルニア州の住民のみを対象としていますが、当社は人々がそのデータを管理するために中核となる権利を、カリフォルニア州の住民だけでなく、当社の _すべての_ ユーザーに自主的に広げます。 CCPA と、当社による CCPA の遵守状況の詳細については、[こちら](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act)を参照してください。
 
-### Third-party applications
-We share your personal data with third parties when you tell us to do so. For example, if you purchase an application listed on our Marketplace, we share your username to allow the application developer to provide you with services. Additionally, you may direct us through your actions on GitHub to share your personal data. たとえば、お客様がOrganizationに参加する場合、OrganizationのオーナーにOrganizationのアクセスログを使ってお客様のアクティビティを表示する権限を付与したい旨を指示できます。
+## <a name="repository-contents"></a>リポジトリ コンテンツ
 
-You can enable or add third-party applications, known as "Developer Products" to your Account. このDeveloper Productsは、お客様がGitHubを利用するにあたって、必ずしも必要なものではありません。 We will share your personal data with such third-party applications when you ask us to; however, you are responsible for your use of the third-party Developer Product and for the amount of personal data you choose to share with it. You can check our [API documentation](/rest/reference/users) to see what information is provided when you authenticate into a Developer Product using your GitHub profile.
+### <a name="access-to-private-repositories"></a>プライベート リポジトリへのアクセス
 
-### Organizations with which you engage
-You may indicate, through your actions on GitHub, that you are willing to share your personal data. If you collaborate on or become a member of an organization, then its Account owners may receive your personal data. When you accept an invitation to an organization, you will be notified of the types of information owners may be able to see (for more information, see [About Organization Membership](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Please contact the Account owners for more information about how they might process your personal data in their Organization and the ways for you to access, update, alter, or delete your personal data stored in the Account.
+お客様のリポジトリが非公開である場合は、お客様がそのコンテンツへのアクセスを管理します。 ユーザー個人情報や機密性の高い個人情報を含める場合は、本プライバシーに関する声明に従って GitHub のみがその情報にアクセスできます。 GitHub の担当者は、以下の場合を除いて、[プライベート リポジトリ コンテンツ](/github/site-policy/github-terms-of-service#e-private-repositories)にアクセスできません。
+- セキュリティ上の目的で
+- サポート案件についてリポジトリ所有者を支援するため
+- サービスの整合性を維持するため
+- 法的義務を遵守するため
+- コンテンツが法令に違反していると確信する理由がある場合
+- お客様の同意を得た場合
 
-### サービスプロバイダ
-We share your personal data with service providers who process the information  on our behalf to provide or improve our Service. For example, our service providers may perform payment processing, customer support ticketing, network data transmission, security, and other similar services. While GitHub processes all personal data in the United States, our service providers may process data outside of the United States or the European Union. Such processing by service providers will be in compliance with applicable law including any relevant transfer mechanism.
+ただし、当社は一般にリポジトリ内のコンテンツを検索しませんが、アルゴリズムによる指紋技術 (総称して「自動スキャン」といいます) に基づき、サーバーとコンテンツをスキャンして、特定のトークンやセキュリティ シグネチャ、既知のアクティブなマルウェア、依存関係における既知の脆弱性、サービス条件に違反することが判明したその他のコンテンツ (暴力的な過激派組織またはテロリストのコンテンツや児童搾取の画像など) を検出する場合があります。 当社のサービス条件に、[プライベート リポジトリ](/github/site-policy/github-terms-of-service#e-private-repositories)の詳細が記載されています。
 
- ### Affiliates We enable access to personal data across our subsidiaries, affiliates, and related companies, for example, where we share common data systems or where access is needed to operate and provide the Service.
+お客様は、サービス提供の一部としてデフォルトで有効になっているプライベート リポジトリへの特定のアクセスを無効にすることができます (依存関係グラフや Dependabot のアラートを有効にするために必要な自動スキャンなど)。
 
-### セキュリティを目的とする場合
-We will disclose personal data if we believe it is necessary to:
-- protect our customers and others, for example to prevent spam or attempts to commit fraud, or to help prevent the loss of life or serious injury of anyone;
-- operate and maintain the security of the Service, including to prevent or stop an attack on our systems or networks; or
-- protect the rights or property or ourselves or others, including enforcing our agreements, terms, and policies.
+GitHub は、[法的開示のため](/github/site-policy/github-privacy-statement#for-legal-disclosure)、当社の法的義務を遵守するため、または法律に基づく要件に拘束される場合、自動スキャンのため、またはセキュリティ上の脅威またはその他のセキュリティに対するリスクに対応する場合を除き、プライベート リポジトリ コンテンツへのアクセスに関する通知を行います。
 
+### <a name="public-repositories"></a>パブリック リポジトリ
 
-### 法令にもとづく開示を求められた場合
-GitHub may disclose personal data or other information we collect about you to law enforcement or other governmental agencies if required in response to a valid legal process. For more information about our disclosure in response to legal requests, see our [Guidelines for Legal Requests of User Data](/github/site-policy/guidelines-for-legal-requests-of-user-data).
+お客様のリポジトリがパブリックである場合、誰でもそのコンテンツを表示できます。 ユーザー個人情報、[機密性の高い個人情報](https://gdpr-info.eu/art-9-gdpr/)、または電子メール アドレスやパスワードなどの秘密情報をパブリック リポジトリに含める場合、その情報は、検索エンジンによってインデックスが付けられたり、第三者に使用されたりすることがあります。
 
-### 管理者の変更または売却があった場合
-We may share your personal data if we are involved in a merger, sale, or acquisition of corporate entities or business units as described in this Privacy Statement.
+[パブリック リポジトリ内のユーザー個人情報](/github/site-policy/github-privacy-statement#public-information-on-github)の詳細を確認してください。
 
-Please note that some of the features on our Service include integrations, references, or links to services provided by third parties whose privacy practices differ from ours. If you provide personal data to any of those third parties, or allow us to share personal data with them, that data is governed by their privacy statements.
+## <a name="other-important-information"></a>その他の重要な情報
 
-Finally, we may share de-identified information in accordance with applicable law.
+### <a name="public-information-on-github"></a>GitHub 上の公開情報
 
-### No selling of personal data
-We *do not* sell your personal data for monetary or other consideration as defined under California and Nevada state laws. You can learn more about the CCPA and how we comply with it [here](#githubs-notice-to-california-residents).
+GitHub サービスと機能の多くは、一般公開されています。 お客様のコンテンツを一般公開する場合、第三者は、お客様のプロファイルやリポジトリを表示したり、当社の API を介してデータを引き出したりすることで、サービス条件に従ってコンテンツにアクセスし、使用することができます。 当社がそのコンテンツを販売することはありません。コンテンツはお客様のものです。 ただし、当社はリサーチ組織やアーカイブなどの第三者に対して、一般公開された GitHub 情報の収集を許可します。 データ ブローカーなどのその他の第三者が GitHub をスクレイピングして、データを収集することも知られています。
 
-## Your choices regarding our processing of your personal data
-We provide choices about the personal data we collect about you. The choices you make will not apply to any personal data associated with an Organization under your Account.
+GitHub データのこのような収集において、コンテンツに関連付けられたユーザー個人情報が第三者によって収集される可能性があります。 第三者による GitHub データの収集においてユーザー個人情報を非公開にする場合は、ユーザー個人情報を公開しないでください。必ず、[ユーザー プロファイルで電子メール アドレスを非公開に設定](https://github.com/settings/emails)し、[Git コミット設定](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)でも同様に設定してください。 当社は現在、ユーザーの電子メール アドレスをデフォルトで非公開に設定していますが、既存の GitHub ユーザーは設定の更新が必要な場合があります。
 
-Access, correction, and deletion. If you're a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://enterprise.githubsupport.com/hc/en-us). 当社がお客様について収集する情報は、プロフィールに掲載する情報を限定する、お客様の情報を最新に保つ、または[GitHub Support](https://support.github.com/contact)もしくは[GitHubPremium Support](https://enterprise.githubsupport.com/hc/en-us)に連絡することにより管理できます。
+お客様が GitHub データを収集する場合、[情報の使用](/github/site-policy/github-acceptable-use-policies#6-information-usage-restrictions)と[プライバシー](/github/site-policy/github-acceptable-use-policies#7-privacy)に関するサービス条件を遵守する必要があります。また、ユーザーが許可した目的でお客様が収集した、一般公開されたユーザー個人情報のみを使用できます。 たとえば、GitHub ユーザーが電子メール アドレスを本人確認と帰属確認のために一般公開している場合、ユーザーに対して未承諾メールを送信するため、人事採用担当者、ヘッドハンター、求人掲示板などにユーザー個人情報を販売するため、または商業的な広告のために、その電子メール アドレスを使用しないでください。 当社は、お客様が GitHub から収集したあらゆるユーザー個人情報を合理的に保護し、GitHub や GitHub ユーザーからの苦情、削除要求、および「連絡拒否」の要求に速やかに対応することを期待します。
 
-We retain and use your information as described in this Privacy Statement, but barring legal requirements, we will delete your full profile within 90 days of your request. アカウントが削除された後でも、他のユーザのリポジトリへのコントリビューションおよび他のIssueのコメントなどの一定のデータは残存します。 However, we will delete or de-identify your personal data, including your username and email address, from the author field of issues, pull requests, and comments by associating them with a ghost user. That said, the email address you have provided via your Git commit settings will always be associated with your commits in the Git system. メールアドレスを非公開にする場合、Gitコミット設定もアップデートする必要があります。 当社は、Gitコミット履歴のデータを変更または削除することはできません。Gitソフトウェアは記録を保持する設計になっています。ただし、当社は、お客様がその記録に入力する情報を管理できるようにします。
+同様に、GitHub 上のプロジェクトには、協力的なプロセスの一環として収集された、一般公開されたユーザー個人情報が含まれている場合があります。 GitHub 上のユーザー個人情報に関して苦情がある場合は、[苦情の解決](/github/site-policy/github-privacy-statement#resolving-complaints)に関するセクションを参照してください。
 
-If GitHub processes personal data other than your profile information, such as information about you GitHub receives from [third parties](/github/site-policy/github-privacy-statement#information-we-collect-from-third-parties), then you may, subject to applicable law, access, update, alter, delete, object to or restrict the processing of your personal data by contacting [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://enterprise.githubsupport.com/hc/en-us).
 
-You can adjust the settings on your Account regarding the display of your personal data in private or public repositories or personal data processed in connection with Community Features (such as GitHub Feed, GitHub Sponsors, and GitHub Explore) through [profile settings](https://github.com/settings/profile).
+### <a name="organizations"></a>組織アカウント
 
-Additionally, if you are unable to access certain personal data we have via the means described above, you can request access by contacting us as described at the bottom of this privacy statement.
+さらに、お客様は GitHub でのアクションを通じて、ユーザー個人情報を共有する意思を当社に示すことができます。 お客様が組織アカウントでコラボレーションしているか、組織アカウントのメンバーである場合、そのアカウント所有者がお客様のユーザー個人情報を受け取ることがあります。 お客様が組織アカウントへの招待状を承認したら、所有者が表示できる情報の種類が通知されます (詳細については、「[組織アカウントのメンバーシップについて](/github/setting-up-and-managing-your-github-user-account/about-organization-membership))」を参照してください。 お客様が、[検証済みドメイン](/organizations/managing-organization-settings/verifying-your-organizations-domain)を持つ組織アカウントへの招待状を承認したら、組織アカウントの所有者は、その組織アカウントの検証済みドメイン内でお客様の電子メール アドレスすべてを表示できるようになります。
 
-### データポータビリティ
+GitHub は、お客様のユーザー名、[使用状況に関する情報](#usage-information)、および[デバイス情報](#device-information)を、お客様が属する組織アカウントの所有者と共有することがあります。ただし、その特定の組織アカウントのセキュリティに影響を与えるか侵害するセキュリティ インシデントを調査または対応する目的でのみ、かかる情報が提供される場合に限ります。
 
-GitHubユーザとして、お客様は、常に自らのデータを保有することができます。 You can [clone your repositories to your desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
+お客様が、[企業向けサービス条件](/github/site-policy/github-corporate-terms-of-service)および本プライバシーに関する声明のデータ保護追加契約 (DPA) に同意したアカウントにコラボレーションしているか、アカウントのメンバーである場合、アカウントでのお客様のアクティビティに関して本プライバシーに関する声明と DPA の間で矛盾が生じた際は、その DPA が適用されます。
 
-### Communication preferences
-We use your email address to communicate with you, if you've said that's okay, and only for the reasons you’ve said that’s okay. たとえば、お客様が当社のサポートチームにリクエストを連絡した場合、当社はemailでお返事します。 You have control over how your email address is used and shared on and through our Service. You may manage your communication preferences in your [profile](https://github.com/settings/emails).
+アカウント所有者が組織アカウント内のユーザー個人情報をどのように処理するかと、お客様がアカウントに保存されているユーザー個人情報へのアクセス、更新、変更、または削除を行う方法の詳細については、アカウント所有者にお問い合わせください。
 
-By design, the Git version control system associates many actions with a user's email address, such as commit messages. See more details regarding [setting your commit email address](https://github.com/settings/emails).
+## <a name="additional-services"></a>追加サービス
 
-Depending on your [email settings](https://github.com/settings/emails), GitHub may occasionally send notification emails, for example, about changes in a repository you’re watching, new features, requests for feedback, important policy changes, or to offer customer support. We may also send marketing emails, based on your choices and in accordance with applicable laws and regulations. 当社がお客様に送信するマーケティングemailの文末には、「サブスクライブ解除」のリンクがあります。
+### <a name="third-party-applications"></a>第三者のアプリケーション
 
-当社から、サポートチームまたはシステムemailなどの重要なコミュニケーションの受け取りを解除することはできません。ですが、その他のコミュニケーションについては、プロフィールの通知設定を変更することで解除できます。
+お客様は、「開発者製品」と呼ばれる第三者のアプリケーションを有効にしたり、アカウントに追加したりすることができます。 これらの開発者製品は、GitHub の使用に必要ではありません。 当社は、Marketplace からの開発者製品の購入などによって、お客様が当社に要請した場合、ユーザー個人情報を第三者と共有します。ただし、第三者の開発者製品の使用と、お客様が共有することにしたユーザー個人情報の量については、お客様が責任を負います。 お客様が GitHub プロファイルを使用して開発者製品への認証を行う際に提供される情報を確認するには、当社の[API ドキュメント](/rest/reference/users)を参照してください。
 
-### European Data Protection Rights
+### <a name="github-pages"></a>GitHub Pages
 
-If the processing of personal data about you is subject to European Union data protection law, you have certain rights with respect to that data:
+お客様が GitHub Pages の Web サイトを作成する場合、お客様が個人情報と他の訪問者の情報をどのように収集、使用、および共有するかと、お客様が適用されるデータ プライバシーに関する法令および規則をどのように遵守しているかについてユーザーに正確に説明するプライバシーに関する声明を掲載するのは、お客様の責任になります。 GitHub は、法的義務を遵守し、Web サイトやサービスのセキュリティと整合性を維持するために、お客様が作成した GitHub Pages の Web サイトへの訪問者からユーザー個人情報 (訪問者の IP アドレスのログなど) を収集する場合があります。
 
-You can request access to, and rectification or erasure of, personal data; If any automated processing of personal data is based on your consent or a contract with you, you have a right to transfer or receive a copy of the personal data in a usable and portable format; If the processing of personal data is based on your consent, you can withdraw consent at any time for future processing; You can to object to, or obtain a restriction of, the processing of personal data under certain circumstances; and For residents of France, you can send us specific instructions regarding the use of your data after your death.
+### <a name="github-applications"></a>GitHub アプリケーション
 
-To make such requests, please use the contact information at the bottom of this statement.  When we are processing data on behalf of another party (i.e., where GitHub is acting as a data processor) you should direct your request to that party. You also have the right to lodge a complaint with a supervisory authority, but we encourage you to first contact us with any questions or concerns.
+デスクトップ アプリケーション、Atom アプリケーション、その他のアプリケーションやアカウント機能などの GitHub 製のアプリケーションをアカウントに追加することもできます。 これらのアプリケーションにはそれぞれ、固有の条件があり、さまざまなユーザー個人情報を収集する場合があります。ただし、すべての GitHub アプリケーションには、本プライバシーに関する声明が適用され、当社は必要な量のユーザー個人情報を収集し、お客様が指定した目的でのみそれを使用します。
 
-We rely on different lawful bases for collecting and processing personal data about you, for example, with your consent and/or as necessary to provide the services you use, operate our business, meet our contractual and legal obligations, protect the security of our systems and our customers, or fulfill other legitimate interests.
+## <a name="how-you-can-access-and-control-the-information-we-collect"></a>当社が収集した情報にお客様がどのようにしてアクセスし、管理できるか
 
-## Our use of cookies and tracking technologies
+お客様が既に GitHub ユーザーである場合は、[ユーザー プロファイルを編集する](https://github.com/settings/profile)か、[GitHub サポート](https://support.github.com/contact?tags=docs-policy)に連絡することによって、基本的なユーザー プロファイル情報へのアクセス、更新、変更、または削除を行うことができます。 当社がお客様に関して収集した情報をお客様が管理するには、プロファイルに含める情報を制限するか、情報を最新の状態に保つか、または[GitHub サポート](https://support.github.com/contact?tags=docs-policy)に連絡します。
 
-### Cookies and tracking technologies
+[GitHub が第三者から受け取った](#information-we-collect-from-third-parties)情報などのお客様に関する情報を GitHub が処理する場合に、お客様がアカウントを保有していない場合は、適用される法令に従って、[GitHub サポート](https://support.github.com/contact?tags=docs-policy)に連絡することで、個人情報へのアクセス、更新、変更、削除、処理への反対を行うことができます。
 
-GitHub uses cookies to provide, secure and improve our  Service or to develop new features and functionality of our Service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, compile statistical reports, and provide information for future development of GitHub. We use our own cookies and do not use any third-party service providers in this context. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our Service. [GitHub上のクッキー](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github)については、[GitHubの当社のサブプロセッサーおよびクッキー](/github/site-policy/github-subprocessors-and-cookies)のページで、当社が設定するクッキー、クッキーの必要性、およびクッキーの有効期限について詳しく説明しています。
+### <a name="data-portability"></a>データの可搬性
 
-Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
+お客様は GitHub ユーザーとして、いつでもデータを取り出すことができます。 たとえば、[デスクトップにリポジトリを複製](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)したり、当社の[データ可搬性ツール](https://developer.github.com/changes/2018-05-24-user-migration-api/)を使用して、当社がお客様に関して保持している情報をダウンロードしたりすることができます。
 
-### DNT
+### <a name="data-retention-and-deletion-of-data"></a>データの保持と削除
 
-「[Do Not Track](https://www.eff.org/issues/do-not-track)」(DNT) とは、オンラインサービスに対して、第三者のトラッキングサービスからお客様のオンライン活動についての特定の種類の情報を収集して共有することを望まない場合に、ブラウザで設定できるプライバシー設定です。 GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 トラッキングを望まないことを通知するようブラウザに対して設定したい場合、この通知を有効化する方法について、ブラウザのドキュメントをご確認ください。 [Privacy Badger](https://privacybadger.org/)など、トラッキングをブロックする良いアプリケーションもあります。
+GitHub は一般に、お客様のアカウントがアクティブになっている限り、またはお客様にサービスを提供するために必要に応じて、ユーザー個人情報を保持します。
 
-## Retention of personal data
-We retain personal data for as long as necessary to provide the services and fulfill the transactions you have requested, comply with our legal obligations, resolve disputes, enforce our agreements, and other legitimate and lawful business purposes. Because these needs can vary for different data types in the context of different services, actual retention periods can vary significantly based on criteria such as user expectations or consent, the sensitivity of the data, the availability of automated controls that enable users to delete data, and our legal or contractual obligations. For example, we may retain your personal data for longer periods, where necessary, subject to applicable law, for security purposes.
+お客様がアカウントを解約するか、ユーザー個人情報を削除する場合は、[ユーザー プロファイル](https://github.com/settings/admin)でその操作を行うことができます。 当社は、当社の法的義務の遵守、紛争の解決、および当社の契約の履行のために、必要に応じてお客様の情報を保持して使用しますが、法的要件がない限り、当社はお客様の要求から 90 日以内にお客様のプロファイル全体を妥当な範囲で削除します。 30 日以内に同意に基づいて当社が処理したデータの消去を要求するには、[GitHub サポート](https://support.github.com/contact?tags=docs-policy)までお問い合わせください。
 
-## お客様情報についての当社の保護方法
-GitHub takes reasonable measures necessary to protect your personal data from unauthorized access, alteration, or destruction; maintain data accuracy; and help ensure the appropriate use of your personal data. To help us protect personal data, we request that you use a strong password and never share your password with anyone or use the same password with other sites or accounts.
+アカウントの削除後、他のユーザーのリポジトリへの投稿や他のユーザーの問題でのコメントなどの特定のデータは残されます。 ただし、当社は[ゴースト ユーザー](https://github.com/ghost)に関連付けることで、問題の作成者フィールド、プル リクエスト、およびコメントから、ユーザー名や電子メール アドレスなどのお客様のユーザー個人情報を削除するか、匿名化します。
 
-In addition, if your account has private repositories, you control the access to that Content. GitHub personnel does not access private repository content except for
-- security purposes,
-- automated scanning for known vulnerabilities, active malware, or other content known to violate our Terms of Service
-- リポジトリのオーナーをサポートするため
-- サービスの完全性を維持するため
-- to comply with our legal obligations if we have reason to believe the contents are in violation of the law,
-- or with your consent.
+とは言え、お客様が[Git コミット設定を介して](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)入力した電子メール アドレスは、常に Git システム内でお客様のコミットに関連付けられます。 電子メール アドレスを非公開にすることにした場合は、Git コミット設定を更新する必要もあります。 当社が Git コミット履歴のデータを変更または削除することはできません。Git ソフトウェアは記録を保持するように設計されているからです。ただし、お客様がその記録に入れる情報を管理できるようにします。
 
-Github will provide notice regarding private repository access where not prohibited by law or if in response to a security threat or other risk to security.
+## <a name="our-use-of-cookies-and-tracking"></a>当社による Cookie の使用と追跡
 
-### クロスボーダーデータトランスファー
-GitHub processes personal data both inside and outside of the United States and relies on legal mechanisms such as Standard Contractual Clauses to lawfully transfer data from the European Economic Area, the United Kingdom, and Switzerland to the United States. You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below.
+### <a name="cookies"></a>Cookie
 
-### 苦情の解決
-If you have concerns about the way GitHub is handling your personal data, please let us know immediately. 当社はお客様を手助けしたいと考えています。 お客様は、[プライバシー連絡フォーム](https://support.github.com/contact/privacy)に記入することで、当社に連絡できます。 You may also email us directly at **(privacy [at] github [dot] com)** with the subject line "Privacy Concerns." 当社は、遅くとも45日以内に速やかに返信します。
+GitHub では、厳密に必要な Cookie のみを使用します。 Cookie とは、Web サイトが訪問者のコンピューターのハード ドライブやモバイル デバイスに保存することが多い小さなテキスト ファイルです。
 
-お客様は、当社のデータ保護責任者に直接連絡することもできます。
+当社は、サービスの提供、保護、および向上の目的でのみ、Cookie を使用します。 たとえば、当社は Cookie を使用して、お客様のログインの維持、基本設定の保持、セキュリティ上の目的でのお客様のデバイスの識別、お客様による当社のサービスの使用状況の分析、統計レポートの作成、GitHub の今後の開発に関する情報の提供を行っています。 当社は分析のために当社独自の Cookie を使用していますが、第三者の分析サービス プロバイダーは使用していません。
 
-| 当社の米国本社                           | 当社のEU事務所                          |
-| --------------------------------- | --------------------------------- |
-| GitHub Data Protection Officer    | GitHub BV                         |
-| 88 Colin P. Kelly Jr. St.         | Vijzelstraat 68-72                |
-| San Francisco, CA 94107           | 1017 HL Amsterdam                 |
-| 米国                                | The Netherlands                   |
-| **privacy [at] github [dot] com** | **privacy [at] github [dot] com** |
+お客様は当社のサービスを利用することで、当社がお客様のコンピューターやデバイス上にこれらの種類の Cookie を置くことに同意するものとします。 これらの Cookie を受け入れるブラウザーやデバイスの機能を無効にした場合、お客様はログインやサービスの利用ができなくなります。
 
-### 紛争解決プロセス
+[GitHub 上の Cookie](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github)に関する詳細は、[GitHub の下請処理者と Cookie](/github/site-policy/github-subprocessors-and-cookies)のページに記載されています。このページでは、当社が設定する Cookie、これらの Cookie の必要性、およびかかる Cookie の有効期限について説明しています。
 
-お客様のユーザ個人情報の当社の取り扱いについてお客様と当社との間に紛争が生起した場合、当社は解決のために最善を尽くします。 さらに、お客様がEU加盟国の住民である場合、現地の監督当局に苦情を申し立てる権利を有します。また、別の[選択肢](/github/site-policy/global-privacy-practices#dispute-resolution-process)がある場合もあります。
+### <a name="dnt"></a>DNT
 
-## プライバシーステートメントの変更
+「[トラッキング拒否](https://www.eff.org/issues/do-not-track)」(DNT) は、お客様がオンライン サービスに対して、第三者の追跡サービスからオンライン アクティビティに関する特定の種類の情報を収集および共有するのを希望しない場合に、ブラウザーで設定できるプライバシー設定です。 GitHub は、ブラウザーの DNT 信号に対応しており、[DNT 信号への応答に関する W3C 基準](https://www.w3.org/TR/tracking-dnt/)に従っています。 追跡を希望しないことを示す信号を送るようにブラウザーを設定する場合は、その信号を有効にする方法についてブラウザーのドキュメントを参照してください。 [Privacy Badger](https://privacybadger.org/) など、オンライン追跡をブロックする優れたアプリケーションもあります。
 
-ほとんどの変更は軽微ですが、GitHubは、随時、プライバシーステートメントを変更することがあります。 当社は、ホームページに通知を掲載すること、または、GitHubアカウントで指定するプライマリメールアドレスにemailを送信することで、変更が発効する遅くとも30日前にウェブサイト上で、このプライバシーステートメントの重要な変更についてユーザへの通知を提供します。 また、当社は、このポリシーの変更を追跡している[サイトポリシーリポジトリ](https://github.com/github/site-policy/)をアップデートします。 本プライバシーステートメントのその他の変更については、サイトポリシーのリポジトリを[watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)または確認するようユーザにおすすめします。
+## <a name="how-github-secures-your-information"></a>GitHub はお客様の情報をどのように保護するか
 
-## ライセンス
+GitHub は、不正なアクセス、改変、または破壊からユーザー個人情報を保護し、データの正確性を維持して、ユーザー個人情報の適切な使用を徹底させるために、合理的に必要なあらゆる対策を講じています。
 
-本プライバシーステートメントは、この[Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/)の元でライセンス付与されています。 詳細は、[site-policyリポジトリ](https://github.com/github/site-policy#license)を参照してください。
+GitHub は書面によるセキュリティ情報プログラムを強制しています。 当社のプログラムの内容は以下のとおりです。
+- 業界で認められたフレームワークと連携しています。
+- ユーザー データの機密性、整合性、可用性、復元力を守るために合理的に策定された安全保護措置が含まれています。
+- GitHub の事業運営の特性、規模、および複雑さに適しています。
+- インシデント対応とデータ侵害通知プロセスが含まれています。
+- GitHub が事業を展開している地域で、適用される情報セキュリティに関連する法令および規制を遵守しています。
 
-## GitHubへの連絡
-GitHubプライバシーステートメントまたは情報処理についてのご質問は、[プライバシー連絡フォーム](https://support.github.com/contact/privacy)をご利用ください。
+お客様のユーザー個人情報に影響を与えるデータ侵害が発生した場合、当社はデータ侵害の影響を軽減するように速やかに対策を講じ、影響を受けたユーザーに遅滞なく通知します。
 
-## 翻訳
+GitHub でのデータ送信は、SSH、HTTPS (TLS) を使用して暗号化され、Git リポジトリ コンテンツは保管時に暗号化されます。 当社は、最高水準の物理的なネットワーク セキュリティが維持された一流のデータ センターで当社独自のケージとラックを管理しています。データが第三者のストレージ プロバイダーの下で保存される場合は、暗号化されます。
 
-下記は、本ドキュメントの他言語への翻訳です。 これらのバージョンと英語バージョンとの間に何らかの矛盾、曖昧さ、または、明らかな非一貫性がある場合、英語バージョンを優先的なバージョンとします。
+送信方法または電子的な保存方法に、100% 安全なものはありません。 したがって、当社は絶対的なセキュリティを保証できません。 詳細については、[セキュリティに関する情報開示](https://github.com/security)を参照してください。
 
-### フランス語
-Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+## <a name="githubs-global-privacy-practices"></a>GitHub のグローバル プライバシー規定
 
-### その他の翻訳
+GitHub, Inc. と欧州経済地域、英国、およびスイスの GitHub, Inc.、GitHub B.V. は、サービスに関連して個人情報の処理に責任を負う管理者です。ただし、(a) そのリポジトリの所有者が管理者であり、GitHub は処理者である場合 (あるいは、所有者が処理者となる場合、GitHub は下請処理者となります) に、投稿者によってリポジトリに追加された個人情報に関連する場合、または (b) お客様と GitHub が、データ プライバシーを規定する契約 (データ処理契約など) を別途結んだ場合を除きます。
 
-この声明の他の言語への翻訳については、[https://docs.github.com/](/)にアクセスし、[English] のドロップダウンメニューから言語を選択してください。
+当社の住所は次のとおりです。
 
-## GitHub's notice to California residents
-2018年の[カリフォルニア州消費者プライバシー法](https://leginfo.legislature.ca.gov/faces/billCompareClient.xhtml?bill_id=201720180AB375) (Cal. Civ. Code §1798.100 以降の条文 (改訂された場合はその改訂版)、以下「CCPA」) は、カリフォルニア州住民に自らの個人情報に対する権利と管理権を与えるものです。 GitHub, Inc. (「GitHub」または「当社」) は、CCPA に基づく要件に従い、カリフォルニア州住民 (「お客様」) の個人情報の収集および取り扱いに関して特定の開示を行うため、カリフォルニア州住民に対して本声明を規定します。 これはCCPAに基づき、GitHubがカリフォルニア州住民に限定して付与する消費者のプライバシー権について説明するものです。 個人情報を管理するというCCPAの中核的な権利を、米国の当社全ユーザに拡大したことに関する情報については、当社の「[プライバシーについての声明](/github/site-policy/github-privacy-statement)」を参照してください。
+- GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107.
+- GitHub B.V., Vijzelstraat 68-72, 1017 HL Amsterdam, The Netherlands.
 
-### Our handling of personal information
-While the table below contains information about the categories of personal information we collect, process, and share, please see the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement) for full details.
+当社は本プライバシーに関する声明に従って、収集した情報を米国で保管し、処理していますが、当社のサービス プロバイダーが米国国外でデータを保管し、処理する場合があります。 ただし、当社は、国や地域によってユーザーのプライバシーへの期待事項はさまざまであることを理解しており、米国が他の国と同じプライバシー フレームワークを使用していない場合でもこれらのニーズを満たすように努めています。
 
-| 過去12か月間に収集された個人情報の類型                                                                                                                                                                 | 個人情報が収集された情報源の類型                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 識別子 (実名、エイリアス、住所、固有の個人識別子、オンライン識別子、インターネットプロトコルアドレス、メールアドレス、アカウント名、その他の類似する識別子など)                                                                                                    | Information consumer provides directly or automatically through their interaction with our Service and/or Website or GitHub’s vendors, partners, or affiliates |
-| Personal information described in Cal. Civ. Code §1798.80 (e) such as name, address, credit card or debit card number)                                                               | Information consumer may choose to provide directly, through service providers                                                                                 |
-| Characteristics of protected classifications under California or federal law (such as gender)                                                                                        | 消費者が直接提供することを選択できる情報                                                                                                                                           |
-| 商業的情報 (製品やサービスの購入、取得、検討、その他購入または消費の履歴や傾向など)                                                                                                                                          | 当社サービスとのやりとりにより消費者が直接的または自動的に提供する情報                                                                                                                            |
-| Geolocation data (such as any information collected after giving users the opportunity to opt-in to location-based services, which rely upon a device’s precise location services. ) | Information consumer provides automatically through their interaction with our Services                                                                        |
-| Audio, electronic, visual, or similar information such as content and files uploaded to the Service.                                                                                 | 消費者が直接提供することを選択できる情報                                                                                                                                           |
-| Professional or employment information                                                                                                                                               | 消費者が直接提供することを選択できる情報                                                                                                                                           |
-| Inferences drawn from any of the information identified in this table to create a profile about a consumer reflecting the consumer’s preferences                                     | 当社サービスとのやりとりにより消費者が直接的または自動的に提供する情報                                                                                                                            |
+当社は、本プライバシーに関する声明に記載されているように、出身国や地域に関係なく、プライバシー保護に関して世界中のすべてのユーザーに同レベルの高い標準を提供しています。また、当社が提供している通知、選択肢、説明責任、セキュリティ、データの整合性、アクセス、法的措置のレベルに誇りを持っています。 当社は、当社のプライバシーの法令遵守の取り組みを監視する部門を超えたチームの一部としてデータ保護責任者と連携して、事業を展開する地域に関係なく、適用されるデータ プライバシー法の遵守に努めています。 さらに、当社のベンダーや関連会社がユーザー個人情報にアクセスできる場合、プライバシー ポリシーと適用されるデータ プライバシー法の遵守を義務付ける契約に署名する必要があります。
 
+特に：
 
-We use the categories of personal information described above for the purposes listed in the [“How GitHub uses your information”](/github/site-policy/github-privacy-statement#how-github-uses-your-information) section of our Privacy Statement. We also disclose the categories of personal information listed above for business purposes. Please see the [“How we share the information we collect”](/github/site-policy/github-privacy-statement#how-we-share-the-information-we-collect) section of our Privacy Statement for additional details.
+ - GitHub では、同意に基づいてお客様のユーザー個人情報を収集する場合に、データ収集時に知らされたうえで、あいまいで特定の自由な形式で与えられる同意を明確な方法で提供しています。
+ - 当社は、お客様がさらに提供することを選択しない限り、当社の目的に必要な最小限のユーザー個人情報のみを収集します。 当社は、お客様が共有してもよいと思うデータ量のみを当社に提供することを奨励しています。
+ - 当社は、法律で許可されている場合、収集したユーザー個人情報にアクセス、変更、または削除する簡単な方法をお客様に提供しています。
+ - 当社は、ユーザー個人情報に関して通知、選択肢、説明責任、セキュリティ、アクセスをユーザーに提供しており、その処理目的を制限しています。 当社は、法的措置と法執行の手段もユーザーに提供しています。
 
-### 個人情報は販売いたしません
-CCPAの下では、カリフォルニア州住民の個人情報を他者に販売する企業は、1) 個人情報を他者に販売する前にカリフォルニア州住民に通知する義務があり、2) カリフォルニア州住民に個人情報の販売をオプトアウトする権利を与える義務があります。 GitHub does not sell personal information, including personal information of anyone under 16 years old.
+### <a name="cross-border-data-transfers"></a>国境を越えたデータの移転
 
-### CCPAに基づくあなたの権利
-CCPAは、カリフォルニア州住民に、個人情報に関する特定の権利を付与します。 この権利に基づく請求を提出するには、[連絡フォーム](https://support.github.com/contact?tags=docs-policy)からご連絡ください。
+GitHub は、米国の内外で個人情報を処理し、欧州経済地域、英国、およびスイスから米国への合法的なデータ移転のために法的に規定されたメカニズムとして標準契約条項を適用します。 また、GitHub は、EU と米国間およびスイスと米国間のプライバシー シールド フレームワークの認定を受けています。 国境を越えたデータの移転の詳細については、当社の[グローバル プライバシー規定](/github/site-policy/global-privacy-practices)を参照してください。
 
+## <a name="how-we-communicate-with-you"></a>当社はお客様とどのように連絡するか
 
+当社は、お客様が了承した場合に **、お客様が了承した理由でのみ**、お客様の電子メール アドレスを使用してお客様に連絡します。 たとえば、お客様が要求についてサポート チームに連絡した場合、当社は電子メールで対応します。 GitHub 上および GitHub を通じてお客様の電子メール アドレスがどのように使用され、共有されるかについては、お客様がその多くを管理することができます。 お客様は[ユーザー プロファイル](https://github.com/settings/emails)で連絡に関する設定を管理できます。
 
-請求を受領した際、当社はリクエストを行った方が、個人情報の請求対象に関係する住民であるかどうかを検証します。 California residents may exercise their rights themselves or may use an authorized agent, designated in writing or through a power of attorney, to make requests on their behalf. If you use an authorized agent to submit a request, we may require that you provide us additional information demonstrating that the agent is acting on your behalf, and we may need you to verify your identity directly with us. With respect to your personal information, California residents may exercise the rights described below.
-#### Right to Know.
-You have a right to request that we disclose to you the personal information we have collected about you.  You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information.  Note that we have provided much of this information in this privacy statement. You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to know” by contacting us here.
-#### Right to Request Deletion.
-You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions. To make a request to delete, You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to delete” by contacting us here.
+設計により、Git バージョン管理システムでは、コミット メッセージなどの多くのアクションがユーザーの電子メール アドレスに関連付けられます。 当社が Git システムの多くの側面を変更することはできません。 パブリック リポジトリでコメントする際でも、電子メール アドレスを非公開のままにする場合は、[ユーザー プロファイルで非公開の電子メール アドレスを作成できます](https://github.com/settings/emails)。 お客様が[非公開の電子メール アドレスを使用するには、ローカル Git 設定を更新する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)必要もあります。 それによって、当社がお客様にどのように連絡するかは変更されませんが、お客様の情報が他の人にどのように表示されるかに影響を与えます。 当社は現在のユーザーの電子メール アドレスをデフォルトで非公開に設定していますが、既存の GitHub ユーザーは設定の更新が必要な場合があります。 コミット メッセージ内の電子メール アドレスの詳細については、[こちら](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)を参照してください。
 
-#### Right to Opt-Out.
-You have a right to opt-out from future “sales” of personal information. Note that we do not “sell” personal information as defined by the CCPA and have not done so in the past 12 months.
+お客様の[電子メール設定](https://github.com/settings/emails)に応じて、GitHub はお客様が見ているリポジトリ内の変更、新機能、フィードバックの依頼、重要なポリシーの変更に関して、またはカスタマー サポートを提供するために電子メール通知を送信することがあります。 当社は、お客様の選択に基づき、適用される法令および規制に従って、マーケティング目的の電子メールも送信します。 当社から送信されるマーケティング目的の電子メールにはそれぞれ、下部に [登録を解除] リンクがあります。 サポート チームからの電子メールやシステム電子メールなど、当社からの重要な連絡の受信をオプトアウトすることはできませんが、他の連絡をオプトアウトするようにプロファイルで通知設定を指定できます。
 
-#### Right to Non-Discrimination.
-You have a right to not be discriminated against for exercising your CCPA rights. We will not discriminate against you for exercising your CCPA rights.
+当社の電子メールにはピクセル タグが含まれている場合があります。これは、お客様が電子メールを開いたかどうかとお客様の IP アドレスを当社に伝えることができる小さい透明な画像です。 当社はこのピクセル タグを使用して、当社からの電子メールの効果を高めると共に、不要な電子メールを送信しないようにします。
 
-You may designate, in writing or through a power of attorney, an authorized agent to make requests on your behalf to exercise your rights under the CCPA. Before accepting such a request from an agent, we will require the agent to provide proof you have authorized it to act on your behalf, and we may need you to verify your identity directly with us. Further, to provide or delete specific pieces of personal information we will need to verify your identity to the degree of certainty required by law. We will verify your request by asking you to submit the request from the email address associated with your account or requiring you to provide information necessary to verify your account. [Please note that you may use two-factor authentication with your GitHub account.](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)  
-Finally, you have a right to receive notice of our practices at or before collection of personal information.
+## <a name="resolving-complaints"></a>苦情の解決
 
-Additionally, under California Civil Code section 1798.83, also known as the “Shine the Light” law, California residents who have provided personal information to a business with which the individual has established a business relationship for personal, family, or household purposes (“California Customers”) may request information about whether the business has disclosed personal information to any third parties for the third parties’ direct marketing purposes. Please be aware that we do not disclose personal information to any third parties for their direct marketing purposes as defined by this law. California Customers may request further information about our compliance with this law by emailing **(privacy [at] github [dot] com)**. Please note that businesses are required to respond to one request per California Customer each year and may not be required to respond to requests made by means other than through the designated email address.
+GitHub がお客様のユーザー個人情報をどのように取り扱うかに関して懸念がある場合は、直ちに当社にお知らせください。 当社が対応いたします。 当社にお問い合わせの際は、[プライバシー連絡フォーム](https://support.github.com/contact/privacy)に記入してください。 件名に「Privacy Concerns」(プライバシーに関する懸念) と入れて、privacy@github.com 宛てに当社に直接電子メールを送付することもできます。 当社は速やかに (遅くとも 45 日以内に) 対応します。
 
-California residents under the age of 18 who are registered users of online sites, services, or applications have a right under California Business and Professions Code Section 22581 to remove, or request and obtain removal of, content or information they have publicly posted. To remove content or information you have publicly posted, [please submit a Private Information Removal request](https://support.github.com/contact/private-information). Alternatively, to request that we remove such content or information, please send a detailed description of the specific content or information you wish to have removed to [GitHub support](https://support.github.com/contact). Please be aware that your request does not guarantee complete or comprehensive removal of content or information posted online and that the law may not permit or require removal in certain circumstances. If you have any questions about our privacy practices with respect to California residents, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
+当社のデータ保護責任者に直接問い合わせることもできます。
+
+| 当社の米国本社 | 当社の EU オフィス |
+|---|---|
+| GitHub データ保護責任者 | GitHub BV |
+| 88 Colin P. Kelly Jr. St. | Vijzelstraat 68-72 |
+| San Francisco, CA 94107 | 1017 HL Amsterdam |
+| 米国 | オランダ |
+| privacy@github.com | privacy@github.com |
+
+### <a name="dispute-resolution-process"></a>紛争解決プロセス
+
+当社によるユーザー個人情報の処理に関してお客様と GitHub の間で万が一紛争が起きた場合、当社はその解決に全力を尽くします。 さらに、お客様が EU 加盟国の居住者である場合は、地域の監視機関に苦情を申し立てる権利があり、他にも[選択肢](/github/site-policy/global-privacy-practices#dispute-resolution-process)がある可能性があります。
+
+## <a name="changes-to-our-privacy-statement"></a>プライバシーに関する声明の変更
+
+ほとんどの変更は小さいものである可能性が高いものの、GitHub はプライバシーに関する声明を随時変更することがあります。 本プライバシーに関する声明の重大な変更については、変更が有効になる 30 日前までに、当社ホーム ページ上に通知を掲載するか、お客様の GitHub アカウントで指定されたプライマリ電子メール アドレスに電子メールを送信することにより、ユーザーに通知します。 当社は、本ポリシーへのあらゆる変更を追跡する、[サイト ポリシー リポジトリ](https://github.com/github/site-policy/)も更新します。 本プライバシーに関する声明のその他の変更については、サイト ポリシー リポジトリを[参照する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)か、頻繁に確認することをお勧めします。
+
+## <a name="license"></a>ライセンス
+
+本プライバシーに関する声明は、本[クリエイティブ コモンズ ゼロ ライセンス](https://creativecommons.org/publicdomain/zero/1.0/)の下でライセンスされています。 詳細については、[サイト ポリシー リポジトリ](https://github.com/github/site-policy#license)を参照してください。
+
+## <a name="contacting-github"></a>GitHub への連絡
+GitHub のプライバシーに関する声明や情報処理規定に関する質問については、[プライバシー連絡フォーム](https://support.github.com/contact/privacy)に直接連絡してください。
+
+## <a name="translations"></a>翻訳
+
+このドキュメントは、次の他の言語に翻訳されています。 これらのバージョンと英語版の間で矛盾、不明瞭さ、明らかな不一致が生じた場合は、本英語版が優先して適用されます。
+
+### <a name="french"></a>フランス語
+Cliquez ici pour obtenir la version française:[Déclaration de confidentialité de GitHub](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+
+### <a name="other-translations"></a>他の翻訳
+
+本声明の他の言語への翻訳については、[https://docs.github.com/](/) にアクセスし、[English] の下にあるドロップダウン メニューから言語を選択してください。

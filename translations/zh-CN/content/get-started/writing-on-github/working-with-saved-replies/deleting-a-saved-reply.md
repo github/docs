@@ -10,9 +10,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 3a3c55a9ab93b081bc3068f8c94f3f23edb8072a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066743'
 ---
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.saved_replies %}
-3. 在“已保存回复”下，靠近要删除的已保存回复的位置，单击 {% octicon "x" aria-label="The X" %}。  
-   ![删除已保存回复](/assets/images/help/settings/saved-replies-delete-existing.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.saved_replies %}
+3. 在“已保存的回复”下，靠近要删除的已保存的回复，单击 {% octicon "x" aria-label="The X" %}。  
+![删除已保存回复](/assets/images/help/settings/saved-replies-delete-existing.png)

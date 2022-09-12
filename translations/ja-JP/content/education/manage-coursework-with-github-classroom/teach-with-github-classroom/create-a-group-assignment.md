@@ -7,9 +7,14 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+ms.openlocfilehash: 4048aa36fb1f87e73979e9d821a8990d907f7025
+ms.sourcegitcommit: 3cb36aa99ffbe0f2342157d2e67ebf6289d1bd07
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/15/2022
+ms.locfileid: '147573853'
 ---
-
-## グループ課題について
+## <a name="about-group-assignments"></a>グループ課題について
 
 {% data reusables.classroom.assignments-group-definition %}学生は、プロフェッショナルな開発者チームと同じように、共有リポジトリでグループ課題に協力して取り組むことができます。
 
@@ -19,45 +24,45 @@ redirect_from:
 
 {% data reusables.classroom.about-assignments %}
 
-1つの課題に取り組むチームの数と、各Teamのメンバーの数を決めることができます。 学生が課題ために作成する各グループは、{% data variables.product.product_name %}のOrganization内のTeamです。 Teamの可視性はシークレットとなります。 {% data variables.product.product_name %}上で作成したTeamは、{% data variables.product.prodname_classroom %}では表示されません。 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
+1つの課題に取り組むチームの数と、各Teamのメンバーの数を決めることができます。 学生が課題ために作成する各グループは、{% data variables.product.product_name %}のOrganization内のTeamです。 Teamの可視性はシークレットとなります。 {% data variables.product.product_name %}上で作成したTeamは、{% data variables.product.prodname_classroom %}では表示されません。 詳細については、「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
-グループ課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
+グループ課題の作成のビデオ デモについては、「[{% data variables.product.prodname_classroom %} のセットアップの基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## 必要な環境
+## <a name="prerequisites"></a>前提条件
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## 課題を作成する
+## <a name="creating-an-assignment"></a>課題を作成する
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## 課題の基本情報をセットアップする
+## <a name="setting-up-the-basics-for-an-assignment"></a>課題の基本情報をセットアップする
 
 課題に名前を付け、期限を設定するか、Teamを定義するかを決定し、課題リポジトリの可視性を選択します。
 
 - [課題に名前を付ける](#naming-an-assignment)
 - [課題に期限を設定する](#assigning-a-deadline-for-an-assignment)
 - [課題のタイプを選択する](#choosing-an-assignment-type)
-- [課題のTeamを定義する](#defining-teams-for-an-assignment)
+- [課題の Team を定義する](#defining-teams-for-an-assignment)
 - [課題リポジトリの可視性を選択する](#choosing-a-visibility-for-assignment-repositories)
 
-### 課題に名前を付ける
+### <a name="naming-an-assignment"></a>課題に名前を付ける
 
-グループ課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスとTeamの名前から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に「assignment-1」と名付け、{% data variables.product.product_name %}のチーム名が「student-team」である場合、そのTeamのメンバーの課題リポジトリ名は「`assignment-1-student-team`」となります。
+グループ課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスとTeamの名前から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に "assignment-1" という名前を付けて、{% data variables.product.product_name %} での Team の名前名が "student-team" である場合、Team のメンバーの課題リポジトリの名前は `assignment-1-student-team` になります。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### 課題に期限を設定する
+### <a name="assigning-a-deadline-for-an-assignment"></a>課題に期限を設定する
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### 課題のタイプを選択する
+### <a name="choosing-an-assignment-type"></a>課題のタイプを選択する
 
-[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 個人課題を作成する場合は、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」を参照してください。
+[個人またはグループの課題] でドロップダウン メニューを選択して、 **[グループの課題]** をクリックします。 課題の作成後は、課題タイプを変更できません。 個人の課題を作成する場合は、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」を参照してください。
 
-### 課題のTeamを定義する
+### <a name="defining-teams-for-an-assignment"></a>課題のTeamを定義する
 
 すでにクラスルームに対してグループ課題を作成している場合は、新しい課題にTeamのセットを再利用できます。 学生が課題用に作成したTeamで新しいセットを作成するには、そのセットの名前を入力します。 必要に応じて、Teamメンバーと合計チーム数の上限を入力してください。
 
@@ -73,28 +78,28 @@ redirect_from:
 
 ![グループ課題に参加するチームのパラメータ](/assets/images/help/classroom/assignments-define-teams.png)
 
-### 課題リポジトリの可視性を選択する
+### <a name="choosing-a-visibility-for-assignment-repositories"></a>課題リポジトリの可視性を選択する
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## スターターコードを追加し、開発環境を構成する
+## <a name="adding-starter-code-and-configuring-a-development-environment"></a>スターターコードを追加し、開発環境を構成する
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [テンプレートリポジトリを作成する](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [統合開発環境 (IDE) を選択する](#choosing-an-integrated-development-environment-ide)
 
-### テンプレートリポジトリを作成する
+### <a name="choosing-a-template-repository"></a>テンプレートリポジトリを作成する
 
-デフォルトでは、新しい課題では学生が作成した各Teamに対し、空のリポジトリが作成されます。 {% data reusables.classroom.you-can-choose-a-template-repository %}
+デフォルトでは、新しい課題では学生が作成した各Teamに対し、空のリポジトリが作成されます。 {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### <a name="choosing-an-integrated-development-environment-ide"></a>統合開発環境 (IDE) を選択する
 
-{% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
+{% data reusables.classroom.about-online-ides %}詳細については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -102,18 +107,18 @@ redirect_from:
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-## フィードバックを提供する
+## <a name="providing-feedback"></a>フィードバックの提供
 
 必要に応じて、課題を自動的に採点し、各提出物をTeamで議論するための場を作成できます。
 
 - [課題を自動的にテストする](#testing-assignments-automatically)
-- [フィードバックのためにプルリクエストを作成する](#creating-a-pull-request-for-feedback)
+- [フィードバックのために pull request を作成する](#creating-a-pull-request-for-feedback)
 
-### 課題を自動的にテストする
+### <a name="testing-assignments-automatically"></a>課題を自動的にテストする
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### フィードバックのためにプルリクエストを作成する
+### <a name="creating-a-pull-request-for-feedback"></a>フィードバックのためにプルリクエストを作成する
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -121,36 +126,36 @@ redirect_from:
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## 学生を課題に招待する
+## <a name="inviting-students-to-an-assignment"></a>学生を課題に招待する
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-課題の [**Teams**] タブで、課題に取り組んでいるTeamや課題を提出したTeamを表示できます。 {% data reusables.classroom.assignments-to-prevent-submission %}
+課題の **[チーム]** タブで、課題を作業している、または提出済みのチームを確認できます。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="グループ課題" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
+  <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+## <a name="monitoring-students-progress"></a>学生の進捗状況を監視する
+課題の概要ページには、課題の受け入れとチームの進捗状況に関する情報が表示されます。 課題の構成に基づいて、表示される概要情報が異なる場合があります。
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+- **[チームの合計数]** : 作成されたチームの数。
+- **[名簿に登録された学生]** : Classroom の名簿に登録されている学生の数。
+- **[チームに参加していない学生]** : Classroom の名簿でチームにまだ参加していない学生の数。
+-  **[承認済みチーム]** : この課題を受け入れたチームの数。
+-  **[課題の提出]** : 課題を提出したチームの数。 提出は、課題の期限にトリガーされます。
+-  **[合格したチーム]** : 現在、この課題の自動採点テストに合格しているチームの数。
 
-## 次のステップ
+## <a name="next-steps"></a>次の手順
 
-- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 詳細については、「[{% data variables.product.prodname_dotcom %} の概要](/github/getting-started-with-github)」、「[リポジトリ](/repositories)」、「[Git を使用する](/github/getting-started-with-github/using-git)」、「[issue と pull request を使用したコラボレーション](/github/collaborating-with-issues-and-pull-requests)」、および {% data variables.product.prodname_learning %} の[マージの競合の解決](https://github.com/skills/resolve-merge-conflicts)に関する無料コースを参照してください。
 
-- 課題を完了したチームがある場合は、そのリポジトリにあるファイルをレビューできます。また、チームがどのように協力したかをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
+- 課題を完了したチームがある場合は、そのリポジトリにあるファイルをレビューできます。また、チームがどのように協力したかをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳細については、[グラフを使用したリポジトリ データの視覚化](/github/visualizing-repository-data-with-graphs)に関する記事を参照してください。
 
-- プルリクエストの内の個々のコミットや行にコメントすることで、課題にフィードバックを行うことができます。 詳しい情報については、「[プルリクエストへコメントする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)」および「[コードから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-code)」を参照してください。 一般的なエラーに対するフィードバックを行うための、返信テンプレートの作成に関する詳しい情報については、「[返信テンプレートについて](/github/writing-on-github/about-saved-replies)」を参照してください。
+- プルリクエストの内の個々のコミットや行にコメントすることで、課題にフィードバックを行うことができます。 詳細については、「[pull request へコメントする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)」および[コードから issue を開く方法](/github/managing-your-work-on-github/opening-an-issue-from-code)に関する記事を参照してください。 返信テンプレートを作成して一般的なエラーに関するフィードバックを提供する方法の詳細については、「[返信テンプレートについて](/github/writing-on-github/about-saved-replies)」を参照してください。
 
-## 参考リンク
+## <a name="further-reading"></a>参考資料
 
-- 「[教室や研究で{% data variables.product.prodname_dotcom %}を使う](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」
-- 「[学習管理システムを{% data variables.product.prodname_classroom %}に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)」
-- {% data variables.product.prodname_education %} Communityの、[Using Existing Teams in Group Assignments? (グループ課題における既存チームの使用)](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)
+- [教師向け {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- [学習管理システムを {% data variables.product.prodname_classroom %} に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)
+- {% data variables.product.prodname_education %} Community の「[グループ課題における既存チームの使用](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)」

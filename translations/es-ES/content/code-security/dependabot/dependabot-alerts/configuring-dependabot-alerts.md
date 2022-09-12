@@ -1,6 +1,6 @@
 ---
-title: Configuring Dependabot alerts
-intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be generated when a new vulnerable dependency {% ifversion GH-advisory-db-supports-malware %}or malware {% endif %}is found in one of your repositories.'
+title: Configuración de alertas de Dependabot
+intro: 'Permite que se generen {% data variables.product.prodname_dependabot_alerts %} cuando se encuentre una nueva dependencia vulnerable {% ifversion GH-advisory-db-supports-malware %}o malware {% endif %}en uno de tus repositorios.'
 shortTitle: Configure Dependabot alerts
 versions:
   fpt: '*'
@@ -15,91 +15,81 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 7844380c395b1ab0c43ba01fa151bf403c6a0349
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146455521'
 ---
+## Acerca de {% data variables.product.prodname_dependabot_alerts %} para dependencias vulnerables{% ifversion GH-advisory-db-supports-malware %} y malware{% endif %}
 
-## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}
+{% data reusables.repositories.a-vulnerability-is %} 
 
-{% data reusables.repositories.a-vulnerability-is %}
+{% data variables.product.prodname_dependabot %} examina el código cuando se agrega una nueva auditoría a {% data variables.product.prodname_advisory_database %} o el grafo de dependencias de los cambios en un repositorio. Cuando se detectan dependencias vulnerables{% ifversion GH-advisory-db-supports-malware %} o malware{% endif %}, se generan {% data variables.product.prodname_dependabot_alerts %}. Para más información, vea "[Acerca de {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
 
-{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+Puedes habilitar o deshabilitar las {% data variables.product.prodname_dependabot_alerts %} para:
+* Tu cuenta personal
+* Tu repositorio
+* su organización,
 
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
-* Your personal account
-* Your repository
-* Your organization
-
-## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
+## Administración de las {% data variables.product.prodname_dependabot_alerts %} para la cuenta personal
 
 {% ifversion fpt or ghec %}
 
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your personal account.
+Puedes habilitar o deshabilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios que pertenezcan a tu cuenta personal.
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for existing repositories
+### Habilitación o deshabilitación de las {% data variables.product.prodname_dependabot_alerts %} para repositorios existentes
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Debajo de "Análisis y seguridad del código", a la derecha de las {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Inhabilitar todas** o **Habilitar todas**. ![Screenshot of "Configure security and analysis" features with "Enable all" or "Disable all" buttons emphasized](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
-4. Optionally, enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create. ![Screenshot of "Enable Dependabot alerts" with "Enable by default for new private repositories" checkbox emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-by-default.png)
-5. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own. ![Screenshot of "Enable Dependabot alerts" with "Enable  Dependabot alerts" button emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. En "Seguridad y análisis de código", a la derecha de las {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Deshabilitar todo** o **Habilitar todo**.
+ ![Captura de pantalla de las características de "Configurar seguridad y análisis" con los botones "Habilitar todo" o "Deshabilitar todo" resaltados](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
+4. Opcionalmente, habilita las {% data variables.product.prodname_dependabot_alerts %} de forma predeterminada para los repositorios que crees.
+  ![Captura de pantalla de "Habilitar las alertas de Dependabot" con la casilla "Habilitar de forma predeterminada para nuevos repositorios privados" resaltada](/assets/images/help/dependabot/dependabot-alerts-enable-by-default.png)
+5. Haz clic en **Deshabilitar las {% data variables.product.prodname_dependabot_alerts %}** o **Habilitar las {% data variables.product.prodname_dependabot_alerts %}** para deshabilitar o habilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios que posees.
+  ![Captura de pantalla de "Habilitar las alertas de Dependabot" con el botón "Habilitar las alertas de Dependabot" resaltado](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png)
 
-When you enable {% data variables.product.prodname_dependabot_alerts %} for existing repositories, you will see any results displayed on GitHub within minutes.
+Al habilitar las {% data variables.product.prodname_dependabot_alerts %} para repositorios existentes, los resultados se mostrarán en GitHub en cuestión de minutos.
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for new repositories
+### Habilitación o deshabilitación de las {% data variables.product.prodname_dependabot_alerts %} para repositorios nuevos
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, enable or disable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create. ![Screenshot of "Configure security and analysis" with "Enable  for all new private repositories" check emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-for-all-new-repositories.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. En "Seguridad y análisis de código", a la derecha de {% data variables.product.prodname_dependabot_alerts %}, habilita o deshabilita las {% data variables.product.prodname_dependabot_alerts %} de forma predeterminada para los repositorios que crees.
+  ![Captura de pantalla de "Configurar seguridad y análisis" con "Habilitar para todos los nuevos repositorios privados" resaltado](/assets/images/help/dependabot/dependabot-alerts-enable-for-all-new-repositories.png)
 
-{% else %}
-{% data variables.product.prodname_dependabot_alerts %} for your repositories can be enabled or disabled by your enterprise owner. Para obtener más información, consulta la sección "[Habilitar al Dependabot para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+{% else %} El propietario de la empresa puede habilitar o deshabilitar las {% data variables.product.prodname_dependabot_alerts %} para los repositorios. Para obtener más información, consulta ["Habilitación de Dependabot para la empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 
 {% endif %}
 
-## Administrar las {% data variables.product.prodname_dependabot_alerts %} para tu repositorio
+## Administración de las {% data variables.product.prodname_dependabot_alerts %} para el repositorio
 
-{% ifversion fpt or ghec %}You can manage {% data variables.product.prodname_dependabot_alerts %} for your public, private or internal repository.
+{% ifversion fpt or ghec %}Puedes administrar las {% data variables.product.prodname_dependabot_alerts %} para el repositorio público, privado o interno.
 
-Predeterminadamente, notificamos a las personas con permisos administrativos en los repositorios afectados sobre las {% data variables.product.prodname_dependabot_alerts %} nuevas. {% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. También puedes hacer que las {% data variables.product.prodname_dependabot_alerts %} sean visibles para más personas o equipos que trabajen en los repositorios que te pertenecen o para los cuales tienes permisos administrativos.
+Predeterminadamente, notificamos a las personas con permisos administrativos en los repositorios afectados sobre las {% data variables.product.prodname_dependabot_alerts %} nuevas. {% data variables.product.product_name %} nunca divulga públicamente las dependencias no seguras de un repositorio. También puedes hacer que las {% data variables.product.prodname_dependabot_alerts %} sean visibles para más personas o equipos que trabajen en los repositorios que te pertenecen o para los cuales tienes permisos administrativos.
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
+### Habilitación o deshabilitación de las {% data variables.product.prodname_dependabot_alerts %} para un repositorio
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts. ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
-{% endif %}{% ifversion ghes or ghae %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. En "Seguridad y análisis del código", a la derecha de {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Habilitar** para habilitar alertas o en **Deshabilitar** para deshabilitarlas. 
+  ![Captura de pantalla de la sección "Seguridad y análisis del código" con el botón para habilitar {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png) {% endif %}{% ifversion ghes or ghae %}
 
-{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. Para obtener más información, consulta la sección "[Habilitar al Dependabot para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+El propietario de la empresa puede habilitar o deshabilitar las {% data variables.product.prodname_dependabot_alerts %} para el repositorio. Para obtener más información, consulta ["Habilitación de Dependabot para la empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 {% endif %}
 
-## Administrar las {% data variables.product.prodname_dependabot_alerts %} para tu organización
-{% ifversion fpt or ghec %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
+## Administración de {% data variables.product.prodname_dependabot_alerts %} para la organización
+{% ifversion fpt or ghec %}Puedes habilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios que pertenezcan a tu organización. Los cambios afectan a todos los repositorios.
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
+### Habilitación o deshabilitación de las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios existentes
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-2. Debajo de "Análisis y seguridad del código", a la derecha de las {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Inhabilitar todas** o **Habilitar todas**.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Configure security and analysis" features with the "Enable all" or "Disable all" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+2. En "Seguridad y análisis de código", a la derecha de las {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Deshabilitar todo** o **Habilitar todo**. 
+   {% ifversion fpt or ghec %} ![Captura de pantalla de las características de "Configurar seguridad y análisis" con el botón "Habilitar todo" o "Deshabilitar todo" resaltado para las alertas de Dependabot](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt.png) {% endif %} {% ifversion ghae %} ![Botón "Habilitar todo" o "Deshabilitar todo" para las características de "Configurar seguridad y análisis"](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png) {% endif %} {% ifversion fpt or ghec %}
+3. Opcionalmente, habilita las {% data variables.product.prodname_dependabot_alerts %} de forma predeterminada para los repositorios nuevos de la organización.
+   {% ifversion fpt or ghec %} ![Captura de pantalla de la opción "Habilitar de forma predeterminada" para los repositorios nuevos](/assets/images/help/dependabot/dependabot-alerts-enable-by-default-organizations.png) {% endif %}
+   
+   {% endif %} {% ifversion fpt or ghec %}
+4. Haz clic en **Deshabilitar las {% data variables.product.prodname_dependabot_alerts %}** o **Habilitar las {% data variables.product.prodname_dependabot_alerts %}** para deshabilitar o habilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios de la organización.
+   {% ifversion fpt or ghec %} ![Captura de pantalla del cuadro de diálogo modal "Habilitar las alertas de Dependabot" con el botón para deshabilitar o habilitar la característica resaltado](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts-organizations.png) {% endif %}{% endif %}{% endif %}{% ifversion ghes or ghae %} El propietario de la empresa puede habilitar o deshabilitar las {% data variables.product.prodname_dependabot_alerts %} para la organización. Para obtener más información, consulta "[Acerca de Dependabot para el servidor de GitHub Enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
    {% endif %}
-   {% ifversion ghae %}
-   ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
-   {% endif %}
-   {% ifversion fpt or ghec %}
-3. Optionally, enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Enable by default" option for new repositories](/assets/images/help/dependabot/dependabot-alerts-enable-by-default-organizations.png)
-   {% endif %}
-
-   {% endif %}
-   {% ifversion fpt or ghec %}
-4. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Enable Dependabot alerts" modal with button to disable or enable feature emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts-organizations.png)
-   {% endif %}{% endif %}{% endif %}{% ifversion ghes or ghae %}
-{% data variables.product.prodname_dependabot_alerts %} for your organization can be enabled or disabled by your enterprise owner. For more information, see "[About Dependabot for GitHub Enterprise Server](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-{% endif %}

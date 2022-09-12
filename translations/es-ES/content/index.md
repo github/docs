@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Documentación de la Ayuda'
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
@@ -63,6 +64,7 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -122,5 +124,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
+ms.openlocfilehash: dfd88a0c13da67bf929a5f5334e73319c04ad394
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147643849'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: 'Phase 5: Rollout and scale code scanning'
-intro: 'You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier.'
+title: 'Fase 5: Distribuição e exame de segredos em escala'
+intro: 'Utilize as APIs disponíveis para distribuir o {% data variables.product.prodname_code_scanning %} programaticamente por equipe e por linguagem em toda a empresa usando os dados do repositório coletados anteriormente.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,48 +9,53 @@ topics:
   - Advanced Security
 shortTitle: 5. Rollout code scanning
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 69c5a4e88c5490cbd7dcddca902426862047dff5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145318'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+Este artigo faz parte de uma série sobre a adoção do {% data variables.product.prodname_GH_advanced_security %} em escala. Para ver o artigo anterior desta série, confira "[Fase 4: Criar a documentação interna](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)".
 
 {% endnote %}
 
-### Habilitar a varredura de código
+### Habilitar o exame de códigos
 
-Using the data you collated in [Phase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), you can begin to enable GHAS and then {% data variables.product.prodname_code_scanning %} on your repositories, one language at a time. The step-by-step process for enabling GHAS should look like this:
+Com os dados coletados na [Fase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), é possível começar a habilitação do GHAS e, em seguida, do {% data variables.product.prodname_code_scanning %} nos repositórios, uma linguagem por vez. O processo passo a passo para habilitar o GHAS deve ser semelhante ao seguinte:
 
-1. Enable GHAS on the repository. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do seu repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)".
-1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. Para obter mais informações, consulte "[Criar uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
-1. Create an issue in the repository to explain why a pull request has been raised. The issue you create can contain a link to the previous communication sent to all users, but can also explain what changes the pull request introduces, what next steps the team have to take, what the team's responsibilities are, and how the team should be using {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
+1. Habilite o GHAS no repositório. Para obter mais informações, confira "[Como gerenciar as configurações de segurança e de análise do seu repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)".
+1. Crie uma solicitação de pull no branch padrão do repositório com um arquivo `codeql-analysis.yml` que contenha um exemplo de como executar o CodeQL para essa linguagem. Para obter mais informações, confira "[Como criar uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)".
+1. Crie um problema no repositório para explicar por que uma solicitação de pull foi gerada. O problema que você cria pode conter um link para a comunicação anterior enviada a todos os usuários, mas também pode explicar quais alterações a solicitação de pull apresenta, quais são as próximas etapas que a equipe precisa seguir, quais são as responsabilidades da equipe e como ela deve usar o {% data variables.product.prodname_code_scanning %}. Para obter mais informações, confira "[Como criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
 
-There is a publicly available tool that completes the first two steps called the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement). You can re-run the ghas-enablement tool in batches of languages where it makes sense. For example, JavaScript, TypeScript, Python, and Go likely have a similar build process and could therefore use a similar CodeQL analysis file. The ghas-enablement tool can also be used for languages such as Java, C, and C++, but due to the varied nature of how these languages build and compile you may need to create more targeted CodeQL analysis files.
+Há uma ferramenta publicamente disponível que conclui as duas primeiras etapas, chamada de [ferramenta de habilitação do GHAS](https://github.com/NickLiffen/ghas-enablement). Quando adequado, é possível executar novamente a ferramenta de habilitação do GHAS em lotes de linguagens. Por exemplo, JavaScript, TypeScript, Python e Go provavelmente têm um processo de compilação semelhante e, portanto, podem usar um arquivo de análise do CodeQL semelhante. A ferramenta de habilitação do GHAS também pode ser usada para linguagens como Java, C e C++, mas devido à natureza variada da criação e da compilação dessas linguagens, pode ser preciso criar arquivos de análise do CodeQL mais direcionados.
 
 {% note %}
 
-**Note:** If you are intending to use {% data variables.product.prodname_actions %} to control {% data variables.product.prodname_code_scanning %} and you do not use the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement), keep in mind that there is no API access to the `.github/workflow` directory. This means that you cannot create a script without a git client underlying the automation. The workaround is to leverage bash scripting on a machine or container which has a git client. The git client can push and pull files into the `.github/workflows` directory where the `codeql-analysis.yml` file is located.
+**Nota:** se você pretende usar o {% data variables.product.prodname_actions %} para controlar o {% data variables.product.prodname_code_scanning %} e não usa a [ferramenta de habilitação do GHAS](https://github.com/NickLiffen/ghas-enablement), deve ter em mente que não há acesso de API ao diretório `.github/workflow`. Isso significa que não é possível criar um script sem um cliente Git subjacente à automação. A solução alternativa é utilizar o script bash em um computador ou contêiner que tenha um cliente Git. O cliente Git pode enviar por push e fazer pull de arquivos no diretório `.github/workflows` em que o arquivo `codeql-analysis.yml` está localizado.
 
 {% endnote %}
 
-It is important to not just push the `codeql-analysis.yml` file the repository's default branch. Using a pull request puts ownership on the development team to review and merge, allowing the development team to learn about {% data variables.product.prodname_code_scanning %} and involving the team in the process.
+Não basta apenas enviar o arquivo `codeql-analysis.yml` para o branch padrão do repositório. O uso de uma solicitação de pull coloca a responsabilidade de revisão e mesclagem na equipe de desenvolvimento, o que permite que ela aprenda mais sobre o {% data variables.product.prodname_code_scanning %} e seja envolvida no processo. 
 
-You should capture the pull request URLs created by automation, and check each week for any activity and see which ones are closed. After a few weeks, it may be worth creating another issue or sending internal emails if the pull request remains unmerged.
+Capture as URLs de solicitação de pull criadas pela automação e verifique todas as semanas se há atividades e quais foram encerradas. Depois de algumas semanas, pode valer a pena criar outro problema ou enviar emails internos caso a solicitação de pull permaneça não mesclada.
 
-### Creating subject matter experts
+### Desenvolvimento de especialistas no assunto
 
-You can then proceed to the next stage of enablement, which is creating internal subject matter experts (or SMEs) and arranging company meetings. Opening pull requests and issues in repositories will likely tackle a large percentage of your adoption, but this doesn’t tackle one-off use cases where a specific build process, framework, or library needs specific feature flags to be enabled. A more personalized and hands-on approach is required to push high adoption, especially for Java, C, and C++.
+Em seguida, é possível prosseguir para o próximo estágio de capacitação, que é criar especialistas internos no assunto, ou PMEs, e organizar reuniões na empresa. A abertura de solicitações de pull e problemas nos repositórios provavelmente abordará uma grande porcentagem da adoção, mas não os casos de uso únicos em que um processo de compilação, uma estrutura ou uma biblioteca específica precisa da habilitação de sinalizadores de recursos específicos. Uma abordagem mais personalizada e prática é necessária para impulsionar a alta adoção, especialmente para Java, C e C++.
 
-It’s a good idea to run regular company meetings on specific topics to educate and discuss the rollout with a larger group. This is much more time-efficient for an enterprise with thousands of repositories compared to working with one team at a time. Teams can come to sessions that are relevant to them. Some example sessions that have been run before include:
+É recomendado realizar reuniões regulares na empresa sobre tópicos específicos para instruir e discutir a distribuição com um grupo maior. Isso é muito mais eficiente em termos de tempo para uma empresa com milhares de repositórios do que trabalhar com uma equipe por vez. As equipes podem participar de sessões relevantes para elas. Algumas sessões de exemplo que foram realizadas anteriormente incluem:
 
 - {% data variables.product.prodname_code_scanning_capc %} em um contêiner
-- {% data variables.product.prodname_code_scanning_capc %} & Java Struts
-- {% data variables.product.prodname_code_scanning_capc %} & JSP
+- {% data variables.product.prodname_code_scanning_capc %} e Java Struts
+- {% data variables.product.prodname_code_scanning_capc %} e JSP
 
-You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
+É possível usar os dados coletados sobre a distribuição de diferentes linguagens entre os repositórios para criar reuniões direcionadas.
 
 {% note %}
 
-For the next article in this series, see "[Phase 6: Rollout and scale secret scanning](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
+Para ver o próximo artigo desta série, confira "[Fase 6: Distribuição e exame de segredos em escala](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)".
 
 {% endnote %}

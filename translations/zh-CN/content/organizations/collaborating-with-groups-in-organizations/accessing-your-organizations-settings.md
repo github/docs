@@ -18,18 +18,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 访问组织设置
+shortTitle: Access organization settings
+ms.openlocfilehash: 952b4c7d911c131fa7913b9f8ce9f6da67e34cd5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128603'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**提示：**只有组织所有者和帐单管理员可以查看及更改组织的帐单信息与全套帐户设置。 组织版主只能看到主持设置。 {% data reusables.organizations.new-org-permissions-more-info %}
+提示：只有组织所有者和账单管理员可以查看及更改组织的账单信息与一组完整的帐户设置。 组织审查者只能查看审查设置。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}

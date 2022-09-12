@@ -11,15 +11,20 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: f0c16e5f1c341b602a10c5bf672b815ea2149a9e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099671'
 ---
-
 ## 付费功能和产品
 
-您可以随时将个人帐户或组织升级到付费订阅。 也可以选择从 {% data variables.product.prodname_marketplace %} 购买应用程序，或者升级 {% data variables.large_files.product_name_long %} 的存储空间和带宽。 更多信息请参阅：
-- "[关于 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/about-billing-for-github-accounts)"
-- "[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)"
-- "[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)"
-- "[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)"
+您可以随时将个人帐户或组织升级到付费订阅。 也可以选择从 {% data variables.product.prodname_marketplace %} 购买应用程序，或者升级 {% data variables.large_files.product_name_long %} 的存储空间和带宽。 有关详细信息，请参阅：
+- “[关于 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/about-billing-for-github-accounts)”
+- “[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”
+- “[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)”
+- “[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”
 
 ## 管理计费设置
 
@@ -27,20 +32,22 @@ topics:
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-更多信息请参阅"[管理您的 {% data variables.product.prodname_dotcom %} 计费设置](/articles/managing-your-github-billing-settings)"。
+有关详细信息，请参阅“[管理 {% data variables.product.prodname_dotcom %} 计费设置](/articles/managing-your-github-billing-settings)”。
 
 ## 在不同帐户的设置之间切换
 
-如果您是组织或企业所有者，您可以使用设置中的上下文切换器在不同帐户的设置之间切换。
+如果您是组织或企业所有者，您可以使用设置中的上下文切换器在不同帐户的设置之间切换。 
 
 {% data reusables.user-settings.access_settings %}
-1. 在页面顶部用户名的右侧，单击 **Switch to another account（切换到另一个帐户）**。 ![上下文切换器按钮](/assets/images/help/settings/context-switcher-button.png)
-1. 开始键入要切换到的帐户名称，然后单击帐户的名称。 ![上下文切换器菜单](/assets/images/help/settings/context-switcher-menu.png)
-1. 在左侧边栏中，单击 **{% octicon "credit-card" aria-label="The credit card icon" %} 帐单和计划**。
+1. 单击页面顶部用户名右侧的“切换到其他帐户”。
+![上下文切换器按钮](/assets/images/help/settings/context-switcher-button.png)
+1. 开始键入要切换到的帐户名称，然后单击帐户的名称。
+![上下文切换器菜单](/assets/images/help/settings/context-switcher-menu.png)
+1. 在左侧边栏中，单击“{% octicon "credit-card" aria-label="The credit card icon" %} 计费和计划”。
 
 ## 延伸阅读
 
-- "[管理 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)"
-- "[管理 {% data variables.product.prodname_marketplace %} 应用程序的计费](/articles/managing-billing-for-github-marketplace-apps)"
-- "[管理 {% data variables.large_files.product_name_long %} 的计费](/articles/managing-billing-for-git-large-file-storage)"
-- "[管理 {% data variables.product.prodname_sponsors %} 的计费](/articles/managing-billing-for-github-sponsors)"
+- [管理 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)
+- [管理 {% data variables.product.prodname_marketplace %} 应用的计费](/articles/managing-billing-for-github-marketplace-apps)
+- “[管理 {% data variables.large_files.product_name_long %} 的计费](/articles/managing-billing-for-git-large-file-storage)”
+- “[管理 {% data variables.product.prodname_sponsors %} 的计费](/articles/managing-billing-for-github-sponsors)”

@@ -20,15 +20,20 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: 已锁定的帐户
+shortTitle: Locked account
+ms.openlocfilehash: e9b51d82dcd2f184003add575338625ea01fa1df
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084452'
 ---
-
 通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。
 
-您可以将组织降级到 {% data variables.product.prodname_free_team %}，以继续使用公共仓库中相同的高级功能。 更多信息请参阅“[降级您的 {% data variables.product.product_name %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。
+您可以将组织降级到 {% data variables.product.prodname_free_team %}，以继续使用公共仓库中相同的高级功能。 有关详细信息，请参阅“[将 {% data variables.product.product_name %} 订阅降级](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。
 
 ## 解锁组织因拒绝付款而锁定的功能
 
-如果您组织的高级功能因拒绝付款而被锁定，您将需要更新帐单信息来触发新授权的扣费。 更多信息请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
+如果您组织的高级功能因拒绝付款而被锁定，您将需要更新帐单信息来触发新授权的扣费。 有关详细信息，请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
 
 如果新的帐单信息获得批准，我们将立即向您收取所选付费产品的费用。 成功付款后，组织将自动解锁。

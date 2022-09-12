@@ -1,6 +1,6 @@
 ---
 title: About GitHub for enterprises
-intro: 'Businesses can use {% data variables.product.prodname_dotcom %}''s enterprise products to improve their entire software development lifecyle.'
+intro: "Businesses can use {% data variables.product.prodname_dotcom %}'s enterprise products to improve their entire software development lifecyle."
 versions:
   ghec: '*'
   ghes: '*'
@@ -19,7 +19,7 @@ Developers can store and version control your source code in repositories, using
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers save 45 minutes per day, and onboarding and training time is reduced by 40%. For more information, see [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/downloads/TEI-of-GitHub-Enterprise.pdf).
 
-To simplify administration for all the stages in the software development lifecyle, we provide a single point of visibility and management called an enterprise account. Enterprise accounts enable you to manage billing and settings, enforce policy, and audit the people with access to your enterprise's resources. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+To simplify administration for all the stages in the software development lifecyle, we provide a single point of visibility and management called an enterprise account. Enterprise accounts enable you to manage billing and settings, enforce policy, and audit the people with access to your enterprise's resources. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 Optionally, you can add extra code security features with {% data variables.product.prodname_GH_advanced_security %}, and enhanced support options with {% data variables.contact.premium_support %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)" and "[About {% data variables.contact.premium_support %}]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/support/learning-about-github-support/about-github-premium-support){% ifversion ghae %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
@@ -27,7 +27,7 @@ Optionally, you can add extra code security features with {% data variables.prod
 
 When you purchase {% data variables.product.prodname_enterprise %}, you get access to both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_ghe_cloud %} is a set of advanced functionality on {% data variables.product.prodname_dotcom_the_website %}, while {% data variables.product.prodname_ghe_server %} is self-hosted platform. For more information, see "[About {% data variables.product.prodname_ghe_server %}]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
-For {% data variables.product.prodname_ghe_cloud %}, you can allow developers to create and manage their own personal accounts, or you can use {% data variables.product.prodname_emus %}, which enables you to create and manage the user accounts for your developers. 詳しい情報については「[Enterpriseでの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」を参照してください。
+For {% data variables.product.prodname_ghe_cloud %}, you can allow developers to create and manage their own personal accounts, or you can use {% data variables.product.prodname_emus %}, which enables you to create and manage the user accounts for your developers. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 
 {% data variables.product.prodname_ghe_managed %} is in limited availability for select customers with stringent security and compliance requirements. For more information, see "[About {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/overview/about-github-ae){% ifversion not ghae %}" in the {% data variables.product.prodname_ghe_managed %} documentation.{% else %}."{% endif %}
 
@@ -36,6 +36,6 @@ You can benefit from the power of {% data variables.product.prodname_dotcom_the_
 - "[About {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
 - "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation{% else %} For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."{% endif %}
 
-## 参考リンク
+## Further reading
 
 - [Compare {% data variables.product.prodname_dotcom %} to other DevOps solutions](https://resources.github.com/devops/tools/compare/) in {% data variables.product.company_short %} Resources

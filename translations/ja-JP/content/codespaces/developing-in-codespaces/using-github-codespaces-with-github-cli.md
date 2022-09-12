@@ -15,9 +15,9 @@ redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
 ---
 
-## {% data variables.product.prodname_cli %} について
+## About {% data variables.product.prodname_cli %} 
 
-{% data reusables.cli.about-cli %} 詳しい情報については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
+{% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_codespaces %} in the  {% data variables.product.prodname_cli %} to:
   - [List all of your codespaces](#list-all-of-your-codespaces)
@@ -30,23 +30,28 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
   - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
   - [Modify ports in a codespace](#modify-ports-in-a-codespace)
   - [Access codespace logs](#access-codespace-logs)
+  - [Access remote resources](#access-remote-resources)
 
-## {% data variables.product.prodname_cli %}のインストール
+## Installing {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
+ 
+## Using {% data variables.product.prodname_cli %}
 
-## {% data variables.product.prodname_cli %}を使用する
-
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account.
+If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
 
 To use `gh` to work with {% data variables.product.prodname_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
 
-As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
+As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
 
-* List your current codespaces, to check whether you have a codespace for a particular repository:<br> `gh codespace list`
-* Create a new codespace for the required repository branch:<br> `gh codespace create -r github/docs -b main`
-* SSH into the new codespace:<br> `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
-* Forward a port to your local machine:<br> `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
+  `gh codespace list`
+* Create a new codespace for the required repository branch:<br>
+  `gh codespace create -r github/docs -b main`
+* SSH into the new codespace:<br>
+  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
+* Forward a port to your local machine:<br>
+  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
@@ -74,7 +79,7 @@ The list includes the unique name of each codespace, which you can use in other 
 gh codespace create -r <em>owner/repository</em> [-b <em>branch</em>]
 ```
 
-詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。
+For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
 ### Stop a codespace
 
@@ -128,7 +133,7 @@ Use the prefix `remote:` on a file or directory name to indicate that it's on th
 
 The location of files and directories on the codespace is relative to the home directory of the remote user.
 
-#### サンプル
+#### Examples
 
 * Copy a file from the local machine to the `$HOME` directory of a codespace:
 
@@ -176,7 +181,7 @@ You can set the visibility of a forwarded port. {% data reusables.codespaces.por
 gh codespace ports visibility <em>codespace-port</em>:<em>private|org|public</em> -c <em>codespace-name</em>
 ```
 
-You can set the visibility for multiple ports with one command. 例:
+You can set the visibility for multiple ports with one command. For example:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
@@ -193,3 +198,12 @@ gh codespace logs -c <em>codespace-name</em>
 ```
 
 For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
+
+### Access remote resources 
+You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+{% note %}
+
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+
+{% endnote %}

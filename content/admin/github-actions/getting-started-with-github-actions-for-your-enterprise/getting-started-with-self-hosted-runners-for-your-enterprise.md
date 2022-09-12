@@ -83,7 +83,7 @@ You can create a runner group to manage access to the runner that you added to y
 
 {% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
 1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
 1. Select the organizations you'd like to grant access to the runner group.
@@ -100,7 +100,7 @@ You can create a runner group to manage access to the runner that you added to y
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
+{% data reusables.actions.create-runner-group %}
 {%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
@@ -146,7 +146,7 @@ Optionally, you can build custom tooling to automatically scale the self-hosted 
    - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
    {%- endif %}
 
-- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/virtual-environments`](https://github.com/actions/virtual-environments) repositories.
+- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
 
 ## Further reading
 

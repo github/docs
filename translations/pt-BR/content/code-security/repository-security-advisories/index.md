@@ -1,6 +1,6 @@
 ---
 title: Gerenciando consultorias de segurança de repositório para vulnerabilidades no seu projeto
-shortTitle: Consultorias de segurança do repositório
+shortTitle: Repository security advisories
 intro: 'Discuta, corrija e publique vulnerabilidades de segurança nos seus repositórios usando consultorias de segurança de repositório.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
@@ -25,5 +25,11 @@ children:
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
+ms.openlocfilehash: 43efe7ceaf307da4a8a7c02c45f744a4967b05b0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145095644'
 ---
 

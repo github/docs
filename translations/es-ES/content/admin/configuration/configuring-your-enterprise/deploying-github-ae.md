@@ -1,6 +1,6 @@
 ---
-title: Deploying GitHub AE
-intro: 'You can deploy {% data variables.product.product_name %} to an available Azure region.'
+title: "Implementación de GitHub\_AE"
+intro: 'Puedes implementar {% data variables.product.product_name %} en una región de Azure.'
 versions:
   ghae: '*'
 topics:
@@ -10,59 +10,61 @@ type: how_to
 shortTitle: Deploy GitHub AE
 redirect_from:
   - /get-started/signing-up-for-github/setting-up-a-trial-of-github-ae
+ms.openlocfilehash: af6def26a15a1ccad2625677d9db57b2a1907850
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147614371'
 ---
+## Acerca de la implementación de {% data variables.product.product_name %}
 
-## About deployment of {% data variables.product.product_name %}
+{% data reusables.github-ae.github-ae-enables-you %} Para más información, vea "[Acerca de {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)".
 
-{% data reusables.github-ae.github-ae-enables-you %} For more information, see "[About {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
+Después de comprar o iniciar una prueba de {% data variables.product.product_name %}, puede implementar {% data variables.product.product_name %} en una región de Azure disponible. En esta guía se hace referencia al recurso de Azure que contiene la implementación de {% data variables.product.product_name %} como cuenta de {% data variables.product.product_name %}. Usará Azure Portal en [https://portal.azure.com](https://portal.azure.com) para implementar la cuenta de {% data variables.product.product_name %}.
 
-After you purchase or start a trial of {% data variables.product.product_name %}, you can deploy {% data variables.product.product_name %} to an available Azure region. This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
+## Prerrequisitos
 
-## Prerequisites
+Debe tener permiso a fin de realizar la operación `/register/action` para el proveedor de recursos en Azure. El permiso se incluye en los roles `Contributor` y `Owner`. Para más información, vea [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) en la documentación de Microsoft.
 
-- Before you can deploy {% data variables.product.product_name %}, you must request access from your {% data variables.product.company_short %} account team. {% data variables.product.company_short %} will enable deployment of {% data variables.product.product_name %} for your Azure subscription. If you haven't already purchased {% data variables.product.product_name %}, you can contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a trial.
+## Implementación de {% data variables.product.product_name %} con {% data variables.actions.azure_portal %}
 
-- You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+{% data variables.actions.azure_portal %} le permite implementar la cuenta de {% data variables.product.product_name %} en el grupo de recursos de Azure.
 
-## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
-
-The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.product_name %} account in your Azure resource group.
-
-1. Click one of the following two links to begin deployment of {% data variables.product.product_name %}. The link you should click depends on the Azure cloud where you plan to deploy {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
+1. Haga clic en uno de los dos vínculos siguientes para comenzar la implementación de {% data variables.product.product_name %}. El vínculo que use depende de la nube de Azure en la que planea implementar {% data variables.product.product_name %}. Para más información sobre Azure Government, vea [¿Qué es Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) en la documentación de Microsoft.
    
-   - [Deploy {% data variables.product.product_name %} to Azure Commercial](https://aka.ms/create-github-ae-instance)
-   - [Deploy {% data variables.product.product_name %} to Azure Government](https://aka.ms/create-github-ae-instance-gov)
-1. To begin the process of adding a new {% data variables.product.product_name %} account, click **Create GitHub AE account**.
-1. Complete the "Project details" and "Instance details" fields.
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-form.png)
-    - **Account name:** The hostname for your enterprise
-    - **Administrator username:** A username for the initial enterprise owner that will be created in {% data variables.product.product_name %}
-    - **Administrator email:** The email address that will receive the login information
-1. To review a summary of the proposed changes, click **Review + create**.
-1. After the validation process has completed, click **Create**.
+   - [Implementación de {% data variables.product.product_name %} en Azure Commercial](https://aka.ms/create-github-ae-instance)
+   - [Implementación de {% data variables.product.product_name %} en Azure Government](https://aka.ms/create-github-ae-instance-gov)
+1. Para comenzar el proceso de agregar una cuenta nueva de {% data variables.product.product_name %}, haga clic en **Crear cuenta de GitHub AE**.
+1. Complete los campos "Detalles del proyecto" y "Detalles de la instancia".
+    ![Resultado de la búsqueda de {% data variables.actions.azure_portal %}](/assets/images/azure/github-ae-azure-portal-form.png)
+    - **Nombre de cuenta:** nombre de host de la empresa
+    - **Nombre de usuario del administrador:** nombre de usuario del propietario inicial de la empresa que se creará en {% data variables.product.product_name %}
+    - **Correo electrónico del administrador:** dirección de correo electrónico que recibirá la información de inicio de sesión.
+1. Para revisar un resumen de los cambios propuestos, haga clic en **Revisar y crear**.
+1. Una vez que se complete el proceso de validación, haga clic en **Crear**.
 
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. For more information, see "[Initializing {% data variables.product.product_name %}](/admin/configuration/initializing-github-ae)."
+En la dirección de correo electrónico que ha escrito antes recibirá instrucciones sobre cómo acceder a la empresa. Después de tener acceso, puede empezar mediante los pasos de configuración iniciales. Para más información, vea "[Inicialización de {% data variables.product.product_name %}](/admin/configuration/initializing-github-ae)".
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.product_name %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**Nota:** Las actualizaciones de software para la implementación de {% data variables.product.product_name %} se realizan mediante {% data variables.product.prodname_dotcom %}. Para más información, vea "[Acerca de las actualizaciones a nuevas versiones](/admin/overview/about-upgrades-to-new-releases)".
 
 {% endnote %}
 
-## Navigating to your enterprise
+## Navegación a la empresa
 
-You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.product_name %} deployment. The resulting list includes all the {% data variables.product.product_name %} deployments in your Azure region.
+Puede usar {% data variables.actions.azure_portal %} para ir a la implementación de {% data variables.product.product_name %}. En la lista resultante se incluyen todas las implementaciones de {% data variables.product.product_name %} en la región de Azure.
 
-1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
-1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**:
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
+1. En el panel izquierdo de {% data variables.actions.azure_portal %}, haga clic en **Todos los recursos**.
+1. En los filtros disponibles, haga clic en **Todos los tipos** y, después, anule la selección de **Seleccionar todo** y seleccione **GitHub AE**: ![Resultado de la búsqueda de {% data variables.actions.azure_portal %}](/assets/images/azure/github-ae-azure-portal-type-filter.png)
 
-## Next steps
+## Pasos siguientes
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
-- If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. If you need more time to evaluate {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
+- Una vez que se aprovisione la implementación, el siguiente paso consiste en inicializar {% data variables.product.product_name %}. Para más información, vea "[Inicialización de {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)".
+- Si va a probar {% data variables.product.product_name %}, puede actualizar a una licencia completa en cualquier momento durante el período de prueba si se pone en contacto con {% data variables.contact.contact_enterprise_sales %}. Si el último día de la prueba todavía no ha realiza la actualización, la implementación se elimina de forma automática. Si necesita más tiempo para evaluar {% data variables.product.product_name %}, póngase en contacto con {% data variables.contact.contact_enterprise_sales %} para solicitar una extensión.
 
-## Further reading 
+## Información adicional 
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 
+- "[Habilitación de las características de {% data variables.product.prodname_advanced_security %} en {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
+- "[Notas de la versión de {% data variables.product.product_name %}](/github-ae@latest/admin/overview/github-ae-release-notes)" 

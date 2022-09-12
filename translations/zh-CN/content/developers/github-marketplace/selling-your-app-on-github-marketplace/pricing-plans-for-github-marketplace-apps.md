@@ -10,16 +10,21 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: 应用定价计划
+shortTitle: Pricing plans for apps
+ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084955'
 ---
+{% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为已验证发布者的详细信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-{% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
-
-客户使用附加到其在 {% data variables.product.product_location %} 上帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+客户使用附加到其在 {% data variables.product.product_location %} 上帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 如果您在 {% data variables.product.prodname_marketplace %} 中上架的应用程序有多个计划选项，您可以设置相应的定价计划。 例如，如果您的应用程序有两个计划选项：开源计划和专业计划，您可以为开源计划设置一个免费定价计划，为专业计划设置一个统一定价计划。 每个 {% data variables.product.prodname_marketplace %} 上架产品必须为列出的每个计划提供年度和月度价格。
 
-有关如何创建定价计划的更多信息，请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
+有关如何创建定价计划的详细信息，请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
 
 {% data reusables.marketplace.free-plan-note %}
 
@@ -31,7 +36,7 @@ shortTitle: 应用定价计划
 
 免费计划对用户完全免费。 如果您设置免费定价计划，则无法向选择免费定价计划的用户收取使用应用程序的费用。 您可以为上架产品同时创建免费和付费计划。
 
-所有应用程序都需要处理新购买和取消事件。 仅含免费计划的应用程序无需处理免费试用、升级和降级事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+所有应用程序都需要处理新购买和取消事件。 仅含免费计划的应用程序无需处理免费试用、升级和降级事件。 有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 如果您向已作为免费服务在 {% data variables.product.prodname_marketplace %} 中上架的应用程序添加付费计划，则需要请求验证应用程序并完成财务手续。
 
@@ -51,10 +56,10 @@ shortTitle: 应用定价计划
 
 免费试用的固定期限为 14 天。 客户在试用期结束前 4 天（免费试用期第 11 天）收到通知，他们的计划将升级。 在免费试用结束时，如果客户不取消，他们将自动注册到他们正在试用的计划中。
 
-更多信息请参阅“[处理新购买和免费试用](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”。
+有关详细信息，请参阅“[处理新购买和免费试用](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”。
 
 {% note %}
 
-**注：**GitHub 希望您在取消试用后 30 天（从收到取消事件开始算起）内删除任何私人客户数据。 。
+注意：GitHub 希望你在取消试用后 30 天（从收到取消事件开始算起）内删除任何私人客户数据。
 
 {% endnote %}

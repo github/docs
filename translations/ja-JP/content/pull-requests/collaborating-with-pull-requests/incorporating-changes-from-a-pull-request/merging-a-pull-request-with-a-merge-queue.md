@@ -27,7 +27,8 @@ redirect_from:
 1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow. ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
+   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
+   ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
@@ -44,7 +45,8 @@ redirect_from:
 
 1. In the "Pull Requests" list, click the pull request you would like to remove from a merge queue.
 
-1. To remove the pull request from the queue, click **Remove from queue**. ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
+1. To remove the pull request from the queue, click **Remove from queue**.
+  ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
 Alternatively, you can navigate to the merge queue page for the base branch, click **...** next to the pull request you want to remove, and select **Remove from queue**. For information on how to get to the merge queue page for the base branch, see the section below.
 

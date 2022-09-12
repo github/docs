@@ -14,12 +14,17 @@ topics:
   - Privacy
   - Repositories
   - Security
-shortTitle: 内部仓库迁移
+shortTitle: Internal repository migration
+ms.openlocfilehash: 66a535d8fd2e20cbcc78791588ca2b50ae8ede79
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098964'
 ---
-
 ## 关于内部仓库
 
-内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)。”
+内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
 在未来版本的 {% data variables.product.prodname_ghe_server %} 中，我们将调整仓库可见性的工作方式，以便公共、内部和私有术语对 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上的开发者具有统一的含义。
 
@@ -31,15 +36,15 @@ shortTitle: 内部仓库迁移
 
 每个变为内部或私有仓库的公共仓库都将禁用匿名 Git 读取权限。
 
-如果仓库当前的默认可见性为公共，默认值将变为内部。 如果当前默认值为私有，默认值将保持不变。 您可以随时更改默认值。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)”。
+如果仓库当前的默认可见性为公共，默认值将变为内部。 如果当前默认值为私有，默认值将保持不变。 您可以随时更改默认值。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)”。
 
-实例的仓库创建策略将更改为禁用公共仓库，允许私有和内部仓库。 您可以随时更新此策略。 更多信息请参阅“[限制在实例中创建仓库](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)。”
+实例的仓库创建策略将更改为禁用公共仓库，允许私有和内部仓库。 您可以随时更新此策略。 有关详细信息，请参阅“[限制实例中的存储库创建](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)”。
 
 如果您未启用私有模式，迁移脚本将无效。
 
 ## 运行迁移
 
-1. 连接到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)。”
+1. 连接到管理 shell。 有关详细信息，请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)”。
 {% ifversion ghes or ghae %}
 2. 运行迁移命令。
 
@@ -48,7 +53,7 @@ shortTitle: 内部仓库迁移
    ```
 
 {% else %}
-2. 导航至 `/data/github/current` 目录。
+2. 导航到 `/data/github/current` 目录。
    ```shell
    cd /data/github/current
    ```
@@ -62,4 +67,4 @@ shortTitle: 内部仓库迁移
 
 ## 延伸阅读
 
-- "[启用私人模式](/enterprise/admin/installation/enabling-private-mode)"
+- “[启用专用模式](/enterprise/admin/installation/enabling-private-mode)”

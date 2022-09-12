@@ -59,7 +59,9 @@ export const PlaygroundContextProvider = (props: { children: React.ReactNode }) 
   const router = useRouter()
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const [scrollToSection, setScrollToSection] = useState<number>()
-  const path = router.asPath.split('?')[0]
+  const path = router.asPath.includes('@latest')
+    ? router.asPath.split('?')[0].split('#')[0].split('@latest')[1]
+    : router.asPath.split('?')[0].split('#')[0]
   const relevantArticles = articles.filter(({ slug }) => slug === path)
 
   const { langId } = router.query

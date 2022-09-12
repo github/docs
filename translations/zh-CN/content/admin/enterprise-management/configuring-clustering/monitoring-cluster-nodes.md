@@ -15,11 +15,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+ms.openlocfilehash: a5cab340f84d572a0a8e549d942b7b52ef522733
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100042'
 ---
-
 ## 手动检查集群状态
 
-{% data variables.product.prodname_ghe_server %} 有一个内置的命令行实用程序，用于监视集群的状态。 在管理 shell 中，运行 `ghe-cluster-status` 命令会对每个节点执行一系列状态检查，包括验证连接和服务状态。 输出会显示所有测试结果，包括文本 `ok` 或 `error`。 例如，要仅显示失败的测试，请运行：
+{% data variables.product.prodname_ghe_server %} 有一个内置的命令行实用程序，用于监视集群的状态。 在管理 shell 中，运行 `ghe-cluster-status` 命令会对每个节点执行一系列运行状况检查，包括验证连接性和服务状态。 输出会显示所有测试结果，包括文本 `ok` 或 `error`。 例如，要仅显示失败的测试，请运行：
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -28,15 +33,15 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 ```
 {% note %}
 
-**注：**如果没有失败的测试，则此命令不会产生任何输出。 这表明集群的状态是健康的。
+注意：如果没有失败的测试，此命令不会产生任何输出。 这表明集群的状态是健康的。
 
 {% endnote %}
 
 ## 使用 Nagios 监视集群状态
 
-您可以配置 [Nagios](https://www.nagios.org/) 来监视 {% data variables.product.prodname_ghe_server %}。 除了监视每个集群节点的基本连接以外，还可以通过将 Nagios 配置为使用 `ghe-cluster-status -n` 命令来检查集群状态。 这将以 Nagios 理解的格式返回输出。
+可配置 [Nagios](https://www.nagios.org/) 来监视 {% data variables.product.prodname_ghe_server %}。 除了监视与每个集群节点的基本连接外，你还可通过将 Nagios 配置为使用 `ghe-cluster-status -n` 命令来检查集群状态。 这将以 Nagios 理解的格式返回输出。
 
-### 基本要求
+### 先决条件
 * 运行 Nagios 的 Linux 主机。
 * 对 {% data variables.product.prodname_ghe_server %} 集群的网络访问。
 
@@ -53,12 +58,11 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
   {% danger %}
 
-  **安全警告：**如果授权完全访问主机，则没有密码的 SSH 密钥可能会构成安全风险。 将此密钥的授权限制为单个只读命令。
+  安全警告：如果获得对主机的完全访问权限，没有密码的 SSH 密钥可能会带来安全风险。 将此密钥的授权限制为单个只读命令。
 
-  {% enddanger %}
-  {% note %}
+  {% enddanger %} {% note %}
 
-  **注：**如果您使用的是不支持 Ed25519 算法的 Linux 发行版，请使用以下命令：
+  注意：如果你使用的 Linux 发行版不支持 Ed25519 算法，请使用以下命令：
   ```shell
   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
@@ -70,9 +74,9 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. 要授权公钥*仅*运行 `ghe-cluster-status -n` 命令，请在 `/data/user/common/authorized_keys` 文件中使用 `command=` 前缀。 从任何节点上的管理 shell，修改此文件以添加在步骤 1 中生成的公钥。 例如：`command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. 要授权公钥仅运行 `ghe-cluster-status -n` 命令，请在 `/data/user/common/authorized_keys` 文件中使用 `command=` 前缀。 从任何节点上的管理 shell，修改此文件以添加在步骤 1 中生成的公钥。 例如： `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
-4. 通过在修改了 `/data/user/common/authorized_keys` 文件的节点上运行 `ghe-cluster-config-apply`，验证配置并将其复制到集群中的每个节点。
+4. 通过在修改 `/data/user/common/authorized_keys` 文件的节点上运行 `ghe-cluster-config-apply` 来验证配置并将其复制到集群中的每个节点。
 
   ```shell
   admin@ghe-data-node-0:~$ <em>ghe-cluster-config-apply</em>
@@ -88,7 +92,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
 
 6. 在 Nagios 配置中创建命令定义。
-
   ###### 示例定义
 
   ```
@@ -98,7 +101,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   }
   ```
 7. 将此命令添加到 {% data variables.product.prodname_ghe_server %} 集群中节点的服务定义。
-
 
   ###### 示例定义
 

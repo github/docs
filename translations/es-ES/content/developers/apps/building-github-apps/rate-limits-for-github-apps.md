@@ -1,5 +1,5 @@
 ---
-title: Límites de tasa para las GitHub Apps
+title: Límites de frecuencia para aplicaciones de GitHub
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -14,9 +14,14 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Límites de tasa
+shortTitle: Rate limits
+ms.openlocfilehash: 46e1fddabff7d0e9c8d3d21c6a0d18668083ae63
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710359'
 ---
-
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
@@ -25,7 +30,7 @@ shortTitle: Límites de tasa
 
 ## Acerca de los límites de tasa para las apps
 
-Los límites de tasa para las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} dependen del plan para la organización en donde instalaste la aplicación. Para obtener más información, consulta las secciones "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" y "[Tipos de cuentas de {% data variables.product.company_short %}](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)".
+Los límites de tasa para las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} dependen del plan para la organización en donde instalaste la aplicación. Para obtener más información, vea "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" y "[Tipos de cuentas de {% data variables.product.company_short %}](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)".
 
 {% endif %}
 
@@ -47,15 +52,15 @@ Las {% data variables.product.prodname_github_apps %} que hagan solicitudes de s
 
 {% ifversion fpt or ghec %}
 
-Las {% data variables.product.prodname_github_apps %} que se instalan en una organización o repositrio dentro de una empresa en {% data variables.product.product_location %} están sujetas a un límite de 15,000 solicitudes por hora.
+{% data variables.product.prodname_github_apps %} que se instalan en una organización dentro de una empresa en {% data variables.product.product_location %} están sujetas a un límite de 15.000 solicitudes por hora y organización que haya instalado la app.
 
 {% endif %}
 
 ## Solicitudes de usuario a servidor
 
-Las {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_apps %} también pueden actuar en nombre de un usuario, haciendo solicitudes de usuario a servidor después de que el usuario autorice la app. Para obtener más información, consulta la sección "[Autorizar {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" y "[Autorizar {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
+Las {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_apps %} también pueden actuar en nombre de un usuario, haciendo solicitudes de usuario a servidor después de que el usuario autorice la app. Para obtener más información, vea "[Autorización de {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" y "[Autorización de {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
 
-Las solicitudes de usuario a servidor desde {% data variables.product.prodname_oauth_apps %} se autentican con un token de OAuth. Las solicitudes de usuario a servidor de {% data variables.product.prodname_github_apps %} se autentican ya sea con un token de OAuth o con un token de acceso de usuario con vencimiento. Para obtener más información, consulta las secciones "[Identificar y autorizar a los usuarios para {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" y "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)".
+Las solicitudes de usuario a servidor desde {% data variables.product.prodname_oauth_apps %} se autentican con un token de OAuth. Las solicitudes de usuario a servidor de {% data variables.product.prodname_github_apps %} se autentican ya sea con un token de OAuth o con un token de acceso de usuario con vencimiento. Para obtener más información, vea "[Identificación y autorización de usuarios para {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" y "[Autorización de {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)".
 
 {% ifversion fpt or ghec %}
 
@@ -79,7 +84,7 @@ Los límites de tasa para las solicitudes de usuario a servidor que hace {% data
 
 {% endif %}
 
-## Leer más
+## Información adicional
 
-- "[Límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting)" en la documentación de la API de REST
-- "[Resource limitations](/graphql/overview/resource-limitations)" en la documentación de la API de GraphQL
+- "[Limitación de frecuencia](/rest/overview/resources-in-the-rest-api#rate-limiting)" en la documentación de API REST
+- "[Limitaciones de recursos](/graphql/overview/resource-limitations)" en la documentación de la API de GraphQL

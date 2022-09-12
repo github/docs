@@ -5,7 +5,7 @@
 | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {%- endif %}
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 | `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account.
 {%- endif %}
 {%- ifversion fpt or ghec %}
@@ -61,7 +61,6 @@
 | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
 | `gist` | Contains activities related to Gists.
-| `git` | Contains activities related to Git events.
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
 | `integration_installation` | Contains activities related to integrations installed in an account.

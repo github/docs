@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: SSH 密钥审计
+shortTitle: SSH key audit
+ms.openlocfilehash: 8683f5506fc2a026c11f22f2086de2308d096906
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084561'
 ---
-
 使用一个未验证的密钥执行 Git 操作时，系统会提示您执行 SSH 密钥审核。
 
 ```shell
@@ -28,4 +33,5 @@ fatal: could not read from remote repository
 ```
 ## 解决问题
 
-要解决此问题，您需要[审查您的 SSH 密钥](/articles/reviewing-your-ssh-keys)，然后拒绝或批准未验证的密钥。 单击错误消息中的 URL 链接将转到 SSH 设置页面，会在 SSH 密钥列表中突出显示未验证的 SSH 密钥。
+若要解决此问题，需要[查看 SSH 密钥](/articles/reviewing-your-ssh-keys)，并拒绝或批准未验证的密钥。 单击错误消息中的 URL 链接将转到 SSH 设置页面，会在
+ SSH 密钥列表中突出显示未验证的 SSH 密钥。

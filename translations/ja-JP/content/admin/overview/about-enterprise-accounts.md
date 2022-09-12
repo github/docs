@@ -1,5 +1,5 @@
 ---
-title: Enterprise アカウントについて
+title: About enterprise accounts
 intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
   - /articles/about-github-business-accounts
@@ -32,10 +32,10 @@ The enterprise account on {% ifversion ghes %}{% data variables.product.product_
 
 {% endif %}
 
-Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. 詳細は「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
+Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
-{% ifversion ghec %}
-Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings.
+{% ifversion ghec %} 
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 {% endif %}
 
 Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
@@ -74,7 +74,7 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
 
 - Billing and usage for {% data variables.product.prodname_ghe_server %} instances
-- {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
+- Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
 You can also connect the enterprise account on {% data variables.product.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
@@ -106,6 +106,6 @@ For more information about billing for {% ifversion ghec %}{% data variables.pro
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
 - "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation

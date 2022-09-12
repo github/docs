@@ -13,6 +13,12 @@ children:
   - /managing-bots-and-service-accounts-with-saml-single-sign-on
   - /viewing-and-managing-a-members-saml-access-to-your-organization
   - /about-two-factor-authentication-and-saml-single-sign-on
-shortTitle: 通过 SAML 授予访问权限
+shortTitle: Grant access with SAML
+ms.openlocfilehash: bacc08fa00e639b8031939e9493b5b9c9487d14f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127539'
 ---
 

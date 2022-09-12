@@ -1,7 +1,7 @@
 ---
-title: 'Guía de inicio rápido para {% data variables.product.prodname_github_codespaces %}'
-shortTitle: 'Guía de inicio rápido para {% data variables.product.prodname_codespaces %}'
-intro: 'Intenta {% data variables.product.prodname_github_codespaces %} en 5 minutos.'
+title: 'Inicio rápido de {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
+intro: "Prueba {% data variables.product.prodname_github_codespaces %} en 5\_minutos."
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -12,51 +12,51 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+ms.openlocfilehash: ddf1e4ad5eff3b7c5be1638e424fb4a7493a3cd4
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147783123'
 ---
-
 ## Introducción
 
-En esta guía, crearás un codespace desde un [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y explorarás algunas de las características esenciales disponibles para ti dentro del codespace.
+En esta guía, creará un codespace a partir de un repositorio de plantillas y explorará algunas de las características esenciales disponibles en el codespace.
 
 Desde esta guía de inicio rápido, aprenderás cómo crear un codespace, cómo conectarte a un puerto reenviado para ver tu aplicación ejecutándose, cómo utilizar el control de versiones en un codespace y cómo personalizar tu configuración con extensiones.
 
-Para obtener más información sobre cómo funcionan los {% data variables.product.prodname_github_codespaces %} exactamente, consulta la guía compañera "[Conoce los {% data variables.product.prodname_github_codespaces %} a fondo](/codespaces/getting-started/deep-dive)".
+Para más información sobre cómo funcionan exactamente {% data variables.product.prodname_github_codespaces %}, ve la guía complementaria "[Profundización en {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)".
 
 ## Crea tu codespace
 
-1. Navega al [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
+1. Vaya al [repositorio de plantillas](https://github.com/github/haikus-for-codespaces) y seleccione **Usar esta plantilla**. {% data reusables.codespaces.open-codespace-from-template-repo %}
 
-2. Nombra a tu repositorio, selecciona tu configuración de privacidad preferido y haz clic en **Crear repositorio desde plantilla**.
-
-3. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y la pestaña de **Codespaces** y haz clic en **Crear codespace en rama principal**.
-
-  ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
-
-## Ejecutar la aplicación
+## Ejecución de la aplicación
 
 Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en él. Ahora puedes ejecutar la aplicación y lanzarla en un buscador.
 
-1. Ya que este ejemplo utiliza un proyecto en Node.js, inicia la aplicación ingresando `npm run dev` en la terminal. Este comando ejecuta el script `dev` en el archivo package.json e inicia la aplicación web que se define en el repositorio de muestra.
-
+1. Cuando el terminal esté disponible, escribe el comando `npm run dev`. En este ejemplo se usa un proyecto de Node.js y este comando ejecuta el script con la etiqueta "dev" en el archivo _package.json_, que inicia la aplicación web definida en el repositorio de muestra.
+   
    ![npm run dev en la temrinal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-    Si estás siguiendo la guía con un tipo de aplicación diferente, ingresa el comando de incio correspondiente para este.
+   Si estás siguiendo la guía con un tipo de aplicación diferente, ingresa el comando de incio correspondiente para este.
 
-2. Cuando tu aplicación comienza, el codespace reconoce el puerto en el que se está ejecutando esta y muestra un mensaje para dejarte saber que se reenvió.
+1. Cuando se inicia la aplicación, el codespace reconoce el puerto en el que se ejecuta la aplicación y muestra un mensaje para informarle de que se ha reenviado. 
 
   ![Notificación de reenvío de puertos](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-3. Haz clic en **Abrir en el buscador** para ver tu aplicación que se está ejecutando en una pestaña nueva.
+1. Haga clic en **Abrir en el explorador** para ver la aplicación en ejecución en una pestaña nueva.
 
 ## Editar la aplicación y ver los cambios
 
-1. Regresa a tu codespace y abre el archivo `haikus.json` haciendo doble clic en el Explorador de Archivos.
+1. Vuelve al codespace y haz doble clic en el archivo _haikus.json_ para abrirlo en el Explorador.
 
-2. Edita el campo `text` del primer haiku para personalizar la aplicación con tu propio haiku.
+1. Edite el campo `text` del primer haiku para personalizar la aplicación con un haiku propio.
 
-3. Regresa a la pestaña de la aplicación en ejecución dentro de tu buscador y actualiza para ver los cambios.
+1. Regresa a la pestaña de la aplicación en ejecución dentro de tu buscador y actualiza para ver los cambios.
+   
+  {% octicon "light-bulb" aria-label="The lightbulb icon" %}  Si ha cerrado la pestaña, abra el panel Puertos y haga clic en el icono **Abrir en el explorador** del puerto en ejecución.
 
-  {% octicon "light-bulb" aria-label="The lightbulb icon" %} Si cerraste la pestaña, abre el panel de Puertos y haz clic en el icono de **Abrir en el buscador** para el puerto en ejecución.
   ![Panel de reenvío de puertos](/assets/images/help/codespaces/quickstart-forward-port.png)
 
 ## Confirmar y subir tus cambios
@@ -64,37 +64,55 @@ Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en
 Ahora que hiciste algunos cambios, puedes utilizar la terminal integrada o la vista de código fuente para confirmar y subir los cambios al remoto.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. Para probar tus cambios, haz clic en **+** junto al archivo que cambiaste o junto a **Cambios** si cambiaste archivos múltiples y quieres probarlos todos. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. Teclea un mensaje de confirmación que describa el cambio que hiciste. ![Barra de control de código fuente con un mensaje de confirmación](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. Para confirmar tus cambios planeados, haz clic en la marca de verificación en la parte superior de la barra lateral del control de código fuente. ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
-   Puedes subir los cambios que hiciste. Esto aplica a aquellos de la rama ascendente en el repositorio remoto. Puede que necesites hacer eso si aún no estás listo para crear una solicitud de cambios o si prefieres crearla en {% data variables.product.prodname_dotcom %}.
-1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. En el menú desplegable, haz clic en **Subir**.
+1. Para agregar los cambios al "stage", haga clic en **+** junto al archivo que ha cambiado, o junto a **Cambios** si ha cambiado varios archivos y quiere agregarlos todos.
+
+   ![Barra lateral de control de código fuente con el botón de almacenamiento provisional resaltado](/assets/images/help/codespaces/codespaces-commit-stage.png)
+
+1. Teclea un mensaje de confirmación que describa el cambio que hiciste.
+
+   ![Barra de control de código fuente con un mensaje de confirmación](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
+
+1. Para confirmar tus cambios planeados, haz clic en la marca de verificación en la parte superior de la barra lateral del control de código fuente.
+
+   ![Clic en el icono de marca de verificación](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
+
+   Puedes subir los cambios que has hecho. Esto aplica a aquellos de la rama ascendente en el repositorio remoto. Puede que necesites hacer eso si aún no estás listo para crear una solicitud de cambios o si prefieres crearla en {% data variables.product.prodname_dotcom %}.
+1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos ( **…** ).
+ 
+   ![Botón de puntos suspensivos para las acciones Ver y Más](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
+
+1. En el menú desplegable, haga clic en **Insertar**.
+1. Vuelve al repositorio nuevo en {% data variables.product.prodname_dotcom %} y consulta el archivo _haikus.json_. Comprueba que el cambio realizado en el codespace se haya enviado correctamente al repositorio.
 
 ## Personalizar con una extensión
 
 Dentro de un codespace, tienes acceso a {% data variables.product.prodname_vscode_marketplace %}. Para este ejemplo, instalarás una extensión que altera el tema, pero puedes instalar cualquier extensión que sea útil para tu flujo de trabajo.
 
+{% note %}
+
+**Nota:** Si has activado [Sincronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync), cualquier cambio que realices en la configuración del editor en el codespace actual, como cambiar el tema o los enlaces de teclado, se sincroniza automáticamente con cualquier otro codespace que abras y cualquier instancia de {% data variables.product.prodname_vscode %} que estén registrados en tu cuenta de {% data variables.product.prodname_dotcom %}.
+
+{% endnote %}
+
 1. En la barra lateral, haz clic en el icono de extensiones.
 
-2.  En la barra de búsqueda, ingresa `fairyfloss` e instala la extensión de fairyfloss.
+1. En la barra de búsqueda, escriba `fairyfloss` e instale la extensión fairyfloss.
 
-  ![Agregar una extensión](/assets/images/help/codespaces/add-extension.png)
+   ![Agregar una extensión](/assets/images/help/codespaces/add-extension.png)
 
-3. Selecciona el tema `fairyfloss` seleccionándolo de la lista.
+1. Haz clic en **Instalar en codespaces**.
+1. Seleccione el tema `fairyfloss` en la lista.
 
-  ![Seleccionar el tema de fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
+   ![Seleccionar el tema de fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Los cambios que hagas a la configuración de tu editor en el codespace actual, tales como el tema y las uniones del teclado, se sincronizarán automáticamente a través de la [Sincornización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync) a cualquier otro codespace que abras y a cualquier instancia de {% data variables.product.prodname_vscode %} que esté firmada en tu cuenta de GitHub.
+## Pasos siguientes
 
-## Siguientes pasos
+Creaste, personalizaste y ejecutaste exitosamente tu primer aplicación dentro de un codespace, pero ¡hay mucho más que explorar! Estos son algunos recursos útiles para que realice los siguientes pasos con {% data variables.product.prodname_codespaces %}.
+  - [Análisis en profundidad](/codespaces/getting-started/deep-dive): en este inicio rápido se presentan algunas de las características de {% data variables.product.prodname_codespaces %}. La guía a fondo ve estas áreas desde un punto de vista técnico.
+  - [Configuración del proyecto para {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): en estas guías se proporciona información sobre cómo configurar el proyecto para usar {% data variables.product.prodname_codespaces %} con lenguajes específicos.
+  - [Configuración de {% data variables.product.prodname_codespaces %} para el proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): en esta guía se proporcionan detalles sobre cómo crear una configuración personalizada de {% data variables.product.prodname_codespaces %} para el proyecto.
 
-Creaste, personalizaste y ejecutaste exitosamente tu primer aplicación dentro de un codespace, pero ¡hay mucho más que explorar! Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_codespaces %}.
-  - [Cónocelo a fondo](/codespaces/getting-started/deep-dive): Esta guía de inicio rápido presenta algunas de las características de los {% data variables.product.prodname_codespaces %}. La guía a fondo ve estas áreas desde un punto de vista técnico.
-  - [Configurar tu proyecto para los {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): Estas guías te proporcionan información sobre cómo configurar tu proyecto para utilizar los {% data variables.product.prodname_codespaces %} con lenguajes específicos.
-  - [Configurar los {% data variables.product.prodname_codespaces %} para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): Esta guía te proporciona detalles para crear una configuración personalizada para los {% data variables.product.prodname_codespaces %} para tu proyecto.
+## Información adicional
 
-## Leer más
-
-- [Habilitar los {% data variables.product.prodname_codespaces %} para tu organizción](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Administrar la facturación para los {% data variables.product.prodname_codespaces %} en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- "[Habilitación de {% data variables.product.prodname_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Administración de la facturación de {% data variables.product.prodname_codespaces %} en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %} The {% data variables.product.prodname_registry %} GraphQL API does not support containers or Docker images that use the package namespace `https://ghcr.io/OWNER/PACKAGE-NAME`, or npm images that use the package namespace `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`.{% endif %}

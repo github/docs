@@ -13,7 +13,12 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 拒绝其他用户的权限
+shortTitle: Permission denied other-user
+ms.openlocfilehash: b46df8f9e8671008b37d3db69e2094e96e0413b8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084574'
 ---
-
-要解决此问题，仓库所有者（ `用户`）需要将您的帐户（`其他用户`）添加为仓库协作者或添加到对该仓库有写入权限的团队。
+要解决此问题，存储库的所有者 (`user`) 需将帐户 (`other-user`) 添加为存储库的协作者或对存储库具有写入权限的团队。

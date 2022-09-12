@@ -13,18 +13,21 @@ redirect_from:
 topics:
   - Organizations
   - Teams
-shortTitle: 创建新组织
+shortTitle: Create new organization
+ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128600'
 ---
+从头开始创建新组织时，它没有任何与之关联的仓库。 有关将存储库添加到组织的详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”和“[传输存储库](/articles/transferring-a-repository)”。
 
-从头开始创建新组织时，它没有任何与之关联的仓库。 有关为组织添加仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”和“[转让仓库](/articles/transferring-a-repository)”。
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-{% data reusables.organizations.new-organization %}
-4. 按照提示创建组织。 {% ifversion fpt or ghec %}要详细了解可用于您的团队的计划，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
+4. 按照提示创建组织。 {% ifversion fpt or ghec %}有关团队可用的计划的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}
 
 ## 延伸阅读
 
 {% ifversion fpt or ghec %}
-- "[设置帐单邮箱](/articles/setting-your-billing-email)"{% endif %}
-- "[关于组织](/articles/about-organizations)"
+- “[设置帐单邮箱](/articles/setting-your-billing-email)”{% endif %}
+- “[关于组织](/articles/about-organizations)”

@@ -10,9 +10,14 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Problema con el certificado SSL
+shortTitle: SSL certificate problem
+ms.openlocfilehash: 26777edf5b312c8f45c5b1fb211b87648778cf13
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091737'
 ---
-
 Probablemente recibirás el siguiente error:
 
 ```shell

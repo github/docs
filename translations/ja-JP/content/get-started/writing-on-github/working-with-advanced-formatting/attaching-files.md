@@ -1,6 +1,6 @@
 ---
-title: Attaching files
-intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+title: ファイルのアタッチ
+intro: さまざまな種類のファイルを issue や pull request に添付することで、情報を伝達できます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -14,13 +14,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: f2fd425b1d47c1cb3c0faea646cd53a72bb61603
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147419682'
 ---
-
-{% warning %}
-
-**Warning:** If you attach a file to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
-
-{% endwarning %}
+{% data reusables.repositories.anyone-can-view-anonymized-url %}
 
 Issue やプルリクエストの会話にファイルを添付するには、コメントボックスにファイルをドラッグアンドドロップします。 または、コメントボックスの下部にあるバーをクリックしてコンピュータからファイルを参照、選択、追加することもできます。
 
@@ -28,35 +29,33 @@ Issue やプルリクエストの会話にファイルを添付するには、�
 
 {% tip %}
 
-**ヒント:** 多くのブラウザでは、画像をコピーして直接ボックスに貼り付けることができます。
+**ヒント:** 多くのブラウザーでは、画像をコピーしてボックスに直接貼り付けることができます。
 
 {% endtip %}
 
-The maximum file size is:
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif ghes or ghae-issue-7575 %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
+最大ファイル サイズ:
+- 画像と gif については 10MB{% ifversion fpt or ghec %}
+- 無料の GitHub プランのユーザーまたは組織が所有するリポジトリにアップロードされた動画については 10MB
+- 有料の GitHub プランのユーザーまたは組織が所有するリポジトリにアップロードされた動画については 100MB{% elsif ghes or ghae-issue-7575 %}
+- 動画については 100MB{% endif %}
+- その他のすべてのファイルでは 25MB
 
 以下のファイルがサポートされています:
 
-* PNG (*.png*)
-* GIF (*.gif*)
-* JPEG (*.jpg*)
-{%- ifversion svg-support %}
-* SVG (*.svg*)
-{%- endif %}
-* ログファイル (*.log*)
-* Microsoft Word (*.docx*)、Powerpoint (*.pptx*)、および Excel (*.xlsx*) 文書
-* テキストファイル (*.txt*)
-* PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes or ghae-issue-7575 %}
-* ビデオ(*.mp4*, *.mov*){% endif %}
+* PNG ( *.png*)
+* GIF ( *.gif*)
+* JPEG ( *.jpg*) {%- ifversion svg-support %}
+* SVG ( *.svg*) {%- endif %}
+* ログ ファイル ( *.log*)
+* Microsoft Word ( *.docx*)、Powerpoint ( *.pptx*)、Excel ( *.xlsx*) の各ドキュメント
+* テキスト ファイル ( *.txt*)
+* PDF ( *.pdf*)
+* ZIP ( *.zip*、 *.gz*){% ifversion fpt or ghec or ghes or ghae-issue-7575 %}
+* 動画 ( *.mp4*、 *.mov*){% endif %}
 
 {% ifversion fpt or ghec or ghes or ghae-issue-7575 %}{% note %}
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+**注意:** 動画コーデックの互換性はブラウザー固有であり、あるブラウザーにアップロードした動画が別のブラウザーでは表示されない可能性があります。 現時点では、最大の互換性がある h.264 を使うことをお勧めします。
 
 {% endnote %}{% endif %}
 

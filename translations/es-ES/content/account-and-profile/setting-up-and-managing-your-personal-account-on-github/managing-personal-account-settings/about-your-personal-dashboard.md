@@ -15,18 +15,23 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Tu tablero personal
+shortTitle: Your personal dashboard
+ms.openlocfilehash: ee22085e669eedec2e0a9f298cc4d5ad144316c6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179155'
 ---
-
 ## Acceder a tu tablero personal
 
 Tu tablero personal es la primera página que verás cuando inicias sesión en {% data variables.product.product_name %}.
 
-Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en el {% octicon "mark-github" aria-label="The github octocat logo" %} en la esquina superior izquierda de cualquier página en {% data variables.product.product_name %}.
+Para acceder al panel personal una vez que haya iniciado sesión, haga clic en {% octicon "mark-github" aria-label="The github octocat logo" %} en la esquina superior izquierda de cualquier página de {% data variables.product.product_name %}.
 
 ## Encontrar tu actividad reciente
 
-En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 4 actualizaciones recientes, realizadas durante las últimas dos semanas.
+En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 4 actualizaciones recientes, realizadas durante las últimas dos semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
@@ -40,10 +45,9 @@ La lista de repositorios principales se genera automáticamente y puede incluir 
 
 También puedes encontrar un listado de los repositorios, los equipos y los tableros de proyecto recientemente visitados al hacer clic en la barra de búsqueda en la parte principal de cualquier página en {% data variables.product.product_name %}.
 
-## Estar actualizado con la actividad desde tu organización
+## Estar actualizado con la actividad desde la comunidad
 
-{% ifversion for-you-feed %}
-La sección principal de tu tablero tiene dos fuentes de actividad:
+{% ifversion for-you-feed %} La sección principal del panel tiene dos fuentes de actividad:
 
 - Siguiendo: Actividad de las personas que sigues y de los repositorios que observas.
 - Para ti: Recomendaciones de actividad con base en tu red de {% data variables.product.product_name %}.
@@ -52,29 +56,27 @@ La sección principal de tu tablero tiene dos fuentes de actividad:
 
 Esta fuente muestra la actividad de los repositorios y usuarios en los cuales has mostrado un interés directo cuando los sigues u observas un repositorio. Por ejemplo, verás actualizaciones cuando un usuario al que sigues:
 
-{% else %}
-En la sección de "Toda la actividad" de tu fuente de noticias, puedes ver actualizaciones de los repositorios que observas y de los usuarios que sigues.
+{% else %} En la sección "Toda la actividad" de la fuente de noticias, puede ver actualizaciones de los repositorios que observa y de los usuarios que sigue.
 
-Verás actualizaciones en tus noticias cuando un usuario que sigues:
-{% endif %}
+Verá actualizaciones en la fuente de noticias cuando un usuario al que sigue: {% endif %}
 
 
 - Destaca un repositorio.
-- Sigue otro usuario.{% ifversion fpt or ghes or ghec %}
+- Sigue a otro usuario.{% ifversion fpt or ghes or ghec %}
 - Crea un repositorio público.{% endif %}
 - Abre una propuesta o una solicitud de extracción con la etiqueta "se busca ayuda" o "primera buena propuesta" en un repositorio que estás mirando.
-- Sube las confirmaciones a un repositorio que estés observando.{% ifversion fpt or ghes or ghec %}
+- Inserta confirmaciones a un repositorio que observa.{% ifversion fpt or ghes or ghec %}
 - Bifurque un repositorio público.{% endif %}
 - Publica un lanzamiento nuevo.
 
-Para obtener más información sobre cómo seguir personas y observar repositorios, consulta las secciones "[Seguir personas](/get-started/exploring-projects-on-github/following-people)" y "[Sé social](/get-started/quickstart/be-social)".
+Para más información sobre cómo seguir a usuarios y ver repositorios, vea "[Seguimiento de usuarios](/get-started/exploring-projects-on-github/following-people)" y "[Ser social](/get-started/quickstart/be-social)".
 
 {% ifversion for-you-feed %}
 ### Para tu fuente
 
 {% note %}
 
-**Nota:** Esta pestaña nueva se encuentra actualmente en beta público y está sujeta a cambios.
+**Nota:** Esta nueva pestaña se encuentra actualmente en versión beta pública y está cambios. 
 
 {% endnote %}
 
@@ -90,8 +92,8 @@ Esta fuente muestra la actividad y recomendaciones con base en tu red en {% data
 
 ## Explorar los repositorios recomendados
 
-Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en repositorios que has visitado o a los que has marcado con una estrella, las personas que sigues, y la actividad dentro de los repositorios a los cuales tienes acceso. {% ifversion fpt or ghec %}Para obtener más información, consulta "[Encontrar maneras de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
+Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en repositorio que ha marcado con una estrella o ha visitado, las personas a las que sigue y la actividad dentro de los repositorios a los que tiene acceso.{% ifversion fpt or ghec %} Para más información, vea "[Búsqueda de formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
-## Leer más
+## Información adicional
 
-- "[Acerca del tablero de tu organización](/articles/about-your-organization-dashboard)"
+- "[Acerca del panel de la organización](/articles/about-your-organization-dashboard)"

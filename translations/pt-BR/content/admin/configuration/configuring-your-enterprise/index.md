@@ -25,6 +25,7 @@ children:
   - /site-admin-dashboard
   - /enabling-private-mode
   - /managing-github-mobile-for-your-enterprise
+  - /configuring-ssh-connections-to-your-instance
   - /configuring-email-for-notifications
   - /verifying-or-approving-a-domain-for-your-enterprise
   - /configuring-rate-limits
@@ -34,9 +35,16 @@ children:
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
+  - /configuring-host-keys-for-your-instance
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
   - /configuring-web-commit-signing
-shortTitle: Configure sua empresa
+shortTitle: Configure your enterprise
+ms.openlocfilehash: 3cc7deccfdf71a0e339fca8055f0cd4b5027a32c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409225'
 ---
 

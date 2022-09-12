@@ -1,11 +1,35 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: 621dfdbcdc0585f51536c924e1e5d0d9a140ff26
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147410648"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** {% data variables.product.company_short %} improved security by dropping older, insecure key types on March 15, 2022.
+**Observação:** o {% data variables.product.company_short %} aprimorou a segurança removendo tipos de chaves mais antigos e não seguros em 15 de março de 2022.
 
-As of that date, DSA keys (`ssh-dss`) are no longer supported. You cannot add new DSA keys to your personal account on {% data variables.product.product_location %}.
+Desde essa data, não há mais suporte para as chaves DSA (`ssh-dss`). Não é possível adicionar novas chaves DSA à sua conta pessoal do {% data variables.product.product_location %}.
 
-RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
+As chaves RSA (`ssh-rsa`) com um `valid_after` antes de 2 de novembro de 2021 podem continuar usando qualquer algoritmo de assinatura. As chaves RSA geradas após essa data precisam usar um algoritmo de assinatura SHA-2. Talvez alguns clientes mais antigos precisem ser atualizados para usar as assinaturas SHA-2.
 
 {% endnote %}
+
+{% elsif ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
+
+{% note %}
+
+**Observação**: por padrão, com {% data variables.product.product_name %} 3.6 e versões posteriores, a partir da data de corte de meia-noite UTC, em 1º de agosto de 2022, as conexões SSH que atenderem às **duas** condições a seguir falharão.
+
+<br/>
+
+{% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
+
+{% data variables.product.product_name %} 3.6 e versões posteriores também não dão suporte a conexões SSH que usam criptografias DSA, HMAC-SHA-1 ou CBC. As chaves SSH RSA carregadas antes da data de corte podem continuar sendo autenticadas usando a função de hash SHA-1, desde que a chave permaneça válida. Para obter mais informações sobre como encontrar a versão de {% data variables.product.product_name %} que você usa, confira "[Sobre versões de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+
+O administrador do site pode ajustar a data de corte para conexões que usam RSA-SHA-1 e pode bloquear todas as conexões que usam RSA-SHA-1. Para obter mais informações, entre em contato com o administrador do site ou confira "[Como configurar conexões SSH com sua instância](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)".
+
+{% endnote %}
+
 {% endif %}

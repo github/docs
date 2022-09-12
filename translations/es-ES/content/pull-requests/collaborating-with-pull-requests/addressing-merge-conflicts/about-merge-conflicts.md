@@ -1,6 +1,6 @@
 ---
-title: About merge conflicts
-intro: 'Merge conflicts happen when you merge branches that have competing commits, and Git needs your help to decide which changes to incorporate in the final merge.'
+title: Acerca de los conflictos de fusión
+intro: 'Los conflictos de fusión suceden cuando fusionas ramas que tienen confirmaciones de cambios contrapuestas, y Git necesita tu ayuda para decidir qué cambios incorporar en la fusión final.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/about-merge-conflicts
   - /articles/about-merge-conflicts
@@ -14,21 +14,27 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 5902f74a9c51772dc3f1d8883b60723ffec3e1d1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145137845'
 ---
-Git can often resolve differences between branches and merge them automatically. Usually, the changes are on different lines, or even in different files, which makes the merge simple for computers to understand. However, sometimes there are competing changes that Git can't resolve without your help. Often, merge conflicts happen when people make different changes to the same line of the same file, or when one person edits a file and another person deletes the same file.
+Por lo general, Git puede resolver las diferencias entre las ramas y fusionarlas automáticamente. Generalmente, los cambios están en diferentes líneas o incluso en diferentes archivos, lo que hace que sea simple para los equipos comprender la fusión. Sin embargo, a veces hay cambios contrapuestos que Git no puede resolver sin tu ayuda. Por lo general, los conflictos de fusión suceden cuando las personas realizan diferentes cambios en la misma línea en el mismo archivo o cuando una persona edita un archivo y otra persona elimina el mismo archivo.
 
-You must resolve all merge conflicts before you can merge a pull request on {% data variables.product.product_name %}. If you have a merge conflict between the compare branch and base branch in your pull request, you can view a list of the files with conflicting changes above the **Merge pull request** button. The **Merge pull request** button is deactivated until you've resolved all conflicts between the compare branch and base branch.
+Debes resolver todos los conflictos de fusión antes de poder fusionar un solicitud de extracción en {% data variables.product.product_name %}. Si tiene un conflicto de combinación entre la rama de comparación y la rama base de la solicitud de incorporación de cambios, puede ver una lista de los archivos con cambios en conflicto encima del botón **Combinar solicitud de incorporación de cambios**. El botón **Combinar solicitud de incorporación de cambios** se desactiva hasta que haya resuelto todos los conflictos entre la rama de comparación y la rama base.
 
-![merge conflict error message](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
+![mensaje de error de conflicto de fusión](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-## Resolving merge conflicts
+## Resolución de conflictos de combinación
 
-To resolve a merge conflict, you must manually edit the conflicted file to select the changes that you want to keep in the final merge. There are a couple of different ways to resolve a merge conflict:
+Para resolver un conflicto de fusión, debes editar de forma manual el archivo conflictivo para seleccionar los cambios que quieres mantener en la fusión final. Hay un par de maneras diferentes de resolver un conflicto de fusión:
 
-- If your merge conflict is caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository, you can resolve it on {% data variables.product.product_name %} using the conflict editor. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
-- For all other types of merge conflicts, you must resolve the merge conflict in a local clone of the repository and push the change to your branch on {% data variables.product.product_name %}. You can use the command line or a tool like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) to push the change. For more information, see  "[Resolving a merge conflict on the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
+- Si tu conflicto de fusión es ocasionado por cambios de líneas contrapuestos, como cuando las personas realizan diferentes cambios en la misma línea del mismo archivo en diferentes ramas en tu repositorio de Git, lo puedes resolver en {% data variables.product.product_name %} usando el editor de conflictos. Para más información, vea "[Resolución de un conflicto de combinación en {% data variables.product.prodname_dotcom %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)".
+- Para todos los otros tipos de conflictos de fusión, debes resolver el conflicto de fusión en un clon local del repositorio y subir el cambio a tu rama en {% data variables.product.product_name %}. Puede usar la línea de comandos o una herramienta como [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) para insertar el cambio. Para más información, vea "[Resolución de un conflicto de combinación en la línea de comandos](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)".
 
-If you have a merge conflict on the command line, you cannot push your local changes to {% data variables.product.product_name %} until you resolve the merge conflict locally on your computer. If you try merging branches on the command line that have a merge conflict, you'll get an error message. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
+Si tienes un conflicto de fusión en la línea de comandos, no puedes subir tus cambios locales a {% data variables.product.product_name %} hasta que resuelvas el conflicto de fusión localmente en tu equipo. Si intentas fusionar ramas en la línea de comandos que tiene un conflicto de fusión, recibirás un mensaje de errror. Para más información, vea "[Resolución de un conflicto de combinación mediante la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".
 ```shell
 $ git merge <em>BRANCH-NAME</em>
 > Auto-merging styleguide.md
@@ -36,9 +42,9 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-## Further reading
+## Información adicional
 
-- "[About pull request merges](/articles/about-pull-request-merges/)"
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)"
-- "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)"
+- "[Acerca de las combinaciones de solicitud de incorporación de cambios](/articles/about-pull-request-merges/)"
+- "[Acerca de las solicitudes de incorporación de cambios](/articles/about-pull-requests/)"
+- "[Resolución de un conflicto de combinación mediante la línea de comandos](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)"
+- "[Resolución de un conflicto de combinación en GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)"
