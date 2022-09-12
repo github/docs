@@ -274,6 +274,7 @@ translations/ja-JP/content/code-security/code-scanning/integrating-with-code-sca
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
+translations/ja-JP/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
@@ -301,7 +302,9 @@ translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/propos
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally.md,broken liquid tags
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
+translations/ja-JP/content/rest/repos/lfs.md,broken liquid tags
 translations/ja-JP/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
+translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/artifact-log-retention-statement.md,broken liquid tags
@@ -312,7 +315,9 @@ translations/ja-JP/data/reusables/code-scanning/example-configuration-files.md,b
 translations/ja-JP/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/codespaces-policy-targets.md,rendering error
 translations/ja-JP/data/reusables/codespaces/rebuild-command.md,broken liquid tags
+translations/ja-JP/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/ja-JP/data/reusables/desktop/get-an-account.md,rendering error
+translations/ja-JP/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
 translations/ja-JP/data/reusables/notifications/shared_state.md,rendering error
 translations/ja-JP/data/reusables/repositories/blocked-passwords.md,broken liquid tags
 translations/ja-JP/data/reusables/repositories/desktop-fork.md,broken liquid tags
