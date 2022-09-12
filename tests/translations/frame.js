@@ -2,7 +2,7 @@ import { languageKeys } from '../../lib/languages.js'
 import { blockIndex } from '../../middleware/block-robots.js'
 import { getDOM } from '../helpers/e2etest.js'
 
-const langs = languageKeys.filter(lang => lang !== 'en')
+const langs = languageKeys.filter((lang) => lang !== 'en')
 
 describe('frame', () => {
   test.each(langs)('allows crawling of %s pages', async (lang) => {
@@ -43,9 +43,7 @@ describe('frame', () => {
   test.each(langs)('loads the side bar via site tree in %s', async (lang) => {
     const $en = await getDOM(`/en/get-started`)
     const $ = await getDOM(`/${lang}/get-started`)
-    expect(
-      $(`a[href="/${lang}/get-started"]`).text()
-    ).not.toEqual(
+    expect($(`a[href="/${lang}/get-started"]`).text()).not.toEqual(
       $en(`a[href="/${lang}/get-started"]`).text()
     )
   })
@@ -54,11 +52,8 @@ describe('frame', () => {
   test.skip.each(langs)('loads the survey via site data in %s', async (lang) => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
-    expect(
-      $('[data-testid="survey-form"] h2').text()
-    ).not.toEqual(
+    expect($('[data-testid="survey-form"] h2').text()).not.toEqual(
       $en('[data-testid="survey-form"] h2').text()
     )
   })
 })
-
