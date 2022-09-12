@@ -32,7 +32,9 @@ Only repository owners and administrators can edit repository-level security adv
    
    ![Screenshot of the suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
 1. In the contribution form, make the desired improvements. You can edit or add any detail.{% ifversion security-advisories-reason-for-change %}
-1. Under **Reason for change**, describe your improvements.{% endif %}
+1. Under **Reason for change**, provide some supporting evidence for the improvement.
+   
+   ![Screenshot of the reason for change field](/assets/images/help/security/security-advisories-suggest-improvement-reason.png){% endif %}
 1. When you finish editing the advisory, click **Submit improvements**.
 1. Once you submit your improvements, a pull request containing your changes will be created for review in [github/advisory-database](https://github.com/github/advisory-database) by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
 
