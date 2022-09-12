@@ -13,10 +13,10 @@ topics:
 redirect_from:
   - /codespaces/codespaces-quickstart
 ms.openlocfilehash: ddf1e4ad5eff3b7c5be1638e424fb4a7493a3cd4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147783123'
 ---
 ## Introducción
@@ -114,5 +114,5 @@ Creaste, personalizaste y ejecutaste exitosamente tu primer aplicación dentro d
 
 ## Información adicional
 
-- "[Habilitación de {% data variables.product.prodname_codespaces %} para ltu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Habilitación de {% data variables.product.prodname_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
 - "[Administración de la facturación de {% data variables.product.prodname_codespaces %} en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: eaad0d11cd3a86394c0ec4e547ed63dbcac7483f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145069978"
 ---
 {% data variables.contact.enterprise_support %} podría considerar una incidencia como resuelta después de proporcionar una explicación, recomendación, instrucciones de uso {% ifversion ghae %}o {% endif %} instrucciones de solución alternativa{% ifversion ghes %}, o recomendándole una versión disponible que aborde el problema{% endif %}.

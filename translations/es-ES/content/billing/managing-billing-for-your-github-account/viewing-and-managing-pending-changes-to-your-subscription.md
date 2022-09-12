@@ -17,10 +17,10 @@ topics:
   - User account
 shortTitle: Pending subscription changes
 ms.openlocfilehash: 75cf19d56b61735ba39ddc943cf5b0c197416035
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145091642'
 ---
 Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 99687deb5c170a7fab2b5050607b25e1aebb844b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145069606"
 ---
 Para identificar las restricciones con simultaneidad o puesta en cola, puede comprobar cuántos trabajos se procesan actualmente en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} en la organización o empresa. 
