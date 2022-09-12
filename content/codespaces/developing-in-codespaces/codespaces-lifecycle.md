@@ -61,7 +61,7 @@ ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 
 ## Stopping a codespace
 
-{% data reusables.codespaces.stopping-a-codespace %} For more information, see "[Stopping and starting a code space](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
+{% data reusables.codespaces.stopping-a-codespace %} For more information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
 
 ## Deleting a codespace
 
