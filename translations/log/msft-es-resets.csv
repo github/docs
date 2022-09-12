@@ -280,6 +280,7 @@ translations/es-ES/content/code-security/dependabot/dependabot-alerts/viewing-an
 translations/es-ES/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,broken liquid tags
 translations/es-ES/content/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities.md,rendering error
 translations/es-ES/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
+translations/es-ES/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
@@ -306,10 +307,14 @@ translations/es-ES/content/packages/learn-github-packages/viewing-packages.md,br
 translations/es-ES/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/es-ES/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,broken liquid tags
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
+translations/es-ES/content/rest/repos/lfs.md,broken liquid tags
+translations/es-ES/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/es-ES/data/learning-tracks/code-security.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
+translations/es-ES/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
+translations/es-ES/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
 translations/es-ES/data/reusables/policies/abuse.md,rendering error
 translations/es-ES/data/reusables/sponsors/feedback.md,broken liquid tags
