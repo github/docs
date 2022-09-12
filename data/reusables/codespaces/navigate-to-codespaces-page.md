@@ -1,1 +1,1 @@
- 1. In the upper center of any page, click **Codespaces**.
+1. Navigate to the "Your Codespaces" page at [https://github.com/codespaces](https://github.com/codespaces).
