@@ -85,7 +85,7 @@ When you restart a codespace you can choose to open it in {% data variables.prod
  {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. In the list of options, select **Codespaces: Connect to Codespace**.
+1. Type `connect` and select **Codespaces: Connect to Codespace** from the list of options.
 1. In the list of codespaces, select the codespace you want to restart.
 
  {% endvscode %}
