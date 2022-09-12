@@ -26,11 +26,11 @@ topics:
   - C#
   - Java
 ms.openlocfilehash: c8256eea83b6a30879effc4d7797f2afcbc82e15
-ms.sourcegitcommit: 148257a7931ae06b962477ffa5483615410699e8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '145095576'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875685'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 

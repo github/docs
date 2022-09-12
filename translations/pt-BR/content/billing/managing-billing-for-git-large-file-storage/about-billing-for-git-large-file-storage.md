@@ -14,10 +14,10 @@ topics:
   - Upgrades
 shortTitle: About Git LFS billing
 ms.openlocfilehash: e09a093aa827d3ed4a25236f42cee65c1c195f14
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083532'
 ---
 ## Sobre a cobrança do {% data variables.large_files.product_name_long %}

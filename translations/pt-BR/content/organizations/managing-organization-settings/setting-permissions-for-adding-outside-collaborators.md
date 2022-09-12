@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Set collaborator policy
 ms.openlocfilehash: eadf4f805775a99f763ec4df211fe6ea9735dabc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145095609'
 ---
 Por padrão, qualquer pessoa com acesso de administrador a um repositório pode convidar colaboradores externos para trabalhar no repositório. Você pode optar por restringir a capacidade de adicionar colaboradores externos apenas para os proprietários da organização.

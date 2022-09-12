@@ -12,10 +12,10 @@ topics:
   - Marketplace
 shortTitle: Submit your listing
 ms.openlocfilehash: 9e70fea2fceb0fb2b1bfae316f5842f3e88c4333
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145083938'
 ---
 Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.product.prodname_marketplace %}, você poderá enviar o seu aplicativo. Para ter uma visão geral dos requisitos de listagem de aplicativos, confira "[Requisitos para listar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app)".

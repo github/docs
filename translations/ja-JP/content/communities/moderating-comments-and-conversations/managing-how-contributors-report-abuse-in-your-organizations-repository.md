@@ -10,11 +10,11 @@ topics:
   - Community
 shortTitle: Manage abuse in your org
 ms.openlocfilehash: abd3d429f8d4143a4e28d18d2b22f508a1aa61b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145090231'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878552'
 ---
 リポジトリに対する管理者権限を持つユーザは、コントリビューターがリポジトリ内の不正利用をレポートする方法を管理できます。
 

@@ -14,10 +14,10 @@ topics:
   - Pre-receive hooks
 shortTitle: Pre-receive hook environments
 ms.openlocfilehash: 2c2a31a4092b475170449ba138d6f0798424206b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145116366'
 ---
 {% data variables.product.prodname_ghe_server %} の受信前環境は Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 環境です。 pre-receiveフックはプッシュのイベントごとに実行されるので、高速かつ軽量でなければなりません。 こうしたチェックに必要となる環境は、通常最小限のものです。

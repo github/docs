@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 873bdafd14b68ef0b8f2a99429a7f9966decc537
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "147079454"
 ---
 A tabela a seguir resume se há suporte para escopo de dependência em vários ecossistemas e manifestos, ou seja, se o {% data variables.product.prodname_dependabot %} pode identificar se uma dependência é usada para desenvolvimento ou produção.

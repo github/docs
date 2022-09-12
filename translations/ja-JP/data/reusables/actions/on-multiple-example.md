@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: de2ab71ca5c93229329c2887dc71685aa92e199d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145068189"
 ---
 1 つのイベントまたは複数のイベントを指定できます。 たとえば、次の `on` の値を持つワークフローは、ワークフローのリポジトリ内の任意のブランチにプッシュが行われるとき、または誰かがリポジトリをフォークしたときに実行されます。

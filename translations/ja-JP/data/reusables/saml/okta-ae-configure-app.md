@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 52bc39b7edea195e3dd18f8b7c9dacddb3e6486b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145130484"
 ---
 1. {% data variables.product.prodname_ghe_managed %} アプリをクリックします。

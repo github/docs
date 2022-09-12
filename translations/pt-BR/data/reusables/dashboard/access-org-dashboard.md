@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 962b02d04dbb627feabb197087eb06fa36ba761e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145127870"
 ---
 1. Para acessar a página do painel, no canto superior esquerdo de qualquer página do {% data variables.product.product_name %}, clique em {% octicon "mark-github" aria-label="The github octocat logo" %}.

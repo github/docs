@@ -14,10 +14,10 @@ topics:
   - GitHub Apps
 shortTitle: Edit permissions
 ms.openlocfilehash: 1777a06a44c42a2b90351d2c7206e07cfc689882
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145089888'
 ---
 {% note %}

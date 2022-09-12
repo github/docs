@@ -15,11 +15,11 @@ topics:
   - Teams
 shortTitle: Create new organization
 ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130888'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878790'
 ---
 ゼロから作成されたばかりの新しい Organization には、何のリポジトリも関連付けられていません。 Organization にリポジトリを追加する方法については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」と「[リポジトリの転送](/articles/transferring-a-repository)」を参照してください。
 

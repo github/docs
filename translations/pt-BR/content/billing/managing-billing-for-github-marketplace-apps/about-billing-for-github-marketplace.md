@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Billing for GitHub Marketplace
 ms.openlocfilehash: 815303fa5c0c1a006a0bd4bd017039cf1e035f15
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083498'
 ---
 O {% data variables.product.prodname_marketplace %} inclui apps com planos de preços pagos e gratuitos. Depois de comprar e instalar um app, é possível atualizar, fazer downgrade ou cancelar a qualquer momento.

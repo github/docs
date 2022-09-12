@@ -1,5 +1,5 @@
 ---
-title: Configurar backups no appliance
+title: Configuring backups on your appliance
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -14,7 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
-intro: 'Dentro de um plano de recuperação de desastre, é possível proteger os dados de produção no {% data variables.product.product_location %} configurando backups automatizados.'
+intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
 versions:
   ghes: '*'
 type: how_to
@@ -23,98 +23,203 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
-ms.openlocfilehash: 6a992c2861ce2c0de3b6d8672bf42f8818cda85a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332629'
 ---
-## Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
+## About {% data variables.product.prodname_enterprise_backup_utilities %}
 
-O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup que você instala em um host separado, que usa instantâneos de backup do {% data variables.product.product_location %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.
+{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.product.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
 
-Somente os dados adicionados desde o último instantâneo serão transferidos pela rede e ocuparão espaço adicional de armazenamento físico. Para minimizar o impacto no desempenho, os backups são feitos online com a menor prioridade de E/S de CPU. Não é necessário programar um período de manutenção para fazer backups.
+Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
 
-Para obter informações mais detalhadas sobre recursos, requisitos e uso avançado, confira o [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see "[{% data variables.product.product_name %} releases](/admin/all-releases)."
 
-## Pré-requisitos
+For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
-Para usar o {% data variables.product.prodname_enterprise_backup_utilities %}, você precisa ter um sistema de host Linux ou UNIX separado do {% data variables.product.product_location %}.
+## Prerequisites
 
-Também é possível integrar o {% data variables.product.prodname_enterprise_backup_utilities %} a um ambiente para fins de armazenamento permanente em longo prazo de dados essenciais.
+To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.product.product_location %}.
 
-Recomendamos que o host de backup e o {% data variables.product.product_location %} estejam geograficamente distantes um do outro. Essa medida garante que os backups estejam disponíveis para recuperação em casos de grandes desastres ou falhas de rede no site primário.
+You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
 
-Os requisitos de armazenamento físico variam com base no uso do disco do repositório Git e nos padrões de crescimento esperados:
+We recommend that the backup host and {% data variables.product.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
 
-| Hardware | Recomendação |
+Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
+
+| Hardware | Recommendation |
 | -------- | --------- |
 | **vCPUs**  | 2 |
-| **Memória** | 2 GB |
-| **Storage** | Cinco vezes o armazenamento alocado da instância primária |
+| **Memory** | 2 GB |
+| **Storage** | Five times the primary instance's allocated storage |
 
-Podem ser necessários mais recursos, dependendo do seu uso, como atividade do usuário e integrações selecionadas.
+More resources may be required depending on your usage, such as user activity and selected integrations.
 
-## Instalar o {% data variables.product.prodname_enterprise_backup_utilities %}
+For more information, see [{% data variables.product.prodname_enterprise_backup_utilities %} requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+
+## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
+
+To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend cloning the project's Git repository. This approach allows you to fetch new releases directly using Git, and your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
+
+Alternatively, if the host machine can't access the internet, you can download each {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+
+Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. Snapshots need to be stored on a filesystem which supports symbolic and hard links.
 
 {% note %}
 
-**Observação:** para garantir que um dispositivo recuperado esteja disponível imediatamente, execute backups direcionados à instância primária mesmo em uma configuração de replicação geográfica.
+**Note:** We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
 
 {% endnote %}
 
-1. Baixe a última [versão do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils/releases) e extraia o arquivo com o comando `tar`.
-  ```shell
-  $ tar -xzvf /path/to/github-backup-utils-v<em>MAJOR.MINOR.PATCH</em>.tar.gz     
-  ```
-2. Copie o arquivo incluído `backup.config-example` para `backup.config` e abra-o em um editor.
-3. Defina o valor `GHE_HOSTNAME` como o nome do host ou o endereço IP da instância primária do {% data variables.product.prodname_ghe_server %}.
+1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
 
+  ```
+  $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
+  ```
+1. To change into the local repository directory, run the following command.
+
+  ```
+  cd backup-utils
+  ```
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
+1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
+
+   ```shell
+   cp backup.config-example backup.config
+   ```
+1. To customize your configuration, edit `backup.config` in a text editor.
+   1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+
+     {% note %}
+
+     **Note:** If {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+
+     To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
+
+     {% endnote %}
+   1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
+1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
+1. On your backup host, verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
+
+  ```shell
+  ./bin/ghe-host-check
+  ```		  
+1. To create an initial full backup, run the following command.
+
+  ```shell
+  ./bin/ghe-backup
+  ```
+
+For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+
+## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
+
+When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a release that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.product.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+You can upgrade {% data variables.product.prodname_enterprise_backup_utilities %} in a Git repository by fetching and checking out the latest changes.
+
+Alternatively, if you don't use a Git repository for your installation, you can extract a new archive into place, or you can change your approach to use a Git repository instead.
+
+### Verifying the installation type
+
+You can verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %} and determine the best way to upgrade your installation.
+
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
+1. To check if a valid working directory exists inside a Git repository, run the following command.
+
+   ```
+   git rev-parse --is-inside-work-tree
+   ```
+
+   If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was likely installed by extracting a compressed archive file.
+If your installation is in a Git repository, you can install the latest version using Git. If the installation is from a compressed archive file, you can either download and extract the latest version, or you can reinstall {% data variables.product.prodname_enterprise_backup_utilities %} using Git to simplify future upgrades.
+
+- [Upgrading an installation in a Git repository](#upgrading-an-installation-in-a-git-repository)
+- [Using Git instead of compressed archives for upgrades](#using-git-instead-of-compressed-archives-for-upgrades)
+
+### Upgrading an installation in a Git repository
+
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
   {% note %}
 
-  **Observação:** se o {% data variables.product.product_location %} for implantado como um cluster ou em uma configuração de alta disponibilidade usando um balanceador de carga, o `GHE_HOSTNAME` poderá ser o nome do host do balanceador de carga, desde que permita o acesso SSH (na porta 122) ao {% data variables.product.product_location %}.
+  **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
 
   {% endnote %}
 
-4. Defina o valor `GHE_DATA_DIR` como o local do sistema de arquivos em que deseja armazenar instantâneos de backup.
-5. Abra a página de configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, confira "[Como acessar o shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
-6. Verifique a conectividade do SSH com o {% data variables.product.product_location %} usando o comando `ghe-host-check`.
+1. Download the latest project updates by running the `git fetch` command.
+
   ```shell
-  $ bin/ghe-host-check        
-  ```         
-  7. Para criar um backup completo inicial, execute o comando `ghe-backup`.
-  ```shell
-  $ bin/ghe-backup        
+  git fetch
   ```
 
-Para obter mais informações sobre uso avançado, confira o [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
 
-## Programar um backup
+### Using Git instead of compressed archives for upgrades
 
-Você pode agendar backups regulares no host de backup usando o comando `cron(8)` ou um serviço de agendamento de comando semelhante. A frequência configurada determinará o objetivo do ponto de recuperação (RPO) nos piores cenários do seu plano de recuperação. Por exemplo, ao programar backups diários à meia-noite, você pode perder até 24 horas de dados em caso de desastre. É recomendável começar com backups a cada hora, garantindo a possibilidade de perdas menores (no máximo de uma hora) caso os dados primários do site sejam destruídos.
+If your backup host has internet connectivity and you previously used a compressed archive (`.tar.gz`) to install or upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, we recommend using a Git repository for your installation instead. Upgrading using Git requires less work and preserves your backup configuration.
 
-Se as tentativas de backup forem sobrepostas, o comando `ghe-backup` será anulado com uma mensagem de erro, indicando a existência de um backup simultâneo. Nesse caso, é recomendável diminuir a frequência dos backups programados. Para obter mais informações, confira a seção "Como agendar backups" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
+1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
 
-## Como restaurar um backup
+  ```
+  $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
+  ```
 
-No caso de interrupção prolongada ou evento catastrófico no site primário, você pode restaurar o {% data variables.product.product_location %} provisionando outro dispositivo do {% data variables.product.prodname_enterprise %} e executando uma restauração por meio do host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
+1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
+1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
 
-{% ifversion ghes %} {% note %}
+  ```
+  git clone https://github.com/github/backup-utils.git
+  ```
+1. To change into the cloned repository, run the following command.
 
-**Observação:** se o {% data variables.product.product_location %} tiver o {% data variables.product.prodname_actions %} habilitado, primeiro, você precisará configurar o provedor de armazenamento externo do {% data variables.product.prodname_actions %} no dispositivo substituto antes de executar o comando `ghe-restore`. Para obter mais informações, confira "[Backup e restauração do {% data variables.product.prodname_ghe_server %} com o {% data variables.product.prodname_actions %} habilitado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
+  ```
+  cd backup-utils
+  ```
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
+1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
 
-{% endnote %} {% endif %}
+  ```
+  $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
+  ```
+  
+  {% note %}
+
+  **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+
+  {% endnote %}
+
+1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
+1. Delete your old GitHub Enterprise Server Backup Utilities directory from step 1 (where the compressed archive installation was located).
+
+## Scheduling a backup
+
+You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
+
+If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+
+## Restoring a backup
+
+In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
 
 {% note %}
 
-**Observação:** durante a execução de restaurações de backup no {% data variables.product.product_location %}, as mesmas regras de capacidade de suporte de versão se aplicam. Você só pode restaurar dados de no máximo duas versões do recursos para trás.
+**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
 
-Por exemplo, se você receber um backup do GHES 3.0.x, você poderá restaurá-lo em uma instância GHES 3.2.x. No entanto, não é possível restaurar dados de um backup do GHES 2.22.x para 3.2.x, pois isso representa três saltos entre as versões (2.22 > 3.0 > 3.1 > 3.2). Primeiro, você deverá restaurar em uma instância de 3.1.x e, em seguida, atualizar para 3.2.x.
+For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to a {% data variables.product.product_name %} 3.2.x instance. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
 
 {% endnote %}
 
-Para restaurar o {% data variables.product.product_location %} do último instantâneo bem-sucedido, use o comando `ghe-restore`. Você deverá ver uma saída semelhante à esta:
+To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command.
+
+{% note %}
+
+**Note:** Prior to restoring a backup, ensure:
+- Maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[Enabling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
+- Replication is stopped on all replicas in high availability configurations. For more information, see the `ghe-repl-stop` command in "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
+- If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+
+When running the `ghe-restore` command, you should see output similar to this:
 
 ```shell
 $ ghe-restore -c 169.154.1.1
@@ -133,15 +238,16 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %} Opcionalmente, para validar a restauração, configure uma lista de exceções de IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, confira "[Validar alterações no modo de manutenção usando a lista de exceções de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% ifversion ip-exception-list %}
+Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
 
 {% note %}
 
-**Observação:** as configurações de rede são excluídas do instantâneo de backup. Você deve configurar manualmente a rede no appliance de destino do {% data variables.product.prodname_ghe_server %} conforme o seu ambiente.
+**Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
 
 {% endnote %}
 
-Você pode usar essas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, o certificado e os dados de licença no host de destino, mesmo que ele já esteja configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, confira a seção "Como usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
-- O sinalizador `-s` permite que você selecione outro instantâneo de backup.
+You can use these additional options with `ghe-restore` command:
+- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+- The `-s` flag allows you to select a different backup snapshot.

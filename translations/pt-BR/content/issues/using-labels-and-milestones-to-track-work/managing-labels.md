@@ -31,10 +31,10 @@ topics:
   - Project management
 type: how_to
 ms.openlocfilehash: 42feddd5ebbdee81140d3aab48b81f83a2c6e69f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126546'
 ---
 ## Sobre etiquetas

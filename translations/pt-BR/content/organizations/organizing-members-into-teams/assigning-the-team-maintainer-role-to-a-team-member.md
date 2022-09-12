@@ -17,10 +17,10 @@ topics:
 shortTitle: Team maintainers
 permissions: Organization owners can promote team members to team maintainers.
 ms.openlocfilehash: 2408d8c12718375d777432be03d6e19f7d6d04b5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145097222'
 ---
 ## Sobre os mantenedores da equipe

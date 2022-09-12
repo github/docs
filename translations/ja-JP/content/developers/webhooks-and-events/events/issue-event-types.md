@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - Events
-ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2459e4fbdcd4e857c603b7aa7354d4f2d5d6a062
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080825'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878376'
 ---
 Issue イベントは、Issue と pull request のアクティビティによってトリガーされ、[Issue Events API](/rest/reference/issues#events) と [Timeline Events API](/rest/reference/issues#timeline) で使用できます。 各イベントタイプでは、イベントが Issue イベントやタイムラインイベント API で使用可能かどうかを指定します。
 
@@ -235,7 +235,7 @@ Issue またはプルリクエストが、別の Issue またはプルリクエ�
 `created_at` | `string` | クロスリファレンスの追加日時を示すタイムスタンプ。
 `updated_at` | `string` | クロスリファレンスが更新されていない場合、クロスリファレンスの更新または作成時期を示すタイムスタンプ。
 `source` | `object` | クロスリファレンスを追加した Issue またはプルリクエスト。
-`source[type]` | `string` | pull request は Issue 型であるため、この値は常に `"issue"` になります。 タイムラインイベント API では、Issue またはプルリクエストによってトリガーされたクロスリファレンスイベントのみが返されます。 イベントをトリガーした Issue が pull request であるかどうかを判断するには、`source[issue][pull_request` オブジェクトが存在するかどうかをチェックします。
+`source[type]` | `string` | pull request は Issue 型であるため、この値は常に `"issue"` になります。 タイムラインイベント API では、Issue またはプルリクエストによってトリガーされたクロスリファレンスイベントのみが返されます。 イベントをトリガーした Issue が pull request であるかどうかを判断するには、`source[issue][pull_request]` オブジェクトが存在するかどうかをチェックします。
 `source[issue]` | `object` | クロスリファレンスを追加した `issue` オブジェクト。
 `event` | `string` | イベントの値は `"cross-referenced"` です。
 

@@ -8,11 +8,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: fe00e2ab78881edab8d0f7704f80f2f20163fdeb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062866'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878439'
 ---
 API プレビューを使用すると、正式に GitHub API の一部になる前に、新しい API や既存の API メソッドへの変更を試すことができます。
 

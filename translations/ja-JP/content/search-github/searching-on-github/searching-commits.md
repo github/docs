@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: 2dc35c96805e175bef1ed1ec1898d48e50de6042
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145118902'
 ---
 {% data variables.product.product_name %} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細については、「[{% data variables.product.company_short %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
