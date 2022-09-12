@@ -13,11 +13,11 @@ topics:
   - Pages
 shortTitle: Use submodules with Pages
 ms.openlocfilehash: cfe863c3a7d77d006ee4c78e9d58302fb01e4dd4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140275'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880695'
 ---
 {% data variables.product.prodname_pages %} サイトのリポジトリにサブモジュールが含まれている場合、その内容はサイトをビルドする際に自動的にプルされます。
 

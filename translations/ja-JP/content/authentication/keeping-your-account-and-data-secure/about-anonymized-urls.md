@@ -14,10 +14,10 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145120006'
 ---
 画像をホストするために、{% data variables.product.product_name %} では、[オープン ソース プロジェクト Camo](https://github.com/atmos/camo) を使用しています。 Camo では、ファイルごとに匿名の URL プロキシを生成し、ブラウザの詳細や関連情報が他のユーザーに対して非表示となるようにします。 URL は、`https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて、さまざまなサブドメインが含まれます。 

@@ -13,10 +13,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145131377'
 ---
 [Deployments API][deploy API] によって、所有しているサーバーでプロジェクトを起動するための機能が、{% data variables.product.product_name %} でホストされるプロジェクトに提供されます。 [Status API][status API] と組み合わせると、コードがデフォルト ブランチに到達した瞬間にデプロイを調整できます。

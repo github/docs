@@ -12,10 +12,10 @@ topics:
   - 2FA
 shortTitle: Countries supporting SMS
 ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145088277'
 ---
 お住まいの国でテキストメッセージによる 2 要素認証がサポートされていない場合、TOTP モバイルアプリケーションにより認証を設定できます。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication)」を参照してください。

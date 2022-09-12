@@ -1,6 +1,6 @@
 ---
-title: Managing access to a {% data variables.product.prodname_project_v1 %} for organization members
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
+title: 'Organization メンバーの {% data variables.product.prodname_project_v1 %} へのアクセスを管理する'
+intro: 'Organization オーナーまたは {% data variables.projects.projects_v1_board %} 管理者は、すべての Organization メンバーの {% data variables.projects.projects_v1_board %} に対する既定のアクセス許可レベルを設定できます。'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -14,33 +14,33 @@ topics:
   - Teams
 shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fe9d8ebee09d4eb6278545b5561b9691a0468bf5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880703'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
+既定では、Organization オーナーまたは {% data variables.projects.projects_v1_board %} 管理者が特定の {% data variables.projects.projects_v1_boards %} に対して別のアクセス許可を設定しない限り、Organization メンバーは、その Organization の {% data variables.projects.projects_v1_boards %} に対する書き込みアクセス権が付与されます。
 
-## Setting a baseline permission level for all organization members
+## Organization のすべてのメンバーに対して標準の権限レベルを設定する
 
 {% tip %}
 
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**ヒント:** Organization メンバーに、{% data variables.projects.projects_v1_board %} に対するより高いアクセス許可を付与できます。 詳細については、「[Organization のプロジェクト ボード権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-8. Under "Organization member permission", choose a baseline permission level for all organization members: **Read**, **Write**, **Admin**, or **None**.
-![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
-9. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. **[Project (classic)]** をクリックします{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
+8. [Organization メンバーのアクセス許可] で、すべての Organization メンバーの基準の権限レベル (**読み取り**、**書き込み**、**管理者**、**なし** のいずれか) を選択します。
+![Organization のすべてのメンバーのプロジェクト ボードに対する基準の権限オプション](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
+9. **[保存]** をクリックします。
 
-## Further reading
+## 参考資料
 
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- 「[Organization の {% data variables.product.prodname_project_v1 %} への個人のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-project-board)」
+- 「[Organization の {% data variables.product.prodname_project_v1 %} への Team のアクセスを管理する](/articles/managing-team-access-to-an-organization-project-board)」
+- 「[Organization の {% data variables.product.prodname_project_v1_caps %} へのアクセス許可](/articles/project-board-permissions-for-an-organization)」

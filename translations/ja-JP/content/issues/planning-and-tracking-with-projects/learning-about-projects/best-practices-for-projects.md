@@ -13,11 +13,11 @@ topics:
   - Issues
   - Project management
 ms.openlocfilehash: 71cf84e26bdbed717fd5b434e92f071550764cdc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424198'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880037'
 ---
 {% data variables.product.prodname_projects_v2 %} を使って、issue や pull request がある {% data variables.product.company_short %} 上での作業を管理できます。 プロジェクトを効率的かつ効果的に管理するためのヒントを読んでください。 {% data variables.product.prodname_projects_v2 %} について詳しくは、「[{% data variables.product.prodname_projects_v2 %} について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」を参照してください。
 

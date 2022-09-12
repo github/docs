@@ -15,10 +15,10 @@ topics:
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
 ms.openlocfilehash: 3d01ba3d5d189e65cbd2b4589af9072571837944
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332353'
 ---
 {% data variables.product.prodname_ghe_server %} の受信前フックの例を [`github/platform-samples` リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で参照できます。

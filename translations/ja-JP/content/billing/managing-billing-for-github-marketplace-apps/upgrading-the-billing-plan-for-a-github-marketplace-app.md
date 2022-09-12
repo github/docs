@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Upgrade billing plan
 ms.openlocfilehash: bf24ee931df72fbe113fbc1fcc2c10be48fa74c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145088026'
 ---
 アプリケーションをアップグレードすると、支払い方法により、次の請求日までの残り時間に基づいて比例配分額を請求されます。 詳細については、「[{% data variables.product.prodname_marketplace %} の請求について](/articles/about-billing-for-github-marketplace)」を参照してください。
