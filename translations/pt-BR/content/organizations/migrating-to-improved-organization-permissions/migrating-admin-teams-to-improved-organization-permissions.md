@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Migrate admin team
 ms.openlocfilehash: 32a3bd684d2ed81d1ba492b4e343af3e03390364
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145097235'
 ---
 Por padrão, todos os integrantes da organização podem criar repositórios. Se você restringir as [permissões de criação de repositórios](/articles/restricting-repository-creation-in-your-organization) aos proprietários da organização e sua organização tiver sido criada sob a estrutura herdada de permissões da organização, os membros das equipes de administração herdadas ainda poderão criar repositórios.

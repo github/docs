@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 15dca8ffafe9686d15e08ffb8ecd9e07ceba3942
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146689026"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147875628"
 ---
 | Opção | Obrigatório | Atualizações de Segurança | Atualizações de versão | Descrição |
 |:---|:---:|:---:|:---:|:---|

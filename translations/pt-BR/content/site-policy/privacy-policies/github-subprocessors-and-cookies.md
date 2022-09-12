@@ -12,20 +12,20 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d76e4457b70069ef1199c33029dd38cfd7a89cdb
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: b8072adbca2f5e42acd5dda3b8d213dd795c13be
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556449'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099217'
 ---
 Data de início de vigência: **2 de abril de 2021**
 
 O GitHub oferece muita transparência sobre como usamos seus dados, como os coletamos e com quem os compartilhamos. Para isso, disponibilizamos esta página, que detalha [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
 
-## <a name="github-subprocessors"></a>Subprocessadores do GitHub
+## Subprocessadores do GitHub
 
-Quando compartilhamos suas informações com subprocessadores terceiros, como nossos fornecedores e prestadores de serviços, continuamos responsáveis por eles. Trabalhamos muito para manter sua confiança quando contratamos novos fornecedores e exigimos que todos eles celebrem contratos de proteção de dados conosco que restrinjam o processamento das Informações Pessoais dos Usuários (conforme definido na [Política de Privacidade](/articles/github-privacy-statement/)).
+Quando compartilhamos suas informações com subprocessadores terceiros, como nossos fornecedores e prestadores de serviços, continuamos responsáveis por eles. Trabalhamos muito para manter sua confiança quando contratamos novos fornecedores e exigimos que todos eles celebrem contratos de proteção de dados conosco que restrinjam o processamento das Informações Pessoais dos Usuários (conforme definido na [Política de Privacidade](/articles/github-privacy-statement/)). Você pode se inscrever para receber as atualizações da lista do subprocessador [aqui](https://www.github.com/privacy/subprocessors).
 
 | Nome do Subprocessador | Descrição do Processamento | Local do Processamento | Local da Empresa
 |:---|:---|:---|:---|
@@ -49,7 +49,7 @@ Quando compartilhamos suas informações com subprocessadores terceiros, como no
 
 Quando contratamos um novo subprocessador que lida com Informações Pessoais de nossos Usuários, removemos um deles ou alteramos a forma como usamos um subprocessador, atualizamos esta página. Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos satisfeitos em ajudar. Entre em contato conosco pelo {% data variables.contact.contact_privacy %}.
 
-## <a name="cookies-on-github"></a>Cookies no GitHub
+## Cookies no GitHub
 
 O GitHub usa cookies para fornecer e proteger nossos sites, bem como para analisar o uso deles, a fim de oferecer a você uma ótima experiência do usuário. Confira nossa [Política de Privacidade](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) se quiser mais informações sobre cookies e como e por que os usamos. 
  

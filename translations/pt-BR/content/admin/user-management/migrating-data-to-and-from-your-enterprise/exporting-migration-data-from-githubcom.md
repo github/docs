@@ -19,10 +19,10 @@ topics:
   - Migration
 shortTitle: Export data from GitHub.com
 ms.openlocfilehash: 07c74c41312fe5818390bba206072bf95e5bc00c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717866'
 ---
 ## Preparar a organização de origem em {% data variables.product.prodname_dotcom %}

@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Add a child team
 ms.openlocfilehash: e8012645bb4cdedc2a3aa8f7196adc18253a2600
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145095659'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875646'
 ---
 Quando você solicita a adição de uma equipe como uma equipe secundária, uma solicitação é enviada aos mantenedores da equipe secundária. Quando um mantenedor da equipe secundária aprova a solicitação, a equipe secundária é aninhada abaixo da equipe principal na hierarquia da organização.
 

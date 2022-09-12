@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: 2FA & SAML single sign-on
 ms.openlocfilehash: 1dc8eff35906a5f2c59f097d3bf53482547bd1f5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145126518'
 ---
 A autenticação de dois fatores (2FA, Two-Factor Authentication) fornece autenticação básica para integrantes da organização. Ao habilitar a 2FA, os administradores da organização limitam a probabilidade de que a conta de um integrante em {% data variables.product.product_location %} possa ser comprometida. Para obter mais informações sobre a 2FA, confira "[Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)".

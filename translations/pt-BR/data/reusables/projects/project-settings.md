@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5d00733f618afa1863da868f60cf56b7c064af6b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147423633"
 ---
 1. Procure seu projeto.

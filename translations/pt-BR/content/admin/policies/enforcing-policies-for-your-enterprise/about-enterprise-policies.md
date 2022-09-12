@@ -10,10 +10,10 @@ topics:
   - Enterprise
   - Policies
 ms.openlocfilehash: d452a6f24b3108b915e20b673ebd317a409ac8ae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147718114'
 ---
 Como ajuda para impor regras de negócios e conformidade regulatória, as políticas oferecem um ponto único de gerenciamento para todas as organizações pertencentes a uma conta empresarial. 

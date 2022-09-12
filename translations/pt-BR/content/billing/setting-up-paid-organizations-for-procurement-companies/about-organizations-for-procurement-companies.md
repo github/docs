@@ -14,11 +14,11 @@ topics:
   - Organizations
 shortTitle: About organizations
 ms.openlocfilehash: 9a4b4012e4de7b2aee3cc10a4c03fe18d8dc6309
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145083411'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875687'
 ---
 Para acessar uma organização, cada membro deverá entrar na própria conta pessoal.
 

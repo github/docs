@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Move a team
 ms.openlocfilehash: 205ab40d04d613c54b498b9712e5f199e1433558
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145097214'
 ---
 Proprietários de organizações podem mudar a principal de qualquer equipe. Mantenedores de equipes podem alterar a principal de uma equipe se forem mantenedores da equipe secundária e da equipe principal. Mantenedores de equipe sem permissões de mantenedor na equipe secundária podem solicitar para adicionar uma equipe principal ou secundária. Para obter mais informações, confira "[Como solicitar a adição ou a alteração de uma equipe pai](/articles/requesting-to-add-or-change-a-parent-team)" e "[Como solicitar a adição de uma equipe filho](/articles/requesting-to-add-a-child-team)".

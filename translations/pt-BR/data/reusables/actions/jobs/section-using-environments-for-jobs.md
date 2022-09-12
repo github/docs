@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5b827a2f598a6067ae3c486dbe046effda95bb7f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145083892"
 ---
 Use `jobs.<job_id>.environment` para definir o ambiente que o trabalho referencia. Todas as regras de proteção do ambiente têm de ser aprovadas para que um trabalho que faça referência ao ambiente seja enviado a um executor. Para obter mais informações, confira "[Como usar ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
