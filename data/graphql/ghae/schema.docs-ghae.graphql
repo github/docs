@@ -27760,7 +27760,7 @@ type Query {
   ): UniformResourceLocatable
 
   """
-  Perform a search across resources.
+  Perform a search across resources, returning a maximum of 1,000 results.
   """
   search(
     """
@@ -35393,16 +35393,22 @@ The results of a search.
 union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
 
 """
-A list of results that matched against a search query.
+A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 results will be available across all types,
+potentially split across many pages.
 """
 type SearchResultItemConnection {
   """
-  The number of pieces of code that matched the search query.
+  The total number of pieces of code that matched the search query. Regardless
+  of the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   codeCount: Int!
 
   """
-  The number of discussions that matched the search query.
+  The total number of discussions that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   discussionCount: Int!
 
@@ -35412,7 +35418,8 @@ type SearchResultItemConnection {
   edges: [SearchResultItemEdge]
 
   """
-  The number of issues that matched the search query.
+  The total number of issues that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   issueCount: Int!
 
@@ -35427,17 +35434,22 @@ type SearchResultItemConnection {
   pageInfo: PageInfo!
 
   """
-  The number of repositories that matched the search query.
+  The total number of repositories that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   repositoryCount: Int!
 
   """
-  The number of users that matched the search query.
+  The total number of users that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   userCount: Int!
 
   """
-  The number of wiki pages that matched the search query.
+  The total number of wiki pages that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   wikiCount: Int!
 }
