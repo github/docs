@@ -1,3 +1,1 @@
- 1. From within {% data variables.product.prodname_vscode %}, open the Command Palette.
-    - In macOS: Press <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
-    - In Windows/Linux: Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
+ 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)).
