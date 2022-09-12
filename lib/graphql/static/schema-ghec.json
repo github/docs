@@ -494,7 +494,7 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>Perform a search across resources.</p>",
+      "description": "<p>Perform a search across resources, returning a maximum of 1,000 results.</p>",
       "args": [
         {
           "name": "after",
@@ -59426,11 +59426,11 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>A list of results that matched against a search query.</p>",
+      "description": "<p>A list of results that matched against a search query. Regardless of the number\nof matches, a maximum of 1,000 results will be available across all types,\npotentially split across many pages.</p>",
       "fields": [
         {
           "name": "codeCount",
-          "description": "<p>The number of pieces of code that matched the search query.</p>",
+          "description": "<p>The total number of pieces of code that matched the search query. Regardless\nof the total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59438,7 +59438,7 @@
         },
         {
           "name": "discussionCount",
-          "description": "<p>The number of discussions that matched the search query.</p>",
+          "description": "<p>The total number of discussions that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59454,7 +59454,7 @@
         },
         {
           "name": "issueCount",
-          "description": "<p>The number of issues that matched the search query.</p>",
+          "description": "<p>The total number of issues that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59478,7 +59478,7 @@
         },
         {
           "name": "repositoryCount",
-          "description": "<p>The number of repositories that matched the search query.</p>",
+          "description": "<p>The total number of repositories that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59486,7 +59486,7 @@
         },
         {
           "name": "userCount",
-          "description": "<p>The number of users that matched the search query.</p>",
+          "description": "<p>The total number of users that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59494,7 +59494,7 @@
         },
         {
           "name": "wikiCount",
-          "description": "<p>The number of wiki pages that matched the search query.</p>",
+          "description": "<p>The total number of wiki pages that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
