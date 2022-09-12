@@ -91,4 +91,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
  {% endvscode %}
 
  ## Further reading
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
