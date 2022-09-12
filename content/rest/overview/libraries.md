@@ -15,7 +15,7 @@ topics:
 
 <div class="jumbotron libraries-jumbotron">
   <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h1>Octokit comes in many flavors</h1>
+  <h2>Octokit comes in many flavors</h2>
   <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
   <div class="octokit-links"><br/>
      <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
@@ -24,52 +24,52 @@ topics:
   </div>
 </div>
 
-# Third-party libraries
+## Third-party libraries
 
-## Clojure
+### Clojure
 
 | Library name | Repository |
 |---|---|
 |**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
 
-## Dart
+### Dart
 
 | Library name | Repository |
 |---|---|
 |**github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)|
 
-## Emacs Lisp
+### Emacs Lisp
 
 | Library name | Repository |
 |---|---|
 |**gh.el**    | [sigma/gh.el](https://github.com/sigma/gh.el)|
 
-## Erlang
+### Erlang
 
 | Library name | Repository |
 |---|---|
 |**octo-erl** | [sdepold/octo.erl](https://github.com/sdepold/octo.erl)|
 
-## Go
+### Go
 
 | Library name | Repository |
 |---|---|
 |**go-github**| [google/go-github](https://github.com/google/go-github)|
 
-## Haskell
+### Haskell
 
 | Library name | Repository |
 |---|---|
 |**haskell-github** | [fpco/Github](https://github.com/fpco/GitHub)|
 
-## Java
+### Java
 
 | Library name | Repository | More information |
 |---|---|---|
 |**GitHub API for Java**| [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)|defines an object oriented representation of the GitHub API.|
 |**JCabi GitHub API**|[github.jcabi.com (Personal Website)](http://github.jcabi.com)|is based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API.|
 
-## JavaScript
+### JavaScript
 
 | Library name | Repository |
 |---|---|
@@ -78,26 +78,26 @@ topics:
 |**Github.js wrapper around the GitHub API**|[michael/github](https://github.com/michael/github)|
 |**Promise-Based CoffeeScript library for the Browser or NodeJS**|[philschatz/github-client](https://github.com/philschatz/github-client)|
 
-## Julia
+### Julia
 
 | Library name | Repository |
 |---|---|
 |**GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)|
 
-## OCaml
+### OCaml
 
 | Library name | Repository |
 |---|---|
 |**ocaml-github**|[mirage/ocaml-github](https://github.com/mirage/ocaml-github)|
 
-## Perl
+### Perl
 
 | Library name | Repository | metacpan Website for the Library |
 |---|---|---|
 |**Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub)|
 |**Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)|
 
-## PHP
+### PHP
 
 | Library name | Repository |
 |---|---|
@@ -105,13 +105,13 @@ topics:
 |**GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)|
 |**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)|
 
-## PowerShell
+### PowerShell
 
 | Library name | Repository |
 |---|---|
 |**PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)|
 
-## Python
+### Python
 
 | Library name | Repository |
 |---|---|
@@ -126,28 +126,28 @@ topics:
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 
-## Ruby
+### Ruby
 
 | Library name | Repository |
 |---|---|
 |**GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github)|
 |**Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)|
 
-## Rust
+### Rust
 
 | Library name | Repository |
 |---|---|
 |**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)|
 |**Octocat**|[octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)|
 
-## Scala
+### Scala
 
 | Library name | Repository |
 |---|---|
 |**Hubcat**|[softprops/hubcat](https://github.com/softprops/hubcat)|
 |**Github4s**|[47deg/github4s](https://github.com/47deg/github4s)|
 
-## Shell
+### Shell
 
 | Library name | Repository |
 |---|---|
