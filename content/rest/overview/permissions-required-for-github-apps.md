@@ -73,17 +73,17 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 - [`GET /users/:username/repos`](/rest/reference/repos#list-repositories-for-a-user)
 - [`GET /users/:username/subscriptions`](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-_Collaborators_
+### Collaborators
 - [`GET /repos/:owner/:repo/collaborators`](/rest/reference/collaborators#list-repository-collaborators)
 - [`GET /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
 
-_Commit comments_
+### Commit comments
 - [`GET /repos/:owner/:repo/comments`](/rest/reference/commits#list-commit-comments-for-a-repository)
 - [`GET /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#get-a-commit-comment)
 - [`GET /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 - [`GET /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#list-commit-comments)
 
-_Events_
+### Events
 - [`GET /events`](/rest/reference/activity#list-public-events)
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
@@ -92,20 +92,20 @@ _Events_
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
-_Git_
+### Git
 - [`GET /gitignore/templates`](/rest/reference/gitignore#get-all-gitignore-templates)
 - [`GET /gitignore/templates/:key`](/rest/reference/gitignore#get-a-gitignore-template)
 
-_Keys_
+### Keys
 - [`GET /users/:username/keys`](/rest/reference/users#list-public-keys-for-a-user)
 
-_Organization members_
+### Organization members
 - [`GET /orgs/:org/members`](/rest/reference/orgs#list-organization-members)
 - [`GET /orgs/:org/members/:username`](/rest/reference/orgs#check-organization-membership-for-a-user)
 - [`GET /orgs/:org/public_members`](/rest/reference/orgs#list-public-organization-members)
 - [`GET /orgs/:org/public_members/:username`](/rest/reference/orgs#check-public-organization-membership-for-a-user)
 
-_Search_
+### Search
 - [`GET /search/code`](/rest/reference/search#search-code)
 - [`GET /search/commits`](/rest/reference/search#search-commits)
 - [`GET /search/issues`](/rest/reference/search#search-issues-and-pull-requests)
