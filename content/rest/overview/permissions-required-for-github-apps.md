@@ -249,7 +249,7 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
 
 {% ifversion fpt or ghec %}
-_Traffic_
+### Traffic
 - [`GET /repos/:owner/:repo/traffic/clones`](/rest/reference/repository-metrics#get-repository-clones) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/paths`](/rest/reference/repository-metrics#get-top-referral-paths) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/referrers`](/rest/reference/repository-metrics#get-top-referral-sources) (:read)
@@ -589,7 +589,7 @@ Issues and pull requests are closely related. For more information, see "[List i
 {% endif %}
 
 {% ifversion fpt or ghec %}
-_Invitations_
+### Invitations
 - [`GET /orgs/:org/invitations`](/rest/reference/orgs#list-pending-organization-invitations) (:read)
 - [`POST /orgs/:org/invitations`](/rest/reference/orgs#create-an-organization-invitation) (:write)
 - [`GET /orgs/:org/invitations/:invitation_id/teams`](/rest/reference/orgs#list-organization-invitation-teams) (:read)
