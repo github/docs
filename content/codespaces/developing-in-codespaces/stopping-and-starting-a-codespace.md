@@ -10,7 +10,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Stop a code space
+shortTitle: Stop a codespace
 ---
 
 ## About stopping and starting a codespace
