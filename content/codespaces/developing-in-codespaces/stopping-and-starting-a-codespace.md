@@ -47,7 +47,7 @@ Regardless of where you created or access your codespaces, you can view and mana
  {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. In the list of options, select **Codespaces: Stop Codespace**.
+1. Type `stop` and select **Codespaces: Stop Codespace** from the list of options.
 1. In the list of codespaces, select the codespace you want to stop.
 
  {% endvscode %}
