@@ -239,3 +239,9 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
+  - location: Commit.changedFiles
+    description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
+    reason: '`changedFiles` will be removed.'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: adamshwert

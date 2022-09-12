@@ -17,14 +17,14 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 22a227f8f97b054e4d3980876dae47d72fb03d08
-ms.sourcegitcommit: 3a16368cd8beb8b8487eb77d3e597cf49f4c4335
+ms.openlocfilehash: 2f2bb7f0ff9bdc6d350033ea4be83ac8347b9e96
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2022
-ms.locfileid: '147111174'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760972'
 ---
-## <a name="about-dev-containers"></a>Acerca de los contenedores dev
+## Acerca de los contenedores dev
 
 Los contenedores de desarrollo son contenedores de Docker que están configurados específicamente para proporcionar un entorno de desarrollo completo. Siempre que trabajes en un codespace, estarás usando un contenedor de desarrollo en una máquina virtual.
 
@@ -36,7 +36,7 @@ Como alternativa, puedes agregar tus propios archivos de configuración personal
 
 Puedes definir una única configuración de contenedor de desarrollo para un repositorio, configuraciones diferentes para distintas ramas o varias configuraciones. Cuando hay varias configuraciones disponibles, los usuarios pueden elegir su configuración preferida cuando crean un codespace. Esto es especialmente útil para repositorios de gran tamaño que contienen código fuente en diferentes lenguajes de programación o para proyectos diferentes. Puedes crear una selección de configuraciones que permitan a los distintos equipos trabajar en un codespace configurado adecuadamente para el trabajo que están realizando.
 
-### <a name="devcontainerjson"></a>devcontainer.json
+### devcontainer.json
 
 El archivo principal de una configuración de contenedor de desarrollo es el archivo `devcontainer.json`. Puedes usar este archivo a fin de determinar el entorno de los codespaces creados para el repositorio. El contenido de este archivo define un contenedor de desarrollo que puede incluir marcos, herramientas, extensiones y desvío de puertos. El archivo `devcontainer.json` normalmente contiene una referencia a un Dockerfile, que normalmente se encuentra junto con el archivo `devcontainer.json`.
 
@@ -54,13 +54,13 @@ Para obtener información sobre cómo elegir la configuración de contenedor de 
 
 {% data reusables.codespaces.more-info-devcontainer %}
 
-#### <a name="how-to-use-the-devcontainerjson"></a>Procedimientos para usar devcontainer.json
+#### Procedimientos para usar devcontainer.json
 
 Es útil pensar en `devcontainer.json` como un archivo que proporciona "customization" (personalización) en lugar de "personalization" (personalización). Solo debes incluir cosas que todos los usuarios que trabajan en el código base necesitan como elementos estándar del entorno de desarrollo, no como cosas que sean preferencias personales. Las cosas como linters son buenas para estandarizar y exigir que todos los usuarios lo tengan instalado, por lo que son buenas para incluir en tu archivo `devcontainer.json`. Las cosas como los decoradores de la interfaz de usuario o los temas son opciones personales que no deben colocarse en el archivo `devcontainer.json`.
 
 Puedes personalizar los codespaces mediante dotfiles y la sincronización de la configuración. Para más información, consulta "[Personalización de {% data variables.product.prodname_github_codespaces %} para tu cuenta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
-### <a name="dockerfile"></a>Dockerfile
+### Dockerfile
 
 Puedes agregar un Dockerfile como parte de la configuración del contenedor de desarrollo. 
 
@@ -74,7 +74,7 @@ El Dockerfile de un contenedor de desarrollo se encuentra normalmente en la carp
 
 {% endnote %}
 
-#### <a name="simple-dockerfile-example"></a>Ejemplo de Dockerfile sencillo
+#### Ejemplo de Dockerfile sencillo
 
 En el ejemplo siguiente se usan cuatro instrucciones:
 
@@ -103,7 +103,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 Para obtener más información sobre las instrucciones compatibles con Docker, consulta "[Referencia de Dockerfile](https://docs.docker.com/engine/reference/builder)" en la documentación de Docker.
 
-#### <a name="using-a-dockerfile"></a>Uso de un Dockerfile
+#### Uso de un Dockerfile
 
 Para usar un Dockerfile como parte de una configuración de contenedor de desarrollo, haz referencia a él en el archivo `devcontainer.json` mediante la propiedad `dockerfile`.
 
@@ -117,7 +117,7 @@ Para usar un Dockerfile como parte de una configuración de contenedor de desarr
 
 Para obtener más información sobre el uso de un Dockerfile en un contenedor de desarrollo, consulta "[Creación de un contenedor de desarrollo](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 
-## <a name="using-the-default-dev-container-configuration"></a>Uso de la configuración predeterminada del contenedor de desarrollo
+## Uso de la configuración predeterminada del contenedor de desarrollo
 
 Si no defines una configuración en tu repositorio, {% data variables.product.prodname_dotcom %} creará un codespace con una imagen predeterminada de Linux. Esta imagen de Linux incluye varias versiones en tiempo de ejecución para lenguajes populares como Python, Node, PHP, Java, Go, C++, Ruby y .NET Core/C#. Se usan las versiones LTS o más recientes de estos lenguajes. También hay herramientas para admitir la ciencia de datos y el aprendizaje automático, como JupyterLab y Conda. La imagen también incluye otras herramientas y utilidades para desarrolladores como Git, la CLI de GitHub, yarn, openssh y vim. Para ver todos los lenguajes, tiempos de ejecución y herramientas que se incluyen, usa el comando `devcontainer-info content-url` dentro del terminal de codespace y sigue la dirección URL que genera el comando.
 
@@ -125,7 +125,7 @@ Para obtener más información sobre todo lo que se incluye en la imagen predete
 
 La configuración predeterminada es una buena opción si estás trabajando en un proyecto pequeño que utiliza los lenguajes y herramientas que proporciona {% data variables.product.prodname_github_codespaces %}.
 
-## <a name="using-a-predefined-dev-container-configuration"></a>Uso de una configuración predefinida de contenedor de desarrollo
+## Uso de una configuración predefinida de contenedor de desarrollo
 
 Puedes elegir entre una lista de configuraciones predefinidas a fin de crear una configuración de contenedor de desarrollo para el repositorio. Estas configuraciones proporcionan una configuración común para tipos de proyecto en particular, y pueden ayudarte a comenzar rápidamente con una configuración que ya tenga las opciones adecuadas para el contenedor, la configuración de {% data variables.product.prodname_vscode_shortname %}, y las extensiones de {% data variables.product.prodname_vscode_shortname %} que deben estar instaladas.
 
@@ -147,7 +147,7 @@ Puedes agregar una configuración predefinida de contenedor de desarrollo mientr
 
    !["Codespaces: Recompilación del contenedor" en {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
-### <a name="adding-additional-features-to-your-devcontainerjson-file"></a>Agregar características adicionales al archivo `devcontainer.json`
+### Agregar características adicionales al archivo `devcontainer.json`
 
 {% note %}
 
@@ -160,9 +160,9 @@ Puedes agregar características a tu configuración predefinida de contenedor pa
 Puedes agregar algunas de las características más comunes seleccionándolas cuando configures tu contenedor predefinido. Para obtener más información sobre las características disponibles, consulte la [biblioteca de scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) en el repositorio `vscode-dev-containers`.
 
 
-1. Acceda a la paleta de comandos (`Shift + Command + P` / `Ctrl + Shift + P`) y empiece a escribir "configure". Seleccione **Codespaces: Configure Devcontainer Features**.
+1. Accede a la paleta de comandos (<kbd>Comando</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) y, a continuación, empieza a escribir "configurar". Seleccione **Codespaces: Configure Devcontainer Features**.
 
-   ![El comando de configurar características del devcontainer en la paleta de comandos](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![El comando Configure Devcontainer Features en la paleta de comandos](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. Actualice las características seleccionadas y haga clic en **OK**.
 
@@ -172,7 +172,7 @@ Puedes agregar algunas de las características más comunes seleccionándolas cu
 
    !["Codespaces: Rebuild Container" en la paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
-## <a name="creating-a-custom-dev-container-configuration"></a>Creación de una configuración personalizada de contenedor de desarrollo
+## Creación de una configuración personalizada de contenedor de desarrollo
 
 Si no hay ninguna de las configuraciones predefinidas que satisfaga tus necesidades, puedes crear una configuración personalizada escribiendo tu propio archivo `devcontainer.json`.
 
@@ -189,13 +189,13 @@ Si no hay ninguna de las configuraciones predefinidas que satisfaga tus necesida
 
    ![Elección de archivos de configuración](/assets/images/help/codespaces/configuration-file-choice.png)
 
-### <a name="default-configuration-selection-during-codespace-creation"></a>Selección de configuración predeterminada durante la creación del codespace
+### Selección de configuración predeterminada durante la creación del codespace
 
 Si `.devcontainer/devcontainer.json` o `.devcontainer.json` existen, uno de los dos será la selección predeterminada en la lista de archivos de configuración disponibles al crear un codespace. Si no existe ningún archivo, la configuración predeterminada del contenedor de desarrollo se seleccionará de manera predeterminada. 
 
 ![Opción de configuración predeterminada seleccionada](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
-### <a name="editing-the-devcontainerjson-file"></a>Edición del archivo devcontainer.json
+### Edición del archivo devcontainer.json
 
 Puedes agregar y editar las claves de configuración compatibles en el archivo `devcontainer.json` para especificar aspectos del entorno del codespace, como por ejemplo, qué extensiones de {% data variables.product.prodname_vscode_shortname %} se instalarán. {% data reusables.codespaces.more-info-devcontainer %}
 
@@ -207,7 +207,7 @@ El archivo `devcontainer.json` se escribe con el formato JSONC. Esto permite inc
 
 {% endnote %}
 
-### <a name="editor-settings-for--data-variablesproductprodname_vscode_shortname-"></a>Configuración del editor para {% data variables.product.prodname_vscode_shortname %}
+### Configuración del editor para {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.vscode-settings-order %}
 
@@ -216,7 +216,7 @@ Puedes definir la configuración predeterminada del editor para {% data variable
 * La configuración del editor definida en el archivo `.vscode/settings.json` del repositorio se aplica como configuración con ámbito de _área de trabajo_ en el codespace.
 * La configuración del editor definida en la clave `settings` del archivo `devcontainer.json` se aplica como configuración con ámbito de _[Codespaces] remotos_ en el codespace.
 
-## <a name="applying-configuration-changes-to-a-codespace"></a>Aplicación de cambios de configuración a un codespace
+## Aplicación de cambios de configuración a un codespace
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 
@@ -229,6 +229,6 @@ Puedes definir la configuración predeterminada del editor para {% data variable
    - Para corregir los errores identificados en los registros, actualice el archivo `devcontainer.json`.
    - Para aplicar los cambios, vuelve a crear tu contenedor. 
 
-## <a name="further-reading"></a>Información adicional
+## Información adicional
 
 - "[Precompilación de los codespaces](/codespaces/prebuilding-your-codespaces)"

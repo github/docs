@@ -13,10 +13,10 @@ topics:
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ms.openlocfilehash: def12b4e9e93a75ee1aa58f8290ca1b6e7d13cd5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145120465'
 ---
 {% data reusables.actions.enterprise-storage-ha-backups %}

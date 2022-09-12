@@ -34,10 +34,10 @@ children:
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147400342'
 ---
 

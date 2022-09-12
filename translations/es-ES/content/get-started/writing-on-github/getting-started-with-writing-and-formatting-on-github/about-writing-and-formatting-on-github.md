@@ -11,12 +11,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Write & format on GitHub
-ms.openlocfilehash: fbdb89a9a39e9ba10e813067a52a4a265e299f5b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146179523'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860838'
 ---
 [Markdown](http://daringfireball.net/projects/markdown/) es una sintaxis fácil de leer y escribir para dar formato al texto sin formato.
 
@@ -47,4 +47,3 @@ Puedes habilitar las fuentes de ancho fijo en cada campo de comentario de {% dat
 - [Especificación de {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
 - "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"
 - "[Trabajo con el formato avanzado](/articles/working-with-advanced-formatting)"
-- "[Dominio de Markdown](https://guides.github.com/features/mastering-markdown/)"

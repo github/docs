@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: b2c01cdb1bc1df9d4ae4247886b1471211b2714b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145118969'
 ---
 Utiliza el menú Sort (Clasificar) para clasificar resultados por relevancia, cantidad de estrellas, cantidad de bifurcaciones y qué tan recientemente se actualizaron los elementos.

@@ -12,10 +12,10 @@ topics:
   - Git
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: 595fc79c5a656a3d6da8b5589ed384b545a418ac
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145115985'
 ---
 ## Acerca del control de versiones y de Git

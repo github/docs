@@ -11,12 +11,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
-ms.openlocfilehash: 1d9a57dca3ffc1af8483ad973d2a6426204ce244
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 83b3b6c673ec0b970dd2527664adebff7f0d8aa5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147076725'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860846'
 ---
 ## Encabezados
 
@@ -399,4 +399,3 @@ Para obtener más información, consulte "[Sintaxis de Markdown](https://daringf
 - [Especificación de {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
 - "[Acerca de la escritura y la aplicación de formato en GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Trabajar con formato avanzado](/articles/working-with-advanced-formatting)"
-- "[Dominio de Markdown](https://guides.github.com/features/mastering-markdown/)"

@@ -18,10 +18,10 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ms.openlocfilehash: 4c93f372f1d537fd94f06e66986e53d6641923d2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145091817'
 ---
 La herramienta `git filter-repo` y BFG Repo-Cleaner reescriben el historial del repositorio, lo que cambia los SHA para las confirmaciones existentes que se modifican y las confirmaciones dependientes. Los SHA de confirmación modificados pueden afectar a las solicitudes de incorporación de cambios abiertas en el repositorio. Se recomienda combinar o cerrar todas las solicitudes de incorporación de cambios abiertas antes de quitar archivos del repositorio.

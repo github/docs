@@ -1,16 +1,24 @@
+---
+ms.openlocfilehash: 432a33a54f6568b889f8089173f3787a960410fe
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147763744"
+---
 {% ifversion ghes < 3.5 %}
 
-In some cases, GitHub Advanced Security customers who upgrade to GitHub Enterprise Server 3.5 or later may notice that alerts from secret scanning are missing in the web UI and REST API. To ensure the alerts remain visible, do not skip 3.4 when you upgrade from an earlier release to 3.5 or later. A fix is available in the [3.5.5](/enterprise-server@3.5/admin/release-notes#3.5.5) and [3.6.1](/enterprise-server@3.6/admin/release-notes#3.6.1) patch releases.
+En algunos casos, los clientes de GitHub Advanced Security que actualicen a GitHub Enterprise Server 3.5 o posterior pueden observar que faltan alertas del análisis de secretos en la interfaz de usuario web y la API REST. Para asegurarse de que las alertas permanecen visibles, no omitas la versión 3.4 cuando actualices de una versión anterior a la versión 3.5 o posteriores. Hay disponible una corrección en las versiones [de revisión 3.5.5](/enterprise-server@3.5/admin/release-notes#3.5.5) y [3.6.1](/enterprise-server@3.6/admin/release-notes#3.6.1) .
 
-To plan an upgrade through 3.4, see the [Upgrade assistant](https://support.github.com/enterprise/server-upgrade). [Updated: 2022-09-01]
+Para planear una actualización a través de la versión 3.4, consulta el [Asistente para actualización](https://support.github.com/enterprise/server-upgrade). [Actualizado: 01/09/2022]
 
 {% elsif ghes = 3.5 or ghes = 3.6 %}
 
-In some cases, GitHub Advanced Security customers who upgrade to GitHub Enterprise Server {{ allVersions[currentVersion].currentRelease }} may notice that alerts from secret scanning are missing in the web UI and REST API. To ensure the alerts remain visible, do not skip 3.4 as you upgrade to the latest release. To plan an upgrade through 3.4, see the [Upgrade assistant](https://support.github.com/enterprise/server-upgrade).
+En algunos casos, los clientes de GitHub Advanced Security que actualicen a GitHub Enterprise Server {{ allVersions[currentVersion].currentRelease }} pueden observar que faltan alertas del análisis de secretos en la interfaz de usuario web y la API REST. Para asegurarte de que las alertas permanecen visibles, no omitas la versión 3.4 cuando actualices a la versión más reciente. Para planear una actualización a través de la versión 3.4, consulta el [Asistente para actualización](https://support.github.com/enterprise/server-upgrade).
 
-- To display the missing alerts for all repositories owned by an organization, organization owners can navigate to the organization's **Code security and analysis** settings, then click **Enable all** for secret scanning. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories)."
-- To display the missing alerts for an individual repository, people with admin access to the repository can disable then enable secret scanning for the repository. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+- Para mostrar las alertas que faltan para todos los repositorios que pertenecen a una organización, los propietarios de la organización pueden ir a la configuración **de seguridad y análisis del código** de la organización y, a continuación, hacer clic en **Habilitar todo** para el análisis de secretos. Para más información, vea "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories)".
+- Para mostrar las alertas que faltan para un repositorio individual, los usuarios con acceso de administrador al repositorio pueden deshabilitar y, a continuación, habilitar el análisis de secretos para el repositorio. Para más información, vea "[Administración de la configuración de seguridad y análisis para el repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)".
 
-A fix is available in the {% ifversion ghes = 3.5 %}[3.5.5](/admin/release-notes#3.5.5){% elsif ghes = 3.6 %}[3.6.1](/admin/release-notes#3.6.1){% endif %} patch release. [Updated: 2022-09-01]
+Hay disponible una corrección en la versión de revisión {% ifversion ghes = 3.5 %}[3.5.5](/admin/release-notes#3.5.5){% elsif ghes = 3.6 %}[3.6.1](/admin/release-notes#3.6.1){% endif %}. [Actualizado: 01/09/2022]
 
 {% endif %}

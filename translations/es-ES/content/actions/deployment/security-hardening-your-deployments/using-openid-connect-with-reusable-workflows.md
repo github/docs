@@ -14,26 +14,33 @@ type: how_to
 topics:
   - Workflows
   - Security
-ms.openlocfilehash: c9b5daf88f6e2dc91aad8890a3a8833cfbd2b0f0
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: ecf00be738c711394bc4debf0088ca0cbe5a2d9c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146273054'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710279'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## <a name="about-reusable-workflows"></a>Acerca de los flujos de trabajo reutilizables
+## Acerca de los flujos de trabajo reutilizables
 
 En vez de copiar y pegar los jobs de despliegue de un flujo de trabajo a otro, puedes crear un flujo de trabajo reutilizable que realice los pasos de despliegue. Otro flujo de trabajo puede usar un flujo de trabajo reutilizable si cumple uno de los requisitos de acceso descritos en "[Reutilización de flujos de trabajo](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)".
 
-Cuando los combinas con OpenID Connect (OIDC), los flujos de trabajo reutilizables te permiten requerir despliegues consistentes a lo largo de tus repositorios, organizaciones o empresa. Puedes hacerlo si defines las condiciones de confianza en los roles de la nube con base en los flujos reutilizables.
+Debes estar familiarizado con los conceptos descritos en "[Reutilización de flujos de trabajo](/actions/learn-github-actions/reusing-workflows" y "Acerca del [fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
 
-Para poder crear condiciones de confianza en función de flujos de trabajo reutilizables, el proveedor de servicios en la nube debe admitir las notificaciones personalizadas para `job_workflow_ref`. Esto le permite a tu proveedor de servicios en la nube identificar de qué repositorio vino originalmente el job. Si el proveedor de servicios en la nube solo admite las notificaciones estándar (_público_ y _asunto_), no podrá determinar que el trabajo se ha originado en el repositorio del flujo de trabajo reutilizable. Los proveedores de servicios en la nube que admiten `job_workflow_ref` incluyen Google Cloud Platform y HashiCorp Vault.
+## Definición de las condiciones de confianza
 
-Antes de continuar, debe estar familiarizado con los conceptos de [flujos de trabajo reutilizables](/actions/learn-github-actions/reusing-workflows) y [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+Cuando los combinas con OpenID Connect (OIDC), los flujos de trabajo reutilizables te permiten requerir despliegues consistentes a lo largo de tus repositorios, organizaciones o empresa. Puedes hacerlo si defines las condiciones de confianza en los roles de la nube con base en los flujos reutilizables. Las opciones disponibles variarán en función del proveedor de nube:
 
-## <a name="how-the-token-works-with-reusable-workflows"></a>Cómo funciona el token con los flujos de trabajo reutilizables
+- **Con `job_workflow_ref`** : 
+  - Para crear condiciones de confianza en función de flujos de trabajo reutilizables, el proveedor de servicios en la nube debe admitir las notificaciones personalizadas para `job_workflow_ref`. Esto le permite a tu proveedor de servicios en la nube identificar de qué repositorio vino originalmente el job. 
+  - En el caso de las nubes que solo admiten las notificaciones estándar (audiencia (`aud`) y asunto (`sub`)), puedes usar la API para personalizar la notificación `sub` para incluir `job_workflow_ref`. Para más información, consulta "[Personalización de las notificaciones de token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". La compatibilidad con notificaciones personalizadas está disponible actualmente para Google Cloud Platform y HashiCorp Vault.
+
+- **Personalización de las notificaciones de token**: 
+  - Puedes configurar condiciones de confianza más pormenorizadas personalizando las notificaciones del emisor (`iss`) y del asunto (`sub`) incluidas en el JWT. Para más información, consulta "[Personalización de las notificaciones de token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
+
+## Cómo funciona el token con los flujos de trabajo reutilizables
 
 Durante una ejecución de flujo de trabajo, el proveedor de OIDC de {% data variables.product.prodname_dotcom %} presenta un token de OIDC al proveedor de servicios en la nube, el cual contiene información sobre el job. Si ese trabajo forma parte de un flujo de trabajo reutilizable, el token incluirá las solicitudes estándar que contengan información sobre el flujo de trabajo que realiza la llamada y también una notificación personalizada denominada `job_workflow_ref` que contiene información sobre el flujo de trabajo que se llama.
 
@@ -76,7 +83,7 @@ Por ejemplo, el siguiente token de OIDC es para un job que fue parte de un flujo
 
 Si tu flujo de trabajo reutilizable realiza pasos de despliegue, entonces será habitual que este necesite acceso a un rol específico de la nube y podría que quisieras permitir que cualquier repositorio de tu organización llamara a dicho flujo de trabajo reutilizable. Para permitir esto, deberás crear la condición de confianza que permite cualquier repositorio y flujo de trabajo llamante y luego filtrar la organización y el flujo de trabajo llamado. Consulta la siguiente sección para encontrar algunos ejemplos.
 
-## <a name="examples"></a>Ejemplos
+## Ejemplos
 
 **Filtrado por flujos de trabajo reutilizables dentro de un repositorio específico**
 

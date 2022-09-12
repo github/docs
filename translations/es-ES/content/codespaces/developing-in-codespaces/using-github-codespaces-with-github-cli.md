@@ -14,11 +14,11 @@ topics:
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
 ms.openlocfilehash: 7649692f45f0a899649baa2007d64e0a76bc32ec
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147546326'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879420'
 ---
 ## Acerca de la {% data variables.product.prodname_cli %} 
 

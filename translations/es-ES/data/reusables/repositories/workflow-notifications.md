@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 307a695e8a973c7b37a29ebbeb4606a8ed43d38d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145117810"
 ---
 Si habilitas las notificaciones web o por correo electrónico para {% data variables.product.prodname_actions %}, recibirás una notificación cuando alguna ejecución de flujo de trabajo que hayas activado se complete. La notificación incluirá el estado de la ejecución de flujo de trabajo (que incluye ejecuciones exitosas, fallidas, neutrales y canceladas). También puedes elegir recibir una notificación solo cuando falle una ejecución de flujo de trabajo. Para más información sobre cómo habilitar o deshabilitar las notificaciones, vea "[Acerca de las notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)".

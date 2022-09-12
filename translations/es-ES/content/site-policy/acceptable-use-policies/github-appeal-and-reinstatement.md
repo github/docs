@@ -6,17 +6,17 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 6da03add539f84a02d919fb777690468bb10a22a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556693'
 ---
-## <a name="appeal-and-reinstatement"></a>Apelación y restablecimiento
+## Apelación y restablecimiento
 
 Si bien la mayoría de las interacciones entre personas en la comunidad de GitHub entran en el ámbito de las Directivas de Uso Aceptable y en las Pautas de la Comunidad de GitHub, en ocasiones se producen infracciones de esas directivas. Cuando esto sucede, es posible que el personal de GitHub deba llevar a cabo acciones de ejecución para abordar esas infracciones. Sin embargo, en algunos casos, puede que existan fundamentos para revertir una acción de moderación realizada por el personal de GitHub.
 
-## <a name="what-are-appeals-and-reinstatements"></a>¿Qué son las apelaciones y los restablecimientos?
+## ¿Qué son las apelaciones y los restablecimientos?
 
 Tanto las apelaciones como los restablecimientos surgen en relación con la inhabilitación de contenidos o con las restricciones de acceso a una cuenta.
 
@@ -24,7 +24,7 @@ Tanto las apelaciones como los restablecimientos surgen en relación con la inha
 
 **Apelación**: el usuario no está de acuerdo con que se haya producido una infracción y puede proporcionar información adicional para demostrar que se debería haber tomado una decisión diferente.
 
-## <a name="how-this-works"></a>Funcionamiento del proceso
+## Funcionamiento del proceso
 
 Si desea que se restablezca su cuenta o su contenido o apelar una acción de ejecución, rellene el [formulario de apelación y restablecimiento](https://support.github.com/contact/reinstatement).
 
@@ -38,6 +38,6 @@ Todas las solicitudes legítimas de restablecimiento se revisarán inicialmente 
 
 Si el revisor del personal de GitHub es la misma persona que tomó la determinación inicial y ese miembro del personal considera que su conclusión inicial fue correcta (y, por lo tanto, se inclinaría a denegar la apelación), otro miembro del personal de GitHub revisará la apelación de forma independiente. Todas las apelaciones legítimas se responderán con una decisión final.
 
-## <a name="transparency"></a>Transparencia
+## Transparencia
 
 Realizamos un seguimiento de las apelaciones y de los restablecimientos en nuestros [informes de transparencia](https://github.blog/2022-01-27-2021-transparency-report/#Appeals_and_other_reinstatements).

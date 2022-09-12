@@ -11,21 +11,21 @@ topics:
 shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
-ms.openlocfilehash: ef46f2220bda8ddbd2fbb8848fcaad526727f2b2
-ms.sourcegitcommit: 3a16368cd8beb8b8487eb77d3e597cf49f4c4335
+ms.openlocfilehash: 827b5add20690490a556f9553c9f8494324e0ef2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2022
-ms.locfileid: '147111712'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760914'
 ---
-## <a name="503-codespace-service-unavailable"></a>503 codespace service unavailable
+## 503 codespace service unavailable
 
 Los codespaces están configurados para detenerse después de pasar 30 minutos sin actividad. Si intenta interactuar con un codespace después de que se haya detenido, es posible que vea un error `503 service unavailable`. 
 
 - Si se muestra un botón **Iniciar** en {% data variables.product.prodname_vscode %} o en la ventana del explorador, haga clic en **Iniciar** para volver a conectarse al codespace.
-- Restablece tu codespace volviendo a cargar la ventana. Desde la [paleta de comandos](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) de {% data variables.product.prodname_vscode %}, haga clic en **Desarrollador: Volver a cargar ventana**.
+- Restablece tu codespace volviendo a cargar la ventana. Desde la [paleta de comandos](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) de {% data variables.product.prodname_vscode %}, haz clic en **Desarrollador: Volver a cargar Windows**.
 
-## <a name="browser-cannot-connect"></a>El buscador no se puede conectar
+## El buscador no se puede conectar
 
 Es posible que en ocasiones no puedas acceder a un codespace desde tu buscador. Si esto sucede, vaya a https://github.com/codespaces e intente conectarse al codespace desde esa página.
 
@@ -36,7 +36,7 @@ Tu red empresarial puede estar bloqueando la conección. De ser posible, revisa 
 
 Si aún no puedes conectarte, {% data reusables.codespaces.contact-support %}
 
-## <a name="-data-variablesproductprodname_github_codespaces--extension-for--data-variablesproductprodname_vscode--cannot-connect"></a>La extensión de {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %} no puede conectarse
+## La extensión de {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %} no puede conectarse
 
 Si no puedes conectarte a un codespace desde la versión de escritorio de {% data variables.product.prodname_vscode %}, utiliza los siguientes pasos de solución de problemas.
 
@@ -49,6 +49,6 @@ Si no puedes conectarte a un codespace desde la versión de escritorio de {% dat
 
 Si aún no puedes conectarte, {% data reusables.codespaces.contact-support %}
 
-### <a name="the-codespace-has-latency-issues"></a>El codespace tiene problemas de latencia
+### El codespace tiene problemas de latencia
 
 Si el codespace se ve particularmente lento o tiene problemas de latencia, es posible que se haya creado en una región lejos de ti. Para resolverlo, puedes [establecer manualmente la región de {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).

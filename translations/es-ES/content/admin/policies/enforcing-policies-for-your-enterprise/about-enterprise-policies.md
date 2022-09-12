@@ -10,10 +10,10 @@ topics:
   - Enterprise
   - Policies
 ms.openlocfilehash: d452a6f24b3108b915e20b673ebd317a409ac8ae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147718121'
 ---
 Para ayudar a aplicar las reglas de negocio y el cumplimiento normativo, las directivas proporcionan un único punto de administración para todas las organizaciones que pertenecen a una cuenta empresarial. 

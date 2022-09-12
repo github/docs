@@ -10,11 +10,11 @@ topics:
   - Community
 shortTitle: Manage abuse in your org
 ms.openlocfilehash: abd3d429f8d4143a4e28d18d2b22f508a1aa61b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092371'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878555'
 ---
 Cualquiera con permisos de administrador en el repositorio puede administrar la forma en la que los colaboradores reportan los abusos en el mismo.
 

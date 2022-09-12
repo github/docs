@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Downgrade Git LFS storage
 ms.openlocfilehash: 9e23d3d8eaee5362375ca427a7b58505eccbaa05
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091721'
 ---
 Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en vigencia en tu próxima fecha de facturación. Para más información, vea "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)".

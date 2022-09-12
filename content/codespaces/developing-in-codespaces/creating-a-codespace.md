@@ -20,8 +20,7 @@ shortTitle: Create a codespace
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %}
-
+Codespaces are associated with a specific branch of a repository and the repository cannot be empty. You can create more than one codespace per repository or even per branch.
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 

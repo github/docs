@@ -2,6 +2,7 @@
 title: Solucionar problemas de los errores del Dependabot
 intro: 'Algunas veces, el {% data variables.product.prodname_dependabot %} no puede levantar solicitudes de cambios para actualizar tus dependencias. Puedes revisar el error y desbloquear al {% data variables.product.prodname_dependabot %}.'
 shortTitle: Troubleshoot errors
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
@@ -21,12 +22,12 @@ topics:
   - Troubleshooting
   - Errors
   - Dependencies
-ms.openlocfilehash: 74c614d2bf4bc1dadb3b5be90b743d46b1f869e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ad3449768246ea8659ddffe4957fd3d6801edd2c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146455481'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861664'
 ---
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
@@ -85,7 +86,23 @@ Las solicitudes de cambios para las actualizaciones de seguridad actúan para me
 
 Cada aplicación que tenga dependencias tiene una gráfica de dependencias, esto es, una gráfica acíclica dirigida de cada versión de paquete de la cual depende la aplicación directa o indirectamente. Cada vez que se actualiza una dependencia, esta gráfica debe resolverse o la aplicación no se compilará. Cuando un ecosistema tiene una gráfica de dependencias profunda y compleja, por ejemplo, npm y RubyGems, es a menudo imposible mejorar una sola dependencia sin mejorar todo el ecosistema.
 
-La mejor forma de evitar este problema es mantenerse actualizado con los lanzamientos de versiones más recientes, por ejemplo, habilitando las actualizaciones de versión. Esto aumenta la probabilidad de que una vulnerabilidad en alguna dependencia pueda resolverse con una mejora simple que no afecte la gráfica de dependencias. Para más información, vea "[Configuración de las actualizaciones de la versión de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
+La mejor forma de evitar este problema es mantenerse actualizado con los lanzamientos de versiones más recientes, por ejemplo, habilitando las actualizaciones de versión. Esto aumenta la probabilidad de que una vulnerabilidad en alguna dependencia pueda resolverse con una mejora simple que no afecte la gráfica de dependencias. Para obtener más información, consulta "[Configurar las actualizaciones de versión de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)". {% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
+
+### {% data variables.product.prodname_dependabot %} intenta actualizar las dependencias sin una alerta
+
+**Únicamente actualizaciones de seguridad**. {% data variables.product.prodname_dependabot %} actualiza las dependencias transitivas definidas explícitamente como vulnerables para todos los ecosistemas. En el caso de npm, {% data variables.product.prodname_dependabot %} generará una solicitud de incorporación de cambios que también actualiza la dependencia primaria si es la única manera de corregir la dependencia transitiva.
+
+Por ejemplo, un proyecto con una dependencia de `A` versión `~2.0.0` que tiene una dependencia transitiva de `B` versión `~1.0.0` que se ha resuelto en `1.0.1`.
+```
+my project
+|
+--> A (2.0.0) [~2.0.0]
+       |
+       --> B (1.0.1) [~1.0.0]
+```       
+Si se publica una vulnerabilidad de seguridad para `B` versiones `<2.0.0` y hay una revisión disponible en `2.0.0`, {% data variables.product.prodname_dependabot %} intentará actualizar `B`, pero se encontrará con que no es posible debido a la restricción implementada por `A`, que solo permite versiones vulnerables más bajas. Para corregir la vulnerabilidad, {% data variables.product.prodname_dependabot %} buscará actualizaciones de la dependencia de `A` que permitan usar la versión fija de `B`. 
+
+{% data variables.product.prodname_dependabot %} genera automáticamente una solicitud de incorporación de cambios que actualiza las dependencias transitivas primarias y secundarias bloqueadas. {% endif %}
 
 ### El {% data variables.product.prodname_dependabot %} no puede actualizar a la versión requerida porque ya existe una solicitud de cambios abierta para la última versión
 

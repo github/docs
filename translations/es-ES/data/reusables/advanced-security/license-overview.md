@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5d75f2a8b4c2c9bfdf7b491d23f76f4f820b98e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145093040"
 ---
 Cada licencia de {% data variables.product.prodname_GH_advanced_security %} especifica una cantidad máxima de cuentas o de plazas que pueden utilizar estas características. Cada confirmante activo en por lo menos un repositorio con la característica habilitada utilizará una plaza. Un confirmante se considera como activo si una de sus confirmaciones se subió al repositorio dentro de los últimos 90 días, sin importar de cuándo se escribió originalmente.

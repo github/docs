@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6d6aac00a66396bd05084b0836b8ef7dfed2aa3f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145124673"
 ---
 1. Dentro de "Resumen de actualización", elige si quieres pagar mensualmente o anualmente.

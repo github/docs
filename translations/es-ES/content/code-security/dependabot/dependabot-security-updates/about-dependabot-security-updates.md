@@ -19,12 +19,12 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-ms.openlocfilehash: 43ae97f33da8ea3605de7d51370685c501a12941
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 993fb0c4a810f24c63d0b4063029a7a5801ff85a
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145125975'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861672'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
@@ -38,11 +38,13 @@ Las {% data variables.product.prodname_dependabot_security_updates %} te facilit
 
 {% data variables.product.prodname_dependabot %} verifica si es posible actualizar la dependencia vulnerable a una versión arreglada sin irrumpir en la gráfica de dependencias para el repositorio. Posteriormente, el {% data variables.product.prodname_dependabot %} levanta una solicitud de cambios para actualizar la dependencia a la versión mínima que incluye el parche y los enlaces a la solicitud de cambios para la alerta del {% data variables.product.prodname_dependabot %}, o reporta un error en la alerta. Para obtener más información, vea "[Solución de errores de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)".
 
+
+
 {% note %}
 
-**Note**
+**Nota**: La característica de {% data variables.product.prodname_dependabot_security_updates %} se encuentra disponible para los repositorios en donde hayas habilitado la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}. Verás una alerta del {% data variables.product.prodname_dependabot %} por cada dependencia vulnerable que se haya identificado en toda tu gráfica de dependencias. Sin embargo, las actualizaciones de seguridad se activan únicamente para las dependencias que se especifican en un archivo de manifiesto o de bloqueo. Para obtener más información, consulta "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)". {% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
 
-La característica de {% data variables.product.prodname_dependabot_security_updates %} se encuentra disponible para los repositorios en donde hayas habilitado la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}. Verás una alerta del {% data variables.product.prodname_dependabot %} por cada dependencia vulnerable que se haya identificado en toda tu gráfica de dependencias. Sin embargo, las actualizaciones de seguridad se activan únicamente para las dependencias que se especifican en un archivo de manifiesto o de bloqueo. El {% data variables.product.prodname_dependabot %} no puede actualizar una dependencia indirecta o transitoria si no se define explícitamente. Para más información, vea "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)".
+En el caso de npm, {% data variables.product.prodname_dependabot %} generará una solicitud de incorporación de cambios para actualizar una dependencia definida explícitamente a una versión segura, incluso si significa actualizar la dependencia principal o las dependencias. Para otros ecosistemas, {% data variables.product.prodname_dependabot %} no puede actualizar una dependencia indirecta o transitiva si también requiriera una actualización de la dependencia primaria. Para obtener más información, consulta "[Dependabot intenta actualizar las dependencias sin una alerta](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)". {% endif %} 
 
 {% endnote %}
 

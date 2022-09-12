@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 83794dff865278e3138079ec1ee6d9862ee18a8e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147052276"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879464"
 ---
 1. En la esquina superior derecha de la vista del archivo, haga clic en {% octicon "pencil" aria-label="The edit icon" %} para abrir el editor de archivos.
 
