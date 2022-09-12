@@ -196,7 +196,7 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 - [`PATCH /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#accept-a-repository-invitation) (:write)
 - [`DELETE /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#decline-a-repository-invitation) (:write)
 
-_Branches_
+### Branches
 - [`GET /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#get-branch-protection) (:read)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#update-branch-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#delete-branch-protection) (:write)
@@ -228,22 +228,22 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/branches#remove-user-access-restrictions) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
 
-_Collaborators_
+### Collaborators
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#add-a-repository-collaborator) (:write)
 - [`DELETE /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#remove-a-repository-collaborator) (:write)
 
-_Invitations_
+### Invitations
 - [`GET /repos/:owner/:repo/invitations`](/rest/reference/collaborators#list-repository-invitations) (:read)
 - [`PATCH /repos/:owner/:repo/invitations/:invitation_id`](/rest/reference/collaborators#update-a-repository-invitation) (:write)
 - [`DELETE /repos/:owner/:repo/invitations/:invitation_id`](/rest/reference/collaborators#delete-a-repository-invitation) (:write)
 
-_Keys_
+### Keys
 - [`GET /repos/:owner/:repo/keys`](/rest/reference/deployments#list-deploy-keys) (:read)
 - [`POST /repos/:owner/:repo/keys`](/rest/reference/deployments#create-a-deploy-key) (:write)
 - [`GET /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#get-a-deploy-key) (:read)
 - [`DELETE /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#delete-a-deploy-key) (:write)
 
-_Teams_
+### Teams
 - [`GET /repos/:owner/:repo/teams`](/rest/reference/repos#list-repository-teams) (:read)
 - [`PUT /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#add-or-update-team-repository-permissions) (:write)
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
@@ -371,7 +371,7 @@ _Traffic_
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/merge`](/rest/reference/pulls#merge-a-pull-request) (:write)
 - [`GET /repos/:owner/:repo/readme(?:/(.*))?`](/rest/reference/repos#get-a-repository-readme) (:read)
 
-_Branches_
+### Branches
 - [`GET /repos/:owner/:repo/branches`](/rest/reference/branches#list-branches) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch`](/rest/reference/branches#get-a-branch) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#list-apps-with-access-to-the-protected-branch) (:write)
@@ -380,13 +380,13 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/branches#remove-user-access-restrictions) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
 
-_Commit comments_
+### Commit comments
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#update-a-commit-comment) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#delete-a-commit-comment) (:write)
 - [`POST /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (:write)
 - [`POST /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#create-a-commit-comment) (:write)
 
-_Git_
+### Git
 - [`POST /repos/:owner/:repo/git/blobs`](/rest/reference/git#create-a-blob) (:write)
 - [`GET /repos/:owner/:repo/git/blobs/:sha`](/rest/reference/git#get-a-blob) (:read)
 - [`POST /repos/:owner/:repo/git/commits`](/rest/reference/git#create-a-commit) (:write)
@@ -402,7 +402,7 @@ _Git_
 - [`GET /repos/:owner/:repo/git/trees/:sha`](/rest/reference/git#get-a-tree) (:read)
 
 {% ifversion fpt or ghec %}
-_Import_
+### Import
 - [`GET /repos/:owner/:repo/import`](/rest/reference/migrations#get-an-import-status) (:read)
 - [`PUT /repos/:owner/:repo/import`](/rest/reference/migrations#start-an-import) (:write)
 - [`PATCH /repos/:owner/:repo/import`](/rest/reference/migrations#update-an-import) (:write)
@@ -413,7 +413,7 @@ _Import_
 - [`PATCH /repos/:owner/:repo/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (:write)
 {% endif %}
 
-_Reactions_
+### Reactions
 
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
@@ -423,7 +423,7 @@ _Reactions_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-_Releases_
+### Releases
 - [`GET /repos/:owner/:repo/releases`](/rest/reference/repos/#list-releases) (:read)
 - [`POST /repos/:owner/:repo/releases`](/rest/reference/repos/#create-a-release) (:write)
 - [`GET /repos/:owner/:repo/releases/:release_id`](/rest/reference/repos/#get-a-release) (:read)
@@ -503,17 +503,17 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 
-_Assignees_
+### Assignees
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#remove-assignees-from-an-issue) (:write)
 
-_Events_
+### Events
 - [`GET /repos/:owner/:repo/issues/:issue_number/events`](/rest/reference/issues#list-issue-events) (:read)
 - [`GET /repos/:owner/:repo/issues/events/:event_id`](/rest/reference/issues#get-an-issue-event) (:read)
 
-_Labels_
+### Labels
 - [`GET /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#list-labels-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#add-labels-to-an-issue) (:write)
 - [`PUT /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#set-labels-for-an-issue) (:write)
@@ -525,7 +525,7 @@ _Labels_
 - [`PATCH /repos/:owner/:repo/labels/:name`](/rest/reference/issues#update-a-label) (:write)
 - [`DELETE /repos/:owner/:repo/labels/:name`](/rest/reference/issues#delete-a-label) (:write)
 
-_Milestones_
+### Milestones
 - [`GET /repos/:owner/:repo/milestones`](/rest/reference/issues#list-milestones) (:read)
 - [`POST /repos/:owner/:repo/milestones`](/rest/reference/issues#create-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#get-a-milestone) (:read)
@@ -533,7 +533,7 @@ _Milestones_
 - [`DELETE /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#delete-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number/labels`](/rest/reference/issues#list-labels-for-issues-in-a-milestone) (:read)
 
-_Reactions_
+### Reactions
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#list-reactions-for-an-issue) (:read)
@@ -548,7 +548,7 @@ _Reactions_
 
 ## Permission on "keys"
 
-_Keys_
+### Keys
 - [`GET /user/keys`](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user) (:read)
 - [`POST /user/keys`](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user) (:write)
 - [`GET /user/keys/:key_id`](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user) (:read)
@@ -596,7 +596,7 @@ _Invitations_
 - [`GET /teams/:team_id/invitations`](/rest/reference/teams#list-pending-team-invitations) (:read)
 {% endif %}
 
-_Organization members_
+### Organization members
 - [`DELETE /orgs/:org/members/:username`](/rest/reference/orgs#remove-an-organization-member) (:write)
 - [`GET /orgs/:org/memberships/:username`](/rest/reference/orgs#get-organization-membership-for-a-user) (:read)
 - [`PUT /orgs/:org/memberships/:username`](/rest/reference/orgs#set-organization-membership-for-a-user) (:write)
@@ -607,13 +607,13 @@ _Organization members_
 - [`GET /user/memberships/orgs/:org`](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user) (:read)
 - [`PATCH /user/memberships/orgs/:org`](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user) (:write)
 
-_Team members_
+### Team members
 - [`GET /teams/:team_id/members`](/rest/reference/teams#list-team-members) (:read)
 - [`GET /teams/:team_id/memberships/:username`](/rest/reference/teams#get-team-membership-for-a-user) (:read)
 - [`PUT /teams/:team_id/memberships/:username`](/rest/reference/teams#add-or-update-team-membership-for-a-user) (:write)
 - [`DELETE /teams/:team_id/memberships/:username`](/rest/reference/teams#remove-team-membership-for-a-user) (:write)
 
-_Teams_
+### Teams
 - [`GET /orgs/:org/teams`](/rest/reference/teams#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/rest/reference/teams#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/rest/reference/teams#get-a-team-by-name) (:read)
@@ -659,7 +659,7 @@ _Teams_
 - [`DELETE /orgs/:org/hooks/:hook_id`](/rest/reference/orgs#webhooks/#delete-an-organization-webhook) (:write)
 - [`POST /orgs/:org/hooks/:hook_id/pings`](/rest/reference/orgs#webhooks/#ping-an-organization-webhook) (:write)
 
-_Teams_
+### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion ghes %}
@@ -743,18 +743,18 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`PATCH /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#update-a-review-comment-for-a-pull-request) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request) (:write)
 
-_Assignees_
+### Assignees
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#remove-assignees-from-an-issue) (:write)
 
-_Events_
+### Events
 - [`GET /repos/:owner/:repo/issues/:issue_number/events`](/rest/reference/issues#list-issue-events) (:read)
 - [`GET /repos/:owner/:repo/issues/events/:event_id`](/rest/reference/issues#get-an-issue-event) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/events`](/rest/reference/pulls#submit-a-review-for-a-pull-request) (:write)
 
-_Labels_
+### Labels
 - [`GET /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#list-labels-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#add-labels-to-an-issue) (:write)
 - [`PUT /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#set-labels-for-an-issue) (:write)
@@ -766,7 +766,7 @@ _Labels_
 - [`PATCH /repos/:owner/:repo/labels/:name`](/rest/reference/issues#update-a-label) (:write)
 - [`DELETE /repos/:owner/:repo/labels/:name`](/rest/reference/issues#delete-a-label) (:write)
 
-_Milestones_
+### Milestones
 - [`GET /repos/:owner/:repo/milestones`](/rest/reference/issues#list-milestones) (:read)
 - [`POST /repos/:owner/:repo/milestones`](/rest/reference/issues#create-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#get-a-milestone) (:read)
@@ -774,7 +774,7 @@ _Milestones_
 - [`DELETE /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#delete-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number/labels`](/rest/reference/issues#list-labels-for-issues-in-a-milestone) (:read)
 
-_Reactions_
+### Reactions
 - [`POST /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#create-reaction-for-an-issue) (:write)
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
@@ -788,12 +788,12 @@ _Reactions_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-_Requested reviewers_
+### Requested reviewers
 - [`GET /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#request-reviewers-for-a-pull-request) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request) (:write)
 
-_Reviews_
+### Reviews
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews`](/rest/reference/pulls#list-reviews-for-a-pull-request) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/reviews`](/rest/reference/pulls#create-a-review-for-a-pull-request) (:write)
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id`](/rest/reference/pulls#get-a-review-for-a-pull-request) (:read)
@@ -846,7 +846,7 @@ _Reviews_
 - [`GET /repos/:owner/:repo/projects`](/rest/reference/projects#list-repository-projects) (:read)
 - [`POST /repos/:owner/:repo/projects`](/rest/reference/projects#create-a-repository-project) (:write)
 
-_Teams_
+### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion fpt or ghec %}
