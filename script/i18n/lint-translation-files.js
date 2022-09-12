@@ -2,7 +2,7 @@
 
 // [start-readme]
 //
-// Use this script as part of the Crowdin merge process to output a list of either parsing
+// Use this script as part of the translation merge process to output a list of either parsing
 // or rendering errors in translated files and run script/i18n/reset-translated-file.js on them.
 //
 // [end-readme]
