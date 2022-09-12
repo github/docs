@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: Dismiss a PR review
 ms.openlocfilehash: 658f0b69a24c622a3b5f75d6e330d132040d62c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130076'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876068'
 ---
 {% data reusables.pull_requests.dismiss_review %} 这会将审查状态更改为审查注释。 忽略审查后，必须添加注释，解释忽略原因。 注释将被添加到拉取请求对话。
 

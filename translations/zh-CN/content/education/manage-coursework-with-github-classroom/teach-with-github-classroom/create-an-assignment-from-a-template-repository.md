@@ -9,10 +9,10 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
 shortTitle: Template repository
 ms.openlocfilehash: 4a4121a51f3138fca371b38797a7aa39e699cbfb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145097934'
 ---
 您可以在 {% data variables.product.product_name %} 上使用模板仓库作为 {% data variables.product.prodname_classroom %} 上作业的起始代码。 模板仓库可包含学生的 boilerplate 代码、文档和其他资源。 有关详细信息，请参阅“[创建模板存储库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)”。

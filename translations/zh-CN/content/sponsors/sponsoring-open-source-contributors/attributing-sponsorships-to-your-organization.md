@@ -14,10 +14,10 @@ topics:
   - Sponsors profile
 shortTitle: Attribute sponsorships
 ms.openlocfilehash: a0b07535ef655f647a5c6bb65de39dcf11c1e6a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130239'
 ---
 1. 导航到要将其赞助归因于另一个组织的组织。

@@ -15,10 +15,10 @@ topics:
   - Teams
 shortTitle: Remove user membership
 ms.openlocfilehash: 575cc032786b2bbbf264104002f503b5061df8e6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145098966'
 ---
 只有所有者或团队管理员可以移除组织成员。 从团队或组织中移除用户时，他们在组织仓库中的问题、拉取请求和评论都会保持原样且仍归属于用户。

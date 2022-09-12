@@ -217,3 +217,17 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
+
+      - name: Check that it can reached
+        # To match the "Run ARM deploy" step above
+        if: ${{ !github.event.pull_request.auto_merge }}
+        # This introduces a necessary delay. Because the preview evironment
+        # URL is announced to the pull request as soon as all the steps
+        # finish, what sometimes happens is that a viewer of the PR clicks
+        # that link too fast and are confronted with a broken page.
+        # It's because there's a delay between the `azure/arm-deploy`
+        # and when the server is actually started and can receive and
+        # process requests.
+        # By introducing a slight "delay" here we avoid announcing a
+        # preview environment URL that isn't actually working just yet.
+        run: curl --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

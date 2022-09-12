@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts
 ms.openlocfilehash: 48613d8c8974d14a1de70e0dee5a7f4819d37fd9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145129651'
 ---
 您只能在 {% data variables.product.product_name %} 上解决由竞争行更改引起的合并冲突，例如当人们对 Git 仓库中不同分支上同一文件的同一行进行不同的更改时。 对于所有其他类型的合并冲突，您必须在命令行上本地解决冲突。 有关详细信息，请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line/)”。

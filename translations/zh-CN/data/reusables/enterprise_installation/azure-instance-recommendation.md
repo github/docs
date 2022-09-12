@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d8e7abc58e82244acc379f494ed50f40679117ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100824"
 ---
 {% data variables.product.prodname_ghe_server %} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 带有 `s` 后缀的 Azure VM 类型支持高级存储。 有关详细信息，请参阅 Azure 文档中的“[Azure 中提供哪些磁盘类型？](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)” 和“[Azure 高级存储：高性能设计](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)”。

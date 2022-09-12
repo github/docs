@@ -18,10 +18,10 @@ topics:
   - Access management
 shortTitle: GitHub's IP addresses
 ms.openlocfilehash: ab598fa408512a43ab07c069119480b5ae03278e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099888'
 ---
 可从 [meta](https://api.github.com/meta) API 终结点检索 {% data variables.product.prodname_dotcom %} 的 IP 地址列表。 有关详细信息，请参阅“[Meta](/rest/reference/meta)”。

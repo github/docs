@@ -13,10 +13,10 @@ topics:
   - API
 shortTitle: Integrator best practices
 ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145129065'
 ---
 有兴趣与 GitHub 平台集成吗？ [你有很多同伴](https://github.com/integrations)。 本指南将帮助你构建能够为用户提供最佳体验并确保与 API 进行可靠交互的应用。 

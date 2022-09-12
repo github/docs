@@ -23,10 +23,10 @@ children:
   - /submitting-your-listing-for-publication
 shortTitle: List an app on the Marketplace
 ms.openlocfilehash: e20f44f2287195ed5cdf0f914b64e6a9a1bbeda2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084964'
 ---
 

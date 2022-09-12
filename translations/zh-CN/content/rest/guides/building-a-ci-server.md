@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 5c2fcd462e9c07fb9c359525ece7896e10dd9649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145129064'
 ---
 [状态 API][status API] 负责将提交与测试服务绑定在一起，使你进行的每次推送都可以得到测试并体现在 {% data variables.product.product_name %} 拉取请求中。

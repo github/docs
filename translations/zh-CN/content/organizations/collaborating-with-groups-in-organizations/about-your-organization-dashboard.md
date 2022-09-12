@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Organization dashboard
 ms.openlocfilehash: c5f25d589e7b640fa411cd26f004961081c9d8e8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128607'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880708'
 ---
 ## 访问组织仪表板
 
