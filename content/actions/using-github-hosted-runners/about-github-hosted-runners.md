@@ -192,7 +192,7 @@ Actions that run in Docker containers have static directories under the `/github
 
 ### Docker engine setup
 
-To pass the inputs of an action into the docker container the runner uses the environment variables which may contain dashes as part of their names. If  the docker engine is not a binary executable but a shell wrapper or a link (a docker engine istalled on Linux with snap is a sample) the action is not able to get the inputs and the build fails with the message `Error: Input required and not supplied: java-version`.
+To pass the inputs of an action into the Docker container, the runner uses environment variables that might contain dashes as part of their names. If the Docker engine is not a binary executable but a shell wrapper or a link (for example, a Docker engine installed on Linux with `snap`) the action is not able to get the inputs, and the build consequently fails with the message `Error: Input required and not supplied: java-version`.
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
