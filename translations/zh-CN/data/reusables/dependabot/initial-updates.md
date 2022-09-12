@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8adf896da9e4748cfaa5d0d0562172af14264f97
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129886"
 ---
 首次启用版本更新时，您可能有很多过时的依赖项，其中一些可能为许多落后于最新版本的版本。 {% data variables.product.prodname_dependabot %} 将在其启用后立即检查过时的依赖项。 根据您配置更新的清单文件的数量，您可能会在添加配置文件后几分钟内看到新的版本更新拉取请求。 {% data variables.product.prodname_dependabot %} 也会在配置文件后续更改时运行更新。

@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Webhook events
 ms.openlocfilehash: 63b99005c5b0da23c59794d8fd7ad724f5afd13a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147710401'
 ---
 ## {% data variables.product.prodname_marketplace %} 购买 web 挂钩有效负载

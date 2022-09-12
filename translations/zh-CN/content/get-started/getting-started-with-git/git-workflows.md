@@ -13,10 +13,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: da67c3430e7457b1fec3f1b0b9b480d6d8363c2d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145097907'
 ---
 您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 流](/github/getting-started-with-github/github-flow)”。

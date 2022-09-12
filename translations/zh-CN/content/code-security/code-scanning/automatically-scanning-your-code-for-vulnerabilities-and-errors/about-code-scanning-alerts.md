@@ -1,6 +1,6 @@
 ---
-title: About code scanning alerts
-intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
+title: 关于代码扫描警报
+intro: 了解不同类型的代码扫描警报以及有助于了解每个警报突出显示的问题的信息。
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,115 +12,113 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 1e540aa8b061e0bbdd5b7be1a2563cd983cfb753
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067632'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+## 关于 {% data variables.product.prodname_code_scanning %} 中的警报
 
-## About alerts from {% data variables.product.prodname_code_scanning %}
+您可以设置 {% data variables.product.prodname_code_scanning %}，以使用默认 {% data variables.product.prodname_codeql %} 分析、第三方分析或多种类型的分析来检查仓库中的代码。 分析完成后，生成的警报将并排显示在仓库的安全视图中。 第三方工具或自定义查询的结果可能不包括您在 {% data variables.product.company_short %} 的默认 {% data variables.product.prodname_codeql %} 分析所检测的警报中看到的所有属性。 有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
-You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+默认情况下， {% data variables.product.prodname_code_scanning %} 定期在默认分支和拉取请求中分析您的代码。 有关管理拉取请求警报的信息，请参阅“[会审拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+## 关于警报详细信息
 
-## About alert details
+每个警报都会高亮显示代码的问题以及识别该问题的工具名称。 你可以看到触发警报的代码行以及警报的属性，例如警报严重性、安全严重性和问题的性质。 警报还会告知该问题第一次被引入的时间。 对于由 {% data variables.product.prodname_codeql %} 分析确定的警报，您还会看到如何解决问题的信息。
 
-Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity, security severity, and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![{% data variables.product.prodname_code_scanning %} 中的警报示例](/assets/images/help/repository/code-scanning-alert.png) {% else %} ![{% data variables.product.prodname_code_scanning %} 中的警报示例](/assets/images/enterprise/3.4/repository/code-scanning-alert.png) {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
-{% else %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
-{% endif %}
+如果使用 {% data variables.product.prodname_codeql %} 设置 {% data variables.product.prodname_code_scanning %}，则还可以在代码中发现数据流问题。 数据流分析将查找代码中的潜在安全问题，例如：不安全地使用数据、将危险参数传递给函数以及泄漏敏感信息。
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
+当 {% data variables.product.prodname_code_scanning %} 报告数据流警报时，{% data variables.product.prodname_dotcom %} 将显示数据在代码中如何移动。 {% data variables.product.prodname_code_scanning_capc %} 可用于识别泄露敏感信息的代码区域，以及可能成为恶意用户攻击切入点的代码区域。
 
-When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+### 关于严重性级别
 
-### About severity levels
+警报严重性级别可能为 `Error`、`Warning` 或 `Note`。
 
-Alert severity levels may be `Error`, `Warning`, or `Note`.
+如果将 {% data variables.product.prodname_code_scanning %} 作为拉取请求检查启用，检测到严重性为 `error` 的任何结果时，检查都将失败。 可以指定代码扫描警报的哪个严重性级别会导致检查失败。 有关详细信息，请参阅“[定义导致拉取请求检查失败的严重性](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
 
-If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+### 关于安全严重性级别
 
-### About security severity levels
+{% data variables.product.prodname_code_scanning_capc %} 显示安全查询生成的警报的安全严重性级别。 安全严重性级别可以是 `Critical`、`High`、`Medium` 或 `Low`。
 
-{% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
+为计算警报的安全严重性，我们将使用常见漏洞评分系统 (CVSS) 数据。 CVSS 是一个开放框架，用于传达软件漏洞的特征和严重性，通常由其他安全产品用来为警报评分。 若要详细了解如何计算严重性级别，请参阅[此博客文章](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/)。
 
-To calculate the security severity of an alert, we use Common Vulnerability Scoring System (CVSS) data. CVSS is an open framework for communicating the characteristics and severity of software vulnerabilities, and is commonly used by other security products to score alerts. For more information about how severity levels are calculated, see [this blog post](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
-
-By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+默认情况下，安全严重性为 `Critical` 或 `High` 的任何 {% data variables.product.prodname_code_scanning %} 结果都会导致检查失败。 可以指定 {% data variables.product.prodname_code_scanning %} 结果的哪个安全严重性级别会导致检查失败。 有关详细信息，请参阅“[定义导致拉取请求检查失败的严重性](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
 
 {% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
-### About analysis origins
+### 关于分析源
 
-You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+可以使用不同的工具和针对代码的不同语言或区域，在存储库上设置多个代码分析配置。 代码扫描的每个配置都是它生成的所有警报的分析源。 例如，与外部生成并通过代码扫描 API 上传的警报相比，使用带有 GitHub Actions 的默认 CodeQL 分析生成的警报具有不同的分析源。
 
-If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
+如果使用多个配置来分析文件，同一查询检测到的任何问题都将报告为具有多个分析源的警报。 如果警报有多个分析源，在警报页面右侧的“受影响的分支”部分中，任何相关的分支旁都会出现一个 {% octicon "workflow" aria-label="The workflow icon" %} 图标。 可以将鼠标悬停在 {% octicon "workflow" aria-label="The workflow icon" %} 图标上，以查看每个分析源的名称以及该分析源警报的状态。 还可以在警报页面的时间线中查看每个分析源的警报出现时间的历史记录。 如果警报只有一个分析源，则警报页上不会显示任何有关分析源的信息。
 
-![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+![具有多个分析源的代码扫描警报](/assets/images/help/repository/code-scanning-analysis-origins.png)
 
 {% note %}
 
-**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+注意：有时，代码扫描警报显示为固定的一个分析源，但仍可用于第二个分析源。 可通过重新运行第二个代码扫描配置以更新该分析源的警报状态，来解决此问题。
 
 {% endnote %}
 
 {% endif %}
-### About labels for alerts that are not found in application code
+### 关于应用程序代码中未找到的警报的标签
 
-{% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
+{% data variables.product.product_name %} 向应用程序代码中找不到的警报分配类别标签。 标签与警报的位置相关。
 
-- **Generated**: Code generated by the build process
-- **Test**: Test code
-- **Library**: Library or third-party code
-- **Documentation**: Documentation
+- Generated：生成过程生成的代码
+- Test：测试代码
+- Library：库或第三方代码
+- Documentation：文档
 
-{% data variables.product.prodname_code_scanning_capc %} categorizes files by file path. You cannot manually categorize source files.
+{% data variables.product.prodname_code_scanning_capc %} 按文件路径对文件进行分类。 无法手动对源文件进行分类。
 
-Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
+下面是库代码中标记为已发生的警报的 {% data variables.product.prodname_code_scanning %} 警报列表中的一个示例。
 
-![Code scanning library alert in list](/assets/images/help/repository/code-scanning-library-alert-index.png)
+![列表中的代码扫描库警报](/assets/images/help/repository/code-scanning-library-alert-index.png)
 
-On the alert page, you can see that the filepath is marked as library code (`Library` label).
+在警报页上，可以看到文件路径标记为库代码（`Library` 标签）。
 
-![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
+![代码扫描库警报详细信息](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 {% ifversion codeql-ml-queries %}
 
-## About experimental alerts
+## 关于实验性警报
 
 {% data reusables.code-scanning.beta-codeql-ml-queries %}
 
-In repositories that run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql %} action, you may see some alerts that are marked as experimental. These are alerts that were found using a machine learning model to extend the capabilities of an existing {% data variables.product.prodname_codeql %} query.
+在使用 {% data variables.product.prodname_codeql %} 操作运行 {% data variables.product.prodname_code_scanning %} 的存储库中，你可能会看到一些标记为实验性的警报。 下面是使用机器学习模型扩展现有 {% data variables.product.prodname_codeql %} 查询的功能时发现的警报。
 
-![Code scanning experimental alert in list](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
+![列表中的代码扫描实验性警报](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
 
-### Benefits of using machine learning models to extend queries
+### 使用机器学习模型扩展查询的好处
 
-Queries that use machine learning models are capable of finding vulnerabilities in code that was written using frameworks and libraries that the original query writer did not include.
+在使用未包含在原始查询编写器中的框架和库编写的代码中，使用机器学习模型的查询能够发现漏洞。
 
-Each of the security queries for {% data variables.product.prodname_codeql %} identifies code that's vulnerable to a specific type of attack. Security researchers write the queries and include the most common frameworks and libraries. So each existing query finds vulnerable uses of common frameworks and libraries. However, developers use many different frameworks and libraries, and a manually maintained query cannot include them all. Consequently, manually maintained queries do not provide coverage for all frameworks and libraries.
+{% data variables.product.prodname_codeql %} 的每个安全查询都标识易受特定类型攻击的代码。 安全研究人员编写查询，并纳入最常见的框架和库。 因此，每个现有查询都会发现对常见框架和库的易受攻击用法。 但是，开发人员使用许多不同的框架和库，而手动维护的查询不能包含所有这些框架和库。 因此，手动维护的查询不包含所有框架和库。
 
-{% data variables.product.prodname_codeql %} uses a machine learning model to extend an existing security query to cover a wider range of frameworks and libraries. The machine learning model is trained to detect problems in code it's never seen before. Queries that use the model will find results for frameworks and libraries that are not described in the original query.
+{% data variables.product.prodname_codeql %} 使用机器学习模型来扩展现有的安全查询，以涵盖更多框架和库。 机器学习模型经过训练可检测出它从未见过的代码中的问题。 使用模型的查询将查找原始查询中未描述的框架和库的结果。
 
-### Alerts identified using machine learning
+### 使用机器学习识别的警报
 
-Alerts found using a machine learning model are tagged as "Experimental alerts" to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
+使用机器学习模型发现的警报被标记为“实验性警报”，以表明技术正在积极开发中。 这些警报的误报率高于其基于的查询。 机器学习模型将根据用户操作进行改进（例如将不良结果标记为误报或修复良好结果）。
 
-![Code scanning experimental alert details](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
+![代码扫描实验性警报详细信息](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
 
-## Enabling experimental alerts
+## 启用实验性警报
 
-The default {% data variables.product.prodname_codeql %} query suites do not include any queries that use machine learning to generate experimental alerts. To run machine learning queries during {% data variables.product.prodname_code_scanning %} you need to run the additional queries contained in one of the following query suites.
+默认 {% data variables.product.prodname_codeql %} 查询套件不包含使用机器学习生成实验性警报的任何查询。 若要在 {% data variables.product.prodname_code_scanning %} 期间运行机器学习查询，需要运行其他包含在以下查询套件之一中的查询。
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you update your workflow to run an additional query suite this will increase the analysis time.
+更新工作流以运行其他查询套件时，这将增加分析时间。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -129,14 +127,14 @@ When you update your workflow to run an additional query suite this will increas
     queries: security-extended
 ```
 
-For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+有关详细信息，请参阅“[配置代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)”。
 
-## Disabling experimental alerts
+## 禁用实验性警报
 
-The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can open a ticket with [{% data variables.product.company_short %} support](https://support.github.com/contact) with the following details.
+禁用使用机器学习生成实验性警报的查询的最简单方法是，停止运行 `security-extended` 或 `security-and-quality` 查询套件。 在上面的示例中，将注释掉 `queries` 行。 如果需要继续运行 `security-extended` 或 `security-and-quality` 套件，并且机器学习查询会导致问题，则可通过 [{% data variables.product.company_short %} 支持](https://support.github.com/contact)创建包含以下详细信息的工单。
 
-- Ticket title: "{% data variables.product.prodname_code_scanning %}: removal from experimental alerts beta"
-- Specify details of the repositories or organizations that are affected
-- Request an escalation to engineering
+- 工单标题：“{% data variables.product.prodname_code_scanning %}: 从实验性警报 beta 版本中删除”
+- 指定受影响的存储库或组织的详细信息
+- 请求工程升级
 
 {% endif %}

@@ -21,10 +21,10 @@ topics:
   - Marketplace
 shortTitle: Set listing pricing plans
 ms.openlocfilehash: bc8d84a55c9597da051ab11752dd7e412761d5d7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084963'
 ---
 ## 关于设置定价计划

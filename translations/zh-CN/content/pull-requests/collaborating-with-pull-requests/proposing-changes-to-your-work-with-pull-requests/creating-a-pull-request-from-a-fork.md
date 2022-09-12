@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Create a PR from a fork
 ms.openlocfilehash: 5a4aceef12c214d157dbdac7bf838bbe80e81731
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145130095'
 ---
 如果您的拉取请求将上游仓库中的分支作为与主题分支进行比较的基本分支，则您的主题分支也称为该拉取请求的比较分支 。 有关拉取请求分支的详细信息（包括示例），请参阅“[创建拉取请求](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)”。

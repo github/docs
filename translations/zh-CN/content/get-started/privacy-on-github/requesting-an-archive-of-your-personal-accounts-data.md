@@ -13,11 +13,11 @@ topics:
   - Legal
 shortTitle: Request account archive
 ms.openlocfilehash: f296796810978f6d884fabc699c01fbc3eabf5eb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128847'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876155'
 ---
 {% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。 您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。
 

@@ -16,11 +16,11 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: 4f15ea8fd56994de4d9b30c21e6afb081e20a327
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084636'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875994'
 ---
 您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
 

@@ -18,10 +18,10 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ms.openlocfilehash: a16f8dda2f834beb4c4a1634fae812b18a8730a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084601'
 ---
 除了安全存储双重身份验证恢复代码之外，我们强烈建议您配置一种或多种其他恢复方法。

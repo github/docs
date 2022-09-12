@@ -11,11 +11,11 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/secret-scanning
 ms.openlocfilehash: d17aa63bb3d7e71adb310c66cabb05a83776b78f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066802'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880122'
 ---
 {% data reusables.secret-scanning.api-beta %}
 

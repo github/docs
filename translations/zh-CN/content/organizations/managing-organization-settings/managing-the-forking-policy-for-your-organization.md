@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Manage forking policy
 ms.openlocfilehash: 11aad8ee3c08b62f6bc352f91b6d804f35eee6e6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099717'
 ---
 默认情况下，新组织被配置为禁止对专用 {% ifversion ghes or ghec or ghae %} 和内部 {% endif %} 存储库创建分支。

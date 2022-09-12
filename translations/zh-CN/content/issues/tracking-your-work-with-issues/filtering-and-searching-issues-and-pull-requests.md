@@ -44,11 +44,11 @@ topics:
 shortTitle: Filter and search
 type: how_to
 ms.openlocfilehash: 7a169eed4bdaf46528defd8606826c8c9f4c92c8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146180925'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876024'
 ---
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 

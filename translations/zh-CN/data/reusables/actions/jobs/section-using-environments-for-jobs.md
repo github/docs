@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5b827a2f598a6067ae3c486dbe046effda95bb7f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145084914"
 ---
 使用 `jobs.<job_id>.environment` 定义作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。

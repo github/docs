@@ -11,10 +11,10 @@ versions:
   ghes: '*'
 shortTitle: Connect a repository
 ms.openlocfilehash: 087775df9862c3b2a88dd555d9f571066fef8759
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145130328'
 ---
 通过将仓库连接到包，包登录页面将显示来自仓库的信息和链接，例如 README。

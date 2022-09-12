@@ -12,10 +12,10 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/reactions
 ms.openlocfilehash: 6598b1f9a42c2520b3e48062ae730c3873d5e657
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147063432'
 ---
 ## 关于反应 API

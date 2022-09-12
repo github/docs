@@ -12,20 +12,20 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d76e4457b70069ef1199c33029dd38cfd7a89cdb
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: b8072adbca2f5e42acd5dda3b8d213dd795c13be
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556513'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099218'
 ---
 生效日期：**2021 年 4 月 2 日**
 
 GitHub 高度透明地公开我们将如何使用数据、如何收集数据以及与谁共享数据。 出于这个目的，我们提供本页面，以详细介绍[我们的次级处理者](#github-subprocessors)以及我们如何使用 [Cookie](#cookies-on-github)。
 
-## <a name="github-subprocessors"></a>GitHub 次级处理者
+## GitHub 次级处理者
 
-当我们与第三方次级处理者（例如我们的供应商和服务提供商）共享您的信息时，我们仍然对您的信息负责。 当我们引入新的供应商时，我们竭力维护您的信任，并要求所有供应商与我们订立数据保护协议，以限制他们处理用户的个人信息（在 [隐私声明](/articles/github-privacy-statement/)）。
+当我们与第三方次级处理者（例如我们的供应商和服务提供商）共享您的信息时，我们仍然对您的信息负责。 当我们引入新的供应商时，我们竭力维护您的信任，并要求所有供应商与我们订立数据保护协议，以限制他们处理用户的个人信息（在 [隐私声明](/articles/github-privacy-statement/)）。 可以在[此处](https://www.github.com/privacy/subprocessors)注册以接收子处理方列表更新。
 
 | 次级处理者的名称 | 处理说明 | 处理地点 | 企业地点
 |:---|:---|:---|:---|
@@ -49,7 +49,7 @@ GitHub 高度透明地公开我们将如何使用数据、如何收集数据以�
 
 当我们引入新的次级处理者处理我们用户的个人信息、删除次级处理者或更改我们使用次级处理者的方式时，我们将更新此页面。 如果您对新的次级处理者有疑问或顾虑，我们乐意为您提供帮助。 请通过 {% data variables.contact.contact_privacy %} 联系我们。
 
-## <a name="cookies-on-github"></a>GitHub 上的 Cookie
+## GitHub 上的 Cookie
 
 GitHub 使用 Cookie 提供和保护我们的网站，以及分析我们网站的使用情况，以便为您提供良好的用户体验。 如果您希望进一步了解 Cookie，以及我们如何及为何使用 Cookie，请阅读我们的[隐私声明](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking)。 
  
@@ -69,7 +69,7 @@ Cookie 的数量和名称可能会有更改，因此下表可能会不时更新�
 | GitHub | `__Host-gist_user_session_same_site` | 设置该 Cookie 是为了确保支持 SameSite Cookie 的浏览器可以检查某个请求是否来源于 GitHub。 | 2 周 | 
 | GitHub | `__Host-user_session_same_site` | 设置该 Cookie 是为了确保支持 SameSite Cookie 的浏览器可以检查某个请求是否来源于 GitHub。 | 2 周 | 
 | GitHub | `logged_in` | 该 Cookie 用于向我们指示用户已登录。 | 1 年 | 
-| GitHub | `marketplace_repository_ids` | 该 Cookie 用于 Marketplace 安装流程。 | 1 小时 |
+| GitHub | `marketplace_repository_ids` | 该 Cookie 用于 marketplace 安装流程。 | 1 小时 |
 | GitHub | `marketplace_suggested_target_id` | 该 Cookie 用于 marketplace 安装流程。 | 1 小时 |
 | GitHub | `_octo` | 该 Cookie 用于会话管理，包括缓存动态内容、条件性功能访问、支持请求元数据，以及第一方分析。 | 1 年 | 
 | GitHub | `org_transform_notice` | 该 Cookie 用于在组织转型期间提供通知。 | 1 小时 |
