@@ -289,6 +289,7 @@ translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.m
 translations/pt-BR/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
+translations/pt-BR/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
@@ -327,6 +328,8 @@ translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-f
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
 translations/pt-BR/content/rest/overview/other-authentication-methods.md,broken liquid tags
 translations/pt-BR/content/rest/overview/resources-in-the-rest-api.md,broken liquid tags
+translations/pt-BR/content/rest/repos/lfs.md,broken liquid tags
+translations/pt-BR/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/pt-BR/data/glossaries/external.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/code-security.yml,broken liquid tags
 translations/pt-BR/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
@@ -340,8 +343,10 @@ translations/pt-BR/data/reusables/code-scanning/licensing-note.md,broken liquid 
 translations/pt-BR/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/click-remote-explorer-icon-vscode.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/rebuild-command.md,broken liquid tags
+translations/pt-BR/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise-accounts/repo-creation-policy.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise-accounts/security-tab.md,broken liquid tags
+translations/pt-BR/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
 translations/pt-BR/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/pt-BR/data/reusables/release-notes/ghas-3.4-secret-scanning-known-issue.md,broken liquid tags
 translations/pt-BR/data/reusables/secret-scanning/push-protection-web-ui-choice.md,broken liquid tags
