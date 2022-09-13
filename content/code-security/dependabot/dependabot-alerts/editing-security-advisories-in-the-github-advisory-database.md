@@ -31,6 +31,7 @@ Only repository owners and administrators can edit repository-level security adv
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
    
    ![Screenshot of the suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
+
 1. In the contribution form, make the desired improvements. You can edit or add any detail.{% ifversion security-advisories-reason-for-change %}
 1. Under **Reason for change**, provide some supporting evidence for the improvement.
    
