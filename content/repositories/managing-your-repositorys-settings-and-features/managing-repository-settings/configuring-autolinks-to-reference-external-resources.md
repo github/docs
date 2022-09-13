@@ -26,7 +26,6 @@ Autolink references can now accept alphanumeric characters. When originally intr
 You define custom autolinks by specifying a reference prefix and a target URL.
 - Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
 - Target URLs include a `<num>` variable which represents the reference identifier of the linked resource.
-- ```
 {% endif %}
 
 ## Configuring autolinks to reference external resources
