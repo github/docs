@@ -17,11 +17,11 @@ children:
 redirect_from:
   - /rest/reference/webhooks
 ms.openlocfilehash: 9216b892bbc19752266cea22d88bec655363ecaf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061576'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882341'
 ---
 利用存储库 Webhook 可在存储库内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
 

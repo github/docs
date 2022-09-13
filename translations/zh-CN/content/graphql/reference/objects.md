@@ -11,10 +11,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: a1b83659217059c756224a30eae1998bca5da9ba
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147496538'
 ---
 ## 关于对象

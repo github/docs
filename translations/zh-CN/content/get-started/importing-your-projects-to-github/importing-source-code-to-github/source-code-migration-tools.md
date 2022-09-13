@@ -13,11 +13,11 @@ versions:
   ghec: '*'
 shortTitle: Code migration tools
 ms.openlocfilehash: 7877d435e7971f669d9d49a70d2d2450371b5159
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145128955'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882165'
 ---
 {% ifversion fpt or ghec %}
 

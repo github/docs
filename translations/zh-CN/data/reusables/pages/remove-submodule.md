@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9b9749a9b1d8405deadafdb29203b9537900813e
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145100279"
+ms.locfileid: "147884969"
 ---
 要排除故障，请先决定您是否真的想要使用子模块，它是 Git 项目内的 Git 项目； 子模块有时是意外创建的。
 

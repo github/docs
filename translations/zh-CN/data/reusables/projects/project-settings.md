@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 5d00733f618afa1863da868f60cf56b7c064af6b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423634"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883786"
 ---
 1. 导航到你的项目。
 1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The menu icon" %} 以打开菜单。

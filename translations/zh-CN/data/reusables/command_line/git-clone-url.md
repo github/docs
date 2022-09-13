@@ -4,7 +4,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145129952"
+ms.locfileid: "147882953"
 ---
 5. 键入 `git clone`，然后粘贴之前复制的 URL。
   ```shell

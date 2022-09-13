@@ -14,10 +14,10 @@ children:
   - /viewing-transactions-for-your-listing
 shortTitle: Create Marketplace apps
 ms.openlocfilehash: 991f21944b6196ab7391b5d8af84abe32768c8d4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084991'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885674'
 ---
 

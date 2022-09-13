@@ -1,6 +1,6 @@
 ---
-title: 将更改导出到分支
-intro: 本文提供将代码空间更改导出到分支的步骤。
+title: Exporting changes to a branch
+intro: This article provides steps for exporting your codespace changes to a branch.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,25 +9,20 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Exporting changes
-ms.openlocfilehash: 676a94ae33b7dba4990014d472cbf28992437a2c
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147111000'
 ---
-## 将更改导出到分支
 
-使用 {% data variables.product.prodname_github_codespaces %} 时，你可能希望将更改导出到分支，而无需启动 codespace。
+## Exporting changes to a branch
 
-当达到[支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)或在访问 codespace 时遇到一般性问题时，这会很有用。
+While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace.
 
-要导出更改：
+This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace.
 
-1. 浏览到“你的 Codespaces”页面 ([github.com/codespaces](https://github.com/codespaces))，对于单个存储库，也可单击“{% octicon "code" aria-label="The code icon" %} 代码”菜单。
-2. 单击要从中导出的 codespace 右侧的省略号 (...)。
-3. 选择“{% octicon "git-branch" aria-label="The git branch icon" %} 将更改导出到分支”。
+To export your changes:
 
-  ![将更改导出到分支](/assets/images/help/codespaces/export-changes-to-a-branch.png)
+{% data reusables.codespaces.your-codespaces-procedure-step %} Or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
+1. Click the ellipsis (**...**) to the right of the codespace you want to export from.
+1. Select **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to branch**.
 
-4. 从弹出窗口中选择“创建分支”。
+  ![Export changes to a branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
+
+1. From the popover, select **Create branch**.

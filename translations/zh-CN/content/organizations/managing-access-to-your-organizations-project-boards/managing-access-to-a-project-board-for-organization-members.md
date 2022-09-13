@@ -15,11 +15,11 @@ topics:
 shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: fe9d8ebee09d4eb6278545b5561b9691a0468bf5
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880700'
+ms.locfileid: '147880780'
 ---
 {% data reusables.projects.project_boards_old %}
 

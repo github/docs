@@ -15,11 +15,11 @@ topics:
   - Storage
 shortTitle: Increase storage capacity
 ms.openlocfilehash: b6542e1f43ce4111358de3940c8e46dea2afd5d5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065390'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881120'
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 

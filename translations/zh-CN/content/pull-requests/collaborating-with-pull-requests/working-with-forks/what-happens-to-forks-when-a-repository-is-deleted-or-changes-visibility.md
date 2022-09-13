@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
 ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332727'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886796'
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 

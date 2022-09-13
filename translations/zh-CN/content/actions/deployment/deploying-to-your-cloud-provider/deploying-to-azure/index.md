@@ -17,10 +17,10 @@ children:
   - /deploying-to-azure-static-web-app
   - /deploying-to-azure-kubernetes-service
 ms.openlocfilehash: 3f46da1c3e78358f16221a305fa38d6e0b8ca80f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145084697'
 ---
 

@@ -8,11 +8,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: 63ba6f4f7d67b43dd39609a6520a0938365cfc12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065160'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888466'
 ---
 ### 对象属性
 
