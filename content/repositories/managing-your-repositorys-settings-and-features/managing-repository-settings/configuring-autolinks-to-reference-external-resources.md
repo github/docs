@@ -25,7 +25,8 @@ Autolink references can now accept alphanumeric characters. When originally intr
 
 You define custom autolinks by specifying a reference prefix and a target URL.
 - Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
-- Target URLs include a `<num>` variable which supports the following characters: `a-z` (case-insensitive), `0-9`, and `-`.
+- Target URLs include a `<num>` variable which represents the reference identifier of the linked resource.
+- ```
 {% endif %}
 
 ## Configuring autolinks to reference external resources
@@ -48,7 +49,7 @@ This procedure demonstrates how to configure autolinks to reference external res
 {% endif %}  
 1. Under "Reference prefix", type a short, meaningful prefix you want collaborators to use to generate autolinks for the external resource.
 {% ifversion autolink-reference-alphanumeric %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field-alphanumeric.png){% else %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field.png){% endif %}
-1. Under "Target URL", type the link to the external system you want to link to. Make sure to keep `<num>` as a variable for the reference number.
+1. Under "Target URL", type the link to the external system you want to link to. Use the `<num>` variable as a placeholder for the reference identifier.
 {% ifversion autolink-reference-alphanumeric %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field-alphanumeric.png){% else %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field.png){% endif %}
 1. Click **Add autolink reference**.
 {% ifversion autolink-reference-alphanumeric %}{% else %}![Button to add autolink reference.](/assets/images/help/repository/add-autolink-reference.png){% endif %}
