@@ -4,7 +4,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145096461"
+ms.locfileid: "147883737"
 ---
 {% ifversion fpt or ghec %}
 1. Adicione um membro da organização à equipe ou convide um não-membro para se juntar a uma equipe:

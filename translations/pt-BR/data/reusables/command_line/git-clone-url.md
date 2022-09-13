@@ -4,7 +4,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145127904"
+ms.locfileid: "147882952"
 ---
 5. Digite `git clone` e cole a URL já copiada.
   ```shell

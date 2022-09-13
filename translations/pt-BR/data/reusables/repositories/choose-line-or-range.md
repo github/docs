@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 6e768815225539268c5efd5e3b97ee691be40044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145095377"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881079"
 ---
 1. Escolha se deseja selecionar uma única linha ou um intervalo:
     - Para selecionar uma única linha de código, clique no número de linha para destacá-la.

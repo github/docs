@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: d4d034e987f33030354e0bb055d88e2a5963455d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146139336"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883558"
 ---
 Você pode aprender novas habilidades realizando projetos divertidos e realistas em um repositório próprio do GitHub com o [{% data variables.product.prodname_learning %}](https://skills.github.com/). Cada curso é uma lição prática criada pela comunidade do GitHub e ensinada por um bot amigável.
 

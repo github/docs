@@ -16,7 +16,7 @@ topics:
   - Teams
 shortTitle: Organization news feed
 ms.openlocfilehash: 2ef8e11cd2ede1fedd284aed3d554bcd658d413e
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022

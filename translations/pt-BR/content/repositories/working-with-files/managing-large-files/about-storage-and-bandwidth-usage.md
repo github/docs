@@ -12,11 +12,11 @@ versions:
   ghec: '*'
 shortTitle: Storage & bandwidth
 ms.openlocfilehash: 8a6dd01c62b5b1c69afe29536e3d4ba206e988e7
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
-ms.locfileid: '145126962'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883024'
 ---
 O {% data variables.large_files.product_name_short %} está disponível para cada repositório do {% data variables.product.product_name %}, sua conta ou organização tendo ou não uma assinatura paga.
 

@@ -15,22 +15,22 @@ topics:
   - Open Source
   - Sponsors payments
 shortTitle: Sponsor a contributor
-ms.openlocfilehash: 446cea71c29cd2c6d94c67bdb638c3f0359c0d49
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: d006324c270d29b9ce87189751e75722da13a6ea
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145148716'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710288'
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-## <a name="about-sponsorships"></a>Sobre patrocínios
+## Sobre patrocínios
 
 {% data reusables.sponsors.sponsorship-details %}
 
 Você pode patrocinar uma conta em nome de sua conta pessoal para investir em projetos dos quais você se beneficia pessoalmente. Você pode patrocinar uma conta em nome de sua organização por muitas razões.
 - Sustentar bibliotecas específicas das quais o trabalho da sua organização depende
-- Investir no ecossistema com o qual você conta como uma organização (como a blockchain)
+- Como investir no ecossistema com o qual você conta como uma organização (como a blockchain)
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
 - Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
@@ -58,7 +58,7 @@ Se a conta que você deseja patrocinar não tiver um perfil em {% data variables
 
 {% endnote %}
 
-## <a name="tax-information"></a>Informações fiscais
+## Informações fiscais
 
 Como patrocinador, você reconhece que podemos divulgar ao proprietário de cada conta que você patrocinar as seguintes informações limitadas sobre seus pagamentos de patrocínio para a conta, desde o início do Programa de Patrocinadores:
 
@@ -69,7 +69,7 @@ Como patrocinador, você reconhece que podemos divulgar ao proprietário de cada
 
 Essas informações são necessárias para permitir o pagamento e o relatório de quaisquer impostos decorrentes desses pagamentos de patrocínio.
 
-## <a name="sponsoring-an-account"></a>Patrocinar uma conta
+## Patrocinar uma conta
 
 Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verificado. Para obter mais informações, confira "[Como confirmar seu endereço de email](/github/getting-started-with-github/verifying-your-email-address)".
 
