@@ -44,7 +44,7 @@ This procedure demonstrates how to configure autolinks to reference external res
 1. Click **Add autolink reference**.
 ![Button to fill out autolink reference information.](/assets/images/help/repository/add-autolink-reference-details.png)
 {% ifversion autolink-reference-alphanumeric %}
-1. Choose whether you want your autolinks to be alphanumeric or numeric. 
+1. Select the format of the reference identifier used in the external resource, either alphanumeric or numeric.
 ![Autolink format setting, alphanumeric or numeric.](/assets/images/help/repository/autolink-format-setting.png)
 {% endif %}  
 1. Under "Reference prefix", type a short, meaningful prefix you want collaborators to use to generate autolinks for the external resource.
