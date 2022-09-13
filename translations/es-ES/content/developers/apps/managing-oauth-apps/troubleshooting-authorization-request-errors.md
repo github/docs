@@ -14,11 +14,11 @@ topics:
   - GitHub Apps
 shortTitle: Troubleshoot authorization
 ms.openlocfilehash: 8706453423298277ed27ac5f950c562db8a42a09
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145092164'
+ms.locfileid: '147885328'
 ---
 ## Aplicación suspendida
 
