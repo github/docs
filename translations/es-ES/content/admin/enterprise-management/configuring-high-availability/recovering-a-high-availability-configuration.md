@@ -14,10 +14,10 @@ topics:
   - Infrastructure
 shortTitle: Recover a HA configuration
 ms.openlocfilehash: a61cdf4b3f7338c986112f67a0ca66be33d75c5f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332772'
 ---
 ## Acerca de la recuperación para una configuración de disponibilidad alta

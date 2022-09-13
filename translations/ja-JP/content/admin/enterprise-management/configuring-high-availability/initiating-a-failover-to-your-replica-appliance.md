@@ -13,14 +13,14 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
-ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
+ms.openlocfilehash: d1e9c579d431e03154040392a2b58405fef8ab42
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147076714'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770890'
 ---
-フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。
+フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均時間は、20 から 30 分の範囲です。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -66,6 +66,6 @@ ms.locfileid: '147076714'
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - 「[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)」 (レプリケーション管理のユーティリティ)

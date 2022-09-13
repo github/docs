@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 9960ade469b1d52c0f880067e4dd449082b190c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145086988"
 ---
 合并队列可以提升拉取请求合并到繁忙的目标分支的速度，同时确保所有必需的分支保护检查都通过。

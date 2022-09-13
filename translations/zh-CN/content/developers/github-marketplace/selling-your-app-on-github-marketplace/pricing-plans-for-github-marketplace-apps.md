@@ -12,11 +12,11 @@ topics:
   - Marketplace
 shortTitle: Pricing plans for apps
 ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084955'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876069'
 ---
 {% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为已验证发布者的详细信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 

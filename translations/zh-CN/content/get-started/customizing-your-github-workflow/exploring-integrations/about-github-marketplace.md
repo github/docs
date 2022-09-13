@@ -1,6 +1,6 @@
 ---
-title: About GitHub Marketplace
-intro: '{% data variables.product.prodname_marketplace %} contains tools that add functionality and improve your workflow.'
+title: 关于 GitHub Marketplace
+intro: '{% data variables.product.prodname_marketplace %} 包含用于添加功能和改进工作流程的工具。'
 redirect_from:
   - /articles/about-github-marketplace
   - /github/customizing-your-github-workflow/about-github-marketplace
@@ -8,28 +8,34 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: b105bd1ea712aff86e47891d2be24ce82f8d6b19
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145097925'
 ---
-You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中，可以发现、浏览和安装免费及付费工具，包括 {% data variables.product.prodname_github_apps %}、{% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_actions %}。
 
-If you purchase a paid tool, you'll pay for your tool subscription with the same billing information you use to pay for your {% data variables.product.product_name %} subscription, and receive one bill on your regular billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+如果您购买付费工具，将使用支付 {% data variables.product.product_name %} 订阅的帐单信息来支付工具订阅，并且在常规帐单日期会收到一张帐单。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
-You may also have the option to select a free 14-day trial on some tools. You can cancel at any time during your trial and you won't be charged, but you will automatically lose access to the tool. Your paid subscription will start at the end of the 14-day trial. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+您也可以选择对某些工具免费试用 14 天。 在试用期间可随时取消，您无需付费，但会自动失去对工具的使用权限。 您付费的订阅将在 14 天试用结束时开始。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
-## Finding tools on {% data variables.product.prodname_marketplace %}
+## 在 {% data variables.product.prodname_marketplace %} 上查找工具
 
-You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)."
+可以在 {% data variables.product.prodname_marketplace %} 上发现、浏览和安装其他人创建的应用和操作，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)”。
 
 {% data reusables.actions.actions-not-verified %}
 
-Anyone can list a free {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} on {% data variables.product.prodname_marketplace %}. Publishers of paid apps are verified by {% data variables.product.company_short %} and listings for these apps are shown with a marketplace badge {% octicon "verified" aria-label="Verified creator badge" %}. You will also see badges for unverified and verified apps. These apps were published using the previous method for verifying individual apps. For more information about the current process, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
+任何人都可以在 {% data variables.product.prodname_marketplace %} 上列出免费的 {% data variables.product.prodname_github_app %} 或 {% data variables.product.prodname_oauth_app %}。 付费应用程序的发布者由 {% data variables.product.company_short %} 验证，这些应用程序的上架信息显示 Marketplace 徽章 {% octicon "verified" aria-label="Verified creator badge" %}。 您还将看到未验证和已验证应用程序的徽章。 这些应用程序是使用以前个别应用程序验证方法来发布的。 有关当前流程的详细信息，请参阅“[关于 GitHub 市场](/developers/github-marketplace/about-github-marketplace)”和“[应用上架要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
 
-## Building and listing a tool on {% data variables.product.prodname_marketplace %}
+## 在 {% data variables.product.prodname_marketplace %} 上创建和列出工具
 
-For more information on creating your own tool to list on {% data variables.product.prodname_marketplace %}, see "[Apps](/developers/apps)" and "[{% data variables.product.prodname_actions %}](/actions)."
+有关创建要在 {% data variables.product.prodname_marketplace %} 上列出的工具的详细信息，请参阅“[应用](/developers/apps)”和“[{% data variables.product.prodname_actions %}](/actions)”。
 
-## Further reading
+## 延伸阅读
 
-- "[Purchasing and installing apps in {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
-- "[Managing billing for {% data variables.product.prodname_marketplace %} apps](/articles/managing-billing-for-github-marketplace-apps)"
-- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
-- "[Differences between GitHub Apps and OAuth Apps](/developers/apps/differences-between-github-apps-and-oauth-apps)"
+- “[在 {% data variables.product.prodname_marketplace %} 中购买和安装应用](/articles/purchasing-and-installing-apps-in-github-marketplace)”
+- “[管理 {% data variables.product.prodname_marketplace %} 应用的计费](/articles/managing-billing-for-github-marketplace-apps)”
+- “[{% data variables.product.prodname_marketplace %} 支持](/articles/github-marketplace-support)”
+- “[GitHub 应用和 OAuth 应用之间的差异](/developers/apps/differences-between-github-apps-and-oauth-apps)”

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: af3078a643636222b4866e7ce97a877c4fa2cfe1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145097481"
 ---
 我们建议为每个组织中的有限成员提供组织所有者角色，该角色为该组织提供完整的管理访问权限。 有关详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。

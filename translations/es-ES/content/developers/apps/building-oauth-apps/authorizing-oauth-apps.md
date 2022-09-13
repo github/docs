@@ -17,10 +17,10 @@ versions:
 topics:
   - OAuth Apps
 ms.openlocfilehash: 10aa111156377c08f0dc4ad0210cf8ad30b8a3ac
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717793'
 ---
 La implementación OAuth de {% data variables.product.product_name %} admite el [tipo de concesión de código de autorización](https://tools.ietf.org/html/rfc6749#section-4.1) estándar y la [concesión de autorización de dispositivos](https://tools.ietf.org/html/rfc8628) de OAuth 2.0 para aplicaciones que no tienen acceso a un explorador web.

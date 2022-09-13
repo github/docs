@@ -15,11 +15,11 @@ topics:
   - Set up
 shortTitle: Install on AWS
 ms.openlocfilehash: f91f2337cc13690d0476c836a15ec72a5c0685cb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146769146'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875569'
 ---
 ## Pré-requisitos
 

@@ -15,10 +15,10 @@ topics:
 shortTitle: View people with access
 permissions: Organization owners can view people with access to a repository.
 ms.openlocfilehash: 01ee5b1844e32b4ba631fda67babaa9e9f8a982e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147066632'
 ---
 ## 关于有权访问您的存储库的人员列表

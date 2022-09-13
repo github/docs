@@ -12,10 +12,10 @@ redirect_from:
   - /github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository
   - /github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository
 ms.openlocfilehash: 64bad4c056a29ceffc465065c84a7424c870049f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145136729'
 ---
 ## Acerca de los objetos de {% data variables.large_files.product_name_short %} en los archivos

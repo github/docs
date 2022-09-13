@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: f6974605b7537749751e18d83aec7dc2e862553f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145113906"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879343"
 ---
 {% note %}
 

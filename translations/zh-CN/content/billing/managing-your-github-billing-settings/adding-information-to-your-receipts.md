@@ -23,10 +23,10 @@ topics:
   - User account
 shortTitle: Add to your receipts
 ms.openlocfilehash: 1b7495e5d23266816ca106defa7b695ff184ea43
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084462'
 ---
 收据包括 {% data variables.product.prodname_dotcom %} 订阅以及[其他付费功能和产品](/articles/about-billing-on-github)的订阅。

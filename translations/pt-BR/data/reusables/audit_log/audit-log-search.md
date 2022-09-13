@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c07593d1a115835538cc98ad351414704a14e737
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145094227"
 ---
 {% data reusables.audit_log.audit-log-search-list-info-about-action %}

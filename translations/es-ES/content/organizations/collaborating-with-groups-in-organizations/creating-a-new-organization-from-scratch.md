@@ -15,11 +15,11 @@ topics:
   - Teams
 shortTitle: Create new organization
 ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135241'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879330'
 ---
 Cuando creas una organización nueva desde cero, esta no tiene ningún repositorio asociado. Para más información sobre cómo agregar repositorios a la organización, vea "[Creación de un repositorio](/articles/creating-a-new-repository)" y "[Transferencia de un repositorio](/articles/transferring-a-repository)".
 

@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Cancel collaborator invitation
 ms.openlocfilehash: 4511f6ffd7a22884a390e073826f7ff198adb7f2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127482'
 ---
 您可以查看所有待定邀请（邀请成为组织拥有的任何仓库上的外部协作者）人员列表。

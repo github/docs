@@ -14,16 +14,16 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
-ms.openlocfilehash: dff224ca488c6cd695546926ab5264377bdfcf0a
-ms.sourcegitcommit: b98a79b01967b159f740a942286edae2792fe826
+ms.openlocfilehash: fd43417558fba2fa8ce71cec7811bebfc07373d1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/10/2022
-ms.locfileid: '147541078'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147648320'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## <a name="about-yaml-syntax-for-workflows"></a>ワークフロー用のYAML構文について
+## ワークフロー用のYAML構文について
 
 ワークフロー ファイルでは YAML 構文が使用され、ファイル拡張子 `.yml` または `.yaml` が必要です。 {% data reusables.actions.learn-more-about-yaml %}
 
@@ -76,7 +76,7 @@ ms.locfileid: '147541078'
 
 呼び出し対象のワークフローで指定されていない入力が呼び出し元ワークフローによって渡されると、エラーが発生します。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -111,7 +111,7 @@ jobs:
 
 次の例では、この再利用可能なワークフローに対して 2 つの出力 `workflow_output1` と `workflow_output2` が定義されています。 これらは、どちらも `my_job` というジョブから `job_output1` と `job_output2` という出力にマップされます。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -138,7 +138,7 @@ on:
 
 呼び出し対象のワークフローで指定されていないシークレットが呼び出し元ワークフローによって渡されると、エラーが発生します。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -190,7 +190,7 @@ jobs:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 env:
@@ -255,7 +255,7 @@ env:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 jobs:
@@ -278,7 +278,7 @@ jobs:
 
 ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 詳細については、{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dotcom %} がホストするランナーの「[使用量制限と課金](/actions/reference/usage-limits-billing-and-administration)」と{% endif %}セルフホステッド ランナーの使用制限の「[セルフホステッド ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」{% ifversion fpt or ghec or ghes %}{% elsif ghae %}を参照してください。{% endif %}
 
-### <a name="example"></a>例
+### 例
 
 {% raw %}
 ```yaml
@@ -312,7 +312,7 @@ jobs:
 
 {% data reusables.actions.expression-syntax-if %} 詳細については、「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
-#### <a name="example-using-contexts"></a>例: コンテキストの使用
+#### 例: コンテキストの使用
 
  このステップは、イベントの種類が `pull_request` で、イベント アクションが `unassigned` である場合にのみ実行されます。
 
@@ -323,7 +323,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### <a name="example-using-status-check-functions"></a>例: ステータス チェック関数の使用
+#### 例: ステータス チェック関数の使用
 
 `my backup step` は、ジョブの前のステップが失敗した場合にのみ実行されます。 詳細については、「[式](/actions/learn-github-actions/expressions#status-check-functions)」を参照してください。
 
@@ -336,7 +336,7 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-#### <a name="example-using-secrets"></a>例: シークレットの使用
+#### 例: シークレットの使用
 
 `if:` 条件文でシークレットを直接参照することはできません。 代わりに、シークレットをジョブ レベルの環境変数として設定し、ジョブのステップを条件付きで実行するために環境変数を参照することを検討してください。
 
@@ -369,16 +369,16 @@ jobs:
 
 ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフローと同じリポジトリ、パブリック リポジトリ、または[公開されている Docker コンテナー イメージ](https://hub.docker.com/)で定義されているアクションを使用できます。
 
-Git ref、SHA、またはDockerタグ番号を指定して、使用しているアクションのバージョンを含めることを強く推奨します。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
+Git ref、SHA、または Docker タグを指定することで、使っているアクションのバージョンを含めることを、強くお勧めします。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
 - リリースされたアクションバージョンのコミットSHAを使用するのが、安定性とセキュリティのうえで最も安全です。
-- 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
+- アクションでメジャー バージョン タグが発行される場合は、互換性を維持しながら、重要な修正プログラムとセキュリティ パッチを受け取ることを予期する必要があります。 この動作は、アクションの作成者が判断するものであることに注意してください。
 - アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
 一部のアクションでは、[`with`](#jobsjob_idstepswith) キーワードを使用して設定する必要がある入力が必要です。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
 アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合、ジョブはLinux環境で実行する必要があります。 詳細については、[`runs-on`](#jobsjob_idruns-on) を参照してください。
 
-#### <a name="example-using-versioned-actions"></a>例: バージョン管理されたアクションの使用
+#### 例: バージョン管理されたアクションの使用
 
 ```yaml
 steps:
@@ -392,7 +392,7 @@ steps:
   - uses: actions/checkout@main
 ```
 
-#### <a name="example-using-a-public-action"></a>例: パブリック アクションの使用
+#### 例: パブリック アクションの使用
 
 `{owner}/{repo}@{ref}`
 
@@ -410,7 +410,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### <a name="example-using-a-public-action-in-a-subdirectory"></a>例: サブディレクトリのパブリック アクションの使用
+#### 例: サブディレクトリのパブリック アクションの使用
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -424,7 +424,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### <a name="example-using-an-action-in-the-same-repository-as-the-workflow"></a>例: ワークフローと同じリポジトリにあるアクションの使用
+#### 例: ワークフローと同じリポジトリにあるアクションの使用
 
 `./path/to/dir`
 
@@ -440,7 +440,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### <a name="example-using-a-docker-hub-action"></a>例: Docker Hub アクションの使用
+#### 例: Docker Hub アクションの使用
 
 `docker://{image}:{tag}`
 
@@ -455,7 +455,7 @@ jobs:
 ```
 
 {% ifversion fpt or ghec %}
-#### <a name="example-using-the--data-variablesproductprodname_registry---data-variablesproductprodname_container_registry-"></a>例: {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} の使用
+#### 例: {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} の使用
 
 `docker://{host}/{image}:{tag}`
 
@@ -469,7 +469,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-#### <a name="example-using-a-docker-public-registry-action"></a>例: Docker パブリック レジストリ アクションの使用
+#### 例: Docker パブリック レジストリ アクションの使用
 
 `docker://{host}/{image}:{tag}`
 
@@ -483,7 +483,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### <a name="example-using-an-action-inside-a-different-private-repository-than-the-workflow"></a>例: ワークフローとは異なるプライベート リポジトリ内でのアクションの使用
+#### 例: ワークフローとは異なるプライベート リポジトリ内でのアクションの使用
 
 ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 個人アクセストークンを生成し、暗号化されたシークレットとしてトークンを追加します。 詳細については、「[個人アクセス トークンを使用する](/github/authenticating-to-github/creating-a-personal-access-token)」と「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
@@ -551,7 +551,7 @@ jobs:
 | Windows | `pwsh` | これはWindowsで使われるデフォルトのシェルです。 PowerShell Coreです。 {% data variables.product.prodname_dotcom %} によってスクリプト名に拡張子 `.ps1` が追加されます。 セルフホステッド Windows ランナーに _PowerShell Core_ がインストールされていない場合は、代わりに _PowerShell Desktop_ が使われます。| `pwsh -command ". '{0}'"`. |
 | Windows | `powershell` | PowerShell Desktop. {% data variables.product.prodname_dotcom %} によってスクリプト名に拡張子 `.ps1` が追加されます。 | `powershell -command ". '{0}'"`. |
 
-#### <a name="example-running-a-script-using-bash"></a>例: bash を使ったスクリプトの実行
+#### 例: bash を使ったスクリプトの実行
 
 ```yaml
 steps:
@@ -560,7 +560,7 @@ steps:
     shell: bash
 ```
 
-#### <a name="example-running-a-script-using-windows-cmd"></a>例: Windows `cmd` を使ったスクリプトの実行
+#### 例: Windows `cmd` を使ったスクリプトの実行
 
 ```yaml
 steps:
@@ -569,7 +569,7 @@ steps:
     shell: cmd
 ```
 
-#### <a name="example-running-a-script-using-powershell-core"></a>例: PowerShell Core を使ったスクリプトの実行
+#### 例: PowerShell Core を使ったスクリプトの実行
 
 ```yaml
 steps:
@@ -578,7 +578,7 @@ steps:
     shell: pwsh
 ```
 
-#### <a name="example-using-powershell-desktop-to-run-a-script"></a>PowerShell Desktopを使用してスクリプトを実行する例
+#### PowerShell Desktopを使用してスクリプトを実行する例
 
 ```yaml
 steps:
@@ -587,7 +587,7 @@ steps:
     shell: powershell
 ```
 
-#### <a name="example-running-a-python-script"></a>例: Python スクリプトの実行
+#### 例: Python スクリプトの実行
 
 ```yaml
 steps:
@@ -598,7 +598,7 @@ steps:
     shell: python
 ```
 
-#### <a name="custom-shell"></a>カスタムシェル
+#### カスタムシェル
 
 `command […options] {0} [..more_options]` を使って、テンプレート文字列に `shell` 値を設定できます。 {% data variables.product.prodname_dotcom %} では、空白区切りで最初の文字列をコマンドとして解釈し、`{0}` にある一時的なスクリプトのファイル名を挿入します。
 
@@ -617,7 +617,7 @@ steps:
 {% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% elsif fpt or ghec %} GitHub ホステッド ランナーに含まれるソフトウェアの詳細については、[GitHub ホステッド ランナーの仕様](/actions/reference/specifications-for-github-hosted-runners#supported-software)に関するページを参照してください。
 {% endif %}
 
-#### <a name="exit-codes-and-error-action-preference"></a>終了コードとエラーアクションの環境設定
+#### 終了コードとエラーアクションの環境設定
 
 組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
@@ -639,7 +639,7 @@ steps:
 
 アクションによって定義される入力パラメーターの `map`。 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 変数の前には `INPUT_` が付けられ、大文字に変換されます。
 
-#### <a name="example"></a>例
+#### 例
 
 `hello_world` アクションによって定義される 3 つの入力パラメーター (`first_name`、`middle_name`、`last_name`) を定義します。 これらの入力変数には、`INPUT_FIRST_NAME`、`INPUT_MIDDLE_NAME`、`INPUT_LAST_NAME` の環境変数として `hello-world` アクションからアクセスできます。
 
@@ -659,7 +659,7 @@ jobs:
 
 Docker コンテナーの入力を定義する `string`。 {% data variables.product.prodname_dotcom %} により、コンテナーの起動時に `args` がコンテナーの`ENTRYPOINT` に渡されます。 `array of strings` はこのパラメーターではサポートされていません。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -682,7 +682,7 @@ steps:
 
 `Dockerfile` 内の Docker の `ENTRYPOINT` をオーバーライドするか、まだ指定されていない場合は設定します。 shell や exec 形式を持つ Docker の `ENTRYPOINT` 命令とは異なり、`entrypoint` キーワードでは、実行する実行可能ファイルを定義する単一の文字列だけを受け付けます。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 steps:
@@ -702,7 +702,7 @@ steps:
 
 パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数にシークレットを設定しようとしている場合、シークレットは `secrets` コンテキストを使って設定する必要があります。 詳細については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」と「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -743,15 +743,15 @@ steps:
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### <a name="example-using-a-single-dimension-matrix"></a>例: 1 次元マトリックスの使用
+#### 例: 1 次元マトリックスの使用
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### <a name="example-using-a-multi-dimension-matrix"></a>例: 多次元マトリックスの使用
+#### 例: 多次元マトリックスの使用
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### <a name="example-using-contexts-to-create-matrices"></a>例: コンテキストを使ったマトリックスの作成
+#### 例: コンテキストを使ったマトリックスの作成
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -759,11 +759,11 @@ steps:
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### <a name="example-expanding-configurations"></a>例: 構成の展開
+#### 例: 構成の展開
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### <a name="example-adding-configurations"></a>例: 構成の追加
+#### 例: 構成の追加
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
@@ -783,7 +783,7 @@ steps:
 
 ジョブが失敗した時に、ワークフローの実行が失敗にならないようにします。 `true` に設定すれば、このジョブが失敗したときにワークフローの実行を成功させることができます。
 
-### <a name="example-preventing-a-specific-failing-matrix-job-from-failing-a-workflow-run"></a>例: 失敗した特定のマトリックス ジョブがワークフローの実行を失敗させないようにする
+### 例: 失敗した特定のマトリックス ジョブがワークフローの実行を失敗させないようにする
 
 ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node` が `15` に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
 
@@ -846,7 +846,7 @@ strategy:
 
 ネットワーク サービス コンテナーの違いの詳細については、「[サービス コンテナーについて](/actions/automating-your-workflow-with-github-actions/about-service-containers)」を参照してください。
 
-### <a name="example-using-localhost"></a>例: localhost の使用
+### 例: localhost の使用
 
 この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %} では、割り当てられたコンテナー ポートを {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} のコンテキストに設定します。 この例では、{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} と {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} のコンテキストを使って、サービス コンテナー ポートにアクセスできます。
 
@@ -872,7 +872,7 @@ services:
 
 {% data reusables.actions.registry-credentials %}
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -908,7 +908,7 @@ services:
 
 `<source>` は、ホスト マシン上のボリューム名または絶対パスであり、`<destinationPath>` は、コンテナー内の絶対パスです。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 volumes:
@@ -936,7 +936,7 @@ volumes:
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-### <a name="example"></a>例
+### 例
 
 {% data reusables.actions.uses-keyword-example %}
 
@@ -950,7 +950,7 @@ volumes:
 
 [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith) とは異なり、`jobs.<job_id>.with` を使って渡す入力は、呼び出し対象のワークフローの環境変数として使用できません。 代わりに、`inputs` コンテキストを使って入力を参照できます。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 jobs:
@@ -972,7 +972,7 @@ jobs:
 
 渡すシークレットは、呼び出し対象のワークフローで定義されている名前と一致する必要があります。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 ```yaml
@@ -990,7 +990,7 @@ jobs:
 
 `inherit` キーワードは、呼び出し元ワークフローのすべてのシークレットを呼び出し対象のワークフローに渡すために使います。 これには、呼び出し元ワークフローからアクセスできるすべてのシークレット (つまり組織、リポジトリ、環境のシークレット) が含まれます。 `inherit` キーワードを使って、同じ組織内のリポジトリ間、または同じ企業内の組織間でシークレットを渡すことができます。
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 
@@ -1027,7 +1027,7 @@ jobs:
 使用できる式コンテキスト: `github`、`needs`、`secrets`。
 {% endif %}
 
-## <a name="filter-pattern-cheat-sheet"></a>フィルター パターンのチート シート
+## フィルター パターンのチート シート
 
 特別なキャラクタをパス、ブランチ、タグフィルタで利用できます。
 
@@ -1038,20 +1038,28 @@ jobs:
 - `[]` 括弧内に一覧表示されているか、範囲に含まれている 1 つの文字と一致します。 範囲には、`a-z`、`A-Z`、`0-9` のみを含めることができます。 たとえば、範囲 `[0-9a-z]` は任意の数字または小文字と一致します。 たとえば、`[CB]at` は `Cat` または`Bat` と、`[1-2]00` は `100` および `200` と一致します。
 - `!`: パターンの先頭に置くと、前の肯定のパターンを否定にします。 先頭のキャラクタではない場合は、特別な意味を持ちません。
 
-文字 `*`、`[`、`!` は YAML の特殊文字です。 パターンを `*`、`[`、`!` で開始する場合は、パターンを引用符で囲む必要があります。
+文字 `*`、`[`、`!` は YAML の特殊文字です。 パターンを `*`、`[`、`!` で開始する場合は、パターンを引用符で囲む必要があります。 また、使用する[フロー シーケンス](https://yaml.org/spec/1.2.2/#flow-sequences)に `[` と `]` の一方または両方を含むパターンがある場合は、パターンを引用符で囲む必要があります。
 
 ```yaml
 # Valid
-- '**/README.md'
+branches:
+  - '**/README.md'
 
 # Invalid - creates a parse error that
 # prevents your workflow from running.
-- **/README.md
+branches:
+  - **/README.md
+
+# Valid
+branches: [ main, 'release/v[0-9].[0-9]' ]
+
+# Invalid - creates a parse error
+branches: [ main, release/v[0-9].[0-9] ]
 ```
 
 ブランチ、タグ、パスのフィルター構文の詳細については、「[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)」、「[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)」、「[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
-### <a name="patterns-to-match-branches-and-tags"></a>ブランチやタグにマッチするパターン
+### ブランチやタグにマッチするパターン
 
 | パターン | 説明 | 一致の例 |
 |---------|------------------------|---------|
@@ -1064,7 +1072,7 @@ jobs:
 | `v2*` | `v2` で始まるブランチおよびタグ名と一致します。 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
 | `v[12].[0-9]+.[0-9]+` | メジャー バージョンが 1 または 2 のすべてのセマンティック バージョニング ブランチおよびタグと一致します。 | `v1.10.1`<br/><br/>`v2.0.0` |
 
-### <a name="patterns-to-match-file-paths"></a>ファイルパスにマッチするパターン
+### ファイルパスにマッチするパターン
 
 パスパターンはパス全体にマッチしなければならず、リポジトリのルートを出発点とします。
 

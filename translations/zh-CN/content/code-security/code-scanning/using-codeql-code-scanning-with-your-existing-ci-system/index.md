@@ -27,10 +27,10 @@ children:
   - /troubleshooting-codeql-runner-in-your-ci-system
   - /migrating-from-the-codeql-runner-to-codeql-cli
 ms.openlocfilehash: 09a930edef1ba954d6953a47e016d530467a5307
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145098920'
 ---
 

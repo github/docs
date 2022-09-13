@@ -11,10 +11,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 0aa55fae9b33604b95e0eeee78e0712e60aaa5c7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717674'
 ---
 Se você estiver encontrando situações estranhas na API, veja uma lista de resoluções de alguns dos problemas que pode estar enfrentando.

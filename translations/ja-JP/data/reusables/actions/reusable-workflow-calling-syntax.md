@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 9b1f61261d2e59fe30703a3bebfdaed7a25667e6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145089272"
 ---
 * `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %} は、パブリック {% ifversion ghes or ghec or ghae %}または内部{% endif %}リポジトリの再利用可能なワークフローの場合。

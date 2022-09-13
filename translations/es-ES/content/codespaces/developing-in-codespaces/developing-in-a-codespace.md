@@ -15,10 +15,10 @@ topics:
   - Developer
 shortTitle: Develop in a codespace
 ms.openlocfilehash: 70b7b5b91e68b80033edd59ae3a7826e0e2ee25f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147614355'
 ---
 ## Acerca del desarrollo con {% data variables.product.prodname_github_codespaces %}

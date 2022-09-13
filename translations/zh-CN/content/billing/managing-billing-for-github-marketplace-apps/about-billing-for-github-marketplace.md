@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Billing for GitHub Marketplace
 ms.openlocfilehash: 815303fa5c0c1a006a0bd4bd017039cf1e035f15
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084520'
 ---
 {% data variables.product.prodname_marketplace %} 包含的应用程序中有免费和付费定价计划。 在购买并安装应用程序后，您可以随时升级、降级或取消。

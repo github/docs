@@ -13,11 +13,11 @@ versions:
 topics:
   - Community
 ms.openlocfilehash: 7676a5a17d22d683f953d894b04e864497145a66
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130852'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878772'
 ---
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-discussions-tab %}
 5. ピン止めする Team ディスカッションの横にある {% octicon "pin" aria-label="The pin icon" %} をクリックします。 アイコンをクリックしてディスカッションのピン止めを解除することもできます。

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 307a695e8a973c7b37a29ebbeb4606a8ed43d38d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145099345"
 ---
 如果为 {% data variables.product.prodname_actions %} 启用电子邮件或 web 通知，则在触发的任何工作流程运行完成时，您将收到通知。 通知将包括工作流程运行的状态（包括成功、失败、中立和取消的运行）。 您也可以选择仅在工作流程运行失败时接收通知。 有关启用或禁用通知的详细信息，请参阅“[关于通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)”。

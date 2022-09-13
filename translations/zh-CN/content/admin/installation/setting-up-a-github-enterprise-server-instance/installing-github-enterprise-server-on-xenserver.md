@@ -15,10 +15,10 @@ topics:
   - Set up
 shortTitle: Install on XenServer
 ms.openlocfilehash: f4991244e74c9a61d953ecba08cc5c4985906fb6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099023'
 ---
 {% note %}

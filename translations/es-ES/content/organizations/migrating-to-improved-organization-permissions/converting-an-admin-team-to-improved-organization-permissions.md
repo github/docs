@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Convert admin team
 ms.openlocfilehash: 183ccd5d1252265ed6ac94924703ceb75ed8adad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126190'
 ---
 Puedes eliminar la capacidad de los miembros del equipo de administración heredado para crear repositorios al crear un nuevo equipo para esos miembros, asegurándote de que el equipo tenga el acceso necesario a los repositorios de la organización, y eliminando el equipo de administración heredado.

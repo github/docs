@@ -11,11 +11,11 @@ topics:
 permissions: Enterprise owners can access compliance reports for the enterprise.
 shortTitle: Access compliance reports
 ms.openlocfilehash: 87ecd673b2b1a8877e9d30eba9b6f778394e21c0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065912'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877166'
 ---
 ## 关于 {% data variables.product.company_short %} 的合规性报告
 

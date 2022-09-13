@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Manage default labels
 ms.openlocfilehash: a2591c84d3844bfdadc3c7321d7ce8eec2adf293
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145125726'
 ---
 Organizationのオーナーは、Organization のリポジトリのデフォルトラベルを管理できます。

@@ -13,10 +13,10 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
 shortTitle: Triage your notifications
 ms.openlocfilehash: 9e5771dff52408a1b6967a3792eb36eefebefd72
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145098874'
 ---
 ## 开始收件箱分类

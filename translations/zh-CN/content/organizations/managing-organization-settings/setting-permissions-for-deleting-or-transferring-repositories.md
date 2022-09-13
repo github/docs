@@ -15,10 +15,10 @@ topics:
   - Teams
 shortTitle: Set repo management policy
 ms.openlocfilehash: 3d5aff7d4a06dae2d3b3bb010ecbf68e186b58d0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099702'
 ---
 所有者可以设置删除或转让组织中仓库的权限。

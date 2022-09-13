@@ -11,12 +11,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
-ms.openlocfilehash: 1d9a57dca3ffc1af8483ad973d2a6426204ce244
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 83b3b6c673ec0b970dd2527664adebff7f0d8aa5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147076713'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860843'
 ---
 ## 見出し
 
@@ -399,4 +399,3 @@ You can also use words, to fit your writing style more closely[^note].
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [GitHub 上での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)
 - [Working with advanced formatting (高度な書式設定を使った作業)](/articles/working-with-advanced-formatting)
-- [Markdown をマスターする](https://guides.github.com/features/mastering-markdown/)

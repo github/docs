@@ -11,11 +11,11 @@ topics:
   - Teams
 shortTitle: Manage repository discussions
 ms.openlocfilehash: 0fba2cb5ad49411d8027cef61202cabe9d37d2b3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410129'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876153'
 ---
 ## 允许或禁止具有读取权限的用户创建讨论
 

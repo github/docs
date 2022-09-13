@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 144bfacee2ad8acb91211f080b4039c199126822
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145118070"
 ---
 1. このセキュリティアドバイザリが指摘しているセキュリティ脆弱性の種類に対する共通脆弱性タイプ一覧（CWEs）を追加してください。 CWE の完全な一覧については、MITRE の「[Common Weakness Enumeration](https://cwe.mitre.org/index.html)」を参照してください。

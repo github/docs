@@ -9,10 +9,10 @@ topics:
   - Pull requests
 shortTitle: Manage pull request reviews
 ms.openlocfilehash: 81c58a856e7dddc316a41413d4c7787bf463cf7c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129314'
 ---
 ## 关于代码评审限制

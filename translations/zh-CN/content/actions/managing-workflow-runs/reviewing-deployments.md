@@ -8,10 +8,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: 6a01d89c0ad5355bd5e6774b1bdf5f19dd471df2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147718099'
 ---
 ## 关于工作流程中所需的审查

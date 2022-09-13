@@ -11,10 +11,10 @@ versions:
   ghec: '*'
 shortTitle: Support for Subversion clients
 ms.openlocfilehash: 49422fbd5dd07b84975172f077091e92bcd5b543
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145126702'
 ---
 O GitHub oferece suporte a clientes do Subversion por meio do protocolo HTTPS. Usamos uma ponte do Subversion para comunicar comandos svn ao GitHub.

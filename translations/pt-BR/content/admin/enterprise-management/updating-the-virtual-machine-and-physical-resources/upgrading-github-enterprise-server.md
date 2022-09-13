@@ -21,19 +21,26 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Upgrading GHES
-ms.openlocfilehash: 3f8ba6499938f3a9d9e841eb75ca37fc0488843a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d8f14f61351ae7fe8aa1e9974bb3ecd935376c01
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061783'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861617'
 ---
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
 ## Preparar para a atualização
 
-1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, confira "[Requisitos de atualização](/enterprise/admin/guides/installation/upgrade-requirements/)" e veja o [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para localizar o caminho de atualização da versão atual.
-1. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, confira o [arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, confira "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" e veja o [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para localizar o caminho de atualização da versão atual.
+1. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, confira o [arquivo README.md](https://github.com/github/backup-utils#readme) na documentação do projeto do {% data variables.product.prodname_enterprise_backup_utilities %}.
+
+  {% note %}
+
+  **Nota:** sua versão do {% data variables.product.prodname_enterprise_backup_utilities %} precisa ser a mesma versão ou, no máximo, duas versões posteriores de {% data variables.product.product_location %}. Para obter mais informações, confira "[Atualizar Utilitários de Backup do GitHub Enterprise Server](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)".
+
+  {% endnote %}
+
 1. Se o {% data variables.product.product_location %} usar executores efêmeros auto-hospedados para {% data variables.product.prodname_actions %} e você tiver desabilitado atualizações automáticas, atualize seus executores para a versão do aplicativo executor que sua instância atualizada executará.
 1. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 

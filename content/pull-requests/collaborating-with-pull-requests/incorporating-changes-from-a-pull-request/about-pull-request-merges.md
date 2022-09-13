@@ -72,6 +72,18 @@ If you still want to rebase the commits but can't rebase and merge automatically
 
 Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.product.product_location %}.
 
+## Indirect merges
+
+A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
+
+* Branch `main` is at commit **C**.
+* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
+* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
+
+If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
+
+Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules) have not been satisfied.
+
 ## Further reading
 
 - "[About pull requests](/articles/about-pull-requests/)"

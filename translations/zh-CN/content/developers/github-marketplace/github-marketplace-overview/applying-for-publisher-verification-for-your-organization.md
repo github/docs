@@ -10,10 +10,10 @@ redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
 shortTitle: Publisher verification
 ms.openlocfilehash: 34085acb78eba5057cea382ab250e4704dd958d1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084976'
 ---
 发布者验证确保 {% data variables.product.prodname_dotcom %} 有方法联系您、您已经为组织启用双重身份验证并且您组织的域已通过验证。

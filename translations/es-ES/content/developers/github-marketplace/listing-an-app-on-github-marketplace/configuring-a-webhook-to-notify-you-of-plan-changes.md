@@ -15,10 +15,10 @@ topics:
   - Marketplace
 shortTitle: Webhooks for plan changes
 ms.openlocfilehash: 85ffaa8809860ff4b693075e416723717296f86c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145092139'
 ---
 El webhook de evento de {% data variables.product.prodname_marketplace %} solo puede configurarse desde la página de listado de {% data variables.product.prodname_marketplace %} de tu aplicación. Puede configurar todos los demás eventos desde la [página de configuración para desarrolladores de la aplicación](https://github.com/settings/developers). Si no ha creado una oferta de {% data variables.product.prodname_marketplace %}, lea "[Creación de un borrador de oferta de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" para obtener información sobre cómo hacerlo.

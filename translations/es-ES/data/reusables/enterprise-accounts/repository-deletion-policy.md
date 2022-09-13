@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0407b483fd6bed104782910d88f88456c98a094d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145111986"
 ---
 1. Debajo de "Repository deletion and transfer" (Eliminación y transferencia de repositorios), usa el menú desplegable y elige una política.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 30657af068d61df41410e2b11f9d89172891e748
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145126415"
 ---
 {% data variables.product.product_name %} é compatível com o SAML SSO, com IdPs que implementam o padrão SAML 2.0. Para obter mais informações, confira o [wiki do SAML](https://wiki.oasis-open.org/security) no site do OASIS.
