@@ -1,7 +1,7 @@
 ---
-title: Setting your default editor for GitHub Codespaces
+title: GitHub Codespaces の既定のエディターを設定する
 shortTitle: Set the default editor
-intro: 'You can set your default editor for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+intro: '個人用設定ページで、{% data variables.product.prodname_codespaces %} の既定のエディターを設定できます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,14 +12,20 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 7cfc188cb265482ea9dd40f3fc653af870aa6982
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111534'
 ---
+設定ページでは、エディターの基本設定を行って、新しく作成される codespace が Web 用の {% data variables.product.prodname_vscode %} または {% data variables.product.prodname_vscode %} デスクトップ アプリケーションで自動的に開かれるようにすることができます。
 
-On the settings page, you can set your editor preference so that any newly created codespaces are opened automatically in either {% data variables.product.prodname_vscode %} for Web or the {% data variables.product.prodname_vscode %} desktop application.
+{% data variables.product.prodname_codespaces %} の既定のエディターとして {% data variables.product.prodname_vscode %} を使う場合は、{% data variables.product.prodname_vscode %} と {% data variables.product.prodname_vscode %} 用の {% data variables.product.prodname_github_codespaces %} 拡張機能をインストールする必要があります。 詳しくは、[{% data variables.product.prodname_vscode %} のダウンロード ページ](https://code.visualstudio.com/download/)と、[{% data variables.product.prodname_vscode %} マーケットプレースの {% data variables.product.prodname_github_codespaces %} 拡張機能](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)をご覧ください。
 
-If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+## 既定のエディターを設定する
 
-## Setting your default editor
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Editor preference", select the option you want. ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png) If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_codespaces %} will automatically open in the desktop application when you next create a codespace. You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully. ![Setting your editor](/assets/images/help/codespaces/launch-default-editor.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. [Editor preference]\(エディターの基本設定\) で、必要なオプションを選びます。
+   ![エディターを設定する](/assets/images/help/codespaces/select-default-editor.png) **{% data variables.product.prodname_vscode %}** を選ぶと、次に codespace を作成するときに、{% data variables.product.prodname_codespaces %} がデスクトップ アプリケーションで自動的に開きます。 正常に開かれるには、ブラウザーと {% data variables.product.prodname_vscode %} の両方へのアクセスを許可することが必要な場合があります。
+   ![エディターの設定](/assets/images/help/codespaces/launch-default-editor.png)

@@ -13,37 +13,41 @@ versions:
 topics:
   - Repositories
 shortTitle: Social media preview
+ms.openlocfilehash: a778b0fd95533a15806cc0034769fbf0feb3b217
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132234'
 ---
-
 画像を追加するまでは、リポジトリへのリンクは、リポジトリの基本的な情報とオーナーのアバターを表示します。 リポジトリに画像を追加すると、さまざまなソーシャルプラットフォーム上で、あなたのプロジェクトが見つかりやすくなります。
 
-## Adding an image to customize the social media preview of your repository
+## リポジトリのソーシャル メディア プレビューをカスタマイズするための画像を追加する
 
-{% ifversion not ghae %}画像をプライベートリポジトリにアップロードできますが、画像はパブリックリポジトリからのみ共有できます。{% endif %}
+{% ifversion not ghae %}画像はプライベート リポジトリにアップロードできますが、画像はパブリック リポジトリからのみ共有できます。{% endif %}
 
 {% tip %}
 
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. 最高の画質を得るため、画像は 640 × 320 ピクセルに収めるようおすすめします。
+**ヒント:** 画像は、1 MB 未満の PNG、JPG、GIF のいずれかのファイルである必要があります。 最高の画質を得るため、画像は 640 × 320 ピクセルに収めるようおすすめします。
 
 {% endtip %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. [Social preview] の下にある [**Edit**] をクリックします。
-    - 新しい画像を追加するには、[**Upload an image...**] をクリックします。
-    - 画像を削除するには、[**Remove image**] をクリックします。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. [ソーシャル プレビュー] で **[編集]** をクリックします
+    - 新しい画像を追加するには、 **[画像のアップロード]** をクリックします。
+    - 画像を削除するには、 **[画像の削除]** をクリックします
 
     ![ソーシャルプレビューのドロップダウン](/assets/images/help/repository/social-preview.png)
 
-## About transparency
+## 透明度について
 
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case.
+透明度の高い PNG 画像がサポートされています。 多くの通信プラットフォームではダーク モードがサポートされているため、透明なソーシャル プレビューを使用すると便利な場合があります。 下の透明な画像は、暗い背景で使用できます。ただし、常にそうであるとは限りません。 
 
-When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+透明度のある画像を使用する場合は、透明度をサポートしていないさまざまな色の背景やプラットフォームでどのように表示されるかに注意してください。
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**ヒント:** わからない場合は、背景が無地の画像を使用することをお勧めします。
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+![ソーシャル プレビューの透明度](/assets/images/help/repository/social-preview-transparency.png)

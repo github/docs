@@ -11,29 +11,33 @@ redirect_from:
   - /actions/deployment/about-continuous-deployment
 topics:
   - CD
-shortTitle: Acerca del despliegue contínuo
+shortTitle: About continuous deployment
+ms.openlocfilehash: 379afa0088f7f10302f5bf8202f5259ac4777bec
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147060142'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Acerca del despliegue contínuo
 
-_Despliegue continuo_ (DC) es la práctica de utilizar la automatización para publicar y desplegar actualizaciones de software. Como parte del proceso habitual de DC, el código se compila y prueba automáticamente antes del despliegue.
+_Implementación continua_ (CD) es el procedimiento de usar la automatización para publicar e implementar actualizaciones de software. Como parte del proceso habitual de DC, el código se compila y prueba automáticamente antes del despliegue.
 
-El despliegue continuo a menudo se empareja con una integración continua. Para obtener más información acerca de la integración contínua, consulta la sección "[Acerca de la Integración Contínua](/actions/guides/about-continuous-integration)".
+El despliegue continuo a menudo se empareja con una integración continua. Para más información sobre la integración continua, vea "[Acerca de la integración continua](/actions/guides/about-continuous-integration)".
 
 ## Acerca del despliegue continuo utilizando {% data variables.product.prodname_actions %}
 
 Puedes configurar un flujo de trabajo de {% data variables.product.prodname_actions %} para desplegar tu producto de software. Para verificar que tu producto funcione conforme lo esperado, este puede compilar el código en tu repositorio y ejecutar tus pruebas antes del despliegue.
 
-Puedes configurar tu flujo de trabajo de DC para que se ejecute cuando ocurra un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a la rama predeterminada de tu repositorio), en un horario establecido o cuando ocurre un evento externo que utilice el webhook de despacho. Para obtener más información sobre cuándo puede ejecutarse tu flujo de trabajo, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+Puedes configurar tu flujo de trabajo de DC para que se ejecute cuando ocurra un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a la rama predeterminada de tu repositorio), en un horario establecido o cuando ocurre un evento externo que utilice el webhook de despacho. Para más información sobre cuándo se puede ejecutar el flujo de trabajo, vea "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
-{% data variables.product.prodname_actions %} Proporciona características que te dan más control sobre los despliegues. Por ejemplo, puedes utilizar ambientes para requerir aprobaciones para que proceda un job, restringir que ramas pueden activar un flujo de trabajo o limitar el acceso a los secretos. Puedes utilizar la concurrencia para limitar tu mapa de DC a un máximo de un despliegue en curso y uno pendiente. Para obtener más información sobre estas características, consulta las secciones "[Desplegar con las Github Actions](/actions/deployment/deploying-with-github-actions)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
+{% data variables.product.prodname_actions %} Proporciona características que te dan más control sobre los despliegues. Por ejemplo, puedes utilizar ambientes para requerir aprobaciones para que proceda un job, restringir que ramas pueden activar un flujo de trabajo o limitar el acceso a los secretos. Puedes utilizar la simultaneidad para limitar la canalización de CD a una implementación en curso y una pendiente como máximo. Para más información sobre estas características, consulta "[Implementación con Acciones de GitHub](/actions/deployment/deploying-with-github-actions)" y "[Uso de entornos para la implementación](/actions/deployment/using-environments-for-deployment)".
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
-## Utilizar OpenID Connect para acceder a los recursos en la nube
+## Utilizar OpenID connect para acceder a los recursos en la nube
 
 {% data reusables.actions.about-oidc-short-overview %}
 
@@ -43,9 +47,9 @@ Puedes configurar tu flujo de trabajo de DC para que se ejecute cuando ocurra un
 
 {% data reusables.actions.cd-templates-actions %}
 
-## Leer más
+## Información adicional
 
 - [Desplegar con GitHub Actions](/actions/deployment/deploying-with-github-actions)
-- [Utilizar ambientes para desplegue](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
-- "[Administrar la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
+- [Uso de entornos para la implementación](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
+- "[Administración de la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 

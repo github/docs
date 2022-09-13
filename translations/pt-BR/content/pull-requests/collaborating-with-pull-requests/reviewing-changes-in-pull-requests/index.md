@@ -1,5 +1,5 @@
 ---
-title: Reviewing changes in pull requests
+title: Como revisar alterações nas solicitações de pull
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests
   - /articles/reviewing-and-discussing-changes-in-pull-requests
@@ -25,6 +25,12 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: Revisar alterações
+shortTitle: Review changes
+ms.openlocfilehash: e190c75efdf4a9813b50ccc817c2bd2a19c2393a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128023'
 ---
 

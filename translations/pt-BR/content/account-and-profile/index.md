@@ -1,7 +1,7 @@
 ---
 title: Sua conta e seu perfil no GitHub
-shortTitle: Conta e perfil
-intro: 'Faça {% data variables.product.product_name %} funcionar melhor para você, ajustando as configurações para sua conta pessoal, personalizando a página do seu perfil e gerenciando as notificações que você recebe para atividades em {% data variables.product.prodname_dotcom %}.'
+shortTitle: Account and profile
+intro: 'Faça com que o {% data variables.product.product_name %} funcione melhor para você ajustando as configurações da conta pessoal, personalizando a página do perfil e gerenciando as notificações que você recebe sobre atividades no {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
@@ -40,5 +40,11 @@ children:
   - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
+ms.openlocfilehash: 922990e3a89a53f625e739650c3c3b329f1f497d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146200191'
 ---
 

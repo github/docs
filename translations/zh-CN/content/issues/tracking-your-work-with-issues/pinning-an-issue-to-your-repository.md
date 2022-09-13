@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 固定议题
+shortTitle: Pin an issue
+ms.openlocfilehash: fd02bb1102e9da35fb534e95fce954ff5c11ec57
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128712'
 ---
-
 ![固定的议题](/assets/images/help/issues/pinned-issues.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
 1. 在议题列表中，单击您想要固定的议题。
-2. 在右侧边栏中，单击 **Pin issue（固定议题）**。 ![用于固定议题的按钮](/assets/images/help/repository/pin-issue.png)
+2. 在右侧栏中，单击“固定议题”。
+  ![用于固定议题的按钮](/assets/images/help/repository/pin-issue.png)

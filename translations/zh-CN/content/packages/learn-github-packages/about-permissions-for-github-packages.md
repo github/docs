@@ -1,88 +1,87 @@
 ---
-title: 关于 GitHub Packages 的权限
-intro: 了解如何管理包的权限。
+title: About permissions for GitHub Packages
+intro: Learn about how to manage permissions for your packages.
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 关于权限
+shortTitle: About permissions
 ---
 
 {% ifversion fpt or ghec %}
-包的权限要么是仓库范围，要么是用户/组织范围。
+The permissions for packages are either repository-scoped or user/organization-scoped.
 {% endif %}
 
-## 仓库作用域包的权限
+## Permissions for repository-scoped packages
 
-仓库作用域的包从拥有该包的仓库继承权限和可见性。 通过转到仓库的主页并单击页面右侧的 **Packages（包）**链接，您可以找到作用域为仓库的包。 {% ifversion fpt or ghec %}更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。{% endif %}
+A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
 
 The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
 
-  {% ifversion not fpt or ghec %}- Docker 注册表 (`docker.pkg.github.com`){% endif %}
+  {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
   {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-  - RubyGems 注册表
-  - Apache Maven 注册表
-  - NuGet 注册表
+  - RubyGems registry
+  - Apache Maven registry
+  - NuGet registry
 
 {% ifversion packages-npm-v2 %}For {% data variables.product.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
-## 用户/组织作用域包的精细权限
+## Granular permissions for user/organization-scoped packages
 
-具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
+Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
 
 Currently, the {% data variables.product.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
 
-## 容器映像的可见性和访问权限
+## Visibility and access permissions for container images
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。
+For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% endif %}
 
-## 管理包
+## About scopes and permissions for package registries
 
-要使用或管理由包注册表托管的包，您必须使用具有适当作用域的令牌，并且您的个人帐户必须具有适当的权限。
+To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your personal account must have appropriate permissions.
 
-例如：
--  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须具有读取权限。
-- |{% ifversion fpt or ghes or ghec %}要删除 {% data variables.product.product_name %}上的包，你的令牌必须至少具有 `delete:packages` 和 `read:packages` 作用域。 存储库作用域的软件包也需要 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”{% elsif ghae %}要删除 {% data variables.product.product_name %} 上软件包的指定版本，令牌必须具有 `delete:packages` 和 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
-| 作用域                                                                                                                                                                               | 描述                                                      | 所需权限   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------ |
-| `read:packages`                                                                                                                                                                   | 从 {% data variables.product.prodname_registry %} 下载和安装包 | 读取     |
-| `write:packages`                                                                                                                                                                  | 将包上传和发布到 {% data variables.product.prodname_registry %} | 写入     |
-| `delete:packages`                                                                                                                                                                 |                                                         |        |
-| {% ifversion fpt or ghes or ghec %} 从 {% data variables.product.prodname_registry %} 中删除包{% elsif ghae %} 从 {% data variables.product.prodname_registry %} 从删除包的指定版本{% endif %} |                                                         |        |
-| 管理员                                                                                                                                                                               |                                                         |        |
-| `repo`                                                                                                                                                                            | 上传和删除包（连同 `write:packages` 或 `delete:packages`）         | 写入或管理员 |
+For example:
+-  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permission.
+- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
-创建 {% data variables.product.prodname_actions %} 工作流程时，您可以使用 `GITHUB_TOKEN` 发布和安装 {% data variables.product.prodname_registry %} 中的包，无需存储和管理个人访问令牌。
+| Scope | Description | Required permission |
+| --- | --- | --- |
+|`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
+|`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
+| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
-更多信息请参阅：{% ifversion fpt or ghec %}
-- “[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”{% endif %}
-- “[使用 {% data variables.product.prodname_actions %} 发布和安装包](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)”
-- “[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token/)”。
-- 发布的包中含有敏感数据，例如违反 GDPR、API 密钥或个人身份信息
+When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
 
-## 在 {% data variables.product.prodname_actions %} 工作流程中维持对包的访问权限
+For more information, see:{% ifversion fpt or ghec %}
+- "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
+- "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
+- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token/)"
+- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
 
-为了确保工作流程将保持对包的访问，请确保在工作流程中使用正确的访问令牌，并启用了 {% data variables.product.prodname_actions %} 对包的访问权限。
+## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
 
-有关 {% data variables.product.prodname_actions %} 的更多概念背景或在工作流程中使用包的示例，请参阅“[使用 GitHub Actions 工作流程管理 GitHub Packages](/packages/managing-github-packages-using-github-actions-workflows)”。
+To ensure your workflows will maintain access to your packages, ensure that you're using the right access token in your workflow and that you've enabled {% data variables.product.prodname_actions %} access to your package.
 
-### 访问令牌
+For more conceptual background on {% data variables.product.prodname_actions %} or examples of using packages in workflows, see "[Managing GitHub Packages using GitHub Actions workflows](/packages/managing-github-packages-using-github-actions-workflows)."
 
-- 要发布与工作流程仓库相关联的包，请使用 `GITHUB_TOKEN`。
-- 要安装与 `GITHUB_TOKEN` 无法访问的其他私有仓库相关联的包，请使用个人访问令牌
+### Access tokens  
 
-有关 {% data variables.product.prodname_actions %} 工作流程中使用的 `GITHUB_TOKEN` 的更多信息，请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”。
+- To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
+- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a personal access token
+
+For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
 {% ifversion fpt or ghec %}
-### 容器映像的 {% data variables.product.prodname_actions %} 访问权限
+### {% data variables.product.prodname_actions %} access for container images
 
-要确保工作流程有权访问容器映像，您必须启用 {% data variables.product.prodname_actions %} 访问运行工作流程的仓库。 您可以在包的设置页面上找到此设置。 更多信息请参阅“[确保工作流程访问您的包](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)”。
+To ensure your workflows have access to your container image, you must enable {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
 
 {% endif %}

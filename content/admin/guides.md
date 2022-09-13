@@ -99,7 +99,7 @@ includeGuides:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise

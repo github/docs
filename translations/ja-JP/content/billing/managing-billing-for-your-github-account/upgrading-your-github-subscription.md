@@ -29,9 +29,14 @@ topics:
   - Troubleshooting
   - Upgrades
   - User account
-shortTitle: サブスクリプションのアップグレード
+shortTitle: Upgrade your subscription
+ms.openlocfilehash: 47426fa211521a166738c5a9bb00edddfc2556f2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145087911'
 ---
-
 ## プランのアップグレードについて
 
 {% data reusables.accounts.accounts-billed-separately %}
@@ -40,17 +45,13 @@ shortTitle: サブスクリプションのアップグレード
 
 ## 個人アカウントのプランをアップグレードする
 
-個人アカウントを{% data variables.product.prodname_free_user %}から{% data variables.product.prodname_pro %}にアップグレードして、個人アカウントが所有するプライベートリポジトリで高度なコードレビューツールを使えるようにすることができます。 個人アカウントをアップグレードしても、管理するOrganizationや、それらのOrganizationが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info %}
+個人アカウントを {% data variables.product.prodname_free_user %} から {% data variables.product.prodname_pro %} にアップグレードして、個人アカウントが所有するプライベート リポジトリで高度なコード レビュー ツールを使えるようにすることができます。 個人アカウントをアップグレードしても、管理するOrganizationや、それらのOrganizationが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. "Current plan（現在のプラン）"の隣で**Upgrade（アップグレード）**をクリックしてください。 ![アップグレードボタン](/assets/images/help/billing/settings_billing_user_upgrade.png)
-2. "Compare plans（プランの比較）"ページの"Pro（プロ）"の下で、**Upgrade to Pro（プロにアップグレード）**をクリックしてください。
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.enter-billing-info %}
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. [現在のプラン] の横にある **[アップグレード]** をクリックします。
+  ![[アップグレード] ボタン](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. [プランの比較] ページの [Pro] で、 **[Pro にアップグレード]** をクリックします。
+{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.show-plan-details %} {% data reusables.dotcom_billing.enter-billing-info %} {% data reusables.dotcom_billing.enter-payment-info %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ## Organizationのプランの管理
 
@@ -62,48 +63,36 @@ Organization を {% data variables.product.prodname_free_team %} から {% data 
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.upgrade_org %}
-{% data reusables.dotcom_billing.choose_org_plan %}
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.owned_by_business %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.upgrade_org %} {% data reusables.dotcom_billing.choose_org_plan %} {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.show-plan-details %} {% data reusables.dotcom_billing.enter-payment-info %} {% data reusables.dotcom_billing.owned_by_business %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
 
-Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳しい情報については{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}ドキュメンテーション中の{% else %}{% endif %}「[OrganizationでのSAMLシングルサインオンの管理](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
+Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳細については、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[Organization で SAML シングルサインオンを管理する](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳しい情報については{% ifversion fpt %}、{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% else %}、{% endif %}「[Enterpriseアカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)を参照してください。
+{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの "[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" を参照してください。{% else %}."{% endif %}
 
 ### Organization にシートを追加する
 
 {% data variables.product.prodname_team %} Organization のプライベートリポジトリにアクセスできるユーザを追加したい場合、いつでもシートを買い足すことができます。
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.add-seats %}
-{% data reusables.dotcom_billing.number-of-seats %}
-{% data reusables.dotcom_billing.confirm-add-seats %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.add-seats %} {% data reusables.dotcom_billing.number-of-seats %} {% data reusables.dotcom_billing.confirm-add-seats %}
 
 ### Organization をリポジトリごとからユーザごとに切り替える
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。
+{% data reusables.dotcom_billing.switch-legacy-billing %} 詳細については、「[ユーザーごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。
 
 {% data reusables.organizations.billing-settings %}
-5. プラン名の右にある [**Edit**] ドロップダウンメニューで、[**Edit plan**] を選択します。 ![[Edit] ドロップダウンメニュー](/assets/images/help/billing/per-user-upgrade-button.png)
-6. [Advanced tools for teams] の右にある [**Upgrade now**] をクリックします。 ![[Upgrade now] ボタン](/assets/images/help/billing/per-user-upgrade-now-button.png)
-{% data reusables.dotcom_billing.choose_org_plan %}
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.owned_by_business %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+5. プラン名の右側にある **[編集]** ドロップダウン メニューを使用して、 **[プランの編集]** を選択します。
+  ![[編集] ドロップダウン メニュー](/assets/images/help/billing/per-user-upgrade-button.png)
+6. [Team 向けの高度なツール] の右側にある **[今すぐアップグレード]** をクリックします。
+  ![[今すぐアップグレード] ボタン](/assets/images/help/billing/per-user-upgrade-now-button.png) {% data reusables.dotcom_billing.choose_org_plan %} {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.owned_by_business %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ## アップグレード時の 500 エラーのトラブルシューティング
 
 {% data reusables.dotcom_billing.500-error %}
 
-## 参考リンク
+## 参考資料
 
-- "[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)"
-- [アップグレードあるいはダウングレードの支払いプロセスへの影響は？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)
+- 「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)
+- 「[アップグレードやダウングレードは支払い処理にどのように影響しますか?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)」
 - 「[{% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)」

@@ -1,8 +1,8 @@
 ---
 title: 问题评论
 allowTitleToDifferFromFilename: true
-shortTitle: 评论
-intro: 议题评论 API 支持管理对议题和拉取请求的评论。
+shortTitle: Comments
+intro: 问题评论 API 支持管理有关问题和拉取请求的评论。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,10 +11,15 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 4ce15281238219701a999c56dd6b179b68fed9e2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093020'
 ---
+## 关于问题评论 API
 
-## 关于议题评论 API
-
-议题评论 API 支持管理对议题和拉取请求的评论。 {% data reusables.pull_requests.issues-pr-shared-api %} 若要管理拉取请求审查评论，请改用[拉取请求审查评论 API](/rest/pulls/comments)。
+问题评论 API 支持管理有关问题和拉取请求的评论。 {% data reusables.pull_requests.issues-pr-shared-api %} 若要管理拉取请求评审评论，请改用[拉取请求评审评论 API](/rest/pulls/comments)。
 
 {% data reusables.pull_requests.issues-media-types %}

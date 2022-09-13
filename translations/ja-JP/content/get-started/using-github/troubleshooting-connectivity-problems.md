@@ -1,6 +1,6 @@
 ---
-title: 接続問題のトラブルシューティング
-intro: '{% data variables.product.prodname_dotcom %} への接続の問題がある場合、接続のトラブルシューティングをして、次に問題を診断するために {% data variables.product.prodname_debug %} のツールを使ってください。'
+title: Troubleshooting connectivity problems
+intro: 'If you''re having trouble connecting to {% data variables.product.prodname_dotcom %}, you can troubleshoot your connection, then use the {% data variables.product.prodname_debug %} tool to diagnose problems.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
   - /github/getting-started-with-github/troubleshooting-connectivity-problems
@@ -10,37 +10,36 @@ versions:
   ghec: '*'
 shortTitle: Connectivity problems
 ---
+Most often, connection problems occur because a firewall, proxy server, corporate network, or other network is configured in a way that blocks {% data variables.product.prodname_dotcom %}.
 
-ほとんどの場合、接続問題は、ファイアウォール、プロキシサーバー、企業ネットワークや他のネットワークが {% data variables.product.prodname_dotcom %} をブロックする設定になっているために発生します。
+## Allowing {% data variables.product.prodname_dotcom %}'s IP addresses
 
-## {% data variables.product.prodname_dotcom %} の IP アドレスを許可する
+Make sure your network is configured to allow {% data variables.product.prodname_dotcom %}'s IP addresses. For more information, see "[About {% data variables.product.prodname_dotcom %}'s IP addresses](/articles/about-github-s-ip-addresses)."
 
-ネットワークが {% data variables.product.prodname_dotcom %} の IP アドレスを許可する設定になっていることを確認してください。 詳細は「[{% data variables.product.prodname_dotcom %} の IP アドレスについて](/articles/about-github-s-ip-addresses)」を参照してください。
+## Using a company or organization's network
 
-## 会社や Organization のネットワークを使用する
+If you're having connectivity problems on your company or organization's network, check with your network administrator to find out if the network has rules in place to block certain traffic. If there are rules in place, ask your network administrator to allow traffic to {% data variables.product.prodname_dotcom %}.
 
-会社や Organization のネットワークでの接続問題の場合、ネットワーク管理者にネットワークが特定のトラフィックをブロックするルールが設定されているかどうか確認してください。 ルールが設定されている場合は、ネットワーク管理者に依頼して、{% data variables.product.prodname_dotcom %} へのトラフィックを許可してください。
+## Troubleshooting the captcha
 
-## Captcha のトラブルシューティング
+If you're unable to verify with the captcha:
+- Ensure JavaScript is enabled on your browser.
+- Ensure your browser is supported. If your browser isn't supported, upgrade your browser or install a supported browser. For a list of supported browsers, see "[Supported browsers](/articles/supported-browsers)."
+- Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed, then visit https://client-demo.arkoselabs.com/github and ensure you are able to load the captcha.
+- Ensure your browser does not have plug-ins or extensions that may be interfering with GitHub. If so, temporarily disable the plug-ins or extensions during captcha verification.
 
-Captcha で検証できない場合、次のことを試してください:
-- ブラウザで JavaScript が有効になっていることを確認してください。
-- ブラウザがサポートされていることを確認してください。 もしサポートされていない場合、ブラウザをアップデートするか、サポートされているブラウザをインストールしてください。 サポートされているブラウザの一覧は、「[サポートされているブラウザ](/articles/supported-browsers)」を参照してください。
-- ネットワークの設定が https://octocaptcha.com/ や https://arkoselabs.com/ をブロックしていないことを確認してください。 企業のファイアウォールの内側にいる場合、IT 管理者に連絡して、それらのドメインを許可するよう依頼してください。 これらのドメインへのアクセスを確認するには、https://octocaptcha.com/test にアクセスして、「Connection successfully made!」というテキストが表示されていることを確認してから、https://client-demo.arkoselabs.com/github にアクセスして Captcha を読み込めることを確認します。
-- ブラウザに GitHub の障害となり得るプラグインや拡張機能がないことを確認します。 もしある場合、そのプラグインや拡張機能を、Captcha で検証する間は無効にしてください。
+## Switching cloning methods
 
-## クローン方法を変更する
+Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve connectivity. For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
 
-SSH によるクローンから HTTPS によるクローンに変更したり、またはその逆をした場合、接続が改善されることがあります。 For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+If you're encountering timeouts with SSH, see "[Error: Bad file number](/articles/error-bad-file-number)."
 
-SSH でタイムアウトが起きる場合は「[Error: Bad file number](/articles/error-bad-file-number)」を参照してください。
+## Troubleshooting slow downloads and intermittent slow connections
 
-## 遅いダウンロードや断続的な遅い接続のトラブルシューティング
+{% data variables.product.prodname_dotcom %} does not throttle bandwidth per user.
 
-{% data variables.product.prodname_dotcom %} は、ユーザごとに帯域を割り当てません。
+If you're experiencing slow connections at certain times of day but not others, the slow speeds are most likely due to network congestion. Because {% data variables.product.prodname_dotcom %} cannot resolve network congestion, you should escalate the problem to your internet service provider.
 
-一日の一定の時間に接続が遅くなる場合、その遅いスピードはネットワークの混雑が原因である可能性が高いです。 {% data variables.product.prodname_dotcom %} はネットワークの混雑を解決できませんので、その問題をインターネットサービスプロバイダに連絡してください。
+## Troubleshooting with {% data variables.product.prodname_debug %}
 
-## {% data variables.product.prodname_debug %} のトラブルシューティング
-
-上記のトラブルシューティングのアドバイスに従っても接続の問題が解決しない場合は、{% data variables.product.prodname_debug %} サイトの指示に従ってテストを行い、{% data variables.product.prodname_dotcom %} サポートに報告してください。 詳細は [{% data variables.product.prodname_debug %}](https://github-debug.com/) を参照してください。
+If you've followed all of the troubleshooting suggestions above and are still having connection problems, you can follow the instructions on the {% data variables.product.prodname_debug %} site to run tests and send a report to {% data variables.product.prodname_dotcom %} Support. For more information, see [{% data variables.product.prodname_debug %}](https://github-debug.com/).

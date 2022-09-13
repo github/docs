@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting TLS errors
-intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
+title: 排查 TLS 错误
+intro: 如果你的设备遇到 TLS 问题，可以采取相应措施加以解决。
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -19,8 +19,13 @@ topics:
   - Security
   - Troubleshooting
 shortTitle: Troubleshoot TLS errors
+ms.openlocfilehash: 855737f89f0380333b1f37c26d512c889f2ee786
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147389399'
 ---
-
 ## 将密码从密钥文件中移除
 
 如果您的 Linux 机器上安装了 OpenSSL，可以移除密码。
@@ -36,25 +41,25 @@ shortTitle: Troubleshoot TLS errors
 
 运行此命令时系统会提示您输入密钥的密码。
 
-关于 OpenSSL 的更多信息，请参阅 [OpenSSL 的文档](https://www.openssl.org/docs/)。
+有关 OpenSSL 的详细信息，请参阅 [OpenSSL 文档](https://www.openssl.org/docs/)。
 
-## Converting your TLS certificate or key into PEM format
+## 将 TLS 证书或密钥转换为 PEM 格式
 
-如果安装了 OpenSSL，您可以使用 `openssl` 命令将密钥转换为 PEM 格式。 例如，您可以将密钥从 DER 格式转换为 PEM 格式。
+如果安装了 OpenSSL，可以使用 `openssl` 命令将密钥转换为 PEM 格式。 例如，您可以将密钥从 DER 格式转换为 PEM 格式。
 
 ```shell
 $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
-否则，可以使用 SSL Converter 工具将证书转换为 PEM 格式。 更多信息请参阅 [SSL Converter 工具文档](https://www.sslshopper.com/ssl-converter.html)。
+否则，可以使用 SSL Converter 工具将证书转换为 PEM 格式。 有关详细信息，请参阅 [SSL 转换器工具的文档](https://www.sslshopper.com/ssl-converter.html)。
 
 ## 上传密钥后安装无响应
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
+如果上传 TLS 密钥后 {% data variables.product.product_location %}无响应，请[联系 {% data variables.product.prodname_enterprise %} 支持部门](https://enterprise.github.com/support)，并提供具体详细信息，包括 TLS 证书的副本。 请确保未包含私钥。 
 
 ## 证书有效性错误
 
-Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an TLS certificate. 这种情况通常发生在自签名证书以及由不被客户端承认的中间根证书颁发的“链式根”证书上。
+如果 Web 浏览器和命令行 Git 等客户端无法验证 TLS 证书的有效性，则会显示错误消息。 这种情况通常发生在自签名证书以及由不被客户端承认的中间根证书颁发的“链式根”证书上。
 
 如果您要使用由证书颁发机构 (CA) 签名的证书，那么您上传到 {% data variables.product.prodname_ghe_server %} 的证书文件必须包含具有该 CA 的根证书的证书链。 要创建此类文件，请将整个证书链（“或证书包”）连接到证书末端，确保包含主机名的主要证书在前。 在大多数系统中，您可以使用与下列命令相似的命令来执行此操作：
 
@@ -62,7 +67,7 @@ Clients such as web browsers and command-line Git will display an error message 
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
+可以从证书颁发机构或 TLS 供应商处下载证书捆绑包（例如 `bundle-certificates.crt`）。
 
 ## 安装自签名或不受信任的证书颁发机构 (CA) 根证书
 
@@ -82,6 +87,6 @@ You should be able to download a certificate bundle (for example, `bundle-certif
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
 
-## Updating a TLS certificate
+## 更新 TLS 证书
 
-You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。
+你可以生成新的自签名证书，或者使用 `ghe-ssl-certificate-setup` 命令行实用工具更新 {% data variables.product.product_location %}的现有 TLS 证书。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。

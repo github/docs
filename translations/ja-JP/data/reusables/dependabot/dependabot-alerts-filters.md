@@ -1,17 +1,22 @@
-`key:value`ペアとしてフィルタを検索バーに入力することで、{% data variables.product.prodname_dependabot_alerts %}のソートとフィルタリングが行えます。
+---
+ms.openlocfilehash: b04735eb82a08f99cda25184275a141141b07c55
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147707276"
+---
+検索バーにフィルターを `key:value` ペアとして入力すると、{% data variables.product.prodname_dependabot_alerts %} を並べ替えたりフィルター処理したりすることができます。 
 
-| オプション        | 説明                                                                                                                                                                 | サンプル                                                                                                                                                                      |
-|:------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ecosystem`  | 選択されたエコシステムのアラートを表示                                                                                                                                                | `ecosystem:npm`を使ってnpmの{% data variables.product.prodname_dependabot_alerts %}を表示 |{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7891 %}
-| `has`        | 選択されたフィルタ条件を満たすアラートを表示                                                                                                                                             | `has:patch`を使ってパッチを持つアドバイザリに関連したアラートを表示{% ifversion dependabot-alerts-vulnerable-calls %}</br>`has:vulnerable-calls`を使って脆弱性のある関数の呼び出しに関連したアラートを表示{% endif %} 
-{% endif %}
-| `is`         | 状態に基づいてアラートを表示                                                                                                                                                     | `is:open`を使ってオープンなアラートを表示                                                                                                                                                 |
-| `manifest`   | 選択されたマニフェストのアラートを表示                                                                                                                                                | `manifest:webwolf/pom.xml`を使ってwebwolfアプリケーションのpom.xmlに対するアラートを表示                                                                                                          |
-| `package`    | 選択されたパッケージに対するアラートを表示                                                                                                                                              | `package:django`を使ってdjangoに対するアラートを表示                                                                                                                                     |
-| `resolution` | 選択された解決のステータスに対するアラートを表示                                                                                                                                           | `resolution:no-bandwidth`を使って、以前にリソース不足あるいは修正する時間が無いことから置かれたアラートを表示                                                                                                       |
-| `repo`       | 関連するリポジトリに基づいてアラートを表示</br>このフィルタはセキュリティの概要でのみ利用できることに注意してください。 詳しい情報については「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。 | `repo:octocat-repo`を使って`octocat-repo`というリポジトリ内のアラートを表示 |{%- ifversion dependabot-alerts-development-label %}
-| `scope`      | 関連する依存関係のスコープに基づいてアラートを表示                                                                                                                                          | `scope:development`を使って開発の間にだけ使われた依存関係に対するアラートを表示 
-{% endif %}
-| `severity`   | 重要度のレベルに基づいてアラートを表示                                                                                                                                                | `severity:high`を使って重要度がHighのアラートを表示 |{%- ifversion dependabot-most-important-sort-option %}
-| `sort`       | 選択されたソート順に従ってアラートを表示                                                                                                                                               | アラートのデフォルトのソートオプションは、アラートを重要度でランク付けする`sort:most-important`</br>`sort:newest`を使って、{% data variables.product.prodname_dependabot %}が報告した最新のアラートを表示 
-{% endif %}
+| オプション | 説明 | 例 | 
+|:---|:---|:---|
+| `ecosystem` | 選んだエコシステムのアラートを表示します | `ecosystem:npm` を使用して npm の {% data variables.product.prodname_dependabot_alerts %} を表示します |{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7891 %}
+| `has` | 選んだフィルター条件を満たすアラートを表示します | `has:patch` を使用してパッチを持つアドバイザリに関するアラートを表示します。{% ifversion dependabot-alerts-vulnerable-calls %}</br>`has:vulnerable-calls` を使用して、脆弱な関数の呼び出しに関するアラートを表示します{% endif %} |{% endif %}
+| `is` | 状態に基づいてアラートを表示します | `is:open` を使用して、開いているアラートを表示します |
+| `manifest` | 選んだマニフェストのアラートを表示します | `manifest:webwolf/pom.xml` を使用して、Webwolf アプリケーションの pom.xml ファイルにアラートを表示します |
+| `package` | 選んだパッケージのアラートを表示します | `package:django` を使用して、django のアラートを表示します |
+| `resolution` | 選んだ解決状態のアラートを表示します | `resolution:no-bandwidth` を使用して、リソースまたは修正時間が足りなかったために以前にパークされたアラートを表示します |
+| `repo` |  関連するリポジトリに基づいてアラートを表示します</br>このフィルターは、セキュリティの概要でのみ使用できる点にご注意ください。 詳しくは、「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。 | `repo:octocat-repo` を使用して、呼び出された `octocat-repo` リポジトリにアラートを表示します。 |{%- ifversion dependabot-alerts-development-label %}
+| `scope` | 関連する依存関係のスコープに基づいてアラートを表示します | `scope:development` を使用して、開発中にのみ使用される依存関係のアラートを表示します |{% endif %}
+| `severity` | 重大度のレベルに基づいてアラートを表示します | `severity:high` を使用して、重大度が高いアラートを表示します |{%- ifversion dependabot-most-important-sort-option %}
+| `sort` | 選んだ並べ替え順序に従ってアラートを表示します | アラートの既定の並べ替えオプションは `sort:most-important` であり、重要度でアラートが優先度付けされます</br>`sort:newest` を使用して、{% data variables.product.prodname_dependabot %} によって報告された最新のアラートを表示します |{% endif %}

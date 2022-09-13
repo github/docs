@@ -14,5 +14,11 @@ children:
   - /about-webhooks
   - /about-github-marketplace
   - /github-extensions-and-integrations
+ms.openlocfilehash: ba97623756a53352fb8a9d1d34db9f5dd6c3bede
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145112101'
 ---
 

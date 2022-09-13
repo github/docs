@@ -17,6 +17,12 @@ children:
   - /setting-up-notifications
   - /viewing-and-triaging-notifications
   - /managing-subscriptions-for-activity-on-github
-shortTitle: Suscripciones & notificaciones
+shortTitle: Subscriptions & notifications
+ms.openlocfilehash: 33c5c21db5feb48ca234e2ba45173f480fb53f8f
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145113034'
 ---
 

@@ -1,13 +1,13 @@
-Ao usar a interface de usuário web para tentar confirmar um segredo suportado para um repositório ou organização com digitalização de segredo como uma proteção de push habilitada {% data variables.product.prodname_dotcom %} bloqueará o commit.
+When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. 
 
-Você verá um banner no topo da página com informações sobre a localização do segredo, e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.
+You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
 
 {% ifversion push-protection-custom-link-orgs %}
 
-  ![Captura de tela que mostra o commit na interface de usuário da web bloqueado devido à proteção de push da digitalização de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
 
 {% else %}
 
-  ![Captura de tela que mostra o commit na interface de usuário da web bloqueado devido à proteção de push da digitalização de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
-
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  
 {% endif %}

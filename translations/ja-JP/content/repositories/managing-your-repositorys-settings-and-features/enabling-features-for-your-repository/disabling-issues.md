@@ -13,11 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: a706b1431f4f43c9866fb6ef0f01f6d25d6edc46
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132217'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. [Features] の下で、[**Issues**] チェックボックスの選択を解除します。 ![[Issues] チェックボックスの解除](/assets/images/help/issues/issues_settings_remove_from_repo.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. [機能] で、 **[Issue]** チェックボックスをオフにします。
+  ![[Issues] チェックボックスをオフ](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 将来、再び Issue を有効化することにした場合、それまでに追加された Issue もすべて使用できるようになります。
 

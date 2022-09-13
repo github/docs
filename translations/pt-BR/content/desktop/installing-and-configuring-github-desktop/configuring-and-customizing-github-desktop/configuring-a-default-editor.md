@@ -6,9 +6,14 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
   fpt: '*'
-shortTitle: Configurar editor padrão
+shortTitle: Configure default editor
+ms.openlocfilehash: 4316ed1b37b67e606f702cc4df805908b60c09cd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146736610'
 ---
-
 ## Editores compatíveis
 
 O {% data variables.product.prodname_desktop %} é compatível com os seguintes editores.
@@ -30,7 +35,7 @@ O {% data variables.product.prodname_desktop %} é compatível com os seguintes 
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - Para usar Brackets com {% data variables.product.prodname_desktop %}, você deve instalar o atalho da Linha de Comando. Para instalar o atalho, abra o Brackets, clique em **Arquivo** na barra de menu e, em seguida, clique em **Instalar atalho da linha de comando**.
+  - Para usar Brackets com {% data variables.product.prodname_desktop %}, você deve instalar o atalho da Linha de Comando. Para instalar o atalho, abra o Brackets, clique em **Arquivo** na barra de menus e clique em **Instalar Atalho de Linha de Comando**.
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -61,7 +66,7 @@ O {% data variables.product.prodname_desktop %} é compatível com os seguintes 
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [Android Studio](https://developer.android.com/studio)
 - [Brackets](http://brackets.io/)
-- [Notepad++](https://notepad-plus-plus.org/)
+- [Bloco de Notas++](https://notepad-plus-plus.org/)
 - [RStudio](https://rstudio.com/)
 - [Aptana Studio](http://www.aptana.com/)
 
@@ -72,17 +77,21 @@ O {% data variables.product.prodname_desktop %} é compatível com os seguintes 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-3. Na janela preferências, selecione **Integrações**. ![O painel integrações na janela preferências](/assets/images/help/desktop/mac-select-integrations-pane.png)
-4. Use o menu suspenso "Editor externo" e escolha o editor que deseja definir como padrão. ![Menu External editor (Editor externo) na barra de menus Preferences (Preferências)](/assets/images/help/desktop/mac-editor-menu.png)
-5. Clique em **Salvar**.
+3. Na janela Preferências, selecione **Integrações**.
+  ![Painel Integrações na janela Preferências](/assets/images/help/desktop/mac-select-integrations-pane.png)
+4. Use o menu suspenso "Editor externo" e escolha o editor que deseja definir como padrão.
+  ![Menu do Editor externo na barra de menus Preferências](/assets/images/help/desktop/mac-editor-menu.png)
+5. Clique em **Salvar**.  
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-3. Na janela opções, selecione **Integrações**. ![O painel de integrações na janela opções](/assets/images/help/desktop/windows-select-integrations-pane.png)
-4. Use o menu suspenso "Editor externo" e escolha o editor que deseja definir como padrão. ![Menu External editor (Editor externo) na barra de menus Options (Opções)](/assets/images/help/desktop/windows-editor-menu.png)
-5. Clique em **Salvar**.
+3. Na janela Opções, selecione **Integrações**.
+  ![Painel Integrações na janela Opções](/assets/images/help/desktop/windows-select-integrations-pane.png)
+4. Use o menu suspenso "Editor externo" e escolha o editor que deseja definir como padrão.
+  ![Menu do Editor externo na barra de menus Opções](/assets/images/help/desktop/windows-editor-menu.png)
+5. Clique em **Salvar**.  
 
 {% endwindows %}

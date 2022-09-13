@@ -1,6 +1,6 @@
 ---
-title: About Jekyll build errors for GitHub Pages sites
-intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
+title: 关于 GitHub Pages 站点的 Jekyll 构建错误
+intro: '如果在本地或 {% data variables.product.product_name %} 上构建 {% data variables.product.prodname_pages %} 站点发生 Jekyll 错误，您将收到一条错误消息，其中包含相关详细信息。'
 redirect_from:
   - /articles/viewing-jekyll-build-error-messages
   - /articles/generic-jekyll-build-failures
@@ -15,74 +15,77 @@ versions:
 topics:
   - Pages
 shortTitle: Jekyll build errors for Pages
+ms.openlocfilehash: c435d7857239ae4a8b1a09c86e10fe12b248a4b2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147648237'
 ---
+## 关于 Jekyll 构建错误
 
-## About Jekyll build errors
-
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, sometimes{% else %}Sometimes,{% endif %} {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
-- The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
-- You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
-- You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
+{% ifversion pages-custom-workflow %}如果从分支发布，则将更改推送到站点的发布源后，有时，{% else %}Sometimes,{% endif %} {% data variables.product.prodname_pages %} 不会尝试生成站点。{% ifversion fpt or ghec %}
+- 推送更改的人尚未验证他们的电子邮件地址。 有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
+- 您使用部署密钥推送。 如果要自动推送到站点的仓库，您可以改为设置计算机用户。 有关详细信息，请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#machine-users)”。
+- 您使用的是未配置为构建发布源的 CI 服务。 例如，Travis CI 不会生成 `gh-pages` 分支，除非将分支添加到安全列表。 有关详细信息，请参阅 Travis CI 上的“[自定义生成](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)”或 CI 服务的文档。
 
 {% note %}
 
-**Note:** It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+**注意：** 对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 10 分钟才会发布。
 
 {% endnote %}
 
-{% ifversion build-pages-with-actions %}
-If Jekyll does attempt to build your site and encounters an error, you will receive a build error message.
-{% else %}
-If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
-- A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
-- A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
+{% ifversion build-pages-with-actions %} 如果 Jekyll 尝试构建站点但遇到错误，你将收到一条构建错误消息。
+{% else %} 如果 Jekyll 尝试构建站点但遇到错误，你将收到一条构建错误消息。 Jekyll 构建错误消息有两种主要类型。
+- “Page build warning（页面构建警告）”消息表示构建已成功完成，但您可能需要进行更改以防止将来出现问题。
+- “Page build failed（页面构建失败）”消息表示构建未能完成。 如果 Jekyll 能够检测到失败的原因，您将看到描述性错误消息。
 {% endif %}
 
-For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
+有关排查生成错误的详细信息，请参阅“[排查 {% data variables.product.prodname_pages %} 站点的 Jekyll 生成错误](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)”。
 
 {% ifversion build-pages-with-actions %}
-## Viewing Jekyll build error messages with {% data variables.product.prodname_actions %}
+## 查看 {% data variables.product.prodname_actions %} 的 Jekyll 构建错误消息
 
-By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+默认情况下，除非已将 {% data variables.product.prodname_pages %} 网站配置为使用其他 CI 工具，否则 {% data variables.product.prodname_pages %} 网站使用 {% data variables.product.prodname_actions %} 工作流程运行构建和部署。 要查找潜在的构建错误，您可以通过查看仓库的工作流程运行来检查 {% data variables.product.prodname_pages %} 站点的工作流程运行情况。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。  有关如何在出现错误时重新运行工作流的详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 {% endif %}
 
 {% ifversion build-pages-with-actions %}{% else %}
-## Viewing your repository's build failures on {% data variables.product.product_name %}
+## 查看 {% data variables.product.product_name %} 上的仓库构建失败
 
-You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
+你可以在 {% data variables.product.product_name %} 上站点存储库的“设置”选项卡中查看生成失败（而不是生成警告）。
 {% endif %}
 
-## Viewing Jekyll build error messages locally
+## 在本地查看 Jekyll 构建错误消息
 
-We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+我们建议在本地测试您的站点，这样您可以在命令行上看到构建错误消息，并在更改推送到 {% data variables.product.product_name %} 之前解决任何构建失败。 有关详细信息，请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
 
-## Viewing Jekyll build error messages in your pull request
+## 在拉取请求中查看 Jekyll 构建错误消息
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+{% ifversion pages-custom-workflow %}如果从分支发布，当{% else %}When{% endif %}创建拉取请求来更新 {% data variables.product.product_name %} 上的发布源时，拉取请求的“检查”选项卡上会显示生成错误消息。 有关详细信息，请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
 
-{% ifversion pages-custom-workflow %}If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to see build error messages in your pull request, you must configure your workflow to run on the `pull_request` trigger. When you do this, we recommend that you skip any deploy steps if the workflow was triggered by the `pull_request` event. This will allow you to see any build errors without deploying the changes from your pull request to your site. For more information, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#pull_request)" and "[Expressions](/actions/learn-github-actions/expressions)."{% endif %}
+{% ifversion pages-custom-workflow %}如果使用自定义 {% data variables.product.prodname_actions %} 工作流进行发布，以在拉取请求中查看生成错误消息，则必须将工作流配置为在 `pull_request` 触发器上运行。 执行此操作时，如果工作流已由 `pull_request` 事件触发，则建议跳过所有部署步骤。 这样，无需将拉取请求中的更改部署到站点即可查看所有生成错误。 有关详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows#pull_request)”和“[表达式](/actions/learn-github-actions/expressions)”。{% endif %}
 
-## Viewing Jekyll build errors by email
+## 通过电子邮件查看 Jekyll 构建错误
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. {% data reusables.pages.build-failure-email-server %}
+{% ifversion pages-custom-workflow %}如果从分支发布，当{% else %}When{% endif %}将更改推送到 {% data variables.product.product_name %} 上的发布源时，{% data variables.product.prodname_pages %} 将尝试生成站点。 如果构建失败，您将在您的主要电子邮件地址收到一封电子邮件。 {% data reusables.pages.build-failure-email-server %}
 
-{% ifversion pages-custom-workflow %}If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to receive emails about build errors in your pull request, you must configure your workflow to run on the `pull_request` trigger. When you do this, we recommend that you skip any deploy steps if the workflow was triggered by the `pull_request` event. This will allow you to see any build errors without deploying the changes from your pull request to your site. For more information, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#pull_request)" and "[Expressions](/actions/learn-github-actions/expressions)."{% endif %}
+{% ifversion pages-custom-workflow %}如果使用自定义 {% data variables.product.prodname_actions %} 工作流进行发布，以在拉取请求中接收有关生成错误的电子邮件，则必须将工作流配置为在 `pull_request` 触发器上运行。 执行此操作时，如果工作流已由 `pull_request` 事件触发，则建议跳过所有部署步骤。 这样，无需将拉取请求中的更改部署到站点即可查看所有生成错误。 有关详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows#pull_request)”和“[表达式](/actions/learn-github-actions/expressions)”。{% endif %}
 
-## Viewing Jekyll build error messages in your pull request with a third-party CI service
+## 使用第三方 CI 服务查看拉取请求中的 Jekyll 构建错误消息
 
-You can configure a third-party service, such as [Travis CI](https://travis-ci.org/), to display error messages after each commit.
+可以将第三方服务（如 [Travis CI](https://travis-ci.org/)）配置为在每次提交后显示错误消息。
 
-1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
+1. 如果尚未在发布源的根目录中添加名为 Gemfile 的文件并包含以下内容：
   ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
-2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.org/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
+2. 为您选择的测试服务配置站点仓库。 例如，使用 [Travis CI](https://travis-ci.org/) 在发布源的根目录中添加名为 _.travis.yml_ 的文件并包含以下内容：
   ```yaml
   language: ruby
   rvm:
     - 2.3
   script: "bundle exec jekyll build"
   ```
-3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
+3. 您可能需要使用第三方测试服务激活仓库。 更多信息请参阅测试服务的文档。

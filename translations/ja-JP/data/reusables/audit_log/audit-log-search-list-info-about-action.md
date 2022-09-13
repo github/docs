@@ -1,14 +1,20 @@
-それぞれのAudit logのエントリ名は、`action`オブジェクトもしくはカテゴリ修飾子のあとに操作タイプを続けて構成されます。 たとえば、`repo.create`というエントリは`repo`カテゴリの`create`操作を参照しています。
+---
+ms.openlocfilehash: e01273fe15058c00b11d380a3c50d4448cfb92b8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146180784"
+---
+各監査ログ エントリの名前は、`action` オブジェクトまたはカテゴリ修飾子と、その後の操作の種類で構成されます。 たとえば、`repo.create` エントリは `repo` カテゴリに対する `create` 操作を意味します。
 
 各 Audit log エントリには、次のようなイベントに関する適切な情報が表示されます:
 
-- アクションが実行された{% ifversion ghec or ghes or ghae %}Enterpriseもしくは{% endif %}Organization
-- アクションを実行したユーザ（アクター）
-- アクションで影響を受けたユーザ
+- アクションが実行された {% ifversion ghec or ghes or ghae %}エンタープライズまたは{% endif %}Organization
+- アクションを実行したユーザー (アクター)
+- アクションによって影響を受けたユーザー
 - アクションの対象となったリポジトリ
-- 実行されたアクション
+- 実行されたアクションです
 - アクションが実行された国
-- アクションが発生した日時
-{%- ifversion enterprise-audit-log-ip-addresses %}
-- オプションで、アクションを実行したユーザ（アクター）のソースIPアドレス
-{%- endif %}
+- アクションが発生した日時 {%- ifversion enterprise-audit-log-ip-addresses %}
+- 必要に応じて、アクションを実行したユーザー (アクター) の送信元 IP アドレス {%- endif %}

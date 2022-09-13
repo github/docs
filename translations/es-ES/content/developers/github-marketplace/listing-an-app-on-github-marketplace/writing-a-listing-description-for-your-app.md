@@ -1,6 +1,6 @@
 ---
 title: Escribir la descripción de un listado para tu app
-intro: 'Para [Listar tu app](/marketplace/listing-on-github-marketplace/) en {% data variables.product.prodname_marketplace %}, necesitarás escribir una descripción de ésta y proporcionar imágenes que se apeguen a los lineamientos de GitHub.'
+intro: 'Para [mostrar tu aplicación](/marketplace/listing-on-github-marketplace/) en {% data variables.product.prodname_marketplace %}, deberás escribir una descripción de ella y proporcionar imágenes que sigan las indicaciones de GitHub.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -16,24 +16,29 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Escribir listas de descripciones
+shortTitle: Write listing descriptions
+ms.openlocfilehash: f29e049529801011d25d2723c5851b56d7a8bb92
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139260'
 ---
-
-Aquí te mostramos los lineamientos de los campos que necesitas llenar en la sección **Listar descripción** del borrador de tu listado.
+Estas son instrucciones sobre los campos que tendrá que rellenar en la sección **Descripción de la oferta** del borrador de la oferta.
 
 ## Nomencltura y enlaces
 
 ### Nombre del listado
 
-El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Tu listado no puede tener el mismo nombre que el de una cuenta existente en {% data variables.product.product_location %}, a menos de que dicho nombre sea aquél de tu organización o usuario.
+El nombre de la oferta aparecerá en la [página principal de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Tu listado no puede tener el mismo nombre que el de una cuenta existente en {% data variables.product.product_location %}, a menos de que dicho nombre sea aquél de tu organización o usuario. 
 
 ### Descripción muy corta
 
-La comunidad verá la descripción "muy corta" debajo del nombre de tu app en la [página principal de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+La comunidad verá la descripción "muy corta" en el nombre de la aplicación en la [página principal de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
 ![Descripción corta de la app en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Longitud
+#### Length
 
 Te remcomendamos mantener un largo de 40 a 80 caracteres para las descripciones cortas. Aunque se te permite utilizar más caracteres, las descripciones concisas son más fáciles de leer y más rápidas de entender para los clientes.
 
@@ -41,17 +46,17 @@ Te remcomendamos mantener un largo de 40 a 80 caracteres para las descripciones 
 
 - Describe la funcionalidad de la app. No utilices este espaccio para un llamado a la acción. Por ejemplo:
 
-  **RECOMENDADO:** Una administración de proyectos ligera para los informes de problemas de GitHub
+  **SÍ:** Administrar proyectos ligeros para incidencias de GitHub
 
-  **NO RECOMENDADO:** Administración de proyectos e informes de problemas en GitHub
+  **NO:** Administrar los proyectos e incidencias en GitHub
 
-  **Tip:** Pon los verbos en tercera persona del singular en las llamadas a la acción para convertirlas en una descripción aceptable: _Administra tus proyectos e informes de problemas en GitHub_
+  **Sugerencia:** Agregue la tercera personal del singular al final del verbo en una llamada a la acción para convertirla en una descripción aceptable: _Administra los proyectos e incidencias en GitHub_
 
 - No repitas el nombre de la app en la descripción.
 
-  **RECOMENDADO:** Una herramienta de integración contínua nativa para el contenedor
+  **SÍ:** Una herramienta de integración continua nativa para contenedores
 
-  **NO RECOMENDADO:** Skycap es una herramienta de integración contínua nativa para el contenedor
+  **NO:** Skycap es una herramienta de integración continua nativa para contenedores
 
 #### Formato
 
@@ -59,45 +64,45 @@ Te remcomendamos mantener un largo de 40 a 80 caracteres para las descripciones 
 
 - No uses puntuación al final de tu descripción corta. Las descripciones cortas no deben incluir oraciones completas, y en definitiva, no deben incluir más de una oración.
 
-- Usa mayúscula inicial únicamente en nombres propios. Por ejemplo:
+- Usa mayúscula ínicial únicamente en nombres propios. Por ejemplo:
 
-  **RECOMENDADO:** Automatización de entrega en un solo click para desarrolladores web
+  **SÍ:** Automatización de entrega con un solo clic para desarrolladores web
 
-  **NO RECOMENDADO:** Automatización de entrega en un solo click para Desarrolladores Web
+  **NO:** Automatización de entrega con un solo clic para Desarrolladores web
 
-- Utiliza siempre una [coma serial](https://en.wikipedia.org/wiki/Serial_comma) en las listas.
+- Use siempre una [coma en serie](https://en.wikipedia.org/wiki/Serial_comma) en las listas.
 
 - Evita referirte a la comunidad de GitHub como "usuarios".
 
-  **RECOMENDADO:** Crea informes de problemas automáticamente para las personas de tu organización
+  **SÍ:** Creación automática de incidencias para personas de la organización
 
-  **NO RECOMENDADO:** Crea informes de problemas automáticamente para los usuarios de una organización
+  **NO:** Creación automática de incidencias para los usuarios de una organización
 
 - Evita utilizar acrónimos a menos de que estén bien establecidos (tal como API). Por ejemplo:
 
-  **RECOMENDADO:** Tableros de tareas ágiles, estimados y reportes sin salir de GitHub
+  **SÍ:** Paneles de tareas ágiles, estimaciones e informes sin salir de GitHub
 
-  **NO RECOMENDADO:** Tableros de tareas ágiles, estimados, y reportes sin dejar la IU de GitHub
+  **NO:** Paneles de tareas ágiles, estimaciones e informes sin salir de la interfaz de usuario de GitHub
 
 ### Categorías
 
-Las apps en {% data variables.product.prodname_marketplace %} se pueden mostrar por categoría. Selecciona la categoría que describa mejor la funcionalidad principal de tu app en el menú desplegable de **Categoría principal** y, opcionalmente, selecciona una **Categoría secundaria** si es que describe mejor a tu app.
+Las apps en {% data variables.product.prodname_marketplace %} se pueden mostrar por categoría. Seleccione la categoría que mejor describa la funcionalidad principal de la aplicación en la lista desplegable **Categoría principal** y, opcionalmente, seleccione una **Categoría secundaria** que se ajuste a la aplicación.
 
-### Lenguajes compatibles
+### Idiomas compatibles
 
 Si tu app funciona únicamente con lenguajes específicos, selecciona hasta 10 lenguajes de programación que sean compatibles con ella. Estos lenguajes se muestran en la página del listado de {% data variables.product.prodname_marketplace %} de tu app. Este campo es opcional.
 
 ### Listar las URL
 
-**URL Requeridas**
-* **URL de servicio al cliente:** La URL de una página web a la que llegarán tus clientes cuando tienen preguntas de la cuenta, producto o soporte técnico.
-* **URL de la política de privacidad:** La página web que muestra la política de privacidad de tu app.
-* **URL de la instalación:** Este campo se muestra únicamente para las apps de OAuth. (Las GitHub Apps no utilizan esta URL porque utilizan la URL de configuración opcional de la página de su página de configuración). Cuando un cliente compra tu App de OAuth, GitHub redireccionará a los clientes a la URL de la instalación después de que la instalen. Necesitarás redirigir a los clientes a `https://github.com/login/oauth/authorize` para comenzar el flujo de autorizaciones de OAuth. Consulta la sección "[Compras nuevas de Apps de OAuth](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" para recibir más detalles al respecto. Omite este campo si estás listando una GitHub App.
+**Direcciones URL necesarias**
+* **URL del servicio de asistencia al cliente:** URL de una página web a la que llegarán los clientes cuando tengan preguntas sobre la cuenta, el producto o soporte técnico.
+* **Dirección URL de la directiva de privacidad:** página web en la que se muestra la directiva de privacidad de la aplicación.
+* **Dirección URL de instalación:** este campo solo se muestra para aplicaciones de OAuth. (Las aplicaciones de GitHub no usan esta URL porque en su lugar utilizan la dirección URL de configuración opcional de la página de configuración de la aplicación de GitHub). Cuando un cliente compra la aplicación de OAuth, GitHub le redirigirá a la dirección URL de instalación después de que instale la aplicación. Tendrá que redirigir a los clientes a `https://github.com/login/oauth/authorize` para que inicien el flujo de autorización de OAuth. Vea "[Nuevas compras para aplicaciones de OAuth](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" para más información. Omite este campo si estás listando una GitHub App.
 
 **URL opcionales**
-* **URL de la empresa:** Un enlace al sitio web de tu empresa.
-* **URL de estado:** Un enlace a la página web que muestra el estado de tu app. Las páginas de estado incluyen reportes de incidentes actuales y en forma de historial, el estado de tiempo activo de la aplicación web, y los periodos programados de mantenimiento.
-* **URL de Documentación:** Un enlace a la documentación que muestra a los clientes cómo utilizar tu app.
+* **Dirección URL de la empresa:** vínculo al sitio web de su empresa.
+* **Dirección URL de estado:** vínculo a una página web en la que se muestra el estado de la aplicación. Las páginas de estado incluyen reportes de incidentes actuales y en forma de historial, el estado de tiempo activo de la aplicación web, y los periodos programados de mantenimiento.
+* **Dirección URL de documentación:** vínculo a la documentación que enseña a los clientes a usar la aplicación.
 
 ## Logo y tarjeta de características
 
@@ -105,7 +110,7 @@ Si tu app funciona únicamente con lenguajes específicos, selecciona hasta 10 l
 
 ![Imágenes de logo e insignia en GitHub marketplace](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-Una tarjeta de características consiste en el logo, nombre e imagen personalizada de fondo para tu app, la cual captura la personalidad de ésta. {% data variables.product.prodname_marketplace %} muestra esta tarjeta si tu app es una de las cuatro apps que se presentan aleatoriamente en la parte superior de la [página principal](https://github.com/marketplace). Cada descripción muy corta de las apps se muestra debajo de su tarjeta de características.
+Una tarjeta de características consiste en el logo, nombre e imagen personalizada de fondo para tu app, la cual captura la personalidad de ésta. {% data variables.product.prodname_marketplace %} muestra esta tarjeta si la aplicación es una de las cuatro aplicaciones destacadas aleatoriamente en la parte superior de la [página principal](https://github.com/marketplace). Cada descripción muy corta de las apps se muestra debajo de su tarjeta de características.
 
 ![Tarjeta de características](/assets/images/marketplace/marketplace_feature_card.png)
 
@@ -129,7 +134,7 @@ Debes cargar una imagen personalizada de fondo para la tarjeta de característic
 - La imagen de fondo mide 065 pixeles x 482 pixeles (ancho x alto).
 - Elige un color de texto para el nombre de tu app, el cual se muestre claramente sobre la imagen de fondo.
 
-## Detalles del listado
+## Listado de detalles
 
 Para obtener la página de llegada de tu app, da clic en su nombre desde la página principal de {% data variables.product.prodname_marketplace %} o desde su página de categoría. La página de llegada muestra una descripción más larga de tu app, la cual incluye dos partes: una "Descripción de introducción" y una "Descripción detallada".
 
@@ -137,17 +142,17 @@ Tu "Descripción de introducción" se muestra en la parte superior de la página
 
 ![Descripción de introducción en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_intro_description.png)
 
-El dar clic en **Leer más...** mostrará la "Descripción detallada".
+Al hacer clic en **Leer más...** se muestra la "Descripción detallada".
 
 ![Descripción detallada en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_detailed_description.png)
 
 Sigue estos lineamientos para escribir estas descripciones.
 
-### Longitud
+### Length
 
-Te recomendamos escribir un resumen de alto nivel que se componga de una o dos oraciones de entre 150 y 250 caracteres en el campo "Descripción de introducción" cuando [listes tu aplicación](/marketplace/listing-on-github-marketplace/). Aunque se te permite utilizar más caracteres, los resúmenes concisos son más fáciles de leer y más rápidas de entender para los clientes.
+Se recomienda escribir un resumen general de 1-2 frases de entre 150 y 250 caracteres en el campo "Descripción introductoria" necesario al [ofertar la aplicación](/marketplace/listing-on-github-marketplace/). Aunque se te permite utilizar más caracteres, los resúmenes concisos son más fáciles de leer y más rápidas de entender para los clientes.
 
-Puedes agregar más información en el campo opcional "Descripción detallada". Encuentras esta descripción al dar clic en **Leer más...** debajo de la descripción de introducción en la página de llegada de tu app. Una descripción detallada consiste en 3-5 [propuestas de valor](https://en.wikipedia.org/wiki/Value_proposition) con 1-2 oraciones que se describen una a la otra. Puedes utilizar hasta 1,000 caracteres para esta descripción.
+Puedes agregar más información en el campo opcional "Descripción detallada". Verá esta descripción al hacer clic en **Leer más...** debajo de la descripción introductoria en la página de aterrizaje de la aplicación. Una descripción detallada consta de 3-5 [propuestas de valor](https://en.wikipedia.org/wiki/Value_proposition), con 1-2 frases que describen cada una. Puedes utilizar hasta 1,000 caracteres para esta descripción.
 
 ### Contenido
 
@@ -163,22 +168,21 @@ Puedes agregar más información en el campo opcional "Descripción detallada". 
 
 - No utilices signos de puntuación al final de tus títulos para las propuestas de valor. Los títulos de propuestas de valor no deben incluir oraciones completas ni más de una oración.
 
-- Para cada propuesta de valor, incluye un título seguido de un párrafo de descripción. Da formato al título como un [encabezado nivel tres](/articles/basic-writing-and-formatting-syntax/#headings) utilizando lenguaje de marcado (Markdown). Por ejemplo:
-
+- Para cada propuesta de valor, incluye un título seguido de un párrafo de descripción. Aplique al título formato de [encabezado de nivel 3](/articles/basic-writing-and-formatting-syntax/#headings) mediante Markdown. Por ejemplo:
 
   ### Adquiere las habilidades que necesitas
 
-  GitHub Skills puede ayudarte a aprender cómo utilizar GitHub, comunicarte con mayor eficacia con el lenguaje de marcado, manejar conflictos de fusión y más.
+  GitHub Skills puede ayudarte a aprender cómo se usa GitHub, a comunicarte de forma más efectiva con el lenguaje de Markdown, a gestionar conflictos de fusión y mucho más.
 
-- Usa mayúscula inicial únicamente en nombres propios.
+- Usa mayúscula ínicial únicamente en nombres propios.
 
-- Utiliza siempre la [coma serial](https://en.wikipedia.org/wiki/Serial_comma) en las listas.
+- Use siempre la [coma en serie](https://en.wikipedia.org/wiki/Serial_comma) en las listas.
 
 - Evita referirte a la comunidad de GitHub como "usuarios".
 
-  **RECOMENDADO:** Crea informes de problemas automáticamente para las personas de tu organización
+  **SÍ:** Creación automática de incidencias para personas de la organización
 
-  **NO RECOMENDADO:** Crea informes de problemas automáticamente para los usuarios de una organización
+  **NO:** Creación automática de incidencias para los usuarios de una organización
 
 - Evita utilizar acrónimos a menos de que estén bien establecidos (tal como API).
 

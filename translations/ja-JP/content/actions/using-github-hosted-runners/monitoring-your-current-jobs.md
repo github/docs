@@ -1,30 +1,33 @@
 ---
-title: Monitoring your current jobs
-intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
+title: 現在のジョブの監視
+intro: '{% data variables.product.prodname_dotcom %} でホストされているランナーが Organization 内または Enterprise でジョブをどのように処理しているかを監視し、関連する制約を特定します。'
 versions:
   feature: github-runner-dashboard
 shortTitle: Monitoring your current jobs
+ms.openlocfilehash: 86f1551e1908106126516b489c436922b15ce60d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121062'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 組織または企業のアクティブなジョブを表示する
 
-## Viewing active jobs in your organization or enterprise
+組織または企業の {% data variables.product.prodname_dotcom %} ホステッド ランナーで実行されているすべてのジョブの一覧を取得できます。
 
-You can get a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %} {% data reusables.actions.github-hosted-runners-table-entry %}
+1. {% data variables.product.prodname_dotcom %} ホステッド ランナーで現在実行されているすべてのジョブの一覧が含まれている [アクティブなジョブ] セクションを確認します。
 
-{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
+  ![アクティブなジョブの一覧のスクリーンショット](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+## 組織または企業のキューに入れられたジョブを表示する
 
-## Viewing queued jobs in your organization or enterprise
+{% data variables.product.prodname_dotcom %} ホステッド ランナーを使用すると、ジョブを同時に実行でき、同時実行ジョブの最大数はプランによって異なります。 同時実行ジョブの最大数に達すると、新しいジョブがキューに入り始めます。 プランで使用できる同時実行ジョブの数の詳細については、「[使用制限、支払い、管理](/actions/learn-github-actions/usage-limits-billing-and-administration)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see "[Usage limits, billing, and administration](/actions/learn-github-actions/usage-limits-billing-and-administration)."
+次の手順では、実行できる同時実行ジョブの最大数を確認する方法を示します。
 
-The following procedure demonstrates how to check the maximum number of concurrent jobs you can run.
-
-{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "All jobs usage" section, which lists the number of active jobs and the maximum number of jobs you can run. In this example, `9` jobs are currently running out of a maximum of `180`. ![Screenshot of the maximum jobs for an account](/assets/images/help/settings/github-hosted-runners-max-jobs.png)
+{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %} {% data reusables.actions.github-hosted-runners-table-entry %}
+1. アクティブなジョブの数と実行できるジョブの最大数を一覧表示する [All jobs usage]\(すべてのジョブの使用状況\) セクションを確認します。 この例では、最大 `180` 個のうち、現在 `9` 個のジョブが実行されています。
+  ![アカウントの最大ジョブ数のスクリーンショット](/assets/images/help/settings/github-hosted-runners-max-jobs.png)

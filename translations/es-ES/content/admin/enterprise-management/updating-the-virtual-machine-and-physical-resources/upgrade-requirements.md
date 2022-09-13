@@ -13,31 +13,35 @@ type: reference
 topics:
   - Enterprise
   - Upgrades
+ms.openlocfilehash: 5b2aae044f2f5198bbd96669221936658d9464a6
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147065190'
 ---
-
 {% note %}
 
-**Notas:**
-{% ifversion ghes < 3.3 %}- Las características tales como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} y {% data variables.product.prodname_GH_advanced_security %} se encuentran disponibles en {% data variables.product.prodname_ghe_server %} 3.0 o superior. Te recomendamos ampliamente actualizar a la versión 3.0 o superior de los lanzamientos para que tengas todas las ventajas de las actualizaciones de seguridad, correcciones de errores y mejoras de características.{% endif %}
-- Los paquetes de actualización están disponibles en [enterprise.github.com](https://enterprise.github.com/releases) para las versiones admitidas. Verifica la disponibilidad de los paquetes de actualización, deberás completar la actualización. Si un paquete no está disponible, contacta a {% data variables.contact.contact_ent_support %} para obtener ayuda.
-- Si estás usando una Agrupación del {% data variables.product.prodname_ghe_server %}, consulta "[Actualizar una agrupación](/enterprise/admin/guides/clustering/upgrading-a-cluster/)" en la Guía de Agrupación del {% data variables.product.prodname_ghe_server %} para obtener instrucciones específicas únicas para agrupaciones.
-- Estas notas de lanzamiento para el {% data variables.product.prodname_ghe_server %} brindan una lista detallada de las nuevas características de cada versión del {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta las [páginas de lanzamiento](https://enterprise.github.com/releases).
+**Notas:** {% ifversion ghes < 3.3 %}- Características como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} y {% data variables.product.prodname_GH_advanced_security %} están disponibles en {% data variables.product.prodname_ghe_server %} 3.0 o una versión posterior. Te recomendamos ampliamente actualizar a la versión 3.0 o superior de los lanzamientos para que tengas todas las ventajas de las actualizaciones de seguridad, correcciones de errores y mejoras de características.{% endif %}
+- Los paquetes de actualización están disponibles en [enterprise.github.com](https://enterprise.github.com/releases) para las versiones compatibles. Verifica la disponibilidad de los paquetes de actualización, deberás completar la actualización. Si un paquete no está disponible, contacta a {% data variables.contact.contact_ent_support %} para obtener ayuda.
+- Si usa agrupación en clústeres de {% data variables.product.prodname_ghe_server %}, vea "[Actualización de un clúster](/enterprise/admin/guides/clustering/upgrading-a-cluster/)" en la Guía de agrupación en clústeres de {% data variables.product.prodname_ghe_server %} a fin de obtener instrucciones específicas exclusivas para la agrupación en clústeres.
+- Estas notas de lanzamiento para el {% data variables.product.prodname_ghe_server %} brindan una lista detallada de las nuevas características de cada versión del {% data variables.product.prodname_ghe_server %}. Para más información, vea la [página de versiones](https://enterprise.github.com/releases).
 
 {% endnote %}
 
 ## Recomendaciones
 
-- Incluye tantas nuevas actualizaciones como sea posible en tu proceso de actualización. Por ejemplo, en lugar de actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.supported[1] }} a {{ enterpriseServerReleases.latest }}, podrías actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.latest }}. Utiliza el [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar la ruta de mejora desde tu versión de lanzamiento actual.
-- Si estás varias versiones desactualizado, actualiza {% data variables.product.product_location %} tanto como sea posible con cada paso de tu proceso de actualización. Utilizar la versión más reciente posible en cada actualización te permite aprovechar las mejoras de desempeño y las correcciones de errores. Por ejemplo, podrías actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.8 a 2.10, pero actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.9 a 2.10 utiliza una versión posterior en el segundo paso.
+- Incluye tantas nuevas actualizaciones como sea posible en tu proceso de actualización. Por ejemplo, en lugar de actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.supported[1] }} a {{ enterpriseServerReleases.latest }}, podrías actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.latest }}. Use el [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para buscar la ruta de actualización de la versión actual.
+- Si se encuentra varias versiones por detrás, actualice {% data variables.product.product_location %} tanto como sea posible con cada paso del proceso de actualización. Utilizar la versión más reciente posible en cada actualización te permite aprovechar las mejoras de desempeño y las correcciones de errores. Por ejemplo, podrías actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.8 a 2.10, pero actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.9 a 2.10 utiliza una versión posterior en el segundo paso.
 - Utiliza el lanzamiento de patch más reciente cuando actualices. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
-- Utiliza una instancia de preparación para probar los pasos de actualización. Para obtener más información, consulta "[Configurar una instancia de preparación](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)."
+- Utiliza una instancia de preparación para probar los pasos de actualización. Para más información, vea "[Configuración de una instancia de almacenamiento provisional](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)".
 - Cuando ejecutas varias mejoras, espera por lo menos 24 horas entre las mejoras a las características para permitir que se completen totalmente las migraciones de datos y actualizaciones de las tareas que se ejecutan en segundo plano.
-- Toma una captura de pantalla antes de que mejores tu máquina virtual. Para obtener más información, consulta "[Tomar una instantánea](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)."
-- Asegúrate de que tienes un respaldo reciente y exitoso de tu instancia. Para obtener más información, consulta el archivo README.md en [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+- Toma una captura de pantalla antes de que mejores tu máquina virtual. Para más información, vea "[Realización de una instantánea](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)". 
+- Asegúrate de que tienes un respaldo reciente y exitoso de tu instancia. Para más información, vea [Archivo README.md de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
 ## Requisitos
 
-- Debes actualizar desde una característica de lanzamiento que sea **como máximo** dos lanzamientos anteriores. Por ejemplo, para actualizar a {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, debes estar en {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} o {{ enterpriseServerReleases.supported[2] }}.
+- Debe actualizar desde una versión de actualización de características que esté **como máximo** dos versiones por detrás. Por ejemplo, para actualizar a {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, debes estar en {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} o {{ enterpriseServerReleases.supported[2] }}.
 - Cuando hagas una mejora mediante un paquete de mejora, programa una ventana de mantenimiento para los usuarios finales de {% data variables.product.prodname_ghe_server %}.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - Es posible que un hotpatch requiera tiempo de inactividad si los servicios afectados (como kernel, MySQL, o Elasticsearch) requieren un reinicio de VM o un reinicio del servicio. Se te notificará cuando se necesite reiniciar. Puedes completar el reinicio más tarde.
@@ -51,4 +55,4 @@ Utiliza el número para estimar la cantidad de espacio de disco que los registro
 
 ## Pasos siguientes
 
-Después de revisar estas recomendaciones y requisitos, puedes actualizar el {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+Después de revisar estas recomendaciones y requisitos, puedes actualizar el {% data variables.product.prodname_ghe_server %}. Para más información, vea "[Actualización de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".

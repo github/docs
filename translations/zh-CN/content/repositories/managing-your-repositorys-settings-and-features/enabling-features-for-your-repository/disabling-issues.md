@@ -13,11 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: a706b1431f4f43c9866fb6ef0f01f6d25d6edc46
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145129343'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. 在 Features（功能）下，取消选择 **Issues（议题）**复选框。 ![删除议题复选框](/assets/images/help/issues/issues_settings_remove_from_repo.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. 在“功能”下，取消选中“问题”复选框。
+  ![“删除问题”复选框](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 如果您决定未来再次启用议题，先前添加的任何议题将可用。
 

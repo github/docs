@@ -20,6 +20,12 @@ children:
   - /installing-github-enterprise-server-on-vmware
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
-shortTitle: 设置实例
+shortTitle: Set up an instance
+ms.openlocfilehash: 23fe586f2c4baa87a2e2b388685bf8e42d5e10a4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145099025'
 ---
 

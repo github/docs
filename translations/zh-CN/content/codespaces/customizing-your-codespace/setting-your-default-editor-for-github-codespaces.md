@@ -1,7 +1,7 @@
 ---
-title: Setting your default editor for GitHub Codespaces
+title: 设置 GitHub Codespaces 的默认编辑器
 shortTitle: Set the default editor
-intro: 'You can set your default editor for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+intro: '您可以在个人设置页面中设置 {% data variables.product.prodname_codespaces %} 的默认编辑器。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,17 +12,20 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 7cfc188cb265482ea9dd40f3fc653af870aa6982
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111454'
 ---
+在设置页面上，您可以设置编辑器首选项，以便在 Web 或 {% data variables.product.prodname_vscode %} 桌面应用程序的 {% data variables.product.prodname_vscode %} 中自动打开任何新创建的代码空间。
 
-On the settings page, you can set your editor preference so that any newly created codespaces are opened automatically in either {% data variables.product.prodname_vscode %} for Web or the {% data variables.product.prodname_vscode %} desktop application.
+如果要将 {% data variables.product.prodname_vscode %} 用作 {% data variables.product.prodname_codespaces %} 的默认编辑器，则需要安装 {% data variables.product.prodname_vscode %} 和 {% data variables.product.prodname_vscode %} 的 {% data variables.product.prodname_github_codespaces %} 扩展。 有关详细信息，请参阅 [{% data variables.product.prodname_vscode %} 的下载页](https://code.visualstudio.com/download/)和 [{% data variables.product.prodname_vscode %} 市场中的 {% data variables.product.prodname_github_codespaces %} 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)。
 
-If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+## 设置默认编辑器
 
-## Setting your default editor
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Editor preference", select the option you want.
-   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
-   If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_codespaces %} will automatically open in the desktop application when you next create a codespace. You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.
-   ![Setting your editor](/assets/images/help/codespaces/launch-default-editor.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. 在“Editor preference（编辑器首选项）”下，选择所需的选项。
+   ![设置编辑器](/assets/images/help/codespaces/select-default-editor.png) 如果选择 {% data variables.product.prodname_vscode %}，在下次创建 codespace 时，{% data variables.product.prodname_codespaces %} 将自动在桌面应用程序中打开。 您可能需要同时允许访问浏览器和 {% data variables.product.prodname_vscode %} 才能成功打开。
+   ![设置编辑器](/assets/images/help/codespaces/launch-default-editor.png)

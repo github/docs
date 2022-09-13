@@ -1,6 +1,6 @@
 ---
-title: 'Organizationの{% data variables.product.prodname_projects_v1 %}へのアクセス管理'
-intro: 'Organization のオーナーまたは{% data variables.projects.projects_v1_board %}の管理者は、Organization が所有する{% data variables.projects.projects_v1_boards %}について、Organization のメンバー、チーム、外部のコラボレータごとに異なるレベルのアクセス権を付与できます。'
+title: 'Organization の {% data variables.product.prodname_projects_v1 %} へのアクセスを管理する'
+intro: 'Organization オーナーまたは {% data variables.projects.projects_v1_board %} 管理者は、Organization メンバー、Team、外部コラボレーターに Organization が所有する {% data variables.projects.projects_v1_boards %} へのさまざまなアクセス レベルを付与できます。'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
@@ -20,7 +20,13 @@ children:
   - /managing-an-individuals-access-to-an-organization-project-board
   - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /removing-an-outside-collaborator-from-an-organization-project-board
-shortTitle: '{% data variables.product.prodname_project_v1 %}アクセスの管理'
+shortTitle: 'Manage {% data variables.product.prodname_project_v1 %} access'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: bde0cbf48426b968aae6326e3db7a66fe47fda16
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422933'
 ---
 

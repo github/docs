@@ -1,6 +1,6 @@
 ---
 title: リポジトリを複製する
-intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+intro: リポジトリのミラーをフォークすることなく維持するには、特別なクローン コマンドを実行して、新しいリポジトリにミラープッシュします。
 redirect_from:
   - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
@@ -13,19 +13,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: c9cc58acd7f3b69ff277830bef8dc50fed02c2b6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132300'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**注:** 別のバージョン管理システムでホストされているプロジェクトがある場合、インポートツール {% data variables.product.prodname_dotcom %} を使い、プロジェクトを {% data variables.product.prodname_dotcom %} に自動インポートできます。 詳細については、「[インポートツール {% data variables.product.prodname_dotcom %} について](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」を参照してください。
 
 {% endnote %}
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. 以下の例では、`exampleuser/new-repository` および `exampleuser/mirrored` がミラーです。
+元のリポジトリをリポジトリの新しいコピー (_ミラー_) にプッシュするには、{% data variables.product.product_location %} で [新しいリポジトリを作成する](/articles/creating-a-new-repository)必要があります。 これらの例では、`exampleuser/new-repository` または `exampleuser/mirrored` はミラーです。
 
 ## リポジトリをミラーする
 
@@ -96,10 +101,10 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   $ git push --mirror
   ```
 {% ifversion fpt or ghec %}
-## 参考リンク
+## 参考資料
 
-* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* 「[GitHub に変更をプッシュする](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)」
+* 「[GitLarge File Storage と GitHub Desktop について](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)」
 * 「[GitHub Importer について](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」
 
 {% endif %}

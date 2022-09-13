@@ -1,6 +1,6 @@
 ---
 title: 管理合并队列
-intro: 您可以通过存储库中拉取请求的合并队列来加快开发速度。
+intro: 可以通过在存储库中为拉取请求启用合并队列来加快开发速度。
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,37 +8,42 @@ permissions: People with admin permissions can manage merge queues for pull requ
 topics:
   - Repositories
   - Pull requests
-shortTitle: 管理合并队列
+shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue
+ms.openlocfilehash: 2cdbbdc72dde5c9970d49f7060e5cb583b6dd1dd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147496485'
 ---
-
 {% data reusables.pull_requests.merge-queue-beta %}
 
 ## 关于合并队列
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-合并队列创建具有特殊前缀的临时分支，以验证拉取请求更改。 The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} 将在 `base_branch` 的分支保护所需的检查通过后，将所有这些更改合并到 `base_branch` 中。
+合并队列创建具有特殊前缀的临时分支来验证拉取请求更改。 然后，使用最新版本的 `base_branch` 将拉取请求中的更改分组到 `merge_group`，与队列中位于其之前的更改一样。 一旦 `base_branch` 的分支保护所需的检查通过，{% data variables.product.product_name %} 会将所有这些更改合并到 `base_branch` 中。
 
 
 有关合并方法的信息，请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% note %}
 
-**注:**
+**注意：**
 
-* 不可对在分支名称模式中使用通配符 (`*`) 的分支保护规则启用合并队列。
+* 在分支名称模式中使用通配符 (`*`) 的分支保护规则无法启用合并队列。
 
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-### Triggering merge group checks with {% data variables.product.prodname_actions %}
+### 通过 {% data variables.product.prodname_actions %} 触发合并组检查
 
-You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+将拉取请求添加到合并队列时，可以使用 `merge_group` 事件触发 {% data variables.product.prodname_actions %} 工作流。 请注意，这是与 `pull_request` 和 `push` 事件不同的事件。
 
-A workflow that reports a check which is required by the target branch's protections would look like this:
+报告目标分支保护所需的检查的工作流如下所示：
 
 ```yaml
 on:
@@ -46,11 +51,11 @@ on:
   merge_group:
 ```
 
-For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+有关详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows#merge-group)”
 
-### Triggering merge group checks with other CI providers
+### 通过其他 CI 提供程序触发合并组检查
 
-With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
+使用其他 CI 提供程序时，可能需要更新 CI 配置，以在创建以特殊前缀 `gh-readonly-queue/{base_branch}` 开头的分支时运行。
 
 ## 管理合并队列
 
@@ -60,5 +65,5 @@ With other CI providers, you may need to update your CI configuration to run whe
 
 ## 延伸阅读
 
-* “[将拉取请求与合并队列合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)”
-* "[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)"
+* [将拉取请求与合并队列合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)
+* [关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)

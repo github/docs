@@ -1,6 +1,6 @@
 ---
-title: 'Phase 2: Preparing to enable at scale'
-intro: "In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}."
+title: 'Fase 2: Prepararse para la habilitación a escala'
+intro: 'En esta fase, prepararás a los desarrolladores y recopilarás datos sobre los repositorios para asegurarte de que los equipos están listos y tienes todo lo que necesitas para los programas piloto y el lanzamiento de {% data variables.product.prodname_code_scanning %} y {% data variables.product.prodname_secret_scanning %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,37 +9,42 @@ topics:
   - Advanced Security
 shortTitle: 2. Preparation
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: a34711765e8beb6d57215c0c8fd16519e975539d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145390'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
+Este artículo forma parte de una serie sobre la adopción de {% data variables.product.prodname_GH_advanced_security %} a escala. Para ver el artículo anterior de esta serie, consulta "[Fase 1: Alineación con la estrategia y los objetivos de lanzamiento](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)".
 
 {% endnote %}
 
-## Preparing to enable {% data variables.product.prodname_code_scanning %}
+## Preparación para la habilitación de {% data variables.product.prodname_code_scanning %}
  
-{% data reusables.code-scanning.about-code-scanning %} For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %} Para obtener más información, consulta "[Acerca del análisis de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful. As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}. 
+El lanzamiento de {% data variables.product.prodname_code_scanning %} en cientos de repositorios puede resultar difícil, sobre todo si no se hace de una forma eficaz. Si sigues estos pasos, te asegurarás de que el lanzamiento sea eficaz y correcto. Como parte de la preparación, trabajarás con los equipos, usarás la automatización para recopilar datos sobre los repositorios y habilitarás {% data variables.product.prodname_code_scanning %}. 
 
-### Preparing teams for {% data variables.product.prodname_code_scanning %}
+### Preparación de los equipos para {% data variables.product.prodname_code_scanning %}
 
-First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout. During this phase, focus on leveraging APIs and running internal enablement events.
+En primer lugar, prepara a tus equipos para que usen {% data variables.product.prodname_code_scanning %}. Cuantos más equipos usen {% data variables.product.prodname_code_scanning %}, más datos tendrás plara generar planes de corrección y supervisar el progreso del lanzamiento. Durante esta fase, céntrate en aprovechar las API y ejecutar eventos de habilitación internos.
 
-Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
+El enfoque principal debe ser preparar tantos equipos como sea posible para que usen {% data variables.product.prodname_code_scanning %}. También puedes animar a los equipos a corregir correctamente, pero se recomienda priorizar la habilitación y el uso de {% data variables.product.prodname_code_scanning %} por encima de la corrección de incidencias durante esta fase.
   
-### Collecting information about your repositories
+### Recopilación de información sobre los repositorios
 
-You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.product_name %}'s GraphQL API.
+Puedes recopilar información mediante programación sobre los distintos lenguajes de programación que se usan en los repositorios y usar esos datos para habilitar {% data variables.product.prodname_code_scanning %} en todos los repositorios que usan el mismo lenguaje, mediante la GraphQL API de {% data variables.product.product_name %}.
 
 {% note %}
 
-**Note:** To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the "[ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement)" repository.
+**Nota:** Para recopilar estos datos sin ejecutar manualmente las consultas de GraphQL descritas en este artículo, puedes usar nuestra herramienta disponible públicamente. Para obtener más información, consulta el repositorio "[herramienta de habilitación de GHAS](https://github.com/NickLiffen/ghas-enablement)".
 
 {% endnote %}
 
-If you want to gather information from repositories belonging to multiple organizations in your enterprise, you can use the query below to obtain the names of your organizations and then feed those into repository query. Replace OCTO-ENTERPRISE with your enterprise name.
+Si quieres recopilar información de repositorios que pertenecen a varias organizaciones de la empresa, puedes usar la consulta siguiente para obtener los nombres de las organizaciones y, a continuación, introducirlos en la consulta del repositorio. Reemplaza OCTO-ENTERPRISE por el nombre de tu empresa.
 
 ```graphql
 query {
@@ -58,7 +63,7 @@ query {
 }
 ```
 
-You can identify which repositories use which languages by collating repositories by language at the organization level. You can modify the sample GraphQL query below, replacing OCTO-ORG with the organization name.
+Puedes identificar qué repositorios usan los lenguajes mediante la intercalación de repositorios por lenguaje en el nivel de organización. Puedes modificar la consulta de GraphQL de ejemplo siguiente, reemplazando OCTO-ORG por el nombre de la organización.
 
 ```graphql
 query {
@@ -83,11 +88,11 @@ query {
 }
 ```
 
-For more information about running GraphQL queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+Para obtener más información sobre la ejecución de consultas de GraphQL, consulta "[Creación de llamadas con GraphQL](/graphql/guides/forming-calls-with-graphql)".
 
-Then, convert the data from the GraphQL query into a readable format, such as a table.
+A continuación, convierte los datos de la consulta de GraphQL en un formato legible, como una tabla.
 
-| Language                | Number of Repos | Name of Repos                           |
+| Idioma                | Número de repositorios | Nombre de los repositorios                           |
 |-------------------------|-----------------|-----------------------------------------|
 | JavaScript (TypeScript) | 4212            | org/repo<br /> org/repo |
 | Python                  | 2012            | org/repo<br /> org/repo |
@@ -97,57 +102,55 @@ Then, convert the data from the GraphQL query into a readable format, such as a 
 | Kotlin                  | 82              | org/repo<br /> org/repo |
 | C                       | 12              | org/repo<br /> org/repo |
 
-You can filter out the languages that are currently not supported by {% data variables.product.prodname_GH_advanced_security %} from this table.
+Puedes filtrar los lenguajes que actualmente no son compatibles con {% data variables.product.prodname_GH_advanced_security %} de esta tabla.
 
-If you have repositories with multiple languages, you can format the GraphQL results as shown in the table below. Filter out languages that are not supported, but retain all repositories with at least one supported language. You can enable {% data variables.product.prodname_code_scanning %} on these repositories, and all supported languages will be scanned.
+Si tienes repositorios con varios lenguajes, puedes dar formato a los resultados de GraphQL como se muestra en la tabla siguiente. Filtra los lenguajes que no se admiten, pero conserva todos los repositorios con al menos un lenguaje admitido. Puedes habilitar {% data variables.product.prodname_code_scanning %} en estos repositorios y se analizarán todos los lenguajes admitidos.
 
-| Language(s)            | Number of Repos | Name of Repos                            |
+| Idiomas            | Número de repositorios | Nombre de los repositorios                            |
 |------------------------|-----------------|------------------------------------------|
 | JavaScript/Python/Go   | 16              | org/repo <br /> org/repo |
 | Rust/TypeScript/Python | 12              | org/repo <br /> org/repo |
 
-An understanding of which repositories are using which languages will help you identify candidate repositories for pilot programs in phase 3, and prepares you to enable {% data variables.product.prodname_code_scanning %} across all repositories, one language at a time, in phase 5.
+Comprender qué repositorios usan qué lenguajes te ayudará a identificar los repositorios candidatos para programas piloto en la fase 3 y te preparará para habilitar {% data variables.product.prodname_code_scanning %} en todos los repositorios lenguaje por lenguaje en la fase 5.
 
 {% ifversion ghes %}
 
-### Enabling {% data variables.product.prodname_code_scanning %} for your appliance
+### Habilitación de {% data variables.product.prodname_code_scanning %} para el dispositivo
 
-Before you can proceed with pilot programs and rolling out {% data variables.product.prodname_code_scanning %} across your enterprise, you must first enable {% data variables.product.prodname_code_scanning %} for your appliance. For more information, see "[Configuring code scanning for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+Para poder continuar con los programas piloto y el lanzamiento de {% data variables.product.prodname_code_scanning %} en la empresa, primero debes habilitar {% data variables.product.prodname_code_scanning %} para el dispositivo. Para obtener más información, consulta "[Configuración del análisis de código para el dispositivo](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)".
 
 {% endif %}
 
-## Preparing to enable {% data variables.product.prodname_secret_scanning %}
+## Preparación para la habilitación de {% data variables.product.prodname_secret_scanning %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
+Si tu proyecto se comunica con un servicio externo, puede que use un token o una clave privada para la autenticación. Si registras un secreto en un repositorio, cualquiera que tenga acceso de lectura al mismo puede utilizarlo para acceder al servicio externo con tus privilegios. {% data variables.product.prodname_secret_scanning_caps %} analizará todo el historial de Git en todas las ramas presentes en los repositorios de {% data variables.product.prodname_dotcom %} en busca de secretos y te alertará{% ifversion secret-scanning-push-protection %} o bloqueará la inserción que contiene el secreto{% endif %}. Para más información, vea "[Acerca del examen de secretos](/code-security/secret-scanning/about-secret-scanning)".
 
-### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
+### Consideraciones al habilitar {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.product_name %}’s {% data variables.product.prodname_secret_scanning %} capability is slightly different from {% data variables.product.prodname_code_scanning %} since it requires no specific configuration per programming language or per repository and less configuration overall to get started. This means enabling {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy but clicking **Enable All** at the organization level and ticking the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
+La funcionalidad {% data variables.product.prodname_secret_scanning %} de {% data variables.product.product_name %} es un poco diferente de {% data variables.product.prodname_code_scanning %}, ya que no requiere ninguna configuración específica por lenguaje de programación o por repositorio y requiere menos configuración en general para empezar. Esto significa que habilitar {% data variables.product.prodname_secret_scanning %} en el nivel de organización puede ser fácil, pero hacer clic en **Habilitar todo** en el nivel de organización y marcar la opción **Habilitar {% data variables.product.prodname_secret_scanning %} automáticamente para cada repositorio nuevo** tiene algunos efectos descendentes que debes tener en cuenta:
 
-- **License consumption**  
-  Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will consume all your licenses, even if no one is using code scanning. This is fine unless you plan to increase the number of active developers in your organization. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_GH_advanced_security %} on newly created repositories.
-- **Initial high volume of detected secrets**  
-  If you are enabling {% data variables.product.prodname_secret_scanning %} on a large organization, be prepared to see a high number of secrets found. Sometimes this comes as a shock to organizations and the alarm is raised. If you would like to turn on {% data variables.product.prodname_secret_scanning %} across all repositories at once, plan for how you will respond to multiple alerts across the organization.
+- **Consumo de licencias**  
+  La habilitación de {% data variables.product.prodname_secret_scanning %} para todos los repositorios consumirá todas tus licencias, incluso si nadie usa el análisis de código. No es ningún problema a menos que planees aumentar el número de desarrolladores activos en la organización. Si es probable que el número de desarrolladores activos aumente en los próximos meses, puede que superes el límite de licencias y que no puedas usar {% data variables.product.prodname_GH_advanced_security %} en los repositorios recién creados.
+- **Volumen inicial de secretos detectados alto**  
+  Si habilitas {% data variables.product.prodname_secret_scanning %} en una organización grande, prepárate para ver un número elevado de secretos detectados. A veces esto choca a las organizaciones y saltan todas las alarmas. Si quieres activar {% data variables.product.prodname_secret_scanning %} en todos los repositorios a la vez, planea cómo responderás a varias alertas en toda la organización.
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+{% data variables.product.prodname_secret_scanning_caps %} se puede habilitar para repositorios individuales. Para más información, vea "[Configuración de {% data variables.product.prodname_secret_scanning %} para los repositorios](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)". {% data variables.product.prodname_secret_scanning_caps %} también se puede habilitar para todos los repositorios de la organización, como se ha descrito anteriormente. Para obtener más información sobre la habilitación para todos los repositorios, consulta "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
 
-### Custom patterns for {% data variables.product.prodname_secret_scanning %}
+### Patrones personalizados para {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion ghae %}
-{% note %}
+{% ifversion ghae %} {% note %}
 
-**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
+**Nota:** Los patrones personalizados de {% data variables.product.prodname_secret_scanning %} se encuentran actualmente en versión beta y están sujetos a cambios.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)." 
+{% data variables.product.prodname_secret_scanning_caps %} detecta un gran número de patrones predeterminados, pero también se puede configurar para que detecte patrones personalizados, como formatos de secreto exclusivos de tu infraestructura o usados por integradores que {% data variables.product.prodname_secret_scanning %} de {% data variables.product.product_name %} actualmente no detecta. Para obtener más información sobre los secretos admitidos para los patrones de asociados, consulta "[Patrones de análisis de secretos](/code-security/secret-scanning/secret-scanning-patterns)". 
 
-As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+A medida que auditas los repositorios y hablas con los equipos de seguridad y desarrolladores, crea una lista de los tipos de secretos que usarás más adelante para configurar patrones personalizados para {% data variables.product.prodname_secret_scanning %}. Para más información, vea "[Definición de patrones personalizados para el análisis de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
 
 
 {% note %}
 
-For the next article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+Para ver el artículo siguiente de esta serie, consulta "[Fase 3: Programas piloto](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)".
 
 {% endnote %}

@@ -13,7 +13,7 @@ const noCacheControl = cacheControlFactory(0)
 
 router.get(
   '/',
-  catchMiddlewareError(async function getSearch(req, res, next) {
+  catchMiddlewareError(async function getSearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     const limit = Math.min(parseInt(limit_, 10) || 10, 100)
     if (!versions.has(version)) {

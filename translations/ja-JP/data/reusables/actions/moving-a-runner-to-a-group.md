@@ -1,12 +1,21 @@
-If you don't specify a runner group during the registration process, your new runners are automatically assigned to the default group, and can then be moved to another group.
+---
+ms.openlocfilehash: c5f96449d1a353d5be663dafe0b2f0507befbd59
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147763984"
+---
+登録プロセス中にランナー グループを指定しない場合、新しいランナーは、自動的に既定のグループに割り当てられ、その後別のグループへの移動が可能となります。
 
-{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-1. In the "Runners" list, click the runner that you want to configure.
-2. Select the **Runner group** drop-down.
-3. In "Move runner to group", choose a destination group for the runner.
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %} {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+1. "ランナー" の一覧で、構成するランナーをクリックします。
+2. **[ランナー グループ]** ドロップダウンを選択します。
+3. "ランナーをグループに移動" で、ランナーの移動先グループを選択します。
 {% elsif ghae or ghes < 3.4 %}
-1. In the {% ifversion ghes or ghae %}"Runner groups"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
-2. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
-3. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
-{% endif %}
+1. 設定ページの{% ifversion ghes or ghae %} [ランナー グループ] {% endif %}セクションで、移動するランナーの現在のグループを見つけて、グループ メンバーの一覧を展開します。
+    ![ランナー グループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+2. セルフホスト ランナーのチェックボックスをオンにし、 **[グループに移動]** をクリックして、利用可能な移動先を確認します。
+    ![ランナー グループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
+3. 移動先のグループをクリックして、ランナーを移動します。
+    ![ランナー グループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png) {% endif %}

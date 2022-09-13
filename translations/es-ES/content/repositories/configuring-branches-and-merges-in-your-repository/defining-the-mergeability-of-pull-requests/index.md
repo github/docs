@@ -18,6 +18,12 @@ children:
   - /about-protected-branches
   - /managing-a-branch-protection-rule
   - /troubleshooting-required-status-checks
-shortTitle: Capacidad de fusión de las solicitudes de cambios
+shortTitle: Mergeability of PRs
+ms.openlocfilehash: 4f3f4de6c136710ba2689b22e6def8c7d8de859c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136986'
 ---
 

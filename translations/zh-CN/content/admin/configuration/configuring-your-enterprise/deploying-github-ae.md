@@ -1,6 +1,6 @@
 ---
-title: Deploying GitHub AE
-intro: 'You can deploy {% data variables.product.product_name %} to an available Azure region.'
+title: 部署 GitHub AE
+intro: '可以将 {% data variables.product.product_name %} 部署到可用的 Azure 区域。'
 versions:
   ghae: '*'
 topics:
@@ -10,57 +10,61 @@ type: how_to
 shortTitle: Deploy GitHub AE
 redirect_from:
   - /get-started/signing-up-for-github/setting-up-a-trial-of-github-ae
+ms.openlocfilehash: af6def26a15a1ccad2625677d9db57b2a1907850
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147614365'
 ---
+## 关于部署 {% data variables.product.product_name %}
 
-## About deployment of {% data variables.product.product_name %}
+{% data reusables.github-ae.github-ae-enables-you %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)”。
 
-{% data reusables.github-ae.github-ae-enables-you %} For more information, see "[About {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
+购买或开始试用 {% data variables.product.product_name %} 后，可以将 {% data variables.product.product_name %} 部署到可用的 Azure 区域。 本指南将包含 {% data variables.product.product_name %} 部署的 Azure 资源称为 {% data variables.product.product_name %} 帐户。 你将使用位于 [https://portal.azure.com](https://portal.azure.com) 的 Azure 门户部署 {% data variables.product.product_name %} 帐户。
 
-After you purchase or start a trial of {% data variables.product.product_name %}, you can deploy {% data variables.product.product_name %} to an available Azure region. This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
+## 先决条件
 
-## Prerequisites
+必须具备在 Azure 中为资源提供程序执行 `/register/action` 操作的权限。 权限包含在 `Contributor` 和 `Owner` 角色中。 有关详细信息，请参阅 Microsoft 文档中的 [Azure 资源提供程序和类型](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)。
 
-You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+## 使用 {% data variables.actions.azure_portal %} 部署 {% data variables.product.product_name %}
 
-## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
+可以通过 {% data variables.actions.azure_portal %} 在 Azure 资源组中部署 {% data variables.product.product_name %} 帐户。
 
-The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.product_name %} account in your Azure resource group.
-
-1. Click one of the following two links to begin deployment of {% data variables.product.product_name %}. The link you should click depends on the Azure cloud where you plan to deploy {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
+1. 单击以下两个链接之一，开始部署 {% data variables.product.product_name %}。 应单击的链接取决于计划在其中部署 {% data variables.product.product_name %} 的 Azure 云。 有关 Azure 政府的详细信息，请参阅 Microsoft 文档中的[什么是 Azure 政府？](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome)。
    
-   - [Deploy {% data variables.product.product_name %} to Azure Commercial](https://aka.ms/create-github-ae-instance)
-   - [Deploy {% data variables.product.product_name %} to Azure Government](https://aka.ms/create-github-ae-instance-gov)
-1. To begin the process of adding a new {% data variables.product.product_name %} account, click **Create GitHub AE account**.
-1. Complete the "Project details" and "Instance details" fields.
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-form.png)
-    - **Account name:** The hostname for your enterprise
-    - **Administrator username:** A username for the initial enterprise owner that will be created in {% data variables.product.product_name %}
-    - **Administrator email:** The email address that will receive the login information
-1. To review a summary of the proposed changes, click **Review + create**.
-1. After the validation process has completed, click **Create**.
+   - [将 {% data variables.product.product_name %} 部署到 Azure Commercial](https://aka.ms/create-github-ae-instance)
+   - [将 {% data variables.product.product_name %} 部署到 Azure 政府](https://aka.ms/create-github-ae-instance-gov)
+1. 若要开始添加新的 {% data variables.product.product_name %} 帐户，请单击“创建 GitHub AE 帐户”。
+1. 填写“项目详细信息”和“实例详细信息”字段。
+    ![{% data variables.actions.azure_portal %} 搜索结果](/assets/images/azure/github-ae-azure-portal-form.png)
+    - **帐户名称：** 企业的主机名
+    - **管理员用户名：** 将在 {% data variables.product.product_name %} 中创建的初始企业所有者的用户名
+    - **管理员电子邮件：** 将接收登录信息的电子邮件地址
+1. 若要查看建议更改的摘要，请单击“查看 + 创建”。
+1. 验证过程完成后，单击“创建”。
 
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. For more information, see "[Initializing {% data variables.product.product_name %}](/admin/configuration/initializing-github-ae)."
+上面输入的电子邮件地址将收到有关如何访问企业的说明。 获得访问权限后，可以按照初始设置步骤开始操作。 有关详细信息，请参阅“[初始化 {% data variables.product.product_name %}](/admin/configuration/initializing-github-ae)”。
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.product_name %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**注意：** {% data variables.product.product_name %} 部署的软件更新由 {% data variables.product.prodname_dotcom %} 执行。 有关详细信息，请参阅[“关于升级到新版本”](/admin/overview/about-upgrades-to-new-releases)。
 
 {% endnote %}
 
-## Navigating to your enterprise
+## 导航到企业
 
-You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.product_name %} deployment. The resulting list includes all the {% data variables.product.product_name %} deployments in your Azure region.
+可以使用 {% data variables.actions.azure_portal %} 导航到 {% data variables.product.product_name %} 部署。 生成的列表包括 Azure 区域中所有的 {% data variables.product.product_name %} 部署。
 
-1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
-1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**:
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
+1. 在 {% data variables.actions.azure_portal %} 的左侧面板中，单击“所有资源”。
+1. 在可用筛选器中，单击“所有类型”，然后取消选择“全选”，然后选择 GitHub AE：![{% data variables.actions.azure_portal %} 搜索结果](/assets/images/azure/github-ae-azure-portal-type-filter.png)  
 
-## Next steps
+## 后续步骤
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
-- If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. If you need more time to evaluate {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
+- 预配部署后，下一步是初始化 {% data variables.product.product_name %}。 有关详细信息，请参阅“[初始化 {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)”。
+- 如果要试用 {% data variables.product.product_name %}，则可以在试用期内随时通过联系联系人 {% data variables.contact.contact_enterprise_sales %} 升级到完整许可证。 如果尚未在试用的最后一天升级，则会自动删除部署。 如果需要更多时间来评估 {% data variables.product.product_name %}，请联系 {% data variables.contact.contact_enterprise_sales %} 申请延期。
 
-## Further reading 
+## 延伸阅读 
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 
+- [在 {% data variables.product.product_name %} 上启用 {% data variables.product.prodname_advanced_security %} 功能](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)
+- [{% data variables.product.product_name %} 发行说明](/github-ae@latest/admin/overview/github-ae-release-notes) 
