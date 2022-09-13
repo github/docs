@@ -15,10 +15,10 @@ topics:
   - Pull requests
 shortTitle: Methods & functions
 ms.openlocfilehash: be891fe01166ee0eccf9ba7c824a1017c9d8fc11
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129990'
 ---
 对仓库有读取权限的任何人都可以查看拉取请求的某些文件中函数和方法更改的摘要列表。

@@ -14,11 +14,11 @@ topics:
   - Sponsors profile
 shortTitle: Attribute sponsorships
 ms.openlocfilehash: a0b07535ef655f647a5c6bb65de39dcf11c1e6a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130239'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884492'
 ---
 1. 导航到要将其赞助归因于另一个组织的组织。
 2. 在组织名称下，单击 {% octicon "heart" aria-label="The heart icon" %}“赞助”。

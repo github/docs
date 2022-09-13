@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 543455f8802e8e2c8b4dc60283c442a536476751
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098450"
 ---
 可以使用 `jobs.<job_id>.if` 条件来阻止步骤运行，除非满足条件。 您可以使用任何支持上下文和表达式来创建条件。

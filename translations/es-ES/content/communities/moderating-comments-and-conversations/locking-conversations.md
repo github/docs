@@ -12,10 +12,10 @@ versions:
 topics:
   - Community
 ms.openlocfilehash: 986d23cb4fe9850cb6c6824e9a3f2c256b6fd4e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145092379'
 ---
 Es correcto bloquear una conversación cuando no toda es constructiva, o bien infringe el código de conducta de la comunidad{% ifversion fpt or ghec %} o las [Directrices de la comunidad](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.

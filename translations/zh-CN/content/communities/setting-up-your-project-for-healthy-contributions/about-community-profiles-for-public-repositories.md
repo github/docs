@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Community profiles
 ms.openlocfilehash: 08a993bd20a63d21c156a80b0d46d19e1735d68b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086536'
 ---
 社区资料检查列表用于检查项目是否在支持的位置包含建议的社区健康文件，如 README、CODE_OF_CONDUCT、LICENS 或 CONTRIBUTING。 有关详细信息，请参阅“[访问项目的社区资料](/articles/accessing-a-project-s-community-profile)”。

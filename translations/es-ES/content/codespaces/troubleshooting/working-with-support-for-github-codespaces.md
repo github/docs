@@ -12,10 +12,10 @@ shortTitle: Working with support
 redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ms.openlocfilehash: e352142404db5a351054756e4ef627a25fc84a05
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147682523'
 ---
 Antes de que soporte pueda ayudarte con los problemas de los codespaces, necesitas saber el nombre del codespace y su ID de codespaces (identificador). Adicionalmente, soporte podría pedirte que le compartas algunas bitácoras. Para más información, consulta "[Registros de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)" y "[Acerca del soporte técnico de GitHub](/github/working-with-github-support/about-github-support)".

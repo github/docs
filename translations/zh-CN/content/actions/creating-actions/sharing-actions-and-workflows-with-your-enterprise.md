@@ -9,10 +9,10 @@ topics:
   - Action development
 shortTitle: Share with your enterprise
 ms.openlocfilehash: 90541af9dfbb3c5f8ea2384de4a291336951434f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066878'
 ---
 ## 关于内部存储库的 {% data variables.product.prodname_actions %} 访问权限

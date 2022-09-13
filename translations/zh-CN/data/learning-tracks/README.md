@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: dcc6cf1e8adf15c4997d4d62cd34bde99f7d37cd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145097323"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147887324"
 ---
 # 学习轨迹（又名学习路径）
 

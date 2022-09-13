@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c21e2539168ae8faf21e22a39eb0b3c0ec88267a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145129952"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882953"
 ---
 5. 键入 `git clone`，然后粘贴之前复制的 URL。
   ```shell

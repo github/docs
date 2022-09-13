@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1122a6eba1b8e9e2501ddf011c36baf6d0a5f2e9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065378"
 ---
 1. Atribua uma política para acesso à organização.

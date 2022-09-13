@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c7b1fff2c96137b3deec711f88676546c2cb1305
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145121530"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879387"
 ---
 1. A la derecha, haga clic en **Add a domain** (Agregar un dominio).
   ![Botón de agregar dominio en la configuración de Pages](/assets/images/help/pages/verify-add-domain.png)

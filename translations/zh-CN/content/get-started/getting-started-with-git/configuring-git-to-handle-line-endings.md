@@ -16,11 +16,11 @@ versions:
   ghec: '*'
 shortTitle: Handle line endings
 ms.openlocfilehash: 4aa89f244e45da6905d6d5348c84faf8d5e6418c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099754'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884203'
 ---
 ## 关于行结尾
 每次按键盘上的 return 时，会插入一个称为行结束符的不可见字符<kbd></kbd>。 不同的操作系统处理行结束符的方式不同。

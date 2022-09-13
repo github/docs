@@ -13,10 +13,10 @@ topics:
   - Repositories
 shortTitle: Push a blocked branch
 ms.openlocfilehash: 743cdc094acfd2465d4bb97f1ae7ec0a7f8b86f0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147683795'
 ---
 ## Acerca de la protección de inserción para {% data variables.product.prodname_secret_scanning %}

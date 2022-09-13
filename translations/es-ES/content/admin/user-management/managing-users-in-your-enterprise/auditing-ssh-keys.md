@@ -15,10 +15,10 @@ topics:
   - Security
   - SSH
 ms.openlocfilehash: 6ffcbdc698b6eb3a4736fdb2b4713e2871dcaac2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147508436'
 ---
 Una vez iniciada, la auditoría desactiva todas las claves SSH existentes y obliga a los usuarios a aprobarlas o rechazarlas antes de que sea posible clonarlas, extraerlas o subirlas a cualquier repositorio. Una auditoría es útil cuando un empleado o contratista se va de la empresa y necesitas asegurarte de que todas las claves estén verificadas.

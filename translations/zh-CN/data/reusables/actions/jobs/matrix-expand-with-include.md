@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c999fec9a5ab78a42f78c5d7312f54a62b81cbef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145098458"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883082"
 ---
 例如，以下工作流将运行六个作业，其中针对每个 `os` 和 `node` 变量组合提供一个作业。 当对应于 `windows-latest` 的 `os` 值和 `16` 的 `node` 值的作业运行时，作业中将包含一个被称为 `npm` 且值为 `6` 的其他变量。
 

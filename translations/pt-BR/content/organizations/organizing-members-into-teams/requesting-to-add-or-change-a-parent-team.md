@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Add or change parent team
 ms.openlocfilehash: d277f8177e6a09e308792b1f7c01832851aec878
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128307'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880465'
 ---
 Quando você solicita a adição ou alteração da equipe principal, uma solicitação é enviada aos mantenedores da equipe principal. Quando um mantenedor da nova equipe principal aprova a solicitação, sua equipe é aninhada como uma equipe secundária abaixo da equipe principal na hierarquia da organização.
 

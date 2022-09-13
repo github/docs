@@ -17,11 +17,11 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145120362'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882695'
 ---
 Las cuentas de usuario de {% data variables.product.product_location %} se mantienen al cambiar el método de autenticación y los usuarios seguirán iniciando sesión en la misma cuenta siempre que su nombre de usuario no cambie.
 

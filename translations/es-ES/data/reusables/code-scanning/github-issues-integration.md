@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 4f096cb9a15e45244eeb7ed163fe4632e2fd4c07
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145113242"
 ---
 Las alertas del {% data variables.product.prodname_code_scanning_capc %} se integran con listas de tareas en {% data variables.product.prodname_github_issues %} para facilitarte el priorizar y rastrear alertas con todo tu trabajo de desarrollo. Para más información sobre las incidencias, vea "[Acerca de las incidencias](/issues/tracking-your-work-with-issues/about-issues)".

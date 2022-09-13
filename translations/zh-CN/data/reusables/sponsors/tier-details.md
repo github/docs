@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2f91982841899ea65993a71edec22ee264e1aad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065738"
 ---
 您可以创建最多 10 个一次性赞助等级和 10 个月度等级供赞助者选择。 每个等级都有自己的一次性或月度付款金额（以美元计），您可以选择对自定义金额启用等级。 此外，您可以选择为自定义金额启用等级（月度和一次性）。

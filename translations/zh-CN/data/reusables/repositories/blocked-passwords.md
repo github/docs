@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1f59c95d79ab5fa0f778e05379112ec4b82afd42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145099477"
 ---
 {% ifversion fpt or ghec %} 在输入密码进行登录、创建帐户或更改密码时，{% data variables.product.product_name %} 将根据 HaveIBeenPwned 等资料集检查你输入的密码是否被视为弱密码。 即使是以前从未用过的密码，也可能被视为弱密码。

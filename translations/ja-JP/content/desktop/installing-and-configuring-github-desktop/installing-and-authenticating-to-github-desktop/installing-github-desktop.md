@@ -1,58 +1,64 @@
 ---
-title: Installing GitHub Desktop
+title: GitHub Desktopのインストール方法
 shortTitle: Installation
-intro: You can install GitHub Desktop on supported Windows or macOS operating systems.
+intro: サポートされている Windows または macOS オペレーティングシステムに GitHub デスクトップをインストールできます。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
 versions:
   fpt: '*'
+ms.openlocfilehash: 4947bff541682887817198c714e7e78bff2cfc9f
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882780'
 ---
-## About {% data variables.product.prodname_desktop %} installation
+## {% data variables.product.prodname_desktop %} のインストールについて
 
-You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
+現在、{% data variables.desktop.mac-osx-versions %} と {% data variables.desktop.windows-versions %} を含む、サポートされているオペレーティング システムに {% data variables.product.prodname_desktop %} をインストールできます。 {% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にアカウントをお持ちの場合は、アカウントを {% data variables.product.prodname_desktop %} に接続できます。 アカウントの作成の詳細については、「[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account/)」を参照するか、{% data variables.product.prodname_enterprise %} のサイト管理者にお問い合わせください。
 
 {% windows %}
 
-If you are a network administrator, you can deploy {% data variables.product.prodname_desktop %} to computers running Windows on an Active Directory-managed network by using the Windows Installer package file (`.msi`) with Group Policy or another remote installation system.
+ネットワーク管理者は、グループ ポリシーまたは別のリモート インストール システムで Windows インストーラー パッケージ ファイル (`.msi`) を使用して、Active Directory 管理のネットワーク上で Windows を実行しているコンピューターに {% data variables.product.prodname_desktop %} を展開できます。
 
-The Windows Installer package extracts the standalone installer (`.exe`) and configures Windows to install {% data variables.product.prodname_desktop %} the next time a user signs in to their workstation. Users must have permissions to install {% data variables.product.prodname_desktop %} in their user directory.
+Windows インストーラー パッケージを使用すると、スタンドアロンのインストーラー (`.exe`) が抽出され、ユーザーが次にワークステーションにサインインしたときに {% data variables.product.prodname_desktop %} をインストールするように Windows が設定されます。 ユーザがユーザディレクトリに{% data variables.product.prodname_desktop %}をインストールするには、権限が必要です。
 
-If a user runs the Windows Installer package for {% data variables.product.prodname_desktop %} directly, to complete the installation, the user must sign out of their workstation and then sign back in.
+ユーザが {% data variables.product.prodname_desktop %} の Windows インストーラーパッケージを直接実行する場合、インストールを完了するには、ワークステーションからサインアウトし再度サインインする必要があります。
 
 {% endwindows %}
 
-## Downloading and installing {% data variables.product.prodname_desktop %}
+## {% data variables.product.prodname_desktop %}のダウンロード、およびインストール方法
 
 {% mac %}
 
-You can install {% data variables.product.prodname_desktop %} on {% data variables.desktop.mac-osx-versions %}.
+{% data variables.product.prodname_desktop %}は、{% data variables.desktop.mac-osx-versions %}にインストールできます。
 
 {% data reusables.desktop.download-desktop-page %}
-2. Click **Download for macOS**.
-  ![The Download for macOS button](/assets/images/help/desktop/download-for-mac.png)
-3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** zip file.
-  ![The GitHubDesktop.zip file](/assets/images/help/desktop/mac-zipfile.png)
-4. After the file has been unzipped, double-click **{% data variables.product.prodname_desktop %}**.
-5. {% data variables.product.prodname_desktop %} will launch after installation is complete.
+2. **[ダウンロード (macOS)]** をクリックします。
+  ![[ダウンロード (macOS)] ボタン](/assets/images/help/desktop/download-for-mac.png)
+3. ご利用のコンピューターの `Downloads` フォルダーで、 **{% data variables.product.prodname_desktop %}** ZIP ファイルをダブルクリックします。
+  ![GitHubDesktop.zip ファイル](/assets/images/help/desktop/mac-zipfile.png)
+4. ファイルが解凍されたら、 **{% data variables.product.prodname_desktop %}** をダブルクリックします。
+5. インストールが完了すると、{% data variables.product.prodname_desktop %} が起動します。
 
 {% endmac %}
 
 {% windows %}
 
-You can install {% data variables.product.prodname_desktop %} on {% data variables.desktop.windows-versions %}.
+{% data variables.product.prodname_desktop %}は、{% data variables.desktop.windows-versions %}にインストールできます。
 
 {% warning %}
 
-**Warning**: You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
+**警告**: {% data variables.product.prodname_desktop %} を実行するには、64 ビットのオペレーティング システムが必要です。
 
 {% endwarning %}
 
 {% data reusables.desktop.download-desktop-page %}
-2. Click **Download for Windows**.
-  ![The Download for Windows button](/assets/images/help/desktop/download-for-windows.png)
-3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** setup file.
-  ![The GitHubDesktopSetup file](/assets/images/help/desktop/windows-githubdesktopsetup.png)
-4. {% data variables.product.prodname_desktop %} will launch after installation is complete.
+2. **[ダウンロード (Windows)]** をクリックします。
+  ![[ダウンロード (Windows)] ボタン](/assets/images/help/desktop/download-for-windows.png)
+3. ご利用のコンピューターの `Downloads` フォルダーで、 **{% data variables.product.prodname_desktop %}** セットアップ ファイルをダブルクリックします。
+  ![GitHubDesktopSetup ファイル](/assets/images/help/desktop/windows-githubdesktopsetup.png)
+4. インストールが完了すると、{% data variables.product.prodname_desktop %} が起動します。
 
 {% endwindows %}

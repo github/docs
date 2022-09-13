@@ -28,6 +28,7 @@ featuredLinks:
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
     - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project
@@ -57,10 +58,10 @@ children:
   - /the-githubdev-web-based-editor
   - /guides
 ms.openlocfilehash: 078b2c2ba743f2332ffda5a03ba9b0589cfdd12c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147652626'
 ---
 

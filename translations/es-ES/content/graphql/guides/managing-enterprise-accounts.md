@@ -11,10 +11,10 @@ topics:
   - API
 shortTitle: Manage enterprise accounts
 ms.openlocfilehash: bdfcca52766b85406df12b597822d5a5a596f26b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145069739'
 ---
 ## Acerca de administrar cuentas empresariales con GraphQL

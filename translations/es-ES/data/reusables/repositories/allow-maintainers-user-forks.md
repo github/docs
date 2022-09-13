@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3c71b4f4d9bfae794b8325c01d85db55f91c2fa8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145118370"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882871"
 ---
 1. En las bifurcaciones propiedad de los usuarios, si quiere que alguien con acceso de inserción al repositorio ascendente realice cambios en la solicitud de incorporación de cambios, seleccione **Allow edits from maintainers** (Permitir ediciones de los mantenedores).
 

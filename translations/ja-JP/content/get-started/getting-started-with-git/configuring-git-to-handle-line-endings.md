@@ -16,11 +16,11 @@ versions:
   ghec: '*'
 shortTitle: Handle line endings
 ms.openlocfilehash: 4aa89f244e45da6905d6d5348c84faf8d5e6418c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145119446'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884206'
 ---
 ## 行末について
 キーボードで <kbd>return</kbd> を押すたびに、行末と呼ばれる目に見えない文字が挿入されています。 行終端の処理は、オペレーティングシステムによって異なります。

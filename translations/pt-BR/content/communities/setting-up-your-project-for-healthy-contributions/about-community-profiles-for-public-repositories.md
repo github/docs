@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Community profiles
 ms.openlocfilehash: 08a993bd20a63d21c156a80b0d46d19e1735d68b
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084097'
 ---
 A checklist do perfil de comunidade verifica se um projeto inclui arquivos recomendados de integridade da comunidade, como README, CODE_OF_CONDUCT, LICENSE ou CONTRIBUTING em um local compatível. Para obter mais informações, confira "[Como acessar o perfil da comunidade de um projeto](/articles/accessing-a-project-s-community-profile)".

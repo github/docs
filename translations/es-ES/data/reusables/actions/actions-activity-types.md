@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 03c7480afe114a1f9fa676f6872be9081289295a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "146688944"
 ---
 Algunos eventos tienen tipos de actividad que te proporcionan más control sobre cuándo debería ejecutarse tu flujo de trabajo. Use `on.<event_name>.types` para definir el tipo de actividad de evento que desencadenará una ejecución de flujo de trabajo.

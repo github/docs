@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: e264eacc4226a90eb80980c2b19f48dc7c1889c7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145065863"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879541"
 ---
 要为作业指定自托管运行器，请在工作流文件中使用自托管运行器标签配置 `runs-on`。
 

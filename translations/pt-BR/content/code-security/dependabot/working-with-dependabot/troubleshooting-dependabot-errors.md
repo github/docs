@@ -2,6 +2,7 @@
 title: Solução de problemas do Dependabot
 intro: 'Às vezes, {% data variables.product.prodname_dependabot %} não consegue criar um pull request para atualizar suas dependências. Você pode revisar o erro e desbloquear {% data variables.product.prodname_dependabot %}.'
 shortTitle: Troubleshoot errors
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
@@ -21,12 +22,12 @@ topics:
   - Troubleshooting
   - Errors
   - Dependencies
-ms.openlocfilehash: 74c614d2bf4bc1dadb3b5be90b743d46b1f869e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ad3449768246ea8659ddffe4957fd3d6801edd2c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146455474'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861657'
 ---
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
@@ -85,7 +86,23 @@ Pull requests para atualizações de segurança atuam para atualizar uma depend�
 
 Cada aplicativo com dependências tem um gráfico de dependências, ou seja, um gráfico direcionado acíclico de cada versão de pacote da qual o aplicativo depende direta ou indiretamente. Toda vez que uma dependência é atualizada, este gráfico deve ser resolvido. Caso contrário, o aplicativo não será criado. Quando um ecossistema tem um gráfico de dependência profundo e complexo, por exemplo, npm e RubyGems, geralmente é impossível atualizar uma única dependência sem atualizar todo o ecossistema.
 
-A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter mais informações, confira "[Como configurar as atualizações de versão do {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
+A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter mais informações, confira "[Configurar atualizações de versão do {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
+
+### {% data variables.product.prodname_dependabot %} tenta atualizar dependências sem um alerta
+
+**Somente atualizações de segurança.** {% data variables.product.prodname_dependabot %} atualiza dependências transitivas definidas explicitamente que são vulneráveis para todos os ecossistemas. Para npm, {% data variables.product.prodname_dependabot %} gerará uma solicitação de pull que também atualizará a dependência pai se for a única maneira de corrigir a dependência transitiva.
+
+Por exemplo, um projeto com uma dependência no `A` versão `~2.0.0` que tem uma dependência transitiva no `B` versão `~1.0.0` que foi resolvido para `1.0.1`.
+```
+my project
+|
+--> A (2.0.0) [~2.0.0]
+       |
+       --> B (1.0.1) [~1.0.0]
+```       
+Se uma vulnerabilidade de segurança for lançada para o `B` versões `<2.0.0` e um patch estiver disponível em `2.0.0`, então {% data variables.product.prodname_dependabot %} tentará atualizar `B`, mas descobrirá que não é possível, devido à restrição em vigor pelo `A`, que só permite versões vulneráveis mais baixas. Para corrigir a vulnerabilidade, {% data variables.product.prodname_dependabot %} procurará atualizações na dependência `A`, que permitem que seja usada a versão corrigida de `B`. 
+
+{% data variables.product.prodname_dependabot %} gera automaticamente uma solicitação de pull que atualiza as dependências transitivas pai e filho bloqueados.{% endif %}
 
 ### {% data variables.product.prodname_dependabot %} não consegue atualizar para a versão necessária, pois já existe um pull request aberto para a última versão
 

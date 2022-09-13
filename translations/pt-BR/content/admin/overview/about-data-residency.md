@@ -8,10 +8,10 @@ topics:
   - Enterprise
   - Fundamentals
 ms.openlocfilehash: b182073799b1f45b697bef47a4314644bc8a52b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145094600'
 ---
 {% data reusables.github-ae.github-ae-enables-you %} Você pode escolher a localidade onde você armazena todos os dados do cliente para {% data variables.product.product_location %}, e os integrantes da sua empresa poderão acessar {% data variables.product.product_name %} de qualquer lugar do mundo.

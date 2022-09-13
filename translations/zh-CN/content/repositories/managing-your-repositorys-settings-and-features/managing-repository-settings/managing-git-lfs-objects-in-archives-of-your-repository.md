@@ -12,11 +12,11 @@ redirect_from:
   - /github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository
   - /github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository
 ms.openlocfilehash: 64bad4c056a29ceffc465065c84a7424c870049f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129321'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881770'
 ---
 ## 关于存档中的 {% data variables.large_files.product_name_short %} 对象
 

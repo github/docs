@@ -12,20 +12,20 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d76e4457b70069ef1199c33029dd38cfd7a89cdb
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: b8072adbca2f5e42acd5dda3b8d213dd795c13be
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556825'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099221'
 ---
 発効日: **2021 年 4 月 2 日**
 
 GitHub は、お客様のデータを当社がどのように利用するか、お客様のデータを当社がどのように収集するか、およびお客様のデータを誰と共有するかについて、高い透明性を提供します。 この目的のため、[当社の下請処理者](#github-subprocessors)および [Cookie](#cookies-on-github) をどのように使用するかについてこのページで説明します。
 
-## <a name="github-subprocessors"></a>GitHub の下請処理者
+## GitHub の下請処理者
 
-当社がお客様の情報を、ベンダーやサービス プロバイダーなどの第三者の下請処理者と共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、すべてのベンダーに対して、ユーザーの個人情報 ([プライバシーに関する声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するように要求しています。
+当社がお客様の情報を、ベンダーやサービス プロバイダーなどの第三者の下請処理者と共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、すべてのベンダーに対して、ユーザーの個人情報 ([プライバシーに関する声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するように要求しています。 下請処理者一覧の更新情報を受け取るには、[こちら](https://www.github.com/privacy/subprocessors)から登録してください。
 
 | 下請処理者の名前 | 処理の説明 | 処理の場所 | 企業所在地
 |:---|:---|:---|:---|
@@ -49,7 +49,7 @@ GitHub は、お客様のデータを当社がどのように利用するか、�
 
 当社ユーザーの個人情報を取り扱う新たな下請処理者とやり取りを始める際、下請処理者と解約する際、および下請処理者の利用方法を変更する際は、このページを更新します。 新たな下請処理者についての質問や懸念がある場合は、お気軽にお問い合わせください。 {% data variables.contact.contact_privacy %} からお問い合わせください。
 
-## <a name="cookies-on-github"></a>GitHub の Cookie
+## GitHub の Cookie
 
 GitHub は、Web サイトを提供および保護し、Web サイトの利用状況を分析して優れたユーザー エクスペリエンスを提供するために Cookie を使用します。 Cookie に関する詳細な情報や、その使用方法と使用する理由については、当社の[プライバシーに関する声明](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking)を参照してください。 
  

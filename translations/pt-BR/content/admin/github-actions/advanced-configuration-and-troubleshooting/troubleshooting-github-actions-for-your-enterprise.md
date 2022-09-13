@@ -13,10 +13,10 @@ redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Troubleshoot GitHub Actions
 ms.openlocfilehash: ff78e1b68664d5eb0931bb98d325e22ae0c458f3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145094987'
 ---
 ## Verificando a saúde de {% data variables.product.prodname_actions %}

@@ -8,14 +8,14 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 590605ab68eb40d42949e179e471d5c7d333f43e
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 0958aad779e6ec1044b74d3f6d67b2d7fff8aef0
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '147059974'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710375'
 ---
-## <a name="about-the-external-groups-api"></a>Acerca de External groups API
+## Acerca de External groups API
 
 Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste.
 

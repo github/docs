@@ -1,7 +1,7 @@
 ---
-title: Configuración del editor predeterminado para GitHub Codespaces
+title: Setting your default editor for GitHub Codespaces
 shortTitle: Set the default editor
-intro: 'Puedes configurar tu editor predeterminado para {% data variables.product.prodname_codespaces %} en tu página de ajustes personal.'
+intro: '{% data reusables.codespaces.about-changing-default-editor %}'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,20 +12,17 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: 7cfc188cb265482ea9dd40f3fc653af870aa6982
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111669'
 ---
-En la página de ajustes, puedes configurar las preferencias de tu editor para que los codespaces recién creados se abran automáticamente, ya sea en {% data variables.product.prodname_vscode %} para la Web o en {% data variables.product.prodname_vscode %} para escritorio.
 
-Si quieres utilizar {% data variables.product.prodname_vscode %} como tu editor predeterminado para {% data variables.product.prodname_codespaces %}, necesitas instalar {% data variables.product.prodname_vscode %} y la extensión de {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %}. Para más información, vea la [página de descarga de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) y la [extensión {% data variables.product.prodname_github_codespaces %} en el marketplace de {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+On the settings page, you can set your editor preference so that any newly created codespaces are opened automatically in either {% data variables.product.prodname_vscode %} for Web or the {% data variables.product.prodname_vscode %} desktop application.
 
-## Configurar tu editor predeterminado
+If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
-1. Debajo de "Preferencia de editor", selecciona la opción que desees.
-   ![Configuración del editor](/assets/images/help/codespaces/select-default-editor.png) Si elige **{% data variables.product.prodname_vscode %}** , {% data variables.product.prodname_codespaces %} se abrirá automáticamente en la aplicación de escritorio la próxima vez que cree un codespace. Podrías necesitar permitir acceso tanto a tu buscador como a {% data variables.product.prodname_vscode %} para que abra con éxito.
-   ![Configuración del editor](/assets/images/help/codespaces/launch-default-editor.png)
+## Setting your default editor
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
+1. Under "Editor preference", select the option you want.
+   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
+   If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_codespaces %} will automatically open in the desktop application when you next create a codespace. You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.
+   ![Setting your editor](/assets/images/help/codespaces/launch-default-editor.png)

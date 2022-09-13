@@ -18,10 +18,10 @@ children:
   - /statistics
   - /traffic
 ms.openlocfilehash: 55b5b09c8032b7b749c19299e8a59ad47bbf4d68
-ms.sourcegitcommit: fbc89bcee79c2cda1d3d6e99d5571873ca3b2686
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147067206'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Packages
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+title: パッケージ
+intro: '{% data variables.product.prodname_registry %} APIを使うと、{% data variables.product.prodname_dotcom %}の自分のリポジトリとOrganizationのパッケージの管理ができます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,17 +9,22 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/packages
+ms.openlocfilehash: 5edb7e30b296626a53fdc41806bcfba88718e6b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147059923'
 ---
+## {% data variables.product.prodname_registry %} API について
 
-## About the {% data variables.product.prodname_registry %} API
+{% data variables.product.prodname_registry %} APIでは、REST APIを使ってパッケージを管理できます。 パッケージの復元または削除の詳細については、「[パッケージの復元と削除](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください
 
-The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+このAPIを使うには、個人アクセストークンを使って認証を受けなければなりません。 
+  - パッケージのメタデータにアクセスするには、トークンに `read:packages` のスコープを含める必要があります。
+  - パッケージとパッケージのバージョンを削除するには、トークンに `read:packages` と `delete:packages` のスコープを含める必要があります。
+  - パッケージとパッケージのバージョンを復元するには、トークンに `read:packages` と `write:packages` のスコープを含める必要があります。
 
-To use this API, you must authenticate using a personal access token. 
-  - To access package metadata, your token must include the `read:packages` scope.
-  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
-  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
+`package_type` が `npm`、`maven`、`rubygems` または `nuget` の場合、パッケージは {% data variables.product.prodname_dotcom %} リポジトリからアクセス許可を継承するため、トークンに `repo` のスコープも含める必要があります。 パッケージが {% data variables.product.prodname_container_registry %} 内にある場合は、`package_type` は `container` になり、トークンでこの `package_type` へのアクセスまたは管理に `repo` のスコープは必要ありません。 `container` パッケージには、リポジトリとは別の細かいアクセス許可が用意されています。 詳細については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)」を参照してください。
 
-If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
-
-If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your personal access token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+SSOが有効化されたOrganization内のリソースにアクセスするために{% data variables.product.prodname_registry %} APIを使いたい場合は、個人アクセストークンにSSOを有効化しなければなりません。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}」 (SAML シングル サインオンで使用する個人用アクセス トークンの認証) を参照してください。{% else %}."{% endif %}

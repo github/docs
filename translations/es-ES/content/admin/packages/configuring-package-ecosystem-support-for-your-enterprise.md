@@ -12,10 +12,10 @@ topics:
   - Packages
 shortTitle: Configure package ecosystems
 ms.openlocfilehash: 83de80e4233f671a7a923394d2fd3f6e554bba10
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147062550'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}

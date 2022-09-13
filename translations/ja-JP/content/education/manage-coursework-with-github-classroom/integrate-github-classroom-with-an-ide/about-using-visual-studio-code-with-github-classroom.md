@@ -7,10 +7,10 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ms.openlocfilehash: fe0e8e0c3194f9c97cc30c80dcec00256824e6ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145148745'
 ---
 ## {% data variables.product.prodname_vscode %} について

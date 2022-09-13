@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f48d8f2c8e9e4931b00f7ec1bb943f1cb2695252
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100595"
 ---
 {% ifversion fpt or ghec %}1. 如果你邀请的人员在过去三个月内是组织成员，请选择是恢复他们的权限还是重新开始，然后相应单击“邀请并恢复”或“邀请并重新开始” 。

@@ -15,10 +15,10 @@ topics:
   - Teams
 shortTitle: Remove user membership
 ms.openlocfilehash: 575cc032786b2bbbf264104002f503b5061df8e6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145116297'
 ---
 Solo los propietarios o los administradores del equipo pueden eliminar miembros de la organización. Cuando se elimina un usuario de un equipo o una organización, sus propuestas, solicitudes de extracción y comentarios en los repositorios de la organización permanecen intactos y siguen siendo atribuidos al usuario.

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c47a4efc23963dcfa0be69207387cd2d02704aef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145098394"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876124"
 ---
 为仓库启用或禁用 {% data variables.product.prodname_advanced_security %} 时，{% data variables.product.prodname_dotcom %} 将显示许可证使用情况变化的概况。 如果您禁用对 {% data variables.product.prodname_GH_advanced_security %} 的访问，任何被“唯一”提交者使用的席位都将释放。
 

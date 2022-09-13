@@ -14,10 +14,10 @@ topics:
   - Profiles
 shortTitle: Pin items
 ms.openlocfilehash: 131bdb1ed57383e0b420308a96742a573dd9aa14
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145068968'
 ---
 あなたが所有するか、コントリビュートしたパブリックリポジトリをピン止めできます。 フォークへのコミットはコントリビューションとして扱われないので、所有していないフォークをピン止めすることはできません。 詳細については、「[自分の投稿がプロフィールに表示されないのはなぜですか?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)」を参照してください。

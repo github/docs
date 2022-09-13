@@ -14,16 +14,16 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
 shortTitle: Merge PR automatically
-ms.openlocfilehash: bdba774e193661f630dd35b034d0a4454ec5c1ee
-ms.sourcegitcommit: da73949b8f8bd71d40247f1f9c49f8f4c362ecd0
+ms.openlocfilehash: 07069657c870751849d3b7e80c7817f908c2bda5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2022
-ms.locfileid: '147431945'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770914'
 ---
-## <a name="about-auto-merge"></a>自動マージについて
+## 自動マージについて
 
-プルリクエストの自動マージを有効にすると、必要なすべてのレビューを満たし、ステータスチェックに合格すると、プルリクエストが自動的にマージされます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
+pull request の自動マージが有効になっている場合は、必要なすべてのレビューが満たされ、必要なすべてのステータス チェックが合格すると、その pull request によって自動的にマージが行われます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
 
 プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳細については、「[リポジトリ内の pull request の自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。
 
@@ -31,7 +31,7 @@ ms.locfileid: '147431945'
 
 自動マージに関するフィードバックは [{% data variables.product.prodname_github_community %} ディスカッション](https://github.com/orgs/community/discussions/categories/pull-requests)を通じて提供できます。
 
-## <a name="enabling-auto-merge"></a>自動マージの有効化
+## 自動マージの有効化
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '147431945'
    ![コミット メッセージと説明を入力するフィールド](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png) {% endif %}
 1. **[Confirm auto-merge]** をクリックします。
 
-## <a name="disabling-auto-merge"></a>自動マージの無効化
+## 自動マージの無効化
 
 リポジトリへの書き込み権限を持つユーザと、プルリクエストの作者であるユーザは、プルリクエストの自動マージを無効化できます。
 

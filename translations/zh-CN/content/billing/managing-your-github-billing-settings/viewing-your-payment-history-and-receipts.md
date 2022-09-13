@@ -19,11 +19,11 @@ topics:
   - User account
 shortTitle: View history & receipts
 ms.openlocfilehash: 620dcd8d38da01e9680e0cbc05c23dc97d241a41
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084446'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877230'
 ---
 ## 查看个人帐户的收据
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 407574f3a129575da3a2d12ce1a83c8ba071823f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145100675"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147886756"
 ---
 1. 查看应用的访问权限，然后单击“安装”。

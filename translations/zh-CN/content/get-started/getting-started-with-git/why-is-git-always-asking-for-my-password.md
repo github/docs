@@ -13,10 +13,10 @@ versions:
   ghec: '*'
 shortTitle: Git passwords
 ms.openlocfilehash: 06a8cf617072075f39a880ec58173e7cfbc5bc8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145128975'
 ---
 与使用 SSH 相比，使用 HTTPS 远程 URL 具有一些优势。 它比 SSH 更容易设置，通常通过严格的防火墙和代理进行工作。 但是，每次拉取或推送仓库时，它也会提示您输入 {% data variables.product.product_name %} 凭据。 

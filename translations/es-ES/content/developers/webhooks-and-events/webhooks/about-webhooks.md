@@ -12,10 +12,10 @@ versions:
 topics:
   - Webhooks
 ms.openlocfilehash: 08b038d5a35c4c692502545e640d04993d169b6a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145112386'
 ---
 Los webhooks permiten crear o configurar integraciones, como [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), que se suscriben a determinados eventos en GitHub.com. Cuando se activa alguno de esos eventos, enviamos una carga útil de POST por HTTP a la URL que el webhook tiene configurada. Los webhooks pueden utilizarse para actualizar un rastreador de problemas externo, activar compilaciones de IC, actualizar un espejo de respaldo, o incluso para desplegar en tu servidor productivo. Solo te limita tu imaginación.

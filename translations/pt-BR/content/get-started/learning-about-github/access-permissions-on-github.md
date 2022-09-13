@@ -18,10 +18,10 @@ topics:
   - Accounts
 shortTitle: Access permissions
 ms.openlocfilehash: 32db1949cbc110559023f719682caed0319aae9e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126695'
 ---
 ## Sobre as permissões de acesso em {% data variables.product.prodname_dotcom %}
