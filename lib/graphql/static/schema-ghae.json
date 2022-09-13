@@ -290,7 +290,7 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>Perform a search across resources.</p>",
+      "description": "<p>Perform a search across resources, returning a maximum of 1,000 results.</p>",
       "args": [
         {
           "name": "after",
@@ -4546,7 +4546,7 @@
       "kind": "mutations",
       "id": "updatebranchprotectionrule",
       "href": "/graphql/reference/mutations#updatebranchprotectionrule",
-      "description": "<p>Create a new branch protection rule.</p>",
+      "description": "<p>Update a branch protection rule.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5672,6 +5672,48 @@
       ]
     },
     {
+      "name": "updateOrganizationWebCommitSignoffSetting",
+      "kind": "mutations",
+      "id": "updateorganizationwebcommitsignoffsetting",
+      "href": "/graphql/reference/mutations#updateorganizationwebcommitsignoffsetting",
+      "description": "<p>Sets whether contributors are required to sign off on web-based commits for repositories in an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationWebCommitSignoffSettingInput!",
+          "id": "updateorganizationwebcommitsignoffsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateorganizationwebcommitsignoffsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the web commit signoff setting.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization with the updated web commit signoff setting.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProject",
       "kind": "mutations",
       "id": "updateproject",
@@ -6016,6 +6058,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The updated repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateRepositoryWebCommitSignoffSetting",
+      "kind": "mutations",
+      "id": "updaterepositorywebcommitsignoffsetting",
+      "href": "/graphql/reference/mutations#updaterepositorywebcommitsignoffsetting",
+      "description": "<p>Sets whether contributors are required to sign off on web-based commits for a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRepositoryWebCommitSignoffSettingInput!",
+          "id": "updaterepositorywebcommitsignoffsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updaterepositorywebcommitsignoffsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the web commit signoff setting.</p>"
         },
         {
           "name": "repository",
@@ -9906,8 +9990,18 @@
         },
         {
           "name": "changedFiles",
-          "description": "<p>The number of changed files in this commit.</p>",
+          "description": "<p>We recommend using the <code>changedFielsIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
           "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "changedFilesIfAvailable",
+          "description": "<p>The number of changed files in this commit. If GitHub is unable to calculate\nthe number of changed files (for example due to a timeout), this will return\n<code>null</code>. We recommend using this field instead of <code>changedFiles</code>.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -10675,7 +10769,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -15308,6 +15402,14 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "slug",
+          "description": "<p>The slug of this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -15554,7 +15656,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -17263,6 +17365,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "allowPrivateRepositoryForkingSettingPolicyValue",
+          "description": "<p>The value for the allow private repository forking policy on the enterprise.</p>",
+          "type": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+          "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue"
         },
         {
           "name": "defaultRepositoryPermissionSetting",
@@ -20732,7 +20842,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -22695,7 +22805,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -32083,6 +32193,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Whether contributors are required to sign off on web-based commits for repositories in this organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "websiteUrl",
           "description": "<p>The organization's public profile URL.</p>",
           "type": "URI",
@@ -37616,7 +37734,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -45144,6 +45262,26 @@
           ]
         },
         {
+          "name": "discussionCategory",
+          "description": "<p>A discussion category by slug.</p>",
+          "type": "DiscussionCategory",
+          "id": "discussioncategory",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussioncategory",
+          "arguments": [
+            {
+              "name": "slug",
+              "description": "<p>The slug of the discussion category to be returned.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "discussions",
           "description": "<p>A list of discussions that have been opened in the repository.</p>",
           "type": "DiscussionConnection!",
@@ -45922,6 +46060,22 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when merging a pull request.</p>",
+          "type": "MergeCommitMessage!",
+          "id": "mergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommitmessage"
+        },
+        {
+          "name": "mergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when merging a pull request.</p>",
+          "type": "MergeCommitTitle!",
+          "id": "mergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommittitle"
         },
         {
           "name": "milestone",
@@ -46755,6 +46909,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "squashMergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitMessage!",
+          "id": "squashmergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommitmessage"
+        },
+        {
+          "name": "squashMergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitTitle!",
+          "id": "squashmergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommittitle"
+        },
+        {
           "name": "squashPrTitleUsedAsDefault",
           "description": "<p>Whether a squash merge commit can use the pull request title as default.</p>",
           "type": "Boolean!",
@@ -47135,6 +47305,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Whether contributors are required to sign off on web-based commits in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -48219,6 +48397,14 @@
           "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
         },
         {
+          "name": "dismissComment",
+          "description": "<p>Comment explaining the reason the alert was dismissed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "dismissReason",
           "description": "<p>The reason the alert was dismissed.</p>",
           "type": "String",
@@ -49057,11 +49243,11 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>A list of results that matched against a search query.</p>",
+      "description": "<p>A list of results that matched against a search query. Regardless of the number\nof matches, a maximum of 1,000 results will be available across all types,\npotentially split across many pages.</p>",
       "fields": [
         {
           "name": "codeCount",
-          "description": "<p>The number of pieces of code that matched the search query.</p>",
+          "description": "<p>The total number of pieces of code that matched the search query. Regardless\nof the total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49069,7 +49255,7 @@
         },
         {
           "name": "discussionCount",
-          "description": "<p>The number of discussions that matched the search query.</p>",
+          "description": "<p>The total number of discussions that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49085,7 +49271,7 @@
         },
         {
           "name": "issueCount",
-          "description": "<p>The number of issues that matched the search query.</p>",
+          "description": "<p>The total number of issues that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49109,7 +49295,7 @@
         },
         {
           "name": "repositoryCount",
-          "description": "<p>The number of repositories that matched the search query.</p>",
+          "description": "<p>The total number of repositories that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49117,7 +49303,7 @@
         },
         {
           "name": "userCount",
-          "description": "<p>The number of users that matched the search query.</p>",
+          "description": "<p>The total number of users that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49125,7 +49311,7 @@
         },
         {
           "name": "wikiCount",
-          "description": "<p>The number of wiki pages that matched the search query.</p>",
+          "description": "<p>The total number of wiki pages that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49744,6 +49930,86 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#gitsignaturestate"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "SshSignature",
+      "kind": "objects",
+      "id": "sshsignature",
+      "href": "/graphql/reference/objects#sshsignature",
+      "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/interfaces#gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "keyFingerprint",
+          "description": "<p>Hex-encoded fingerprint of the key that signed this object.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "payload",
@@ -51249,7 +51515,7 @@
             },
             {
               "name": "query",
-              "description": "<p>The search string to look for.</p>",
+              "description": "<p>The search string to look for. Repositories will be returned where the name contains your search string.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -57252,6 +57518,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "runs",
+          "description": "<p>The runs of the workflow.</p>",
+          "type": "WorkflowRunConnection!",
+          "id": "workflowrunconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the connection.</p>",
+              "type": {
+                "name": "WorkflowRunOrder",
+                "id": "workflowrunorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#workflowrunorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -57438,6 +57764,72 @@
           "id": "workflow",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflow"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunConnection",
+      "kind": "objects",
+      "id": "workflowrunconnection",
+      "href": "/graphql/reference/objects#workflowrunconnection",
+      "description": "<p>The connection type for WorkflowRun.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[WorkflowRunEdge]",
+          "id": "workflowrunedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[WorkflowRun]",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunEdge",
+      "kind": "objects",
+      "id": "workflowrunedge",
+      "href": "/graphql/reference/objects#workflowrunedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "WorkflowRun",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
         }
       ]
     }
@@ -58347,7 +58739,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -60442,6 +60834,39 @@
       ]
     },
     {
+      "name": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+      "kind": "enums",
+      "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+      "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue",
+      "description": "<p>The possible values for the enterprise allow private repository forking policy value.</p>",
+      "values": [
+        {
+          "name": "ENTERPRISE_ORGANIZATIONS",
+          "description": "<p>Members can fork a repository to an organization within this enterprise.</p>"
+        },
+        {
+          "name": "ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.</p>"
+        },
+        {
+          "name": "EVERYWHERE",
+          "description": "<p>Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.</p>"
+        },
+        {
+          "name": "SAME_ORGANIZATION",
+          "description": "<p>Members can fork a repository only within the same organization (intra-org).</p>"
+        },
+        {
+          "name": "SAME_ORGANIZATION_USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their user account or within the same organization.</p>"
+        },
+        {
+          "name": "USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their user account.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseDefaultRepositoryPermissionSettingValue",
       "kind": "enums",
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
@@ -61159,6 +61584,44 @@
       ]
     },
     {
+      "name": "MergeCommitMessage",
+      "kind": "enums",
+      "id": "mergecommitmessage",
+      "href": "/graphql/reference/enums#mergecommitmessage",
+      "description": "<p>The possible default commit messages for merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeCommitTitle",
+      "kind": "enums",
+      "id": "mergecommittitle",
+      "href": "/graphql/reference/enums#mergecommittitle",
+      "description": "<p>The possible default commit titles for merges.</p>",
+      "values": [
+        {
+          "name": "MERGE_MESSAGE",
+          "description": "<p>Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -61236,16 +61699,8 @@
           "description": "<p>A Bitbucket Server migration source.</p>"
         },
         {
-          "name": "GITHUB",
-          "description": "<p>A GitHub migration source.</p>"
-        },
-        {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
-        },
-        {
-          "name": "GITLAB",
-          "description": "<p>A GitLab migration source.</p>"
         }
       ]
     },
@@ -63176,6 +63631,44 @@
       ]
     },
     {
+      "name": "SquashMergeCommitMessage",
+      "kind": "enums",
+      "id": "squashmergecommitmessage",
+      "href": "/graphql/reference/enums#squashmergecommitmessage",
+      "description": "<p>The possible default commit messages for squash merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGES",
+          "description": "<p>Default to the branch's commit messages.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitTitle",
+      "kind": "enums",
+      "id": "squashmergecommittitle",
+      "href": "/graphql/reference/enums#squashmergecommittitle",
+      "description": "<p>The possible default commit titles for squash merges.</p>",
+      "values": [
+        {
+          "name": "COMMIT_OR_PR_TITLE",
+          "description": "<p>Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "StarOrderField",
       "kind": "enums",
       "id": "starorderfield",
@@ -63474,6 +63967,19 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunOrderField",
+      "kind": "enums",
+      "id": "workflowrunorderfield",
+      "href": "/graphql/reference/enums#workflowrunorderfield",
+      "description": "<p>Properties by which workflow run connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order workflow runs by most recently created.</p>"
         }
       ]
     }
@@ -65961,9 +66467,25 @@
           "href": "/graphql/reference/enums#checkruntype"
         },
         {
+          "name": "conclusions",
+          "description": "<p>Filters the check runs by these conclusions.</p>",
+          "type": "[CheckConclusionState!]",
+          "id": "checkconclusionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkconclusionstate"
+        },
+        {
           "name": "status",
-          "description": "<p>Filters the check runs by this status.</p>",
+          "description": "<p>Filters the check runs by this status. Superceded by statuses.</p>",
           "type": "CheckStatusState",
+          "id": "checkstatusstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkstatusstate"
+        },
+        {
+          "name": "statuses",
+          "description": "<p>Filters the check runs by this status. Overrides status.</p>",
+          "type": "[CheckStatusState!]",
           "id": "checkstatusstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#checkstatusstate"
@@ -66402,7 +66924,7 @@
       "kind": "inputObjects",
       "id": "committablebranch",
       "href": "/graphql/reference/input-objects#committablebranch",
-      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\nrepository nameWithOwner and branch name.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using nameWithOwner and branch name:</p>\n<pre><code>{\n  \"nameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
       "inputFields": [
         {
           "name": "branchName",
@@ -68598,7 +69120,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to 'MERGE'.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",
@@ -70654,6 +71176,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "lockSource",
+          "description": "<p>Whether to lock the source repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "metadataArchiveUrl",
           "description": "<p>The signed URL to access the user-uploaded metadata archive.</p>",
           "type": "String",
@@ -70702,6 +71232,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -70895,6 +71433,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "createLabelsIfMissing",
+          "description": "<p>Whether to create labels if they don't exist in the target repository (matched by name).</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "issueId",
@@ -71679,6 +72225,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "policyValue",
+          "description": "<p>The value for the allow private repository forking policy on the enterprise.</p>",
+          "type": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+          "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue"
         },
         {
           "name": "settingValue",
@@ -72645,6 +73199,40 @@
       ]
     },
     {
+      "name": "UpdateOrganizationWebCommitSignoffSettingInput",
+      "kind": "inputObjects",
+      "id": "updateorganizationwebcommitsignoffsettinginput",
+      "href": "/graphql/reference/input-objects#updateorganizationwebcommitsignoffsettinginput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization on which to set the web commit signoff setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Enable signoff on web-based commits for repositories in the organization?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "UpdateProjectCardInput",
       "kind": "inputObjects",
       "id": "updateprojectcardinput",
@@ -73156,6 +73744,40 @@
       ]
     },
     {
+      "name": "UpdateRepositoryWebCommitSignoffSettingInput",
+      "kind": "inputObjects",
+      "id": "updaterepositorywebcommitsignoffsettinginput",
+      "href": "/graphql/reference/input-objects#updaterepositorywebcommitsignoffsettinginput",
+      "description": "<p>Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Indicates if the repository should require signoff on web-based commits.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "UpdateSubscriptionInput",
       "kind": "inputObjects",
       "id": "updatesubscriptioninput",
@@ -73474,6 +74096,31 @@
           "id": "userstatusorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#userstatusorderfield"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunOrder",
+      "kind": "inputObjects",
+      "id": "workflowrunorder",
+      "href": "/graphql/reference/input-objects#workflowrunorder",
+      "description": "<p>Ways in which lists of workflow runs can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order workflow runs by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order workflows.</p>",
+          "type": "WorkflowRunOrderField!",
+          "id": "workflowrunorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#workflowrunorderfield"
         }
       ]
     }

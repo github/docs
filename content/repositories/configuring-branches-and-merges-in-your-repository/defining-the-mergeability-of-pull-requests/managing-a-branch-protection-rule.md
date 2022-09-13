@@ -99,8 +99,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
    ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
-1. Optionally, select **Apply the rules above to administrators**.
-![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
+![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
+![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}

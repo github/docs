@@ -2,6 +2,7 @@
 .DS_Store
 .env
 .vscode/settings.json
+.idea/
 /node_modules/
 npm-debug.log
 coverage/
@@ -9,6 +10,7 @@ coverage/
 /assets/images/early-access
 /content/early-access
 /data/early-access
+/script/dev-toc/static
 .next
 .eslintcache
 *.tsbuildinfo

@@ -1,5 +1,5 @@
 ---
-title: 镜像仓库
+title: 复制仓库
 intro: 要维护存储库的镜像而不对其进行复刻，可以运行特殊的克隆命令，然后镜像推送到新存储库。
 redirect_from:
   - /articles/duplicating-a-repo
@@ -13,19 +13,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: c9cc58acd7f3b69ff277830bef8dc50fed02c2b6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129370'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**注意：** 如果您在其他版本控制系统上托管了项目，则可以使用 {% data variables.product.prodname_dotcom %} 导入程序工具自动将项目导入到 {% data variables.product.prodname_dotcom %}。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”。
+注意：如果你在其他版本控制系统上托管了项目，则可以使用 {% data variables.product.prodname_dotcom %} 导入程序工具自动将项目导入到 {% data variables.product.prodname_dotcom %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 导入程序](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”。
 
 {% endnote %}
 
 {% endif %}
 
-在将原始存储库推送到存储库的新副本或_镜像_之前，必须在 {% data variables.product.product_location %} 上[创建新的存储库](/articles/creating-a-new-repository)。 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
+在将原始存储库推送到存储库的新副本或镜像之前，必须在 {% data variables.product.product_location %} 上[创建新的存储库](/articles/creating-a-new-repository)。 在这些示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 为镜像。
 
 ## 镜像仓库
 
@@ -98,8 +103,8 @@ topics:
 {% ifversion fpt or ghec %}
 ## 延伸阅读
 
-* "[将更改推送到 GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[关于 Git 大文件存储和 GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* “[关于 GitHub 导入工具](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”
+* [将更改推送到 GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)
+* [关于 Git 大文件存储和 GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)
+* [关于 GitHub 导入工具](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)
 
 {% endif %}

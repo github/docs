@@ -1,6 +1,6 @@
 ---
 title: Documentación para administradores empresariales
-shortTitle: Administradores empresariales
+shortTitle: Enterprise administrators
 intro: 'Documentación y guías para los administradores empresariales{% ifversion ghes %}, administradores de sistema,{% endif %} y especialistas de seguridad quieres {% ifversion ghes %}despliegan, {% endif %}configuran{% ifversion ghes %},{% endif %} y fusionan {% data variables.product.product_name %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
@@ -133,5 +133,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
+ms.openlocfilehash: ebd1473538d42928ff3d9abb3c0e2bd9f12767f5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881159'
 ---
 

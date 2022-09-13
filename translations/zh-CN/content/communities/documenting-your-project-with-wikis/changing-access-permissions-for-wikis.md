@@ -12,13 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: 更改访问权限
+shortTitle: Change access permissions
+ms.openlocfilehash: 51a9ec690f0bdad1be302592091565b65e5f9b9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145086615'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. 在 Features（功能）下，取消选中 **Restrict edits to collaborators only（仅限于协作者编辑）**。 ![Wiki 编辑限制](/assets/images/help/wiki/wiki_restrict_editing.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. 在“功能”下，取消选中“仅限于协作者编辑”。
+   ![Wiki 编辑限制](/assets/images/help/wiki/wiki_restrict_editing.png)
 
 ## 延伸阅读
 
-- “[禁用 wiki](/communities/documenting-your-project-with-wikis/disabling-wikis)”
+- [禁用 Wiki](/communities/documenting-your-project-with-wikis/disabling-wikis)

@@ -8,54 +8,58 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Adicionar um selo de status
+shortTitle: Add a status badge
+ms.openlocfilehash: d2b0703e9ca4dcdc0a02cb81144e321a38cffde0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880626'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% note %}
 
-**Note**: Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
+**Observação**: as notificações de fluxo de trabalho em um repositório privado não podem ser acessados ​​externamente, portanto, você não poderá incorporar ou vinculá-los a partir de um site externo.
 
 {% endnote %}
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 
-To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Para adicionar uma notificação de status de fluxo de trabalho ao arquivo `README.md`, primeiro localize a URL da notificação de status que você gostaria de exibir. Em seguida, você pode usar o Markdown para exibir a notificação como uma imagem em seu arquivo `README.md`. Para obter mais informações sobre a marcação de imagem no Markdown, confira "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)".
 
 ## Usar o nome do arquivo do fluxo de trabalho
 
-You can build the URL for a workflow status badge using the name of the workflow file:
+Você pode criar a URL para uma notificação de status de fluxo de trabalho usando o nome do arquivo de fluxo de trabalho:
 
 ```
 {% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
 
-To display the workflow status badge in your `README.md` file, use the Markdown markup for embedding images. For more information about image markup in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Para exibir a notificação de status do fluxo de trabalho em seu arquivo `README.md`, use a marcação do Markdown para inserir imagens. Para obter mais informações sobre a marcação de imagem no Markdown, confira "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)".
 
-For example, add the following Markdown to your `README.md` file to add a status badge for a workflow with the file path `.github/workflows/main.yml`. O `PROPRIETÁRIO` do repositório é a organização do `github` e o nome do `REPOSITÓRIO` é `docs`.
+Por exemplo, adicione o Markdown a seguir ao arquivo `README.md` para adicionar uma notificação de status para um fluxo de trabalho com o caminho do arquivo `.github/workflows/main.yml`. O `OWNER` do repositório é a organização `github`, e o nome do `REPOSITORY` é `docs`.
 
 ```markdown
-![fluxo de trabalho de exemplo](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-## Usando o parâmetro `branch`
+## Como usar o parâmetro `branch`
 
-To display the status of a workflow run for a specific branch, add `?branch=<BRANCH_NAME>` to the end of the status badge URL.
+Para exibir o status de uma execução de fluxo de trabalho para um branch específico, adicione `?branch=<BRANCH_NAME>` ao final da URL da notificação de status.
 
-For example, add the following Markdown to your `README.md` file to display a status badge for a branch with the name `feature-1`.
+Por exemplo, adicione o Markdown a seguir ao arquivo `README.md` para adicionar uma notificação de status para uma marcação com o nome `feature-1`.
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## Usar o parâmetro `evento`
+## Como usar o parâmetro `event`
 
-To display the status of workflow runs triggered by the `push` event, add `?event=push` to the end of the status badge URL.
+Para exibir o status das execuções de fluxo de trabalho disparadas pelo evento `push`, adicione `?event=push` ao final da URL da notificação de status.
 
-For example, add the following Markdown to your `README.md` file to display a badge with the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+Por exemplo, adicione o seguinte Markdown ao seu arquivo `README.md` para exibir uma notificação com o status das execuções de fluxo de trabalho acionadas pelo evento `push`, que mostrará o status do build para o estado atual desse branch.
 
 ```markdown
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)

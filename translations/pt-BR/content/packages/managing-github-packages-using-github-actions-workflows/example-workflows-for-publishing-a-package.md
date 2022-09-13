@@ -6,15 +6,19 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Exemplos de fluxos de trabalho
+shortTitle: Example workflows
+ms.openlocfilehash: 7fea4fc0be69505843fb0857338fc7f6d6be555e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145128267'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+Encontre exemplos de fluxos de trabalho em "[Como publicar e instalar um pacote com o {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" ou em um destes guias do {% data variables.product.prodname_actions %}:
 
-Você pode encontrar exemplos de fluxos de trabalho em"[Publicar e instalar um pacote com {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" ou em qualquer um desses guias de {% data variables.product.prodname_actions %}:
-
-  - [Publicar pacotes do Node.js](/actions/guides/publishing-nodejs-packages)
-  - [Publicar imagens do Docker](/actions/guides/publishing-docker-images)
-  - [Publicar pacotes Java com Maven](/actions/guides/publishing-java-packages-with-maven)
-  - [Publicar pacotes Java com Gradle](/actions/guides/publishing-java-packages-with-gradle)
+  - [Como publicar pacotes do Node.js](/actions/guides/publishing-nodejs-packages)
+  - [Publicando imagens do Docker](/actions/guides/publishing-docker-images)
+  - [Como publicar pacotes do Java com o Maven](/actions/guides/publishing-java-packages-with-maven)
+  - [Como publicar pacotes do Java com o Gradle](/actions/guides/publishing-java-packages-with-gradle)

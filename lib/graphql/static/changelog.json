@@ -4,6 +4,198 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EnterpriseAllowPrivateRepositoryForkingPolicyValue</code> was added</p>",
+          "<p>Field <code>changedFilesIfAvailable</code> was added to object type <code>Commit</code></p>",
+          "<p>Field <code>allowPrivateRepositoryForkingSettingPolicyValue</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Input field <code>policyValue</code> was added to input object type <code>UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Commit.changedFiles</code>:<code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SshSignature</code> was added</p>",
+          "<p>Type <code>WorkflowRunConnection</code> was added</p>",
+          "<p>Type <code>WorkflowRunEdge</code> was added</p>",
+          "<p>Type <code>WorkflowRunOrder</code> was added</p>",
+          "<p>Type <code>WorkflowRunOrderField</code> was added</p>",
+          "<p>Input field <code>conclusions</code> was added to input object type <code>CheckRunFilter</code></p>",
+          "<p>Input field <code>statuses</code> was added to input object type <code>CheckRunFilter</code></p>",
+          "<p>Field <code>runs</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MergeCommitMessage</code> was added</p>",
+          "<p>Type <code>MergeCommitTitle</code> was added</p>",
+          "<p>Type <code>SquashMergeCommitMessage</code> was added</p>",
+          "<p>Type <code>SquashMergeCommitTitle</code> was added</p>",
+          "<p>Field <code>mergeCommitMessage</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>mergeCommitTitle</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>squashMergeCommitMessage</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>squashMergeCommitTitle</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>GITHUB</code> was removed from enum <code>MigrationSourceType</code></p>",
+          "<p>Enum value <code>GITLAB</code> was removed from enum <code>MigrationSourceType</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>createLabelsIfMissing</code> was added to input object type <code>TransferIssueInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectView.groupedItems</code>:<code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2022-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-08-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UpdateOrganizationWebCommitSignoffSettingInput</code> was added</p>",
+          "<p>Type <code>UpdateOrganizationWebCommitSignoffSettingPayload</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryWebCommitSignoffSettingInput</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryWebCommitSignoffSettingPayload</code> was added</p>",
+          "<p>Enum value <code>UNAFFILIATED</code> was added to enum <code>EnterpriseUserAccountMembershipRole</code></p>",
+          "<p>Field <code>updateOrganizationWebCommitSignoffSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateRepositoryWebCommitSignoffSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>webCommitSignoffRequired</code> was added to object type <code>Organization</code></p>",
+          "<p>Enum value <code>TRACKS</code> was added to enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TASKS</code> (deprecated) was removed from enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TRACKS</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>TASKS</code> was removed from enum 'ProjectV2FieldType'</p>",
+          "<p>Field <code>webCommitSignoffRequired</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>dismissComment</code> was added to object type <code>RepositoryVulnerabilityAlert</code></p>",
+          "<p>Input field <code>lockSource</code> was added to input object type <code>StartRepositoryMigrationInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectNextFieldType.TRACKS</code>:<code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2022-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-08-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>slug</code> was added to object type <code>DiscussionCategory</code></p>",
+          "<p>Field <code>discussionCategory</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>targetRepoVisibility</code> was added to input object type <code>StartRepositoryMigrationInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>TASKS</code> was added to enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TRACKS</code> (deprecated) was removed from enum <code>ProjectNextFieldType</code></p>",
+          "<p>Enum value <code>TASKS</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>TRACKS</code> was removed from enum 'ProjectV2FieldType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectNextFieldType.TASKS</code>:<code>TASKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2022-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-08-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>ACTIONS</code> was added to enum <code>SecurityAdvisoryEcosystem</code></p>"
         ]
       }

@@ -1,28 +1,34 @@
+---
+ms.openlocfilehash: 1c0fc320bbd41add7105a53f1ed85a10c39fb021
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883498"
+---
 <a name="allowing-select-actions-to-run"></a>
 <a name="allowing-specific-actions-to-run"></a>
-### Allowing select actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to run
+### 選択したアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}の実行の許可
 
-When you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed, and there are additional options for allowing other specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:
+[{% data reusables.actions.policy-label-for-select-actions-workflows %}] を選ぶと、ローカル アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}が許可され、他の特定のアクション{% ifversion actions-workflow-policy %}や再利用可能なワークフロー{% endif %}を許可するための追加のオプションがあります。
 
-- **Allow actions created by {% data variables.product.prodname_dotcom %}:** You can allow all actions created by {% data variables.product.prodname_dotcom %} to be used by workflows. Actions created by {% data variables.product.prodname_dotcom %} are located in the `actions` and `github` organizations. For more information, see the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
-- **Allow Marketplace actions by verified creators:** {% ifversion ghes or ghae %}This option is available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."{% endif %} You can allow all {% data variables.product.prodname_marketplace %} actions created by verified creators to be used by workflows. When GitHub has verified the creator of the action as a partner organization, the {% octicon "verified" aria-label="The verified badge" %} badge is displayed next to the action in {% data variables.product.prodname_marketplace %}.
-- **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** You can restrict workflows to use actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in specific organizations and repositories.
+- **[{% data variables.product.prodname_dotcom %} によって作成されたアクションを許可する]:** {% data variables.product.prodname_dotcom %} によって作成されたすべてのアクションを、ワークフローで使用できるようにします。 {% data variables.product.prodname_dotcom %} によって作成されたアクションは、`actions` および `github` 組織にあります。 詳しくは、[`actions`](https://github.com/actions) および [`github`](https://github.com/github) の Organization をご覧ください。
+- **[検証済みの作成者による Marketplace アクションを許可する]:** {% ifversion ghes or ghae %} このオプションは、{% data variables.product.prodname_github_connect %} が有効になっていて、{% data variables.product.prodname_actions %} で構成されている場合に使用できます。 詳細については、「[GitHub Connect を使用して GitHub.com アクションへの自動アクセスを有効にする](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。{% endif %}検証済みの作成者によって作成されたすべての {% data variables.product.prodname_marketplace %} アクションを、ワークフローで使用できるようにします。 GitHubがアクションの作者をパートナーOrganizationとして検証すると、{% data variables.product.prodname_marketplace %}でアクションの隣に{% octicon "verified" aria-label="The verified badge" %}バッジが表示されるようになります。
+- **[指定したアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可する]:** ワークフローで使用できるアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を、特定の組織とリポジトリのものに制限します。
 
-  To restrict access to specific tags or commit SHAs of an action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}, use the same syntax used in the workflow to select the action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}.
+  アクション{% ifversion actions-workflow-policy %}または再利用可能なワークフロー{% endif %}の特定のタグまたはコミット SHA へのアクセスを制限するには、ワークフローで使われているのと同じ構文を使って、アクション{% ifversion actions-workflow-policy %}または再利用可能なワークフロー{% endif %}を選びます。
   
-  - For an action, the syntax is `<OWNER>/<REPO>@<TAG OR SHA>`. For example, use `actions/javascript-action@v1.0.1` to select a tag or `actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89` to select a SHA. For more information, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
+  - アクションの場合の構文は、`<OWNER>/<REPO>@<TAG OR SHA>` です。 たとえば、タグを選択するには `actions/javascript-action@v1.0.1` を使用し、SHA を選択するには `actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89` を使用します。 詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)」を参照してください。
   {%- ifversion actions-workflow-policy %}
-  - For a reusable workflow, the syntax is `<OWNER>/<REPO>/<PATH>/<FILENAME>@<TAG OR SHA>`. For example, `octo-org/another-repo/.github/workflows/workflow.yml@v1`. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow)."
+  - 再利用可能なワークフローの場合の構文は、`<OWNER>/<REPO>/<PATH>/<FILENAME>@<TAG OR SHA>` です。 たとえば、`octo-org/another-repo/.github/workflows/workflow.yml@v1` のように指定します。 詳細については、「[ワークフローの再利用](/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow)」を参照してください。
   {%- endif %}
 
-  You can use the `*` wildcard character to match patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, you can specify `space-org*/*`. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, you can use `*/octocat**@*`. For more information about using the `*` wildcard, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+  パターンのマッチには、ワイルドカード文字 `*` を使用できます。 たとえば、`space-org` で始まる Organization のすべてのアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可するには、`space-org*/*` と指定できます。 octocat で始まるリポジトリのすべてのアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可するには、`*/octocat**@*` を使用できます。 `*` ワイルドカードの使用の詳細については、「[GitHub Actions のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
-  {% ifversion fpt or ghec %}
-  {% note %}
+  {% ifversion fpt or ghec %} {% note %}
 
-  **Note:** The **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}** option is only available in public repositories with the {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plan.
+  **注:** **[指定したアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可する]** オプションを使用できるのは、{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、Organization の {% data variables.product.prodname_free_team %}、または {% data variables.product.prodname_team %} プランのパブリック リポジトリのみです。
 
-  {% endnote %}
-  {% endif %}
+  {% endnote %} {% endif %}
 
-This procedure demonstrates how to add specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the allow list.
+この手順では、特定のアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可リストに追加する方法を示します。

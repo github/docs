@@ -1,45 +1,50 @@
 ---
-title: Getting started with GitHub Community Exchange
-shortTitle: 始めましょう！
-intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
+title: GitHub Community Exchange の概要
+shortTitle: Get started
+intro: '{% data variables.product.prodname_community_exchange %} にアクセスし、リポジトリを送信する方法について説明します。'
 versions:
   fpt: '*'
+ms.openlocfilehash: f9280e380b251c52d2b582aadb55eb319d5c342d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574005'
 ---
-
 ## はじめに
 
-{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
+{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} は、オープン ソースの最初の投稿を行ったり、独自のオープン ソース プロジェクトを拡大したりするのに役立ちます。
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+{% data variables.product.prodname_community_exchange %} が学生にとってどのように役立つかの詳細については、「[{% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange) について」を参照してください。
 
-## Accessing {% data variables.product.prodname_community_exchange %}
+## {% data variables.product.prodname_community_exchange %} へのアクセス
 
 {% data reusables.education.access-github-community-exchange %}
 
-## Finding interesting repositories
+## 興味深いリポジトリを見つける
 
-You can browse repositories submitted to {% data variables.product.prodname_community_exchange %} from the gallery page.
+ギャラリー ページで、{% data variables.product.prodname_community_exchange %} に送信されたリポジトリを参照できます。
 
-As you think about what open source repositories may be interesting, consider if you're wanting to learn or collaborate, or if there are particular topics or languages that could be a good starting point.
+興味深いオープン ソース リポジトリを見つけるには、学習や共同作業を行いたいか、または適切な出発点となりうる特定のトピックや言語があるかを検討してください。
 
-When exploring repositories in the {% data variables.product.prodname_community_exchange %} gallery, you can filter available repositories by purpose, topics, or languages, and search for repositories by name and description. You can sort the list of repositories in the gallery by submission date, or by the number of stars, forks, or issues a repository has.
+{% data variables.product.prodname_community_exchange %} ギャラリーでリポジトリを探索する場合は、使用可能なリポジトリを目的、トピック、または言語でフィルター処理したり、リポジトリを名前と説明で検索したりできます。 ギャラリー内のリポジトリの一覧は、送信日や、リポジトリに含まれる Star、フォーク、または問題の数で並べ替えることができます。
 
-![Screenshot of Community Exchange search box and dropdown filters](/assets/images/help/education/community-exchange-search-and-filter.png)
+![Community Exchange の検索ボックスとドロップダウン フィルターのスクリーンショット](/assets/images/help/education/community-exchange-search-and-filter.png)
 
-## Starring repositories
+## リポジトリの Star 付け
 
-You can star repositories listed in the {% data variables.product.prodname_community_exchange %} gallery. Starring makes it easy to find a repository in the gallery again later. リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。
+{% data variables.product.prodname_community_exchange %} ギャラリーに一覧表示されているリポジトリに Star を付けることができます。 Star を付けることで、ギャラリー内のリポジトリを後で見つけやすくなります。 リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。
 
-Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
+{% data variables.product.prodname_community_exchange %} ギャラリー内のリポジトリの一覧は、リポジトリに含まれる Star の数で並べ替えることができます。
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-label="The star icon" %} **Star** button found right by its name.
+リポジトリに Star を付けるには、{% data variables.product.prodname_community_exchange %} ホーム ページに移動し、Star を付けるリポジトリを見つけて、その名前の横にある {% octicon "star" aria-label="The star icon" %} **[Star]** ボタンをクリックします。
 
-## Reporting abuse
+## 不正使用の報告
 
-The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
+{% data variables.product.prodname_community_exchange %} コミュニティでは、リポジトリの送信をモデレートします。 不正なリポジトリ、スパム、または破壊的なコンテンツをいつでも報告できます。
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
+不正なリポジトリを報告するには、{% data variables.product.prodname_community_exchange %} ホーム ページに移動し、報告するリポジトリを見つけて、その名前の横にある {% octicon "kebab-horizontal" aria-label="The edit icon" %} ドロップダウンをクリックし、{% octicon "report" aria-label="The report symbol" %} **[不正報告]** をクリックします。
 
-## 参考リンク
+## 参考資料
 
-- 「[{% data variables.product.prodname_community_exchange %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)」
+- 「[{% data variables.product.prodname_community_exchange %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)」

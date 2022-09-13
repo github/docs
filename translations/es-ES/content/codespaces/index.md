@@ -1,17 +1,17 @@
 ---
-title: GitHub Codespaces Documentation
+title: Documentación de Codespaces de GitHub
 shortTitle: GitHub Codespaces
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+intro: 'Crea un codespace o comienza a desarrollar en un ambiente de desarrollo seguro, configurable y dedicado que funciona donde y como tu quieras.'
 introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
   guides:
-    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
-    - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
     - /codespaces/developing-in-codespaces/codespaces-lifecycle
+    - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
+    - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
+    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
@@ -28,6 +28,7 @@ featuredLinks:
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
     - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project
@@ -56,5 +57,11 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
+ms.openlocfilehash: 078b2c2ba743f2332ffda5a03ba9b0589cfdd12c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147652633'
 ---
 

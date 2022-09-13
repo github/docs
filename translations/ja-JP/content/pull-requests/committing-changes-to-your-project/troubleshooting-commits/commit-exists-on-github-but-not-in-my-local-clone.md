@@ -11,11 +11,16 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
+ms.openlocfilehash: 9374b17a111bc3f88bf81d60de97e354c0bcf8ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132529'
 ---
+特定のコミットを表示するため、コマンド ラインで `git show` を使うと、致命的エラーが発生することがあります。
 
-特定のコミットを表示するため、コマンドラインで `git show` を使うと、致命的エラーが発生することがあります。
-
-たとえば、以下のコマンドを入力して、ローカルで `bad object` のエラーが発生したとします。
+たとえば、ローカルで `bad object` エラーが発生する場合があります。
 
 ```shell
 $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
@@ -34,49 +39,49 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 
 ## ローカルのリポジトリが古い
 
-ローカルのリポジトリがまだコミットを取得していないことも考えられます。 リモートリポジトリからローカルクローンに情報を取得するには、以下のように `git fetch` を使用します:
+ローカルのリポジトリがまだコミットを取得していないことも考えられます。 リモート リポジトリからローカル クローンに情報を取得するには、以下のように `git fetch` を使用します。
 
 ```shell
 $ git fetch <em>remote</em>
 ```
 
-これにより、チェックアウトしたファイルに変更が加えられることなく、リモートリポジトリからローカルクローンに、情報が安全にコピーされます。 フォーク元のリポジトリから情報を取得するには、`git fetch upstream` を使用します。また、クローンのみを行ったリポジトリから情報を取得するには、`git fetch origin` を使用します。
+これにより、チェックアウトしたファイルに変更が加えられることなく、リモート リポジトリからローカル クローンに、情報が安全にコピーされます。フォーク元のリポジトリから情報を取得するには `git fetch upstream` を使用します。また、クローンのみを行ったリポジトリから情報を取得するには `git fetch origin` を使用します。
 
 {% tip %}
 
-**参考**: 詳しい情報については、[Pro Git](https://git-scm.com/book) ブックの[リモートの管理とデータのフェッチ](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)をお読みください。
+**ヒント**: 詳細については、[Pro Git](https://git-scm.com/book) ブックの [リモートの管理とデータのフェッチ](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)に関するページを参照してください。
 
 {% endtip %}
 
 ## コミットのあるブランチが削除された
 
-リポジトリのコラボレーターが、そのコミットを持つブランチを削除した、あるいはブランチにフォースプッシュした場合、見つからないコミットは孤立している (つまり、どの参照からもたどり着けなくなっている) ため、ローカルクローンにフェッチできません。
+リポジトリのコラボレーターが、そのコミットを含むブランチを削除した、あるいはブランチにフォース プッシュした場合、見つからないコミットは孤立している (つまり、どの参照からもたどり着けなくなっている) ため、ローカル クローンにフェッチできません。
 
-幸いコラボレーターの誰かが、見つからなくなったコミットを持つリポジトリのローカルクローンを持っている場合は、それを {% data variables.product.product_name %}にプッシュして戻してもらうことができます。  コミットがローカルブランチに参照されていることを必ず確認してから {% data variables.product.product_name %}に新しいブランチとしてプッシュするよう依頼してください。
+幸いコラボレーターの誰かが、見つからないコミットを含むリポジトリのローカル クローンを持っている場合は、それを {% data variables.product.product_name %} にプッシュして戻してもらうことができます。  コミットがローカル ブランチによって参照されていることを確認してから {% data variables.product.product_name %} に新しいブランチとしてプッシュする必要があります。
 
-たとえば、コラボレータの一人が、コミットを含むローカルブランチ (`B` とします) をまだ持っていたとします。  このローカルブランチは、フォースプッシュまたは削除されたブランチをトラッキングしていると考えられます。そして、まだ更新されていません。  コミットが失われないうちに、そのローカルブランチを {% data variables.product.product_name %} の新しいブランチ (`recover-B` とします) にプッシュしてもらいましょう。  ここでは仮に、`upstream` という名前のリモートがあり、これを通して `github.com/$account/$repository` にプッシュアクセスがあるとします。
+たとえば、コラボレーターの 1 人が、コミットを含むローカル ブランチ (`B` と呼ぶ) をまだ持っているとします。  これが、フォース プッシュまたは削除されたブランチをトラッキングしている可能性がありますが、まだ更新されていません。  そのコミットを保持するために、そのローカル ブランチを {% data variables.product.product_name %} の新しいブランチ (`recover-B` と呼ぶ) にプッシュすることができます。  この例では、`upstream` という名前のリモートがあり、それを介して `github.com/$account/$repository` へのプッシュ アクセスがあると仮定します。
 
 コミットを持つローカルブランチを持っている人が、以下のコマンドを実行します:
 
 ```shell
 $ git branch recover-B B
-# コミットを参照する新しいローカルブランチを作成
+# Create a new local branch referencing the commit
 $ git push upstream B:recover-B
-# ローカル B を新しい上流ブランチにプッシュし、コミットへの新しい参照を作成
+# Push local B to new upstream branch, creating new reference to commit
 ```
 
-次に、*あなた*が以下のコマンドを実行します:
+これで、"*あなた*" が次を実行できます。
 
 ```shell
 $ git fetch upstream recover-B
-# ローカルリポジトリへコミットをフェッチ。
+# Fetch commit into your local repository.
 ```
 
 ## フォースプッシュは避けましょう
 
-絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。 If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
+絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。 誰かがリポジトリにフォース プッシュした場合、フォース プッシュによって、他のユーザーがそれに基づいて作業しているコミットを上書きする可能性があります。 フォース プッシュによってリポジトリの履歴が変更され、pull request が破損する可能性あります。
 
-## 参考リンク
+## 参考資料
 
 - [_Pro Git_ ブックの「リモートでの作業」](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- [_Pro Git_ ブックの「データリカバリ」](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+- [_Pro Git_ ブックの「データの復旧」](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

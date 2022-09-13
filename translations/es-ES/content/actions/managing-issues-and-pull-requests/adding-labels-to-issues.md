@@ -12,16 +12,20 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+ms.openlocfilehash: 8e80990a1a533ed303f47cbad8dafb95c890893d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884313'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
-Este tutorial ilustra cómo utilizar la [acción`andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) en un flujo de trabajo para etiquetar las propuestas recientemente abiertas o re-abiertas. Por ejemplo, puedes agregar la etiqueta `triage` cada que se abre o re-abre una propuesta. Después, puedes ver todas las propuestas que necesitan clasificarse si filtras las propuestas con la etiqueta `triage`.
+En este tutorial se muestra cómo usar la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) en un flujo de trabajo para etiquetar los problemas recientemente abiertos o vueltos a abrir. Por ejemplo, puede agregar la etiqueta `triage` cada vez que se abre o se vuelve a abrir un problema. Después, puede ver todas los problemas que necesitan clasificarse filtrando los problemas con la etiqueta `triage`.
 
-En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
+En el tutorial, primero creará un archivo de flujo de trabajo en el que se usa la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
 
 ## Crear un flujo de trabajo
 
@@ -54,21 +58,21 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     ```
 
 4. Personaliza los parámetros en tu archivo de flujo de trabajo:
-   - Cambia el valor de `add-labels` a la lista de etiquetas que quieras agregar a la propuesta. Separa las etiquetas con comas. Por ejemplo, `"help wanted, good first issue"`. Para obtener más información sobre las etiquetas, consulta la sección "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+   - Cambie el valor de `add-labels` a la lista de etiquetas que quiera agregar al problema. Separa las etiquetas con comas. Por ejemplo, `"help wanted, good first issue"`. Para obtener más información sobre las etiquetas, vea "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
 5. {% data reusables.actions.commit-workflow %}
 
-## Probar el flujo de trabajo
+## Prueba el flujo de trabajo
 
 Cada que se abre o re-abre una propuesta en tu repositorio, este flujo de trabajo agregará a la propuesta las etiquetas que especificaste.
 
 Prueba tu flujo de trabajo creando una propuesta en tu repositorio.
 
-1. Crea una propuesta en tu repositorio. Para obtener más información, consulta la sección "[Crear una propuesta](/github/managing-your-work-on-github/creating-an-issue)".
-2. Para ver la ejecución de flujo de trabajo que se activó al crear la propuesta, ve el historial de tus ejecuciones de flujo de trabajo. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+1. Crea una propuesta en tu repositorio. Para más información, vea "[Creación de una incidencia](/github/managing-your-work-on-github/creating-an-issue)".
+2. Para ver la ejecución de flujo de trabajo que se activó al crear la propuesta, ve el historial de tus ejecuciones de flujo de trabajo. Para más información, vea "[Visualización del historial de ejecución de flujos de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 3. Cuando se complete el flujo de trabajo, la propuesta que creaste deberá tener agregadas las etiquetas que especificaste.
 
 ## Pasos siguientes
 
-- Para aprender más sobre las cosas adicionales que puedes hacer con la acción `andymckay/labeler`, como quitar etiquetas o saltarte esta acción si la propuesta se asigna o si tiene una etiqueta específica, consulta la [documentación de la acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- Para aprender más sobre los diversos eventos que pueden activar tu flujo de trabajo, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#issues)". La acción `andymckay/labeler` funciona en los eventos de `issues`, `pull_request`, o `project_card`.
-- [Busca en GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) los ejemplos de los flujos de trabajo que utilizan esta acción.
+- Para obtener más información acerca de otras tareas que puede realizar con la acción `andymckay/labeler`, como eliminar etiquetas u omitir esta acción si se asigna al problema una etiqueta específica, o la tiene, vea la [documentación de la acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
+- Para obtener más información acerca de los distintos eventos que pueden desencadenar el flujo de trabajo, vea "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows#issues)". La acción `andymckay/labeler` solo funciona en eventos `issues`, `pull_request` o `project_card`.
+- [Busque en GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) ejemplos de flujos de trabajo mediante esta acción.

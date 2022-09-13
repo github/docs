@@ -1,6 +1,6 @@
 ---
-title: Introduction to adopting GitHub Advanced Security at scale
-intro: 'You can adopt {% data variables.product.prodname_GH_advanced_security %} at scale in your company following industry and GitHub best practices.'
+title: 大規模な GitHub Advanced Security の導入の概要
+intro: '業界と GitHub のベスト プラクティスに従って、企業で {% data variables.product.prodname_GH_advanced_security %} を大規模に導入できます。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,41 +14,46 @@ redirect_from:
   - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
 miniTocMaxHeadingLevel: 2
+ms.openlocfilehash: 0993205a2f51262c0766062995caa1c2e2714742
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147145426'
 ---
+## これらの記事について
 
-## About these articles
+{% data variables.product.prodname_GH_advanced_security %} (GHAS) は、CodeQL を使用したシークレット スキャンやコード スキャンなどの統合ツールを使用しており、チームがより安全なコードをより速く構築するのに役立ちます。 {% data variables.product.prodname_GH_advanced_security %} で使用できるセキュリティ機能については、「[GitHub Advanced Security について](/get-started/learning-about-github/about-github-advanced-security)」をご覧ください。
 
-{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as secret scanning and code scanning using CodeQL. To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."
-
-GHAS is a suite of tools that requires active participation from developers across your enterprise. To realize the best return on your investment, you must learn how to use, apply, and maintain GHAS.
+GHAS は、Enterprise 全体の開発者の積極的な参加を必要とするツールのスイートです。 投資収益率を最大限に高めるためには、GHAS を使用、適用、維持する方法を学ぶ必要があります。
 
 
-We’ve created a phased approach to GHAS rollouts developed from industry and GitHub best practices. We expect most customers will want to follow these phases, based on our experience helping customers with a successful deployment of {% data variables.product.prodname_GH_advanced_security %}, but you may need to modify this approach to meet the needs of your company. 
+業界と GitHub のベスト プラクティスから開発された GHAS のロールアウトの段階的アプローチを作成しました。 ほとんどのお客様は、{% data variables.product.prodname_GH_advanced_security %} のデプロイが成功したお客様の経験に基づいて、これらのフェーズに従うことを望んでいると思われますが、企業のニーズを満たすためにこのアプローチを変更する必要がある場合があります。 
 
-Enabling GHAS across a large organization can be broken down into six core phases.
+大規模な Organization 全体での GHAS の有効化は、6 つのコア フェーズに分けることができます。
 
-1. [**Align on your rollout strategy and goals**](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals): Think about what success will look like, and align on how GHAS will be implemented in your company. This phase may only take a few days or a week, but it lays a solid foundation for the rest of the rollout.
+1. [**ロールアウトの戦略と目標の調整**](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals): 成功はどのようになるかを考え、GHAS がどのように企業に実装されるかを調整します。 このフェーズには数日または 1 週間しかかからない場合がありますが、ロールアウトの残りの部分に対する強固な基盤が築かれます。
   
-2. [**Preparing to enable at scale**](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale): Prepare developers, collect data about your repositories, and ensure you're ready for the next phase.
+2. [**大規模な有効化の準備**](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale): 開発者を準備し、リポジトリに関するデータを収集し、次のフェーズの準備ができていることを確認します。
   
-3. [**Pilot programs**](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs): Optionally, pilot an initial rollout to a few high-impact projects and teams. This will allow an initial group within your company to get familiar with GHAS before you roll out to the remainder of your company. 
+3. [**パイロット プログラム**](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs): 必要に応じて、影響の大きいいくつかのプロジェクトとチームへの最初のロールアウトのパイロットを行います。 これにより、社内の最初のグループが GHAS に慣れてから、企業の残りの部分にロールアウトすることができます。 
   
-4. [**Create internal documentation**](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation): Create and communicate internal documentation for the consumers of GHAS. Without proper documentation provided to developers, security engineers, and others who will be using GHAS, the value will get lost in the rollout.
+4. [**内部ドキュメントを作成する**](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation): GHAS のコンシューマー向けの内部ドキュメントを作成して伝達します。 GHAS を使用する開発者、セキュリティ エンジニア、その他のユーザーに適切なドキュメントが提供されていないと、ロールアウトで価値が失われます。
   
-5. [**Rollout and scale {% data variables.product.prodname_code_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning): Leveraging the available APIs, automatically rollout {% data variables.product.prodname_code_scanning %} by team and by language across your enterprise, using the repository data you collected earlier.
+5. [ **{% data variables.product.prodname_code_scanning %} のロールアウトとスケーリング**](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning): 利用可能な API を活用し、先ほど収集したリポジトリ データを使用して、チーム別および言語ごとに Enterprise 全体で{% data variables.product.prodname_code_scanning %} を自動的にロールアウトします。
   
-6. [**Rollout and scale {% data variables.product.prodname_secret_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning): Roll out {% data variables.product.prodname_secret_scanning %}, which involves less configuration and is therefore simpler to adopt than {% data variables.product.prodname_code_scanning %}. Still, it's critical to have a strategy for handling new and old results.
+6. [ **{% data variables.product.prodname_secret_scanning %} のロールアウトとスケーリング**](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning): {% data variables.product.prodname_secret_scanning %} をロールアウトします。これは構成が少ないため、{% data variables.product.prodname_code_scanning %} よりも導入が簡単です。 それでも、新旧の結果を処理するための戦略を立てることが重要です。
 
-## {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %}
+## {% data variables.contact.github_support %} と {% data variables.product.prodname_professional_services_team %}
 
-If you encounter any issues or have any questions during your implementation, you can search our documentation for solutions or engage with {% data variables.contact.github_support %}. For more information, see "[About GitHub Support](/support/learning-about-github-support/about-github-support)."
+実装中に問題が発生した場合や、ご不明な点がある場合は、ドキュメントで解決策を検索するか、{% data variables.contact.github_support %} にお問い合わせください。 詳しくは、「[GitHub Support について](/support/learning-about-github-support/about-github-support)」をご覧ください。
 
-If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
+ロールアウト プロセス全体のガイダンスをご希望の場合は、{% data variables.product.prodname_professional_services %} が、お客様と協力して {% data variables.product.prodname_GH_advanced_security %} のロールアウトと実装を成功させることができます。 ガイダンスとサポートにはさまざまなオプションを提供しています。 また、{% data variables.product.prodname_GH_advanced_security %} の価値を最適化するため、お客様の企業でご利用いただけるトレーニングや短期集中講座もご用意しています。
 
-Speak with your sales representative for more information about all the Professional Services options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
+Professional Service でご利用になれるすべてのオプションについて詳しくは、営業担当者にお問い合わせください。 詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
 {% note %}
 
-For the first article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
+このシリーズの最初の記事は「[フェーズ 1: ロールアウトの戦略とゴールの調整](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)」を参照してください。
 
 {% endnote %}

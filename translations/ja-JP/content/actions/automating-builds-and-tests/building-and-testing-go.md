@@ -1,6 +1,6 @@
 ---
-title: Building and testing Go
-intro: You can create a continuous integration (CI) workflow to build and test your Go project.
+title: Go でのビルドとテスト
+intro: Go プロジェクトのビルドとテストのための継続的インテグレーション (CI) ワークフローを作成できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,31 +10,33 @@ type: tutorial
 topics:
   - CI
 shortTitle: Build & test Go
+ms.openlocfilehash: 64e0c8acfa23436903b510a47cd1b43f55274f5f
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147080065'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-This guide shows you how to build, test, and publish a Go package.
+このガイドは、Go パッケージのビルド、テスト、公開の方法を紹介します。
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+{% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}{% else %}{% data variables.product.prodname_dotcom %} ホスト ランナーには、ツール キャッシュとプレインストールされたソフトウェアがあり、それには Go の依存関係が含まれます。 最新のソフトウェアの完全な一覧と、プレインストールされたバージョンの Go については、[{% data variables.product.prodname_dotcom %} ホステッド ランナー](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)に関するページを参照してください。
 {% endif %}
 
-## 必要な環境
+## 前提条件
 
-YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使われ方に馴染んでいる必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions)」を参照してください。
+YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使われ方に馴染んでいる必要があります。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions)に関するページを参照してください。
 
-We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
+Go 言語の基本を理解しておくことをおすすめします。 詳しくは、「[Go の概要](https://golang.org/doc/tutorial/getting-started)」をご覧ください。
 
-## Using the Go starter workflow
+## Go スターター ワークフローの使用
 
-{% data variables.product.prodname_dotcom %} provides a Go starter workflow that should work for most Go projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Go starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
+{% data variables.product.prodname_dotcom %} では、ほとんどの Go プロジェクトで使える Go スターター ワークフローが提供されています。 このガイドには、スターター ワークフローのカスタマイズに使用できる例が含まれます。 詳細については、「[Go スターター ワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/go.yml)」を参照してください。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+すぐに作業を開始するには、リポジトリの `.github/workflows` ディレクトリにスターター ワークフローを追加します。
 
 ```yaml{:copy}
 name: Go package
@@ -60,15 +62,15 @@ jobs:
         run: go test -v ./...
 ```
 
-## Specifying a Go version
+## Go バージョンの指定
 
-The easiest way to specify a Go version is by using the `setup-go` action provided by {% data variables.product.prodname_dotcom %}. For more information see, the [`setup-go` action](https://github.com/actions/setup-go/).
+最も簡単に Go のバージョンを指定する方法は、{% data variables.product.prodname_dotcom %} によって提供される `setup-go` アクションを使用することです。 詳細については、「[`setup-go` アクション](https://github.com/actions/setup-go/)」を参照してください。
 
-To use a preinstalled version of Go on a {% data variables.product.prodname_dotcom %}-hosted runner, pass the relevant version to the `go-version` property of the `setup-go` action. This action finds a specific version of Go from the tools cache on each runner, and adds the necessary binaries to `PATH`. これらの変更は、ジョブの残りの部分で保持されます。
+{% data variables.product.prodname_dotcom %} ホストランナーでプレインストールされたバージョンの Go を使うには、`setup-go` アクションの `go-version` プロパティに関連するバージョンを渡します。 このアクションは、各ランナーのツール キャッシュから特定のバージョンの Go を見つけて、必要なバイナリを `PATH` に追加します。 これらの変更は、ジョブの残りの部分で保持されます。
 
-The `setup-go` action is the recommended way of using Go with {% data variables.product.prodname_actions %}, because it helps ensure consistent behavior across different runners and different versions of Go. If you are using a self-hosted runner, you must install Go and add it to `PATH`.
+`setup-go` アクションは、異なるランナーや異なるバージョンの Go で一貫した動作を保証するのに役立つため、{% data variables.product.prodname_actions %} で Go を使うときに推奨される方法です。 セルフホスト型ランナーを使用している場合は、Go をインストールし、それを `PATH` に追加する必要があります。
 
-### Using multiple versions of Go
+### 複数のバージョンの Go の使用
 
 ```yaml{:copy}
 name: Go
@@ -94,9 +96,9 @@ jobs:
         run: go version
 ```
 
-### Using a specific Go version
+### 特定のバージョンの Go の使用
 
-You can configure your job to use a specific version of Go, such as `1.16.2`. あるいは、最新のマイナーリリースを取得するためにセマンティックバージョン構文を使うこともできます。 This example uses the latest patch release of Go 1.16:
+`1.16.2` のような特定のバージョンの Go を使うようにジョブを構成できます。 あるいは、最新のマイナーリリースを取得するためにセマンティックバージョン構文を使うこともできます。 この例では、最新のパッチ リリースである Go 1.16 を使います。
 
 ```yaml{:copy}
       - name: Setup Go 1.16.x
@@ -108,7 +110,7 @@ You can configure your job to use a specific version of Go, such as `1.16.2`. �
 
 ## 依存関係のインストール
 
-You can use `go get` to install dependencies:
+`go get` を使って依存関係をインストールできます。
 
 ```yaml{:copy}
     steps:
@@ -128,9 +130,9 @@ You can use `go get` to install dependencies:
 
 ### 依存関係のキャッシング
 
-You can cache and restore the dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is disabled, but you can set the `cache` parameter to `true` to enable it.
+[`setup-go`アクション](https://github.com/actions/setup-go)を使用して依存関係をキャッシュおよび復元できます。 既定では、キャッシュは無効になっていますが、`cache` パラメーターを `true` に設定することで有効にできます。
 
-When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
+キャッシュが有効な場合、`setup-go` アクションはリポジトリ ルートで依存関係ファイル `go.sum` を検索し、依存関係ファイルのハッシュをキャッシュ キーの一部として使います。
 
 ```yaml{:copy}
       - name: Setup Go
@@ -140,7 +142,7 @@ When caching is enabled, the `setup-go` action searches for the dependency file,
           cache: true
 ```
 
-Alternatively, you can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
+また、複数の依存ファイルを使う場合、またはそれらが異なるサブディレクトリに配置されている場合、`cache-dependency-path` パラメーターを使うこともできます。
 
 ```yaml{:copy}
       - uses: {% data reusables.actions.action-setup-go %}
@@ -150,13 +152,13 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
           cache-dependency-path: subdir/go.sum
 ```
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+カスタム要件がある場合、またはキャッシュに対してより細かい制御が必要な場合は、[`cache` アクション](https://github.com/marketplace/actions/cache)を使用できます。 詳細については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
 {% endif %}
 
 ## コードのビルドとテスト
 
-ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。 This example workflow demonstrates how to use `go build` and `go test` in a job:
+ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。 このワークフローの例では、ジョブで `go build` と `go test` を使う方法を示します。
 
 ```yaml{:copy}
 name: Go
@@ -182,9 +184,9 @@ jobs:
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
-ワークフローが完了すると、結果の成果物を分析のためにアップロードできます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 以下の例は、`upload-artifact`アクションを使ってテスト結果をアップロードする方法を示しています。
+ワークフローが完了すると、結果の成果物を分析のためにアップロードできます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 次の例では、`upload-artifact` アクションを使ってテスト結果をアップロードする方法を示します。
 
-For more information, see "[Storing workflow data as artifacts](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+詳しくは、「[ワークフロー データを成果物として保存する](/actions/using-workflows/storing-workflow-data-as-artifacts)」をご覧ください。
 
 ```yaml{:copy}
 name: Upload Go test results

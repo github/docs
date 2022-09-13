@@ -1,92 +1,97 @@
 ---
-title: Customizing the containers used by jobs
-intro: You can customize how your self-hosted runner invokes a container for a job.
+title: ジョブで使用されるコンテナーのカスタマイズ
+intro: セルフホステッド ランナーでジョブのコンテナーを呼び出す方法をカスタマイズできます。
 versions:
   feature: container-hooks
 type: reference
 miniTocMaxHeadingLevel: 4
 shortTitle: Customize containers used by jobs
+ms.openlocfilehash: 774aad09c504a09f0bf4f60af286952ee24f89b5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881164'
 ---
-
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**注:** この機能は現在ベータ版であり、変更されることがあります。
 
 {% endnote %}
 
-## About container customization
+## コンテナーのカスタマイズについて
 
-{% data variables.product.prodname_actions %} allows you to run a job within a container, using the `container:` statement in your workflow file. For more information, see "[Running jobs in a container](/actions/using-jobs/running-jobs-in-a-container)." To process container-based jobs, the self-hosted runner creates a container for each job.
+{% data variables.product.prodname_actions %} を使用すると、ワークフロー内の `container:` ステートメントを使用して、コンテナー内でジョブを実行できます。 詳しい情報については、「[コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container)」を参照してください。 コンテナー ベースのジョブを処理するために、セルフホステッド ランナーではジョブごとにコンテナーが作成されます。
 
-{% data variables.product.prodname_actions %} supports commands that let you customize the way your containers are created by the self-hosted runner. For example, you can use these commands to manage the containers through Kubernetes or Podman, and you can also customize the `docker run` or `docker create` commands used to invoke the container. The customization commands are run by a script, which is automatically triggered when a specific environment variable is set on the runner. For more information, see "[Triggering the customization script](#triggering-the-customization-script)" below.
+{% data variables.product.prodname_actions %} では、セルフホステッド ランナーによってコンテナーが作成される方法をカスタマイズできるコマンドがサポートされています。 たとえば、これらのコマンドを使用して、Kubernetes または Podman を介してコンテナーを管理できます。また、コンテナーを呼び出すために使用される `docker run` または `docker create` コマンドをカスタマイズすることもできます。 カスタマイズ コマンドはスクリプトによって実行されます。スクリプトは、ランナーで特定の環境変数が設定されている場合、自動的にトリガーされます。 詳しい情報については、以下の「[カスタマイズ スクリプトのトリガー](#triggering-the-customization-script)」を参照してください。
 
-This customization is only available for Linux-based self-hosted runners, and root user access is not required.
+このカスタマイズは、Linux ベースのセルフホステッド ランナーにのみ使用でき、ルート ユーザー アクセスは必要ありません。
 
-## Container customization commands
+## コンテナーのカスタマイズ コマンド
 
-{% data variables.product.prodname_actions %} includes the following commands for container customization:
+{% data variables.product.prodname_actions %} には、コンテナーをカスタマイズするための次のコマンドが含まれています。
 
-- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
-- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
-- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
-- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
+- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): ジョブの開始時に呼び出されます。
+- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): ジョブの終了時に呼び出されます。
+- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): ジョブ内のコンテナー アクションごとに 1 回呼び出されます。
+- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): コンテナー アクション以外のステップを実行します。
 
-Each of these customization commands must be defined in its own JSON file. The file name must match the command name, with the extension `.json`. For example, the `prepare_job` command is defined in `prepare_job.json`. These JSON files will then be run together on the self-hosted runner, as part of the main `index.js` script. This process is described in more detail in "[Generating the customization script](#generating-the-customization-script)."
+これらのカスタマイズ コマンドはそれぞれ、独自の JSON ファイルで定義する必要があります。 ファイル名は、拡張子 `.json` を付けたコマンド名と一致する必要があります。 たとえば、`prepare_job` コマンドは、`prepare_job.json` で定義されます。 この後、これらの JSON ファイルは、メイン `index.js` スクリプトの一部として、セルフホステッド ランナーでまとめて実行されます。 このプロセスについては、「[カスタマイズ スクリプトの生成](#generating-the-customization-script)」で詳しく説明します。
 
-These commands also include configuration arguments, explained below in more detail.
+これらのコマンドには、構成引数も含まれます。詳細については、以下で説明します。
 
 ### `prepare_job`
 
-The `prepare_job` command is called when a job is started. {% data variables.product.prodname_actions %} passes in any job or service containers the job has. This command will be called if you have any service or job containers in the job.
+`prepare_job` コマンドは、ジョブの開始時に呼び出されます。 {% data variables.product.prodname_actions %} によって、ジョブまたはジョブのサービス コンテナーが渡されます。 このコマンドは、ジョブ内にサービスまたはジョブ コンテナーがある場合に呼び出されます。 
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `prepare_job` command:
+{% data variables.product.prodname_actions %} では、`prepare_job` コマンドで次のタスクが実行されることを前提としています。
 
-- Prune anything from previous jobs, if needed.
-- Create a network, if needed.
-- Pull the job and service containers.
-- Start the job container.
-- Start the service containers.
-- Write to the response file any information that {% data variables.product.prodname_actions %} will need:
-  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
-  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[`job` context](/actions/learn-github-actions/contexts#job-context)."
-- Return `0` when the health checks have succeeded and the job/service containers are started.
+- 必要に応じて、前のジョブから何かを取り除く。
+- 必要に応じて、ネットワークを作成する。
+- ジョブとサービス コンテナーをプルする。
+- ジョブ コンテナーを開始する。
+- サービス コンテナーを開始する。
+- {% data variables.product.prodname_actions %} で必要となる情報を応答ファイルに書き込む。
+  - 必須: コンテナーが `alpine` Linux コンテナーであるかどうかを示します (`isAlpine` ブール値を使用)。 
+  - 省略可能: ジョブ コンテキストに設定するコンテキスト フィールド。それ以外の場合、ユーザーはそれらを使用できなくなります。 詳しい情報については、「[`job`コンテキスト](/actions/learn-github-actions/contexts#job-context)」を参照してください。
+- 正常性チェックが成功し、ジョブまたはサービス コンテナーが開始されると、`0` を返します。
 
 #### 引数
 
-- `jobContainer`: **Optional**. An object containing information about the specified job container.
-  - `image`: **Required**. A string containing the Docker image.
-  - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `systemMountVolumes`: **Required**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `レジストリ` **Optional**. The Docker registry credentials for a private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
-- `services`: **Optional**. An array of service containers to spin up.
-  - `contextName`: **Required**. The name of the service in the Job context.
-  - `image`: **Required**. A string containing the Docker image.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `レジストリ` **Optional**. The Docker registry credentials for the private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+- `jobContainer`: **省略可能**。 指定されたジョブ コンテナーに関する情報を含むオブジェクト。
+  - `image`: **必須**。 Docker イメージを含む文字列。
+  - `workingDirectory`: **必須**。 作業ディレクトリの絶対パスを含む文字列。
+  - `createOptions`: **省略可能**。 YAML で指定された省略可能な "_create_" オプション。 詳しい情報については、「[例: コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)」を参照してください。
+  - `environmentVariables`: **省略可能**。 主要な環境変数のマップを設定します。
+  - `userMountVolumes`: **省略可能**。 YAML で設定されたユーザー マウント ボリュームの配列。 詳しい情報については、「[例: コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)」を参照してください。
+    - `sourceVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのソース パス。
+    - `targetVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのターゲット パス。
+    - `readOnly`: **必須**。 マウントを読み取り専用にする必要があるかどうかを決定します。
+  - `systemMountVolumes`: **必須**。 コンテナーにマウントするマウントの配列 (上記と同じフィールド)。
+    - `sourceVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのソース パス。
+    - `targetVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのターゲット パス。
+    - `readOnly`: **必須**。 マウントを読み取り専用にする必要があるかどうかを決定します。
+  - `registry` **省略可能**。 プライベート コンテナー レジストリの Docker レジストリ資格情報。
+    - `username`: **省略可能**。 レジストリ アカウントのユーザー名。
+    - `password`: **省略可能**。 レジストリ アカウントのパスワード。
+    - `serverUrl`: **省略可能**。 レジストリ URL。
+  - `portMappings`: **省略可能**。 コンテナーにマップする _source:target_ ポートのキー値ハッシュ。
+- `services`: **省略可能**。 スピン アップするサービス コンテナーの配列。
+  - `contextName`: **必須**。 ジョブ コンテキスト内のサービスの名前。
+  - `image`: **必須**。 Docker イメージを含む文字列。
+  - `createOptions`: **省略可能**。 YAML で指定された省略可能な "_create_" オプション。 詳しい情報については、「[例: コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)」を参照してください。
+  - `environmentVariables`: **省略可能**。 主要な環境変数のマップを設定します。
+  - `userMountVolumes`: **省略可能**。 コンテナーにマウントするマウントの配列 (上記と同じフィールド)。
+    - `sourceVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのソース パス。
+    - `targetVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのターゲット パス。
+    - `readOnly`: **必須**。 マウントを読み取り専用にする必要があるかどうかを決定します。
+  - `registry` **省略可能**。 プライベート コンテナー レジストリの Docker レジストリ資格情報。
+    - `username`: **省略可能**。 レジストリ アカウントのユーザー名。
+    - `password`: **省略可能**。 レジストリ アカウントのパスワード。
+    - `serverUrl`: **省略可能**。 レジストリ URL。
+  - `portMappings`: **省略可能**。 コンテナーにマップする _source:target_ ポートのキー値ハッシュ。
 
-#### Example input
+#### 入力の例
 
 ```json{:copy}
 {
@@ -171,9 +176,9 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 }
 ```
 
-#### Example output
+#### 出力例
 
-This example output is the contents of the `responseFile` defined in the input above.
+次の出力例は、上記の入力で定義されている `responseFile` の内容です。
 
 ```json{:copy}
 {
@@ -205,19 +210,19 @@ This example output is the contents of the `responseFile` defined in the input a
 
 ### `cleanup_job`
 
-The `cleanup_job` command is called at the end of a job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `cleanup_job` command:
+`cleanup_job` コマンドは、ジョブの最後に呼び出されます。 {% data variables.product.prodname_actions %} では、`cleanup_job` コマンドで次のタスクが実行されることを前提としています。
 
-- Stop any running service or job containers (or the equivalent pod).
-- Stop the network (if one exists).
-- Delete any job or service containers (or the equivalent pod).
-- Delete the network (if one exists).
-- Cleanup anything else that was created for the job.
+- 実行中のサービスまたはジョブ コンテナー (または同等のポッド) を停止します。
+- ネットワークを停止します (存在する場合)。
+- ジョブまたはサービス コンテナー (または同等のポッド) を削除します。
+- ネットワークを削除します (存在する場合)。
+- ジョブ用に作成された他のすべてのものをクリーンアップします。
 
 #### 引数
 
-No arguments are provided for `cleanup_job`.
+`cleanup_job` に引数はありません。
 
-#### Example input
+#### 入力の例
 
 ```json{:copy}
 {
@@ -234,46 +239,46 @@ No arguments are provided for `cleanup_job`.
 }
 ```
 
-#### Example output
+#### 出力例
 
-No output is expected for `cleanup_job`.
+`cleanup_job` の出力は想定されていません。
 
 ### `run_container_step`
 
-The `run_container_step` command is called once for each container action in your job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `run_container_step` command:
+`run_container_step` コマンドは、ジョブ内のコンテナー アクションごとに 1 回呼び出されます。 {% data variables.product.prodname_actions %} では、`run_container_step` コマンドで次のタスクが実行されることを前提としています。
 
-- Pull or build the required container (or fail if you cannot).
-- Run the container action and return the exit code of the container.
-- Stream any step logs output to stdout and stderr.
-- Cleanup the container after it executes.
+- 必要なコンテナーをプルまたはビルドします (できない場合は失敗します)。
+- コンテナー アクションを実行し、コンテナーの終了コードを返します。
+- ステップ ログ出力を stdout と stderr にストリーミングします。
+- 実行後にコンテナーをクリーンアップします。
 
 #### 引数
 
-- `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
-- `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
-- `entryPointArgs`: **Optional**. A list containing the entry point args.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `systemMountVolumes`: **Required**. An array of mounts to mount into the container, using the same fields as above.
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `レジストリ` **Optional**. The Docker registry credentials for a private container registry.
-  - `username`: **Optional**. The username of the registry account.
-  - `password`: **Optional**. The password to the registry account.
-  - `serverUrl`: **Optional**. The registry URL.
-- `portMappings`: **Optional**. A key value hash of the _source:target_ ports to map into the container.
+- `image`: **省略可能**。 Docker イメージを含む文字列。 それ以外の場合は、Dockerfile を指定する必要があります。
+- `dockerfile`: **省略可能**。 Dockerfile へのパスを含む文字列。それ以外の場合は、イメージを指定する必要があります。
+- `entryPointArgs`: **省略可能**。 エントリ ポイント引数を含むリスト。
+- `entryPoint`: **省略可能**。 既定のイメージ エントリ ポイントを上書きする必要がある場合に使用するコンテナー エントリ ポイント。
+- `workingDirectory`: **必須**。 作業ディレクトリの絶対パスを含む文字列。
+- `createOptions`: **省略可能**。 YAML で指定された省略可能な "_create_" オプション。 詳しい情報については、「[例: コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)」を参照してください。
+- `environmentVariables`: **省略可能**。 主要な環境変数のマップを設定します。
+- `prependPath`: **省略可能**。 `$PATH` 変数の前に付加する追加のパスの配列。
+- `userMountVolumes`: **省略可能**。 YAML で設定されたユーザー マウント ボリュームの配列。 詳しい情報については、「[例: コンテナー内でのジョブの実行](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)」を参照してください。
+  - `sourceVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのソース パス。
+  - `targetVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのターゲット パス。
+  - `readOnly`: **必須**。 マウントを読み取り専用にする必要があるかどうかを決定します。
+- `systemMountVolumes`: **必須**。 コンテナーにマウントするマウントの配列 (上記と同じフィールドを使用)。
+  - `sourceVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのソース パス。
+  - `targetVolumePath`: **必須**。 Docker コンテナーにマウントされるボリュームへのターゲット パス。
+  - `readOnly`: **必須**。 マウントを読み取り専用にする必要があるかどうかを決定します。
+- `registry` **省略可能**。 プライベート コンテナー レジストリの Docker レジストリ資格情報。
+  - `username`: **省略可能**。 レジストリ アカウントのユーザー名。
+  - `password`: **省略可能**。 レジストリ アカウントのパスワード。
+  - `serverUrl`: **省略可能**。 レジストリ URL。
+- `portMappings`: **省略可能**。 コンテナーにマップする _source:target_ ポートのキー値ハッシュ。
 
-#### Example input for image
+#### イメージの入力例
 
-If you're using a Docker image, you can specify the image name in the `"image":` parameter.
+Docker イメージを使用する場合、`"image":` パラメーターにイメージ名を指定できます。
 
 ```json{:copy}
 {
@@ -347,9 +352,9 @@ If you're using a Docker image, you can specify the image name in the `"image":`
 }
 ```
 
-#### Example input for Dockerfile
+#### Dockerfile の入力例
 
-If your container is defined by a Dockerfile, this example demonstrates how to specify the path to a `Dockerfile` in your input, using the `"dockerfile":` parameter.
+この例は、コンテナーが Dockerfile によって定義されている場合、`"dockerfile":` パラメーターを使用して入力で `Dockerfile` へのパスを指定する方法を示します。
 
 ```json{:copy}
 {
@@ -423,26 +428,26 @@ If your container is defined by a Dockerfile, this example demonstrates how to s
 }
 ```
 
-#### Example output
+#### 出力例
 
-No output is expected for `run_container_step`.
+`run_container_step` の出力は想定されていません。
 
 ### `run_script_step`
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks:
+{% data variables.product.prodname_actions %} では、次のタスクが実行されることを前提としています。
 
-- Invoke the provided script inside the job container and return the exit code.
-- Stream any step log output to stdout and stderr.
+- ジョブ コンテナー内で指定されたスクリプトを呼び出して、終了コードを返します。
+- ステップ ログ出力を stdout と stderr にストリーミングします。
 
 #### 引数
 
-- `entryPointArgs`: **Optional**. A list containing the entry point arguments.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
+- `entryPointArgs`: **省略可能**。 エントリ ポイント引数を含むリスト。
+- `entryPoint`: **省略可能**。 既定のイメージ エントリ ポイントを上書きする必要がある場合に使用するコンテナー エントリ ポイント。
+- `prependPath`: **省略可能**。 `$PATH` 変数の前に付加する追加のパスの配列。
+- `workingDirectory`: **必須**。 作業ディレクトリの絶対パスを含む文字列。
+- `environmentVariables`: **省略可能**。 主要な環境変数のマップを設定します。
 
-#### Example input
+#### 入力の例
 
 ```json{:copy}
 {
@@ -467,64 +472,64 @@ No output is expected for `run_container_step`.
 }
 ```
 
-#### Example output
+#### 出力例
 
-No output is expected for `run_script_step`.
+`run_script_step` の出力は想定されていません。
 
-## Generating the customization script
+## カスタマイズ スクリプトの生成
 
-{% data variables.product.prodname_dotcom %} has created an example repository that demonstrates how to generate customization scripts for Docker and Kubernetes.
+{% data variables.product.prodname_dotcom %} では、Docker と Kubernetes のカスタマイズ スクリプトを生成する方法を示すリポジトリ例を作成しました。 
 
 {% note %}
 
-**Note:** The resulting scripts are available for testing purposes, and you will need to determine whether they are appropriate for your requirements.
+**注:** 生成されたスクリプトはテスト用として使用できますが、自身の要件に適しているかどうかを確認する必要があります。
 
 {% endnote %}
 
-1. Clone the [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) repository to your self-hosted runner.
+1. [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) リポジトリをセルフホステッド ランナーに複製します。
 
-1. The `examples/` directory contains some existing customization commands, each with its own JSON file. You can review these examples and use them as a starting point for your own customization commands.
+1. `examples/` ディレクトリには、いくつかの既存のカスタマイズ コマンドがそれぞれ独自の JSON ファイルに含まれています。 これらの例を確認し、独自のカスタマイズ コマンドの開始点として使用できます。
 
    - `prepare_job.json`
    - `run_script_step.json`
    - `run_container_step.json`
 
-1. Build the npm packages. These commands generate the `index.js` files inside `packages/docker/dist` and `packages/k8s/dist`.
+1. npm パッケージをビルドします。 これらのコマンドは、`packages/docker/dist` および `packages/k8s/dist` 内に `index.js` ファイルを生成します。
 
    ```shell
    npm install && npm run bootstrap && npm run build-all
    ```
 
-When the resulting `index.js` is triggered by {% data variables.product.prodname_actions %}, it will run the customization commands defined in the JSON files. To trigger the `index.js`, you will need to add it your `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` environment variable, as described in the next section.
+生成された `index.js` が {% data variables.product.prodname_actions %} によってトリガーされると、JSON ファイルで定義されているカスタマイズ コマンドが実行されます。 `index.js` をトリガーするには、次のセクションで説明するように、それに `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` 環境変数を追加する必要があります。
 
-## Triggering the customization script
+## カスタマイズ スクリプトのトリガー
 
-The custom script must be located on the runner, but should not be stored in the self-hosted runner application directory. The scripts are executed in the security context of the service account that's running the runner service.
+カスタム スクリプトはランナー上に配置する必要があります。ただし、セルフホステッド ランナー アプリケーション ディレクトリには格納しないでください。 スクリプトは、ランナー サービスを実行しているサービス アカウントのセキュリティ コンテキストで実行されます。
 
 {% note %}
 
-**Note**: The triggered script is processed synchronously, so it will block job execution while running.
+**注**: トリガーされたスクリプトは同期的に処理されるので、実行中はジョブの実行がブロックされます。
 
 {% endnote %}
 
-The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
+スクリプトへの絶対パスを含む次の環境変数がランナーに含まれている場合、スクリプトは自動実行されます。
 
-- `ACTIONS_RUNNER_CONTAINER_HOOK`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_CONTAINER_HOOK`: この環境変数に定義されているスクリプトは、ジョブがランナーに割り当てられ、ジョブの実行が開始される前に開始されます。
 
-To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
+これらの環境変数を設定するには、それをオペレーティング システムに追加するか、セルフホステッド ランナー アプリケーション ディレクトリ内の `.env` という名前のファイルに追加します。 たとえば、次の `.env` エントリがあると、コンテナーベースの各ジョブが実行される前に、`/Users/octocat/runner/index.js` にあるスクリプトがランナーによって自動実行されます。
 
 ```bash
 ACTIONS_RUNNER_CONTAINER_HOOK=/Users/octocat/runner/index.js
 ```
 
-If you want to ensure that your job always runs inside a container, and subsequently always applies your container customizations, you can set the `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` variable on the self hosted runner to `true`. This will fail jobs that do not specify a job container.
+ジョブが常にコンテナー内で実行され、その後常にコンテナーのカスタマイズが適用されるようにする場合、セルフホステッド ランナーの `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` 変数を `true` に設定できます。 これにより、ジョブ コンテナーを指定しないジョブは失敗します。
 
 ## トラブルシューティング
 
-### No timeout setting
+### タイムアウトなしの設定
 
-There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOK`. As a result, you could consider adding timeout handling to your script.
+現在、`ACTIONS_RUNNER_CONTAINER_HOOK` によって実行されるスクリプトに使用できるタイムアウト設定はありません。 そのため、スクリプトにタイムアウト処理を追加することを検討できます。
 
-### Reviewing the workflow run log
+### ワークフロー実行ログの確認
 
-To confirm whether your scripts are executing, you can review the logs for that job. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+スクリプトが実行中かどうかを確認するために、そのジョブのログを確認することができます。 ログの確認の詳細については、「[ログを表示してエラーを診断する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)」を参照してください。

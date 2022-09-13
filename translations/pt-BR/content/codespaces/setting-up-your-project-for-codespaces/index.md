@@ -1,8 +1,8 @@
 ---
-title: 'Configurando seu repositório para {% data variables.product.prodname_github_codespaces %}'
-shortTitle: Configurando seu repositório
+title: 'Como configurar seu repositório para o {% data variables.product.prodname_github_codespaces %}'
+shortTitle: Setting up your repository
 allowTitleToDifferFromFilename: true
-intro: 'Aprenda como dar os primeiros passos com {% data variables.product.prodname_github_codespaces %}, incluindo a configuração para linguagens específicas.'
+intro: 'Saiba como começar a usar o {% data variables.product.prodname_github_codespaces %}, incluindo a configuração para linguagens específicas.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -17,5 +17,12 @@ children:
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
   - /setting-a-minimum-specification-for-codespace-machines
+  - /adding-a-codespaces-badge
+ms.openlocfilehash: 1e172243dc351f0a173c8624b66914e1c3795495
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147783036'
 ---
 

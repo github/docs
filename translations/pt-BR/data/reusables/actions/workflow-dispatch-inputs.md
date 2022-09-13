@@ -1,6 +1,14 @@
-Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho.
+---
+ms.openlocfilehash: 6a71d461562c3d6e390549739ac1f17cb274f3f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146199788"
+---
+Ao usar o evento `workflow_dispatch`, opcionalmente, você pode especificar as entradas que são transmitidas para o fluxo de trabalho.
 
-The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+O fluxo de trabalho disparado recebe as entradas no contexto do {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para obter mais informações, confira "[Contextos]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})".
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

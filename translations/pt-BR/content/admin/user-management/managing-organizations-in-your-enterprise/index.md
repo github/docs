@@ -32,6 +32,12 @@ children:
   - /restoring-a-deleted-organization
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
-shortTitle: Gerenciar organizações
+shortTitle: Manage organizations
+ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884242'
 ---
 

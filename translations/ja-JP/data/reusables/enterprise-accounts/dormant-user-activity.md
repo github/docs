@@ -1,23 +1,31 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+---
+ms.openlocfilehash: f89c8ea56df60e14b5735d160104d332ff1e804b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "146680982"
+---
+ユーザーが {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} で次のいずれかのアクティビティを実行した場合、そのユーザーはアクティブと見なされます。
 
-- Signing into {% data variables.product.product_location %}
+- {% data variables.product.product_location %} にサインインする
 - リポジトリを作成する
-- Pushing to a repository
-- Being added to a repository
-- Changing the visibility of a repository
+- リポジトリにプッシュする
+- リポジトリに追加される
+- リポジトリの表示を変更する
 - Issueもしくはプルリクエストの作成
-- Commenting on an issue or pull request
-- Closing or reopening an issue or pull request
-- Applying a label to an issue or pull request, or removing a label
-- Assigning or unassigning an issue or pull request
-- Requesting a review of a pull request, or removing a review request
-- Creating or editing a comment in a pull request review
-- Dismissing a comment in a pull request
-- Synchronizing a pull request
-- Commenting on a commit
-- Publishing a release
-- Pushing to a wiki
+- イシューまたは pull request にコメントする
+- イシューまたは pull request をクローズまたは再オープンする
+- イシューまたは pull request にラベルを適用する、またはラベルを削除する
+- イシューまたは pull request の割り当てまたは割り当て解除を行う
+- pull request のレビューを要求する、またはレビュー要求を削除する
+- pull request レビューのコメントを作成または編集する
+- pull request のコメントを無視する 
+- pull request を同期する
+- コミットにコメントする
+- リリースを公開する
+- wiki にプッシュする
 - リポジトリを Watch する
-- Starring a repository
+- リポジトリの Star 付け
 - リポジトリの削除
-- Accessing resources by using a personal access token or SSH key
+- 個人用アクセス トークンまたは SSH キーを使ってリソースにアクセスする

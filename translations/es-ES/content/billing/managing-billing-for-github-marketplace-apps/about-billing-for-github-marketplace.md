@@ -11,9 +11,14 @@ versions:
 type: overview
 topics:
   - Marketplace
-shortTitle: Facturación para GitHub Marketplace
+shortTitle: Billing for GitHub Marketplace
+ms.openlocfilehash: 815303fa5c0c1a006a0bd4bd017039cf1e035f15
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091688'
 ---
-
 {% data variables.product.prodname_marketplace %} incluye apps con planes de precios gratuitos y pagos. Después de comprar e instalar una app, puedes actualizar, bajar de categoría o cancerla en cualquier momento.
 
 {% data reusables.marketplace.marketplace-apps-only %}
@@ -45,7 +50,7 @@ Cuando eliges un plan pago con una prueba gratuita:
 
 ## Limites de plan unitario
 
-Si eliges un plan unitario (por ejemplo, un plan que cobra por usuario) y excedes las unidades por las que estás pagando, el integrador puede desactivar tu acceso hasta que actualices la app. Para obtener más información, consulta [Actualizar el plan de facturación para una app del {% data variables.product.prodname_marketplace %}](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)".
+Si eliges un plan unitario (por ejemplo, un plan que cobra por usuario) y excedes las unidades por las que estás pagando, el integrador puede desactivar tu acceso hasta que actualices la app. Para obtener más información, consulte "[Subir de categoría el plan de facturación de una app del {% data variables.product.prodname_marketplace %}](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)".
 
 ## Bajar de categoría una app {% data variables.product.prodname_marketplace %}
 
@@ -55,10 +60,10 @@ Si cancelas una app en un plan gratuito, tu suscripción terminará de inmediato
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-Si cancelas un prueba gratuita en un plan pago, tu suscripción se cancela de inmediato y perderás el acceso a la app. Para obtener más información, consulta [Cancelar una app de {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app)".
+Si cancelas un prueba gratuita en un plan pago, tu suscripción se cancela de inmediato y perderás el acceso a la app. Para obtener más información, consulte "[Cancelar una app {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app)"
 
-## Leer más
+## Información adicional
 
 - "[Acerca de {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
-- "[Comprar e instalar aplicaciones en {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
-- "[Soporte técnico de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)"
+- "[Comprar e instalar aplicaciones en el {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
+- "[Asistencia de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)"

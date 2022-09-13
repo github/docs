@@ -19,25 +19,30 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578944'
 ---
-
 ## Agregar enlaces
 
 Puedes crear enlaces en wikis usando el markup estándar admitido por tu página, o usando la sintaxis MediaWiki. Por ejemplo:
 
-- Si tus páginas se presentan con Markdown, la sintaxis del enlace es `[Link Text](full-URL-of-wiki-page)`.
-- Con la sintaxis MediaWiki, la sintaxis del enlace es `[[Link Text|nameofwikipage]]`.
+- Si las páginas se representan con Markdown, la sintaxis del vínculo es `[Link Text](full-URL-of-wiki-page)`.
+- Con la sintaxis de MediaWiki, la sintaxis del vínculo es `[[nameofwikipage|Link Text]]`.
 
-## Agregar imágenes
+## Incorporación de imágenes
 
 Las wikis pueden presentar imágenes PNG, JPEG y GIF.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. Usando la barra lateral de la wiki, dirígete a la página que deseas cambiar y luego haz clic en **Editar**.
-4. En la barra de herramientas de la wiki, haz clic en **Imagen**. ![Botón de la wiki Agregar imagen](/assets/images/help/wiki/wiki_add_image.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. Desplácese hasta la página que quiere cambiar con la ayuda de la barra lateral de la wiki y luego haga clic en **Edit** (Editar).
+4. En la barra de herramientas de la wiki, haga clic en **Image** (Imagen).
+   ![Botón de la wiki Agregar imagen](/assets/images/help/wiki/wiki_add_image.png)
 5. En el cuadro de diálogo "Insertar imagen", escribe la URL de la imagen y el texto alternativo (el que usan los motores de búsqueda y los lectores de pantalla).
-6. Haz clic en **OK** (aceptar).
+6. Haga clic en **OK**.
 
 ### Establecer enlaces a las imágenes en un repositorio
 
@@ -45,15 +50,20 @@ Puedes establecer un enlace a una imagen en un repositorio en {% data variables.
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Agregar expresiones matemáticas y diagramas{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
+
 ## Formatos MediaWiki admitidos
 
 Independientemente del lenguaje markup en que esté escrita tu página, siempre tendrás una determinada sintaxis MediaWiki disponible.
-- Enlaces ([excepto AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Vínculos ([excepto AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - Reglas horizontales mediante `---`
-- Entidades simbólicas abreviadas (como `&delta;` o `&euro;`)
+- Entidades de símbolos abreviados (como `&delta;` o `&euro;`)
 
 Por razones de seguridad y rendimiento, algunas sintaxis no son compatibles.
 - [Transclusión](https://www.mediawiki.org/wiki/Transclusion)
 - Listas de definiciones
 - Sangría
-- Índice
+- Tabla de contenido

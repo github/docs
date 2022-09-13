@@ -1,25 +1,29 @@
 ---
-title: Organizationのコミットサインオフポリシーの管理
-intro: 'Organizationが所有するリポジトリにおいて、{% data variables.product.product_name %}のWebインターフェースから作成されるすべてのコミットで、ユーザが自動的にサインオフすることを要求できます。'
+title: Organization のコミット サインオフ ポリシーの管理
+intro: 'Organization が所有するリポジトリへの {% data variables.product.product_name %} の Web インターフェイスでユーザーが行ったすべてのコミットを、自動的にサインオフするように要求できます。'
 versions:
   feature: commit-signoffs
 permissions: Organization owners can require all commits to repositories owned by the organization be signed off by the commit author.
 topics:
   - Organizations
-shortTitle: コミットサインオフポリシーの管理
+shortTitle: Manage the commit signoff policy
+ms.openlocfilehash: 0d4f2a0fae7db59a7a1f5d8646263e965e9be9ef
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409825'
 ---
+## コミットのサインオフについて
 
-## コミットサインオフについて
+コミットがリポジトリを管理するルールとライセンスに準拠していることを確認するために、多くの Organization では、開発者がすべてのコミットをサインオフする必要があります。 Organization でコミットのサインオフが必要な場合は、{% data variables.product.product_name %} の Web インターフェイスを介してコミットするユーザーに対して強制コミット サインオフを有効にすることで、コミット プロセスのシームレスな部分をサインオフできます。 Organization の強制コミット サインオフを有効にした後、{% data variables.product.product_name %} の Web インターフェイスを介してその Organization 内のリポジトリに対して行われたすべてのコミットは、コミット作成者によって自動的にサインオフされます。
 
-コミットがリポジトリを管理しているルールとライセンスの下で編集されていることを確認するために、多くのOrganizationが開発者に対してすべてのコミットにサインオフすることを求めています。 Organizationがコミットのサインオフを要求しているなら、{% data variables.product.product_name %}のWebインターフェースを通じたユーザのコミットに対して強制的なコミットサインオフを有効化することによって、サインオフをコミットプロセスのシームレスな一部にすることができます。 強制的なコミットサインオフをOrganizationで有効にすると、{% data variables.product.product_name %}のWebインターフェースを使ってそのOrganization内のリポジトリに対して行われたすべてのコミットは、自動的にコミットの作者によってサインオフされます。
-
-リポジトリへの管理アクセスを持つ人は、リポジトリレベルでも強制的なコミットサインオフを有効化できます。 詳しい情報については「[リポジトリのコミットサインオフポリシーの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)」を参照してください。
+リポジトリへの管理者アクセス権を持つユーザーは、リポジトリ レベルで強制コミット サインオフを有効にすることもできます。 詳しくは、「[リポジトリのコミット サインオフ ポリシーの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)」を参照してください。
 
 {% data reusables.repositories.commit-signoffs %}
 
-## Organizationの強制的なコミットサインオフの管理
+## Organization の強制コミット サインオフの管理
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
-1. **Require contributors to sign off on web-based commits（コントリビューターにWebベースのコミット時のサインオフを要求する）**を選択もしくは選択解除してください。 ![Webベースのコミット時のサインオフをコントリビューターに要求のスクリーンショット](/assets/images/help/organizations/require-signoffs.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+1. **[共同作成者に Web ベースのコミットのサインオフを要求する]** を選択または選択解除します。
+  ![[共同作成者に Web ベースのコミットのサインオフを要求する] のスクリーンショット](/assets/images/help/organizations/require-signoffs.png)

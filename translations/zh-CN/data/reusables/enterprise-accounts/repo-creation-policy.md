@@ -1,1 +1,6 @@
-1. 在“Repository creation（仓库创建）”下，选择一个策略。 ![带有仓库创建策略选项的下拉菜单](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
+1. Under "Repository creation", select a policy.
+  {% ifversion enterprise-namespace-repo-setting %}
+    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/restrict-personal-namespace-setting.png)
+  {% else %}
+    ![Drop-down menu with repository creation policy options](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)
+  {% endif %}

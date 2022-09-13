@@ -2645,9 +2645,19 @@ input CheckRunFilter {
   checkType: CheckRunType
 
   """
-  Filters the check runs by this status.
+  Filters the check runs by these conclusions.
+  """
+  conclusions: [CheckConclusionState!]
+
+  """
+  Filters the check runs by this status. Superceded by statuses.
   """
   status: CheckStatusState
+
+  """
+  Filters the check runs by this status. Overrides status.
+  """
+  statuses: [CheckStatusState!]
 }
 
 """
@@ -3689,9 +3699,21 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): Blame!
 
   """
-  The number of changed files in this commit.
+  We recommend using the `changedFielsIfAvailable` field instead of
+  `changedFiles`, as `changedFiles` will cause your request to return an error
+  if GitHub is unable to calculate the number of changed files.
   """
   changedFiles: Int!
+    @deprecated(
+      reason: "`changedFiles` will be removed. Use `changedFilesIfAvailable` instead. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The number of changed files in this commit. If GitHub is unable to calculate
+  the number of changed files (for example due to a timeout), this will return
+  `null`. We recommend using this field instead of `changedFiles`.
+  """
+  changedFilesIfAvailable: Int
 
   """
   The check suites associated with a commit.
@@ -4114,7 +4136,9 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -4508,7 +4532,7 @@ with `refs/heads/` (although the input is not required to be fully
 qualified).
 
 The Ref may be specified by its global node ID or by the
-repository nameWithOwner and branch name.
+`repositoryNameWithOwner` and `branchName`.
 
 ### Examples
 
@@ -4516,10 +4540,10 @@ Specify a branch using a global node ID:
 
     { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
 
-Specify a branch using nameWithOwner and branch name:
+Specify a branch using `repositoryNameWithOwner` and `branchName`:
 
     {
-      "nameWithOwner": "github/graphql-client",
+      "repositoryNameWithOwner": "github/graphql-client",
       "branchName": "main"
     }
 """
@@ -8735,6 +8759,11 @@ type DiscussionCategory implements Node & RepositoryNode {
   repository: Repository!
 
   """
+  The slug of this category.
+  """
+  slug: String!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -8861,7 +8890,9 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -9326,7 +9357,7 @@ input EnablePullRequestAutoMergeInput {
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to 'MERGE'
+  The merge method to use. If omitted, defaults to `MERGE`
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -9686,6 +9717,41 @@ enum EnterpriseAdministratorRole {
   Represents an owner of the enterprise account.
   """
   OWNER
+}
+
+"""
+The possible values for the enterprise allow private repository forking policy value.
+"""
+enum EnterpriseAllowPrivateRepositoryForkingPolicyValue {
+  """
+  Members can fork a repository to an organization within this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS
+
+  """
+  Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.
+  """
+  EVERYWHERE
+
+  """
+  Members can fork a repository only within the same organization (intra-org).
+  """
+  SAME_ORGANIZATION
+
+  """
+  Members can fork a repository to their user account or within the same organization.
+  """
+  SAME_ORGANIZATION_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account.
+  """
+  USER_ACCOUNTS
 }
 
 """
@@ -10262,6 +10328,11 @@ type EnterpriseOwnerInfo {
     """
     value: Boolean!
   ): OrganizationConnection!
+
+  """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  allowPrivateRepositoryForkingSettingPolicyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
 
   """
   The setting value for base repository permissions for organizations in this enterprise.
@@ -12485,7 +12556,9 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -14040,7 +14113,9 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -16023,6 +16098,41 @@ type MergeBranchPayload {
 }
 
 """
+The possible default commit messages for merges.
+"""
+enum MergeCommitMessage {
+  """
+  Default to a blank commit message.
+  """
+  BLANK
+
+  """
+  Default to the pull request's body.
+  """
+  PR_BODY
+
+  """
+  Default to the pull request's title.
+  """
+  PR_TITLE
+}
+
+"""
+The possible default commit titles for merges.
+"""
+enum MergeCommitTitle {
+  """
+  Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
+  """
+  MERGE_MESSAGE
+
+  """
+  Default to the pull request's title.
+  """
+  PR_TITLE
+}
+
+"""
 Autogenerated input type of MergePullRequest
 """
 input MergePullRequestInput {
@@ -16279,19 +16389,9 @@ enum MigrationSourceType {
   BITBUCKET_SERVER
 
   """
-  A GitHub migration source.
-  """
-  GITHUB
-
-  """
   A GitHub Migration API source.
   """
   GITHUB_ARCHIVE
-
-  """
-  A GitLab migration source.
-  """
-  GITLAB
 }
 
 """
@@ -16641,7 +16741,9 @@ interface Minimizable {
   isMinimized: Boolean!
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -17942,7 +18044,7 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
-  Create a new branch protection rule
+  Update a branch protection rule
   """
   updateBranchProtectionRule(
     """
@@ -18232,6 +18334,16 @@ type Mutation {
   ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
 
   """
+  Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
+  """
+  updateOrganizationWebCommitSignoffSetting(
+    """
+    Parameters for UpdateOrganizationWebCommitSignoffSetting
+    """
+    input: UpdateOrganizationWebCommitSignoffSettingInput!
+  ): UpdateOrganizationWebCommitSignoffSettingPayload
+
+  """
   Updates an existing project.
   """
   updateProject(
@@ -18347,6 +18459,16 @@ type Mutation {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload
+
+  """
+  Sets whether contributors are required to sign off on web-based commits for a repository.
+  """
+  updateRepositoryWebCommitSignoffSetting(
+    """
+    Parameters for UpdateRepositoryWebCommitSignoffSetting
+    """
+    input: UpdateRepositoryWebCommitSignoffSettingInput!
+  ): UpdateRepositoryWebCommitSignoffSettingPayload
 
   """
   Updates the state for subscribable subjects.
@@ -22381,6 +22503,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   viewerIsFollowing: Boolean!
 
   """
+  Whether contributors are required to sign off on web-based commits for repositories in this organization.
+  """
+  webCommitSignoffRequired: Boolean!
+
+  """
   The organization's public profile URL.
   """
   websiteUrl: URI
@@ -26192,7 +26319,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   lastEditedAt: DateTime
 
   """
-  Returns why the comment was minimized.
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -27631,7 +27760,7 @@ type Query {
   ): UniformResourceLocatable
 
   """
-  Perform a search across resources.
+  Perform a search across resources, returning a maximum of 1,000 results.
   """
   search(
     """
@@ -31996,6 +32125,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): DiscussionCategoryConnection!
 
   """
+  A discussion category by slug.
+  """
+  discussionCategory(
+    """
+    The slug of the discussion category to be returned.
+    """
+    slug: String!
+  ): DiscussionCategory
+
+  """
   A list of discussions that have been opened in the repository.
   """
   discussions(
@@ -32414,6 +32553,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether or not PRs are merged with a merge commit on this repository.
   """
   mergeCommitAllowed: Boolean!
+
+  """
+  How the default commit message will be generated when merging a pull request.
+  """
+  mergeCommitMessage: MergeCommitMessage!
+
+  """
+  How the default commit title will be generated when merging a pull request.
+  """
+  mergeCommitTitle: MergeCommitTitle!
 
   """
   Returns a single milestone from the current repository by number.
@@ -32847,6 +32996,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   squashMergeAllowed: Boolean!
 
   """
+  How the default commit message will be generated when squash merging a pull request.
+  """
+  squashMergeCommitMessage: SquashMergeCommitMessage!
+
+  """
+  How the default commit title will be generated when squash merging a pull request.
+  """
+  squashMergeCommitTitle: SquashMergeCommitTitle!
+
+  """
   Whether a squash merge commit can use the pull request title as default.
   """
   squashPrTitleUsedAsDefault: Boolean!
@@ -33056,6 +33215,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     last: Int
   ): UserConnection!
+
+  """
+  Whether contributors are required to sign off on web-based commits in this repository.
+  """
+  webCommitSignoffRequired: Boolean!
 }
 
 """
@@ -34313,6 +34477,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
 
   """
+  Comment explaining the reason the alert was dismissed
+  """
+  dismissComment: String
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -35224,16 +35393,22 @@ The results of a search.
 union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
 
 """
-A list of results that matched against a search query.
+A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 results will be available across all types,
+potentially split across many pages.
 """
 type SearchResultItemConnection {
   """
-  The number of pieces of code that matched the search query.
+  The total number of pieces of code that matched the search query. Regardless
+  of the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   codeCount: Int!
 
   """
-  The number of discussions that matched the search query.
+  The total number of discussions that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   discussionCount: Int!
 
@@ -35243,7 +35418,8 @@ type SearchResultItemConnection {
   edges: [SearchResultItemEdge]
 
   """
-  The number of issues that matched the search query.
+  The total number of issues that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   issueCount: Int!
 
@@ -35258,17 +35434,22 @@ type SearchResultItemConnection {
   pageInfo: PageInfo!
 
   """
-  The number of repositories that matched the search query.
+  The total number of repositories that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   repositoryCount: Int!
 
   """
-  The number of users that matched the search query.
+  The total number of users that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   userCount: Int!
 
   """
-  The number of wiki pages that matched the search query.
+  The total number of wiki pages that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   wikiCount: Int!
 }
@@ -35777,6 +35958,87 @@ type SmimeSignature implements GitSignature {
 }
 
 """
+The possible default commit messages for squash merges.
+"""
+enum SquashMergeCommitMessage {
+  """
+  Default to a blank commit message.
+  """
+  BLANK
+
+  """
+  Default to the branch's commit messages.
+  """
+  COMMIT_MESSAGES
+
+  """
+  Default to the pull request's body.
+  """
+  PR_BODY
+}
+
+"""
+The possible default commit titles for squash merges.
+"""
+enum SquashMergeCommitTitle {
+  """
+  Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
+  """
+  COMMIT_OR_PR_TITLE
+
+  """
+  Default to the pull request's title.
+  """
+  PR_TITLE
+}
+
+"""
+Represents an SSH signature on a Commit or Tag.
+"""
+type SshSignature implements GitSignature {
+  """
+  Email used to sign this object.
+  """
+  email: String!
+
+  """
+  True if the signature is valid and verified by GitHub.
+  """
+  isValid: Boolean!
+
+  """
+  Hex-encoded fingerprint of the key that signed this object.
+  """
+  keyFingerprint: String
+
+  """
+  Payload for GPG signing object. Raw ODB object without the signature header.
+  """
+  payload: String!
+
+  """
+  ASCII-armored signature header from object.
+  """
+  signature: String!
+
+  """
+  GitHub user corresponding to the email signing this commit.
+  """
+  signer: User
+
+  """
+  The state of this signature. `VALID` if signature is valid and verified by
+  GitHub, otherwise represents reason why signature is considered invalid.
+  """
+  state: GitSignatureState!
+
+  """
+  True if the signature was made with GitHub's signing key.
+  """
+  wasSignedByGitHub: Boolean!
+}
+
+"""
 Ways in which star connections can be ordered.
 """
 input StarOrder {
@@ -35965,6 +36227,11 @@ input StartRepositoryMigrationInput {
   githubPat: String
 
   """
+  Whether to lock the source repository.
+  """
+  lockSource: Boolean
+
+  """
   The signed URL to access the user-uploaded metadata archive
   """
   metadataArchiveUrl: String
@@ -35993,6 +36260,11 @@ input StartRepositoryMigrationInput {
   The Octoshift migration source repository URL.
   """
   sourceRepositoryUrl: URI!
+
+  """
+  The visibility of the imported repository.
+  """
+  targetRepoVisibility: String
 }
 
 """
@@ -36827,7 +37099,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     orderBy: TeamRepositoryOrder
 
     """
-    The search string to look for.
+    The search string to look for. Repositories will be returned where the name contains your search string.
     """
     query: String
   ): TeamRepositoryConnection!
@@ -38669,6 +38941,11 @@ input TransferIssueInput {
   clientMutationId: String
 
   """
+  Whether to create labels if they don't exist in the target repository (matched by name)
+  """
+  createLabelsIfMissing: Boolean = false
+
+  """
   The Node ID of the issue to be transferred
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
@@ -39763,6 +40040,11 @@ input UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput {
   enterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
 
   """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  policyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
+
+  """
   The value for the allow private repository forking setting on the enterprise.
   """
   settingValue: EnterpriseEnabledDisabledSettingValue!
@@ -40765,6 +41047,46 @@ type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting
+"""
+input UpdateOrganizationWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization on which to set the web commit signoff setting.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  Enable signoff on web-based commits for repositories in the organization?
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationWebCommitSignoffSetting
+"""
+type UpdateOrganizationWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
+
+  """
+  The organization with the updated web commit signoff setting.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UpdateProjectCard
 """
 input UpdateProjectCardInput {
@@ -41204,6 +41526,46 @@ type UpdateRepositoryPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The updated repository.
+  """
+  repository: Repository
+}
+
+"""
+Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting
+"""
+input UpdateRepositoryWebCommitSignoffSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the repository to update.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  Indicates if the repository should require signoff on web-based commits.
+  """
+  webCommitSignoffRequired: Boolean!
+}
+
+"""
+Autogenerated return type of UpdateRepositoryWebCommitSignoffSetting
+"""
+type UpdateRepositoryWebCommitSignoffSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the web commit signoff setting.
+  """
+  message: String
 
   """
   The updated repository.
@@ -42899,6 +43261,36 @@ type Workflow implements Node {
   name: String!
 
   """
+  The runs of the workflow.
+  """
+  runs(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the connection
+    """
+    orderBy: WorkflowRunOrder = {field: CREATED_AT, direction: DESC}
+  ): WorkflowRunConnection!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -42998,6 +43390,71 @@ type WorkflowRun implements Node {
   The workflow executed in this workflow run.
   """
   workflow: Workflow!
+}
+
+"""
+The connection type for WorkflowRun.
+"""
+type WorkflowRunConnection {
+  """
+  A list of edges.
+  """
+  edges: [WorkflowRunEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [WorkflowRun]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type WorkflowRunEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: WorkflowRun
+}
+
+"""
+Ways in which lists of workflow runs can be ordered upon return.
+"""
+input WorkflowRunOrder {
+  """
+  The direction in which to order workflow runs by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field by which to order workflows.
+  """
+  field: WorkflowRunOrderField!
+}
+
+"""
+Properties by which workflow run connections can be ordered.
+"""
+enum WorkflowRunOrderField {
+  """
+  Order workflow runs by most recently created
+  """
+  CREATED_AT
 }
 
 """

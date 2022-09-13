@@ -1,6 +1,6 @@
 ---
-title: Explorar la actividad de los usuarios en tu empresa
-intro: 'Puedes ver la actividad de sistema y de usuario si aprovechas los tableros, webhooks y el reenvío de bitácoras.'
+title: Exploración de la actividad del usuario en la empresa
+intro: 'Para ver la actividad del usuario y del sistema, utiliza los paneles, los webhooks y el reenvío de registros.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,6 +12,12 @@ children:
   - /viewing-push-logs
   - /log-forwarding
   - /managing-global-webhooks
-shortTitle: Explorar la actividad de los usuarios
+shortTitle: Explore user activity
+ms.openlocfilehash: 2e462be60197d1f9f209bdabfbbffb2332564549
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878556'
 ---
 

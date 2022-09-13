@@ -1,6 +1,6 @@
 ---
-title: Customizing GitHub-hosted runners
-intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
+title: GitHub ホステッド ランナーのカスタマイズ
+intro: ワークフローの一部として、GitHub でホストされるランナーに追加のソフトウェアをインストールできます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,19 +8,24 @@ type: tutorial
 topics:
   - Workflows
 shortTitle: Customize runners
+ms.openlocfilehash: d6793216b099fe3dcec44572da0b3d65cbb13fd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121086'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
+{% data variables.product.prodname_dotcom %} ホステッド ランナーに追加のソフトウェア パッケージが必要な場合は、ワークフローの一部としてパッケージをインストールするジョブを作成できます。 
 
-To see which packages are already installed by default, see "[Preinstalled software](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+既定で既にインストールされているパッケージを確認するには、「[プレインストールされたソフトウェア](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)」を参照してください。
 
-This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
+このガイドでは、{% data variables.product.prodname_dotcom %} ホステッド ランナーに追加のソフトウェアをインストールするジョブを作成する方法について説明します。
 
-## Installing software on Ubuntu runners
+## Ubuntu ランナーへのソフトウェアのインストール
 
-The following example demonstrates how to install an `apt` package as part of a job.
+次の例では、ジョブの一部として `apt` パッケージをインストールする方法を示します。
 
 ```yaml
 name: Build on Ubuntu
@@ -40,13 +45,13 @@ jobs:
 
 {% note %}
 
-**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures.
+**注:** パッケージをインストールする前に `sudo apt-get update` を常に実行してください。 `apt` インデックスが古い場合、このコマンドは使用可能なパッケージをフェッチしてインデックスを再作成します。これにより、パッケージのインストール エラーを防ぐことができます。 
 
 {% endnote %}
 
-## Installing software on macOS runners
+## macOS ランナーへのソフトウェアのインストール
 
-The following example demonstrates how to install Brew packages and casks as part of a job.
+次の例では、ジョブの一部として Brew パッケージと cask をインストールする方法を示します。
 
 ```yaml
 name: Build on macOS
@@ -68,9 +73,9 @@ jobs:
           brew install --cask microsoft-edge
 ```
 
-## Installing software on Windows runners
+## Windows ランナーへのソフトウェアのインストール
 
-The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
+次の例では、[Chocolatey](https://community.chocolatey.org/packages) を使用して、ジョブの一部として {% data variables.product.prodname_dotcom %} CLI をインストールする方法を示します。
 
 {% raw %}
 ```yaml

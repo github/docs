@@ -14,15 +14,22 @@ versions:
 topics:
   - Pull requests
   - Issues
-shortTitle: すべてのIssueとPRを表示
+shortTitle: View all your issues & PRs
 type: how_to
+ms.openlocfilehash: da42e2fe59a4ec80af2727eef66ae475f4b38ded
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145130983'
 ---
-
 Issue およびPull Requestダッシュボードは、すべてのページの上部にもあります。 各ダッシュボードで、リストをフィルタリングして、自分に割り当てられている、または自分がメンションしている Issue またはPull Requestを検索することができます。 レビューを依頼されたPull Requestを検索することもできます。
 
-1. ページの上部にある [**Pull requests**] または [**Issues**] をクリックします。 ![グローバルPull Requestと Issue ダッシュボード](/assets/images/help/overview/issues_and_pr_dashboard.png)
-2. 必要に応じて、フィルターを選択するか、[検索バーを使用してより具体的な結果をフィルタリングします](/articles/using-search-to-filter-issues-and-pull-requests)。 ![選択された "Created" フィルターによるPull Requestのリスト](/assets/images/help/overview/pr_dashboard_created.png)
+1. 任意のページの上部にある **[pull request]** または **[issue]** をクリックします。
+  ![pull request と issue のグローバル ダッシュボード](/assets/images/help/overview/issues_and_pr_dashboard.png)
+2. 必要に応じて、フィルターを選ぶか、[検索バーを使ってさらに特定の結果にフィルター処理](/articles/using-search-to-filter-issues-and-pull-requests)します。
+  ![[作成済み] フィルターが選ばれた pull request の一覧](/assets/images/help/overview/pr_dashboard_created.png)
 
-## 参考リンク
+## 参考資料
 
-- 「[プランの表示](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)」
+- [サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)

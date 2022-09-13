@@ -1,5 +1,0 @@
----
-no_reply_address: >-
-  {% ifversion fpt or ghec %}`noreply@github.com`{% else %}或由站点管理员配置的无需回复电子邮件地址{% endif %}
-cc_address: >-
-  {% ifversion fpt or ghec %}`@noreply.github.com`{% else %}基于站点管理员配置的无需回复电子邮件地址{% endif %}

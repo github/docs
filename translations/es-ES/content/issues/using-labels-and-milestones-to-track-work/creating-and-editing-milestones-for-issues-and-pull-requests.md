@@ -15,30 +15,34 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: Crear & editar hitos
+shortTitle: Create & edit milestones
 type: how_to
+ms.openlocfilehash: c0e812b9f91f91d88d7512974f1df52efbf8c65b
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879332'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. Elige una de las siguientes opciones:
-    - Para crear un nuevo hito, haz clic en **Nuevo hito**. ![Botón Nuevo hito](/assets/images/help/repository/new-milestone.png)
-    - Para editar un hito, haz clic en **Editar** junto al hito que deseas editar. ![Opción Editar hito](/assets/images/help/repository/edit-milestone.png)
-5. Escribe el título, la descripción y los demás cambios del hito, y luego haz clic en **Create milestone** (Crear hito) o **Save changes** (Guardar cambios). Los hitos interpretarán la sintaxis del lenguaje de marcado. Para obtener más información sobre la sintaxis de marcado, consulta la sección "[Sintaxis de marcado y formateado básica](/github/writing-on-github/basic-writing-and-formatting-syntax)".
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
+4. Elija una de estas opciones:
+    - Para crear un hito, haga clic en **Nuevo hito**.
+  ![Botón Nuevo hito](/assets/images/help/repository/new-milestone.png)
+    - Para editar un hito, haga clic en **Editar** junto al hito que quiera editar.
+  ![Opción Editar hito](/assets/images/help/repository/edit-milestone.png)
+5. Escriba el título, la descripción u otros cambios del hito y haga clic en **Crear hito** o **Guardar cambios**. Los hitos interpretarán la sintaxis del lenguaje de marcado. Para más información sobre la sintaxis de Markdown, vea "[Sintaxis básica de escritura y formato](/github/writing-on-github/basic-writing-and-formatting-syntax)".
 
 ## Eliminar hitos
 
 Cuando eliminas hitos, las propuestas y las solicitudes de extracción no se ven afectadas.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. Junto al hito que deseas eliminar, haz clic en **Eliminar**. ![Opción Eliminar hito](/assets/images/help/repository/delete-milestone.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
+4. Junto al hito que quiera eliminar, haga clic en **Eliminar**.
+![Opción para eliminar el hito](/assets/images/help/repository/delete-milestone.png)
 
-## Leer más
+## Información adicional
 
 - "[Acerca de los hitos](/articles/about-milestones)"
-- "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[Ver el progreso de tus hitos](/articles/viewing-your-milestone-s-progress)"
-- "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[Asociación de hitos con incidencias y solicitudes de incorporación de cambios](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Visualización del progreso del hito](/articles/viewing-your-milestone-s-progress)"
+- "[Filtrado de incidencias y solicitudes de incorporación de cambios por hito](/articles/filtering-issues-and-pull-requests-by-milestone)"

@@ -141,12 +141,17 @@ PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %}
 Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Prefect | Prefect Server API Key | prefect_server_api_key
+Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
 Proctorio | Proctorio Consumer Key | proctorio_consumer_key
 Proctorio | Proctorio Linkage Key | proctorio_linkage_key
 Proctorio | Proctorio Registration Key | proctorio_registration_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
 PyPI | PyPI API Token | pypi_api_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 RubyGems | RubyGems API Key | rubygems_api_key
@@ -200,6 +205,8 @@ Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

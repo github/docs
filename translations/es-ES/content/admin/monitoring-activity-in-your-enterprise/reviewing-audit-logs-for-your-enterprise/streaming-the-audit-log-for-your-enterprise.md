@@ -1,6 +1,6 @@
 ---
-title: Transmitir la bitácora de auditoría para tu empresa
-intro: 'Puedes trasmitir datos de eventos de Git y de auditorías desde {% data variables.product.prodname_dotcom %} hacia un sistema externo de administración de datos.'
+title: Streaming the audit log for your enterprise
+intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: audit-log-streaming
@@ -10,7 +10,7 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Transmitir bitácoras de auditoría
+shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -25,72 +25,79 @@ permissions: Enterprise owners can configure audit log streaming.
 {% endnote %}
 {% endif %}
 
-## Acerca de la transmisión de bitácoras de auditoría
+## About audit log streaming
 
-Para ayudarte a proteger tu propiedad intelectual y mantener el cumplimiento en tu organización, puedes utilizar la transmisión para mantener copias de tus datos de bitácoras de auditoría y monitorear:
+To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audited-data-list %}
 
-Los beneficios de transmitir datos de auditoría incluyen:
+The benefits of streaming audit data include:
 
-* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Continuidad de datos**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
-* **Retención de datos**. Puedes mantener tus bitácoras de auditoría y datos de eventos de Git exportados siempre que lo necesites.
+* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
-## Configurar la transmisión de bitácoras de auditoría
+## Setting up audit log streaming
 
-Puedes configurar la transmisión de bitácoras de auditoría en {% data variables.product.product_name %} si sigues las instrucciones para tu proveedor.
+You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
-- [Almacenamiento de Blobs de Azure](#setting-up-streaming-to-azure-blob-storage)
-- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+- [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
+- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+- [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
-### Configurar la transmisión para Amazon S3
+### Setting up streaming to Amazon S3
 
 {% ifversion streaming-oidc-s3 %}
-Puedes configurar la transmisión de S3 con claves de acceso o, para evitar el almacenar secretos de vida larga en {% data variables.product.product_name %}, con OpenID Connect (OIDC).
+You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
 
-- [Configurar la transmisión a S3 con llaves de acceso](#setting-up-streaming-to-s3-with-access-keys)
-- [Configurar la transmisión a S3 con OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
-- [Inhabilitar la transmisión a S3 con OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
+- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
-#### Configurar la transmisión a S3 con llaves de acceso
+#### Setting up streaming to S3 with access keys
 {% endif %}
 
-Para transmitir bitácoras de auditoría a la terminal de Amazon S3, debes tener un bucket y llaves de acceso. Para obtener más información, consulta la sección [Crear, configurar y trabajar con los buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS. Asegúrate de bloquear el acceso público al bucket para proteger la información de tu bitácora de auditoría.
+To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
 
-Para configurar la transmisión de bitácora de auditoría desde {% data variables.product.prodname_dotcom %}, necesitarás:
-* El nombrede tu bucket de Amazon S3
-* Tu ID de llave de acceso de AWS
-* Tu llave de secreto de AWS
+To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
+* The name of your Amazon S3 bucket
+* Your AWS access key ID
+* Your AWS secret key
 
-Para obtener más información sobre cómo crear o acceder a tu ID de llave de acceso y llave de secreto, consulta la sección [Entender y obtener tus credenciales de AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) en la documentación de AWS.
+For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
-1. Debajo de "Autenticación", haz clic en **Claves de acceso**.
+1. Under "Authentication", click **Access keys**.
 
-   ![Captura de pantalla de las opciones de autenticación para la transmisión a Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
-1. Configurar los ajustes de transmisión.
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Configure the stream settings.
 
-   - Debajo de "Bucket", escribe el nombre del bucket al que quieras transmitir. Por ejemplo, `auditlog-streaming-test`.
-   - Debajo de "ID de clave de acceso", escribe tu ID de clave de acceso. Por ejemplo, `ABCAIOSFODNN7EXAMPLE1`.
-   - Debajo de "Clave secreta", escribe tu clave secreta. Por ejemplo, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
-#### Configurar la transmisión a S3 con OpenID Connect
+#### Setting up streaming to S3 with OpenID Connect
 
-1. En AWS, agrega el proveedor de OIDC de {% data variables.product.prodname_dotcom %} para IAM. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
+{% note %}
 
-   - Para la URL de proveedor, utiliza `https://oidc-configuration.audit-log.githubusercontent.com`.
-   - Para "Audiencia", utiliza `sts.amazonaws.com`.
-1. Crea un bucket y bloquea el acceso público a este. Para obtener más información, consulta la sección "[Crear, configurar y trabajar con buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS.
-1. Crea una política que permita que {% data variables.product.company_short %} escriba en el bucket. {% data variables.product.prodname_dotcom %} solo requiere los siguientes permisos.
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
+
+1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+
+   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - For "Audience", use `sts.amazonaws.com`.
+1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
 
    ```
    {
@@ -107,11 +114,11 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
       ]
    }
    ```
-   Para obtener más información, consulta la sección [Crear políticas de IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) en la documentación de AWS.
-1. Configura el rol y la política de confianza para el IdP de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección [Crear un rol para la identidad web o Federación de OpenID Connect (consola)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) en la documentación de AWS.
-
-   - Agrega la política de permisos que creaste anteriormente para permitir la escritura en el bucket.
-   - Edita la relación d confianza para agregar el campo `sub` a las condiciones de validación, reemplazando `ENTERPRISE` con el nombre de tu empresa.
+   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
+1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+  
+   - Add the permissions policy you created above to allow writes to the bucket.
+   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
      ```
      "Condition": {
         "StringEquals": {
@@ -120,186 +127,217 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
          }
       }
       ```
-   - Anota el Nombre de Recurso de Amazon (ARN) del rol creado.
+   - Make note of the Amazon Resource Name (ARN) of the created role.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
-1. Debajo de "Autenticación", haz clic en **OpenID Connect**.
+1. Under "Authentication", click **OpenID Connect**.
 
-   ![Captura de pantalla de las opciones de autenticación para la transmisión a Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
-1. Configurar los ajustes de transmisión.
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Configure the stream settings.
 
-   - Debajo de "Bucket", escribe el nombre del bucket al que quieras transmitir. Por ejemplo, `auditlog-streaming-test`.
-   - Debajo de "Rol de ARN", escribe el rol de ARN que anotaste anteriormente. Por ejemplo, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-#### Inhabilitar la transmisión a S3 con OpenID Connect
+#### Disabling streaming to S3 with OpenID Connect
 
-Si quieres inhabilitar la transmisión a S3 con OIDC por cualquier razón, tal como el descubrimiento de una vulnerabilidad de seguridad en OIDC, borra el proveedor de OIDC de {% data variables.product.prodname_dotcom %} que creaste en AWS cuando configures la transmisión. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
-Posteriormente, configura la transmisión con las claves de acceso hasta que se resuelva la vulnerabilidad. Para obtener más información, consulta la sección [Configurar la transmisión hacia S3 con claves de acceso](#setting-up-streaming-to-s3-with-access-keys)".
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
 
 {% endif %}
 
-### Configurar la transmisión hacia Azure Blob Storage
+### Setting up streaming to Azure Blob Storage
 
-Antes de configurar una transmisión en {% data variables.product.prodname_dotcom %}, primero debes haber creado una cuenta de almacenamiento y un contenedor en Microsoft Azure. Para obtener más detalles, consulta la sección de "[Introducción a Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)" em la documentación de Microsoft.
+Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)." 
 
-Para configurar la transmisión en {% data variables.product.prodname_dotcom %}, necesitarás la URL de un token SAS.
+To configure the stream in {% data variables.product.prodname_dotcom %} you need the URL of a SAS token.
 
-**En el portal de Microsoft Azure**:
-1. En la página principal, haz clic en **Cuentas de almacenamiento**.
-2. Haz clic en el nombre de la cuenta de almacenamiento que quieras utilizar y luego en **Contenedores**.
+**On Microsoft Azure portal**:
+1. On the Home page, click **Storage Accounts**.
+2. Click the name of the storage account you want to use, then click **Containers**.
+   
+   ![The Containers link in Azure](/assets/images/azure/azure-storage-containers.png)
 
-   ![El enlace de contenedores en Azure](/assets/images/azure/azure-storage-containers.png)
+1. Click the name of the container you want to use.
+1. Click **Shared access tokens**. 
+   
+   ![The shared access token link in Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
 
-1. Haz clic en el nombre del contenedor que quieres utilizar.
-1. Haz clic en **Tokens de acceso compartidos**.
+1. In the **Permissions** drop-down menu, change the permissions to only allow `Create` and `Write`.
+   
+   ![The permissions drop-down menu](/assets/images/azure/azure-storage-permissions.png)
 
-   ![El enlace de token de acceso compartido en Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
+1. Set an expiry date that complies with your secret rotation policy.
+1. Click **Generate SAS token and URL**.
+1. Copy the value of the **Blob SAS URL** field that's displayed. You will use this URL in {% data variables.product.prodname_dotcom %}.
 
-1. En el menú desplegable de **Permisos**, cambia los permisos para solo permitir `Create` y `Write`.
-
-   ![El menú desplegable de permisos](/assets/images/azure/azure-storage-permissions.png)
-
-1. Configura una fecha de vencimiento que cumpla con tu política de rotación de secretos.
-1. Haz clic en **Generar un token SAS y URL**.
-1. Copia el valor del campo **Blob SAS URL** que se muestra. Utilizarás esta URL en {% data variables.product.prodname_dotcom %}.
-
-**En {% data variables.product.prodname_dotcom %}**:
+**On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Configurar transmisión** y selecciona **Azure Blob Storage**.
+1. Click **Configure stream** and select **Azure Blob Storage**.
+   
+   ![Choose Azure Blob Storage from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
 
-   ![Elige Azure Blob Storage en el menú desplegable](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
+1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
 
-1. En la página de configuración, ingresa la URL de SAS del blob que copiaste en Azure. El campo **Contenedor** se llena automáticamente con base en la URL.
-
-   ![Ingresar la configuración de transmisión](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
-
-1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} pueda conectarse a la terminal de Azure Blob Storage.
-
-   ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check.png)
+   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
+  
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Configurar la transmisión hacia Azure Event Hubs
+### Setting up streaming to Azure Event Hubs
 
-Antes de configurar una transmisión en {% data variables.product.prodname_dotcom %}, primero debes tener un espacio designador de nombre para concentradores de eventos en Microsoft Azure. Posteriormente, debes crear una instancia de concentrador de eventos dentro del designador de nombre. Necesitarás los detalles de esta instancia de concentrador de eventos cuando configures la transmisión. Para encontrar los detalles, consulta la documentación de Microsoft, en la aprte de "[Inicio rápido: Crear un concentrador de eventos utilizando el portal de Azure](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)".
+Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)." 
 
-Necesitas dos partes de información sobre tu concentrador de eventos: su nombre de instancia y la secuencia de conexión.
+You need two pieces of information about your event hub: its instance name and the connection string. 
 
-**En el portal de Microsoft Azure**:
-1. Busca "Event Hubs".
+**On Microsoft Azure portal**:
+1. Search for "Event Hubs".
 
-   ![La caja de búsqueda del portal de Azure](/assets/images/azure/azure-resources-search.png)
+   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png )
 
-1. Selecciona **Event Hubs**. Se listarán los nombres de tus concentradores de eventos.
+1. Select **Event Hubs**. The names of your event hubs are listed. 
+   
+   ![A list of event hubs](/assets/images/help/enterprises/azure-event-hubs-list.png)
 
-   ![Una lista de concentradores de eventos](/assets/images/help/enterprises/azure-event-hubs-list.png)
+1. Make a note of the name of the event hub you want to stream to.
+1. Click the required event hub. Then, in the left menu, select **Shared Access Policies**.
+1. Select a shared access policy in the list of policies, or create a new policy.
+   
+   ![A list of shared access policies](/assets/images/help/enterprises/azure-shared-access-policies.png)
 
-1. Haz una nota del nombre del concentrador de eventos al cual quieras transmitir.
-1. Haz clic en el concentrador de eventos requerido. Posteriormente, en el menú de la izquierda, selecciona **Políticas de Acceso Compartido**.
-1. Selecciona las políticas de acceso compartido de la lista de políticas o crea una nueva.
+1. Click the button to the right of the **Connection string-primary key** field to copy the connection string.
+   
+   ![The event hub connection string](/assets/images/help/enterprises/azure-connection-string.png)
 
-   ![Una lista de políticas de acceso compartidas](/assets/images/help/enterprises/azure-shared-access-policies.png)
-
-1. Haz clic en el botón a la derecha del campo **Secuencia de conexión-llave primaria** para copiar la secuencia de conexión.
-
-   ![La secuencia de conexión del concentrador de eventos](/assets/images/help/enterprises/azure-connection-string.png)
-
-**En {% data variables.product.prodname_dotcom %}**:
+**On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Configurar transmisión** y selecciona **Azure Event Hubs**.
+1. Click **Configure stream** and select **Azure Event Hubs**.
+   
+   ![Choose Azure Events Hub from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azure.png)
 
-   ![Elige Azure Events hub del menú desplegable](/assets/images/help/enterprises/audit-stream-choice-azure.png)
-
-1. En la página de configuración, ingresa:
-   * El nombre de la instancia de Azure Event Hubs.
-   * La secuencia de conexión.
-
-   ![Ingresar la configuración de transmisión](/assets/images/help/enterprises/audit-stream-add-azure.png)
-
-1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} puede conectarse y escribir en la terminal de Azure Events Hub.
-
-   ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check.png)
+1. On the configuration page, enter:
+   * The name of the Azure Event Hubs instance.
+   * The connection string.
+  
+   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
+   
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Configurar la transmisión para Google Cloud Storage
+{% ifversion streaming-datadog %}
+### Setting up streaming to Datadog
 
-Para configurar la transmisión al Almacenamiento de Google Cloud, debes crear una cuenta de servicio en Google Cloud con las credenciales y permisos adecuados y luego configurar la transmisión de bitácoras de auditoría en {% data variables.product.product_name %} utilizando las credenciales de la cuenta de servicio para la autenticación.
+To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
 
-1. Crea una cuenta de servicio de Google Cloud. No necesitas configurar controles de acceso o roles de IAM para la cuenta de servicio. Para obtener más información, consulta la sección [Crear y administrar cuentas de servicio](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) en la documentación de Google Cloud.
-1. Crear una llave de JSON para la cuenta de servicio y almacenarla de forma segura. Para obtener más información, consulta la sección [Crear y administrar llaves de cuenta de servicio](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) en la documentación de Google Cloud.
-1. Si aún no has creado un bucket, házlo ahora. Para obtener más información, consulta la sección [Crear buckets de almacenamiento](https://cloud.google.com/storage/docs/creating-buckets) en la documentación de Google Cloud.
-1. Dale a la cuenta de servicio el el rol de Credor de Objetos de Almacenamiento para el bucket. Para obtener más información, consulta la sección [Utilizar los permisos de Cloud IAM](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add) en la documentación de Google Cloud.
+After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+
+1. If you don't already have a Datadog account, create one.
+1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Selecciona el menú desplegable de configurar transmisión y haz clic en **Google Cloud Storage**.
+1. Select the **Configure stream** dropdown menu and click **Datadog**.
+   
+   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. Under "Token", paste the token  you copied earlier.
 
-   ![Captura de pantalla del menú desplegable de "Configurar transmisión"](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
+   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
 
-1. Debajo de "Bucket", teclea el nombre de tu bucket de Google Cloud Storage.
+   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+   
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+{% endif %}
 
-   ![Caputra de pantalla del campo de texto de "Bucket"](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
+### Setting up streaming to Google Cloud Storage
 
-1. Debajo de "Credenciales de JSON", pega todo el contenido del archivo para tu llave JSON de la cuenta de servicio.
+To set up streaming to Google Cloud Storage, you must create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.product_name %} using the service account's credentials for authentication.
 
-   ![Captura de pantalla del campo de texto de "Credenciales de JSON"](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
+1. Create a service account for Google Cloud. You do not need to set access controls or IAM roles for the service account. For more information, see [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) in the Google Cloud documentation.
+1. Create a JSON key for the service account, and store the key securely. For more information, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud documentation.
+1. If you haven't created a bucket yet, create the bucket. For more information, see [Creating storage buckets](https://cloud.google.com/storage/docs/creating-buckets) in the Google Cloud documentation.
+1. Give the service account the Storage Object Creator role for the bucket. For more information, see [Using Cloud IAM permissions](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add) in the Google Cloud documentation.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the Configure stream drop-down menu and click **Google Cloud Storage**.
 
-1. Para verificar que {% data variables.product.prodname_dotcom %} pueda conectarse y escribir en el bucket de Google Cloud Storage, haz clic en **Verificar terminal**.
+   ![Screenshot of the "Configure stream" drop-down menu](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
 
-   ![Captura de pantalla del botón "Verificar terminal"](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
+1. Under "Bucket", type the name of your Google Cloud Storage bucket.
+
+   ![Screenshot of the "Bucket" text field](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
+
+1. Under "JSON Credentials", paste the entire contents of the file for your service account's JSON key.
+
+   ![Screenshot of the "JSON Credentials" text field](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
+
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**. 
+
+   ![Screenshot of the "Check endpoint" button](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Configurar la transmisión a Splunk
+### Setting up streaming to Splunk
 
-Para transmitir bitácoras de auditoría a la terminal del Recolector de Eventos HTTP (HEC) de Splunk, debes asegurarte de que la terminal se configure para aceptar conexiones HTTPS. Para obtener más información, consulta la sección [Configurar y utilizar el Recolector de Eventos HTTP en Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) en la documentación de Splunk.
+To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Configurar transmisión** y selecciona **Splunk**.
+1. Click **Configure stream** and select **Splunk**.
+   
+   ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 
-   ![Elige Splunk desde el menú desplegable](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
+1. On the configuration page, enter:
+   * The domain on which the application you want to stream to is hosted.
+  
+     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`. 
 
-1. En la página de configuración, ingresa:
-   * El dominio en el cual se hospeda la aplicación que quieres transmitir.
+   * The port on which the application accepts data.<br>
 
-     Si estás utilizando Splunk Cloud, `Domain` debe ser `http-inputs-<host>`, en donde `host` es el dominio que utilizas en Splunk Cloud. Por ejemplo: `http-inputs-mycompany.splunkcloud.com`.
+     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
-   * El puerto mediante el cual la aplicación acepta datos.<br>
+   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+  
+   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
-     Si estás utilizando Splunk Cloud, `Port` debería ser `443` si no has cambiado la configuración del puerto. Si estás utilizando la versión de prueba gratis de Splunk Cloud, `Port` debe ser `8088`.
+1. Leave the **Enable SSL verification** check box selected.
 
-   * Un token que pueda utilizar {% data variables.product.prodname_dotcom %} para autenticarse a la aplicación de terceros.
-
-   ![Ingresar la configuración de transmisión](/assets/images/help/enterprises/audit-stream-add-splunk.png)
-
-1. Deja seleccionada la casilla de **Habilitar la verificación por SSL**.
-
-    Las bitácoras de auditoría siempre se transmiten como datos cifrados, sin embargo, si seleccionas esta opción, {% data variables.product.prodname_dotcom %} verificará el certificado SSL de tu instancia de Splunk cuando entregue eventos. La verificación por SSL te ayuda a garantizar que los eventos se entreguen a tu terminal URL con seguridad. Puedes limpiar la selección de esta opción, pero te recomendamos que dejes habilitada la verificación por SSL.
-1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} puede conectarse y escribir en la terminal de Splunk. ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check-splunk.png)
+    Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
+   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
-## Pausar la transmisión de bitácoras de auditoría
+## Pausing audit log streaming
 
-El pausar la transmisión te permite realizar el mantenimiento de la aplicación receptora sin perder datos de auditoría. Las bitácoras de auditoría se almacenan por hasta siete días en {% data variables.product.product_location %} y luego se exportan cuando dejas de pausar la transmisión.
+Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.product_location %} and are then exported when you unpause the stream.
 
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Pausar transmisión**.
-
-   ![Pausar la transmisión](/assets/images/help/enterprises/audit-stream-pause.png)
-
-1. Se mostrará un mensaje de confirmación. Haz clic en **Pausar transmisión** para confirmar.
-
-Cuando la aplicación esté lista para recibir bitácoras de auditoría nuevamente, haz clic en **Reanudar transmisión** para reiniciar la transmisión de bitácoras de auditoría.
+{% ifversion streaming-datadog %}
+Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
 {% endif %}
 
-## Borrar la transmisión de bitácoras de auditoría
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Click **Pause stream**.
+   
+   ![Pause the stream](/assets/images/help/enterprises/audit-stream-pause.png)
+
+1. A confirmation message is displayed. Click **Pause stream** to confirm.
+
+When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
+{% endif %}
+
+## Deleting the audit log stream
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Borrar transmisión**.
+1. Click **Delete stream**.
+   
+   ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
 
-   ![Borrar la transmisión](/assets/images/help/enterprises/audit-stream-delete.png)
-
-1. Se mostrará un mensaje de confirmación. Haz clic en **Borrar transmisión** para confirmar.
+1. A confirmation message is displayed. Click **Delete stream** to confirm.

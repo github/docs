@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_projects_v1 %}からの移行'
-intro: '{% data variables.projects.projects_v1_board %}を新しい{% data variables.product.prodname_projects_v2 %}の体験へ移行できます。'
+title: '{% data variables.product.prodname_projects_v1 %} からの移行'
+intro: '{% data variables.projects.projects_v1_board %} を新しい {% data variables.product.prodname_projects_v2 %} エクスペリエンスに移行できます。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,52 +10,53 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: b16235e98306e19a8f08dfc04913c6935772b5cc
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147424116'
 ---
-
-
 {% note %}
 
-**ノート:**
+**注:**
 
-- 移行しようとしているプロジェクトが1200以上のアイテムを含む場合、オープンなIssueが優先され、そのあとにオープンなPull Request、そしてノートが続きます。 残りの領域はクローズされたIssue、マージされたPull Request、クローズされたあPull Requestに使われます。 この制限のために移行できなかったアイテムは、アーカイブに移されます。 アーカイブの限度である10,000アイテムに達すると、それ以降のアイテムは移行されません。
-- カードはドラフトのIssueに変換され、その内容はドラフトのIssueの本文に保存されることに注意してください。 情報が欠落しているように見える場合は、非表示のフィールドを見えるようにしてください。 詳しい情報については「[非表示のフィールドの表示](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)」を参照してください。
-- オートメーションは移行されません。
+- 移行するプロジェクトに 1,200 を超える項目が含まれている場合は、未解決の issue が優先され、その後に未解決の pull request、メモが続きます。 残りの領域は、解決された issue、マージされた pull request、および解決された pull request に使用されます。 この制限により移行できない項目は、アーカイブに移動されます。 アーカイブの上限である 10,000 項目に達した場合、追加の項目は移行されません。
+- ノート カードは下書きの issue に変換され、内容は下書きの issue の本文に保存されます。 情報が見つからないように見える場合は、非表示フィールドを表示します。 詳しくは、「[フィールドの表示と非表示](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)」を参照してください。
+- 自動化は移行されません。
 - トリアージ、アーカイブ、アクティビティは移行されません。
-- 移行のあと、移行された新しいプロジェクトと古いプロジェクトの同期は取られません。
+- 移行後、新しく移行されたプロジェクトと古いプロジェクトは同期されません。
 
 {% endnote %}
 
 ## プロジェクトの移行について
 
-プロジェクトボードを新しい{% data variables.product.prodname_projects_v2 %}体験へ移行し、テーブル、複数のビュー、新しい自動化の選択肢、強力なフィールドタイプを試してください。 詳しい情報については「[プロジェクトについて](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」を参照してください。
+プロジェクト ボードを新しい {% data variables.product.prodname_projects_v2 %} エクスペリエンスに移行し、テーブル、複数のビュー、新しい自動化オプション、強力なフィールドの種類を試すことができます。 詳しくは、「[プロジェクトについて](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」を参照してください。
 
-## Organizationのプロジェクトボードの移行
+## 組織のプロジェクト ボードの移行
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-1. 左側で**Projects (classic)**をクリックしてください。 ![Projects (classic)メニューオプションが表示されているスクリーンショット](/assets/images/help/issues/projects-classic-org.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}
+1. 左側の **[プロジェクト (クラシック)]** をクリックします。
+  ![[プロジェクト (クラシック)] メニュー オプションを示すスクリーンショット](/assets/images/help/issues/projects-classic-org.png) {% data reusables.projects.migrate-project-steps %}
 
-## ユーザプロジェクトボードの移行
+## ユーザー プロジェクト ボードの移行
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.profile.access_profile %}
-1. プロフィールページの一番上のメインナビゲーションにある{% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/user-projects-tab.png)
-1. プロジェクトのリストの上部で**Projects (classic)**をクリックしてください。 ![Projects (classic)メニューオプションが表示されているスクリーンショット](/assets/images/help/issues/projects-classic-user.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.profile.access_profile %}
+1. プロファイル ページの上部のメイン ナビゲーションにある {% octicon "project" aria-label="The project board icon" %} **[プロジェクト]** をクリックします。
+![[プロジェクト] タブ](/assets/images/help/projects/user-projects-tab.png)
+1. プロジェクトの一覧の上にある **[プロジェクト (クラシック)]** をクリックします。
+  ![[プロジェクト (クラシック)] メニュー オプションを示すスクリーンショット](/assets/images/help/issues/projects-classic-user.png) {% data reusables.projects.migrate-project-steps %}
 
-## リポジトリプロジェクトボードの移行
+## リポジトリのプロジェクトボードの移行
 
 {% note %}
 
-**ノート:** {% data variables.projects.projects_v2_caps %}はリポジトリレベルのプロジェクトをサポートしません。 リポジトリプロジェクトボードを移行する場合、リポジトリプロジェクトを所有しているOrganizationもしくは個人アカウントに移行することになり、移行されたプロジェクトはオリジナルのリポジトリにピン止めされます。
+**注:** {% data variables.projects.projects_v2_caps %} では、リポジトリ レベルのプロジェクトはサポートされていません。 リポジトリ プロジェクト ボードを移行すると、リポジトリ プロジェクトを所有する組織または個人アカウントに移行され、移行されたプロジェクトは元のリポジトリにピン留めされます。
 
 {% endnote %}
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.repositories.navigate-to-repo %}
-1. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/repo-tabs-projects.png)
-1. **Projects (classic)**をクリックしてください。 ![Projects (classic)メニューオプションが表示されているスクリーンショット](/assets/images/help/issues/projects-classic-org.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.repositories.navigate-to-repo %}
+1. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %} **[プロジェクト]** をクリックします。
+![[プロジェクト] タブ](/assets/images/help/projects/repo-tabs-projects.png)
+1. **[プロジェクト (クラシック)]** をクリックします。
+  ![[プロジェクト (クラシック)] メニュー オプションを示すスクリーンショット](/assets/images/help/issues/projects-classic-org.png) {% data reusables.projects.migrate-project-steps %}

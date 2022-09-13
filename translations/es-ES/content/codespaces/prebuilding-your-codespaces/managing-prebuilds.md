@@ -1,7 +1,7 @@
 ---
-title: Administrar las precompilaciones
-shortTitle: Administrar las precompilaciones
-intro: 'Puedes revisar, modificar y borrar las configuraciones de precompilación de tu repositorio.'
+title: Administración de precompilaciones
+shortTitle: Manage prebuilds
+intro: 'Puedes revisar, modificar y eliminar las configuraciones de precompilación del repositorio.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,90 +10,95 @@ topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5257419e4c2f3750cfb6b2c6d5e115d29b4b4342
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147548092'
 ---
+## Comprobación, cambio y eliminación de las configuraciones de precompilación
 
-## Verificar, cambiar y borrar tus configuraciones de precompilación
+Los precompilaciones que configuras para un repositorio se crean y actualizan mediante un flujo de trabajo de {% data variables.product.prodname_actions %}, administrado por el servicio {% data variables.product.prodname_github_codespaces %}. 
 
-Las precompilaciones que configures para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %}, que administra el servicio de {% data variables.product.prodname_github_codespaces %}.
+Según los valores de una configuración de precompilación, el flujo de trabajo para actualizar la precompilación se puede desencadenar mediante estos eventos:
 
-Dependiendo de los ajustes en una configuración de precompilación, el flujo de trabajo para actualizar la plantilla de precompilación podría activarse con estos eventos:
+* Creación o actualización de la configuración de precompilación
+* Inserción de una confirmación o una solicitud de incorporación de cambios en una rama configurada para tener precompilaciones
+* Cambio de cualquiera de los archivos de configuración del contenedor de desarrollo
+* Una programación definida en la configuración de precompilación
+* Desencadenamiento manual del flujo de trabajo
 
-* Crear o actualizar la configuración de precompilación
-* Subir una confirmación o una solicitud de cambios a una rama que está configurada para tener precompilaciones
-* Cambiar cualquiera de los archivos de configuración del contenedor dev
-* Un itinerario que definiste en la configuración de la precompilación
-* Activar el flujo de trabajo manualmente
+Los valores de la configuración de precompilación determinan qué eventos desencadenan automáticamente una actualización de la precompilación. Para más información, consulta "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)". 
 
-Los ajustes en la configuración de precompilación determinan qué eventos activan automáticamente una actualización de la plantilla de precompilación. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+Los usuarios con acceso de administrador a un repositorio pueden comprobar el progreso de las configuraciones de precompilaciones, editarlas y eliminarlas. 
 
-Las personas con acceso administrativo a un repositorio pueden verificar el progreso de las precompilaciones, así como editar y borrar las configuraciones de estas.
+### Visualización del progreso de las precompilaciones
+Puede ver el estado actual de la ejecución de flujo de trabajo más reciente para cada configuración de precompilación que haya configurado en la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio. Por ejemplo, "Actualmente en ejecución" o "Última ejecución hace 1 hora".
 
-### Ver el progreso de las precompilaciones
-Pudes ver el estado actual de la ejecución de flujo de trabajo más reciente para cada configuración de precompilación que hayas ajustado en la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio. Por ejemplo, "Actualmente en ejecución" o "Última ejecución hace 1 hora".
+A fin de ver la salida del registro para la ejecución más reciente del flujo de trabajo de precompilación, haga clic en **Ver salida**.
 
-Para ver la salida de bitácora de la ejecución de flujo de trabajo de la precompilación más reciente, haz clic en **Ver la salida**.
+![El botón "Ver salida"](/assets/images/help/codespaces/prebuilds-see-output.png) 
 
-![El botón de 'Ver salida'](/assets/images/help/codespaces/prebuilds-see-output.png)
+Esto muestra la salida de la ejecución más reciente del flujo de trabajo en la pestaña **Acciones**.
 
-Esto muestra la salida de la ejecución más reciente del flujo de trabajo en la pestaña de **Acciones**.
+![Salida del flujo de trabajo de precompilación](/assets/images/help/codespaces/prebuilds-log-output.png) 
 
-![La salida de flujo de trabajo de precompilación](/assets/images/help/codespaces/prebuilds-log-output.png)
+Como alternativa, para ver todas las ejecuciones de flujo de trabajo de precompilación asociadas a la rama especificada, haga clic en el botón de puntos suspensivos y elija **Ver ejecuciones** en el menú desplegable.
 
-Como alternativa, para ver todas las ejecuciones de flujo de trabajo de una precompilación asociadas con la rama especificada, haz clic en el botón de puntos suspensivos y elige **Ver ejecuciones** del menú desplegable.
+![La opción "Ver ejecuciones" en el menú desplegable](/assets/images/help/codespaces/prebuilds-view-runs.png) 
 
-![La opción de 'Ver ejecuciones' en el menú desplegable](/assets/images/help/codespaces/prebuilds-view-runs.png)
+Esto muestra el historial de ejecución de flujo de trabajo para las precompilaciones de la rama asociada.
 
-Esto muestra el historial de ejecución de flujo de trabajo para las precompilaciones para la rama asociada.
+![Historial de ejecución de flujo de trabajo](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
 
-![El historial de ejecución de flujo de trabajo](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
+### Edición de una configuración de precompilación
 
-### Editar una configuración de precompilación
+1. En la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio, haga clic en los puntos suspensivos situados a la derecha de la configuración de precompilación que quiera editar.
+1. En el menú desplegable, haga clic en **Editar**.
+ 
+   ![La opción "Editar" en el menú desplegable](/assets/images/help/codespaces/prebuilds-edit.png) 
 
-1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras editar.
-1. En el menú desplegable, haz clic en **Editar**.
-
-   ![La opción de 'Editar' en el menú desplegable](/assets/images/help/codespaces/prebuilds-edit.png)
-
-1. Haz los cambios requeridos en la configuración de precompilación y luego haz clic en **Actualizar**.
+1. Realice los cambios necesarios en la configuración de precompilación y, después, haga clic en **Actualizar**. 
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 
-### Inhabilitar una configuración de precompilación
+### Deshabilitación de una configuración de precompilación
 
-Para pausar la actualización de las plantillas de precompilación de una configuración, puedes inhabilitar las ejecuciones de flujo de trabajo para dicha configuración. El inhabilitar las ejecuciones de flujo de trabajo para una configuración de precompilación no borra ninguna plantilla de precompilación creada anteriormente para dicha configuración y, como resultado, los codespaces seguirán generándose desde una plantilla de precompilación existente.
+Si desea pausar la actualización de precompilaciones para una configuración, puede deshabilitar las ejecuciones de flujos de trabajo para la configuración. Deshabilitar las ejecuciones de flujos de trabajo para una configuración de precompilación no elimina ninguna precompilación creada previamente para dicha configuración y, como resultado, se seguirán generando codespaces a partir de una precompilación existente.
 
-El inhabilitar las ejecuciones de flujos de trabajo para una configuración precompilada es útil si necesitas investigar los fallos en la creación de plantillas.
+Deshabilitar las ejecuciones de flujos de trabajo para una configuración de precompilación resulta útil si necesitas investigar errores en la creación de plantillas.
 
-1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras inhabilitar.
-1. En el menú desplegable, haz clic en **Inhabilitar ejecuciones**.
+1. En la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio, haz clic en los puntos suspensivos situados a la derecha de la configuración de precompilación que quieres deshabilitar.
+1. En el menú desplegable, haz clic en **Deshabilitar ejecuciones**.
 
-   ![La opción de 'Inhabilitar ejecuciones' en el menú desplegable](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![La opción "Deshabilitar ejecuciones" en el menú desplegable](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. Para confirmar que quieres inhabilitar esta configuración, haz clic en **OK**.
+1. Para confirmar que quieres deshabilitar esta configuración, haz clic en **Aceptar**.
 
-### Borrar una configuración de precompilación
+### Eliminación de una configuración de precompilación
 
-El borrar una configuración de preocmpilación también borrar todas las plantillas de precompilación que se hayan creado previamente para dicha configuración. Como resultado, poco después de que borres una configuración, las precompilaciones generadas por dicha configuración ya no estarán disponibles cuando crees un codespace nuevo.
+Al eliminar una configuración de precompilación también se eliminan todas las precompilaciones creadas anteriormente para esa configuración. Como resultado, poco después de eliminar una configuración, las precompilaciones generadas por esa configuración ya no estarán disponibles al crear un codespace.
 
-Después de que borras una configuración de precompilación, todavía se ejecutarán las ejecuciones de flujo de trabajo de dicha configuración que se hayan puesto en cola o que hayan iniciado. Se listarán en el historial de ejecución de flujo de trabajo junto con las ejecuciones de flujo de trabajo que se hayan completado previamente.
+Después de eliminar una configuración de precompilación, las ejecuciones de flujo de trabajo para esa configuración que se han puesto en cola o que se han iniciado se seguirán ejecutando. Se mostrarán en el historial de ejecución de flujo de trabajo, junto con las ejecuciones de flujo de trabajo completadas anteriormente.
 
-1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras borrar.
-1. En el menú desplegable, haz clic en **Borrar**.
+1. En la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio, haga clic en los puntos suspensivos situados a la derecha de la configuración de precompilación que quiera eliminar.
+1. En el menú desplegable, haga clic en **Eliminar**.
 
-   ![La opción de 'Borrar' en el menú desplegable](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![La opción "Eliminar" en el menú desplegable](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. Haz clic en **OK** para confirmar el borrado.
+1. Haga clic en **Aceptar** para confirmar la eliminación.
 
-### Activar las precompilaciones manualmente
+### Desencadenamiento manual de precompilaciones
 
-Puede ser útil activar una ejecución de flujo de trabajo manualmente para una configuración precompilada. Generalmente, esto solo es necesario si estás depurando un problema con el flujo de trabajo de una configuración de precompilación.
+Puede ser útil desencadenar manualmente una ejecución de flujo de trabajo para una configuración de precompilación. Por lo general, esto solo es necesario si va a depurar un problema con el flujo de trabajo para una configuración de precompilación.
 
-1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación cuyo flujo de trabajo quieras activar.
-1. En el menú desplegable, haz clic en **Activar manualmente**.
+1. En la página {% data variables.product.prodname_codespaces %} de la configuración del repositorio, haga clic en los puntos suspensivos situados a la derecha de la configuración de precompilación cuyo flujo de trabajo quiera desencadenar.
+1. En el menú desplegable, haga clic en **Desencadenador manual**.
 
-   ![La opción de 'Activar manualmente' en le menú desplegable](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
+   ![La opción "Desencadenador manual" en el menú desplegable](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
 
-## Leer más
+## Información adicional
 
-- "[Solucionar problemas de las compilaciones previas](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Solución de problemas de precompilaciones](/codespaces/troubleshooting/troubleshooting-prebuilds)"

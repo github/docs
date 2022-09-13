@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 
-import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
-import useLazyLoadHighlightJS from 'components/hooks/useLazyLoadHighlightJS'
 import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
@@ -17,8 +15,7 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
-
-const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
+import { ClientSideHighlight } from 'components/ClientSideHighlight'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -58,13 +55,9 @@ export const ArticlePage = () => {
   const { t } = useTranslation('pages')
   const currentPath = asPath.split('?')[0]
 
-  const lazyLoadHighlightJS = useLazyLoadHighlightJS(asPath)
-
   return (
     <DefaultLayout>
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
-      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
+      <ClientSideHighlight />
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
@@ -89,11 +82,9 @@ export const ArticlePage = () => {
               )}
 
               {permissions && (
-                <div className="permissions-statement d-table">
-                  <div className="d-table-cell pr-2">
-                    <ShieldLockIcon size={16} />
-                  </div>
-                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                <div className="permissions-statement pl-3 my-4">
+                  <div className="text-bold pr-2">{t('permissions_statement')}</div>
+                  <div dangerouslySetInnerHTML={{ __html: permissions }} />
                 </div>
               )}
 

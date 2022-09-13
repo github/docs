@@ -10,6 +10,12 @@ versions:
 children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
-shortTitle: Instalar apps de marketplace
+shortTitle: Install Marketplace apps
+ms.openlocfilehash: 5b262c82be9d51386498aff7c0b126fdf44a46b0
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112089'
 ---
 

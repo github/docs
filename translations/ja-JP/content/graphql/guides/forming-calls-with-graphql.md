@@ -11,18 +11,23 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: GraphQLでの呼び出しの作成
+shortTitle: Form calls with GraphQL
+ms.openlocfilehash: b3778872cad120f64f2fdbc238f2319bdd758513
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147527895'
 ---
-
 ## GraphQLでの認証
 
 GraphQLサーバーと通信するには、適切なスコープを持つOAuthトークンが必要です。
 
-トークンを作成するには、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」のステップに従ってください。 必要なスコープは、リクエストしようとしているデータの種類によります。 たとえば、ユーザデータをリクエストするには**User**スコープを選択してください。 リポジトリ情報にアクセスする必要があるなら、適切な**Repository**スコープを選択してください。
+「[個人用アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)」のステップに従ってトークンを作成します。 必要なスコープは、リクエストしようとしているデータの種類によります。 たとえば、ユーザー データを要求する **ユーザー** スコープを選択します。 リポジトリ情報にアクセスする必要がある場合は、適切な **リポジトリ** スコープを選択してください。
 
 {% ifversion fpt or ghec %}
 
-[GraphQL Explorer](/graphql/guides/using-the-explorer)の動作とマッチさせるためには、以下のスコープをリクエストしてください。
+[GraphQL Explorer](/graphql/guides/using-the-explorer) の動作を一致させるために、次のスコープを要求します。
 
 {% else %}
 
@@ -33,7 +38,6 @@ GraphQLサーバーと通信するには、適切なスコープを持つOAuth�
 
 ```
 repo
-repo_deployment
 read:packages
 read:org
 read:public_key
@@ -56,11 +60,11 @@ REST APIは多数のエンドポイントを持ちますが、GraphQL APIは単�
 
 ## GraphQLでの通信
 
-GraphQLの操作は複数行のJSONからなるので、GitHubはGraphQLの呼び出しを行うのに[Explorer](/graphql/guides/using-the-explorer)を使うことをおすすめします。 cURLや、その他の任意のHTTPを使うライブラリも利用できます。
+GraphQL の操作は複数行の JSON で構成されるため、GitHub は [Explorer](/graphql/guides/using-the-explorer) を使用して GraphQL 呼び出しを行うことをお勧めします。 cURLや、その他の任意のHTTPを使うライブラリも利用できます。
 
-RESTでは、[HTTPの動詞](/rest#http-verbs)によって行う操作が決まります。 GraphQLでは、クエリを実行しているのかミューテーションを実行しているかにかかわらず、JSONエンコードされたボディを提供するので、HTTPの動詞は`POST`です。 例外は[イントロスペクションクエリ](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)で、これはエンドポイントへのシンプルな`GET`です。 GraphQLとRESTの比較に関する詳しい情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+REST では、[HTTP 動詞](/rest#http-verbs)によって実行される操作が決まります。 GraphQL では、クエリまたはミューテーションを実行する場合でも、JSON でエンコードされた本文を提供するので、HTTP 動詞は `POST` となります。 例外は、エンドポイントに対する単純な `GET` である[イントロスペクション クエリ](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)です。 GraphQL と REST の詳細については、「[REST から GraphQL への移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
-cURLを使ってGraphQLのクエリを行うには、JSONのペイロードを持つ`POST`リクエストを作成してください。 このペイロードには、`query`という文字列が含まれていなければなりません。
+cURL を使用して GraphQL にクエリを実行するには、JSON ペイロードを使用して `POST` 要求を行います。 ペイロードには、`query` という文字列が含まれている必要があります。
 
 ```shell
 curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
@@ -72,37 +76,37 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% tip %}
 
-**ノート**: `"query"`の文字列値は、改行文字をエスケープしていなければならず、そうなっていなかった場合にはスキーマが正しくパースできません。 `POST`のボディについては、外側をダブルクオートで囲み、内部のダブルクオートはエスケープしてください。
+**注**: `"query"` の文字列値は改行文字をエスケープする必要があります。さもないと、スキーマで正しく解析されません。 `POST` の本文には、外側の二重引用符とエスケープされた内側の二重引用符を使用します。
 
 {% endtip %}
 
 ### クエリ及びミューテーション操作について
 
-GitHubのGraphQL APIで許されている操作は、_クエリ_と_ミューテーション_の2種類です。 GraphQLをRESTと比較すると、クエリは`GET`リクエストのような操作で、ミューテーションは`POST`/`PATCH`/`DELETE`のような操作です。 [ミューテーション名](/graphql/reference/mutations)が、どの変更が実行されるのかを決定します。
+GitHubの GraphQL API で許可される操作の 2 種類は _、クエリ_ と _変更です_。 GraphQL と REST を比較すると、クエリは `GET` 要求と同様に動作しますが、ミューテーションは `POST`/`PATCH`/`DELETE` のように動作します。 [ミューテーション名](/graphql/reference/mutations)によって、実行される変更が決まります。
 
-レート制限に関する情報については「[GraphQLのリソース制限](/graphql/overview/resource-limitations)」を参照してください。
+レート制限の詳細については、「[GraphQL リソース制限](/graphql/overview/resource-limitations)」を参照してください。
 
 クエリとミューテーションは似た形式を持っていますが、重要な違いがあります。
 
 ### クエリについて
 
-GraphQLのクエリは、指定したデータのみを返します。 クエリを作成するには、[フィールド内のフィールド](/graphql/guides/introduction-to-graphql#field)（_入れ子になったサブフィールド_とも呼ばれます）を、[スカラー](/graphql/reference/scalars)だけを返すまで指定します。
+GraphQL クエリからは、指定したデータのみが返されます。 クエリを作成するには、[スカラー](/graphql/reference/scalars)だけを返すまで、[フィールド内フィールド](/graphql/guides/introduction-to-graphql#field)を指定する必要があります (_入れ子になったサブフィールド_ とも呼ばれます)。
 
-クエリは以下のような構造になります。
+クエリは次のように構成されます。
 
 <pre>query {
   <em>JSON objects to return</em>
 }</pre>
 
-実際の例については「[クエリの例](#example-query)」を参照してください。
+実際の例については、「[クエリの例](#example-query)」を参照してください。
 
 ### ミューテーションについて
 
 ミューテーションを作成するには、3つのことを指定しなければなりません。
 
 1. _ミューテーション名_。 実行したい変更の種類です。
-2. _入力オブジェクト_。 サーバーに送信したいデータで、_入力フィールド_から構成されます。 これはミューテーション名に引数として渡してください。
-3. _ペイロードオブジェクト_。 サーバーから返して欲しいデータで、_返値フィールド_から構成されます。 これは、ミューテーション名のボディとして渡してください。
+2. _入力オブジェクト_。 サーバーに送信するデータ。_入力フィールド_ で構成されます。 これはミューテーション名に引数として渡してください。
+3. _ペイロード オブジェクト_。 サーバーから返すデータ。_戻り値のフィールド_ で構成されます。 これは、ミューテーション名のボディとして渡してください。
 
 ミューテーションは以下のような構造になります。
 
@@ -112,19 +116,19 @@ GraphQLのクエリは、指定したデータのみを返します。 クエリ
   }
 }</pre>
 
-この例の入力オブジェクトは`MuitationNameInput`であり、ペイロードオブジェクトは `MuitationNamePayload` です。
+この例の入力オブジェクトは `MutationNameInput`、ペイロード オブジェクトは `MutationNamePayload` です。
 
-[ミューテーション](/graphql/reference/mutations)の参照では、リストされた_入力フィールド_は、入力オブジェクトとして渡すものです。 リストされている_返値フィールド_は、ペイロードオブジェクトとして渡すものです。
+[ミューテーション](/graphql/reference/mutations)参照では、一覧表示された _入力フィールド_ が入力オブジェクトとして渡されます。 一覧表示されている _戻り値のフィールド_ は、ペイロード オブジェクトとして渡されます。
 
-実際の例については「[ミューテーションの例](#example-mutation)」を参照してください。
+実際の例については、「[ミューテーションの例](#example-mutation)」を参照してください。
 
-## 変数の扱い
+## 変数の使用
 
-[変数](https://graphql.github.io/learn/queries/#variables)はクエリをより動的かつ強力にするもので、ミューテーションの入力オブジェクトを渡す際の複雑さを引き下げてくれます。
+[変数](https://graphql.github.io/learn/queries/#variables)を使用すると、クエリをより動的かつ強力にすることができ、ミューテーションの入力オブジェクトを渡すときの複雑さを軽減できます。
 
 {% note %}
 
-**ノート**: Explorerを使っている場合は、変数を個別の[クエリ変数ペイン](/graphql/guides/using-the-explorer#using-the-variable-pane)に入力するようにして、JSONオブジェクトの前に`variables`という語を含めないようにしてください。
+**注**: Explorer を使用している場合は、別の [クエリ変数ペイン](/graphql/guides/using-the-explorer#using-the-variable-pane)に変数を入力し、JSON オブジェクトの前に単語 `variables` を含めないでください。
 
 {% endnote %}
 
@@ -148,7 +152,7 @@ variables {
 
 変数を利用するには3つのステップがあります。
 
-1. 操作の外部で`variables`オブジェクト中に変数を定義します。
+1. `variables` オブジェクト内の操作の外部で変数を定義します。
 
   ```graphql
   variables {
@@ -156,7 +160,7 @@ variables {
   }
   ```
 
-  オブジェクトは有効なJSONでなければなりません。 この例はシンプルな`Int`変数型を示していますが、入力オブジェクトのようなもっと複雑な変数型を定義することもできます。 ここで複数の変数を定義することもできます。
+  オブジェクトは有効なJSONでなければなりません。 この例は単純な `Int` 変数型を示していますが、入力オブジェクトなど、より複雑な変数型を定義できます。 ここで複数の変数を定義することもできます。
 
 2. 変数を操作に引数として渡します。
 
@@ -164,7 +168,7 @@ variables {
   query($number_of_repos:Int!){
   ```
 
-  この引数はキー/値ペアで、キーは`$`で始まる_名前_（たとえば`$number_of_repos`）であり、値は_型_（たとえば`Int`）です。 型が必須であることを示すには`!`を加えてください。 複数の変数を定義した場合は、それらをここで複数の引数として含めてください。
+  引数はキーと値のペアで、キーは _名前_ (例: ) で `$` 始まり、 `$number_of_repos`値は _型_ (例: `Int`) です。 型が必要かどうかを示す `!` を追加します。 複数の変数を定義した場合は、それらをここで複数の引数として含めてください。
 
 3. 変数を操作の中で利用してください。
 
@@ -174,15 +178,15 @@ variables {
 
   この例では、変数を取得するリポジトリ数に置き換えています。 GraphQLは強い型付けを強制するので、ステップ2で型を指定しています。
 
-このプロセスでクエリの引数は動的になります。 これで、単純に`variables`オブジェクトの値を変更して、それ以外のクエリを同じままに保てるようになります。
+このプロセスでクエリの引数は動的になります。 これで、`variables` オブジェクト内の値を変更し、クエリの残りの部分を同じに保つことができます。
 
-変数を引数として使うことで、クエリを変更することなく`variables` オブジェクト内の値を動的に更新できるようになります。
+変数を引数として使用すると、クエリを変更せずに `variables` オブジェクト内の値を動的に更新できます。
 
 ## クエリの例
 
 もっと複雑なクエリを見ていき、これらの情報を流れの中で捉えていきましょう。
 
-以下のクエリは`octocat/Hello-World`リポジトリをルックアップし、最も最近にクローズされた20個のIssueを見つけ、それぞれのIssueのタイトル、URL、最初の5つのラベルを返します。
+次のクエリでは、`octocat/Hello-World` リポジトリを検索し、最新の 20 個の解決された issue を検索し、各 issue のタイトル、URL、最初の 5 つのラベルを返します。
 
 ```graphql
 query {
@@ -210,31 +214,31 @@ query {
 
 * `query {`
 
-  データを変更するのではなく、サーバーからデータを読み取りたいので、`query`がルート操作になります。 （操作を指定しなかった場合、`query`はデフォルトでもあります）
+  目的はサーバーからデータを読み取ることであり、変更することではありません。`query` はルート操作です。 (操作を指定しない場合は、`query` も既定値になります。)
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  クエリを始めるにあたって、見つけたいのは[`repository`](/graphql/reference/objects#repository)オブジェクトです。 スキーマの検証によって、このオブジェクトが引数として`owner` と`name`を必要とすることが示されます。
+  クエリを開始するには、[`repository`](/graphql/reference/objects#repository) オブジェクトを検索します。 スキーマの検証により、このオブジェクトに `owner` と `name` の引数が必要であることがわかります。
 
 * `issues(last:20, states:CLOSED) {`
 
-  リポジトリ中のすべてのIssueを扱うために、`issues`オブジェクトを呼びます。 （`repository`上の単一の`issue`に対するクエリを実行することも_可能_ですが、そのためには返して欲しいIssueの数を知り、それを引数として提供しなければなりません）
+  リポジトリ内のすべての issue について説明するために、`issues` オブジェクトを呼び出します。 (1  つのクエリを`issue`実行`repository`することもできますが、返す問題の数を把握し、引数として指定する必要があります)。
 
-  以下は`issues`オブジェクトに関する詳細です。
+  `issues` オブジェクトに関するいくつかの詳細を次に示します。
 
-  - [docs](/graphql/reference/objects#repository)は、このオブジェクトが`IssueConnection`という型を持つことを示します。
-  - スキーマ検証によって、このオブジェクトが引数として`last`もしくは`first`の結果数を必要とすることが示されるので、`20`を渡します。
-  - [docs](/graphql/reference/objects#repository)は、このオブジェクトが引数として`states`も取ることを示します。これはenumの[`IssueState`](/graphql/reference/enums#issuestate)で、値として`OPEN`か`CLOSED`を取ります。 クローズされたIssueだけを見つけるために、`states`キーに`CLOSED`という値を渡します。
+  - この[ドキュメント](/graphql/reference/objects#repository)では、このオブジェクトに型 `IssueConnection` があることがわかります。
+  - スキーマの検証では、このオブジェクトでは引数として結果の `last` の数または `first` の数が必要であることがわかるので、`20` を指定します。
+  - この[ドキュメント](/graphql/reference/objects#repository)では、このオブジェクトが `states` 引数を受け入れることも示しています。これは `OPEN` または `CLOSED` の値を受け入れる [`IssueState`](/graphql/reference/enums#issuestate) 列挙型です。 解決された issue のみを見つけるには、`states` キーに `CLOSED` の値を指定します。
 
 * `edges {`
 
-  `IssueConnection`という型を持っているので、`issues`はコネクションだということが分かっています。 個々のIssueに関するデータを取り出すためには、`edges`を通じてノードにアクセスしなければなりません。
+  `IssueConnection` 型を持っているため、`issues` は接続であることがわかります。 個々の問題に関するデータを取得するには、`edges` を使用してノードにアクセスする必要があります。
 
 * `node {`
 
-  ここで、エッジの端にあるノードを取り出します。 [`IssueConnection` docs](/graphql/reference/objects#issueconnection)は、`IssueConnection`型の端にあるノードが`Issue`オブジェクトであることを示しています。
+  ここで、エッジの端にあるノードを取り出します。 [`IssueConnection`このドキュメント](/graphql/reference/objects#issueconnection)では、`IssueConnection` 型の末尾にあるノードが `Issue` オブジェクトであることが示されています。
 
-* `Issue`オブジェクトを取り出そうとしていることが分かっているので、[docs](/graphql/reference/objects#issue)を見て返してほしいフィールドを指定できます。
+* `Issue` オブジェクトを取得することがわかっているので、[ドキュメント](/graphql/reference/objects#issue)を確認し、返すフィールドを指定できます。
 
   ```graphql
   title
@@ -248,11 +252,11 @@ query {
   }
   ```
 
-  ここでは、`Issue`オブジェクトの`title`、`url`、`labels`フィールドを指定しています。
+  ここで、`Issue` オブジェクトの `title`、`url`、`labels` フィールドを指定します。
 
-  `labels`フィールドは[`LabelConnection`](/graphql/reference/objects#labelconnection)という型を持っています。 `issues`オブジェクトと同じように、`labels`はコネクションなので、そのエッジを経て接続されたノードである`label`オブジェクトに到達しなければなりません。 このノードでは、返してほしい`label`オブジェクトフィールドを指定できます。ここでは`name`です。
+  `labels` フィールドは型 [`LabelConnection`](/graphql/reference/objects#labelconnection) を持っています。 `issues` オブジェクトと同様に、`labels` は接続であるため、そのエッジを接続されたノード (`label` オブジェクト) に移動する必要があります。 ノードでは、返す `label` オブジェクト フィールドを指定できます。この場合は、`name` です。
 
-Octocatの{% ifversion not ghae %}パブリックな{% endif %}`Hello-World`リポジトリに対してこのクエリを実行しても、多くのラベルは返されないことに気づくかもしれません。 ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
+Octocat の{% ifversion not ghae %}パブリック{% endif %} `Hello-World` リポジトリでこのクエリを実行しても、多くのラベルが返されないことに気付くかもしれません。 ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
 
 ## ミューテーションの例
 
@@ -284,7 +288,7 @@ mutation AddReactionToIssue {
 
 {% tip %}
 
-名前を付ければ（この例では`FindIssueID`と`AddReactionToIssue`）、同じExplorerのウィンドウ内にクエリとミューテーションを置くことができますが、それらの操作はGraphQLのエンドポイントへの個別の呼び出しとして実行されます。 クエリをミューテーションと同時に、あるいはミューテーションとクエリを同時に実行することはできません。
+クエリとミューテーションに名前 (この例では `FindIssueID` と `AddReactionToIssue`) を付ければ、同じ Explorer ウィンドウに含めることができますが、操作は GraphQL エンドポイントへの個別の呼び出しとして実行されます。 クエリをミューテーションと同時に、あるいはミューテーションとクエリを同時に実行することはできません。
 
 {% endtip %}
 
@@ -292,7 +296,7 @@ mutation AddReactionToIssue {
 
 それでは、クエリから始めることはどのように知ることができるのでしょうか？ この時点ではまだわかりません。
 
-サーバー上のデータを変更したい（絵文字をIssueに添付する）ので、まずは役に立つミューテーションを探してスキーマを検索することから始めます。 リファレンスのドキュメントは、 [`addReaction`](/graphql/reference/mutations#addreaction)ミューテーションに`Adds a reaction to a subject.`という説明を付けています。完璧です！
+サーバー上のデータを変更したい（絵文字をIssueに添付する）ので、まずは役に立つミューテーションを探してスキーマを検索することから始めます。 参照ドキュメントでは、[`addReaction`](/graphql/reference/mutations#addreaction) ミューテーションが、「`Adds a reaction to a subject.`」という説明とともに示されています。完璧です。
 
 このミューテーションのドキュメントには、3つの入力フィールドがリストアップされています。
 
@@ -300,35 +304,35 @@ mutation AddReactionToIssue {
 * `subjectId` (`ID!`)
 * `content` (`ReactionContent!`)
 
-`!`は、`subjectId`及び`content`が必須のフィールドであることを示しています。 `content`が必須なのは妥当です。リアクションを追加したいので、使う絵文字を指定しなければなりません。
+`!` は `subjectId` と `content` が必須フィールドであることを示します。 必須の `content` は意味があります。リアクションを追加するため、使用する絵文字を指定する必要があります。
 
-しかしなぜ`subjectId`が必須なのでしょうか？ これは、_どの_リポジトリ内の_どの_Issueに対応するのかを識別する唯一の方法が`subjectId`だからです。
+しかし、なぜ `subjectId` が必要なのでしょうか。 これは`subjectId`、リポジトリがどの問題に対応 _するかを_ 特定する唯一の方法であるためです。
 
-これが、`ID`を取得するためのクエリでこの例を始めなければならない理由です。
+このため、この例では `ID` を取得するためのクエリから始めています。
 
 クエリを1行ずつ調べていきましょう。
 
 * `query FindIssueID {`
 
-  ここではクエリを実行します。その名前を`FindIssueID`とします。 クエリに名前を付けるのはオプションだということに注意してください。ここでは、ミューテーションと同じExplorerウィンドウに置けるように名前を付けています。
+  ここではクエリを実行し、`FindIssueID` という名前を付けます。 クエリに名前を付けるのはオプションだということに注意してください。ここでは、ミューテーションと同じExplorerウィンドウに置けるように名前を付けています。
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  `repository`オブジェクトに引数として`owner`と`name`を渡すことでクエリを実行し、リポジトリを特定しています。
+  リポジトリを指定するには、`repository` オブジェクトに対してクエリを実行し、`owner` および `name` 引数を渡します。
 
 * `issue(number:349) {`
 
-  `issue`オブジェクトに`number`を引数として渡してクエリを行うことによって、対応するIssueを特定します。
+  `issue` オブジェクトに対してクエリを実行し、`number` 引数を渡すことによって、対応する issue を指定します。
 
 * `id`
 
-  ここで、`subjectId`として渡す`https://github.com/octocat/Hello-World/issues/349`の`id`を取り出します。
+  ここで、`subjectId` として渡す `https://github.com/octocat/Hello-World/issues/349` の `id` を取得します。
 
-このクエリを実行すると、`id`: `MDU6SXNzdWUyMzEzOTE1NTE=`が得られます。
+クエリを実行すると、`MDU6SXNzdWUyMzEzOTE1NTE=` という `id` が取得されます。
 
 {% tip %}
 
-**ノート**: このクエリが返す`id`は、ミューテーション中で`subjectID`として渡す値です。 ドキュメントも、スキーマのイントロスペクションでもこの関係は示されません。このことを理解するには、名前の背景となっている概念を理解しなければなりません。
+**注**: クエリで返される `id` は、ミューテーションで `subjectID` として渡す値です。 ドキュメントも、スキーマのイントロスペクションでもこの関係は示されません。このことを理解するには、名前の背景となっている概念を理解しなければなりません。
 
 {% endtip %}
 
@@ -336,27 +340,27 @@ IDが分かれば、ミューテーションで先に進むことができます
 
 * `mutation AddReactionToIssue {`
 
-  ここでミューテーションを実行します。`AddReactionToIssue`という名前を付けます。 クエリと同じように、ミューテーションに名前を付けることはオプションです。ここではクエリと一緒に同じExplorerウィンドウに置けるように名前を付けています。
+  ここではミューテーションを実行し、`AddReactionToIssue` という名前を付けます。 クエリと同じように、ミューテーションに名前を付けることはオプションです。ここではクエリと一緒に同じExplorerウィンドウに置けるように名前を付けています。
 
 * `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
 
   この行を調べましょう。
 
-  - `addReaction`はミューテーションの名前です。
-  - `input`は必須の引数のキーです。 ミューテーションではこれは常に`input`になります。
-  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}`は必須の引数の値です。 ミューテーションでは、これは常に入力フィールド（このケースでは`subjectId`と`content`）から構成される[入力オブジェクト](/graphql/reference/input-objects)（そのため波括弧です）になります。
+  - `addReaction` はミューテーションの名前です。
+  - `input` は必要な引数キーです。 ミューテーションではこれは常に `input` になります。
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` は必要な引数の値です。 これは常に、ミューテーションの入力フィールド (この場合は `subjectId` と `content`) で構成される [入力オブジェクト](/graphql/reference/input-objects) (したがって中かっこ) になります。
 
-  どの値がcontentとして使われるのかは、どのように分かるのでしょうか？ [`addReaction`のドキュメント](/graphql/reference/mutations#addreaction)は、`content`フィールドが[`ReactionContent`](/graphql/reference/enums#reactioncontent)という型を持っていることを教えてくれます。GitHubのIssueでは特定の絵文字リアクションだけがサポートされているので、これは[enum](/graphql/reference/enums)です。 リアクションとして使える値は以下のとおりです（いくつかの値は対応する絵文字の名前とは異なっていることに注意してください）。
+  どの値がcontentとして使われるのかは、どのように分かるのでしょうか？ [`addReaction` のドキュメント](/graphql/reference/mutations#addreaction)では、`content` フィールドの型は [`ReactionContent`](/graphql/reference/enums#reactioncontent) です。これは GitHub issue で特定の絵文字のリアクションのみがサポートされているため[列挙型](/graphql/reference/enums)になっています。 リアクションとして使える値は以下のとおりです（いくつかの値は対応する絵文字の名前とは異なっていることに注意してください）。
 
   {% data reusables.repositories.reaction_list %}
 
-* 呼び出しの残りの部分は、ペイロードオブジェクトから構成されます。 ここでは、ミューテーションを行った後にサーバーから返してほしいデータを指定します。 これらの行は、[`addReaction`のドキュメント](/graphql/reference/mutations#addreaction)から来ています。指定できる返値フィールドは3つあります。
+* 呼び出しの残りの部分は、ペイロードオブジェクトから構成されます。 ここでは、ミューテーションを行った後にサーバーから返してほしいデータを指定します。 これらの行は、[`addReaction` のドキュメント](/graphql/reference/mutations#addreaction)から取得したもので、次の 3 つの可能な戻り値フィールドがあります。
 
     - `clientMutationId` (`String`)
     - `reaction` (`Reaction!`)
     - `subject` (`Reactable!`)
 
-  この例では、2つの必須フィールド（`reaction`及び`subject`）を返します。これらはどちらも必須のサブフィールドを持っています（それぞれ`content`と`id`）。
+  この例では、2 つの必須フィールド (`reaction` および`subject`) を返します。両方とも必須サブフィールド (それぞれ `content` および `id`) を持っています。
 
 このミューテーションを実行すると、レスポンスは次のようになります。
 
@@ -375,9 +379,9 @@ IDが分かれば、ミューテーションで先に進むことができます
 }
 ```
 
-これで完了です。 :tada:の上にホバーして自分のユーザ名を見つけ、[Issueへのリアクション](https://github.com/octocat/Hello-World/issues/349)を確認してください。
+これで完了です。 :tada: の上にカーソルを合わせてユーザー名を探し、[issue に対する反応](https://github.com/octocat/Hello-World/issues/349)をチェックアウトします。
 
-最後に一つ注意です。インプットオブジェクト中で複数のフィールドを渡す場合、構文が扱いにくくなることがあります。 フィールドを[変数](#working-with-variables)に移すと役立つかもしれません。 以下では、オリジナルのミューテーションを変数を使って書き換えています。
+最後に一つ注意です。インプットオブジェクト中で複数のフィールドを渡す場合、構文が扱いにくくなることがあります。 フィールドを[変数](#working-with-variables)に移動すると役立ちます。 以下では、オリジナルのミューテーションを変数を使って書き換えています。
 
 ```graphql
 mutation($myVar:AddReactionInput!) {
@@ -400,19 +404,19 @@ variables {
 
 {% note %}
 
-先ほどの例では、`content`のフィールド値（これはミューテーション中で直接使われています）で、`HOORAY`の周りにクオートがありませんが、変数で使われる場合にはクオートがあることに気づいたかもしれません。 これには理由があります。
-* ミューテーション中で`content`を直接使う場合には、スキーマはその値が[`ReactionContent`](/graphql/reference/enums#reactioncontent)型であることを期待しています。これは文字列ではなく_列挙型_です。 スキーマ検証は、列挙値の周りにクオートを加えるとエラーを投げます。これはクオートが文字列のために予約されているからです。
-* `content`を変数中で使う場合、変数のセクションは適切なJSONでなければならないので、クオートが必要になります。 スキーマ検証は、変数が実行時にミューテーションに渡されるとき、`ReactionContent`型を正しく解釈します。
+先ほどの例では、`content` のフィールド値 (これはミューテーション中で直接使用されます) には `HOORAY` の周りに引用符がありませんが、変数で使用される場合には引用符があることがわかります。 これには理由があります。
+* ミューテーションで `content` を直接使用する場合、スキーマはその値が文字列ではなく _列挙型_ である [`ReactionContent`](/graphql/reference/enums#reactioncontent) 型であると想定します。 スキーマ検証は、列挙値の周りにクオートを加えるとエラーを投げます。これはクオートが文字列のために予約されているからです。
+* `content` を変数で使用する場合、variables セクションは有効な JSON である必要があるため、引用符が必要です。 スキーマ検証では、実行中に変数がミューテーションに渡されるときに、`ReactionContent` 型が正しく解釈されます。
 
-列挙型と文字列の違いに関する詳しい情報については、[公式のGraphQL仕様](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)を参照してください。
+列挙型と文字列型の違いの詳細については、[公式の GraphQL 仕様](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)に関するページを参照してください。
 
 {% endnote %}
 
-## 参考リンク
+## 参考資料
 
-GraphQLの呼び出しを作成する際にできることは、_もっと_たくさんあります。 以下は、次に見るべき場所です。
+GraphQL 呼び出しを形成する場合は、さらに _多くの_ ことができます。 以下は、次に見るべき場所です。
 
-* [ページネーション](https://graphql.org/learn/pagination/)
+* [改ページ位置の自動修正](https://graphql.org/learn/pagination/)
 * [フラグメント](https://graphql.org/learn/queries/#fragments)
-* [インラインフラグメント](https://graphql.org/learn/queries/#inline-fragments)
+* [インライン フラグメント](https://graphql.org/learn/queries/#inline-fragments)
 * [ディレクティブ](https://graphql.org/learn/queries/#directives)

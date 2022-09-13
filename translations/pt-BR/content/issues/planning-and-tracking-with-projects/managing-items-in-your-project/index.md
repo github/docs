@@ -1,7 +1,7 @@
 ---
-title: 'Managing items in your {% data variables.projects.project_v2 %}'
+title: 'Gerenciar itens em seu {% data variables.projects.project_v2 %}'
 shortTitle: 'Managing items in your {% data variables.projects.project_v2 %}'
-intro: 'Learn how to add and manage issues, pull requests, and draft issues.'
+intro: 'Saiba como adicionar e gerenciar problemas, solicitações de pull e rascunhos de problemas.'
 versions:
   feature: projects-v2
 topics:
@@ -12,5 +12,11 @@ children:
   - /converting-draft-issues-to-issues
   - /archiving-items-from-your-project
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 76a77b3ba3cf61b37aaf2b23ae1117951d5b3105
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423741'
 ---
 
