@@ -21,11 +21,11 @@ topics:
   - Teams
 shortTitle: About security overview
 ms.openlocfilehash: ac069277564d7249d36b54f218c78f33eefc3c47
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147525711'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881475'
 ---
 {% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 

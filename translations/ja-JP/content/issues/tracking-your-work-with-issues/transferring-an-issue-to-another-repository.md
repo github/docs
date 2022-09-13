@@ -14,12 +14,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Transfer an issue
-ms.openlocfilehash: 4e4892468178e7440be7e0a730a948ce2465f1dc
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: ee17296217027d2de9805a905aaec187f53e5614
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145130987'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710420'
 ---
 他のリポジトリにオープンなIssue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込みアクセス権が必要です。 詳細については、「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
@@ -29,11 +29,11 @@ ms.locfileid: '145130987'
 
 {% endnote %}
 
-Issueを移譲する場合、コメント、ラベル、アサインされた人は保持されます。 Issueのマイルストーンは保持されません。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細については、「[プロジェクト ボードについて](/articles/about-project-boards)」を参照してください。
+Issue を委譲する場合、コメントとアサインされた人は保持されます。 ラベルとマイルストーンもターゲット リポジトリ内に置かれる場合は保持されます。ラベルは名前で照合され、マイルストーンは名前と期限の両方で照合されます。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細については、「[プロジェクト ボードについて](/articles/about-project-boards)」を参照してください。
 
 Issue でメンションされた人や Team は、Issue が新しいリポジトリに移譲されたことを知らせる通知を受け取ります。 当初の URL は、新しい Issue の URL にリダイレクトします。 新しいリポジトリの読み取り権限がない人には、アクセスできない新しいリポジトリに Issue が移譲されたことを知らせるバナーが表示されます。
 
-## <a name="transferring-an-open-issue-to-another-repository"></a>他のリポジトリへオープン Issue を移譲する
+## 他のリポジトリへオープン Issue を移譲する
 
 {% webui %}
 
@@ -60,7 +60,7 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - 「[Issue について](/articles/about-issues)」
 - 「[セキュリティ ログをレビューする](/articles/reviewing-your-security-log)」

@@ -277,19 +277,24 @@ translations/es-ES/content/billing/managing-billing-for-github-codespaces/viewin
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,broken liquid tags
 translations/es-ES/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,broken liquid tags
+translations/es-ES/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/es-ES/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,broken liquid tags
 translations/es-ES/content/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities.md,rendering error
 translations/es-ES/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/es-ES/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
+translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
+translations/es-ES/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
+translations/es-ES/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
-translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports.md,broken liquid tags
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
+translations/es-ES/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,broken liquid tags
 translations/es-ES/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,broken liquid tags
 translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/es-ES/content/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account.md,rendering error
@@ -298,7 +303,6 @@ translations/es-ES/content/get-started/exploring-projects-on-github/following-or
 translations/es-ES/content/get-started/quickstart/be-social.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
-translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization.md,broken liquid tags
 translations/es-ES/content/packages/learn-github-packages/about-permissions-for-github-packages.md,broken liquid tags
 translations/es-ES/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,broken liquid tags
 translations/es-ES/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
@@ -313,6 +317,7 @@ translations/es-ES/data/learning-tracks/code-security.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
+translations/es-ES/data/reusables/codespaces/your-codespaces-procedure-step.md,broken liquid tags
 translations/es-ES/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,broken liquid tags

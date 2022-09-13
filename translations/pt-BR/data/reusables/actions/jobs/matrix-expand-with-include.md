@@ -4,7 +4,7 @@ ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145094364"
+ms.locfileid: "147883081"
 ---
 Por exemplo, o fluxo de trabalho a seguir executará seis trabalhos, um para cada combinação de `os` e `node`. Quando o trabalho para o valor `os` de `windows-latest` e valor `node` as execuções `16`, uma variável adicional chamada `npm` com o valor de `6` será incluída no trabalho.
 

@@ -17,11 +17,11 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145099983'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882689'
 ---
 更改身份验证方法时，{% data variables.product.product_location %} 上的用户帐户将保留，只要他们的用户名没有发生变化，用户就可以继续登录原来的帐户。
 

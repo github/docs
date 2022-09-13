@@ -11,11 +11,11 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: bb80e0627236ff7e045dd72823201b6d8e750445
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129185'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888434'
 ---
 ## 关于 {% data variables.product.prodname_oauth_app %} API
 

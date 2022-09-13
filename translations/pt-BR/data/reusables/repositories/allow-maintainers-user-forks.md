@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3c71b4f4d9bfae794b8325c01d85db55f91c2fa8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145095391"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882864"
 ---
 1. Nos forks de propriedade do usuário, caso você deseje permitir que qualquer pessoa com acesso de push no repositório upstream faça alterações na sua solicitação de pull, selecione **Permitir edições de mantenedores**.
 

@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Organization news feed
 ms.openlocfilehash: 2ef8e11cd2ede1fedd284aed3d554bcd658d413e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145135247'
 ---
 Las noticias de una organización muestran las actividades de otras personas en los repositorios que posee esa organización. Puedes usar las noticias de tu organización para ver cuando alguien abre, cierra o fusiona una propuesta o solicitud de extracción, crea o elimina una rama, crea una etiqueta o un lanzamiento, comenta en una propuesta, una solicitud de extracción o una confirmación de cambios o sube confirmaciones nuevas a {% data variables.product.product_name %}.

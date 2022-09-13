@@ -14,10 +14,10 @@ versions:
 topics:
   - Enterprise
 ms.openlocfilehash: 10787e2326f2bb3c4768c5e499d445f65cf9e57d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146178459'
 ---
 ## Acerca de los roles en una empresa

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: de2ab71ca5c93229329c2887dc71685aa92e199d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145065415"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883057"
 ---
 É possível especificar um único evento ou vários eventos. Por exemplo, um fluxo de trabalho com o valor `on` a seguir será executado quando um push for feito em qualquer branch no repositório ou quando alguém criar um fork do repositório:
 

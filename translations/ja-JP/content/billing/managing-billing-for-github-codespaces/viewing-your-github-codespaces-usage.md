@@ -1,7 +1,7 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: GitHub Codespaces の使用状況の表示
 shortTitle: Viewing your usage
-intro: 'You can view the compute minutes and storage used by {% data variables.product.prodname_github_codespaces %}.'
+intro: '{% data variables.product.prodname_github_codespaces %}によるコンピュートの分とストレージを見ることができます。'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -13,28 +13,29 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
+ms.openlocfilehash: 59c7baf22070f534ea42ddde561a4b739a01fed1
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147865162'
 ---
+## 組織の {% data variables.product.prodname_github_codespaces %} の使用状況を表示する
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
-
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
+組織については、組織所有者と支払いマネージャーが {% data variables.product.prodname_github_codespaces %} の使用状況を管理できます。 Enterpriseアカウントが管理しているOrganizationでは、OrganizationのオーナーはOrganizationの支払いページで{% data variables.product.prodname_codespaces %}の使用状況を見ることができ、Enterpriseの管理者はEnterprise全体の使用状況を見ることができます。
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
-  ![Details of minute usage](/assets/images/help/billing/codespaces-compute-storage.png)
-{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
-1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
+1. [{% data variables.product.prodname_codespaces %}] で、今月これまでに使用されたコンピューティング時間とストレージについて詳しく説明します。
+  ![分単位の使用状況の詳しい内容](/assets/images/help/billing/codespaces-compute-storage.png) {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+1. `Product` フィールドで "Codespaces" に言及している行のみが表示されるように、レポートをフィルター処理します。
 
-   ![A usage report filtered for Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
+   ![Codespaces でフィルター処理された使用状況レポート](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
-## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
+## エンタープライズ アカウントの {% data variables.product.prodname_codespaces %} の使用状況を表示する
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_codespaces %} usage for an enterprise account.
+エンタープライズ アカウントについては、エンタープライズ所有者と支払いマネージャーが {% data variables.product.prodname_codespaces %} の使用状況を確認できます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the usage details of each organization in your enterprise account.
-{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. 「{% data variables.product.prodname_codespaces %}」の下で、Enterpriseアカウント内の各Organizationの使用状況の詳細を見ます。
+{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %} {% endif %}

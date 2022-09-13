@@ -12,10 +12,10 @@ topics:
   - Pages
 shortTitle: Secure site with HTTPS
 ms.openlocfilehash: fb1ce5b0a0f5c19ac58ef0b93cb379f807a89fe4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146273070'
 ---
 Las personas con permisos de administración para un repositorio pueden aplicar HTTPS para un sitio de {% data variables.product.prodname_pages %}.

@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Organization news feed
 ms.openlocfilehash: 2ef8e11cd2ede1fedd284aed3d554bcd658d413e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145128604'
 ---
 组织的消息馈送显示其他人在该组织拥有的仓库上的活动。 您可以使用组织的消息馈送来查看何时有人打开、关闭或合并议题或拉取请求，创建或删除分支，创建标记或发行版，评论议题，拉取请求，或者提交或推送提交到 {% data variables.product.product_name %}。
