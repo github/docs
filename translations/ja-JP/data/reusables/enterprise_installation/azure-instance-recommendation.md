@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d8e7abc58e82244acc379f494ed50f40679117ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145123726"
 ---
 {% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 `s` サフィックスが付いた Azure VM の種類では、Premium Storage がサポートされます。 詳細については、「[Azure で利用できるディスクの種類](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)」 および Azure ドキュメントの「[Azure Premium Storage: 高パフォーマンス用に設計する](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)」を参照してください。

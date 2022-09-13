@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: 2FA & SAML single sign-on
 ms.openlocfilehash: 1dc8eff35906a5f2c59f097d3bf53482547bd1f5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127540'
 ---
 双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。 有关 2FA 的详细信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: df4d6c72a79e12ac7b70e190faaaa2b9e42e355a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145110486"
 ---
 組織のメンバー、チーム、外部のコラボレーターに、リポジトリ ロールの組織が所有するリポジトリへのさまざまなレベルのアクセス権を付与できます。 詳細については、「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。

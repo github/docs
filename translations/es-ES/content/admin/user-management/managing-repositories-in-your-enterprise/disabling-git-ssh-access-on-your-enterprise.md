@@ -26,10 +26,10 @@ topics:
   - SSH
 shortTitle: Disable SSH for Git
 ms.openlocfilehash: f7035afb11746e4596410724082d3d5e5bf288a1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145116282'
 ---
 ## Inhabilitar el acceso SSH de Git para un repositorio específico

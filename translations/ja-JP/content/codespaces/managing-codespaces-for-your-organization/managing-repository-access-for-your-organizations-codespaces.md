@@ -16,16 +16,16 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
   - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
-ms.openlocfilehash: e7e363268d1c7ff95937457e5bf3973e2abd4f8f
-ms.sourcegitcommit: 034fc1834824c2b07adf5127de52429296fdbb52
+ms.openlocfilehash: 19c1f8496fd60d08a1c2fb2ed1bc852ea12079aa
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2022
-ms.locfileid: '147431457'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147676681'
 ---
 {% warning %}
 
-**非推奨の注意**: 以下で説明するアクセスとセキュリティの設定は現在非推奨であり、ここには参考用に記載されています。 他のリポジトリへの拡張アクセスを有効にするには、要求されたアクセス許可を開発コンテナーの定義に追加します。 詳しくは、「[codespace 内の他のリポジトリへのアクセスの管理](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)」をご覧ください。
+**非推奨の注意**: 以下で説明するアクセスとセキュリティの設定は現在非推奨であり、ここには参考用に記載されています。 他のリポジトリへの拡張アクセスを有効にするには、要求されたアクセス許可を `devcontainer.json` 構成ファイルに追加します。 詳しくは、「[codespace 内の他のリポジトリへのアクセスの管理](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)」をご覧ください。
 
 {% endwarning %}
 
@@ -39,6 +39,6 @@ Organization 内のどのユーザーが {% data variables.product.prodname_gith
 1. [Selected repositories] を選択した場合、ドロップダウンメニューを選択してから、あなたの Organization が所有するその他のリポジトリにアクセスを許可する、リポジトリのコードスペースをクリックします。 その他のリポジトリにコードスペースによるアクセスを許可したい、すべてのリポジトリについて同じ手順を繰り返します。
     ![[選択したリポジトリ] ドロップダウン メニュー](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - [codespace のリポジトリ アクセスを管理する](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)

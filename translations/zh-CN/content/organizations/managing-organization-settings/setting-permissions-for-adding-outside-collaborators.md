@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Set collaborator policy
 ms.openlocfilehash: eadf4f805775a99f763ec4df211fe6ea9735dabc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099703'
 ---
 默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。 你可以选择将添加外部协作者的能力限制为仅添加组织所有者。

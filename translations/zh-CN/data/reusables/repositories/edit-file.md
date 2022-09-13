@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 83794dff865278e3138079ec1ee6d9862ee18a8e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147052270"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877237"
 ---
 1. 在文件视图的右上角，单击 {% octicon "pencil" aria-label="The edit icon" %} 以打开文件编辑器。
 

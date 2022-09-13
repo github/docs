@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 8ce5074496913c768c4ff56afaa968df9be4f39b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145129748"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877221"
 ---
 1. 如果你为 {% data variables.product.prodname_enterprise %} 配置了双重身份验证，请执行以下操作之一：
     - 如果通过 SMS 设置 2FA，则从 SMS 消息检索 2FA 代码 。

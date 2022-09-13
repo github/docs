@@ -17,10 +17,10 @@ topics:
   - Pull requests
 shortTitle: Change the state
 ms.openlocfilehash: 5ef2845e57518c4b66f13a804919f7bdea327040
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130098'
 ---
 ## 将拉取请求草稿标记为可供审查

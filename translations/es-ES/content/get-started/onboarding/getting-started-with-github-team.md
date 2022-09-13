@@ -4,10 +4,10 @@ intro: 'Con {% data variables.product.prodname_team %}, los grupos de personas p
 versions:
   fpt: '*'
 ms.openlocfilehash: 46b5376b72ce30f7c526f693f2adb9253853cf1d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146139164'
 ---
 Esta guía te mostrará cómo configurar, ajustar y administrar tu cuenta de {% data variables.product.prodname_team %} como propietario de una organización.

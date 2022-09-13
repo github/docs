@@ -23,10 +23,10 @@ children:
   - /working-with-the-nuget-registry
   - /migrating-to-the-container-registry-from-the-docker-registry
 ms.openlocfilehash: 69cfbe84b6c443a29066a4234ae29f557c305d38
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145128255'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %} {% ifversion fpt or ghec %} ![Diagrama que mostra o suporte a pacotes para Docker, Registro de Contêiner, RubyGems, npm, Apache Maven, NuGet e Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png) {% else %} ![Diagrama que mostra o suporte a pacotes para Docker, RubyGems, npm, Apache Maven, Gradle e NuGet](/assets/images/help/package-registry/packages-diagram-without-container-registry.png) {% endif %}

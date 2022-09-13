@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 307a695e8a973c7b37a29ebbeb4606a8ed43d38d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145117813"
 ---
 {% data variables.product.prodname_actions %}に対するメールあるいはWeb通知を有効化すると、あなたが起動したワークフローの実行が完了すると通知されます。 この通知には、ワークフローの実行のステータス（成功、失敗、ニュートラル、キャンセルされた実行が含まれます）が含まれます。 ワークフローの実行が失敗したときにだけ通知を受けるようにすることもできます。 通知を有効または無効にする方法の詳細については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。

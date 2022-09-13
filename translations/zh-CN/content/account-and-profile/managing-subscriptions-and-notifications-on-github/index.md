@@ -19,10 +19,10 @@ children:
   - /managing-subscriptions-for-activity-on-github
 shortTitle: Subscriptions & notifications
 ms.openlocfilehash: 33c5c21db5feb48ca234e2ba45173f480fb53f8f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098151'
 ---
 

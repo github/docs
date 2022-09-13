@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: beb94442275da611c58bf0697acdf1caf02bfa0e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145138723"
 ---
 {% data variables.product.prodname_dependabot %} によって pull request が発生する場合、その pull request は、"_セキュリティ_" 更新プログラムか "_バージョン_" アップデートを対象としたものである可能性があります。

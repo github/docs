@@ -15,10 +15,10 @@ topics:
   - GitHub Apps
 shortTitle: Identify & authorize users
 ms.openlocfilehash: 19977ba3df74e002f1fa9f0af55cd4d6c43e6e3e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717655'
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}

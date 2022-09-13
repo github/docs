@@ -7,10 +7,10 @@ type: how_to
 topics:
   - Enterprise
 ms.openlocfilehash: dced49e1e6795407e2e41f12275a310c3a98aaf1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332002'
 ---
 {% data reusables.enterprise.repository-caching-release-phase %}

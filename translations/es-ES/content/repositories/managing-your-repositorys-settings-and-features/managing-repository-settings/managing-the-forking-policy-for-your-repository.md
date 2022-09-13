@@ -16,10 +16,10 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ms.openlocfilehash: 18355227ad40567de3824f3cc286763cd081e153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145136698'
 ---
 Un propietario de la organización debe permitir bifurcaciones de repositorios privados{% ifversion ghae or ghes or ghec %} e internos{% endif %} en el nivel de organización para poder permitir o denegar bifurcaciones para un repositorio específico. Para más información, vea "[Administración de la directiva de bifurcación para la organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".

@@ -125,10 +125,10 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ms.openlocfilehash: dfd88a0c13da67bf929a5f5334e73319c04ad394
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147643843'
 ---
 

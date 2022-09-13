@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 85c4e104344284797c4fc047569b99657a08d342
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: "147694225"
 ---
 1. 公開キーと秘密キーの両方がある GPG キーを長い形式で一覧表示するには、`gpg --list-secret-keys --keyid-format=long` コマンドを使用します。 コミットやタグに署名するには秘密鍵が必要です。

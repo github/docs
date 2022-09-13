@@ -10,16 +10,16 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 0c6f2aad203bfc11bcf5a9fbeaf3e7a187c4f180
-ms.sourcegitcommit: 969a4bd906dd5a3366d404cf2fe125f671062397
+ms.openlocfilehash: 5513956ea915701656e476681dbdbd6a2064b629
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2022
-ms.locfileid: '147145077'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147783035'
 ---
 {% data variables.product.prodname_github_codespaces %} es un entorno de desarrollo instantáneo basado en la nube que usa un contenedor para proporcionar lenguajes comunes, herramientas y utilidades para el desarrollo. {% data variables.product.prodname_codespaces %} también es configurable, lo cual te permite crear un ambiente de desarrollo personalizado para tu proyecto. Al configurar un ambiente de desarrollo personalizado para tu proyecto, puedes tener una configuración de codespace repetible para todos los usuarios de dicho proyecto.
 
-## <a name="creating-your-codespace"></a>Crea tu codespace
+## Crea tu codespace
 
 Hay varios puntos de entrada para crear un codespace.
 
@@ -34,11 +34,11 @@ Una vez que hayas seleccionado la opción para crear un codespace y, opcionalmen
 
 ![Botón de abrir con codespaces](/assets/images/help/codespaces/new-codespace-button.png)
 
-### <a name="step-1-vm-and-storage-are-assigned-to-your-codespace"></a>Paso 1: Se asigna una MV y un almacenamiento a tu codespace
+### Paso 1: Se asigna una MV y un almacenamiento a tu codespace
 
 Cuando se crea un codespace, se realiza un [clon superficial](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) del repositorio en una máquina virtual Linux dedicada y privada. El tener una MV dedicada garantiza que tengas un conjunto completo de recursos de cómputo disponibles para ti desde esa máquina. Si es necesario, esto también te permitirá tener acceso de raíz total a tu contenedor.
 
-### <a name="step-2-container-is-created"></a>Paso 2: Se crea el contenedor
+### Paso 2: Se crea el contenedor
 
 {% data variables.product.prodname_codespaces %} utiliza un contenedor como el ambiente de desarrollo. Este contenedor se crea en función de las configuraciones que puede definir en un archivo `devcontainer.json` o Dockerfile en el repositorio. Si no [configura un contenedor](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project), {% data variables.product.prodname_codespaces %} usa una [imagen predeterminada](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration), que tiene muchos lenguajes y entornos de ejecución disponibles. Para obtener información sobre lo que contiene la imagen predeterminada, vea el repositorio [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux).
 
@@ -50,11 +50,11 @@ Como el repositorio se clona en la máquina virtual host antes de crear el conte
 
 {% endnote %}
 
-### <a name="step-3-connecting-to-the-codespace"></a>Paso 3: Conectarse al codespace
+### Paso 3: Conectarse al codespace
 
 Cuando tu contenedor se crea y se ejecuta cualquier otra inicialización, estarás conectado a tu codespace. Puedes conectarte a él mediante la web o [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), o ambos, si es necesario.
 
-### <a name="step-4-post-creation-setup"></a>Paso 4: Ajustes post-creación
+### Paso 4: Ajustes post-creación
 
 Una vez que se conecte al codespace, la configuración automatizada podría continuar la compilación en función de la configuración especificada en el archivo `devcontainer.json`. Es posible que vea que se ejecutan `postCreateCommand` y `postAttachCommand`.
 
@@ -65,9 +65,9 @@ Si tienes un repositorio público de dotfiles para {% data variables.product.pro
 Finalmente, todo el historial del repositorio se copiará con un clon integral.
 
 Durante la configuración post-creación, aún podrás utilizar la terminal integrada y editar tus archivos, pero ten cuidado de evitar cualquier condiciones de carrera entre tu trabajo y los comandos que se están ejecutando.
-## <a name="-data-variablesproductprodname_codespaces--lifecycle"></a>Ciclo de vida de los {% data variables.product.prodname_codespaces %}
+## Ciclo de vida de los {% data variables.product.prodname_codespaces %}
 
-### <a name="saving-files-in-your-codespace"></a>Guardar archivos en tu codespace
+### Guardar archivos en tu codespace
 
 Conforme desarrollas en tu codespace, este guardará cualquier cambio en tus archivos cada algunos cuantos segundos. Tu codespace seguirá ejecutándose durante 30 minutos después de la última actividad. Después de este tiempo, este dejará de ejecutarse, pero puedes reiniciarlo ya sea desde la pestaña existente del buscador o desde la lista de codespaces existentes. Los cambios de archivo del editor y de la salida de la terminal se cuentan como actividad y, por lo tanto, tu codespace no se detendrá si la salida de la terminal sigue.
 
@@ -76,14 +76,14 @@ Conforme desarrollas en tu codespace, este guardará cualquier cambio en tus arc
 **Nota**: Los cambios en un codespace de {% data variables.product.prodname_vscode_shortname %} no se guardan de forma automática, a menos que hayas habilitado [Guardar automáticamente](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
 {% endnote %}
 
-### <a name="closing-or-stopping-your-codespace"></a>Cerrar o detener tu codespace
+### Cerrar o detener tu codespace
 
-Para detener el codespace, puede [usar la {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) [`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)]. Si sales de tu codespace sin ejecutar el comando para detenerlo (por ejemplo, cerrar la pestaña del buscador) o si dejas el codespace ejecutándose sin interacción, este y sus procesos en ejecución seguirán hasta que ocurra una ventana de inactividad, después de la cual se detendrá el codespace.  Predeterminadamente, la ventana de inactividad es de 30 minutos. 
+Par detener tu codespace, puedes [usar el {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)). Si sales de tu codespace sin ejecutar el comando para detenerlo (por ejemplo, cerrar la pestaña del buscador) o si dejas el codespace ejecutándose sin interacción, este y sus procesos en ejecución seguirán hasta que ocurra una ventana de inactividad, después de la cual se detendrá el codespace.  Predeterminadamente, la ventana de inactividad es de 30 minutos. 
 
 Cuando cierras o detienes tu codespace, todos los cambios sin confirmar se preservan hasta que te conectes al codespace nuevamente.
 
 
-## <a name="running-your-application"></a>Ejecutar tu aplicación
+## Ejecutar tu aplicación
 
 La redirección de puertos te otorga acceso a los puertos CRP dentro de tu codespace. Por ejemplo, si estás ejecutando una aplicación web por el puerto 4000 dentro de tu codespace, puedes reenviar ese puerto automáticamente para hacer la aplicación accesible desde tu buscador.
 
@@ -97,7 +97,7 @@ Si bien los puertos pueden reenviarse automáticamente, no son accesibles públi
 
 El ejecutar tu aplicación cuando llegas por primera vez a tu codespace puede convertirse en un bucle de desarrollador interno rápido. Mientras editas, tus cambios se guardan automáticamente y se ponen disponibles en tu puerto reenviado. Para ver los cambios, regresa a la pestaña de la aplicación en ejecución en tu buscador y actualízala.
 
-## <a name="committing-and-pushing-your-changes"></a>Confirmar y subir tus cambios
+## Confirmar y subir tus cambios
 
 Git se encuentra disponible predeterminadamente en tu codespace, entonces puedes confiar en tu flujo de trabajo existente de Git. Puedes trabajar con Git en el codespace mediante el terminal o con la interfaz de usuario de control de código fuente de [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol). Para más información, vea "[Uso del control de código fuente en el codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
 
@@ -111,15 +111,15 @@ Puedes crear un codespace desde cualquier rama, confirmación o solicitud de cam
 
 {% endnote %}
 
-## <a name="personalizing-your-codespace-with-extensions"></a>Personalizar tu codespace con extensiones
+## Personalizar tu codespace con extensiones
 
 El uso de {% data variables.product.prodname_vscode_shortname %} en tu codespace te proporciona acceso a {% data variables.product.prodname_vscode_marketplace %} para que puedas agregar cualquier extensión que necesites. Para obtener información sobre cómo se ejecutan las extensiones en {% data variables.product.prodname_codespaces %}, consulta [Compatibilidad con el desarrollo remoto y Codespaces de GitHub](https://code.visualstudio.com/api/advanced-topics/remote-extensions) en la documentación de {% data variables.product.prodname_vscode_shortname %}. 
 
 Si ya usas {% data variables.product.prodname_vscode_shortname %}, puedes usar [Sincronizar configuración](https://code.visualstudio.com/docs/editor/settings-sync) para sincronizar automáticamente extensiones, configuraciones, temas y métodos abreviados de teclado entre la instancia local y los {% data variables.product.prodname_codespaces %} que crees.
 
-## <a name="further-reading"></a>Información adicional
+## Información adicional
 
-- [Habilitación de {% data variables.product.prodname_codespaces %} para la organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Administración de la facturación de {% data variables.product.prodname_codespaces %} en la organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
-- [Configuración del proyecto para Codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Ciclo de vida de Codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Habilitación de {% data variables.product.prodname_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Administración de la facturación de {% data variables.product.prodname_codespaces %} en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Configuración del proyecto para Codespaces](/codespaces/setting-up-your-project-for-codespaces)"
+- "[Ciclo de vida de Codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

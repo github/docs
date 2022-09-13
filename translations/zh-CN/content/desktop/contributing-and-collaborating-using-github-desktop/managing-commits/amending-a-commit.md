@@ -4,10 +4,10 @@ intro: '您可以使用 {% data variables.product.prodname_desktop %} 修改上�
 versions:
   fpt: '*'
 ms.openlocfilehash: 8d92d5f755df662c4948196cf9f84b3227ec0067
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099268'
 ---
 ## 关于修改提交

@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 5c2fcd462e9c07fb9c359525ece7896e10dd9649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145131382'
 ---
 [Status API][status API] は、コミットをテスト サービスと結びつけて、行うすべてのプッシュがテストされ、{% data variables.product.product_name %} の pull request で表すことができるようにする役割を果たします。

@@ -15,11 +15,11 @@ topics:
   - Pages
 shortTitle: Create custom 404 page
 ms.openlocfilehash: 1b10946277d90773b847b929d85a3b6cf8212a4e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128221'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880562'
 ---
 {% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %} {% data reusables.files.add-file %}
 3. No campo Nome do arquivo, insira `404.html` ou `404.md`.

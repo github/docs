@@ -22,10 +22,10 @@ topics:
   - Security
 shortTitle: Policies for security settings
 ms.openlocfilehash: f04f345b37701353f539a970a8f891574b4ec447
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147707287'
 ---
 ## Acerca de las políticas para los ajustes de seguridad en tu empresa

@@ -1,6 +1,6 @@
 ---
-title: Webhook events and payloads
-intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
+title: Webhook 事件和有效负载
+intro: 对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks
@@ -15,48 +15,52 @@ versions:
 topics:
   - Webhooks
 shortTitle: Webhook events & payloads
+ms.openlocfilehash: 38dfa09525a7c3cc914bc2cf130126ed9969e190
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147541980'
 ---
-
 {% data reusables.webhooks.webhooks_intro %}
 
-You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
+您可以创建订阅此页所列事件的 web 挂钩。 每个 web 挂钩事件都包括 web 挂钩属性的说明和示例有效负载。 有关详细信息，请参阅“[创建 Webhook](/webhooks/creating/)”。
 
-## Webhook payload object common properties
+## Web 挂钩有效负载对象共有属性
 
-Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
+每个 web 挂钩事件有效负载还包含特定于事件的属性。 您可以在各个事件类型部分中找到这些独特属性。
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
-{% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
+`action` | `string` | 大多数 Webhook 有效负载都包括 `action` 属性，其中包含触发事件的特定活动。
+{% data reusables.webhooks.sender_desc %} 此属性包含在每个 web 挂钩有效负载中。
+{% data reusables.webhooks.repo_desc %} 如果事件源自存储库中的活动，则 Webhook 有效负载包含 `repository` 属性。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} 有关详细信息，请参阅“[构建 {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)”
 
-The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/reference/activity#events). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
+Webhook 事件的独特属性与你在使用[ API](/rest/reference/activity#events) 时在 `payload` 属性中发现的属性相同。 [`push` 事件](#push) 是一个例外。 `push` 事件 Webhook 有效负载的独特属性和事件 API 中的 `payload` 属性不同。 Web 挂钩有效负载包含更详细的信息。
 
 {% tip %}
 
-**Note:** Payloads are capped at 25 MB. If your event generates a larger payload, a webhook will not be fired. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+注意：有效负载上限为 25 MB。 如果事件生成了更大的有效负载，web 挂钩将不会触发。 例如，如果同时推送多个分支或标记，这种情况可能会发生在 `create` 事件中。 我们建议监控有效负载的大小以确保成功递送。
 
 {% endtip %}
 
-### Delivery headers
+### 递送标头
 
-HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
+递送到 web 挂钩已配置 URL 端点的 HTTP POST 有效负载将包含几个特殊标头：
 
-Header | Description
+标头 | 说明
 -------|-------------|
-`X-GitHub-Event`| Name of the event that triggered the delivery.
-`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
-`X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
-`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Event`| 触发递送的事件名称。
+`X-GitHub-Delivery`| 用于标识交付的 [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier)。{% ifversion ghes or ghae %}
+`X-GitHub-Enterprise-Version` | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的版本。
+`X-GitHub-Enterprise-Host` | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的主机名。{% endif %}{% ifversion not ghae %}
+`X-Hub-Signature`| 如果 Webhook 配置了 [`secret`](/rest/reference/repos#create-hook-config-params)，则会发送此标头。 这是请求正文的 HMAC 十六进制摘要，是使用 SHA-1 哈希函数和作为 HMAC `key` 的 `secret` 生成的。{% ifversion fpt or ghes or ghec %} 提供了 `X-Hub-Signature`，以便与现有集成兼容，建议你改用更安全的 `X-Hub-Signature-256`。{% endif %}{% endif %}
+`X-Hub-Signature-256`| 如果 Webhook 配置了 [`secret`](/rest/reference/repos#create-hook-config-params)，则会发送此标头。 这是请求正文的 HMAC 十六进制摘要，是使用 SHA-256 哈希函数和作为 HMAC `key` 的 `secret` 生成的。
 
-Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
+此外，请求的 `User-Agent` 将含有前缀 `GitHub-Hookshot/`。
 
-### Example delivery
+### 递送示例
 
 ```shell
 > POST /payload HTTP/2
@@ -100,56 +104,50 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
-Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
+与分支保护规则相关的活动。 有关详细信息，请参阅“[关于分支保护规则](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)”。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 对存储库管理至少拥有 `read-only` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
-`rule` | `object` | The branch protection rule. Includes a `name` and all the [branch protection settings](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.
-`changes` | `object` | If the action was `edited`, the changes to the rule.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以是 `created`、`edited` 或 `deleted`。
+`rule` | `object` | 分支保护规则。 包括 `name` 和应用于与名称匹配的分支的所有[分支保护设置](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings)。 二进制设置是布尔值。 多级配置是 `off`、`non_admins` 或 `everyone` 之一。 执行者和构建列表是字符串数组。
+`changes` | `object` | 对规则的更改（如果操作为 `edited`）。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }} {% endif %}
 
 {% ifversion ghes > 3.3 %}
 ## cache_sync
 
-A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+Git 引用已成功同步到缓存副本。 有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`cache_location` |`string` | The location of the cache server that has been updated.
-`ref` | `string` | The ref that has been updated.
-`before` | `string` | The OID of the ref on the cache replica before it was updated.
-`after` | `string` | The OID of the ref on the cache replica after the update.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+`cache_location` |`string` | 已更新的缓存服务器的位置。
+`ref` | `string` | 已更新的引用。
+`before` | `string` | 缓存副本在更新之前引用的 OID。
+`after` | `string` | 更新后缓存副本上引用的 OID。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }} {% endif %}
 
 ## check_run
 
@@ -157,21 +155,17 @@ Key | Type | Description
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-### Availability
+### 可用性
 
-- Repository webhooks only receive payloads for the `created` and `completed` event types in a repository
-- Organization webhooks only receive payloads for the `created` and `completed` event types in repositories
-- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `rerequested` and `requested_action` event types. The `rerequested` and `requested_action` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
+- 存储库 Webhook 仅接收存储库中 `created` 和 `completed` 事件类型的有效负载
+- 组织 Webhook 仅接收存储库中 `created` 和 `completed` 事件类型的有效负载
+- 具有 `checks:read` 权限的 {% data variables.product.prodname_github_apps %} 接收安装应用的存储库中发生的 `created` 和 `completed` 事件的有效负载。 应用必须具有 `checks:write` 权限才能接收 `rerequested` 和 `requested_action` 事件类型。 `rerequested` 和 `requested_action` 事件类型有效负载仅发送到正在请求的 {% data variables.product.prodname_github_app %}。 具有 `checks:write` 的 {% data variables.product.prodname_github_apps %} 会自动订阅此 Webhook 事件。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.check_run_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.check_run_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.check_run.created }}
 
@@ -181,21 +175,17 @@ Key | Type | Description
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-### Availability
+### 可用性
 
-- Repository webhooks only receive payloads for the `completed` event types in a repository
-- Organization webhooks only receive payloads for the `completed` event types in repositories
-- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `requested` and `rerequested` event types. The `requested` and `rerequested` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
+- 存储库 Webhook 仅接收存储库中 `completed` 事件类型的有效负载
+- 组织 Webhook 仅接收存储库中 `completed` 事件类型的有效负载
+- 具有 `checks:read` 权限的 {% data variables.product.prodname_github_apps %} 接收安装应用的存储库中发生的 `created` 和 `completed` 事件的有效负载。 应用必须具有 `checks:write` 权限才能接收 `requested` 和 `rerequested` 事件类型。 `requested` 和 `rerequested` 事件类型有效负载仅发送到正在请求的 {% data variables.product.prodname_github_app %}。 具有 `checks:write` 的 {% data variables.product.prodname_github_apps %} 会自动订阅此 Webhook 事件。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.check_suite_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.check_suite_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
@@ -203,21 +193,17 @@ Key | Type | Description
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `security_events :read` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `security_events :read` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.code_scanning_alert_event_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+{% data reusables.webhooks.code_scanning_alert_event_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} `sender` | `object` | 如果 `action` 为 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 对于所有其他操作，`sender` 对象为 {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}空{% endif %}。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.code_scanning_alert.reopened }}
 
@@ -225,21 +211,17 @@ Key | Type | Description
 
 {% data reusables.webhooks.commit_comment_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.commit_comment_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.commit_comment_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
@@ -248,13 +230,13 @@ Key | Type | Description
 
 {% data reusables.webhooks.content_reference_short_desc %}
 
-Webhook events are triggered based on the specificity of the domain you register. For example, if you register a subdomain (`https://subdomain.example.com`) then only URLs for the subdomain trigger this event. If you register a domain (`https://example.com`) then URLs for domain and all subdomains trigger this event. See "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" to create a new content attachment.
+Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如果你注册了一个子域 (`https://subdomain.example.com`)，则只有该子域的 URL 才会触发此事件。 如果你注册了一个域 (`https://example.com`)，则该域及所有子域的 URL 都会触发此事件。 请参阅“[创建内容附件](/rest/reference/apps#create-a-content-attachment)”以创建新的内容附件。
 
-### Availability
+### 可用性
 
-- {% data variables.product.prodname_github_apps %} with the `content_references:write` permission
+- 具有 `content_references:write` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
@@ -265,26 +247,21 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you create more than three tags at once.
+注意：如果一次创建三个以上的标记，将不会收到此事件的 Webhook。
 
 {% endnote %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.create_properties %}
-{% data reusables.webhooks.pusher_type_desc %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.create_properties %} {% data reusables.webhooks.pusher_type_desc %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.create }}
 
@@ -294,26 +271,21 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you delete more than three tags at once.
+注意：如果一次删除三个以上的标记，将不会收到此事件的 Webhook。
 
 {% endnote %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.delete_properties %}
-{% data reusables.webhooks.pusher_type_desc %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.delete_properties %} {% data reusables.webhooks.pusher_type_desc %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.delete }}
 
@@ -321,44 +293,38 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% data reusables.webhooks.deploy_key_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.deploy_key_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.deploy_key_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.deploy_key.created }}
 
-## deployment
+## 部署
 
 {% data reusables.webhooks.deployment_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `deployments` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `deployments` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`.
-`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments).
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以为 `created`。
+`deployment` |`object` | [部署](/rest/reference/deployments#list-deployments)。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.deployment }}
 
@@ -366,54 +332,48 @@ Key | Type | Description
 
 {% data reusables.webhooks.deployment_status_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `deployments` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `deployments` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`.
-`deployment_status` |`object` | The [deployment status](/rest/reference/deployments#list-deployment-statuses).
-`deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
-`deployment_status["target_url"]` |`string` | The optional link added to the status.
-`deployment_status["description"]`|`string` | The optional human-readable description added to the status.
-`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以为 `created`。
+`deployment_status` |`object` | [部署状态](/rest/reference/deployments#list-deployment-statuses)。
+`deployment_status["state"]` |`string` | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。
+`deployment_status["target_url"]` |`string` | 添加到状态的可选链接。
+`deployment_status["description"]`|`string` | 添加到状态的可选人类可读说明。
+`deployment` |`object` | 与此状态关联的[部署](/rest/reference/deployments#list-deployments)。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
 {% ifversion fpt or ghec %}
-## discussion
+## 讨论
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
-### Availability
+与讨论有关的活动。 有关详细信息，请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `discussions` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`.
-{% data reusables.webhooks.discussion_desc %}
-{% data reusables.webhooks.repo_desc_graphql %}
-{% data reusables.webhooks.org_desc_graphql %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered`、`unanswered`、`labeled` 或 `unlabeled`。
+{% data reusables.webhooks.discussion_desc %} {% data reusables.webhooks.repo_desc_graphql %} {% data reusables.webhooks.org_desc_graphql %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.discussion.created }}
 
@@ -421,92 +381,84 @@ Key | Type | Description
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+与讨论中的评论相关的活动。 有关详细信息，请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `discussions` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
-`comment` | `object` | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
-{% data reusables.webhooks.discussion_desc %}
-{% data reusables.webhooks.repo_desc_graphql %}
-{% data reusables.webhooks.org_desc_graphql %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以是 `created`、`edited` 或 `deleted`。
+`comment` | `object` | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) 资源。
+{% data reusables.webhooks.discussion_desc %} {% data reusables.webhooks.repo_desc_graphql %} {% data reusables.webhooks.org_desc_graphql %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }} {% endif %}
 
 {% ifversion ghes or ghae %}
 
-## enterprise
+## 企业
 
 {% data reusables.webhooks.enterprise_short_desc %}
 
-### Availability
+### 可用性
 
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
+- GitHub Enterprise web 挂钩。 有关详细信息，请参阅“[全局 Webhook](/rest/reference/enterprise-admin#global-webhooks/)”。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `anonymous_access_enabled` or `anonymous_access_disabled`.
+`action` |`string` | 已执行的操作。 可以是 `anonymous_access_enabled` 或 `anonymous_access_disabled`。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.enterprise.anonymous_access_enabled }}
 
 {% endif %}
 
-## fork
+## 分支
 
 {% data reusables.webhooks.fork_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.fork_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.fork_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.fork }}
 
 ## github_app_authorization
 
-When someone revokes their authorization of a {% data variables.product.prodname_github_app %}, this event occurs. A {% data variables.product.prodname_github_app %} receives this webhook by default and cannot unsubscribe from this event.
+当有人撤销对 {% data variables.product.prodname_github_app %} 的授权时，将发生此事件。 {% data variables.product.prodname_github_app %} 默认情况下会接收此 web 挂钩，并且无法取消订阅此事件。
 
-{% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+{% data reusables.webhooks.authorization_event %} 有关用户到服务器请求（需要 {% data variables.product.prodname_github_app %} 授权）的详细信息，请参阅“[识别和授权 {% data variables.product.prodname_github_apps %} 用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
-### Availability
+### 可用性
 
 - {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `revoked`.
+`action` |`string` | 已执行的操作。 可以为 `revoked`。
 {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.github_app_authorization.revoked }}
 
@@ -514,39 +466,33 @@ Key | Type | Description
 
 {% data reusables.webhooks.gollum_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.gollum_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.gollum_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
-## installation
+## 安装
 
 {% data reusables.webhooks.installation_short_desc %}
 
-### Availability
+### 可用性
 
 - {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.installation_properties %}
-{% data reusables.webhooks.app_always_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.installation_properties %} {% data reusables.webhooks.app_always_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.installation.deleted }}
 
@@ -554,17 +500,15 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
 
-### Availability
+### 可用性
 
 - {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.installation_repositories_properties %}
-{% data reusables.webhooks.app_always_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.installation_repositories_properties %} {% data reusables.webhooks.app_always_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.installation_repositories.added }}
 
@@ -572,22 +516,17 @@ Key | Type | Description
 
 {% data reusables.webhooks.issue_comment_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `issues` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `issues` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.issue_comment_webhook_properties %}
-{% data reusables.webhooks.issue_comment_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.issue_comment_webhook_properties %} {% data reusables.webhooks.issue_comment_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.issue_comment.created }}
 
@@ -595,22 +534,17 @@ Key | Type | Description
 
 {% data reusables.webhooks.issues_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `issues` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `issues` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.issue_webhook_properties %}
-{% data reusables.webhooks.issue_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.issue_webhook_properties %} {% data reusables.webhooks.issue_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example when someone edits an issue
+### 有人编辑议题时的 web 挂钩示例
 
 {{ webhookPayloadsForCurrentVersion.issues.edited }}
 
@@ -618,48 +552,45 @@ Key | Type | Description
 
 {% data reusables.webhooks.label_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | The action that was performed. Can be `created`, `edited`, or `deleted`.
-`label`|`object` | The label that was added.
-`changes`|`object`| The changes to the label if the action was `edited`.
-`changes[name][from]`|`string` | The previous version of the name if the action was `edited`.
-`changes[color][from]`|`string` | The previous version of the color if the action was `edited`.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action`|`string` | 执行的操作内容. 可以是 `created`、`edited` 或 `deleted`。
+`label`|`object` | 添加的标签。
+`changes`|`object`| 对标签的更改（如果操作为 `edited`）。
+`changes[name][from]`|`string` | 先前版本的名称（如果操作为 `edited`）。
+`changes[color][from]`|`string` | 先前版本的颜色（如果操作为 `edited`）。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.label.deleted }}
 
 {% ifversion fpt or ghec %}
 ## marketplace_purchase
 
-Activity related to a GitHub Marketplace purchase. {% data reusables.webhooks.action_type_desc %} For more information, see the "[GitHub Marketplace](/marketplace/)."
+与 GitHub Marketplace 购买相关的活动。 {% data reusables.webhooks.action_type_desc %} 有关详细信息，请参阅“[GitHub 市场](/marketplace/)”。
 
-### Availability
+### 可用性
 
 - {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` | `string` | The action performed for a [GitHub Marketplace](https://github.com/marketplace) plan. Can be one of:<ul><li>`purchased` - Someone purchased a GitHub Marketplace plan. The change should take effect on the account immediately.</li><li>`pending_change` - You will receive the `pending_change` event when someone has downgraded or cancelled a GitHub Marketplace plan to indicate a change will occur on the account. The new plan or cancellation takes effect at the end of the billing cycle.  The `cancelled` or `changed` event type will be sent when the billing cycle has ended and the cancellation or new plan should take effect.</li><li>`pending_change_cancelled` - Someone has cancelled a pending change. Pending changes include plan cancellations and downgrades that will take effect at the end of a billing cycle. </li><li>`changed` - Someone has upgraded or downgraded a GitHub Marketplace plan and the change should take effect on the account immediately.</li><li>`cancelled` - Someone cancelled a GitHub Marketplace plan and the last billing cycle has ended. The change should take effect on the account immediately.</li></ul>
+`action` | `string` | 为 [GitHub 市场](https://github.com/marketplace)计划执行的操作。 可以是以下选项之一：<ul><li>`purchased` - 有人购买了 GitHub 市场计划。 更改应立即对帐户生效。</li><li>`pending_change` - 当有人降级或取消了 GitHub 市场计划以指示帐户上将发生更改时，你将收到 `pending_change` 事件。 新的计划或取消将在结算周期结束时生效。  当计费周期结束并且取消或新计划应生效时，将发送 `cancelled` 或 `changed` 事件类型。</li><li>`pending_change_cancelled` - 有人取消了挂起的更改。 待处理更改包括将在结算周期结束时生效的计划取消和降级。 </li><li>`changed` - 有人升级或降级了 GitHub 市场计划，并且该更改应立即对帐户生效。</li><li>`cancelled` - 有人取消了 GitHub 市场计划并且最后一个计费周期已结束。 更改应立即对帐户生效。</li></ul>
 
-For a detailed description of this payload and the payload for each type of `action`, see [{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
+有关此有效负载和每种类型 `action` 的有效负载的详细说明，请参阅 [{% data variables.product.prodname_marketplace %} Webhook 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)。
 
-### Webhook payload example when someone purchases the plan
+### 有人购买计划时的 web 挂钩示例
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
@@ -669,42 +600,34 @@ For a detailed description of this payload and the payload for each type of `act
 
 {% data reusables.webhooks.member_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `members` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.member_webhook_properties %}
-{% data reusables.webhooks.member_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.member_webhook_properties %} {% data reusables.webhooks.member_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.member.added }}
 
-## membership
+## Membership — 成员资格
 
 {% data reusables.webhooks.membership_short_desc %}
 
-### Availability
+### 可用性
 
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- 组织 web 挂钩
+- 具有 `members` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.membership_properties %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.membership_properties %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
@@ -714,30 +637,27 @@ For a detailed description of this payload and the payload for each type of `act
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
+与合并队列中的合并组相关的活动。 活动类型在有效负载对象的操作属性中指定。
 
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `merge_queues` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | The action that was performed. Currently, can only be `checks_requested`.
-`merge_group`|`object` | The merge group.
-`merge_group[head_sha]`|`string` | The SHA of the merge group.
-`merge_group[head_ref]`|`string` | The full ref of the merge group.
-`merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action`|`string` | 执行的操作内容. 目前只能是 `checks_requested`。
+`merge_group`|`object` | 合并组。
+`merge_group[head_sha]`|`string` | 合并组的 SHA。
+`merge_group[head_ref]`|`string` | 合并组的完整引用。
+`merge_group[base_ref]`|`string` | 合并组将合并到的分支的完整引用。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
 
@@ -745,47 +665,41 @@ Key | Type | Description
 
 ## meta
 
-The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
+配置此事件的 web 挂钩已被删除。 此事件将仅监听对安装此事件的特定挂钩的更改。 因此，必须为要接收元事件的每个挂钩选择它。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action performed. Can be `deleted`.
-`hook_id`  |`integer` | The id of the modified webhook.
-`hook` |`object` | The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 已执行的操作。 可以为 `deleted`。
+`hook_id`  |`integer` | 修改后的 web 挂钩的 ID。
+`hook` |`object` | 修改后的 web 挂钩。 它将包含基于 web 挂钩类型的不同键：repository、organization、business、app 或 GitHub Marketplace。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.meta.deleted }}
 
-## milestone
+## 里程碑
 
 {% data reusables.webhooks.milestone_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.milestone_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.milestone_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.milestone.created }}
 
@@ -793,25 +707,23 @@ Key | Type | Description
 
 {% data reusables.webhooks.organization_short_desc %}
 
-### Availability
+### 可用性
 
 {% ifversion ghes or ghae %}
-- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
-- Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- GitHub Enterprise Webhook 仅接收 `created` 和 `deleted` 事件。 有关详细信息，请参阅“[全局 Webhook](/rest/reference/enterprise-admin#global-webhooks/)”。{% endif %}
+- 组织 Webhook 仅接收 `deleted`、`added`、`removed`、`renamed` 和 `invited` 事件。
+- 具有 `members` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action that was performed. Can be one of:{% ifversion ghes or ghae %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`.
-`invitation` |`object` | The invitation for the user or email if the action is `member_invited`.
-`membership`  |`object` | The membership between the user and the organization.  Not present when the action is `member_invited`.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 执行的操作内容. 可以是以下选项之一：{% ifversion ghes or ghae %} `created`、{% endif %} `deleted`、`renamed`、`member_added`、`member_removed` 或 `member_invited`。
+`invitation` |`object` | 用户或电子邮件的邀请（如果操作为 `member_invited`）。
+`membership`  |`object` | 用户和组织之间的成员资格。  不存在（如果操作为 `member_invited`）。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.organization.member_added }}
 
@@ -821,44 +733,39 @@ Key | Type | Description
 
 {% data reusables.webhooks.org_block_short_desc %}
 
-### Availability
+### 可用性
 
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `organization_administration` permission
+- 组织 web 挂钩
+- 具有 `organization_administration` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|------------
-`action` | `string` | The action performed. Can be `blocked` or `unblocked`.
-`blocked_user` | `object` | Information about the user that was blocked or unblocked.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` | `string` | 已执行的操作。 可以是 `blocked` 或 `unblocked`。
+`blocked_user` | `object` | 有关被阻止或取消阻止的用户的信息。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.org_block.blocked }}
 
 {% endif %}
 
-## package
+## 包
 
-Activity related to {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[Managing packages with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" to learn more about {% data variables.product.prodname_registry %}.
+与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %} 有关详细信息，请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.package_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.package_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
 
@@ -866,24 +773,21 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.page_build_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pages` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pages` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|------------
-`id` | `integer` | The unique identifier of the page build.
-`build` | `object` | The [List GitHub Pages builds](/rest/reference/pages#list-github-pages-builds) itself.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`id` | `integer` | 页面构建的唯一标识符。
+`build` | `object` | [List GitHub Pages 构建](/rest/reference/pages#list-github-pages-builds)自身。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.page_build }}
 
@@ -891,25 +795,23 @@ Key | Type | Description
 
 {% data reusables.webhooks.ping_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} receive a ping event with an `app_id` used to register the app
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- {% data variables.product.prodname_github_apps %} 接收带有用于注册应用的 `app_id` 的 ping 事件。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|------------
-`zen` | `string` | Random string of GitHub zen.
-`hook_id` | `integer` | The ID of the webhook that triggered the ping.
-`hook` | `object` | The [webhook configuration](/rest/reference/webhooks#get-a-repository-webhook).
-`hook[app_id]` | `integer` | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+`zen` | `string` | GitHub zen 的随机字符串。
+`hook_id` | `integer` | 触发 ping 的 web 挂钩的 ID。
+`hook` | `object` | [Webhook 配置](/rest/reference/webhooks#get-a-repository-webhook)。
+`hook[app_id]` | `integer` | 注册新的 {% data variables.product.prodname_github_app %} 后，{% data variables.product.product_name %} 会将 ping 事件发送到你在注册过程中指定的 Webhook URL。 该事件包含对应用进行[身份验证](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)所需的 `app_id`。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
@@ -917,29 +819,23 @@ Key | Type | Description
 
 {% data reusables.webhooks.project_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
 
-{% ifversion projects-v2 %}
-{% note %}
+{% ifversion projects-v2 %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.project_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
@@ -949,29 +845,23 @@ Key | Type | Description
 
 {% data reusables.webhooks.project_card_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
 
-{% ifversion projects-v2 %}
-{% note %}
+{% ifversion projects-v2 %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.project_card_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.project_card_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.project_card.created }}
 
@@ -979,29 +869,23 @@ Key | Type | Description
 
 {% data reusables.webhooks.project_column_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
 
-{% ifversion projects-v2 %}
-{% note %}
+{% ifversion projects-v2 %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.project_column_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.project_column_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
@@ -1011,78 +895,67 @@ Key | Type | Description
 
 {% note %}
 
-**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
+注意：{% data variables.projects.projects_v2 %} 的 Webhook 事件目前是 beta 版本，可能会有变动。 如果要与 {% data variables.product.product_name %} 分享有关 {% data variables.projects.projects_v2 %} Webhook 的反馈，请参阅[项目 Webhook 反馈讨论](https://github.com/orgs/community/discussions/17405)。
 
 {% endnote %}
 
-Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[About {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+与 {% data variables.projects.project_v2 %} 中的项相关的活动。 {% data reusables.webhooks.action_type_desc %} 有关详细信息，请参阅“[关于 {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)”。
 
-### Availability
+### 可用性
 
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `organization_projects` permission
+- 组织 web 挂钩
+- 具有 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.
-`projects_v2_item`|`object` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-`changes`|`object` | The changes to the project item.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action`|`string` | 在项目项上执行的操作。 可以是 `archived`、`converted`、`created`、`edited`、`restored`、`deleted` 或 `reordered` 之一。
+`projects_v2_item`|`object` | 项目项本身。 若要了解有关项目项的详细信息，可以使用 `node_id`（项目项的节点 ID）和 `project_node_id`（项目的节点 ID）查询 GraphQL API 中的信息。 有关详细信息，请参阅“[使用 API 管理项目](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)”。
+`changes`|`object` | 对项目项所做的更改。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.projects_v2_item.created }}
 
 {% endif %}
 
-## public
+## 公共
 
 {% data reusables.webhooks.public_short_desc %}
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.public }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.public }} {% endif %}
 ## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.pull_request_webhook_properties %}
-{% data reusables.webhooks.pull_request_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.pull_request_webhook_properties %} {% data reusables.webhooks.pull_request_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-Deliveries for `review_requested` and `review_request_removed` events will have an additional field called `requested_reviewer`.
+`review_requested` 和 `review_request_removed` 事件的交付将有一个名为 `requested_reviewer` 的附加字段。
 
 {{ webhookPayloadsForCurrentVersion.pull_request.opened }}
 
@@ -1090,21 +963,17 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.pull_request_review_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.pull_request_review_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review.submitted }}
 
@@ -1112,22 +981,17 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.pull_request_review_comment_webhook_properties %}
-{% data reusables.webhooks.pull_request_review_comment_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.pull_request_review_comment_webhook_properties %} {% data reusables.webhooks.pull_request_review_comment_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
@@ -1135,21 +999,17 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.pull_request_thread_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.pull_request_thread_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
 
@@ -1159,82 +1019,74 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+注意：如果一次推送三个以上的标记，将不会收到此事件的 Webhook。
 
 {% endnote %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main` or `refs/tags/v3.14.1`.
-`before`|`string` | The SHA of the most recent commit on `ref` before the push.
-`after`|`string` | The SHA of the most recent commit on `ref` after the push.
-`created`|`boolean` | Whether this push created the `ref`.
-`deleted`|`boolean` | Whether this push deleted the `ref`.
-`forced`|`boolean` | Whether this push was a force push of the `ref`.
-`head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
-`compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.)
-`commits[][id]`|`string` | The SHA of the commit.
-`commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
-`commits[][message]`|`string` | The commit message.
-`commits[][author]`|`object` | The git author of the commit.
-`commits[][author][name]`|`string` | The git author's name.
-`commits[][author][email]`|`string` | The git author's email address.
-`commits[][url]`|`url` | URL that points to the commit API resource.
-`commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
-`commits[][added]`|`array` | An array of files added in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were added.
-`commits[][modified]`|`array` | An array of files modified by the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were modified.
-`commits[][removed]`|`array` | An array of files removed in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were removed.
-`pusher` | `object` | The user who pushed the commits.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`ref`|`string` | 推送的完整 [`git ref`](/rest/reference/git#refs)。 示例：`refs/heads/main` 或 `refs/tags/v3.14.1`。
+`before`|`string` | 推送之前在 `ref` 上最近提交的 SHA。
+`after`|`string` | 推送之后在 `ref` 上最近提交的 SHA。
+`created`|`boolean` | 此推送是否创建了 `ref`。
+`deleted`|`boolean` | 此推送是否删除了 `ref`。
+`forced`|`boolean` | 此推送是否是 `ref` 的强制推送。
+`head_commit`|`object` | 对于 `after` 是提交对象或指向提交对象的推送，为该提交的扩展表示。 对于 `after` 指示附注标签对象的推送，为附注标签指向的提交的扩展表示。
+`compare`|`string` | 显示此 `ref` 更新中从 `before` 提交到 `after` 提交的更改的 URL。 对于新创建的直接基于默认分支的 `ref`，这是默认分支的头部与 `after` 提交之间的比较。 否则，这将显示 `after` 提交之前的所有提交。
+`commits`|`array` | 描述所推送提交的提交对象数组。 （所推送提交是包含在 `before` 提交和 `after` 提交之间的 `compare` 中的所有提交。）
+`commits[][id]`|`string` | 提交的 SHA。
+`commits[][timestamp]`|`string` | 提交的 ISO 8601 时间戳。
+`commits[][message]`|`string` | 提交消息。
+`commits[][author]`|`object` | 提交的 Git 作者。
+`commits[][author][name]`|`string` | Git 作者的名称。
+`commits[][author][email]`|`string` | Git 作者的电子邮件地址。
+`commits[][url]`|`url` | 指向提交 API 资源的 URL。
+`commits[][distinct]`|`boolean` | 此提交是否与之前推送的任何提交不同。
+`commits[][added]`|`array` | 在提交中添加的文件数组。 对于 {% data variables.product.product_name %} 无法及时计算此列表的极大型提交，即使添加了文件，也可能为空。
+`commits[][modified]`|`array` | 由提交修改的文件数组。 对于 {% data variables.product.product_name %} 无法及时计算此列表的极大型提交，即使修改了文件，也可能为空。
+`commits[][removed]`|`array` | 在提交中删除的文件数组。 对于 {% data variables.product.product_name %} 无法及时计算此列表的极大型提交，即使删除了文件，也可能为空。
+`pusher` | `object` | 推送提交的用户。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.push }}
 
-## release
+## 发布
 
 {% data reusables.webhooks.release_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.release_webhook_properties %}
-{% data reusables.webhooks.release_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.release_webhook_properties %} {% data reusables.webhooks.release_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
 ## repository_dispatch
 
-This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
+当 {% data variables.product.prodname_github_app %} 将 `POST` 请求发送到“[创建存储库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”终结点时，会发生此事件。
 
-### Availability
+### 可用性
 
-- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} 必须具有 `contents` 权限才能接收此 Webhook。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
 
@@ -1242,44 +1094,38 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {% data reusables.webhooks.repository_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks receive all event types except `deleted`
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission receive all event types except `deleted`
+- 存储库 Webhook 接收除 `deleted` 之外的所有事件类型
+- 组织 web 挂钩
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_apps %} 接收除 `deleted` 之外的所有事件类型
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted.</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul>
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 执行的操作内容. 这可以是下列其中一项：<ul><li>`created` - 已创建存储库。</li><li>`deleted` - 已删除存储库。</li><li>`archived` - 存储库已存档。</li><li>`unarchived` - 存储库未存档。</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - 存储库[已启用匿名 Git 访问](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)，`anonymous_access_disabled` - 存储库[已禁用匿名 Git 访问](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - 已编辑存储库信息。</li><li>`renamed` - 已重命名存储库。</li><li>`transferred` - 存储库已转让。</li><li>`publicized` - 存储库已设为公共。</li><li> `privatized` - 存储库已设为专用。</li></ul>
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.repository.publicized }}
 
 {% ifversion fpt or ghec %}
 ## repository_import
 
-{% data reusables.webhooks.repository_import_short_desc %} To receive this event for a personal repository, you must create an empty repository prior to the import. This event can be triggered using either the [GitHub Importer](/articles/importing-a-repository-with-github-importer/) or the [Source imports API](/rest/reference/migrations#source-imports).
+{% data reusables.webhooks.repository_import_short_desc %} 要在个人仓库中接收此事件，必须在导入之前创建一个空仓库。 可以使用 [GitHub 导入工具](/articles/importing-a-repository-with-github-importer/)或[源导入 API](/rest/reference/migrations#source-imports) 触发此事件。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.repository_import_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.repository_import_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.repository_import }}
 
@@ -1287,19 +1133,16 @@ Key | Type | Description
 
 {% data reusables.webhooks.repository_vulnerability_alert_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.repository_vulnerability_alert_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.repository_vulnerability_alert_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.repository_vulnerability_alert.create }}
 
@@ -1311,67 +1154,58 @@ Key | Type | Description
 
 {% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `secret_scanning_alerts:read` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `secret_scanning_alerts:read` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.secret_scanning_alert_event_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `resolved` or `reopened`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+{% data reusables.webhooks.secret_scanning_alert_event_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} `sender` | `object` | 如果 `action` 为 `resolved` 或 `reopened`，则 `sender` 对象将是触发事件的用户。 对于所有其他操作，`sender` 对象为空。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }} {% endif %}
 
 {% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
 ## secret_scanning_alert_location
 
 {% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `secret_scanning_alerts:read` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `secret_scanning_alerts:read` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }} {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
+与已由 {% data variables.product.company_short %} 审查的安全通告相关的活动。 经过 {% data variables.product.company_short %} 审查的安全通告提供了有关 {% data variables.product.prodname_dotcom %}上软件中安全相关漏洞的信息。
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
+安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 
-### Availability
+### 可用性
 
-- {% data variables.product.prodname_github_apps %} with the `security_events` permission
+- 具有 `security_events` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action that was performed. The action can be one of `published`, `updated`, `performed`, or `withdrawn` for all new events.
-`security_advisory` |`object` | The details of the security advisory, including summary, description, and severity.
+`action` |`string` | 执行的操作内容. 对于所有新事件，操作可以是 `published`、`updated`、`performed` 或 `withdrawn` 之一。
+`security_advisory` |`object` | 安全通告的详细信息，包括摘要、说明和严重程度。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
 
@@ -1381,25 +1215,22 @@ Key | Type | Description
 
 ## security_and_analysis
 
-Activity related to enabling or disabling code security and analysis features for a repository or organization.
+与为存储库或组织启用或禁用代码安全性和分析功能相关的活动。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 对存储库管理至少拥有 `read-only` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`changes`|`object` | The changes that were made to the code security and analysis features.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`changes`|`object` | 对代码安全性和分析功能所做的更改。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.security_and_analysis }}
 
@@ -1410,45 +1241,40 @@ Key | Type | Description
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+您只能在 {% data variables.product.prodname_dotcom %} 上创建赞助 web 挂钩。 有关详细信息，请参阅“[为赞助帐户中的事件配置 Webhook](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)”。
 
-### Availability
+### 可用性
 
-- Sponsored accounts
+- 赞助帐户
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.sponsorship_webhook_properties %}
-{% data reusables.webhooks.sponsorship_properties %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.sponsorship_webhook_properties %} {% data reusables.webhooks.sponsorship_properties %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example when someone creates a sponsorship
+### 有人创建赞助时的 web 挂钩示例
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.created }}
 
-### Webhook payload example when someone downgrades a sponsorship
+### 有人降级赞助时的 web 挂钩示例
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.downgraded }}
 
 {% endif %}
 
-## star
+## 星号键
 
 {% data reusables.webhooks.star_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.star_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.star_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.star.created }}
 
@@ -1456,58 +1282,54 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {% data reusables.webhooks.status_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `statuses` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `statuses` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`id` | `integer` | The unique identifier of the status.
-`sha`|`string` | The Commit SHA.
-`state`|`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
-`description`|`string` | The optional human-readable description added to the status.
-`target_url`|`string` | The optional link added to the status.
-`branches`|`array` | An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`id` | `integer` | 状态的唯一标识符。
+`sha`|`string` | 提交 SHA。
+`state`|`string` | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。
+`description`|`string` | 添加到状态的可选人类可读说明。
+`target_url`|`string` | 添加到状态的可选链接。
+`branches`|`array` | 包含状态的 SHA 的分支对象数组。 每个分支都包含给定的 SHA，但 SHA 不一定是该分支的头部。 该数组最多包含 10 个分支。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.status }}
 
-## team
+## 团队
 
 {% data reusables.webhooks.team_short_desc %}
 
-### Availability
+### 可用性
 
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- 组织 web 挂钩
+- 具有 `members` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | The action that was performed. Can be one of `created`, `deleted`, `edited`, `added_to_repository`, or `removed_from_repository`.
-`team`  |`object` | The team itself.
-`changes`|`object` | The changes to the team if the action was `edited`.
-`changes[description][from]` |`string` | The previous version of the description if the action was `edited`.
-`changes[name][from]` |`string` | The previous version of the name if the action was `edited`.
-`changes[privacy][from]` |`string` | The previous version of the team's privacy if the action was `edited`.
-`changes[repository][permissions][from][admin]` | `boolean` | The previous version of the team member's `admin` permission on a repository, if the action was `edited`.
-`changes[repository][permissions][from][pull]` | `boolean` | The previous version of the team member's `pull` permission on a repository, if the action was `edited`.
-`changes[repository][permissions][from][push]` | `boolean` | The previous version of the team member's `push` permission on a repository, if the action was `edited`.
-`repository`|`object` | The repository that was added or removed from to the team's purview if the action was `added_to_repository`, `removed_from_repository`, or `edited`. For `edited` actions, `repository` also contains the team's new permission levels for the repository.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+`action` |`string` | 执行的操作内容. 可以是 `created`、`deleted`、`edited`、`added_to_repository` 或 `removed_from_repository` 之一。
+`team`  |`object` | 团队本身。
+`changes`|`object` | 对团队的更改（如果操作为 `edited`）。
+`changes[description][from]` |`string` | 先前版本的说明（如果操作为 `edited`）。
+`changes[name][from]` |`string` | 先前版本的名称（如果操作为 `edited`）。
+`changes[privacy][from]` |`string` | 先前版本的团队隐私（如果操作为 `edited`）。
+`changes[repository][permissions][from][admin]` | `boolean` | 团队成员对存储库的 `admin` 权限的先前版本（如果操作为 `edited`）。
+`changes[repository][permissions][from][pull]` | `boolean` | 团队成员对存储库的 `pull` 权限的先前版本（如果操作为 `edited`）。
+`changes[repository][permissions][from][push]` | `boolean` | 团队成员对存储库的 `push` 权限的先前版本（如果操作为 `edited`）。
+`repository`|`object` | 从团队权限范围内添加或删除的存储库（如果操作为 `added_to_repository`、`removed_from_repository` 或 `edited`）。 对于 `edited` 操作，`repository` 还包含团队对存储库的新权限级别。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.team.added_to_repository }}
 
@@ -1515,23 +1337,20 @@ Key | Type | Description
 
 {% data reusables.webhooks.team_add_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `members` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-Key | Type | Description
+密钥 | 类型 | 说明
 ----|------|-------------
-`team`|`object` | The [team](/rest/reference/teams) that was modified.  **Note:** Older events may not include this in the payload.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+`team`|`object` | 已修改的[团队](/rest/reference/teams)。  注意：较旧的事件可能不会在有效负载中包括此值。
+{% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
@@ -1539,65 +1358,56 @@ Key | Type | Description
 
 ## user
 
-When a user is `created` or `deleted`.
+当用户为 `created` 或 `deleted`。
 
-### Availability
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
+### 可用性
+- GitHub Enterprise web 挂钩。 有关详细信息，请参阅“[全局 Webhook](/rest/reference/enterprise-admin#global-webhooks/)”。
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.user.created }}
 
 {% endif %}
 
-## watch
+## 查看
 
 {% data reusables.webhooks.watch_short_desc %}
 
-The event’s actor is the [user](/rest/reference/users) who starred a repository, and the event’s repository is the [repository](/rest/reference/repos) that was starred.
+事件的行动者是为存储库加星标的[用户](/rest/reference/users)，而事件的存储库是已加星标的[存储库](/rest/reference/repos)。
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_apps %}
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.watch_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.watch_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
 {% ifversion fpt or ghes or ghec %}
 ## workflow_dispatch
 
-This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
+当有人触发在 GitHub 上运行的工作流或将 `POST` 请求发送到“[创建工作流调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”终结点时，会发生此事件。 有关详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
 
-### Availability
+### 可用性
 
-- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} 必须具有 `contents` 权限才能接收此 Webhook。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-| Key | Type | Description |
+| 密钥 | 类型 | 说明 |
 |-----|-----|-----|
-| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
-{% data reusables.webhooks.org_desc %}
-| `ref` | `string` | The branch ref from which the workflow was run. |
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.sender_desc %}
-| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
+| `inputs` | `object` | 工作流的输入。 每个键表示输入的名称，而该值表示该输入的值。 |
+{% data reusables.webhooks.org_desc %} | `ref` | `string` | 运行工作流的分支引用。 | {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.sender_desc %} | `workflow` | `string` | 包含工作流的工作流文件的相对路径。 |
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.workflow_dispatch }} {% endif %}
 
 {% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
@@ -1605,42 +1415,33 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {% data reusables.webhooks.workflow_job_short_desc %}
 
-### Availability
+### 可用性
 
-- Repository webhooks
-- Organization webhooks
-- Enterprise webhooks
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 企业 web 挂钩
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.workflow_job_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.workflow_job_properties %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.workflow_job }}
 
-{% endif %}
-{% ifversion fpt or ghes or ghec %}
+{% endif %} {% ifversion fpt or ghes or ghec %}
 ## workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
+当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。 有关详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#workflow_run)”。
 
-### Availability
+### 可用性
 
-- {% data variables.product.prodname_github_apps %} with the `actions` or `contents` permissions.
+- 具有 `actions` 或 `contents` 权限的 {% data variables.product.prodname_github_apps %}。
 
-### Webhook payload object
+### Web 挂钩有效负载对象
 
-{% data reusables.webhooks.workflow_run_properties %}
-{% data reusables.webhooks.workflow_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.sender_desc %}
+{% data reusables.webhooks.workflow_run_properties %} {% data reusables.webhooks.workflow_desc %} {% data reusables.webhooks.org_desc %} {% data reusables.webhooks.repo_desc %} {% data reusables.webhooks.sender_desc %}
 
-### Webhook payload example
+### Web 挂钩有效负载示例
 
-{{ webhookPayloadsForCurrentVersion.workflow_run }}
-{% endif %}
+{{ webhookPayloadsForCurrentVersion.workflow_run }} {% endif %}

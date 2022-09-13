@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d5771c9c0954960982d76d828cdb36d7a0a2312e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145098352"
 ---
 4. 在左侧边栏中，单击“可选功能”。

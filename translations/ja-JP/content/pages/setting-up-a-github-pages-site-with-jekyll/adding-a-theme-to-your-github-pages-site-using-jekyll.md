@@ -17,10 +17,10 @@ topics:
   - Pages
 shortTitle: Add theme to Pages site
 ms.openlocfilehash: 33969695e96aa0629b2811e2742ca3093e58139a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147644796'
 ---
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加できます。

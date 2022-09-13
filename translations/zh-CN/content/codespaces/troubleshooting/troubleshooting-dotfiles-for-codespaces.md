@@ -10,10 +10,10 @@ topics:
   - Codespaces
 shortTitle: Dotfiles
 ms.openlocfilehash: 64b4873a36cbdc88b5df3129c2e73e016159032e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147382234'
 ---
 如果代码空间无法从 dotfiles 中选取配置设置，则应执行以下调试步骤。

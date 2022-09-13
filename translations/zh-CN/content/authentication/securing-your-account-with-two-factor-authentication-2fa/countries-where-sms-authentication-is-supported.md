@@ -12,10 +12,10 @@ topics:
   - 2FA
 shortTitle: Countries supporting SMS
 ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084597'
 ---
 如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。

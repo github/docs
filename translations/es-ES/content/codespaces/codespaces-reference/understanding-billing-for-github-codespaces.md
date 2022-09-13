@@ -16,10 +16,10 @@ topics:
 product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Understanding billing
 ms.openlocfilehash: 2dfec9e452360db117bdee7954fbe4fad2ad1c56
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147111687'
 ---
 Este artículo te explica cómo funciona la facturación para tus codespaces y cómo el gerente de facturación de tu empresa puede ayudar.

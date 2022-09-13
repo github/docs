@@ -11,10 +11,10 @@ shortTitle: Deploy GitHub AE
 redirect_from:
   - /get-started/signing-up-for-github/setting-up-a-trial-of-github-ae
 ms.openlocfilehash: af6def26a15a1ccad2625677d9db57b2a1907850
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147614364'
 ---
 ## Sobre a implantação de {% data variables.product.product_name %}

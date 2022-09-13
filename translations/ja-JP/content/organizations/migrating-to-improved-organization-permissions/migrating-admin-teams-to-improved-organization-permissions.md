@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Migrate admin team
 ms.openlocfilehash: 32a3bd684d2ed81d1ba492b4e343af3e03390364
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145125589'
 ---
 デフォルトでは、Organization のすべてのメンバーがリポジトリを作成できます。 [リポジトリの作成アクセス許可](/articles/restricting-repository-creation-in-your-organization)を Organization の所有者に制限し、Organization が従来の Organization のアクセス許可構造で作成された場合でも、レガシ管理 Team のメンバーはリポジトリを作成できます。

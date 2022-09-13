@@ -1,5 +1,5 @@
 ---
-title: Rate limits for GitHub Apps
+title: GitHub 应用的速率限制
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -15,57 +15,62 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Rate limits
+ms.openlocfilehash: fd2c9a92c6603a6e64ec17b614f46baf2370c98b
+ms.sourcegitcommit: d243bbae4ce3c849695b5bc9221e705ee5a4a64f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/12/2022
+ms.locfileid: '147081126'
 ---
-
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
 {% ifversion ghec or fpt %}
 
-## About rate limits for apps
+## <a name="about-rate-limits-for-apps"></a>关于应用程序的速率限制
 
-Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} depend on the plan for the organization where you install the application. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)."
+{% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 的速率限制取决于安装应用程序的组织的计划。 有关详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”和“[{% data variables.product.company_short %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)”。
 
 {% endif %}
 
-## Server-to-server requests
+## <a name="server-to-server-requests"></a>服务器到服务器请求
 
 {% ifversion ghec or fpt %}
 
-### Default server-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
+### <a name="default-server-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>{% data variables.product.prodname_dotcom_the_website %} 的默认服务器到服务器速率限制
 
 {% endif %}
 
-{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. If an application is installed on an organization with more than 20 users, the application receives another 50 requests per hour for each user. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. The maximum rate limit for an installation is 12,500 requests per hour.
+发出服务器-服务器请求的 {% data variables.product.prodname_github_apps %} 使用安装的最低速率限制为每小时 5,000 个请求。 如果应用程序安装在具有 20 个以上用户的组织中，则该应用程序每小时为每个用户再接收 50 个请求。 具有 20 个以上仓库的安装每小时会为每个仓库再接收 50 个请求。 安装的最大速率限制为每小时 12,500 个请求。
 
 {% ifversion fpt or ghec %}
 
-### Server-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
+### <a name="server-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>{% data variables.product.prodname_ghe_cloud %} 的服务器到服务器速率限制
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
+安装在 {% data variables.product.product_location %} 上企业内的组织或存储库上的 {% data variables.product.prodname_github_apps %} 每小时有 15,000 个请求的限制。
 
 {% endif %}
 
-## User-to-server requests
+## <a name="user-to-server-requests"></a>用户到服务器请求
 
-{% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} can also act on behalf of a user, making user-to-server requests after the user authorizes the app. For more information, see "[Authorizing {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
+{% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 还可以代表用户执行操作，在用户授权应用后发出用户到服务器的请求。 有关详细信息，请参阅“[授权 {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)”和“[授权 {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
 
-User-to-server requests from {% data variables.product.prodname_oauth_apps %} are authenticated with an OAuth token. User-to-server requests from {% data variables.product.prodname_github_apps %} are authenticated with either an OAuth token or an expiring user access token. For more information, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)."
+来自 {% data variables.product.prodname_oauth_apps %} 的用户到服务器请求使用 OAuth 令牌进行身份验证。 来自 {% data variables.product.prodname_github_apps %} 的用户到服务器请求使用 OAuth 令牌或即将过期的用户访问令牌进行身份验证。 有关详细信息，请参阅“[为 {% data variables.product.prodname_github_apps %} 识别和授权用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)”和“[授权 {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)”。
 
 {% ifversion fpt or ghec %}
 
-### Default user-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
+### <a name="default-user-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>{% data variables.product.prodname_dotcom_the_website %} 的默认用户到服务器速率限制
 
 {% endif %}
 
 {% ifversion ghec %}
 
-The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.product.product_location %}, then the rate is higher than for installations outside an enterprise.
+{% data variables.product.prodname_github_apps %} 发出的用户到服务器请求的速率限制取决于应用程序的安装位置。 如果应用程序安装在 {% data variables.product.product_location %} 上由企业拥有的组织或存储库上，则速率高于企业外部的安装。
 
 {% endif %}
 
@@ -73,13 +78,13 @@ The rate limits for user-to-server requests made by {% data variables.product.pr
 
 {% ifversion fpt or ghec %}
 
-### User-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
+### <a name="user-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>{% data variables.product.prodname_ghe_cloud %} 的用户到服务器速率限制
 
 {% data reusables.apps.user-to-server-rate-limits-ghec %}
 
 {% endif %}
 
-## Further reading
+## <a name="further-reading"></a>延伸阅读
 
-- "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
-- "[Resource limitations](/graphql/overview/resource-limitations)" in the GraphQL API documentation
+- REST API 文档中的“[速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)”
+- GraphQL API 文档中的“[资源限制](/graphql/overview/resource-limitations)”

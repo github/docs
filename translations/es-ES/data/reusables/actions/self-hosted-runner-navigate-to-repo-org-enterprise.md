@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 4dec7e56b1ae0aef9251a60bcb100208c7251f4e
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 8e533fd0a00968e8a7d9e05db91c69e8c6a2a47b
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145091996"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147763776"
 ---
 {% ifversion fpt %}
 1. Navega a la página principal de la organización o repositorio en donde se registró tu grupo de ejecutores auto-hospedados.
 2. Haga clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Configuración).
 {% data reusables.organizations.settings-sidebar-actions-runners %} {% elsif ghec or ghes or ghae %}
-1. Navega a donde está registrado tu ejecutor auto-hospedado:
+1. Navega a donde está registrado tu ejecutor:
    * **En un repositorio u organización**: vaya a la página principal y haga clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Configuración).
    * **Si usa un ejecutor de nivel empresarial**:
 

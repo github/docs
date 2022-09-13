@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556400'
 ---
 O GitHub tem a sorte de ter muitos desenvolvedores se integrando à nossa plataforma. Achamos isso incrível e queremos tornar essa experiência ainda melhor.  O Programa de Desenvolvedor do GitHub (o “Programa”) nos ajuda a nos conectar com você, compartilhar informações com você e apoiar seus esforços criativos melhor do que nunca. O relacionamento especial entre o GitHub e a comunidade de desenvolvedores que o Programa cria requer um conjunto especial de termos. Bem-vindo ao Contrato de Desenvolvedor Registrado (“Contrato”).

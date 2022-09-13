@@ -27,10 +27,10 @@ children:
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
 shortTitle: Propose changes
 ms.openlocfilehash: 6c13c67b6dd3dcd798274f3cc9ef608a4a8117a5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145139602'
 ---
 

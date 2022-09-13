@@ -14,10 +14,10 @@ topics:
   - Community
 shortTitle: Change access permissions
 ms.openlocfilehash: 51a9ec690f0bdad1be302592091565b65e5f9b9b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145092440'
 ---
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}

@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Assign issues & PRs
 ms.openlocfilehash: 0e1f4029ddcd180e892e43257ae3a75d0046ce1d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135463'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878452'
 ---
 ## Acerca de los asignatarios de las propuestas y solicitudes de cambios
 

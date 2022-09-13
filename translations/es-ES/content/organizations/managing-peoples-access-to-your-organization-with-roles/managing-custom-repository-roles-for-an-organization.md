@@ -11,10 +11,10 @@ shortTitle: Custom repository roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ms.openlocfilehash: e37e7822abc378cd91fb719dd472edaf35af4465
-ms.sourcegitcommit: fa70cd6dbc1a197534d1d4cca61605baad7899b5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147858688'
 ---
 ## Acerca de los roles de repositorio personalizados

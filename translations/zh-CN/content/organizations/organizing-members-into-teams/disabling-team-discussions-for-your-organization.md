@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Disable team discussions
 ms.openlocfilehash: 31d146512c1c8c254454d314ef60b717ed18b539
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145101312'
 ---
 {% data reusables.organizations.team-discussions-default %} 有关团队讨论的详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。

@@ -14,11 +14,11 @@ versions:
   ghec: '*'
 shortTitle: Splitting a subfolder
 ms.openlocfilehash: 21467b459f1e7af1dd28e5b7a20c962786aed2b5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145109487'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876072'
 ---
 如果您创建仓库的新克隆副本，则将文件夹拆分为单独的仓库时不会丢失任何 Git 历史记录或更改。
 

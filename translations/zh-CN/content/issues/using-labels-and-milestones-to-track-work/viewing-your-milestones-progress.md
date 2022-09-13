@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: View progress to milestone
 ms.openlocfilehash: 46c1b154bb5ae71e0ef4b75a8404f70ef467a867
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128612'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880716'
 ---
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 3. 在左上角单击“里程碑”。

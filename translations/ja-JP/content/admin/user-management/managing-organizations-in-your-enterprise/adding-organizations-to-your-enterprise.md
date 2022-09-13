@@ -1,6 +1,6 @@
 ---
-title: Adding organizations to your enterprise
-intro: You can create new organizations or invite existing organizations to manage within your enterprise.
+title: エンタープライズへの組織の追加
+intro: Enterprise 内で管理するために、新しい Organization を作成したり、既存の Organization を招待したりできます。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -15,58 +15,63 @@ topics:
   - Organizations
 shortTitle: Add organizations
 permissions: Enterprise owners can add organizations to an enterprise.
+ms.openlocfilehash: 09e4fa9c1b33f50e35f6088eb671b90df4a5eda3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573354'
 ---
+## Enterprise アカウントへの Organization の追加について
 
-## About addition of organizations to your enterprise account
+エンタープライズ アカウントは、組織を所有できます。 エンタープライズのメンバーは、組織内の関連プロジェクト間で共同作業を行うことができます。 詳細については、「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
-Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+Enterprise アカウントに新しい Organization を追加することができます。 {% data variables.product.prodname_emus %} を使用しない場合は、{% data variables.product.product_location %} の既存の Organization を Enterprise に追加できます。 {% data variables.product.prodname_emu_enterprise %} から別の Enterprise に既存の Organization を追加することはできません。
 
-You can add new organizations to your enterprise account. If you do not use {% data variables.product.prodname_emus %}, you can add existing organizations on {% data variables.product.product_location %} to your enterprise. You cannot add an existing organization from an {% data variables.product.prodname_emu_enterprise %} to a different enterprise.
+{% data reusables.enterprise.create-an-enterprise-account %} 詳細については、「[Enterprise アカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+既存の Organization を Enterprise に追加した後も、メンバーは Organization のリソースに同じ URL で引き続きアクセスでき、次の変更が適用されます。
 
-After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
+- Organization のメンバーは Enterprise のメンバーになり、{% data variables.product.company_short %} は Organization の使用状況に対して Enterprise アカウントに請求します。 Enterprise アカウントに、新しいメンバーに対応できる十分なライセンスがあることを確認する必要があります。 詳しくは、「[Enterprise の支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」をご覧ください。
+- Enterprise 所有者は、Organization 内で自分の役割を管理できます。 詳細については、「[Enterprise の Organization を管理する](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
+- Enterprise に適用されるすべてのポリシーは、Organization にも適用されます。 詳しくは、「[Enterprise ポリシーについて](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)」を参照してください。
+- Enterprise アカウントに対して SAML SSO が構成されている場合、Enterprise の SAML 構成が Organization にも適用されます。 Organization が SAML SSO を使用している場合は、Enterprise アカウントの構成が Organization の構成に置き換えられます。 SCIM は Enterprise アカウントでは使用できないため、SCIM は Organization で無効になります。 詳しくは、「[Enterprise 向けの SAML シングル サインオンを構成する](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)」および「[Organization から Enterprise アカウントへの SAML 構成の切り替え](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)」を参照してください。
+- SAML SSO が Organization に対して構成されている場合、Organization のリソースへのアクセスが承認されたメンバーの既存の個人用アクセス トークン (PAT) または SSH キーは、同じリソースへのアクセスが承認されます。 Enterprise が所有する追加の Organization にアクセスするには、メンバーが PAT またはキーを承認する必要があります。 詳細については、「[SAML シングル サインオンで利用するために個人アクセス トークンを承認する](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」および「[SAML シングル サインオンで利用するために SSH キーを承認する](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
+- Organization が {% data variables.product.prodname_github_connect %} を使って {% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_ghe_managed %} に接続されていた場合、Organization を Enterprise に追加しても、接続は更新されません。 {% data variables.product.prodname_github_connect %} 機能は Organization では機能しなくなります。 {% data variables.product.prodname_github_connect %} を引き続き使用するには、機能を無効にしてもう一度有効にする必要があります。 詳細については、次の記事を参照してください。
 
-- The organization's members will become members of the enterprise, and {% data variables.product.company_short %} will bill the enterprise account for the organization's usage. You must ensure that the enterprise account has enough licenses to accommodate any new members. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
-- Enterprise owners can manage their role within the organization. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
-- Any policies applied to the enterprise will apply to the organization. For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
-- If SAML SSO is configured for the enterprise account, the enterprise's SAML configuration will apply to the organization. If the organization used SAML SSO, the enterprise account's configuration will replace the organization's configuration. SCIM is not available for enterprise accounts, so SCIM will be disabled for the organization. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)" and "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
-- If SAML SSO was configured for the organization, members' existing personal access tokens (PATs) or SSH keys that were authorized to access the organization's resources will be authorized to access the same resources. To access additional organizations owned by the enterprise, members must authorize the PAT or key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
-- If the organization was connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. For more information, see the following articles.
+  - {% data variables.product.prodname_ghe_server %} ドキュメントの [[{% data variables.product.prodname_github_connect %} の管理]](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)
+  - {% data variables.product.prodname_ghe_managed %} ドキュメントの [[{% data variables.product.prodname_github_connect %} の管理]](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)
+- Organization が課金された {% data variables.product.prodname_marketplace %} アプリを使用した場合、Organization は引き続きアプリを使用できますが、ベンダーに直接支払う必要があります。 詳しくは、アプリのベンダーにお問い合わせください。
 
-  - "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-  - "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
-- If the organization used billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but must pay the vendor directly. For more information, contact the app's vendor.
+## Enterprise アカウント内で Organization を作成する
 
-## Creating an organization in your enterprise account
+Enterprise アカウント設定内で作成した新しい Organization は、Enterprise アカウントの {% data variables.product.prodname_ghe_cloud %} プランに含められます。
 
-New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
-
-Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-2. On the **Organizations** tab, above the list of organizations, click **New organization**.
-  ![New organization button](/assets/images/help/business-accounts/enterprise-account-add-org.png)
-3. Under "Organization name", type a name for your organization.
-  ![Field to type a new organization name](/assets/images/help/business-accounts/new-organization-name-field.png)
-4. Click **Create organization**.
-5. Under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
-  ![Organization owner search field and Invite button](/assets/images/help/business-accounts/invite-org-owner.png)
-6. Click **Finish**.
-
-## Inviting an organization to join your enterprise account
-
-Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise, you will not be able to issue an invitation until the previous enterprise gives up ownership of the organization. For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+Enterprise アカウントにより所有される Organization を作成した Enterprise のオーナーは、自動的に Organization のオーナーになります。 組織の所有者の詳細については、「[組織内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-2. On the **Organizations** tab, above the list of organizations, click **Invite organization**.
-![Invite organization](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
-3. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the drop-down list.
-![Search for organization](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
-4. Click **Invite organization**.
-5. The organization owners will receive an email inviting them to join the enterprise. At least one owner needs to accept the invitation before the process can continue. You can cancel or resend the invitation at any time before an owner approves it.
-![Cancel or resend](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
-6. Once an organization owner has approved the invitation, you can view its status in the list of pending invitations.
-![Pending invitation](/assets/images/help/business-accounts/enterprise-account-pending.png)
-7. Click **Approve** to complete the transfer, or **Cancel** to cancel it.
-![Approve invitation](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)
+2. **[組織]** タブの、組織の一覧の上にある **[新しい組織]** をクリックします。
+  ![[新しい組織] ボタン](/assets/images/help/business-accounts/enterprise-account-add-org.png)
+3. [Organization name] の下に Organization の名前を入力します。
+  ![新しい組織名を入力するフィールド](/assets/images/help/business-accounts/new-organization-name-field.png)
+4. **[Create organization]\(組織の作成\)** をクリックします。
+5. [所有者の招待] の下で、組織の所有者にするよう招待したい人のユーザー名を入力し、 **[招待]** をクリックします。
+  ![組織の所有者の検索フィールドと招待ボタン](/assets/images/help/business-accounts/invite-org-owner.png)
+6. **[完了]** をクリックします。
+
+## 組織を招待してエンタープライズ アカウントに参加させる
+
+エンタープライズ所有者は、既存の組織を招待してエンタープライズ アカウントに参加させることができます。 招待する組織が既に別のエンタープライズによって所有されている場合、前のエンタープライズが組織の所有権を放棄するまで、招待を発行することはできません。 詳細については、「[エンタープライズからの組織の削除](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)」を参照してください。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+2. **[組織]** タブの、組織の一覧の上にある **[組織の招待]** をクリックします。
+![組織を招待する](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
+3. [組織名] で、招待する組織の名前を入力し、ドロップダウン リストに表示されたら選択します。
+![組織を検索する](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
+4. **[組織の招待]** をクリックします。
+5. 組織の所有者は、エンタープライズに参加するよう招待する電子メールを受け取ります。 プロセスを続行するには、少なくとも 1 人の所有者が招待に同意する必要があります。 招待は、所有者が承認する前にいつでもキャンセルまたは再送信できます。
+![キャンセルまたは再送信](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
+6. 組織の所有者が招待を承認すると、保留中の招待の一覧でその状態を表示できます。
+![保留中の招待](/assets/images/help/business-accounts/enterprise-account-pending.png)
+7. **[承認]** をクリックして転送を完了するか、 **[キャンセル]** をクリックして取り消します。
+![招待を承認する](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)
