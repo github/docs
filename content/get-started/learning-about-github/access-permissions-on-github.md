@@ -23,11 +23,11 @@ shortTitle: Access permissions
 
 {% data reusables.organizations.about-roles %} 
 
-Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](47-2041-6547/get-started/learning-about-github/types-of-github-accounts)."
 
 ## Personal accounts
 
-A repository owned by a personal account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)."
+A repository owned by a personal account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a personal account repository](-31000053-6400-7201-31000053-071921891-000002965-021000021-52101023/articles/permission-levels-for-a-user-account-repository)."
 
 ## Organization accounts
 
