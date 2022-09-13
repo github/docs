@@ -41,10 +41,10 @@ children:
   - /configuring-web-commit-signing
 shortTitle: Configure your enterprise
 ms.openlocfilehash: 3cc7deccfdf71a0e339fca8055f0cd4b5027a32c
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147409240'
 ---
 

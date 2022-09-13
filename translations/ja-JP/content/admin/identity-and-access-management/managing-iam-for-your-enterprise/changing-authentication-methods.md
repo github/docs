@@ -17,11 +17,11 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145120365'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882692'
 ---
 {% data variables.product.product_location %} のユーザー アカウントは、認証方式を変更しても保存され、ユーザーはユーザー名が変更されない限り、同じアカウントにログインし続けることができます。
 

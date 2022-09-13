@@ -12,10 +12,10 @@ miniTocMaxHeadingLevel: 3
 topics:
   - API
 ms.openlocfilehash: 68c49caf457c8339bbe52ae750b901c2e9d74c26
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
+ms.lasthandoff: 09/05/2022
 ms.locfileid: '147718174'
 ---
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 371057b7fbe8e92b564e8729b11442bdbf2c1a56
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145090886"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882796"
 ---
 {% data variables.product.product_location %} の pull request で **[リベースしてマージ]** オプションを選択すると、トピック ブランチ (またはヘッド ブランチ) からのすべてのコミットが、マージ コミットなしに個別にベース ブランチに追加されます。 このように、リベースとマージの動作は、線形プロジェクト履歴を維持することで、[早送りマージ](https://git-scm.com/docs/git-merge#_fast_forward_merge) に似ています。 しかし、リベースは、ベース ブランチのコミット履歴を新しいコミットで書き直すことでこれを実現します。
 

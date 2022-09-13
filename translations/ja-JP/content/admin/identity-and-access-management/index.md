@@ -22,10 +22,10 @@ children:
   - /using-enterprise-managed-users-for-iam
   - /managing-recovery-codes-for-your-enterprise
 ms.openlocfilehash: 8c7a364ba6310617452626901c5859ef54cd2b47
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147066482'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882812'
 ---
 

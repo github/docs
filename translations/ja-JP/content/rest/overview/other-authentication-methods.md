@@ -12,10 +12,10 @@ topics:
   - API
 shortTitle: Other authentication methods
 ms.openlocfilehash: 9698e18a2d57eceb328ae32f94bdb9f72b7b6fa7
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
+ms.lasthandoff: 09/05/2022
 ms.locfileid: '147717845'
 ---
 {% ifversion fpt or ghes or ghec %} この API には認証のための方法が複数用意されていますが、運用アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト (完全な OAuth では過剰になる場合) に使うために提供されています。 認証に {% data variables.product.product_name %} を使うサードパーティのアプリケーションでは、{% data variables.product.product_name %} の認証情報を要求することも収集することもしてはなりません。
