@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c999fec9a5ab78a42f78c5d7312f54a62b81cbef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145094364"
 ---
 Por exemplo, o fluxo de trabalho a seguir executará seis trabalhos, um para cada combinação de `os` e `node`. Quando o trabalho para o valor `os` de `windows-latest` e valor `node` as execuções `16`, uma variável adicional chamada `npm` com o valor de `6` será incluída no trabalho.

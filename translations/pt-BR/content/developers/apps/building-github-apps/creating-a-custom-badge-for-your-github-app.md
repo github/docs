@@ -13,10 +13,10 @@ topics:
   - GitHub Apps
 shortTitle: Custom badges
 ms.openlocfilehash: df691669b42b0448f9979dec4bf25ca6c1ebf070
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145095115'
 ---
 Por padrão, um novo Aplicativo do GitHub terá um [identicon](https://github.com/blog/1586-identicons) gerado automaticamente.

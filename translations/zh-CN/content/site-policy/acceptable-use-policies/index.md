@@ -17,11 +17,11 @@ children:
   - github-sexually-obscene-content
   - github-threats-of-violence-and-gratuitously-violent-content
   - github-appeal-and-reinstatement
-ms.openlocfilehash: 18254464c4292d57d424df736883c783329f79b8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: 192083f3486b2d158f998537d6f3341e06c4eedc
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556427'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099162'
 ---
 

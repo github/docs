@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d7d401ed18395e4dd30f45df07e850338fa43da9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145100689"
 ---
 - 取消从 {% data variables.product.prodname_marketplace %} 购买的付费计划的客户应自动降级到该应用程序的免费计划（如果有）。 {% data reusables.marketplace.cancellation-clarification %} 强烈建议允许客户重新启用他们以前的计划。

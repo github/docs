@@ -18,10 +18,10 @@ versions:
   ghes: '>= 3.5'
 shortTitle: Container registry
 ms.openlocfilehash: fc99e2e21a647c7a1a2517de8aa68822faac496e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147705055'
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}

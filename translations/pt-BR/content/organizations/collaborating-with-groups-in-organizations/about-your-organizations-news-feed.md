@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Organization news feed
 ms.openlocfilehash: 2ef8e11cd2ede1fedd284aed3d554bcd658d413e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145126539'
 ---
 O feed de notícias de uma organização mostra a atividade de outras pessoas nos repositórios que pertencem a essa organização. Você pode usar o feed de notícias da sua organização para ver quando alguém abre, fecha ou faz merge de um problema ou uma pull request, cria ou exclui um branch, cria uma tag ou versão, comenta sobre um problema, uma pull request, ou faz commit, ou faz push de novos commits no {% data variables.product.product_name %}.

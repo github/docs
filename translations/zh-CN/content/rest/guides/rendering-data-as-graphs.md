@@ -12,11 +12,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: e613c2f707db1030b9e2e5c40de98f2628c0ca3b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129044'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875987'
 ---
 在本指南中，我们将使用 API 来获取有关我们拥有的存储库以及构成这些存储库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 若要与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，我们将使用出色的 Ruby 库 [Octokit][Octokit]。
 

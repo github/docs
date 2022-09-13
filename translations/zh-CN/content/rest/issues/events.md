@@ -12,11 +12,11 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: ac884bef9931058f126ac875db65e99b8831657f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065775'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876070'
 ---
 ## 关于问题事件 API
 

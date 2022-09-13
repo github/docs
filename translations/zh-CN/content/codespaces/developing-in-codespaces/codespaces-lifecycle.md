@@ -1,6 +1,6 @@
 ---
-title: 代码空间生命周期
-intro: '您可以在 {% data variables.product.prodname_codespaces %} 环境中进行开发，并在整个代码空间生命周期中维护数据。'
+title: Codespaces lifecycle
+intro: 'You can develop in a {% data variables.product.prodname_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,46 +9,41 @@ topics:
   - Codespaces
   - Developer
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 69d8065471f4544aa22816392b5398d0ebe3f503
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110696'
 ---
-## 关于代码空间的生命周期
 
-代码空间的生命周期从创建代码空间时开始，到删除代码空间时结束。 您可以断开连接并重新连接到活动代码空间，而不会影响其正在运行的进程。 您可以停止并重新启动代码空间，而不会丢失对项目所做的更改。
+## About the lifecycle of a codespace
 
-## 创建 codespace
+The lifecycle of a codespace begins when you create a codespace and ends when you delete it. You can disconnect and reconnect to an active codespace without affecting its running processes. You may stop and restart a codespace without losing changes that you have made to your project.
 
-当您要处理项目时，可以选择创建新代码空间或打开现有代码空间。 您可能希望每次在 {% data variables.product.prodname_codespaces %} 中开发时，都希望从项目的分支创建新的代码空间，或者为功能保留长时间运行的代码空间。
+## Creating a codespace
 
-如果选择在每次处理项目时都创建新的代码空间，则应定期推送更改，以便任何新提交都位于 {% data variables.product.prodname_dotcom %} 上。 一次最多可以有 10 个代码空间。 当您有了 10 个代码空间后，如要创建新代码空间，必须先删除一个代码空间。 有关详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace)”。
+When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-如果选择对项目使用长时间运行的代码空间，则每次开始在代码空间中工作时，都应从存储库的默认分支中提取代码空间，以便您的环境具有最新的提交。 此工作流程与在本地计算机上处理项目时非常相似。 
+{% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
+
+If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## 在代码空间中保存更改
+## Saving changes in a codespace
 
-当您通过 Web 连接到代码空间时，将自动为 Web 编辑器启用自动保存，并配置为在延迟后保存更改。 当您通过桌面上运行的 {% data variables.product.prodname_vscode %} 连接到代码空间时，必须启用自动保存。 有关详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的[保存/自动保存](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)。
+When you connect to a codespace through the web, auto-save is enabled automatically for the web editor and configured to save changes after a delay. When you connect to a codespace through {% data variables.product.prodname_vscode %} running on your desktop, you must enable auto-save. For more information, see [Save/Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) in the {% data variables.product.prodname_vscode %} documentation.
 
-如果要将更改保存在代码空间文件系统上的 git 存储库中，请提交这些更改并将其推送到远程分支。
+If you want to save your changes in the git repository on the codespace's file system, commit them and push them to a remote branch.
 
-如果您有未保存的更改，编辑器将在退出之前提示您保存这些更改。
+If you have unsaved changes, your editor will prompt you to save them before exiting.
 
-## 代码空间超时
+## Codespaces timeouts
 
-如果使代码空间在没有交互的情况下保持运行状态，或者退出代码空间而不显式停止它，则代码空间将在一段时间不活动后超时并停止运行。 默认情况下，代码空间将在处于非活动状态 30 分钟后超时，但您可以自定义所创建的新代码空间的超时期限的持续时间。 有关为 codespace 设置默认超时期限的详细信息，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置超时期限](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。 有关停止 codespace 的详细信息，请参阅“[停止 codespace](#stopping-a-codespace)”。
+If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity, but you can customize the duration of the timeout period for new codespaces that you create. For more information about setting the default timeout period for your codespaces, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)." For more information about stopping a codespace, see "[Stopping a codespace](#stopping-a-codespace)."
 
-当代码空间超时时，将保留上次保存更改时的数据。 有关详细信息，请参阅“[在 codespace 中保存更改](#saving-changes-in-a-codespace)”。
+When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see "[Saving changes in a codespace](#saving-changes-in-a-codespace)."
 
-## 重建代码空间
+## Rebuilding a codespace
 
-您可以重新构建代码空间以还原干净状态，就像创建新代码空间一样。 对于大多数使用，可以创建新的代码空间作为重新构建代码空间的替代方法。 你最有可能重新构建代码空间来实施对开发容器的更改。 重新构建代码空间时，将清除所有 Docker 容器、映像、卷和缓存，然后重新构建代码空间。
+You can rebuild your codespace to restore a clean state as if you had created a new codespace. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. You are most likely to rebuild a codespace to implement changes to your dev container. When you rebuild a codespace, any Docker containers, images, volumes, and caches are cleaned, then the codespace is rebuilt.
 
-如果需要在重新构建过程中保留任何此类数据，则可以在容器中的所需位置创建指向持久性目录的符号链接 (symlink)。 例如，在 `.devcontainer` 目录中，可以创建在重新生成过程中会保留的 `config` 目录。 然后，可将 `config` 目录及其内容作为 `postCreateCommand` 在 `devcontainer.json` 文件进行符号链接。
+If you need any of this data to persist over a rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
 
 ```json  
 {
@@ -57,33 +52,33 @@ ms.locfileid: '147110696'
 }
 ```
 
-在下面的示例 `postCreate.sh` 文件中，`config` 目录的内容以符号链接到主目录。
+In the example `postCreate.sh` file below, the contents of the `config` directory are symbolically linked to the home directory.
 
 ```bash
 #!/bin/bash
 ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 ```
 
-## 停止代码空间
+## Stopping a codespace
 
-您可以随时停止代码空间。 停止代码空间时，将停止所有正在运行的进程并清除终端历史记录。 下次启动代码空间时，代码空间中的任何已保存更改仍将可用。 如果未明确停止代码空间，它将继续运行，直到它因非活动而超时。 有关详细信息，请参阅“[codespaces 超时](#codespaces-timeouts)”。
+You can stop a codespace at any time. When you stop a codespace, any running processes are stopped and the terminal history is cleared. Any saved changes in your codespace will still be available when you next start it. If you do not explicitly stop a codespace, it will continue to run until it times out from inactivity. For more information, see "[Codespaces timeouts](#codespaces-timeouts)."
 
-只有运行的代码空间才会产生 CPU 费用；停止的代码空间仅产生存储成本。
+Only running codespaces incur CPU charges; a stopped codespace incurs only storage costs.
 
-您可能希望停止并重新启动代码空间以对其应用更改。 例如，如果更改用于代码空间的计算机类型，则需要停止并重新启动它才能使更改生效。 您还可以停止代码空间，并在遇到错误或意外情况时选择重新启动或删除它。 有关详细信息，请参阅“[暂停或停止 codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)”。
+You may want to stop and restart a codespace to apply changes to it. For example, if you change the machine type used for your codespace, you will need to stop and restart it for the change to take effect. You can also stop your codespace and choose to restart or delete it if you encounter an error or something unexpected. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
 
-## 删除代码空间
+## Deleting a codespace
 
-您可以为特定任务创建代码空间，然后在将更改推送到远程分支后安全地删除该代码空间。
+You can create a codespace for a particular task and then safely delete the codespace after you push your changes to a remote branch.
 
-如果您尝试删除包含未填充 git 提交的代码空间，编辑器将通知您有尚未推送到远程分支的更改。 您可以推送任何所需的更改，然后删除代码空间，或继续删除代码空间和任何未提交的更改。 还可以将代码导出到新分支，而无需创建新的代码空间。 有关详细信息，请参阅“[将更改导出到分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)”。
+If you try to delete a codespace with unpushed git commits, your editor will notify you that you have changes that have not been pushed to a remote branch. You can push any desired changes and then delete your codespace, or continue to delete your codespace and any uncommitted changes. You can also export your code to a new branch without creating a new codespace. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
 
-您将需要支付所有代码空间的存储费用。 删除代码空间后，将不再向您收费。
+You will be charged for the storage of all your codespaces. When you delete a codespace, you will no longer be charged.
 
-有关删除 codespace 的详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)”。
+For more information on deleting a codespace, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
-## 使用代码空间时丢失连接
+## Losing the connection while using Codespaces
 
-{% data variables.product.prodname_codespaces %} 是一个基于云的开发环境，需要连接互联网。 如果您在代码空间中工作时失去互联网连接，您将无法访问代码空间。 但是，任何未提交的更改将保存。 当您再次接入互联网时，可以按离开时完全相同的状态连接到代码空间。 如果您的互联网连接不稳定，则应经常提交并推送更改。
+{% data variables.product.prodname_codespaces %} is a cloud-based development environment and requires an internet connection. If you lose connection to the internet while working in a codespace, you will not be able to access your codespace. However, any uncommitted changes will be saved. When you have access to an internet connection again, you can connect to your codespace in the exact same state that it was left in. If you have an unstable internet connection, you should commit and push your changes often.
 
-如果知道自己会经常脱机工作，则可以使用[扩展名为“{% data variables.product.prodname_vscode %} Remote - Containers”](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)的 `devcontainer.json` 文件，以生成并附加到存储库的本地开发容器。 有关详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的[在容器内开发](https://code.visualstudio.com/docs/remote/containers)。
+If you know that you will often be working offline, you can use your `devcontainer.json` file with the ["{% data variables.product.prodname_vscode %} Remote - Containers" extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to build and attach to a local development container for your repository. For more information, see [Developing inside a container](https://code.visualstudio.com/docs/remote/containers) in the {% data variables.product.prodname_vscode %} documentation.

@@ -13,10 +13,10 @@ redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-github-ae
   - /admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae
 ms.openlocfilehash: c6d6767e95e6f5d27c311e46f5042c79717ab97e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145094974'
 ---
 ## Sobre o {% data variables.product.prodname_actions %} no {% data variables.product.prodname_ghe_managed %}

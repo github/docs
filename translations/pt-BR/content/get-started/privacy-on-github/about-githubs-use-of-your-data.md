@@ -13,10 +13,10 @@ topics:
   - Legal
 shortTitle: GitHub's use of your data
 ms.openlocfilehash: f49f90a981b92d2c7d5d34b0fac28ec05adbadd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126671'
 ---
 ## Sobre o uso dos seus dados de {% data variables.product.product_name %}

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 810a19c1bc5d885a5a6bff43155c8799e9b27f08
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145096914"
 ---
 1. Opcionalmente, se a sua organização pertencer a uma empresa ou a uma instituição, selecione **Esta conta pertence a uma empresa**.

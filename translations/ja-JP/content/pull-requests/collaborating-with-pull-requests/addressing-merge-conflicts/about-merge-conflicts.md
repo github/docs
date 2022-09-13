@@ -15,10 +15,10 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: 5902f74a9c51772dc3f1d8883b60723ffec3e1d1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145137844'
 ---
 Git がブランチ間の差異を自動的に解決してマージできる場合もあります。 通常、変更は異なる行にあったり、さらには異なるファイルにあったりするので、コンピュータにとってマージの理解がシンプルになります。 一方、Git が自力では差異を解決できず、あなたの介入が必要となることもあります。 しばしば、人々が同じファイルの同じ行に異なる変更をした場合や、ある人が編集したファイルを他の人が削除していた場合にマージコンフリクトが生じます。

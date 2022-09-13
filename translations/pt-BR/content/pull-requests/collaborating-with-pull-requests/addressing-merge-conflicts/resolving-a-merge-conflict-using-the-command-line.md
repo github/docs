@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127601'
 ---
 Os conflitos de merge ocorrem quando alterações concorrentes são feitas na mesma linha de um arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo. Para obter mais informações, confira "[Sobre os conflitos de mesclagem](/articles/about-merge-conflicts/)".

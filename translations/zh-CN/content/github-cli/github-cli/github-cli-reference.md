@@ -10,10 +10,10 @@ topics:
   - CLI
 type: reference
 ms.openlocfilehash: 1da9b2ffe79af2c432a4dfc79f944f8656663733
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066718'
 ---
 要查看所有顶级 {% data variables.product.prodname_cli %} 命令，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh)或不带参数调用 `gh`。

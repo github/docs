@@ -15,10 +15,10 @@ topics:
   - Developer
 shortTitle: Create a codespace
 ms.openlocfilehash: 16d6ebd7ca3bbf89e78d7fa025194250c37998b6
-ms.sourcegitcommit: 81faf43a57101e75d40b5f8f77b9b129699e5d41
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147865197'
 ---
 ## Acerca de la creación de codespaces

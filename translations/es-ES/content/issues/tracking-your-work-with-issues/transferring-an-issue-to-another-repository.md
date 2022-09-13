@@ -14,12 +14,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Transfer an issue
-ms.openlocfilehash: 4e4892468178e7440be7e0a730a948ce2465f1dc
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: ee17296217027d2de9805a905aaec187f53e5614
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145135390'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710423'
 ---
 Para transferir una propuesta abierta a otro repositorio, debes tener acceso de escritura en el repositorio en el cual se encuentra la propuesta y en el que la recibirá cuando la transfieras. Para más información, vea "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
@@ -29,11 +29,11 @@ Para transferir una propuesta abierta a otro repositorio, debes tener acceso de 
 
 {% endnote %}
 
-Cuando transfieres una propuesta, los comentarios, etiquetas y asignados se retienen. Los hitos de la propuesta no se retienen. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para más información, vea "[Acerca de los paneles de proyecto](/articles/about-project-boards)".
+Cuando transfieres una propuesta, se retendrán tanto los comentarios como las personas asignadas. Las etiquetas y los hitos también se conservan si están presentes en el repositorio de destino, con etiquetas coincidentes por nombre e hitos coincidentes por nombre y fecha de vencimiento. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para más información, vea "[Acerca de los paneles de proyecto](/articles/about-project-boards)".
 
 Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 
-## <a name="transferring-an-open-issue-to-another-repository"></a>Transferir una propuesta abierta a otro repositorio
+## Transferir una propuesta abierta a otro repositorio
 
 {% webui %}
 
@@ -60,7 +60,7 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## <a name="further-reading"></a>Información adicional
+## Información adicional
 
 - "[Acerca de las incidencias](/articles/about-issues)"
 - "[Revisión del registro de seguridad](/articles/reviewing-your-security-log)"

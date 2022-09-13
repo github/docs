@@ -1,6 +1,9 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
+title: REST API 入门
+intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
+redirect_from:
+  - /guides/getting-started
+  - /v3/guides/getting-started
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,754 +11,419 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Using the API
-miniTocMaxHeadingLevel: 3
+shortTitle: Get started - REST API
+ms.openlocfilehash: a466a3ccad214c8fe797dd73e4e96af3ab6eead8
+ms.sourcegitcommit: 8544f120269257d01adfe4a27b62f08fc8691727
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/02/2022
+ms.locfileid: '147445078'
 ---
+让我们逐步了解在处理一些日常用例时涉及的核心 API 概念。
 
-## About the {% data variables.product.prodname_dotcom %} REST API
+{% data reusables.rest-api.dotcom-only-guide-note %}
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+## <a name="overview"></a>概述
 
-When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
+大多数应用程序将使用所选语言的现有[包装器库][wrappers]，但你需要先熟悉基础 API HTTP 方法。
 
-The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
+没有比使用 [cURL][curl] 更容易的入手方式了。{% ifversion fpt or ghec %} 如果你使用其他客户端，请注意，你需要在请求中发送有效的[用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
 
-## Making a request
+### <a name="hello-world"></a>Hello World
 
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
-
-{% cli %}
-
-{% note %}
-
-**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-
-{% endnote %}
-
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
-
-To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
+让我们先测试设置。 打开命令提示符并输入以下命令：
 
 ```shell
-gh api /octocat --method GET
+$ curl https://api.github.com/zen
+
+> Keep it logically awesome.
 ```
 
-{% endcli %}
+响应将是我们设计理念中的随机选择。
 
-{% javascript %}
-
-{% note %}
-
-**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-
-{% endnote %}
-
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
-
-```javascript
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",
-{% endif %}});
-```
-
-Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
-
-```javascript
-await octokit.request("GET /octocat", {});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
-
-Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
+接下来，让我们 `GET`[Chris Wanstrath 的][defunkt github] [GitHub 配置文件][users api]：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/octocat"
+# GET /users/defunkt
+$ curl https://api.github.com/users/defunkt
+
+> {
+>   "login": "defunkt",
+>   "id": 2,
+>   "node_id": "MDQ6VXNlcjI=",
+>   "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>   "gravatar_id": "",
+>   "url": "https://api.github.com/users/defunkt",
+>   "html_url": "https://github.com/defunkt",
+>   ...
+> }
 ```
 
-{% note %}
-
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
-
-{% endnote %}
-
-{% endcurl %}
-
-Continue reading to learn how to authenticate, send parameters, and use the response.
-
-## Authenticating
-
-Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
-
-### About tokens
-
-You can authenticate your request by adding a token.
-
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a personal access token (PAT). The REST API operations used in this article require `repo` scope for personal access tokens. Other operations may require different scopes. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
-
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
-
-### Authentication example
-
-{% cli %}
-
-With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
+嗯，类似于 [JSON][json]。 让我们添加 `-i` 标志以包含标头：
 
 ```shell
-gh auth login
+$ curl -i https://api.github.com/users/defunkt
+
+> HTTP/2 200
+> server: GitHub.com
+> date: Thu, 08 Jul 2021 07:04:08 GMT
+> content-type: application/json; charset=utf-8
+> cache-control: public, max-age=60, s-maxage=60
+> vary: Accept, Accept-Encoding, Accept, X-Requested-With
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
+> last-modified: Fri, 01 Nov 2019 21:56:00 GMT
+> x-github-media-type: github.v3; format=json
+> access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+> access-control-allow-origin: *
+> strict-transport-security: max-age=31536000; includeSubdomains; preload
+> x-frame-options: deny
+> x-content-type-options: nosniff
+> x-xss-protection: 0
+> referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+> content-security-policy: default-src 'none'
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 53
+> x-ratelimit-reset: 1625731053
+> x-ratelimit-resource: core
+> x-ratelimit-used: 7
+> accept-ranges: bytes
+> content-length: 1305
+> x-github-request-id: 9F60:7019:ACC5CD5:B03C931:60E6A368
+>
+> {
+>  "login": "defunkt",
+>  "id": 2,
+>  "node_id": "MDQ6VXNlcjI=",
+>  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>  "gravatar_id": "",
+>  "url": "https://api.github.com/users/defunkt",
+>  "html_url": "https://github.com/defunkt",
+>
+>   ...
+> }
 ```
 
-You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+响应标头中有一些有趣的地方。 正如预期的那样，`Content-Type` 为 `application/json`。
 
-{% endcli %}
+任何以 `X-` 开头的标头都是自定义标头，不包含在 HTTP 规范中。例如，记下 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 这对标头指示在滚动时间段（通常为一小时）内[一个客户端可以发出多少个请求][rate-limiting]，以及该客户端已发送其中多少个请求。
 
-{% javascript %}
+## <a name="authentication"></a>身份验证
+
+未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行身份验证。 事实上，使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行任何交互都需要[身份验证][authentication]。
+
+### <a name="using-personal-access-tokens"></a>使用个人访问令牌
+
+使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
+
+使用 `-u` 标志设置你的用户名：
+
+```shell
+$ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
+
+```
+
+出现提示时，您可以输入 OAuth 令牌，但我们建议您为它设置一个变量：
+
+你可以使用 `-u "your_username:$token"` 并为 `token` 设置一个变量，以避免你的令牌留在 shell 历史记录中，这种情况应尽量避免。
+
+```shell
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+
+```
+
+进行身份验证时，你应该会看到你的速率限制达到每小时 5,000 个请求，如 `X-RateLimit-Limit` 标头中所示。 除了每小时提供更多调用次数之外，身份验证还使您能够使用 API 读取和写入私有信息。
+
+可以使用[个人访问令牌设置页][tokens settings]轻松[创建个人访问令牌][personal token]：
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
-
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+为了帮助保护您的信息安全，我们强烈建议为您的个人访问令牌设置一个到期日。
 
 {% endwarning %}
 
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
+{% ifversion fpt or ghes or ghec %} ![个人访问令牌](/assets/images/personal_token.png) {% endif %}
 
-```javascript
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
-  auth: 'YOUR-TOKEN',
-});
-```
+{% ifversion ghae %} ![个人令牌选择](/assets/images/help/personal_token_ghae.png) {% endif %}
 
-{% endjavascript %}
+使用到期的个人访问令牌的 API 请求将通过 `GitHub-Authentication-Token-Expiration` 标头返回该令牌的到期日期。 当令牌接近其过期日期时，您可以使用脚本中的标头来提供警告信息。
 
-{% curl %}
+### <a name="get-your-own-user-profile"></a>获取自己的用户个人资料
 
-{% warning %}
-
-**Warning**: Treat your access token like a password.
-
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
-
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
-
-{% endwarning %}
-
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+在正确验证身份后，你可以利用与 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户相关的权限。 例如，尝试获取[自己的用户配置文件][auth user api]：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/octocat" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+$ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
+
+> {
+>   ...
+>   "plan": {
+>     "space": 2516582,
+>    "collaborators": 10,
+>    "private_repos": 20,
+>    "name": "medium"
+>  }
+>   ...
+> }
 ```
 
-{% note %}
+此时，除了先前为 [@defunkt][defunkt github] 检索到的公共信息集之外，你还可以查看你的用户个人资料的非公共信息。 例如，你将在响应中看到 `plan` 对象，它提供有关帐户的 {% data variables.product.product_name %} 计划的详细信息。
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+### <a name="using-oauth-tokens-for-apps"></a>对应用程序使用 OAuth 令牌
 
-{% endnote %}
+需要代表其他用户使用 API 读取或写入专用信息的应用程序应使用 [OAuth][oauth]。
 
-{% endcurl %}
+OAuth 使用令牌。 令牌具有两大特点：
 
-### Authentication example for {% data variables.product.prodname_actions %}
+* 可撤销访问权限：用户可以随时撤销对第三方应用程序的授权
+* 有限访问权限：用户可以在对第三方应用授权前审查令牌将提供的具体访问权限
 
-{% cli %}
+应通过 [Web 流][webflow]创建令牌。 应用程序将用户发送到 {% data variables.product.product_name %} 进行登录。 {% data variables.product.product_name %} 随后显示一个对话框，指示应用的名称以及应用经用户授权后具有的权限级别。 经用户授权访问后，{% data variables.product.product_name %} 将用户重定向到应用程序：
 
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
 
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+**将 OAuth 令牌视为密码！** 不要与其他用户共享它们，也不要将其存储在不安全的地方。 这些示例中的令牌是虚构的，并且更改了名称以免波及无辜。
 
-```yaml
-jobs:
-  use_api:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          gh api /octocat
-```
+现在我们已经掌握了进行经身份验证的调用，接下来介绍[存储库 API][repos-api]。
 
-{% endcli %}
+## <a name="repositories"></a>存储库
 
-{% javascript %}
-
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-
-The following example workflow:
-
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
-
-Example workflow:
-
-```yaml
-on:
-  workflow_dispatch:
-jobs:
-  use_api_via_script:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - name: Check out repo content
-        uses: {% data reusables.actions.action-checkout %}
-
-      - name: Setup Node
-        uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '16.15.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install octokit
-
-      - name: Run script
-        env:
-          TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          node .github/actions-scripts/use-the-api.mjs
-```
-
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
-
-```javascript
-import { Octokit } from "octokit";
-
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
-  auth: process.env.TOKEN,
-});
-
-await octokit.request("GET /octocat", {});
-```
-
-Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
-
-```yaml
-jobs:
-  use_api_via_script:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - uses: {% data reusables.actions.action-github-script %}
-        with:
-          github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          script: |
-            await github.request('GET /octocat', {})
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-
-```yaml
-jobs:
-  use_api:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          curl --request GET \
-          --url "https://api.github.com/octocat" \
-          --header "Authorization: Bearer $GH_TOKEN"
-```
-
-{% endcurl %}
-
-## Using headers
-
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github.v3+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
-
-{% cli %}
-
-To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
+几乎任何有意义的 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 使用都会涉及某种级别的存储库信息。 我们可以像之前提取用户详细信息一样 [`GET` 存储库详细信息][get repo]：
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /octocat
+$ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
-{% endcli %}
-
-{% javascript %}
-
-The Octokit.js library automatically passes the `Accept: application/vnd.github.v3+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
-
-```javascript
-await octokit.request("GET /octocat", {
-  headers: {
-    "content-type": "text/plain",
-  },
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+以同样的方式，我们可以[查看经过身份验证的用户的存储库][user repos api]：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/octocat" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
-{% endcurl %}
-
-## Using path parameters
-
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
-
-{% cli %}
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** In order for this command to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.product.product_location %}.
-
-{% endnote %}
-{% endif %}
-
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
+或者，我们可以[列出其他用户的存储库][other user repos api]：
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
-{% endcli %}
-
-{% javascript %}
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** In order for this example to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
-
-{% endnote %}
-{% endif %}
-
-When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife"
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** If you want to use {% data variables.product.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.product.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}.
-
-{% endnote %}
-{% endif %}
+或者，我们可以[列出组织的存储库][org repos api]：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+$ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
-{% endcurl %}
+从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+{%- ifversion fpt or ghec or ghes %}
+* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 {% data variables.product.product_location %} 上有权查看的所有公共存储库。
+{%- endif %}
+* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在 {% data variables.product.product_location %} 上有权查看的所有{% ifversion fpt %}public or private{% elsif ghec or ghes %}公共、专用或内部{% elsif ghae %}private or internal{% endif %}存储库。
 
-## Using query parameters
-
-Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
-
-By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
-
-{% cli %}
-
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
-
-{% note %}
-
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
-
-{% endnote %}
+如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对存储库的访问权限类型来筛选返回的存储库。 这样，我们可以只提取直接拥有的存储库、组织存储库或用户通过团队进行协作的存储库。
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
+$ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
-{% endcli %}
+在此示例中，我们只获取 octocat 拥有的存储库，而没有获取她协作的存储库。 请注意上面的引用 URL。 根据你的 shell 设置，cURL 有时需要一个引用 URL，否则它会忽略查询字符串。
 
-{% javascript %}
+### <a name="create-a-repository"></a>创建存储库
 
-When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  per_page: 2,
-  sort: "updated",
-  direction: "asc",
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+提取现有存储库的信息是一种常见的用例，但 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 也支持创建新的存储库。 要[创建存储库][create repo]，我们需要 `POST` 一些包含详细信息和配置选项的 JSON。
 
 ```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2&sort=updated&direction=asc" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
+    -d '{
+        "name": "blog",
+        "auto_init": true,
+        "private": true,
+        "gitignore_template": "nanoc"
+      }' \
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
-{% endcurl %}
+在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的专用存储库。 虽然博客 {% ifversion not ghae %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+生成的存储库可在 `https://github.com/<your_username>/blog` 上找到。
+要在你拥有的组织下创建存储库，只需将 API 方法从 `/user/repos` 更改为 `/orgs/<org_name>/repos`。
 
-## Using body parameters
-
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
-
-The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
-
-{% cli %}
-
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
-
-{% note %}
-
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
-
-{% endnote %}
+接下来，我们将获取新创建的仓库：
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API"
+$ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
+
+> HTTP/2 404
+
+> {
+>    "message": "Not Found"
+> }
 ```
 
-{% endcli %}
+哦，不！ 它去哪儿了？ 因为我们将存储库创建为专用存储库，所以需要经过身份验证才能看到它。 如果你是一位资深的 HTTP 用户，你可能会预期返回 `403`。 由于我们不想泄露有关专用存储库的信息，因此在本例中，{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 返回 `404`，就好像说“我们既不能确认也不能否认这个存储库的存在”。
 
-{% javascript %}
+## <a name="issues"></a>问题
 
-When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
+{% data variables.product.product_name %} 上的问题 UI 旨在提供“恰到好处”的工作流，不会妨碍你的其他工作。 通过 {% data variables.product.product_name %} [问题 API][issues-api]，你可以利用其他工具来提取数据或创建问题，以打造适合你的团队的工作流。
 
-```javascript
-await octokit.request("POST /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  title: "Created with the REST API",
-  body: "This is a test issue created by the REST API",
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+与 github.com 一样，API 为经过身份验证的用户提供了一些查看问题的方法。 要[查看所有问题][get issues api]，请调用 `GET /issues`：
 
 ```shell
-curl --request POST \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" \
---data '{
-  "title": "Created with the REST API",
-  "body": "This is a test issue created by the REST API"
-}'
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
+    {% data variables.product.api_url_pre %}/issues
 ```
 
-{% endcurl %}
-
-The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
-
-## Using the response
-
-### About the response code and headers
-
-Every request will return an HTTP status code that indicates the success of the response. For more information about response codes, see [the MDN HTTP response status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-
-Additionally, the response will include headers that give more details about the response. Headers that start with `X-` or `x-` are custom to {% data variables.product.company_short %}. For example, the `x-ratelimit-remaining` and `x-ratelimit-reset` headers tell you how many requests you can make in a time period.
-
-{% cli %}
-
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
-
-For example, this request:
+要仅获取[某个 {% data variables.product.product_name %} 组织下的问题][get issues api]，请调用 `GET
+/orgs/<org>/issues`：
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
+    {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
-returns the response code and headers like:
+我们还可以获取[单个存储库下的所有问题][repo issues api]：
 
 ```shell
-HTTP/2.0 200 OK
-Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
-Cache-Control: private, max-age=60, s-maxage=60
-Content-Security-Policy: default-src 'none'
-Content-Type: application/json; charset=utf-8
-Date: Thu, 04 Aug 2022 19:56:41 GMT
-Etag: W/"a63dfbcfdb73621e9d2e89551edcf9856731ced534bd7f1e114a5da1f5f73418"
-Link: <https://api.github.com/repositories/1300192/issues?per_page=1&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=1&page=14817>; rel="last"
-Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
-Server: GitHub.com
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-Vary: Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With
-X-Accepted-Oauth-Scopes: repo
-X-Content-Type-Options: nosniff
-X-Frame-Options: deny
-X-Github-Api-Version-Selected: 2022-08-09
-X-Github-Media-Type: github.v3; format=json
-X-Github-Request-Id: 1C73:26D4:E2E500:1EF78F4:62EC2479
-X-Oauth-Client-Id: 178c6fc778ccc68e1d6a
-X-Oauth-Scopes: gist, read:org, repo, workflow
-X-Ratelimit-Limit: 15000
-X-Ratelimit-Remaining: 14996
-X-Ratelimit-Reset: 1659645499
-X-Ratelimit-Resource: core
-X-Ratelimit-Used: 4
-X-Xss-Protection: 0
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
-In this example, the response code is `200`, which indicates a successful request. 
+### <a name="pagination"></a>分页
 
-{% endcli %}
-
-{% javascript %}
-
-When you make a request with Octokit.js, the `request` method returns a promise. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
-
-You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
-
-```javascript
-try {
-  const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-    owner: "octocat",
-    repo: "Spoon-Knife",
-    per_page: 2,
-  });
-
-  console.log(`Success! Status: ${result.status}. Rate limit remaining: ${result.headers["x-ratelimit-remaining"]}`)
-
-} catch (error) {
-  console.log(`Error! Status: ${error.status}. Rate limit remaining: ${error.headers["x-ratelimit-remaining"]}. Message: ${error.response.data.message}`)
-}
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
-
-For example, this request:
+一个 Rails 规模的项目有数千个议题。 我们需要[分页][pagination]，进行多次 API 调用来获取数据。 让我们重复上一次调用，这次请注意响应头：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" \
---include
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
+
+> HTTP/2 200
+
+> ...
+> Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
+> ...
 ```
 
-returns the response code and headers like:
+[`Link` 标头][link-header]为响应提供了一种链接到外部资源（在本例中为附加数据页）的方法。 由于我们的调用发现了超过 30 个问题（默认页面大小），因此 API 将告诉我们在哪里可以找到下一页和最后一页结果。
+
+### <a name="creating-an-issue"></a>创建议题
+
+现在我们已经了解如何对问题列表分页，现在来使用 API [创建问题][create issue]。
+
+要创建问题，我们需要进行身份验证，因此我们将在标头中传递 OAuth 令牌。 此外，我们还将 JSON 正文中的标题、正文和标签传递到要在其中创建问题的存储库下的 `/issues` 路径：
 
 ```shell
-HTTP/2 200
-server: GitHub.com
-date: Thu, 04 Aug 2022 20:07:51 GMT
-content-type: application/json; charset=utf-8
-cache-control: public, max-age=60, s-maxage=60
-vary: Accept, Accept-Encoding, Accept, X-Requested-With
-etag: W/"7fceb7e8c958d3ec4d02524b042578dcc7b282192e6c939070f4a70390962e18"
-x-github-media-type: github.v3; format=json
-link: <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=7409>; rel="last"
-access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
-access-control-allow-origin: *
-strict-transport-security: max-age=31536000; includeSubdomains; preload
-x-frame-options: deny
-x-content-type-options: nosniff
-x-xss-protection: 0
-referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
-content-security-policy: default-src 'none'
-x-ratelimit-limit: 15000
-x-ratelimit-remaining: 14996
-x-ratelimit-reset: 1659645535
-x-ratelimit-resource: core
-x-ratelimit-used: 4
-accept-ranges: bytes
-content-length: 4936
-x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
+$ curl -i -H 'Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a' \
+$    -d '{ \
+$         "title": "New logo", \
+$         "body": "We should have one", \
+$         "labels": ["design"] \
+$       }' \
+$    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
+
+> HTTP/2 201
+> Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
+> X-RateLimit-Limit: 5000
+
+> {
+>   "pull_request": {
+>     "patch_url": null,
+>     "html_url": null,
+>     "diff_url": null
+>   },
+>   "created_at": "2012-11-14T15:25:33Z",
+>   "comments": 0,
+>   "milestone": null,
+>   "title": "New logo",
+>   "body": "We should have one",
+>   "user": {
+>     "login": "pengwynn",
+>     "gravatar_id": "7e19cd5486b5d6dc1ef90e671ba52ae0",
+>     "avatar_url": "https://secure.gravatar.com/avatar/7e19cd5486b5d6dc1ef90e671ba52ae0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
+>     "id": 865,
+>     "url": "{% data variables.product.api_url_pre %}/users/pengwynn"
+>   },
+>   "closed_at": null,
+>   "updated_at": "2012-11-14T15:25:33Z",
+>   "number": 17,
+>   "closed_by": null,
+>   "html_url": "https://github.com/pengwynn/api-sandbox/issues/17",
+>   "labels": [
+>     {
+>       "color": "ededed",
+>       "name": "design",
+>       "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/labels/design"
+>     }
+>   ],
+>   "id": 8356941,
+>   "assignee": null,
+>   "state": "open",
+>   "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17"
+> }
 ```
 
-In this example, the response code is `200`, which indicates a successful request. 
+该响应在 `Location` 响应头和 JSON 响应的 `url` 字段中为我们提供了几个指向新创建问题的指针。
 
-{% endcurl %}
+## <a name="conditional-requests"></a>条件请求
 
-### About the response body
-
-Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
-
-{% cli %}
+通过缓存未更改的信息来遵守速率限制，是成为一个良好 API 公民的重要特质。 API 支持[条件请求][conditional-requests]并帮助你正确行事。 请注意我们为获取 defunkt 的个人资料而进行的第一个调用：
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+
+> HTTP/2 200
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
 ```
 
-{% endcli %}
-
-{% javascript %}
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  per_page: 2,
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
+除了 JSON 正文之外，还要注意 HTTP 状态代码 `200` 和 `ETag` 标头。
+[ETag][etag] 是响应的指纹。 如果我们在后续调用中传递它，则可以告诉 API 仅在资源发生改变的情况才将其再次提供给我们：
 
 ```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+$ curl -i -H 'If-None-Match: "61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"' \
+$    {% data variables.product.api_url_pre %}/users/defunkt
+
+> HTTP/2 304
 ```
 
-{% endcurl %}
+`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入你的[速率限制][rate-limiting]。
 
-Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
+现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
 
-{% cli %}
+* 基本和 OAuth 身份验证
+* 获取和创建仓库及议题
+* 条件请求
 
-For example, you can use `>` to redirect the response to a file:
+继续学习下一个 API 指南[身份验证基础知识][auth guide]！
 
-```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
-```
-
-Then you can use jq to get the title and author ID of each issue:
-
-```shell
-jq '.[] | {title: .title, authorID: .user.id}' data.json
-```
-
-The previous two commands return something like:
-
-```
-{
-  "title": "Update index.html",
-  "authorID": 10701255
-}
-{
-  "title": "Edit index file",
-  "authorID": 53709285
-}
-```
-
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
-
-{% endcli %}
-
-{% javascript %}
-
-For example, you can get the title and author ID of each issue:
-
-```javascript
-try {
-  const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-    owner: "octocat",
-    repo: "Spoon-Knife",
-    per_page: 2,
-  });
-
-  const titleAndAuthor = result.data.map(issue => {title: issue.title, authorID: issue.user.id})
-
-  console.log(titleAndAuthor)
-
-} catch (error) {
-  console.log(`Error! Status: ${error.status}. Message: ${error.response.data.message}`)
-}
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-For example, you can use `>` to redirect the response to a file:
-
-```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" > data.json
-```
-
-Then you can use jq to get the title and author ID of each issue:
-
-```shell
-jq '.[] | {title: .title, authorID: .user.id}' data.json
-```
-
-The previous two commands return something like:
-
-```
-{
-  "title": "Update index.html",
-  "authorID": 10701255
-}
-{
-  "title": "Edit index file",
-  "authorID": 53709285
-}
-```
-
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
-
-{% endcurl %}
-
-## Next steps
-
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
-
-For more information about the operations that you can use, see the [REST reference documentation](/rest).
+[wrappers]: /libraries/
+[curl]: http://curl.haxx.se/
+[media types]: /rest/overview/media-types
+[oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
+[webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
+[scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
+[repos-api]: /rest/reference/repos
+[pages]: http://pages.github.com
+[nanoc]: http://nanoc.ws/
+[gitignore templates]: https://github.com/github/gitignore
+[issues-api]: /rest/reference/issues
+[link-header]: https://www.w3.org/wiki/LinkHeader
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[users api]: /rest/reference/users#get-a-user
+[auth user api]: /rest/reference/users#get-the-authenticated-user
+[defunkt github]: https://github.com/defunkt
+[json]: http://en.wikipedia.org/wiki/JSON
+[authentication]: /rest#authentication
+[2fa]: /articles/about-two-factor-authentication
+[2fa header]: /rest/overview/other-authentication-methods#working-with-two-factor-authentication
+[oauth section]: /rest/guides/getting-started-with-the-rest-api#oauth
+[personal token]: /articles/creating-an-access-token-for-command-line-use
+[tokens settings]: https://github.com/settings/tokens
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
+[auth guide]: /guides/basics-of-authentication
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
+[etag]: http://en.wikipedia.org/wiki/HTTP_ETag
+[2fa section]: /rest/guides/getting-started-with-the-rest-api#two-factor-authentication

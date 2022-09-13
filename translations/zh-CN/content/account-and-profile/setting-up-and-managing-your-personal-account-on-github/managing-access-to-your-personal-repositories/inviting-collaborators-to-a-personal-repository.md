@@ -19,10 +19,10 @@ topics:
   - Repositories
 shortTitle: Invite collaborators
 ms.openlocfilehash: b8cf147e94d4dd0a76d0bebcb07a58d03d7cbc9e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145164797'
 ---
 组织拥有的仓库可授予更细致的访问权限。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 的访问权限](/articles/access-permissions-on-github)”。

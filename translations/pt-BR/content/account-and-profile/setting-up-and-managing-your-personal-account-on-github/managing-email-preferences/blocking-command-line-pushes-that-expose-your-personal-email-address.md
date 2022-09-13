@@ -14,10 +14,10 @@ topics:
   - Notifications
 shortTitle: Block push with personal email
 ms.openlocfilehash: 2c79886af1e35e0f02419610dfca1459a9693731
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145164679'
 ---
 Quando você efetua push de commits por meio da linha de comando, o endereço de email que você [definiu no Git](/articles/setting-your-commit-email-address) fica associado aos commits. Se você habilitar essa configuração, cada vez que você fizer push para o GitHub, verificaremos o commit mais recente. Se o e-mail do autor nesse commit for um e-mail privado na sua conta do GitHub, nós iremos bloquear o push e avisá-lo sobre como expor seu e-mail privado.

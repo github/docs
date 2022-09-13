@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Restrict team creation
 ms.openlocfilehash: 5a75d7a6b81422c6d0ad0a5d027d2b86feff49db
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099701'
 ---
 组织所有者可以设置团队创建权限。

@@ -10,10 +10,10 @@ topics:
   - Sponsors payments
 shortTitle: Disable your account
 ms.openlocfilehash: 52098a056da3e743d9fe127fc573cd96ec2821b0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145139450'
 ---
 Si estás recibiendo pagos de patrocinio, necesitas contactar al Soporte de GitHub para inhabilitar tu cuenta de {% data variables.product.prodname_sponsors %}.

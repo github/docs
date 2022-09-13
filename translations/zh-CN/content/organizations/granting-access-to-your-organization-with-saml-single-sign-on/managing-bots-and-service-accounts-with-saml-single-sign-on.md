@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Manage bots & service accounts
 ms.openlocfilehash: 57f1150929db674a658d52a5cb7e455444cc48de
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127537'
 ---
 若要保留对机器人和服务帐户的访问权限，组织管理员可以为其组织[启用](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)但不[强制实施](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML 单一登录。 如果需要对组织实施 SAML 单点登录，您可以通过身份提供程序 (IdP) 为自动程序或服务帐户创建外部身份。

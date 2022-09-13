@@ -14,10 +14,10 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
   - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
 ms.openlocfilehash: de7a348b20f18315c58ab13b2e19f0b162b9b792
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099616'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}

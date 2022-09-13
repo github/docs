@@ -12,10 +12,10 @@ versions:
 topics:
   - Webhooks
 ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145093890'
 ---
 Agora que entendemos os [conceitos básicos dos webhooks][webhooks-overview], vamos ver o processo de criação da nossa integração habilitada para webhook. Neste tutorial, vamos criar um webhook de repositório que será responsável por listar quão popular é o nosso repositório, com base no número de problemas que recebe por dia.

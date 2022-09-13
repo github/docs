@@ -10,10 +10,10 @@ topics:
   - Codespaces
 shortTitle: Exporting changes
 ms.openlocfilehash: 676a94ae33b7dba4990014d472cbf28992437a2c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147110999'
 ---
 ## Exportando alterações para um branch

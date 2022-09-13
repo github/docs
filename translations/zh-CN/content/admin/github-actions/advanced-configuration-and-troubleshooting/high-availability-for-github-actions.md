@@ -14,10 +14,10 @@ redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
 shortTitle: HA for GitHub Actions
 ms.openlocfilehash: c8b71ddb651baa0757100c356ce3f9edb0e1edee
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098068'
 ---
 ## {% data variables.product.prodname_actions %} 数据的复制或冗余

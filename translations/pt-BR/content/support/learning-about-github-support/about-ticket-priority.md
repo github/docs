@@ -9,10 +9,10 @@ versions:
 topics:
   - Support
 ms.openlocfilehash: bce2a30ad25b93274e982991f81be5b1b796c685
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145128168'
 ---
 Ao entrar em contato com {% data variables.contact.enterprise_support %}, você pode escolher {% ifversion ghes or ghae %}four{% else %}três{% endif %} prioridades de tíquete: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.

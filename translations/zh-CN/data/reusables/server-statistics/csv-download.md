@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ed5055403a7104af88889bc4aae7cb495b8d4fee
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147061848"
 ---
 4. 要开始下载，请在“{% data variables.product.prodname_github_connect %}”下单击“导出”，然后选择是要下载 JSON 还是 CSV 文件。

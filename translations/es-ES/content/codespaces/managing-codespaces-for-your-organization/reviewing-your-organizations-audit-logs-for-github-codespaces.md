@@ -14,10 +14,10 @@ topics:
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
 ms.openlocfilehash: 4a39067e3cb5fa11ca561a79386876cf954d7320
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147111754'
 ---
 Cuando algún miembro de tu organización lleva a cabo una acción relacionada con {% data variables.product.prodname_github_codespaces %}, puedes revisar las acciones en el registro de auditoría. Para obtener información sobre cómo acceder al registro, vea "[Revisión del registro de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".

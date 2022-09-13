@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: d2f50ce890ed4d9a90015498ecdf9909348155fb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529589"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877201"
 ---
 {% ifversion build-pages-with-actions %}
 1. {% data variables.product.prodname_pages %} 站点是使用 {% data variables.product.prodname_actions %} 工作流生成和部署的。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。

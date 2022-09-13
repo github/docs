@@ -14,10 +14,10 @@ topics:
   - Troubleshooting
 shortTitle: Declined credit card charge
 ms.openlocfilehash: 44ed836d24e23ceb7e805cccdad6e70203381bf5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084453'
 ---
 如果您的卡被拒绝，我们将向您发送一封电子邮件，说明付款被拒绝的原因。 在我们再次尝试向您收费之前，您将有几天的时间来解决该问题。

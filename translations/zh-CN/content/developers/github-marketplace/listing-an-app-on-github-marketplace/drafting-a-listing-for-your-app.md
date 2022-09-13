@@ -20,10 +20,10 @@ topics:
   - Marketplace
 shortTitle: Draft an app listing
 ms.openlocfilehash: 9dccf5486c446c5cdd9dbef4d36650340116e044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084969'
 ---
 ## 创建新的 {% data variables.product.prodname_marketplace %} 上架信息草稿

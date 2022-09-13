@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Move a team
 ms.openlocfilehash: 205ab40d04d613c54b498b9712e5f199e1433558
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145125502'
 ---
 Organization のオーナーは、Team の親を変更できます。 チームメンテナは、子チームと親チーム両方のメンテナであれば、Team の親を変更できます。 子チームでのメンテナ権限を持たないチームメンテナは、親または子チームの追加をリクエストできます。 詳しくは、「[親チームの追加または変更を要求する](/articles/requesting-to-add-or-change-a-parent-team)」および「[子チームの追加を要求する](/articles/requesting-to-add-a-child-team)」をご覧ください。

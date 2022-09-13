@@ -7,10 +7,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: 38d23c1a1b5021a681aedff8813daad751905d8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147408927'
 ---
 Esta guía le guiará por la configuración de la cuenta de {% data variables.product.company_short %} y la introducción a las características de {% data variables.product.product_name %} para la colaboración y la comunidad.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 55be1692eaf41dbee91aa298eeb9a969e5b91b42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147549077"
 ---
 {%- ifversion custom-pattern-dry-run-ga %}

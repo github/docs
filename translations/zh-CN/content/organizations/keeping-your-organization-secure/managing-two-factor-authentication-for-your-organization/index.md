@@ -14,10 +14,10 @@ children:
   - /preparing-to-require-two-factor-authentication-in-your-organization
   - /requiring-two-factor-authentication-in-your-organization
 ms.openlocfilehash: 49de4c84935fe7ef5eb6ffd3fb76866eddf890b3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145127516'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147872309'
 ---
 

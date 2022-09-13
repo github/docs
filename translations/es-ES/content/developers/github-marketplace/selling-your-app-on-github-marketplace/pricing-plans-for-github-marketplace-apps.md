@@ -12,11 +12,11 @@ topics:
   - Marketplace
 shortTitle: Pricing plans for apps
 ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092123'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147879297'
 ---
 Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen para las apps que publican los publicadores verificados. Para obtener más información sobre cómo convertirse en un publicador verificado, consulta "[Solicitar la verificación de publicador en su organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 

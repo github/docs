@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 9b3b768d66199fda62bc5e644da9539d5425215e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126757'
 ---
 Para qualquer solicitação de pull, o {% data variables.product.product_name %} fornece três tipos de exibições de comentários: [comentários sobre a solicitação de pull][PR comment] como um todo, [comentários sobre uma linha específica][PR line comment] na solicitação de pull e [comentários sobre um commit específico][commit comment] na solicitação de pull. 

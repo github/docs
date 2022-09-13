@@ -13,10 +13,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 6a4f45a0f04db6076826441ad71aecdf30d22730
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556429'
 ---
 Bem-vindo ao Guia do GitHub para a Digital Millennium Copyright Act, comumente conhecida como "DMCA". Esta página não pretende ser uma cartilha abrangente para a lei. No entanto, se você recebeu uma notificação de remoção da DMCA visando o conteúdo publicado no GitHub ou se você é um detentor de direitos que deseja emitir tal notificação, esperamos que esta página ajude a desmistificar um pouco a lei, bem como nossas políticas para cumpri-la.
@@ -25,7 +25,7 @@ Bem-vindo ao Guia do GitHub para a Digital Millennium Copyright Act, comumente c
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional a respeito de dúvidas ou situações específicas. Nós incentivamos você a fazê-lo antes de tomar qualquer medida que possa afetar seus direitos. Este guia não constitui aconselhamento jurídico e não deve ser considerado como tal.
 
-## <a name="what-is-the-dmca"></a>O que é a DMCA?
+## O que é a DMCA?
 
 Para entender a DMCA e algumas das linhas de política que ela traça, talvez seja útil considerar como era a realidade antes de ela ser promulgada.
 
@@ -35,7 +35,7 @@ A DMCA aborda esse problema criando um [porto seguro de responsabilidade de dire
 
 A DMCA também proíbe a [evasão de medidas técnicas](https://www.copyright.gov/title17/92chap12.html) que efetivamente controlam o acesso a obras protegidas por direitos autorais. 
 
-## <a name="dmca-notices-in-a-nutshell"></a>Notificações de DMCA em poucas palavras
+## Notificações de DMCA em poucas palavras
 
 A DMCA fornece dois procedimentos simples e diretos que todos os usuários do GitHub devem conhecer: (i) um procedimento de [notificação de remoção](/articles/guide-to-submitting-a-dmca-takedown-notice) para os detentores de direitos autorais solicitarem que o conteúdo seja removido e (ii) um procedimento de [contranotificação](/articles/guide-to-submitting-a-dmca-counter-notice) para que os usuários reativem o conteúdo quando o conteúdo for removido por engano ou identificação incorreta.
 
@@ -45,7 +45,7 @@ Por outro lado, [contranotificações](/articles/guide-to-submitting-a-dmca-coun
 
 O processo de notificação e remoção da DMCA deve ser usado apenas para reclamações sobre violação de direitos autorais. As notificações enviadas por meio do processo de DMCA devem identificar trabalhos protegidos por direitos autorais ou trabalhos que estejam sendo supostamente violados. O processo não pode ser usado para outras reclamações, como reclamações sobre supostas [violações de marca registrada](/articles/github-trademark-policy/) ou [dados suscetíveis](/articles/github-sensitive-data-removal-policy/); oferecemos processos separados para essas situações.
 
-## <a name="a-how-does-this-actually-work"></a>R. Como isso realmente funciona?
+## R. Como isso realmente funciona?
 
 A estrutura DMCA é parecida com tirar notas para passar de ano na escola. O proprietário dos direitos autorais envia ao GitHub uma reclamação sobre um usuário. Se estiver escrita corretamente, repassaremos a reclamação ao usuário. Se o usuário contestar a reclamação, ele poderá devolver uma nota sobre isso. O GitHub tem pouca atuação no processo além de determinar se as notificações atendem aos requisitos mínimos da DMCA. Cabe às partes (e seus advogados) avaliar o mérito dos requisitos judiciais e/ou extrajudiciais, lembrando que as notificações devem ser feitas sob pena de perjúrio.
 
@@ -68,7 +68,7 @@ Aqui estão as etapas básicas do processo.
 
 8. **O proprietário dos direitos autorais pode entrar com uma ação legal.** Se um proprietário de direitos autorais desejar manter o conteúdo desativado após receber uma contranotificação, ele precisará iniciar uma ação legal buscando uma decisão judicial para impedir que o usuário se envolva em atividades infratoras relacionadas ao conteúdo no GitHub. Em outras palavras, você poderá ser processado. Se o proprietário dos direitos autorais não notificar o GitHub dentro de 10 a 14 dias, enviando uma cópia de uma reclamação legal válida apresentada a um juiz competente, o GitHub reativará o conteúdo desativado.
 
-## <a name="b-what-about-forks-or-whats-a-fork"></a>B. E os forks? (ou O que é um fork?)
+## B. E os forks? (ou O que é um fork?)
 
 Um dos melhores recursos do GitHub é a capacidade de os usuários "criarem forks" dos repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitir, os usuários podem fazer alterações nesse fork para retornar ao projeto principal ou apenas manter como sua própria variação de um projeto. Cada uma dessas cópias é um "[fork](/articles/github-glossary#fork)" do repositório original, que por sua vez também pode ser chamado de "pai" do fork.
 
@@ -76,7 +76,7 @@ O GitHub *não* desabilitará automaticamente os forks ao desabilitar um reposit
 
 Em casos raros, você pode estar alegando violação de direitos autorais em um repositório completo do qual foi criado ativamente um fork. Se, no momento em que você enviou a notificação, você identificou todos os forks existentes desse repositório como supostamente infratores, processaremos um requerimento judicial e/ou extrajudicial válido contra todos os forks nessa rede no momento em que processarmos a notificação. Faríamos isso dada a probabilidade de todos os forks recém-criados conterem o mesmo conteúdo. Além disso, se a rede denunciada que contém o conteúdo supostamente infrator for maior que 100 (cem) repositórios e, portanto, difícil de revisar integralmente, poderemos considerar a desativação de toda a rede se você declarar na notificação que "Com base no número representativo de forks revisados, acredito que todos ou a maioria dos forks estão infringindo na mesma extensão do repositório pai". Sua declaração juramentada se aplicaria a esta declaração.
 
-## <a name="c-what-about-circumvention-claims"></a>C. E quanto às alegações de evasão?
+## C. E quanto às alegações de evasão?
 
 A DMCA proíbe a [evasão de medidas técnicas](https://www.copyright.gov/title17/92chap12.html) que efetivamente controlam o acesso a obras protegidas por direitos autorais. Uma vez que esses tipos de alegações geralmente são de natureza altamente técnica, o GitHub exige que os autores forneçam [informações detalhadas sobre essas alegações](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology) e realizaremos uma revisão mais extensa. 
 
@@ -93,27 +93,27 @@ Observe que nosso processo de análise de tecnologia de evasão não se aplica a
 
 Quando o GitHub processar uma remoção de DMCA segundo o processo de revisão de alegação de tecnologia de evasão, ofereceremos ao proprietário do repositório uma indicação para receber consultoria jurídica independente por meio do [Fundo de Defesa do Desenvolvedor do GitHub](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) sem nenhum custo para ele.
 
-## <a name="d-what-if-i-inadvertently-missed-the-window-to-make-changes"></a>D. E se eu acidentalmente perder o prazo para fazer as alterações?
+## D. E se eu acidentalmente perder o prazo para fazer as alterações?
 
 Reconhecemos que há muitos motivos válidos para que você não consiga fazer alterações dentro do prazo de aproximadamente 1 dia útil que fornecemos antes que seu repositório seja desativado. Talvez nossa mensagem tenha sido sinalizada como spam, talvez você estivesse de férias, talvez você não verifique essa conta de email regularmente ou talvez estivesse simplesmente ocupado. Nós entendemos. Se você responder para nos informar que gostaria de fazer as alterações, mas que, de alguma forma, perdeu a primeira oportunidade, reativaremos o repositório mais uma vez por aproximadamente 1 dia útil para permitir que você faça as alterações. Novamente, você deve nos notificar de que fez as alterações para manter o repositório ativado após esse prazo de aproximadamente 1 dia útil, conforme observado acima na [Etapa A.4](#a-how-does-this-actually-work). Observe que forneceremos apenas uma chance adicional.
 
-## <a name="e-transparency"></a>E. Transparência
+## E. Transparência
 
 Acreditamos que a transparência é uma virtude. O público deve saber qual conteúdo está sendo removido do GitHub e por quê. Um público informado pode perceber e trazer à tona possíveis problemas que, de outra forma, passariam despercebidos em um sistema obscuro. Postamos cópias editadas de quaisquer notificações legais que recebemos (incluindo notificações originais, contranotificações ou retratações) em <https://github.com/github/dmca>. Não divulgaremos publicamente suas informações de contato pessoais; removeremos informações pessoais (exceto nomes de usuário em URLs) antes de publicar notificações. No entanto, não eliminaremos nenhuma outra informação da notificação, a menos que você nos solicite especificamente. Aqui estão alguns exemplos de uma [notificação publicada](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md) e [contranotificação](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md) para você ver como é o formato delas. Quando removermos o conteúdo, postaremos um link para a notificação relacionada em seu lugar.
 
 Observe também que, embora não divulguemos publicamente notificações não editadas, podemos fornecer uma cópia completa não editada de quaisquer notificações que recebermos diretamente a qualquer parte cujos direitos sejam afetados por elas.
 
-## <a name="f-repeated-infringement"></a>F. Violação repetida
+## F. Violação repetida
 
 É política do GitHub, em circunstâncias apropriadas e a seu exclusivo critério, desativar e encerrar as contas de usuários que possam infringir os direitos autorais ou outros direitos de propriedade intelectual do GitHub ou de outros.
 
-## <a name="g-submitting-notices"></a>G. Envio de notificações
+## G. Envio de notificações
 
 Se você estiver pronto para enviar uma notificação ou uma contranotificação:
 - [Como enviar uma notificação de DMCA](/articles/guide-to-submitting-a-dmca-takedown-notice)
 - [Como enviar uma contranotificação de DMCA](/articles/guide-to-submitting-a-dmca-counter-notice)
 
-## <a name="learn-more-and-speak-up"></a>Saiba mais e denuncie
+## Saiba mais e denuncie
 
 Se você vasculhar a Internet, não é muito difícil encontrar comentários e críticas sobre o sistema de direitos autorais em geral e, especialmente, a DMCA. Embora o GitHub reconheça e aprecie o importante papel que a DMCA desempenhou na promoção da inovação online, acreditamos que as leis de direitos autorais provavelmente poderiam usar um patch ou dois, se não uma versão totalmente nova. No software, estamos constantemente melhorando e atualizando nosso código. Pense em quanto a tecnologia mudou desde 1998, quando a DMCA foi escrita. Não faz sentido atualizar essas leis que se aplicam ao software?
 

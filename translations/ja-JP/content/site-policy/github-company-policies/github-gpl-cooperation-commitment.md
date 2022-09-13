@@ -9,17 +9,17 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556558'
 ---
 このコミットメントは、対象ライセンス (定義については、下までスクロールしてください) に従って Git、Linux カーネル、およびその他のプログラムへの GitHub のコントリビューションに関するものです。
 
 この声明は、企業向け[テンプレート](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md)に基づいて作成しました。 他の企業、個人、およびプロジェクトがこのコミットメントを適用する方法については、[「GPL Cooperation Commitment」のサイト](https://gplcc.github.io/gplcc/)をご覧ください。
 
-## <a name="our-commitment"></a>当社のコミットメント
+## 当社のコミットメント
 
 GitHub は、「対象ライセンス」の終了に起因する司法手続きまたは申し立て (「防御行為」を除く) の提起または追及を行う前に、「対象ライセンス」の違反について告発された個人または団体 (以下「被告発者」といいます) に対し、GPL バージョン 3 から採用されたライセンス違反の是正およびライセンスの復活に関する以下の条項を適用することに尽力します。 ここで「本ライセンス」という用語は、適用される「対象ライセンス」を意味します。
 
