@@ -15,12 +15,15 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   - /codespaces/developing-in-codespaces/creating-a-codespace
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+  - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace

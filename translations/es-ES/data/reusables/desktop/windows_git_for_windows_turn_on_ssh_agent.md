@@ -1,4 +1,12 @@
-**Si estás usando otro símbolo de terminal**, como [Git para Windows](https://git-for-windows.github.io/), activa el ssh-agent:
+---
+ms.openlocfilehash: 2d27e8b498ed47b4fc5147c66d7923dd71903132
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883824"
+---
+**Si usa otro símbolo del sistema de terminal**, como [Git para Windows](https://git-for-windows.github.io/), active ssh-agent:
 ```shell
 # start the ssh-agent in the background
 $ eval $(ssh-agent -s)

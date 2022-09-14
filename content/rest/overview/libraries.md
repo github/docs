@@ -15,7 +15,7 @@ topics:
 
 <div class="jumbotron libraries-jumbotron">
   <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h1>Octokit comes in many flavors</h1>
+  <h2>Octokit comes in many flavors</h2>
   <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
   <div class="octokit-links"><br/>
      <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
@@ -24,7 +24,7 @@ topics:
   </div>
 </div>
 
-# Third-party libraries
+## Third-party libraries
 
 ### Clojure
 

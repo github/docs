@@ -1,6 +1,6 @@
 ---
-title: Verifying your custom domain for GitHub Pages
-intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
+title: Verificar tu dominio personalizado para GitHub Pages
+intro: Puedes incrementar la seguridad de tu dominio personalizado y evitar los ataques de adquisición si verificas tu dominio.
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -8,40 +8,44 @@ versions:
 topics:
   - Pages
 shortTitle: Verify a custom domain
+ms.openlocfilehash: b3c44dacd98882afa7a43854b96d803352e879ca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529675'
 ---
+## Acerca de la verificación de dominios para GitHub pages
 
-## About domain verification for GitHub Pages
+Cuando verificas tu dominio personalizado para tu cuenta personal u organización, solo podrán utilizarse los repositorios que le pertenezcan a estos para publicar un sitio de {% data variables.product.prodname_pages %} en el dominio personalizado verificado o en los subdominios inmediatos de los dominios.
 
-When you verify your custom domain for your personal account or organization, only repositories owned by your personal account or organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
+El verificar tu dominio impide que otros usuarios de GitHub lo reclamen y lo utilicen para publicar su propio sitio de {% data variables.product.prodname_pages %}. Puede haber robo de dominio cuando borras tu repositorio, cuando bajas de categoría tu plan de facturación o después de cualquier otro cambio que desenlace al dominio personalizado o inhabilite a {% data variables.product.prodname_pages %} mientras el dominio sigue configurado para {% data variables.product.prodname_pages %} y no esté verificado.
 
-Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
-
-When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.
+Cuando verificas un dominio, cualquier subdominio inmediato también se incluye en dicha verificación. Por ejemplo, si se comprueba el dominio personalizado `github.com`, `docs.github.com`, `support.github.com` y cualquier otro subdominio inmediato también se protegerá de las adquisiciones.
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+También se puede verificar un dominio para tu organización{% ifversion ghec %} o empresa{% endif %}, el cual muestre una insignia de "Verificado" en el perfil de la misma{% ifversion ghec %}{% endif %}{% ifversion ghec %} y, que en {% data variables.product.prodname_ghe_cloud %}, te permita restringir las notificaciones a las direcciones de correo electrónico utilizando el dominio verificado{% endif %}. Para obtener más información, consulte "[Comprobación o aprobación de un dominio para la organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" y "[Comprobación o aprobación de un dominio para la empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}".
 
-## Verifying a domain for your user site
+## Verificar un dominio para tu sitio de usuario
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The pages icon" %} Pages**.
+1. En la sección "Code, planning, and automation" de la barra lateral, haga clic en **{% octicon "browser" aria-label="The pages icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. Espera a que cambie tu configuración de DNS, esto podría suceder de inmediato o tomar hasta 24 horas. Puede confirmar el cambio a su configuración de DNS mediante la ejecución del comando `dig` en la línea de comandos. En el comando siguiente, reemplace `USERNAME` por el nombre de usuario y `example.com` por el dominio que está comprobando. Si se actualizó tu configuración de DNS, deberías ver tu registro de TXT nuevo en la salida.
   ```
   dig _github-pages-challenge-USERNAME.example.com +nostats +nocomments +nocmd TXT
   ```
 {% data reusables.pages.settings-verify-domain-confirm %}
 
-## Verifying a domain for your organization site
+## Verificar un dominio para tu sitio de organización
 
-Organization owners can verify custom domains for their organization.
+Los propietarios de organización pueden verificar los dominios personalizados para su organización.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. En la sección "Code, planning, and automation" de la barra lateral, haga clic en **{% octicon "browser" aria-label="The browser icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. Espera a que cambie tu configuración de DNS, esto podría suceder de inmediato o tomar hasta 24 horas. Puede confirmar el cambio a su configuración de DNS mediante la ejecución del comando `dig` en la línea de comandos. En el comando siguiente, reemplace `ORGANIZATION` por el nombre de la organización y `example.com` por el dominio que está comprobando. Si se actualizó tu configuración de DNS, deberías ver tu registro de TXT nuevo en la salida.
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```

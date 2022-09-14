@@ -52,6 +52,12 @@ Runner groups are used to collect sets of virtual machines and create a security
 
 ### Understanding billing
 
+{% note %}
+
+**Note**: The {% data variables.actions.hosted_runner %}s do not use included entitlement minutes, and are not free for public repositories.
+
+{% endnote %}
+
 Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
@@ -91,7 +97,7 @@ jobs:
     runs-on: ubuntu-20.04-16core
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses:{% data reusables.actions.action-setup-node %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
       - run: npm install -g bats

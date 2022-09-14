@@ -1,6 +1,7 @@
 import express from 'express'
 
 import searchVersions from '../../lib/search/versions.js'
+import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { defaultCacheControl } from '../cache-control.js'
@@ -38,7 +39,7 @@ const legacyEnterpriseServerVersions = Object.fromEntries(
     .filter(([fullName]) => {
       return fullName.startsWith('enterprise-server@')
     })
-    .map(([_, shortName]) => {
+    .map(([, shortName]) => {
       return [shortName, `ghes-${shortName}`]
     })
 )
@@ -85,7 +86,7 @@ function notConfiguredMiddleware(req, res, next) {
 router.get(
   '/legacy',
   notConfiguredMiddleware,
-  catchMiddlewareError(async function legacySearch(req, res, next) {
+  catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
       throw new Error('not implemented yet')
@@ -232,27 +233,51 @@ router.get(
   '/v1',
   validationMiddleware,
   notConfiguredMiddleware,
-  catchMiddlewareError(async function search(req, res, next) {
+  catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
-    const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
+    try {
+      const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
 
-    if (process.env.NODE_ENV !== 'development') {
-      // The assumption, at the moment is that searches are never distinguished
-      // differently depending on a cookie or a request header.
-      // So the only distinguishing key is the request URL.
-      // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
-      // cache and hold on to this.
-      defaultCacheControl(res)
+      if (process.env.NODE_ENV !== 'development') {
+        // The assumption, at the moment is that searches are never distinguished
+        // differently depending on a cookie or a request header.
+        // So the only distinguishing key is the request URL.
+        // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
+        // cache and hold on to this.
+        defaultCacheControl(res)
+      }
+
+      // The v1 version of the output matches perfectly what comes out
+      // of the getSearchResults() function.
+      res.status(200).json({ meta, hits })
+    } catch (error) {
+      // If getSearchResult() throws an error that might be 404 inside
+      // elasticsearch, if we don't capture that here, it will propgate
+      // to the next middleware.
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error calling getSearchResults()', error)
+      } else {
+        const reports = FailBot.report(error, {
+          url: req.url,
+          indexName,
+          query,
+          page,
+          size,
+          debug,
+          sort,
+        })
+        // It might be `undefined` if no backends are configured which
+        // is likely when using production NODE_ENV on your laptop
+        // where you might not have a HATSTACK_URL configured.
+        if (reports) await Promise.all(reports)
+      }
+      res.status(500).send(error.message)
     }
-
-    // The v1 version of the output matches perfectly what comes out
-    // of the getSearchResults() function.
-    res.status(200).json({ meta, hits })
   })
 )
 
 // Alias for the latest version
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   // At the time of writing, the latest version is v1. (July 2022)
   // Use `req.originalUrl` because this router is "self contained"
   // which means that `req.url` will be `/` in this context.

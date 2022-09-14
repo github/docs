@@ -112,10 +112,7 @@ async function main(opts) {
     throw error
   }
 
-  const client = new Client({
-    node,
-    sniffOnStart: true,
-  })
+  const client = new Client({ node })
 
   // This will throw if it can't ping
   await client.ping()
@@ -203,6 +200,21 @@ async function indexVersion(
   const settings = {
     analysis: {
       analyzer: {
+        // We defined to analyzers. Both based on a "common core" with the
+        // `standard` tokenizer. But the second one adds Snowball filter.
+        // That means the tokenization of "Dependency naming" becomes
+        // `[dependency, naming]` in the explicit one and `[depend, name]`
+        // in the Snowball one.
+        // We do this to give a chance to boost the more exact spelling a
+        // bit higher with the assumption that if the user knew exactly
+        // what it was called, we should show that higher.
+        // A great use-case of this when users search for keywords that are
+        // code words like `dependency-name`.
+        text_analyzer_explicit: {
+          filter: ['lowercase', 'stop', 'asciifolding'],
+          tokenizer: 'standard',
+          type: 'custom',
+        },
         text_analyzer: {
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
@@ -229,36 +241,39 @@ async function indexVersion(
 
   await client.indices.create({
     index: thisAlias,
-    mappings: {
-      properties: {
-        url: { type: 'keyword' },
-        title: { type: 'text', analyzer: 'text_analyzer', norms: false },
-        title_autocomplete: {
-          type: 'search_as_you_type',
-          doc_values: false,
-          max_shingle_size: 3,
+    body: {
+      mappings: {
+        properties: {
+          url: { type: 'keyword' },
+          title: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+          content: { type: 'text', analyzer: 'text_analyzer' },
+          content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
+          headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+          breadcrumbs: { type: 'text' },
+          topics: { type: 'text' },
+          popularity: { type: 'float' },
         },
-        content: { type: 'text', analyzer: 'text_analyzer' },
-        headings: { type: 'text' },
-        breadcrumbs: { type: 'text' },
-        topics: { type: 'text' },
-        popularity: { type: 'float' },
       },
+      settings,
     },
-    settings,
   })
 
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, topics } = doc
+    const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
       title,
-      title_autocomplete: title,
-      content: escapeHTML(content),
+      title_explicit: title,
+      content: contentEscaped,
+      content_explicit: contentEscaped,
       breadcrumbs,
       headings,
+      headings_explicit: headings,
       topics: topics.filter(Boolean),
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular
@@ -270,7 +285,7 @@ async function indexVersion(
     return [{ index: { _index: thisAlias } }, record]
   })
 
-  const bulkResponse = await client.bulk({ refresh: true, operations })
+  const bulkResponse = await client.bulk({ refresh: true, body: operations })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -282,7 +297,9 @@ async function indexVersion(
     throw new Error('Bulk errors happened.')
   }
 
-  const { count } = await client.count({ index: thisAlias })
+  const {
+    body: { count },
+  } = await client.count({ index: thisAlias })
   console.log(`Documents now in ${chalk.bold(thisAlias)}: ${chalk.bold(count.toLocaleString())}`)
 
   // To perform an atomic operation that creates the new alias and removes
@@ -301,7 +318,8 @@ async function indexVersion(
   ]
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
-  const indices = await client.cat.indices({ format: 'json' })
+  // const indices = await client.cat.indices({ format: 'json' })
+  const { body: indices } = await client.cat.indices({ format: 'json' })
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {
       aliasUpdates.push({ remove_index: { index: index.index } })

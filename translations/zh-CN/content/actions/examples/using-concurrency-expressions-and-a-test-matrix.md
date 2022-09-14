@@ -1,6 +1,6 @@
 ---
 title: 使用并发、表达式和测试矩阵
-shortTitle: 使用并发、表达式和测试矩阵
+shortTitle: 'Using concurrency, expressions, and a test matrix'
 intro: '如何使用高级 {% data variables.product.prodname_actions %} 功能进行持续集成 (CI)。'
 versions:
   fpt: '*'
@@ -10,40 +10,34 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: f4edac59fdbcc8f8825a51e25b737b94b17128b0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147496578'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 示例概述
 
-{% data reusables.actions.example-workflow-intro-ci %} 触发此工作流程时，它将使用具有 `npm test` 的测试组合矩阵来测试代码。
+{% data reusables.actions.example-workflow-intro-ci %}触发此工作流时，它将使用 `npm test` 的测试组合矩阵来测试代码。
 
 {% data reusables.actions.example-diagram-intro %}
 
-![工作流程步骤概览图](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![工作流步骤概述图](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
 ## 此示例中使用的功能
 
 {% data reusables.actions.example-table-intro %}
 
-| **功能** | **实现** |
-| ------ | ------ |
-|        |        |
-{% data reusables.actions.workflow-dispatch-table-entry %}
-{% data reusables.actions.pull-request-table-entry %}
-{% data reusables.actions.cron-table-entry %}
-{% data reusables.actions.permissions-table-entry %}
-{% data reusables.actions.concurrency-table-entry %}
-|在不同的运行器上运行作业，具体取决于存储库：| [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
-{% data reusables.actions.if-conditions-table-entry %}
-|使用矩阵创建不同的测试配置：| [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
-{% data reusables.actions.checkout-action-table-entry %}
-{% data reusables.actions.setup-node-table-entry %}
-| 缓存依赖项：| [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | 在运行器上运行测试：| `npm test`|
+| **功能**  | **实现** |
+| --- | --- |
+{% data reusables.actions.workflow-dispatch-table-entry %} {% data reusables.actions.pull-request-table-entry %} {% data reusables.actions.cron-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.concurrency-table-entry %} | 根据存储库的不同，在不同的运行器上运行作业： | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)| {% data reusables.actions.if-conditions-table-entry %} | 使用矩阵创建不同的测试配置： | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)| {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | 缓存依赖项：| [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | 在运行器上运行测试：| `npm test`|
 
-## 示例工作流程
+## 示例工作流
 
-{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml)。
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -213,13 +207,13 @@ jobs:
 
 ## 了解示例
 
- {% data reusables.actions.example-explanation-table-intro %}
+ {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>代码</b></th>
-    <th style="width:40%"><b>说明</b></th>
+    <th style="width:40%"><b>解释</b></th>
   </tr>
 </thead>
 <tbody>
@@ -244,7 +238,7 @@ on:
 </td>
 <td>
 
-“on”关键字允许您定义在工作流程运行时触发的事件。 您可以在此处定义多个事件。 更多信息请参阅“[触发工作流程](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)”。
+通过 `on` 关键字，可以定义运行工作流时触发的事件。 可在此处定义多个事件。 有关详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)”。
 </td>
 </tr>
 <tr>
@@ -256,7 +250,7 @@ on:
 </td>
 <td>
 
-如果您希望能够在 UI 中手动运行此工作流程，请添加“workflow_dispatch”事件。 更多信息请参阅 [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)。
+如果要在 UI 中手动运行此工作流，请添加 `workflow_dispatch` 事件。 有关详细信息，请参阅 [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)。
 </td>
 </tr>
 <tr>
@@ -268,7 +262,7 @@ on:
 </td>
 <td>
 
-添加“pull_request”事件，以便每次创建或更新拉取请求时工作流程自动运行。 更多信息请参阅 [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)。
+添加 `pull_request` 事件，以便每次创建或更新拉取请求时，工作流都会自动运行。 有关详细信息，请参阅 [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)。
 </td>
 </tr>
 <tr>
@@ -282,7 +276,7 @@ on:
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. 更多信息请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
+添加 `push` 事件，以便每次将提交推送到匹配筛选器 `main` 的分支时，工作流都会自动运行。 有关详细信息，请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
 </td>
 </tr>
 <tr>
@@ -296,7 +290,7 @@ permissions:
 </td>
 <td>
 
-修改授予“GITHUB_TOKEN”的默认权限。 这将因工作流程的需求而异。 更多信息请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
+修改授予 `GITHUB_TOKEN` 的默认权限。 这将因工作流的需求而异。 有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
 </td>
 </tr>
 <tr>
@@ -310,7 +304,7 @@ concurrency:
 </td>
 <td>
 
-为特定事件创建并发组，并使用“||' 运算符来定义回退值。 更多信息请参阅“[使用并发](/actions/using-jobs/using-concurrency)”。
+为特定事件创建并发组，并使用 `||` 运算符定义回退值。 有关详细信息，请参阅“[使用并发](/actions/using-jobs/using-concurrency)”。
 </td>
 </tr>
 <tr>
@@ -322,7 +316,7 @@ concurrency:
 </td>
 <td>
 
-取消同一并发组中任何当前正在运行的作业或工作流程。
+取消同一并发组中任何当前正在运行的作业或工作流。
 </td>
 </tr>
 <tr>
@@ -334,7 +328,7 @@ jobs:
 </td>
 <td>
 
-将工作流程文件中运行的所有作业组合在一起。
+将工作流文件中运行的所有作业组合在一起。
 </td>
 </tr>
 <tr>
@@ -346,7 +340,7 @@ jobs:
 </td>
 <td>
 
-定义 ID 为“test”的作业，该作业存储在“jobs”键中。
+定义 ID 为 `test` 的作业，该作业存储在 `jobs` 键中。
 </td>
 </tr>
 <tr>
@@ -358,7 +352,7 @@ jobs:
 </td>
 <td>
 
-将作业配置为在 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管运行器上运行，具体取决于运行工作流程的存储库。 在此示例中，如果存储库名为“docs-internal”并且位于“github”组织内，则作业将在自托管运行器上运行。 如果存储库与此路径不匹配，则它将在 {% data variables.product.prodname_dotcom %} 托管的“ubuntu-latest”运行器上运行。 有关这些选项的更多信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”。
+根据运行工作流的存储库，将作业配置为在 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管运行器上运行。 在此示例中，如果存储库名为 `docs-internal` 且位于 `github` 组织内，则作业将在自托管运行器上运行。 如果存储库与此路径不匹配，则其会在由 {% data variables.product.prodname_dotcom %} 托管的 `ubuntu-latest` 运行器上运行。 有关这些选项的详细信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”。
 </td>
 </tr>
 <tr>
@@ -370,7 +364,7 @@ jobs:
 </td>
 <td>
 
-设置在自动取消作业之前让作业运行的最大分钟数。 更多信息请参阅 [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)。
+设置作业在自动取消之前运行的最大分钟数。 有关详细信息，请参阅 [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)。
 </td>
 </tr>
 <tr>
@@ -381,7 +375,7 @@ jobs:
 ```
 </td>
 <td>
-  本节定义作业的生成矩阵。
+  本部分定义作业的生成矩阵。
 </td>
 </tr>
 <tr>
@@ -393,7 +387,7 @@ jobs:
 </td>
 <td>
 
-将“fail-fast”设置为“false”可防止 {% data variables.product.prodname_dotcom %} 在任何矩阵作业失败时取消所有正在进行的作业。
+将 `fail-fast` 设置为 `false` 可以防止 {% data variables.product.prodname_dotcom %} 在矩阵作业失败时取消所有正在进行的作业。
 </td>
 </tr>
 <tr>
@@ -416,7 +410,7 @@ jobs:
 </td>
 <td>
 
-创建一个名为“test-group”的矩阵，其中包含一个测试组数组。 这些值匹配将由“npm test”运行的测试组名称。
+创建名为 `test-group` 的矩阵，其中包含测试组数组。 这些值与将由 `npm test` 运行的测试组的名称匹配。
 </td>
 </tr>
 <tr>
@@ -428,7 +422,7 @@ jobs:
 </td>
 <td>
 
-组合将作为“test”作业一部分运行的所有步骤。 工作流程中的每个作业都有自己的“steps”部分。
+将作为 `test` 作业一部分运行的所有步骤组合在一起。 工作流中的每个作业都有其自己的 `steps` 部分。
 </td>
 </tr>
 <tr>
@@ -444,7 +438,7 @@ jobs:
 </td>
 <td>
 
-“uses”关键字告诉作业检索名为“actions/checkout”的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。 使用“with”键为操作提供了一些额外的选项。
+`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。 使用 `with` 键为操作提供了一些额外的选项。
 </td>
 </tr>
 <tr>
@@ -484,7 +478,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是“github/docs-internal”存储库，则此步骤使用“actions/github-script”操作来运行脚本以检查是否存在名为“docs-early-access”的分支。
+如果当前存储库是 `github/docs-internal` 存储库，此步骤将使用 `actions/github-script` 操作运行脚本，检查是否存在名为 `docs-early-access` 的分支。
 </td>
 </tr>
 <tr>
@@ -503,7 +497,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是“github/docs-internal”存储库，则此步骤将从上一步中标识的“github/docs-early-access”中签出分支。
+如果当前存储库是 `github/docs-internal` 存储库，此步骤将从上一步中标识的 `github/docs-early-access` 签出分支。
 </tr>
 <tr>
 <td>
@@ -520,7 +514,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是“github/docs-internal”存储库，则此步骤使用“run”关键字执行shell命令，以将“docs-early-access”存储库的文件夹移动到主存储库的文件夹中。
+如果当前存储库是 `github/docs-internal` 存储库，则此步骤将使用 `run` 关键字执行 shell 命令，将 `docs-early-access` 存储库的文件夹移动到主存储库的文件夹中。
 </td>
 </tr>
 <tr>
@@ -533,7 +527,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行命令以从存储库中签出 LFS 对象。
+此步骤运行一个命令，从存储库签出 LFS 对象。
 </td>
 </tr>
 <tr>
@@ -552,7 +546,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用“trilom/file-changes-action”操作来收集在拉取请求中更改的文件，以便可以在下一步中分析它们。 此示例使用 'a6ca26c14274c33b15e6499323aac178af06ad4b' SHA固定到操作的特定版本。
+此步骤使用 `trilom/file-changes-action` 操作收集拉取请求中更改的文件，以便在下一步中分析它们。 此示例使用 `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA 固定到操作的特定版本。
 </td>
 </tr>
 <tr>
@@ -566,7 +560,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行 shell 命令，以使用上一步的输出来创建文件，其中包含在拉取请求中更改的文件列表。
+此步骤运行 shell 命令，该命令使用上一步的输出创建文件，其中包含在拉取请求中更改的文件列表。
 </td>
 </tr>
 <tr>
@@ -582,7 +576,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用“actions/setup-node”操作在运行器上安装指定版本的“node”软件包，这使您可以访问“npm”命令。
+此步骤使用 `actions/setup-node` 操作在运行器上安装指定版本的 `node` 软件包，以便你可访问 `npm` 命令。
 </td>
 </tr>
 <tr>
@@ -611,7 +605,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用“actions/cache”操作来缓存 Next.js 构建，以便工作流程尝试检索构建的缓存，而不是每次都从头开始重新构建。 更多信息请参阅“[缓存依赖关系以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
+此步骤使用 `actions/cache` 操作来缓存 Next.js 生成，以便工作流将尝试检索生成的缓存，而不是每次都从头重新生成它。 有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
 </td>
 </tr>
 <tr>
@@ -624,7 +618,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行构建脚本。
+此步骤运行生成脚本。
 </td>
 </tr>
 <tr>
@@ -640,7 +634,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用“npm test”运行测试，并且测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。 它使用“DIFF_FILE”环境变量来了解哪些文件已更改，并将“CHANGELOG_CACHE_FILE_PATH”环境变量用于更改日志缓存文件。
+此步骤使用 `npm test` 运行测试，测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。 它使用 `DIFF_FILE` 环境变量来识别已更改的文件，并将 `CHANGELOG_CACHE_FILE_PATH` 环境变量用于 changelog 缓存文件。
 </td>
 </tr>
 </tbody>

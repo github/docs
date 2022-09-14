@@ -12,6 +12,11 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 6c4519222ce356e2b205b66f898a096ebacf8d9c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147682648'
 ---
-
-Hay dos versiones estables de la API de GitHub: la [API de REST](/rest) y la [API de GraphQL](/graphql).
+Hay dos versiones estables de la API de GitHub: la [API REST](/rest) y [GraphQL API](/graphql).

@@ -1,6 +1,6 @@
 ---
-title: Uso de SSH a través del puerto HTTPS
-intro: 'Algunas veces, los firewalls se niegan a permitir conexiones SSH por completo.  Si el utilizar el [clonado de HTTPS con almacenamiento de credenciales en el caché](/github/getting-started-with-github/caching-your-github-credentials-in-git) no es una opción, puedes intentar clonar utilizando una conexión SSH que hayas hecho a través del puerto HTTPS.  La mayoría de las reglas del firewall deberían permitir esto, pero los servidores proxy pueden interferir.'
+title: Utilizar SSH a través del puerto HTTPS
+intro: 'Algunas veces, los firewalls se niegan a permitir conexiones SSH por completo.  Si el uso de [clonación HTTPS con almacenamiento en caché de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git) no es una opción, puedes intentar clonar usando una conexión SSH hecha a través del puerto HTTPS.  La mayoría de las reglas del firewall deberían permitir esto, pero los servidores proxy pueden interferir.'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -10,12 +10,17 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Utilizar SSH por un puerto HTTPS
+shortTitle: Use SSH over HTTPS port
+ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883405'
 ---
-
 {% tip %}
 
-**Usuarios de {% data variables.product.prodname_ghe_server %}**: Actualmente no hay compatibilidad para acceder a {% data variables.product.prodname_ghe_server %} por SSH mediante el puerto HTTPS.
+**Usuarios de {% data variables.product.prodname_ghe_server %}** : actualmente no se admite el acceso a {% data variables.product.prodname_ghe_server %} por SSH mediante el puerto HTTPS.
 
 {% endtip %}
 
@@ -27,13 +32,13 @@ $ ssh -T -p 443 git@ssh.github.com
 > provide shell access.
 ```
 
-Si eso funcionó, ¡fantástico! De lo contrario, puede que debas [seguir nuestra guía de solución de problemas](/articles/error-permission-denied-publickey).
+Si eso funcionó, ¡fantástico! Si no es así, es posible que tenga que [seguir nuestra guía de solución de problemas](/articles/error-permission-denied-publickey).
 
 ## Habilitar conexiones SSH a través de HTTPS
 
-Si puedes ingresar a `git@ssh.{% data variables.command_line.backticks %}` por SSH a través del puerto 443, podrás reemplazar los parámetros SSH para forzar que cualquier conexión a {% data variables.product.product_location %} se ejecute a través de ese servidor y puerto.
+Si puede acceder a `git@ssh.{% data variables.command_line.backticks %}` mediante SSH en el puerto 443, puede reemplazar los valores SSH para forzar que cualquier conexión a {% data variables.product.product_location %} se ejecute mediante ese servidor y ese puerto.
 
-Para ajustar esto en tu archivo de configuración SSH, edita el archivo en `~/.ssh/config` y agrega esta sección:
+Para establecerlo en el archivo de configuración de SSH, edite el archivo en `~/.ssh/config` y agregue esta sección:
 
 ```
 Host {% data variables.command_line.codeblock %}

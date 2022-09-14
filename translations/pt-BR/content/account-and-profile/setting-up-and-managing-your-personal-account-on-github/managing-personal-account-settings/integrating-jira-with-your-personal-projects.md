@@ -1,6 +1,6 @@
 ---
 title: Integrar o Jira com seus projetos pessoais
-intro: 'Você pode integrar o Jira Cloud à sua conta pessoal para digitalizar os commits e pull requests, criando metadados relevantes e hiperlinks em qualquer problema mencionado do Jira.'
+intro: 'É possível integrar o Jira Cloud à sua conta pessoal para analisar commits e solicitações de pull, criando metadados e hyperlinks relevantes em qualquer problema mencionado no Jira.'
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects
@@ -9,21 +9,25 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: '*'
-shortTitle: Integrar o Jira com projetos
+shortTitle: Integrate Jira with projects
+ms.openlocfilehash: bc88d865cd9c1c88caf5498eab330b6f11cd2ec0
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145164589'
 ---
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %}
+1. Clique em **Registrar um novo aplicativo**.
+2. Em **Nome do aplicativo**, digite "Jira".
+3. Em **URL da Home Page**, digite a URL completa para sua instância do Jira.
+4. Na **URL de retorno de chamada de autorização**, digite a URL completa para sua instância do Jira.
+5. Clique em **Registrar aplicativo**.
+![Botão Registrar aplicativo](/assets/images/help/oauth/register-application-button.png)
+8. Em **Aplicativos do desenvolvedor**, anote os valores de "ID do Cliente" e "Segredo do Cliente".
+![ID do Cliente e Segredo do Cliente](/assets/images/help/oauth/client-id-and-secret.png) {% data reusables.user-settings.jira_help_docs %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.oauth_apps %}
-1. Clique em **Register a new application** (Registrar novo aplicativo).
-2. Em **Application name** (Nome do aplicativo), digite "Jira".
-3. Em **Homepage URL** (URL da página inicial), digite a URL completa da sua instância do JIRA.
-4. Em **Authorization callback URL** (URL de revogação de autorização), digite a URL completa da sua instância do JIRA.
-5. Clique em **Register application** (Registrar aplicativo). ![Botão Register application (registrar aplicativo)](/assets/images/help/oauth/register-application-button.png)
-8. Em **Aplicativos do desenvolvedor**, anote os valores "Client ID" (ID do cliente) e "Client Secret" (Chave secreta do cliente). ![Client ID (ID do cliente) e Client Secret (Chave secreta do cliente)](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user-settings.jira_help_docs %}
-
-## Leia mais
+## Leitura adicional
 
 - ["Integrar o Jira com o quadro de projetos da organização"](/articles/integrating-jira-with-your-organization-project-board)
-- <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Conectar o Jira Cloud ao GitHub</a> (documentação Atlassian)
+- <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Conectar o Jira Cloud ao GitHub</a> (documentação do Atlassian)

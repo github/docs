@@ -1,6 +1,6 @@
 ---
-title: Collaboration with Git Large File Storage
-intro: 'With {% data variables.large_files.product_name_short %} enabled, you''ll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. However, a user that doesn''t have {% data variables.large_files.product_name_short %} will experience a different workflow.'
+title: Colaboración con Git Large File Storage
+intro: 'Con {% data variables.large_files.product_name_short %} habilitado, podrás extraer, modificar y subir archivos de gran tamaño del mismo modo que lo harías con cualquier archivo que administre Git. Sin embargo, un usuario que no tiene {% data variables.large_files.product_name_short %} experimentará un flujo de trabajo diferente.'
 redirect_from:
   - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
@@ -12,35 +12,41 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Collaboration
+ms.openlocfilehash: 4589487059e2949da64ebf40e8a602703fed2c01
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136512'
 ---
-If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
+Si los colaboradores en tu repositorio no tienen {% data variables.large_files.product_name_short %} instalado, no tendrán acceso al archivo de gran tamaño original. Si intentan clonar tu repositorio, solo extraerán los archivos punteros, y no tendrán acceso a los datos trues.
 
 {% tip %}
 
-**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+**Sugerencia**: Para ayudar a los usuarios que no tengan {% data variables.large_files.product_name_short %} habilitado, se recomienda establecer pautas para los colaboradores del repositorio que describan la forma de trabajar con archivos de gran tamaño. Por ejemplo, puede pedir a los colaboradores que no modifiquen archivos grandes o que carguen los cambios en un servicio de uso compartido de archivos, como [Dropbox](http://www.dropbox.com/) o <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para más información, vea "[Establecimiento de instrucciones para los colaboradores del repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 {% endtip %}
 
-## Viewing large files in pull requests
+## Ver archivos de gran tamaño en solicitudes de extracción
 
-{% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
+{% data variables.product.product_name %} no representa {% data variables.large_files.product_name_short %} objectos en solicitudes de extracción. Únicamente se muestra el archivo de puntero:
 
-![Sample PR for large files](/assets/images/help/large_files/large_files_pr.png)
+![Ejemplo de PR para archivos de gran tamaño](/assets/images/help/large_files/large_files_pr.png)
 
-For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
+Para obtener más información sobre los archivos puntero, vea "[Acerca de {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
+Para ver los cambios que se realizaron en los archivos grandes, verifica localmente la solicitud de extracción para revisar la diferencia. Para más información, vea "[Extracción del repositorio de las solicitudes de incorporación de cambios localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
 
 {% ifversion fpt or ghec %}
 
-## Pushing large files to forks
+## Subir archivos de gran tamaño a bifurcaciones
 
-Pushing large files to forks of a repository count against the parent repository's bandwidth and storage quotas, rather than the quotas of the fork owner.
+La subida de archivos de gran tamaño cuenta para el ancho de banda de un repositorio padre y las cuotas de almacenamiento, en lugar de hacerlo para las cuotas del propietario de la bifurcación.
 
-You can push {% data variables.large_files.product_name_short %} objects to public forks if the repository network already has {% data variables.large_files.product_name_short %} objects or you have write access to the root of the repository network.
+Puedes subir {% data variables.large_files.product_name_short %} objetos a las bifurcaciones públicas si la red del repositorio ya tiene {% data variables.large_files.product_name_short %} objetos o si tienes acceso de escritura a la raíz de la red del repositorio.
 
 {% endif %}
 
-## Further reading
+## Información adicional
 
-- "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+- "[Duplicación de un repositorio con archivos de almacenamiento de archivos grandes de Git](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

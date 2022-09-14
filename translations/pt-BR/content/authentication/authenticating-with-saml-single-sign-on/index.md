@@ -16,6 +16,12 @@ children:
   - /authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /viewing-and-managing-your-active-saml-sessions
-shortTitle: Efetuar a autenticação com SAML
+shortTitle: Authenticate with SAML
+ms.openlocfilehash: d4d193e64deb534ae5ee7d395d78cb5fa810590b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145094835'
 ---
 

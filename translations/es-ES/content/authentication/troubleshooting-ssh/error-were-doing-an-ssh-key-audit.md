@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Auditoría de llave SSH
+shortTitle: SSH key audit
+ms.openlocfilehash: 8683f5506fc2a026c11f22f2086de2308d096906
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091729'
 ---
-
 Cuando uses una clave sin verificar para realizar operaciones Git, se te indicará que debes realizar una auditoría de tus claves SSH.
 
 ```shell
@@ -28,4 +33,4 @@ fatal: could not read from remote repository
 ```
 ## Resolver el problema
 
-Para resolverlo, necesitas [revisar tus claves SSH](/articles/reviewing-your-ssh-keys) y rechazar o aprobar la clave sin verificar. Al hacer clic en el mensaje de error en el enlace de la URL, irás a la página de Configuración de SSH, donde la clave SSH aparece destacada en la lista de claves SSH.
+Para corregirlo, debe [revisar las claves SSH](/articles/reviewing-your-ssh-keys) y rechazar o aprobar la clave no comprobada. Al hacer clic en el mensaje de error en el enlace de la URL, irás a la página de Configuración de SSH, donde la clave SSH aparece destacada en la lista de claves SSH.

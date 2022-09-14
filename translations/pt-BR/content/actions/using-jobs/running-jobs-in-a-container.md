@@ -1,6 +1,6 @@
 ---
 title: Executar trabalhos em um contêiner
-shortTitle: Executar trabalhos em um contêiner
+shortTitle: Running jobs in a container
 intro: Use um contêiner para executar as etapas de um trabalho.
 versions:
   fpt: '*'
@@ -8,12 +8,16 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 1ccae14ba6d242bd05dd3c8375375ef83b6c01cf
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145096057'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Visão Geral
+## Visão geral
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 

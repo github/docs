@@ -1,7 +1,7 @@
 ---
-title: 管理预构建
-shortTitle: 管理预构建
-intro: 您可以查看、修改和删除存储库的预构建配置。
+title: 管理预生成
+shortTitle: Manage prebuilds
+intro: 你可以查看、修改和删除存储库的预生成配置。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,90 +10,95 @@ topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5257419e4c2f3750cfb6b2c6d5e115d29b4b4342
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147548086'
 ---
+## 检查、更改和删除预生成配置
 
-## 检查、更改和删除预构建配置
+为存储库配置的预生成是使用 {% data variables.product.prodname_actions %} 工作流（由 {% data variables.product.prodname_github_codespaces %} 服务管理）创建和更新的。 
 
-您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_github_codespaces %} 服务管理。
+根据预生成配置中的设置，更新预生成的工作流可能会由以下事件触发：
 
-Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
-
-* 创建或更新预构建配置
-* 将提交或拉取请求推送到配置为具有预构建的分支
+* 创建或更新预生成配置
+* 将提交或拉取请求推送到配置为具有预生成的分支
 * 更改任何开发容器配置文件
-* 在预构建配置中定义的计划
-* 手动触发工作流程
+* 在预生成配置中定义的计划
+* 手动触发工作流
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
+预生成配置中的设置确定哪些事件会自动触发预生成的更新。 有关详细信息，请参阅“[配置预生成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。 
 
-对存储库具有管理员访问权限的人员可以检查预构建、编辑和删除预构建配置的进度。
+具有存储库管理员访问权限的人员可以检查预生成的进度以及编辑和删除预生成配置。 
 
-### 查看预构建的进度
-您可以查看在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上设置的每个预构建配置的最新工作流程运行当前状态。 例如，“正在运行”或“上次在 1 小时前运行”。
+### 查看预生成的进度
+可以在存储库设置的 {% data variables.product.prodname_codespaces %} 页上查看所设置的每个预生成配置的最新工作流运行的当前状态。 例如，“当前正在运行”或“1 小时前最后一次运行”。
 
-要查看最新预构建工作流程运行的日志输出，请单击 **See output（查看输出）**。
+若要查看最新预生成工作流运行的日志输出，请单击“查看输出”。
 
-![“查看输出”按钮](/assets/images/help/codespaces/prebuilds-see-output.png)
+![“查看输出”按钮](/assets/images/help/codespaces/prebuilds-see-output.png) 
 
-这将在 **Actions（操作）**选项卡中显示最近运行的工作流程的输出。
+这会在“操作”选项卡中显示工作流的最近一次运行的输出。
 
-![预构建工作流程输出](/assets/images/help/codespaces/prebuilds-log-output.png)
+![预生成工作流输出](/assets/images/help/codespaces/prebuilds-log-output.png) 
 
-或者，要查看与指定分支关联的所有预构建工作流程运行，请单击省略号按钮，然后从下拉菜单中选择 **View runs（查看运行）**。
+或者，若要查看与指定分支关联的所有预生成工作流运行，请单击省略号按钮，然后从下拉菜单中选择“查看运行”。
 
-![下拉菜单中的“查看运行”选项](/assets/images/help/codespaces/prebuilds-view-runs.png)
+![下拉菜单中的“查看运行”选项](/assets/images/help/codespaces/prebuilds-view-runs.png) 
 
-这将显示关联分支的预构建的工作流程运行历史记录。
+这将显示关联分支的预生成工作流运行历史记录。
 
-![工作流程运行历史记录](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
+![工作流运行历史记录](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
 
-### 编辑预构建配置
+### 编辑预生成配置
 
-1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要编辑的预构建配置右侧的省略号。
-1. 在下拉菜单中，单击 **Edit（编辑）**。
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要编辑的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“编辑”。
+ 
+   ![下拉菜单中的“编辑”选项](/assets/images/help/codespaces/prebuilds-edit.png) 
 
-   ![下拉菜单中的“编辑”选项](/assets/images/help/codespaces/prebuilds-edit.png)
-
-1. 对预构建配置进行所需的更改，然后单击 **Update（更新）**。
+1. 对预生成配置进行所需的更改，然后单击“更新”。 
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 
-### 禁用预构建配置
+### 禁用预生成配置
 
-To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
+若要暂停更新配置的预生成，可以禁用配置的工作流运行。 为预生成配置禁用工作流运行不会删除以前为该配置创建的任何预生成，因此，codespace 将继续从现有预生成生成。
 
-如果需要调查模板创建失败，则禁用工作流程运行预构建配置非常有用。
+如果需要调查模板创建失败，则禁用预生成配置的工作流运行非常有用。
 
-1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要禁用的预构建配置右侧的省略号。
-1. 在下拉菜单中，单击 **Disable runs（禁用运行）**。
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要禁用的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“禁用运行”。
 
-   ![下拉菜单中的“Disable runs（禁用运行）”选项](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![下拉菜单中的“禁用运行”选项](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. 要确认是否要禁用此配置，请单击“ **OK（确定）**”。
+1. 若确认要禁用此配置，请单击“确定”。
 
-### 删除预构建配置
+### 删除预生成配置
 
-Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. 因此，在删除配置后不久，在创建新代码空间时，由该配置生成的预构建将不再可用。
+删除预生成配置还会删除以前为该配置创建的所有预生成。 因此，删除配置后不久，在创建新 codespace 时，该配置生成的预生成将不再可用。
 
-删除预构建配置后，该配置已排队或已启动的工作流程运行仍将运行。 它们将与以前完成的工作流程运行一起列在工作流程运行历史记录中。
+删除预生成配置后，该配置已排队或启动的工作流仍将运行。 它们将连同以前完成的工作流运行一起列在工作流运行历史记录中。
 
-1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要删除的预构建配置右侧的省略号。
-1. 在下拉菜单中，单击 **Delete（删除）**。
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要删除的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“删除”。
 
    ![下拉菜单中的“删除”选项](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. 单击 **OK（确定）**以确认删除。
+1. 单击“确定”确认删除操作。
 
-### 手动触发预构建
+### 手动触发预生成
 
-手动触发预构建配置的工作流程运行可能很有用。 通常，仅当您要调试预构建配置的工作流程问题时，才需要这样做。
+手动触发预生成配置的工作流运行可能很有用。 通常，只有在调试预生成配置的工作流的问题时，才有必要这样做。
 
-1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要触发其工作流程的预构建配置右侧的省略号。
-1. 在下拉菜单中，单击 **Manually trigger（手触发）**。
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要触发其工作流的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“手动触发”。
 
-   ![下拉菜单中的“手动触发”选项](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
+   ![下拉菜单中的“手动触发”选项](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
 
 ## 延伸阅读
 
-- “[预构建疑难解答](/codespaces/troubleshooting/troubleshooting-prebuilds)”
+- [对预生成进行故障排除](/codespaces/troubleshooting/troubleshooting-prebuilds)

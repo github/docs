@@ -1,6 +1,6 @@
 ---
-title: Managing your cookie preferences for GitHub's enterprise marketing pages
-intro: 'You can control how {% data variables.product.company_short %} uses information from non-essential tracking cookies for enterprise marketing pages.'
+title: 管理 GitHub 企业营销页面的 Cookie 首选项
+intro: '可以控制 {% data variables.product.company_short %} 如何使用来自企业营销页面的非基本跟踪 Cookie 的信息。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,25 +9,30 @@ versions:
 topics:
   - Accounts
 shortTitle: Manage cookie preferences
+ms.openlocfilehash: f2fdbcf8bd552902e7db491aa1b3c6622c5673ab
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760918'
 ---
+## 关于企业营销页面的 Cookie 首选项
 
-## About cookie preferences on enterprise marketing pages
+{% data variables.product.company_short %} 可能会在某些企业营销页面上使用非基本 Cookie。 可以自定义这些 Cookie 的行为方式。 有关 {% data variables.product.company_short %} 如何使用 Cookie 的详细信息，请参阅“[{% data variables.product.company_short %} 隐私声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)”。
 
-{% data variables.product.company_short %} may use non-essential cookies on some enterprise marketing pages. You can customize how these cookies behave. For more information about how {% data variables.product.company_short %} uses cookies, see "[{% data variables.product.company_short %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)."
+## 更改 Cookie 首选项
 
-## Changing your cookie preferences
+可以自定义任何 {% data variables.product.company_short %} 企业营销页面上的非基本 Cookie 的行为方式。
 
-You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.
+1. 导航到要更改 Cookie 首选项的 {% data variables.product.company_short %} 企业营销页面。 例如，导航到 [{% data variables.product.company_short %} 资源](https://resources.github.com/)。
+1. 滚动到页面底部，然后单击“管理 Cookie”。
 
-1. Navigate to the {% data variables.product.company_short %} enterprise marketing page where you'd like to change your cookie preferences. For example, navigate to [{% data variables.product.company_short %} Resources](https://resources.github.com/).
-1. Scroll to the bottom of the page, then click **Manage Cookies**.
+   ![用于管理 Cookie 设置的按钮的屏幕截图。](/assets/images/help/settings/cookie-settings-manage.png)
 
-   ![Screenshot of button to manage cookie settings.](/assets/images/help/settings/cookie-settings-manage.png)
+1. 在“管理 Cookie 首选项”下，若要接受或拒绝各个非基本 Cookie，请单击“接受”或“拒绝” 。
 
-1. Under "Manage cookie preferences," to accept or reject each non-essential cookie, click **Accept** or **Reject**.
+   ![用于为非基本 Cookie 选择“接受”或“拒绝”的单选按钮的屏幕截图。](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
 
-   ![Screenshot of radio buttons to choose "Accept" or "Reject" for non-essential cookies.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
+1. 单击“保存更改”。 
 
-1. 单击 **Save changes（保存更改）**。
-
-   ![Screenshot of button to save changes.](/assets/images/help/settings/cookie-settings-save.png)
+   ![用于保存更改的按钮的屏幕截图。](/assets/images/help/settings/cookie-settings-save.png)

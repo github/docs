@@ -18,6 +18,12 @@ children:
   - /converting-an-owners-team-to-improved-organization-permissions
   - /converting-an-admin-team-to-improved-organization-permissions
   - /migrating-admin-teams-to-improved-organization-permissions
-shortTitle: 迁移到改进的权限
+shortTitle: Migrate to improved permissions
+ms.openlocfilehash: 121219b628dee77ab71894b70dc5a7c34cc72ad9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145101330'
 ---
 

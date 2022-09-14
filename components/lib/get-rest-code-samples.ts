@@ -43,9 +43,14 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
+  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+  if (operation.subcategory === 'management-console') {
+    authHeader = '-u "api_key:your-password"'
+  }
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: Bearer <YOUR-TOKEN>"`,
+    `-H "Accept: ${defaultAcceptHeader}" \\ \n  ${authHeader}`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)

@@ -7,7 +7,7 @@ redirect_from:
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 'With roles, you can control who has access to your accounts and resources on {% data variables.product.product_name %} and the level of access each person has.'
+intro: 'ロールを使うと、{% data variables.product.product_name %} 上のアカウントとリソースにアクセスできるユーザーと、各ユーザーのアクセス レベルを制御することができます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,40 +17,41 @@ topics:
   - Permissions
   - Accounts
 shortTitle: Access permissions
+ms.openlocfilehash: 32db1949cbc110559023f719682caed0319aae9e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145131204'
 ---
+## {% data variables.product.prodname_dotcom %} に対するアクセス許可について
 
-## About access permissions on {% data variables.product.prodname_dotcom %}
+{% data reusables.organizations.about-roles %} 
 
-{% data reusables.organizations.about-roles %}
+ロールは、アカウントの種類によって動作が異なります。 アカウントの詳細については、「[{% data variables.product.prodname_dotcom %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」を参照してください。
 
-Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+## 個人用アカウント
 
-## Personal accounts
-
-A repository owned by a personal account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)."
+個人アカウントが所有するリポジトリには、*リポジトリ所有者* と *コラボレーター* という 2 つのアクセス許可レベルがあります。 詳しい情報については、「[個人アカウントのリポジトリのアクセス許可レベル](/articles/permission-levels-for-a-user-account-repository)」を参照してください。
 
 ## Organization アカウント
 
-Organization のメンバーは、*owner (オーナー)*{% ifversion fpt or ghec %}、*billing manager (支払いマネージャー)*、{% endif %}あるいは*member (メンバー)* ロールを持つことができます。 オーナーは、Organization に対する完全な管理者アクセスを持ち{% ifversion fpt or ghec %}、支払いマネージャーは支払いの設定を管理でき{% endif %}ます。 メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
-- 「[Organizationのロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」
-- [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
-- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
-- [Team について](/articles/about-teams)
+組織のメンバーは、*所有者*{% ifversion fpt or ghec %}、*支払いマネージャー*、{% endif %} または *メンバー* ロールを持つことができます。 所有者は、組織に対する完全な管理者アクセス権を持ち{% ifversion fpt or ghec %}、支払いマネージャーは課金の設定を管理できます{% endif %}。 メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳細については、次を参照してください。
+- 「[組織のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」
+- 「[Organization のプロジェクト ボード権限](/articles/project-board-permissions-for-an-organization)」
+- 「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
+- 「[Team について](/articles/about-teams)」
 
 ## Enterprise アカウント
 
-{% ifversion fpt %}
-{% data reusables.gated-features.enterprise-accounts %}
+{% ifversion fpt %} {% data reusables.gated-features.enterprise-accounts %} 
 
-For more information about permissions for enterprise accounts, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
-{% else %}
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account.{% ifversion ghec or ghes %} *Billing managers* can manage your enterprise account's billing settings.{% endif %} Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. 詳しい情報については、「[Enterprise アカウントのロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」を参照してください。
+Enterprise アカウントのアクセス許可の詳細については、[{% data variables.product.prodname_ghe_cloud %} のドキュメント](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github)を参照してください。
+{% else %}*Enterprise 所有者* は Enterprise アカウントに対して最終的な権限を持ち、Enterprise アカウントのすべてのアクションを実行できます。{% ifversion ghec or ghes %}*支払いマネージャー* は、Enterprise アカウントの課金設定を管理できます。{% endif %}Enterprise アカウントが所有する組織のメンバーと外部コラボレーターは、Enterprise アカウント自体またはその設定にアクセスすることはできませんが、Enterprise アカウントのメンバーは自動的にメンバーになります。 詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
-{% ifversion ghec %}
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new personal accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-{% endif %}
-{% endif %}
+{% ifversion ghec %} エンタープライズが {% data variables.product.prodname_emus %} を使っている場合、メンバーは {% data variables.product.prodname_dotcom %} に新しい個人アカウントとしてプロビジョニングされ、ID プロバイダーによって完全に管理されます。 {% data variables.product.prodname_managed_users %}には、エンタープライズの一部ではないリポジトリへの読み取り専用アクセス権があり、エンタープライズのメンバーではないユーザーと対話することはできません。 エンタープライズが所有する組織内では、{% data variables.product.prodname_managed_users %}には、通常の組織で使用できるのと同じ詳細なアクセス レベルを付与できます。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
+{% endif %} {% endif %}
 
-## 参考リンク
+## 参考資料
 
-- 「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」
+- "[{% data variables.product.prodname_dotcom %} アカウントの種類](/articles/types-of-github-accounts)"

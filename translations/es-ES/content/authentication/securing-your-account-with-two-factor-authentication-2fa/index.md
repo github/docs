@@ -21,6 +21,12 @@ children:
   - /changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
-shortTitle: Asegurar tu cuenta con 2FA
+shortTitle: Secure your account with 2FA
+ms.openlocfilehash: 886af1b083719e4381fcc30fcd4855507d718889
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091762'
 ---
 

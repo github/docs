@@ -12,6 +12,12 @@ children:
   - /about-connections-to-github
   - /updating-github-desktop
   - /uninstalling-github-desktop
-shortTitle: 安装和身份验证
+shortTitle: Install & authenticate
+ms.openlocfilehash: d2d0628d3d3c861e4528845b538cbf44828ad96f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099228'
 ---
 
