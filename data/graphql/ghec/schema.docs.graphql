@@ -33797,6 +33797,11 @@ type PullRequestThread implements Node {
     """
     skip: Int
   ): PullRequestReviewCommentConnection!
+
+  """
+  The side of the diff on which this thread was placed.
+  """
+  diffSide: DiffSide!
   id: ID!
 
   """
@@ -33815,6 +33820,11 @@ type PullRequestThread implements Node {
   isResolved: Boolean!
 
   """
+  The line in the file to which this thread refers
+  """
+  line: Int
+
+  """
   Identifies the pull request associated with this thread.
   """
   pullRequest: PullRequest!
@@ -33828,6 +33838,16 @@ type PullRequestThread implements Node {
   The user who resolved this thread
   """
   resolvedBy: User
+
+  """
+  The side of the diff that the first line of the thread starts on (multi-line only)
+  """
+  startDiffSide: DiffSide
+
+  """
+  The line of the first file diff in the thread.
+  """
+  startLine: Int
 
   """
   Indicates whether the current viewer can reply to this thread.
