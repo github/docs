@@ -1,6 +1,6 @@
 ---
 title: Lanzar y mantener las acciones
-shortTitle: Lanzar y mantener las acciones
+shortTitle: Releasing and maintaining actions
 intro: Puedes aprovechar la automatización y las mejores prácticas de código abierto para lanzar y mantener acciones.
 type: tutorial
 topics:
@@ -12,10 +12,14 @@ versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
+ms.openlocfilehash: 563a63a3af79c75c6912777c1c3f0ecdace6403e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145069954'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
@@ -26,7 +30,7 @@ Después de que creas una acción, querrás seguir lanzando características nue
 * Indica cómo puede utilizarse la acción, idealmente, como parte de un flujo de trabajo más amplio.
 * Señala qué tipo de contribuciones de la comunidad recibes. (Por ejemplo: propuestas, solicitudes de cambios o reportes de vulnerabilidades.)
 
-Para encontrar un ejemplo aplicado de este proceso, consulta [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
+Para obtener un ejemplo aplicado de este proceso, vea [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
 
 ## Desarrollar y lanzar las acciones
 
@@ -50,31 +54,31 @@ Las acciones de JavaScript son repositorios de Node.js con metadatos. Sin embarg
 
 Para apoyar el proceso de desarrollo en la siguiente sección, agrega dos flujos de trabajo de {% data variables.product.prodname_actions %} a tu repositorio:
 
-1. Agrega un flujo de trabajo que se active cuando se suba una confirmación a una rama de característica o a `main` o cuando se cree una solicitud de cambios. Configura el flujo de trabajo para que ejecute tus pruebas de unidad y de integración. Para encontrar un ejemplo, consulta [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Agrega un flujo de trabajo que se active cuando se publique o edite un lanzamiento. Configura el flujo de trabajo para garantizar que cuentes con etiquetas semánticas. Puedes utilizar una acción como [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) para compilar y empaquetar el archivo de metadatos y de JavaScript y subir forzadamente las etiquetas semánticas mayores, menores y de parche. Para un ejemplo, vea [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). Para obtener más información sobre las etiquetas semánticas, consulta la sección "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning)".
+1. Agregue un flujo de trabajo que se desencadene cuando se inserte una confirmación en una rama de características o `main`, o bien cuando se cree una solicitud de incorporación de cambios. Configura el flujo de trabajo para que ejecute tus pruebas de unidad y de integración. Para obtener un ejemplo, vea [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
+2. Agrega un flujo de trabajo que se active cuando se publique o edite un lanzamiento. Configura el flujo de trabajo para garantizar que cuentes con etiquetas semánticas. Puede usar una acción como [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) para compilar y agrupar el archivo de JavaScript y los metadatos, y forzar la inserción de etiquetas semánticas principales, secundarias y de revisión. Para obtener un ejemplo, vea [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). Para más información sobre las etiquetas semánticas, vea "[Acerca del control de versiones semántico](https://docs.npmjs.com/about-semantic-versioning)".
 
 ### Proceso de desarrollo ejemplo
 
 Aquí tienes un proceso de ejemplo que puedes seguir para ejecutar pruebas automáticas, crear un lanzamiento{% ifversion fpt or ghec%} y publicarlo en {% data variables.product.prodname_marketplace %}{% endif %} y publicar tu acción.
 
-1. Realiza trabajo de características en las ramas por flujo de GitHub. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
+1. Realiza trabajo de características en las ramas por flujo de GitHub. Para más información, vea "[Flujo de GitHub](/get-started/quickstart/github-flow)".
    * Cuando se suba una confirmación a la rama de característica, tu flujo de trabajo de pruebas ejecutará las pruebas automáticamente.
 
-2. Crea solicitudes de cambios en la rama `main` para iniciar debates y revisiones, fusionándolas cuando estén listas.
+2. Cree solicitudes de incorporación de cambios en la rama `main` para iniciar debates y revisiones, y realizar la combinación cuando estén listas.
 
    * Cuando se abre una solicitud de cambios, ya sea desde una rama o una bifurcación, tu flujo de trabajo de prueba volverá a ejecutar las pruebas, esta vez, con la confirmación de fusión.
 
-   * **Nota:** por razones de seguridad, los flujos de trabajo se activan mediante `pull_request` desde las bifurcaciones que tienen permisos de `GITHUB_TOKEN` restringidos y no tienen acceso a los secretos. Su tus pruebas u otros flujos de trabajo que se activaron en la solicitud de cambios requieren acceso a secretos, considera utilizar un evento diferente como un [activador manual](/actions/reference/events-that-trigger-workflows#manual-events) o una [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Puedes leer más al respecto [aquí](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **Nota:** Por motivos de seguridad, los flujos de trabajo desencadenados por `pull_request` desde las bifurcaciones tienen permisos `GITHUB_TOKEN` restringidos y no tienen acceso a los secretos. Si las pruebas u otros flujos de trabajo desencadenados tras la solicitud de incorporación de cambios necesitan acceso a los secretos, considere la posibilidad de usar otro evento, como un [desencadenador manual](/actions/reference/events-that-trigger-workflows#manual-events) o [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Obtenga más información [aquí](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-3. Crea un lanzamiento con etiquetado semántico. {% ifversion fpt or ghec %} También puedes publicar en {% data variables.product.prodname_marketplace %} con una casilla de verificación sencilla. {% endif %} Para obtener más información, consulta las secciones "[Adminsitrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} y "[Publicar acciones en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. Crea un lanzamiento con etiquetado semántico. {% ifversion fpt or ghec %} También puedes publicar en {% data variables.product.prodname_marketplace %} con una casilla de verificación sencilla. {% endif %} Para más información, vea "[Administración de versiones en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} y "[Acciones de publicación en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
    * Cuando se publica o edita un lanzamiento, el flujo de trabajo de este se encargará automáticamente de la compilación y ajuste de etiquetas.
 
-   * Te recomendamos crear lanzamientos utilizando etiquetas versionadas semánticamente; como por ejemplo: `v1.1.3`; y mantener las etiquetas mayores (`v1`) y menores (`v1.1`) al corriente con sus confirmaciones más recientes adecuadas. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" y "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning).
+   * Se recomienda crear versiones mediante etiquetas con versiones semánticas (por ejemplo, `v1.1.3`) y mantener las etiquetas principales (`v1`) y secundarias (`v1.1`) actuales en la confirmación adecuada más reciente. Para más información, vea "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" y "[Acerca del control de versiones semántico](https://docs.npmjs.com/about-semantic-versioning)".
 
-### Resultados
+### Results
 
-A diferencia de algunas otras estrategias de administración de lanzamientos automatizadas, este proceso no confirma dependencias en la rama `main` a propósito, sino únicamente em las confirmaciones de lanzamiento etiquetadas. Al hacerlo, animas a los usuarios de tu acción a referenciar las etiquetas nombradas o los `sha` y ayudas a garantizar la seguridad de las solicitudes de cambios de terceros al crear la compilación tú mismo durante un lanzamiento.
+A diferencia de otras estrategias de administración de versiones automatizadas, este proceso no confirma de forma intencionadas las dependencias en la rama `main`, solo en las confirmaciones de versión etiquetadas. Al hacerlo, se anima a los usuarios de la acción a hacer referencia a etiquetas con nombre o `sha`, y ayuda a garantizar la seguridad de las solicitudes de incorporación de cambios de terceros al realizar personalmente la compilación durante una versión.
 
 El utilizar lanzamientos semánticos significa que los usuarios de tus acciones pueden fijar sus flujos de trabajo a una versión y tener por seguro que podrían seguir recibiendo las últimas características constantes y estables, dependiendo de su nivel de confort:
 
@@ -82,12 +86,12 @@ El utilizar lanzamientos semánticos significa que los usuarios de tus acciones 
 
 {% data variables.product.product_name %} proporciona herramientas y guías para ayudarte a trabajar con la comunidad de código abierto. Aquí tienes algunas herramientas que te recomendamos configurar para tener una comunicación bidireccional saludable. Al proporcionar las siguientes señales a la comunidad, motivas a los demás a utilizar, modificar y contribuir con tu acción:
 
-* Mantener un `README` con suficientes ejemplos de uso y lineamientos. Para obtener más información, consulta "[Acerca de los README](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)".
-* Incluye una insignia de estado de flujo de trabajo en tu archivo `README`. Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)". También, visita [shields.io](https://shields.io/) para aprender sobre el resto de las insignias que puedes agregar.{% ifversion fpt or ghec %}
-* Agrega archivos de salud comunitaria como `CODE_OF_CONDUCT`, `CONTRIBUTING` y `SECURITY`. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)".{% endif %}
-* Mantén las propuestas al día utilizando acciones como [actions/stale](https://github.com/actions/stale).
+* Mantenga un `README` con una gran cantidad de ejemplos de uso e instrucciones. Para más información, vea "[Acerca de los archivos Léame](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)".
+* Incluya un distintivo de estado de flujo de trabajo en el archivo `README`. Para más información, vea "[Adición de un distintivo de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)". Visite también [shields.io](https://shields.io/) para obtener información sobre otros distintivos que puede agregar.{% ifversion fpt or ghec %}
+* Agregue archivos de estado de la comunidad como `CODE_OF_CONDUCT`, `CONTRIBUTING` y `SECURITY`. Para más información, vea "[Creación de un archivo de estado de la comunidad predeterminado](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)".{% endif %}
+* Mantenga las incidencias actualizadas mediante acciones como [actions/stale](https://github.com/actions/stale).
 
-## Leer más
+## Información adicional
 
 Los ejemplos donde se emplean patrones similares incluyen:
 

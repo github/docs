@@ -11,9 +11,14 @@ versions:
 topics:
   - 2FA
 shortTitle: Countries supporting SMS
+ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145088277'
 ---
-
-お住まいの国でテキストメッセージによる 2 要素認証がサポートされていない場合、TOTP モバイルアプリケーションにより認証を設定できます。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
+お住まいの国でテキストメッセージによる 2 要素認証がサポートされていない場合、TOTP モバイルアプリケーションにより認証を設定できます。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication)」を参照してください。
 
 ## SMS 認証がサポートされている国
 
@@ -42,13 +47,13 @@ shortTitle: Countries supporting SMS
 <li>カーボベルデ</li>
 <li>ケイマン諸島</li>
 <li>クリスマス島</li>
-<li>ココス</li>
+<li>Cocos</li>
 <li>コンゴ民主共和国</li>
 <li>クロアチア</li>
 <li>キプロス</li>
 <li>チェコ共和国</li>
 <li>デンマーク</li>
-<li>ドミニカ国</li>
+<li>ドミニカ</li>
 <li>ドミニカ共和国</li>
 <li>エクアドル</li>
 <li>赤道ギニア</li>
@@ -67,71 +72,71 @@ shortTitle: Countries supporting SMS
 <li>アイスランド</li>
 <li>インド</li>
 <li>インドネシア</li>
-<li>Ireland</li>
-<li>Israel</li>
-<li>Italy</li>
-<li>Ivory Coast</li>
-<li>Jamaica</li>
-<li>Japan</li>
-<li>Jordan</li>
-<li>Kazakhstan</li>
-<li>Kuwait</li>
-<li>Latvia</li>
-<li>Libya</li>
-<li>Liechtenstein</li>
-<li>Lithuania</li>
-<li>Luxembourg</li>
-<li>Madagascar</li>
-<li>Malawi</li>
-<li>Malaysia</li>
-<li>Maldives</li>
-<li>Mali</li>
-<li>Malta</li>
-<li>Mauritius</li>
-<li>Mexico</li>
-<li>Monaco</li>
-<li>Montenegro</li>
-<li>Montserrat</li>
-<li>Mozambique</li>
-<li>Namibia</li>
-<li>Netherlands</li>
-<li>Netherlands Antilles</li>
-<li>New Zealand</li>
-<li>Nigeria</li>
-<li>Norway</li>
-<li>Philippines</li>
-<li>Poland</li>
-<li>Portugal</li>
-<li>Qatar</li>
-<li>Romania</li>
-<li>Rwanda</li>
-<li>Senegal</li>
-<li>Serbia</li>
-<li>Seychelles</li>
-<li>Singapore</li>
-<li>Slovakia</li>
-<li>Slovenia</li>
-<li>South Africa</li>
-<li>South Korea</li>
-<li>Spain</li>
-<li>Sri Lanka</li>
-<li>St Lucia</li>
-<li>Sudan</li>
-<li>Sweden</li>
-<li>Switzerland</li>
-<li>Taiwan</li>
-<li>Tanzania</li>
-<li>Togo</li>
-<li>Trinidad and Tobago</li>
-<li>Turks and Caicos Islands</li>
-<li>Uganda</li>
-<li>United Arab Emirates</li>
-<li>United Kingdom</li>
-<li>米国</li>
-<li>Uzbekistan</li>
-<li>Venezuela</li>
+<li>アイルランド</li>
+<li>イスラエル</li>
+<li>イタリア</li>
+<li>コートジボワール</li>
+<li>ジャマイカ</li>
+<li>日本</li>
+<li>ヨルダン</li>
+<li>カザフスタン</li>
+<li>クウェート</li>
+<li>ラトビア</li>
+<li>リビア</li>
+<li>リヒテンシュタイン</li>
+<li>リトアニア</li>
+<li>ルクセンブルク</li>
+<li>マダガスカル</li>
+<li>マラウイ</li>
+<li>マレーシア</li>
+<li>モルディブ</li>
+<li>マリ</li>
+<li>マルタ</li>
+<li>モーリシャス</li>
+<li>メキシコ</li>
+<li>モナコ</li>
+<li>モンテネグロ</li>
+<li>モントセラト</li>
+<li>モザンビーク</li>
+<li>ナミビア</li>
+<li>オランダ</li>
+<li>オランダ領アンティル</li>
+<li>ニュージーランド</li>
+<li>ナイジェリア</li>
+<li>ノルウェー</li>
+<li>フィリピン</li>
+<li>ポーランド</li>
+<li>ポルトガル</li>
+<li>カタール</li>
+<li>ルーマニア</li>
+<li>ルワンダ</li>
+<li>セネガル</li>
+<li>セルビア</li>
+<li>セーシェル</li>
+<li>シンガポール</li>
+<li>スロバキア</li>
+<li>スロベニア</li>
+<li>南アフリカ</li>
+<li>韓国</li>
+<li>スペイン</li>
+<li>スリランカ</li>
+<li>セントルシア</li>
+<li>スーダン</li>
+<li>スウェーデン</li>
+<li>スイス</li>
+<li>台湾</li>
+<li>タンザニア</li>
+<li>トーゴ</li>
+<li>トリニダード・トバゴ</li>
+<li>タークス・カイコス諸島</li>
+<li>ウガンダ</li>
+<li>アラブ首長国連邦</li>
+<li>イギリス</li>
+<li>アメリカ合衆国</li>
+<li>ウズベキスタン</li>
+<li>ベネズエラ</li>
 </ul>
 
-## 参考リンク
+## 参考資料
 
-- [2 要素認証について](/articles/about-two-factor-authentication)
+- "[2 要素認証について](/articles/about-two-factor-authentication)"

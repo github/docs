@@ -14,27 +14,29 @@ type: tutorial
 topics:
   - CI
   - Python
-shortTitle: 构建和测试 Python
+shortTitle: Build & test Python
+ms.openlocfilehash: a55aa73ce26f4482411366b0edb66d9b1a305966
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409465'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
 本指南介绍如何构建、测试和发布 Python 包。
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Python 和 PyPy。 您无需安装任何项目！ 有关最新版软件以及 Python 和 PyPy 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有一个带有预装软件的工具缓存，其中包括 Python 和 PyPy。 您无需安装任何项目！ 有关最新版软件以及 Python 和 PyPy 预安装版本的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 {% endif %}
 
-## 基本要求
+## 先决条件
 
-您应该熟悉 YAML 和 {% data variables.product.prodname_actions %} 的语法。 更多信息请参阅“[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
+您应该熟悉 YAML 和 {% data variables.product.prodname_actions %} 的语法。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-建议您对 Python、PyPy 和 pip 有个基本的了解。 更多信息请参阅：
-- [开始使用 Python](https://www.python.org/about/gettingstarted/)
+建议您对 Python、PyPy 和 pip 有个基本的了解。 有关详细信息，请参阅：
+- [Python 入门](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
 - [Pip 包管理器](https://pypi.org/project/pip/)
 
@@ -42,9 +44,9 @@ shortTitle: 构建和测试 Python
 
 ## 使用 Python 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供了一个适用于大多数 Python 项目的 Python 入门工作流程。 本指南包含可用于自定义入门工作流程的示例。 更多信息请参阅 [Python 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)。
+{% data variables.product.prodname_dotcom %} 提供了一个适用于大多数 Python 项目的 Python 入门工作流程。 本指南包含可用于自定义入门工作流程的示例。 有关详细信息，请参阅 [Python 起始工作流](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)。
 
-要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
+若要快速开始，请将起始工作流添加到存储库的 `.github/workflows` 目录。
 
 ```yaml{:copy}
 name: Python package
@@ -83,21 +85,21 @@ jobs:
 
 ## 指定 Python 版本
 
-要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 Python 或 PyPy 版本，请使用 `setup-python` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 Python 或 PyPy，并将必要的二进制文件添加到 `PATH`，这可继续用于作业的其余部分。 如果工具缓存中未安装特定版本的 Python，`setup-python` 操作将从 [`python-versions`](https://github.com/actions/python-versions) 仓库下载并设置适当的版本。
+若要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用 Python 或 PyPy 的预安装版本，请使用 `setup-python` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 Python 或 PyPy，并将必要的二进制文件添加到 `PATH`，这可继续用于作业的其余部分。 如果工具缓存中未预装特定版本的 Python，则 `setup-python` 操作将从 [`python-versions`](https://github.com/actions/python-versions) 存储库下载并设置适当的版本。
 
-使用 `setup-action` 是 Python 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Python 行为一致。 如果使用自托管运行器，则必须安装 Python 并将其添加到 `PATH`。 更多信息请参阅 [`setup-python` 操作](https://github.com/marketplace/actions/setup-python)。
+使用 `setup-python` 是 Python 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Python 行为一致。 如果使用自托管运行器，则必须安装 Python 并将其添加到 `PATH`。 有关详细信息，请参阅 [`setup-python` 操作](https://github.com/marketplace/actions/setup-python)。
 
 下表描述了每个 {% data variables.product.prodname_dotcom %} 托管的运行器中工具缓存的位置。
 
-|                 | Ubuntu                          | Mac                                      | Windows                                    |
-| --------------- | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
-| **工具缓存目录**      | `/opt/hostedtoolcache/*`        | `/Users/runner/hostedtoolcache/*`        | `C:\hostedtoolcache\windows\*`         |
-| **Python 工具缓存** | `/opt/hostedtoolcache/Python/*` | `/Users/runner/hostedtoolcache/Python/*` | `C:\hostedtoolcache\windows\Python\*` |
-| **PyPy 工具缓存**   | `/opt/hostedtoolcache/PyPy/*`   | `/Users/runner/hostedtoolcache/PyPy/*`   | `C:\hostedtoolcache\windows\PyPy\*`   |
+|| Ubuntu | Mac | Windows |
+|------|-------|------|----------|
+|工具缓存目录 |`/opt/hostedtoolcache/*`|`/Users/runner/hostedtoolcache/*`|`C:\hostedtoolcache\windows\*`|
+|Python 工具缓存|`/opt/hostedtoolcache/Python/*`|`/Users/runner/hostedtoolcache/Python/*`|`C:\hostedtoolcache\windows\Python\*`|
+|PyPy 工具缓存|`/opt/hostedtoolcache/PyPy/*`|`/Users/runner/hostedtoolcache/PyPy/*`|`C:\hostedtoolcache\windows\PyPy\*`|
 
-如果您正在使用自托管的运行器，则可以配置运行器使用 `setup-python` 操作来管理您的依赖项。 更多信息请参阅 `setup-python` 自述文件中的 [将 setup-python 与自托管运行器一起使用](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner)。
+如果使用的是自托管运行器，则可以将运行器配置为使用 `setup-python` 操作来管理依赖项。 有关详细信息，请参阅 `setup-python` 自述文件中的[将 setup-python 与自托管运行器结合使用](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner)。
 
-{% data variables.product.prodname_dotcom %} 支持语义版本控制语法。 更多信息请参阅“[使用语义版本控制](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)”和“[语义版本控制规范](https://semver.org/)”。
+{% data variables.product.prodname_dotcom %} 支持语义版本控制语法。 有关详细信息，请参阅“[使用语义版本控制](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)”和“[语义版本控制规范](https://semver.org/)”。
 
 ### 使用多个 Python 版本
 
@@ -157,9 +159,9 @@ jobs:
 
 ### 排除版本
 
-如果指定不可用的 Python 版本，`setup-python` 将会失败，且显示如下错误：`##[error]Version 3.4 with arch x64 not found`。 错误消息包含可用的版本。
+如果指定的 Python 版本不可用，则 `setup-python` 将失败并出现错误，例如：`##[error]Version 3.4 with arch x64 not found`。 错误消息包含可用的版本。
 
-如果存在您不想运行的 Python 配置，您也可以在工作流程中使用 `exclude` 关键字。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)”。
+如果存在不想运行的 Python 配置，也可以在工作流中使用 `exclude` 关键字。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)”。
 
 ```yaml{:copy}
 name: Python package
@@ -183,19 +185,19 @@ jobs:
 
 ### 使用默认 Python 版本
 
-建议使用 `setup-python` 配置工作流程中使用的 Python 版本，因为它有助于使您的依赖关系变得明朗。 如果不使用 `setup-python`，调用 `python` 时将在任何 shell 中使用 `PATH` 中设置的 Python 默认版本。 {% data variables.product.prodname_dotcom %} 托管的运行器之间有不同的 Python 默认版本，这可能导致非预期的更改或使用的版本比预期更旧。
+建议使用 `setup-python` 来配置工作流中使用的 Python 版本，因为它有助于明确依赖项。 如果不使用 `setup-python`，当调用 `python` 时，将在任何 shell 中使用 `PATH` 中设置的默认 Python 版本。 {% data variables.product.prodname_dotcom %} 托管的运行器之间有不同的 Python 默认版本，这可能导致非预期的更改或使用的版本比预期更旧。
 
-| {% data variables.product.prodname_dotcom %} 托管的运行器 | 描述                                                                                                                                                                         |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                              | Ubuntu 运行器有多个版本的系统 Python 安装在 `/usr/bin/python` 和 `/usr/bin/python3` 下。 {% data variables.product.prodname_dotcom %} 除了安装在工具缓存中的版本，还有与 Ubuntu 一起打包的 Python 版本。             |
-| Windows                                             | 不包括工具缓存中的 Python 版本，Windows 未随附同等版本的系统 Python。 为保持与其他运行器一致的行为，并允许 Python 在没有 `setup-python` 操作的情况下开箱即用，{% data variables.product.prodname_dotcom %} 将从工具缓存中添加几个版本到 `PATH`。 |
-| macOS                                               | 除了作为工具缓存一部分的版本外，macOS 运行器还安装了多个版本的系统 Python。 系统 Python 版本位于 `/usr/local/Cellar/python/*` 目录中。                                                                              |
+| {% data variables.product.prodname_dotcom %} 托管的运行器 | 说明 |
+|----|----|
+| Ubuntu | Ubuntu 运行器在 `/usr/bin/python` 和 `/usr/bin/python3` 下安装了多个版本的系统 Python。 {% data variables.product.prodname_dotcom %} 除了安装在工具缓存中的版本，还有与 Ubuntu 一起打包的 Python 版本。 |
+| Windows | 不包括工具缓存中的 Python 版本，Windows 未随附同等版本的系统 Python。 为保持与其他运行器一致的行为，并允许 Python 在没有 `setup-python` 操作的情况下开箱即用，{% data variables.product.prodname_dotcom %} 将从工具缓存中添加几个版本到 `PATH`。|
+| macOS | 除了作为工具缓存一部分的版本外，macOS 运行器还安装了多个版本的系统 Python。 系统 Python 版本位于 `/usr/local/Cellar/python/*` 目录中。 |
 
-## 安装依赖项
+## 安装依赖关系
 
-{% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 软件包安装程序以及 `setuptools` 和 `wheel` 软件包。
+{% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 包安装程序以及 `setuptools` 和 `wheel` 包。
 
-{% ifversion actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
+{% ifversion actions-caching %}还可缓存依赖项来加快工作流的速度。 有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -210,7 +212,7 @@ steps:
 
 ### 要求文件
 
-在更新 `pip` 后，下一步通常是从 *requires.txt* 安装依赖项。 更多信息请参阅 [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file)。
+更新 `pip` 后，下一步通常是从 requirements.txt 安装依赖项。 有关详细信息，请参阅 [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file)。
 
 ```yaml{:copy}
 steps:
@@ -229,7 +231,7 @@ steps:
 
 ### 缓存依赖项
 
-您可以使用 [`setup-python` 操作](https://github.com/actions/setup-python)来缓存和还原依赖项。
+可以使用 [`setup-python` 操作](https://github.com/actions/setup-python)缓存和还原依赖项。
 
 以下示例缓存 pip 的依赖项。
 
@@ -244,9 +246,9 @@ steps:
 - run: pip test
 ```
 
-默认情况下， `setup-python` 操作会在整个存储库中搜索依赖项文件（对于 pip 为`requirements.txt`，对于 pipenv 为 `Pipfile.lock`，对于 poetry 为 `poetry.lock`）。 更多信息请参阅 `setup-python` 自述文件中的“[缓存包依赖项](https://github.com/actions/setup-python#caching-packages-dependencies)”。
+默认情况下，`setup-python` 操作将在整个存储库中搜索依赖项文件（对于 pip，该文件为 `requirements.txt`；对于 pipenv，文件为 `Pipfile.lock`；对于 poetry，则为 `poetry.lock`）。 有关详细信息，请参阅 `setup-python` README 中的“[缓存包依赖项](https://github.com/actions/setup-python#caching-packages-dependencies)”。
 
-如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于上面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 `cache` 操作存储库中的 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
+如果有自定义要求或需要更精细的缓存控制，可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于上面的 Ubuntu 示例，具体取决于您使用的操作系统。 有关详细信息，请参阅 `cache` 操作存储库中的 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
 
 {% endif %}
 
@@ -256,7 +258,7 @@ steps:
 
 ### 使用 pytest 和 pytest-cov 测试
 
-此示例安装或升级 `pytest` 和 `pest-cov`。 然后进行测试并以 JUnit 格式输出，而代码覆盖结果则以 Cobertura 输出。 更多信息请参阅 [JUnit](https://junit.org/junit5/) 和 [Cobertura](https://cobertura.github.io/cobertura/)。
+此示例安装或升级 `pytest` 和 `pytest-cov`。 然后进行测试并以 JUnit 格式输出，而代码覆盖结果则以 Cobertura 输出。 有关详细信息，请参阅 [JUnit](https://junit.org/junit5/) 和 [Cobertura](https://cobertura.github.io/cobertura/)。
 
 ```yaml{:copy}
 steps:
@@ -278,7 +280,7 @@ steps:
 
 ### 使用 Flake8 嵌入代码
 
-下面的示例安装或升级 `flake8` 并用它来嵌入所有文件。 更多信息请参阅 [Flake8](http://flake8.pycqa.org/en/latest/)。
+以下示例安装或升级 `flake8` 并使用它对所有文件执行 lint 操作。 有关详细信息，请参阅 [Flake8](http://flake8.pycqa.org/en/latest/)。
 
 ```yaml{:copy}
 steps:
@@ -298,11 +300,11 @@ steps:
   continue-on-error: true
 ```
 
-嵌入步骤设置了 `continue-on-error: true`。 这可防止在嵌入步骤不成功时工作流程失败。 解决所有嵌入错误后，您可以删除此选项，以便工作流程捕获新问题。
+Lint 分析步骤设置了 `continue-on-error: true`。 这可防止在嵌入步骤不成功时工作流程失败。 解决所有嵌入错误后，您可以删除此选项，以便工作流程捕获新问题。
 
 ### 使用 tox 运行测试
 
-通过 {% data variables.product.prodname_actions %}，您可以使用 tox 运行测试并将工作分散到多个作业。 您需要使用 `-e py` 选项调用 tox，以在 `PATH` 中选择 Python 版本，而不是指定特定版本。 更多信息请参阅 [tox](https://tox.readthedocs.io/en/latest/)。
+通过 {% data variables.product.prodname_actions %}，您可以使用 tox 运行测试并将工作分散到多个作业。 需要使用 `-e py` 选项调用 tox，以选择 `PATH` 中的 Python 版本，而不是指定特定版本。 有关详细信息，请参阅 [tox](https://tox.readthedocs.io/en/latest/)。
 
 ```yaml{:copy}
 name: Python package
@@ -332,9 +334,9 @@ jobs:
 
 ## 将工作流数据打包为构件
 
-您可以在工作流程完成后上传构件以查看。 例如，您可能需要保存日志文件、核心转储、测试结果或屏幕截图。 更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
+您可以在工作流程完成后上传构件以查看。 例如，您可能需要保存日志文件、核心转储、测试结果或屏幕截图。 有关详细信息，请参阅“[使用项目持久保存工作流数据](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
-下面的示例演示如何使用 `upload-artifact` 操作来存档运行 `pytest` 的测试结果。 更多信息请参阅 [`upload-artifact` 操作](https://github.com/actions/upload-artifact)。
+以下示例演示如何使用 `upload-artifact` 操作来存档运行 `pytest` 得到的测试结果。 有关详细信息，请参阅 [`upload-artifact` 操作](https://github.com/actions/upload-artifact)。
 
 ```yaml{:copy}
 name: Python package
@@ -373,9 +375,9 @@ jobs:
 
 ## 发布到包注册表
 
-您可以配置工作流程在 CI 测试通过后将 Python 包发布到包注册表。 此部分展示在您每次[发布版本](/github/administering-a-repository/managing-releases-in-a-repository)时如何使用 {% data variables.product.prodname_actions %} 将包上传到 PyPI。
+您可以配置工作流程在 CI 测试通过后将 Python 包发布到包注册表。 本部分演示如何在每次[发布版本](/github/administering-a-repository/managing-releases-in-a-repository)时使用 {% data variables.product.prodname_actions %} 将包上传到 PyPI。 
 
-在本例中，您将需要创建两个 [PyPI API 令牌](https://pypi.org/help/#apitoken)。 您可以使用机密来存储发布软件包所需的访问令牌或凭据。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+对于此示例，需要创建两个 [PyPI API 令牌](https://pypi.org/help/#apitoken)。 您可以使用机密来存储发布软件包所需的访问令牌或凭据。 有关详细信息，请参阅“[创建和使用已加密的机密](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -410,4 +412,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-有关入门工作流程的更多信息，请参阅 [`python-published`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)。
+有关起始工作流的详细信息，请参阅 [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)。

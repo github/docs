@@ -1,3 +1,5 @@
+// Remove this when removing translations directory B504EDD0
+
 import chalk from 'chalk'
 import stripAnsi from 'strip-ansi'
 import { groupBy } from 'lodash-es'

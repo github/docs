@@ -1,6 +1,6 @@
 ---
-title: Utilizar flujos de trabajo
-shortTitle: Utilizar flujos de trabajo
+title: Uso de flujos de trabajo
+shortTitle: Using workflows
 intro: 'Crear y administrar flujos de trabajo de las {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
@@ -33,5 +33,11 @@ children:
   - /using-starter-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
   - /using-github-cli-in-workflows
+ms.openlocfilehash: 0e9acb10f5c68cdd9fdc1a018a5859ed9a578429
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120953'
 ---
 

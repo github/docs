@@ -1,5 +1,5 @@
 ---
-title: Webhooks
+title: webhooks
 intro: La API de webhooks te permite crear y administrar webhooks para tus repositorios.
 allowTitleToDifferFromFilename: true
 versions:
@@ -16,13 +16,18 @@ children:
   - /repos
 redirect_from:
   - /rest/reference/webhooks
+ms.openlocfilehash: 9216b892bbc19752266cea22d88bec655363ecaf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882347'
 ---
+Los webhooks de repositorio le permiten recibir cargas útiles de `POST` HTTP cuando se producen determinados eventos en un repositorio. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-Los webhooks de repositorio te permiten recibir cargas útiles de `POST` por HTTP cuando ciertos eventos suceden en un repositorio. {% data reusables.webhooks.webhooks-rest-api-links %}
+Si quiere configurar un solo webhook para recibir eventos de todos los repositorios de la organización, vea nuestra documentación de la API para [Webhooks de una organización](/rest/reference/orgs#webhooks).
 
-Si te gustaría configurar un solo webhook para recibir eventos de todos los repositorios de tu organización, consulta nuestra documentación de la API para los [Webhooks de una Organización](/rest/reference/orgs#webhooks).
-
-Adicionalmente a la API de REST, {% data variables.product.prodname_dotcom %} también puede servir como un punto de [PubSubHubbub](#pubsubhubbub) para los repositorios.
+Además de la API REST, {% data variables.product.prodname_dotcom %} también puede servir como centro de [PubSubHubbub](#pubsubhubbub) para los repositorios.
 
 ## Recibir Webhooks
 
@@ -30,33 +35,34 @@ Para que {% data variables.product.product_name %} envíe cargas útiles de webh
 
 ### Encabezados de Webhook
 
-{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) para encontrar más detalles.
+{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Vea [encabezados de webhook](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) para más información.
 
 ## PubSubHubbub
 
-GitHub también puede fungir como un centro de [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) para todos los repositorios. PSHB es un proptocolo simple de publicación/suscripción que permite a los servidores registrarse para recibir actualizaciones de cuándo se actualiza un tema. Las actualizaciones se mandan con una solicitud HTTP de tipo POST a una URL de rellamado. Las URL de tema para las cargas a un repositorio de GitHub están en este formato:
+GitHub también puede servir como un centro de [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) para todos los repositorios. PSHB es un proptocolo simple de publicación/suscripción que permite a los servidores registrarse para recibir actualizaciones de cuándo se actualiza un tema. Las actualizaciones se mandan con una solicitud HTTP de tipo POST a una URL de rellamado.
+Las URL de tema para las cargas a un repositorio de GitHub están en este formato:
 
 `https://github.com/{owner}/{repo}/events/{event}`
 
-El veneto puede ser cualquier evento de webhook disponible. Para obtener más información, consulta la sección "[eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhook-events-and-payloads)".
+El veneto puede ser cualquier evento de webhook disponible. Para más información, vea "[Eventos y cargas de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)".
 
 ### Formato de respuesta
 
-El formato predeterminado es lo que [deberían esperar los ganchos de post-recepción](/post-receive-hooks/): Un cuerpo de JSON que se envía como un parámetro de `payload` en un POST.  También puedes especificar si quieres recibir el cuerpo en JSON sin procesar, ya sea un encabezado de `Accept` o una extensión `.json`.
+El formato predeterminado es lo que [deben esperar los enlaces posteriores a la recepción existentes](/post-receive-hooks/): un cuerpo JSON enviado como parámetro `payload` en una solicitud POST.  También puede especificar que el cuerpo JSON sin formato se reciba con un encabezado `Accept` o una extensión `.json`.
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
 ### URL de Rellamado
 
-Las URL de rellamado puede utilizar el protocolo `http://`.
+Las URL de devolución de llamada pueden usar el protocolo `http://`.
 
     # Send updates to postbin.org
     http://postbin.org/123
 
 ### Suscribirse
 
-La terminal de PubSubHubbub de GitHub es: `{% data variables.product.api_url_code %}/hub`. Una solicitud exitosa con curl se vería así:
+El punto de conexión PubSubHubbub de GitHub es: `{% data variables.product.api_url_code %}/hub`. Una solicitud exitosa con curl se vería así:
 
 ``` shell
 curl -u "user" -i \
@@ -70,9 +76,9 @@ Las solicitudes de PubSubHubbub pueden enviarse varias veces. Si el gancho ya ex
 
 #### Parámetros
 
-| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                      |
-| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `hub.secret`   | `secuencia` | Una llave de secreto compartido que genera una firma de hash del contenido saliente del cuerpo.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |
+Nombre | Tipo | Descripción
+-----|------|--------------
+``hub.mode``|`string` | **Requerido**. `subscribe` o `unsubscribe`.
+``hub.topic``|`string` |**Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe tener el formato `/{owner}/{repo}/events/{event}`.
+``hub.callback``|`string` | La URI para recibir las actualizaciones del tema.
+``hub.secret``|`string` | Una llave de secreto compartido que genera una firma de hash del contenido saliente del cuerpo.  Para comprobar que una inserción procede de GitHub, compara el cuerpo de la solicitud sin formato con el contenido de {% ifversion fpt or ghes or ghec %}`X-Hub-Signature` o `X-Hub-Signature-256` los encabezados{% elsif ghae %}`X-Hub-Signature-256` el encabezado{% endif %}. Puede ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles.

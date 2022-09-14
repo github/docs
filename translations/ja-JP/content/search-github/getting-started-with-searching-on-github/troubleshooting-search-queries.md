@@ -13,8 +13,13 @@ versions:
 topics:
   - GitHub search
 shortTitle: Troubleshoot search queries
+ms.openlocfilehash: 2c90d144401974ebc44f4b80a1509593fe987329
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145118934'
 ---
-
 ## タイムアウトの可能性
 
 いくつかのクエリは、弊社の検索インフラで実行するには計算するうえでコストが高くなります。 皆さんが検索を迅速に行えるように、個別のクエリを実行する時間について制限を設けています。 まれなことですがクエリが制限時間を超えた場合、検索結果はタイムアウトになる前に見つかった全てのマッチを表示し、タイムアウトが起きたことを知らせます。
@@ -26,10 +31,10 @@ shortTitle: Troubleshoot search queries
 {% data variables.product.product_name %} での検索では、クエリの長さに一定の制限があります。
 
 * 256 文字を超えるクエリはサポートされません。
-* 6 つ以上の `AND`、`OR` や `NOT` 演算子を使ったクエリを作成することはできません。
+* 5 つ以上の `AND`、`OR`、`NOT` 演算子を使用してクエリを作成することはできません。
 
 コードの検索など特定の検索形式は、さらなる制限がある可能性があります。 詳しい情報については、これらの検索形式のドキュメントを確認してください。
 
-## 参考リンク
+## 参考資料
 
-- "[GitHub での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- 「[GitHub での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」

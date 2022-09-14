@@ -1,3 +1,11 @@
-You can designate a "team maintainer" to manage team settings and discussions, among other privileges. Para obter mais informações, consulte[Atribuindo a função de mantenedor da equipe a um integrante da equipe](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)".
+---
+ms.openlocfilehash: de00555d66e71e1922077e78b45b3c59e251e85e
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883873"
+---
+Você pode designar um "mantenedor da equipe" para gerenciar as configurações e as discussões da equipe, entre outros privilégios. Para obter mais informações, confira "[Como atribuir a função de mantenedor da equipe a um membro da equipe](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)".
 
-You can manage code review assignments for your team, change team visibility, manage scheduled reminders for your team, and more in your team's settings. For more information, see "[Organizing members into teams](/organizations/organizing-members-into-teams)."
+Você pode gerenciar atribuições de revisão de código para sua equipe, alterar a visibilidade da equipe, gerenciar lembretes agendados para sua equipe, entre outros, nas configurações da equipe. Para obter mais informações, confira "[Como organizar os membros em equipes](/organizations/organizing-members-into-teams)".

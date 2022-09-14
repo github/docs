@@ -1,6 +1,6 @@
 ---
-title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
-intro: Puedes ver y personalizar las gráficas que se crean a partir de los datos de tu proyecto.
+title: 'Acerca de las conclusiones para {% data variables.product.prodname_projects_v2 %}'
+intro: Puedes ver y personalizar gráficos creados a partir de los datos del proyecto.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -11,41 +11,46 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: a90ec5dfb6aa983b8ffe26c84c4ec6ad01b0471d
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147424260'
 ---
-
 {% ifversion fpt %}
 
 {% note %}
 
-**Note:** Historical charts are currently available as a feature preview for organizations using {% data variables.product.prodname_team %} and are generally available for organizations using {% data variables.product.prodname_ghe_cloud %}.
+**Nota:** Los gráficos históricos están disponibles actualmente como versión preliminar de características para las organizaciones que usan {% data variables.product.prodname_team %} y están disponibles con carácter general para las que usan {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 
 {% endif %}
 
- You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. Puedes aplicar filtros al gráfico predeterminado y también crear los tuyos propios. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
+ Puedes usar conclusiones {% data variables.product.prodname_projects_v2 %} a fin de ver, crear y personalizar gráficos que usan como datos de origen los elementos agregados al proyecto. Puedes aplicar filtros al gráfico predeterminado y también crear tus propios gráficos. Al crear un gráfico, se establecen los filtros, el tipo de gráfico y la información mostrada, y el gráfico está disponible para cualquiera que pueda ver el proyecto. Puedes generar dos tipos de gráficos: gráficos actuales y gráficos históricos.
 
- ### About current charts
+ ### Acerca de los gráficos actuales
 
-You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
+Puedes crear gráficos actuales para visualizar los elementos del proyecto. Por ejemplo, puedes crear gráficos para mostrar cuántos elementos se asignan a cada individuo o cuántas incidencias se asignan a cada iteración futura.
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
+También puedes usar filtros para manipular los datos usados para crear el gráfico. Por ejemplo, puedes crear un gráfico em el que se muestre la cantidad de trabajo pendiente, pero limitar esos resultados a etiquetas o usuarios asignados concretos. Para obtener más información, consulta "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 
- ![Captura de pantalla que muestra un gráfico de columnas apilado que muestra tipos de elemento para cada iteración](/assets/images/help/issues/column-chart-example.png)
+ ![Captura de pantalla en la que se muestra un gráfico de columnas apiladas que muestra los tipos de elementos de cada iteración](/assets/images/help/issues/column-chart-example.png)
 
-For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
+Para más información, consulta "[Creación de gráficos](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)".
 
- ### About historical charts
+ ### Acerca de los gráficos históricos
 
- Historical charts are time-based charts that allow you to view your project's trends and progress. You can view the number of items, grouped by status and other fields, over time.
+ Los gráficos históricos son gráficos basados en el tiempo que permiten ver las tendencias y el progreso del proyecto. Puedes ver el número de elementos, agrupados por estado y otros campos, en el tiempo.
+ 
+ El gráfico predeterminado "Grabación" muestra el estado del elemento a lo largo del tiempo, lo que te permite visualizar los patrones de progreso y puntual a lo largo del tiempo. 
 
- El gráfico predeterminado de "Burn up" muestra el estado del elemento contra el tiempo, lo cual te permite visualizar el progreso y notar patrones a lo largo del tiempo.
+![Captura de pantalla en la que se muestra un ejemplo del gráfico de grabación predeterminado para la iteración actual](/assets/images/help/issues/burnup-example.png)
 
-![Captura de pantalla que muestra un ejemplo del gráfico predeterminado de 'burn up' para la iteración actual](/assets/images/help/issues/burnup-example.png)
+ Para crear un gráfico histórico, establece el eje X del gráfico en "Tiempo". Para más información, consulta "[Creación de gráficos](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" y "[Configuración de gráficos](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)".
 
- To create a historical chart, set your chart's X-axis to "Time." For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[Configuring charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+## Información adicional
 
-## Leer más
-
-- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-- "[Disabling insights for {% data variables.product.prodname_projects_v2 %} in your organization](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+- "[Acerca de {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
+- "[Deshabilitación de las conclusiones para {% data variables.product.prodname_projects_v2 %} en la organización](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"

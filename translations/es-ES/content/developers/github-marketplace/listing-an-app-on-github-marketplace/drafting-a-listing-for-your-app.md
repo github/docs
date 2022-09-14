@@ -18,9 +18,14 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Hacer un borrador de un listado de una app
+shortTitle: Draft an app listing
+ms.openlocfilehash: 9dccf5486c446c5cdd9dbef4d36650340116e044
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092137'
 ---
-
 ## Crear un borrador nuevo de un listado de {% data variables.product.prodname_marketplace %}
 
 Solo puedes crear borradores de listados para las apps que sean públicas. Antes de crear tu borrador de listado puedes leer los siguientes lineamientos para escribir y configurar los ajustes en tu listado de {% data variables.product.prodname_marketplace %}:
@@ -31,36 +36,36 @@ Solo puedes crear borradores de listados para las apps que sean públicas. Antes
 
 Para crear un listado de {% data variables.product.prodname_marketplace %}:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-3. En la barra lateral izquierda, da clic ya sea en **Apps de OAuth** o **GitHub Apps** dependiendo del tipo de app que estés agregando a {% data variables.product.prodname_marketplace %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+3. En la barra lateral de la izquierda, haga clic en **OAuth Apps** o **GitHub Apps** en función de la aplicación que esté agregando a {% data variables.product.prodname_marketplace %}.
 
   {% note %}
 
-  **Nota**: También puedes agregar un listado si navegas a https://github.com/marketplace/new, ves tus apps disponibles, y das clic en **Crear un borrador de un lsitado**.
+  **Nota**: También puede agregar un listado; para ello, vaya a https://github.com/marketplace/new, vea las aplicaciones disponibles y haga clic en **Create draft listing**.
 
   {% endnote %}
 
   ![Selección del tipo de app](/assets/images/settings/apps_choose_app.png)
 
-4. Selecciona la app que quisieras agregar a {% data variables.product.prodname_marketplace %}. ![Selección de aplicaciones para el listado de {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
-{% data reusables.user-settings.edit_marketplace_listing %}
-5. Una vez que hayas creado un borrador nuevo de un listado, verás un resumen de las secciones que necesitas visitar antes de que tu listado de {% data variables.product.prodname_marketplace %} esté completo. ![Listado de GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
+4. Selecciona la app que quisieras agregar a {% data variables.product.prodname_marketplace %}.
+![Selección de la aplicación para el listado de {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png) {% data reusables.user-settings.edit_marketplace_listing %}
+5. Una vez que hayas creado un borrador nuevo de un listado, verás un resumen de las secciones que necesitas visitar antes de que tu listado de {% data variables.product.prodname_marketplace %} esté completo.
+![Listado de GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Nota:** En la sección de "información de contacto" de tu listado, te recomendamos utilizar direcciones de correo electrónico individuales en vez de direcciones grupales como support@domain.com. GitHub utilizará estas direcciones de correo electrónico para contactarte con respecto a las actualizaciones a {% data variables.product.prodname_marketplace %} que pudieran afectar tu listado, a los lanzamientos de nuevas características, a las oportunidades de marketing, a los pagos, y a la información sobre conferencias y patrocinios.
+**Nota:** En la sección "Contact info" del listado, se recomienda usar direcciones de correo electrónico individuales, en lugar de direcciones de correo electrónico de grupo como support@domain.com. GitHub utilizará estas direcciones de correo electrónico para contactarte con respecto a las actualizaciones a {% data variables.product.prodname_marketplace %} que pudieran afectar tu listado, a los lanzamientos de nuevas características, a las oportunidades de marketing, a los pagos, y a la información sobre conferencias y patrocinios.
 
 {% endnote %}
 
 ## Editar tu listado
 
-Ya que hayas creado un borrador de listado de {% data variables.product.prodname_marketplace %}, puedes regresar a modificar la información de éste en cualquier momento. Si tu app ya se aprobó y está en {% data variables.product.prodname_marketplace %}, puedes editar la información e imágenes en tu listado, pero no podrás cambiar los planes de precios que ya estén publicados. Consulta la sección "[Configurar el plan de pagos de un listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
+Ya que hayas creado un borrador de listado de {% data variables.product.prodname_marketplace %}, puedes regresar a modificar la información de éste en cualquier momento. Si tu app ya se aprobó y está en {% data variables.product.prodname_marketplace %}, puedes editar la información e imágenes en tu listado, pero no podrás cambiar los planes de precios que ya estén publicados. Consulte "[Configurar un plan de precios para el listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
 
 ## Emitir tu app
 
-Ya que hayas completado tu listado de {% data variables.product.prodname_marketplace %}, puedes emitirlo para su revisión a través de la página **Resumen**. Necesitas leer y aceptar el "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)", y luego puedes dar clic en **Emitir para revisión**. Después de emitir tu app para su revisión te contactará un experto en integraciones con cualquier tipo de información adicional que se requiera para el proceso de integración.
+Una vez completado su listado de {% data variables.product.prodname_marketplace %}, puede enviarlo para su revisión a desde la página **Overview**. Deberá leer y aceptar el contrato del desarrollador de "[{% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/) y, a continuación, hacer clic en **Submit for review**. Después de emitir tu app para su revisión te contactará un experto en integraciones con cualquier tipo de información adicional que se requiera para el proceso de integración.
 
 ## Eliminar un listado de {% data variables.product.prodname_marketplace %}
 

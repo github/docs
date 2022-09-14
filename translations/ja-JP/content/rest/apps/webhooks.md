@@ -1,7 +1,7 @@
 ---
-title: GitHub App webhook
+title: GitHub App Webhook
 allowTitleToDifferFromFilename: true
-shortTitle: webhook
+shortTitle: Webhooks
 intro: ''
 topics:
   - API
@@ -11,8 +11,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 24210c3fb7280b113771cd87f3fe21353f39d64c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145131742'
 ---
+## {% data variables.product.prodname_github_app %} Webhook API について
 
-## {% data variables.product.prodname_github_app %} webhook APIについて
-
-{% data variables.product.prodname_github_app %}のwebhookを使うと、特定のイベントがアプリケーションで生じた際に、HTTPの`POST`ペイロードを受信できます。 {% data reusables.webhooks.webhooks-rest-api-links %}
+{% data variables.product.prodname_github_app %} の Webhook を使用すると、アプリで特定のイベントが発生した場合には必ず HTTP `POST` ペイロードを受け取ることができます。 {% data reusables.webhooks.webhooks-rest-api-links %}

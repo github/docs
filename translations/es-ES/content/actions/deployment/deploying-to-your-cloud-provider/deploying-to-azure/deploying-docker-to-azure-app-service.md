@@ -12,20 +12,24 @@ topics:
   - Containers
   - Docker
   - Azure App Service
+ms.openlocfilehash: bfae92b757e4d3224efc1e94f1f4377a4183e4d2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410359'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
-Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un contenedor de Docker a [Azure App Service](https://azure.microsoft.com/services/app-service/).
+En esta guía se explica cómo usar {% data variables.product.prodname_actions %} para compilar e implementar un contenedor de Docker en [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Nota**: {% data reusables.actions.about-oidc-short-overview %} y "[Configurar OpenID Connect en Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
+**Nota**: {% data reusables.actions.about-oidc-short-overview %} y "[Configuración de OpenID Connect en Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
@@ -37,7 +41,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Crea una app web.
+1. Crear una aplicación web.
 
    Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service:
 
@@ -49,15 +53,15 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
        --deployment-container-image-name nginx:latest
    ```
 
-   En este comando, reemplaza los parámetros con tus propios valores, en donde `MY_WEBAPP_NAME` es un nombre nuevo para la app web.
+   En el comando anterior, reemplace los parámetros con valores propios, donde `MY_WEBAPP_NAME` es un nombre nuevo para la aplicación web.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Configura las credenciales de registro para tu app web.
 
-   Crea un token de acceso personal con los alcances de `repo` y `read:packages`. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+   Cree un token de acceso personal con los ámbitos `repo` y `read:packages`. Para más información, vea "[Creación de un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-   Configura `DOCKER_REGISTRY_SERVER_URL` para `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` para el nombre de usuario u organización de GitHub al que pertenezca el repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` para tu token de acceso personal desde arriba. Esto le dará credenciales a tu app web para que pueda extraer la imagen del contenedor después de que tu flujo de trabajo suba una imagen recién compilada al registro. Puedes hacerlo con el siguiente comando del CLI de Azure:
+   Establezca `DOCKER_REGISTRY_SERVER_URL` en `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` en el nombre de usuario de GitHub o la organización propietaria del repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` en el token de acceso personal anterior. Esto le dará credenciales a tu app web para que pueda extraer la imagen del contenedor después de que tu flujo de trabajo suba una imagen recién compilada al registro. Puedes hacerlo con el siguiente comando del CLI de Azure:
 
    ```shell
     az webapp config appsettings set \
@@ -72,9 +76,9 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un contenedor de Docker a Azure App Service cuando existe una subida a la rama `main`.
+En el siguiente flujo de trabajo de ejemplo se muestra cómo compilar e implementar un contenedor de Docker en Azure App Service cuando se produce una inserción en la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste.
+Asegúrese de establecer `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo en el nombre de la aplicación web que ha creado.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -150,6 +154,6 @@ jobs:
 
 Los siguientes recursos también pueden ser útiles:
 
-* Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
-* La acción que se utilizó para desplegar la app web es la acción oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) de Azure.
-* Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* Para obtener el flujo de trabajo de inicio original, vea [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
+* La acción que se usa para implementar la aplicación web es la acción [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) oficial de Azure.
+* Para obtener más ejemplos de flujos de trabajo de acción de GitHub que se implementan en Azure, vea el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

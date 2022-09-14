@@ -21,8 +21,13 @@ versions:
 topics:
   - Repositories
 shortTitle: Analyze changes
+ms.openlocfilehash: 7b6c9918b5d3de0fbae3b94fb8e90ece694a4076
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132049'
 ---
-
 ## リポジトリ内のコミットを可視化する
 
 コミットグラフには、過去 1 年間にリポジトリに対して行われたすべてのコミット (マージコミットを除く) が表示されます。
@@ -37,11 +42,11 @@ shortTitle: Analyze changes
 
 ### コミットグラフにアクセスする
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. 左サイドバーで [**Commits**] をクリックします。 ![[Commits] タブ](/assets/images/help/graphs/commits_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 左側のサイドバーで、 **[コミット]** をクリックします。
+![[コミット] タブ](/assets/images/help/graphs/commits_tab.png)
 
-## Visualizing additions and deletion to content in a repository
+## リポジトリ内のコンテンツに対する追加と削除を可視化する
 
 コード更新頻度グラフには、リポジトリの履歴における各週のコンテンツの追加と削除が表示されます。
 
@@ -53,6 +58,6 @@ shortTitle: Analyze changes
 
 ### コード更新頻度グラフにアクセスする
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. 左サイドバーで [**Code frequency**] をクリックします。 ![コード更新頻度タブ](/assets/images/help/graphs/code_frequency_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 左側のサイドバーで、 **[コードの更新頻度]** をクリックします。
+![[コードの更新頻度] タブ](/assets/images/help/graphs/code_frequency_tab.png)

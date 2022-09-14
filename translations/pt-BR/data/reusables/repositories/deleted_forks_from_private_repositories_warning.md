@@ -1,11 +1,19 @@
+---
+ms.openlocfilehash: 444e70adced8ef2f4fdc5f91b06a28bba89c898a
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876209"
+---
 {% warning %}
 
-**Warning:**
+**Aviso:**
 
-- If you remove a person’s access to a private repository, any of their forks of that private repository are deleted. Local clones of the private repository are retained. If a team's access to a private repository is revoked or a team with access to a private repository is deleted, and team members do not have access to the repository through another team, private forks of the repository will be deleted.{% ifversion ghes %}
-- When [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync), if you remove a person from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.{% endif %}
-- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- Se você remover o acesso de uma pessoa a um repositório privado, todas as suas bifurcações desse repositório privado serão excluídas. Os clones locais do repositório privado são mantidos. Se o acesso de uma equipe em um repositório privado for revogado ou uma equipe com acesso em um repositório privado for excluída e os membros da equipe não tiverem acesso no repositório por meio de outra equipe, os forks privados do repositório serão excluídos.{% ifversion ghes %}
+- Quando a [Sincronização LDAP estiver habilitada](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync), se você remover uma pessoa de um repositório, ela perderá o acesso, mas os forks dela não serão excluídos. Se a pessoa for adicionada a uma equipe com acesso ao repositório original da organização dentro de três meses, seu acesso às bifurcações será automaticamente restaurado na próxima sincronização.{% endif %}
+- Você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
 
-- People with admin permissions to a private{% ifversion ghes or ghae or ghec %} or internal{% endif %} repository can disallow forking of that repository, and organization owners can disallow forking of any private{% ifversion ghes or ghae or ghec %} or internal{% endif %} repository in an organization. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" and "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+- As pessoas com permissões de administrador para um repositório privado{% ifversion ghes or ghae or ghec %} ou interno{% endif %} podem não permitir a criação de forks desse repositório, e os proprietários da organização podem não permitir a criação de forks de nenhum repositório privado{% ifversion ghes or ghae or ghec %} ou interno{% endif %} em uma organização. Para obter mais informações, confira "[Como gerenciar a política de criação de forks para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" e "[Como gerenciar a política de criação de forks para seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
 
 {% endwarning %}

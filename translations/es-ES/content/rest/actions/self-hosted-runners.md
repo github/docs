@@ -1,6 +1,6 @@
 ---
-title: Ejecutores autoalojados
-intro: 'La API de ejecutores auto-hospedados te permite registrar, ver y borrar a los ejecutores auto-hospedados.'
+title: Ejecutores autohospedados
+intro: 'La API de ejecutores autohospedados te permite registrar, ver, y borrar estos ejecutores.'
 topics:
   - API
 versions:
@@ -8,11 +8,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 5fb3b281aab7120adeef45728ea0e4a16ae389a7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147064383'
 ---
- 
+## Acerca de la API de ejecutores autohospedados
 
-## About the Self-hosted runners API
+La API de ejecutores autohospedados te permite registrar, ver, y borrar estos ejecutores. {% data reusables.actions.about-self-hosted-runners %} Para más información, consulta "[Hospedaje de tus propios ejecutores](/actions/hosting-your-own-runners)".
 
-La API de ejecutores auto-hospedados te permite registrar, ver y borrar a los ejecutores auto-hospedados. {% data reusables.actions.about-self-hosted-runners %} Para obtener más información, consulta "[Alojar tus propios ejecutores](/actions/hosting-your-own-runners)".
-
-La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben contar con acceso administrativo a los repositorios u organizaciones o con el alcance de `manage_runners:enterprise` para empresas si quieren utilizar esta API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} debe tener el permiso `administration` para los repositorios o el permiso `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben tener acceso administrativo a los repositorios u organizaciones, o bien el ámbito `manage_runners:enterprise` para empresas a fin de utilizar esta API.

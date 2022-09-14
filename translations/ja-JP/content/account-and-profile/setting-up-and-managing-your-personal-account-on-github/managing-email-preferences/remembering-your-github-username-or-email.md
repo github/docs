@@ -1,6 +1,6 @@
 ---
 title: 自分の GitHub ユーザ名またはメールアドレスを忘れた場合は
-intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 If you can''t remember the username for your personal account on {% data variables.product.product_name %}, you can try these methods for remembering it.'
+intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 {% data variables.product.product_name %} で自分の個人用アカウントのユーザー名を思い出せない場合は、次の方法を試してみてください。'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email
@@ -16,16 +16,21 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Find your username or email
+ms.openlocfilehash: e65ba973a5ca7865aa642ce5d64f8efa0a996742
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145165318'
 ---
-
 {% mac %}
 
 ## {% data variables.product.prodname_desktop %}ユーザ
 
-1. [**GitHub Desktop**] メニューで、[**Preferences**] をクリックします。
+1. **GitHub Desktop** メニューの **[基本設定]** をクリックします。
 2. [Preferences] ウィンドウで、次のことについて検証します:
-    - {% data variables.product.product_name %}ユーザ名を表示するには [**Accounts**] をクリックします。
-    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{% data variables.product.product_name %} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
+    - 自分の {% data variables.product.product_name %} ユーザー名を表示するには、 **[アカウント]** をクリックします。
+    - Git メールを表示するには、 **[Git]** をクリックします。 このメール アドレスは、[ご自分のプライマリ {% data variables.product.product_name %} メール アドレス](/articles/changing-your-primary-email-address)であるとは限りません。
 
 {% endmac %}
 
@@ -33,21 +38,21 @@ shortTitle: Find your username or email
 
 ## {% data variables.product.prodname_desktop %}ユーザ
 
-1. [**File**] メニューで、[**Options**] をクリックします。
+1. **[ファイル]** メニューの **[オプション]** をクリックします。
 2. [Options] ウィンドウで、次のことについて検証します:
-    - {% data variables.product.product_name %}ユーザ名を表示するには [**Accounts**] をクリックします。
-    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{% data variables.product.product_name %} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
-
+    - 自分の {% data variables.product.product_name %} ユーザー名を表示するには、 **[アカウント]** をクリックします。
+    - Git メールを表示するには、 **[Git]** をクリックします。 このメール アドレスは、[ご自分のプライマリ {% data variables.product.product_name %} メール アドレス](/articles/changing-your-primary-email-address)であるとは限りません。
+  
 {% endwindows %}
 
-## `user.name` 設定からユーザ名を見つける
+## `user.name` の構成で自分のユーザー名を見つける
 
-セットアップ時に、[Git でユーザ名を設定](/github/getting-started-with-github/setting-your-username-in-git)してあることがあります。 その場合は、次の設定で値をレビューします:
+セットアップ中に、[Git で自分のユーザー名を設定](/github/getting-started-with-github/setting-your-username-in-git)している可能性があります。 その場合は、次の設定で値をレビューします:
 
 ```shell
 $ git config user.name
-# 設定を見る
-<em>あなたのユーザ名</em>
+# View the setting
+<em>YOUR_USERNAME</em>
 ```
 
 ## リモートリポジトリの URL からユーザ名を見つける
@@ -56,22 +61,21 @@ $ git config user.name
 
 {% tip %}
 
-**参考**: この方法が使えるのは、元のリポジトリか他の個人のリポジトリの独自のフォークがある場合のみです。 他の個人のリポジトリのクローンを作成した場合、ご自分のではなく、その個人のユーザ名が表示されます。 同様に、Organization リポジトリでは、リモート URL の特定のユーザのではなく Organization の名前が表示されます。
+**ヒント**: この方法が使えるのは、元のリポジトリか他の個人のリポジトリの独自のフォークがある場合のみです。 他の個人のリポジトリのクローンを作成した場合、ご自分のではなく、その個人のユーザ名が表示されます。 同様に、Organization リポジトリでは、リモート URL の特定のユーザのではなく Organization の名前が表示されます。
 
 {% endtip %}
 
 ```shell
-$ cd <em>ご使用のリポジトリ</em>
-# 初期化された Git リポジトリへディレクトリを変更する
+$ cd <em>YOUR_REPOSITORY</em>
+# Change directories to the initialized Git repository
 $ git remote -v
-origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (fetch)
-origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-ご使用のユーザ名は `https://{% data variables.command_line.backticks %}/` の直後にあるものです。
+ユーザー名は `https://{% data variables.command_line.backticks %}/` の直後にあるものです。
 
 {% ifversion fpt or ghec %}
-## 参考リンク
+## 参考資料
 
-- 「[メールアドレスを検証する](/articles/verifying-your-email-address)」
-{% endif %}
+- 「[メール アドレスを検証する](/articles/verifying-your-email-address)」 {% endif %}

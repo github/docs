@@ -1,6 +1,6 @@
 ---
-title: Limite de tasa
-intro: 'With the Rate limit API, you can check the current rate limit status of various REST APIs.'
+title: Límite de frecuencia
+intro: 'Con Rate limit API, puedes verificar el estado de límite de tasa actual de varias API REST.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,24 +11,29 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
+ms.openlocfilehash: 282b7e7bbb947256ccad4950b6a17d8874044d8f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147081052'
 ---
+## Acerca de Rate limit API
 
-## About the Rate limit API
-
-La documentación general de la API de REST describe las [reglas de los límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting). Puedes revisar tu estado actual de límite de tasa en cualquier momento utilizando la API de Límites de Tasa que se describe a continuación.
+En la documentación de información general de la API REST se describen las [reglas de límite de frecuencia](/rest/overview/resources-in-the-rest-api#rate-limiting). Puedes revisar tu estado actual de límite de tasa en cualquier momento utilizando la API de Límites de Tasa que se describe a continuación.
 
 ### Entender el estado de tu límite de tasa
 
-La API de Búsqueda tiene un [límite de tasa personalizado](/rest/reference/search#rate-limit) separado de aquél que rige el resto de la API de REST. La API de GraphQL también tiene un [límite de tasa personalizado](/graphql/overview/resource-limitations#rate-limit) que está separado y se calcula diferente que los límites de tasa de la API de REST.
+Search API tiene un [límite de frecuencia personalizado](/rest/reference/search#rate-limit) independiente del que controla el resto de la API REST. GraphQL API también tiene un [límite de frecuencia personalizado](/graphql/overview/resource-limitations#rate-limit) que es independiente y se calcula de forma diferente a los límites de frecuencia de la API REST.
 
-Es por esto que la respuesta de la API de Límites de Tasa categoriza tu límite de tasa. Debajo de `resources`, verás cuatro objetos:
+Es por esto que la respuesta de la API de Límites de Tasa categoriza tu límite de tasa. En `resources`, verá cuatro objetos:
 
-* El objeto `core` proporciona tu estado de límite de tasa para todos los recursos no relacionados a búsquedas en la API de REST.
+* El objeto `core` proporciona el estado de límite de frecuencia para todos los recursos que no están relacionados con la búsqueda en la API REST.
 
-* El objeto `search` proporciona el estado de tu límite de tasa para la [API de Búsqueda](/rest/reference/search).
+* El objeto `search` proporciona el estado de límite de frecuencia para [Search API](/rest/reference/search).
 
-* El objeto `graphql` proporciona el estado de tu límite de tasa para la [API de GraphQL](/graphql).
+* El objeto `graphql` proporciona el estado de límite de frecuencia para [GraphQL API](/graphql).
 
-* El objeto `integration_manifest` proporciona el estado de tu límite de tasa para la terminal [Conversión de código para el Manifiesto de GitHub App](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
+* El objeto `integration_manifest` proporciona el estado de límite de frecuencia para el punto de conexión de [conversión de código del manifiesto de aplicación de GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-Para obtener más información sobre los encabezados y valores en la respuesta de límite de tasa, consulta la sección "[Recursos en la API de REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)".
+Para más información sobre los encabezados y los valores de la respuesta de límite de frecuencia, vea "[Recursos en la API REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)".

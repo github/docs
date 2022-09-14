@@ -16,10 +16,8 @@ package-lock.json @github/docs-engineering
 package.json @github/docs-engineering
 
 # Localization
-/.github/actions-scripts/create-translation-batch-pr.js @github/docs-engineering
-/.github/workflows/create-translation-batch-pr.yml @github/docs-engineering
-/.github/workflows/crowdin.yml @github/docs-engineering
-/crowdin*.yml @github/docs-engineering
+/.github/actions-scripts/msft-create-translation-batch-pr.js @github/docs-engineering
+/.github/workflows/msft-create-translation-batch-pr.yml @github/docs-engineering
 /translations/ @Octomerger
 
 # Site Policy

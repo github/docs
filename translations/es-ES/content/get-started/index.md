@@ -1,6 +1,6 @@
 ---
-title: Comenzar con GitHub
-shortTitle: Empezar
+title: Introducción a GitHub
+shortTitle: Get started
 intro: 'Aprende cómo comenzar a crear, enviar y mantener software con {% data variables.product.prodname_dotcom %}. Explora nuestros productos, regístrate para una cuenta y conéctate con la comunidad de desarrollo más grande del mundo.'
 redirect_from:
   - /categories/54/articles
@@ -61,5 +61,11 @@ children:
   - /using-git
   - /customizing-your-github-workflow
   - /privacy-on-github
+ms.openlocfilehash: 4178e22c506d32b0736305936b56c4c1ff348357
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580699'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+title: 匿名化された URL について
+intro: '画像または動画を {% data variables.product.product_name %} にアップロードする場合、その画像または動画の URL は情報を追跡できないように変更されます。'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
@@ -13,13 +13,18 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145120006'
 ---
+画像をホストするために、{% data variables.product.product_name %} では、[オープン ソース プロジェクト Camo](https://github.com/atmos/camo) を使用しています。 Camo では、ファイルごとに匿名の URL プロキシを生成し、ブラウザの詳細や関連情報が他のユーザーに対して非表示となるようにします。 URL は、`https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて、さまざまなサブドメインが含まれます。 
 
-画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. URL は `https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて異なるサブドメインがあります。
+また、動画にも匿名化された URL があります。画像の URL と同じ形式ですが、Camo を使用した処理は行いません。 これは、{% data variables.product.prodname_dotcom %} が外部でホストされた動画をサポートしないため、匿名化された URL が {% data variables.product.prodname_dotcom %} によってホストされたアップロード済み動画へのリンクとなるためです。
 
-Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
-
-Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
+匿名化された URL を受け取ったユーザーは、直接であれ、間接であれ、画像や動画を見ることができます。 機密のメディア ファイルを非公開のままにしておくには、Camo を使用するのではなく、認証が必要なプライベート ネットワークまたはサーバーに制限します。
 
 ## Camoでの問題のトラブルシューティング
 
@@ -29,7 +34,7 @@ Anyone who receives your anonymized URL, directly or indirectly, may view your i
 
 {% tip %}
 
-Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
+Windows ユーザーは、Git PowerShell ([{% data variables.product.prodname_desktop %} と併せてインストールされます](https://desktop.github.com/)) を使用するか、[Windows 用の curl](http://curl.haxx.se/download.html) をダウンロードします。
 
 {% endtip %}
 
@@ -37,10 +42,10 @@ Windows users will either need to use the Git PowerShell (which is installed alo
 
 ### 画像が表示されない
 
-If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
+画像がブラウザーに表示されるものの、{% data variables.product.prodname_dotcom %} には表示されない場合、その画像をローカルでリクエストしてみることができます。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. `curl` を使って画像ヘッダをリクエストしてください。
+1. `curl` を使用して、画像ヘッダーをリクエストします。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -50,8 +55,8 @@ If an image is showing up in your browser but not on {% data variables.product.p
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. `Content-Type` の値を確認してください。 ここでは `image/x-png` です。
-4. コンテントタイプは[Camo がサポートするタイプのリスト](https://github.com/atmos/camo/blob/master/mime-types.json)で確認してください。
+3. `Content-Type` の値を確認します。 このケースでは `image/x-png` です。
+4. そのコンテント タイプを、[Camo でサポートされている種類の一覧](https://github.com/atmos/camo/blob/master/mime-types.json)に照らし合わせて確認します。
 
 コンテントタイプが Camo でサポートされていない場合、試せることがいくつかあります:
   * 画像をホストしているサーバーを自分で所有しているなら、画像の適切なコンテントタイプを返すように修正してください。
@@ -63,7 +68,7 @@ If an image is showing up in your browser but not on {% data variables.product.p
 最近変更した画像がブラウザでは表示され、{% data variables.product.prodname_dotcom %}では表示されない場合、その画像のキャッシュをリセットしてみることができます。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. `curl` を使って画像ヘッダをリクエストしてください。
+1. `curl` を使用して、画像ヘッダーをリクエストします。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -73,18 +78,18 @@ If an image is showing up in your browser but not on {% data variables.product.p
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-`Cache-Control`の値を確認してください。 この例では`Cache-Control`はありません。 その場合:
-  * 画像をホストしているサーバを自分で保有しているなら、画像に対する `Cache-Control` に `no-cache` を返すように修正してください。
+`Cache-Control` の値を確認します。 この例には、`Cache-Control` はありません。 そのような場合は、次の処理を行います。
+  * 画像をホストしているサーバーを所有している場合は、画像の `no-cache` の `Cache-Control` を返すように、そのサーバーを修正します。
   * 画像を外部のサービスでホストしているなら、そのサービスのサポートに連絡してください。
 
- `Cache-Control` *が* `no-cache` に設定されている場合は、{% data variables.contact.contact_support %} にお問い合わせいただくか、{% data variables.contact.community_support_forum %} を検索してください。
+ `Cache-Control` が `no-cache` に設定 "*されている*" 場合、{% data variables.contact.contact_support %} に問い合わせるか、{% data variables.contact.community_support_forum %} を検索してください。
 
 ### Camoのキャッシュから画像を削除する
 
 キャッシュをパージすれば、すべての{% data variables.product.prodname_dotcom %}ユーザは画像をリクエストし直すようになるので、この方法はごく控えめに使うべきであり、これまでに述べたステップがうまく働かなかった場合にかぎるべきです。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Camo の URL に対して `curl -X PURGE` を使い、画像をパージしてください。
+1. Camo URL で `curl -X PURGE` を使用する画像を消去します。
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
@@ -96,6 +101,6 @@ If an image is showing up in your browser but not on {% data variables.product.p
 
 この問題を修正するには、その画像をパブリックにアクセスできるサービスに移してください。
 
-## 参考リンク
+## 参考資料
 
-- {% data variables.product.prodname_blog %}の[ユーザの画像のプロキシ処理](https://github.com/blog/1766-proxying-user-images)
+- {% data variables.product.prodname_blog %} 「[Proxying user images](https://github.com/blog/1766-proxying-user-images)」 (ユーザー イメージのプロキシ)

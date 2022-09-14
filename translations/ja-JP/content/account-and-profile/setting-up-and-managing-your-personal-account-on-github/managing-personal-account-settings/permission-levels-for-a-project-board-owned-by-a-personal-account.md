@@ -1,6 +1,6 @@
 ---
-title: Permission levels for a project board owned by a personal account
-intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
+title: 個人アカウントが所有するプロジェクト ボードの権限レベル
+intro: 個人アカウントが所有するプロジェクト ボードには、プロジェクト ボード所有者とコラボレーターの 2 つの権限レベルがあります。
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -13,12 +13,17 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: プロジェクトボードの権限
+shortTitle: Project board permissions
+ms.openlocfilehash: 353b9ac497abc7110437aafdf691ca48a3ff6cec
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145165343'
 ---
+## アクセス許可の概要
 
-## 権限の概要
-
-There is only one owner of a user-owned project board; this permission cannot be shared with another personal account. オーナーに加えて、他のユーザはプロジェクトボードで共同作業をすることができます。
+ユーザー所有のプロジェクト ボードの所有者は 1 人だけです。このアクセス許可を他の個人アカウントと共有することはできません。 オーナーに加えて、他のユーザはプロジェクトボードで共同作業をすることができます。
 
 プロジェクトボードのコラボレーターには 3 つのレベルの権限があります。
 
@@ -29,7 +34,7 @@ There is only one owner of a user-owned project board; this permission cannot be
 管理者アクセス権を持つプロジェクトボードのオーナーとコラボレーターは、プロジェクトボードを完全制御できます。 プロジェクトボードのコラボレーターによって許可される権限すべてに加え、管理者権限を持つプロジェクトボードのオーナーとコラボレーターは、次の操作が可能です:
 
 - [コラボレーターを管理、表示、追加する](/articles/managing-access-to-your-user-account-s-project-boards)
-- [プロジェクトボードを、{% ifversion ghae %}内部{% else %}パブリック{% endif %}またはプライベートに設定する](/articles/changing-project-board-visibility)
+- [プロジェクト ボードを {% ifversion ghae %}internal{% else %}public{% endif %} または private として構成する](/articles/changing-project-board-visibility)
 - [プロジェクトボードを削除する](/articles/deleting-a-project-board/)
 - [プロジェクトボードをクローズする](/articles/closing-a-project-board/)
 - [クローズしたプロジェクトボードを再オープンする](/articles/reopening-a-closed-project-board)
@@ -58,8 +63,8 @@ There is only one owner of a user-owned project board; this permission cannot be
 
 ## プロジェクトボードの可視性
 
-プロジェクトボードの表示をプライベートから{% ifversion ghae %}内部{% else %}パブリック{% endif %}に変更したり、元に戻したりすることができます。 デフォルトでは、ユーザー所有のプロジェクトボードはプライベートです。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
+プロジェクト ボードの表示を private から {% ifversion ghae %}internal{% else %}public{% endif %} に変更したり、元に戻したりできます。 デフォルトでは、ユーザー所有のプロジェクトボードはプライベートです。 詳細については、「[プロジェクト ボードの可視性の変更](/articles/changing-project-board-visibility)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-  - "[Managing access to your personal account's project boards](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - 「[ユーザー アカウントのプロジェクト ボードに対するアクセスを管理する](/articles/managing-access-to-your-user-account-s-project-boards)」

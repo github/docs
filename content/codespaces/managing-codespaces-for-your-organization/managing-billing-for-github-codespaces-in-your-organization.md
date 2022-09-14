@@ -21,8 +21,8 @@ To learn about pricing for {% data variables.product.prodname_github_codespaces 
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- As an organization owner or a billing manager you can manage {% data variables.product.prodname_codespaces %} billing for your organization: ["About billing for Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
-
+- As an organization owner or a billing manager, you can manage {% data variables.product.prodname_codespaces %} billing for your organization: ["About billing for Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- As an organization owner, you can list the currently active and stopped codespaces for your organization. In addition to these codespaces, costs for the current month may include costs for codespaces that existed earlier in the current month but have since been deleted.
 - For users, there is a guide that explains how billing works: ["Understanding billing for Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 
 ## Usage limits
@@ -31,7 +31,7 @@ You can set a usage limit for the codespaces in your organization or repository.
  
 - **Compute minutes:** Compute usage is calculated by the actual number of minutes used by all {% data variables.product.prodname_codespaces %} instances while they are active. These totals are reported to the billing service daily, and is billed monthly. You can set a spending limit for {% data variables.product.prodname_codespaces %} usage in your organization. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
 
-- **Storage usage:**  For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes all used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and is billed monthly. At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage"](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+- **Storage usage:** For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and is billed monthly. At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage"](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## Disabling or limiting {% data variables.product.prodname_codespaces %}
 
@@ -47,10 +47,16 @@ You can also restrict how long a codespace can remain unused before it is automa
 
 ## Deleting unused codespaces
 
-Your users can delete their codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}. 
+Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}. 
+
+As an organization owner, you can delete any codespace in your organization. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
 {% note %}
 
 **Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a defined number of days. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)." A codespace can only be manually deleted by the person who created the codespace.
 
 {% endnote %}
+
+## Further reading
+
+- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

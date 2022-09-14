@@ -14,21 +14,26 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configurar reglas de cortafuegos
+shortTitle: Configure firewall rules
+ms.openlocfilehash: 7492f69c6b334847229c76f7462beaabbc4154a2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145120793'
 ---
+## Acerca del firewall de {% data variables.product.product_location %}
 
-## Acerca del firewell de {% data variables.product.product_location %}
+{% data variables.product.prodname_ghe_server %} utiliza Ubuntu's Uncomplicated Firewall (UFW) en el aparato virtual. Para más información, vea "[UFW](https://help.ubuntu.com/community/UFW)" en la documentación de Ubuntu. Con cada lanzamiento, {% data variables.product.prodname_ghe_server %} actualiza automáticamente la lista blanca de los servicios permitidos del firewell.
 
-{% data variables.product.prodname_ghe_server %} utiliza Ubuntu's Uncomplicated Firewall (UFW) en el aparato virtual. Para obtener más información, consulta "[UFW](https://help.ubuntu.com/community/UFW)" en la documentación de Ubuntu. Con cada lanzamiento, {% data variables.product.prodname_ghe_server %} actualiza automáticamente la lista blanca de los servicios permitidos del firewell.
+Después de que instales {% data variables.product.prodname_ghe_server %}, se abren automáticamente todos los puertos de red obligatorios para aceptar las conexiones. Cada puerto no obligatorio se configura automáticamente como `deny` y la directiva predeterminada resultante se configura como `allow`. Se habilita el seguimiento con estado para todas las conexiones nuevas, que suelen ser paquetes de red con el bit `SYN` establecido. Para más información, vea "[Puertos de red](/enterprise/admin/guides/installation/network-ports)".
 
-Después de que instales {% data variables.product.prodname_ghe_server %}, se abren automáticamente todos los puertos de red obligatorios para aceptar las conexiones. Cada puerto no obligatorio se configura automáticamente en `deny` (rechazar), y la directiva predeterminada resultante se configura en `allow` (permitir). Se habilita el rastreo con estado para todas las conexiones nuevas. Estas suelen ser paquetes de red con el conjunto de bits `SYN`. Para obtener más información, consulta "[Puertos de red](/enterprise/admin/guides/installation/network-ports)."
-
-El firewall de UFW también abre varios puertos más que son obligatorios para que {% data variables.product.prodname_ghe_server %} funcione correctamente. Para obtener más información sobre el conjunto de reglas de UFW, consulta [el README de UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+El firewall de UFW también abre varios puertos más que son obligatorios para que {% data variables.product.prodname_ghe_server %} funcione correctamente. Para más información sobre el conjunto de reglas de UFW, vea [el archivo Léame de UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ## Ver las reglas de firewell predeterminadas
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Para ver las reglas de firewall predeterminadas, utiliza el comando `sudo ufw status`. Debes ver un resultado similar a este:
+2. Para ver las reglas de firewall predeterminadas, use el comando `sudo ufw status`. Debería mostrarse una salida similar a esta:
   ```shell
   $ sudo ufw status
   > Status: active
@@ -60,21 +65,21 @@ El firewall de UFW también abre varios puertos más que son obligatorios para q
 
 {% warning %}
 
-**Advertencia:** Antes de que agregues reglas de cortafuegos personalizadas, respalda tus reglas actuales en caso de que necesites restablecerlas a algún punto funcional. Si estás bloqueado de tu servidor, comunícate con {% data variables.contact.contact_ent_support %} para reconfigurar las reglas originales del firewall. Restaurar las reglas originales del firewall implica tiempo de inactividad para tu servidor.
+**Advertencia:** Antes de agregar reglas de firewall personalizadas, haga una copia de seguridad de las reglas actuales en caso de que tenga que restablecer a un estado de funcionamiento conocido. Si estás bloqueado de tu servidor, comunícate con {% data variables.contact.contact_ent_support %} para reconfigurar las reglas originales del firewall. Restaurar las reglas originales del firewall implica tiempo de inactividad para tu servidor.
 
 {% endwarning %}
 
 1. Configura una regla de firewall personalizada.
-2. Verifica el estado de cada nueva regla con el comando `estado numerado`.
+2. Compruebe el estado de cada nueva regla con el comando `status numbered`.
   ```shell
   $ sudo ufw status numbered
   ```
-3. Para hacer una copia de seguridad de tus reglas de firewall personalizadas, utiliza el comando `cp` para pasar las reglas a un archivo nuevo.
+3. Para hacer una copia de seguridad de las reglas de firewall personalizadas, use el comando `cp` para mover las reglas a un archivo nuevo.
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-Después de actualizar {% data variables.product.product_location %}, debes volver a aplicar tus reglas de firewall personalizadas. Recomendamos que crees un script para volver a aplicar las reglas de firewall personalizadas.
+Después de actualizar {% data variables.product.product_location %}, debe volver a aplicar las reglas de firewall personalizadas. Recomendamos que crees un script para volver a aplicar las reglas de firewall personalizadas.
 
 ## Restaurar las reglas de firewell predeterminadas
 
@@ -82,20 +87,20 @@ Si algo sale mal después de que cambies las reglas de firewell, puedes restable
 
 {% warning %}
 
-**Advertencia:** Si no respaldaste las reglas originales antes de hacer cambios al cortafuegos. contacta a {% data variables.contact.contact_ent_support %} para obtener más asistencia.
+**Advertencia:** Si no ha realizado una copia de seguridad de las reglas originales antes de efectuar cambios en el firewall, póngase en contacto con {% data variables.contact.contact_ent_support %} para obtener más asistencia.
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Para restablecer las reglas de la copia de seguridad anterior, vuélvelas a copiar en el firewell con el comando `cp`.
+2. Para restablecer las reglas de la copia de seguridad anterior, vuélvalas a copiar en el firewell con el comando `cp`.
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. Vuelve a iniciar el firewell con el comando `systemctl`.
+3. Reinicie el firewall con el comando `systemctl`.
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Confirma que las reglas recuperaron su forma predeterminada con el comando `ufw status` (estado de ufw).
+4. Confirme que las reglas han recuperado sus valores predeterminados con el comando `ufw status`.
   ```shell
   $ sudo ufw status
   > Status: active

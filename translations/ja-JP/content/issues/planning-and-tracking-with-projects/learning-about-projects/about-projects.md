@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_projects_v2 %}について'
-intro: '{% data variables.product.prodname_projects_v2 %}は、{% data variables.product.company_short %}上の作業の計画と追跡のための、適応性のある柔軟なツールです。'
+title: '{% data variables.product.prodname_projects_v2 %} について'
+intro: '{% data variables.product.prodname_projects_v2 %} は、{% data variables.product.company_short %} での作業を計画および追跡するための、適応性のある柔軟なツールです。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,29 +10,34 @@ redirect_from:
 type: overview
 topics:
   - Projects
+ms.openlocfilehash: f50d54b95862102eafe97dcf1dfcec4daa1d7995
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424156'
 ---
+## {% data variables.product.prodname_projects_v2 %} について
 
-## {% data variables.product.prodname_projects_v2 %}について
-
-プロジェクトは、{% data variables.product.company_short %}上のIssueやPull Requestと統合された適応性のあるスプレッドシートで、作業を効果的に計画し、追跡するのに役立ちます。 IssueやPull Requestをフィルタリングし、ソートし、グループ化して、チーム固有のメタデータを追跡するためのカスタムフィールドを追加し、設定可能なグラフで作業を可視化することによって、複数のビューを作成してカスタマイズできます。 プロジェクトは、特定の方法論を強制するのではなく、チームの要求やプロセスに合わせてカスタマイズ可能な重要な機能を提供します。
+プロジェクトは、作業の計画と追跡を効果的に行えるように {% data variables.product.company_short %} 上の issue および pull request と統合できる、適応性のあるスプレッドシートです。 issue と pull request をフィルター処理、並べ替え、グループ化して複数のビューを作成し、チーム固有のメタデータを追跡するカスタム フィールドを追加してカスタマイズしたうえで、構成可能なグラフを使って作業を視覚化できます。 プロジェクトには、特定の手法を適用するのではなく、チームのニーズやプロセスに合わせてカスタマイズできる柔軟な機能があります。
 
 ### 最新の状態に保つ
 
-プロジェクトは追加するIssueやPull Requestから構築され、プロジェクトと作業の間に直接の参照を作成します。 情報は変更があるたびにプロジェクトと自動的に同期され、ビューやグラフが更新されます。 この統合は双方向なので、Pull ReqeustやIssueに関する情報をプロジェクトから変更すると、そのPull RequestやIssueにはその情報が反映されます。 たとえばプロジェクトでアサインされた人を変更すると、その変更はIssueでも表示されます。 この統合をさらに推し進め、プロジェクトをアサインされた人でグループ化し、Issueを他のグループにドラッグすることによってIssueにアサインされた人を変更できます。
+プロジェクトは、追加した issue と pull request から構築され、プロジェクトと作業の間に直接参照が作成されます。 変更を加えると情報がプロジェクトに自動的に同期され、ビューとグラフが更新されます。 この統合は双方向なので、pull reqeust や issue に関する情報をプロジェクト内で変更すると、その pull request や issue にはその情報が反映されます。 たとえば、プロジェクトの担当者を変更すると、その変更が issue に表示されます。 この統合をさらに進め、担当者別にプロジェクトをグループ化し、issue を別のグループにドラッグして issue の割り当てを変更できます。
 
 ### タスクへのメタデータの追加
 
-カスタムフィールドを使って、タスクにメタデータを追加し、アイテムの属性のより豊かなビューを構築できます。 IssueやPull Requestに現在存在するビルトインのメタデータ（アサインされた人、マイルストーン、ラベルなど）に限定はされません。 たとえば、以下のメタデータをカスタムフィールドとして追加できます:
+カスタム フィールドを使用して、タスクにメタデータを追加し、項目属性のより豊富なビューを作成できます。 issue や pull request に関して、現時点で存在している組み込みのメタデータ (担当者、マイルストーン、ラベルなど) に限定されるわけではありません。 たとえば、カスタム フィールドとして次のメタデータを追加できます。
 
-- ターゲットの出荷日を追跡する日付フィールド。
+- ターゲット出荷日を追跡する日付フィールド。
 - タスクの複雑さを追跡する数値フィールド。
-- タスクの優先度が低、中、高なのかを追跡するための単一選択フィールド。
-- クイックノートを追加するためのテキストフィールド。
-- 休憩のサポートを含め、作業を週単位で計画するための繰り返しフィールド。
+- タスクの優先度が低、中、高のいずれかであるかを追跡する選択フィールド。
+- クイック メモを追加できるテキスト フィールド。
+- 週単位で作業計画を立てるためのイテレーション フィールド (休憩のサポートを含む)。
 
 ### 様々な観点からプロジェクトを見る
 
-必要な情報が得られるようにプロジェクトのビューを調整して、最も差し迫った疑問に素早く答えてください。 それらのビューを保存して、必要なときにすぐに戻れるように、そしてチームでそれらを利用できるようにすることができます。 ビューはリストされたアイテムだけを対象とするだけでなく、2つの異なるレイアウトの選択肢も提供します。
+必要な情報が提供されるようにプロジェクト ビューを調整し、最も差し迫った質問にすばやく答えます。 これらのビューは、必要に応じてすばやく戻ることができるように保存し、チームで使用できます。 ビューを使用すると、一覧表示される項目を絞り込むことができるだけでなく、2 つの異なるレイアウト オプションも提供されます。
 
 プロジェクトは、高密度のテーブルレイアウトで表示できます。
 
@@ -40,10 +45,10 @@ topics:
 
 あるいはボードとして表示できます。
 
-![プロジェクトボード](/assets/images/help/issues/projects_board.png)
+![Project ボード](/assets/images/help/issues/projects_board.png)
 
 プロジェクトの特定の側面に注目しやすくするために、アイテムをグループ化、ソート、フィルタできます。
 
-![プロジェクトのビュー](/assets/images/help/issues/project_view.png)
+![プロジェクト ビュー](/assets/images/help/issues/project_view.png)
 
-詳しい情報については「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。
+詳しくは、「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。

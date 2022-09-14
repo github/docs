@@ -1,5 +1,5 @@
 ---
-title: Limites de taxa para aplicativos do GitHub
+title: Limites de taxa para aplicativos GitHub
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -14,26 +14,31 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Limites de taxa
+shortTitle: Rate limits
+ms.openlocfilehash: fd2c9a92c6603a6e64ec17b614f46baf2370c98b
+ms.sourcegitcommit: d243bbae4ce3c849695b5bc9221e705ee5a4a64f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/12/2022
+ms.locfileid: '147081125'
 ---
-
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
 {% ifversion ghec or fpt %}
 
-## Sobre os limites de taxa para os aplicativos
+## <a name="about-rate-limits-for-apps"></a>Sobre os limites de taxa para os aplicativos
 
-Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %} dependem do plano para a organização onde você instalar o aplicativo. Para obter mais informações, consulte "[Produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" e "[Tipos de contas de {% data variables.product.company_short %}](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)".
+Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %} dependem do plano para a organização onde você instalar o aplicativo. Para obter mais informações, confira "[Produtos do {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" e "[Tipos de contas do {% data variables.product.company_short %}](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)".
 
 {% endif %}
 
-## Solicitações de servidor para servidor
+## <a name="server-to-server-requests"></a>Solicitações de servidor para servidor
 
 {% ifversion ghec or fpt %}
 
-### Limites de taxa padrão de servidor para servidor para {% data variables.product.prodname_dotcom_the_website %}
+### <a name="default-server-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>Limites de taxa padrão de servidor para servidor para {% data variables.product.prodname_dotcom_the_website %}
 
 {% endif %}
 
@@ -41,7 +46,7 @@ Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% d
 
 {% ifversion fpt or ghec %}
 
-### Limites de taxa de servidor para servidor para {% data variables.product.prodname_ghe_cloud %}
+### <a name="server-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>Limites de taxa de servidor para servidor para {% data variables.product.prodname_ghe_cloud %}
 
 {% endif %}
 
@@ -51,15 +56,15 @@ Os limites de taxa para {% data variables.product.prodname_github_apps %} e {% d
 
 {% endif %}
 
-## Solicitações de usuário para servidor
+## <a name="user-to-server-requests"></a>Solicitações de usuário para servidor
 
-{% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %} também podem agir em nome de um usuário, fazendo solicitações de usuário para servidor depois que o usuário autorizar o aplicativo. Para obter mais informações, consulte "[Autorizando {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" e "[Autorizando {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
+{% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %} também podem agir em nome de um usuário, fazendo solicitações de usuário para servidor depois que o usuário autorizar o aplicativo. Para obter mais informações, confira "[Como autorizar os {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" e "[Como autorizar os {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
 
-As solicitações de usuário para servidor de {% data variables.product.prodname_oauth_apps %} são autenticadas com um token OAuth. As solicitações de usuário para servidor de {% data variables.product.prodname_github_apps %} são autenticadas com um token OAuth ou um token de acesso do usuário expirado. Para obter mais informações, consulte "[Identificando e autorizando usuários para {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" e "[Autorizando {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)".
+As solicitações de usuário para servidor de {% data variables.product.prodname_oauth_apps %} são autenticadas com um token OAuth. As solicitações de usuário para servidor de {% data variables.product.prodname_github_apps %} são autenticadas com um token OAuth ou um token de acesso do usuário expirado. Para obter mais informações, confira "[Como identificar e autorizar usuários para os {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" e "[Como autorizar os {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)".
 
 {% ifversion fpt or ghec %}
 
-### Limites de taxa padrão de usuário para servidor para {% data variables.product.prodname_dotcom_the_website %}
+### <a name="default-user-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>Limites de taxa padrão de usuário para servidor para {% data variables.product.prodname_dotcom_the_website %}
 
 {% endif %}
 
@@ -73,13 +78,13 @@ Os limites de taxa para as solicitações de servidor para servidor feitas por {
 
 {% ifversion fpt or ghec %}
 
-### Limites de taxa padrão de usuário para servidor para {% data variables.product.prodname_ghe_cloud %}
+### <a name="user-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>Limites de taxa padrão de usuário para servidor para {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.apps.user-to-server-rate-limits-ghec %}
 
 {% endif %}
 
-## Leia mais
+## <a name="further-reading"></a>Leitura adicional
 
-- "[Limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting)" na documentação da API REST
+- "[Limitação de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting)" na documentação da API REST
 - "[Limitações de recursos](/graphql/overview/resource-limitations)" na documentação da API do GraphQL

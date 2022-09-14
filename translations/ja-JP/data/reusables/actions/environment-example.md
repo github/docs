@@ -1,6 +1,14 @@
-ワークフロー内のそれぞれのジョブに、環境を指定できます。 そのためには、`jobs.<job_id>.environment`キーのあとに環境の名前を続けて追加してください。
+---
+ms.openlocfilehash: 4795fdc557dbb103d64f7b97d0fa58f445434bca
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145114414"
+---
+ワークフロー内のジョブごとに環境を指定できます。 そのためには `jobs.<job_id>.environment` キーを追加し、その後に環境の名前を追加します。
 
-たとえば、このワークフローは`production`という環境を使います。
+たとえば、このワークフローでは `production` という環境が使用されます。
 
 ```yaml
 name: Deployment
@@ -16,12 +24,12 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        # ...デプロイメント固有のステップ
+        # ...deployment-specific steps
 ```
 
-上のワークフローが実行されると、`deployment`ジョブは`production`環境に設定されたルールに従います。 たとえば、環境がレビュー担当者を必要とする場合、ジョブはレビュー担当者の1人がジョブを承認するまで一時停止します。
+上記のワークフローを実行すると、 `deployment` ジョブは `production` 環境用に構成されたすべてのルールに従います。 たとえば、環境でレビュー担当者が必要な場合、いずれかのレビュー担当者がジョブを承認するまでジョブは一時停止します。
 
-環境のURLを指定することもできます。 指定されたURLはリポジトリのデプロイメントページ（リポジトリのホームページの**Environments**をクリックすればアクセスできます）と、ワークフローの実行の可視化グラフに表示されます。 Pull Requestがそのワークフローをトリガーした場合、URLはPull Requestのタイムラインの**View deployment（デプロイメントの表示）**ボタンとしても表示されます。
+環境の URL を指定することもできます。 指定した URL は、リポジトリのデプロイ ページ (リポジトリのホーム ページの **[環境]** をクリックすることでアクセス可能) とワークフロー実行の視覚化グラフに表示されます。 pull request がワークフローをトリガーすると、URL は pull request タイムラインの **[デプロイの表示]** ボタンとしても表示されます。
 
 ```yaml
 name: Deployment
@@ -39,7 +47,7 @@ jobs:
       url: https://github.com
     steps:
       - name: deploy
-        # ...デプロイメント固有のステップ
+        # ...deployment-specific steps
 ```
 
-![URL付きのワークフローグラフ](/assets/images/help/images/deploy-graph.png)
+![URL を含むワークフロー グラフ](/assets/images/help/images/deploy-graph.png)

@@ -13,14 +13,18 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: c46a0f54e33e88145ef9579dce87c1c017366131
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146454021'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 关于加密密码
 
-机密是在组织、存储库或存储库环境中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+机密是在组织、存储库或存储库环境中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)帮助确保对机密加密，并且在你于工作流中使用它们之前一直保持加密状态。
 
 {% data reusables.actions.secrets-org-level-overview %}
 
@@ -30,7 +34,7 @@ versions:
 
 {% note %}
 
-**注**：{% data reusables.actions.about-oidc-short-overview %}
+注意：{% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
@@ -48,23 +52,23 @@ versions:
 
 ### 访问您的密码
 
-为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
+为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
 
-如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
+如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
 {% data reusables.actions.secrets-redaction-warning %}
 
 当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。
 
-您还可以使用 REST API 管理密码。 更多信息请参阅“[机密](/rest/reference/actions#secrets)”。
+您还可以使用 REST API 管理密码。 有关详细信息，请参阅“[机密](/rest/reference/actions#secrets)”。
 
 ### 限制凭据权限
 
-生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
+生成凭据时，建议尽可能授予最低的权限。 例如，请改为使用[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)或服务帐户，而不是使用个人凭据。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
 
 {% note %}
 
-**注意：** 您可以使用 REST API 来管理机密。 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/rest/reference/actions#secrets)”。
+注意：可以使用 REST API 来管理机密。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 机密 API](/rest/reference/actions#secrets)”。
 
 {% endnote %}
 
@@ -74,13 +78,11 @@ versions:
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
-1. 单击 **New repository secret（新仓库机密）**。
-1. 在 **Name（名称）**输入框中键入密码的名称。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.actions.sidebar-secret %}
+1. 单击“新建存储库机密”。
+1. 在“名称”输入框中键入机密名称。
 1. 输入密码的值。
-1. 单击 **Add secret（添加密码）**。
+1. 单击“添加机密”。
 
 如果您的存储库具有环境机密或可以访问上级组织的机密，则这些机密也会在此页面上列出。
 
@@ -90,7 +92,7 @@ versions:
 
 {% data reusables.cli.cli-learn-more %}
 
-要添加仓库机密，请使用 `gh secret set` 子命令。 将 `secret-name` 替换为机密的名称。
+若要添加存储库机密，请使用 `gh secret set` 子命令。 将 `secret-name` 替换为机密的名称。
 
 ```shell
 gh secret set <em>secret-name</em>
@@ -102,7 +104,7 @@ CLI 将提示您输入一个机密值。 或者，您可以从文件中读取机
 gh secret set <em>secret-name</em> < secret.txt
 ```
 
-要列出仓库的所有机密，请使用 `gh secret list` 子命令。
+若要列出存储库的所有机密，请使用 `gh secret list` 子命令。
 
 {% endcli %}
 
@@ -112,26 +114,24 @@ gh secret set <em>secret-name</em> < secret.txt
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-environment %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.actions.sidebar-environment %}
 1. 单击要向其添加机密的环境。
-2. 在 **Environment secrets（环境机密）**下，单击 **Add secret（添加机密）**。
-3. 在 **Name（名称）**输入框中键入密码的名称。
+2. 在“环境机密”下，单击“添加机密” 。
+3. 在“名称”输入框中键入机密名称。
 4. 输入密码的值。
-5. 单击 **Add secret（添加密码）**。
+5. 单击“添加机密”。
 
 {% endwebui %}
 
 {% cli %}
 
-要为环境添加机密，请使用 `gh secret set` 子命令与 `- env` 或 `- e` 标志，后接环境名称。
+若要为环境添加机密，请使用 `gh secret set` 子命令与 `--env` 或 `-e` 标志，后接环境名称。
 
 ```shell
 gh secret set --env <em>environment-name</em> <em>secret-name</em>
 ```
 
-要列出环境的所有机密，请使用 `gh secret list` 子命令与 `- env` 或 `- e` 标志，后接环境名称。
+若要列出环境的所有机密，请使用 `gh secret list` 子命令与 `--env` 或 `-e` 标志，后接环境名称。
 
 ```shell
 gh secret list --env <em>environment-name</em>
@@ -147,14 +147,12 @@ gh secret list --env <em>environment-name</em>
 
 {% webui %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. 单击 **New organization secret（新组织机密）**。
-1. 在 **Name（名称）**输入框中键入密码的名称。
-1. 输入密码的 **Value（值）**。
-1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
-1. 单击 **Add secret（添加密码）**。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. 单击“新建组织机密”。
+1. 在“名称”输入框中键入机密名称。
+1. 输入“机密”的值。
+1. 从“存储库访问”下拉列表中，选择访问策略。
+1. 单击“添加机密”。
 
 {% endwebui %}
 
@@ -162,7 +160,7 @@ gh secret list --env <em>environment-name</em>
 
 {% note %}
 
-**注意：** 默认情况下， {% data variables.product.prodname_cli %} 使用 `repo` 和 `read:org` 范围进行身份验证。 要管理组织机密，您还必须授权 `admin:org` 范围。
+注意：默认情况下，{% data variables.product.prodname_cli %} 使用 `repo` 和 `read:org` 范围进行身份验证。 若要管理组织机密，必须额外授权 `admin:org` 范围。
 
 ```
 gh auth login --scopes "admin:org"
@@ -170,25 +168,25 @@ gh auth login --scopes "admin:org"
 
 {% endnote %}
 
-要为组织添加机密，请使用 `gh secret set` 子命令与 `--org` 或 `-o` 标志，后接组织名称。
+若要为组织添加机密，请使用 `gh secret set` 子命令与 `--org` 或 `-o` 标志，后跟组织名称。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em>
 ```
 
-默认情况下，机密仅对私有仓库可用。 要指定该机密应该提供给组织内的所有仓库，请使用 `--visible` 或 `-v` 标志。
+默认情况下，机密仅对私有仓库可用。 若要指定机密应可用于组织中的所有存储库，请使用 `--visibility` 或 `-v` 标志。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em> --visibility all
 ```
 
-要指定该秘密应提供给组织内选定的仓库，请使用 `--repos` 或 `-r` 标志。
+若要指定机密应可用于组织中的所选存储库，请使用 `--repos` 或 `-r` 标志。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em> --repos <em>repo-name-1</em>,<em>repo-name-2</em>"
 ```
 
-要列出组织的所有机密，请使用 `gh secret list` 子命令与 `--org` 或 `-o` 标志，后接组织名称。
+若要列出组织的所有机密，请使用 `gh secret list` 子命令与 `--org` 或 `-o` 标志，后跟组织名称。
 
 ```shell
 gh secret list --org <em>organization-name</em>
@@ -200,21 +198,19 @@ gh secret list --org <em>organization-name</em>
 
 您可以检查哪些访问策略正被应用于组织中的密码。
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. 密码列表包括任何已配置的权限和策略。 例如： ![密码列表](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 有关已为每个密码配置的权限的更多信息，请单击 **Update（更新）**。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. 密码列表包括任何已配置的权限和策略。 例如：![机密列表](/assets/images/help/settings/actions-org-secrets-list.png)
+1. 若要详细了解已为每个机密配置的权限，请单击“更新”。
 
-## 在工作流程中使用加密密码
+## 在工作流中使用加密的机密
 
 {% note %}
 
-**注意：** {% data reusables.actions.forked-secrets %}
+注意：{% data reusables.actions.forked-secrets %}
 
 {% endnote %}
 
-要提供以密码作为输入或环境变量的操作，可以使用 `secrets` 上下文访问您在仓库中创建的密码。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”和“[ {% data variables.product.prodname_actions %} 的工作流语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+要提供以机密作为输入或环境变量的操作，可以使用 `secrets` 上下文访问你在存储库中创建的密码。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”和“[{% data variables.product.prodname_actions %} 的工作流语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
 {% raw %}
 ```yaml
@@ -227,11 +223,11 @@ steps:
 ```
 {% endraw %}
 
-无法直接在 `if:` 条件中引用机密。 而应考虑将机密设置为作业级环境变量，然后引用环境变量以有条件地运行作业中的步骤。 更多信息请参阅“[上下文可用性](/actions/learn-github-actions/contexts#context-availability)”和 [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)。
+无法直接在 `if:` 条件中引用机密。 而应考虑将机密设置为作业级环境变量，然后引用环境变量以有条件地运行作业中的步骤。 有关详细信息，请参阅“[上下文可用性](/actions/learn-github-actions/contexts#context-availability)”和 [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)。
 
-如果尚未设置机密，则引用该机密的表达式（例如示例中的 {% raw %}`${{ secrets.SuperSecret }}`{% endraw %}）的返回值将为空字符串。
+如果尚未设置机密，则引用该机密的表达式的返回值（例如示例中的 {% raw %}`${{ secrets.SuperSecret }}`{% endraw %}）将为空字符串。
 
-尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)获取。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
+尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)捕获。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
 
 如果必须在命令行中传递密码，则将它们包含在适当的引用规则中。 密码通常包含可能意外影响 shell 的特殊字符。 要转义这些特殊字符，请引用环境变量。 例如：
 
@@ -284,19 +280,19 @@ steps:
 * 如果分配仓库访问超过 100 个组织密钥，则工作流程只能使用前 100 个组织密钥（按密钥名称字母顺序排序）。
 * 所有 100 个环境机密。
 
-密码大小限于 64 KB。 要存储较大的机密，请参阅下面的“[存储大机密](#storing-large-secrets)”解决方法。
+密码大小限于 64 KB。 若要存储较大的机密，请参阅下面的“[存储大型机密](#storing-large-secrets)”解决方法。
 
 ### 存储大型机密
 
-要使用大于 64 KB 的密码，可以使用解决方法将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，您可以使用 `gpg` 在本地加密包含密钥的文件，然后再将加密文件签入 {% data variables.product.prodname_dotcom %} 上的存储库。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
+要使用大于 64 KB 的密码，可按照解决方案将加密的密码存储在存储库中，并在 {% data variables.product.prodname_dotcom %} 上将解密短语存储为机密。 例如，在将加密文件签入 {% data variables.product.prodname_dotcom %} 上的存储库之前，可在本地使用 `gpg` 加密包含机密的文件。 有关详细信息，请参阅“[gpg 手册页](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 
 {% warning %}
 
-**警告**：请注意，在工作流程运行时不会打印您的机密。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
+警告：请注意，工作流运行时不会打印你的机密。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
 
 {% endwarning %}
 
-1. 从终端运行以下命令，使用 `gpg` 和 AES256 密码算法加密包含密钥的文件。 在此示例中，`my_secret.json` 是包含密钥的文件。
+1. 从终端运行以下命令，使用 `gpg` 和 AES256 密码算法加密包含机密的文件。 在本例中，`my_secret.json` 是包含机密的文件。
 
    ```bash
    gpg --symmetric --cipher-algo AES256 my_secret.json
@@ -304,13 +300,13 @@ steps:
 
 1. 将会提示您输入密码短语。 请记住该密码短语，因为需要在使用该密码短语作为值的 {% data variables.product.prodname_dotcom %} 上创建新密码。
 
-1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新密码，并将密码的值设为上一步使用的密码短语。
+1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新机密，并将机密的值设置为在上述步骤中使用的通行短语。
 
-1. 将加密文件复制到存储库中的路径并提交。 在本例中，加密的文件是 `my_secret.json.gpg`。
+1. 将加密的文件复制到存储库并提交。 在此示例中，加密的文件为 `my_secret.json.gpg`。
 
    {% warning %}
 
-   **警告**：请确保复制以 `.gpg` 文件扩展名结尾的加密 `my_secret.json.gpg` 文件，而**非**未加密的 `my_secret.json` 文件。
+   警告：请务必复制以 `.gpg` 文件扩展名结尾的 `my_secret.json.gpg` 加密文件，而不是未加密的 `my_secret.json` 文件。 
 
    {% endwarning %}
 
@@ -319,7 +315,7 @@ steps:
    git commit -m "Add new encrypted secret JSON file"
    ```
 
-1. 在存储库中创建一个 shell 脚本来解密机密文件。 在此示例中，脚本名为 `decrypt_secret.sh`。
+1. 在存储库中创建 shell 脚本来解密机密文件。 在本例中，机密命名为 `decrypt_secret.sh`。
 
    ```bash
    #!/bin/sh
@@ -341,13 +337,13 @@ steps:
    git push
    ```
 
-1. 在 {% data variables.product.prodname_actions %} 工作流程中，使用 `step` 调用 shell 脚本并解密密钥。 要在工作流程运行的环境中创建仓库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与仓库根目录相关的 `run` 命令引用 shell 脚本。
+1. 在 {% data variables.product.prodname_actions %} 工作流中，使用 `step` 调用 shell 脚本并解密机密。 若要在运行工作流的环境中创建存储库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与存储库根目录相关的 `run` 命令引用 shell 脚本。
 
    ```yaml
    name: Workflows with large secrets
-
+ 
    on: push
-
+ 
    jobs:
      my-job:
        name: My Job
@@ -367,11 +363,11 @@ steps:
 
 ## 将 Base64 二进制 blob 存储为机密
 
-可以使用 Base64 编码将小型二进制 blob 存储为机密。 然后，您可以在工作流程中引用该机密，并对其进行解码以在运行器上使用。 有关大小限制，请参阅[机密限制](/actions/security-guides/encrypted-secrets#limits-for-secrets)。
+可以使用 Base64 编码将小型二进制 blob 存储为机密。 然后，您可以在工作流程中引用该机密，并对其进行解码以在运行器上使用。 有关大小限制，请参阅[“机密限制”](/actions/security-guides/encrypted-secrets#limits-for-secrets)。
 
 {% note %}
 
-**注意**：请注意，Base64 只是将二进制转换为文本，不能替代实际加密。
+注意：Base64 仅将二进制转换为文本，并不能替代实际加密。
 
 {% endnote %}
 
@@ -388,7 +384,7 @@ steps:
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```
 
-1. 要从运行器访问 Base64 字符串，请将机密传送到 `base64 --decode`。  例如：
+1. 要从运行器访问 Base64 字符串，请将机密传送到 `base64 --decode`。  例如： 
 
    ```yaml
    name: Retrieve Base64 secret

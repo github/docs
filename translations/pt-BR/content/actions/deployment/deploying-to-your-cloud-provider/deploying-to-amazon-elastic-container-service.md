@@ -14,23 +14,27 @@ topics:
   - CD
   - Containers
   - Amazon ECS
-shortTitle: Implantar no Amazon ECS
+shortTitle: Deploy to Amazon ECS
+ms.openlocfilehash: 259a3fd5bc0076f60d0c08f356b3ec9914effe89
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881103'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para criar uma aplicação de contêiner, fazer push no [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) e fazer a implementação em [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) quando houver um push para o branch `principal`.
+Este guia explica como usar o {% data variables.product.prodname_actions %} para criar um aplicativo conteinerizado, efetuar push dele para o [Amazon ECR (Elastic Container Registry)](https://aws.amazon.com/ecr/) e implantá-lo no [Amazon ECS (Elastic Container Service)](https://aws.amazon.com/ecs/) quando houver um push para o branch `main`.
 
-Em cada novo push para o `principal` no seu repositório de {% data variables.product.company_short %}, as compilações de fluxo de trabalho de {% data variables.product.prodname_actions %} e cria e faz push de uma nova imagem de contêiner para o Amazon ECR e, em seguida, implementa uma nova definição de tarefa para o Amazon ECS.
+Em cada novo push para `main` no repositório do {% data variables.product.company_short %}, o fluxo de trabalho do {% data variables.product.prodname_actions %} compila uma nova imagem de contêiner e efetua push para o Amazon ECR e implanta uma nova definição de tarefa no Amazon ECS.
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e ["Configurando o OpenID Connect no Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e ["Como configurar o OpenID Connect na Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 {% endnote %}
 
@@ -42,26 +46,26 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 1. Crie um repositório Amazon ECR para armazenar suas imagens.
 
-   Usando, por exemplo, [CLI AWS](https://aws.amazon.com/cli/):
+   Por exemplo, usando [a CLI da AWS](https://aws.amazon.com/cli/):
 
-   {% raw %}```bash{:copy}
-   aws ecr create-repository \
-    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   {% raw %}```bash{:copy} aws ecr create-repository \
+       --repository-name MY_ECR_REPOSITORY \
+       --region MY_AWS_REGION
    ```{% endraw %}
 
-   Certifique-se de usar o mesmo nome de repositório do Amazon ECR (representado aqui por `MY_ECR_REPOSITORY`) para a variável `ECR_REPOSITORY` no fluxo de trabalho abaixo.
+   Ensure that you use the same Amazon ECR repository name (represented here by `MY_ECR_REPOSITORY`) for the `ECR_REPOSITORY` variable in the workflow below.
 
-   Certifique-se de usar o mesmo valor de região do AWS para a variável `AWS_REGION` (representada aqui pela variável `MY_AWS_REGION`) no fluxo de trabalho abaixo.
+   Ensure that you use the same AWS region value for the `AWS_REGION` (represented here by `MY_AWS_REGION`) variable in the workflow below.
 
-2. Crie uma definição de tarefa e serviço do Amazon ECS.
+2. Create an Amazon ECS task definition, cluster, and service.
 
-   Para obter informações, siga o [Assistente de introdução no console do Amazon ECS](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/firstRun), ou o [Guia de introdução](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html) na documentação do Amazon ECS.
+   For details, follow the [Getting started wizard on the Amazon ECS console](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/firstRun), or the [Getting started guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html) in the Amazon ECS documentation.
 
-   Certifique-se de anotar os nomes que você definiu para o serviço do Amazon ECS e do cluster e use-os para as variáveis `ECS_SERVICE` e `ECS_CLUSTER` no fluxo de trabalho abaixo.
+   Ensure that you note the names you set for the Amazon ECS service and cluster, and use them for the `ECS_SERVICE` and `ECS_CLUSTER` variables in the workflow below.
 
-3. Armazene sua definição de tarefa do Amazon ECS como um arquivo JSON no seu repositório de {% data variables.product.company_short %}.
+3. Store your Amazon ECS task definition as a JSON file in your {% data variables.product.company_short %} repository.
 
-   O formato do arquivo deve ser o mesmo que a saída gerada por:
+   The format of the file should be the same as the output generated by:
 
    {% raw %}```bash{:copy}
    aws ecs register-task-definition --generate-cli-skeleton
@@ -69,23 +73,23 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
    Ensure that you set the `ECS_TASK_DEFINITION` variable in the workflow below as the path to the JSON file.
 
-   Certifique-se de definir a variável `CONTAINER_NAME` no fluxo de trabalho abaixo como o nome do contêiner na seção `containerDefinitions` da definição da tarefa.
+   Ensure that you set the `CONTAINER_NAME` variable in the workflow below as the container name in the `containerDefinitions` section of the task definition.
 
-4. Crie segredos de {% data variables.product.prodname_actions %} denominados `AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY` para armazenar os valores para sua chave de acesso ao Amazon IAM.
+4. Create {% data variables.product.prodname_actions %} secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to store the values for your Amazon IAM access key.
 
-   Para obter mais informações sobre a criação de segredos para {% data variables.product.prodname_actions %}, consulte "[segredos criptografados](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+   For more information on creating secrets for {% data variables.product.prodname_actions %}, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
-   Veja a documentação para cada ação usada abaixo para as políticas recomendadas de IAM para o usuário de IAM, bem como os métodos para lidar com as credenciais de acesso.
+   See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
-5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
+5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 
-Após você ter atendido aos pré-requisitos, você poderá proceder com a criação do fluxo de trabalho.
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
-O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e enviá-lo para o Amazon ECR. Em seguida, ele atualiza a definição da tarefa com o novo ID de imagem e implanta a definição da tarefa no Amazon ECS.
+The following example workflow demonstrates how to build a container image and push it to Amazon ECR. It then updates the task definition with the new image ID, and deploys the task definition to Amazon ECS.
 
-Certifique-se de fornecer seus próprios valores para todas as variáveis na chave `env` do fluxo de trabalho.
+Ensure that you provide your own values for all the variables in the `env` key of the workflow.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -164,12 +168,12 @@ jobs:
 
 ## Recursos adicionais
 
-Para o fluxo de trabalho inicial original, consulte [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
+Para o fluxo de trabalho inicial original, confira [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) no repositório `starter-workflows` do {% data variables.product.prodname_actions %}.
 
 Para mais informações sobre os serviços utilizados nestes exemplos, veja a seguinte documentação:
 
-* "[Práticas recomendadas de segurança no IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" na documentação da Amazon AWS.
-* Ação oficial de "[Configurar credenciais](https://github.com/aws-actions/configure-aws-credentials) do AWS.
-* Ação oficial de ["Login" do Amazon ECR](https://github.com/aws-actions/amazon-ecr-login) do AWS.
-* Ação oficial de [Definição de tarefa de renderização do Amazon ECS"](https://github.com/aws-actions/amazon-ecs-render-task-definition) do AWS.
-* Ação oficial de ["Definição de tarefa de implantação do Amazon ECS"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) do AWS.
+* "[Melhores práticas de segurança no IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" na documentação da Amazon AWS.
+* Ação oficial "[Configurar credenciais da AWS](https://github.com/aws-actions/configure-aws-credentials)" da AWS.
+* Ação oficial ["Logon" no Amazon ECR](https://github.com/aws-actions/amazon-ecr-login) da AWS.
+* Ação oficial ["Renderizar Definição de Tarefa" do Amazon ECS](https://github.com/aws-actions/amazon-ecs-render-task-definition) da AWS.
+* Ação oficial ["Implantar Definição de Tarefa" do Amazon ECS](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) da AWS.

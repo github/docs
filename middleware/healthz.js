@@ -11,7 +11,7 @@ const noCacheControl = cacheControlFactory(0)
  * instance remains in the pool to handle requests
  * For example: if we have a failing database connection we may return a 500 status here.
  */
-router.get('/', function healthz(req, res, next) {
+router.get('/', function healthz(req, res) {
   noCacheControl(res)
 
   res.sendStatus(200)

@@ -7,24 +7,29 @@ redirect_from:
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
-intro: 複数のプロジェクトを単一のリポジトリで管理する必要がある場合、*サブツリーマージ*を使ってすべての参照を扱うことができます。
+intro: 複数のプロジェクトを単一のリポジトリで管理する必要がある場合、 *"サブツリー マージ"* を使ってすべての参照を扱うことができます。
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: cd553d4193f3e4ad5de54abc218df623b1d53276
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880029'
 ---
-
-## About subtree merges
+## サブツリーのマージについて
 
 通常、サブツリーのマージはリポジトリ内にリポジトリを格納するために使われます。 「サブリポジトリ」はメインのリポジトリのフォルダー内に格納されます。
 
 サブツリーマージは、例で説明するのが最も分かりやすいでしょう。 以下のように進めます:
 
-- プロジェクトを表す`test`という空のリポジトリの作成。
-- `Spoon-Knife`というもう1つのリポジトリをサブツリーとしてマージ。
-- `test`プロジェクトは、そのサブプロジェクトを同じリポジトリの一部であるかのように使う。
-- `Spoon-Knife`からの更新を`test` プロジェクトにフェッチする。
+- プロジェクトを表す `test` という空のリポジトリを作成します
+- 別のリポジトリを `Spoon-Knife` というサブツリーとして、そこにマージします。
+- `test` プロジェクトでは、そのサブプロジェクトを同じリポジトリの一部であるかのように使います。
+- `Spoon-Knife` から `test` プロジェクトに更新プログラムを取り込みます。
 
 ## サブツリーマージのための空のリポジトリのセットアップ
 
@@ -77,7 +82,7 @@ versions:
   $ git merge -s ours --no-commit spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
-3. **spoon-knife** というディレクトリを新たに作成し、`Spoon-Knife` プロジェクトの Git の履歴をそこへコピーします。
+3. **spoon-knife** というディレクトリを新たに作成し、`Spoon-Knife` プロジェクトの Git 履歴をそこへコピーします。
   ```shell
   $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
   ```
@@ -91,7 +96,7 @@ versions:
 
 {% tip %}
 
-**ヒント**: 将来このリポジトリのクローンを新しく作成した場合、追加したリモートは作成されません。 [`git remote add` コマンド](/github/getting-started-with-github/managing-remote-repositories)を使って、再び追加する必要があります。
+**参考**: 将来このリポジトリのクローンを新しく作成した場合、追加したリモートは作成されません。 [`git remote add` コマンド](/github/getting-started-with-github/managing-remote-repositories)を使用して、もう一度追加する必要があります。
 
 {% endtip %}
 
@@ -109,7 +114,7 @@ $ git pull -s subtree <em>remotename</em> <em>branchname</em>
 $ git pull -s subtree spoon-knife main
 ```
 
-## 参考リンク
+## 参考資料
 
-- [_Pro Git_ ブックの「高度なマージ」の章](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
-- [サブツリーマージの戦略の使い方](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)
+- [_Pro Git_ ブックの「高度なマージ」チャプター](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+- [サブツリー マージ戦略の使用方法](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)

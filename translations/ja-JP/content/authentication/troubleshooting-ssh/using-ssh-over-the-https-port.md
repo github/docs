@@ -1,6 +1,6 @@
 ---
 title: HTTPS ポートを介して SSH を使用する
-intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  [HTTPS cloning with credential caching] (/github/getting-started-with-github/caching-your-github-credentials-in-git) を使用できない場合は、HTTPS ポートを介して作成された SSH 接続を使用してクローンを試みることができます。  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
+intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  [認証情報キャッシュを使用した HTTPS クローニング](/github/getting-started-with-github/caching-your-github-credentials-in-git) を使用することが選べない場合は、HTTPS ポート経由の SSH 接続を使用してクローンの作成を試みることができます。  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -11,11 +11,16 @@ versions:
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
+ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883402'
 ---
-
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} ユーザ**: HTTPS ポートを介した SSH 経由での {% data variables.product.prodname_ghe_server %} へのアクセスは現在サポートされていません。
+**{% data variables.product.prodname_ghe_server %} ユーザー**: HTTPS ポートを介した SSH 経由での {% data variables.product.prodname_ghe_server %} へのアクセスは現在サポートされていません。
 
 {% endtip %}
 
@@ -27,13 +32,13 @@ $ ssh -T -p 443 git@ssh.github.com
 > provide shell access.
 ```
 
-うまく機能すれば、素晴らしいことです。 そうでない場合は、[トラブルシューティングガイドに従ってください](/articles/error-permission-denied-publickey)。
+うまく機能すれば、素晴らしいことです。 そうでない場合は、[トラブルシューティング ガイドに従って](/articles/error-permission-denied-publickey)ください。
 
 ## HTTPS を介した SSH 接続を有効化する
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.product.product_location %} to run through that server and port.
+ポート 443 経由で `git@ssh.{% data variables.command_line.backticks %}` に SSH 接続できる場合、SSH 設定をオーバーライドして、{% data variables.product.product_location %} への接続をそのサーバーとポート経由で実行するように強制できます。
 
-To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
+SSH 構成ファイルでこれを設定するには、`~/.ssh/config` でファイルを編集し、次のセクションを追加します。
 
 ```
 Host {% data variables.command_line.codeblock %}

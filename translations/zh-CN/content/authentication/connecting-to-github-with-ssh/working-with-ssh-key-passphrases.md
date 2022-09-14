@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: SSH 密钥密码
+shortTitle: SSH key passphrases
+ms.openlocfilehash: 5ddacfa052b866fe1cbd601caa8a1ff9ab6934fd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409113'
 ---
+## 关于 SSH 密钥的通行短语
 
-## 关于 SSH 密钥的密码
-
-使用 SSH 密钥时，如果有人获得了对您的计算机的访问权限，攻击者就可以访问使用该密钥的每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 为避免每次连接时都输入密码，您可以在 SSH 代理中安全地保存密码。
+使用 SSH 密钥时，如果攻击者获得你计算机的访问权限，便可以访问使用该密钥的每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 为避免每次连接时都输入通行短语，可以将通行短语安全地保存在 SSH 代理中。
 
 ## 添加或更改密码
 
@@ -40,7 +45,7 @@ $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 
 ## 在 Git for Windows 上自动启动 `ssh-agent`
 
-您可以在打开 bash 或 Git shell 时自动运行 `ssh-agent`。 复制以下行并将其粘贴到 Git shell 中的 `~/.profile` 或 `~/.bashrc` 文件中：
+可以在打开 bash 或 Git shell 时自动运行 `ssh-agent`。 复制以下行并将其粘贴到 Git shell 中的 `~/.profile` 或 `~/.bashrc` 文件中：
 
 ``` bash
 env=~/.ssh/agent.env
@@ -66,11 +71,11 @@ fi
 unset env
 ```
 
-如果您的私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），您需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
+如果私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
 
 {% tip %}
 
-**提示：**如果想要 `ssh-agent` 在一段时间后忘记您的密钥，可通过运行 `ssh-add -t <seconds>` 进行配置。
+提示：如果希望 `ssh-agent` 在一段时间后忘记密钥，可以通过运行 `ssh-add -t <seconds>` 对其进行配置。
 
 {% endtip %}
 
@@ -87,7 +92,7 @@ unset env
 > Run 'git help <command>' to display help for specific commands.
 ```
 
-`ssh-agent` 进程将继续运行，直到您注销、关闭计算机或终止该进程。
+`ssh-agent` 进程将继续运行，直到注销、关闭计算机或终止该进程。
 
 {% endwindows %}
 
@@ -97,11 +102,11 @@ unset env
 
 在 Mac OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
 
-- *.ssh/id_rsa*
-- *.ssh/identity*
+- .ssh/id_rsa
+- .ssh/identity
 
 初次使用密钥时，系统将提示您输入密码。 如果选择使用密钥链保存密码，则无需再次输入密码。
 
-否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。 更多信息请参阅“[添加 SSH 密钥到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
+否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。 有关详细信息，请参阅“[将 SSH 密钥添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
 
 {% endmac %}

@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Frases de acceso de llave SSH
+shortTitle: SSH key passphrases
+ms.openlocfilehash: 5ddacfa052b866fe1cbd601caa8a1ff9ab6934fd
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147409119'
 ---
+## Acerca de las frases de contraseña para claves SSH
 
-## Acerca de las frases de acceso para las llaves SSH
-
-Con las llaves SSH, si alguien obtiene acceso a tu computadora, el atacante puede obtener acceso a cada sistema que las utilice. Para agregar una capa extra de seguridad, puedes incluir una contraseña a tu clave SSH. Para evitar ingresar la frase de acceso cada que te conectas, puedes guardarla de forma segura en el agente SSH.
+Con las claves SSH, si alguien obtiene acceso a tu equipo, el atacante también tiene acceso a cada sistema que usa esa clave. Para agregar una capa extra de seguridad, puedes incluir una contraseña a tu clave SSH. Para evitar escribir la frase de contraseña cada vez que te conecta, puedes guardar la frase de contraseña de forma segura en el agente SSH.
 
 ## Agregar o cambiar una contraseña
 
@@ -38,9 +43,9 @@ Si tu clave ya tiene una contraseña, se te pedirá que la ingreses antes de que
 
 {% windows %}
 
-## Auto-lanzamiento `ssh-agent` en Git para Windows
+## Inicio automático `ssh-agent` en Git para Windows
 
-Puedes ejecutar el `ssh-agent` automáticamente cuando abres el bash o el Git shell. Copia las siguientes líneas y pégalas en tu `~/.perfil` o archivo `~/.bashrc` en Git Shell:
+Puede ejecutar `ssh-agent` automáticamente al abrir bash o el shell de Git. Copie las líneas siguientes y péguelas en su archivo `~/.profile` o `~/.bashrc` en el shell de Git:
 
 ``` bash
 env=~/.ssh/agent.env
@@ -66,11 +71,11 @@ fi
 unset env
 ```
 
-Si tu llave privada no está almacenada en una de las ubicaciones predeterminadas (como`~/.ssh/id_rsa`), necesitarás indicar a tu agente de autenticación SSH en dónde encontrarla. Para agregar tu clave a ssh-agent, escribe `ssh-add ~/path/to/my_key`. Para obtener más información, consulta "[Generar una nueva clave SSH y agregarla a ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)"
+Si la clave privada no está almacenada en una de las ubicaciones predeterminadas (como `~/.ssh/id_rsa`), necesitará indicarle a su agente de autenticación SSH dónde encontrarla. Para agregar la clave a ssh-agent, escriba `ssh-add ~/path/to/my_key`. Para obtener más información, consulte "[Generación de una nueva clave SSH y adición a ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)".
 
 {% tip %}
 
-**Sugerencias:** si quieres que `ssh-agent` olvide tu clave luego de un tiempo, puedes configurarlo para que lo haga ejecutando `ssh-add -t <seconds>`.
+**Sugerencia:** Si desea `ssh-agent` olvidar la clave después de algún tiempo, puede configurarla para tal fin mediante la ejecución de `ssh-add -t <seconds>`.
 
 {% endtip %}
 
@@ -87,7 +92,7 @@ Ahora, cuando ejecutas Git Bash por primera vez, se te pedirá tu contraseña:
 > Run 'git help <command>' to display help for specific commands.
 ```
 
-El proceso de `ssh-agent` continuará funcionando hasta que cierres sesión, apagues tu computadora o termines el proceso.
+El proceso `ssh-agent` continuará funcionando hasta que cierre sesión, apague su equipo o termine el proceso.
 
 {% endwindows %}
 
@@ -102,6 +107,6 @@ En Mac OS X Leopard y hasta OS X El Capitan, estos archivos de llave privada pre
 
 La primera vez que usas tu clave, se te pedirá que ingreses tu contraseña. Si eliges guardar la contraseña con tu keychain, no necesitarás ingresarla nuevamente.
 
-De lo contrario, puedes almacenar tu contraseña en la keychain cuando agregues tu clave a ssh-agent. Para obtener más información, consulta "[Agregar tu clave SSH a ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+De lo contrario, puedes almacenar tu contraseña en la keychain cuando agregues tu clave a ssh-agent. Para obtener más información, consulte "[Adición de la clave SSH a ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)".
 
 {% endmac %}
