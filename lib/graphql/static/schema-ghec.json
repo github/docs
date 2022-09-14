@@ -48290,6 +48290,14 @@
           ]
         },
         {
+          "name": "diffSide",
+          "description": "<p>The side of the diff on which this thread was placed.</p>",
+          "type": "DiffSide!",
+          "id": "diffside",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#diffside"
+        },
+        {
           "name": "isCollapsed",
           "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
@@ -48314,6 +48322,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "line",
+          "description": "<p>The line in the file to which this thread refers.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>Identifies the pull request associated with this thread.</p>",
           "type": "PullRequest!",
@@ -48336,6 +48352,22 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "startDiffSide",
+          "description": "<p>The side of the diff that the first line of the thread starts on (multi-line only).</p>",
+          "type": "DiffSide",
+          "id": "diffside",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#diffside"
+        },
+        {
+          "name": "startLine",
+          "description": "<p>The line of the first file diff in the thread.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "viewerCanReply",
