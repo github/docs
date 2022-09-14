@@ -38,8 +38,13 @@ children:
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
   - /guides
+ms.openlocfilehash: 1878df4a6915a3e1336f79705d4ac4e70794e7ed
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878432'
 ---
-
 <!---->
 <!---->
 <!---->

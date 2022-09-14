@@ -1,7 +1,7 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
+title: GitHub Codespaces のタイムアウト期間を設定する
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+intro: '個人用設定ページで、{% data variables.product.prodname_codespaces %} の既定のタイムアウトを設定できます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,48 +11,53 @@ topics:
 type: how_to
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
+ms.openlocfilehash: 5b904e8b2f5cecbecbc93da096ab31126ed82727
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147111527'
 ---
+非アクティブな期間が経過すると、codespace の実行が停止します。 このタイムアウト期間の長さを指定できます。 更新した設定は、新しく作成した codespace に適用されます。
 
-A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.
-
-Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+一部の組織では、最大アイドル タイムアウト ポリシーが用意されている場合があります。 組織のポリシーで最大タイムアウトが設定されていて、それが自分が設定した既定のタイムアウトより短い場合、組織のタイムアウトが自分の設定の代わりに使用され、そのことが codespace の作成後に通知されます。 詳細については、「[アイドル タイムアウト期間の制限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)」を参照してください。
 
 {% warning %}
 
-**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)」を参照してください。
+**警告**: codespace は 1 分単位で課金されます。 codespace をアクティブに使用していなくても、codespace がまだタイムアウトしていない場合は、codespace が実行されている時間に対して課金されます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)」をご覧ください。
 
 {% endwarning %}
 
 {% webui %}
 
-## Setting your default timeout period
+## 既定のタイムアウト期間を設定する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours). ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. [既定のアイドル タイムアウト] の下に必要な時間を入力し、 **[保存]** をクリックします。 時間は 5 分から 240 分 (4 時間) の間で指定する必要があります。
+   ![タイムアウトの選択](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting the timeout period for a codespace
+## codespace のタイムアウト期間を設定する
 
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
+codespace の作成時にタイムアウト期間を設定するには、`codespace create` サブコマンドで `idle-timeout` 引数を使用します。 時間を分単位で指定します (後ろに `m` を付けます)。 時間は 5 分から 240 分 (4 時間) の間で指定する必要があります。
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
+codespace を作成するときにタイムアウト期間を指定しない場合は、既定のタイムアウト期間が使用されます。 既定のタイムアウト期間の設定については、このページの [Web ブラウザー] タブをクリックしてください。 現在、{% data variables.product.prodname_cli %} を使用して既定のタイムアウト期間を指定することはできません。
 
 {% endcli %}
 
 {% vscode %}
 
-## Setting a timeout period
+## タイムアウト期間を設定する
 
-You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
+既定のタイムアウト期間は、Web ブラウザー内の {% data variables.product.prodname_dotcom_the_website %} で設定できます。 また、codespace を {% data variables.product.prodname_cli %} を使って作成する場合は、その特定の codespace のタイムアウト期間を設定できます。 詳しくは、上記の該当するタブをクリックしてください。
 
 {% endvscode %}

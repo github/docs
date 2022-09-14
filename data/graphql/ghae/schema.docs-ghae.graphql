@@ -3699,9 +3699,21 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): Blame!
 
   """
-  The number of changed files in this commit.
+  We recommend using the `changedFielsIfAvailable` field instead of
+  `changedFiles`, as `changedFiles` will cause your request to return an error
+  if GitHub is unable to calculate the number of changed files.
   """
   changedFiles: Int!
+    @deprecated(
+      reason: "`changedFiles` will be removed. Use `changedFilesIfAvailable` instead. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The number of changed files in this commit. If GitHub is unable to calculate
+  the number of changed files (for example due to a timeout), this will return
+  `null`. We recommend using this field instead of `changedFiles`.
+  """
+  changedFilesIfAvailable: Int
 
   """
   The check suites associated with a commit.
@@ -9708,6 +9720,41 @@ enum EnterpriseAdministratorRole {
 }
 
 """
+The possible values for the enterprise allow private repository forking policy value.
+"""
+enum EnterpriseAllowPrivateRepositoryForkingPolicyValue {
+  """
+  Members can fork a repository to an organization within this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS
+
+  """
+  Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.
+  """
+  EVERYWHERE
+
+  """
+  Members can fork a repository only within the same organization (intra-org).
+  """
+  SAME_ORGANIZATION
+
+  """
+  Members can fork a repository to their user account or within the same organization.
+  """
+  SAME_ORGANIZATION_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account.
+  """
+  USER_ACCOUNTS
+}
+
+"""
 Metadata for an audit entry containing enterprise account information.
 """
 interface EnterpriseAuditEntryData {
@@ -10281,6 +10328,11 @@ type EnterpriseOwnerInfo {
     """
     value: Boolean!
   ): OrganizationConnection!
+
+  """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  allowPrivateRepositoryForkingSettingPolicyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
 
   """
   The setting value for base repository permissions for organizations in this enterprise.
@@ -27708,7 +27760,7 @@ type Query {
   ): UniformResourceLocatable
 
   """
-  Perform a search across resources.
+  Perform a search across resources, returning a maximum of 1,000 results.
   """
   search(
     """
@@ -35341,16 +35393,22 @@ The results of a search.
 union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
 
 """
-A list of results that matched against a search query.
+A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 results will be available across all types,
+potentially split across many pages.
 """
 type SearchResultItemConnection {
   """
-  The number of pieces of code that matched the search query.
+  The total number of pieces of code that matched the search query. Regardless
+  of the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   codeCount: Int!
 
   """
-  The number of discussions that matched the search query.
+  The total number of discussions that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   discussionCount: Int!
 
@@ -35360,7 +35418,8 @@ type SearchResultItemConnection {
   edges: [SearchResultItemEdge]
 
   """
-  The number of issues that matched the search query.
+  The total number of issues that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   issueCount: Int!
 
@@ -35375,17 +35434,22 @@ type SearchResultItemConnection {
   pageInfo: PageInfo!
 
   """
-  The number of repositories that matched the search query.
+  The total number of repositories that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   repositoryCount: Int!
 
   """
-  The number of users that matched the search query.
+  The total number of users that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   userCount: Int!
 
   """
-  The number of wiki pages that matched the search query.
+  The total number of wiki pages that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   wikiCount: Int!
 }
@@ -39974,6 +40038,11 @@ input UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput {
   The ID of the enterprise on which to set the allow private repository forking setting.
   """
   enterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
+
+  """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  policyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
 
   """
   The value for the allow private repository forking setting on the enterprise.

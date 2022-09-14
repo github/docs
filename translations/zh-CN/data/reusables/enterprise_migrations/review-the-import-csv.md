@@ -1,9 +1,16 @@
-1. 在 `/PATH/REPO-NAME.git/git-import/raw-authors.csv` 中检查逗号分隔 (CSV) 的文件。 它应包含以下三列：
-    - `ID`：存储在原始仓库中的作者，后接唯一识别符。
-    - `NAME`：存储在原始仓库中的作者
+---
+ms.openlocfilehash: 52ba84fdbfdaa4150aff2b1e1bba858bf1ab7d41
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145097720"
+---
+1. 查看 `/PATH/REPO-NAME.git/git-import/raw-authors.csv` 中的逗号分隔 (CSV) 文件。 它应包含以下三列：
+    - `ID`：存储在原始存储库中的作者，后接唯一识别符。
+    - `NAME`：原始存储库中存储的作者
 
-  要将作者从原始仓库映射到电子邮件地址和名称，请使用 `ID,(ignored),GIT_EMAIL,GIT_NAME` 列新建一个 CSV 文件，将用 "ID" 表示的任何作者信息替换为 "GIT_EMAIL" 和 "GIT_NAME"。
-
+  要将作者从原始存储库映射到电子邮件地址和名称，请使用 `ID,(ignored),GIT_EMAIL,GIT_NAME` 列新建一个 CSV 文件，将用“ID”表示的任何作者信息替换为“GIT_EMAIL”和“GIT_NAME”。
 
   #### 示例：
 

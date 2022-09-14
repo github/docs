@@ -1,6 +1,6 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: 'この Hello World 演習に従って、{% data variables.product.product_name %} の使用を開始します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,140 +11,147 @@ topics:
   - Pull requests
   - Fundamentals
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 71278b720bcbfaabc892c396ab7fb558f5309173
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145125862'
 ---
-
 ## はじめに
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+{% data variables.product.product_name %} は、バージョン コントロールとコラボレーションのためのコード ホスティング プラットフォームです。 これにより、どこからでもプロジェクトで共同作業を行うことができます。
 
-This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
+このチュートリアルでは、リポジトリ、ブランチ、コミット、pull request などの {% data variables.product.product_name %} の要点について説明します。 独自の Hello World リポジトリを作成し、{% data variables.product.product_name %} の pull request ワークフローについて学びます。これは、コードを作成してレビューする一般的な方法です。
 
-In this quickstart guide, you will:
+このクイックスタート ガイドでは、次の操作を行います。
 
-* Create and use a repository
-* Start and manage a new branch
-* Make changes to a file and push them to {% data variables.product.product_name %} as commits
-* Open and merge a pull request
+* リポジトリを作成して使用する
+* 新しいブランチを開始して管理する
+* ファイルに変更を加え、コミットとして {% data variables.product.product_name %} にプッシュする
+* pull request を開いてマージする
 
-To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
+このチュートリアルを完了するには、[{% data variables.product.product_name %} アカウント](http://github.com)とインターネット アクセスが必要です。 コードを作成し、コマンド ラインを使用し、Git ({% data variables.product.product_name %} が構築されているバージョン コントロール ソフトウェア) をインストールする方法を知る必要はありません。 このガイドで使用されている式について質問がある場合は、[用語集](/get-started/quickstart/github-glossary)に進み、用語の詳細を確認してください。
 
 ## リポジトリを作成する
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a _README_ file, a file with information about your project. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
+リポジトリは、通常 1 つのプロジェクトを整理するために使用されます。 リポジトリには、フォルダーとファイル、画像、ビデオ、スプレッドシート、データ セットなどプロジェクトに必要なものは何でも含めることができます。 多くの場合、リポジトリには _README_ ファイル (プロジェクトに関する情報を含むファイル) が含まれます。 _README_ ファイルは、プレーン テキストの Markdown 言語で記述されます。 この[チート シート](https://www.markdownguide.org/cheat-sheet/)を使用して、Markdown 構文の使用を開始できます。 {% data variables.product.product_name %} を使用すると、新しいリポジトリを作成するのと同時に _README_ ファイルを追加できます。 {% data variables.product.product_name %} にはライセンス ファイルなどの他の一般的なオプションも用意されていますが、現在はそれらを選択する必要はありません。
 
-Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
+`hello-world` リポジトリは、アイデアやリソースを格納し、他のユーザーと共有し話し合う場所にすることができます。
 
 {% data reusables.repositories.create_new %}
-1. In the **Repository name** box, enter `hello-world`.
-2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Select whether your repository will be **Public** or **Private**.
-5. [**Create repository**] をクリックします。
+1. **[リポジトリ名]** ボックスに「`hello-world`」と入力します。
+2. **[説明]** ボックスに簡単な説明を記述します。
+3. **[README ファイルを追加する]** を選択します。
+4. リポジトリが **[パブリック]** か **[プライベート]** かを選択します。
+5. **[Create repository]** \(リポジトリの作成\) をクリックします。
 
-   ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
+   ![Hello World リポジトリを作成する](/assets/images/help/repository/hello-world-repo.png)
 
 ## ブランチの作成
 
-Branching lets you have different versions of a repository at one time.
+ブランチを使用すると、一度に異なるバージョンのリポジトリを使用できます。
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
+既定では、リポジトリには、決定版ブランチと見なされる `main` という名前のブランチが 1 つ存在します。 リポジトリで `main` の追加のブランチを作成できます。 ブランチを使用すると、一度にあるプロジェクトの異なるバージョンを作成できます。 これは、コードのメインのソースを変更せずに新しい機能をプロジェクトに追加する場合に役立ちます。 異なるブランチで行われた作業は、マージするまでメインのブランチには表示されません。これについてはこのガイドで後ほど説明します。 ブランチを使用すると、`main` にブランチをコミットする前に実験や編集を行うことができます。
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+`main` ブランチからブランチを作成すると、`main` のその時点のコピー (スナップショット) が作成されます。 ブランチの作業中に他のユーザーが `main` ブランチに変更を加えた場合は、その更新をプルできます。
 
-This diagram shows:
+この図は次のことを示しています。
 
-* The `main` branch
-* A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+* `main` ブランチ
+* `feature` という名前の新しいブランチ
+* `main` にマージされる前に `feature` がたどるプロセス
 
-![branching diagram](/assets/images/help/repository/branching.png)
+![分岐図](/assets/images/help/repository/branching.png)
 
-Have you ever saved different versions of a file? Something like:
+ファイルの異なるバージョンを保存したことがありますか? 次のようなものです。
 
 * `story.txt`
 * `story-edit.txt`
 * `story-edit-reviewed.txt`
 
-Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
+ブランチは、{% data variables.product.product_name %} リポジトリでも同様の目標を達成します。
 
-Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
+ここ {% data variables.product.product_name %} では、開発者、ライター、設計者は、バグ修正と機能作業を `main` (運用) ブランチとは別の場所に保存するためにブランチを使用します。 変更の準備ができたら、ブランチを `main` にマージします。
 
-### Create a branch
+### 分岐を作成する
 
-1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**. ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
-4. Type a branch name, `readme-edits`, into the text box.
-5. Click **Create branch: readme-edits from main**.
+1. `hello-world` リポジトリの **[コード]** タブをクリックします。
+2. **[main]** と表示されるファイル リストの一番上にあるドロップダウンをクリックします。
+   ![ブランチ メニュー](/assets/images/help/branch/branch-selection-dropdown.png)
+4. テキスト ボックスにブランチ名の「`readme-edits`」を入力します。
+5. **[ブランチの作成: main からの readme-edits]** をクリックします。
 
-![Branch menu](/assets/images/help/repository/new-branch.png)
+![ブランチ メニュー](/assets/images/help/repository/new-branch.png)
 
-Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
+これで `main` と `readme-edits` の 2 つのブランチを作成しました。 今のところ、この 2 つはまったく同じように見えます。 次に、新しいブランチに変更を追加します。
 
-## Making and committing changes
+## 変更を加え、変更をコミットする
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+前の手順で新しいブランチを作成後、{% data variables.product.product_name %} を使用して新しい `readme-edits` ブランチ (`main` のコピー) のコード ページに移動しました。
 
-You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
+リポジトリ内のファイルに変更を加えて保存できます。 {% data variables.product.product_name %} では、保存された変更はコミットと呼ばれます。 各コミットには、特定の変更が行われた理由を説明するコミット メッセージが関連付けられています。 コミット メッセージでは、行ったこととその理由を他の共同作成者が理解できるように、変更内容の履歴がキャプチャされます。
 
-1. Under the `readme-edits` branch you created, click the _README.md_ file.
+1. 作成した `readme-edits` ブランチで _README.md_ ファイルをクリックします。
 2. {% octicon "pencil" aria-label="The edit icon" %}をクリックしてファイルを編集してください。
-3. In the editor, write a bit about yourself. Try using different Markdown elements.
-4. In the **Commit changes** box, write a commit message that describes your changes.
-5. **[Commit changes]** をクリックしてください。
+3. エディターで簡単な自己紹介文を書きます。 さまざまな Markdown 要素を使用してみてください。
+4. **[変更のコミット]** ボックスに、変更について説明するコミット メッセージを書き込みます。
+5. **[Commit changes]** をクリックします。
 
-   ![Commit example](/assets/images/help/repository/first-commit.png)
+   ![コミットの例](/assets/images/help/repository/first-commit.png)
 
-These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
+これらの変更は `readme-edits` ブランチ上の README ファイルにのみ行われるため、このブランチに `main` とは異なるコンテンツが含まれるようになりました。
 
 ## プルリクエストのオープン
 
-Now that you have changes in a branch off of `main`, you can open a pull request.
+`main` とは別のブランチに変更が加わったため、pull request を開くことができます。
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+pull request は、{% data variables.product.product_name %} でのコラボレーションの主な機能です。 pull request を開くと、変更を提案し、誰かにコントリビューションをレビューしてプルし、ブランチにマージするよう要求できます。 pull request では、両方のブランチのコンテンツの相違点 (差分) が表示されます。 変更、追加、差分は異なる色で表示されます。
 
-As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
+コミットしたらすぐに、コードが完成していなくても、pull request を開き、ディスカッションを開始できます。
 
-By using {% data variables.product.product_name %}'s `@mention` feature in your pull request message, you can ask for feedback from specific people or teams, whether they're down the hall or 10 time zones away.
+pull request メッセージで {% data variables.product.product_name %} の `@mention` 機能使用することにより、特定のユーザーやチームが近くにいる場合でも、10 タイム ゾーン離れている場合でも、フィードバックを求めることができます。
 
-You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
+独自のリポジトリで pull request を開き、自分でマージすることもできます。 これは、大規模なプロジェクトに取り組む前に {% data variables.product.product_name %} フローを学習するのに最適な方法です。
 
-1. Click the **Pull requests** tab of your `hello-world` repository.
-2. Click **New pull request**
-3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
+1. `hello-world` リポジトリの **[pull request]** タブをクリックします。
+2. **[新しい pull request]** をクリックします。
+3. **[比較例]** ボックスで、作成したブランチの `readme-edits` を選択して、`main` (元のブランチ) と比較します。
+4. [比較] ページの差分で変更内容を確認し、送信すべき内容であることを確認します。
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![差分の例](/assets/images/help/repository/diffs.png)
 
-5. **Create pull request**をクリックします。
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. 詳しい情報については[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を参照してください。
-7. **Create pull request**をクリックします。
+5. **[pull request の作成]** をクリックします。
+6. pull request にタイトルを付け、変更内容の簡単な説明を記述します。 絵文字を含め、画像や gif をドラッグ アンド ドロップできます。
+7. 必要に応じて、タイトルと説明の右側にある {% octicon "gear" aria-label="The Gear icon" %} ( **[レビュー担当者]** 、 **[担当者]** 、 **[ラベル]** 、 **[プロジェクト]** 、または **[マイルストーン]** の横の) をクリックして、pull request にこのようなオプションを追加します。 まだ追加する必要はありませんが、これらのオプションでは pull request を使用して共同作業を行うさまざまな方法が提供されます。 詳細については、「[pull request について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。
+7. **[pull request の作成]** をクリックします。
 
-Your collaborators can now review your edits and make suggestions.
+コラボレーターが編集内容を確認し、提案できるようになりました。
 
-## Merging your pull request
+## pull request を管理する
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
+この最後の手順では、`readme-edits` ブランチを `main` ブランチにマージします。  pull request をマージすると、`readme-edits` ブランチの変更が `main` に組み込まれます。
 
-Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+場合によっては、pull request によって、`main` の既存のコードと競合するコードが変更される場合があります。 競合がある場合、{% data variables.product.product_name %} は競合するコードについて警告し、競合が解決されるまでマージを禁止します。 競合を解決するコミットを行うか、pull request のコメントを使用して、チーム メンバーと競合について話し合うことができます。
 
-In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
+このチュートリアルでは、競合は発生しないため、ブランチをメイン ブランチにマージする準備ができました。
 
-1. Click **Merge pull request** to merge the changes into `main`. ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-2. **Confirm merge（マージを確認）**をクリックしてください。 You will receive a message that the request was successfully merged and the request was closed.
-3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
+1. **[pull request のマージ]** をクリックして、変更を `main` にマージします。
+  ![[マージ] ボタンのスクリーン ショット。](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+2. **[マージの確認]** をクリックします。 要求が正常にマージされ、要求が閉じられたことを示すメッセージが表示されます。
+3. **[ブランチの削除]** をクリックします。 pull request がマージされ、変更が `main` に反映されたため、`readme-edits` ブランチを安全に削除できます。 プロジェクトをさらに変更する場合は、いつでも新しいブランチを作成し、このプロセスを繰り返すことができます。
 
-## 次のステップ
+## 次の手順
 
-By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
+このチュートリアルを完了することで、プロジェクトを作成し、{% data variables.product.product_name %} に対して pull request を行う方法を学習しました。
 
-Here's what you accomplished in this tutorial:
+このチュートリアルで実行した内容は次のとおりです。
 
-* Created an open source repository
-* Started and managed a new branch
-* Changed a file and committed those changes to {% data variables.product.product_name %}
-* Opened and merged a pull request
+* オープンソース リポジトリを作成しました
+* 新しいブランチを開始し、管理しました
+* ファイルを変更し、変更を {% data variables.product.product_name %} にコミットしました
+* pull request 開き、マージしました
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+{% data variables.product.product_name %} プロファイルを見ると、作業内容がコントリビューション グラフに反映されていることがわかります。
 
-For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+ブランチと pull request の機能の詳細については、「[GitHub フロー](/get-started/quickstart/github-flow)」を参照してください。 {% data variables.product.product_name %} の使用開始について詳しくは、[「はじめに」のクイックスタート](/get-started/quickstart)の他のガイドを参照してください。

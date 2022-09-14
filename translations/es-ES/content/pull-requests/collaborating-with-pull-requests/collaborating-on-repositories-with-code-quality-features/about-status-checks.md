@@ -1,6 +1,6 @@
 ---
-title: About status checks
-intro: Status checks let you know if your commits meet the conditions set for the repository you're contributing to.
+title: Acerca de las verificaciones de estado
+intro: Las verificaciones de estado te permiten saber si tus confirmaciones cumplen con las condiciones establecidas para el repositorio con el que estás colaborando.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
   - /articles/about-statuses
@@ -14,62 +14,68 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 759889bd4f014e4bc2afff5f182a0b7258c8bb07
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147065870'
 ---
-Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
+Las verificaciones de estado se basan en procesos externos, como compilaciones de integración continua, que se ejecutan para cada subida que haces a un repositorio. Puede ver el estado *pending* (pendiente), *passing* (aprobado) o *failing* (error) de las verificaciones de estado al lado de las confirmaciones individuales en su solicitud de incorporación de cambios.
 
-![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
+![Listado de confirmaciones y estados](/assets/images/help/pull_requests/commit-list-statuses.png)
 
-Anyone with write permissions to a repository can set the state for any status check in the repository.
+Cualquier persona con permisos de escritura a un repositorio puede determinar el estado de cualquier comprobación de estado en el repositorio.
 
-You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
+Puedes ver el estado general de la última confirmación para una rama en la página de ramas de tu repositorio o en la lista de solicitudes de extracción de tu repositorio.
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-## Types of status checks on {% data variables.product.product_name %}
+## Tipos de verificaciones de estado en {% data variables.product.product_name %}
 
-There are two types of status checks on {% data variables.product.product_name %}:
+Hay dos tipos de verificaciones de estado en {% data variables.product.product_name %}:
 
-- Checks
-- Statuses
+- Comprobaciones
+- Estados
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
+Las _comprobaciones_ son diferentes a los _estados_, ya que proporcionan anotaciones de líneas, mensajes más detallados y solo están disponibles para usarse con {% data variables.product.prodname_github_apps %}.
 
-Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/commits#commit-statuses)."
+Los propietarios de la organización y los usuarios con acceso de escritura a un repositorio pueden crear verificaciones y estados con la API de {% data variables.product.product_name %}. Para obtener más información, vea "[Comprobaciones](/rest/reference/checks)" y "[Estados](/rest/reference/commits#commit-statuses)".
 
-## Checks
+## Comprobaciones
 
-When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
+Cuando se configuran _comprobaciones_ en un repositorio, las solicitudes de incorporación de cambios tienen una pestaña **Comprobaciones** donde puede ver los resultados de la compilación detallados desde las comprobaciones de estado y volver a ejecutar las comprobaciones erróneas.
 
-![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
+![Verificaciones de estado dentro de una solicitud de extracción](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+**Nota:** La pestaña **Comprobaciones** solo se rellena para las solicitudes de incorporación de cambios si configura _comprobaciones_, y no _estados_, en el repositorio.
 
 {% endnote %}
 
-When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
+Cuando una línea específica en una confirmación provoca que una comprobación produzca un error, verá los detalles acerca del error, advertencia o aviso al lado del código relevante en la pestaña **Files** (Archivos) de la solicitud de incorporación de cambios.
 
-![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
+![Detalles de una verificación de estado](/assets/images/help/pull_requests/checks-detailed.png)
 
-You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
+Puede navegar entre los resúmenes de las comprobaciones para varias confirmaciones en una solicitud de incorporación de cambios mediante el menú desplegable de la confirmación en la pestaña **Conversation** (Conversación).
 
-![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![Resúmenes de verificación para diferentes confirmaciones en un menú desplegable](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-### Skipping and requesting checks for individual commits
+### Omitir y solicitar verificaciones para confirmaciones individuales
 
-When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
+Cuando un repositorio se configura para que solicite automáticamente las verificaciones para las subidas, puedes elegir omitir las verificaciones para una confirmación indvidual que subes. Cuando un repositorio _no_ se configura a fin de que solicite automáticamente las comprobaciones para las subidas, puede solicitar comprobaciones para una confirmación individual que inserte. Para obtener más información sobre esta configuración, vea "[Conjuntos de comprobaciones](/rest/reference/checks#update-repository-preferences-for-check-suites)".
 
-To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
+Para omitir o solicitar verificaciones para tu confirmación, agrega una de las siguientes lineas de introducción al final de tu mensaje de confirmación:
 
-- To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+- A fin de _omitir comprobaciones_ para una confirmación, escriba su mensaje de confirmación, y una descripción corta y significativa de sus cambios. Después de la descripción de su confirmación, antes de las comillas de cierre, agregue dos líneas vacías seguidas de `skip-checks: true`:
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+- A fin de _solicitar_ comprobaciones para una confirmación, escriba su mensaje de confirmación, y una descripción corta y significativa de sus cambios. Después de la descripción de su confirmación, antes de las comillas de cierre, agregue dos líneas vacías seguidas de `request-checks: true`:
   ```shell
   $ git commit -m "Refactor usability tests
   >
@@ -78,7 +84,6 @@ To skip or request checks for your commit, add one of the following trailer line
   ```
 
 {% ifversion fpt or ghec %}
-### Retention of status checks
+### Retención de comprobaciones de estado
 
-{% data reusables.pull_requests.retention-checks-data %}
-{% endif %}
+{% data reusables.pull_requests.retention-checks-data %} {% endif %}

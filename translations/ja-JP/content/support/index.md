@@ -1,8 +1,8 @@
 ---
-title: GitHub Support への相談
+title: GitHub サポートの使用
 shortTitle: GitHub Support
 layout: product-landing
-intro: 'GitHub offers different levels of support with each product, including community forum support and limited email support for everyone, full email support for all paid products, and 24/7 email and callback support with a service level agreement (SLA) if your account includes {% data variables.contact.premium_support %}.'
+intro: 'GitHub は、コミュニティ フォーラムのサポート、すべてのユーザー向けの制限付きメール サポート、すべての有料製品についての完全なメール サポート、アカウントに {% data variables.contact.premium_support %} が含まれている場合はサービス レベル アグリーメント (SLA) での 24 時間 365 日のメールとコールバックのサポートなど、各製品でさまざまなレベルのサポートを提供しています。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -30,5 +30,11 @@ featuredLinks:
   popular:
     - /support/learning-about-github-support/about-github-support
     - /support/contacting-github-support/creating-a-support-ticket
+ms.openlocfilehash: 2d255401f41ce30340144e6e11f71de924b8998d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145140115'
 ---
 

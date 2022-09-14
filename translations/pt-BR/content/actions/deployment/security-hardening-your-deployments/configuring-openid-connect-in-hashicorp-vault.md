@@ -1,7 +1,7 @@
 ---
-title: Configurando o OpenID Connect no HashiCorp Vault
-shortTitle: Configurando o OpenID Connect no HashiCorp Vault
-intro: Use o OpenID Connect nos seus fluxos de trabalho para efetuar a autenticação com o HashiCorp Vault.
+title: Configuring OpenID Connect in HashiCorp Vault
+shortTitle: Configuring OpenID Connect in HashiCorp Vault
+intro: Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -16,36 +16,37 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Visão Geral
+## Overview
 
-O OpenID Connect (OIDC) permite aos seus fluxos de trabalho de {% data variables.product.prodname_actions %} efetuar a autenticação com um HashiCorp Vault para recuperar segredos.
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with a HashiCorp Vault to retrieve secrets.
 
-Este guia fornece uma visão geral sobre como configurar o cofre HashiCorp para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada e mostra como usar essa configuração na ação [hashicorp/vault-action](https://github.com/hashicorp/vault-action) para recuperar segredos do cofre HashiCorp.
+This guide gives an overview of how to configure HashiCorp Vault to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in the [hashicorp/vault-action](https://github.com/hashicorp/vault-action) action to retrieve secrets from HashiCorp Vault.
 
-## Pré-requisitos
+## Prerequisites
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Adicionando o provedor de identidade ao HashiCorp Vault
+## Adding the identity provider to HashiCorp Vault
 
-Para usar OIDC com oHashiCorp Vault, você deverá adicionar uma configuração de confiança ao provedor do OIDC de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a [documentação](https://www.vaultproject.io/docs/auth/jwt) do HashiCorp Vault.
+To use OIDC with HashiCorp Vault, you will need to add a trust configuration for the {% data variables.product.prodname_dotcom %} OIDC provider. For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
-Para configurar o seu servidor Vault para aceitar o JSON Web Tokens (JWT) para autenticação:
+To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
-1. Habilite o método de autenticação `JWT` e use `gravar` para aplicar a configuração do seu Vault. Para os parâmetros `oidc_discovery_url` e `bound_issuer`, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. Estes parâmetros permitem que o servidor do Vault verifique os JSON Web Tokens recebidos (JWT) durante o processo de autenticação.
+1. Enable the JWT `auth` method, and use `write` to apply the configuration to your Vault. 
+  For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters allow the Vault server to verify the received JSON Web Tokens (JWT) during the authentication process.
 
     ```sh{:copy}
     vault auth enable jwt
     ```
-
+    
     ```sh{:copy}
     vault write auth/jwt/config \
       bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
       oidc_discovery_url="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}"
     ```
-2. Configure uma política que concede apenas acesso aos caminhos específicos que seus fluxos de trabalho serão usados para recuperar segredos. Para políticas mais avançadas, consulte o as [Políticas documentação](https://www.vaultproject.io/docs/concepts/policies) do HashiCorp Vault.
+2. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
     ```sh{:copy}
     vault policy write myproject-production - <<EOF
@@ -56,7 +57,7 @@ Para configurar o seu servidor Vault para aceitar o JSON Web Tokens (JWT) para a
     }
     EOF
     ```
-3. Configure funções para agrupar diferentes políticas. Se a autenticação for bem-sucedida, essas políticas serão anexadas ao token de acesso do Vault resultante.
+3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
 
     ```sh{:copy}
     vault write auth/jwt/role/myproject-production -<<EOF
@@ -72,51 +73,51 @@ Para configurar o seu servidor Vault para aceitar o JSON Web Tokens (JWT) para a
     EOF
     ```
 
-- `ttl` define a validade do token de acesso resultante.
-- Certifique-se de que o parâmetro `bound_claims` está definido para seus requisitos de segurança e tem pelo menos uma condição. Opcionalmente, você também pode definir os partâmetros `bound_subject` e `bound_audiences`.
-- Para verificar reivindicações arbitrárias na carga do JWT recebido, o parâmetro `bound_claims` contém um conjunto de reivindicações e seus valores obrigatórios. No exemplo acima, a função vai aceitar qualquer solicitação de autenticação de entrada do repositório `repo-name` pertencente à conta `user-or-org-name`.
-- Para ver todas as reivindicações disponíveis compatíveis com o provedor do OIDC do {% data variables.product.prodname_dotcom %}, consulte ["Configurando a confiança do OIDC com a nuvem"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
+- `ttl` defines the validity of the resulting access token.
+- Ensure that the `bound_claims` parameter is defined for your security requirements, and has at least one condition. Optionally, you can also set the `bound_subject` as well as the `bound_audiences` parameter.
+- To check arbitrary claims in the received JWT payload, the `bound_claims` parameter contains a set of claims and their required values. In the above example, the role will accept any incoming authentication requests from the `repo-name` repository owned by the `user-or-org-name` account.
+- To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
 
-Para obter mais informações, consulte a [documentação](https://www.vaultproject.io/docs/auth/jwt) do HashiCorp Vault.
+For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
-## Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}
+## Updating your {% data variables.product.prodname_actions %} workflow
 
-Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alterações no seu YAML:
-1. Adicionar configurações de permissões para o token.
-2. Use a ação [`hashicorp/vault-ação`](https://github.com/hashicorp/vault-action) para trocar o token do OIDC (JWT) por um token de acesso na nuvem.
+To update your workflows for OIDC, you will need to make two changes to your YAML:
+1. Add permissions settings for the token.
+2. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
 
-Para adicionar a integração do OIDC a seus fluxos de trabalho que lhes permitem acessar os segredos no Vault, você deverá adicionar as seguintes alterações de código:
+To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
-- Conceder permissão para obter o token do provedor do OIDC de {% data variables.product.prodname_dotcom %}:
-  - O fluxo de trabalho precisa de configurações de `permissions:` com o valor `id-token` definido como `write`. Isso permite obter o token do OIDC de cada trabalho do fluxo de trabalho.
-- Solicite o JWT do provedor do OIDC {% data variables.product.prodname_dotcom %} e apresente-o ao HashiCorp Vault para receber um token de acesso:
-  - Você pode usar a ação [`hashicorp/vault-ação`](https://github.com/hashicorp/vault-action) para buscar o JWT e receber o token de acesso do Vault, ou você poderia usar o [conjunto de ferramentas de Ações](https://github.com/actions/toolkit/) para buscar os tokens para o seu trabalho.
+- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
+  - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
+- Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
+  - You can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from Vault, or you could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job.
 
-Este exemplo demonstra como usar o OIDC com a ação oficial para solicitar um segredo ao HashiCorp Vault.
+This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
-### Adicionando configurações de permissões
+### Adding permissions settings
 
  {% data reusables.actions.oidc-permissions-token %}
 
 {% note %}
 
-**Observação**:
+**Note**:
 
-Quando a chave `permissões` é usada, todas as permissões não especificadas estão configuradas como _sem acesso_, com exceção do escopo de metadados, que sempre recebe acesso de _leitura_. Como resultado, você pode precisar adicionar outras permissões, como `contents: read`. Consulte [Autenticação Automática de Tokens](/actions/security-guides/automatic-token-authentication) para mais informações.
+When the `permissions` key is used, all unspecified permissions are set to _no access_, with the exception of the metadata scope, which always gets _read_ access. As a result, you may need to add other permissions, such as `contents: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
 
 {% endnote %}
 
-### Solicitando o token de acesso
+### Requesting the access token
 
-A ação `hashicorp/vault-ação` recebe um JWT do provedor de OIDC de {% data variables.product.prodname_dotcom %} e, em seguida, solicita um token de acesso da sua instância do HashiCorp Vault para recuperar segredos. Para obter mais informações, consulte a documentação do [HashiCorp Vault do GitHub Actions](https://github.com/hashicorp/vault-action).
+The `hashicorp/vault-action` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from your HashiCorp Vault instance to retrieve secrets. For more information, see the HashiCorp Vault GitHub Action [documentation](https://github.com/hashicorp/vault-action).
 
-Este exemplo demonstra como criar um trabalho que solicita um segredo para o HashiCorp Vault.
+This example demonstrates how to create a job that requests a secret from HashiCorp Vault.
 
-- `<Vault URL>`: Substitua isso pela URL do seu HashiCorp Vault.
-- `<Vault Namespace>`: Substitu-o pelo Namespace que você colocou no HashiCorp Vault. Por exemplo: `administrador`.
-- `<Role name>`: Substitua isso pela função que você definiu no relacionamento de confiança do HashiCorp Vault.
-- `<Secret-Path>`: Substitua isso pelo caminho para o segredo que você está recuperando do HashiCorp Vault. Por exemplo: `secret/data/production/ci npmToken`.
+- `<Vault URL>`: Replace this with the URL of your HashiCorp Vault.
+- `<Vault Namespace>`: Replace this with the Namespace you've set in HashiCorp Vault. For example: `admin`.
+- `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
+- `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
 ```yaml{:copy}
 jobs:
@@ -134,7 +135,7 @@ jobs:
             namespace: <Vault Namespace - HCP Vault and Vault Enterprise only>
             role: <Role name>
             secrets: <Secret-Path>
-
+                
       - name: Use secret from Vault
         run: |
           # This step has access to the secret retrieved above; see hashicorp/vault-action for more details.
@@ -142,19 +143,19 @@ jobs:
 
 {% note %}
 
-**Observação**:
+**Note**:
 
-- Se o seu servidor do Vault não puder ser acessado a partir da rede pública, considere usar um executor auto-hospedado com outros [auth methods](https://www.vaultproject.io/docs/auth) disponíveis para o Vault. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-- `<Vault Namespace>` deve ser definido para uma implantação da empresa do Vault (incluindo HCP Vault). Para obter mais informações, consulte [Namespace do Vault](https://www.vaultproject.io/docs/enterprise/namespaces).
+- If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+- `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
 
 {% endnote %}
 
-### Revogando o token de acesso
+### Revoking the access token
 
-Por padrão, o servidor do Vault irá revogar automaticamente os tokens de acesso quando seu TTL vencer, portanto, você não precisa revogar manualmente os tokens de acesso. No entanto, se você deseja revogar os tokens de acesso imediatamente após o seu trabalho terminar ou falhar, você poderá revogar manualmente o token emitido usando a API do Vault [](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
+By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to manually revoke the access tokens. However, if you do want to revoke access tokens immediately after your job has completed or failed, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
 
-1. Defina a opção `exportToken` como `verdadeiro` (padrão: `falso`). Isso exporta o token de acesso do Vault emitido como uma variável de ambiente: `VAULT_TOKEN`.
-2. Adicione um passo para chamar a API do Vault [Revogar um Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) para revogar o token de acesso.
+1. Set the `exportToken` option to `true` (default: `false`). This exports the issued Vault access token as an environment variable: `VAULT_TOKEN`.
+2. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
 
 ```yaml{:copy}
 jobs:

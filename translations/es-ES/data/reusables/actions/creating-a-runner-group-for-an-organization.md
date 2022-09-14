@@ -1,38 +1,36 @@
-{% comment %}
+---
+ms.openlocfilehash: 9fc8c5a87be98ad66b69d401abe1f372dcb56dc7
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147764155"
+---
+{% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Incluye siempre una admonición de seguridad por encima de este procedimiento. Se trata de una de las siguientes opciones, en función de si el contexto es ejecutores autohospedados o ejecutores más grandes.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
-
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
+ 
 {% endcomment %}
 
-All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Los administradores de la organización pueden permitir el acceso de los repositorios individuales a un grupo de ejecutores. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
+Todas las organizaciones tienen un solo grupo predeterminado de ejecutores. Las organizaciones dentro de una cuenta empresarial pueden crear grupos adicionales. Los administradores de la organización pueden permitir el acceso de los repositorios individuales a un grupo de ejecutores. Para obtener información sobre cómo crear un grupo de ejecutores con la API de REST, consulta "[Grupos de ejecutores autohospedados](/rest/reference/actions#self-hosted-runner-groups)".
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. Puedes mover un ejecutor del grupo predeterminado a cualquier grupo que crees.
+Los ejecutores se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser miembros de un grupo a la vez. Puedes mover un ejecutor del grupo predeterminado a cualquier grupo que crees.
 
-Cuando creas un grupo, debes elegir la política que define qué reositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} tienen acceso al grupo ejecutor.
+Cuando creas un grupo, debes elegir una directiva que defina qué repositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} tienen acceso al grupo de ejecutores.
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. En la sección de "Grupos de ejecutores", haz clic en **Grupo de ejecutores nuevo**.
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. En la sección "Runner groups", haga clic en **New runner group**.
 1. Ingresa un nombre para tu grupo ejecutor.
- {% data reusables.actions.runner-group-assign-policy-repo %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %}Los grupos ejecutores que pertenecen a las organizaciones no pueden acceder a los flujos de trabajo de una organización diferente en la empresa. En vez de esto, debes crear un grupo de ejecutores que pertenezca a la empresa.{% endif %}
-{% data reusables.actions.create-runner-group %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Debajo de {% ifversion ghes or ghae %}"Ejecutores"{% endif %}, haz clic en **Agregar nuevo** y luego en **Grupo nuevo**.
+ {% data reusables.actions.runner-group-assign-policy-repo %} {% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %} {% data reusables.actions.create-runner-group %} {% elsif ghae or ghes < 3.4 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. En {% ifversion ghes or ghae %}"Ejecutores"{% endif %}, haz clic en **Agregar nuevo** y, luego, en **Nuevo grupo**.
 
-    ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
+    ![Agregar grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
 
-   Puedes configurar un grupo de ejecutores para que una lista de repositorios específica o todos los repositorios de la organización puedan acceder a él.{% ifversion ghec or ghes %} Predeterminadamente solo los repositorios privados pueden acceder a los ejecutores de un grupo de ejecutores, pero esto se puede omitir. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
-
-   ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1. Da clic en **Guardar grupo** para crear el grupo y aplicar la política.
+   Puedes configurar un grupo de ejecutores para que sea accesible a una lista específica de repositorios o a todos ellos en la organización.{% ifversion ghec or ghes %} Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo ejecutor. Pero esto se puede anular. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
+   
+   ![Agregar opciones para un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1. Haga clic en **Save group** para crear el grupo y aplicar la directiva.
 {% endif %}

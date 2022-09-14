@@ -1,113 +1,98 @@
 ---
 title: GitHub Desktop用のGitの設定方法
-shortTitle: Git を設定する
-intro: 'You can manage Git configuration settings for your local repositories with {% data variables.product.prodname_desktop %}.'
+shortTitle: Configuring Git
+intro: '{% data variables.product.prodname_desktop %} を使用してローカル リポジトリの Git 構成設定を管理できます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
   fpt: '*'
+ms.openlocfilehash: f14b309dcc7a4c779e9debb68f3962dfd38247cd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146058517'
 ---
+## {% data variables.product.prodname_desktop %} 用の Git 構成について
 
-## About Git configuration for {% data variables.product.prodname_desktop %}
+{% data variables.product.prodname_desktop %} にはローカルの Git 構成設定が使用され、これらの設定の一部 (グローバル作成者情報や、新しいリポジトリの作成時に使用される既定のブランチなど) を構成するオプションが用意されています。
 
-{% data variables.product.prodname_desktop %} uses your local Git configuration settings and provides the option to configure some of these settings, such as the global author information and the default branch that is used when creating a new repository.
+{% data variables.product.prodname_desktop %} を使用する場合、リポジトリで行うコミットに関連付ける名前とメール アドレスを設定できます。 コンピューターのグローバル Git 構成で名前とメール アドレスが既に設定されている場合は、それらの値が {% data variables.product.prodname_desktop %} で検出されて使用されます。 {% data variables.product.prodname_desktop %} を使用する場合、個々のリポジトリに別々の名前とメール アドレスを設定することもできます。 これは、特定のリポジトリに対して別の仕事用メール アドレスを使用する必要がある場合に便利です。
 
-{% data variables.product.prodname_desktop %} allows you to set the name and email address you would like associated with the commits you make in your repositories. If your name and email address have already been set in the global Git configuration for your computer, {% data variables.product.prodname_desktop %} will detect and use those values. {% data variables.product.prodname_desktop %} also allows you to set a different name and email address for an individual repository. This is useful when you need to use a separate work email address for a specific repository.
+Git 構成で設定されているメール アドレスが、現在ログインしている {% data variables.product.product_name %} アカウントに関連付けられたメール アドレスと一致しない場合、コミット前に {% data variables.product.prodname_desktop %} に警告が表示されます。
 
-If the email address that has been set in your Git configuration does not match an email address associated with the {% data variables.product.product_name %} account you are currently logged in to, {% data variables.product.prodname_desktop %} will show a warning prior to committing.
-
-{% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
+{% data variables.product.prodname_desktop %} では、新しいリポジトリを作成するときに使用する既定のブランチ名を変更することもできます。 既定では、{% data variables.product.prodname_desktop %} で作成する新しいリポジトリの既定のブランチ名として、`main` が使用されます。
 
 {% tip %}
 
-**Tip**: 公開コミットをした場合、Gitコンフィグレーションにあるメールアドレスは皆に表示されます。 詳詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address/)」を参照してください。
+**ヒント**: パブリック コミットを行うと、すべてのユーザーが Git 構成のメール アドレスを確認できます。 詳細については、「[コミット メール アドレスの設定](/articles/setting-your-commit-email-address/)」を参照してください。
 
 {% endtip %}
 
-## Configuring your global author information
+## グローバル作成者情報を構成する
 
-Configuring your global author information in {% data variables.product.prodname_desktop %} will update the name and email address in your global Git configuration. This will be the default name and email address for all new local repositories you create in {% data variables.product.prodname_desktop %}.
+{% data variables.product.prodname_desktop %} でグローバル作成者情報を構成すると、グローバル Git 構成の名前とメール アドレスが更新されます。 これは、{% data variables.product.prodname_desktop %} で作成するすべての新しいローカル リポジトリの既定の名前とメール アドレスになります。
 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-7. [Preferences] ウィンドウで [**Git**] を選択します。 ![[Preferences] メニュー内の Git ペイン](/assets/images/help/desktop/mac-select-git-pane.png)
-{% data reusables.desktop.name-field-git-config %}
-  ![Git コンフィグレーション内の [Name] フィールド](/assets/images/help/desktop/mac-name-git-config.png)
-{% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/mac-email-git-config.png)
-{% data reusables.desktop.click-save-git-config %}
-  ![Git 設定フィールドの [Save] ボタン](/assets/images/help/desktop/mac-save-git-config.png)
+7. [基本設定] ウィンドウで、 **[Git]** をクリックします。
+  ![[基本設定] メニューの [Git] ウィンドウ](/assets/images/help/desktop/mac-select-git-pane.png) {% data reusables.desktop.name-field-git-config %} ![Git 構成の "名前" フィールド](/assets/images/help/desktop/mac-name-git-config.png) {% data reusables.desktop.select-email-git-config %} !["Git 構成" フィールドのメール アドレスの選択](/assets/images/help/desktop/mac-email-git-config.png) {% data reusables.desktop.click-save-git-config %} !["Git 構成" フィールドの [保存] ボタン](/assets/images/help/desktop/mac-save-git-config.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-8. [Options] ウィンドウで [**Git**] を選択します。 ![[Options] メニュー内の Git ペイン](/assets/images/help/desktop/windows-select-git-pane.png)
-{% data reusables.desktop.name-field-git-config %}
-  ![Git コンフィグレーション内の [Name] フィールド](/assets/images/help/desktop/windows-name-git-config.png)
-{% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/windows-email-git-config.png)
-{% data reusables.desktop.click-save-git-config %}
-  ![Git 設定フィールドの [Save] ボタン](/assets/images/help/desktop/windows-save-git-config.png)
+8. [オプション] ウィンドウで、 **[Git]** をクリックします。
+![[オプション] メニューの [Git] ウィンドウ](/assets/images/help/desktop/windows-select-git-pane.png) {% data reusables.desktop.name-field-git-config %} ![Git 構成の "名前" フィールド](/assets/images/help/desktop/windows-name-git-config.png) {% data reusables.desktop.select-email-git-config %} !["Git 構成" フィールドのメール アドレスの選択](/assets/images/help/desktop/windows-email-git-config.png) {% data reusables.desktop.click-save-git-config %} !["Git 構成" フィールドの [保存] ボタン](/assets/images/help/desktop/windows-save-git-config.png)
 
 {% endwindows %}
 
-## Configuring different author information for an individual repository
+## 個々のリポジトリに対して異なる作成者情報を構成する
 
-You can change the name and email address used to author commits in a specific repository. This local Git configuration will override your global Git configuration settings for this one repository only.
+特定のリポジトリでコミットを作成するために使用する名前とメール アドレスを変更できます。 このローカル Git 構成は、この 1 つのリポジトリのみのグローバル Git 構成設定をオーバーライドします。
 
 {% mac %}
 
-{% data reusables.desktop.mac-repository-settings-menu %}
-{% data reusables.desktop.select-git-config %}
-{% data reusables.desktop.use-local-git-config %}
-{% data reusables.desktop.local-config-name %}
-{% data reusables.desktop.local-config-email %}
-{% data reusables.desktop.repository-settings-save %}
+{% data reusables.desktop.mac-repository-settings-menu %} {% data reusables.desktop.select-git-config %} {% data reusables.desktop.use-local-git-config %} {% data reusables.desktop.local-config-name %} {% data reusables.desktop.local-config-email %} {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
 
 {% windows %}
 
-{% data reusables.desktop.windows-repository-settings-menu %}
-{% data reusables.desktop.select-git-config %}
-{% data reusables.desktop.use-local-git-config %}
-{% data reusables.desktop.local-config-name %}
-{% data reusables.desktop.local-config-email %}
-{% data reusables.desktop.repository-settings-save %}
+{% data reusables.desktop.windows-repository-settings-menu %} {% data reusables.desktop.select-git-config %} {% data reusables.desktop.use-local-git-config %} {% data reusables.desktop.local-config-name %} {% data reusables.desktop.local-config-email %} {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}
 
 
-## Configuring your default branch for new repositories
+## 新しいリポジトリの既定のブランチを構成する
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[About the default branch](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+{% data variables.product.prodname_desktop %} に新しいリポジトリを作成するときに使用される既定のブランチを構成できます。 既定のブランチについて詳しくは、「[既定のブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. [Preferences] ウィンドウで [**Git**] を選択します。 ![[Preferences] メニュー内の Git ペイン](/assets/images/help/desktop/mac-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...". ![Default branch name selection options](/assets/images/help/desktop/mac-select-default-branch-name.png)
-{% data reusables.desktop.click-save-git-config %}
-  ![Git 設定フィールドの [Save] ボタン](/assets/images/help/desktop/repository-settings-git-config-save.png)
+1. [基本設定] ウィンドウで、 **[Git]** をクリックします。
+  ![[基本設定] メニューの [Git] ウィンドウ](/assets/images/help/desktop/mac-select-git-pane.png)
+1. [新しいリポジトリの既定のブランチ名] で、使用する既定のブランチ名を選びます。または、カスタム名を入力するには [その他...] を選びます。
+  ![既定のブランチ名の選択オプション](/assets/images/help/desktop/mac-select-default-branch-name.png) {% data reusables.desktop.click-save-git-config %} !["Git 構成" フィールドの [保存] ボタン](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-1. [Options] ウィンドウで [**Git**] を選択します。 ![[Options] メニュー内の Git ペイン](/assets/images/help/desktop/windows-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name. ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
-{% data reusables.desktop.click-save-git-config %}
-  ![Git 設定フィールドの [Save] ボタン](/assets/images/help/desktop/repository-settings-git-config-save.png)
+1. [オプション] ウィンドウで、 **[Git]** をクリックします。
+  ![[オプション] メニューの [Git] ウィンドウ](/assets/images/help/desktop/windows-select-git-pane.png)
+1. [新しいリポジトリの既定のブランチ名] で、使用する既定のブランチ名を選びます。または、カスタム名を入力するには [その他] を選びます。
+  ![既定のブランチ名の選択オプション](/assets/images/help/desktop/windows-select-default-branch-name.png) {% data reusables.desktop.click-save-git-config %} !["Git 構成" フィールドの [保存] ボタン](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endwindows %}
 
-## 参考リンク
+## 参考資料
 
-- "[GitHubアカウントへのEメールアドレスの追加](/articles/adding-an-email-address-to-your-github-account/)"
-- [コミットメールアドレスを設定する](/articles/setting-your-commit-email-address/)
+- 「[GitHub アカウントへのメール アドレスの追加](/articles/adding-an-email-address-to-your-github-account/)」
+- 「[コミット メール アドレスを設定する](/articles/setting-your-commit-email-address/)」
 - [ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches)

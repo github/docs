@@ -1,5 +1,5 @@
 ---
-title: Administrar el acceso de las personas a tu organización con roles
+title: Administración del acceso de los usuarios a su organización con roles
 intro: 'Puedes controlar el acceso a la configuración y a los repositorios de tu organización si otorgas roles de organización, repositorio y equipo a las personas.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
@@ -21,6 +21,12 @@ children:
   - /removing-a-billing-manager-from-your-organization
   - /managing-security-managers-in-your-organization
   - /managing-moderators-in-your-organization
-shortTitle: Administrar el acceso con los roles
+shortTitle: Manage access with roles
+ms.openlocfilehash: 4e020ec73b09e5144be57c4efdc47f19a3b8b557
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145069634'
 ---
 

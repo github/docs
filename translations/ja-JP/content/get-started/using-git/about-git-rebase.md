@@ -1,5 +1,5 @@
 ---
-title: Gitリベースについて
+title: Git リベースについて
 redirect_from:
   - /rebase
   - /articles/interactive-rebase
@@ -13,9 +13,14 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 5ffa3cbb1fcb6c8c37e56e434b08018582a0ff2b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115989'
 ---
-
-通常、`git rebase`は以下の目的で使われます。
+通常、次の場合に `git rebase` を使用します。
 
 * 以前のコミットメッセージの編集
 * 複数のコミットを1つにまとめる
@@ -23,7 +28,7 @@ versions:
 
 {% warning %}
 
-**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {% data variables.product.product_location %}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)を参照してください。
+**警告**: コミット履歴を変更すると、リポジトリを使う他の人にとって管理が困難になる場合があるため、リポジトリにプッシュ済みのコミットをリベースするのは推奨されません。 {% data variables.product.product_location %} で安全にリベースする方法については、「[pull request のマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)」を参照してください。
 
 {% endwarning %}
 
@@ -49,27 +54,27 @@ $ git rebase --interactive HEAD~7
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code>は単にそのコミットが含まれるということを意味します。 <code>pick</code>コマンドの順序を入れ替えると、リベースが進んでいるときにコミットの順序が変更されます。 コミットを含めないのであれば、行全体を削除してください。 </dd>
+<dd><code>pick</code> は、単にコミットが含まれていることを意味します。 <code>pick</code> コマンドの順序を入れ替えると、リベースの実行中にコミットの順序が変更されます。 コミットを含めないのであれば、行全体を削除してください。 </dd>
 
 <dt><code>reword</code></dt>
-<dd><code>reword</code>コマンドは<code>pick</code>に似ていますが、このコマンドを使った後、リベースの処理は一時的に止まり、コミットメッセージを変更する機会を与えてくれます。 コミットによる変更は影響されません。 </dd>
+<dd><code>reword</code> コマンドは <code>pick</code> に似ていますが、これを使用すると、リベース プロセスが一時停止し、コミット メッセージを変更することができます。 コミットによる変更は影響されません。 </dd>
 
 <dt><code>edit</code></dt>
-<dd>コミットを<code>edit</code>すると、コミットを修正することができます。すなわち、コミットに対して追加をしたり、完全に変更したりすることができます。 また、リベースを続ける前にさらにコミットをすることもできます。 こうすることで大きなコミットを小さなコミット群に分割したり、コミット中の間違った変更を取り除いたりすることができます。 </dd>
+<dd>コミットを <code>edit</code> すると、コミットを修正することができます。つまり、コミットを追加し、完全にコミットを変更することができます。 また、リベースを続ける前にさらにコミットをすることもできます。 こうすることで大きなコミットを小さなコミット群に分割したり、コミット中の間違った変更を取り除いたりすることができます。 </dd>
 
 <dt><code>squash</code></dt>
 <dd>このコマンドを使うと、2 つ以上のコミットを結合して 1 つのコミットにできます。 コミットはその上にあるコミットに squash されます。 Git は、どちらの変更についても記述する新しいコミットメッセージを書かせてくれます。</dd>
 
 <dt><code>fixup</code></dt>
-<dd>これは<code>squash</code>に似ていますが、マージされるコミットのメッセージは破棄されます。 コミットはその上位のコミットに単純にマージされ、選考するコミットのメッセージがどちらの変更の記述としても使われます。</dd>
+<dd>これは <code>squash</code> に似ていますが、マージされるコミットのメッセージは破棄されています。 コミットはその上位のコミットに単純にマージされ、選考するコミットのメッセージがどちらの変更の記述としても使われます。</dd>
 
 <dt><code>exec</code></dt>
 <dd>このコマンドは、コミットに対して任意のシェルコマンドを実行させてくれます。</dd>
 </dl>
 
-## `git rebase`の利用例
+## `git rebase` を使用する例
 
-どのコマンドを使うにしても、Gitは[デフォルトのテキストエディタ](/github/getting-started-with-github/associating-text-editors-with-git)を起動し、選択した範囲のコミットの詳細を記述したファイルをオープンします。 このファイルは以下のようになります。
+使用するコマンドに関係なく、Git は[既定のテキスト エディター](/github/getting-started-with-github/associating-text-editors-with-git)を起動し、選択した範囲内のコミットの詳細を示すファイルを開きます。 このファイルは以下のようになります。
 
 ```
 pick 1fc6c95 Patch A
@@ -90,6 +95,7 @@ pick 7b36971 something to move before patch B
 #  f, fixup = like "squash", but discard this commit's log message
 #  x, exec = run command (the rest of the line) using shell
 #
+# If you remove a line here THAT COMMIT WILL BE LOST.
 # However, if you remove everything, the rebase will be aborted.
 #
 ```
@@ -98,14 +104,14 @@ pick 7b36971 something to move before patch B
 
 - 7つのコミットがリストされており、出発点から現在のブランチの状態までに7つの変更があったことが示されています。
 - リベースすることにしたコミットは、古い変更（先頭）から新しい変更（末尾）の順に並べられています。
-- 各行にはコマンド（デフォルトでは`pick`）、コミットのSHA、そしてコミットメッセージがリストされています。 `git rebase`の全体の手続きは、これらの3つの列の操作を軸として展開されます。 行った変更は、リポジトリに*リベース*されます。
-- コミット後に、Gitは作業しているコミットの範囲（`41a72e6..7b36971`）を示します。
+- 各行には、コマンド (既定では `pick`)、コミット SHA、コミット メッセージが一覧表示されます。 `git rebase` 手順全体は、主にこれら 3 つの列の操作に関するものです。 行った変更はリポジトリに *リベースされます*。
+- コミットの後、Git によって、使用しているコミットの範囲 (`41a72e6..7b36971`) が通知されます。
 - 最後に、Gitはコミットをリベースする際に利用できるコメントを示すことで多少のヘルプを提供しています。
 
-## 参考リンク
+## 参考資料
 
-- [Git rebaseの利用](/articles/using-git-rebase)
-- [_Pro Git_の"Git Branching"の章](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [_Pro Git_の"Interactive Rebasing"の章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- [リベースでのコミットのsquash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
-- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[ブランチを同期する](/desktop/contributing-to-projects/syncing-your-branch)」
+- 「[Git リベースの使用](/articles/using-git-rebase)」
+- [_Pro Git_ ブックの「Git 分岐」の章](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [_Pro Git_ ブックの「対話型リベース」の章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- 「[リベースを使用したコミットのスカッシュ](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)」
+- {% data variables.product.prodname_desktop %} ドキュメントの「[ブランチの同期](/desktop/contributing-to-projects/syncing-your-branch)」

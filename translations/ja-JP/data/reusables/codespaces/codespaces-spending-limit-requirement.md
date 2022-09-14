@@ -1,9 +1,17 @@
+---
+ms.openlocfilehash: f1030ac0edc90590e58066810bd196a76bf4fffe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147676633"
+---
 {% note %}
 
-**ノート:** {% data variables.product.prodname_codespaces %}を利用するには、0ではない利用上限を設定しなければなりません。
+**注:** {% data variables.product.prodname_codespaces %} を使う前に、0 ではない使用制限を設定する必要があります。
 
 {% endnote %}
 
-デフォルトでは、OrganizationもしくはEnterpriseは、$0の{% data variables.product.prodname_github_codespaces %}利用上限を持ちます。 これによって、OrganizationやEntepriseへの課金が発生する場合に、新しいcodespaceが作成されたり、既存のcodespacesがオープンされることを防げます。 Organiationでユーザがcodespaceを作成できるようにするには、この上限を$0よりも大きな値に設定してください。
+既定では、Organization または Enterprise の {% data variables.product.prodname_github_codespaces %} の使用制限は $0 です。 これにより、Organization または Enterprise に請求可能なコストが発生する場合、新しい codespace を作成したり、既存の codespace を開いたりすることはできません。 ユーザーが組織で codespace を作成できるようにするには、制限を $0 よりも高い値に設定します。
 
 {% data reusables.billing.overages-billed-monthly %}

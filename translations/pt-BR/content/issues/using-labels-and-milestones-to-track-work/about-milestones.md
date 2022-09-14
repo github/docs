@@ -12,11 +12,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: eab1d31cb7c7099d047306348afed01c3cfd9817
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145126558'
 ---
+Ao [criar um marco](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), você pode [associá-lo a problemas e solicitações de pull](/articles/associating-milestones-with-issues-and-pull-requests).
 
-Ao [criar um marco](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), você pode [associá-lo a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests).
-
-Para gerenciar melhor seu projeto, você pode [exibir detalhes sobre seus marcos](/articles/viewing-your-milestone-s-progress). Na página de marcos, é possível ver:
+Para gerenciar melhor seu projeto, [veja os detalhes sobre seu marco](/articles/viewing-your-milestone-s-progress). Na página de marcos, é possível ver:
 
 - Uma descrição do marco fornecida pelo usuário, que pode incluir informações como uma visão geral do projeto, equipes relevantes e prazos previstos
 - O prazo do marco
@@ -34,15 +39,15 @@ Você pode priorizar problemas e pull requests em aberto em um marco clicando à
 
 {% note %}
 
-**Observação:** se houver mais de 500 problemas abertos em um marco, não será possível priorizá-los.
+**Observação:** se houver mais de 500 problemas em aberto em um marco, você não poderá priorizar os problemas.
 
 {% endnote %}
 
 ![Marcos reordenados](/assets/images/help/issues/milestone-reordered.gif)
 
-## Leia mais
+## Leitura adicional
 
-- "[Criar e editar marcos para problemas e pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[Associar marcos a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[Filtrar problemas e pull requests por marco](/articles/filtering-issues-and-pull-requests-by-milestone)"
-- "[Exibir o progresso do seu marco](/articles/viewing-your-milestone-s-progress)"
+- "[Como criar e editar marcos para problemas e solicitações de pull](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
+- "[Como associar marcos a problemas e solicitações de pull](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Como filtrar problemas e solicitações de pull por marco](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[Como ver o andamento do seu marco](/articles/viewing-your-milestone-s-progress)"

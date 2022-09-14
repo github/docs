@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+title: 查看和更新支持工单
+intro: '可以查看支持票证{% ifversion ghes or ghec %}，与同事协作处理票证，{% endif %}并使用 {% data variables.contact.support_portal %} 响应 {% data variables.contact.github_support %}。'
 shortTitle: Managing your tickets
 versions:
   fpt: '*'
@@ -8,59 +8,62 @@ versions:
   ghes: '*'
 topics:
   - Support
+ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147051978'
 ---
-
-## About ticket management
+## 关于工单管理
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+可以使用 [GitHub 支持门户](https://support.github.com/)查看当前和过去的支持工单并回复 {% data variables.contact.github_support %}。 120 天后，已解决的票证将会存档{% ifversion ghec or ghes or ghae %}，并且只能查看企业帐户的已存档票证{% endif %}。
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
 
-## Viewing your recent support tickets
+## 查看最近的支持票证
 
 {% data reusables.support.view-open-tickets %}
-1. Under the text box, you can read the comment history. The most recent response is at the top.
-![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
+1. 在文本框下，可以阅读评论历史记录。 最近的回复位于顶部。
+![支持工单评论历史记录的屏幕截图，最近的回复位于顶部。](/assets/images/help/support/support-recent-response.png)
 
 {% ifversion ghec or ghes or ghae %}
 
-## Viewing your archived support tickets
+## 查看已存档的支持票证
 
-You can only view archived tickets for an enterprise account.
+只能查看企业帐户的已存档票证。
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
+1. 选择“我的票证”下拉菜单，然后单击企业帐户的名称。 
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. Under the "My tickets" table, click **View archived tickets**.
+   ![“我的工单”下拉菜单的屏幕截图。](/assets/images/help/support/ticket-context.png)
+1. 在“我的票证”表下，单击“查看已存档的票证”。
 
 {% endif %}
 
-## Updating support tickets
+## 更新支持工单
 
 {% data reusables.support.view-open-tickets %}
-1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
-![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**.
-![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. （可选）如果问题得到解决，请在文本框下单击“关闭工单”。
+![显示“关闭工单”按钮位置的屏幕截图。](/assets/images/help/support/close-ticket.png)
+1. 若要回复 GitHub 支持并向工单添加新评论，请在文本框中输入你的回复。
+![“添加评论”文本字段的屏幕截图。](/assets/images/help/support/new-comment-field.png)
+1. 若要将评论添加到工单，请单击“评论”。
+![“评论”按钮的屏幕截图。](/assets/images/help/support/add-comment.png)
 
 {% ifversion ghec or ghes %}
-## Collaborating on support tickets
+## 协作处理支持工单
 
-You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+你可以使用支持门户与你的同事协作处理支持工单。 拥有支持权利的所有者、计费管理员和其他企业成员可以查看与企业帐户或由企业帐户管理的组织关联的工单。 有关详细信息，请参阅“[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Verifying or approving a domain for your organization](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+除了查看票据外，如果电子邮件地址复制到了工单上，或者工单创建者使用的电子邮件地址的域名被验证为企业帐户或企业帐户管理的组织，则还可以向支持工单添加评论。 有关验证域的详细信息，请参阅“[为企业验证或批准域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”和“[为组织验证或批准域](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- [关于 GitHub 支持](/support/learning-about-github-support/about-github-support)

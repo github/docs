@@ -11,14 +11,19 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Colaboração
+shortTitle: Collaboration
+ms.openlocfilehash: 4589487059e2949da64ebf40e8a602703fed2c01
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126960'
 ---
-
 Se os colaboradores no seu repositório não tiverem o {% data variables.large_files.product_name_short %} instalado, eles não terão acesso ao arquivo grande original. Se tentarem clonar o repositório, eles farão fetch apenas dos arquivos de ponteiro e não terão acesso aos dados reais.
 
 {% tip %}
 
-**Dica:** para ajudar os usuários sem o {% data variables.large_files.product_name_short %} habilitado, é recomendável definir diretrizes para contribuidores do repositório que descrevam como trabalhar com arquivos grandes. Por exemplo, você pode pedir que os contribuidores não modifiquem arquivos grandes nem façam upload das alterações em um serviço de compartilhamento de arquivos, como [Dropbox](http://www.dropbox.com/) ou <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obter mais informações, consulte "[Configurar diretrizes para contribuidores de repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
+**Dica:** para ajudar os usuários sem o {% data variables.large_files.product_name_short %} habilitado, recomendamos definir diretrizes para colaboradores do repositório que descrevam como trabalhar com arquivos grandes. Por exemplo, você pode pedir aos colaboradores que não modifiquem arquivos grandes nem carreguem alterações em um serviço de compartilhamento de arquivos, como o [Dropbox](http://www.dropbox.com/) ou o <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obter mais informações, confira "[Como definir diretrizes para colaboradores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 {% endtip %}
 
@@ -28,9 +33,9 @@ O {% data variables.product.product_name %} não renderiza objetos do {% data va
 
 ![Amostra de PR para arquivos grandes](/assets/images/help/large_files/large_files_pr.png)
 
-Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
+Para obter mais informações sobre arquivos de ponteiro, confira "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
 
-Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
+Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, confira "[Como verificar as solicitações de pull localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
 
 {% ifversion fpt or ghec %}
 
@@ -42,6 +47,6 @@ Fazer push de arquivos grandes em bifurcações de um repositório conta nas cot
 
 {% endif %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Duplicar um repositório com objetos do Git Large File Storage](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+- "[Como duplicar um repositório com objetos do Git Large File Storage](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

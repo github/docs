@@ -7,28 +7,34 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: '*'
-shortTitle: Integrar Jira
+shortTitle: Integrate Jira
+ms.openlocfilehash: 0b773dc865373ab006f7c596b50ac81af5d6636a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126223'
 ---
-
-{% ifversion ghes > 3.4 or ghae-issue-5658 %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. En la barra lateral izquierda, selecciona **{% octicon "code" aria-label="The code icon" %} Ajustes de desarrollador** y luego haz clic en **Apps de OAuth**. ![Pestaña de aplicaciones OAuth de la barra lateral izquierda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
-1. Da clic en **Nueva App de OAuth**.
-{% else %}
-{% data reusables.user-settings.access_settings %}
-1. En la barra lateral izquierda en **Organization settings** (Configuraciones de la organización), haz clic en el nombre de tu organización. ![Barra lateral Organization name (Nombre de la organización)](/assets/images/help/settings/organization-settings-from-sidebar.png)
-1. En la barra lateral de **Developer settings** (Configuraciones del programador), haz clic en **OAuth applications** (Aplicaciones OAuth). ![Pestaña de aplicaciones OAuth de la barra lateral izquierda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
-1. Haz clic en **Register a new application** (Registrar una aplicación nueva).
+{% ifversion ghes > 3.4 or ghae-issue-5658 %} {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. En la barra lateral de la izquierda, seleccione **{% octicon "code" aria-label="The code icon" %} Configuración de desarrollador** y, después, haga clic en **Aplicaciones de OAuth**.
+  ![Pestaña Aplicaciones de OAuth en la barra lateral izquierda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. Haga clic en **Nueva aplicación de OAuth**.
+{% else %} {% data reusables.user-settings.access_settings %}
+1. En la barra lateral de la izquierda, en **Configuración de la organización**, haga clic en el nombre de la organización.
+![Barra lateral Nombre de la organización](/assets/images/help/settings/organization-settings-from-sidebar.png)
+1. En la barra lateral de la izquierda, en **Configuración del desarrollador**, haga clic en **Aplicaciones de OAuth**.
+  ![Pestaña Aplicaciones de OAuth en la barra lateral izquierda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. Haga clic en **Registrar una nueva aplicación**.
 {% endif %}
-1. En **Application name** (Nombre de la aplicación), escribe "Jira".
-2. En **Homepage URL** (URL de la página de inicio), escribe la URL completa de tu instancia de Jira.
-3. En **Authorization callback URL** (URL de devolución de llamada de autorización), escribe la URL completa para tu instancia de Jira.
-4. Haz clic en **Register application** (Registrar aplicación). ![Botón Register application (Registrar aplicación)](/assets/images/help/oauth/register-application-button.png)
-9. En **Organization owned applications** (Aplicaciones propiedad de la organización), presta atención a los valores de "Client ID" (Id. del cliente) y "Client Secret" (Secreto del cliente). ![Id. del cliente y secreto del cliente](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user-settings.jira_help_docs %}
+1. En **Nombre de la aplicación**, escriba "Jira".
+2. En **URL de página principal**, escriba la dirección URL completa a la instancia de Jira.
+3. En **URL de devolución de llamada de autorización**, escriba la dirección URL completa a la instancia de Jira.
+4. Haga clic en **Register application** (Registrar aplicación).
+![Botón Registrar aplicación](/assets/images/help/oauth/register-application-button.png)
+9. En **Aplicaciones propiedad de la organización**, anote los valores "Id. de cliente" y "Secreto de cliente".
+![Id. de cliente y Secreto de cliente](/assets/images/help/oauth/client-id-and-secret.png) {% data reusables.user-settings.jira_help_docs %}
 
-## Leer más
+## Información adicional
 
-- ["Integrar Jira a tus proyectos personales"](/articles/integrating-jira-with-your-personal-projects)
-- <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Conectar Jira Cloud a GitHub</a> (Documentación de Atlassian)
+- ["Integración de Jira con proyectos personales"](/articles/integrating-jira-with-your-personal-projects)
+- <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Conexión de Jira Cloud a GitHub</a> (documentación de Atlassian)

@@ -1,14 +1,22 @@
+---
+ms.openlocfilehash: 3e44864fd82617c799cc4af8a3ab31b9279ed950
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879433"
+---
 ## Versiionamiento basado en características
 
 El versionamiento basado en características nos permite definir y controlar las versiones de una "característica" nombrada arbitrariamente en un lguar.
 
-**Nota**: no borres `data/features/placeholder.yml`porque lo utilizan las pruebas.
+**Nota**: No elimine `data/features/placeholder.yml` porque se usa en las pruebas.
 
-## Cómo funciona
+## Funcionamiento
 
-Agrega un archivo YAML nuevo con el nombre de característica que quieras utilizar en este directorio. Para una característica llamada `meow`, esto sería `data/features/meow.yml`.
+Agrega un archivo YAML nuevo con el nombre de característica que quieras utilizar en este directorio. Para una característica denominada `meow`, que sería `data/features/meow.yml`.
 
-Agrega un bloque de `versions` al archivo YML con los nombres cortos de las versiones en las cuales está disponible la característica. Por ejemplo:
+Agrega un bloque `versions` al archivo YML con los nombres cortos de las versiones en las que está disponible la característica. Por ejemplo:
 
 ```yaml
 versions:
@@ -21,7 +29,7 @@ El formato y los valores permitidos son los mismos que en la [propiedad prelimin
 
 ### Condicionales líquidas
 
-¡Ahora puedes utilizar `{% ifversion meow %} ... {% endif %}` en los archivos de contenido!
+Ahora puede usar `{% ifversion meow %} ... {% endif %}` en archivos de contenido.
 
 ### Preliminar
 
@@ -34,12 +42,12 @@ versions:
   feature: 'meow'
 ```
 
-No puedes utilizar `feature:` para especificar versiones concurrentes múltiples, ya que esto no es compatible. Como alternativa, puedes crear un archivo de versionamiento basado en características con el versionamiento requerido.
+No se puede usar `feature:` para especificar varias versiones simultáneas, ya que no se admite. Como alternativa, puedes crear un nuevo archivo de control de versiones basado en características con el control de versiones necesario.
 
-## Imposición del modelado
+## Cumplimiento de esquemas
 
-El modelo para validar la característica de versionamiento vive en [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) y la ejecuta [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
+El esquema para validar el control de versiones de características está en [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) y lo ejerce [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
 
 ## Script para eliminar las etiquetas de característica
 
-TBD!
+Por determinar

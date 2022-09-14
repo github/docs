@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの支払いを管理する
-shortTitle: GitHubアカウント
+shortTitle: Your GitHub account
 intro: '{% ifversion fpt %}{% data variables.product.product_name %}は、すべてのアカウントに対して無料及び有料の製品を提供します。 アカウントのプランに関するアップグレード、ダウングレード、保留中の変更の表示はいつでも行えます。{% elsif ghec or ghes or ghae %}{% data variables.product.product_name %}に対する支払いの管理を{% ifversion ghae %}{% elsif ghec or ghes %}{% data variables.product.prodname_dotcom_the_website %}上のEnterpriseアカウントから{% endif %}行えます。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
@@ -31,5 +31,11 @@ children:
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
   - /one-time-payments-for-customers-in-india
   - /discounted-subscriptions-for-github-accounts
+ms.openlocfilehash: e305653ca02103ace73f984df9b74436caf63162
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145910648'
 ---
 

@@ -1,6 +1,14 @@
-{% data variables.product.product_location %}上のプルリクエストで**Squash and merge（squashとマージ）**オプションを選択すると、そのプルリクエストのコミットは１つのコミットにsquashされます。 トピックブランチからコントリビュータの個々のコミットをすべて見る代わりに、コミットは１つのコミットにまとめられ、デフォルトブランチにマージされます。 squashされたコミットを持つプルリクエストは、[fast-forwardオプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使ってマージされます。
+---
+ms.openlocfilehash: c7eea7975ef49a5a6e3deed2ade3cb6bb5543ac0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145118526"
+---
+{% data variables.product.product_location %} の pull request で **[スカッシュしてマージ]** オプションを選択すると、その pull request のコミットは 1 つのコミットにスカッシュされます。 トピックブランチからコントリビュータの個々のコミットをすべて見る代わりに、コミットは１つのコミットにまとめられ、デフォルトブランチにマージされます。 スカッシュされたコミットを含む pull request は、[早送りオプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使用してマージされます。
 
-プルリクエストをsquashしてマージするには、リポジトリへの[書き込み権限](/articles/repository-permission-levels-for-an-organization/)を持っていなければならず、リポジトリでは[squashマージが許可](/articles/configuring-commit-squashing-for-pull-requests/)されていなければなりません。
+pull request をスカッシュしてマージするには、リポジトリに[書き込みアクセス許可](/articles/repository-permission-levels-for-an-organization/)が必要であり、リポジトリで[スカッシュ マージが許可](/articles/configuring-commit-squashing-for-pull-requests/)されている必要があります。
 
 ![commit-squashing-diagram](/assets/images/help/pull_requests/commit-squashing-diagram.png)
 

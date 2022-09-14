@@ -1,9 +1,17 @@
-We’ve created a phased approach to {% data variables.product.prodname_GH_advanced_security %} (GHAS) rollouts developed from industry and GitHub best practices. Você pode utilizar essa abordagem para a sua implementação, em parceria com {% data variables.product.prodname_professional_services %} ou de forma independente.
+---
+ms.openlocfilehash: 0bc2ac8ffeba49903cd3bd5763eea28819b5f8f9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145127986"
+---
+Criamos uma abordagem em fases para distribuições do GHAS ({% data variables.product.prodname_GH_advanced_security %}) desenvolvidas com base nas melhores práticas do setor e do GitHub. Você pode utilizar essa abordagem para a sua implementação, em parceria com {% data variables.product.prodname_professional_services %} ou de forma independente.
 
-While the phased approach is recommended, adjustments can be made based on the needs of your organization. Sugerimos também a criação e o cumprimento de um calendário para a sua implementação. As you begin your planning, we can work together to identify the ideal approach and timeline that works best for your organization.
+Embora a abordagem em fases seja recomendada, podem ser feitos ajustes de acordo com as necessidades da sua organização. Sugerimos também a criação e o cumprimento de um calendário para a sua implementação. À medida que você começa seu planejamento, podemos trabalhar juntos para identificar a abordagem ideal e a linha do tempo que funciona melhor para sua organização.
 
-Based on our experience helping customers with a successful deployment of GHAS, we expect most customers will want to follow their rollout in our suggested phases.
+Com base em nossa experiência ajudando os clientes com uma implantação bem-sucedida do GHAS, esperamos que a maioria dos clientes siga a distribuição em nossas fases sugeridas.
 
-Depending on the needs of your organization, you may need to modify this approach and alter or remove some phases or steps.
+Dependendo das necessidades da sua organização, talvez seja necessário modificar essa abordagem e alterar ou remover algumas fases ou etapas.
 
-![Diagrama que mostra as três fases da implementação do GitHub Advanced Security, incluindo a Fase 0: Planejamento & introdução, Fase 1: Projetos piloto, Fase 2: Adesão e implementação corporativas para os primeiros a aderirem e Fase 3: Implementação completa & Gestão de mudanças](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
+![Diagrama que mostra as três fases da implantação e distribuição do GitHub Advanced Security, incluindo a Fase 0: Planejamento e Início, Fase 1: Projetos piloto, Fase 2: Adesão da organização e distribuição para usuários pioneiros e Fase 3: Distribuição completa na organização e gerenciamento de alterações](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)

@@ -494,7 +494,7 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>Perform a search across resources.</p>",
+      "description": "<p>Perform a search across resources, returning a maximum of 1,000 results.</p>",
       "args": [
         {
           "name": "after",
@@ -11663,8 +11663,18 @@
         },
         {
           "name": "changedFiles",
-          "description": "<p>The number of changed files in this commit.</p>",
+          "description": "<p>We recommend using the <code>changedFielsIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
           "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "changedFilesIfAvailable",
+          "description": "<p>The number of changed files in this commit. If GitHub is unable to calculate\nthe number of changed files (for example due to a timeout), this will return\n<code>null</code>. We recommend using this field instead of <code>changedFiles</code>.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -19935,6 +19945,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "allowPrivateRepositoryForkingSettingPolicyValue",
+          "description": "<p>The value for the allow private repository forking policy on the enterprise.</p>",
+          "type": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+          "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue"
         },
         {
           "name": "defaultRepositoryPermissionSetting",
@@ -59408,11 +59426,11 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>A list of results that matched against a search query.</p>",
+      "description": "<p>A list of results that matched against a search query. Regardless of the number\nof matches, a maximum of 1,000 results will be available across all types,\npotentially split across many pages.</p>",
       "fields": [
         {
           "name": "codeCount",
-          "description": "<p>The number of pieces of code that matched the search query.</p>",
+          "description": "<p>The total number of pieces of code that matched the search query. Regardless\nof the total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59420,7 +59438,7 @@
         },
         {
           "name": "discussionCount",
-          "description": "<p>The number of discussions that matched the search query.</p>",
+          "description": "<p>The total number of discussions that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59436,7 +59454,7 @@
         },
         {
           "name": "issueCount",
-          "description": "<p>The number of issues that matched the search query.</p>",
+          "description": "<p>The total number of issues that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59460,7 +59478,7 @@
         },
         {
           "name": "repositoryCount",
-          "description": "<p>The number of repositories that matched the search query.</p>",
+          "description": "<p>The total number of repositories that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59468,7 +59486,7 @@
         },
         {
           "name": "userCount",
-          "description": "<p>The number of users that matched the search query.</p>",
+          "description": "<p>The total number of users that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59476,7 +59494,7 @@
         },
         {
           "name": "wikiCount",
-          "description": "<p>The number of wiki pages that matched the search query.</p>",
+          "description": "<p>The total number of wiki pages that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -74231,6 +74249,39 @@
       ]
     },
     {
+      "name": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+      "kind": "enums",
+      "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+      "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue",
+      "description": "<p>The possible values for the enterprise allow private repository forking policy value.</p>",
+      "values": [
+        {
+          "name": "ENTERPRISE_ORGANIZATIONS",
+          "description": "<p>Members can fork a repository to an organization within this enterprise.</p>"
+        },
+        {
+          "name": "ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.</p>"
+        },
+        {
+          "name": "EVERYWHERE",
+          "description": "<p>Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.</p>"
+        },
+        {
+          "name": "SAME_ORGANIZATION",
+          "description": "<p>Members can fork a repository only within the same organization (intra-org).</p>"
+        },
+        {
+          "name": "SAME_ORGANIZATION_USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their user account or within the same organization.</p>"
+        },
+        {
+          "name": "USER_ACCOUNTS",
+          "description": "<p>Members can fork a repository to their user account.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseDefaultRepositoryPermissionSettingValue",
       "kind": "enums",
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
@@ -88428,6 +88479,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "policyValue",
+          "description": "<p>The value for the allow private repository forking policy on the enterprise.</p>",
+          "type": "EnterpriseAllowPrivateRepositoryForkingPolicyValue",
+          "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue"
         },
         {
           "name": "settingValue",

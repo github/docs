@@ -13,9 +13,14 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095800'
 ---
-
-Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). A Camo gera um proxy de URL anônimo para cada arquivo que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes dependendo de como você fez o upload da imagem.
+Para hospedar suas imagens, o {% data variables.product.product_name %} usa o [projeto de código aberto Camo](https://github.com/atmos/camo). A Camo gera um proxy de URL anônimo para cada arquivo que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa com `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes, dependendo de como você carregou a imagem. 
 
 Os vídeos também recebem URLs anônimas com o mesmo formato que as URLs da imagem, mas não são processados através da Camo. Isto ocorre porque {% data variables.product.prodname_dotcom %} não é compatível vídeos hospedados externamente. Portanto, a URL anônima é um link para o vídeo enviado hospedado por {% data variables.product.prodname_dotcom %}.
 
@@ -29,7 +34,7 @@ As imagens que são processadas por meio do Camo raramente não aparecem no {% d
 
 {% tip %}
 
-Os usuários do Windows precisam usar o Git PowerShell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou fazer o download de um [curl para Windows](http://curl.haxx.se/download.html).
+Os usuários do Windows precisarão usar o Git PowerShell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou baixar o [cURL para Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 
@@ -40,7 +45,7 @@ Os usuários do Windows precisam usar o Git PowerShell (que é instalado com o [
 Se uma imagem estiver sendo exibida no seu navegador mas não em {% data variables.product.prodname_dotcom %}, você poderá tentar solicitá-la localmente.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Solicite os headers da imagem usando `curl`.
+1. Solicite os cabeçalhos de imagem usando `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -50,8 +55,8 @@ Se uma imagem estiver sendo exibida no seu navegador mas não em {% data variabl
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. Verifique o valor de `Content-Type`. Nesse caso, é `image/x-png`.
-4. Verifique o tipo de conteúdo em relação [à lista de tipos compatíveis com o Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+3. Verifique o valor de `Content-Type`. Nesse caso, use `image/x-png`.
+4. Verifique esse tipo de conteúdo em relação [à lista de tipos com suporte do Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
 Se o tipo de conteúdo não for compatível com o Camo, você poderá tentar várias ações:
   * Se tiver posse do servidor que está hospedando a imagem, modifique-o para que ele retorne um tipo de conteúdo correto para imagens.
@@ -63,7 +68,7 @@ Se o tipo de conteúdo não for compatível com o Camo, você poderá tentar vá
 Se você alterou uma imagem recentemente e ela está sendo exibida no navegador, mas não no {% data variables.product.prodname_dotcom %}, tente redefinir o cache da imagem.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Solicite os headers da imagem usando `curl`.
+1. Solicite os cabeçalhos de imagem usando `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -73,18 +78,18 @@ Se você alterou uma imagem recentemente e ela está sendo exibida no navegador,
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-Verifique o valor de `Cache-Control`. Neste exemplo, não há `Cache-Contro`. Nesse caso:
-  * Se tiver posse do servidor que está hospedando a imagem, modifique-o para que ele retorne um `Cache-Control` de `no-cache` para imagens.
+Verifique o valor de `Cache-Control`. Neste exemplo, não há nenhum `Cache-Control`. Nesse caso:
+  * Se você é o proprietário do servidor que está hospedando a imagem, modifique-a para que ela retorne um `Cache-Control` igual a `no-cache` para as imagens.
   * Se estiver usando um serviço externo para hospedar imagens, entre em contato com o suporte do serviço em questão.
 
- Se `Cache-Control` *estiver * definido como `no-cache`, entre em contato com {% data variables.contact.contact_support %} ou pesquise no {% data variables.contact.community_support_forum %}.
+ Se `Cache-Control` *estiver* definido como `no-cache`, entre em contato com o {% data variables.contact.contact_support %} ou pesquise o {% data variables.contact.community_support_forum %}.
 
 ### Remover uma imagem do cache do Camo
 
 A limpeza do cache força os usuários do {% data variables.product.prodname_dotcom %} a solicitar novamente a imagem. Portanto, você deve usá-la bem moderadamente e somente no caso em que as etapas acima não funcionarem.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Limpe a imagem usando `curl-X PURGE` na URL do Camo.
+1. Limpe a imagem usando `curl -X PURGE` na URL do Camo.
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
@@ -96,6 +101,6 @@ Se uma imagem estiver sendo fornecida por uma rede privada ou um servidor que ex
 
 Para corrigir isso, mova a imagem para um serviço que esteja disponível publicamente.
 
-## Leia mais
+## Leitura adicional
 
-- "[Retransmitir imagens do usuário](https://github.com/blog/1766-proxying-user-images)" em {% data variables.product.prodname_blog %}
+- "[Como criar um proxy para imagens do usuário](https://github.com/blog/1766-proxying-user-images)" no {% data variables.product.prodname_blog %}

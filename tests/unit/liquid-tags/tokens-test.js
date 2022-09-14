@@ -2,7 +2,7 @@ import { expect } from '@jest/globals'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { getTokensFromFile, Tokens } from '../../../lib/liquid-tags/tokens'
+import { getTokensFromFile, Tokens } from '../../../script/i18n/msft-tokens'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 function getFixturePath(name) {
@@ -36,6 +36,7 @@ describe('getTokensFromFile', () => {
     describe('.diff', () => {
       let tokens
       let otherTokens
+      let reverseTokens
 
       const addTokens = (collection, elements) => {
         elements.forEach((element) => {
@@ -46,8 +47,10 @@ describe('getTokensFromFile', () => {
       beforeEach(() => {
         tokens = new Tokens()
         otherTokens = new Tokens()
+        reverseTokens = new Tokens()
         addTokens(tokens, ['apples', 'bananas', 'oranges'])
         addTokens(otherTokens, ['apples', 'oranges'])
+        addTokens(reverseTokens, ['oranges', 'bananas', 'apples'])
       })
 
       it('shows elements that are missing', () => {
@@ -67,6 +70,11 @@ describe('getTokensFromFile', () => {
       it('shows no difference when collections are the same', () => {
         const diff = tokens.diff(tokens)
 
+        expect(diff.count).toEqual(0)
+      })
+
+      it('shows no difference when tokens are in different order', () => {
+        const diff = tokens.diff(reverseTokens)
         expect(diff.count).toEqual(0)
       })
     })

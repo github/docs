@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Jekyll build errors for GitHub Pages sites
-intro: 'You can use Jekyll build error messages to troubleshoot problems with your {% data variables.product.prodname_pages %} site.'
+title: GitHub Pages サイトの Jekyll ビルドエラーに関するトラブルシューティング
+intro: 'Jekyll ビルドエラーのメッセージを利用して、{% data variables.product.prodname_pages %} サイトの問題をトラブルシューティングすることができます。'
 redirect_from:
   - /articles/page-build-failed-missing-docs-folder
   - /articles/page-build-failed-invalid-submodule
@@ -34,27 +34,32 @@ versions:
 topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
+ms.openlocfilehash: 224f626df144ad249a799767984118778202e7b4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883466'
 ---
+## ビルドエラーのトラブルシューティング
 
-## Troubleshooting build errors
+{% data variables.product.prodname_pages %} サイトをローカルで、または {% data variables.product.product_name %} 上でビルドしているときに Jekyll でエラーが発生した場合、そのエラーメッセージをトラブルシューティングに利用できます。 エラー メッセージとその表示方法の詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルド エラーについて](/articles/about-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+一般的なエラーメッセージが表示された場合は、よくある問題をチェックします。
+- サポートされていないプラグインを使用している。 詳細については、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。{% ifversion fpt or ghec %}
+- リポジトリがリポジトリサイズの制限を超えている。 詳細については、[ディスク クォータの概要](/articles/what-is-my-disk-quota)に関するページを参照してください。{% endif %}
+- *_config.yml* ファイルの `source` 設定を変更しました。 {% ifversion pages-custom-workflow %}ブランチからサイトを発行している場合、この設定はビルド プロセス中に {% endif %}{% data variables.product.prodname_pages %} によってオーバーライドされます。
+- 公開元のファイル名にコロン (`:`) が含まれていますが、これはサポートされていません。
 
-If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
-- Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your published files contains a colon (`:`) which is not supported.
+具体的なエラーメッセージが表示された場合は、エラーメッセージに関する以下のトラブルシューティング情報を確認してください。
 
-If you received a specific error message, review the troubleshooting information for the error message below.
-
-{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
+{% ifversion pages-custom-workflow %}エラーを修正したら、サイトのソース ブランチにその変更をプッシュするか (ブランチから公開する場合)、またはカスタムの {% data variables.product.prodname_actions %} ワークフローをトリガーして ({% data variables.product.prodname_actions %} を使用して公開する場合)、別のビルドをトリガーします。{% else %}エラーを修正したら、サイトの公開元にその変更をプッシュして、{% data variables.product.product_name %} 上で別のビルドをトリガーします。{% endif %}
 
 ## Config file error
 
-This error means that your site failed to build because the *_config.yml* file contains syntax errors.
+このエラーは、 *_config.yml* ファイルに構文エラーが含まれているため、サイトのビルドに失敗したことを意味します。
 
-To troubleshoot, make sure that your *_config.yml* file follows these rules:
+トラブルシューティングを行うには、 *_config.yml* ファイルが次のルールに従っていることを確認します。
 
 {% data reusables.pages.yaml-rules %}
 
@@ -62,132 +67,132 @@ To troubleshoot, make sure that your *_config.yml* file follows these rules:
 
 ## Date is not a valid datetime
 
-This error means that one of the pages on your site includes an invalid datetime.
+このエラーは、サイトのいずれかのページに無効な日付データが含まれていることを意味します。
 
-To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
+トラブルシューティングするには、エラーメッセージで示されたファイルおよびファイルのレイアウトで、日付関連の Liquid フィルタをコールしている箇所を探します。 日付関連の Liquid フィルターに渡される変数には、すべてのケースで値が含まれていることを確認し、`nil` や `""` を渡さないようにしてください。 詳細については、Liquid ドキュメントの「[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)」(Liquid フィルター) を参照してください。
 
 ## File does not exist in includes directory
 
-This error means that your code references a file that doesn't exist in your *_includes* directory.
+このエラーは、 *_includes* ディレクトリに存在しないファイルをコードが参照していることを意味します。
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 参照したファイルのいずれかが *_includes* ディレクトリにない場合は、ファイルを *_includes* ディレクトリにコピーするか、移動します。
 
 ## File is a symlink
 
-This error means that your code references a symlinked file that does not exist in the published files for your site.
+このエラーは、サイトの公開されたファイル内に存在しないシンボリックリンクされたファイルをコードで参照していることを意味します。
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 参照したファイルのいずれかがシンボリック リンクされている場合は、ファイルを *_includes* ディレクトリにコピーするか、移動します。
 
 ## File is not properly UTF-8 encoded
 
-This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
+このエラーは、これらの記号を期待するようコンピューターに伝えずに、`日本語`などのラテン文字以外の文字を使用したことを意味します。
 
-To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
+トラブルシューティングを行うには、 *_config.yml* ファイルに次の行を追加して UTF-8 エンコードを強制します。
 ```yaml
 encoding: UTF-8
 ```
 
 ## Invalid highlighter language
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+このエラーは、構成ファイルで [Rouge](https://github.com/jneen/rouge) または [Pygments](http://pygments.org/) 以外の構文ハイライターを指定したことを意味します。
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[About {% data variables.product.product_name %} and Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)."
+トラブルシューティングを行うには、 *_config.yml* ファイルを更新して、[Rouge](https://github.com/jneen/rouge) または [Pygments](http://pygments.org/) を指定します。 詳細については、「[{% data variables.product.product_name %} と Jekyll について](/articles/about-github-pages-and-jekyll#syntax-highlighting)」を参照してください。
 
 ## Invalid post date
 
-This error means that a post on your site contains an invalid date in the filename or YAML front matter.
+このエラーメッセージは、サイトでの投稿で、ファイル名または YAML フロントマターに無効な日付が含まれていることを意味します。
 
-To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like `2014-04-18 11:30:00 +0800`.
+トラブルシューティングするには、日付がすべて YYYY-MM-DD HH:MM:SS 形式の UTC 時間で、実際のカレンダー日付であることを確認します。 UTC からのオフセットがあるタイム ゾーンを指定するには、`2014-04-18 11:30:00 +0800` のような YYYY-MM-DD HH:MM:SS +/-TTTT 形式を使用します。
 
-If you specify a date format in your *_config.yml* file, make sure the format is correct.
+*_config.yml* ファイルで日付形式を指定する場合は、形式が正しいことを確認してください。
 
 ## Invalid Sass or SCSS
 
-This error means your repository contains a Sass or SCSS file with invalid content.
+このエラーは、リポジトリに無効な内容の Sass または SCSS ファイルが含まれていることを意味します。
 
-To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.
+トラブルシューティングするには、エラーメッセージに含まれている行番号を確認して、無効な Sass または SCSS を探します。 今後のエラーを防ぐために、お好みのテキストエディター用の Sass または SCSS 文法チェッカーをインストールします。
 
 ## Invalid submodule
 
-This error means that your repository includes a submodule that hasn't been properly initialized.
+このエラーは、適切に初期化されていないサブモジュールがリポジトリに含まれていることを意味します。
 
 {% data reusables.pages.remove-submodule %}
 
-If do you want to use the submodule, make sure you use `https://` when referencing the submodule (not `http://`) and that the submodule is in a public repository.
+サブ モジュールを使用する場合は、サブモジュールを参照するときに `https://` を使用し (`http://` ではなく)、サブモジュールがパブリック リポジトリにあることを確認してください。
 
 ## Invalid YAML in data file
 
-This error means that one of more files in the *_data* folder contains invalid YAML.
+このエラーは、 *_data* フォルダー内のいずれかのファイルに無効な YAML が含まれていることを意味します。
 
-To troubleshoot, make sure the YAML files in your *_data* folder follow these rules:
+トラブルシューティングを行うには、 *_data* フォルダー内の YAML ファイルが次のルールに従っていることを確認します。
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
+Jekyll データ ファイルの詳細については、Jekyll ドキュメントの「[Data Files](https://jekyllrb.com/docs/datafiles/)」(データ ファイル) を参照してください。
 
 ## Markdown errors
 
-This error means that your repository contains Markdown errors.
+このエラーは、リポジトリ Markdown エラーがあることを意味します。
 
-To troubleshoot, make sure you are using a supported Markdown processor. For more information, see "[Setting a Markdown processor for your {% data variables.product.prodname_pages %} site using Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)."
+トラブルシューティングするには、必ずサポートされている Markdown プロセッサを使用するようにします。 詳細については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトの Markdown プロセッサを設定する](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)」を参照してください。
 
-Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
+次に、エラーメッセージで示されているファイルが有効な Markdown 構文を使っていることを確認します。 詳細については、Daring Fireball の「[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)」(Markdown: 構文) を参照してください。
 
 ## Missing docs folder
 
-This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
+このエラーは、ブランチ上の `docs` フォルダーを発行元として選択したが、そのブランチのリポジトリのルートに `docs` フォルダーがないことを意味します。
 
-To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-- Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[Creating new files](/articles/creating-new-files)."
-- Change your publishing source. For more information, see "[Configuring a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)."
+トラブルシューティングを行うには、`docs` フォルダーが誤って移動された場合は、発行元用に選択したブランチのリポジトリのルートに `docs` フォルダーを戻してみてください。 `docs` フォルダーが誤って削除された場合は、次のいずれかを実行できます。
+- Git を使用して削除を revert する、つまり取り消す。 詳細については、Git ドキュメントの「[git-revert](https://git-scm.com/docs/git-revert.html)」を参照してください。
+- 発行元用に選択したブランチのリポジトリのルートに新しい `docs` フォルダーを作成し、このフォルダーにサイトのソース ファイルを追加する。 詳細については、「[新しいファイルの作成](/articles/creating-new-files)」を参照してください。
+- 公開ソースを変更する。 詳細については、「[{% data variables.product.prodname_pages %} の発行元を作成する](/articles/configuring-a-publishing-source-for-github-pages)」を参照してください。
 
 ## Missing submodule
 
-This error means that your repository includes a submodule that doesn't exist or hasn't been properly initialized.
+このエラーは、存在しない、または適切に初期化されていないサブモジュールがリポジトリに含まれていることを意味します。
 
 {% data reusables.pages.remove-submodule %}
 
-If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
+サブモジュールを使用する必要がある場合は、そのサブモジュールを初期化します。 詳細については、_Pro Git_ ブックの「[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)」(Git ツール - サブモジュール) を参照してください。
 
 ## Relative permalinks configured
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
+このエラーは、 *_config.yml* ファイルに {% data variables.product.prodname_pages %} でサポートされていない相対固定リンクがあることを意味します。
 
-Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
+パーマリンクとは、サイトの特定ページを参照している恒久的な URL です。 絶対パーマリンクはサイトのルートから始まり、相対パーマリンクは参照先ページを含むフォルダで始まります。 {% data variables.product.prodname_pages %} と Jekyll では、相対パーマリンクがサポートされなくなっています。 固定リンクの詳細については、Jekyll ドキュメントの「[Permarinks](https://jekyllrb.com/docs/permalinks/)」(固定リンク) を参照してください。
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+トラブルシューティングを行うには、`relative_permalinks`_config.yml *ファイルから* 行を削除し、サイト内の相対固定リンクを絶対固定リンクで再フォーマットします。 詳細については、「[ファイルの編集](/repositories/working-with-files/managing-files/editing-files)」を参照してください。
 
 ## Symlink does not exist within your site's repository
 
-This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
+このエラーは、サイト用の公開されたファイル内に存在しないシンボリック リンク (symlink) が、そのサイトに含まれていることを意味します。 シンボリックリンクの詳細については、ウィキペディアの「[ソフト リンク](https://en.wikipedia.org/wiki/Symbolic_link)」を参照してください。
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+トラブルシューティングするには、エラーメッセージで示されているファイルがサイトのビルドに使われているかどうかを確認します。 使われていない場合、またはファイルをシンボリックリンクにしたくない場合は、ファイルを削除します。 サイトのビルドにシンボリック ファイルが必要な場合は、そのシンボリック リンクで参照されているファイルまたはディレクトリが、サイト用の公開されたファイルにあることを確認してください。 外部アセットを含めるには、{% ifversion fpt or ghec %}`git submodule` または {% endif %}[Bower](https://bower.io/) などのサード パーティ製パッケージ マネージャーの使用を検討してください。{% ifversion fpt or ghec %} 詳細については、「[{% data variables.product.prodname_pages %} でサブモジュールを使用する](/articles/using-submodules-with-github-pages)」を参照してください。{% endif %}
 
 ## Syntax error in 'for' loop
 
-This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
+このエラーは、コードの Liquid `for` ループ宣言に無効な構文が含まれていることを意味します。
 
-To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
+トラブルシューティングを行うには、エラー メッセージ内のファイル内のすべての `for` ループに適切な構文があることを確認します。 `for` ループの適切な構文の詳細については、Liquid ドキュメントの「[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)」(反復タグ) を参照してください。
 
 ## Tag not properly closed
 
-This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
+このエラーメッセージは、コードに含まれる論理タグが正しく閉じていないことを意味します。 たとえば、{% raw %}`{% capture example_variable %}` は `{% endcapture %}`{% endraw %} で閉じる必要があります。
 
-To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
+トラブルシューティングするには、エラーメッセージで示されているファイルの論理タグがすべて適切に閉じられていることを確認します。 詳細については、Liquid ドキュメントの「[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)」(Liquid タグ) を参照してください。
 
 ## Tag not properly terminated
 
-This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
+このエラーは、正しく閉じられていない出力タグがコードに含まれていることを意味します。 たとえば、{% raw %}`{{ page.title }}` ではなく `{{ page.title }`{% endraw %} です。
 
-To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
+トラブルシューティングを行うには、エラー メッセージ内のファイル内のすべての出力タグが `}}` で終了していることを確認します。 詳細については、Liquid ドキュメントの「[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)」(Liquid オブジェクト) を参照してください。
 
 ## Unknown tag error
 
-This error means that your code contains an unrecognized Liquid tag.
+このエラーは、コードに認識されない Liquid タグが含まれていることを意味します。
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+トラブルシューティングするには、エラーメッセージで示されているファイルの Liquid タグがすべて Jekyll のデフォルトの変数に一致し、タグ名に誤入力がないことを確認します。 既定の変数の一覧については、Jekyll ドキュメントの「[Variables](https://jekyllrb.com/docs/variables/)」(変数) を参照してください。
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."
+認識されないタグの主な原因は、サポート対象外のプラグインです。 サイトをローカルで生成し、静的なファイルを {% data variables.product.product_name %} にプッシュすることで、サポート対象外のプラグインを使用している場合は、そのプラグインで Jekyll のデフォルトの変数と異なるタグが使われていないかどうか確認してください。 サポートされているプラグインの一覧については、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。

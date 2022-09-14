@@ -21,23 +21,25 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: Agregar a tus recibos
+shortTitle: Add to your receipts
+ms.openlocfilehash: 1b7495e5d23266816ca106defa7b695ff184ea43
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145091630'
 ---
-
-Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotcom %} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).
+Los recibos incluyen la suscripción de {% data variables.product.prodname_dotcom %}, así como las suscripciones de [otras características y productos de pago](/articles/about-billing-on-github).
 
 {% warning %}
 
-**Advertencia**: Por motivos de seguridad, recomendamos enfáticamente no incluir información confidencial o financiera (como número de tarjeta de crédito) en tus recibos.
+**Advertencia**: Por motivos de seguridad, se recomienda enfáticamente no incluir información confidencial o financiera (como números de tarjeta de crédito) en los recibos.
 
 {% endwarning %}
 
 ## Agregar información a tus recibos de cuenta personal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.user-settings.payment-info-link %}
-{% data reusables.dotcom_billing.extra_info_receipt %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.user-settings.payment-info-link %} {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Agregar información a los recibos de tu organización
 
@@ -48,6 +50,4 @@ Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotco
 {% endnote %}
 
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.user-settings.payment-info-link %}
-{% data reusables.dotcom_billing.extra_info_receipt %}
+{% data reusables.organizations.billing-settings %} {% data reusables.user-settings.payment-info-link %} {% data reusables.dotcom_billing.extra_info_receipt %}

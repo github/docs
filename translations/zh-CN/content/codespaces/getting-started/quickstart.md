@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.product.prodname_github_codespaces %} 快速入门'
-shortTitle: '{% data variables.product.prodname_codespaces %} 快速入门'
-intro: '在 5 分钟内尝试 {% data variables.product.prodname_github_codespaces %}。'
+title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
+intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -14,75 +14,75 @@ redirect_from:
   - /codespaces/codespaces-quickstart
 ---
 
-## 简介
+## Introduction
 
 In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace.
 
 From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
 
-有关 {% data variables.product.prodname_github_codespaces %} 如何工作的更多信息，请参阅配套指南“[深入了解 {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)”。
+For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
-## 创建代码空间
+## Creating your codespace
 
-1. 导航到 [template repository（模板存储库）](https://github.com/github/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
+1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
 {% data reusables.codespaces.open-codespace-from-template-repo %}
 
-## 运行应用程序
+## Running the application
 
-创建代码空间后，您的存储库将自动克隆到其中。 现在，您可以运行该应用程序并在浏览器中启动它。
+Once your codespace is created, your repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
 
 1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the _package.json_ file, which starts up the web application defined in the sample repository.
+   
+   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-   ![终端中的 npm run dev](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   If you're following along with a different application type, enter the corresponding start command for that project.
 
-   如果按照其他应用程序类型进行操作，请为该项目输入相应的启动命令。
+1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
-1. 当应用程序启动时，代码空间会识别运行应用程序的端口，并显示提示，让您知道它已被转发。
+  ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-  ![端口转发信息框](/assets/images/help/codespaces/quickstart-port-toast.png)
+1. Click **Open in Browser** to view your running application in a new tab.
 
-1. 单击 **Open in Browser（在浏览器中打开）**，在新选项卡中查看正在运行的应用程序。
-
-## 编辑应用程序并查看更改
+## Edit the application and view changes
 
 1. Switch back to your codespace and open the _haikus.json_ file by double-clicking it in the Explorer.
 
-1. 编辑第一个俳句的`文本`字段，以使用您自己的俳句个性化应用程序。
+1. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
-1. 返回到浏览器中正在运行的应用程序选项卡，然后刷新以查看所做的更改。
+1. Go back to the running application tab in your browser and refresh to see your changes.
+   
+  {% octicon "light-bulb" aria-label="The lightbulb icon" %}  If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
 
-  {% octicon "light-bulb" aria-label="The lightbulb icon" %}  如果已关闭选项卡，请打开“Ports（端口）”面板，然后对运行的端口单击 **Open in browser（在浏览器中打开）**图标。
+  ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-  ![端口转发面板](/assets/images/help/codespaces/quickstart-forward-port.png)
+## Committing and pushing your changes
 
-## 提交和推送更改
-
-现在，您已经进行了一些更改，可以使用集成终端或源视图提交更改并将其推送回远程数据库。
+Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. 要暂存更改，请单击已更改文件旁边的  **+**；如果您更改了多个文件并且要全部暂存，请单击 **Changes（更改）**旁边的该按钮。
+1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-1. 输入提交消息，描述您所做的更改。
+1. Type a commit message describing the change you've made.
 
-   ![带有提交消息的源控制侧栏](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
+   ![Source control side bar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
 
-1. 要提交暂存的更改，请单击源控制侧栏顶部的复选标记。
+1. To commit your staged changes, click the check mark at the top the source control side bar.
 
-   ![单击复选标记图标](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+   ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
 
-   您可以推送所做的更改。 这将应用这些更改到远程仓库上的上游分支。 如果您尚未准备好创建拉取请求，或者希望在 {% data variables.product.prodname_dotcom %} 上创建拉取请求，则可能需要这样做。
-1. 在侧边栏的顶部，单击省略号 (**...**)。
+   You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+1. At the top of the side bar, click the ellipsis (**...**).
+ 
+   ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 
-   ![查看和更多操作的省略号按钮](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-
-1. 在下拉菜单中，单击 **Push（推送）**。
+1. In the drop-down menu, click **Push**.
 1. Go back to your new repository on {% data variables.product.prodname_dotcom %} and view the _haikus.json_ file. Check that the change you made in your codespace has been successfully pushed to the repository.
 
-## 使用扩展进行个性化设置
+## Personalizing with an extension
 
-在代码空间中，您可以访问 {% data variables.product.prodname_vscode_marketplace %}。 在本示例中，您将安装可更改主题的扩展，但您可以安装对工作流程有用的任何扩展。
+Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
 
 {% note %}
 
@@ -90,25 +90,25 @@ From this quickstart, you'll learn how to create a codespace, connect to a forwa
 
 {% endnote %}
 
-1. 在左侧栏中，单击扩展图标。
+1. In the left sidebar, click the Extensions icon.
 
-1. 在搜索栏中，输入 `fairyfloss` 并安装 fairyfloss 扩展。
+1. In the search bar, enter `fairyfloss` and install the fairyfloss extension.
 
-   ![添加扩展](/assets/images/help/codespaces/add-extension.png)
+   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
 
 1. Click **Install in Codespaces**.
-1. 从列表中选择 `fairyfloss` 主题。
+1. Select the `fairyfloss` theme by selecting it from the list.
 
-   ![选择 fairyfloss 主题](/assets/images/help/codespaces/fairyfloss.png)
+   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
 
-## 后续步骤
+## Next Steps
 
-您已经成功创建、个性化并在代码空间中运行了第一个应用程序，但还有很多需要探索的地方！ 以下是一些帮助您对 {% data variables.product.prodname_codespaces %} 执行后续操作的有用资源：
-  - [深入探讨](/codespaces/getting-started/deep-dive)：本快速入门介绍了 {% data variables.product.prodname_codespaces %} 的一些功能。 从技术角度深入探讨这些领域。
-  - [设置 {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces) 的项目：这些指南提供了有关设置项目使用特定语言的 {% data variables.product.prodname_codespaces %} 的信息。
-  - [为项目配置 {% data variables.product.prodname_codespaces %} ](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)：本指南提供有关为项目 {% data variables.product.prodname_codespaces %} 创建自定义配置的详细信息。
+You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
+  - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
+  - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
-## 延伸阅读
+## Further reading
 
-- [为组织启用 {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [管理组织中的 {% data variables.product.prodname_codespaces %} 帐单](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -1,6 +1,6 @@
 ---
-title: Reverting a pull request
-intro: You can revert a pull request after it's been merged to the upstream branch.
+title: Revertir una solicitud de extracción
+intro: Puedes revertir una solicitud de extracción después de que se haya fusionado con la rama ascendente.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request
@@ -13,26 +13,32 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 9e94b6e9358089da8f62ff5152800e14556db3e7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145139661'
 ---
-## About reverting a pull request
+## Acerca de revertir una solicitud de extraccción
 
-Reverting a pull request on {% data variables.product.product_name %} creates a new pull request that contains one revert of the merge commit from the original merged pull request. To revert pull requests, you must have [write permissions](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository. 
+Al revertir una solicitud de incorporación de cambios en {% data variables.product.product_name %}, se genera una nueva solicitud de incorporación de cambios que contiene una reversión de la confirmación de combinación de la solicitud de incorporación de cambios combinada original. Para revertir las solicitudes de incorporación de cambios, debe tener [permisos de escritura](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) en el repositorio. 
 
-## Reverting a pull request
+## Revertir una solicitud de extracción
 
 {% note %}
 
-**Note:** You may need to revert the individual commits in your pull request if either of the following is true.
+**Nota:** Es posible que tenga que revertir las confirmaciones individuales en la solicitud de incorporación de cambios si se cumple cualquiera de los casos siguientes.
 
-- Reverting the pull request causes merge conflicts
-- The original pull request was not originally merged on {% data variables.product.product_name %}. For example, someone could have merged the pull request using a fast-forward merge on the command line.
+- Revertir la solicitud de extracción provoca conflictos de fusión
+- La solicitud de extracción original no se fusionó originalmente en {% data variables.product.product_name %}. Por ejemplo, alguien pudo haber fusionado la solicitud de extracción utilizando una fusión adelantada en la línea de comandos.
 
-For more information about using Git to manually revert individual commits, see [Git revert](https://git-scm.com/docs/git-revert.html) in the Git documentation.
+Para más información sobre el uso de Git para revertir manualmente las confirmaciones individuales, vea [Reversión de Git](https://git-scm.com/docs/git-revert.html) en la documentación de Git.
 
 {% endnote %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull Requests" list, click the pull request you'd like to revert.
-3. Near the bottom of the pull request, click **Revert**. If the **Revert** option isn't displayed, you'll need to ask the repository administrator for write permissions.
-  ![Revert pull request link](/assets/images/help/pull_requests/revert-pull-request-link.png)
-4. Merge the resulting pull request. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
+2. En la lista de "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que quieras revertir.
+3. Cerca de la parte inferior de la solicitud de incorporación de cambios, haga clic en **Revertir**. Si no se muestra la opción **Revertir**, tendrá que pedir permisos de escritura al administrador del repositorio.
+  ![Vínculo Revertir solicitud de incorporación de cambios](/assets/images/help/pull_requests/revert-pull-request-link.png)
+4. Fusionar la solicitud de extracción resultante. Para más información, vea "[Combinación de una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
