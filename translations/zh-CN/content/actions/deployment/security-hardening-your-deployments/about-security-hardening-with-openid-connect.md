@@ -73,7 +73,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repo_visibility": private,
+  "repository_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -129,7 +129,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `job_workflow_ref`| This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  | 
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
 | `ref_type`| The type of `ref`, for example: "branch".                  | 
-| `repo_visibility` | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                   | 
+| `repository_visibility` | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                   | 
 | `repository`| The repository from where the workflow is running.                   | 
 | `repository_id`| The ID of the repository from where the workflow is running.  |
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
@@ -247,7 +247,7 @@ You can security harden your OIDC configuration by customizing the claims that a
 
 {% ifversion ghec %} - For an additional layer of security, you can append the `issuer` url with your enterprise slug. This lets you set conditions on the issuer (`iss`) claim, configuring it to only accept JWT tokens from a unique `issuer` URL that must include your enterprise slug.{% endif %}
 - You can standardize your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-- You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repo_visibility`. For more information, see "[Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+- You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
 
 To customize these claim formats, organization and repository admins can use the REST API endpoints described in the following sections.
 

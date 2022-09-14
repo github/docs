@@ -12,10 +12,10 @@ topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: a90ec5dfb6aa983b8ffe26c84c4ec6ad01b0471d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147424260'
 ---
 {% ifversion fpt %}

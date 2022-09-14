@@ -15,10 +15,10 @@ topics:
   - Marketplace
 shortTitle: Webhooks for plan changes
 ms.openlocfilehash: 85ffaa8809860ff4b693075e416723717296f86c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145089703'
 ---
 {% data variables.product.prodname_marketplace %}のイベントwebhookは、アプリケーションの{% data variables.product.prodname_marketplace %}リストページからのみセットアップできます。 他のすべてのイベントは、[アプリケーションの開発者設定ページ](https://github.com/settings/developers)から設定できます。 まだ {% data variables.product.prodname_marketplace %} リストを作成していない場合は、「[{% data variables.product.prodname_marketplace %} のリストのドラフト](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)」を読んで方法を確認してください。

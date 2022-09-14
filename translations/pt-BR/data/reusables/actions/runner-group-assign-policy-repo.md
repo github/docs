@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ef09954dd829eae3eb7cfaefbefab65b9a2fffc5
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145083837"
 ---
 1. Atribua uma política para acesso ao repositório.

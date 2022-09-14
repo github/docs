@@ -12,10 +12,10 @@ versions:
 topics:
   - Webhooks
 ms.openlocfilehash: c3597365ae7cf9f96375201d6938c4f6675a8eae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147707483'
 ---
 Una vez que tu servidor se configure para recibir cargas útiles, éste escuchará a cualquiera de ellas que se envíe a la terminal que configuraste. Por razones de seguridad, probablemente quieras limitar las solicitudes a aquellas que vengan de GitHub. Hay algunas formas de solucionar esto, por ejemplo, podrías decidir el permitir las solicitudes que vengan de la dirección IP de GitHub, pero una manera mucho más fácil es configurar un token secreto y validar la información.

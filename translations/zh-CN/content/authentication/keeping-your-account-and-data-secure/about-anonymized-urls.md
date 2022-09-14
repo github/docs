@@ -14,10 +14,10 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099894'
 ---
 为托管图像，{% data variables.product.product_name %} 使用[开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https://<subdomain>.githubusercontent.com/` 开头，子域不同，具体取决于图像的上传方式。 

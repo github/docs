@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: With multiple authors
 ms.openlocfilehash: 4aa5b707e75480ead830e680151064db5f278557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129450'
 ---
 ## 必需的合作作者信息

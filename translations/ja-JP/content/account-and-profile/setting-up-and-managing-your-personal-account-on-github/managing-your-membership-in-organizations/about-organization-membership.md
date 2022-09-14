@@ -1,6 +1,6 @@
 ---
-title: About organization membership
-intro: You can become a member of an organization to collaborate with coworkers or open-source contributors across many repositories at once.
+title: Organization メンバーシップについて
+intro: Organization のメンバーになれば、多くのリポジトリにわたり、同僚やオープンソース コントリビューターとコラボレーションできます。
 redirect_from:
   - /articles/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/about-organization-membership
@@ -14,40 +14,46 @@ versions:
 topics:
   - Accounts
 shortTitle: Organization membership
+ms.openlocfilehash: be1f2901ed18c98edf5e05c453dec5d3c443955f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165438'
 ---
-An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
-You can access organizations you're a member of on your profile page. For more information, see "[Accessing an organization](/articles/accessing-an-organization)."
+プロフィールページ上でメンバーになっている Organization には、アクセスできます。 詳細については、「[組織にアクセスする](/articles/accessing-an-organization)」を参照してください。
 
-When you accept an invitation to join an organization, the organization owners may be able to see:
+Organization への参加の招待を受諾すると、Organization のオーナーは以下を見ることができるようになります:
 
-- Your public profile information
-- Your email address
-- If you have two-factor authorization enabled
-- Repositories you have access to within the organization, and your access level
-- Certain activity within the organization
-- Country of request origin
-- Your IP address
+- あなたのパブリックなプロフィール情報
+- メール アドレス
+- あなたが 2 要素認証を有効化しているか
+- あなたが Organization 内でアクセスできるリポジトリとアクセスレベル
+- Organization 内での特定のアクティビティ
+- リクエストの origin の国
+- あなたの IP アドレス
 
-For more information, see the <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+詳細については、「<a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} プライバシー ステートメント</a>」を参照してください。
 
   {% note %}
 
-  **Note:** Owners are not able to view member IP addresses in the organization's audit log. In the event of a security incident, such as an account compromise or inadvertent sharing of sensitive data, organization owners may request details of access to private repositories. The information we return may include your IP address.
+  **注:** オーナーは Organization の Audit log でメンバーの IP アドレスを見ることはできません。 アカウントの侵害やセンシティブなデータの不注意な共有といったセキュリティのインシデントがあった場合、Organization のオーナーはプライベートリポジトリへのアクセスの詳細をリクエストすることがあります。 弊社が返す情報には、あなたの IP アドレスが含まれることがあります。
 
   {% endnote %}
 
-By default, your organization membership visibility is set to private. You can choose to publicize individual organization memberships on your profile. For more information, see "[Publicizing or hiding organization membership](/articles/publicizing-or-hiding-organization-membership)."
+デフォルトでは、Organization のメンバーシップの可視性は「プライベート」に設定されています。 プロフィール上の個々の Organization のメンバーシップは、「パブリック」にすることができます。 詳細については、「[Organization のメンバーシップを公開または非公開にする](/articles/publicizing-or-hiding-organization-membership)」を参照してください。
 
 {% ifversion fpt or ghec %}
 
-If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Organization が Enterprise アカウントに属している場合、あなたは自動的に Enterprise アカウントのメンバーになっており、Enterprise アカウントのオーナーから見えます。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの "[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" を参照してください。{% else %}."{% endif %}
 
 {% endif %}
 
-You can leave an organization at any time. For more information, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization)."
+Organization はいつでも離れることができます。 詳細については、「[組織から自分自身を削除する](/articles/removing-yourself-from-an-organization)」を参照してください。
 
-## Further reading
+## 参考資料
 
-- "[About organizations](/articles/about-organizations)"
-- "[Managing your membership in organizations](/articles/managing-your-membership-in-organizations)"
+- "[Organization について](/articles/about-organizations)"
+- "[Organization でメンバーシップを管理する](/articles/managing-your-membership-in-organizations)"

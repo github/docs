@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Manage bots & service accounts
 ms.openlocfilehash: 57f1150929db674a658d52a5cb7e455444cc48de
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145126515'
 ---
 Para manter o acesso para bots e contas de serviço, os administradores da organização podem [habilitar](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), mas **não** [impor](/articles/enforcing-saml-single-sign-on-for-your-organization) o logon único do SAML para a respectiva organização. Se você precisa executar logon único SAML na organização, é possível criar uma identidade externa para o bot ou conta de serviço com seu provedor de identidade (IdP).

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 55e7ece665d5441bb4b8e8653dc6f009f70f39ee
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145065236"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881394"
 ---
 Para mais informações sobre os formulários de impostos que você precisa preencher, consulte as seguintes instruções no site do Serviço de Receita Interna dos Estados Unidos.
 

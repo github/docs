@@ -12,10 +12,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: 2ebf1a3cc83463e97d9a4d60401277bb844135b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129444'
 ---
 若要比较不同版本的存储库，请追加 `/compare` 到存储库的路径。

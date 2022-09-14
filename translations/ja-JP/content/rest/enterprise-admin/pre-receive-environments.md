@@ -8,11 +8,11 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: 9db8635691ae2f8fcb8649b648948763168081ac
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060595'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883263'
 ---
 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。* 通常のユーザーは、アクセスしようとすると `404` 応答を受け取ります。
 
@@ -30,7 +30,7 @@ ms.locfileid: '147060595'
 
 #### pre-receive 環境のダウンロード
 
-| 名前            | 型     | 説明                                             |
+| 名前            | Type     | 説明                                             |
 |-----------------|----------|---------------------------------------------------------|
 | `state`         | `string` | 最新のダウンロードの状態。                  |
 | `downloaded_at` | `string` | 最新のダウンロードの開始時刻。         |

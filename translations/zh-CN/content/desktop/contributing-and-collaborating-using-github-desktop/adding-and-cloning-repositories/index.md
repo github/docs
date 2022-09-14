@@ -12,10 +12,10 @@ children:
   - /cloning-a-repository-from-github-to-github-desktop
 shortTitle: Add & clone repos
 ms.openlocfilehash: 1d25f1b3abb248a698ad385ec8511c0b38f5f3c2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099283'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876036'
 ---
 

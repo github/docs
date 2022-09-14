@@ -18,11 +18,11 @@ topics:
   - Teams
 shortTitle: Maintain ownership continuity
 ms.openlocfilehash: 636982e8985a79e617b01220df8a63256c874b70
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146179557'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885970'
 ---
 ## 关于保持组织的所有权连续性
 

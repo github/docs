@@ -14,10 +14,10 @@ topics:
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ms.openlocfilehash: d4ac4d4b8003600c95293f3939f547cd73639884
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147111414'
 ---
 ## 关于 {% data variables.product.prodname_github_codespaces %} 中的拉取请求

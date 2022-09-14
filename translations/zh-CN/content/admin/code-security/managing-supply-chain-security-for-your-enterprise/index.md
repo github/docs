@@ -12,10 +12,10 @@ children:
   - /enabling-the-dependency-graph-for-your-enterprise
   - /viewing-the-vulnerability-data-for-your-enterprise
 ms.openlocfilehash: abea058659a8e03689b63d14fa8a207cdd5b41ee
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145100097'
 ---
 

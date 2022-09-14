@@ -22,6 +22,8 @@ includeGuides:
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+  - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
@@ -51,10 +53,10 @@ includeGuides:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
 ms.openlocfilehash: 54ba7cc4fbacd536f0438626281d1b59252eb3f1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147783112'
 ---
 

@@ -9,11 +9,11 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: 30604c6b3ed0ab9ca5c0f3f8ca0fe853624ee86b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117546'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886946'
 ---
 ## Acerca de administrar ramas
 Puedes utilizar las ramas para experimentar de forma segura con los cambios de tu proyecto. Las ramas aislan tu trabajo de desarrollo de otras ramas en el repositorio. Por ejemplo, puedes utilizar una rama para desarrollar una nueva característica o para corregir un error.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: a2d715cc94af2755d4161ef0715314caa0e82047
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145084894"
 ---
 若要将 OIDC 集成添加到云部署工作流，需要添加以下代码更改：

@@ -19,12 +19,12 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-ms.openlocfilehash: 43ae97f33da8ea3605de7d51370685c501a12941
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 993fb0c4a810f24c63d0b4063029a7a5801ff85a
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145097023'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861665'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
@@ -38,11 +38,13 @@ ms.locfileid: '145097023'
 
 {% data variables.product.prodname_dependabot %} verifica se é possível atualizar a dependência vulnerável para uma versão fixa sem comprometer o gráfico de dependências para o repositório. Em seguida, {% data variables.product.prodname_dependabot %} levanta um pull request para atualizar a dependência para a versão mínima que inclui o patch e os links do pull request para o alerta de {% data variables.product.prodname_dependabot %} ou relata um erro no alerta. Para obter mais informações, confira "[Solução de problemas de erros do {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)".
 
+
+
 {% note %}
 
-**Observação**
+**Observação**: o recurso {% data variables.product.prodname_dependabot_security_updates %} está disponível para repositórios em que você habilitou o grafo de dependência e {% data variables.product.prodname_dependabot_alerts %}. Você verá um alerta de {% data variables.product.prodname_dependabot %} para cada dependência vulnerável identificada no seu gráfico de dependências completas. No entanto, atualizações de segurança são acionadas apenas para dependências especificadas em um manifesto ou arquivo de bloqueio. Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)". {% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
 
-O recurso de {% data variables.product.prodname_dependabot_security_updates %} está disponível para repositórios nos quais você habilitou o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}. Você verá um alerta de {% data variables.product.prodname_dependabot %} para cada dependência vulnerável identificada no seu gráfico de dependências completas. No entanto, atualizações de segurança são acionadas apenas para dependências especificadas em um manifesto ou arquivo de bloqueio. {% data variables.product.prodname_dependabot %} não consegue atualizar uma dependência indireta ou transitória que não esteja explicitamente definida. Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)".
+Para npm, {% data variables.product.prodname_dependabot %} gerará uma solicitação de pull para atualizar uma dependência definida explicitamente para uma versão segura, mesmo que isso signifique atualizar a dependência ou as dependências pai. Para outros ecossistemas, {% data variables.product.prodname_dependabot %} não poderá atualizar uma dependência indireta ou transitiva se isso também exigir uma atualização na dependência pai. Para obter mais informações, confira "[O dependabot tenta atualizar dependências sem um alerta](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."{% endif %} 
 
 {% endnote %}
 

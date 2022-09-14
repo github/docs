@@ -15,10 +15,10 @@ versions:
 topics:
   - Repositories
 ms.openlocfilehash: 53e6b69113a5483ea37c7ddd34dee7921959b62a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145132306'
 ---
 {% data reusables.organizations.owners-and-admins-can %}Organization のリポジトリを削除できます。 **[この Organization のリポジトリの削除または移譲をメンバーに許可する]** が無効化されていると、Organization のオーナーだけが Organization のリポジトリを削除できます。 {% data reusables.organizations.new-repo-permissions-more-info %}

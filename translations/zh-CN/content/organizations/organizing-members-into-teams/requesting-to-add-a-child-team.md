@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Add a child team
 ms.openlocfilehash: e8012645bb4cdedc2a3aa8f7196adc18253a2600
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099753'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876156'
 ---
 申请将某个团队添加为子团队时，申请会发送到子团队的维护员。 在子团队的维护员批准申请后，该子团队将嵌套在组织的层次结构中的父团队下面。
 

@@ -17,10 +17,10 @@ topics:
 shortTitle: View all your issues & PRs
 type: how_to
 ms.openlocfilehash: da42e2fe59a4ec80af2727eef66ae475f4b38ded
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145128695'
 ---
 您的议题和拉取请求仪表板在任何页面顶部提供。 在每个仪表板上，您可以过滤列表以查找您创建的、分配给您的或其中提及您的议题或拉取请求。 您还可以查找已要求审查的拉取请求。

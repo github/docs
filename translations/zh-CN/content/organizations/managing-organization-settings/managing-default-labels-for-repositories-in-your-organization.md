@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Manage default labels
 ms.openlocfilehash: a2591c84d3844bfdadc3c7321d7ce8eec2adf293
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145109459'
 ---
 组织所有者可以管理组织中仓库的默认标签。

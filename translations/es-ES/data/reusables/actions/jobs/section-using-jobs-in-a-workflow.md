@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 2bdab95a93e5eff4bc68d8da73fd9d7d9a93580a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145092073"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879707"
 ---
 Una ejecución de flujo de trabajo se compone de uno o varios `jobs`, que se ejecutan en paralelo de forma predeterminada. Para ejecutar trabajos de manera secuencial, puede definir dependencias en otros trabajos mediante la palabra clave `jobs.<job_id>.needs`.
 

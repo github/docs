@@ -13,10 +13,10 @@ topics:
   - API
 shortTitle: Secret scanning
 ms.openlocfilehash: f935b849bb43e99fd3959db3920fd4d632bf54f7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145112418'
 ---
 {% data variables.product.prodname_dotcom %} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El {% data variables.product.prodname_secret_scanning_caps %} ocurre predeterminadamente en los repositorios públicos y los administradores de repositorio o propietarios de la organización pueden habilitarlo en los repositorios privados. Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que tus formatos de secreto se incluyan en nuestro {% data variables.product.prodname_secret_scanning %}.

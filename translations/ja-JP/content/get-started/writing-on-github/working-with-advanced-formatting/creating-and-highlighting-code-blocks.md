@@ -12,11 +12,11 @@ versions:
   ghec: '*'
 shortTitle: Create code blocks
 ms.openlocfilehash: ba0b49795df16fbafc77ef43c6fef58684162709
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147390370'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882418'
 ---
 ## フェンスされたコード ブロック
 

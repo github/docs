@@ -8,16 +8,16 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 166ae895ec8fa58fd18e69ef64bd458f3c40a04b
-ms.sourcegitcommit: b0323777cfe4324a09552d0ea268d1afacc3da37
+ms.openlocfilehash: 94bd9f7a43d4325e497a776357711adf64c0d7ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2022
-ms.locfileid: '147580640'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614224'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## <a name="about-expressions"></a>式について
+## 式について
 
 式を使用して、ワークフロー ファイルとアクセス コンテキストで環境変数をプログラムで設定できます。 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 コンテキストの詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
@@ -32,7 +32,7 @@ ms.locfileid: '147580640'
 
 {% data reusables.actions.context-injection-warning %}
 
-#### <a name="example-expression-in-an-if-conditional"></a>`if` 条件式の例
+#### `if` 条件式の例
 
 ```yaml
 steps:
@@ -40,7 +40,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### <a name="example-setting-an-environment-variable"></a>環境変数の設定例
+#### 環境変数の設定例
 
 {% raw %}
 ```yaml
@@ -49,7 +49,7 @@ env:
 ```
 {% endraw %}
 
-## <a name="literals"></a>リテラル
+## リテラル
 
 式の一部として`boolean`、`null`、`number`、または `string` データ型を使用できます。
 
@@ -60,7 +60,7 @@ env:
 | `number`  | JSONでサポートされている任意の数値書式。 |
 | `string`  | `{% raw %}${{{% endraw %}` と `{% raw %}}}{% endraw %}` 内に文字列を囲む必要はありません。 ただし、そうする場合は、文字列の周りに単一引用符 (`'`) を使用する必要があります。 リテラル単一引用符を使用するには、追加の単一引用符 (`''`) を使用してリテラルの単一引用符をエスケープします。 二重引用符 (`"`) で囲むとエラーがスローされます。 |
 
-#### <a name="example"></a>例
+#### 例
 
 {% raw %}
 
@@ -78,7 +78,7 @@ env:
 
 {% endraw %}
 
-## <a name="operators"></a>演算子
+## 演算子
 
 | 演算子    | 説明 |
 | ---         | ---         |
@@ -110,7 +110,7 @@ env:
 * {% data variables.product.prodname_dotcom %} は、文字列を比較する際に大文字と小文字を区別しません。
 * オブジェクトおよび配列は、同じインスタンスの場合にのみ等しいとみなされます。
 
-## <a name="functions"></a>機能
+## 機能
 
 {% data variables.product.prodname_dotcom %} は、式で使用できる組み込み関数のセットを提供します。 一部の関数は、比較を行なうために、値を文字列型にキャストします。 {% data variables.product.prodname_dotcom %} は、以下の変換方法で、データ型を文字列にキャストします。
 
@@ -122,53 +122,61 @@ env:
 | Array   | 配列は文字列型に変換されません |
 | Object  | オブジェクトは文字列型に変換されません |
 
-### <a name="contains"></a>contains
+### contains
 
 `contains( search, item )`
 
 `search` に `item` が含まれている場合に `true` を返します。 `search` が配列の場合、`item` が配列内の要素であれば、この関数は `true` を返します。 `search` が文字列の場合、`item` が `search` の部分文字列であれば、この関数は `true` を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### <a name="example-using-an-array"></a>配列の利用例
-
-`contains(github.event.issue.labels.*.name, 'bug')` は、イベントに関連する issue に "bug" というラベルがあるかどうかを返します。
-
-#### <a name="example-using-a-string"></a>文字列の使用例
+#### 文字列の使用例
 
 `contains('Hello world', 'llo')` は、`true` を返します。
 
-### <a name="startswith"></a>startsWith
+#### オブジェクト フィルターの使用例
+
+イベントに関連する issue に "bug" というラベルがある場合、`contains(github.event.issue.labels.*.name, 'bug')` は `true` を返します。
+
+詳しくは、「[オブジェクト フィルター](#object-filters)」をご覧ください。
+
+#### 文字列の配列に一致する例
+
+`github.event_name == "push" || github.event_name == "pull_request"` と書く代わりに、`contains()` と `fromJson()` を使って、文字列の配列に `item` が含まれるかどうかをチェックできます。
+
+たとえば、`github.event_name` が "push" または "pull_request" の場合、`contains(fromJson('["push", "pull_request"]'), github.event_name)` は `true` を返します。
+
+### startsWith
 
 `startsWith( searchString, searchValue )`
 
 `searchString` が `searchValue` で始まる場合は、`true` を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### <a name="example"></a>例
+#### 例
 
 `startsWith('Hello world', 'He')` は、`true` を返します。
 
-### <a name="endswith"></a>endsWith
+### endsWith
 
 `endsWith( searchString, searchValue )`
 
 `true` が `searchString` で終わる場合は、`searchValue` を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### <a name="example"></a>例
+#### 例
 
 `endsWith('Hello world', 'ld')` は、`true` を返します。
 
-### <a name="format"></a>format
+### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
 `string` 内の値を `replaceValueN` 変数に置き換えます。 `string` 内の変数は、`{N}` 構文 (`N` は整数) を使用して指定されます。 少なくとも 1 つの `replaceValue` と `string` を指定する必要があります。 使用できる変数 (`replaceValueN`) の最大数はありません。 中括弧はダブルブレースでエスケープします。
 
-#### <a name="example"></a>例
+#### 例
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
 'Hello Mona the Octocat' を返します。
 
-#### <a name="example-escaping-braces"></a>括弧をエスケープするサンプル
+#### 括弧をエスケープするサンプル
 
 {% raw %}
 ```js
@@ -178,33 +186,33 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 '{Hello Mona the Octocat!}' を返します。
 
-### <a name="join"></a>join
+### join
 
 `join( array, optionalSeparator )`
 
 `array` の値には、配列または文字列を指定できます。 `array` のすべての値が文字列に連結されます。 `optionalSeparator` を指定した場合は、連結された値の間に挿入されます。 それ以外の場合は、既定の区切り記号の `,` が使用されます。 値を文字列にキャストします。
 
-#### <a name="example"></a>例
+#### 例
 
 `join(github.event.issue.labels.*.name, ', ')` では、'bug, help wanted' が返される場合があります
 
-### <a name="tojson"></a>toJSON
+### toJSON
 
 `toJSON(value)`
 
 `value` を、書式を整えた JSON 表現で返します。 この関数を使って、コンテキスト内で提供された情報のデバッグができます。
 
-#### <a name="example"></a>例
+#### 例
 
 `toJSON(job)` では、`{ "status": "Success" }` が返される場合があります。
 
-### <a name="fromjson"></a>fromJSON
+### fromJSON
 
 `fromJSON(value)`
 
 `value` に対する JSON オブジェクト、あるいは JSON データ型を返します。 この関数を使って、評価された式としてJSONオブジェクトを提供したり、環境変数を文字列から変換したりできます。
 
-#### <a name="example-returning-a-json-object"></a>JSONオブジェクトを返す例
+#### JSONオブジェクトを返す例
 
 このワークフローは JSON マトリックスを 1 つのジョブに設定し、それを出力と `fromJSON` を使って次のジョブに渡します。
 
@@ -230,7 +238,7 @@ jobs:
 ```
 {% endraw %}
 
-#### <a name="example-returning-a-json-data-type"></a>JSONデータ型を返す例
+#### JSONデータ型を返す例
 
 このワークフローでは `fromJSON` を使い、環境変数を文字列からブール値もしくは整数に変換します。
 
@@ -238,7 +246,7 @@ jobs:
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:
@@ -251,7 +259,7 @@ jobs:
 ```
 {% endraw %}
 
-### <a name="hashfiles"></a>hashFiles
+### hashFiles
 
 `hashFiles(path)`
 
@@ -259,13 +267,13 @@ jobs:
 
 パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターン マッチング文字の詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
 
-#### <a name="example-with-a-single-pattern"></a>単一のパターンの例
+#### 単一のパターンの例
 
 リポジトリ内の任意の `package-lock.json` ファイルと一致します。
 
 `hashFiles('**/package-lock.json')`
 
-#### <a name="example-with-multiple-patterns"></a>複数のパターンの例
+#### 複数のパターンの例
 
 リポジトリ内の任意の `package-lock.json` および `Gemfile.lock` ファイルのハッシュを作成します。
 
@@ -273,19 +281,19 @@ jobs:
 
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-## <a name="status-check-functions"></a>ステータスチェック関数
+## ステータスチェック関数
 
 `if` 条件では、次の状態チェック関数を式として使用できます。 これらの関数のいずれかを含めない限り、既定の `success()` の状態チェックが適用されます。 `if` 条件の詳細については、「[GitHub Actions のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」および「[GitHub 複合アクションのメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)」を参照してください。
 {% else %}
-## <a name="check-functions"></a>関数の確認
+## 関数の確認
 `if` 条件では、次の状態チェック関数を式として使用できます。 これらの関数のいずれかを含めない限り、既定の `success()` の状態チェックが適用されます。 `if` 条件の詳細については、「[GitHub Actions のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 {% endif %}
 
-### <a name="success"></a>success
+### success
 
 前のステップで失敗もしくはキャンセルされたものがない場合に `true` を返します。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 steps:
@@ -294,31 +302,31 @@ steps:
     if: {% raw %}${{ success() }}{% endraw %}
 ```
 
-### <a name="always"></a>常時
+### 常時
 
 ステップが常に実行され、キャンセルされた場合でも `true` を返します。 クリティカルなエラーによりタスクが実行されない場合は、ジョブやステップも実行されません。 たとえば、ソースの取得に失敗した場合などがそれにあたります。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-### <a name="cancelled"></a>取り消し済み
+### 取り消し済み
 
 ワークフローがキャンセルされた場合に `true` を返します。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-### <a name="failure"></a>failure
+### failure
 
 ジョブの前のステップが失敗した場合に `true` を返します。 依存ジョブのチェーンがある場合、親要素ジョブが失敗した場合に `failure()` は `true` を返します。
 
-#### <a name="example"></a>例
+#### 例
 
 ```yaml
 steps:
@@ -327,11 +335,11 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-#### <a name="failure-with-conditions"></a>条件付きのエラー
+#### 条件付きのエラー
 
 エラー後に実行するステップの追加条件を含めることができますが、状態チェック関数を含まない `if` 条件に自動的に適用される既定の `success()` の状態チェックをオーバーライドするには、引き続き `failure()` を含める必要があります。
 
-##### <a name="example"></a>例
+##### 例
 
 ```yaml
 steps:
@@ -343,7 +351,7 @@ steps:
     if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
-## <a name="object-filters"></a>オブジェクトフィルタ
+## オブジェクトフィルタ
 
 `*` 構文を使用して、フィルターを適用し、コレクション内の一致する項目を選択できます。
 

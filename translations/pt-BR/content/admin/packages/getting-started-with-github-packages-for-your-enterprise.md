@@ -12,10 +12,10 @@ topics:
   - Enterprise
   - Packages
 ms.openlocfilehash: 2389eba768a8b2f865165b43dde0e1b6381c6ae7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146199959'
 ---
 {% data reusables.package_registry.packages-cluster-support %}

@@ -13,11 +13,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 3e2796e83047f4e8bb6b7e9a503eee6dac63f019
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135966'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887322'
 ---
 En esta sección, vamos a enfocarnos en lo básico de la autenticación. En concreto, vamos a crear un servidor de Ruby (mediante [Sinatra][Sinatra]) que implemente el [flujo web][webflow] de una aplicación de varias maneras diferentes.
 

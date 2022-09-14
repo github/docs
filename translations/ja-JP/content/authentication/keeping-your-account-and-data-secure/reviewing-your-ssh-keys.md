@@ -16,11 +16,11 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: 4f15ea8fd56994de4d9b30c21e6afb081e20a327
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145088392'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878400'
 ---
 許可されていない (あるいは侵害された可能性のある) SSH キーを削除することで、攻撃者が以後自分のリポジトリにアクセスすることを防止できます。 有効な既存の SSH キーを承認することもできます。
 

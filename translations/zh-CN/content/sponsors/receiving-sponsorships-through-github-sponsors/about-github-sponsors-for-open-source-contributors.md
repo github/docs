@@ -1,6 +1,6 @@
 ---
-title: About GitHub Sponsors for open source contributors
-intro: 'If you provide value to an open source project, you can become a sponsored contributor to receive payments for your work.'
+title: 关于开源贡献者的 GitHub Sponsors
+intro: 如果您为开源项目提供价值，可以成为被赞助的贡献者，您的工作将获得付款。
 redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
@@ -12,37 +12,42 @@ topics:
   - Open Source
   - Fundamentals
 shortTitle: Open source contributors
+ms.openlocfilehash: 4f615dd472873ec9a1e77d0232ceb35bd4ea43a3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149706'
 ---
+## 加入 {% data variables.product.prodname_sponsors %}
 
-## Joining {% data variables.product.prodname_sponsors %}
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} 有关详细信息，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”。
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-organization %} 有关详细信息，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
-{% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+加入 {% data variables.product.prodname_sponsors %} 之后，您可以为您参与的开源项目添加赞助按钮，以提高您的 {% data variables.product.prodname_sponsors %} 个人资料及其他资助平台的可见性。 有关详细信息，请参阅“[在存储库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”。
 
-After you join {% data variables.product.prodname_sponsors %}, you can add a sponsor button to the open source repository you contribute to, to increase the visibility of your {% data variables.product.prodname_sponsors %} profile and other funding platforms. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."
-
-You can set a goal for your sponsorships. For more information, see "[Managing your sponsorship goal](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)."
+您可以为赞助设定目标。 有关详细信息，请参阅“[管理赞助目标](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)”。
 
 {% data reusables.sponsors.github-contact-applicants %}
 
-## Sponsorship tiers
+## 赞助级别
 
-{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
+{% data reusables.sponsors.tier-details %} 有关详细信息，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”、“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”和“[管理赞助层](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”。
 
-It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
+最好设置一系列不同的赞助选项，包括每月和一次性等级，使任何人都能轻松地支持您的工作。 特别是，一次性付款使人们能够在不担心他们的财务是否会支持定期付款时间表的情况下奖励您的努力。
 
-## Sponsorship payouts
+## 赞助付款
 
 {% data reusables.sponsors.no-fees %}
 
 {% data reusables.sponsors.payout-info %}
 
-For more information, see "[Managing your payouts from {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)."
+有关详细信息，请参阅“[在 {% data variables.product.prodname_sponsors %} 中管理付款](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)”。
 
-## Sharing feedback about {% data variables.product.prodname_sponsors %}
+## 共享关于 {% data variables.product.prodname_sponsors %} 的反馈
 
 {% data reusables.sponsors.feedback %}
 
-## Further reading
-- "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}
+## 延伸阅读
+- {% data variables.product.prodname_blog %} 上的“[{% data variables.product.prodname_sponsors %} 团队的常见问题解答](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)”

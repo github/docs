@@ -13,10 +13,10 @@ versions:
   ghec: '*'
 shortTitle: Resolve conflicts after rebase
 ms.openlocfilehash: 8798282fb804f7b2389d98f69ba2b0e855a2289a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098885'
 ---
 在使用 `git rebase` 重新排序和操作提交后，如果发生合并冲突，Git 将通过输出到终端的以下消息告诉你：

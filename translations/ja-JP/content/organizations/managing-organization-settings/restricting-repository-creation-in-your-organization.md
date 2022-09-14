@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Restrict repository creation
 ms.openlocfilehash: da5d32962c52b752dff9dd9012f8cc8e5494d8c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145068320'
 ---
 メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 {% ifversion ghec or ghes or ghae %}メンバーにリポジトリの作成を許可した場合、メンバーが作成できるリポジトリの種類を選択できます。{% elsif fpt %}メンバーにリポジトリの作成を許可した場合、メンバーがパブリックとプライベートのリポジトリをどちらも作成できるのか、あるいはパブリックリポジトリだけを作成できるのかが選択できます。{% endif %}Organizationのオーナーは、常にすべての種類のリポジトリを作成できます。

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 68dc501963fdcecc7d42f2eac31da442a7ba746f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145139060"
 ---
 1. 必要に応じて、コマンド パレットのテキスト フィールドのパスを編集することで、提案のスコープの絞り込み、拡張、または完全な変更を行うことができます。

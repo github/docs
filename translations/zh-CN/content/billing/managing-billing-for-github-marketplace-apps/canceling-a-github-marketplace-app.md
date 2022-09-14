@@ -19,10 +19,10 @@ topics:
   - User account
 shortTitle: Cancel a Marketplace app
 ms.openlocfilehash: 9295f8ab1c5d9f4f3bef027dd6def79fcaa51df4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084518'
 ---
 取消订阅后，您的订阅在当前结算周期结束之前将保持有效。 取消在下一个结算日期生效。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。

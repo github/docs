@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Allow changes to a branch
 ms.openlocfilehash: 26255f5aeab3bcaa5ecc1aa6cf865981990c456a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145127938'
 ---
 Somente os autores da pull request ou aqueles com acesso push ao repositório upstream podem fornecer aos mantenedores de repositório upstream permissão para fazer commits em seus branch de comparação da pull request em uma bifurcação de propriedade do usuário. Para saber mais sobre os repositórios upstream, confira "[Sobre os forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".

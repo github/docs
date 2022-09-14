@@ -10,11 +10,11 @@ versions:
   ghec: '*'
 shortTitle: Install app personal account
 ms.openlocfilehash: c400db97a6d2e4533d373b8bfadca13e5b6f48f1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145097912'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880571'
 ---
 {% data reusables.marketplace.marketplace-apps-only %}
 

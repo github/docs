@@ -14,10 +14,10 @@ topics:
   - User account
 shortTitle: Rebuild contributions
 ms.openlocfilehash: 66a4aff597be725eb06dd4c8743ee2ad8691c7e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145094853'
 ---
 Sempre que é enviado para o {% data variables.product.prodname_enterprise %}, o commit é vinculado a uma conta de usuário caso ambos estejam associados ao mesmo endereço de e-mail. No entanto, os commits existentes *não* são vinculados retroativamente quando um usuário registra um novo endereço de email ou cria uma conta.

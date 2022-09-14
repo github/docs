@@ -12,10 +12,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 5759e374fadc9a4f2f5b6790d9650c4a47e75720
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556439'
 ---
 Você pode adicionar logotipos {% data variables.product.prodname_dotcom %} em seu site ou aplicativo de terceiros em alguns cenários. Para obter mais informações e diretrizes específicas sobre o uso do logotipo, consulte [{% data variables.product.prodname_dotcom %} página Logotipos e Uso](https://github.com/logos).

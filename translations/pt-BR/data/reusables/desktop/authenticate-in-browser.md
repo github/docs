@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 957ae8426750627cab3586db4e3ab401b109dd27
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145127803"
 ---
 1. Para se autenticar no {% data variables.product.prodname_dotcom %}, digite suas credenciais do {% data variables.product.prodname_dotcom %}.com e clique em **Entrar**.

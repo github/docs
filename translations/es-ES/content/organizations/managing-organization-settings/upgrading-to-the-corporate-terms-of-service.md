@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Upgrade to Corporate ToS
 ms.openlocfilehash: 071ff249ec112af507c3bb026065281173f64b8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145119233'
 ---
 Los Términos de servicio estándar son un acuerdo entre {% data variables.product.prodname_dotcom %} y tú como individualidad. Para suscribir un acuerdo con {% data variables.product.prodname_dotcom %} en nombre de una entidad, como una empresa, una organización sin fines de lucro o un grupo, los propietarios de la organización pueden subir de categoría a los Términos de servicio corporativos.

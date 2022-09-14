@@ -14,10 +14,10 @@ topics:
   - OAuth Apps
 shortTitle: Transfer ownership
 ms.openlocfilehash: f294f0fcbdffc2e4661f87f9888c8d7f2df4f792
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145083975'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %}

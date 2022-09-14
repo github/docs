@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Block from your org
 ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084124'
 ---
 Você pode bloquear não membros de dentro das configurações da sua organização ou de um comentário específico feito por um usuário. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.

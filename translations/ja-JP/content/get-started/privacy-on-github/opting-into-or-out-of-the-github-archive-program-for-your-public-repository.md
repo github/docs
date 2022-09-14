@@ -12,10 +12,10 @@ topics:
   - Legal
 shortTitle: GitHub Archive program
 ms.openlocfilehash: 99c11ad07a88161f73b71cb0d7268f94afa8bc5e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145131140'
 ---
 {% data reusables.repositories.about-github-archive-program %} 詳細については、「[コンテンツと {% data variables.product.prodname_dotcom %} のデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。

@@ -10,10 +10,10 @@ topics:
   - Community
 shortTitle: Manage reported content
 ms.openlocfilehash: 6b2107acd7a045e089814177dbabae24915d7ae1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099305'
 ---
 对仓库具有管理员权限的任何人都可以查看和管理仓库的报告内容。

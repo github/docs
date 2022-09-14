@@ -11,10 +11,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 6bc5091c47401b3d55ef7ccd681d6c9eba48fd1a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556417'
 ---
 Este guia descreve as informações de que o GitHub precisa para processar uma contranotificação a uma solicitação de remoção da DMCA. Se você tiver dúvidas mais gerais sobre o que é a DMCA ou como o GitHub processa solicitações de remoção da DMCA, consulte nossa [Política de Remoção da DMCA](/articles/dmca-takedown-policy).
@@ -23,12 +23,12 @@ Se você acredita que seu conteúdo no GitHub foi desativado por engano por uma 
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional a respeito de dúvidas ou situações específicas. Nós incentivamos você a fazê-lo antes de tomar qualquer medida que possa afetar seus direitos. Este guia não constitui aconselhamento jurídico e não deve ser considerado como tal.
 
-## <a name="before-you-start"></a>Antes de iniciar
+## Antes de iniciar
 
 ***Diga a verdade.***
 A DMCA exige que você faça um juramento em relação à sua contranotificação *sob pena de perjúrio*. É crime federal mentir intencionalmente em uma declaração juramentada. (*Consulte o* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) O envio de informações falsas também pode ocasionar responsabilidade civil, ou seja, você pode ser processado por danos financeiros.
 
-***Investigue.***
+***Investigar.***
 O envio de uma contranotificação da DMCA pode ter consequências legais reais. Se a parte reclamante discordar de que o aviso de remoção foi incorreto, ela poderá decidir entrar com uma ação judicial contra você para manter o conteúdo desativado. Você deve realizar uma investigação completa sobre as alegações feitas na notificação de remoção e provavelmente conversar com um advogado antes de enviar uma contranotificação.
 
 ***Você deve ter um bom motivo para enviar uma contranotificação.***
@@ -54,7 +54,7 @@ O GitHub tem pouca atuação nesse processo além de determinar se as notificaç
 ***Recursos adicionais.***
 Se precisar de ajuda adicional, há muitos recursos de autoajuda online. A Lumen tem um conjunto informativo de guias sobre [direito autoral](https://www.lumendatabase.org/topics/5) e [Porto seguro da DMCA](https://www.lumendatabase.org/topics/14). Se você estiver envolvido com um projeto de código aberto que precise de aconselhamento jurídico, você pode entrar em contato com a [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). E se você acha que tem um caso particularmente desafiador, organizações sem fins lucrativos como a [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) também podem ajudar diretamente ou encaminhar você a um advogado.
 
-## <a name="your-counter-notice-must"></a>Sua contranotificação deve...
+## Sua contranotificação deve...
 
 1. **Incluir a seguinte declaração: “Li e entendi o Guia do GitHub para Protocolar uma Contranotificação da DMCA.”**
 Não nos recusaremos a processar uma contranotificação completa se você não incluir esta declaração; no entanto, saberemos que você não leu essas diretrizes e poderemos solicitar que você o faça.
@@ -72,7 +72,7 @@ Você também pode optar por comunicar os motivos pelos quais acredita que houve
 
 6. **Incluir sua assinatura física ou eletrônica.**
 
-## <a name="how-to-submit-your-counter-notice"></a>Como enviar sua contranotificação
+## Como enviar sua contranotificação
 
 A maneira mais rápida de obter uma resposta é inserir suas informações e responder a todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 

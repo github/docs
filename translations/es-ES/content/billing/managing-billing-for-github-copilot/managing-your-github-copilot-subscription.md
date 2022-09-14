@@ -8,11 +8,11 @@ topics:
   - Copilot
 shortTitle: Your GitHub Copilot subscription
 ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080652'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884161'
 ---
 ## Configuración de una prueba de {% data variables.product.prodname_copilot %} 
 

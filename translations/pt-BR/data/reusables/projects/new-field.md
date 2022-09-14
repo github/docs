@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: daf5b47c71e8cbde44c6dab38eabf7c6d922be9a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423843"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882872"
 ---
 1. Na exibição de tabela, clique em {% octicon "plus" aria-label="the plus icon" %} no cabeçalho do campo mais à direita.
    ![Captura de tela mostrando o botão Novo campo](/assets/images/help/projects-v2/new-field-button.png)

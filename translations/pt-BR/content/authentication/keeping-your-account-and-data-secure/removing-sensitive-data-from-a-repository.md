@@ -18,10 +18,10 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ms.openlocfilehash: 4c93f372f1d537fd94f06e66986e53d6641923d2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083627'
 ---
 A ferramenta `git filter-repo` e o BFG Repo-Cleaner reescrevem o histórico do repositório, o que altera os SHAs dos commits existentes alterados por você e todos os commits dependentes. Os SHAs de commits alterados podem afetar as solicitações de pull abertas no repositório. Recomendamos mesclar ou fechar todas as solicitações de pull abertas antes de remover arquivos do repositório.

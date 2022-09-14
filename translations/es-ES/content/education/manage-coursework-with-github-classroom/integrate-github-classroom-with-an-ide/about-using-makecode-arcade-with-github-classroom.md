@@ -8,10 +8,10 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ms.openlocfilehash: f4786f67c7a9d0444e92d3c5560f4d86b6a0af7d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145119577'
 ---
 ## Acerca de MakeCode Arcade

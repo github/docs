@@ -14,11 +14,11 @@ topics:
   - Repositories
 shortTitle: About merge methods
 ms.openlocfilehash: 97e8b7159ebadf1fe02ae56f707728c2bc8c439d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145863783'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882442'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}コミットsquashingあるいはリベースのようなマージの1つの種類を、リポジトリでその方法だけを有効化することで強制できます。
 

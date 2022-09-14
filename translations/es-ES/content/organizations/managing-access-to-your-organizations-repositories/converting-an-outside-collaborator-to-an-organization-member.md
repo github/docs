@@ -15,10 +15,10 @@ topics:
   - Teams
 shortTitle: Convert collaborator to member
 ms.openlocfilehash: bac55802407b46344c807798e4d8eade5f608e01
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145135006'
 ---
 {% ifversion fpt or ghec %} Si la organización tiene una suscripción de pago por usuario, debe haber disponible una licencia sin usar antes de poder invitar a un nuevo miembro a unirse a la organización o a reinstaurar a un miembro previo de la misma. Para más información, vea "[Acerca de los precios por usuario](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}{% endif %}

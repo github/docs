@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0ee285efb8b386c47d2782151fdf6a2bb24589fc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145097761"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876168"
 ---
 1. 要开始复制数据存储，请使用 `ghe-repl-start` 命令。
   ```shell

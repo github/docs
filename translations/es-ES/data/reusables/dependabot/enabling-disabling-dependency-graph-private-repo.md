@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: a9678c48ca3bd557f99816ef21c70c2332fb4e46
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145138794"
 ---
 Los administradores del repositorio pueden habilitar o inhabilitar la gráfica de dependencias para los repositorios privados.

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c47a4efc23963dcfa0be69207387cd2d02704aef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145114006"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878856"
 ---
 リポジトリで{% data variables.product.prodname_advanced_security %}を有効化あるいは無効化すると、{% data variables.product.prodname_dotcom %}はライセンスの利用に関する変更の概要を表示します。 {% data variables.product.prodname_GH_advanced_security %} へのアクセスを無効にすると、「一意」のコミッターが使用するシートが解放されます。
 

@@ -14,10 +14,10 @@ topics:
   - Accounts
 shortTitle: Leaving your company
 ms.openlocfilehash: c288584891981eab7ffe4204e2028b0e70cf1d08
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147687081'
 ---
 Antes de sair da empresa, não se esqueça de atualizar as seguintes informações em sua conta pessoal:

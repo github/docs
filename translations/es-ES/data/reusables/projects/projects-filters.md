@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 02959a116ad5d087dc8a9d7fb3293e36b9b9cb24
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145118626"
 ---
 - Para filtrar por cualquier coincidencia de varios valores (una consulta OR), separe los valores con una coma. Por ejemplo, `label:"good first issue",bug` mostrará todas las incidencias etiquetadas con `good first issue` o `bug`.

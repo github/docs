@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: Dismiss a PR review
 ms.openlocfilehash: 658f0b69a24c622a3b5f75d6e330d132040d62c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128028'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875558'
 ---
 {% data reusables.pull_requests.dismiss_review %}
 Isso altera o status da revisão para um comentário sobre a revisão. Quando você ignora uma revisão, deve adicionar um comentário explicando o motivo. Seu comentário será adicionado à conversa da pull request.

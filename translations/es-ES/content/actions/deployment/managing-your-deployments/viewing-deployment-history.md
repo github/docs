@@ -13,10 +13,10 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
 ms.openlocfilehash: 2941d8de6af3b7505a3c05a6b15436d32becea9b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145093143'
 ---
 Puedes entregar despliegues mediante las {% data variables.product.prodname_actions %} y los ambientes o con la API de REST y las apps de terceros. {% ifversion fpt or ghae ghes > 3.0 or ghec %} Para obtener más información acerca del uso de entornos para implementar con {% data variables.product.prodname_actions %}, vea "[Uso de entornos para la implementación](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obtener más información acerca de las implementaciones con la API REST, vea "[Repositorios](/rest/reference/repos#deployments)".

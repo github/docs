@@ -14,10 +14,10 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: cccb85404c9cfe7305d639911528afed3706edfa
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129632'
 ---
 ## 关于拉取请求合并

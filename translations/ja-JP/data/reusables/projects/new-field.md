@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: daf5b47c71e8cbde44c6dab38eabf7c6d922be9a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147424204"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882876"
 ---
 1. テーブル ビューで、右端のフィールド ヘッダーの [{% octicon "plus" aria-label="the plus icon" %}] をクリックします。
    ![新しいフィールドのボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-button.png)

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 122f879fb460ae8bde2d1efa368d959f0ad040aa
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145129853"
 ---
 1. 如果已为 {% data variables.product.prodname_dotcom %} 配置双重身份验证 (2FA)，请执行以下操作之一：

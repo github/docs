@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 9f62baf2d7109144ce8827f30a5aefd324b64047
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145065753"
 ---
 1. 导航到帐户的赞助仪表板。

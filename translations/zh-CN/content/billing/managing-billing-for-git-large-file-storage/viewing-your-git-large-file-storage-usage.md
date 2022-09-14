@@ -17,10 +17,10 @@ topics:
   - User account
 shortTitle: View Git LFS usage
 ms.openlocfilehash: 1a0bc2ec9df2479cb0a56a54494fd4bead72e358
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084547'
 ---
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}

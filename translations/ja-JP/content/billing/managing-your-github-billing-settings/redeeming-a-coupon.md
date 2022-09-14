@@ -18,10 +18,10 @@ topics:
   - Organizations
   - User account
 ms.openlocfilehash: 8b1c0c9b250994e4186371c74a4bc97e7609770d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145087851'
 ---
 {% data variables.product.product_name %}では、クーポンを適用する前にアカウントの支払いをした場合の返金はできません。 また、適用先のアカウントを間違えた場合にも、利用したクーポンの移譲や新たなクーポンの発行はできません。 クーポンを利用する前に、クーポンを正しいアカウントに適用していることを確認してください。

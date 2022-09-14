@@ -12,10 +12,10 @@ type: how_to
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ms.openlocfilehash: 5b904e8b2f5cecbecbc93da096ab31126ed82727
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147111527'
 ---
 非アクティブな期間が経過すると、codespace の実行が停止します。 このタイムアウト期間の長さを指定できます。 更新した設定は、新しく作成した codespace に適用されます。

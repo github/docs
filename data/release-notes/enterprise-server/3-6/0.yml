@@ -255,6 +255,12 @@ sections:
         - |
           Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
 
+    - heading: GitHub Mobile
+      notes:
+        # https://github.com/github/releases/issues/2514
+        - |
+          In GitHub Mobile for iOS 1.80.0 and later, users can edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
+
     - heading: Releases
       notes:
         # https://github.com/github/releases/issues/2281

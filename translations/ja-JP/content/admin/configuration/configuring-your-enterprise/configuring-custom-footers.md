@@ -11,10 +11,10 @@ topics:
   - Fundamentals
 shortTitle: Configure custom footers
 ms.openlocfilehash: d051e2399841e90291de62e496c534520465235a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145120702'
 ---
 エンタープライズ所有者は、最大 5 つの追加リンクを含むユーザー設定のフッターを表示するように {% data variables.product.product_name %} を構成できます。

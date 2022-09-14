@@ -22,10 +22,10 @@ topics:
   - User account
 shortTitle: Locked account
 ms.openlocfilehash: e9b51d82dcd2f184003add575338625ea01fa1df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084452'
 ---
 通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。

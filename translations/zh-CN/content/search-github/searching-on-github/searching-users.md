@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: cf3af1837e398226bee7d926e5dae0fd437879c7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130064'
 ---
 您可以在所有 {% data variables.product.product_name %} 内全局搜索用户。 有关详细信息，请参阅“[关于在 {% data variables.product.company_short %} 上进行搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。

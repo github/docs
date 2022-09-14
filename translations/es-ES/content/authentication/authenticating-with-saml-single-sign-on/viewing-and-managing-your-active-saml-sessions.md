@@ -11,10 +11,10 @@ topics:
   - SSO
 shortTitle: Active SAML sessions
 ms.openlocfilehash: ee30f76143ec28a810cd23150d115a3b1cd213c8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145120033'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}

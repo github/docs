@@ -15,22 +15,22 @@ topics:
   - Open Source
   - Sponsors payments
 shortTitle: Sponsor a contributor
-ms.openlocfilehash: 446cea71c29cd2c6d94c67bdb638c3f0359c0d49
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: d006324c270d29b9ce87189751e75722da13a6ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145148721'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710292'
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-## <a name="about-sponsorships"></a>スポンサーシップについて
+## スポンサーシップについて
 
 {% data reusables.sponsors.sponsorship-details %}
 
 個人アカウントの代わりにアカウントをスポンサーし、個人的に利益を得るプロジェクトに投資することができます。 Organization に代わってアカウントをスポンサーできますが、それには多くの理由があります。
 - Organization の作業が依存する特定のライブラリを維持する
-- Organization として依存しているエコシステム (たとえばブロックチェーン) に投資する
+- Organization として依存しているエコシステム (ブロックチェーンなど) に投資する
 - オープンソースを大切にする Organization としてブランド認知度を確立する
 - Organization が提供する製品を補完するライブラリを構築しているオープンソース開発者に感謝する
 
@@ -58,7 +58,7 @@ ms.locfileid: '145148721'
 
 {% endnote %}
 
-## <a name="tax-information"></a>税情報
+## 税情報
 
 スポンサーになったユーザーは、スポンサー プログラムの開始以降、アカウントへのスポンサーシップ支払いに関する以下の限定的な情報が、自分の支援している各アカウントの所有者に開示される可能性があることを認めたことになります。
 
@@ -69,7 +69,7 @@ ms.locfileid: '145148721'
 
 これらの情報は、スポンサーシップ支払いによって生じる税の支払いと報告を行うために必要です。
 
-## <a name="sponsoring-an-account"></a>アカウントをスポンサーする
+## アカウントをスポンサーする
 
 アカウントをスポンサーするには、認証済みメールアドレスが必要です。 詳細については、「[メール アドレスの確認](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。
 
