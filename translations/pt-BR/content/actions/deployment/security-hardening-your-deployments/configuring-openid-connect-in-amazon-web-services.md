@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 5ac1a902bb9ef397fa6fa157ea58496d57ffd231
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146171850'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875491'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -42,7 +42,7 @@ Para adicionar o provedor OIDC do {% data variables.product.prodname_dotcom %} a
 
 Para configurar a função e a relação de confiança no IAM, confira ["Como assumir uma função"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) e ["Como criar uma função para identidade da Web ou federação do OpenID Connect"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) na documentação da AWS.
 
-Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
+Edite a política de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
 
 ```json{:copy}
 "Condition": {
@@ -52,6 +52,33 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
   }
 }
 ```
+
+No seguinte exemplo, `ForAllValues` é usado para corresponder a várias chaves de condição e `StringLike` é usado para corresponder a qualquer referência no repositório especificado. Observe que `ForAllValues` tem uma [permissividade excessiva](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) e não deve ser usado sozinho para efeitos de `Allow`. Para este exemplo, a inclusão de `StringLike` significa que um conjunto vazio `ForAllValues` ainda não será aprovado pela condição:
+
+```json{:copy}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::123456123456:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringLike": {
+                    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
+                },
+                "ForAllValues:StringEquals": {
+                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
 
 ## Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}
 
@@ -82,7 +109,7 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write
+      id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:

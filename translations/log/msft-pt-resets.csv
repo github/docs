@@ -305,10 +305,10 @@ translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/c
 translations/pt-BR/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,broken liquid tags
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
-translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/creating-a-codespace.md,broken liquid tags
