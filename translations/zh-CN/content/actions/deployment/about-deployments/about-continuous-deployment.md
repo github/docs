@@ -1,6 +1,6 @@
 ---
-title: 关于持续部署
-intro: '您可以直接在 {% data variables.product.prodname_dotcom %} 仓库中通过 {% data variables.product.prodname_actions %} 创建自定义持续部署 (CD) 工作流程。'
+title: About continuous deployment
+intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,44 +12,40 @@ redirect_from:
 topics:
   - CD
 shortTitle: About continuous deployment
-ms.openlocfilehash: 379afa0088f7f10302f5bf8202f5259ac4777bec
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147060136'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 关于持续部署
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-持续部署 (CD) 是使用自动化发布和部署软件更新的做法。 作为典型 CD 过程的一部分，代码在部署之前会自动构建并测试。
+## About continuous deployment
 
-持续部署通常与持续集成相结合。 有关持续集成的详细信息，请参阅“[关于持续集成](/actions/guides/about-continuous-integration)”。
+_Continuous deployment_ (CD) is the practice of using automation to publish and deploy software updates. As part of the typical CD process, the code is automatically built and tested before deployment.
 
-## 关于使用 {% data variables.product.prodname_actions %} 的持续部署
+Continuous deployment is often coupled with continuous integration. For more information about continuous integration, see "[About continuous integration](/actions/guides/about-continuous-integration)".
 
-您可以设置 {% data variables.product.prodname_actions %} 工作流程来部署软件产品。 要验证产品是否按预期工作，您的工作流程可以在存储库中构建代码，并在部署之前运行测试。
+## About continuous deployment using {% data variables.product.prodname_actions %}
 
-您可以配置 CD 工作流程在发生 {% data variables.product.product_name %} 事件（例如，将新代码推送到存储库的默认分支）时运行、按设定的时间表运行、手动运行或者在使用存储库分发 web 挂钩的外部事件发生时运行。 有关工作流何时可以运行的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows)”。
+You can set up a {% data variables.product.prodname_actions %} workflow to deploy your software product. To verify that your product works as expected, your workflow can build the code in your repository and run your tests before deploying.
 
-{% data variables.product.prodname_actions %} 提供的功能使您可以更好地控制部署。 例如，您可以使用环境来要求批准才能继续作业，限制哪些分支可以触发工作流程，或限制对机密的访问。 你可以使用并发性将 CD 管道限制为最多一个正在进行的部署和一个挂起的部署。 有关这些功能的详细信息，请参阅“[使用 GitHub Actions 进行部署](/actions/deployment/deploying-with-github-actions)”和“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
+You can configure your CD workflow to run when a {% data variables.product.product_name %} event occurs (for example, when new code is pushed to the default branch of your repository), on a set schedule, manually, or when an external event occurs using the repository dispatch webhook. For more information about when your workflow can run, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
-## 使用 OpenID Connect 访问云资源
+{% ifversion fpt or ghec or ghes > 3.4 %}
+
+## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## 初学者工作流程和第三方操作
+## Starter workflows and third party actions
 
 {% data reusables.actions.cd-templates-actions %}
 
-## 延伸阅读
+## Further reading
 
-- [使用 GitHub Actions 进行部署](/actions/deployment/deploying-with-github-actions)
-- [使用环境进行部署](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
-- “[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)”{% endif %}
+- [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
+- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 
