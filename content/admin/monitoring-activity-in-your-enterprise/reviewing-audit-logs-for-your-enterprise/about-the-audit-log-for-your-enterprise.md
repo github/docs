@@ -46,7 +46,7 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 {%- ifversion ghes %}
 - You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 {%- endif %}
-{%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 - You can use the Audit log API to view actions performed in your enterprise. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 {%- endif %}
 
