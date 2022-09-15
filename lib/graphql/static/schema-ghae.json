@@ -9116,6 +9116,31 @@
       ]
     },
     {
+      "name": "CheckRunStateCount",
+      "kind": "objects",
+      "id": "checkrunstatecount",
+      "href": "/graphql/reference/objects#checkrunstatecount",
+      "description": "<p>Represents a count of the state of a check run.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of check runs with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a check run.</p>",
+          "type": "CheckRunState!",
+          "id": "checkrunstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkrunstate"
+        }
+      ]
+    },
+    {
       "name": "CheckStep",
       "kind": "objects",
       "id": "checkstep",
@@ -50425,6 +50450,22 @@
       "description": "<p>The connection type for StatusCheckRollupContext.</p>",
       "fields": [
         {
+          "name": "checkRunCount",
+          "description": "<p>The number of check runs in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "checkRunCountsByState",
+          "description": "<p>Counts of check runs by state.</p>",
+          "type": "[CheckRunStateCount!]",
+          "id": "checkrunstatecount",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#checkrunstatecount"
+        },
+        {
           "name": "edges",
           "description": "<p>A list of edges.</p>",
           "type": "[StatusCheckRollupContextEdge]",
@@ -50447,6 +50488,22 @@
           "id": "pageinfo",
           "kind": "objects",
           "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "statusContextCount",
+          "description": "<p>The number of status contexts in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "statusContextCountsByState",
+          "description": "<p>Counts of status contexts by state.</p>",
+          "type": "[StatusContextStateCount!]",
+          "id": "statuscontextstatecount",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#statuscontextstatecount"
         },
         {
           "name": "totalCount",
@@ -50608,6 +50665,31 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "StatusContextStateCount",
+      "kind": "objects",
+      "id": "statuscontextstatecount",
+      "href": "/graphql/reference/objects#statuscontextstatecount",
+      "description": "<p>Represents a count of the state of a status context.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of statuses with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a status context.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#statusstate"
         }
       ]
     },
@@ -60412,6 +60494,71 @@
         {
           "name": "TIMED_OUT",
           "description": "<p>The check suite or run has timed out.</p>"
+        }
+      ]
+    },
+    {
+      "name": "CheckRunState",
+      "kind": "enums",
+      "id": "checkrunstate",
+      "href": "/graphql/reference/enums#checkrunstate",
+      "description": "<p>The possible states of a check run in a status rollup.</p>",
+      "values": [
+        {
+          "name": "ACTION_REQUIRED",
+          "description": "<p>The check run requires action.</p>"
+        },
+        {
+          "name": "CANCELLED",
+          "description": "<p>The check run has been cancelled.</p>"
+        },
+        {
+          "name": "COMPLETED",
+          "description": "<p>The check run has been completed.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The check run has failed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The check run is in progress.</p>"
+        },
+        {
+          "name": "NEUTRAL",
+          "description": "<p>The check run was neutral.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The check run is in pending state.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The check run has been queued.</p>"
+        },
+        {
+          "name": "SKIPPED",
+          "description": "<p>The check run was skipped.</p>"
+        },
+        {
+          "name": "STALE",
+          "description": "<p>The check run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
+        },
+        {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check run has failed at startup.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The check run has succeeded.</p>"
+        },
+        {
+          "name": "TIMED_OUT",
+          "description": "<p>The check run has timed out.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check run is in waiting state.</p>"
         }
       ]
     },
