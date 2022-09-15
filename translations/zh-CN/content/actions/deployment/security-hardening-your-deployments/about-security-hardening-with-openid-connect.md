@@ -5,7 +5,6 @@ intro: OpenID Connect allows your workflows to exchange short-lived tokens direc
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
