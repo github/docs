@@ -1172,6 +1172,18 @@
         "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
       },
       {
+        "slug": "list-codeql-databases-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases"
+      },
+      {
+        "slug": "get-a-codeql-database-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+      },
+      {
         "slug": "upload-an-analysis-as-sarif-data",
         "subcategory": "code-scanning",
         "verb": "post",
