@@ -778,7 +778,10 @@ registries:
 
 {% note %}
 
-**Note:** We don't support the Azure Container Registry (ACR).
+**Note:** Currently we support the following container registries:
+* Docker Hub
+* GitHub Container Registry
+* Private ECR
 
 {% endnote %}
 
