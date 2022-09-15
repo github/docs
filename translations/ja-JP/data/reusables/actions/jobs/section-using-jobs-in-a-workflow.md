@@ -1,7 +1,15 @@
-A workflow run is made up of one or more `jobs`, which run in parallel by default. ジョブを逐次的に実行するには、`jobs.<job_id>.needs`キーワードを使用して他のジョブに対する依存関係を定義します。
+---
+ms.openlocfilehash: 2bdab95a93e5eff4bc68d8da73fd9d7d9a93580a
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879704"
+---
+ワークフロー実行は、既定で並列実行される 1 つ以上の `jobs` で構成されます。 ジョブを順番に実行するには、`jobs.<job_id>.needs` キーワードを使用して他のジョブへの依存関係を定義できます。
 
-それぞれのジョブは、`runs-on`で指定されたランナー環境で実行されます。
+各ジョブは、`runs-on` で指定されたランナー環境で実行されます。
 
-ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dotcom %} がホストするランナーの「[使用量制限と課金](/actions/reference/usage-limits-billing-and-administration)」と{% endif %}セルフホステッド ランナーの使用制限の「[セルフホステッド ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」{% ifversion fpt or ghec or ghes %}{% elsif ghae %}を参照してください。{% endif %}
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
+ワークフロー実行で実行されているジョブの一意識別子を見つける必要がある場合は、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API を使用できます。 詳細については、「[ワークフロー ジョブ](/rest/reference/actions#workflow-jobs)」を参照してください。

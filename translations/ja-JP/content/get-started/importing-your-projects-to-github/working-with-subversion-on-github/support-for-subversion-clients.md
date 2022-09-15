@@ -9,9 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Subversion クライアントのサポート
+shortTitle: Support for Subversion clients
+ms.openlocfilehash: 49422fbd5dd07b84975172f077091e92bcd5b543
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145131219'
 ---
-
 GitHubは、HTTPS プロコトルを介して Subversion クライアントをサポートします。 GitHub に svn コマンドを伝えるには、Subversion ブリッジを使います。
 
 ## GitHub 上でサポートされる Subversion の機能
@@ -20,10 +25,9 @@ GitHubは、HTTPS プロコトルを介して Subversion クライアントを�
 
 最初に Subversion チェックアウトを行いましょう。  Git クローンは、ワーキングディレクトリ (ファイルを編集する場所) をリポジトリデータと分けたままにします。そのため、この時点でワーキングディレクトリにはブランチが 1 つしかありません。
 
-Subversion チェックアウトは違います。ワーキングディレクトリのリポジトリデータをミックスします。そのため、チェックアウトしたブランチおよびタグごとにワーキングディレクトリがあります。  たくさんのブランチとタグがあるリポジトリには、すべてをチェックアウトすることは帯域障害になる可能性があります。よって、部分的なチェックアウトから始めた方がよいです。
+Subversion チェックアウトは異なります。作業ディレクトリ内のリポジトリ データが混在するため、各ブランチの作業ディレクトリとチェックアウトしたタグがあります。多数のブランチとタグがあるリポジトリの場合、すべてをチェックアウトすることは帯域幅の負担になる可能性があるため、部分的なチェックアウトから始める必要があります。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.copy-clone-url %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %}
 
 3. リポジトリのエンプティチェックアウトをします:
   ```shell
@@ -41,7 +45,7 @@ Subversion チェックアウトは違います。ワーキングディレクト
   > Updated to revision 1.
   ```
 
-5. `branches` ディレクトリのエンプティチェックアウトを取得します。  ここは、すべての `HEAD` でないブランチが存在し、かつ、フィーチャブランチを作成する場所です。
+5. `branches` ディレクトリのエンプティ チェックアウトを取得します。  ここは、すべての `HEAD` でないブランチが存在し、かつ、機能ブランチを作成する場所です。
   ```shell
   $ svn up --depth empty branches
   Updated to revision 1.
@@ -51,13 +55,13 @@ Subversion チェックアウトは違います。ワーキングディレクト
 
 Subversion ブリッジを使って GitHub にブランチを作成することもできます。
 
-svn クライアントで `trunk` を更新して、デフォルトブランチが最新であることを確認します。
+svn クライアントで `trunk` を更新して、既定のブランチが最新であることを確認します。
 ```shell
 $ svn up trunk
 > At revision 1.
 ```
 
-次に、`svn copy` を使用して新しいブランチを作成できます:
+次に、`svn copy` を使用して新しいブランチを作成することができます。
 ```shell
 $ svn copy trunk branches/more_awesome
 > A    branches/more_awesome
@@ -81,7 +85,7 @@ $ git fetch
 
 ### Subversion にコミットを作成する
 
-いくつかの機能を追加しバグを修正した後は、GitHub にこれらの変更をコミットしましょう。 この手順は、あなたが慣れ親しんだ Subversion と非常に似ています。 ファイルを編集してから、以下のように `svn commit` を使って変更を記録してください:
+いくつかの機能を追加しバグを修正した後は、GitHub にこれらの変更をコミットしましょう。 この手順は、あなたが慣れ親しんだ Subversion と非常に似ています。 ファイルを編集し、`svn commit` を使用して変更を記録します。
 
 ```shell
 $ svn status
@@ -104,7 +108,7 @@ $ svn commit -m 'Test coverage for problems'
 
 ### ブランチ間の切り替え
 
-ブランチをスイッチするには、`trunk` のチェックアウトから始めることをお勧めします。
+ブランチを切り替えるには、`trunk` のチェックアウトから始めることをお勧めします。
 
 ```shell
 $ svn co --depth empty https://github.com/<em>user</em>/<em>repo</em>/trunk
@@ -120,7 +124,7 @@ $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesom
 
 Github の Subversion サーバーは、Subversion コミットのために Git コミット SHA を開示します。
 
-コミット SHA を表示するには、`git-commit` のバージョンのないリモートプロパティを要求する必要があります。
+コミット SHA を表示するには、`git-commit` のバージョンのないリモート プロパティを要求する必要があります。
 
 ```shell
 $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>repo</em>
@@ -129,6 +133,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 このコミット SHA によって、たとえば、GitHub 上の関連 Git コミットを検索できます。
 
-## 参考リンク
+## 参考資料
 
-* [GitHub がサポートする Subversion プロパティ](/articles/subversion-properties-supported-by-github)
+* 「[GitHub がサポートする Subversion プロパティ](/articles/subversion-properties-supported-by-github)」

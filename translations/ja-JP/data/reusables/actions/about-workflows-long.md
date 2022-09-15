@@ -1,3 +1,11 @@
-A workflow is a configurable automated process that will run one or more jobs. Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
+---
+ms.openlocfilehash: ba9c00a9dfa055c518eb60bca3acc59a3cc89381
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145114877"
+---
+ワークフローは、1 つ以上のジョブを実行する構成可能な自動化プロセスです。 ワークフローは、リポジトリにチェックインされる YAML ファイルによって定義され、リポジトリ内のイベントによってトリガーされたときに実行されます。また、手動でトリガーしたり、定義されたスケジュールでトリガーしたりすることもできます。
 
-Workflows are defined in the `.github/workflows` directory in a repository, and a repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
+ワークフローはリポジトリ内の `.github/workflows` ディレクトリで定義され、リポジトリには複数のワークフローを含めることができます。各ワークフローは、それぞれ異なる一連のタスクを実行できます。 たとえば、あるワークフローでは、pull request をビルドしてテストし、別のワークフローでは、リリースが作成されるたびにアプリケーションをデプロイし、さらに別のワークフローでは、新しい issue が開かれるたびにラベルを追加することができます。

@@ -25,5 +25,11 @@ children:
   - /enabling-unified-search-for-your-enterprise
   - /enabling-unified-contributions-for-your-enterprise
 shortTitle: GitHub Connect
+ms.openlocfilehash: 6d0be48b952a7bb9abb5c439b5ab276e0b886ec8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120802'
 ---
 

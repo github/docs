@@ -1,10 +1,10 @@
 ---
-title: Restricting email notifications for your enterprise
-intro: You can prevent your enterprise's information from leaking into personal email accounts by restricting the domains where members can receive email notifications about activity in organizations owned by your enterprise.
+title: Enterprise のメール通知を制限する
+intro: エンタープライズが所有する組織のアクティビティに関するメール通知をメンバーが受信できるドメインに制限することで、エンタープライズの情報が個人のメール アカウントに漏洩するのを防ぐことができます。
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
 topics:
@@ -17,27 +17,29 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains
   - /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/restricting-email-notifications-for-your-enterprise-account
-shortTitle: メール通知の制限
+shortTitle: Restrict email notifications
+ms.openlocfilehash: f5ef3b4ffd3db266e96d4f7fc90f43cbd226034f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066498'
 ---
+## Enterprise のメール制限について
 
-## About email restrictions for your enterprise
-
-When you restrict email notifications, enterprise members can only use an email address in a verified or approved domain to receive email notifications about activity in organizations owned by your enterprise.
+メール通知を制限すると、Enterprise のメンバーは、Enterprise が所有する Organization 内のアクティビティに関するメール通知を受け取ために、検証または承認済みのドメイン内のメール アドレスしか使用できなくなります。
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-The domains can be inherited from the enterprise or configured for the specific organization. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+ドメインは、Enterprise から継承することも、特定の Organization 用に設定することもできます。 詳細については、「[Enterprise のドメインを検証または承認する](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」および「[Organization のメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-If email restrictions are enabled for an enterprise, organization owners cannot disable email restrictions for any organization owned by the enterprise. If changes occur that result in an organization having no verified or approved domains, either inherited from an enterprise that owns the organization or for the specific organization, email restrictions will be disabled for the organization.
+Enterprise でメール制限が有効になっている場合、Organization のオーナーは、Enterprise が所有する Organization のメール制限を無効にすることはできません。 Organization を所有する Enterprise から継承されたか、特定の Organization の検証済みまたは承認済みのドメインを持たない Organization になるような変更が発生した場合、その Organization のメール制限は無効になります。
 
-## Restricting email notifications for your enterprise
+## Enterprise のメール通知を制限する
 
-Before you can restrict email notifications for your enterprise, you must verify or approve at least one domain for the enterprise. {% ifversion ghec %} For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+Enterprise のメール通知を制限する前に、少なくとも 1 つのドメインを Enterprise 用に検証または承認する必要があります。 {% ifversion ghec %} 詳細については、「[Enterprise のドメインを検証または承認する](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。"{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.verified-domains-tab %}
-{% data reusables.organizations.restrict-email-notifications %}
-1. [**Save**] をクリックします。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.verified-domains-tab %} {% data reusables.organizations.restrict-email-notifications %}
+1. **[保存]** をクリックします。

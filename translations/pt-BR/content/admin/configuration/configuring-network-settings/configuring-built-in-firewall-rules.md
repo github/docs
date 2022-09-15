@@ -14,21 +14,26 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configurar regras do firewall
+shortTitle: Configure firewall rules
+ms.openlocfilehash: 7492f69c6b334847229c76f7462beaabbc4154a2
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095996'
 ---
+## Sobre o firewall do {% data variables.product.product_location %}
 
-## Sobre o firewall da {% data variables.product.product_location %}
+O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, confira "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.
 
-O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, consulte "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.
+Depois da instalação do {% data variables.product.prodname_ghe_server %}, todas as portas de rede necessárias ficam abertas automaticamente para aceitar conexões. Cada porta não necessária é configurada automaticamente como `deny`, e a política de saída padrão é configurada como `allow`. O acompanhamento com estado está habilitado para novas conexões. Normalmente, são pacotes de rede com o conjunto de bits `SYN`. Para obter mais informações, confira "[Portas de rede](/enterprise/admin/guides/installation/network-ports)".
 
-Depois da instalação do {% data variables.product.prodname_ghe_server %}, todas as portas de rede necessárias ficam abertas automaticamente para aceitar conexões. As portas desnecessárias são configuradas automaticamente como `deny`, e a política de saída padrão é configurada como `allow`. O rastreamento com estado fica habilitado para novas conexões; em geral, são pacotes de rede com o conjunto de bits `SYN`. Para obter mais informações, consulte "[Portas de rede](/enterprise/admin/guides/installation/network-ports)".
-
-O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras da UFW, consulte [o README da UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras do UFW, confira [o LEIAME do UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ## Exibir as regras padrão de firewall
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Para exibir as regras de firewall padrão, use o comando `sudo ufw status`. Você verá um conteúdo semelhante a este:
+2. Para ver as regras de firewall padrão, use o comando `sudo ufw status`. Você deverá ver uma saída semelhante à esta:
   ```shell
   $ sudo ufw status
   > Status: active
@@ -60,21 +65,21 @@ O firewall UFW também abre várias outras portas necessárias para o funcioname
 
 {% warning %}
 
-**Aviso:** antes de adicionar regras personalizadas de firewall, faça backup das regras atuais caso você precise voltar a um estado de trabalho conhecido. Se você não conseguir acessar o servidor, entre em contato com o {% data variables.contact.contact_ent_support %} para reconfigurar as regras originais do firewall. Restaurar as regras originais gera tempo de inatividade no servidor.
+**Aviso:** antes de adicionar regras de firewall personalizadas, faça backup das regras atuais caso precise fazer a redefinição para um estado de trabalho conhecido. Se você não conseguir acessar o servidor, entre em contato com o {% data variables.contact.contact_ent_support %} para reconfigurar as regras originais do firewall. Restaurar as regras originais gera tempo de inatividade no servidor.
 
 {% endwarning %}
 
 1. Configure uma regra personalizada de firewall.
-2. Verifique o status de cada regra com o comando `status numbered`.
+2. Verifique o status de cada nova regra com o comando `status numbered`.
   ```shell
   $ sudo ufw status numbered
   ```
-3. Para fazer backup das regras personalizadas de firewall, use o comando `cp` a fim de movê-las para um novo arquivo.
+3. Para fazer backup das regras de firewall personalizadas, use o comando `cp` para mover as regras para um novo arquivo.
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-Após a atualização da {% data variables.product.product_location %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
+Depois de fazer o upgrade do {% data variables.product.product_location %}, você precisará aplicar as regras de firewall personalizadas novamente. Para isso, é recomendável criar um script.
 
 ## Restaurar as regras padrão de firewall
 
@@ -82,12 +87,12 @@ Se a alteração das regras do firewall ocasionar erros, você poderá redefinir
 
 {% warning %}
 
-**Aviso:** se você não fez backup das regras originais antes de alterar o firewall, entre em contato com o {% data variables.contact.contact_ent_support %} para obter assistência.
+**Aviso:** se você não fez backup das regras originais antes de fazer alterações no firewall, entre em contato com o {% data variables.contact.contact_ent_support %} para obter mais assistência.
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Para restaurar as regras de backup anteriores, copie-as de volta para o firewall com o comando `cp`.
+2. Para restaurar as regras de backup anteriores, copie-as de novo para o firewall com o comando `cp`.
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
@@ -95,7 +100,7 @@ Se a alteração das regras do firewall ocasionar erros, você poderá redefinir
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Confirme a retomada das regras padrão com o comando `ufw status`.
+4. Confirme se as regras estão de volta aos padrões com o comando `ufw status`.
   ```shell
   $ sudo ufw status
   > Status: active

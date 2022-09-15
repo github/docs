@@ -1,6 +1,6 @@
 ---
-title: Pull requests
-intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
+title: Solicitudes de incorporación de cambios
+intro: 'Aprende cómo utilizar las solicitudes de cambio para sugerir cambios a un proyecto, recibir cambios sugeridos a tus propios proyectos y dirigir propuestas en las solicitudes de cambios, tales como los conflictos de fusión.'
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:
@@ -9,7 +9,7 @@ featuredLinks:
     - /pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
-  popular: 
+  popular:
     - /pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
     - /pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
     - /pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
@@ -32,5 +32,11 @@ topics:
 children:
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
+ms.openlocfilehash: ef158e51034ee5f8d9aba19323654ab413d244b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063975'
 ---
 

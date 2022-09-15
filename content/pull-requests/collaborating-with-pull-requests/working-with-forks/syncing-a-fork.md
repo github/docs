@@ -21,15 +21,20 @@ topics:
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## Syncing a fork branch from the web UI
 
+{% ifversion syncing-fork-web-ui %}
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** drop-down.
+2. Select the **Sync fork** dropdown.
+    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Review the details about the commits from the upstream repository, then click **Update branch**.
+    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
+{% else %}
+1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+2. Select the **Fetch upstream** dropdown.
     !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
 3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
+    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
@@ -47,7 +52,6 @@ If the changes from the upstream repository cause conflict then the {% data vari
 
 ## Syncing a fork branch from the command line
 
-{% endif %}
 Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

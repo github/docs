@@ -1,12 +1,19 @@
+---
+ms.openlocfilehash: 233eff44b80fdceeb29d692af02777e57db31f8a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145114342"
+---
 {% ifversion fpt %}
-1. Navigate to the main page of the organization or repository.
-1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-1. In the left sidebar, click **Actions**, then click **Runners**.
+1. 組織またはリポジトリのメイン ページに移動します。
+1. {% octicon "gear" aria-label="The Settings gear" %} **[設定]** をクリックします。
+1. 左側のサイドバーで **[アクション]** 、 **[ランナー]** の順にクリックします。
 {% elsif ghec %}
-1. Navigate to your runner settings:
-   * **In an organization or repository**: Navigate to the main page, then click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * **If using an enterprise account**: Navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.
+1. ランナーの設定に移動します。
+   * **組織またはリポジトリで**: メイン ページに移動し、{% octicon "gear" aria-label="The Settings gear" %} **[設定]** をクリックします。
+   * **Enterprise アカウントを使用している場合**: {% data variables.product.prodname_dotcom_the_website %} の右上隅にあるプロファイル写真をクリックして、 **[Your enterprises]\(お使いの Enterprise\)** をクリックし、Enterprise をクリックして、Enterprise アカウントに移動します。
 1. {% data variables.product.prodname_actions %}設定にアクセスしてください:
-   * **In an organization or repository**: Click **Actions** in the left sidebar, then click **Runners**.
-   * **If using an enterprise account**: In the left sidebar, click **"{% octicon "law" aria-label="The law icon" %} Policies"**, then click **Actions**, then click the **Runners** tab.
-{% endif %}
+   * **組織またはリポジトリで**: 左側のサイドバーにある **[アクション]** をクリックし、 **[ランナー]** をクリックします。
+   * **Enterprise アカウントを使用している場合**: 左側のサイドバーで **[{% octicon "law" aria-label="The law icon" %} ポリシー]** をクリックし、 **[アクション]** をクリックして、 **[ランナー]** タブをクリックします。{% endif %}

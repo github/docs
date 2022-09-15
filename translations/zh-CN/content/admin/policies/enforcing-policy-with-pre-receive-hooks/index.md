@@ -13,6 +13,12 @@ children:
   - /creating-a-pre-receive-hook-environment
   - /creating-a-pre-receive-hook-script
   - /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-shortTitle: 使用预接收挂钩的策略
+shortTitle: Policy with pre-receive hooks
+ms.openlocfilehash: 3958e0a9d67793c4cadcb6898ce6049eccbd43af
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098983'
 ---
 

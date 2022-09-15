@@ -18,6 +18,7 @@ sections:
     - When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.
     - When using `ghe-migrator`, a migration would fail to import video file attachments in issues and pull requests.
     - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'Upgrades would sometimes fail while migrating dependency graph data. [Updated: 2022-06-30]'
   changes:
     - In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.
     - The Nomad allocation timeout for Dependency Graph has been increased to ensure post-upgrade migrations can complete.
@@ -35,3 +36,5 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - |
       After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4 releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

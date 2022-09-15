@@ -1,5 +1,5 @@
 ---
-title: Commenting on a pull request
+title: Comentar en una solicitud de extracción
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request
   - /articles/adding-commit-comments
@@ -8,7 +8,7 @@ redirect_from:
   - /articles/commenting-on-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request
-intro: 'After you open a pull request in a repository, collaborators or team members can comment on the comparison of files between the two specified branches, or leave general comments on the project as a whole.'
+intro: 'Luego de abrir una solicitud de extracción en un repositorio, los colaboradores o miembros del equipo pueden comentar sobre la comparación de archivos entre dos ramas especificadas, o dejar comentarios generales en el proyecto en general.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,50 +17,51 @@ versions:
 topics:
   - Pull requests
 shortTitle: Comment on a PR
+ms.openlocfilehash: eb1b80fa6088bc083f0b2006a2c894a820cd6c10
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578960'
 ---
-## About pull request comments
+## Acerca de los comentarios de las solicitudes de extracción
 
-You can comment on a pull request's **Conversation** tab to leave general comments, questions, or props. You can also suggest changes that the author of the pull request can apply directly from your comment.
+Puedes comentar en la pestaña **Conversación** de una solicitud de incorporación de cambios para dejar comentarios generales, preguntas o propuestas. También puedes sugerir cambios que el autor de la solicitud de extracción puede aplicar directamente desde tu comentario.
 
-![Pull Request conversation](/assets/images/help/pull_requests/conversation.png)
+![Conversación de solicitud de extracción](/assets/images/help/pull_requests/conversation.png)
 
-You can also comment on specific sections of a file on a pull request's **Files changed** tab in the form of individual line comments or as part of a [pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Adding line comments is a great way to discuss questions about implementation or provide feedback to the author.
+También puedes comentar en secciones específicas de un archivo en la pestaña **Archivos modificados** de una solicitud de incorporación de cambios en forma de comentarios de línea individuales o como parte de una [revisión de solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Agregar comentarios en la línea es una gran manera de debatir preguntas sobre la implementación o brindar retroalimentación al autor.
 
-For more information on adding line comments to a pull request review, see ["Reviewing proposed changes in a pull request."](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
+Para obtener más información sobre cómo agregar comentarios de línea a una revisión de solicitud de incorporación de cambios, consulta "[Revisión de cambios propuestos en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% note %}
 
-**Note:** If you reply to a pull request via email, your comment will be added on the **Conversation** tab and will not be part of a pull request review.
+**Nota:** Si respondes a una solicitud de incorporación de cambios por correo electrónico, el comentario se agregará en la pestaña **Conversación** y no formará parte de una revisión de la solicitud de incorporación de cambios.
 
 {% endnote %}
 
-To reply to an existing line comment, you'll need to navigate to the comment on either the **Conversation** tab or **Files changed** tab and add an additional line comment below it.
+Para responder a un comentario de línea existente, deberás ir al comentario en la pestaña **Conversación** o en la pestaña **Archivos modificados** y agregar un comentario de línea adicional debajo de él.
 
 {% tip %}
 
-**Tips:**
-- Pull request comments support the same [formatting](/categories/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
-- You can add reactions to comments in pull requests in the **Files changed** tab.
+**Sugerencias:**
+- Los comentarios de solicitud de incorporación de cambios admiten el mismo [formato](/categories/writing-on-github) que los comentarios normales en {% data variables.product.product_name %}, como @mentions, emoji y referencias.
+- Puedes agregar reacciones a los comentarios en las solicitudes de incorporación de cambios en la pestaña **Archivos modificados**.
 
 {% endtip %}
 
-## Adding line comments to a pull request
+## Agregar comentarios en la línea a una solicitud de extracción
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request where you'd like to leave line comments.
-{% data reusables.repositories.changed-files %}
-{% data reusables.repositories.start-line-comment %}
-{% data reusables.repositories.type-line-comment %}
-{% data reusables.repositories.suggest-changes %}
-5. When you're done, click **Add single comment**.
-  ![Inline comment window](/assets/images/help/commits/inline-comment.png)
+2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción en la que deseas dejar los comentarios en la línea.
+{% data reusables.repositories.changed-files %} {% data reusables.repositories.start-line-comment %} {% data reusables.repositories.type-line-comment %} {% data reusables.repositories.suggest-changes %}
+5. Cuando hayas terminado, haz clic en **Agregar comentario único**.
+  ![Ventana de comentario en línea](/assets/images/help/commits/inline-comment.png)
 
-Anyone watching the pull request or repository will receive a notification of your comment.
+Cualquier persona que observe la solicitud de extracción o el repositorio recibirá una notificación de tu comentario.
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-## Further reading
+## Información adicional
 
-- "[Writing on GitHub](/github/writing-on-github)"
-{% ifversion fpt or ghec %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-{% endif %}
+- "[Escribir en GitHub](/github/writing-on-github)" {% ifversion fpt or ghec %}- "[Informar de abuso o correo no deseado](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)" {% endif %}

@@ -12,11 +12,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: eab1d31cb7c7099d047306348afed01c3cfd9817
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145135306'
 ---
+Al [crear un hito](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), puede [asociarlo a incidencias y solicitudes de incorporación de cambios](/articles/associating-milestones-with-issues-and-pull-requests).
 
-Cuando [creas un hito](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), puedes [asociarlo con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests).
-
-Para administrar mejor tu proyecto, puedes [ver detalles acerca de tu hito](/articles/viewing-your-milestone-s-progress). Desde la página del hito, puedes ver lo siguiente:
+Para administrar mejor el proyecto, puede [ver detalles sobre el hito](/articles/viewing-your-milestone-s-progress). Desde la página del hito, puedes ver lo siguiente:
 
 - Una descripción del hito proporcionada por el usuario, que puede incluir información como la descripción general del proyecto, los equipos relevantes y las fechas de vencimiento previstas.
 - La fecha de vencimiento del hito.
@@ -34,15 +39,15 @@ Puedes priorizar propuestas y solicitudes de extracción abiertas en un hito hac
 
 {% note %}
 
-**Nota:** Si hay más de 500 propuestas abiertas en un hito, no podrás priorizar propuestas.
+**Nota:** Si hay más de 500 incidencias abiertas en un hito, no podrá clasificarlas por orden de prioridad.
 
 {% endnote %}
 
 ![Hito reordenado](/assets/images/help/issues/milestone-reordered.gif)
 
-## Leer más
+## Información adicional
 
-- "[Crear y editar hitos para propuestas y solicitudes de extracción](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"
-- "[Ver el progreso de tus hitos](/articles/viewing-your-milestone-s-progress)"
+- "[Creación y edición de hitos para incidencias y solicitudes de incorporación de cambios](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
+- "[Asociación de hitos con incidencias y solicitudes de incorporación de cambios](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Filtrado de incidencias y solicitudes de incorporación de cambios por hito](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[Visualización del progreso del hito](/articles/viewing-your-milestone-s-progress)"

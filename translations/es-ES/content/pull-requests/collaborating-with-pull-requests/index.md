@@ -1,6 +1,6 @@
 ---
-title: Collaborating with pull requests
-intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
+title: Colaborar con con las solicitudes de cambios
+intro: 'Rastrea y debate los cambios en las propuestas, luego proón y revisa los cambios en las solicitudes de cambio.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests
   - /categories/63/articles
@@ -25,5 +25,11 @@ children:
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
 shortTitle: Collaborate with pull requests
+ms.openlocfilehash: 19b7ca93912d7368f7a727262d684ae158f98849
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145137757'
 ---
 

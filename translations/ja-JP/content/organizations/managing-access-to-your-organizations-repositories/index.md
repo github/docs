@@ -1,5 +1,5 @@
 ---
-title: Organization のリポジトリに対するアクセスを管理する
+title: 組織のリポジトリへのアクセス管理
 intro: Organization のオーナーは、Organization のリポジトリに対する個人およびチームのアクセスを管理できます。 チームメンテナは、チームのリポジトリアクセスを管理することも可能です。
 redirect_from:
   - /articles/permission-levels-for-an-organization-repository
@@ -26,6 +26,12 @@ children:
   - /converting-an-organization-member-to-an-outside-collaborator
   - /converting-an-outside-collaborator-to-an-organization-member
   - /reinstating-a-former-outside-collaborators-access-to-your-organization
-shortTitle: リポジトリへのアクセスの管理
+shortTitle: Manage access to repositories
+ms.openlocfilehash: e6789a7d8f2379f7aa2a6193d21ecdd385f69bab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130728'
 ---
 

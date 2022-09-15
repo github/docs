@@ -2,7 +2,7 @@
 title: Codespaces organizations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
-intro: 'The Codespaces organizations API enables you to manage your organization members codespaces using the REST API.'
+intro: The Codespaces organizations API enables you to manage your organization members codespaces using the REST API.
 versions:
   fpt: '*'
   ghec: '*'

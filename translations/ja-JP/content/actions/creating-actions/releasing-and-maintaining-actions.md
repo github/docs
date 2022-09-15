@@ -17,7 +17,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## はじめに
+## Introduction
 
 After you create an action, you'll want to continue releasing new features while working with community contributions. This tutorial describes an example process you can follow to release and maintain actions in open source. The example:
 
@@ -72,7 +72,7 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
 
-### 結果
+### Results
 
 Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
 
@@ -82,12 +82,12 @@ Using semantic releases means that the users of your actions can pin their workf
 
 {% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
 
-* Maintain a `README` with plenty of usage examples and guidance. 詳しい情報については「[README について](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)」を参照してください。
+* Maintain a `README` with plenty of usage examples and guidance. For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 * Include a workflow status badge in your `README` file. For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
 * Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
 * Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
 
-## 参考リンク
+## Further reading
 
 Examples where similar patterns are employed include:
 

@@ -1,19 +1,22 @@
 ---
-title: OAuth認証
-intro: OAuth認証を使用すると、OAuthアプリケーションが持つあなたのアカウントへのアクセスを管理できます。
+title: OAuth 認証
+intro: OAuth 承認を使うと、ユーザーのアカウントに対して OAuth アプリケーションが持つアクセス権を管理できます。
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/oauth-authorizations
+ms.openlocfilehash: 7a690b1e874179496c80c4a235e61727b5f72a91
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444670'
 ---
+## OAuth 認証 API について
 
-## OAuth authorizations APIについて
+この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスできるのは、トークンではなく、ユーザー名とパスワードを使用した[基本認証](/rest/overview/other-authentication-methods#basic-authentication)のみです。
 
-この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスするには、ユーザ名とパスワードを使用する [Basic 認証](/rest/overview/other-authentication-methods#basic-authentication) が必要であり、トークンは使用できません。
-
-自分または自分のユーザが 2 要素認証を有効にしている場合は、必ず [2 要素認証の使用方法](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)を理解していることを確認してください。
+ご自分またはユーザーが 2 要素認証を有効にしている場合は、[2 要素認証の使用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を理解していることを確認してください。

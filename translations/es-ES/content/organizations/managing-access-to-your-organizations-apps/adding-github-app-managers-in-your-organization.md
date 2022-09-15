@@ -12,29 +12,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Agregar administradores de GitHub Apps
+shortTitle: Add GitHub App managers
+ms.openlocfilehash: d8389c85c847b750bdb83eb8b922ad16bfa33bf3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135073'
 ---
-
-Para obtener más información sobre los permisos de administrador de una {% data variables.product.prodname_github_app %}, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)".
+Para obtener más información sobre los permisos de administrador de {% data variables.product.prodname_github_app %}, consulte "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)".
 
 ## Brindar a alguien la posibilidad de administrar todas las {% data variables.product.prodname_github_apps %} que son propiedad de la organización
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. En "Management" (Administración), escribe el nombre de usuario de la persona a quien deseas designar como gerente de {% data variables.product.prodname_github_app %} en la organización, y haz clic en **Grant** (Conceder). ![Agregar un administrador de {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/add-github-app-manager.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.github-apps-settings-sidebar %}
+1. En "Management", escriba el nombre de usuario de la persona a quien desea designar como administrador de {% data variables.product.prodname_github_app %} en la organización y haga clic en **Grant**.
+![Agregar un administrador de {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/add-github-app-manager.png)
 
 ## Brindar a alguien la posibilidad de administrar un {% data variables.product.prodname_github_app %} individual
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Debajo de "{% data variables.product.prodname_github_apps %}s", haz clic en el avatar de la app a la que quieres agregar un administrador de {% data variables.product.prodname_github_app %}. ![Seleccionar {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
-{% data reusables.organizations.app-managers-settings-sidebar %}
-1. En "App managers" (Administradores de la app), escribe el nombre de usuario de la persona a quien deseas designar como administrador de la App GitHub para la app, y haz clic en **Grant** (Conceder). ![Agregar un administrador de {% data variables.product.prodname_github_app %} para una app específica](/assets/images/help/organizations/add-github-app-manager-for-app.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.github-apps-settings-sidebar %}
+1. Debajo de "{% data variables.product.prodname_github_apps %}s", haz clic en el avatar de la app a la que quieres agregar un administrador de {% data variables.product.prodname_github_app %}.
+![Seleccione {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png) {% data reusables.organizations.app-managers-settings-sidebar %}
+1. En "App managers", escriba el nombre de usuario de la persona a quien desea designar como administrador de la aplicación de GitHub para la aplicación y haga clic en **Grant**.
+![Agregar un administrador de {% data variables.product.prodname_github_app %} para una aplicación específica](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
 {% ifversion fpt or ghec %}
-## Leer más
+## Información adicional
 
-- "[Acerca de {% data variables.product.prodname_dotcom %} Mercado](/articles/about-github-marketplace/)"
-{% endif %}
+- "[Acerca de {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)" {% endif %}

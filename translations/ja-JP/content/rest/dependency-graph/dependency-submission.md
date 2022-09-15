@@ -1,17 +1,22 @@
 ---
-title: Dependency submission
-intro: 'The Dependency submission API allows you to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
+title: Dependency Submission
+intro: Dependency Submission API を使うと、プロジェクトがビルドまたはコンパイルされるときに解決される依存関係など、プロジェクトの依存関係を送信できます。
 versions:
   feature: dependency-submission-api
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 72ffb8376c33972ab02c0a5fb48504b92fef3cec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147080389'
 ---
-
-## About the Dependency submission API
+## Dependency Submission API について
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit.  You can choose to use pre-made actions or create your own actions to submit your dependencies to the dependency submission API in the required format each time your project is built. For more information about using the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+依存関係は、スナップショットの形式で Dependency Submission API に送信されます。 スナップショットは、コミット SHA や他のメタデータに関連付けられている依存関係のセットであり、コミットのリポジトリの現在の状態を反映しています。  事前に作成されたアクションを使用するか、独自のアクションを作成して、プロジェクトがビルドされるたびに必要な形式で Dependency Submission API に依存関係を送信するかを選べます。 Dependency Submission API の使用について詳しくは、「[Dependency submission API の利用](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)」をご覧ください。
 
-You can submit multiple sets of dependencies to the Dependency submission API to be included in your dependency graph. The API uses the `job.correlator` property and the `detector.name` category of the snapshot to ensure the latest submissions for each workflow get shown. The `correlator` property itself is the primary field you will use to keep independent submissions distinct. An example `correlator` could be a simple combination of two variables available in actions runs: `<GITHUB_WORKFLOW> <GITHUB_JOB>`.
+依存関係グラフに含める複数の依存関係セットを Dependency Submission API に送信できます。 この API では、スナップショットの `job.correlator` プロパティと `detector.name` カテゴリを使用して、各ワークフローの最新の送信が確実に表示されるようにします。 `correlator` プロパティ自体は、独立した送信を区別するために使用する主要なフィールドです。 `correlator` の例としては、アクションの実行で使用できる `<GITHUB_WORKFLOW> <GITHUB_JOB>` という 2 つの変数のシンプルな組み合わせがあります。

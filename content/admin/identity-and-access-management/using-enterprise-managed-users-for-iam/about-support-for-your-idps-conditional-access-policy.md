@@ -4,7 +4,7 @@ shortTitle: Conditional access policy
 intro: 'When your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} will validate access to your enterprise and its resources using your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
-  feature: 'oidc-for-emu'
+  feature: oidc-for-emu
 topics:
   - Accounts
   - Authentication
@@ -22,9 +22,11 @@ CAP support is enabled automatically for any {% data variables.product.prodname_
 
 For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
-## About using CAP with IP allow lists
+{% note %}
 
-We recommend disabling your enterprise account's IP allow list and relying on your IdP's CAP. If you enable IP allow lists for your enterprise and also make use of your IdP's CAP, both the IP allow list and CAP will be enforced. If either restriction rejects a user's IP address, the request fails. For more information about IP allow lists, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+**Note:** If you use Conditional Access (CA) network location policies in your Azure AD tenant, do not use the IP allow list feature on {% data variables.product.prodname_dotcom_the_website %}, with your enterprise account or with any of the organizations owned by the enterprise. Using both is unsupported and can result in the wrong policy applying. For more information about IP allow lists, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+
+{% endnote %}
 
 ## Considerations for integrations and automations
 

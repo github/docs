@@ -14,7 +14,7 @@ topics:
   - Infrastructure
 shortTitle: Initiate failover to appliance
 ---
-The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.
+The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -43,7 +43,7 @@ The time required to failover depends on how long it takes to manually promote t
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance node if it’s reachable.
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
   ```shell
   $ ghe-repl-promote
   ```

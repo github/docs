@@ -15,20 +15,25 @@ versions:
 topics:
   - Accounts
 shortTitle: Leave an organization
+ms.openlocfilehash: 8fc658b761999f5022675994cf673eaaeb19fcd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164888'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**警告:** 現在 Organization で {% data variables.product.product_name %} の支払いを担当している場合、ご自身を Organization から削除しても、Organization のファイルの支払い情報は更新**されません**。 現在支払いを担当している場合は、Organization の別のコードオーナーまたは支払いマネージャーに、[Organization の支払い方法を更新](/articles/adding-or-editing-a-payment-method)してもらう**必要があります** 。
+**警告:** 現在、組織で {% data variables.product.product_name %} の支払いを担当している場合、ご自身を組織から削除しても、組織のファイルの支払い情報は更新 **されません**。 請求を現在担当している場合、組織の別の所有者か支払いマネージャーに [組織の支払方法を更新](/articles/adding-or-editing-a-payment-method)してもらう **必要があります**。
 
-詳細は「[Organization の所有権を移譲する](/articles/transferring-organization-ownership)」を参照してください。
+詳細については、「[組織所有権の譲渡](/articles/transferring-organization-ownership)」を参照してください。
 
 {% endwarning %}
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-3. [Organizations] の下で、自分を削除する Organization を見つけ、[**Leave**] をクリックします。 ![ロールが表示され、その横に [Leave] ボタンがある](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %}
+3. [Organizations] の下で自分を削除する組織を見つけ、 **[Leave]** をクリックします。
+  ![ロールが表示され、その横に [Leave] ボタンがある](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

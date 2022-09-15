@@ -1,6 +1,6 @@
 ---
 title: Administrar tus configuraciones de facturación de GitHub
-shortTitle: Configuración de facturación
+shortTitle: Billing settings
 intro: 'Las configuraciones de facturación de tu cuenta se aplican a cada característica paga o producto que agregas a la cuenta. Puedes administrar configuraciones como tu método de pago, el ciclo de facturación y el correo electrónico de facturación. También puedes visualizar la información de facturación como tu suscripción, la fecha de facturación, el historial de pagos y los recibos pasados.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings
@@ -25,5 +25,11 @@ children:
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
+ms.openlocfilehash: 6b9d87e20022431675c949132c9a84a23650abe7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091625'
 ---
 

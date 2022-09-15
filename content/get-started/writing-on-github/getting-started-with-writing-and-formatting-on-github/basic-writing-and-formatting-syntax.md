@@ -62,7 +62,7 @@ Text that is not a quote
 
 ## Quoting code
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
@@ -87,9 +87,36 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Supported color models
+
+In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+
+```markdown
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+```
+
+![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Here are the currently supported color models.
+
+| Color | Syntax | Example | Output |
+| --- | --- | --- | --- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notes:**
+
+- A supported color model cannot have any leading or trailing spaces within the backticks.
+- The visualization of the color is only supported in issues, pull requests, and discussions.
+
+{% endnote %}
+
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -354,7 +381,7 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Disabling Markdown rendering
 
@@ -367,4 +394,3 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"

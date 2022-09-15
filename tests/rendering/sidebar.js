@@ -2,19 +2,26 @@ import fs from 'fs'
 import path from 'path'
 import { expect, jest } from '@jest/globals'
 
-import '../../lib/feature-flags.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'
 import { allVersions } from '../../lib/all-versions.js'
+import renderContent from '../../lib/render-content/index.js'
+import loadSiteData from '../../lib/site-data.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 
-jest.useFakeTimers('legacy')
-
+jest.useFakeTimers({ legacyFakeTimers: true })
+const req = {}
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
-
   let $homePage, $githubPage, $enterprisePage, $restPage
   beforeAll(async () => {
+    const siteData = await loadSiteData()
+    req.context = {
+      allVersions,
+      currentLanguage: 'en',
+      site: siteData.en.site,
+    }
     ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
       getDOM('/en/get-started'),
@@ -113,6 +120,7 @@ describe('sidebar', () => {
           !directory.includes('rest/guides') &&
           !directory.includes('rest/overview') &&
           !absolute.includes('rest/index.md') &&
+          !absolute.includes('rest/quickstart.md') &&
           !file.includes('README.md')
         ) {
           return contentFiles.push(absolute)
@@ -122,6 +130,8 @@ describe('sidebar', () => {
 
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
+      const renderOpts = { textOnly: true, encodeEntities: true }
+
       for (const filename of contentFiles) {
         const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
         const applicableVersions = getApplicableVersions(data.versions, filename)
@@ -139,8 +149,26 @@ describe('sidebar', () => {
           }
         }
         for (const version of applicableVersions) {
-          if (category !== '') contentCheck[version].cat.push(category)
-          if (subCategory !== '') contentCheck[version].subcat.push(subCategory)
+          req.context.currentVersion = version
+
+          if (category !== '')
+            if (category.includes('{')) {
+              await shortVersionsMiddleware(req, null, () => {})
+              contentCheck[version].cat.push(
+                await renderContent.liquid.parseAndRender(category, req.context, renderOpts)
+              )
+            } else {
+              contentCheck[version].cat.push(category)
+            }
+          if (subCategory !== '')
+            if (subCategory.includes('{')) {
+              await shortVersionsMiddleware(req, null, () => {})
+              contentCheck[version].subcat.push(
+                await renderContent.liquid.parseAndRender(subCategory, req.context, renderOpts)
+              )
+            } else {
+              contentCheck[version].subcat.push(subCategory)
+            }
         }
       }
     }

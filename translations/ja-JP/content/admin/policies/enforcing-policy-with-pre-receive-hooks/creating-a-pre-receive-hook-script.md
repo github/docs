@@ -14,112 +14,111 @@ topics:
   - Policies
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
+ms.openlocfilehash: 3d01ba3d5d189e65cbd2b4589af9072571837944
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146332353'
 ---
-
-{% data variables.product.prodname_ghe_server %} の pre-receive フックの例は、[`github/platform-samples`リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で見ることができます。
+{% data variables.product.prodname_ghe_server %} の受信前フックの例を [`github/platform-samples` リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で参照できます。
 
 ## pre-receiveフックスクリプトの作成
-A pre-receive hook script executes in a pre-receive hook environment on {% data variables.product.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
+受信前フック スクリプトは、{% data variables.product.product_location %}上の 受信前フック スクリプト環境で実行されます。 受信前フック スクリプトを作成する際には、利用可能な入力、出力、終了ステータス、環境変数について考慮します。
 
-### Input (`stdin`)
-After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.product.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
+### 入力 (`stdin`)
+プッシュが発生した後で、リモート リポジトリに関して参照が更新される前に、{% data variables.product.product_location %}上の `git-receive-pack` プロセスが受信前フック スクリプトを呼び出します。 このスクリプトの標準入力 `stdin` は、更新する参照ごとの行を含む文字列です。 各行には、参照の古いオブジェクト名、参照の新しいオブジェクト名、および参照の完全な名前が含まれています。
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
-This string represents the following arguments.
+この文字列は次の引数を表します。
 
-| 引数                  | 説明                                                                                                |
-|:------------------- |:------------------------------------------------------------------------------------------------- |
-| `<old-value>` | Old object name stored in the ref.<br> When you create a new ref, the value is 40 zeroes.   |
-| `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
-| `<ref-name>`  | The full name of the ref.                                                                         |
+| 引数 | 説明     |
+| :------------- | :------------- |
+| `<old-value>` | 参照に格納されている古いオブジェクト名。<br> 新しい参照を作成するとき、値は 40 個のゼロです。 |
+| `<new-value>` | 参照に格納される新しいオブジェクト名。<br> 参照を削除するとき、値は 40 個のゼロです。 |
+| `<ref-name>`  | 参照の完全な名前。 |
 
-For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in *Pro Git*.
+`git-receive-pack` の詳細については、Git ドキュメントの「[git-receive-pack](https://git-scm.com/docs/git-receive-pack)」を参照してください。 参照の詳細については、*Pro Git* の「[Git 参照](https://git-scm.com/book/en/v2/Git-Internals-Git-References)」を参照してください。
 
-### Output (`stdout`)
+### 出力 (`stdout`)
 
-The standard output for the script, `stdout`, is passed back to the client. Any `echo` statements will be visible to the user on the command line or in the user interface.
+スクリプトの標準出力 `stdout` はクライアントに返されます。 すべての `echo` ステートメントは、コマンド ラインまたはユーザー インターフェイスでユーザーに表示されます。
 
 ### 終了ステータス
 
-The exit status of a pre-receive script determines if the push will be accepted.
+受信前スクリプトの終了ステータスによって、プッシュが受け付けられるかどうかが決まります。
 
-| Exit-status value | アクション          |
-|:----------------- |:-------------- |
-| 0                 | プッシュは受け付けられます。 |
-| 0以外               | プッシュは拒否されます。   |
+| 終了ステータスの値 | アクション |
+| :- | :- |
+| 0 | プッシュは受け付けられます。 |
+| 0 以外 | プッシュは拒否されます。 |
 
 ### 環境変数
 
-In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
+受信前フック スクリプトの標準入力 `stdin` に加え、{% data variables.product.prodname_ghe_server %} によって、スクリプトの実行のために次の変数が Bash 環境で使用できるようになります。 受信前フック スクリプトの `stdin` の詳細については、「[入力 (`stdin`)](#input-stdin)」を参照してください。
 
-Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
+受信前フック スクリプトで使用できる環境変数は、スクリプトが実行するトリガーに応じて異なります。
 
-- [Always available](#always-available)
-- [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
-- [Available for pull request merges](#available-for-pull-request-merges)
-- [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
+- [常に使用可能](#always-available)
+- [Web インターフェイスまたは API からのプッシュで使用可能](#available-for-pushes-from-the-web-interface-or-api)
+- [pull request のマージで使用可能](#available-for-pull-request-merges)
+- [SSH 認証を使用したプッシュで使用可能](#available-for-pushes-using-ssh-authentication)
 
-#### Always available
+#### 常に使用可能かどうか
 
-The following variables are always available in the pre-receive hook environment.
+次の変数は、受信前フック環境で常に使用できます。
 
-| 変数                        | 説明                                                                                                                                                                                                                                                                                                                                         | 値の例                                                                |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------ |
-| <pre>$GIT_DIR</pre> | Path to the remote repository on the instance                                                                                                                                                                                                                                                                                              | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-| <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation.                                                                                                       | 1                                                                  |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | ここで _N_ は 0 から始まる整数で、この変数にはクライアントから送信されたプッシュオプションの文字列が含まれます。 The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。 | abcd |{% ifversion ghes %}
-| <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes                                                                                                                                                                                                                                                                           | git/2.0.0{% endif %}
-| <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in _NAME_/_OWNER_ format                                                                                                                                                                                                                                                                              | octo-org/hello-enterprise                                          |
-| <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public                                                                                                                                                                                                                                                                        | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>                                          |
-| <pre>$GITHUB_USER_IP</pre> | IP address of client that initiated the push                                                                                                                                                                                                                                                                                               | 192.0.2.1                                                          |
-| <pre>$GITHUB_USER_LOGIN</pre> | Username for account that initiated the push                                                                                                                                                                                                                                                                                               | octocat                                                            |
+| 変数 | 説明 | 値の例 |
+| :- | :- | :- |
+|  <pre>$GIT_DIR</pre> | インスタンス上のリモート リポジトリのパス | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | クライアントによって `--push-option` で送信されたプッシュ オプションの数。 詳細については、Git ドキュメントの「[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)」を参照してください。 | 1 |
+| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | ここで _N_ は 0 から始まる整数です。この変数にはクライアントから送信されたプッシュ オプションの文字列が含まれます。 送信された最初のオプションは `GIT_PUSH_OPTION_0`、送信された 2 番目のオプションは `GIT_PUSH_OPTION_1` のように、順に格納されます。 プッシュ オプションの詳細については、Git ドキュメントの「[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)」を参照してください。 | abcd |{% ifversion ghes %}
+|  <pre>$GIT_USER_AGENT</pre> | 変更をプッシュした Git クライアントから送信されたユーザーエージェント文字列 | git/2.0.0{% endif %}
+|  <pre>$GITHUB_REPO_NAME</pre> | 更新対象のリポジトリの名前 (_NAME_/_OWNER_ 形式) | octo-org/hello-enterprise |
+|  <pre>$GITHUB_REPO_PUBLIC</pre> | 更新対象のリポジトリがパブリックかどうかを表すブール値 | <ul><li>true: リポジトリの可視性がパブリック</li><li>false: リポジトリの可視性がプライベートまたは内部</li></ul>
+|  <pre>$GITHUB_USER_IP</pre> | プッシュを開始したクライアントの IP アドレス | 192.0.2.1 |
+|  <pre>$GITHUB_USER_LOGIN</pre> | プッシュを開始したアカウントのユーザー名 | octocat |
 
-#### Available for pushes from the web interface or API
+#### Web インターフェイスまたは API からのプッシュで使用可能
 
-The `$GITHUB_VIA` variable is available in the pre-receive hook environment when the ref update that triggers the hook occurs via either the web interface or the API for {% data variables.product.prodname_ghe_server %}. The value describes the action that updated the ref.
+`$GITHUB_VIA` 変数を受信前フック環境で使用できるのは、フックをトリガーする参照更新が {% data variables.product.prodname_ghe_server %} の Web インターフェイスまたは API を介して発生するときです。 値は、参照を更新したアクションを表します。
 
-| 値                          | アクション                                                                    | 詳細情報                                                                                                                                                |
-|:-------------------------- |:------------------------------------------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre>auto-merge deployment api</pre>  | Automatic merge of the base branch via a deployment created with the API | "[Create a deployment](/rest/reference/deployments#create-a-deployment)" in the REST API documentation                                              |
-| <pre>blob#save</pre> | Change to a file's contents in the web interface                         | "[Editing files](/repositories/working-with-files/managing-files/editing-files)"                                                                    |
-| <pre>branch merge api</pre> | Merge of a branch via the API                                            | "[Merge a branch](/rest/reference/branches#merge-a-branch)" in the REST API documentation                                                           |
-| <pre>branches page delete button</pre> | Deletion of a branch in the web interface                                | 「[リポジトリ内でのブランチの作成と削除](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」 |
-| <pre>git refs create api</pre> | Creation of a ref via the API                                            | "[Git database](/rest/reference/git#create-a-reference)" in the REST API documentation                                                              |
-| <pre>git refs delete api</pre> | Deletion of a ref via the API                                            | "[Git database](/rest/reference/git#delete-a-reference)" in the REST API documentation                                                              |
-| <pre>git refs update api</pre> | Update of a ref via the API                                              | "[Git database](/rest/reference/git#update-a-reference)" in the REST API documentation                                                              |
-| <pre>git repo contents api</pre> | Change to a file's contents via the API                                  | "[Create or update file contents](/rest/reference/repos#create-or-update-file-contents)" in the REST API documentation                              |
+| 値 | アクション | 説明を見る |
+| :- | :- | :- |
+| <pre>auto-merge deployment api</pre> | API を使用して作成されたデプロイを介したベース ブランチの自動マージ | REST API ドキュメントの「[デプロイの作成](/rest/reference/deployments#create-a-deployment)」 |
+| <pre>blob#save</pre> | Web インターフェイスでのファイルの内容に対する変更 | 「[ファイルの編集](/repositories/working-with-files/managing-files/editing-files)」 |
+| <pre>branch merge api</pre> | API を使用したブランチのマージ | REST API ドキュメントの「[ブランチのマージ](/rest/reference/branches#merge-a-branch)」 |
+| <pre>branches page delete button</pre> | Web インターフェイスでのブランチの削除 | 「[リポジトリ内でブランチを作成および削除する](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」 |
+| <pre>git refs create api</pre> | API を使用した参照の作成 | REST API ドキュメントの「[Git データベース](/rest/reference/git#create-a-reference)」 |
+| <pre>git refs delete api</pre> | API を使用した参照の削除 | REST API ドキュメントの「[Git データベース](/rest/reference/git#delete-a-reference)」 |
+| <pre>git refs update api</pre> | API を使用した参照の更新 | REST API ドキュメントの「[Git データベース](/rest/reference/git#update-a-reference)」 |
+| <pre>git repo contents api</pre> | API を使用したファイルの内容に対する変更 | REST API ドキュメントの「[ファイル コンテンツの作成または更新](/rest/reference/repos#create-or-update-file-contents)」 |
+{%- ifversion ghes %} | `merge ` | 自動マージを使用した pull request のマージ | 「[pull request を自動的にマージする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」 | {%- endif %} | <pre>merge base into head</pre> | ベース ブランチで厳密な状態チェックが必要になる際のベース ブランチのトピック ブランチの更新 (たとえば、pull request で **[Update branch]\(ブランチを更新\)** を使用) | 「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)」 | | <pre>pull request branch delete button</pre> | Web インターフェイスでの pull request のトピック ブランチの削除 | 「[pull request でのブランチの削除と復元](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)」 | | <pre>pull request branch undo button</pre> | Web インターフェイスでの pull request のトピック ブランチの復元 | 「[pull request でのブランチの削除と復元](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)」 | | <pre>pull request merge api</pre> | API を使用した pull request のマージ | REST API ドキュメントの「[プル](/rest/reference/pulls#merge-a-pull-request)」 | | <pre>pull request merge button</pre> | Web インターフェイスでの pull request のマージ | 「[pull request のマージ](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)」 | | <pre>pull request revert button</pre> | pull request を元に戻す| 「[pull request を元に戻す](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)」 | | <pre>releases delete button</pre> | リリースの削除 | 「[リポジトリでのリリースの管理](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)」 | | <pre>stafftools branch restore</pre> | サイト管理者ダッシュボードでのブランチの復元 | 「[サイト管理者ダッシュボード](/admin/configuration/site-admin-dashboard#repositories)」 | | <pre>tag create api</pre> | API を使用したタグの作成| REST API ドキュメントの「[Git データベース](/rest/reference/git#create-a-tag-object)」 | | <pre>slumlord (#<em>SHA</em>)</pre> | Subversion を使用したコミット | 「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)」 | | <pre>web branch create</pre> | Web インターフェイスを使用したブランチの作成 | 「[リポジトリ内でのブランチの作成と削除](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)」 |
 
-{%- ifversion ghes %}
-| 
+#### pull request のマージで使用可能
 
-`merge` | Merge of a pull request using auto-merge | "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
-{%- endif %}
-| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" | | <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" | | <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" | | <pre>pull request merge api</pre> | Merge of a pull request via the API | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" in the REST API documentation | | <pre>pull request merge button</pre> | Merge of a pull request in the web interface | "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)" | | <pre>pull request revert button</pre> | Revert of a pull request | "[Reverting a pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)" | | <pre>releases delete button</pre> | Deletion of a release | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" | | <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)" | | <pre>tag create api</pre> | Creation of a tag via the API | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation | | <pre>slumlord (#<em>SHA</em>)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" | | <pre>web branch create</pre> | Creation of a branch via the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
+次の変数を受信前フック環境で使用できるのは、フックをトリガーするプッシュが pull request のマージによるプッシュであるときです。
 
-#### Available for pull request merges
+| 変数 | 説明 | 値の例 |
+| :- | :- | :- |
+|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | pull request を作成したアカウントのユーザー名 | octocat |
+|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | pull request のトピック ブランチの名前 (`USERNAME:BRANCH` 形式) | <nobr>octocat:fix-bug</nobr> |
+|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | pull request のベース ブランチの名前 (`USERNAME:BRANCH` 形式) | octocat:main |
 
-The following variables are available in the pre-receive hook environment when the push that triggers the hook is a push due to the merge of a pull request.
+#### SSH 認証を使用したプッシュで使用可能
 
-| 変数                         | 説明                                                                           | 値の例                          |
-|:-------------------------- |:---------------------------------------------------------------------------- |:---------------------------- |
-| <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request                           | octocat                      |
-| <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
-| <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH`  | octocat:main                 |
-
-#### Available for pushes using SSH authentication
-
-| 変数                         | 説明                                                             | 値の例                                             |
-|:-------------------------- |:-------------------------------------------------------------- |:----------------------------------------------- |
-| <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | The public key fingerprint for the user who pushed the changes | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
+| 変数 | 説明 | 値の例 |
+| :- | :- | :- |
+|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | 変更をプッシュしたユーザーの公開キー フィンガープリント | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
 ## 権限の設定と {% data variables.product.prodname_ghe_server %} への pre-receive フックのプッシュ
 
-A pre-receive hook script is contained in a repository on {% data variables.product.product_location %}. サイト管理者はリポジトリの権限を考慮し、適切なユーザだけがアクセスできるようにしなければなりません。
+受信前フック スクリプトは、{% data variables.product.product_location %}のリポジトリに含まれています。 サイト管理者はリポジトリの権限を考慮し、適切なユーザだけがアクセスできるようにしなければなりません。
 
-フックは単一のリポジトリに集約することをおすすめします。 集約されたフックのリポジトリがパブリックになっている場合、`README.md`をポリシーの強制の説明に利用できます。 また、コントリビューションをプルリクエスト経由で受け付けることもできます。 しかし、pre-receiveフックはデフォルトブランチからのみ追加できます。 テストのワークフロー用には、設定を持つリポジトリのフォークを使うべきです。
+フックは単一のリポジトリに集約することをおすすめします。 集約されたフックのリポジトリがパブリックである場合、`README.md` を使用してポリシーの適用を説明できます。 また、コントリビューションをプルリクエスト経由で受け付けることもできます。 しかし、pre-receiveフックはデフォルトブランチからのみ追加できます。 テストのワークフロー用には、設定を持つリポジトリのフォークを使うべきです。
 
 1. Mac ユーザは、スクリプトに実行権限を持たせてください。
 
@@ -132,21 +131,21 @@ A pre-receive hook script is contained in a repository on {% data variables.prod
    git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.product.product_location %}.
+2. {% data variables.product.product_location %}上の受信前フック用の指定リポジトリにコミットしてプッシュします。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
    ```
 
-3. [Create the pre-receive hook](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+3. {% data variables.product.prodname_ghe_server %} インスタンス上に[受信前フックを作成](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)します。
 
 ## ローカルでのpre-receiveスクリプトのテスト
-You can test a pre-receive hook script locally before you create or update it on {% data variables.product.product_location %}. その方法の 1 つは、pre-receive フックを実行できるリモートリポジトリとして働くローカルの Docker 環境を作成することです。
+受信前フック スクリプトを {% data variables.product.product_location %}上で作成または更新する前に、ローカルでテストできます。 その方法の 1 つは、pre-receive フックを実行できるリモートリポジトリとして働くローカルの Docker 環境を作成することです。
 
 {% data reusables.linux.ensure-docker %}
 
-2. 以下を含む `Dockerfile.dev` というファイルを作成してください。
+2. 次を含む `Dockerfile.dev` というファイルを作成します。
 
    ```dockerfile
    FROM gliderlabs/alpine:3.3
@@ -168,7 +167,7 @@ You can test a pre-receive hook script locally before you create or update it on
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. `always_reject.sh` というテストのpre-receiveスクリプトを作成してください。 このスクリプト例では、全てのプッシュを拒否します。これは、リポジトリをロックする場合に役立ちます。
+3. `always_reject.sh` という名前のテスト用の受信前スクリプトを作成します。 このスクリプト例では、全てのプッシュを拒否します。これは、リポジトリをロックする場合に役立ちます。
 
    ```
    #!/usr/bin/env bash
@@ -177,13 +176,13 @@ You can test a pre-receive hook script locally before you create or update it on
    exit 1
    ```
 
-4. `always_reject.sh`スクリプトが実行権限を持つことを確認してください。
+4. `always_reject.sh` スクリプトに実行アクセス許可があることを確認します。
 
    ```shell
    $ chmod +x always_reject.sh
    ```
 
-5. `Dockerfile.dev` を含むディレクトリからイメージをビルドしてください。
+5. `Dockerfile.dev` を含むディレクトリで、イメージをビルドします。
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
@@ -201,7 +200,7 @@ You can test a pre-receive hook script locally before you create or update it on
    > Generating public/private ed25519 key pair.
    > Your identification has been saved in /home/git/.ssh/id_ed25519.
    > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
-   ....出力を省略....
+   ....truncated output....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
    ```
@@ -212,13 +211,13 @@ You can test a pre-receive hook script locally before you create or update it on
    $ docker run --name data pre-receive.dev /bin/true
    ```
 
-7. テスト pre-receive フックの `always_reject.sh` をデータコンテナにコピーしてください:
+7. テスト用の受信前フック `always_reject.sh` をデータ コンテナーにコピーします。
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. `sshd` を実行しフックを動作させるアプリケーションコンテナを実行してください。 返されたコンテナ ID をメモしておいてください:
+8. `sshd` を実行してフックを実行するアプリケーション コンテナーを実行します。 返されたコンテナ ID をメモしておいてください:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
@@ -231,7 +230,7 @@ You can test a pre-receive hook script locally before you create or update it on
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. テストリポジトリのリモートを修正して、Docker コンテナ内の `test.git` リポジトリにプッシュしてください。 この例では `git@github.com:octocat/Hello-World.git` を使用していますが、どのリポジトリを使用しても構いません。 この例ではローカルマシン (127.0.0.1) がポート 52311 をバインドしているものとしていますが、docker がリモートマシンで動作しているなら異なる IP アドレスを使うことができます。
+10. テスト リポジトリのリモートを変更し、Docker コンテナー内の `test.git` リポジトリにプッシュします。 この例では `git@github.com:octocat/Hello-World.git` を使用しますが、必要に応じてリポジトリを使用できます。 この例ではローカルマシン (127.0.0.1) がポート 52311 をバインドしているものとしていますが、docker がリモートマシンで動作しているなら異なる IP アドレスを使うことができます。
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git
@@ -252,5 +251,5 @@ You can test a pre-receive hook script locally before you create or update it on
 
    pre-receive フックの実行後にプッシュが拒否され、スクリプトからの出力がエコーされていることに注意してください。
 
-## 参考リンク
- - *Pro Git Webサイト*の「[Gitのカスタマイズ - Gitポリシーの実施例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)」
+## 参考資料
+ - "*Pro Git Web サイト*" の「[Git のカスタマイズ - Git-Enforced ポリシーの実施例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)」

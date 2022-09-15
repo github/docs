@@ -1,9 +1,9 @@
 ---
-title: 'Error: Unknown key type'
-intro: This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client.
+title: 'エラー: 不明なキーの種類'
+intro: 'このエラーは、使用した SSH キーの種類が認識されないか、SSH クライアントでサポートされていないことを意味します。 '
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -11,29 +11,34 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
   - /github/authenticating-to-github/troubleshooting-ssh/error-unknown-key-type
+ms.openlocfilehash: 83bf8714255a4d8f028beb73fd5c8fbcdbb0ef52
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065899'
 ---
+## `unknown key type` エラーについて
 
-## About the `unknown key type` error
+新しい SSH キーを生成するときに、SSH クライアントが指定したキーの種類をサポートしていない場合、`unknown key type` エラーが発生することがあります。{% mac %}macOS でこの問題を解決するには、SSH クライアントを更新するか、新しい SSH クライアントをインストールします。
 
-When you generate a new SSH key, you may receive an `unknown key type` error if your SSH client does not support the key type that you specify.{% mac %}To solve this issue on macOS, you can update your SSH client or install a new SSH client.
+## 前提条件
 
-## 必要な環境
-
-You must have Homebrew installed. For more information, see the [installation guide](https://docs.brew.sh/Installation) in the Homebrew documentation.
+Homebrew がインストールされている必要があります。 詳細については、Homebrew ドキュメントの[インストール ガイド](https://docs.brew.sh/Installation)を参照してください。
 
 ## 問題の解決
 
 {% warning %}
 
-**Warning:** If you install OpenSSH, your computer will not be able to retrieve passphrases that are stored in the Apple keychain. You will need to enter your passphrase or interact with your hardware security key every time you authenticate with SSH to {% data variables.product.prodname_dotcom %} or another web service.
+**警告:** OpenSSH をインストールすると、お使いのコンピューターで Apple キーチェーンに保存されているパスフレーズを取得できなくなります。 SSH を使用して {% data variables.product.prodname_dotcom %} または別の Web サービスへの認証を行うたびに、パスフレーズを入力するか、ハードウェア セキュリティ キーを操作する必要があります。
 
-If you remove OpenSSH, the passphrases that are stored in your keychain will once again be retrievable. You can remove OpenSSH by entering the command `brew uninstall openssh` in Terminal.
+OpenSSH を削除すると、キーチェーンに保存されているパスフレーズが再び取得できるようになります。 ターミナルでコマンド `brew uninstall openssh` を入力すると、OpenSSH を削除できます。
 
 {% endwarning %}
 
 1. ターミナルを開きます。
-2. Enter the command `brew install openssh`.
-3. Quit and relaunch Terminal.
-4. Try the procedure for generating a new SSH key again. 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)」を参照してください。
+2. `brew install openssh` コマンドを入力します。
+3. ターミナルを終了して再起動します。
+4. 新しい SSH キーを生成する手順をもう一度試してください。 詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)」を参照してください。
 
-{% endmac %}{% linux %}To solve this issue on Linux, use the package manager for your Linux distribution to install a new version of OpenSSH, or compile a new version from source. If you install a different version of OpenSSH, the ability of other applications to authenticate via SSH may be affected. For more information, review the documentation for your distribution.{% endlinux %}
+{% endmac %}{% linux %}Linux でこの Issue を解決するには、Linux ディストリビューションのパッケージ マネージャーを使用して新しいバージョンの OpenSSH をインストールするか、ソースから新しいバージョンをコンパイルします。 別のバージョンの OpenSSH をインストールした場合、SSH 経由で認証する他のアプリケーションの機能が影響を受ける可能性があります。 詳細については、ディストリビューションのドキュメントを参照してください。{% endlinux %}

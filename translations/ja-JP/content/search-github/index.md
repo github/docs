@@ -1,6 +1,6 @@
 ---
-title: GitHub で情報を検索する
-intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
+title: GitHub での情報の検索
+intro: GitHub で利用できる検索機能を使用して、プロジェクト、ユーザー、コードなど、さまざまな種類の情報を検索する方法について学びます。
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
@@ -37,5 +37,11 @@ children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
 shortTitle: Search on GitHub
+ms.openlocfilehash: ca3fe13d3d3ae3c5016948bcd458d636a106a9da
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118925'
 ---
 

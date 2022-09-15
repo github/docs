@@ -1,5 +1,13 @@
-To identify any constraints with concurrency or queuing, you can check how many jobs are currently being processed on the {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+---
+ms.openlocfilehash: 99687deb5c170a7fab2b5050607b25e1aebb844b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145068266"
+---
+コンカレンシーまたはキューに関する制約を特定するには、組織や企業で {% data variables.product.prodname_dotcom %} ホステッド ランナーで現在処理されているジョブの数を確認できます。 
 
-![Screenshot of a list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+![アクティブなジョブの一覧のスクリーンショット](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-For more information, see "[Monitoring your current jobs](/actions/using-github-hosted-runners/monitoring-your-current-jobs)."
+詳細については、「[現在のジョブの監視](/actions/using-github-hosted-runners/monitoring-your-current-jobs)」を参照してください。

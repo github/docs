@@ -1,5 +1,5 @@
 ---
-title: GitHub Misinformation and Disinformation
+title: Información Errónea y Desinformación en GitHub
 shortTitle: Misinformation and Disinformation
 versions:
   fpt: '*'
@@ -9,13 +9,18 @@ topics:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
+ms.openlocfilehash: ece95f9da0b1953c821531837418e75ed03af4c3
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556669'
 ---
+No puede publicar contenido que presente una visión distorsionada de la realidad, ya sea inexacta o falsa (información errónea) o intencionadamente engañosa (desinformación), cuando dicho contenido pueda resultar perjudicial para el público o interferir con las oportunidades justas y equitativas para que todo el mundo participe en una sociedad libre y abierta. Esto puede incluir: 
+- alegaciones médicas inexactas o sin respaldo científico que pongan en peligro la salud o la seguridad pública;  
+- contenido multimedia manipulado, ya sea sonoro o visual, susceptible de inducir a error o engaño de forma que pueda perjudicar el interés público;
+- contenido falso o engañoso que pueda interferir en la capacidad de una persona de participar en actividades cívicas; o
+- afirmaciones infundadas que pudieran promover el odio o el acoso dirigido a grupos específicos de personas.
 
-You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation), where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to take part in a free and open society. Puede incluir:
-- Inaccurate or scientifically unsupported medical claims that endanger public health or safety
-- Manipulated media, whether audio or visual, likely to mislead or deceive in a way that may harm the public interest
-- False or misleading content likely to interfere with an individual's ability to participate in civic activities
-- Unsubstantiated claims that could promote hate or targeted harassment of specific groups of people
-
-Fomentamos la participación activa en la expresión de ideas, perspectivas y experiencias y podríamos no estar en posición de disputar cuentas personales u observaciones. We generally allow parody and satire that is in line with our [Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), and we consider context to be important in how information is received and understood. When reviewing content under this policy, GitHub will consider the impact of various factors that may help to orient the viewer, such as whether the content has been provided with clear disclaimers, citations to credible sources, or includes other details that clarify the accuracy of the information being shared.
+Fomentamos la participación activa en la expresión de ideas, puntos de vista y experiencias, y es posible que no estemos en disposición de rebatir los relatos u observaciones personales. Por lo general, permitimos la parodia y la sátira siempre que sean acordes con nuestras [Directivas de Uso Aceptable](/github/site-policy/github-acceptable-use-policies) y consideramos que el contexto es importante en la forma en que se recibe y entiende la información. Al revisar el contenido en virtud de esta directiva, GitHub tendrá en cuenta el impacto de diversos factores que pueden contribuir a orientar al espectador, por ejemplo, si el contenido se ha proporcionado con exenciones de responsabilidad claras, citas a fuentes creíbles o incluye otros detalles que aclaren la exactitud de la información que se comparte.
 

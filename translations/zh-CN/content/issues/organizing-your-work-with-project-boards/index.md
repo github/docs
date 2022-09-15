@@ -1,12 +1,10 @@
 ---
-title: 使用项目板组织工作
-shortTitle: 项目板
-intro: '在 {% data variables.product.prodname_dotcom %} 上使用项目板管理工作'
+title: '使用 {% data variables.product.prodname_projects_v1 %} 组织你的工作'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: '使用 {% data variables.product.prodname_projects_v1 %} 在 {% data variables.product.prodname_dotcom %} 上管理你的工作'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -19,6 +17,11 @@ redirect_from:
   - /tracking-progress-on-your-project-board
   - /filtering-cards-on-a-project-board
   - /archiving-cards-on-a-project-board
+ms.openlocfilehash: c498a1e93008276aebe022dcc53a66086b86def7
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147422986'
 ---
-
 {% data reusables.projects.project_boards_old %}

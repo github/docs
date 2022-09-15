@@ -1,7 +1,7 @@
 ---
 title: Restricting the visibility of forwarded ports
 shortTitle: Restrict port visibility
-intro: 'You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.'
+intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
@@ -35,6 +35,8 @@ When you create a policy you choose whether it applies to all repositories in yo
 For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
 
 If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## Adding a policy to limit the port visibility options
 

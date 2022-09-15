@@ -1,4 +1,12 @@
-Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. Within your matrix, define one or more variables followed by an array of values. For example, the following matrix has a variable called `version` with the value `[10, 12, 14]` and a variable called `os` with the value `[ubuntu-latest, windows-latest]`:
+---
+ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145091342"
+---
+`jobs.<job_id>.strategy.matrix` を使用して、さまざまなジョブの設定のマトリックスを定義します。 マトリックス内で、1 つ以上の変数と、それに続く値の配列を定義します。 たとえば、次のマトリックスには、値 `[10, 12, 14]` を伴う `version` という名前の変数と、値 `[ubuntu-latest, windows-latest]` を伴う `os` という名前の変数があります。
 
 ```yaml
 jobs:
@@ -9,9 +17,9 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 ```
 
-A job will run for each possible combination of the variables. In this example, the workflow will run six jobs, one for each combination of the `os` and `version` variables.
+ジョブは、変数の可能な組み合わせごとに実行されます。 この例のワークフローでは 6 つのジョブが、`os` 変数と `version` 変数の組み合わせごとに 1 つずつ実行されます。 
 
-By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. The order of the variables in the matrix determines the order in which the jobs are created. The first variable you define will be the first job that is created in your workflow run. For example, the above matrix will create the jobs in the following order:
+既定で、{% data variables.product.product_name %} は、ランナーの可用性に応じて並列実行されるジョブの数を最大化します。 マトリックス内の変数の順序によって、ジョブが作成される順序が決まります。 定義する最初の変数は、ワークフローの実行で最初に作成されるジョブになります。 たとえば、上記のマトリックスでは、次の順序でジョブが作成されます。
 
 - `{version: 10, os: ubuntu-latest}`
 - `{version: 10, os: windows-latest}`
@@ -20,6 +28,6 @@ By default, {% data variables.product.product_name %} will maximize the number o
 - `{version: 14, os: ubuntu-latest}`
 - `{version: 14, os: windows-latest}`
 
-A matrix will generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.product_name %}-hosted and self-hosted runners.
+このマトリックスでは、ワークフローの実行ごとに最大で 256 のジョブが生成されます。 この制限は、{% data variables.product.product_name %} ホスト ランナーとセルフホステッド ランナーの両方に適用されます。
 
-The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+定義した変数は、`matrix` のコンテキストでのプロパティとなり、ワークフロー ファイルの他のエリア内のプロパティを参照できます。 この例では、`matrix.version` および `matrix.os` を使用して、ジョブが使用している `version` および `os` の現在の値にアクセスできます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。

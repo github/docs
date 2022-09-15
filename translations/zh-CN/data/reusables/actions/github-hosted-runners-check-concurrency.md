@@ -1,5 +1,13 @@
-To identify any constraints with concurrency or queuing, you can check how many jobs are currently being processed on the {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+---
+ms.openlocfilehash: 99687deb5c170a7fab2b5050607b25e1aebb844b
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145065950"
+---
+若要识别并发或队列的任何约束，可以检查组织或企业中 {% data variables.product.prodname_dotcom %} 托管的运行器上当前正在处理的作业数。 
 
-![Screenshot of a list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+![活动作业列表的屏幕截图](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-For more information, see "[Monitoring your current jobs](/actions/using-github-hosted-runners/monitoring-your-current-jobs)."
+有关详细信息，请参阅“[监视当前作业](/actions/using-github-hosted-runners/monitoring-your-current-jobs)”。

@@ -79,7 +79,7 @@ Name | Type | Description
 By default, the response takes the following form:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -87,7 +87,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -98,7 +98,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
 </OAuth>
 ```
 
@@ -106,13 +106,13 @@ Accept: application/xml
 
 The access token allows you to make requests to the API on a behalf of a user.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## Device flow
@@ -221,7 +221,7 @@ Name | Type | Description
 By default, the response takes the following form:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -229,7 +229,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -238,7 +238,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -264,7 +264,6 @@ If you make more than one access token request (`POST {% data variables.product.
 | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
 
 For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
-
 
 ## Non-Web application flow
 

@@ -60,14 +60,17 @@ export function RestCodeSamples({ operation, slug }: Props) {
   }))
 
   // Menu options for the language selector
-  const languageSelectOptions: LanguageOptionT[] = [
-    { key: CURLKEY, text: 'cURL' },
-    { key: JSKEY, text: 'JavaScript' },
-  ]
-  // Not all examples support the GH CLI language option. If any of
-  // the examples don't support it, we don't show GH CLI as an option.
-  if (!languageExamples.some((example) => example.ghcli === undefined)) {
-    languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+  const languageSelectOptions: LanguageOptionT[] = [{ key: CURLKEY, text: 'cURL' }]
+
+  // Management Console operations are not supported by Octokit
+  if (operation.subcategory !== 'management-console') {
+    languageSelectOptions.push({ key: JSKEY, text: 'JavaScript' })
+
+    // Not all examples support the GH CLI language option. If any of
+    // the examples don't support it, we don't show GH CLI as an option.
+    if (!languageExamples.some((example) => example.ghcli === undefined)) {
+      languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+    }
   }
 
   // Menu options for the example selector
@@ -231,13 +234,14 @@ export function RestCodeSamples({ operation, slug }: Props) {
               {languageSelectOptions.map((option) => (
                 <UnderlineNav.Link
                   key={option.key}
-                  as="button"
                   onClick={() => {
                     handleLanguageSelection(option.key)
                   }}
-                  href={option.key}
                   selected={option.key === selectedLanguage}
-                  className="pr-3 mr-0 keyboard-focus"
+                  className="pr-3 mr-0"
+                  sx={{
+                    cursor: 'pointer',
+                  }}
                 >
                   {option.text}
                 </UnderlineNav.Link>
@@ -286,13 +290,14 @@ export function RestCodeSamples({ operation, slug }: Props) {
               return (
                 <UnderlineNav.Link
                   key={option.key}
-                  as="button"
                   onClick={() => {
                     handleResponseSelection(option.key)
                   }}
-                  href={option.key}
                   selected={option.key === selectedResponse}
-                  className="pr-3 mr-0 keyboard-focus ml-2"
+                  className="pr-3 mr-0 ml-2"
+                  sx={{
+                    cursor: 'pointer',
+                  }}
                 >
                   {option.text}
                 </UnderlineNav.Link>
