@@ -13,12 +13,12 @@ topics:
   - Billing
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
-ms.openlocfilehash: 752a32ca3af18873e88fab2389beef0262988b28
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6cd1396cd0933999a99c334f00416b43f31ae249
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147676657'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147865186'
 ---
 ## 概要
 
@@ -26,8 +26,8 @@ ms.locfileid: '147676657'
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- 組織の所有者または課金マネージャーは、組織の {% data variables.product.prodname_codespaces %} の課金を管理できます: 「[Codespaces の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)」
-
+- 組織の所有者または課金マネージャーは、組織の {% data variables.product.prodname_codespaces %} の課金を管理できます: [Codespaces の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- 組織の所有者は、現在アクティブになっている、または停止している組織の codespace を一覧表示できます。 これらの codespace に加えて、当月のコストには、当月のはじめに存在していたが削除された codespace のコストが含まれる場合があります。
 - ユーザーの場合、課金のしくみを説明するガイドがあります: 「[Codespaces の課金について](/codespaces/codespaces-reference/understanding-billing-for-codespaces)」
 
 ## Usage limits (使用状況の制限)
@@ -36,7 +36,7 @@ ms.locfileid: '147676657'
  
 - **コンピューティング時間 (分):** コンピューティング使用量は、すべての {% data variables.product.prodname_codespaces %} インスタンスがアクティブな間に使用した実際の分数によって計算されます。 これらの合計は、毎日課金サービスに報告され、毎月請求されます。 組織内の {% data variables.product.prodname_codespaces %} 使用量の使用制限を設定できます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)」をご覧ください。
 
-- **ストレージ使用量:** {% data variables.product.prodname_codespaces %} の課金目的の場合、アカウント内のすべての codespaces で使用されるすべてのストレージが含まれます。 これには、クローンされたリポジトリ、構成ファイル、拡張機能など、codespaces で使用されるすべての情報が含まれます。 これらの合計は、毎日課金サービスに報告され、毎月請求されます。 月末に、{% data variables.product.prodname_dotcom %}はストレージ使用量を最も近いGBに丸めます。 {% data variables.product.prodname_codespaces %} で使用されているコンピューティング時間 (分) とストレージ GB の数を確認するには、「[{% data variables.product.prodname_github_codespaces %} の使用状況の表示](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)」をご覧ください。
+- **ストレージ使用量:** {% data variables.product.prodname_codespaces %} の課金目的の場合、アカウント内のすべての codespace で使用されるすべてのストレージが含まれます。 これには特に、クローンされたリポジトリ、構成ファイル、拡張機能などのリソースが含まれます。 これらの合計は、毎日課金サービスに報告され、毎月請求されます。 月末に、{% data variables.product.prodname_dotcom %}はストレージ使用量を最も近いGBに丸めます。 {% data variables.product.prodname_codespaces %} で使用されているコンピューティング時間 (分) とストレージ GB の数を確認するには、「[{% data variables.product.prodname_github_codespaces %} の使用状況の表示](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)」をご覧ください。
 
 ## {% data variables.product.prodname_codespaces %} の無効化または制限
 
@@ -54,8 +54,14 @@ Organization が所有するリポジトリから作成された codespace で�
 
 ユーザーは、 https://github.com/codespaces または {% data variables.product.prodname_vscode %} 内から自分の codespace を削除できます。 Codespace のサイズを小さくするには、ユーザーはターミナルを使うか、{% data variables.product.prodname_vscode_shortname %} 内から、ファイルを手動で削除できます。 
 
+組織の所有者は、組織内の任意の codespace を削除できます。 詳細については、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)」を参照してください。
+
 {% note %}
 
 **メモ:** Codespace は、停止して、非アクティブな状態となって、定義された日数を過ぎると、自動的に削除されます。 詳しい情報については、「[codespace の保持期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)」をご覧ください。 Codespace を手動で削除できるのは、その codespace を作成したユーザーのみです。
 
 {% endnote %}
+
+## 参考資料
+
+- [組織内の codespace を一覧表示する](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)

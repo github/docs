@@ -1,7 +1,7 @@
 ---
-title: Personalizing GitHub Codespaces for your account
+title: 个性化你帐户的 GitHub Codespaces
 shortTitle: Personalize your codespaces
-intro: 'You can personalize {% data variables.product.prodname_github_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
+intro: '你可以通过使用 {% data variables.product.product_name %} 上的 `dotfiles` 存储库或使用“设置同步”来个性化 {% data variables.product.prodname_github_codespaces %}。'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
@@ -16,88 +16,91 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
+ms.openlocfilehash: 1aec1fc1fdc3d7e49408d3ddfcf94805994c8633
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876040'
 ---
+## 关于个性化 {% data variables.product.prodname_codespaces %}
 
+在使用任何开发环境时，根据您的喜好和工作流程自定义设置和工具是一个重要步骤。 {% data variables.product.prodname_codespaces %} 允许两种主要方法个性化您的代码空间。
 
-## About personalizing {% data variables.product.prodname_codespaces %}
+- [设置同步](#settings-sync) - 可以在 {% data variables.product.prodname_codespaces %} 与其他 {% data variables.product.prodname_vscode %} 实例之间使用和共享 {% data variables.product.prodname_vscode %} 设置。
+- [Dotfiles](#dotfiles) - 可以使用 `dotfiles` 存储库指定脚本、shell 首选项和其他配置。
 
-When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces.
+{% data variables.product.prodname_codespaces %} 个性化适用于您创建的任何代码空间。
 
-- [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
-- [Dotfiles](#dotfiles) – You can use a `dotfiles` repository to specify scripts, shell preferences, and other configurations.
+项目维护员还可以定义默认配置，将应用到任何人创建的仓库的每个代码空间。 有关详细信息，请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)”。
 
-{% data variables.product.prodname_codespaces %} personalization applies to any codespace you create.
+## 设置同步
 
-Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)."
+设置同步允许您在机器和 {% data variables.product.prodname_vscode %} 实例中共享配置，如设置、键盘快捷方式、片段、扩展和 UI 状态。
 
-## Settings Sync
+要启用设置同步，在活动栏的左下角，选择 {% octicon "gear" aria-label="The gear icon" %} 并单击“打开设置同步...”。 在对话框中，选择要同步的设置。
 
-Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
+![在管理菜单中设置同步选项](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
-To enable Settings Sync, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. In the dialog box, select the settings you'd like to sync.
-
-![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
-
-For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
+有关详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的[设置同步指南](https://code.visualstudio.com/docs/editor/settings-sync)。
 
 ## Dotfiles
 
-Dotfiles are files and folders on Unix-like systems starting with `.` that control the configuration of applications and shells on your system. You can store and manage your dotfiles in a repository on {% data variables.product.prodname_dotcom %}. For advice and tutorials about what to include in your dotfiles repository, see [GitHub does dotfiles](https://dotfiles.github.io/).
+Dotfiles 是类似 Unix 的系统上以 `.` 开头的文件和文件夹，用于控制系统上应用程序和 shell 的配置。 您可以在 {% data variables.product.prodname_dotcom %} 上的仓库中存储和管理 dotfiles。 有关 dotfiles 存储库中所含内容的建议和教程，请参阅 [GitHub 执行 dotfiles](https://dotfiles.github.io/)。
 
-Your dotfiles repository might include your shell aliases and preferences, any tools you want to install, or any other codespace personalization you want to make.
+dotfiles 仓库可能包括 shell 别名和首选项、您想要安装的任何工具或您想要执行的任何其他代码个性化。
 
-You can configure {% data variables.product.prodname_codespaces %} to use dotfiles from any repository you own by selecting that repository in your [personal {% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces).
+可以通过在[个人 {% data variables.product.prodname_codespaces %} 设置](https://github.com/settings/codespaces)中选择存储库，将 {% data variables.product.prodname_codespaces %} 配置为使用你拥有的任何存储库中的 dotfiles。
 
-When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
+创建新的 codespace 时，{% data variables.product.prodname_dotcom %} 会将所选点文件存储库克隆到 codespace 环境，并查找以下文件之一来设置环境。
 
-* _install.sh_
+* install.sh
 * _install_
-* _bootstrap.sh_
+* bootstrap.sh
 * _bootstrap_
-* _script/bootstrap_
+* script/bootstrap
 * _setup.sh_
-* _setup_
-* _script/setup_
+* setup
+* script/setup
 
-If none of these files are found, then any files or folders in your selected dotfiles repository starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
+如果未找到这些文件，则所选 dotfiles 存储库中以 `.` 开头的文件或文件夹通过符号链接到代码空间的 `~` 或 `$HOME` 目录。
 
-Any changes to your selected dotfiles repository will apply only to each new codespace, and do not affect any existing codespace.
+对所选 dotfiles 仓库所做的任何更改只会应用到每个新的代码空间，而不影响任何现有的代码空间。
 
 {% note %}
 
-**Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the _User_ settings for the {% data variables.product.prodname_vscode %} editor with your `dotfiles` repository. You can set default _Workspace_ and _Remote [Codespaces]_ settings for a specific project in the project's repository. For more information, see "[Introduction to dev containers](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)."
+注意：目前，{% data variables.product.prodname_codespaces %} 不支持使用 `dotfiles` 存储库个性化 {% data variables.product.prodname_vscode %} 编辑器的用户设置。 可以为项目存储库中的特定项目设置默认“工作区”和“远程 [Codespaces]”设置。  有关详细信息，请参阅“[开发容器简介](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)”。
 
 {% endnote %}
 
-### Enabling your dotfiles repository for {% data variables.product.prodname_codespaces %}
+### 为 {% data variables.product.prodname_codespaces %} 启用 dotfiles 存储库
 
-You can use your selected dotfiles repository to personalize your {% data variables.product.prodname_codespaces %} environment. Once you choose your dotfiles repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_codespaces %} settings page.
+您可以使用所选的 dotfiles 存储库来个性化您的 {% data variables.product.prodname_codespaces %} 环境。 选择 dotfiles 存储库后，可以向其中添加脚本、首选项和配置。 然后，您需要从个人 {% data variables.product.prodname_codespaces %} 设置页面启用 dotfiles。
 
 {% warning %}
 
-**Warning:** Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
+警告：Dotfiles 能够运行任意脚本，这些脚本可能包含意外或恶意代码。 在安装 dotfiles 存储库之前，我们建议检查脚本以确保它们不会执行任何意外操作。
 
 {% endwarning %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Dotfiles", select **Automatically install dotfiles** so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
-   ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
-2. Choose the repository you want to install dotfiles from.
-   ![Selecting a dotfiles repo](/assets/images/help/codespaces/select-dotfiles-repo.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. 在“Dotfiles”下，选择“自动安装 dotfiles”，以便 {% data variables.product.prodname_codespaces %} 自动将 dotfiles 安装到你创建的每个新 codespace 中。
+   ![安装 dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
+2. 选择要从中安装 dotfile 的存储库。
+   ![选择 dotfiles 存储库](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
-You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
+您可以随时将更多脚本、首选项、配置文件添加到 dotfiles 存储库或编辑现有文件。 对设置的更改将仅由新的代码空间选取。
 
-If your codespace fails to pick up configuration settings from dotfiles, see "[Troubleshooting dotfiles for {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)."
+如果 codespace 无法从 dotfiles 中选取配置设置，请参阅“[排查 {% data variables.product.prodname_codespaces %} 的 dotfiles 问题](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)”。
 
-You can also personalize {% data variables.product.prodname_codespaces %} using additional [{% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces):
+还可以使用其他 [{% data variables.product.prodname_codespaces %} 设置](https://github.com/settings/codespaces)对 {% data variables.product.prodname_codespaces %} 进行个性化设置：
 
-- To enable GPG verification, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
-- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-- To set how long a codespace can remain unused before it is automatically stopped, see "[Setting your timeout period for GitHub Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-- To set the period for which your unused codespaces are retained, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
-- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+- 若要启用 GPG 验证，请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的 GPG 验证](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)”。
+- 若要设置编辑器，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)”。
+- 若要设置 codespace 在自动停止之前可能保持未使用状态的时间长度，请参阅“[设置 GitHub Codespaces 超时期限](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。
+- 若要设置保留未使用 codespace 的时间段，请参阅“[配置 codespace 的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。
+- 若要设置默认区域，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置默认区域](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)”。
 
-## Further reading
+## 延伸阅读
 
-* "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)"
+* [创建新存储库](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)

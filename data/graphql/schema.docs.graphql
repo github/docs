@@ -3141,6 +3141,96 @@ input CheckRunOutputImage {
 }
 
 """
+The possible states of a check run in a status rollup.
+"""
+enum CheckRunState {
+  """
+  The check run requires action.
+  """
+  ACTION_REQUIRED
+
+  """
+  The check run has been cancelled.
+  """
+  CANCELLED
+
+  """
+  The check run has been completed.
+  """
+  COMPLETED
+
+  """
+  The check run has failed.
+  """
+  FAILURE
+
+  """
+  The check run is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The check run was neutral.
+  """
+  NEUTRAL
+
+  """
+  The check run is in pending state.
+  """
+  PENDING
+
+  """
+  The check run has been queued.
+  """
+  QUEUED
+
+  """
+  The check run was skipped.
+  """
+  SKIPPED
+
+  """
+  The check run was marked stale by GitHub. Only GitHub can use this conclusion.
+  """
+  STALE
+
+  """
+  The check run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
+  The check run has succeeded.
+  """
+  SUCCESS
+
+  """
+  The check run has timed out.
+  """
+  TIMED_OUT
+
+  """
+  The check run is in waiting state.
+  """
+  WAITING
+}
+
+"""
+Represents a count of the state of a check run.
+"""
+type CheckRunStateCount {
+  """
+  The number of check runs with this state.
+  """
+  count: Int!
+
+  """
+  The state of a check run.
+  """
+  state: CheckRunState!
+}
+
+"""
 The possible types of check runs.
 """
 enum CheckRunType {
@@ -30986,6 +31076,36 @@ type ProjectV2View implements Node {
   databaseId: Int
 
   """
+  The view's visible fields.
+  """
+  fields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
+  ): ProjectV2FieldConfigurationConnection
+
+  """
   The project view's filter.
   """
   filter: String
@@ -31130,6 +31250,9 @@ type ProjectV2View implements Node {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
+    @deprecated(
+      reason: "The `ProjectV2View#visibleFields` API is deprecated in favour of the more capable `ProjectV2View#fields` API. Check out the `ProjectV2View#fields` API as an example for the more capable alternative. Removal on 2023-01-01 UTC."
+    )
 }
 
 """
@@ -45373,6 +45496,16 @@ The connection type for StatusCheckRollupContext.
 """
 type StatusCheckRollupContextConnection {
   """
+  The number of check runs in this rollup.
+  """
+  checkRunCount: Int!
+
+  """
+  Counts of check runs by state.
+  """
+  checkRunCountsByState: [CheckRunStateCount!]
+
+  """
   A list of edges.
   """
   edges: [StatusCheckRollupContextEdge]
@@ -45386,6 +45519,16 @@ type StatusCheckRollupContextConnection {
   Information to aid in pagination.
   """
   pageInfo: PageInfo!
+
+  """
+  The number of status contexts in this rollup.
+  """
+  statusContextCount: Int!
+
+  """
+  Counts of status contexts by state.
+  """
+  statusContextCountsByState: [StatusContextStateCount!]
 
   """
   Identifies the total count of items in the connection.
@@ -45472,6 +45615,21 @@ type StatusContext implements Node & RequirableByPullRequest {
   The URL for this status context.
   """
   targetUrl: URI
+}
+
+"""
+Represents a count of the state of a status context.
+"""
+type StatusContextStateCount {
+  """
+  The number of statuses with this state.
+  """
+  count: Int!
+
+  """
+  The state of a status context.
+  """
+  state: StatusState!
 }
 
 """

@@ -5,18 +5,17 @@ intro: 在工作流程中使用 OpenID Connect 向 Amazon Web Services 进行身
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 5ac1a902bb9ef397fa6fa157ea58496d57ffd231
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146171851'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876001'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -43,7 +42,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 要在 IAM 中配置角色和信任，请参阅[“假定角色”](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role)和[“为 Web 身份或 OpenID 连接联合创建角色”](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)的 AWS 文档。
 
-编辑信任关系以将 `sub` 字段添加到验证条件。 例如：
+编辑信任策略以将 `sub` 字段添加到验证条件。 例如：
 
 ```json{:copy}
 "Condition": {
@@ -53,6 +52,33 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
   }
 }
 ```
+
+在以下示例中，`ForAllValues` 用于匹配多个条件键，`StringLike` 用于匹配指定存储库中的任何 ref。 请注意，`ForAllValues` [过于宽松](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)，不应在 `Allow` 效果中单独使用。 对于此示例，包含 `StringLike` 表示 `ForAllValues` 中的空集仍然不会传递条件：
+
+```json{:copy}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::123456123456:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringLike": {
+                    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
+                },
+                "ForAllValues:StringEquals": {
+                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
 
 ## 更新 {% data variables.product.prodname_actions %} 工作流程
 
@@ -83,7 +109,7 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write
+      id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
