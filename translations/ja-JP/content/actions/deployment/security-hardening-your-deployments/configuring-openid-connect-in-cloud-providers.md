@@ -5,7 +5,6 @@ intro: ワークフロー内で OpenID Connect を使用して、クラウド �
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

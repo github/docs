@@ -37,7 +37,7 @@ Each CODEOWNERS file assigns the code owners for a single branch in the reposito
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.

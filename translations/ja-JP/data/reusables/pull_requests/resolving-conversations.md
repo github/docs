@@ -1,30 +1,21 @@
----
-ms.openlocfilehash: 1447b6a0f63bcfd6e54954545541808debcb3091
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147062371"
----
-### 会話を解決する
+### Resolving conversations
 
-プルリクエストをオープンしたり、プルリクエストがオープンされたリポジトリへの書き込みアクセス権を持っていたりすれば、プルリクエスト中の会話を解決できます。
+You can resolve a conversation in a pull request if you opened the pull request or if you have write access to the repository where the pull request was opened.
 
-**[変更されたファイル]** タブの会話が完了したことを示すには、 **[会話の解決]** をクリックします。
+To indicate that a conversation on the **Files changed** tab is complete, click **Resolve conversation**.
 
-![会話の解決ボタンが付いたプルリクエストの会話](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
+![Pull request conversation with Resolve conversation button](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
 
-会話全体が畳まれ、解決のマークが付きます。これで、まだ対応が必要な会話を見つけやすくなります。
+The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
 
-![解決された会話](/assets/images/help/pull_requests/resolved-conversation.png)
+![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
 
-コメントの示唆がプルリクエストの範囲を超えているなら、そのコメントへのフィードバックやリンクを追跡する新しいIssueをオープンできます。 詳細については、「[コメントから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。
+If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
-#### 会話の発見とアクセス
+#### Discovering and navigating conversations
 
-**[変更されたファイル]** タブの上部に表示される **[会話]** メニューを使用すると、pull request 内のすべての会話を検出して移動できます。
+You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
 
-このビューから、未解決の会話、解決済みの会話、古くなった会話を見分けることができます。 これによって、会話を見つけて解決することが容易になります。
+From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
 
-![[会話] メニューの表示](/assets/images/help/pull_requests/conversations-menu.png) {% endif %}
+![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)

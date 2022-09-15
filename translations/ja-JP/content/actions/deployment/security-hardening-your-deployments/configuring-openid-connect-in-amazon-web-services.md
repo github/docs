@@ -5,18 +5,17 @@ intro: ワークフロー内で OpenID Connect を使用して、アマゾン �
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 5ac1a902bb9ef397fa6fa157ea58496d57ffd231
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146171854'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878431'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -43,7 +42,7 @@ OpenID Connect (OIDC) を使うと、{% data variables.product.prodname_actions 
 
 IAM でロールと信頼を構成するには、AWS のドキュメントの「[ロールの想定](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role)」と「[Web ID または OpenID 接続フェデレーションのためのロールの作成](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)」を参照してください。
 
-信頼関係を編集して、`sub` フィールドを検証条件に追加します。 次に例を示します。
+信頼ポリシーを編集して、`sub` フィールドを検証条件に追加します。 次に例を示します。
 
 ```json{:copy}
 "Condition": {
@@ -53,6 +52,33 @@ IAM でロールと信頼を構成するには、AWS のドキュメントの「
   }
 }
 ```
+
+次の例では、複数の条件キーでの一致に `ForAllValues` が使用され、指定したリポジトリ内の任意の ref との一致に `StringLike` が使用されています。 `ForAllValues` は[過度に制限が少なく](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)、`Allow` Effect で単独で使用すべきでないことに注意してください。 この例の場合、`StringLike` を含めることは `ForAllValues` の空のセットが条件に合格しないことを意味します。
+
+```json{:copy}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::123456123456:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringLike": {
+                    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
+                },
+                "ForAllValues:StringEquals": {
+                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
 
 ## {% data variables.product.prodname_actions %} ワークフローを更新する
 
@@ -83,7 +109,7 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write
+      id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
