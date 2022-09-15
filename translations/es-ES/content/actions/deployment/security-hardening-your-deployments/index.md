@@ -4,7 +4,6 @@ shortTitle: Security hardening your deployments
 intro: Utiliza OpenID Connect dentro de tus flujos de trabajo para autenticarte con tu proveedor de servicios en la nube.
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 children:

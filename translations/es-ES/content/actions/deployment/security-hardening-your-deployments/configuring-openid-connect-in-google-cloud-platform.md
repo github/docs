@@ -5,7 +5,6 @@ intro: Utiliza OpenID Connect con tus flujos de trabajo para autenticarte con Go
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
