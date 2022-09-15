@@ -257,7 +257,6 @@ translations/es-ES/data/reusables/security-center/permissions.md,file deleted be
 translations/es-ES/data/reusables/server-statistics/release-phase.md,file deleted because it no longer exists in main
 translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,broken liquid tags
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,broken liquid tags
-translations/es-ES/content/actions/creating-actions/publishing-actions-in-github-marketplace.md,broken liquid tags
 translations/es-ES/content/actions/deployment/about-deployments/about-continuous-deployment.md,broken liquid tags
 translations/es-ES/content/actions/deployment/about-deployments/deploying-with-github-actions.md,broken liquid tags
 translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service.md,broken liquid tags
@@ -273,7 +272,6 @@ translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/es-ES/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,broken liquid tags
 translations/es-ES/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
 translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,broken liquid tags
-translations/es-ES/content/actions/learn-github-actions/contexts.md,broken liquid tags
 translations/es-ES/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,broken liquid tags
 translations/es-ES/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,broken liquid tags
@@ -282,7 +280,6 @@ translations/es-ES/content/actions/security-guides/security-hardening-for-github
 translations/es-ES/content/actions/using-github-hosted-runners/using-larger-runners.md,broken liquid tags
 translations/es-ES/content/actions/using-workflows/reusing-workflows.md,broken liquid tags
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,broken liquid tags
-translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,broken liquid tags
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,broken liquid tags
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
@@ -303,9 +300,9 @@ translations/es-ES/content/code-security/dependabot/dependabot-security-updates/
 translations/es-ES/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,broken liquid tags
 translations/es-ES/content/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,broken liquid tags
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/es-ES/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/es-ES/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
-translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
 translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags

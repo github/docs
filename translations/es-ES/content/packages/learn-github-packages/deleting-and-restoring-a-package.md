@@ -14,10 +14,10 @@ versions:
   ghae: '*'
 shortTitle: Delete & restore a package
 ms.openlocfilehash: 4491e7cd25fbec2a19abb06c552ba0e0d3ac7b24
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147704991'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}

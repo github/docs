@@ -7,17 +7,17 @@ versions:
 type: tutorial
 shortTitle: 'Controlling access to {% data variables.actions.hosted_runner %}s'
 ms.openlocfilehash: 6761f05ef04d18ebba7b9ef8a2894d7effd2622b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147764173'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Acerca de grupos de ejecutores
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}Para obtener más información, consulta la [{% data variables.product.prodname_ghe_cloud %} ](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
