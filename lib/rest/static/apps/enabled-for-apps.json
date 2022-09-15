@@ -19932,6 +19932,18 @@
     ],
     "teams": [
       {
+        "slug": "get-an-external-group",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-group/{group_id}"
+      },
+      {
+        "slug": "list-external-groups-in-an-organization",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-groups"
+      },
+      {
         "slug": "list-teams",
         "subcategory": "teams",
         "verb": "get",
@@ -20020,6 +20032,12 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-team-members",
