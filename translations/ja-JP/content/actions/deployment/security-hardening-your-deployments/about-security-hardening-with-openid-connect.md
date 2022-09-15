@@ -5,7 +5,6 @@ intro: OpenID Connect を使用すると、ワークフローによって、有�
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

@@ -1,20 +1,12 @@
----
-ms.openlocfilehash: a2246d16364e870e7cac404da7f75c636f298435
-ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147878580"
----
-| Acción | Descripción
+| Action | Description
 |------------------|-------------------
-| `cancel_workflow_run` | Se activa cuando se cancela una ejecución de flujo de trabajo. Para más información, consulta "[Cancelar un flujo de trabajo](/actions/managing-workflow-runs/canceling-a-workflow)".{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `completed_workflow_run` | Se desencadena cuando el estado de un flujo de trabajo cambia a `completed`. Solo se puede visualizar utilizando la API de REST; no se puede visualizar en la IU ni en la exportación de JSON/CSV. Para más información, consulta "[Visualizar el historial de ejecución del flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `created_workflow_run` | Se activa cuando se crea una ejecución de flujo de trabajo. Solo se puede visualizar utilizando la API de REST; no se puede visualizar en la IU ni en la exportación de JSON/CSV. Para más información, consulta "[Crear un flujo de trabajo de ejemplo](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)".{% endif %}
-| `delete_workflow_run` | Se activa cuando se borra una ejecución de flujo de trabajo. Para más información, vea "[Eliminación de una ejecución de flujo de trabajo](/actions/managing-workflow-runs/deleting-a-workflow-run)".
-| `disable_workflow` | Se activa cuando se inhabilita un flujo de trabajo.
-| `enable_workflow` | Se desencadena cuando se habilita un flujo de trabajo después de que se deshabilitara mediante `disable_workflow`.
-| `rerun_workflow_run` | Se activa cuando se vuelve a ejecutar una ejecución de flujo de trabajo. Para más información, consulta "[Volver a ejecutar un flujo de trabajo](/actions/managing-workflow-runs/re-running-a-workflow)".{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `prepared_workflow_job` | Se activa cuando se inicia un job de flujo de trabajo. Incluye la lista de secretos que se proporcionaron al job. Solo puede verse utilizando la API de REST. No es visible en la interfaz web de {% data variables.product.prodname_dotcom %} ni se incluye en la exportación de JSON/CSV. Para más infomación, consulte "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".{% endif %}
-| `approve_workflow_job` | Se activa cuando se aprueba el job de un flujo de trabajo. Para más información, vea "[Revisión de implementaciones](/actions/managing-workflow-runs/reviewing-deployments)".
-| `reject_workflow_job` | Se activa cuando se rechaza el job de un flujo de trabajo. Para más información, vea "[Revisión de implementaciones](/actions/managing-workflow-runs/reviewing-deployments)".
+| `cancel_workflow_run` | Triggered when a workflow run has been cancelled. For more information, see "[Canceling a workflow](/actions/managing-workflow-runs/canceling-a-workflow)."{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `completed_workflow_run` | Triggered when a workflow status changes to `completed`. Can only be viewed using the REST API; not visible in the UI or the JSON/CSV export. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `created_workflow_run` | Triggered when a workflow run is created. Can only be viewed using the REST API; not visible in the UI or the JSON/CSV export. For more information, see "[Create an example workflow](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)."{% endif %}
+| `delete_workflow_run` | Triggered when a workflow run is deleted. For more information, see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+| `disable_workflow` | Triggered when a workflow is disabled.
+| `enable_workflow` | Triggered when a workflow is enabled, after previously being disabled by `disable_workflow`.
+| `rerun_workflow_run` | Triggered when a workflow run is re-run. For more information, see "[Re-running a workflow](/actions/managing-workflow-runs/re-running-a-workflow)."{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `prepared_workflow_job` | Triggered when a workflow job is started. Includes the list of secrets that were provided to the job. Can only be viewed using the REST API. It is not visible in the the {% data variables.product.prodname_dotcom %} web interface or included in the JSON/CSV export. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."{% endif %}
+| `approve_workflow_job` | Triggered when a workflow job has been approved. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."
+| `reject_workflow_job` | Triggered when a workflow job has been rejected. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."
