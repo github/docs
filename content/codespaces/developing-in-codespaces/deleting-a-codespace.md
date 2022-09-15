@@ -124,3 +124,4 @@ You can also use the REST API to delete codespaces for your organization. For mo
 
 ## Further reading
 - "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
+- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
