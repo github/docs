@@ -292,6 +292,7 @@ translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,broken liquid tags
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
