@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: Compare branches
 ms.openlocfilehash: c45bcb3bceda42019be3139724e0b68234e90cfc
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145137754'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881808'
 ---
 {% note %}
 

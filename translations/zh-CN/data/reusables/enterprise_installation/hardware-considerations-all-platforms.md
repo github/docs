@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7de065c9dec15e3b92cabf5d3fa711c7d88249ba
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147167393"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882785"
 ---
 - [最低要求](#minimum-requirements)
 - [存储](#storage)

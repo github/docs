@@ -9,10 +9,10 @@ versions:
   fpt: '*'
   ghec: '*'
 ms.openlocfilehash: b105bd1ea712aff86e47891d2be24ce82f8d6b19
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145097925'
 ---
 在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中，可以发现、浏览和安装免费及付费工具，包括 {% data variables.product.prodname_github_apps %}、{% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_actions %}。

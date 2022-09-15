@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Change insight visibility
 ms.openlocfilehash: f6647993672ee56de8c1b8698b1fcdb0dc84147f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145097332'
 ---
 组织所有者可设置查看组织依赖项洞察图的限制。 默认情况下，组织的所有成员都可以查看组织依赖项洞察图。

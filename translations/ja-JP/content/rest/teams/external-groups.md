@@ -8,14 +8,14 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 590605ab68eb40d42949e179e471d5c7d333f43e
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 0958aad779e6ec1044b74d3f6d67b2d7fff8aef0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '147059971'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710372'
 ---
-## <a name="about-the-external-groups-api"></a>外部グループ API について
+## 外部グループ API について
 
 この API を使用するには、認証されたユーザーがチームメンテナまたは Team に関連づけられた Organization のコードオーナーである必要があります。
 
@@ -23,7 +23,7 @@ ms.locfileid: '147059971'
 
 **注:** 
 
-- 外部グループ API は、{% data variables.product.prodname_emus %} を使用する企業の一部である組織でのみ使用できます。 詳細については、「[Enterprise Managed Users について](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
+- 外部グループ API は、{% data variables.product.prodname_emus %} を使用する企業の一部である Organization でのみ使用できます。 詳細については、「[Enterprise Managed Users について](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
 - 組織でチーム同期を使用している場合は、Team の同期 API を使用できます。 詳細については、「[Team の同期 API](#team-synchronization)」を参照してください。
 
 {% endnote %} {% endif %}

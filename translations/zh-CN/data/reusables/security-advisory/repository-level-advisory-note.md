@@ -1,6 +1,6 @@
 ---
 ms.openlocfilehash: 3219e988ebe930271ce7a7972f04aacac1d71e40
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 
 import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -16,6 +17,11 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+
+const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
+  ssr: false,
+})
+const isDev = process.env.NODE_ENV === 'development'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -57,6 +63,7 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
+      {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
 
       <div className="container-xl px-3 px-md-6 my-4">

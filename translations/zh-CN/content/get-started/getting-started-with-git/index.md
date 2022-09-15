@@ -24,10 +24,10 @@ children:
   - /configuring-git-to-handle-line-endings
   - /ignoring-files
 ms.openlocfilehash: 42c758ca98c96d451660d089434d6d8dc61501d6
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880724'
+ms.locfileid: '147880756'
 ---
 

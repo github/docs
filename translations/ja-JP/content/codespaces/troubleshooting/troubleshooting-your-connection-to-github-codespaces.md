@@ -11,21 +11,21 @@ topics:
 shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
-ms.openlocfilehash: ef46f2220bda8ddbd2fbb8848fcaad526727f2b2
-ms.sourcegitcommit: 3a16368cd8beb8b8487eb77d3e597cf49f4c4335
+ms.openlocfilehash: 827b5add20690490a556f9553c9f8494324e0ef2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/14/2022
-ms.locfileid: '147111567'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760905'
 ---
-## <a name="503-codespace-service-unavailable"></a>503 codespace サービスを使用できない
+## 503 codespace サービスを使用できない
 
 codespace は、30 分間アクティビティがないと停止するように設定されています。 停止した後で codespace を操作しようとすると、`503 service unavailable` エラーが表示されることがあります。 
 
 - **[開始]** ボタンが {% data variables.product.prodname_vscode %} またはブラウザー ウィンドウに表示されている場合は、 **[開始]** をクリックして codespace に再接続します。
 - ウィンドウを再度読み込んで、codespace をリセットします。 {% data variables.product.prodname_vscode %} の [コマンド パレット](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette)で、 **[開発者: ウィンドウの再読み込み]** をクリックします。
 
-## <a name="browser-cannot-connect"></a>ブラウザーが接続できない
+## ブラウザーが接続できない
 
 ブラウザーから codespace にアクセスできないことがあります。 その場合は、 https://github.com/codespaces にアクセスし、そのページから codespace に接続してみてください。
 
@@ -36,7 +36,7 @@ codespace は、30 分間アクティビティがないと停止するように�
 
 それでも接続できない場合は、{% data reusables.codespaces.contact-support %}
 
-## <a name="-data-variablesproductprodname_github_codespaces--extension-for--data-variablesproductprodname_vscode--cannot-connect"></a>{% data variables.product.prodname_vscode %} 用の {% data variables.product.prodname_github_codespaces %} 拡張機能が接続できない
+## {% data variables.product.prodname_vscode %} 用の {% data variables.product.prodname_github_codespaces %} 拡張機能が接続できない
 
 {% data variables.product.prodname_vscode %} デスクトップから codespace に接続できない場合は、次のトラブルシューティング手順を使います。
 
@@ -49,6 +49,6 @@ codespace は、30 分間アクティビティがないと停止するように�
 
 それでも接続できない場合は、{% data reusables.codespaces.contact-support %}
 
-### <a name="the-codespace-has-latency-issues"></a>codespace に待ち時間の問題がある
+### codespace に待ち時間の問題がある
 
 codespace が特に遅いと思われる場合、または待ち時間の問題がある場合は、遠いリージョンに作成されている可能性があります。 これを解決するには、[{% data variables.product.prodname_codespaces %} のリージョンを手動で設定する](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)ことができます。

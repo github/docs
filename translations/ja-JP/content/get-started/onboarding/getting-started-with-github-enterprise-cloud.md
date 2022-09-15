@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
 ms.openlocfilehash: 249c89ad65bf9a9fc0140b8fb48e7bd0530ff594
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147389964'
 ---
 このガイドでは、Organization または Enterprise のオーナーとして、{% data variables.product.prodname_ghe_cloud %} アカウントの設定、構成、管理を行う手順について説明します。

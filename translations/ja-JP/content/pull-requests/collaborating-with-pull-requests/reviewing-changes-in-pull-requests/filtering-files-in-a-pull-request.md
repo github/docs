@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Filter files
 ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146346614'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884174'
 ---
 pull request 内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子なし、コード所有権、ドットファイルなどでフィルター処理することができます。{% ifversion pr-tree-view %}また、ファイル ツリーを使用すると、ファイル パスでフィルター処理したり、ファイル間を移動したり、変更されたファイルの概要を表示したりすることができます。{% endif %}
 

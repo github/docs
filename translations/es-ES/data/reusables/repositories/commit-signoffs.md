@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 50db50aff42d977575a89a2e22287b1672081ee4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147410856"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881393"
 ---
 Las aprobaciones de confirmación obligatorias solo se aplican a las confirmaciones realizadas a través de la interfaz web. En el caso de las confirmaciones realizadas a través de la interfaz de la línea de comandos de Git, el autor de la confirmación debe aprobar la confirmación con la opción `--signoff`. Para obtener más información, consulta la [documentación de Git](https://git-scm.com/docs/git-commit).
 

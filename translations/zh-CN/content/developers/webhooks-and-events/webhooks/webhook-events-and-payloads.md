@@ -16,10 +16,10 @@ topics:
   - Webhooks
 shortTitle: Webhook events & payloads
 ms.openlocfilehash: 38dfa09525a7c3cc914bc2cf130126ed9969e190
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147541980'
 ---
 {% data reusables.webhooks.webhooks_intro %}

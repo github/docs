@@ -12,11 +12,11 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: bbd5abb5411a5292dc759f9595d89dcabd25c2f8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145101296'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884451'
 ---
 ## 关于团队讨论评论 API
 

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: efb9f234573525d8f24d4f0798379d38a8d8299e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147547974"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881874"
 ---
 为了减少 Actions 分钟数的消耗，可将预生成设置为仅在对开发容器配置文件进行更改时更新，或者仅在自定义计划中进行更新。 还可通过调整为预生成配置保留的模板版本数来管理存储使用情况。 有关详细信息，请参阅“[配置预生成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
 

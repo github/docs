@@ -15,11 +15,11 @@ topics:
   - Repositories
 shortTitle: View repository activity
 ms.openlocfilehash: 2dafe04a8214e2840d8b36bdd3aaeb87f0ad2764
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129282'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882301'
 ---
 ## 关于 Pulse
 

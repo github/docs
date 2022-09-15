@@ -15,10 +15,10 @@ topics:
   - GitHub Apps
 shortTitle: Authentication
 ms.openlocfilehash: 6862e33adfc29cc1568d5801ac50e44587c86fa9
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
+ms.lasthandoff: 09/05/2022
 ms.locfileid: '147718054'
 ---
 ## 秘密鍵を生成する

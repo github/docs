@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Filter files
 ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146346610'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884170'
 ---
 Você pode filtrar os arquivos em uma solicitação de pull por tipo de extensão de arquivo, como `.html` ou `.js`, falta de uma extensão, propriedade de código ou dotfiles.{% ifversion pr-tree-view %} Use também a árvore de arquivos para filtrar o conteúdo por caminho de arquivo, navegar entre arquivos ou ver uma exibição de alto nível dos arquivos alterados.{% endif %}
 

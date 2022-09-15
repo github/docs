@@ -19,8 +19,8 @@ ms.openlocfilehash: 4aa89f244e45da6905d6d5348c84faf8d5e6418c
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145119449'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884209'
 ---
 ## Acerca de los finales de línea
 Cada vez que presiona <kbd>Entrar</kbd> en el teclado, se inserta un carácter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.

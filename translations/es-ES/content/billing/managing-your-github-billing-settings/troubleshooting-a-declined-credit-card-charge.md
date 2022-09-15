@@ -17,8 +17,8 @@ ms.openlocfilehash: 44ed836d24e23ceb7e805cccdad6e70203381bf5
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145091621'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884225'
 ---
 Si se rechaza tu tarjeta, te enviaremos un correo electrónico acerca del motivo por el que se rechazó el pago. Tendrás algunos días para resolver el problema antes de que tratemos de volver a cobrarte.
 
