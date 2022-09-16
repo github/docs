@@ -10,12 +10,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: ee7ad9a57437858e33a51bedf6b03fcf48606079
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 991c060af22a9161e026aa396037a1d52e66fcea
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556515'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858615'
 ---
 您是否是一名执法官员，所开展的调查可能涉及到 GitHub 上托管的用户内容？
 或者您是一位非常注重隐私的人士，希望了解我们在哪些情况下与执法机构分享哪些信息。
@@ -215,7 +215,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-抄送件可通过电子邮件发送至 legal@support.github.com。
+抄送件可通过电子邮件发送至 legal-support@github.com
 
 请尽可能具体描述请求并缩小请求范围，包含以下信息：
 

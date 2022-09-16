@@ -286,6 +286,7 @@ translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewin
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
+translations/pt-BR/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,broken liquid tags
 translations/pt-BR/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,broken liquid tags
 translations/pt-BR/content/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits.md,broken liquid tags
 translations/pt-BR/content/authentication/managing-commit-signature-verification/index.md,broken liquid tags
@@ -296,10 +297,12 @@ translations/pt-BR/content/authentication/troubleshooting-commit-signature-verif
 translations/pt-BR/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage.md,broken liquid tags
+translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
+translations/pt-BR/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,broken liquid tags
 translations/pt-BR/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,broken liquid tags
@@ -342,6 +345,7 @@ translations/pt-BR/content/packages/learn-github-packages/about-permissions-for-
 translations/pt-BR/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/viewing-packages.md,broken liquid tags
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,broken liquid tags
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources.md,broken liquid tags
