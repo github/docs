@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b73865feb01c314d363eeaf6b7dd1b80854d771e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: "147764215"
 ---
 1. Elige un propietario para el repositorio nuevo, escribe el nombre del repositorio, selecciona la configuración de privacidad que prefieras y haz clic en **Crear repositorio a partir de plantilla**.
