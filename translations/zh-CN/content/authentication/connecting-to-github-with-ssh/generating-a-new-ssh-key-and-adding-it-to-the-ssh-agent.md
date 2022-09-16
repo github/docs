@@ -1,6 +1,6 @@
 ---
-title: 生成新的 SSH 密钥并将其添加到 ssh-agent
-intro: 检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。
+title: Generating a new SSH key and adding it to the ssh-agent
+intro: 'After you''ve checked for existing SSH keys, you can generate a new SSH key to use for authentication, then add it to the ssh-agent.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent
   - /articles/generating-a-new-ssh-key
@@ -15,32 +15,34 @@ versions:
 topics:
   - SSH
 shortTitle: Generate new SSH key
-ms.openlocfilehash: 8714cb24a6ed46fda17f53295601748ebffdc255
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409137'
 ---
-## 关于 SSH 密钥密码
 
-{% data reusables.ssh.about-ssh %}有关详细信息，请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”。
+## About SSH key passphrases
 
-生成 SSH 密钥时，可以添加密码以进一步保护密钥。 每当使用密钥时，都必须输入密码。 如果密钥具有密码并且你不想每次使用密钥时都输入密码，则可以将密钥添加到 SSH 代理。 SSH 代理会管理 SSH 密钥并记住你的密码。
+{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
 
-如果您还没有 SSH 密钥，则必须生成新 SSH 密钥用于身份验证。 如果不确定是否已经拥有 SSH 密钥，您可以检查现有密钥。 有关详细信息，请参阅“[检查现有 SSH 密钥](/github/authenticating-to-github/checking-for-existing-ssh-keys)”。
+When you generate an SSH key, you can add a passphrase to further secure the key. Whenever you use the key, you must enter the passphrase. If your key has a passphrase and you don't want to enter the passphrase every time you use the key, you can add your key to the SSH agent. The SSH agent manages your SSH keys and remembers your passphrase.
 
-如果要使用硬件安全密钥向 {% data variables.product.product_name %} 验证，则必须为硬件安全密钥生成新的 SSH 密钥。 使用密钥对进行身份验证时，您必须将硬件安全密钥连接到计算机。 有关详细信息，请参阅 [OpenSSH 8.2 发行说明](https://www.openssh.com/txt/release-8.2)。
+If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
-## 生成新 SSH 密钥
+If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
-可在本地计算机上生成新的 SSH 密钥。 生成密钥后，可以将密钥添加到您在 {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} 上的帐户，以启用通过 SSH 进行 Git 操作的身份验证。
+## Generating a new SSH key
+
+You can generate a new SSH key on your local machine. After you generate the key, you can add the key to your account on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable authentication for Git operations over SSH.
+
+{% ifversion ghes %}
+
+If you are a site administrator for {% data variables.product.product_location %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
+{% endif %}
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 粘贴下面的文本（替换为您的 {% data variables.product.product_name %} 电子邮件地址）。
-   {%- ifversion ghae %}  <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
+2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
+   {%- ifversion ghae %}
+    <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
    $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>" 
    ```
@@ -50,18 +52,19 @@ ms.locfileid: '147409137'
    ```
    {% note %}
    
-   注意：如果你使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：
+   **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
    ```shell
     $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
    ```
 
-   {% endnote %} {%- endif %}
+   {% endnote %}
+   {%- endif %}
 
-   这将以提供的电子邮件地址为标签创建新 SSH 密钥。
+   This creates a new SSH key, using the provided email as a label.
    ```shell
    > Generating public/private <em>algorithm</em> key pair.
    ```
-3. 提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这会接受默认文件位置。
+3. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
 
    {% mac %}
    
@@ -87,36 +90,36 @@ ms.locfileid: '147409137'
    
    {% endlinux %}
 
-4. 在提示符下，键入安全密码。 有关详细信息，请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
+4. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."
    ```shell
    > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
    > Enter same passphrase again: <em>[Type passphrase again]</em>
    ```
 
-## 将 SSH 密钥添加到 ssh-agent
+## Adding your SSH key to the ssh-agent
 
-在向 ssh 代理添加新的 SSH 密钥以管理您的密钥之前，您应该检查现有 SSH 密钥并生成新的 SSH 密钥。 <span class="platform-mac">将 SSH 密钥添加到该代理时，应使用默认的 macOS `ssh-add` 命令，而不是使用通过 [macports](https://www.macports.org/)、[homebrew](http://brew.sh/) 或某些其他外部来源安装的应用程序。</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">When adding your SSH key to the agent, use the default macOS `ssh-add` command, and not an application installed by [macports](https://www.macports.org/), [homebrew](http://brew.sh/), or some other external source.</span>
 
 {% mac %}
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. 如果你使用的是 macOS Sierra 10.12.2 或更高版本，则需要修改 `~/.ssh/config` 文件以自动将密钥加载到 ssh-agent 中并在密钥链中存储密码。
+2. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-   * 首先，检查你的 `~/.ssh/config` 文件是否在默认位置。
+   * First, check to see if your `~/.ssh/config` file exists in the default location.
 
      ```shell
      $ open ~/.ssh/config
      > The file /Users/<em>you</em>/.ssh/config does not exist.
      ```
 
-   * 如果文件不存在，请创建该文件。
+   * If the file doesn't exist, create the file.
 
      ```shell
      $ touch ~/.ssh/config
      ```
 
-   * 打开你的 `~/.ssh/config` 文件，然后修改文件以包含以下行。 如果您的 SSH 密钥文件与示例代码具有不同的名称或路径，请修改文件名或路径以匹配您当前的设置。 
+   * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup. 
 
      ```
      Host *
@@ -127,11 +130,11 @@ ms.locfileid: '147409137'
 
      {% note %}
 
-     **注意：**
+     **Notes:**
      
-     - 如果你选择不向密钥添加密码，应该省略 `UseKeychain` 行。
+     - If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
   
-     - 如果看到 `Bad configuration option: usekeychain` 错误，请在配置的 `Host *` 部分添加额外的一行。
+     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *` section.
 
        ```
        Host *
@@ -139,21 +142,21 @@ ms.locfileid: '147409137'
        ```
      {% endnote %}
 
-3. 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
    ```
    {% note %}
 
-   注意：`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当你将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在你的密钥链中。 如果选择不向密钥添加密码，请运行命令，而不使用 `-K` 选项。 
+   **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option. 
 
-   如果您没有安装 Apple 的标准版本，可能会收到错误消息。 有关解决此错误的详细信息，请参阅“[错误：ssh-add：非法选项 -- K](/articles/error-ssh-add-illegal-option-k)”。
+   If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
   
-   在 MacOS Monterey (12.0) 中，`-K` 和 `-A` 标志已弃用，分别由 `--apple-use-keychain` 和 `--apple-load-keychain` 标志所取代。 
+   In MacOS Monterey (12.0), the `-K` and `-A` flags are deprecated and have been replaced by the `--apple-use-keychain` and `--apple-load-keychain` flags, respectively. 
 
    {% endnote %}
 
-4. 将 SSH 密钥添加到 {% data variables.product.product_name %} 上的帐户。 有关详细信息，请参阅“[将新的 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)”。
+4. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endmac %}
 
@@ -161,16 +164,17 @@ ms.locfileid: '147409137'
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. 确保 ssh-agent 正在运行。 你可以根据“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”中的“自动启动 ssh-agent”说明，或者手动启动它：
+1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
    ```shell
    # start the ssh-agent in the background
    $ eval "$(ssh-agent -s)"
    > Agent pid 59566
    ```
 
-2. 将 SSH 私钥添加到 ssh-agent。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %} {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. 将 SSH 密钥添加到 {% data variables.product.product_name %} 上的帐户。 有关详细信息，请参阅“[将新的 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)”。
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endwindows %}
 
@@ -178,33 +182,36 @@ ms.locfileid: '147409137'
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. 将 SSH 私钥添加到 ssh-agent。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %} {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. 将 SSH 密钥添加到 {% data variables.product.product_name %} 上的帐户。 有关详细信息，请参阅“[将新的 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)”。
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endlinux %}
 
-## 为硬件安全密钥生成新的 SSH 密钥
+## Generating a new SSH key for a hardware security key
 
-如果您使用 macOS 或 Linux， 在生成新的 SSH 密钥之前，您可能需要更新 SSH 客户端或安装新的 SSH 客户端。 有关详细信息，请参阅“[错误：未知密钥类型](/github/authenticating-to-github/error-unknown-key-type)”。
+If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
 
-1. 将硬件安全密钥插入计算机。
+1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. 粘贴下面的文本，将电子邮件地址替换为您的 {% data variables.product.product_name %} 帐户的电子邮件地址。
+3. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
    ```shell
    $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "<em>your_email@example.com</em>"
    ```
   
-   {%- ifversion not ghae %} {% note %}
+   {%- ifversion not ghae %}
+   {% note %}
 
-   注意：如果命令失败，并且你收到错误 `invalid format` 或 `feature not supported,`，则表明你可能在使用不支持 Ed25519 算法的硬件安全密钥。 请输入以下命令。
+   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
    ```shell
     $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
    ```
    
-   {% endnote %} {%- endif %}
-4. 出现提示时，请触摸硬件安全密钥上的按钮。
-5. 当提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 接受默认文件位置。
+   {% endnote %}
+   {%- endif %}
+4. When you are prompted, touch the button on your hardware security key.
+5. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
 
    {% mac %}
    
@@ -230,9 +237,9 @@ ms.locfileid: '147409137'
    
    {% endlinux %}
 
-6. 当提示你输入密码时，请按 Enter。
+6. When you are prompted to type a passphrase, press **Enter**.
    ```shell
    > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
    > Enter same passphrase again: <em>[Type passphrase again]</em>
    ```
-7. 将 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 上的帐户。 有关详细信息，请参阅“[将新的 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)”。
+7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
