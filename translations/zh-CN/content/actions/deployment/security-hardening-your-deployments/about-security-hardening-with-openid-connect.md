@@ -256,7 +256,7 @@ To customize these claim formats, organization and repository admins can use the
 
 By default, the JWT is issued by {% data variables.product.prodname_dotcom %}'s OIDC provider at `https://token.actions.githubusercontent.com`. This path is presented to your cloud provider using the `iss` value in the JWT.
 
-Enterprise admins can security harden their OIDC configuration by configuring their enterprise to receive tokens from a unique URL at `https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer`. Replace `<enterpriseSlug>` with the slug value of your enterprise. 
+Enterprise admins can security harden their OIDC configuration by configuring their enterprise to receive tokens from a unique URL at `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Replace `<enterpriseSlug>` with the slug value of your enterprise. 
 
 This configuration means that your enterprise will receive the OIDC token from a unique URL, and you can then configure your cloud provider to only accept tokens from that URL. This helps ensure that only the enterprise's repositories can access your cloud resources using OIDC.
 
@@ -270,7 +270,7 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
   "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
   "aud": "http://octocat-inc.example/octocat-inc"
   "enterprise": "octocat-inc"
-  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,
   "iat": 1755351253
