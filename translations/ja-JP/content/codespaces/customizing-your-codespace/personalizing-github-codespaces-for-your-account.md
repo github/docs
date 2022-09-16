@@ -16,12 +16,12 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d600673d72cefe8b3d0b077e396f1141c9e4c854
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1aec1fc1fdc3d7e49408d3ddfcf94805994c8633
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147676721'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878584'
 ---
 ## {% data variables.product.prodname_codespaces %} のパーソナライズについて
 
@@ -52,7 +52,7 @@ Settings Sync を使用すると、設定、キーボードショートカット
 
 [個人の {% data variables.product.prodname_codespaces %} 設定](https://github.com/settings/codespaces)でそのリポジトリを選択することで、所有している任意のリポジトリのドットファイルを使用するように {% data variables.product.prodname_codespaces %} を構成できます。
 
-新しい codespace を作成すると、{% data variables.product.prodname_dotcom %} は選択したリポジトリを codespace 環境に複製し、次のいずれかのファイルを探して環境をセットアップします。
+新しい codespace を作成すると、{% data variables.product.prodname_dotcom %} は選択したドットファイルのリポジトリを codespace 環境にクローンし、次のいずれかのファイルを探して環境を設定します。
 
 * _install.sh_
 * _install_
