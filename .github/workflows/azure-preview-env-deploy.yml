@@ -42,6 +42,10 @@ jobs:
   build-and-deploy-azure-preview:
     name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
+    # Ensure this is actually a pull request and not a merge group
+    # If its a merge group, report success without doing anything
+    # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
+    if: (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
