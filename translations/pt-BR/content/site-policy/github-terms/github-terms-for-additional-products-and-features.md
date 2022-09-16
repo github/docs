@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 31b10a4119a78f8c98767f185a6ba65bbbbc012a
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 8797f3c85a5db4be9d00976619fd7adde470cb93
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099209'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858611'
 ---
 Data de Início de Vigência da Versão: 10 August 2021
 
@@ -26,9 +26,9 @@ Ao usar o GitHub, você pode ter acesso a muitos produtos e recursos adicionais 
 Ao usar os Produtos e Recursos Adicionais, você também concorda com os Termos aplicáveis do GitHub para Produtos e Recursos Adicionais indicados abaixo. A violação destes Termos do GitHub para produtos e recursos adicionais é uma violação do Contrato. Os termos em maiúscula não definidos aqui têm o significado indicado no Contrato.
 
 **Para usuários Corporativos**
-- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Recursos Adicionais: Ações, Advanced Security, Advisory Database, Codespaces, Visualização do Dependabot, GitHub Enterprise Importer, Learning Lab, Packages e Pages. 
+- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Recursos Adicionais: Actions, Advanced Security, Advisory Database, Codespaces, Versão Prévia do Dependabot, GitHub Enterprise Importer, Packages e Pages. 
 
-- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Recursos Adicionais: Ações, Advanced Security, Advisory Database, Connect, Visualização do Dependabot, GitHub Enterprise Importer, Learning Lab, Packages, Pages e Imagens do SQL Server. 
+- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Recursos Adicionais: Actions, Advanced Security, Advisory Database, Connect, Versão Prévia do Dependabot, GitHub Enterprise Importer, Packages, Pages e Imagens do SQL Server. 
 
 - Os usuários do **GitHub AE** podem ter acesso aos seguintes Produtos e Recursos Adicionais: Ações, Advanced Security, Advisory Database, Connect, Visualização do Dependabot, GitHub Enterprise Importer, Packages e Pages.
 
@@ -110,19 +110,6 @@ O GitHub Copilot (i) poderá, dependendo de suas configurações de telemetria p
 
 ## GitHub Enterprise Importer
 O Importer é uma estrutura para exportar dados de outras fontes para serem importados para a plataforma GitHub. O Importer é fornecido “NO ESTADO EM QUE SE ENCONTRA”.
-
-## Learning Lab
-O GitHub Learning Lab oferece cursos interativos gratuitos integrados ao GitHub com feedback e ajuda automatizados instantâneos.
-
-*Materiais do Curso.* O GitHub é proprietário dos materiais do curso que fornece e concede a você uma licença mundial, não exclusiva, de prazo limitado, intransferível e isenta de royalties para copiar, manter, usar e executar esses materiais do curso para seus fins comerciais internos associados ao uso do Learning Lab. 
-
-Os termos de licença de software livre podem ser aplicados a partes do código-fonte fornecidas nos materiais do curso. 
-
-Você é proprietário dos materiais do curso que cria e concede ao GitHub uma licença mundial, não exclusiva, perpétua, intransferível e isenta de royalties para copiar, manter, usar, hospedar e executar esses materiais do curso. 
-
-O uso dos materiais do curso do GitHub e a criação e o armazenamento de seus próprios materiais do curso não constituem propriedade conjunta da propriedade intelectual de nenhuma das partes.
-
-O uso de Dados Pessoais é regido pela [Política de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ## npm
 npm é um serviço de hospedagem de pacotes de software que permite hospedar seus pacotes de software de forma privada ou pública e usá-los como dependências em seus projetos. O npm é o registro de gravação do ecossistema JavaScript. O uso do registro público npm é gratuito, mas será cobrado se os clientes quiserem publicar ou gerenciar pacotes privados usando equipes. A [documentação do npm](https://docs.npmjs.com/) inclui detalhes sobre a limitação dos tipos de conta e como gerenciar [pacotes privados](https://docs.npmjs.com/about-private-packages) e [organizações](https://docs.npmjs.com/organizations). O uso aceitável do registro npm é descrito nos [termos de software livre](https://www.npmjs.com/policies/open-source-terms). Existem termos complementares para os planos [solo](https://www.npmjs.com/policies/solo-plan) e [org](https://www.npmjs.com/policies/orgs-plan) do npm. Os [Termos de uso](https://www.npmjs.com/policies/terms) do npm aplicam-se ao uso que você faz do npm.
