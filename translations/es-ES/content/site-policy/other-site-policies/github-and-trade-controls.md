@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: e483abe3bffda4cdca5ee767b8e06ce4093f074a
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556663'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858635'
 ---
 GitHub.com, GitHub Enterprise Server y la información que cargue en cualquiera de estos productos pueden estar sujetos a normativas de control comercial, lo que incluye el Reglamento de la administración de exportaciones de los Estados Unidos (U.S. Export Administration Regulations) (el «EAR»).
 
@@ -53,7 +53,7 @@ GitHub Enterprise Server no puede venderse, exportarse ni reexportarse a ningún
 
 ### ¿A qué países y territorios se aplican las sanciones de la administración pública de EE. UU.?
 
-Crimea, las zonas separatistas de Donetsk y Luhasnk, Cuba, Irán, Corea del Norte y Siria. Sin embargo, con respecto a Irán, GitHub ahora ha obtenido una licencia de la Oficina de Control de Activos Extranjeros (OFAC) del Departamento del Tesoro de EE. UU. para prestar servicios en la nube a desarrolladores ubicados o residentes en ese país. Los servicios en la nube de GitHub, tanto gratuitos como de pago, también están disponibles de forma generalizada para los desarrolladores ubicados en Cuba.
+Crimea, las zonas separatistas de Donetsk y Lugansk, Cuba, Irán, Corea del Norte y Siria. Sin embargo, con respecto a Irán, GitHub ahora ha obtenido una licencia de la Oficina de Control de Activos Extranjeros (OFAC) del Departamento del Tesoro de EE. UU. para prestar servicios en la nube a desarrolladores ubicados o residentes en ese país. Los servicios en la nube de GitHub, tanto gratuitos como de pago, también están disponibles de forma generalizada para los desarrolladores ubicados en Cuba.
 
 ### ¿Cómo garantiza GitHub que las personas que no viven en países y territorios sancionados ni tienen vínculos profesionales con ellos dispongan de acceso o capacidad para apelar?
 
