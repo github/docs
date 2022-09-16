@@ -14,18 +14,18 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Events that trigger workflows
-ms.openlocfilehash: bef348caaccfdad85782811d4addd78cd7ad7460
-ms.sourcegitcommit: 8476dc3d513740e7cb84a91c45768cf44db5df4f
+ms.openlocfilehash: 74fe579db353607b449106b41e9787cf055fd643
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2022
-ms.locfileid: '147496565'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147645666'
 ---
-## <a name="about-events-that-trigger-workflows"></a>ワークフローをトリガーするイベントについて
+## ワークフローをトリガーするイベントについて
 
 ワークフロー トリガーは、ワークフローの実行を引き起こすイベントです。 ワークフロー トリガーの使い方の詳細については、「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow)」を参照してください。
 
-## <a name="available-events"></a>使用できるイベント
+## 使用できるイベント
 
 イベントによっては、複数のアクティビティの種類があります。 このようなイベントでは、ワークフローの実行をトリガーするアクティビティの種類を指定できます。 アクティビティの種類それぞれの意味の詳細については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhook-events-and-payloads)」を参照してください。 すべての Webhook イベントでワークフローがトリガーされるわけではないことに注意してください。
 
@@ -303,7 +303,7 @@ on:
     types: [created, deleted]
 ```
 
-#### <a name="issue_comment-on-issues-only-or-pull-requests-only"></a>issue のみまたは pull request のみの `issue_comment`
+#### issue のみまたは pull request のみの `issue_comment`
 
 `issue_comment` イベントは、issue と pull request の両方に関するコメントで発生します。 条件で `github.event.issue.pull_request` プロパティを使うと、トリガーするオブジェクトが issue か pull request かによって異なるアクションを実行できます。
 
@@ -628,7 +628,7 @@ jobs:
       - run: echo 'A review from octo-team was requested'
 ```
 
-#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>pull request の head またはベース ブランチに基づいてワークフローを実行する
+#### pull request の head またはベース ブランチに基づいてワークフローを実行する
 
 `branches` または `branches-ignore` フィルターを使って、特定のブランチを対象とする pull request でのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
@@ -675,7 +675,7 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>pull request で変更されたファイルに基づいてワークフローを実行する
+#### pull request で変更されたファイルに基づいてワークフローを実行する
 
 また、pull request によって特定のファイルが変更されたときに実行するようにワークフローを構成することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
@@ -705,7 +705,7 @@ on:
 
 {% endnote %}
 
-#### <a name="running-your-workflow-when-a-pull-request-merges"></a>pull request がマージされたときにワークフローを実行する
+#### pull request がマージされたときにワークフローを実行する
 
 pull request がマージされると、pull request は自動的に閉じられます。 pull request のマージ時にワークフローを実行するには、イベントの `merged` 値を検査する条件とともにイベントの種類 `pull_request``closed` を使います。 たとえば、次のワークフローは、pull request が閉じるたびに実行されます。 `if_merged` ジョブは、pull request もマージされた場合にのみ実行されます。
 
@@ -726,7 +726,7 @@ jobs:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-### <a name="pull_request_comment-use-issue_comment"></a>`pull_request_comment` (`issue_comment` を使用)
+### `pull_request_comment` (`issue_comment` を使用)
 
 (pull request の差分ではなく) pull request のコメントが作成、編集、または削除されたときにワークフローを実行するには、[`issue_comment`](#issue_comment) イベントを使います。 pull request レビューまたは pull request レビュー コメントに関連するアクティビティには、[`pull_request_review`](#pull_request_review) または [`pull_request_review_comment`](#pull_request_review_comment) イベントを使います。
 
@@ -752,7 +752,7 @@ on:
     types: [edited, dismissed]
 ```
 
-#### <a name="running-a-workflow-when-a-pull-request-is-approved"></a>pull request が承認されたときにワークフローを実行する
+#### pull request が承認されたときにワークフローを実行する
 
 pull request が承認されたときにワークフローを実行するには、種類 `submitted` の `pull_request_review` イベントを使ってワークフローをトリガーし、`github.event.review.state` プロパティを使ってレビューの状態を確認します。 たとえば、このワークフローは pull request レビューが送信されるたびに実行されますが、`approved` ジョブは、送信されたレビューが承認レビューである場合にのみ実行されます。
 
@@ -811,6 +811,8 @@ on:
 
 このイベントは、`pull_request` イベントのようにマージ コミットのコンテキストではなく、pull request のベースのコンテキストで実行されます。 これで、リポジトリを変更したり、ワークフローで使うシークレットを盗んだりする可能性がある、pull request の head から安全ではないコードが実行されるのが避けられます。 このイベントを使うと、ワークフローでは、pull request に対するラベルやコメントなどの作業をフォークから行うことができます。 pull request からコードをビルドまたは実行する必要がある場合は、このイベントを使わないでください。
 
+リポジトリのセキュリティを維持するため、特定のパターン (SHA に似ているものなど) と一致する名前を持つブランチからは、`pull_request_target` イベントでワークフローがトリガーされない場合があります。
+
 {% warning %}
 
 **警告:** `pull_request_target` イベントによってトリガーされるワークフローでは、`permissions` キーが指定され、ワークフローがフォークからトリガーされてもシークレットにアクセスできる場合を除き、読み取り/書き込みリポジトリのアクセス許可が `GITHUB_TOKEN` に付与されます。 ワークフローはPull Requestのベースのコンテキストで実行されますが、このイベントでPull Requestから信頼できないコードをチェックアウトしたり、ビルドしたり、実行したりしないようにしなければなりません。 さらに、キャッシュではベース ブランチと同じスコープを共有します。 キャッシュ ポイズニングを防ぐために、キャッシュの内容が変更された可能性がある場合は、キャッシュを保存しないでください。 詳細については、GitHub Security Lab の Web サイトの [GitHub Actions およびワークフローのセキュリティ保護の維持: pwn 要求の阻止](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)に関するページを参照してください。
@@ -825,7 +827,7 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>pull request の head またはベース ブランチに基づいてワークフローを実行する
+#### pull request の head またはベース ブランチに基づいてワークフローを実行する
 
 `branches` または `branches-ignore` フィルターを使って、特定のブランチを対象とする pull request でのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
@@ -872,7 +874,7 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>pull request で変更されたファイルに基づいてワークフローを実行する
+#### pull request で変更されたファイルに基づいてワークフローを実行する
 
 `paths` または `paths-ignore` フィルターを使って、pull request によって特定のファイルが変更されたときに実行するようにワークフローを構成することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
@@ -902,7 +904,7 @@ on:
 
 {% endnote %}
 
-#### <a name="running-your-workflow-when-a-pull-request-merges"></a>pull request がマージされたときにワークフローを実行する
+#### pull request がマージされたときにワークフローを実行する
 
 pull request がマージされると、pull request は自動的に閉じられます。 pull request のマージ時にワークフローを実行するには、イベントの `merged` 値を検査する条件とともにイベントの種類 `pull_request_target``closed` を使います。 たとえば、次のワークフローは、pull request が閉じるたびに実行されます。 `if_merged` ジョブは、pull request もマージされた場合にのみ実行されます。
 
@@ -954,7 +956,7 @@ on:
 
 {% endnote %}
 
-#### <a name="running-your-workflow-only-when-a-push-to-specific-branches-occurs"></a>特定のブランチへのプッシュが発生した場合にのみワークフローを実行する
+#### 特定のブランチへのプッシュが発生した場合にのみワークフローを実行する
 
 `branches` または `branches-ignore` フィルターを使って、特定のブランチがプッシュされたときにのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
@@ -983,7 +985,7 @@ on:
 
 {% endnote %}
 
-#### <a name="running-your-workflow-only-when-a-push-of-specific-tags-occurs"></a>特定のタグのプッシュが発生した場合にのみワークフローを実行する
+#### 特定のタグのプッシュが発生した場合にのみワークフローを実行する
 
 `tags` または `tags-ignore` フィルターを使って、特定のタグがプッシュされたときにのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
@@ -996,7 +998,7 @@ on:
       - v1.**
 ```
 
-#### <a name="running-your-workflow-only-when-a-push-affects-specific-files"></a>プッシュが特定のファイルに影響を与える場合にのみワークフローを実行する
+#### プッシュが特定のファイルに影響を与える場合にのみワークフローを実行する
 
 `paths` または `paths-ignore` フィルターを使って、特定のファイルへのプッシュが発生したときに実行するようにワークフローを構成することができます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
@@ -1269,7 +1271,7 @@ on: workflow_call
 on: workflow_dispatch
 ```
 
-#### <a name="providing-inputs"></a>入力の提供
+#### 入力の提供
 
 カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 イベントをトリガーするときは、`ref` と任意の `inputs` を指定できます。 ワークフローが実行されたら、{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} コンテキストで入力値にアクセスできます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
@@ -1396,7 +1398,7 @@ on:
       - completed
 ```
 
-#### <a name="running-a-workflow-based-on-the-conclusion-of-another-workflow"></a>別のワークフローの結果に基づいてワークフローを実行する
+#### 別のワークフローの結果に基づいてワークフローを実行する
 
 ワークフロー実行は、前のワークフローの結果に関係なくトリガーされます。 トリガーするワークフローの結果に基づいてジョブまたはステップを実行する場合は、`github.event.workflow_run.conclusion` プロパティで条件を使用できます。 たとえば、このワークフローは、"Build" という名前のワークフローが完了するたびに実行されますが、`on-success` ジョブは、"Build" ワークフローが成功した場合にのみ実行され、`on-failure` ジョブは "Build" ワークフローが失敗した場合にのみ実行されます。
 
@@ -1419,7 +1421,7 @@ jobs:
       - run: echo 'The triggering workflow failed'
 ```
 
-#### <a name="limiting-your-workflow-to-run-based-on-branches"></a>ブランチに基づいて実行するワークフローを制限する
+#### ブランチに基づいて実行するワークフローを制限する
 
 `branches` または `branches-ignore` フィルターを使って、ワークフローをトリガーするために、トリガーするワークフローで実行する必要があるブランチを指定できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)」を参照してください。 たとえば、次のトリガーを持つワークフローは、名前が `canary` のブランチで `Build` という名前のワークフローが実行される場合にのみ実行されます。
 
@@ -1431,7 +1433,7 @@ on:
     branches: [canary]
 ```
 
-#### <a name="using-data-from-the-triggering-workflow"></a>トリガーするワークフローからデータを使う
+#### トリガーするワークフローからデータを使う
 
 ワークフローをトリガーしたワークフローに対応する [ `workflow_run`イベント ペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)にアクセスできます。 たとえば、トリガーするワークフローによって成果物が生成される場合、`workflow_run` イベントでトリガーされたワークフローからこれらの成果物にアクセスできます。
 

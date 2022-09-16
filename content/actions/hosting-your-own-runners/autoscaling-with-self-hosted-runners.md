@@ -54,7 +54,7 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
 
 ## Controlling runner software updates on self-hosted runners
 

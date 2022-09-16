@@ -10,10 +10,10 @@ topics:
   - Support
 shortTitle: Manage support entitlements
 ms.openlocfilehash: 8524a24204d2a476c1cd08a11b80e3675e1fc6f4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099921'
 ---
 ## 关于支持权利

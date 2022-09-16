@@ -27,7 +27,7 @@ ms.openlocfilehash: 93ee6e343390540cb05551f4f8cb888eebdf63e2
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145136626'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883437'
 ---
 

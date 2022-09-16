@@ -23,10 +23,10 @@ topics:
   - Upgrades
 shortTitle: About billing
 ms.openlocfilehash: a17f487d707949885a3cb8f0585feac21708bac1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145087971'
 ---
 自分のアカウントに利用できる製品の詳細については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。  

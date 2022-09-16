@@ -12,18 +12,18 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 1289037f8ed1c2a0f725976567e52156870828c0
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: 31b10a4119a78f8c98767f185a6ba65bbbbc012a
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556786'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099213'
 ---
 バージョン発効日: 2021 年 8 月 10 日
 
 GitHub を利用する際、数多くの追加製品や機能 (以下「追加の製品および機能」といいます) にもアクセス権を与えられる場合があります。 「追加の製品および機能」の多くはさまざまな機能を提供するため、当社との主な契約、すなわち「GitHub サービス条件」、「GitHub の企業向けサービス条件」、「GitHub 一般条件」、またはマイクロソフト ボリューム ライセンス契約 (以下、それぞれを「契約」といいます) に加えて、製品や機能に特定の条件が適用される場合があります。 以下に、これらの製品および機能と、その利用に対して適用される追加の条件を示します。
 
-追加の製品および機能を使用することにより、お客様は、適用される下記の「追加の製品および機能に適用される GitHub 条件」にも同意するものとします。 これらの追加の製品および機能に適用される GitHub 条件」に対する違反は、本契約の違反になります。 用語のうちここで定義されていないものについては、本契約における定義が適用されます。
+追加の製品および機能を使用することにより、お客様は、適用される下記の「追加の製品および機能に適用される GitHub 条件」にも同意するものとします。 これらの「追加の製品および機能に適用される GitHub 条件」に対する違反は、本契約の違反になります。 用語のうちここで定義されていないものについては、本契約における定義が適用されます。
 
 **エンタープライズ ユーザー向け**
 - **GitHub Enterprise Cloud** のユーザーは、Actions、Advanced Security、Advisory Database、Codespaces、Dependabot Preview、GitHub Enterprise Importer、Learning Lab、Packages、および Pages の追加の製品および機能にアクセスできます。 
@@ -32,11 +32,11 @@ GitHub を利用する際、数多くの追加製品や機能 (以下「追加�
 
 - **GitHub AE** のユーザーは、Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、GitHub Enterprise Importer、Packages、および Pages の追加の製品および機能にアクセスできます。
 
-## <a name="actions"></a>Actions
-GitHub Actions を使用すると、カスタム ソフトウェア開発ライフサイクル ワークフローを GitHub リポジトリに直接作成できます。 Actions は使用量ベースで請求されます。 [Actions のドキュメント](/actions)には、コンピューティング量とストレージ量 (アカウント プランによって異なります)、Actions の分単位の使用状況を監視し、使用制限を設定する方法などの詳細が含まれています。 
+## Actions
+GitHub Actions を使用すると、カスタム ソフトウェア開発ライフサイクル ワークフローを GitHub リポジトリに直接作成することができます。 Actions は使用量ベースで請求されます。 [Actions のドキュメント](/actions)には、コンピューティング量とストレージ量 (アカウント プランによって異なります)、Actions の分単位の使用状況を監視し、使用制限を設定する方法などの詳細が含まれています。 
 
 Actions および Actions 製品またはサービスの要素は、「契約」、「[GitHub 利用規約](/github/site-policy/github-acceptable-use-policies)」、または [Actions ドキュメント](/actions/reference/usage-limits-billing-and-administration) に規定されている GitHub Actions サービスの制限に違反して使用することはできません。 さらに、Action が自己ホスト型のランナーを使用しているかどうかに関係なく、Action は次の目的には使用しないでください。
-- 暗号通貨マイニング。
+- クリプトマイニング
 - サービス、デバイス、データ、アカウント、またはネットワーク ([GitHub バグ報奨金プログラム](https://bounty.github.com)によって承認されたものを除く) に対する中断、取得、または不正アクセスの試み。
 - Actions 製品またはサービス、または Actions 製品またはサービスの要素を商業目的で提供するスタンドアロンまたは統合されたアプリケーションまたはサービスの提供。
 - 当社のサーバーに負担をかけるアクティビティで、その負担がユーザーに提供される利益に見合わない場合 (たとえば、Actions をコンテンツ配信ネットワークまたはサーバーレス アプリケーションの一部として使用しないでください。ただし、利益の小さい Action でも負荷が小さければ問題ありません)。
@@ -60,12 +60,12 @@ Actions および Actions 製品またはサービスの要素は、「契約」
 
 自己ホスト型のランナーを使用する場合、自動更新をオフにすることができますが、GitHub は重要なセキュリティ更新の選択を上書きする権利を留保します。
 
-## <a name="advanced-security"></a>Advanced Security
+## Advanced Security
 GitHub は、Advanced Security ライセンスの下でお客様が追加のセキュリティ機能を利用できるようにします。 これらの機能には、コード スキャン、シークレット スキャン、依存関係のレビューなどがあります。 詳細については、[Advanced Security のドキュメント](/github/getting-started-with-github/about-github-advanced-security)を参照してください。
 
 Advanced Security は、「一意のコミッター」ごとにライセンスされます。 「一意のコミッター」とは、GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server、または GitHub AE のライセンスを取得し、GitHub Advanced Security 機能を有効にしたリポジトリに直前の 90 日以内にコミットしたユーザーのことです。 お客様は、一意のコミッターごとに 1 つの GitHub Advanced Security User ライセンスを取得しなければなりません。 GitHub Advanced Security は、お客様によって、またはお客様のために開発されたコードベースでのみ使用できます。 GitHub Enterprise Cloud ユーザーの場合、一部の Advanced Security 機能では GitHub Actions の使用も必要です。 
 
-## <a name="advisory-database"></a>Advisory Database
+## Advisory Database
 GitHub Advisory Database を使用すると、GitHub のオープン ソース プロジェクトに影響を与える脆弱性を表示または検索できます。
 
 _当社へのライセンス付与_
@@ -76,11 +76,11 @@ _GitHub Advisory Database へのライセンス_
 
 GitHub Advisory Database は [クリエイティブ コモンズ表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされています。 表示の条件は、<https://github.com/advisories> の GitHub Advisory Database、または使用される個々の GitHub Advisory Database 記録にリンクし、<https://github.com/advisories> による接頭辞を付けることで満たすことができます。
 
-## <a name="codespaces"></a>Codespaces
+## Codespaces
 _注: リポジトリで `.` を押すか、github.dev に直接移動することで利用できる github.dev サービスは、[GitHub のベータ サービス条件](/github/site-policy/github-terms-of-service#j-beta-previews)に準拠しています。_
 
 GitHub Codespaces を使用すると、GitHub リポジトリ内のコードを使用して、ブラウザーからコードを直接開発できます。 Codespaces および Codespaces サービスの要素は、本契約または「利用規約」に違反して使用することはできません。 また、Codespaces は次の目的には使用しないでください。
-- 暗号通貨マイニング。
+- クリプトマイニング
 - サービス、デバイス、データ、アカウント、またはネットワーク (GitHub バグ報奨金プログラムによって承認されたものを除く) に対する中断、取得、または不正アクセスの試みのために当社のサーバーを使用すること。
 - 商用目的で Codespaces または Codespaces の要素を提供するスタンドアロンまたは統合されたアプリケーションまたはサービスの提供。
 - 当社のサーバーに負担をかけるアクティビティで、その負担がユーザーに提供される利益に見合わない場合 (たとえば、Codespaces をコンテンツ配信ネットワークとして、サーバーレス アプリケーションの一部として、またはあらゆる種類の本番環境向けアプリケーションをホストするために使用しないでください)。
@@ -92,16 +92,29 @@ Codespaces を使用すると、Microsoft Visual Studio Marketplace から拡張
 
 一般に利用可能なバージョンの Codespaces は、現在、米国政府のお客様にはご利用いただけません。 米国政府のお客様は、Codespaces ベータ プレビューを別の条件で引き続き使用することができます。 [ベータ プレビューの条件](/github/site-policy/github-terms-of-service#j-beta-previews)を参照してください。
 
-## <a name="connect"></a>Connect
-GitHub Connect を使用すると、GitHub Enterprise Server または GitHub AE インスタンスと、GitHub.com 上の GitHub Enterprise Cloud の組織またはエンタープライズ アカウントとの間で特定の機能やデータを共有できます。 GitHub Connect を有効にするには、GitHub Enterprise Cloud または GitHub.com に少なくとも 1 つのアカウントと、GitHub Enterprise Server または GitHub AE のライセンス インスタンスを 1 つ持っていなければなりません。 Connect を介した GitHub Enterprise Cloud または GitHub.com の使用には、お客様が GitHub Enterprise Cloud または GitHub.com のライセンスを供与する条件が適用されます。 個人データの使用には、「[GitHub のプライバシーに関する声明](/github/site-policy/github-privacy-statement)」が適用されます。
+## Connect
+GitHub Connect を使って、GitHub.com 上で自分の GitHub Enterprise Server または GitHub AE Enterprise インスタンスと GitHub Enterprise Cloud のOrganization または enterprise アカウントの間で特定の機能とデータを共有できます。 GitHub Connect を有効にするには、GitHub Enterprise Cloud または GitHub.com に少なくとも 1 つのアカウントと、GitHub Enterprise Server または GitHub AE のライセンス インスタンスを 1 つ持っていなければなりません。 Connect を介した GitHub Enterprise Cloud または GitHub.com の使用には、お客様が GitHub Enterprise Cloud または GitHub.com のライセンスを供与する条件が適用されます。 個人データの使用には、「[GitHub のプライバシーに関する声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
-## <a name="github-enterprise-importer"></a>GitHub Enterprise Importer
+## GitHub Copilot
+GitHub Copilot を利用するには、統合開発環境 (IDE) またはエディターに拡張機能をインストールする必要があります。 IDE またはエディターで GitHub Copilot 拡張機能を使って書いたコード (「**お客様のコード**」) は、GitHub.com にアップロードするまで、本契約上の「コンテンツ」ではありません。
+
+GitHub Copilot からお客様に返されるコード、関数およびその他のアウトプットは、「**Suggestions**」と呼ばれます。 GitHubは、Suggestions に関するいかなる権利も主張しません。お客様は、お客様のコードに含まれる Suggestions を含む、お客様のコードの所有権と責任を保持します。
+
+"許可される使用"
+
+お客様のコードには、GitHub [利用規定](/site-policy/acceptable-use-policies/github-acceptable-use-policies)が適用されます。 例えば、GitHub.com 上の GitHub 利用規定で違法または禁止されているコンテンツを GitHub Copilot に促すことはできません。
+
+_データ_
+
+GitHub Copilot は、(i) お客様が希望する遠隔測定設定に応じて、お客様のコードのスニペットを収集する場合があり、(ii) お客様のアカウントに関連付けられた IDE またはエディターを通じて追加の使用情報を収集します。 これには [GitHub のプライバシーに関する声明](/site-policy/privacy-policies/github-privacy-statement)で言及されているように、個人データが含まれる場合があります。 GitHub Copilot データの収集と使用については、[GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy) で詳しく説明されています。
+
+## GitHub Enterprise Importer
 Importer は、GitHub プラットフォームにインポートする他のソースからデータをエクスポートするためのフレームワークです。 Importer は「現状のまま」提供されます。
 
-## <a name="learning-lab"></a>Learning Lab
+## Learning Lab
 GitHub Learning Lab は、GitHub に組み込まれた無料のインタラクティブ コースを提供し、即時の自動フィードバックとヘルプを提供します。
 
-*コース教材。* GitHub は、提供するコース教材を所有し、Learning Lab の使用に関連する社内業務目的のために、かかるコース教材をコピー、保守、使用、および実行するための、世界的、非独占的、期間限定、譲渡不能、ロイヤリティフリーのライセンスをお客様に付与します。 
+"コース教材" GitHub は、提供するコース教材を所有し、Learning Lab の使用に関連する社内業務目的のために、かかるコース教材をコピー、保守、使用、および実行するための、世界的、非独占的、期間限定、譲渡不能、ロイヤリティフリーのライセンスをお客様に付与します。 
 
 コース教材で提供されるソース コードの一部に、オープン ソース ライセンスの条件が適用される場合があります。 
 
@@ -111,13 +124,13 @@ GitHub コース教材の使用、およびお客様独自のコース教材の�
 
 個人データの使用には、「[GitHub のプライバシーに関する声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
-## <a name="npm"></a>npm
+## npm
 npm は、ソフトウェア パッケージをプライベートまたはパブリックにホストし、プロジェクトの依存関係としてパッケージを使用できるようにするソフトウェア パッケージ ホスティング サービスです。 npm は JavaScript エコシステムの記録のレジストリです。 npm パブリック レジストリは無料で使用できますが、プライベート パッケージを公開したり、チームを使用してプライベート パッケージを管理したりする場合は、お客様宛に請求されます。 [npm ドキュメント](https://docs.npmjs.com/)には、アカウント タイプの制限と、[プライベート パッケージ](https://docs.npmjs.com/about-private-packages)および[組織](https://docs.npmjs.com/organizations)の管理方法の詳細が記載されています。 npm レジストリの許容可能な使用については、[オープン ソースの条件](https://www.npmjs.com/policies/open-source-terms)で概説されています。 また、npm の [solo](https://www.npmjs.com/policies/solo-plan) と [org](https://www.npmjs.com/policies/orgs-plan) の両方のプランに補足の条件があります。 npm の利用には、npm [使用条件](https://www.npmjs.com/policies/terms)が適用されます。
 
-## <a name="packages"></a>パッケージ
+## パッケージ
 GitHub Packages は、ソフトウェア パッケージをプライベートまたはパブリックにホストし、プロジェクトの依存関係としてパッケージを使用できるようにするソフトウェア パッケージ ホスティング サービスです。 GitHub Packages は使用量ベースで請求されます。 [Packages のドキュメント](/packages/learn-github-packages/introduction-to-github-packages)には、帯域幅とストレージ量 (アカウント プランによって異なります)、Packages の分単位の使用状況を監視し、使用制限を設定する方法などの詳細が含まれています。 Packages の帯域幅使用量は「[GitHub 利用規約](/github/site-policy/github-acceptable-use-policies)」によって制限されます。
 
-## <a name="pages"></a>Pages
+## Pages
 
 各アカウントには、[GitHub Pages の静的ホスティング サービス](/github/working-with-github-pages/about-github-pages)へのアクセス権があります。 GitHub Pages は静的な Web ページをホストするためのサービスですが、主に個人および組織のプロジェクトのためのショーケースの役割を担っています。 
 
@@ -133,14 +146,14 @@ GitHub Pages は、契約、「GitHub [利用規約](/github/site-policy/github-
 
 お客様の使用または使用目的がこれらのカテゴリに分類されるかどうかについてご質問がある場合は、[GitHub サポート](https://support.github.com/contact?tags=docs-policy)までお問い合わせください。 GitHub はいつでも、責任を負うことなく GitHub の任意のサブドメインを回収する権利を常に留保します。
 
-## <a name="previews"></a>プレビュー
+## プレビュー
 
 プレビューとは、下見、評価、デモ、試用などの目的のために提供されているソフトウェア、オンライン サービス、および追加の製品および機能、またはそれらのプレリリース版 (アルファ版、ベータ版、早期アクセス版など) を意味します。 契約にプレビューに関する条件が含まれていない場合は、次の条件が適用されます。 GitHub は、プレビュー版の非稼働インスタンスを使用する限定的な権利を付与します。 プレビューは、「現状有姿」、「瑕疵があってもそれらを含む状態で」、かつ「提供可能な状態で」提供されます。 GitHub は、随時予告なくプレビューを変更または中止することがあります。 プライベート プレビューに関して当社から提供された情報は、GitHub の機密情報と見なされます。 プレビューに関するコメントや提案を提供することをお客様が選択した場合、当社はいかなる種類の義務も負うことなく、そのフィードバックをいかなる目的にも使用することができます。 GitHub の責任は 5,000 米ドルまでの直接損害に制限されます。 GitHub は、お客様のプレビューの使用から生じる第三者による申し立てについて、お客様を防御、補償、または無害に保つ義務を負いません。
 
-## <a name="sponsors-program"></a>Sponsors プログラム
+## Sponsors プログラム
 
 GitHub Sponsors により、開発者コミュニティは、日々活用しているオープン ソース プロジェクトの設計、構築、維持に携わる人々や組織を、GitHub で直接、経済的に支援できます。 支援対象開発者になるには、[GitHub Sponsors プログラムの追加条件](/github/site-policy/github-sponsors-additional-terms)に同意しなければなりません。
 
-## <a name="sql-server-images"></a>SQL Server Images
+## SQL Server Images
 
 お客様は、Linux ファイル用の Microsoft SQL Server Standard Edition コンテナー イメージ (以下「SQL Server Images」といいます) をダウンロードできます。 お客様の本ソフトウェアの使用権が終了した場合は、SQL Server Images をアンインストールしなければなりません。 また、マイクロソフトは、随時 SQL Server Images を無効にすることができます。

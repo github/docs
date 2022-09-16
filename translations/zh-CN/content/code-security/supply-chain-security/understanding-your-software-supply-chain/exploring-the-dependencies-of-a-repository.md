@@ -21,11 +21,11 @@ topics:
   - Repositories
 shortTitle: Explore dependencies
 ms.openlocfilehash: f3735844ad8bcb8fba799723f30a3d55e41ec158
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526860'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882729'
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 

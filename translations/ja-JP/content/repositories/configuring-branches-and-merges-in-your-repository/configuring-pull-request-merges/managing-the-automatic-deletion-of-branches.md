@@ -14,11 +14,11 @@ topics:
   - Repositories
 shortTitle: Automatic branch deletion
 ms.openlocfilehash: feaeb7c2178beab4dc23a310df6924c6e1c52e0f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145132414'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882458'
 ---
 リポジトリに対する管理者権限があるユーザなら誰でも、ブランチの自動的削除を有効化または無効化できます。
 

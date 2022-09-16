@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Enable & test SAML SSO
 ms.openlocfilehash: f9b60931978f80de33c0e6a2d5268287e208040a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145109427'
 ---
 ## 关于 SAML 单点登录

@@ -290,7 +290,7 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>Perform a search across resources.</p>",
+      "description": "<p>Perform a search across resources, returning a maximum of 1,000 results.</p>",
       "args": [
         {
           "name": "after",
@@ -9112,6 +9112,31 @@
           "id": "checkrun",
           "kind": "objects",
           "href": "/graphql/reference/objects#checkrun"
+        }
+      ]
+    },
+    {
+      "name": "CheckRunStateCount",
+      "kind": "objects",
+      "id": "checkrunstatecount",
+      "href": "/graphql/reference/objects#checkrunstatecount",
+      "description": "<p>Represents a count of the state of a check run.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of check runs with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a check run.</p>",
+          "type": "CheckRunState!",
+          "id": "checkrunstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#checkrunstate"
         }
       ]
     },
@@ -38650,6 +38675,14 @@
           ]
         },
         {
+          "name": "diffSide",
+          "description": "<p>The side of the diff on which this thread was placed.</p>",
+          "type": "DiffSide!",
+          "id": "diffside",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#diffside"
+        },
+        {
           "name": "isCollapsed",
           "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
@@ -38674,6 +38707,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "line",
+          "description": "<p>The line in the file to which this thread refers.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>Identifies the pull request associated with this thread.</p>",
           "type": "PullRequest!",
@@ -38696,6 +38737,22 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "startDiffSide",
+          "description": "<p>The side of the diff that the first line of the thread starts on (multi-line only).</p>",
+          "type": "DiffSide",
+          "id": "diffside",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#diffside"
+        },
+        {
+          "name": "startLine",
+          "description": "<p>The line of the first file diff in the thread.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "viewerCanReply",
@@ -49243,11 +49300,11 @@
       "kind": "objects",
       "id": "searchresultitemconnection",
       "href": "/graphql/reference/objects#searchresultitemconnection",
-      "description": "<p>A list of results that matched against a search query.</p>",
+      "description": "<p>A list of results that matched against a search query. Regardless of the number\nof matches, a maximum of 1,000 results will be available across all types,\npotentially split across many pages.</p>",
       "fields": [
         {
           "name": "codeCount",
-          "description": "<p>The number of pieces of code that matched the search query.</p>",
+          "description": "<p>The total number of pieces of code that matched the search query. Regardless\nof the total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49255,7 +49312,7 @@
         },
         {
           "name": "discussionCount",
-          "description": "<p>The number of discussions that matched the search query.</p>",
+          "description": "<p>The total number of discussions that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49271,7 +49328,7 @@
         },
         {
           "name": "issueCount",
-          "description": "<p>The number of issues that matched the search query.</p>",
+          "description": "<p>The total number of issues that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49295,7 +49352,7 @@
         },
         {
           "name": "repositoryCount",
-          "description": "<p>The number of repositories that matched the search query.</p>",
+          "description": "<p>The total number of repositories that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49303,7 +49360,7 @@
         },
         {
           "name": "userCount",
-          "description": "<p>The number of users that matched the search query.</p>",
+          "description": "<p>The total number of users that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -49311,7 +49368,7 @@
         },
         {
           "name": "wikiCount",
-          "description": "<p>The number of wiki pages that matched the search query.</p>",
+          "description": "<p>The total number of wiki pages that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -50393,6 +50450,22 @@
       "description": "<p>The connection type for StatusCheckRollupContext.</p>",
       "fields": [
         {
+          "name": "checkRunCount",
+          "description": "<p>The number of check runs in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "checkRunCountsByState",
+          "description": "<p>Counts of check runs by state.</p>",
+          "type": "[CheckRunStateCount!]",
+          "id": "checkrunstatecount",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#checkrunstatecount"
+        },
+        {
           "name": "edges",
           "description": "<p>A list of edges.</p>",
           "type": "[StatusCheckRollupContextEdge]",
@@ -50415,6 +50488,22 @@
           "id": "pageinfo",
           "kind": "objects",
           "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "statusContextCount",
+          "description": "<p>The number of status contexts in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "statusContextCountsByState",
+          "description": "<p>Counts of status contexts by state.</p>",
+          "type": "[StatusContextStateCount!]",
+          "id": "statuscontextstatecount",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#statuscontextstatecount"
         },
         {
           "name": "totalCount",
@@ -50576,6 +50665,31 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "StatusContextStateCount",
+      "kind": "objects",
+      "id": "statuscontextstatecount",
+      "href": "/graphql/reference/objects#statuscontextstatecount",
+      "description": "<p>Represents a count of the state of a status context.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of statuses with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a status context.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#statusstate"
         }
       ]
     },
@@ -60380,6 +60494,71 @@
         {
           "name": "TIMED_OUT",
           "description": "<p>The check suite or run has timed out.</p>"
+        }
+      ]
+    },
+    {
+      "name": "CheckRunState",
+      "kind": "enums",
+      "id": "checkrunstate",
+      "href": "/graphql/reference/enums#checkrunstate",
+      "description": "<p>The possible states of a check run in a status rollup.</p>",
+      "values": [
+        {
+          "name": "ACTION_REQUIRED",
+          "description": "<p>The check run requires action.</p>"
+        },
+        {
+          "name": "CANCELLED",
+          "description": "<p>The check run has been cancelled.</p>"
+        },
+        {
+          "name": "COMPLETED",
+          "description": "<p>The check run has been completed.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The check run has failed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The check run is in progress.</p>"
+        },
+        {
+          "name": "NEUTRAL",
+          "description": "<p>The check run was neutral.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The check run is in pending state.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The check run has been queued.</p>"
+        },
+        {
+          "name": "SKIPPED",
+          "description": "<p>The check run was skipped.</p>"
+        },
+        {
+          "name": "STALE",
+          "description": "<p>The check run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
+        },
+        {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check run has failed at startup.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The check run has succeeded.</p>"
+        },
+        {
+          "name": "TIMED_OUT",
+          "description": "<p>The check run has timed out.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check run is in waiting state.</p>"
         }
       ]
     },

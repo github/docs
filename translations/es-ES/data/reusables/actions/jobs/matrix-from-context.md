@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9a9d2b4deb488e7b8fa5f0df2377e7d5ca57d194
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145092093"
+ms.locfileid: "147884441"
 ---
 Puedes usar contextos para crear matrices. Para obtener más información sobre los contextos, vea "[Contextos](/actions/learn-github-actions/contexts)".
 

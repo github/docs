@@ -1,55 +1,60 @@
 ---
-title: Configuring GitHub Copilot in Visual Studio
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}.'
+title: 在 Visual Studio 中配置 GitHub Copilot
+intro: '可以在 {% data variables.product.prodname_vs %} 中启用、配置和禁用 {% data variables.product.prodname_copilot %}。'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 shortTitle: Visual Studio
 topics:
   - Copilot
+ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147786027'
 ---
+## 关于 {% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %}
 
-## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}
+如果使用 {% data variables.product.prodname_vs %}，{% data variables.product.prodname_copilot %} 可以在你键入时自动完成代码。 安装后，可以启用或禁用 {% data variables.product.prodname_copilot %}，并且可以在 {% data variables.product.prodname_vs %} 或 {% data variables.product.prodname_dotcom_the_website %} 上配置高级设置。
 
-If you use {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vs %} or on {% data variables.product.prodname_dotcom_the_website %}.
+## 先决条件
 
-## Prerequisites
+要在 {% data variables.product.prodname_vs %} 中配置 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 插件。 有关详细信息，请参阅“[{% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %} 入门指南](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)”。
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
+## {% data variables.product.prodname_copilot %} 的键盘快捷方式
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+使用 {% data variables.product.prodname_copilot %} 时，可使用 {% data variables.product.prodname_vs %} 中的默认键盘快捷方式。 或者，可使用每个特定命令的首选键盘快捷方式重新绑定 {% data variables.product.prodname_vs %} 的“工具设置”中的快捷方式。 可以在键盘快捷方式编辑器中按命令名称搜索每个键盘快捷方式。
 
-You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
-
-| Action | Shortcut | Command name |
+| 操作 | 快捷键 | 命令名称 |
 |:---|:---|:---|
-|Show next inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
-|Show previous inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
+|显示下一个内联建议|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
+|显示上一个内联建议|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
+|触发内联建议|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
-## Rebinding keyboard shortcuts
+## 重新绑定键盘快捷方式
 
-If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
+如果不想在使用 {% data variables.product.prodname_copilot %} 时使用 {% data variables.product.prodname_vs %} 中的默认键盘快捷方式，可使用每个特定命令的首选键盘快捷方式在键盘编辑器中重新绑定快捷方式。
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
-1. In the "Options" dialog, under **Environment**, click **Keyboard**.
-   ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
-1. Under "Show commands containing:", search for the command you want to rebind.
-   ![Screenshot of the show commands containing searchbar](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**.
-   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
+1. 在 {% data variables.product.prodname_vs %} 工具栏中的“工具”下，单击“选项” 。
+   ![{% data variables.product.prodname_vs %} 工具栏中“选项”选项的屏幕截图](/assets/images/help/copilot/vs-toolbar-options.png)
+1. 在“选项”对话框中的“环境”下，单击“键盘” 。
+   ![“选项”对话框中“键盘”选项的屏幕截图](/assets/images/help/copilot/vs-options-dialogue.png)
+1. 在“显示命令包含:”下，搜索要重新绑定的命令。
+   ![“显示命令包含”搜索栏的屏幕截图](/assets/images/help/copilot/vs-show-commands-containing.png)
+1. 在“按快捷键”下，键入要分配给命令的快捷键，然后单击“分配”。
+   ![键盘快捷方式分配的屏幕截图](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
-## Configuring ReSharper for {% data variables.product.prodname_copilot %}
+## 为 {% data variables.product.prodname_copilot %} 配置 ReSharper
 
-If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
+如果使用 ReSharper，当你将 ReSharper 配置为使用 {% data variables.product.prodname_copilot %} 的本机 IntelliSense 时，{% data variables.product.prodname_copilot %} 可能效果最佳。 有关 ReSharper 的详细信息，请参阅 [ReSharper 文档](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
-1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
-    ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
-1. Under "General" select **Visual Studio** and then click **Save**.
+1. 在 {% data variables.product.prodname_vs %} 工具栏中的“工具”下，单击“选项” 。
+   ![{% data variables.product.prodname_vs %} 工具栏中“选项”选项的屏幕截图](/assets/images/help/copilot/vs-toolbar-options.png)
+1. 在“选项”对话框中的“环境”下，单击“IntelliSense”，然后单击“常规”  。
+    ![“选项”对话框中 IntelliSense 选项的屏幕截图](/assets/images/help/copilot/vs-options-intellisense.png)
+1. 在“常规”下选择 Visual Studio，然后单击“保存” 。
 
 {% data reusables.copilot.dotcom-settings %}

@@ -20,11 +20,11 @@ topics:
   - Enterprise
   - GitHub Connect
 ms.openlocfilehash: af07f30a8f164f6bec3d3c0f44c77181f1e8db7b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145096000'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875468'
 ---
 {% data reusables.github-connect.beta %}
 

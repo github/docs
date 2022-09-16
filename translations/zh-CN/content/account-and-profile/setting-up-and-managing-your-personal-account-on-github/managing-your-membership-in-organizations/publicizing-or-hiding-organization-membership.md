@@ -16,11 +16,11 @@ topics:
   - Accounts
 shortTitle: Show or hide membership
 ms.openlocfilehash: 89f9c7ee5cae6215412fd20dc0590f4f8dc5bf0b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145164731'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881177'
 ---
 ![个人资料组织框](/assets/images/help/profile/profile_orgs_box.png)
 

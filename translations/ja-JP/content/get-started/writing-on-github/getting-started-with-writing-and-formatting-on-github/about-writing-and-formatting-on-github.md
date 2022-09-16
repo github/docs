@@ -11,12 +11,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Write & format on GitHub
-ms.openlocfilehash: fbdb89a9a39e9ba10e813067a52a4a265e299f5b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146179520'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860835'
 ---
 [Markdown](http://daringfireball.net/projects/markdown/) は、プレーンテキストを書式設定するための読みやすく、書きやすい構文です。
 
@@ -47,4 +47,3 @@ ms.locfileid: '146179520'
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [Basic writing and formatting syntax (基本的な書き方とフォーマットの構文)](/articles/basic-writing-and-formatting-syntax)
 - [Working with advanced formatting (高度な書式設定を使った作業)](/articles/working-with-advanced-formatting)
-- [Markdown をマスターする](https://guides.github.com/features/mastering-markdown/)

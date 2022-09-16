@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Filter files
 ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146346617'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884177'
 ---
 Puedes filtrar los archivos en una solicitud de incorporación de cambios por tipo de extensión, como `.html` o `.js`, por falta de extensión, por propiedad del código o por dotfiles.{% ifversion pr-tree-view %} También puedes utilizar el árbol de archivos para filtrar por ruta de archivo, navegar entre archivos o tener una vista general de los archivos que han cambiado.{% endif %}
 

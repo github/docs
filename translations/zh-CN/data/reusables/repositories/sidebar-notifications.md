@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 1da8beaeeff17f9e824bbbc71cf83d0f9e965b75
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145099383"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884937"
 ---
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. 在侧边栏的“集成”部分，单击“{% octicon "mail" aria-label="The mail icon" %} 电子邮件通知”。

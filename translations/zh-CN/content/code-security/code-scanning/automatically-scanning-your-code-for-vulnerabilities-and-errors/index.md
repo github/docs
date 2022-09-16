@@ -29,10 +29,10 @@ children:
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
 ms.openlocfilehash: 1024f707aee96ebeee6e941b3ee018267148535f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084415'
 ---
 

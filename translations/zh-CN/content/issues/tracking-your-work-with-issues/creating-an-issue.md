@@ -30,10 +30,10 @@ topics:
 shortTitle: Create an issue
 type: how_to
 ms.openlocfilehash: 21bef9325848b6242b505a8c28ec65483b36448f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147410081'
 ---
 议题可用于跟踪漏洞、增强功能或其他请求。 有关详细信息，请参阅“[关于问题](/issues/tracking-your-work-with-issues/about-issues)”。

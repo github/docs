@@ -12,11 +12,11 @@ topics:
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
 ms.openlocfilehash: 368b7c73d13bb0624c9d838ac2d7bb18a2b050e3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111159'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880803'
 ---
 ## Visão geral
 

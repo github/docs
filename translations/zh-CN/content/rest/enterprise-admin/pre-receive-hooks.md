@@ -7,10 +7,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: dd776e7ec95a970f025d4de1ec03f07b2a7b29f7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147066152'
 ---
 它仅适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)网站管理员。 如果普通用户尝试访问它，他们将收到 `404` 响应。

@@ -28,9 +28,9 @@ async function main() {
   const contextByLanguage = {}
   for (const lang in languages) {
     const langObj = languages[lang]
-    const [crowdinLangCode] = langObj.dir === '' ? 'en' : langObj.dir.split('/').slice(1)
-    if (!crowdinLangCode) continue
-    contextByLanguage[crowdinLangCode] = {
+    const [langCode] = langObj.dir === '' ? 'en' : langObj.dir.split('/').slice(1)
+    if (!langCode) continue
+    contextByLanguage[langCode] = {
       site: siteData[langObj.code].site,
       currentLanguage: langObj.code,
       currentVersion: 'free-pro-team@latest',

@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - Events
-ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2459e4fbdcd4e857c603b7aa7354d4f2d5d6a062
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080821'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875478'
 ---
 Os eventos de problemas são disparados pela atividade em problemas e solicitações de pull e estão disponíveis na [API de Eventos de Problema](/rest/reference/issues#events) e na [API de Eventos da Linha do Tempo](/rest/reference/issues#timeline). Cada tipo de evento especifica se o evento está disponível nos eventos do problema ou na API de eventos da linha do tempo.
 
@@ -235,7 +235,7 @@ Nome | Tipo | Descrição
 `created_at` | `string` | A marca de tempo que indica quando a referência cruzada foi adicionada.
 `updated_at` | `string` | A marca de tempo que indica quando a referência cruzada foi atualizada ou criada, se a referência cruzada nunca for atualizada.
 `source` | `object` | O problema ou pull request que adicionou uma referência cruzada.
-`source[type]` | `string` | Esse valor sempre será `"issue"` porque o tipo das solicitações de pull é problema. Apenas eventos de referência cruzada acionados por problemas são retornados na API de eventos da linha te tempo. Para determinar se o problema que disparou o evento é uma solicitação de pull, verifique se o objeto `source[issue][pull_request` existe.
+`source[type]` | `string` | Esse valor sempre será `"issue"` porque o tipo das solicitações de pull é problema. Apenas eventos de referência cruzada acionados por problemas são retornados na API de eventos da linha te tempo. Para determinar se o problema que disparou o evento é uma solicitação de pull, verifique se o objeto `source[issue][pull_request]` existe.
 `source[issue]` | `object` | O objeto `issue` que adicionou a referência cruzada.
 `event` | `string` | O valor do evento é `"cross-referenced"`.
 

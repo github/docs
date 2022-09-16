@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Filter files
 ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146346611'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884171'
 ---
 可以按文件扩展名类型（如 `.html` 或 `.js`）、缺少扩展名、代码所有权或点文件筛选拉取请求中的文件。{% ifversion pr-tree-view %}还可以使用文件树按文件路径进行筛选、在文件之间导航或查看已更改文件的高级视图。{% endif %}
 

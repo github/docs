@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 1d4cc05436a8f3a616f713d371a94e86684854e9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145096257"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147875566"
 ---
 1. Nas versões do pacote, clique em **Conectar repositório**.
   ![Botão para conectar um repositório na página de aterrissagem de pacotes](/assets/images/help/package-registry/connect-repository.png)

@@ -15,10 +15,10 @@ children:
   - /repos
   - /user
 ms.openlocfilehash: 5c9014c2cfa6caafe50a1c9ad2d6d9b6e55888f8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066630'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886786'
 ---
 Los usuarios interactuan con los repositorios al comentar, abrir informes de problemas y crear solicitudes de extracción. La API de interacciones permite a las personas con acceso de propietario o de administrador restringir la interacción con los repositorios públicos temporalmente a un tipo específico de usuario.

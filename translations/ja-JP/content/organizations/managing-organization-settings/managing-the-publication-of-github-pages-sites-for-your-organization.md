@@ -16,11 +16,11 @@ topics:
   - Teams
 shortTitle: Manage Pages site publication
 ms.openlocfilehash: cce086c19dd6f20de28dde599c13074c48851753
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140667'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878535'
 ---
 {% ifversion fpt %} Organization のメンバーが、{% data variables.product.prodname_pages %} サイトを公開することを許可または禁止することができます。 Organization で {% data variables.product.prodname_ghe_cloud %} を使っている場合、パブリックに公開するサイト、プライベートに公開するサイト、またはその両方を許可するかどうかを選べます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)を参照してください。
 {% elsif ghec %} Organization のメンバーがパブリックに公開するサイト、プライベートに公開するサイト、またはその両方を作成できるようにするか、どちらも作成できないようにするかを選ぶことができます。 {% data variables.product.prodname_pages %} サイトのアクセス制御の詳しい情報については、「[{% data variables.product.prodname_pages %} サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」を参照してください。

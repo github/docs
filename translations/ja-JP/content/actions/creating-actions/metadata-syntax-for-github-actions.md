@@ -14,16 +14,16 @@ versions:
   ghec: '*'
 type: reference
 miniTocMaxHeadingLevel: 4
-ms.openlocfilehash: b475c4066ae79836184f3136cfb06585fa761960
-ms.sourcegitcommit: b0323777cfe4324a09552d0ea268d1afacc3da37
+ms.openlocfilehash: 092b88ee6f5ff876a32d1a179fb8dc9bc1018e2b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2022
-ms.locfileid: '147580552'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147643918'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## <a name="about-yaml-syntax-for--data-variablesproductprodname_actions-"></a>{% data variables.product.prodname_actions %}のYAML構文について
+## {% data variables.product.prodname_actions %}のYAML構文について
 
 すべてのアクションにメタデータ ファイルが必要です。 メタデータ ファイル名は、`action.yml` または `action.yaml` である必要があります。 メタデータ ファイル内のデータにより、アクションの入力、出力、実行の構成を定義されます。
 
@@ -45,7 +45,7 @@ ms.locfileid: '147580552'
 
 **省略可能** 入力パラメーターでは、実行時にアクションで使用するデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
 
-### <a name="example-specifying-inputs"></a>例: 入力の指定
+### 例: 入力の指定
 
 この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使用するワークフロー ファイルでは、`with` キーワードを使って octocatEyeColor の入力値を設定する必要があります。 `with` 構文の詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
 
@@ -88,7 +88,7 @@ Docker コンテナー アクションの環境変数にアクセスするには
 
 **省略可能** 入力パラメーターが使用されている場合、この `string` は警告メッセージとしてログに記録されます。 この警告で入力が非推奨であることをユーザに通知し、その他の方法を知らせることができます。
 
-## <a name="outputs-for-docker-container-and-javascript-actions"></a>Docker コンテナーと JavaScript アクションの `outputs`
+## Docker コンテナーと JavaScript アクションの `outputs`
 
 **省略可能** 出力パラメーターを使用すると、アクションで設定されるデータを宣言できます。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
 
@@ -96,7 +96,7 @@ Docker コンテナー アクションの環境変数にアクセスするには
 
 メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクションでの出力の設定については詳しくは、「[{% data variables.product.prodname_actions %} のワークフロー コマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
 
-### <a name="example-declaring-outputs-for-docker-container-and-javascript-actions"></a>例: Docker コンテナーと JavaScript アクションの出力の宣言
+### 例: Docker コンテナーと JavaScript アクションの出力の宣言
 
 ```yaml
 outputs:
@@ -112,13 +112,13 @@ outputs:
 
 **必須** 出力パラメーターの `string` の説明。
 
-## <a name="outputs-for-composite-actions"></a>複合アクションの `outputs`
+## 複合アクションの `outputs`
 
 **省略可能** `outputs` では `outputs.<output_id>` および `outputs.<output_id>.description` と同じパラメーターが使用されます (「[Docker コンテナーと JavaScript アクションの `outputs`](#outputs-for-docker-container-and-javascript-actions)」を参照) が、`value` トークンも含まれます。
 
 {% data reusables.actions.output-limitations %}
 
-### <a name="example-declaring-outputs-for-composite-actions"></a>例: 複合アクションの出力の宣言
+### 例: 複合アクションの出力の宣言
 
 {% raw %}
 ```yaml
@@ -145,11 +145,11 @@ runs:
 
 **必須** これが JavaScript アクション、複合アクション、Docker コンテナー アクションのいずれであるか、およびアクションの実行方法を指定します。
 
-## <a name="runs-for-javascript-actions"></a>JavaScript のアクションの `runs`
+## JavaScript のアクションの `runs`
 
 **必須** アクションのコードへのパスと、コードの実行に使用されるランタイムを構成します。
 
-### <a name="example-using-nodejs--ifversion-fpt-or-ghes--33-or-ghae-issue-5504-or-ghec-v16-else-v12-endif-"></a>例: Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %} の使用
+### 例: Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %} の使用
 
 ```yaml
 runs:
@@ -221,7 +221,7 @@ runs:
   post-if: runner.os == 'linux'
 ```
 
-## <a name="runs-for-composite-actions"></a>複合アクションの `runs`
+## 複合アクションの `runs`
 
 **必須** 複合アクションへのパスを構成します。
 
@@ -350,7 +350,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**省略可能** アクションによって定義される入力パラメーターの `map`。 各入力パラメータはキー/値ペアです。  入力パラメータは環境変数として設定されます。 変数の前には INPUT_ が付けられ、大文字に変換されます。
+**省略可能** アクションによって定義される入力パラメーターの `map`。 各入力パラメータはキー/値ペアです。 詳しくは、「[例: 入力の指定](#example-specifying-inputs)」をご覧ください。
 
 ```yaml
 runs:
@@ -373,11 +373,11 @@ runs:
 
 {% endif %}
 
-## <a name="runs-for-docker-container-actions"></a>Docker コンテナー アクションの `runs`
+## Docker コンテナー アクションの `runs`
 
 **必須** Docker コンテナー アクションに使用されるイメージを構成します。
 
-### <a name="example-using-a-dockerfile-in-your-repository"></a>例: リポジトリでの Dockerfile の使用
+### 例: リポジトリでの Dockerfile の使用
 
 ```yaml
 runs:
@@ -385,7 +385,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### <a name="example-using-public-docker-registry-container"></a>例: パブリック Docker レジストリ コンテナーの使用
+### 例: パブリック Docker レジストリ コンテナーの使用
 
 ```yaml
 runs:
@@ -455,7 +455,7 @@ runs:
 
 {% data variables.product.prodname_actions %} での `CMD` 命令の使用について詳しくは、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
 
-#### <a name="example-defining-arguments-for-the-docker-container"></a>例: Docker コンテナーの引数の定義
+#### 例: Docker コンテナーの引数の定義
 
 {% raw %}
 ```yaml
@@ -473,7 +473,7 @@ runs:
 
 **省略可能**: アクションをパーソナライズして見分けられるようにするために、カラーと [Feather](https://feathericons.com/) アイコンを使ってバッジを作成することができます。 バッジは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) のアクション名の横に表示されます。
 
-### <a name="example-configuring-branding-for-an-action"></a>例: アクションのブランド化の構成
+### 例: アクションのブランド化の構成
 
 ```yaml
 branding:

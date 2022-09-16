@@ -2711,6 +2711,96 @@ input CheckRunOutputImage {
 }
 
 """
+The possible states of a check run in a status rollup.
+"""
+enum CheckRunState {
+  """
+  The check run requires action.
+  """
+  ACTION_REQUIRED
+
+  """
+  The check run has been cancelled.
+  """
+  CANCELLED
+
+  """
+  The check run has been completed.
+  """
+  COMPLETED
+
+  """
+  The check run has failed.
+  """
+  FAILURE
+
+  """
+  The check run is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The check run was neutral.
+  """
+  NEUTRAL
+
+  """
+  The check run is in pending state.
+  """
+  PENDING
+
+  """
+  The check run has been queued.
+  """
+  QUEUED
+
+  """
+  The check run was skipped.
+  """
+  SKIPPED
+
+  """
+  The check run was marked stale by GitHub. Only GitHub can use this conclusion.
+  """
+  STALE
+
+  """
+  The check run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
+  The check run has succeeded.
+  """
+  SUCCESS
+
+  """
+  The check run has timed out.
+  """
+  TIMED_OUT
+
+  """
+  The check run is in waiting state.
+  """
+  WAITING
+}
+
+"""
+Represents a count of the state of a check run.
+"""
+type CheckRunStateCount {
+  """
+  The number of check runs with this state.
+  """
+  count: Int!
+
+  """
+  The state of a check run.
+  """
+  state: CheckRunState!
+}
+
+"""
 The possible types of check runs.
 """
 enum CheckRunType {
@@ -26950,6 +27040,11 @@ type PullRequestThread implements Node {
     """
     skip: Int
   ): PullRequestReviewCommentConnection!
+
+  """
+  The side of the diff on which this thread was placed.
+  """
+  diffSide: DiffSide!
   id: ID!
 
   """
@@ -26968,6 +27063,11 @@ type PullRequestThread implements Node {
   isResolved: Boolean!
 
   """
+  The line in the file to which this thread refers
+  """
+  line: Int
+
+  """
   Identifies the pull request associated with this thread.
   """
   pullRequest: PullRequest!
@@ -26981,6 +27081,16 @@ type PullRequestThread implements Node {
   The user who resolved this thread
   """
   resolvedBy: User
+
+  """
+  The side of the diff that the first line of the thread starts on (multi-line only)
+  """
+  startDiffSide: DiffSide
+
+  """
+  The line of the first file diff in the thread.
+  """
+  startLine: Int
 
   """
   Indicates whether the current viewer can reply to this thread.
@@ -27760,7 +27870,7 @@ type Query {
   ): UniformResourceLocatable
 
   """
-  Perform a search across resources.
+  Perform a search across resources, returning a maximum of 1,000 results.
   """
   search(
     """
@@ -35393,16 +35503,22 @@ The results of a search.
 union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
 
 """
-A list of results that matched against a search query.
+A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 results will be available across all types,
+potentially split across many pages.
 """
 type SearchResultItemConnection {
   """
-  The number of pieces of code that matched the search query.
+  The total number of pieces of code that matched the search query. Regardless
+  of the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   codeCount: Int!
 
   """
-  The number of discussions that matched the search query.
+  The total number of discussions that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   discussionCount: Int!
 
@@ -35412,7 +35528,8 @@ type SearchResultItemConnection {
   edges: [SearchResultItemEdge]
 
   """
-  The number of issues that matched the search query.
+  The total number of issues that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   issueCount: Int!
 
@@ -35427,17 +35544,22 @@ type SearchResultItemConnection {
   pageInfo: PageInfo!
 
   """
-  The number of repositories that matched the search query.
+  The total number of repositories that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   repositoryCount: Int!
 
   """
-  The number of users that matched the search query.
+  The total number of users that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   userCount: Int!
 
   """
-  The number of wiki pages that matched the search query.
+  The total number of wiki pages that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   wikiCount: Int!
 }
@@ -36377,6 +36499,16 @@ The connection type for StatusCheckRollupContext.
 """
 type StatusCheckRollupContextConnection {
   """
+  The number of check runs in this rollup.
+  """
+  checkRunCount: Int!
+
+  """
+  Counts of check runs by state.
+  """
+  checkRunCountsByState: [CheckRunStateCount!]
+
+  """
   A list of edges.
   """
   edges: [StatusCheckRollupContextEdge]
@@ -36390,6 +36522,16 @@ type StatusCheckRollupContextConnection {
   Information to aid in pagination.
   """
   pageInfo: PageInfo!
+
+  """
+  The number of status contexts in this rollup.
+  """
+  statusContextCount: Int!
+
+  """
+  Counts of status contexts by state.
+  """
+  statusContextCountsByState: [StatusContextStateCount!]
 
   """
   Identifies the total count of items in the connection.
@@ -36476,6 +36618,21 @@ type StatusContext implements Node & RequirableByPullRequest {
   The URL for this status context.
   """
   targetUrl: URI
+}
+
+"""
+Represents a count of the state of a status context.
+"""
+type StatusContextStateCount {
+  """
+  The number of statuses with this state.
+  """
+  count: Int!
+
+  """
+  The state of a status context.
+  """
+  state: StatusState!
 }
 
 """

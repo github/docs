@@ -21,10 +21,10 @@ children:
   - /uploading-a-sarif-file-to-github
   - /sarif-support-for-code-scanning
 ms.openlocfilehash: 8c1a80ed1cc695b82e9a1902db1a2f1e1389ae3a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099098'
 ---
 

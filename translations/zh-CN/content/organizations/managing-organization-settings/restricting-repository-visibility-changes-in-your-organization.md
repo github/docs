@@ -15,10 +15,10 @@ topics:
 shortTitle: Set visibility changes policy
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ms.openlocfilehash: e404d8dea2e188ff5b0b0a8b15c9767374269436
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099704'
 ---
 可以限制谁能够更改组织中的存储库可见性，例如将存储库从专用存储库更改为公共存储库。 有关存储库可见性的详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。 

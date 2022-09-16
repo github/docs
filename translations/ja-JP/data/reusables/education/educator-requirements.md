@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0afe28241f95288731c8a3e982a9d068b652d1e1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147573757"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880823"
 ---
 教師特典と {% data variables.product.prodname_global_campus %} へのアクセスを申し込むには、次の要件を満たす必要があります。
 

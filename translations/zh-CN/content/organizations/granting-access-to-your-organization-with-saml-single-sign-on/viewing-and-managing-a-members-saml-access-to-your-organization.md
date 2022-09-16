@@ -13,10 +13,10 @@ topics:
   - Teams
 shortTitle: Manage SAML access
 ms.openlocfilehash: 5b8dbe15037eabe416a6b0c63df7f893db8445bb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127536'
 ---
 ## 关于对组织的 SAML 访问

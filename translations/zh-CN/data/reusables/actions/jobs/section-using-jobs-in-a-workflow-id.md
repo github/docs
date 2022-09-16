@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dd25f74bf039724130494c7bd4d55e44760f620b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098449"
 ---
 使用 `jobs.<job_id>` 为作业提供唯一标识符。 键 `job_id` 是一个字符串，其值是作业配置数据的映射。 必须将 `<job_id>` 替换为对于 `jobs` 对象的唯一字符串。 `<job_id>` 必须以字母或 `_` 开头，并且只能包含字母数字字符、`-` 或 `_`。

@@ -1,7 +1,7 @@
 ---
-title: Changing the machine type for your codespace
+title: codespace のマシンの種類を変更する
 shortTitle: Change the machine type
-intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for work you''re doing.'
+intro: codespace を実行しているマシンの種類を変更し、実行している作業に適したリソースを使用できます。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,59 +11,64 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: f3669e7addefbf46c3f2af978e746e0c3e634bb0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110763'
 ---
-
-## About machine types
+## マシンの種類について
 
 {% note %}
 
-**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_github_codespaces %} and are creating a codespace on a repository owned by that organization.
+**注:** {% data variables.product.prodname_github_codespaces %} を使用する Organization のメンバーであり、その Organization が所有するリポジトリで codespace を作成している場合にのみ、マシンの種類を選んだり、変えたりできます。
 
 {% endnote %}
 
-{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace. 
+{% data reusables.codespaces.codespaces-machine-types %} codespace を作るときは、あるいは codespace の作成後はいつでも、代替マシンの種類を選べます。 
 
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
+codespace の作成時にマシンの種類を選ぶ方法については、「[codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。 {% data variables.product.prodname_vscode %} 内のマシンの種類の変更について詳しくは、「[{% data variables.product.prodname_vscode %} で {% data variables.product.prodname_codespaces %} を使用する](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)」を参照してください。
 
-## Changing the machine type in {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %} のマシンの種類の変更
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The current machine type for each of your codespaces is displayed.
+   各 codespace の現在のコンピューターの種類が表示されます。
 
-   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
+   !["あなたの codespace" リスト](/assets/images/help/codespaces/your-codespaces-list.png)
 
-1. Click the ellipsis (**...**) to the right of the codespace you want to modify.
-1. Click **Change machine type**.
+1. 変更する codespace の右側にある省略記号 ( **...** ) をクリックします。
+1. **[マシンの種類を変更する]** をクリックします。
 
-   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+   ![[マシンの種類の変更] メニュー オプション](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 
-1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
+1. codespace で複数のコンピューターの種類を使える場合、使うマシンの種類を選びます。
 
-   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+   ![選べるマシンの種類を示すダイアログ ボックス](/assets/images/help/codespaces/change-machine-type-choice.png)
 
    {% note %}
 
-   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+   **注**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
    {% endnote %}
 
-2. Click **Update codespace**. 
+2. **[codespace の更新]** をクリックします。 
 
-   The change will take effect the next time your codespace restarts.
+   変更は、codespace が次回、再起動したときに有効になります。
 
-## Force an immediate update of a currently running codespace
+## 現在実行中の codespace の即時更新を強制する
 
-If you change the machine type of a codespace you are currently using, and you want to apply the changes immediately, you can force the codespace to restart.
+現在使っている codespace のマシンの種類を変更し、変更を直ちに適用する場合、強制的に codespace を再起動できます。
 
-1. At the bottom left of your codespace window, click **{% data variables.product.prodname_codespaces %}**. 
+1. codespace ウィンドウの左下にある **[{% data variables.product.prodname_codespaces %}]** をクリックします。 
 
-   ![Click '{% data variables.product.prodname_codespaces %}'](/assets/images/help/codespaces/codespaces-button.png)
+   ![[{% data variables.product.prodname_codespaces %}] をクリックします。](/assets/images/help/codespaces/codespaces-button.png)
 
-1. From the options that are displayed at the top of the page select **Codespaces: Stop Current Codespace**.
+1. ページの上部に表示されているオプションから、 **[codespace: 現在の codespace を停止する]** を選択します。
 
-   !['Suspend Current Codespace' option](/assets/images/help/codespaces/suspend-current-codespace.png)
+   ![[現在の codespace を一時停止する] オプション](/assets/images/help/codespaces/suspend-current-codespace.png)
 
-1. After the codespace is stopped, click **Restart codespace**.
+1. codespace の停止後、 **[codespace の再起動]** をクリックします。
 
-   ![Click 'Resume'](/assets/images/help/codespaces/resume-codespace.png)
+   ![[再開] をクリックします。](/assets/images/help/codespaces/resume-codespace.png)

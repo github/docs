@@ -14,10 +14,10 @@ redirect_from:
   - /github/getting-started-with-github/using-github/github-cli
   - /actions/guides/managing-github-actions-with-github-cli
 ms.openlocfilehash: b467665eb07ef3f67716af9c47839cf52447d716
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145066722'
 ---
 ## 关于 {% data variables.product.prodname_cli %}

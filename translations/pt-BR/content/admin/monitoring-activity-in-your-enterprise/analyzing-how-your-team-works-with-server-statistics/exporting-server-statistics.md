@@ -7,10 +7,10 @@ versions:
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ms.openlocfilehash: 4e8fa1d040303ec569d11a8a41708ede10b3e76e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147718162'
 ---
 Você pode baixar até os últimos 365 dias de dados de {% data variables.product.prodname_server_statistics %} em um arquivo CSV ou JSON. Esses dados, que incluem métricas de agregação em repositórios, problemas e solicitações de pull, podem ajudá-lo a antecipar as necessidades de sua organização, entender como sua equipe trabalha e mostrar o valor obtido do {% data variables.product.prodname_ghe_server %}. 

@@ -9,17 +9,17 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: fb7e6f05a24628d6d0062b7f3d8a46aff8d76ac3
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556433'
 ---
 **ESTES TERMOS E CONDIÇÕES (O “CONTRATO”) REGEM SUA PARTICIPAÇÃO NO PROGRAMA DO MARKETPLACE DO GITHUB. AO INSCREVER-SE PARA PARTICIPAR DO PROGRAMA DO MARKETPLACE OU CLICAR EM “ACEITO” ABAIXO, VOCÊ CONFIRMA QUE COMPREENDE ESTE CONTRATO E ACEITA TODOS OS TERMOS E CONDIÇÕES. SE VOCÊ ESTÁ CELEBRANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA PESSOA JURÍDICA, VOCÊ DECLARA QUE TEM AUTORIDADE LEGAL PARA VINCULAR A ENTIDADE A ESTE CONTRATO; NESSE CASO, “VOCÊ” SIGNIFICARÁ A ENTIDADE QUE VOCÊ REPRESENTA.**
 
 Data de Início de Vigência: 24 August 2021
 
-## <a name="1---definitions"></a>1. DEFINIÇÕES
+## 1. DEFINIÇÕES
 
 Os termos em letras maiúsculas usados neste Contrato e não definidos neste documento terão o significado estabelecido nos Termos de Serviço do GitHub localizados em [https://docs.github.com/articles/github-terms-of-service](/articles/github-terms-of-service) (os “Termos” ou “ToS”).
 
@@ -43,7 +43,7 @@ Os termos em letras maiúsculas usados neste Contrato e não definidos neste doc
 
 “Dados de Uso” são dados relacionados ao Marketplace gerados em relação ao uso do Marketplace do GitHub pelo Usuário Final e licenciamento de Produtos do Desenvolvedor, incluindo, entre outros, estatísticas de uso e dados de vendas agregadas. Os Dados de Uso não incluem e excluem especificamente informações bancárias e de pagamento.
 
-## <a name="2---purpose-and-license-grant"></a>2. PROPÓSITO E OUTORGA DE LICENÇA
+## 2. PROPÓSITO E OUTORGA DE LICENÇA
 
 **2.1** Este Contrato estabelece os termos e condições segundo os quais o Desenvolvedor pode publicar Listagens no Marketplace do GitHub para compra de Produtos do Desenvolvedor por Usuários Finais e uso em conexão com o GitHub.com.  Este Contrato é aplicável a Produtos do Desenvolvedor distribuídos gratuitamente e Produtos do Desenvolvedor para os quais os Usuários Finais pagam uma taxa.  O desenvolvedor concorda em usar o Marketplace do GitHub apenas para os fins permitidos por este Contrato ou conforme permitido pela lei aplicável.  Entre o GitHub e o Desenvolvedor, o Desenvolvedor é o único responsável pelos Produtos do Desenvolvedor.
 
@@ -57,7 +57,7 @@ Os termos em letras maiúsculas usados neste Contrato e não definidos neste doc
 
 **2.6** O Desenvolvedor reconhece e concorda que o GitHub terá o direito de fornecer o nome, endereço e outros detalhes de contato do Desenvolvedor a qualquer terceiro que razoavelmente, a critério exclusivo do GitHub, afirme que o Desenvolvedor não possui todos os direitos de propriedade intelectual necessários sobre os Produtos do Desenvolvedor.
 
-## <a name="3---restrictions-and-responsibilities"></a>3. RESTRIÇÕES E RESPONSABILIDADES
+## 3. RESTRIÇÕES E RESPONSABILIDADES
 
 Não obstante qualquer um dos requisitos estabelecidos na Seção 2, Finalidade e Outorga de Licença, acima, o Desenvolvedor reconhece e concorda que o uso que ele faz do Marketplace e a participação no Programa estão explicitamente condicionados à adesão do Desenvolvedor a este Contrato, incluindo, sem limitação, as restrições e os requisitos de conformidade estabelecidos nesta Seção 3.
 
@@ -96,7 +96,7 @@ Não obstante qualquer um dos requisitos estabelecidos na Seção 2, Finalidade 
 
 **3.8** Nenhuma cláusula deste Contrato impedirá qualquer uma das partes de desenvolver e/ou publicar aplicativos semelhantes ou que concorram com os aplicativos da outra parte.
 
-## <a name="4---takedowns"></a>4. REMOÇÕES
+## 4. REMOÇÕES
 
 **4.1** Suas Remoções. Ao fornecer ao GitHub uma notificação por escrito com 30 (trinta) dias de antecedência do 1º dia do mês seguinte, você poderá remover suas Listagens de distribuição futura via Marketplace, mas deverá cumprir este Contrato para qualquer Listagem distribuída por meio do Marketplace, incluindo, entre outros, requisitos de reembolso. A remoção da sua Listagem de distribuição futura via Marketplace não (a) afeta os direitos de licença dos Usuários Finais que já compraram ou instalaram sua Listagem nem (b) altera sua obrigação de entregar ou oferecer suporte à Listagem que foi comprada ou instalada anteriormente pelos usuários.
 
@@ -135,7 +135,7 @@ No caso de sua Listagem ser removida involuntariamente por ser defeituosa, mal-i
 
 **4.4** Remoções do Usuário Final. Se um Usuário Final usar o Produto do Desenvolvedor de uma forma que viole os Termos, temos o direito de suspender ou rescindir o acesso desse Usuário Final ao Produto do Desenvolvedor sem qualquer responsabilidade perante você.
 
-## <a name="5---representations-warranties-and-covenants"></a>5. DECLARAÇÕES, GARANTIAS E ACORDOS
+## 5. DECLARAÇÕES, GARANTIAS E ACORDOS
 
 **5.1** O Desenvolvedor declara e garante que o Desenvolvedor notificou todos os usuários de tais Aplicativos do Desenvolvedor de que os dados de sua conta serão transmitidos fora do Serviço e que os termos do Desenvolvedor regerão a privacidade, segurança ou integridade dos referidos dados da conta. O Desenvolvedor também declara e garante que, na medida em que os Aplicativos do Desenvolvedor armazenam, processam ou transmitem dados da conta, nem o Desenvolvedor nem o Aplicativo do Desenvolvedor irá, sem prévio consentimento apropriado do usuário ou exceto na medida exigida pela lei aplicável,
 - (i) modificar o conteúdo dos dados da conta de maneira que afete adversamente a integridade dos dados da conta;
@@ -146,9 +146,9 @@ No caso de sua Listagem ser removida involuntariamente por ser defeituosa, mal-i
 
 **5.3** A Microsoft declara, garante e concorda que: (i) seus Produtos do Desenvolvedor e Características da Marca do Desenvolvedor não violam, apropriam-se indevidamente nem infringem os direitos de propriedade intelectual de terceiros; (ii) o Desenvolvedor cumprirá todas as leis e regulamentos locais, estaduais, nacionais e internacionais aplicáveis, incluindo, sem limitação, todas as leis de controle de exportação aplicáveis, e manterá todas as licenças, autorizações e outras permissões necessárias para desenvolver, implementar e distribuir seus Produtos do Desenvolvedor; e (iii) seus Produtos do Desenvolvedor não contêm e não conterão nem introduzirão no Marketplace a API do GitHub, quaisquer Dados de Uso ou outros dados armazenados ou transmitidos usando o Marketplace, qualquer software mal-intencionado; (iv) seus Produtos do Desenvolvedor não são projetados nem usados com a finalidade de enviar mensagens eletrônicas comerciais a quaisquer clientes, agentes ou Usuários Finais do GitHub sem o seu consentimento; (v) tem todo o direito, poder e autoridade para outorgar as licenças concedidas ao GitHub e aos Usuários Finais neste instrumento; (vi) reconhece o direito do GitHub de cobrar taxas de transação e/ou listagem conforme previsto na Seção 6 deste documento; quaisquer imagens e textos usados para comercializar os Produtos do Desenvolvedor ou que o Desenvolvedor tenha carregado no Marketplace são verdadeiros, precisos e não pretendem enganar nem confundir o Usuário Final.
 
-**5.4** ISENÇÃO DE GARANTIAS. TODOS OS ASPECTOS DO MARKETPLACE E DA API DO GITHUB, INCLUINDO TODOS OS COMPONENTES DE SERVIDOR E REDE, SÃO FORNECIDOS “NO ESTADO EM QUE SE ENCONTRAM” E “MEDIANTE DISPONIBILIDADE”, SEM QUALQUER GARANTIA DE QUALQUER NATUREZA NA MÁXIMA EXTENSÃO PERMITIDA POR LEI, E O GITHUB SE ISENTA EXPRESSAMENTE DE TODA E QUALQUER GARANTIA, CONTRATUAL OU LEGAL, INCLUINDO, MAS NÃO DE FORMA EXCLUSIVA, QUAISQUER GARANTIAS LEGAIS DE ATENDIMENTO A PADRÕES DE COMERCIALIZAÇÃO, TITULARIDADE DE DIREITO, ADEQUAÇÃO A UMA DETERMINADA FINALIDADE E NÃO INFRAÇÃO.  O DESENVOLVEDOR RECONHECE QUE O GITHUB NÃO GARANTE QUE O MARKETPLACE OU A API DO GITHUB FUNCIONARÁ DE FORMA ININTERRUPTA, OPORTUNA, SEGURA, SEM ERROS OU VÍRUS, MALWARE OU WORMS (TAMBÉM CONHECIDOS COMO CÓDIGO DE COMPUTADOR OU OUTRA TECNOLOGIA ESPECIFICAMENTE DESENVOLVIDA PARA INTERROMPER, DESABILITAR OU PREJUDICAR SEU SOFTWARE, HARDWARE, SISTEMA DE COMPUTADOR OU REDE), E NENHUMA INFORMAÇÃO OU AVISO OBTIDO PELO DESENVOLVEDOR DO GITHUB, ATRAVÉS DO MARKETPLACE OU API DO GITHUB, CRIARÁ QUALQUER GARANTIA NÃO EXPRESSAMENTE DECLARADA NESTES TERMOS.  O GITHUB NÃO SE RESPONSABILIZA E SE ISENTA ESPECIFICAMENTE DE QUALQUER RESPONSABILIDADE POR QUALQUER USO NÃO AUTORIZADO DE PRODUTOS DO DESENVOLVEDOR FORA DO MARKETPLACE.
+**5.4** AVISO DE ISENÇÃO DE RESPONSABILIDADE DE GARANTIAS. TODOS OS ASPECTOS DO MARKETPLACE E DA API DO GITHUB, INCLUINDO TODOS OS COMPONENTES DE SERVIDOR E REDE, SÃO FORNECIDOS “NO ESTADO EM QUE SE ENCONTRAM” E “MEDIANTE DISPONIBILIDADE”, SEM QUALQUER GARANTIA DE QUALQUER NATUREZA NA MÁXIMA EXTENSÃO PERMITIDA POR LEI, E O GITHUB SE ISENTA EXPRESSAMENTE DE TODA E QUALQUER GARANTIA, CONTRATUAL OU LEGAL, INCLUINDO, MAS NÃO DE FORMA EXCLUSIVA, QUAISQUER GARANTIAS LEGAIS DE ATENDIMENTO A PADRÕES DE COMERCIALIZAÇÃO, TITULARIDADE DE DIREITO, ADEQUAÇÃO A UMA DETERMINADA FINALIDADE E NÃO INFRAÇÃO.  O DESENVOLVEDOR RECONHECE QUE O GITHUB NÃO GARANTE QUE O MARKETPLACE OU A API DO GITHUB FUNCIONARÁ DE FORMA ININTERRUPTA, OPORTUNA, SEGURA, SEM ERROS OU VÍRUS, MALWARE OU WORMS (TAMBÉM CONHECIDOS COMO CÓDIGO DE COMPUTADOR OU OUTRA TECNOLOGIA ESPECIFICAMENTE DESENVOLVIDA PARA INTERROMPER, DESABILITAR OU PREJUDICAR SEU SOFTWARE, HARDWARE, SISTEMA DE COMPUTADOR OU REDE), E NENHUMA INFORMAÇÃO OU AVISO OBTIDO PELO DESENVOLVEDOR DO GITHUB, ATRAVÉS DO MARKETPLACE OU API DO GITHUB, CRIARÁ QUALQUER GARANTIA NÃO EXPRESSAMENTE DECLARADA NESTES TERMOS.  O GITHUB NÃO SE RESPONSABILIZA E SE ISENTA ESPECIFICAMENTE DE QUALQUER RESPONSABILIDADE POR QUALQUER USO NÃO AUTORIZADO DE PRODUTOS DO DESENVOLVEDOR FORA DO MARKETPLACE.
 
-## <a name="6---pricing-and-payment-terms"></a>6. PREÇOS E CONDIÇÕES DE PAGAMENTO
+## 6. PREÇOS E CONDIÇÕES DE PAGAMENTO
 
 **6.1** O GitHub será o comerciante registrado para Produtos do Desenvolvedor comprados por Usuários Finais via Marketplace.
 
@@ -158,19 +158,19 @@ No caso de sua Listagem ser removida involuntariamente por ser defeituosa, mal-i
 
 **6.4** Você dá suporte ao seu Produto do Desenvolvedor. Você será o único responsável pelo suporte e manutenção de seus Produtos do Desenvolvedor e por quaisquer reclamações feitas sobre eles. Suas informações de contato de suporte serão exibidas em cada página de detalhes do aplicativo e disponibilizadas aos usuários para fins de suporte ao cliente. Não fornecer suporte adequado para seus Produtos do Desenvolvedor pode resultar em menos exposição do produto ou, em alguns casos, remoção do Marketplace ou de qualquer outro lugar no GitHub.com no qual os Produtos do Desenvolvedor comprados ou baixados anteriormente são armazenados em nome dos usuários.
 
-## <a name="7---ownership"></a>7. PROPRIEDADE
+## 7. PROPRIEDADE
 
 Sujeito às licenças limitadas expressamente previstas neste Contrato, nenhuma cláusula deste Contrato transfere ou cede a uma parte quaisquer direitos de propriedade intelectual da outra parte em suas Características da Marca ou outra tecnologia, e nada neste Contrato transfere ou cede a uma parte qualquer um dos direitos de propriedade intelectual da outra parte.
 
-## <a name="8---limitation-of-liability"></a>8. LIMITAÇÃO DE RESPONSABILIDADE
+## 8.   LIMITAÇÃO DE RESPONSABILIDADE
 
 SOB NENHUMA CIRCUNSTÂNCIA E SOB NENHUMA TEORIA LEGAL (SEJA EM CONTRATO, ATO ILÍCITO EXTRACONTRATUAL, NEGLIGÊNCIA OU DE OUTRA FORMA), O GITHUB OU SUAS AFILIADAS, EXECUTIVOS, DIRETORES, FUNCIONÁRIOS, AGENTES OU FORNECEDORES SERÃO RESPONSÁVEIS PERANTE O DESENVOLVEDOR OU QUALQUER TERCEIRO SOB ESTE CONTRATO POR QUAISQUER DANOS INDIRETOS, INCIDENTAIS, ESPECIAIS, EXEMPLARES, CONSEQUENCIAIS, PUNITIVOS OU OUTROS SEMELHANTES, INCLUINDO LUCROS CESSANTES, PERDA DE VENDAS OU DE NEGÓCIOS, PERDA DE DADOS, INTERRUPÇÃO DE NEGÓCIOS OU QUALQUER OUTRA PERDA INCORRIDA PELO DESENVOLVEDOR OU POR TERCEIROS EM CONEXÃO COM ESTE CONTRATO, INDEPENDENTEMENTE DE O DESENVOLVEDOR TER SIDO AVISADO DE TAL POSSIBILIDADE OU DE TER PREVISTO TAIS DANOS; NÃO OBSTANTE QUALQUER DISPOSIÇÃO EM CONTRÁRIO NESTE CONTRATO, A RESPONSABILIDADE AGREGADA DO GITHUB PARA COM O DESENVOLVEDOR OU QUALQUER TERCEIRO DECORRENTE DESTE CONTRATO NÃO DEVERÁ EXCEDER 6 (SEIS) MESES DE GASTO.
 
-## <a name="9---indemnification"></a>9. INDENIZAÇÃO
+## 9. INDENIZAÇÃO
 
 **9.1** Na extensão máxima permitida pela lei aplicável, o Desenvolvedor concorda em defender, indenizar e isentar o GitHub, suas afiliadas e seus respectivos diretores, executivos, funcionários e agentes de e contra todos e quaisquer requerimentos judiciais ou extrajudiciais, ações, processos ou procedimentos, bem como por perdas, obrigações, indenizações, custos e despesas (incluindo honorários advocatícios razoáveis) decorrentes ou relacionados a (a) uso do Marketplace pelo Desenvolvedor em violação deste Contrato, dos Termos ou de quaisquer leis ou regulamentos aplicáveis; (b) Produtos do Desenvolvedor que infrinjam qualquer direito autoral, marca registrada, segredo comercial, patente ou outro direito de propriedade intelectual de terceiros; (c) qualquer perda ou divulgação de dados ou informações pessoais por Produtos do Desenvolvedor e (d) EULA do Desenvolvedor (ou ToS).
 
-## <a name="10--termination"></a>10. RESCISÃO
+## 10. RESCISÃO
 
 **10.1** Este Contrato continuará sendo aplicado até que seja rescindido por qualquer uma das partes, conforme estabelecido abaixo.
 
@@ -182,40 +182,40 @@ SOB NENHUMA CIRCUNSTÂNCIA E SOB NENHUMA TEORIA LEGAL (SEJA EM CONTRATO, ATO IL�
 
 **10.5** As obrigações nas Seções 2, 3, 4, 5, 8, 9 e 12-18 sobreviverão a qualquer expiração ou rescisão deste Contrato.
 
-## <a name="11--modification"></a>11. MODIFICAÇÃO
+## 11. MODIFICAÇÃO
 
 O Desenvolvedor reconhece e concorda que o GitHub pode modificar este Contrato, o Marketplace, a API do GitHub, as Políticas Gerais da API, a Política de Privacidade do GitHub, os ToS do Programa do Desenvolvedor do GitHub e os ToS do GitHub.com de tempos em tempos (uma “Modificação”). Todas as Modificações devem ser comunicadas através do Marketplace, do site do GitHub em www.GitHub.com ou por um meio de comunicação direta do GitHub para o Desenvolvedor. O Desenvolvedor também reconhece e concorda que tais Modificações podem ser implementadas a qualquer momento e sem qualquer notificação ao Desenvolvedor. O Desenvolvedor deverá, dentro de 45 (quarenta e cinco) dias a partir da data da primeira notificação de quaisquer Modificações (ou um período menor especificado na notificação das Modificações) (o “Período de Conformidade”), cumprir tais modificações implementando e usando a versão mais atual da API do GitHub na versão mais atual dos Produtos do Desenvolvedor e fazer quaisquer alterações nos Produtos do Desenvolvedor que possam ser necessárias como resultado de tais Modificações. O Desenvolvedor reconhece que uma Modificação pode ter um efeito adverso nos Produtos do Desenvolvedor, incluindo, entre outros, alterar a maneira como os aplicativos se comunicam com a API do GitHub. O GitHub não terá qualquer tipo de responsabilidade para com o Desenvolvedor ou qualquer Usuário Final com relação a tais Modificações ou quaisquer efeitos adversos resultantes de tais Modificações. O acesso contínuo do Desenvolvedor ou o uso do Marketplace ou da API do GitHub após o Período de Conformidade constituirá aceitação vinculante das Modificações em questão.
 
-## <a name="12--assignment-entire-agreement-revisions"></a>12. CESSÃO; ACORDO INTEGRAL; REVISÕES
+## 12. CESSÃO; ACORDO INTEGRAL; REVISÕES
 
 **12.1** O Desenvolvedor não pode, direta ou indiretamente, por força de lei ou de outra forma, ceder todo ou qualquer parte deste Contrato ou dos direitos do Desenvolvedor sob este Contrato nem delegar o desempenho dos deveres do Desenvolvedor sob este Contrato sem prévia autorização por escrito do GitHub.  Os direitos concedidos neste Contrato podem ser cedidos ou transferidos pelo GitHub sem prévia aprovação do Desenvolvedor.  Além disso, o GitHub pode delegar suas responsabilidades ou obrigações previstas neste Contrato sem o consentimento do Desenvolvedor.
 
 **12.2** Este Contrato, juntamente com os Termos, constituem o acordo integral entre as partes com relação ao objeto deste Contrato. A não imposição, a qualquer momento, de qualquer cláusula deste Contrato pelo GitHub não constitui uma renúncia a ela nem a qualquer outra disposição deste Contrato.
 
-## <a name="13--severability"></a>13. INDEPENDÊNCIA DAS CLÁUSULAS
+## 13. INDEPENDÊNCIA DAS CLÁUSULAS
 
 Se alguma cláusula deste Contrato for considerada inexequível por um juiz competente, a referida cláusula será modificada pelo tribunal e interpretada de modo a melhor cumprir a cláusula original na extensão máxima permitida por lei, e as demais cláusulas deste Contrato permanecerão vigentes.
 
-## <a name="14-relationship-of-the-parties"></a>14. RELACIONAMENTO ENTRE AS PARTES
+## 14. RELACIONAMENTO ENTRE AS PARTES
 
 As partes são prestadoras de serviços. Este Contrato não cria uma parceria, franquia, joint venture, representação, relação fiduciária nem vínculo empregatício entre as partes.  O Desenvolvedor concorda que cada membro do grupo de empresas ao qual o GitHub pertence será um terceiro beneficiário deste Contrato e que essas outras empresas terão o direito de impor diretamente e confiar em qualquer cláusula deste Contrato que confira um benefício ou que outorgue um direito a favor do GitHub.  Nenhuma outra pessoa, empresa ou pessoa jurídica será um terceiro beneficiário do Contrato.
 
-## <a name="15-notice"></a>15. NOTIFICAÇÃO
+## 15. NOTIFICAÇÃO
 
 Todas as notificações a serem fornecidas pelo GitHub ao Desenvolvedor segundo este Contrato podem ser entregues por escrito (i) por serviço de entrega noturno nacionalmente reconhecido (“Courier”) ou correio dos EUA para o endereço de contato fornecido pelo Desenvolvedor ao GitHub ou (ii) correio eletrônico para o endereço de correio eletrônico fornecido pelo Desenvolvedor. O Desenvolvedor deve notificar o GitHub por escrito por Courier ou Correio dos EUA no seguinte endereço: GitHub, Inc., Attn: Legal Department, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 USA. Todas as notificações serão consideradas entregues imediatamente mediante a entrega por correio eletrônico ou, se entregues de outra forma, após o recebimento ou em 2 (dois) dias úteis após serem depositados pelo correio ou por um Courier, conforme permitido acima.
 
-## <a name="16-governing-law"></a>16. LEI APLICÁVEL
+## 16. LEI APLICÁVEL
 
 Este Contrato será regido pelas leis do Estado da Califórnia, independentemente dos princípios de direito internacional privado. O Desenvolvedor concorda expressamente em se submeter à jurisdição pessoal exclusiva dos tribunais federais e estaduais do Estado da Califórnia, Condado de São Francisco, com a finalidade de resolver qualquer controvérsia relacionada a este Contrato.  Não obstante o acima exposto, o GitHub terá o direito de buscar medidas cautelares ou outros tipos de medidas legais urgentes em qualquer jurisdição.
 
-## <a name="17-export-restrictions"></a>17. RESTRIÇÕES DE EXPORTAÇÃO
+## 17. RESTRIÇÕES DE EXPORTAÇÃO
 
 PRODUTOS DO DESENVOLVEDOR DISTRIBUÍDOS VIA MARKETPLACE PODEM ESTAR SUJEITOS A RESTRIÇÕES OU CONTROLES DE EXPORTAÇÃO PELOS ESTADOS UNIDOS OU POR OUTROS PAÍSES OU TERRITÓRIOS.  O DESENVOLVEDOR CONCORDA EM CUMPRIR TODAS AS LEIS E REGULAMENTOS DE EXPORTAÇÃO INTERNACIONAIS E DOS EUA APLICÁVEIS.  ESTAS LEIS PODEM INCLUIR RESTRIÇÕES RELACIONADAS A DESTINOS, CONTEÚDO E/OU USUÁRIOS FINAIS.
 
-## <a name="18--usage-data"></a>18. DADOS DE USO
+## 18. DADOS DE USO
 Para operar e melhorar o Marketplace, o GitHub pode coletar Dados de Uso do Marketplace e da API do GitHub ou em qualquer lugar nos quais os Produtos do Desenvolvedor comprados ou baixados anteriormente sejam armazenados em nome dos Usuários Finais pelo GitHub.  Os Dados de Uso serão mantidos de acordo com as políticas de privacidade do GitHub vigentes.  Dados de Uso Limitado podem estar disponíveis para uso pelo Desenvolvedor a critério exclusivo do GitHub.
 
-# <a name="addendum1-data-protection-addendum"></a>Adendo 1: Adendo de Proteção de Dados
+# Adendo 1: Adendo de Proteção de Dados
 
 Este Adendo de Proteção de Dados (este “Adendo”) está anexado e faz parte do Contrato de Desenvolvedor do Marketplace do GitHub celebrado entre você e o GitHub (o “Contrato”). Os termos não definidos neste Adendo terão os significados atribuídos a eles no Contrato. Em caso de conflito ou inconsistência, os termos deste Adendo substituirão os do Contrato.
 

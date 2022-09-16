@@ -1,6 +1,6 @@
 ---
-title: Authorizing OAuth Apps
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: 授权 OAuth 应用
+intro: '您可以将 {% data variables.product.product_name %} 身份连接到使用 OAuth 的第三方应用程序。 在授权 {% data variables.product.prodname_oauth_app %} 时，应确保您信任应用程序，查阅开发者是谁，并查阅应用程序要访问的信息类型。'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -13,89 +13,95 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: a6205e33d29170c7ff72ad6f6d6ede45c0145ef6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423162'
 ---
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+当 {% data variables.product.prodname_oauth_app %} 想要通过您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上的帐户识别您时，您会看到一个页面，其中包含该应用的开发者联系信息以及所请求的特定数据列表。
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/articles/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+提示：必须先[验证电子邮件地址](/articles/verifying-your-email-address)，才能为 {% data variables.product.prodname_oauth_app %} 授权。
 
 {% endtip %}
 
 {% endif %}
 
-## {% data variables.product.prodname_oauth_app %} access
+## {% data variables.product.prodname_oauth_app %} 访问
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} 可以具有对 {% data variables.product.product_name %} 数据的读取或写入权限 。
 
-- **Read access** only allows an app to *look at* your data.
-- **Write access** allows an app to *change* your data.
+- 读取权限仅允许应用查看数据。
+- 写入权限允许应用更改数据。
 
 {% tip %}
 
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
+提示：{% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
-### About OAuth scopes
+### 关于 OAuth 范围
 
-*Scopes* are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
+范围是 {% data variables.product.prodname_oauth_app %} 可以申请访问公共及非公共数据的权限组。
 
-When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+当您想使用集成了 {% data variables.product.product_name %} 的 {% data variables.product.prodname_oauth_app %} 时，该应用程序可让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果要使用请求 `user:email` 作用域的应用，该应用将具有对专用电子邮件地址的只读访问权限。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_oauth_apps %} 的范围](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)”。
 
 {% tip %}
 
-**Note:** Currently, you can't scope source code access to read-only.
+注意：目前，无法将源代码访问范围限定为只读。
 
 {% endtip %}
 
 {% data reusables.apps.oauth-token-limit %}
 
-### Types of requested data
+### 申请的数据类型
 
-{% data variables.product.prodname_oauth_apps %} can request several types of data.
+{% data variables.product.prodname_oauth_apps %} 可以申请多种类型的数据。
 
-| Type of data | Description |
+| 数据类型 | 说明 |
 | --- | --- |
-| Commit status | You can grant access for an app to report your commit status. Commit status access allows apps to determine if a build is a successful against a specific commit. Apps won't have access to your code, but they can read and write status information against a specific commit. |
-| Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows apps to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows apps to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
-| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
-| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |{% endif %}
+| 提交状态 | 您可以授权应用程序报告您的提交状态。 提交状态访问权限允许应用程序确定对特定提交的构建是否成功。 应用程序无法访问您的代码，但可以读取和写入特定提交的状态信息。 |
+| 部署 | 部署状态访问权限允许应用程序根据公共和私有仓库的特定提交确定部署是否成功。 应用程序无法访问您的代码。 |
+| Gists | [Gist](https://gist.github.com) 访问权限允许应用读取或写入公共和机密 Gist。 |
+| 挂钩 | [Webhook](/webhooks) 访问权限允许应用在你管理的存储库上读取或写入挂钩配置。 |
+| 通知 | 通知访问权限允许应用程序读取您的 {% data variables.product.product_name %} 通知，如议题和拉取请求的评论。 但应用程序仍然无法访问仓库中的任何内容。 |
+| Organizations and teams（组织和团队） | 组织和团队访问权限允许应用程序访问并管理组织和团队成员资格。 |
+| 个人用户数据 | 用户数据包括您的用户个人资料中的信息，例如您的姓名、电子邮件地址和地点。 |
+| 存储库 | 仓库信息包括贡献者的姓名、您创建的分支以及仓库中的实际文件。 应用程序可以申请访问用户级别的公共或私有仓库。 |
+| 仓库删除 | 应用程序可以申请删除您管理的仓库，但无法访问您的代码。 |{% ifversion projects-oauth-scope %}
+| 项目 | 访问用户和组织 {% data variables.projects.projects_v2 %}。 应用可以请求读/写或只读访问权限。 |{% endif %}
 
-## Requesting updated permissions
+## 申请更新的权限
 
-When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
+当 {% data variables.product.prodname_oauth_apps %} 申请新的访问权限时，将会通知其当前权限与新权限之间的差异。
 
 {% ifversion fpt or ghec %}
 
-## {% data variables.product.prodname_oauth_apps %} and organizations
+## {% data variables.product.prodname_oauth_apps %} 和组织
 
-When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
+当你授权 {% data variables.product.prodname_oauth_app %} 访问你的个人帐户时，你还会看到该授权对你所在的每个组织的影响。
 
-- **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
+- 对于具有 {% data variables.product.prodname_oauth_app %} 访问限制的组织，你可以请求组织管理员批准应用程序在该组织中使用。 如果组织未批准应用程序，则应用程序只能访问组织的公共资源。 如果你是组织管理员，则可以自行[批准应用程序](/articles/approving-oauth-apps-for-your-organization)。
 
-- **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+- 对于没有 {% data variables.product.prodname_oauth_app %} 访问限制的组织，将自动授予应用程序对该组织资源的访问权限。 因此，应注意批准哪些 {% data variables.product.prodname_oauth_apps %} 访问你的个人帐户资源以及任何组织资源。
 
-If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
+如果您属于任何实施 SAML 单点登录的组织，则在每次授权 {% data variables.product.prodname_oauth_app %} 时每个组织都必须有一个活动的 SAML 会话。
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+注意：如果你在对强制实施 SAML 单一登录的组织进行身份验证时遇到错误，则可能需要从[帐户设置页](https://github.com/settings/applications)撤销 OAuth 应用并重复身份验证流程以重新为应用授权。
 
 {% endnote %}
 
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
-- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
+- [关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)
+- [为 GitHub 应用授权](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)
+- [{% data variables.product.prodname_marketplace %} 支持](/articles/github-marketplace-support)
 
 {% endif %}

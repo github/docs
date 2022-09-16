@@ -14,10 +14,10 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: fbe51f7b50414632e6994d6f621441c8923e47f1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147710225'
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}

@@ -15,10 +15,10 @@ topics:
   - Security
   - SSH
 ms.openlocfilehash: 6ffcbdc698b6eb3a4736fdb2b4713e2871dcaac2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147508430'
 ---
 发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。 审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。

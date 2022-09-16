@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: efb9f234573525d8f24d4f0798379d38a8d8299e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147547973"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881873"
 ---
 Para reduzir o consumo de minutos do Actions, você pode definir que uma pré-compilação seja atualizada somente quando fizer uma alteração nos arquivos de configuração do contêiner de desenvolvimento ou apenas com um agendamento personalizado. Você também pode gerenciar o uso do armazenamento ajustando o número de versões de modelo a serem retidas nas configurações de predefinição. Para obter mais informações, confira "[Como configurar pré-compilações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 

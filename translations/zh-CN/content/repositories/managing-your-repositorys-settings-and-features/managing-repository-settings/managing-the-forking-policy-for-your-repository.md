@@ -16,10 +16,10 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ms.openlocfilehash: 18355227ad40567de3824f3cc286763cd081e153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129310'
 ---
 组织所有者必须允许组织级别上的专用{% ifversion ghae or ghes or ghec %}和内部{% endif %}存储库的分支，然后你才能允许或禁止特定存储库的分支。 有关详细信息，请参阅“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”。

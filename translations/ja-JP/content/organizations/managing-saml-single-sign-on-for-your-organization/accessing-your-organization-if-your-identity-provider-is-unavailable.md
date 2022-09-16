@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Unavailable identity provider
 ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145119173'
 ---
 Organization の管理者は、[ダウンロードまたは保存したリカバリ コードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を使用して、シングル サインオンをバイパスできます。 これらを [LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのパスワード マネージャーに保存した可能性があります。

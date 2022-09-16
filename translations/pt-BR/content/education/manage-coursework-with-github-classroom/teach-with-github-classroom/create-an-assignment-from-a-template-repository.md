@@ -9,10 +9,10 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
 shortTitle: Template repository
 ms.openlocfilehash: 4a4121a51f3138fca371b38797a7aa39e699cbfb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145093840'
 ---
 Você pode utilizar um repositório de modelo em {% data variables.product.product_name %} como código inicial para uma atividade em {% data variables.product.prodname_classroom %}. Seu repositório modelo pode conter código-padrão, documentação e outros recursos para seus alunos. Para obter mais informações, confira "[Como criar um repositório de modelos](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
