@@ -283,7 +283,7 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-   
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -781,7 +781,8 @@ registries:
 **Note:** Currently we support the following container registries:
 * Docker Hub
 * GitHub Container Registry
-* Private ECR
+* GCR (Google Cloud)
+* Private ECR (AWS)
 
 {% endnote %}
 
@@ -973,7 +974,7 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %} 
+{% ifversion fpt or ghec or ghes > 3.4 %}
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
