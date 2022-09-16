@@ -8,17 +8,14 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: eab72dc5769e26fd5de12865e29404e7271d4557
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 083bccdf0b4baf040d27bf4078c391001b60f206
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099208'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858655'
 ---
-_Estos términos se aplican 1) a los clientes GitHub.com (no Enterprise) que han aceptado los Términos de Servicio Corporativos y 2) a los clientes Enterprise que han obtenido una licencia del Servicio antes del 4 de enero de 2021. A los clientes Enterprise que compren Productos o Servicios después de esa fecha, se los dirigirá a https://github.com/enterprise-legal para consultar los términos vigentes._
-
-GRACIAS POR ELEGIR GITHUB PARA SATISFACER LAS NECESIDADES COMERCIALES DE SU EMPRESA. LEA ATENTAMENTE ESTE ACUERDO, YA QUE RIGE EL USO DE LOS PRODUCTOS (CONFORME A LA DEFINICIÓN QUE FIGURA MÁS ADELANTE), A MENOS QUE GITHUB HAYA CELEBRADO UN ACUERDO POR ESCRITO INDEPENDIENTE CON EL CLIENTE PARA TAL FIN.
-AL HACER CLIC EN EL BOTÓN «ACEPTO» O SIMILAR O AL OBTENER ACCESO A LOS PRODUCTOS, EL CLIENTE ACEPTA TODOS LOS TÉRMINOS Y CONDICIONES DE ESTE ACUERDO. SI EL CLIENTE CELEBRA ESTE ACUERDO EN NOMBRE DE UNA EMPRESA U OTRA ENTIDAD JURÍDICA, EL CLIENTE DECLARA QUE TIENE LA AUTORIDAD LEGAL PARA QUE TAL EMPRESA O ENTIDAD JURÍDICA QUEDE OBLIGADA POR ESTE ACUERDO.
+_Los presentes términos y condiciones son aplicables a los clientes de GitHub.com que tengan suscritos contratos en vigor en los que se haga referencia a los términos del servicio corporativo. A todos los demás clientes de empresas o instituciones se les remitirá a [github.com/customer-terms](https://github.com/customer-terms) para que consulten los términos y condiciones en vigor._
 
 ## Términos de Servicio Corporativos de GitHub
 Fecha de Entrada en Vigor de la Versión: 16 de noviembre de 2020

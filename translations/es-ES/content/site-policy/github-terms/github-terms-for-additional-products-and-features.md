@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 31b10a4119a78f8c98767f185a6ba65bbbbc012a
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 8797f3c85a5db4be9d00976619fd7adde470cb93
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099216'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858656'
 ---
 Fecha de entrada en vigor de la versión: 10 de agosto de 2021
 
@@ -26,9 +26,9 @@ Cuando usa GitHub, es posible que tenga acceso a muchos productos y característ
 Al usar los Productos y Características Adicionales, también acepta los Términos de GitHub aplicables a los Productos y Características Adicionales que se enumeran a continuación. El incumplimiento de estos términos de GitHub en relación con los productos y características adicionales supone el incumplimiento del acuerdo. Los términos en mayúsculas que no estén definidos aquí tendrán el significado que se les confiera en el Acuerdo.
 
 **Para usuarios de Enterprise**
-- **GitHub Enterprise Cloud** podrían tener acceso a los siguientes Productos y Características Adicionales: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages y Pages. 
+- Los usuarios de **GitHub Enterprise Cloud** podrían tener acceso a los siguientes productos y características adicionales: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages y Pages. 
 
-- **GitHub Enterprise Server** podrían tener acceso a los siguientes Productos y Características Adicionales: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages y SQL Server Images. 
+- Los usuarios del **Servidor de GitHub Enterprise** podrían tener acceso a los siguientes productos y características adicionales: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages y SQL Server Images. 
 
 - **GitHub AE** podrían tener acceso a los siguientes Productos y Características Adicionales: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages y Pages.
 
@@ -110,19 +110,6 @@ Copiloto de GitHub (i) puede, en función de su configuración de telemetría pr
 
 ## GitHub Enterprise Importer
 Importer es una plataforma para exportar datos desde otras fuentes e importarlos a la plataforma de GitHub. Importer se entrega «tal cual».
-
-## Learning Lab
-GitHub Learning Lab ofrece cursos interactivos gratuitos integrados en GitHub con comentarios y recursos de ayuda automatizados instantáneos.
-
-*Materiales del curso.* GitHub es propietaria de los materiales del curso que proporciona y le otorga a usted una licencia internacional, no exclusiva, de plazo limitado, intransferible y libre de regalías para copiar, mantener, usar y ejecutar dichos materiales del curso para sus fines comerciales internos asociados con el uso de Learning Lab. 
-
-Los términos de la licencia de código abierto pueden aplicarse a partes del código fuente proporcionado en los materiales del curso. 
-
-Usted es propietario de los materiales del curso que crea y otorga a GitHub una licencia internacional, no exclusiva, perpetua, intransferible y libre de regalías para copiar, mantener, usar, alojar y ejecutar dichos materiales del curso. 
-
-El uso de los materiales del curso de GitHub y la creación y el almacenamiento de sus propios materiales del curso no constituyen la cotitularidad de la propiedad intelectual respectiva de ninguna de las partes.
-
-El uso de los Datos Personales se rige por la [Declaración de Privacidad de GitHub](/github/site-policy/github-privacy-statement).
 
 ## npm
 npm es un servicio de alojamiento de paquetes de software que le permite alojar sus paquetes de software de forma privada o pública y utilizar paquetes como dependencias en sus proyectos. npm es el registro del ecosistema de JavaScript. El registro público de npm es gratuito, pero a los clientes se les cobra si desean publicar paquetes privados o administrar paquetes privados mediante equipos. La [documentación de npm](https://docs.npmjs.com/) incluye datos sobre la limitación de los tipos de cuentas y cómo administrar [paquetes privados](https://docs.npmjs.com/about-private-packages) y [organizaciones](https://docs.npmjs.com/organizations). El uso aceptable del registro de npm se describe en los [términos del código abierto](https://www.npmjs.com/policies/open-source-terms). Hay términos complementarios para los planes [solo](https://www.npmjs.com/policies/solo-plan) y [org](https://www.npmjs.com/policies/orgs-plan) de npm. Los [Términos de Uso](https://www.npmjs.com/policies/terms) de npm se aplican a su uso de npm.
