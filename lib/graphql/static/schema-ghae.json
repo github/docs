@@ -2676,6 +2676,14 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The pull request review the deleted comment belonged to.</p>"
+        },
+        {
+          "name": "pullRequestReviewComment",
+          "type": "PullRequestReviewComment",
+          "id": "pullrequestreviewcomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcomment",
+          "description": "<p>The deleted pull request review comment.</p>"
         }
       ]
     },
@@ -16258,6 +16266,16 @@
               }
             },
             {
+              "name": "hasTwoFactorEnabled",
+              "description": "<p>Only return members with this two-factor authentication status. Does not\ninclude members who only have an account on a GitHub Enterprise Server instance.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -17201,6 +17219,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasTwoFactorEnabled",
+              "description": "<p>Only return administrators with this two-factor authentication status.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {

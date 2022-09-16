@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ClearProjectV2ItemFieldValueInput' was added</p>",
+          "<p>Type 'ClearProjectV2ItemFieldValuePayload' was added</p>",
+          "<p>Field <code>pullRequestReviewComment</code> was added to object type <code>DeletePullRequestReviewCommentPayload</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>Enterprise.members</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>EnterpriseOwnerInfo.admins</code></p>",
+          "<p>Field 'clearProjectV2ItemFieldValue<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CheckRunState</code> was added</p>",
           "<p>Type <code>CheckRunStateCount</code> was added</p>",
           "<p>Type <code>StatusContextStateCount</code> was added</p>",
