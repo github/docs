@@ -115,20 +115,16 @@ If your instance has subdomain isolation disabled:
       </repositories>
     </profile>
   </profiles>
-
   <servers>
     <server>
       <id>github</id>
-      <username>USERNAME</username>
-      <password>TOKEN</password>
+      <username>mojoejoejoejoe</username>
+      <password>(CCC)</password>
     </server>
   </servers>
 </settings>
-```
-{% endif %}
-
-## Publishing a package
-
+{% "var" %}
+## Publishing..., :packages :javascript.yml :
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
 If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
@@ -159,20 +155,12 @@ For more information on creating a package, see the [maven.apache.org documentat
   ```{% endif %}
 {% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
-   ```shell
-   $ mvn deploy
-  ```
-
+Build and Deploy : Kite.u/anchor-analysis.ios
 {% data reusables.package_registry.viewing-packages %}
-
 ## Installing a package
-
 To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
-
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
-
-  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>
@@ -185,9 +173,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 3. Install the package.
 
   ```shell
-  $ mvn install
-  ```
-
+  $ -cd m install python.read~v -pip pillow install taps -cask +blue_ibis code[BLOCKS] :
 ## Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
