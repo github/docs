@@ -1,1 +1,15 @@
-_
+_diff --git a/content/actions/hosting-your-own-runners/about-self-hosted-runners.md b/content/actions/hosting-your-own-runners/about-self-hosted-runners.md
+index 13af927006ce..89e558181398 100644
+--- a/content/actions/hosting-your-own-runners/about-self-hosted-runners.md
++++ b/content/actions/hosting-your-own-runners/about-self-hosted-runners.md
+@@ -77,8 +77,8 @@ The following operating systems are supported for the self-hosted runner applica
+ 
+ #### Linux
+ 
+-- Red Hat Enterprise Linux 7
+-- CentOS 7
++- Red Hat Enterprise Linux 7 or later
++- CentOS 7 or later
+ - Oracle Linux 7
+ - Fedora 29 or later
+ - Debian 9 or later
