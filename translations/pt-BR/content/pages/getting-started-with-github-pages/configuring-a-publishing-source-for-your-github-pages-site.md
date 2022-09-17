@@ -1,6 +1,6 @@
 ---
 title: Configurar uma fonte de publicação para o site do GitHub Pages
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+intro: '{% ifversion pages-custom-workflow %}Você pode configurar seu site do {% data variables.product.prodname_pages %} para ser publicado quando alterações são enviadas por push a um branch específico ou pode escrever um fluxo de trabalho do {% data variables.product.prodname_actions %} para publicar seu site.{% else%}Se você usar a fonte de publicação padrão para seu site do {% data variables.product.prodname_pages %}, seu site será publicado automaticamente. Você também pode optar por publicar o seu site a partir de um branch ou uma pasta diferente.{% endif %}'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -14,84 +14,85 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Configurar fonte de publicação
+shortTitle: Configure publishing source
+ms.openlocfilehash: d08b5c150da5be18700312237c374059228c563d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529636'
 ---
-
-## About publishing sources
+## Sobre as fontes de publicação
 
 {% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-## Publishing from a branch
+## Fazer publicação de um branch
 
-1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Verifique se o branch que você deseja usar como fonte de publicação já existe no repositório.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% ifversion pages-custom-workflow %}
+1. Em "Build e implantação", em "Fonte", selecione **Fazer implantação de um branch**.
+1. Em "Build e implantação", em "Branch", use o menu suspenso **Nenhum** ou **Branch** e selecione uma fonte de publicação.
 
-   ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-3. Em "{% data variables.product.prodname_pages %}", use o menu suspenso **Nenhum** ou **Branch** e selecione uma fonte de publicação. ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
-4. Opcionalmente, use o menu suspenso para selecionar uma pasta para sua fonte de publicação. ![Menu suspenso para selecionar uma pasta para a fonte de publicação](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. Clique em **Salvar**. ![Botão para salvar alterações nas configurações da fonte de publicação](/assets/images/help/pages/publishing-source-save.png)
+   ![Menu suspenso usado para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png) {% else %}
+3. Em "{% data variables.product.prodname_pages %}", use o menu suspenso **Nenhuma** ou **Branch** e selecione uma fonte de publicação.
+  ![Menu suspenso usado para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png) {% endif %}
+4. Opcionalmente, use o menu suspenso para selecionar uma pasta para sua fonte de publicação.
+  ![Menu suspenso usado para selecionar uma pasta para a fonte de publicação](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+5. Clique em **Salvar**.
+  ![Botão usado para salvar as alterações nas configurações da fonte de publicação](/assets/images/help/pages/publishing-source-save.png)
 
-### Troubleshooting publishing from a branch
+### Solução de problemas de publicação de um branch
 
 {% data reusables.pages.admin-must-push %}
 
-Se você escolher a pasta `docs` em qualquer branch como fonte de publicação e, em seguida, remover a pasta `/docs` desse branch do repositório, seu site não vai criar e você receberá uma mensagem de erro de criação de página para uma pasta `/docs` que está faltando. Para obter informações, consulte [Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".
+Se você escolher a pasta `docs` em qualquer branch como a origem de publicação e, depois, remover a pasta `/docs` desse branch no repositório, seu site não será compilado e você receberá uma mensagem de erro de build de página para uma pasta `/docs` ausente. Para obter mais informações, confira "[Solução de problemas de erros de build do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".
 
 {% ifversion build-pages-with-actions %}
 
-O seu sitede {% data variables.product.prodname_pages %} será sempre implantado com a execução de um fluxo de trabalho {% data variables.product.prodname_actions %}, mesmo que você tenha configurado seu site {% data variables.product.prodname_pages %} para ser criado usando uma ferramenta de CI diferente. A maioria dos fluxos de trabalho de CI externos fazem "implantação" no GitHub Pages, fazendo commit da saída da compilação no branch de `gh-pages` do repositório, e normalmente, incluem um arquivo `.nojekyll`. Quando isso acontecer, o fluxo de trabalho de {% data variables.product.prodname_actions %} detectará o estado de que o branch não precisa de uma etapa de criação e seguirá as etapas necessárias para implantar o site em servidores de {% data variables.product.prodname_pages %}.
+O seu sitede {% data variables.product.prodname_pages %} será sempre implantado com a execução de um fluxo de trabalho {% data variables.product.prodname_actions %}, mesmo que você tenha configurado seu site {% data variables.product.prodname_pages %} para ser criado usando uma ferramenta de CI diferente. A maioria dos fluxos de trabalho de CI externos é "implantada" no GitHub Pages pelo commit da saída de build no branch `gh-pages` do repositório e, geralmente, inclui um arquivo `.nojekyll`. Quando isso acontecer, o fluxo de trabalho do {% data variables.product.prodname_actions %} detectará o estado de que o branch não precisa de uma etapa de build e executará apenas as etapas necessárias para implantar o site em servidores do {% data variables.product.prodname_pages %}.
 
-Para encontrar possíveis erros com a compilação ou implantação, você pode verificar a execução do fluxo de trabalho para o seu site de {% data variables.product.prodname_pages %} revisando a execução do fluxo de trabalho do seu repositório. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)". Para obter mais informações sobre como executar novamente o fluxo de trabalho em caso de erro, consulte "[Executar novamente fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+Para encontrar possíveis erros com a compilação ou implantação, você pode verificar a execução do fluxo de trabalho para o seu site de {% data variables.product.prodname_pages %} revisando a execução do fluxo de trabalho do seu repositório. Para obter mais informações, confira "[Como ver o histórico de execução do fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)". Para obter mais informações sobre como executar novamente o fluxo de trabalho em caso de erro, confira "[Como executar fluxos de trabalho e trabalhos novamente](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
 {% endif %}
 
 {% ifversion pages-custom-workflow %}
 
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+## Fazer publicação com um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %}
 
 {% data reusables.pages.pages-custom-workflow-beta %}
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
+Para configurar seu site para publicar com {% data variables.product.prodname_actions %}:
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. Em "Build e implantação", em "Fonte", selecione **GitHub Actions**.
+1. {% data variables.product.product_name %} sugerirá vários fluxos de trabalho iniciais. Se você já tiver um fluxo de trabalho para publicar seu site, poderá ignorar esta etapa. Caso contrário, escolha uma das opções para criar um fluxo de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações sobre como criar seu fluxo de trabalho personalizado, confira "[Como criar um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %} para publicar seu site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
 
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+   {% data variables.product.prodname_pages %} não associa um fluxo de trabalho específico às configurações de {% data variables.product.prodname_pages %}. No entanto, as configurações de {% data variables.product.prodname_pages %} serão vinculadas à execução de fluxo de trabalho que implantou seu site mais recentemente.
 
-### Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site
+### Criar um fluxo de trabalho de {% data variables.product.prodname_actions %} para publicar seu site
 
-For more information about {% data variables.product.prodname_actions %}, see "[Actions](/actions)."
+Para obter mais informações sobre {% data variables.product.prodname_actions %}, confira "[Ações](/actions)."
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+Quando você configurar seu site para ser publicado com {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} vai sugerir fluxos de trabalho iniciais para cenários de publicação comuns. O fluxo geral de um fluxo de trabalho é:
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever a pull request that targets the default branch is opened, reopened, or updated.
-1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
-1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
+1. Disparar sempre que houver um push para o branch padrão do repositório ou sempre que uma solicitação de pull direcionada ao branch padrão for aberta, reaberta ou atualizada.
+1. Usar a ação [`actions/checkout`](https://github.com/actions/checkout) para conferir o conteúdo do repositório.
+1. Se exigido pelo seu site, crie arquivos de site estáticos.
+1. Usar a ação [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) para carregar os arquivos estáticos como um artefato.
+1. Se o fluxo de trabalho foi disparado por um push para o branch padrão, use a ação [`actions/deploy-pages`](https://github.com/actions/deploy-pages) para implantar o artefato. Essa etapa será ignorada se o fluxo de trabalho tiver sido disparado por uma solicitação de pull.
 
-The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment)".
+Os fluxos de trabalho iniciais usam um ambiente de implantação chamado `github-pages`. Se o repositório ainda não incluir um ambiente chamado `github-pages`, o ambiente será criado automaticamente. Recomendamos que você adicione uma regra de proteção de ambiente para que apenas o branch padrão possa ser implantado nesse ambiente. Para obter mais informações, confira "[Como usar ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment)".
 
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**Observação**: um arquivo `CNAME` no seu arquivo de repositório não adiciona nem remove automaticamente um domínio personalizado. Em vez disso, você precisa configurar o domínio personalizado por meio das configurações do repositório ou por meio da API. Para obter mais informações, confira "[Gerenciar um domínio personalizado para seu site do GitHub Pages](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" e a [documentação de referência da API do Pages](/rest/pages#update-information-about-a-github-pages-site).
 
 {% endnote %}
 
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+### Solucionar problemas da publicação com um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %}
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
+Para obter informações sobre como solucionar problemas do seu fluxo de trabalho de {% data variables.product.prodname_actions %}, confira "[Sobre o monitoramento e a solução de problemas](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)".
 
 {% endif %}

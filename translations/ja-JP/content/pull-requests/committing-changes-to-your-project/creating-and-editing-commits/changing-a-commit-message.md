@@ -11,31 +11,35 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132571'
 ---
-
 ## 直近のコミットメッセージの書き換え
 
-`git commit --amend` コマンドで、直近のコミットメッセージを変更できます。
+`git commit --amend` コマンドで、直近のコミット メッセージを変更できます。
 
 Git では、コミットメッセージのテキストはコミットの一部として扱われます。 コミットメッセージを変更すると、コミット ID (コミットの SHA1 チェックサム) も変更されます。 実質的には、古いコミットに代わる新しいコミットを作成することになります。
 
 ## オンラインにプッシュされていないコミット
 
-コミットがローカルリポジトリにのみ存在し、{% data variables.product.product_location %}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
+コミットがローカル リポジトリにのみ存在し、{% data variables.product.product_location %} にプッシュされていない場合、`git commit --amend` コマンドでコミット メッセージを修正できます。
 
 1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
-2. `git commit --amend` と入力し、**Enter** を押します。
+2. 「`git commit --amend`」と入力して **Enter** キーを押します。
 3. テキストエディタでコミットメッセージを編集し、コミットを保存します。
-    - コミットにトレーラーを追加することで、共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)」を参照してください。
+    - コミットにトレーラーを追加することで、共作者を追加できます。 詳細については、「[複数の作者を持つコミットを作成する](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)」を参照してください。
 {% ifversion fpt or ghec %}
-    - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
-{% endif %}
+    - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳細については、「[Organization の代理でコミットを作成する](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)」を参照してください。{% endif %}
 
 次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。
 
 {% tip %}
 
-Git で使うデフォルトのテキストエディタは、`core.editor` の設定で変更できます。 詳しい情報については、Git のマニュアルにある「[基本クライアント設定](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)」を参照してください。
+Git で使うデフォルトのテキスト エディタは、`core.editor` の設定で変更できます。 詳しい情報については、Git のマニュアルにある「[基本クライアント設定](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)」を参照してください。
 
 {% endtip %}
 
@@ -51,21 +55,21 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 **直近でプッシュされたコミットのメッセージを変更する**
 
-1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
-2. Use the `push --force-with-lease` command to force push over the old commit.
+1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミット メッセージを修正します。
+2. `push --force-with-lease` コマンドにより、古いコミットをフォース プッシュで上書きします。
   ```shell
   $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
-**古いまたは複数のコミットメッセージを変更する**
+**古いまたは複数のコミット メッセージを変更する**
 
 複数のコミットまたは古いコミットの、メッセージを修正する必要がある場合は、インタラクティブなリベースを利用した後にフォースプッシュして、コミットの履歴を変更できます。
 
 1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
-2. `git rebase -i HEAD~n` コマンドで、デフォルトのテキストエディタに直近 `n` コミットの一覧を表示できます。
+2. `git rebase -i HEAD~n` コマンドで、デフォルトのテキスト エディタに直近 `n` コミットの一覧を表示できます。
 
     ```shell
-    # 現在のブランチの最後の 3 つのコミットのリストを表示する
+    # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
     リストは、以下のようになります。
@@ -93,7 +97,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
     #
     # Note that empty commits are commented out
     ```
-3. 変更する各コミットメッセージの前の `pick` を `reword` に置き換えます。
+3. 各コミット メッセージを変更する前に、`pick` を `reword` に置換してください。
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
@@ -106,7 +110,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 $ git push --force origin <em>example-branch</em>
 ```
 
-インタラクティブリベースに関する詳しい情報については、Git のマニュアルにある「[インタラクティブモード](https://git-scm.com/docs/git-rebase#_interactive_mode)」を参照してください。
+インタラクティブ リベースに関する詳しい情報については、Git のマニュアルにある「[インタラクティブ モード](https://git-scm.com/docs/git-rebase#_interactive_mode)」を参照してください。
 
 {% tip %}
 
@@ -120,6 +124,6 @@ $ git push --force origin <em>example-branch</em>
 
 {% endwarning %}
 
-## 参考リンク
+## 参考資料
 
 * 「[コミットに署名する](/articles/signing-commits)」

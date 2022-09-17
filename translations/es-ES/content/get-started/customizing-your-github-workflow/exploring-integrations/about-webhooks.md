@@ -12,11 +12,16 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 30232a560237d473f17ec01d6451cb25195521fc
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880617'
 ---
-
 {% tip %}
 
-**Sugerencia:**{% data reusables.organizations.owners-and-admins-can %} administrar webhooks para una organización. {% data reusables.organizations.new-org-permissions-more-info %}
+**Sugerencia:** {% data reusables.organizations.owners-and-admins-can %} administrar los webhooks de una organización. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -29,4 +34,4 @@ Los webhooks se pueden disparar siempre que se realicen una variedad de acciones
 
 Al utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, puedes hacer que estos webhooks actualicen un rastreador de propuesta externo, activen compilaciones de IC, actualicen una réplica de respaldo o incluso desplieguen en tu servidor de producción.
 
-Para configurar un webhook nuevo, necesitarás acceso a un servidor externo y estar familiarizado con los procedimientos técnicos involucrados. Para obtener ayuda para crear un webhook, lo cual incluye un listado completo de las acciones con las que lo puedes asociar, consulta la secicón "[Webhooks](/webhooks)".
+Para configurar un webhook nuevo, necesitarás acceso a un servidor externo y estar familiarizado con los procedimientos técnicos involucrados. Para obtener ayuda para crear un webhook, así como una lista completa de acciones con las que lo puede asociar, consulte "[Webhooks](/webhooks)".

@@ -13,19 +13,24 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: マイルストーンへの進捗の表示
+shortTitle: View progress to milestone
+ms.openlocfilehash: 46c1b154bb5ae71e0ef4b75a8404f70ef467a867
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880791'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-3. 左上隅にある [**Milestones**] をクリックします。 ![Issue マイルストーンボタン](/assets/images/help/issues/issues_milestone_button.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
+3. 左上隅の **[マイルストーン]** をクリックします。
+  ![issue の [Milestones]\(マイルストーン\) ボタン](/assets/images/help/issues/issues_milestone_button.png)
 4. 詳細を表示したいマイルストーンを選択します。
 
 ![Issue マイルストーンの概要](/assets/images/help/issues/issues_milestone_overview.png)
 
-プロジェクトをよりよく管理するために、マイルストーン内のIssueやPull Requestに優先順位を付けられます。 詳細は「[マイルストーンについて](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)」を参照してください。
+プロジェクトをよりよく管理するために、マイルストーン内のIssueやPull Requestに優先順位を付けられます。 詳細については、「[マイルストーンについて](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-* [Issue及びPull Requestとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)
-* [マイルストーンによるIssue及びPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
+* "[Issue および pull request にマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)"
+* "[Issue と pull request をマイルストーンでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-milestone)"

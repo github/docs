@@ -1,6 +1,6 @@
 ---
-title: 'Error: ssh-add: illegal option -- K'
-intro: 'This error means your version of `ssh-add` does not support macOS keychain integration, which allows you to store your passphrase in the keychain.'
+title: 'Error: ssh-add: opción ilegal -- K'
+intro: 'Este error significa que tu versión de `ssh-add` no es compatible con la integración keychain macOS, que te permite almacenar tu frase de contraseña en keychain.'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k
@@ -14,12 +14,18 @@ versions:
 topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
+ms.openlocfilehash: a9c563f637d2deb544611c8b357761ff1148fa1c
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091740'
 ---
-The `-K` option is in Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent. If you have installed a different version of `ssh-add`, it may lack support for `-K`.
+La opción `-K` es una versión estándar de Apple de `ssh-add`, que almacena la contraseña en su cadena de claves cuando agrega una clave SSH al ssh-agent. Si ha instalado una versión diferente de `ssh-add`, puede que no sea compatible con `-K`.
 
-## Solving the issue
+## Resolver el problema
 
-To add your SSH private key to the ssh-agent, you can specify the path to the Apple version of `ssh-add`:
+Para agregar su clave privada SSH al ssh-agent, puede especificar la ruta a la versión de Apple de `ssh-add`:
 
 ```shell
   $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
@@ -27,12 +33,12 @@ To add your SSH private key to the ssh-agent, you can specify the path to the Ap
 
 {% note %}
 
-**Note:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+**Nota**: {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 
-## Further reading
+## Información adicional
 
-- "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
-- [Linux man page for SSH-ADD](http://man7.org/linux/man-pages/man1/ssh-add.1.html)
-- To view Apple's man page for SSH-ADD, run `man ssh-add` in Terminal
+- "[Generar una nueva clave SSH y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
+- [Página man de Linux para SSH-ADD](http://man7.org/linux/man-pages/man1/ssh-add.1.html)
+- A fin de ver la página man de Apple para SSH-ADD, ejecute `man ssh-add` en el terminal.

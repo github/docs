@@ -1,6 +1,6 @@
 ---
-title: Creating and paying for an organization on behalf of a client
-intro: 'You can create and pay for a {% data variables.product.prodname_dotcom %} organization on behalf of a client.'
+title: Criar e pagar uma organização em nome de um cliente
+intro: 'Você pode criar e pagar por uma organização do {% data variables.product.prodname_dotcom %} em nome de um cliente.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
@@ -14,95 +14,82 @@ topics:
   - Organizations
   - Upgrades
 shortTitle: On behalf of a client
+ms.openlocfilehash: 6c0cdaa09d3e2bf476b6314c38d369ec89840aad
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083410'
 ---
-## Requirements
+## Requisitos
 
-Before you start, make sure you know:
-- The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
-- The name your client would like to use for the organization
-- The email address where you would like receipts to be sent
-- The [product](/articles/github-s-products) your client would like to purchase
-- The number of [paid seats](/articles/about-per-user-pricing/) your client would like you to purchase for the organization
+Antes de iniciar, certifique-se de que sabe:
+- O nome de usuário no {% data variables.product.prodname_dotcom %} do cliente que se tornará o proprietário da organização que você cria
+- O nome do cliente que deseja usar para a organização
+- O endereço de e-mail para onde deseja que os recibos sejam enviados
+- O [produto](/articles/github-s-products) que o cliente deseja comprar
+- O número de [estações pagas](/articles/about-per-user-pricing/) que o cliente deseja que você compre para a organização
 
-## Step 1: Create your personal {% data variables.product.prodname_dotcom %} account
+## Etapa 1: Criar sua conta pessoal no {% data variables.product.prodname_dotcom %}
 
-You will use your personal account to set up the organization. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
+Você usará sua conta pessoal para configurar a organização. Você também precisará entrar nessa conta para renovar ou fazer alterações na assinatura do seu cliente no futuro.
 
-If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
+Se você já tiver uma conta de usuário pessoal do {% data variables.product.prodname_dotcom %}, pule para a [etapa 2](#step-2-create-the-organization).
 
-1. Go to the [Join GitHub](https://github.com/join) page.
-2. Under "Create your personal account," type your username, email address, and password, then click **Create an account**.
-![Create personal account entry form](/assets/images/help/billing/billing_create_your_personal_account_form.png)
-3. Select {% data variables.product.prodname_free_user %} for your personal account.
-4. Click **Finish sign up**.
+1. Acesse a página [Ingresse no GitHub](https://github.com/join).
+2. Em "Criar sua conta pessoal", digite seu nome de usuário, o endereço de email e a senha e clique em **Criar uma conta**.
+![Formulário de entrada para criação de uma conta pessoal](/assets/images/help/billing/billing_create_your_personal_account_form.png)
+3. Selecione {% data variables.product.prodname_free_user %} para sua conta pessoal.
+4. Clique em **Concluir inscrição**.
 
-## Step 2: Create the organization
+## Etapa 2: Criar a organização
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-{% data reusables.organizations.new-organization %}
-3. Under "Choose a plan", click **Choose {% data variables.product.prodname_free_team %}**. You will upgrade the organization in the next step.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
+3. Em "Escolher um plano", clique em **Escolher o {% data variables.product.prodname_free_team %}** . Você atualizará a organização na próxima etapa.
 {% data reusables.organizations.organization-name %}
-5. Under "Contact email", type a contact email address for your client.
-  ![Contact email field](/assets/images/help/organizations/contact-email-field.png)
-{% data reusables.dotcom_billing.owned_by_business %}
-8. Click **Next**.
+5. Em "Contact email" (E-mail de contato), digite um endereço de e-mail de contato para seu cliente.
+  ![Campo Email de contato](/assets/images/help/organizations/contact-email-field.png) {% data reusables.dotcom_billing.owned_by_business %}
+8. Clique em **Próximo**.
 
-## Step 3: Upgrade the organization to a yearly paid subscription
+## Etapa 3: Atualizar a organização para uma assinatura paga anual
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.dotcom_billing.upgrade_org %}
-{% data reusables.dotcom_billing.choose_org_plan %} (You can add more seats to the organization in the next step.)
-6. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
-![Radio button for yearly billing](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.dotcom_billing.upgrade_org %} {% data reusables.dotcom_billing.choose_org_plan %} (Você poderá adicionar mais estações à organização na próxima etapa).
+6. Em "Resumo do upgrade", selecione **Pagar anualmente** para pagar a organização anualmente.
+![Botão de opção para cobrança anual](/assets/images/help/billing/choose-annual-billing-org-resellers.png) {% data reusables.dotcom_billing.enter-payment-info %} {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Step 4: Upgrade the number of paid seats in the organization
+## Etapa 4: Atualizar o número de estações pagas na organização
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.dotcom_billing.add-seats %}
-{% data reusables.dotcom_billing.number-of-seats %}
-{% data reusables.dotcom_billing.confirm-add-seats %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.dotcom_billing.add-seats %} {% data reusables.dotcom_billing.number-of-seats %} {% data reusables.dotcom_billing.confirm-add-seats %}
 
-## Step 5: Invite your client to join the organization
+## Etapa 5: Convidar cliente para ingressar na organização
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.invite_member_from_people_tab %}
-5. Type your client's {% data variables.product.prodname_dotcom %} username and press **Enter**.
-![Field to type your client's username](/assets/images/help/organizations/org-invite-modal.png)
-6. Choose the *owner* role for your client, then click **Send invitation**.
-![Owner radio button and send invitation button](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
-7. Your client will receive an email inviting them to the organization. They will need to accept the invitation before you can move on to the next step.
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %}
+5. Digite o nome de usuário do cliente no {% data variables.product.prodname_dotcom %} e pressione **ENTER**.
+![Campo usado para digitar o nome de usuário do cliente](/assets/images/help/organizations/org-invite-modal.png)
+6. Escolha a função *proprietário* para o cliente e clique em **Enviar convite**.
+![Botão de opção Proprietário e botão Enviar convite](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
+7. O cliente receberá um e-mail convidando-o para a organização. Ele precisará aceitar o convite para que você possa passar para a próxima etapa.
 
-## Step 6: Transfer organization ownership to your client
+## Etapa 6: Transferir a propriedade da organização para seu cliente
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. Confirm that your client is listed among the members of the organization and is assigned the *owner* role.
-5. To the right of your username, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
-  ![The manage access link](/assets/images/help/organizations/member-manage-access.png)
-6. On the left, click **Remove from organization**.
-  ![Remove from organization button](/assets/images/help/organizations/remove-from-org-button.png)
-7. Confirm your choice and click **Remove members**.
-  ![Remove members confirmation button](/assets/images/help/organizations/confirm-remove-from-org.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. Confirme se o cliente está listado entre os membros da organização e se ele recebeu a função *proprietário*.
+5. À direita do seu nome de usuário, use o menu suspenso {% octicon "gear" aria-label="The Settings gear" %} e clique em **Gerenciar**.
+  ![Link Gerenciar acesso](/assets/images/help/organizations/member-manage-access.png)
+6. À esquerda, clique em **Remover da organização**.
+  ![Botão Remover da organização](/assets/images/help/organizations/remove-from-org-button.png)
+7. Confirme sua escolha e clique em **Remover membros**.
+  ![Botão de confirmação Remover membros](/assets/images/help/organizations/confirm-remove-from-org.png)
 
-## Next steps
+## Próximas etapas
 
-1. Contact your client and ask them to [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
-2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-3. When it's time to renew your client's paid subscription, see "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)."
+1. Entre em contato com o cliente e peça a ele que [adicione você à organização como um gerente de cobrança](/articles/adding-a-billing-manager-to-your-organization). Você precisará ser um gerente de cobrança da organização para que possa renovar ou fazer alterações na assinatura do seu cliente no futuro.
+2. Se quiser que o cartão de crédito seja removido da organização para que não seja cobrado novamente, contate o {% data variables.contact.contact_support %}.
+3. Quando for hora de renovar a assinatura paga do cliente, confira "[Como renovar a organização paga do cliente](/articles/renewing-your-client-s-paid-organization)".
 
-## Further reading
+## Leitura adicional
 
-- "[About organizations for procurement companies](/articles/about-organizations-for-procurement-companies)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+- "[Sobre as organizações para empresas de compras](/articles/about-organizations-for-procurement-companies)"
+- "[Como fazer upgrade ou downgrade da organização paga do cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
+- "[Como renovar a organização paga do cliente](/articles/renewing-your-client-s-paid-organization)"

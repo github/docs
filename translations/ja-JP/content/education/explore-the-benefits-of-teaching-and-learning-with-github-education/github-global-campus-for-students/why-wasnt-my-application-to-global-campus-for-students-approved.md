@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application to Global Campus for students approved?
-intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
+title: 学生向け Global Campus への応募が承認されなかったのはなぜですか?
+intro: '{% data variables.product.prodname_global_campus %} への応募が承認されない場合のよくある理由を確認して、次回の応募で承認されるようにするヒントについて学びます。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -12,8 +12,13 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Application not approved
+ms.openlocfilehash: 929d64e8a33f53d1292ae75e09e0200af6b2ab73
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574213'
 ---
-
 {% tip %}
 
 **ヒント:** {% data reusables.education.about-github-education-link %}
@@ -44,31 +49,31 @@ shortTitle: Application not approved
 
 ## すでに使用されている学術メールアドレス
 
-If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
+別の {% data variables.product.prodname_dotcom %} アカウントの {% data variables.product.prodname_student_pack %} を要求するための学術メール アドレスが既に使用されていた場合、学術メール アドレスを再利用して別の {% data variables.product.prodname_student_pack %} を正常に申請することはできません。
 
 {% note %}
 
-**メモ:** 複数の個別アカウントを維持することは、{% data variables.product.prodname_dotcom %} [利用規約](/articles/github-terms-of-service/#3-account-requirements)に反しています。
+**注:** 複数の個別アカウントを維持することは、{% data variables.product.prodname_dotcom %} [サービス使用条件](/articles/github-terms-of-service/#3-account-requirements)に反します。
 
 {% endnote %}
 
-If you have more than one personal account, you must merge your accounts. 割引を保持するには、割引を付与されたアカウントをそのままにします。 すべてのメールアドレスを保持アカウントに追加することで、保持アカウントの名前を変更したり、コントリビューション履歴を保存したりできます。
+複数の個人用アカウントをお持ちの場合は、それらのアカウントをマージする必要があります。 割引を保持するには、割引を付与されたアカウントをそのままにします。 すべてのメールアドレスを保持アカウントに追加することで、保持アカウントの名前を変更したり、コントリビューション履歴を保存したりできます。
 
-詳しい情報については、以下を参照してください。
-- "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)"
-- 「[{% data variables.product.prodname_dotcom %} ユーザ名を変更する](/articles/changing-your-github-username)」
-- 「[メールアドレスを {% data variables.product.prodname_dotcom %} アカウントに追加する](/articles/adding-an-email-address-to-your-github-account)」
+詳細については、次を参照してください。
+- 「[複数の個人用アカウントのマージ](/articles/merging-multiple-user-accounts)」
+- 「[{% data variables.product.prodname_dotcom %} ユーザー名の変更](/articles/changing-your-github-username)」
+- 「[{% data variables.product.prodname_dotcom %} アカウントにメール アドレスを追加する](/articles/adding-an-email-address-to-your-github-account)」
 
 ## 対象外の学生ステータス
 
 以下の場合、{% data variables.product.prodname_student_pack %} の対象外となります:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) の一部ではない非公式の学習プログラムに登録していて、学位または卒業証書を授与するコースに現在在籍していない場合。
 - 取得を目指している学位が、現学期で終わる場合。
 - 13 歳未満の場合。
 
-インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
+インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 コーディング スクールや短期集中講座の学生は、学校が[{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) に参加している場合、{% data variables.product.prodname_student_pack %} を利用できるようになります。
 
-## 参考リンク
+## 参考資料
 
-- "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
-- "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"
+- {% data variables.product.prodname_blog %} の「[学生 ID なしで GitHub Student Developer Pack を取得する方法](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)」
+- 「[学生として {% data variables.product.prodname_global_campus %} に応募する](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)」

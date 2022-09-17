@@ -1,4 +1,12 @@
-1. Crie um plano do Azure App Service.
+---
+ms.openlocfilehash: 6058de00ebbc05baaa2e29cfba275fa2249b44a3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881192"
+---
+1. Criar um Plano do Serviço de Aplicativo do Azure.
 
    Por exemplo, você pode usar o CLI do Azure para criar um novo plano de App Service:
 
@@ -9,9 +17,9 @@
       --is-linux
    ```
 
-   No comando acima, substitua `MY_RESOURCE_GROUP` pelo seu Grupo de Recursos do Azure pré-existente, e `MY_APP_SERVICE_PLAN` por um novo nome para o plano do App Service.
+   No comando acima, substitua `MY_RESOURCE_GROUP` pelo grupo de recursos preexistente do Azure e `MY_APP_SERVICE_PLAN` por um novo nome para o Plano do Serviço de Aplicativo.
 
-   Para obter mais informações, consulte a documentação do Azure usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/):
+   Confira a documentação do Azure para obter mais informações sobre como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/):
 
-   * Para autenticação, consulte "[Efetuar login com o CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
-   * Se você precisar criar um novo grupo de recursos, consulte "[grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)".
+   * Para autenticação, confira "[Conectar-se com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)".
+   * Caso precise criar um grupo de recursos, confira "[az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)".

@@ -11,9 +11,14 @@ versions:
 topics:
   - SSO
 shortTitle: SSH Key with SAML
+ms.openlocfilehash: f4b11c123c01d56263de883cbdd0f87c48eee04b
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854284'
 ---
-
-既存の SSH キーを認可することも、新しい SSH キーを作成して認可することもできます。 新しい SSH キーの作成に関する詳しい情報については「[新しい SSH キーを生成して ssh-agent へ追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
+既存の SSH キーを認可することも、新しい SSH キーを作成して認可することもできます。 新しい SSH キーの作成の詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -21,17 +26,19 @@ shortTitle: SSH Key with SAML
 
 {% note %}
 
-**メモ:** SSH キーの認可が Organization によって取り消された場合、同じキーを再度認可することはできません。 新しい SSH キーを生成して認可する必要があります。 新しい SSH キーの作成に関する詳しい情報については「[新しい SSH キーを生成して ssh-agent へ追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
+**注:** SSH キーの認可が Organization によって取り消された場合、同じキーを再度認可することはできません。 新しい SSH キーを生成して認可する必要があります。 新しい SSH キーの作成の詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. 認可したい SSH キーの隣の [**Enable SSO**] (SSO を有効化) または [**Disable SSO**] (SSOを無効化) をクリックします。 ![SSO トークン認可ボタン](/assets/images/help/settings/ssh-sso-button.png)
-4. SSH キーを認可する Organization を見つけます。
-5. [**Authorize**] をクリックします。 ![トークン認可ボタン](/assets/images/help/settings/ssh-sso-authorize.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+1. 認可する SSH キーの右側にある **[SSO の構成]** をクリックします。
 
-## 参考リンク
+   ![SSO トークンの認可ボタンのスクリーンショット](/assets/images/help/settings/ssh-sso-button.png)
+1. SSH キーを認可する Organization の右側にある **[認可]** をクリックします。
 
-- [既存の SSH キーのチェック](/articles/checking-for-existing-ssh-keys)
-- [SAML シングルサインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)
+   ![トークンの認可ボタンのスクリーンショット](/assets/images/help/settings/ssh-sso-authorize.png)
+
+## 参考資料
+
+- 「[既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)」
+- 「[SAML のシングル サインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」

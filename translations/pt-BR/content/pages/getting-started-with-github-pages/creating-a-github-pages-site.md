@@ -1,6 +1,6 @@
 ---
-title: Criar um site do GitHub Pages
-intro: 'É possível criar um site do {% data variables.product.prodname_pages %} em um repositório novo ou existente.'
+title: Creating a GitHub Pages site
+intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
 redirect_from:
   - /articles/creating-pages-manually
   - /articles/creating-project-pages-manually
@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Criar um site do GitHub Pages
+shortTitle: Create a GitHub Pages site
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Criar um repositório para seu site
+## Creating a repository for your site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -33,7 +33,7 @@ shortTitle: Criar um site do GitHub Pages
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-## Criar seu site
+## Creating your site
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -45,7 +45,8 @@ shortTitle: Criar um site do GitHub Pages
 
    {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
 
-   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
+   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %}
+   The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
@@ -55,16 +56,16 @@ shortTitle: Criar um site do GitHub Pages
 
 {% data reusables.pages.admin-must-push %}
 
-## Próximas etapas
+## Next steps
 
-Você pode adicionar mais páginas ao seu site criando novos arquivos. Cada arquivo ficará disponível no site na mesma estrutura de diretórios que a fonte de publicação. Por exemplo, se a fonte de publicação do site de projeto for o branch `gh-pages` e você criar um arquivo chamado `/about/contact-us.md` no branch `gh-pages`, o arquivo novo ficará disponível em {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
+You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
 
-Também é possível adicionar um tema para personalizar a aparência do site. Para obter mais informações, consulte {% ifversion fpt or ghec %}"[Adicionar um tema ao site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}".
+You can also add a theme to customize your site’s look and feel. For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
-Para personalizar seu site ainda mais, você pode usar o Jekyll, um gerador de site estático com suporte integrado para o {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o JJekyll](/articles/about-github-pages-and-jekyll)".
+To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)".
 
-## Leia mais
+## Further reading
 
-- "[Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
-- "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository)"
-- "[Criar arquivos](/articles/creating-new-files)"
+- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
+- "[Creating new files](/articles/creating-new-files)"

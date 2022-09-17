@@ -13,19 +13,23 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: デプロイキー
+shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145088409'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. サイドバーの [Security]\(セキュリティ\) セクションで、 **[{% octicon "key" aria-label="The key icon" %} Deploy keys]\(キーのデプロイ\)** をクリックします。
 {% else %}
-3. 左サイドバーで [**Deploy keys**] をクリックします。 ![デプロイキーの設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. [Deploy keys] ページで、自分のアカウントに関連付けられているデプロイ キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効なデプロイ キーがある場合は、[**Approve**] をクリックします。 ![デプロイキーのリスト](/assets/images/help/settings/settings-deploy-key-review.png)
+3. 左サイドバーにある **[Deploy keys]\(キーのデプロイ\)** をクリックします。
+![[Deploy keys]\(キーのデプロイ\) 設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
+4. [Deploy keys] ページで、自分のアカウントに関連付けられているデプロイ キーを書き留めます。 認識していないもの、または古いものについては、 **[Delete]\(削除\)** をクリックします。 残しておきたい有効なデプロイ キーがある場合は、 **[Approve]\(承認\)** をクリックします。
+    ![デプロイ キー リスト](/assets/images/help/settings/settings-deploy-key-review.png)
 
-詳しい情報については、「[デプロイキーを管理する](/guides/managing-deploy-keys)」を参照してください。
+詳細については、「[デプロイ キーの管理](/guides/managing-deploy-keys)」を参照してください。
 
-## 参考リンク
-- [通知を設定する](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## 参考資料
+- [通知の構成](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

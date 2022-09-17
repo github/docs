@@ -1,7 +1,7 @@
 ---
-title: Using scripts to test your code on a runner
+title: スクリプトを使ってランナーでコードをテストする
 shortTitle: Using scripts to test your code on a runner
-intro: 'How to use essential {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+intro: '継続的インテグレーション (CI) のために基本的な {% data variables.product.prodname_actions %} 機能を使用する方法。'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -10,38 +10,34 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: f313a294bc2515564787268112f064b72d339d32
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '146749530'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Example overview
+## サンプルの概要
 
-{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links.
+{% data reusables.actions.example-workflow-intro-ci %} このワークフローがトリガーされると、{% data variables.product.prodname_dotcom %} Docs サイトに壊れたリンクがあるかどうかを確認するスクリプトが自動的に実行されます。
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![ワークフローのステップの概要図](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
 
-## Features used in this example
+## この例で使用されている機能
 
 {% data reusables.actions.example-table-intro %}
 
-| **機能** | **Implementation** |
-| ------ | ------------------ |
-|        |                    |
-{% data reusables.actions.push-table-entry %}
-{% data reusables.actions.pull-request-table-entry %}
-{% data reusables.actions.workflow-dispatch-table-entry %}
-{% data reusables.actions.permissions-table-entry %}
-{% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
-{% data reusables.actions.checkout-action-table-entry %}
-{% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| | Running a script on the runner: | Using `./script/rendered-content-link-checker.mjs` |
+| **機能**  | **実装** |
+| --- | --- | 
+{% data reusables.actions.push-table-entry %} {% data reusables.actions.pull-request-table-entry %} {% data reusables.actions.workflow-dispatch-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.concurrency-table-entry %} | リポジトリに応じたさまざまなランナー上のジョブの実行: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)| {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | サード パーティのアクションの使用: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| | ランナー上のスクリプトの実行: | `./script/rendered-content-link-checker.mjs` の使用 |
 
 ## ワークフローの例
 
-{% data reusables.actions.example-docs-engineering-intro %} [`link-check-all.yml`](https://github.com/github/docs/blob/main/.github/workflows/link-check-all.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`link-check-all.yml`](https://github.com/github/docs/blob/main/.github/workflows/link-check-all.yml)。
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -129,15 +125,15 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## 例の説明
 
 {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>コード</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:60%">"<b>コード</b>"</th>
+    <th style="width:40%"><b>説明</b></th>
   </tr>
 </thead>
 <tbody>
@@ -162,7 +158,7 @@ on:
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+`on` キーワードを使うと、ワークフローの実行時にトリガーするイベントを定義できます。 ここでは複数のイベントを定義できます。 詳細については、[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)に関するページを参照してください。
 </td>
 </tr>
 <tr>
@@ -174,7 +170,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+このワークフローを UI から手動で実行できるようにする場合は、`workflow_dispatch` イベントを追加します。 詳細については、「[`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -188,7 +184,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch called `main`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+`main` というブランチにコミットがプッシュされるたびにワークフローが自動的に実行されるようにするには、`push` イベントを追加します。 詳細については、「[`push`](/actions/using-workflows/events-that-trigger-workflows#push)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -200,7 +196,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 </td>
 <td>
 
-Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+pull request が作成または更新されるたびにワークフローが自動的に実行されるようにするには、`pull_request` イベントを追加します。 詳細については、「[`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -214,7 +210,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+`GITHUB_TOKEN` に付与される既定のアクセス許可を変更します。 これはワークフローのニーズによって異なります。 詳しい情報については、「[ジョブへのアクセス許可の割り当て](/actions/using-jobs/assigning-permissions-to-jobs)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -229,7 +225,7 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+特定のイベントに対するコンカレンシー グループを作成し、`||` 演算子を使ってフォールバック値を定義します。 詳細については、「[コンカレンシーの使用](/actions/using-jobs/using-concurrency)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -241,7 +237,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 </td>
 <td>
 
-Cancels any currently running job or workflow in the same concurrency group.
+同じコンカレンシー グループ内の現在実行中のジョブまたはワークフローを取り消します。
 </td>
 </tr>
 <tr>
@@ -253,7 +249,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+ワークフロー ファイルで実行されるすべてのジョブをグループ化します。
 </td>
 </tr>
 <tr>
@@ -265,7 +261,7 @@ Groups together all the jobs that run in the workflow file.
 </td>
 <td>
 
-Defines a job with the ID `check-links` that is stored within the `jobs` key.
+`jobs` キー内に格納されている ID `check-links` を持つジョブを定義します。
 </td>
 </tr>
 <tr>
@@ -279,7 +275,7 @@ Defines a job with the ID `check-links` that is stored within the `jobs` key.
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+ワークフローを実行するリポジトリに応じて、{% data variables.product.prodname_dotcom %} ホステッド ランナーまたはセルフホステッド ランナー上で実行するようにジョブを構成します。 この例では、リポジトリ名が `docs-internal` であり、`github` 組織内にある場合、ジョブはセルフホステッド ランナー上で実行されます。 このパスに一致しないリポジトリは、{% data variables.product.prodname_dotcom %} によってホストされる `ubuntu-latest` ランナー上で実行されます。 これらのオプションの詳細については、「[ジョブのランナーを選択する](/actions/using-jobs/choosing-the-runner-for-a-job)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -291,7 +287,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `check-links` job. Each job in a workflow has its own `steps` section.
+`check-links` ジョブの一部として実行されるすべてのステップをグループ化します。 ワークフロー内の各ジョブには、独自の `steps` セクションがあります。
 </td>
 </tr>
 <tr>
@@ -304,7 +300,7 @@ Groups together all the steps that will run as part of the `check-links` job. Ea
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。
+`uses` キーワードは、`actions/checkout` という名前のアクションを取得するようにジョブに指示します。 これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。
 </td>
 </tr>
 <tr>
@@ -320,7 +316,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the Node.js software package on the runner, which gives you access to the `npm` command.
+このステップでは、`actions/setup-node` アクションを使用して、指定したバージョンの Node.js ソフトウェア パッケージをランナーにインストールします。これにより、`npm` コマンドにアクセスできるようになります。
 </td>
 </tr>
 
@@ -334,7 +330,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 </td>
 <td>
 
-The `run` keyword tells the job to execute a command on the runner. In this case, `npm ci` is used to install the npm software packages for the project.
+`run` キーワードは、ランナーでコマンドを実行するようにジョブに指示します。 この場合、`npm ci` はプロジェクトの npm ソフトウェア パッケージをインストールするために使用されます。
 </td>
 </tr>
 
@@ -350,7 +346,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 </td>
 <td>
 
-Uses the `trilom/file-changes-action` action to gather all the changed files. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
+`trilom/file-changes-action` アクションを使用して、変更されたすべてのファイルを収集します。 この例は、`a6ca26c14274c33b15e6499323aac178af06ad4b` SHA を使用して、特定のバージョンのアクションに合わせて固定されています。
 </td>
 </tr>
 
@@ -364,7 +360,7 @@ Uses the `trilom/file-changes-action` action to gather all the changed files. Th
 </td>
 <td>
 
-Lists the contents of `files.json`. This will be visible in the workflow run's log, and can be useful for debugging.
+`files.json` の内容を一覧表示します。 これはワークフロー実行のログに表示され、デバッグに役立ちます。
 </td>
 </tr>
 <tr>
@@ -384,7 +380,7 @@ Lists the contents of `files.json`. This will be visible in the workflow run's l
 </td>
 <td>
 
-This step uses `run` command to execute a script that is stored in the repository at `script/rendered-content-link-checker.mjs` and passes all the parameters it needs to run.
+このステップでは、`run` コマンドを使って、`script/rendered-content-link-checker.mjs` のリポジトリに格納されているスクリプトを実行し、実行に必要なすべてのパラメーターを渡します。
 </td>
 </tr>
 <tr>
@@ -403,12 +399,12 @@ This step uses `run` command to execute a script that is stored in the repositor
 </td>
 <td>
 
-This step also uses `run` command to execute a script that is stored in the repository at `script/rendered-content-link-checker.mjs` and passes a different set of parameters.
+このステップでも `run` コマンドを使って、`script/rendered-content-link-checker.mjs` のリポジトリに格納されているスクリプトを実行し、さまざまなパラメーターのセットを渡します。
 </tr>
 
 </tbody>
 </table>
 
-## 次のステップ
+## 次の手順
 
 {% data reusables.actions.learning-actions %}

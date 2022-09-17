@@ -8,8 +8,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: a976ad099b80297d0d1e006a020b77b6406989eb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145095672'
 ---
-
 Você pode instalar integrações em sua conta pessoal ou em organizações que possui. Você também pode instalar {% data variables.product.prodname_github_apps %} a partir de um repositório específico em um repositório específico em que você tem permissões de administrador ou que pertencem à sua organização.
 
 ## Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}
@@ -19,22 +24,22 @@ As integrações podem ser {% data variables.product.prodname_github_apps %}, {%
 {% data variables.product.prodname_github_apps %} oferecem permissões granulares e solicitam acesso apenas ao que o aplicativo precisa. {% data variables.product.prodname_github_apps %} também oferece permissões específicas no nível de usuário que cada um deve autorizar individualmente quando um aplicativo está instalado ou quando o integrador altera as permissões solicitadas pelo aplicativo.
 
 Para obter mais informações, consulte:
-- "[Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)"
-- "[Sobre aplicativos](/apps/about-apps/)"
-- "[Permissões de nível de usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)"
-- "[Autorizar {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
-- "[Autorizar {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations/)"
+- "[Diferenças entre o {% data variables.product.prodname_github_apps %} e o {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)"
+- "[Sobre os aplicativos](/apps/about-apps/)"
+- "[Permissões no nível do usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)"
+- "[Como autorizar {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
+- "[Como autorizar {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
+- "[Como revisar suas integrações autorizadas](/articles/reviewing-your-authorized-integrations/)"
 
 Será possível instalar um {% data variables.product.prodname_github_app %} pré-configurado se os integradores ou criadores de app tiverem criado o respectivo app com o fluxo de manifesto do {% data variables.product.prodname_github_app %}. Para obter informações sobre como executar o {% data variables.product.prodname_github_app %} com configuração automatizada, entre em contato com o integrador ou criador do app.
 
-Você poderá criar um {% data variables.product.prodname_github_app %} com configuração simplificada se usar o Probot. Para obter mais informações, consulte o site de [documentos do Probot](https://probot.github.io/docs/).
+Você poderá criar um {% data variables.product.prodname_github_app %} com configuração simplificada se usar o Probot. Para obter mais informações, confira o site da [documentação do Probot](https://probot.github.io/docs/).
 
 ## Descobrir integrações no {% data variables.product.prodname_marketplace %}
 
 É possível encontrar uma integração para instalar ou publicar a sua própria integração no {% data variables.product.prodname_marketplace %}.
 
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contém {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}. Para obter mais informações sobre como encontrar uma integração ou criar sua própria integração, consulte "[Sobre o {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)".
+O [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contém {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}. Para obter mais informações sobre como encontrar uma integração ou criar sua integração, confira "[Sobre o {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)".
 
 ## Integrações compradas diretamente de integradores
 

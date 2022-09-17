@@ -12,23 +12,29 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: E-mails de marketing
+shortTitle: Marketing emails
+ms.openlocfilehash: 07d100e59d025072e098b016bde30a23b9a7449e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164634'
 ---
-
 ## Cancelar a assinatura de e-mails marketing do {% data variables.product.prodname_dotcom %}
 
 {% tip %}
 
-**Dica:** Se você cancelar a assinatura de todos os e-mails marketing e assinar a newsletter Explore, você receberá somente a newsletter e não recebrá outros e-mails marketing.
+**Dica:** se você cancelar a assinatura de todos os emails de marketing e assinar o boletim informativo Explorar, receberá apenas o boletim informativo Explorar e nenhum outro email de marketing.
 
 {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Em *Email preferences* (Preferências de e-mail), selecione **Only receive account related emails, and those I subscribe to** (Receber somente e-mails relacionados à conta e aqueles que assinei). ![Captura de tela de remover assinatura de e-mail marketing](/assets/images/help/notifications/email_preferences.png)
-4. Clique em **Save email preferences** (Salvar preferências de e-mail). ![Botão Save email preferences (Salvar preferências de e-mail)](/assets/images/help/notifications/save_email_preferences.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Em *Preferências de email*, selecione **Receber somente emails relacionados à conta e àqueles nos quais me inscrevi**.
+  ![Captura de tela da recusa de emails de marketing](/assets/images/help/notifications/email_preferences.png)
+4. Clique em **Salvar preferências de email**.
+  ![Botão Salvar preferências de email](/assets/images/help/notifications/save_email_preferences.png)
 
-## Leia mais
+## Leitura adicional
 
-- "[Tipos de e-mails enviados pelo GitHub](/articles/types-of-emails-github-sends)"
-- "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- "[Tipos de emails enviados pelo GitHub](/articles/types-of-emails-github-sends)"
+- "[Como configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"

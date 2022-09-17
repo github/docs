@@ -10,16 +10,21 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: a4097cd792931fe33363229b24f0043b9b99a1cd
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887218'
 ---
-
 ## Acerca de las vistas previas del modelo
 
-Durante el periodo de vista previa, podríamos cambiar algunas características con base en la retroalimentación de los desarrolladores. Si realizamos cambios, lo anunciaremos en el [blog de desarrolladores](https://developer.github.com/changes/) sin aviso previo.
+Durante el periodo de vista previa, podríamos cambiar algunas características con base en la retroalimentación de los desarrolladores. Si realizamos cambios, los anunciaremos en el [blog de desarrolladores](https://developer.github.com/changes/) sin aviso previo.
 
-Para aceder a una vista previa de modelo, necesitamos que nos proporciones un [tipo de medios](/rest/overview/media-types) personalizado en el encabezado `Accept` para tus solicitudes. La documentación de características para cada vista previa especifica qué tipo de medios personalizados proporcionar.
+Para acceder a una vista previa del esquema, deberás proporcionar un [tipo de medio](/rest/overview/media-types) personalizado en el encabezado `Accept` de las solicitudes. La documentación de características para cada vista previa especifica qué tipo de medios personalizados proporcionar.
 
 {% note %}
 
-**Nota:** En este momento no se puede acceder a los miembros de modelo de GraphQL bajo vista previa a través del explorador.
+**Nota:** Actualmente no se puede acceder a los miembros del esquema de GraphQL en vista previa mediante el Explorador.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
-title: プルリクエスト
-intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
+title: Pull Request
+intro: pull request を使って、プロジェクトへの変更を提案し、自分のプロジェクトに対する変更提案を受け取り、マージの競合などの pull request での問題に対処する方法について説明します。
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:
@@ -21,7 +21,7 @@ featuredLinks:
 changelog:
   label: pull-requests
 layout: product-landing
-shortTitle: プルリクエスト
+shortTitle: Pull requests
 versions:
   fpt: '*'
   ghec: '*'
@@ -32,5 +32,11 @@ topics:
 children:
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
+ms.openlocfilehash: ef158e51034ee5f8d9aba19323654ab413d244b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063971'
 ---
 

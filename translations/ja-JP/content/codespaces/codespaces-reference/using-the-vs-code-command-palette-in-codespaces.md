@@ -1,6 +1,6 @@
 ---
-title: Using the Visual Studio Code Command Palette in GitHub Codespaces
-intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.'
+title: GitHub Codespaces で Visual Studio Code のコマンド パレットを使う
+intro: '{% data variables.product.prodname_vscode %} のコマンド パレット機能を使用して、{% data variables.product.prodname_github_codespaces %} 内の多くのコマンドにアクセスできます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,56 +13,61 @@ shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
+ms.openlocfilehash: cefa91dd9549aaf89ee127585ac34a91e25c80d1
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760832'
 ---
+## {% data variables.product.prodname_vscode_command_palette %}について
 
-## {% data variables.product.prodname_vscode_command_palette %} について
+コマンド パレットは、{% data variables.product.prodname_github_codespaces %} で使用できる {% data variables.product.prodname_vscode %} の中心的な機能の 1 つです。 コマンドパレットを使用すると、{% data variables.product.prodname_codespaces %} および {% data variables.product.prodname_vscode_shortname %} の多くのコマンドにアクセスできます。 {% data variables.product.prodname_vscode_command_palette_shortname %}を使うことについて詳しくは、{% data variables.product.prodname_vscode_shortname %} のドキュメントの「[ユーザー インターフェイス](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)」を参照してください。
 
-The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The {% data variables.product.prodname_vscode_command_palette %} allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+## {% data variables.product.prodname_vscode_command_palette_shortname %}にアクセスする
 
-## Accessing the {% data variables.product.prodname_vscode_command_palette_shortname %}
+{% data variables.product.prodname_vscode_command_palette_shortname %}には多くの方法でアクセスできます。
 
-You can access the {% data variables.product.prodname_vscode_command_palette_shortname %} in a number of ways.
-
-- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)。
 
   このコマンドは Firefox で指定されているキーボードショートカットになりますので、ご注意ください。
 - <kbd>F1</kbd>
-- アプリケーションメニューから、**[View] > [Command Palette…]** をクリックします。
+- [アプリケーション] メニューの **[表示] > [コマンド パレット]...** をクリックします。
 
   ![アプリケーションメニュー](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-## {% data variables.product.prodname_codespaces %} のコマンド
+## {% data variables.product.prodname_codespaces %} 用のコマンド
 
-To see all commands related to {% data variables.product.prodname_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
+{% data variables.product.prodname_codespaces %} に関連するコマンドをすべて表示するには、[{% data variables.product.prodname_vscode_command_palette_shortname %} にアクセス](#accessing-the-command-palette)してから、「Codespaces」と入力します。
 
 ![Codespaces に関連するすべてのコマンドのリスト](/assets/images/help/codespaces/codespaces-command-palette.png)
 
 ### Codespace のサスペンドまたは停止
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes.
+新しいシークレットを追加したり、マシンの種類を変更した場合、codespace を停止および再起動して変更を適用する必要があります。 
 
-To suspend or stop your codespace's container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "stop". [**Codespaces: Stop Current Codespace**] を選択します。
+codespace のコンテナーを中断または停止するには、[{% data variables.product.prodname_vscode_command_palette_shortname %}にアクセス](#accessing-the-command-palette)し、「停止」と入力します。 **[Codespaces: 現在の Codespace を停止]** を選びます。
 
 ![Codespace を停止するコマンド](/assets/images/help/codespaces/codespaces-stop.png)
 
 ### テンプレートから開発コンテナを追加する
 
-To add a dev container from a template, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". [**Codespaces: Add Development Container Configuration Files...**] を選択します。
+テンプレートから開発コンテナーを追加するには、[{% data variables.product.prodname_vscode_command_palette_shortname %}にアクセス](#accessing-the-command-palette)し、「開発コンテナー」と入力します。 **[Codespaces: 開発コンテナー構成ファイルの追加...]** を選びます。
 
 ![開発コンテナを追加するコマンド](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
 ### Codespace を再構築する
 
-開発コンテナを追加するか、設定ファイル（`devcontainer.json` および `Dockerfile`）のいずれかを編集する場合、変更を適用するために codespace を再構築する必要があります。
+開発コンテナーを追加したり、構成ファイル (`devcontainer.json` および `Dockerfile`) のいずれかを編集した場合、codespace を再構築して変更を適用する必要があります。 
 
-To rebuild your container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "rebuild". **Codespaces: Rebuild Container（Codespaces: コンテナをリビルド）**を選択してください。
+コンテナーを再構築するには、[{% data variables.product.prodname_vscode_command_palette_shortname %}にアクセス](#accessing-the-command-palette)し、「再構築」と入力します。 **[Codespaces: コンテナーのリビルド]** を選択します。
 
 ![Codespace を再構築するコマンド](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 ### Codespace のログ
 
-You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs.
+{% data variables.product.prodname_vscode_command_palette_shortname %}を使うと、codespace 作成ログにアクセスすることも、すべてのログをエクスポートすることもできます。 
 
-To retrieve the logs for {% data variables.product.prodname_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
+{% data variables.product.prodname_codespaces %} のログを取得するには、[{% data variables.product.prodname_vscode_command_palette_shortname %} にアクセス](#accessing-the-command-palette)してから、「ログ」と入力します。 **[Codespaces: ログのエクスポート]** を選び、{% data variables.product.prodname_codespaces %} に関連するすべてのログをエクスポートするか、 **[Codespaces: 作成ログの表示]** を選び、セットアップに関連するログを表示します。
 
 ![ログにアクセスするコマンド](/assets/images/help/codespaces/codespaces-logs.png)

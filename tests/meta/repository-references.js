@@ -59,12 +59,14 @@ const PUBLIC_REPOS = new Set([
   'roadmap',
   'securitylab',
   'semantic',
+  'ssh_data',
   'site-policy',
   'smimesign',
   'stack-graphs',
   'super-linter',
   'tweetsodium',
   'VisualStudio',
+  'codespaces-getting-started-ml',
 ])
 
 const ALLOW_DOCS_PATHS = [

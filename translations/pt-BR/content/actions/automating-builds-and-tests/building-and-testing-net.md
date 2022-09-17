@@ -8,31 +8,34 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Criar & test .NET
+shortTitle: Build & test .NET
+ms.openlocfilehash: eadb00516976159f2efffcaa04cb4b46471c527f
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147063615'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no .NET.
 
-{% ifversion ghae %} Para criar e testar seu projeto .NET no {% data variables.product.prodname_ghe_managed %}, é necessário o SDK Core do .NET. {% data reusables.actions.self-hosted-runners-software %}
-Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui o SDK Core do .NET. Para uma lista completa de software atualizado e as versões pré-instaladas do .NET Core SDK, consulte [o software instalado nos executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
+{% ifversion ghae %} Para criar e testar seu projeto .NET no {% data variables.product.prodname_ghe_managed %}, é necessário o SDK Core do .NET. {% data reusables.actions.self-hosted-runners-software %} {% else %} Os executores hospedados no {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com programas de software pré-instalados, que incluem o SDK do .NET Core. Para ver a lista completa de programas de software atualizados e as versões pré-instaladas do SDK do .NET Core, confira [Programas de software instalados nos executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
 {% endif %}
 
 ## Pré-requisitos
 
-Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
-Recomendamos que você tenha um entendimento básico do .NET Core SDK. Para obter mais informações, consulte [Primeiros passos com o .NET](https://dotnet.microsoft.com/learn).
+Recomendamos que você tenha um entendimento básico do .NET Core SDK. Para obter mais informações, confira [Introdução ao .NET](https://dotnet.microsoft.com/learn).
 
 ## Usando o fluxo de trabalho inicial do .NET
 
-{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do .NET que deve funcionar na maior parte dos projetos do .NET e este guia inclui exemplos que mostram como personalizar este fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do .NET](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do .NET que deve funcionar na maior parte dos projetos do .NET e este guia inclui exemplos que mostram como personalizar este fluxo de trabalho inicial. Para obter mais informações, confira o [fluxo de trabalho inicial do .NET](https://github.com/actions/setup-dotnet).
 
-Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
+Para experimentar uma introdução rápida, adicione o fluxo de trabalho inicial ao diretório `.github/workflows` do repositório.
 
 ```yaml
 name: dotnet package
@@ -63,9 +66,9 @@ jobs:
 
 ## Especificando uma versão do .NET
 
-Para usar uma versão pré-instalada do .NET Core SDK em um executor hospedado em {% data variables.product.prodname_dotcom %}, use a ação `setup-dotnet`. Esta ação encontra uma versão específica do .NET do cache de ferramentas em cada executor e adiciona os binários necessários para `PATH`. Estas alterações persistirão para o resto do trabalho.
+Para usar uma versão pré-instalada do SDK do .NET Core em um executor hospedado no {% data variables.product.prodname_dotcom %}, use a ação `setup-dotnet`. Essa ação localiza uma versão específica do .NET no cache de ferramentas em cada executor e adiciona os binários necessários a `PATH`. Estas alterações persistirão para o resto do trabalho.
 
-A ação `setup-dotnet` é a forma recomendada de usar .NET com {% data variables.product.prodname_actions %}, porque garante um comportamento consistente em executores diferentes e versões diferentes do .NET. Se você estiver usando um executor auto-hospedado, você deverá instalar o .NET e adicioná-lo ao `PATH`. Para obter mais informações, consulte a ação [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk).
+A ação `setup-dotnet` é a maneira recomendada de usar o .NET com o {% data variables.product.prodname_actions %}, pois garante um comportamento consistente entre diferentes executores e diferentes versões do .NET. Se você estiver usando um executor auto-hospedado, precisará instalar o .NET e adicioná-lo a `PATH`. Para obter mais informações, confira a [ação `setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk).
 
 ### Usar múltiplas versões do .NET
 
@@ -95,7 +98,7 @@ jobs:
 
 ### Usar uma versão específica do .NET
 
-Você pode configurar o seu trabalho para usar uma versão específica do .NET, como `3.1.3`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a versão mais recente do .NET 3.
+Você pode configurar seu trabalho para usar uma versão específica do .NET, como `3.1.3`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a versão mais recente do .NET 3.
 
 ```yaml
     - name: Setup .NET 3.x
@@ -124,9 +127,9 @@ steps:
 
 ### Memorizar dependências
 
-Você pode armazenar em cache dependências do NuGet usando uma chave única, o que lhe permite restaurar as dependências para futuros fluxos de trabalho com a ação [`cache`](https://github.com/marketplace/actions/cache). Por exemplo, o YAML abaixo instala o pacote `Newtonsoft`.
+Você pode armazenar em cache as dependências do NuGet usando uma chave exclusiva, o que permite restaurar as dependências em fluxos de trabalho futuros com a ação [`cache`](https://github.com/marketplace/actions/cache). Por exemplo, o YAML abaixo instala o pacote `Newtonsoft`.
 
-Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/guides/caching-dependencies-to-speed-up-workflows)".
+Para obter mais informações, confira "[Como armazenar dependências em cache para acelerar os fluxos de trabalho](/actions/guides/caching-dependencies-to-speed-up-workflows)".
 
 ```yaml
 steps:
@@ -148,7 +151,7 @@ steps:
 
 {% note %}
 
-**Observação:** Dependendo do número de dependências, pode ser mais rápido para usar o armazenamento de dependências. Os projetos com muitas dependências grandes devem ver um aumento no desempenho conforme reduz o tempo necessário para fazer o download. Os projetos com menos dependências podem não ver um aumento significativo no desempenho e até mesmo ver um ligeiro diminuir devido à forma como o NuGet instala dependências armazenadas em cache. O desempenho varia de projeto para projeto.
+**Observação:** conforme o número de dependências, pode ser mais rápido usar o cache de dependência. Os projetos com muitas dependências grandes devem ver um aumento no desempenho conforme reduz o tempo necessário para fazer o download. Os projetos com menos dependências podem não ver um aumento significativo no desempenho e até mesmo ver um ligeiro diminuir devido à forma como o NuGet instala dependências armazenadas em cache. O desempenho varia de projeto para projeto.
 
 {% endnote %}
 
@@ -156,7 +159,7 @@ steps:
 
 ## Criar e testar seu código
 
-Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Este exemplo demonstra como usar a `dotnet build` e o `dotnet test` em um trabalho:
+Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Este exemplo demonstra como usar `dotnet build` e `dotnet test` em um trabalho:
 
 ```yaml
 steps:
@@ -175,9 +178,9 @@ steps:
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 
-Após a conclusão de um fluxo de trabalho, você poderá fazer o upload dos artefatos resultantes para análise. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. O exemplo a seguir demonstra como você pode usar a ação `upload-artefato` para fazer o upload de resultados de testes.
+Após a conclusão de um fluxo de trabalho, você poderá fazer o upload dos artefatos resultantes para análise. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. O exemplo a seguir demonstra como você pode usar a ação `upload-artifact` para carregar os resultados do teste.
 
-Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+Para obter mais informações, confira "[Como persistir dados de fluxo de trabalho usando artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
 ```yaml
 name: dotnet package
@@ -213,7 +216,7 @@ jobs:
 
 ## Publicar nos registros do pacote
 
-É possível configurar o seu fluxo de trabalho para publicar o pacote .NET em um pacote de registro quando o CI teste é aprovado. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
+É possível configurar o seu fluxo de trabalho para publicar o pacote .NET em um pacote de registro quando o CI teste é aprovado. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote no {% data variables.product.prodname_registry %} usando `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package

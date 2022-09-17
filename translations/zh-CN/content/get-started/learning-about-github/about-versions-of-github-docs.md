@@ -1,60 +1,65 @@
 ---
-title: About versions of GitHub Docs
-intro: 'You can read documentation that reflects the {% data variables.product.company_short %} product you''re currently using.'
+title: 关于 GitHub 文档的版本
+intro: 您可以阅读反映您当前所用 {% data variables.product.company_short %} 产品的文档。
 versions: '*'
 shortTitle: Docs versions
+ms.openlocfilehash: 656cb53b79409329299d63e9f77b14a56b809f6c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146681293"
 ---
+## 关于 {% data variables.product.prodname_docs %} 的版本
 
-## About versions of {% data variables.product.prodname_docs %}
+{% data variables.product.company_short %} 提供不同的产品，用于存储和协作处理代码。 您使用的产品决定了您可以使用哪些功能。 有关详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”。
 
-{% data variables.product.company_short %} offers different products for storing and collaborating on code. The product you use determines which features are available to you. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+本网站 {% data variables.product.prodname_docs %} 提供 {% data variables.product.company_short %} 所有产品的文档。 如果您正在阅读的内容适用于多个产品，则可以通过选择当前正在使用的产品来选择与您相关的文档版本。
 
-This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s products. If the content you're reading applies to more than one product, you can choose the version of the documentation that's relevant to you by selecting the product you're currently using.
+在 {% data variables.product.prodname_docs %} 页面顶部选择下拉菜单，然后单击产品。 如果浏览器窗口不够宽，无法显示完整的导航栏，可能需要先单击 {% octicon "three-bars" aria-label="The three bars icon" %}。
 
-At the top of a page on {% data variables.product.prodname_docs %}, select the dropdown menu and click a product. If your browser window is not wide enough to display the full navigation bar, you may need to click {% octicon "three-bars" aria-label="The three bars icon" %} first.
-
-![Screenshot of the dropdown menu for picking a version of {% data variables.product.prodname_docs %} to view](/assets/images/help/docs/version-picker.png)
+![用于选择要查看的 {% data variables.product.prodname_docs %} 版本的下拉菜单的屏幕截图](/assets/images/help/docs/version-picker.png)
 
 {% note %}
 
-**Note**: You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} {% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %} version of this article.
+注意：现在可以尝试更改版本。 你正在查看本文章的{% ifversion ghes %}{% else %}{% endif %}{% ifversion fpt %}免费、专业和团队{% else %}{% data variables.product.product_name %}{% endif %}版。
 
 {% endnote %}
 
-## Determining which {% data variables.product.company_short %} product you use
+## 确定您使用的 {% data variables.product.company_short %} 产品
 
-You can determine which {% data variables.product.company_short %} product you're currently using by reviewing the URL in the address bar of your browser and the heading for the {% data variables.product.prodname_dotcom %} website you're on.
+您可以通过查看浏览器地址栏中的网址和您所在 {% data variables.product.prodname_dotcom %} 网站的标题来确定您当前正在使用的 {% data variables.product.company_short %} 产品。
 
-You may use more than one {% data variables.product.company_short %} product. For example, you might contribute to open source on {% data variables.product.prodname_dotcom_the_website %} and collaborate on code on your employer's {% data variables.product.prodname_ghe_server %} instance. You may need to view different versions of the same article at different times, depending on the problem you're currently trying to solve.
+您可以使用多个 {% data variables.product.company_short %} 产品。 例如，您可以在 {% data variables.product.prodname_dotcom_the_website %} 上为开源做出贡献，并在雇主的 {% data variables.product.prodname_ghe_server %} 实例上协作编写代码。 您可能需要在不同时间查看同一文章的不同版本，具体取决于您当前尝试解决的问题。
 
-### {% data variables.product.prodname_dotcom_the_website %} plans or {% data variables.product.prodname_ghe_cloud %}
+### {% data variables.product.prodname_dotcom_the_website %} 计划或 {% data variables.product.prodname_ghe_cloud %}
 
-If you access {% data variables.product.prodname_dotcom %} at https://github.com, you're either using the features of a Free, Pro, or Team plan, or you're using {% data variables.product.prodname_ghe_cloud %}.
+如果你在 https://github.com 上访问 {% data variables.product.prodname_dotcom %}，则你使用的是免费、专业或团队计划的功能，或者你正在使用 {% data variables.product.prodname_ghe_cloud %}。
 
-In a wide browser window, there is no text that immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
+在宽浏览器窗口中，没有紧跟在标题左侧 {% data variables.product.company_short %} 徽标后面的文本。
 
-![Screenshot of the address bar and the {% data variables.product.prodname_dotcom_the_website %} header in a browser](/assets/images/help/docs/header-dotcom.png)
+![浏览器中地址栏和 {% data variables.product.prodname_dotcom_the_website %} 标题的屏幕截图](/assets/images/help/docs/header-dotcom.png)
 
-On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom_the_website %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+在 {% data variables.product.prodname_dotcom_the_website %} 上，每个帐户都有自己的计划。 每个个人帐户都有一个关联的计划，该计划提供对某些功能的访问权限，并且每个组织都有不同的关联计划。 如果您的个人帐户是 {% data variables.product.prodname_dotcom_the_website %} 上某个组织的成员，则当您使用该组织拥有的资源时，您可能有权访问与使用个人帐户拥有的资源不同的功能。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 账户的类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[Viewing people's roles in an organization](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
+如果您不知道某个组织是否使用 {% data variables.product.prodname_ghe_cloud %}，请询问组织所有者。 有关详细信息，请参阅“[查看组织中人员的角色](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)”。
 
 ### {% data variables.product.prodname_ghe_server %}
 
-If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
+如果在 https://github.com 、`https://*.githubenterprise.com` 、`https://*.github.us` 或 `https://*.ghe.com` 之外的 URL 上访问 {% data variables.product.prodname_dotcom %}，则你使用的是 {% data variables.product.prodname_ghe_server %}。 例如，可在 `https://github.YOUR-COMPANY-NAME.com` 上访问 {% data variables.product.prodname_ghe_server %}。 您的管理员可以选择不包含单词“{% data variables.product.company_short %}”的 URL。
 
-In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
+在宽浏览器窗口中，“企业”一词紧跟在标题左侧的 {% data variables.product.company_short %} 徽标之后。
 
-![Screenshot of address bar and {% data variables.product.prodname_ghe_server %} header in a browser](/assets/images/help/docs/header-ghes.png)
+![浏览器中地址栏和 {% data variables.product.prodname_ghe_server %} 标题的屏幕截图](/assets/images/help/docs/header-ghes.png)
 
-You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
+可在任何页面的页脚中查看正在使用的 {% data variables.product.prodname_ghe_server %} 的版本。
 
-![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}, with the version highlighted](/assets/images/help/docs/ghes-version-in-footer.png)
+![{% data variables.product.prodname_ghe_server %} 页脚的屏幕截图，其中突出显示了版本](/assets/images/help/docs/ghes-version-in-footer.png)
 
 ### {% data variables.product.prodname_ghe_managed %}
 
-If you access {% data variables.product.prodname_dotcom %} at `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_managed %}.
+如果在 `https://*.githubenterprise.com`、`https://*.github.us` 或 `https://*.ghe.com` 上访问 {% data variables.product.prodname_dotcom %}，则你使用的是 {% data variables.product.prodname_ghe_managed %}。
 
-In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
+在宽浏览器窗口中，标题中的 {% data variables.product.company_short %} 徽标后面紧跟“{% data variables.product.prodname_ghe_managed %}”字样。
 
-![Address bar and {% data variables.product.prodname_ghe_managed %} header in a browser](/assets/images/help/docs/header-ghae.png)
+![浏览器中的地址栏和 {% data variables.product.prodname_ghe_managed %} 标头](/assets/images/help/docs/header-ghae.png)

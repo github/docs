@@ -11,18 +11,23 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
-shortTitle: Fazer triagem das suas notificações
+shortTitle: Triage your notifications
+ms.openlocfilehash: 9e5771dff52408a1b6967a3792eb36eefebefd72
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094780'
 ---
-
 ## Iniciando sua triagem de caixa de entrada
 
 Antes de começar a fazer a triagem de sua caixa de entrada, considere se você prefere primeiro encontrar e responder às atualizações mais importantes ou limpar sua caixa de entrada de atualizações sem importância que são fáceis de remover ou fazer triagem.
 
 Você pode decidir usar uma combinação de ambas as abordagens em vários momentos, dependendo do volume de notificações que você tenha.
 
-Para um exemplo de fluxo de trabalho para encontrar e responder às notificações mais importantes, consulte "[Verificando as mais altas prioridades de notificação](#checking-your-highest-notification-priorities)".
+Para ver um exemplo de fluxo de trabalho de localização e resposta às notificações mais importantes, confira "[Verificando suas prioridades de notificação mais altas](#checking-your-highest-notification-priorities)".
 
-Para um exemplo de fluxo de trabalho para remoção de notificações fáceis de remover ou de fazer triagem, consulte "[Limpando suas notificações menos importantes](#clearing-your-least-important-notifications)."
+Para ver um exemplo de fluxo de trabalho de remoção de notificações que são fáceis de remover ou fazer triagem, confira "[Limpar suas notificações menos importantes](#clearing-your-least-important-notifications)".
 
 ## Verificando suas maiores prioridades de notificação
 
@@ -30,13 +35,13 @@ Escolha qual tipo de notificações são mais urgentes para revisar e escolha um
 
 Por exemplo, você pode decidir verificar suas notificações nesta ordem pela manhã em sua agenda diária de planejamento:
   - Pull requests onde sua revisão é solicitada. (filtrar por `reason:review-requested`)
-  - Eventos onde seu nome de usuário é @mencionado, também chamado de menção direta. (filtrar por `reason: mention`)
-  - Eventos onde uma equipe da qual você faz parte como integrante é @mencionada, também chamada de menção da equipe. (filtrar por `reason:team-mention`)
-  - Falhas de fluxo de trabalho do CI para um repositório específico. (filtre por `reason:ci-activity` e `repo:owner/repo-name` e certifique-se de que você ativou as notificações de atividade CI para falhas de fluxo de trabalho nas suas configurações de notificação)
+  - Eventos em que seu nome de usuário é @mentioned, também chamados de menção direta. (filtrar por `reason:mention`)
+  - Eventos em que uma equipe da qual você é membro é @mentioned, também chamados de menções de equipe. (filtrar por `reason:team-mention`)
+  - Falhas de fluxo de trabalho do CI para um repositório específico. (filtre por `reason:ci-activity` e `repo:owner/repo-name` e confirme se você habilitou notificações de atividade de CI para falhas de fluxo de trabalho em suas configurações de notificação)
 
   {% tip %}
 
-  **Dica:** Para revisar rapidamente suas mais altas prioridades, configure filtros personalizados em ordem da prioridade de revisão. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)".
+  **Dica:** para revisar rapidamente suas prioridades mais altas, configure filtros personalizados em ordem da prioridade de revisão. Para obter mais informações, confira "[Como gerenciar notificações na sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)".
 
   {% endtip %}
 
@@ -50,15 +55,15 @@ Por exemplo, você pode decidir acompanhar nesta ordem:
 
 ## Gerenciando notificações de baixa prioridade
 
-Após fazer a triagem das notificações de prioridade mais alta, revise as notificações restantes, como notificações de participação. Considere estas questões:
+Após fazer a triagem das notificações de prioridade mais alta, revise as notificações restantes, como notificações de participação. Considere estas perguntas:
   - Você pode cancelar a inscrição desta notificação? Esta notificação está concluída e pronta para ser marcada como **Concluída**?
   {% tip %}
 
-  **Dica:** Ao cancelar a inscrição de uma notificação você não receberá novas atualizações a menos que comece a participar do thread ou seja @mencionado ou que uma equipe da qual esteja participando seja @mencionada. Quando você marcar uma notificação como **Concluída**, a notificação é removida da sua caixa de entrada principal e pode ser vista com a consulta `is:read`. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)".
+  **Dica:** ao cancelar a inscrição de uma notificação, você não receberá novas atualizações, a menos que comece a participar do thread ou seja @mentioned ou que uma equipe da qual esteja participando seja @mentioned. Quando você marca uma notificação como **Concluída**, a notificação é removida da exibição da caixa de entrada principal e pode ser exibida com a consulta `is:read`. Para obter mais informações, confira "[Como gerenciar notificações na sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)".
 
   {% endtip %}
-  - Você gostaria de receber atualizações futuras quando este problema ou a pull request forem fechados ou reabertos, ou quando uma pull request for mesclada? Para obter mais informações sobre essas opções, consulte “[Fazendo triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
-  - Gostaria de evitar receber notificações como esta no futuro? Em caso afirmativo, considere cancelar a assinatura. Para obter mais informações, consulte "[Gerenciando assinaturas de atividade do GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
+  - Você gostaria de receber atualizações futuras quando este problema ou a pull request forem fechados ou reabertos, ou quando uma pull request for mesclada? Para obter mais informações sobre essas opções, confira "[Como fazer a triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
+  - Gostaria de evitar receber notificações como esta no futuro? Em caso afirmativo, considere cancelar a assinatura. Para obter mais informações, confira "[Como gerenciar assinaturas para a atividade no GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 
 ## Limpando suas notificações menos importantes
 
@@ -68,6 +73,6 @@ Por exemplo, você pode decidir limpar as notificações nesta ordem:
   - Notificações participantes das quais você pode cancelar a inscrição.
   - Atualizações de repositório que não são relevantes para manter ou acompanhar.
 
-Para obter mais informações sobre gerenciamento de múltiplas notificações em sua caixa de entrada ao mesmo tempo, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)".
+Para obter mais informações sobre como gerenciar várias notificações em sua caixa de entrada ao mesmo tempo, confira "[Gerenciando notificações em sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)".
 
-Você também pode considerar alterar suas configurações de notificação ou cancelar a assinatura dessas atualizações, se possível. Para obter mais informações, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)" ou "[Gerenciando assinaturas para atividade no GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)"."
+Você também pode considerar alterar suas configurações de notificação ou cancelar a assinatura dessas atualizações, se possível. Para obter mais informações, confira "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)" ou "[Gerenciando assinaturas de atividades no GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".

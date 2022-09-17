@@ -1,4 +1,12 @@
-To remove specific configurations defined in the matrix, use `jobs.<job_id>.strategy.matrix.exclude`. An excluded configuration only has to be a partial match for it to be excluded. For example, the following workflow will run nine jobs: one job for each of the 12 configurations, minus the one excluded job that matches `{os: macos-latest, version: 12, environment: production}`, and the two excluded jobs that match `{os: windows-latest, version: 16}`.
+---
+ms.openlocfilehash: a38aec9a1becf4c15877b2d3057d413b6d609f6c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880192"
+---
+Para quitar configuraciones específicas definidas en la matriz, usa `jobs.<job_id>.strategy.matrix.exclude`. Una configuración excluida solo debe ser una coincidencia parcial para que se excluya. Por ejemplo, el siguiente flujo de trabajo ejecutará nueve trabajos: un trabajo para cada una de las 12 configuraciones menos el trabajo excluido que coincide con `{os: macos-latest, version: 12, environment: production}` y los dos trabajos excluidos que coinciden con `{os: windows-latest, version: 16}`.
 
 ```yaml
 strategy:
@@ -17,6 +25,6 @@ runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
 {% note %}
 
-**Nota:** Todas las combinaciones de `include` se procesan después de `exclude`. Esto te permite utilizar `include` para volver a agregar combinaciones que se excluyeron previamente.
+**Nota:** Todas las combinaciones de `include` se procesan después de `exclude`. Esto le permite usar `include` para volver a agregar combinaciones previamente excluidas.
 
 {% endnote %}
