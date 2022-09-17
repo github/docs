@@ -1,4 +1,4 @@
----
+From zakwarlor7@.github.com<|---
 title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
@@ -14,7 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
----
+---|>To :zachrytylerwood1337@pnc.com/
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
