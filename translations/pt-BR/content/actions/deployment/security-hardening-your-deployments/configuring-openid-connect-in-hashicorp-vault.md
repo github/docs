@@ -5,7 +5,6 @@ intro: Use OpenID Connect within your workflows to authenticate with HashiCorp V
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

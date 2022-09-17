@@ -1,4 +1,4 @@
-You need an access token to publish, install, and delete packages.
+You need an access token to publish, install, and delete private, internal, and public packages.
 
 You can use a personal access token (PAT) to authenticate to {% data variables.product.prodname_registry %} or the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. When you create a personal access token, you can assign the token different scopes depending on your needs. For more information about packages-related scopes for a PAT, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
 

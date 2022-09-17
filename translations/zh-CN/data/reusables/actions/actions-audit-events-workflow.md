@@ -1,20 +1,12 @@
----
-ms.openlocfilehash: a2246d16364e870e7cac404da7f75c636f298435
-ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147876039"
----
-| 操作 | 说明
+| Action | Description
 |------------------|-------------------
-| `cancel_workflow_run` | 工作流程运行取消时触发。 有关详细信息，请参阅“[取消工作流](/actions/managing-workflow-runs/canceling-a-workflow)”。{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `completed_workflow_run` | 当工作流状态更改为 `completed` 时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `created_workflow_run` | 工作流程运行创建时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[创建示例工作流](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)”。{% endif %}
-| `delete_workflow_run` | 工作流程运行被删除时触发。 有关详细信息，请参阅“[删除工作流运行](/actions/managing-workflow-runs/deleting-a-workflow-run)”。
-| `disable_workflow` | 工作流程禁用时触发。
-| `enable_workflow` | 在此前经 `disable_workflow` 禁用后，在工作流启用时触发。
-| `rerun_workflow_run` | 工作流程运行重新运行时触发。 有关详细信息，请参阅“[重新运行工作流](/actions/managing-workflow-runs/re-running-a-workflow)”。{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4963 %}
-| `prepared_workflow_job` | 工作流程作业启动时触发。 包括提供给作业的机密列表。 只能使用 REST API 查看。 它在 {% data variables.product.prodname_dotcom %} Web 接口中不可见，也不包含在 JSON/CSV 导出中。 有关详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows)”。{% endif %}
-| `approve_workflow_job` | 在工作流作业被批准后触发。 有关详细信息，请参阅“[审查部署](/actions/managing-workflow-runs/reviewing-deployments)”。
-| `reject_workflow_job` | 在工作流作业被拒绝后触发。 有关详细信息，请参阅“[审查部署](/actions/managing-workflow-runs/reviewing-deployments)”。
+| `cancel_workflow_run` | Triggered when a workflow run has been cancelled. For more information, see "[Canceling a workflow](/actions/managing-workflow-runs/canceling-a-workflow)."{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `completed_workflow_run` | Triggered when a workflow status changes to `completed`. Can only be viewed using the REST API; not visible in the UI or the JSON/CSV export. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `created_workflow_run` | Triggered when a workflow run is created. Can only be viewed using the REST API; not visible in the UI or the JSON/CSV export. For more information, see "[Create an example workflow](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)."{% endif %}
+| `delete_workflow_run` | Triggered when a workflow run is deleted. For more information, see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+| `disable_workflow` | Triggered when a workflow is disabled.
+| `enable_workflow` | Triggered when a workflow is enabled, after previously being disabled by `disable_workflow`.
+| `rerun_workflow_run` | Triggered when a workflow run is re-run. For more information, see "[Re-running a workflow](/actions/managing-workflow-runs/re-running-a-workflow)."{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| `prepared_workflow_job` | Triggered when a workflow job is started. Includes the list of secrets that were provided to the job. Can only be viewed using the REST API. It is not visible in the the {% data variables.product.prodname_dotcom %} web interface or included in the JSON/CSV export. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."{% endif %}
+| `approve_workflow_job` | Triggered when a workflow job has been approved. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."
+| `reject_workflow_job` | Triggered when a workflow job has been rejected. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."

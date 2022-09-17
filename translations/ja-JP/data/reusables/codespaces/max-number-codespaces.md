@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 7e31c324900e21824e8214e6dcd453aa95ee85eb
-ms.sourcegitcommit: 81faf43a57101e75d40b5f8f77b9b129699e5d41
+ms.openlocfilehash: f2d4527cb962dc9dc65d1aa1cc150f048814a917
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2022
-ms.locfileid: "147865212"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878647"
 ---
-一度に最大 10 個の codespace を保持できます。 10 個の codespace を作成したら、新しい codespace を 1 つ作成する前に codespace を 1 つ削除する必要があります。
+作成できる codespace の数と、同時に実行できる codespace の数には制限があります。 これらの制限は、いくつかの要因によって異なります。 codespace の最大数に達してからさらに作成しようとすると、新しい codespace を作成する前に既存のものを削除する必要があることを示すメッセージが表示されます。

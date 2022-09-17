@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: e483abe3bffda4cdca5ee767b8e06ce4093f074a
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556530'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858632'
 ---
 GitHub.com、GitHub Enterprise Server、およびいずれかの製品にアップロードする情報には、米国輸出管理規則 (EAR) を含む貿易管理規制が適用されます。
 
@@ -53,7 +53,7 @@ GitHub Enterprise Server は、Country Group E:1 in Supplement No. 1 to part 740
 
 ### 米国政府が制裁を適用しているのはどの国および地域ですか?
 
-クリミア、ドネツクおよびルハーンスクの分離主義者地域、キューバ、イラン、北朝鮮、およびシリア。 ただし、イランに関しては、GitHub は、イランに拠点を置くか居住する開発者にクラウド サービスを提供する米国財務省海外資産管理局 (OFAC) の許可を得ています。 GitHub クラウド サービスも、有料と無料の両方で、キューバを居住地とする開発者に一般に提供されています。
+クリミア、ドネツクおよびルハーンスクの分離主義者地域、キューバ、イラン、北朝鮮、およびシリアです。 ただし、イランに関しては、GitHub は、イランに拠点を置くか居住する開発者にクラウド サービスを提供する米国財務省海外資産管理局 (OFAC) の許可を得ています。 GitHub クラウド サービスも、有料と無料の両方で、キューバを居住地とする開発者に一般に提供されています。
 
 ### GitHub は、制裁対象の国および地域に居住していなかったり、専門リンクがない場合でも、どのようにしてアクセスまたは異議申し立てできるようにしているのですか?
 

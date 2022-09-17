@@ -203,15 +203,6 @@ sections:
         - |
           While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
 
-        # https://github.com/github/releases/issues/1973
-        - |
-          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
-
-        # https://github.com/github/releases/issues/2179
-        - |
-          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
-
         # https://github.com/github/releases/issues/2220
         - |
           Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."

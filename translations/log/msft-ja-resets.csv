@@ -254,19 +254,50 @@ translations/ja-JP/data/reusables/security-center/beta.md,file deleted because i
 translations/ja-JP/data/reusables/security-center/permissions.md,file deleted because it no longer exists in main
 translations/ja-JP/data/reusables/server-statistics/release-phase.md,file deleted because it no longer exists in main
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/ja-JP/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
 translations/ja-JP/content/actions/creating-actions/releasing-and-maintaining-actions.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/about-deployments/about-continuous-deployment.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-docker-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-java-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-net-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-nodejs-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-php-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,broken liquid tags
+translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,broken liquid tags
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault.md,broken liquid tags
+translations/ja-JP/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
+translations/ja-JP/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners.md,rendering error
+translations/ja-JP/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,broken liquid tags
+translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,broken liquid tags
+translations/ja-JP/content/actions/security-guides/encrypted-secrets.md,broken liquid tags
+translations/ja-JP/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
+translations/ja-JP/content/actions/using-github-hosted-runners/using-larger-runners.md,broken liquid tags
+translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,rendering error
+translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,broken liquid tags
+translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,broken liquid tags
+translations/ja-JP/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
+translations/ja-JP/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,broken liquid tags
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
@@ -284,27 +315,40 @@ translations/ja-JP/content/get-started/learning-about-github/about-github-advanc
 translations/ja-JP/content/get-started/signing-up-for-github/signing-up-for-a-new-github-account.md,rendering error
 translations/ja-JP/content/get-started/using-github/github-desktop.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/troubleshooting-connectivity-problems.md,broken liquid tags
+translations/ja-JP/content/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,broken liquid tags
+translations/ja-JP/content/get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md,broken liquid tags
+translations/ja-JP/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization.md,rendering error
-translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks.md,broken liquid tags
+translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally.md,broken liquid tags
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
+translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
+translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources.md,broken liquid tags
+translations/ja-JP/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,broken liquid tags
+translations/ja-JP/content/repositories/working-with-files/using-files/working-with-non-code-files.md,broken liquid tags
 translations/ja-JP/content/rest/repos/lfs.md,broken liquid tags
 translations/ja-JP/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
+translations/ja-JP/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
+translations/ja-JP/data/reusables/actions/actions-audit-events-workflow.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/artifact-log-retention-statement.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-check-installation-success.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-management-permissions-required.md,rendering error
+translations/ja-JP/data/reusables/actions/usage-workflow-run-time.md,broken liquid tags
+translations/ja-JP/data/reusables/audit_log/audit-log-events-workflows.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/codespaces-policy-targets.md,rendering error
 translations/ja-JP/data/reusables/codespaces/your-codespaces-procedure-step.md,broken liquid tags
 translations/ja-JP/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/ja-JP/data/reusables/desktop/get-an-account.md,rendering error
 translations/ja-JP/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
+translations/ja-JP/data/reusables/notifications-v2/custom-notification-types.md,broken liquid tags
 translations/ja-JP/data/reusables/notifications/shared_state.md,rendering error
+translations/ja-JP/data/reusables/pull_requests/resolving-conversations.md,broken liquid tags
 translations/ja-JP/data/reusables/repositories/blocked-passwords.md,broken liquid tags
 translations/ja-JP/data/reusables/repositories/desktop-fork.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/contact-support-if-your-idp-is-unavailable.md,broken liquid tags
