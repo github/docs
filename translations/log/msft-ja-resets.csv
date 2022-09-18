@@ -334,6 +334,9 @@ translations/ja-JP/content/rest/repos/lfs.md,broken liquid tags
 translations/ja-JP/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
 translations/ja-JP/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/actions-audit-events-workflow.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/artifact-log-retention-statement.md,broken liquid tags
