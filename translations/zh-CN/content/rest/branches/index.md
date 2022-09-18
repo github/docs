@@ -15,5 +15,11 @@ children:
   - /branch-protection
 redirect_from:
   - /rest/reference/branches
+ms.openlocfilehash: 9cd8a95d3b4ca5af52ed17f808bcbc3282b1739f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147061616'
 ---
 

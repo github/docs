@@ -16,48 +16,48 @@ topics:
   - Vulnerabilities
   - Repositories
   - Health
-shortTitle: Agregar una política de seguridad
+shortTitle: Add a security policy
+ms.openlocfilehash: f081d6e6bd99f604e7e86bc094f76de9041adf4b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091550'
 ---
-
 ## Acerca de las políticas de seguridad
 
-Para otorgar instrucciones a las personas sobre cómo reportar las vulnerabilidades de seguridad en tu proyecto,{% ifversion fpt or ghes or ghec %} puedes agregar un archivo de _SECURITY.md_ a carpeta `docs`, `.github` o raíz de tu repositorio.{% else %} puedes agregar un archivo de _SECURITY.md_ a la carpeta `docs` o raíz de tu repositorio.{% endif %} Cuando alguien crea una propuesta en tu repositorio, verán un enlace en la política de seguridad de tu proyecto.
+Para proporcionar instrucciones sobre cómo notificar vulnerabilidades de seguridad en el proyecto,{% ifversion fpt or ghes or ghec %} puede agregar un archivo _SECURITY.md_ a la raíz, `docs`, o a la carpeta `.github` del repositorio.{% else %} puede agregar un archivo _SECURITY.md_ a la raíz o a la carpeta `docs` del repositorio.{% endif %} Cuando alguien cree una incidencia en el repositorio, verá un vínculo a la directiva de seguridad del proyecto.
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-Puedes crear una política de seguridad predeterminada para tu cuenta personal o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear una política de seguridad predeterminada para tu organización o cuenta personal. Para más información, vea "[Creación de un archivo de estado de la comunidad predeterminado](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)".
 {% endif %}
 
 {% tip %}
 
-**Sugerencia:** Para que las demás personas puedan encontrar tu política de seguridad, puedes vincular tu archivo _SECURITY.md_ desde otros lugares en tu repositorio, como un archivo README. Para obtener más información, consulta "[Acerca de los archivos README](/articles/about-readmes/)".
+**Sugerencia:** Para ayudar a los usuarios a encontrar su directiva de seguridad, puede vincular a su archivo _SECURITY.md_ desde otros lugares del repositorio, como un archivo Léame. Para más información, vea "[Acerca de los archivos Léame](/articles/about-readmes)".
 
 {% endtip %}
 
-{% ifversion fpt or ghec %}
-Después de que alguien reporte una vulnerabilidad de seguridad en tu proyecto, puedes utilizar {% data variables.product.prodname_security_advisories %} para divulgar, arreglar y publicar información acerca de la misma. Para obtener más información sobre el proceso de reportar y divulgar vulnerabilidades en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de la divulgación coordinada de las vulnerabilidades de seguridad](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)". Para obtener más información acerca de las {% data variables.product.prodname_security_advisories %}, consulta la sección "[Acerca del {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
+{% ifversion fpt or ghec %} Cuando alguien informa de una vulnerabilidad de seguridad en el proyecto, puede usar {% data variables.product.prodname_security_advisories %} para divulgar, corregir y publicar información sobre esta. Para obtener más información sobre el proceso de generación de informes y la divulgación de vulnerabilidades en {% data variables.product.prodname_dotcom %}, vea "[Acerca de la divulgación coordinada de vulnerabilidades de seguridad](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)". Para más información sobre {% data variables.product.prodname_security_advisories %}, vea "[Acerca de {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 
-{% data reusables.repositories.github-security-lab %}
-{% endif %}
-{% ifversion ghes or ghae %}
+{% data reusables.repositories.github-security-lab %} {% endif %} {% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 Cuando pones las instrucciones de reporte de seguridad claramente disponibles, facilitas a tus usurios el reportar cualquier vulnerabilidad de seguridad que encuentren en tu repositorio utilizando tu canal de comunicación preferido.
 {% endif %}
 
 ## Agregar una política de seguridad a tu repositorio
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-3. En la barra lateral iziquierda, haz clic en **Política de seguridad**. ![Pestaña de política de seguridad](/assets/images/help/security/security-policy-tab.png)
-4. Haz clic en **Start setup** (Iniciar configuración). ![Botón Start setup (Iniciar configuración)](/assets/images/help/security/start-setup-security-policy-button.png)
-5. En el archivo _SECURITY.md_ nuevo, agrega información sobre las versiones compatibles de tu proyecto y cómo informar una vulnerabilidad.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %}
+3. En la barra lateral izquierda, haga clic en **Security policy** (Directiva de seguridad).
+  ![Pestaña Security policy (Directiva de seguridad)](/assets/images/help/security/security-policy-tab.png)
+4. Haga clic en **Iniciar configuración**.
+  ![Botón Start setup (Iniciar configuración)](/assets/images/help/security/start-setup-security-policy-button.png)
+5. En el nuevo archivo _SECURITY.md_, agregue información sobre las versiones admitidas del proyecto y cómo notificar una vulnerabilidad.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
-## Leer más
+## Información adicional
 
-- "[Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[Configurar tu proyecto para tener contribuciones saludables](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
+- "[Protección del repositorio](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
+- "[Configuración del proyecto para contribuciones correctas](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

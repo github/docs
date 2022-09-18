@@ -1,26 +1,40 @@
 ---
-title: Permitir los cambios de visibilidad de proyecto en tu organización
-intro: Organization owners can allow members with admin permissions to adjust the visibility of projects in their organization.
+title: Cambios en la visibilidad del proyecto permitidos en la organización
+intro: 'Los propietarios de la organización pueden permitir que los miembros con permisos de administrador ajusten la visibilidad de {% data variables.projects.projects_v2_and_v1 %} de su organización.'
 versions:
-  feature: projects-v2
+  feature: classic-project-visibility-permissions-or-projects-v2
 topics:
   - Organizations
   - Projects
 shortTitle: Project visibility permissions
 allowTitleToDifferFromFilename: true
-permissions: Organization owners can allow project visibility changes for an organization.
+permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
+ms.openlocfilehash: 784b0f35ff86a1a2620a0c96d4e951a8ca28e136
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854088'
 ---
+## Acerca de los cambios de visibilidad de los proyectos
 
-You can restrict who has the ability to change the visibility of projects in your organization, such as restricting members from changing a project from private to public.
+Puedes restringir quién puede cambiar la visibilidad de {% data variables.projects.projects_v2_and_v1 %} de la organización, por ejemplo, limitar los miembros que pueden cambiar {% data variables.projects.projects_v2_and_v1 %} de privado a público. 
 
-You can limit the ability to change project visibility to just organization owners, or you can allow anyone with admin permissions on a project to change the visibility.
+También puedes limitar la capacidad de cambiar la visibilidad de {% data variables.projects.project_v2_and_v1 %} solo a los propietarios de la organización, o bien permitir que cualquiera con permisos de administración pueda cambiar la visibilidad.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-1. To allow members to adjust project visibility, select **Allow members to change project visibilities for this organization**. ![Screenshot showing checkbox to set visibility changes](/assets/images/help/projects-v2/visibility-change-checkbox.png)
-1. Haz clic en **Save ** (guardar).
+{% ifversion project-visibility-policy %} Es posible que esta opción no esté disponible si un propietario de la empresa restringe los cambios de visibilidad para {% data variables.projects.projects_v2_and_v1 %} en el nivel empresarial. Para más información, consulta "[Requerir políticas para proyectos en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)".
+{% endif %}
 
-## Leer más
+## Permitir que los miembros cambien las visibilidades del proyecto
 
-- "[Managing visibility of your projects](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)"
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. En la sección de "Código, planificación y automatización" de la barra lateral, haz clic en **{% octicon "table" aria-label="The table icon" %} Proyectos**.
+1. Para permitir que los miembros ajusten la visibilidad del proyecto, selecciona **Permitir que los miembros cambien las visibilidades del proyecto para esta organización**.
+  ![Captura de pantalla en la que se muestra la casilla para establecer los cambios de visibilidad](/assets/images/help/projects-v2/visibility-change-checkbox.png)
+1. Haga clic en **Save**(Guardar).
+
+## Información adicional
+
+{% ifversion projects-v2 %}
+- "[Administración de la visibilidad de {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" {%- endif %}{%- ifversion projects-v1 %}
+- "[Cambio de la visibilidad de {% data variables.product.prodname_project_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)" {% endif %}

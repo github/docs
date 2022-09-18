@@ -1,6 +1,6 @@
 ---
-title: About GitHub Pages and Jekyll
-intro: 'Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %}.'
+title: GitHub PagesとJekyllについて
+intro: 'Jekyllは、{% data variables.product.prodname_pages %}のサポートが組み込まれている静的サイトジェネレータです。'
 redirect_from:
   - /articles/about-jekyll-themes-on-github
   - /articles/configuring-jekyll
@@ -27,21 +27,26 @@ versions:
 topics:
   - Pages
 shortTitle: GitHub Pages & Jekyll
+ms.openlocfilehash: b0f97750f7fb4999e3b33c768ad2495f4c0b6719
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147648208'
 ---
+## Jekyllについて
 
-## About Jekyll
+Jekyllは、{% data variables.product.prodname_pages %}に組み込まれている静的サイトジェネレータで、ビルドプロセスを容易化できます。 JekyllはMarkdownおよびHTMLファイルを取り込み、選択したレイアウトに基づいて、完成された静的ウェブサイトを作成します。 Jekyllは、Markdownと、サイトに動的コンテンツを読み込むテンプレート言語のLiquidをサポートします。 詳細については、「[Jekyll](https://jekyllrb.com/)」を参照してください。
 
-Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
+Windows は、Jekyll を公式にはサポートしていません。 詳細については、Jekyll ドキュメントの「[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)」を参照してください。
 
-Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
+{% data variables.product.prodname_pages %} ではJekyllを使用することをおすすめします。 お好みに応じて、別の静的サイトジェネレータを使用することも、ローカルまたは別のサーバーにおけるビルドプロセスをカスタマイズすることもできます。 詳細については、「[{% data variables.product.prodname_pages %} について](/articles/about-github-pages#static-site-generators)」を参照してください。
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
+## {% data variables.product.prodname_pages %}サイトでJekyllを設定する
 
-## Configuring Jekyll in your {% data variables.product.prodname_pages %} site
+*_config.yml* ファイルを編集することにより、サイトのテーマやプラグインなど、Jekyll の設定のほとんどを構成できます。 詳細については、Jekyll ドキュメントの「[Configuration](https://jekyllrb.com/docs/configuration/)」を参照してください。
 
-You can configure most Jekyll settings, such as your site's theme and plugins, by editing your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
-
-Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
+一部の設定は、{% data variables.product.prodname_pages %}サイトで変更できません。
 
 ```yaml
 lsi: false
@@ -56,36 +61,35 @@ kramdown:
   syntax_highlighter: rouge
 ```
 
-By default, Jekyll doesn't build files or folders that:
-- are located in a folder called `/node_modules` or `/vendor`
-- start with `_`, `.`, or `#`
-- end with `~`
-- are excluded by the `exclude` setting in your configuration file
+デフォルトでは、Jekyllでは以下に当てはまるファイルやフォルダをビルドしません。
+- `/node_modules` または `/vendor` フォルダーに配置されている
+- `_`、`.`、または `#` で始まる
+- `~` で終わる
+- 構成ファイルの `exclude` 設定によって除外される
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+これらのファイルの中に Jekyll で処理したいものがある場合、構成ファイルの `include` 設定を利用できます。
 
-## Front matter
+## フロントマター
 
 {% data reusables.pages.about-front-matter %}
 
-You can add `site.github` to a post or page to add any repository references metadata to your site. For more information, see "[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)" in the Jekyll Metadata documentation.
+投稿またはページに `site.github` を追加して、あらゆるリポジトリ参照メタデータをサイトに追加できます。 詳細については、Jekyll メタデータのドキュメントの「[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)」を参照してください。
 
-## Themes
+## テーマ
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Themes](https://jekyllrb.com/docs/themes/)" in the Jekyll documentation.
+{% data reusables.pages.add-jekyll-theme %} 詳細については、Jekyll ドキュメントの「[Themes](https://jekyllrb.com/docs/themes/)」を参照してください。
 
-{% ifversion fpt or ghec %}
-You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and "[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} で、サポートされているテーマをサイトに追加できます。 詳しくは、{% data variables.product.prodname_pages %} サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」と、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」をご覧ください。
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data variables.product.prodname_dotcom %} でホストされている他のオープンソースの Jekyll テーマを使うには、テーマを手動で追加できます。{% else %}テーマを手動でサイトに追加できます。{% endif %}詳しくは、{% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} でホストされているテーマ](https://github.com/topics/jekyll-theme)に関するページと、{% else %}{% data variables.product.prodname_pages %} サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」と、{% endif %}「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」をご覧ください。
 
-You can override any of your theme's defaults by editing the theme's files. For more information, see your theme's documentation and "[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" in the Jekyll documentation.
+テーマのファイルを編集することで、テーマのデフォルトを上書きできます。 詳しい情報については、テーマのドキュメンテーションおよび Jekyll ドキュメンテーションの「[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)」を参照してください。
 
-## Plugins
+## プラグイン
 
-You can download or create Jekyll plugins to extend the functionality of Jekyll for your site. For example, the [jemoji](https://github.com/jekyll/jemoji) plugin lets you use {% data variables.product.prodname_dotcom %}-flavored emoji in any page on your site the same way you would on {% data variables.product.prodname_dotcom %}. For more information, see "[Plugins](https://jekyllrb.com/docs/plugins/)" in the Jekyll documentation.
+Jekyllプラグインをダウンロードまたは作成すると、サイトでJekyllの機能を拡張できます。 たとえば、[jemoji](https://github.com/jekyll/jemoji) プラグインを使うと、{% data variables.product.prodname_dotcom %} っぽい絵文字を、{% data variables.product.prodname_dotcom %} で使うのと同じように、サイトの任意のページで使用できます。 詳細については、Jekyll のドキュメントの「[Plugins](https://jekyllrb.com/docs/plugins/)」\(プラグイン\) を参照してください。
 
-{% data variables.product.prodname_pages %} uses plugins that are enabled by default and cannot be disabled:
+{% data variables.product.prodname_pages %}で使用されるプラグインはデフォルトで有効になっており、無効にすることはできません。
 - [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
 - [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
 - [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
@@ -96,25 +100,25 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation. 
+追加のプラグインは、 *_config.yml* ファイルでそのプラグインの gem を `plugins` 設定に追加すると有効にできます。 詳細については、Jekyll ドキュメントの「[Configuration](https://jekyllrb.com/docs/configuration/)」を参照してください。
 
-For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
+サポートされているプラグインのリストについては、{% data variables.product.prodname_pages %} サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。  特定のプラグインの使い方については、そのプラグインのドキュメンテーションを参照してください。
 
 {% tip %}
 
-**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[Testing your GitHub Pages site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+**ヒント:** {% data variables.product.prodname_pages %} gem を更新していれば、確実に最新のバージョンを使用できます。 詳細については、{% data variables.product.prodname_pages %} サイトの「[Jekyll を使用して GitHub Pages サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)」と「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
 
 {% endtip %}
 
-{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.product_name %}.
+{% data variables.product.prodname_pages %}は、サポートされていないプラグインを使用してサイトをビルドすることはできません。 サポートされていないプラグインを使用するには、ローカルでサイトを生成してから、サイトの静的ファイルを{% data variables.product.product_name %}にプッシュできます。
 
-## Syntax highlighting
+## 構文の強調表示
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+サイトを読みやすくするには、{% data variables.product.product_name %}で強調表示されるのと同じように、{% data variables.product.prodname_pages %}サイトでコードスニペットを強調表示します。 {% data variables.product.product_name %} における構文の強調表示については、「[コードブロックの作成と強調表示](/articles/creating-and-highlighting-code-blocks)」を参照してください。
 
-By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). Pygments has been deprecated and not supported in Jekyll 4. If you specify Pygments in your *_config.yml* file, Rouge will be used as the fallback instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+デフォルトでは、サイトのコードブロックはJekyllによって強調表示されます。 Jekyll は、[Rouge](https://github.com/jneen/rouge) ハイライターを使用します。これは [Pygments](http://pygments.org/) と互換性があります。 Pygmentsは非推奨になっており、Jekyll 4ではサポートされていません。 *_config.yml* ファイルで Pygments を指定している場合、代わりにフォールバックとして Rouge が使われます。 Jekyll はこれ以外の構文ハイライターを使用できないため、 *_config.yml* ファイルで他の構文ハイライターを指定すると、ページ ビルド警告が発生します。 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルド エラーについて](/articles/about-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
-If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
+`highlight.js` など、他のハイライターを使用したい場合は、プロジェクトの *_config.yml* ファイルを更新して、Jekyll の構文強調表示を無効にする必要があります。
 
 ```yaml
 kramdown:
@@ -122,12 +126,12 @@ kramdown:
     disable : true
 ```
 
-If your theme doesn't include CSS for syntax highlighting, you can generate {% data variables.product.prodname_dotcom %}'s syntax highlighting CSS and add it to your project's `style.css` file.
+お使いテーマに構文強調表示の CSS が含まれていない場合は、{% data variables.product.prodname_dotcom %} の構文強調表示 CSS を生成し、プロジェクトの `style.css` ファイルに追加することができます。
 
 ```shell
 $ rougify style github > style.css
 ```
 
-## Building your site locally
+## サイトをローカルでビルドする
 
 {% data reusables.pages.test-locally %}

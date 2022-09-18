@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_projects_v2 %}のインサイトについて'
+title: '{% data variables.product.prodname_projects_v2 %} の分析情報について'
 intro: プロジェクトのデータから構築されたグラフを表示させ、カスタマイズできます。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,41 +11,46 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: a90ec5dfb6aa983b8ffe26c84c4ec6ad01b0471d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424014'
 ---
-
 {% ifversion fpt %}
 
 {% note %}
 
-**ノート:** 履歴グラフは現在{% data variables.product.prodname_team %}を使用しているOrganizationでは機能プレビューとして利用でき、{% data variables.product.prodname_ghe_cloud %}を利用しているOrganizationでは一般利用可能です。
+**注:** 履歴グラフは現在、{% data variables.product.prodname_team %} を使用している Organization の機能プレビューとして利用でき、{% data variables.product.prodname_ghe_cloud %} を使用している Organization に一般提供されています。
 
 {% endnote %}
 
 {% endif %}
 
- {% data variables.product.prodname_projects_v2 %}のインサイトを使い、プロジェクトに追加したアイテムをソースデータとして利用してグラフの表示、作成、カスタマイズができます。 デフォルトのグラフにフィルタを適用することも、独自のグラフを作成することもできます。 グラフを作成する際には、フィルタ、グラフの種類、表示される情報を設定します。そのグラフは、プロジェクトを見ることができる人なら誰でも利用できます。 現在のグラフと履歴グラフという2種類のグラフを生成できます。
+ {% data variables.product.prodname_projects_v2 %} の分析情報を使って、プロジェクトにソースデータとして追加された項目を使うグラフを表示、作成、カスタマイズすることができます。 既定のグラフにフィルターを適用し、独自のグラフを作成することもできます。 グラフを作成するときは、フィルター、グラフの種類、表示される情報を設定します。グラフは、プロジェクトを表示できるすべてのユーザーが使用できます。 現在のグラフと履歴グラフの 2 種類のグラフを生成できます。
 
  ### 現在のグラフについて
 
-現在のグラフを作成して、プロジェクトのアイテムを可視化できます。 たとえば、各個人にいくつのアイテムが割り当てられているかを表示するグラフや、この先の繰り返しにいくつのIssueがアサインされているかを表示するグラフを作成できます。
+現在のグラフを作成して、プロジェクト項目を視覚化できます。 たとえば、グラフを作成して、各個人に割り当てられている項目の数や、今後の繰り返しごとに割り当てられている issue の数を示すことができます。
 
-グラフを構築する溜めに使われるデータを操作するために、フィルタを使うこともできます。 たとえば、この先の作業がいくつあるのかを示すグラフを作成し、ただしその結果を特定のラベルやアサインされた人に限定することができます。 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
+フィルターを使用して、グラフの作成に使用するデータを操作することもできます。 たとえば、今後の作業量を示すグラフを作成し、それらの結果を特定のラベルまたは担当者に限定することができます。 詳細については、[プロジェクトのフィルター処理](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)に関するページを参照してください。
 
- ![各イテレーションのアイテムの種類を表示する積み上げ列グラフのスクリーンショット](/assets/images/help/issues/column-chart-example.png)
+ ![各繰り返しのアイテムの種類を示す積み上げ縦棒グラフを示すスクリーンショット](/assets/images/help/issues/column-chart-example.png)
 
-詳しい情報については「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」を参照してください。
+詳しくは、「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」を参照してください。
 
  ### 履歴グラフについて
 
- 履歴グラフは時間ベースのグラフで、プロジェクトのトレンドと進捗を表示できます。 ステータスやその他のフィールドでグループ化されたアイテム数を、時間の経過とともに表示できます。
-
- デフォルトの「バーンアップ」グラフは、時間の経過に伴うアイテムのステータスを表示し、進捗を可視化して時間の経過にともなるパターンを特定できます。
+ 履歴グラフは、プロジェクトの傾向と進行状況を表示できる時間ベースのグラフです。 項目の数は、時間の経過に伴い、状態やその他のフィールドでグループ化して表示できます。
+ 
+ 既定の "バーンアップ" グラフは、時間の経過に伴うアイテムの状態を表示し、時間の経過に沿って進行状況を可視化することができます。 
 
 ![現在の繰り返しに対するデフォルトのバーンアップグラフの例を表示しているスクリーンショット](/assets/images/help/issues/burnup-example.png)
 
- 履歴グラフを作成するには、グラフのX軸を"Time（時間）"に設定してください。 詳しい情報については「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」及び「[グラフの設定](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)」を参照してください。
+ 履歴グラフを作成するには、グラフの X 軸を "時間" に設定します。 詳しくは、「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」および「[グラフの構成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- [{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- 「[Organizationでの{% data variables.product.prodname_projects_v2 %}のインサイトの無効化](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)」
+- [{% data variables.product.prodname_projects_v2 %} について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+- [Organization で {% data variables.product.prodname_projects_v2 %} の分析情報を無効にする](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)

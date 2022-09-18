@@ -11,27 +11,32 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 08b038d5a35c4c692502545e640d04993d169b6a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112386'
 ---
+Los webhooks permiten crear o configurar integraciones, como [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), que se suscriben a determinados eventos en GitHub.com. Cuando se activa alguno de esos eventos, enviamos una carga útil de POST por HTTP a la URL que el webhook tiene configurada. Los webhooks pueden utilizarse para actualizar un rastreador de problemas externo, activar compilaciones de IC, actualizar un espejo de respaldo, o incluso para desplegar en tu servidor productivo. Solo te limita tu imaginación.
 
-Los Webhooks te permiten crear y configurar integraciones, tales como [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), las cuales se suscriben a ciertos eventos en GitHub.com. Cuando se activa alguno de esos eventos, enviamos una carga útil de POST por HTTP a la URL que el webhook tiene configurada. Los webhooks pueden utilizarse para actualizar un rastreador de problemas externo, activar compilaciones de IC, actualizar un espejo de respaldo, o incluso para desplegar en tu servidor productivo. Solo te limita tu imaginación.
+Los webhooks se pueden instalar en{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} una [organización][org-hooks], un [repositorio][repo-hooks] específico o una {% data variables.product.prodname_github_app %}. Una vez que se instalan, el webhook se enviará cada vez que ocurra uno o más eventos suscritos.
 
-Los webhooks pueden instalarse en{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} una [organización][org-hooks], un [repositorio][repo-hooks] específico, o una {% data variables.product.prodname_github_app %}. Una vez que se instalan, el webhook se enviará cada vez que ocurra uno o más eventos suscritos.
-
-Puedes crear hasta {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks para cada evento en cada destino de instalación {% ifversion ghes or ghae %}(instancia de {% data variables.product.prodname_ghe_server %}, organización específica, o repositorio específico).{% else %}(organización específica o repositorio específico).{% endif %}
+Puede crear hasta {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks para cada evento en cada destino de instalación {% ifversion ghes or ghae %}(instancia, organización específica o repositorio específico de {% data variables.product.prodname_ghe_server %}).{% else %} (organización o repositorio específico).{% endif %}
 
 ## Eventos
 
 {% data reusables.webhooks.webhooks_intro %}
 
-Cada evento corresponde a conjuntos de acciones específicos que pueden suceder en tu organización y/o repositorio. Por ejemplo, si te suscribes al evento `issues`, recibirás cargas útiles detalladas cada vez que un informe de problemas se abra, cierre, etiquete, etc.
+Cada evento corresponde a conjuntos de acciones específicos que pueden suceder en tu organización y/o repositorio. Por ejemplo, si se suscribe al evento `issues`, recibirá cargas útiles detalladas cada vez que una incidencia se abra, se cierre, se etiquete, etc.
 
-Para encontrar una lista completa de eventos de webhook disponibles y sus cargas útiles, consulta la sección "[Eventos de webhook y cargas útiles](/developers/webhooks-and-events/webhook-events-and-payloads)".
+Para obtener una lista completa de los eventos de webhook disponibles y sus cargas, vea "[Eventos y cargas de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)".
 
 ## Evento de Ping
 
 {% data reusables.webhooks.ping_short_desc %}
 
-Para obtener más información acerca de la carga útil del webhook del evento `ping`, consulta el evento [`ping`](/webhooks/event-payloads/#ping).
+Para obtener más información sobre la carga del webhook del evento `ping`, vea el evento [`ping`](/webhooks/event-payloads/#ping).
 
 [org-hooks]: /rest/reference/orgs#webhooks/
 [repo-hooks]: /rest/reference/repos#webhooks

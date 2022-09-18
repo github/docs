@@ -10,17 +10,22 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Emitir tu listado
+shortTitle: Submit your listing
+ms.openlocfilehash: 9e70fea2fceb0fb2b1bfae316f5842f3e88c4333
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092128'
 ---
+Una vez que el listado de tu app cumpla con los requisitos de {% data variables.product.prodname_marketplace %}, puedes emitirla. Para obtener información general sobre los requisitos para publicar una aplicación, consulte "[Requisitos para listar una app](/developers/github-marketplace/requirements-for-listing-an-app)".
 
-Una vez que el listado de tu app cumpla con los requisitos de {% data variables.product.prodname_marketplace %}, puedes emitirla. Para obtener un resumen de los requisitos del listado de la app, consulta la sección "[requisitos para listar una app](/developers/github-marketplace/requirements-for-listing-an-app)".
-
-1. En la parte superior izquierda de la página del listado de la app, da clic en **Resumen**. Para obtener más información sobre cómo encontrar la página del listado de tu app, consulta la sección "[Hacer un borrador del listado para tu app](/developers/github-marketplace/drafting-a-listing-for-your-app)".
-
+1. En la parte superior izquierda de la página para publicar aplicaciones, haga clic en **Overview** (Información general). Para obtener información sobre cómo encontrar la para publicar aplicaciones, consulte "[Hacer un borrador de un listado para tu app](/developers/github-marketplace/drafting-a-listing-for-your-app)".
+  
   ![Opción de resumen para el borrador de listado de marketplace](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. Para emitir tu listado de apps completado, haz clic en **Solicitar publicación**.
+2. Para enviar publicación de la aplicación completada, haga clic en **Request publish** (Solicitar publicación).
 
-  ![Lista de verificación de "Publica tu app en Marketplace" con botón de emisión al final](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
+  ![Lista de verificación de requisitos para publicar una aplicación con botón de envío al final](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 
 Te contactará un experto en incorporación con información adicional.

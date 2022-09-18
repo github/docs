@@ -1,56 +1,61 @@
 ---
-title: Rechazar una tarea
-intro: 'Puedes volver a utilizar las tareas existentes en más de un aula, incluyendo a las aulas en una organización diferente.'
+title: Reutilizar una asignación
+intro: 'Puedes reutilizar asignaciones existentes en más de un aula, incluidas las aulas de otra organización.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
-shortTitle: Rechazar una tarea
+shortTitle: Reuse an assignment
+ms.openlocfilehash: 4c1c9048847affef95d5c904b188e68d2c183b43
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066918'
 ---
+## Acerca de la reutilización de las asignaciones
 
-## Acerca de reutilizar tareas
+Puedes reutilizar una asignación individual o de grupo existente en cualquier otra aula a la que tengas acceso, incluidas las aulas de otra organización. También puedes reutilizar varias asignaciones a la vez desde un aula. Si decides reutilizar una asignación, {% data variables.product.prodname_classroom %} copiará dicha asignación en el aula que elijas. Si la asignación usa un repositorio de plantillas y decides reutilizarlo en un aula de otra organización, {% data variables.product.prodname_classroom %} creará una copia del repositorio y de su contenido en la organización de destino.
 
-Puedes reutilizar una tarea grupal o individual existente en cualquier otra aula a la cual tengas acceso, incluyendo aquellas en una organización distinta. También puedes reutilizar tareas múltiples a la vez desde un aula. Si eliges reutilizar una tarea, {% data variables.product.prodname_classroom %} la copiará al aula que elijas. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
+La asignación copiada incluye los detalles correspondientes a esta, como el nombre, el repositorio de origen, la prueba de clasificación automática y el editor preferido. Puedes editar la asignación una vez que se haya copiado para realizar cambios. No se pueden realizar cambios en el editor preferido. 
 
-The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
-
-## Reusing an assignment
+## Reutilización de una asignación
 
 1. Inicia sesión en {% data variables.product.prodname_classroom_with_url %}.
-1. Navigate to the classroom that has the assignment that you want to reuse.
+1. Ve al aula que tiene la asignación que quieres reutilizar.
 
    ![Aula en la lista de aulas de una organización](/assets/images/help/classroom/click-classroom-in-list.png)
 
-1. In the list of assignments, click the assignment you want to reuse.
+1. En la lista de asignaciones, haz clic en aquella que quieres reutilizar.
 
    ![Lista de tareas para las tareas de un aula](/assets/images/help/classroom/click-assignment-in-list.png)
 
-1. Select the **{% octicon "pencil" aria-label="The pencil icon" %} Edit** dropdown menu in the top right of the page, then click **{% octicon "sync" aria-label="The sync icon" %} Reuse assignment**.
+1. Selecciona el menú desplegable **{% octicon "pencil" aria-label="The pencil icon" %} Editar** en la parte superior derecha de la página y, después, haz clic en **{% octicon "sync" aria-label="The sync icon" %} Reutilizar asignación**.
 
-   ![Reuse assignment button](/assets/images/help/classroom/reuse-assignment-button.png)
+   ![Botón Reutilizar asignación](/assets/images/help/classroom/reuse-assignment-button.png)
 
-1. In the "Reuse assignment" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignment to be in.  Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignment to.
+1. En la ventana modal "Reutilizar asignación", usa el menú desplegable **Elegir una organización** para seleccionar la organización en la que quieres que esté la asignación.  A continuación, usa el menú desplegable **Elegir un aula** para seleccionar el aula de esa organización en la que quieres copiar la asignación.
 
-   ![Reuse assignment modal](/assets/images/help/classroom/reuse-assignment-modal.png)
+   ![Ventana modal Reutilizar asignación](/assets/images/help/classroom/reuse-assignment-modal.png)
 
-1. Click **Create assignment**.
-1. The assignment is copied to the selected classroom, and a confirmation message is shown. If you chose to reuse an assignment with a template repository, the copying process may take a few minutes to complete, and you may need to refresh the page to see the completed message.
+1. Haz clic en **Crear asignación**.
+1. La asignación se copia en el aula seleccionada y se muestra un mensaje de confirmación. Si decides reutilizar una asignación con un repositorio de plantillas, el proceso de copia puede tardar unos minutos en completarse y es posible que tengas que actualizar la página para ver el mensaje de completado.
 
-   ![Completed message for reused assignment](/assets/images/help/classroom/reuse-assignment-completed-message.png)
+   ![Mensaje de completado para la asignación reutilizada](/assets/images/help/classroom/reuse-assignment-completed-message.png)
 
-## Reusing multiple assignments from a classroom
+## Reutilización de varias asignaciones desde un aula
 
 1. Inicia sesión en {% data variables.product.prodname_classroom_with_url %}.
-2. To the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Reuse assignment**.
+2. A la derecha del nombre de un aula, selecciona el menú desplegable {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y, luego, haz clic en **Reutilizar asignación**.
+   
+   ![Captura de pantalla de la página de información general del aula en la que el menú desplegable aparece resaltado](/assets/images/help/classroom/classroom-reuse-assignment-modal.png)
 
-   ![Screenshot of classroom overview page with dropdown emphasized](/assets/images/help/classroom/classroom-reuse-assignment-modal.png)
+3. En la ventana modal "Reutilizar asignaciones", usa el menú desplegable **Elegir una organización** para seleccionar la organización en la que quieres que esté la asignación.  Luego, usa el menú desplegable **Elegir un aula** para seleccionar el aula de esa organización en la que quieres copiar las asignaciones.
+   
+   ![Captura de pantalla de la ventana modal de reutilización de asignaciones](/assets/images/help/classroom/reuse-multiple-assignments-modal.png)
 
-3. In the "Reuse assignments" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignments to be in.  Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignments to.
+4. A la izquierda de cada asignación, selecciona la que quieres reutilizar.
 
-   ![Screenshot of reuse assignments modal](/assets/images/help/classroom/reuse-multiple-assignments-modal.png)
+   ![Captura de pantalla de varias asignaciones seleccionadas](/assets/images/help/classroom/multiple-assignments-selected.png)
 
-4. To the left of each assignment, select the assignment you want to reuse.
-
-   ![Screenshot of multiple selected assignments](/assets/images/help/classroom/multiple-assignments-selected.png)
-
-5. Click **Create assignments**.
-6. The assignments are copied to the selected classroom. If you chose to reuse an assignment with a template repository, the copying process may take a few minutes to complete.
+5. Haz clic en **Crear asignaciones**.
+6. Las asignaciones se copian en el aula seleccionada. Si decidiste reutilizar una asignación con un repositorio de plantillas, el proceso de copia puede tardar unos minutos en completarse.

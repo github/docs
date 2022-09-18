@@ -1,6 +1,6 @@
 ---
-title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
+title: 'Gerenciar o acesso a um {% data variables.product.prodname_project_v1 %} para membros da organização'
+intro: 'Como proprietário de uma organização ou administrador do {% data variables.projects.projects_v1_board %}, você pode definir um nível de permissão padrão para um {% data variables.projects.projects_v1_board %} para todos os membros da organização.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -12,34 +12,35 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Gerenciar acesso para os integrantes
+shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fe9d8ebee09d4eb6278545b5561b9691a0468bf5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880779'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
+Por padrão, os membros da organização têm acesso de gravação aos dados do {% data variables.projects.projects_v1_boards %} a menos que os proprietários da organização ou os administradores do {% data variables.projects.projects_v1_board %} definam permissões diferentes para {% data variables.projects.projects_v1_boards %} específicos.
 
 ## Configurar um nível referencial de permissão para todos os integrantes da organização
 
 {% tip %}
 
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+**Ponta:** Você pode conceder a um membro da organização permissões mais elevadas para {% data variables.projects.projects_v1_board %}. Para obter mais informações, confira "[Permissões de quadro de projetos para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-8. Em "Organization member permission" (Permissão de integrante da organização), escolha um nível referencial de permissão para todos os integrantes da organização: **Read** (Leitura), **Write** (Gravação), **Admin** (Administrador) ou **None** (Nenhuma). ![Opções de permissões a quadro de projeto para todos os integrantes da organização](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Clique em **Projetos (clássicos)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
+8. Em "Permissão de membro da organização", escolha um nível de permissão de linha de base para todos os membros da organização: **Leitura**, **Gravação**, **Administrador** ou **Nenhum**.
+![Opções de permissões de linha de base de quadro de projetos para todos os membros da organização](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Clique em **Salvar**.
 
-## Leia mais
+## Leitura adicional
 
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Gerenciar o acesso de um indivíduo ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Gerenciar o acesso de uma equipe ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-team-access-to-an-organization-project-board)"
 - "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"

@@ -24,6 +24,12 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
-shortTitle: Crear & administrar repositorios
+shortTitle: Create & manage repositories
+ms.openlocfilehash: ec9aa9879765356ab7a1ba0f74017f55b18425a6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145136873'
 ---
 

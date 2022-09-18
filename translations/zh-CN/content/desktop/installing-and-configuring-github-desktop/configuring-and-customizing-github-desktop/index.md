@@ -11,6 +11,12 @@ children:
   - /configuring-a-default-editor
   - /setting-a-theme-for-github-desktop
   - /about-git-large-file-storage-and-github-desktop
-shortTitle: 配置和自定义
+shortTitle: Configure & customize
+ms.openlocfilehash: d4c2bd3566eafc1dbf34283c078ac077c5db5362
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099243'
 ---
 

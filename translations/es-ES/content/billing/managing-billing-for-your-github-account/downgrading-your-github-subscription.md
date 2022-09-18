@@ -26,23 +26,29 @@ topics:
   - Organizations
   - Repositories
   - User account
-shortTitle: Bajar una suscripción de categoría
+shortTitle: Downgrade subscription
+ms.openlocfilehash: b709c94090c1f79bfd8e16cc7df2c943d64b5aa7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091657'
 ---
-
 ## Bajar de nivel tu suscripción de {% data variables.product.product_name %}
 
-Cuando bajas de nivel tu suscripción de cuenta personal o de organización, los precios y características cambian y toman efecto en tu siguiente fecha de facturación. Los cambios a la suscripción de pago de tu cuenta personal u organizacional no afectan a las suscripciones o pagos de otras características de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[¿Cómo afecta subir o bajar de categoría el proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+Cuando bajas de nivel tu suscripción de cuenta personal o de organización, los cambios de precios y características toman efecto en la fecha de facturación siguiente. Los cambios a tu suscripción de cuenta personal u organización no afectan a las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulte "[¿Cómo afecta el cambio a una categoría inferior o superior al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)".
 
-## Bajar de nivel la suscripción de tu cuenta personal
+## Bajar de categoría la suscripción de tu cuenta personal
 
-Si bajas de nivel tu cuenta personal de {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, la cuenta perderá acceso a las herramientas de revisión de código avanzadas en los repositorios privados. {% data reusables.gated-features.more-info %}
+Si bajas de nivel tu cuenta personal desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, ésta perderá acceso a las herramientas avanzadas de revisión de código en los repositorios privados. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en **Bajar de categoría a gratuito**. ![Botón Downgrade to free (Bajar de categoría a gratis)](/assets/images/help/billing/downgrade-to-free.png)
-5. Lee la información sobre las características a las que ya no tendrá acceso tu cuenta personal en tu siguiente fecha de facturación y luego haz lic en **Entiendo. Bajar de nivel**. ![Botón de proceder con la baja de categoría](/assets/images/help/billing/continue-with-downgrade.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. En "Current plan", use la lista desplegable **Edit** y haga clic en **Downgrade to Free**.
+  ![Botón Downgrade to free](/assets/images/help/billing/downgrade-to-free.png)
+5. Lee la información sobre las características a las que tu cuenta personal ya no tendrá acceso en la próxima fecha de facturación y, después, haz clic en **Entiendo. Continuar para bajar de nivel**.
+  ![Botón para continuar con el cambio a una categoría inferior](/assets/images/help/billing/continue-with-downgrade.png)
 
-Si publicaste un sitio de {% data variables.product.prodname_pages %} en un repositorio privado y añadiste un dominio personalizado, retira o actualiza tus registros de DNS antes de bajarlo de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, para evitar el riesgo de que te ganen el dominio. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+Si publicaste un sitio de {% data variables.product.prodname_pages %} en un repositorio privado y añadiste un dominio personalizado, retira o actualiza tus registros de DNS antes de bajarlo de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, para evitar el riesgo de que te ganen el dominio. Para obtener más información, consulte "[Administración de un dominio personalizado para el sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
 ## Bajar de nivel tu suscripción de orgnización
 
@@ -55,40 +61,46 @@ Si bajas a tu organización de nivel desde {% data variables.product.prodname_gh
 
 {% note %}
 
-**Nota:** si actualmente estás probando {% data variables.product.prodname_ghe_cloud %} y no compras {% data variables.product.prodname_enterprise %} antes de que termine el periodo de prueba, tu organización bajará de nivel automáticamente a {% data variables.product.prodname_free_team %} o a {% data variables.product.prodname_team %}. Para obtener más información, consulta "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+**Nota:** Si está probando {% data variables.product.prodname_ghe_cloud %} y no compra {% data variables.product.prodname_enterprise %} antes de que termine la evaluación gratuita, la organización bajará de categoría automáticamente a {% data variables.product.prodname_free_team %} o a {% data variables.product.prodname_team %}. Para obtener más información, consulte "[Configuración de una evaluación gratuita de {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
 
 {% endnote %}
 
 {% data reusables.organizations.billing-settings %}
-1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en la opción a la que quieras bajar. ![Botón Bajar de categoría](/assets/images/help/billing/downgrade-option-button.png)
-{% data reusables.dotcom_billing.confirm_cancel_org_plan %}
+1. En "Current plan", use la lista desplegable **Edit** y haga clic en la opción de disminución de categoría que desee.
+  ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png) {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
 ## Bajar de nivel la suscripción de una organización con precios tradicionales por repositorio
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.dotcom_billing.switch-legacy-billing %}Para obtener más información, consulta la sección "[Cambiar a tu organización de precios por repositorio a precios por usuario](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)".
+{% data reusables.dotcom_billing.switch-legacy-billing %} Para obtener más información, consulte "[Cambiar la organización de una tarifa por repositorios a una tarifa por usuarios](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)."
 
 {% data reusables.organizations.billing-settings %}
-5. Debajo de "Suscripciones", selecciona el menú desplegable de "Editar" y da clic en **Editar plan**. ![Menú desplegable de Editar Plan](/assets/images/help/billing/edit-plan-dropdown.png)
-1. Debajo de "Facturación/Planes", a un costado del plan que quieras cambiar, da clic en **Bajar categoría**. ![Botón Bajar de categoría](/assets/images/help/billing/downgrade-plan-option-button.png)
-1. Ingresa la razón por la cual estás degradando tu cuenta y luego haz clic en **Degradar plan**. ![Caja de texto para la razón de degradar la versión y botón de degradar](/assets/images/help/billing/downgrade-plan-button.png)
+5. En "Subscriptions", seleccione la lista desplegable "Edit" y haga clic en **Edit plan**.
+    ![Menú desplegable Edit Plan](/assets/images/help/billing/edit-plan-dropdown.png)
+1. En "Billing/Plans", junto al plan que desea cambiar, haga clic en **Downgrade**.
+    ![Botón Downgrade](/assets/images/help/billing/downgrade-plan-option-button.png)
+1. Escriba el motivo por el que va a disminuir la categoría de su cuenta y, a continuación, haga clic en **Downgrade plan**.
+    ![Cuadro de texto para escribir el motivo de la disminución de categoría y botón Downgrade](/assets/images/help/billing/downgrade-plan-button.png)
 
 ## Eliminar asientos pagos de tu organización
 
-Para reducir el número de asientos pagos que usa tu organización, puedes eliminar miembros de tu organización o convertirlos en colaboradores externos y darles acceso únicamente a los repositorios públicos. Para obtener más información, consulta:
-- "[Eliminar un miembro de tu organización](/articles/removing-a-member-from-your-organization)"
-- "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
-- "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+Para reducir el número de asientos pagos que usa tu organización, puedes eliminar miembros de tu organización o convertirlos en colaboradores externos y darles acceso únicamente a los repositorios públicos. Para más información, consulte:
+- "[Eliminar a un miembro de la organización](/articles/removing-a-member-from-your-organization)"
+- "[Convertir un miembro de la organización en un colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- "[Administración del acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 
 {% data reusables.organizations.billing-settings %}
-1. Debajo de "Plan actual", utiliza el menú desplegable **Edit** y haz clic en **Eliminar plazas**. ![menú desplegable para eliminar plazas](/assets/images/help/billing/remove-seats-dropdown.png)
-1. En "Eliminar asientos" selecciona el número de asientos pagos de la categoría a la que deseas bajar. ![opción de eliminar plazas](/assets/images/help/billing/remove-seats-amount.png)
-1. Revisa la información sobre tu nuevo pago en tu siguiente fecha de facturación, posteriormente, da clic en **Eliminar plazas**. ![botón de eliminar plazas](/assets/images/help/billing/remove-seats-button.png)
+1. En "Current plan", use la lista desplegable **Edit** y haga clic en **Remove seats**.
+  ![menú desplegable remove seats](/assets/images/help/billing/remove-seats-dropdown.png)
+1. En "Eliminar asientos" selecciona el número de asientos pagos de la categoría a la que deseas bajar.
+  ![opción remove seats](/assets/images/help/billing/remove-seats-amount.png)
+1. Revise la información sobre el nuevo pago en la siguiente fecha de facturación y, a continuación, haga clic en **Remove seats**.
+  ![botón remove seats](/assets/images/help/billing/remove-seats-button.png)
 
-## Leer más
+## Información adicional
 
-- "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
-- "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
-- "[Acerca del precio por usuario](/articles/about-per-user-pricing)"
+- "[Productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
+- "[¿Cómo afecta el cambio a una versión posterior o anterior al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"
+- "[Acerca de los precios por usuario](/articles/about-per-user-pricing)"

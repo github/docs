@@ -12,25 +12,29 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
+ms.openlocfilehash: af198fe13f69fc4768178aea74a03f27a82ec20b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126964'
 ---
-
 ## Sobre o {% data variables.large_files.product_name_long %}
 
-O {% data variables.large_files.product_name_short %} manipula arquivos grandes armazenando referências ao arquivo no repositório, mas não no próprio arquivo. Para trabalhar em torno da arquitetura do Git, o {% data variables.large_files.product_name_short %} cria um arquivo de ponteiro que atua como uma referência ao arquivo real (que é armazenado em algum outro lugar). O {% data variables.product.product_name %} gerencia esse arquivo de ponteiro no seu repositório. Quando você clona o repositório, o {% data variables.product.product_name %} usa o arquivo de ponteiro como um mapa para encontrar o arquivo grande para você.
+O {% data variables.large_files.product_name_short %} manipula arquivos grandes armazenando referências ao arquivo no repositório, mas não no próprio arquivo. Para explorar a arquitetura do Git, o {% data variables.large_files.product_name_short %} cria um arquivo de ponteiro que funciona como uma referência ao arquivo real (que é armazenado em outro lugar). O {% data variables.product.product_name %} gerencia esse arquivo de ponteiro no seu repositório. Quando você clona o repositório, o {% data variables.product.product_name %} usa o arquivo de ponteiro como um mapa para encontrar o arquivo grande para você.
 
-{% ifversion fpt or ghec %}
-Ao usar {% data variables.large_files.product_name_short %}, você pode armazenar arquivos até:
+{% ifversion fpt or ghec %} Usando o {% data variables.large_files.product_name_short %}, você pode armazenar arquivos até:
 
-| Produto                                           | Tamanho máximo do arquivo |
-| ------------------------------------------------- | ------------------------- |
-| {% data variables.product.prodname_free_user %} | 2 GB                      |
-| {% data variables.product.prodname_pro %}         | 2 GB                      |
-| {% data variables.product.prodname_team %}        | 4 GB                      |
+| Produto | Tamanho máximo do arquivo |
+|------- | ------- |
+| {% data variables.product.prodname_free_user %} | 2 GB |
+| {% data variables.product.prodname_pro %} | 2 GB |
+| {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
- Ao usar {% data variables.large_files.product_name_short %}, você pode armazenar arquivos de até 5 GB no seu repositório.
-{% endif %}
+Ao usar {% data variables.large_files.product_name_short %}, você pode armazenar arquivos de até 5 GB no seu repositório.
+{% endif %}  
 
-Também é possível usar o {% data variables.large_files.product_name_short %} com o {% data variables.product.prodname_desktop %}. Para obter mais informações sobre como clonar repositórios LFS do Git no {% data variables.product.prodname_desktop %}, consulte "[Clonar um repositório do GitHub no GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)".
+Também é possível usar o {% data variables.large_files.product_name_short %} com o {% data variables.product.prodname_desktop %}. Para obter mais informações sobre como clonar repositórios do Git LFS no {% data variables.product.prodname_desktop %}, confira "[Como clonar um repositório do GitHub para o GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)".
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -44,16 +48,16 @@ oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
 size 84977953
 ```
 
-Ele rastreia a `version` (versão) do {% data variables.large_files.product_name_short %} que você está usando, seguida por um identificador exclusivo para o arquivo (`oid`). Ele também armazena o `size` (tamanho) do arquivo final.
+Ele rastreia a `version` do {% data variables.large_files.product_name_short %} que está sendo usada, seguido de um identificador exclusivo para o arquivo (`oid`). Além disso, armazena o `size` do arquivo final.
 
 {% note %}
 
-**Atenção**:
+**Observações**:
 - {% data variables.large_files.product_name_short %} não pode ser usado com sites de {% data variables.product.prodname_pages %}.
 - {% data variables.large_files.product_name_short %} não pode ser usado com repositórios de modelos.
-
+  
 {% endnote %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Colaboração com o {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"

@@ -1,35 +1,42 @@
-import cx from 'classnames'
 import { Heading, NavList } from '@primer/react'
+import cx from 'classnames'
 
-import type { MiniTocItem } from 'components/context/ArticleContext'
+import { MiniTocItem } from 'components/context/ArticleContext'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
+
+import styles from './Minitocs.module.scss'
 
 export type MiniTocsPropsT = {
   pageTitle: string
   miniTocItems: MiniTocItem[]
 }
 
-const renderTocItem = (item: MiniTocItem) => {
+function RenderTocItem(item: MiniTocItem) {
   return (
-    <NavList.Item
-      as="li"
-      key={item.contents.href}
-      className={item.platform}
-      sx={{
-        listStyle: 'none',
-        padding: '2px',
-      }}
-    >
-      <div className={cx('lh-condensed d-block width-full')}>
-        <a className="d-block width-auto" href={item.contents.href}>
-          {item.contents.title}
-        </a>
-        {item.items && item.items.length > 0 ? (
-          <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
-        ) : null}
-      </div>
-    </NavList.Item>
+    <div className={cx(styles.nested, item.platform)}>
+      <NavList.Item
+        href={item.contents.href}
+        sx={{
+          padding: '4px 0 4px 0',
+          marginLeft: '7px',
+        }}
+      >
+        {item.contents.title}
+      </NavList.Item>
+      {item.items && item.items.length > 0 && (
+        <ul className={cx(styles.indentNested)}>
+          {item.items.map((toc) => (
+            <RenderTocItem
+              key={toc.contents.href}
+              contents={toc.contents}
+              items={toc.items}
+              platform={toc.platform}
+            />
+          ))}
+        </ul>
+      )}
+    </div>
   )
 }
 
@@ -38,16 +45,21 @@ export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
 
   return (
     <>
-      <Heading as="h2" id="in-this-article" className="mb-1" sx={{ fontSize: 1 }}>
+      <Heading as="h2" id="in-this-article" className="mb-1 ml-3" sx={{ fontSize: 1 }}>
         <Link href="#in-this-article">{t('miniToc')}</Link>
       </Heading>
 
       <NavList className="my-2" key={pageTitle}>
-        <div>
-          {miniTocItems.map((items, i) => {
-            return <ul key={pageTitle + i}>{renderTocItem(items)}</ul>
-          })}
-        </div>
+        {miniTocItems.map((items, i) => {
+          return (
+            <RenderTocItem
+              key={items.contents.href + i}
+              contents={items.contents}
+              items={items.items}
+              platform={items.platform}
+            />
+          )
+        })}
       </NavList>
     </>
   )

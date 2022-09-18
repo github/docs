@@ -30,6 +30,28 @@ export function cacheControlFactory(
     .filter(Boolean)
     .join(', ')
   return (res) => {
+    if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie')) {
+      console.warn(
+        "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control."
+      )
+    }
     res.set(key, directives)
   }
+}
+
+// 24 hours for CDN, we soft-purge this with each deploy
+const defaultCDNCacheControl = cacheControlFactory(60 * 60 * 24, {
+  key: 'surrogate-control',
+})
+
+// Shorter because between deployments and their (sort) purges,
+// we don't want the browser to overly cache because with them we
+// can't control purging.
+const defaultBrowserCacheControl = cacheControlFactory(60)
+
+// A general default configuration that is useful to almost all responses
+// that can be cached.
+export function defaultCacheControl(res) {
+  defaultCDNCacheControl(res)
+  defaultBrowserCacheControl(res)
 }

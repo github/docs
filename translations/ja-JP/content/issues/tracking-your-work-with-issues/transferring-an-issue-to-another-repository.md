@@ -1,6 +1,6 @@
 ---
-title: Transferring an issue to another repository
-intro: 'To move an issue to a better fitting repository, you can transfer open issues to other repositories.'
+title: 他のリポジトリへ Issue を移譲する
+intro: より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/transferring-an-issue-to-another-repository
   - /articles/transferring-an-issue-to-another-repository
@@ -14,32 +14,37 @@ versions:
 topics:
   - Pull requests
 shortTitle: Transfer an issue
+ms.openlocfilehash: ee17296217027d2de9805a905aaec187f53e5614
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710420'
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+他のリポジトリにオープンなIssue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込みアクセス権が必要です。 詳細については、「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 {% note %}
 
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+**注**: 同じユーザーまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 {% ifversion fpt or ghes or ghec %}プライベートリポジトリのIssueをパブリックリポジトリに移譲することはできません。{% endif %}
 
 {% endnote %}
 
-When you transfer an issue, comments, labels and assignees are retained. The issue's milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
+Issue を委譲する場合、コメントとアサインされた人は保持されます。 ラベルとマイルストーンもターゲット リポジトリ内に置かれる場合は保持されます。ラベルは名前で照合され、マイルストーンは名前と期限の両方で照合されます。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細については、「[プロジェクト ボードについて](/articles/about-project-boards)」を参照してください。
 
-People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
+Issue でメンションされた人や Team は、Issue が新しいリポジトリに移譲されたことを知らせる通知を受け取ります。 当初の URL は、新しい Issue の URL にリダイレクトします。 新しいリポジトリの読み取り権限がない人には、アクセスできない新しいリポジトリに Issue が移譲されたことを知らせるバナーが表示されます。
 
-## Transferring an open issue to another repository
+## 他のリポジトリへオープン Issue を移譲する
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. Issue のリストで、移譲したい Issue をクリックします。
+4. 右側のサイドバーで、 **[Issue の移譲]** をクリックします。
+![Issue を移譲するボタン](/assets/images/help/repository/transfer-issue.png)
+5. **[リポジトリを選択]** ドロップダウン メニューで、Issue の移譲先にするリポジトリを選択します。
+![リポジトリ セレクションを選択](/assets/images/help/repository/choose-a-repository.png)
+6. **[Issue の移譲]** をクリックします。
+![[Issue の移譲] ボタン](/assets/images/help/repository/transfer-issue-button.png)
 
 {% endwebui %}
 
@@ -47,7 +52,7 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 {% data reusables.cli.cli-learn-more %}
 
-To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Issue を移譲するには、`gh issue transfer` サブコマンドを使用します。 `issue` パラメーターを Issue の番号または URL に置き換えます。 `{% ifversion ghes %}hostname/{% endif %}owner/repo` パラメーターを Issue を移譲するリポジトリの{% ifversion ghes %} URL {% else %}名前{% endif %}に置き換えます (例: `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`)。
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -55,8 +60,8 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## Further reading
+## 参考資料
 
-- "[About issues](/articles/about-issues)"
-- "[Reviewing your security log](/articles/reviewing-your-security-log)"
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"
+- 「[Issue について](/articles/about-issues)」
+- 「[セキュリティ ログをレビューする](/articles/reviewing-your-security-log)」
+- 「[Organization の監査ログをレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」

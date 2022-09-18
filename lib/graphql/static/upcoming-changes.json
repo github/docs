@@ -1,5 +1,23 @@
 {
   "dotcom": {
+    "2023-01-01": [
+      {
+        "location": "ProjectV2View.visibleFields",
+        "description": "<p><code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "mattruggio"
+      },
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "User.recentProjectsNext",
@@ -268,6 +286,14 @@
       {
         "location": "ProjectView.items",
         "description": "<p><code>items</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
+        "location": "ProjectView.groupedItems",
+        "description": "<p><code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
@@ -730,6 +756,14 @@
         "owner": "lukewar"
       },
       {
+        "location": "ProjectNextFieldType.TRACKS",
+        "description": "<p><code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
         "location": "ProjectNextFieldType.TITLE",
         "description": "<p><code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
@@ -740,14 +774,6 @@
       {
         "location": "ProjectNextFieldType.TEXT",
         "description": "<p><code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "lukewar"
-      },
-      {
-        "location": "ProjectNextFieldType.TASKS",
-        "description": "<p><code>TASKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
@@ -1430,6 +1456,24 @@
     ]
   },
   "ghec": {
+    "2023-01-01": [
+      {
+        "location": "ProjectV2View.visibleFields",
+        "description": "<p><code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "mattruggio"
+      },
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "User.recentProjectsNext",
@@ -1698,6 +1742,14 @@
       {
         "location": "ProjectView.items",
         "description": "<p><code>items</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
+        "location": "ProjectView.groupedItems",
+        "description": "<p><code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
@@ -2160,6 +2212,14 @@
         "owner": "lukewar"
       },
       {
+        "location": "ProjectNextFieldType.TRACKS",
+        "description": "<p><code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
         "location": "ProjectNextFieldType.TITLE",
         "description": "<p><code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
@@ -2170,14 +2230,6 @@
       {
         "location": "ProjectNextFieldType.TEXT",
         "description": "<p><code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "lukewar"
-      },
-      {
-        "location": "ProjectNextFieldType.TASKS",
-        "description": "<p><code>TASKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
@@ -3574,6 +3626,24 @@
     ]
   },
   "ghae": {
+    "2023-01-01": [
+      {
+        "location": "ProjectV2View.visibleFields",
+        "description": "<p><code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "mattruggio"
+      },
+      {
+        "location": "Commit.changedFiles",
+        "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+        "reason": "<p><code>changedFiles</code> will be removed.</p>",
+        "date": "2023-01-01",
+        "criticality": "breaking",
+        "owner": "adamshwert"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UnlockAndResetMergeGroupInput.branch",
@@ -3600,6 +3670,14 @@
         "owner": "jhunschejones"
       },
       {
+        "location": "ProjectNextFieldType.TRACKS",
+        "description": "<p><code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "lukewar"
+      },
+      {
         "location": "ProjectNextFieldType.TITLE",
         "description": "<p><code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
@@ -3610,14 +3688,6 @@
       {
         "location": "ProjectNextFieldType.TEXT",
         "description": "<p><code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-        "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "lukewar"
-      },
-      {
-        "location": "ProjectNextFieldType.TASKS",
-        "description": "<p><code>TASKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
         "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
         "date": "2022-10-01",
         "criticality": "breaking",

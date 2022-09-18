@@ -1,6 +1,6 @@
 ---
-title: 'Reabrindo um {% data variables.product.prodname_project_v1 %} fechado'
-intro: 'Você pode reabrir um {% data variables.projects.projects_v1_board %} fechado e reiniciar qualquer automação de fluxo de trabalho configurada para o {% data variables.projects.projects_v1_board %}.'
+title: 'Reabrir um {% data variables.product.prodname_project_v1 %} fechado'
+intro: 'Você pode reabrir um {% data variables.projects.projects_v1_board %} e reiniciar qualquer automação de fluxo de trabalho configurada para o {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
@@ -9,22 +9,29 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Reabra {% data variables.product.prodname_project_v1 %}'
+shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: d865d4b61000857c943276c45a9ec02163e9f59b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882196'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-Ao fechar um {% data variables.projects.projects_v1_board %}, qualquer automação de fluxo de trabalho que tenha sido configurada para o {% data variables.projects.projects_v1_board %} será pausada por padrão. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
+Quando você fecha um {% data variables.projects.projects_v1_board %}, qualquer automação de fluxo de trabalho configurada para o {% data variables.projects.projects_v1_board %} será pausada por padrão. Para obter mais informações, confira "[Fechar um {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)".
 
-Ao reabrir um {% data variables.projects.projects_v1_board %}, você tem a opção de *sincronizar* a automação, que atualiza a posição dos cartões no quadro de acordo com as configurações de automação definidas para o quadro.
+Ao reabrir um {% data variables.projects.projects_v1_board %}, você tem a opção de *sincronizar* a automação, que atualiza a posição dos cartões no quadro de acordo com as configurações de automação configuradas para o quadro.
 
-1. Acesse o {% data variables.projects.projects_v1_board %} que você deseja reabrir.
+1. Navegue até os dados {% data variables.projects.projects_v1_board %} que você deseja reabrir.
 {% data reusables.project-management.click-menu %}
-3. Escolha se deseja sincronizar a automação para seu {% data variables.projects.projects_v1_board %} ou reabra seu {% data variables.projects.projects_v1_board %} sem sincronização.
-    - Para reabrir seu {% data variables.projects.projects_v1_board %} e sincronizar automação, clique em **Reabrir e sincronizar o projeto**. ![Selecione o botão "Reopen and resync project" (Reabrir e sincronizar projeto)](/assets/images/help/projects/reopen-and-sync-project.png)
-    - Para reabrir seu {% data variables.projects.projects_v1_board %} sem sincronizar a automação, usando o menu suspenso reabrir e clique em **Reabrir somente**. Em seguida, clique em **Reopen only** (Somente reabrir). ![Menu suspenso de reabertura de quadro de projeto fechado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+3. Escolha se deseja sincronizar a automação do {% data variables.projects.projects_v1_board %} ou reabrir o {% data variables.projects.projects_v1_board %} sem sincronizar.
+    - Para reabrir o {% data variables.projects.projects_v1_board %} e sincronizar a automação, clique em **Reabrir e sincronizar o projeto**.
+  ![Seleção do botão "Reabrir e ressincronizar o projeto"](/assets/images/help/projects/reopen-and-sync-project.png)
+    - Para reabrir o {% data variables.projects.projects_v1_board %} sem sincronizar a automação, usando o menu suspenso Reabrir, clique em **Somente reabrir**. Em seguida, clique em **Somente reabrir**.
+  ![Menu suspenso Reabrir para quadro de projetos fechado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-## Leia mais
+## Leitura adicional
 
-- "[Configurando automação para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"
+- "[Configurar a automação de {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"

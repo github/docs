@@ -1,7 +1,7 @@
 ---
-title: Storing workflow data as artifacts
+title: 将工作流程数据存储为构件
 shortTitle: Storing workflow artifacts
-intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
+intro: 构件允许您在工作流程完成后，分享工作流程中作业之间的数据并存储数据。
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -17,64 +17,68 @@ versions:
 type: tutorial
 topics:
   - Workflows
+ms.openlocfilehash: d23b62f1e77fd08fd798f4fb1af9f44e4d1b1123
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179733'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 关于工作流程构件
 
-## About workflow artifacts
+构件允许您在作业完成后保留数据，并与同一工作流程中的另一个作业共享该数据。 构件是指在工作流程运行过程中产生的文件或文件集。 例如，在工作流程运行结束后，您可以使用构件保存您的构建和测试输出。 {% data reusables.actions.reusable-workflow-artifacts %}
 
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
+{% data reusables.actions.artifact-log-retention-statement %} 每当有人向拉取请求推送新提交时，拉取请求的保留期都会重新开始计算。
 
-{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+以下是您可以上传的一些常见构件：
 
-These are some of the common artifacts that you can upload:
-
-- Log files and core dumps
-- Test results, failures, and screenshots
-- Binary or compressed files
-- Stress test performance output and code coverage results
+- 日志文件和核心转储文件
+- 测试结果、失败和屏幕截图
+- 二进制或压缩文件
+- 压力测试性能输出和代码覆盖结果
 
 {% ifversion fpt or ghec %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
+存储构件时使用存储空间 {% data variables.product.product_name %}。 {% data reusables.actions.actions-billing %} 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)”。
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+项目会占用外部 Blob 存储上的存储空间，该存储为 {% data variables.product.product_location %} 上的 {% data variables.product.prodname_actions %} 配置。
 
 {% endif %}
 
-Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.product_name %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
+构件会在工作流程运行过程中上传，您可以在 UI 中查看构件的名称和大小。 当构件使用 {% data variables.product.product_name %} UI 下载时， 作为构件一部分单独上传的所有文件都会压缩到一个 zip 文件中。 这意味着计费是根据上传的构件大小而不是 zip 文件的大小计算的。
 
-{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
+{% data variables.product.product_name %} 提供两项可用于上传和下载构建构件的操作。 有关详细信息，请参阅 {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) 和 [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
 
-To share data between jobs:
+要在作业之间共享数据：
 
-* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+* **上传文件**：为上传的文件指定一个名称，并在作业结束前上传数据。
+* **下载文件**：只能下载在同一工作流运行期间上传的工件。 下载文件时，您可以通过名称引用该文件。
 
-The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
+作业步骤共享运行器机器的相同环境，但在其各自的进程中运行。 要在作业的步骤之间传递数据，您可以使用输入和输出。 有关输入和输出的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
 
 {% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+有关依赖项缓存的详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)”。
 
 {% endif %}
 
-## Uploading build and test artifacts
+## 上传构建和测试构件
 
-You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."
+您可以创建持续集成 (CI) 工作流程来构建和测试您的代码。 有关使用 {% data variables.product.prodname_actions %} 执行 CI 的详细信息，请参阅“[关于持续集成](/articles/about-continuous-integration)”。
 
-The output of building and testing your code often produces files you can use to debug test failures and production code that you can deploy. You can configure a workflow to build and test the code pushed to your repository and report a success or failure status. You can upload the build and test output to use for deployments, debugging failed tests or crashes, and viewing test suite coverage.
+构建和测试代码的输出通常会生成可用于调试测试失败的文件和可部署的生产代码。 您可以配置一个工作流程来构建和测试推送到仓库中的代码，并报告成功或失败状态。 您可以上传构建和测试输出，以用于部署、调试失败的测试或崩溃以及查看测试套件范围。
 
-You can use the `upload-artifact` action to upload artifacts. When uploading an artifact, you can specify a single file or directory, or multiple files or directories. You can also exclude certain files or directories, and use wildcard patterns. We recommend that you provide a name for an artifact, but if no name is provided then `artifact` will be used as the default name. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
+可以使用 `upload-artifact` 操作上传工件。 上传构件时，您可以指定单个文件或目录，或多个文件或目录。 您还可以排除某些文件或目录，以及使用通配符模式。 建议为工件命名，如果没有命名，则会使用 `artifact` 作为默认名称。 有关语法的详细信息，请参阅 {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 操作{% endif %}。
 
-### Example
+### 示例
 
-For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
+例如，您的仓库或 Web 应用程序可能包含必须转换为 CSS 和 JavaScript 的 SASS 和 TypeScript 文件。 假设生成配置输出 `dist` 目录中已编译的文件，如果所有测试均已成功完成，则可将 `dist` 目录中的文件部署到 Web 应用服务器。
 
 ```
 |-- hello-world (repository)
@@ -88,9 +92,9 @@ For example, your repository or a web application might contain SASS and TypeScr
 |   
 ```
 
-This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
+此示例演示了如何创建 Node.js 项目的工作流，该项目在 `src` 目录中生成代码，在 `tests` 目录中运行测试。 可以假定运行 `npm test` 会生成一个名为 `code-coverage.html`、存储在 `output/test/` 目录中的代码覆盖率报告。
 
-The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also uploads the `code-coverage.html` report as another artifact.
+工作流上传 `dist` 目录中的生产工件，但不包括任何 Markdown 文件。 它还将 `code-coverage.html` 报表作为另一个工件上传。
 
 ```yaml{:copy}
 name: Node CI
@@ -122,9 +126,9 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-## Configuring a custom artifact retention period
+## 配置自定义构件保留期
 
-You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
+您可以为工作流程创建的单个构件自定义保留期。 使用工作流创建新工件时，可以同时使用 `retention-days` 和 `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的工件设置 5 天的自定义保留期：
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
@@ -135,25 +139,25 @@ You can define a custom retention period for individual artifacts created by a w
       retention-days: 5
 ```
 
-The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
+`retention-days` 值不能超过存储库、组织或企业设置的保留限制。
 
-## Downloading or deleting artifacts
+## 下载或删除构件
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
+在工作流运行期间，可以使用 [`download-artifact`](https://github.com/actions/download-artifact) 操作下载以前在同一工作流运行中上传的工件。
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+工作流程运行完成后，您可以在 {% data variables.product.prodname_dotcom %} 上或使用 REST API 下载或删除构件。 有关详细信息，请参阅“[下载工作流工件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”、“[删除工作流工件](/actions/managing-workflow-runs/removing-workflow-artifacts)”和“[工件 REST API](/rest/reference/actions#artifacts)”。
 
-### Downloading artifacts during a workflow run
+### 在工作流程运行期间下载构件
 
-The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
+[`actions/download-artifact`](https://github.com/actions/download-artifact) 操作可用于在工作流运行期间下载以前上传的工件。
 
 {% note %}
 
-**Note:** You can only download artifacts in a workflow that were uploaded during the same workflow run.
+注意：只能下载在同一工作流运行期间上传的工作流中的工件。
 
 {% endnote %}
 
-Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
+指定构件的名称以下载单个构件。 如果在未指定名称的情况下上传了工件，则默认名称为 `artifact`。
 
 ```yaml
 - name: Download a single artifact
@@ -162,37 +166,37 @@ Specify an artifact's name to download an individual artifact. If you uploaded a
     name: my-artifact
 ```
 
-You can also download all artifacts in a workflow run by not specifying a name. This can be useful if you are working with lots of artifacts.
+您还可以不指定名称而下载工作流程运行中的所有构件。 如果您在处理大量构件，此功能非常有用。
 
 ```yaml
 - name: Download all workflow run artifacts
   uses: {% data reusables.actions.action-download-artifact %}
 ```
 
-If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+如果下载所有工作流运行的工件，则会为每个工件使用其名称创建一个目录。
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
+有关语法的详细信息，请参阅 {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/download-artifact` 操作{% endif %}。
 
-## Passing data between jobs in a workflow
+## 在工作流中的作业间传递数据
 
-You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
+可以使用 `upload-artifact` 和 `download-artifact` 操作在工作流中的作业间共享数据。 此示例工作流程说明如何在相同工作流程中的任务之间传递数据。 有关详细信息，请参阅 {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) 和 [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
 
-Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the `needs` keyword to ensure that `job_1`, `job_2`, and `job_3` run sequentially. For example, `job_2` requires `job_1` using the `needs: job_1` syntax.
+依赖于以前作业构件的作业必须等待依赖项成功完成。 此工作流使用 `needs` 密钥来确保 `job_1`、`job_2` 和 `job_3` 按顺序运行。 例如，`job_2` 需要 `job_1`，方法是使用 `needs: job_1` 语法。
 
-Job 1 performs these steps:
-- Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+作业1执行以下步骤：
+- 执行数学计算并将结果保存到名为 `math-homework.txt` 的文本文件。
+- 使用 `upload-artifact` 操作上传工件名称为 `homework` 的 `math-homework.txt` 文件。
 
-Job 2 uses the result in the previous job:
-- Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
+作业 2 使用上一个作业的结果：
+- 下载在上一作业中上传的 `homework` 工件。 默认情况下，`download-artifact` 操作会将工件下载到该步骤执行的工作区目录中。 可以使用 `path` 输入参数指定不同的下载目录。
+- 读取 `math-homework.txt` 文件中的值，执行数学计算，并再次将结果保存到 `math-homework.txt`，覆盖其内容。
+- 上传 `math-homework.txt` 文件。 此上传会覆盖之前上传的构件，因为它们共用同一名称。
 
-Job 3 displays the result uploaded in the previous job:
-- Downloads the `homework` artifact.
-- Prints the result of the math equation to the log.
+作业 3 显示上一个作业中上传的结果：
+- 下载 `homework` 工件。
+- 将数学方程式的结果打印到日志中。
 
-The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
+在此工作流示例中执行的完整数学运算是 `(3 + 7) x 9 = 90`。
 
 ```yaml{:copy}
 name: Share data between jobs
@@ -248,13 +252,13 @@ jobs:
           echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+工作流程运行运行将会存档它生成的任何构件。 有关下载已存档工件的详细信息，请参阅“[下载工作流工件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
+![在作业间传递数据以执行数学运算的工作流](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## 延伸阅读
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- “[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)”。
 
 {% endif %}

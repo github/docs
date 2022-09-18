@@ -11,22 +11,27 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/licenses
+ms.openlocfilehash: f6d229eb27764441ae040abaaca211b5a894e7ef
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064863'
 ---
+## Sobre a API de Licenças
 
-## Sobre a API de licenças
+A API de Licenças usa [o Ruby Gem Licensee de código aberto](https://github.com/benbalter/licensee) para tentar identificar a licença do projeto. O Licensee corresponde o conteúdo do arquivo `LICENSE` de um projeto (se houver) com uma pequena lista de licenças conhecidas. Como resultado, a API não leva em conta as licenças das dependências do projeto ou outros meios de documentar a licença de um projeto, como, por exemplo, referências ao nome da licença na documentação.
 
-A API de Licenças usa [a Licença de código aberto do Gem do Ruby](https://github.com/benbalter/licensee) para tentar identificar a licença do projeto. A licença corresponde ao conteúdo do arquivo `LICENÇA` de um projeto (se existir) em comparação com uma pequena lista de licenças conhecidas. Como resultado, a API não leva em conta as licenças das dependências do projeto ou outros meios de documentar a licença de um projeto, como, por exemplo, referências ao nome da licença na documentação.
+Se for encontrada a correspondência de uma licença, a chave de licença e o nome retornados estarão em conformidade com a [especificação SPDX](https://spdx.org/).
 
-Se uma licença for correspondida, a chave da licença e o nome retornados serão conformes à [especificação SPDX](https://spdx.org/).
-
-**Observação:** Estes pontos de extremidade também retornarão informações de licença de um repositório:
+**Observação:** esses pontos de extremidade também retornarão as informações de licença de um repositório:
 
 - [Obter um repositório](/rest/reference/repos#get-a-repository)
-- [Listar repositórios para um usuário](/rest/reference/repos#list-repositories-for-a-user)
-- [Listar repositórios da organização](/rest/reference/repos#list-organization-repositories)
-- [Listar bifurcações](/rest/reference/repos#list-forks)
-- [Listar repositórios inspecionados por um usuário](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [Listar repositórios da equipe](/rest/reference/teams#list-team-repositories)
+- [Listar os repositórios de um usuário](/rest/reference/repos#list-repositories-for-a-user)
+- [Listar os repositórios da organização](/rest/reference/repos#list-organization-repositories)
+- [Listar os forks](/rest/reference/repos#list-forks)
+- [Listar os repositórios inspecionados por um usuário](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [Listar os repositórios da equipe](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

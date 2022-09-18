@@ -15,11 +15,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+ms.openlocfilehash: a5cab340f84d572a0a8e549d942b7b52ef522733
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120601'
 ---
-
 ## Comprobación manual del estado de la agrupación
 
-{% data variables.product.prodname_ghe_server %} tiene una utilidad de línea de comando incorporada para supervisar el estado de la agrupación. Desde el shell administrativo, la puesta en funcionamiento de un comando `ghe-cluster-status` ejecuta una serie de revisiones de estado en cada nodo, incluida la verificación de la conectividad y el estado del servicio. La salida muestra todos los resultados de la prueba incluido el texto `ok` o `error`. Por ejemplo, para mostrar solamente las pruebas fallidas, ejecuta:
+{% data variables.product.prodname_ghe_server %} tiene una utilidad de línea de comando incorporada para supervisar el estado de la agrupación. Desde el shell administrativo, la ejecución del comando `ghe-cluster-status` ejecuta una serie de revisiones de estado en cada nodo, incluida la verificación de la conectividad y el estado del servicio. En la salida se muestran todos los resultados de la prueba, incluido el texto `ok` o `error`. Por ejemplo, para mostrar solamente las pruebas fallidas, ejecuta:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -28,15 +33,15 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 ```
 {% note %}
 
-**Nota:** Si no hay pruebas fallidas, este comando no produce salidas. Esto indica que la agrupación está en buen estado.
+**Nota:** Si no hay pruebas con errores, este comando no genera salidas. Esto indica que la agrupación está en buen estado.
 
 {% endnote %}
 
 ## Supervisar el estado de la agrupación con Natgios
 
-Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {% data variables.product.prodname_ghe_server %}. Además de supervisar la conectividad básica para cada uno de los nodos de la agrupación, puedes comprobar el estado de la agrupación al configurar Nagios para que use el comando `ghe-cluster-status -n`. Esto devuelve salidas en un formato que Nagios comprende.
+Puede configurar [Nagios](https://www.nagios.org/) para supervisar {% data variables.product.prodname_ghe_server %}. Además de supervisar la conectividad básica para cada uno de los nodos del clúster, puede comprobar el estado del clúster si configura Nagios para que use el comando `ghe-cluster-status -n`. Esto devuelve salidas en un formato que Nagios comprende.
 
-### Prerrequisitos
+### Requisitos previos
 * Host Linux que ejecuta Nagios.
 * Acceso de red para la agrupación {% data variables.product.prodname_ghe_server %}.
 
@@ -53,32 +58,31 @@ Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {% data vari
   ```
   {% danger %}
 
-  **Advertencia de seguridad** Una clave SSH sin una contraseña puede plantear un riesgo de seguridad en caso de que un host tenga autorización de acceso completo. Limita la autorización de esa clave a un comando único de solo lectura.
+  **Advertencia de seguridad:** Una clave SSH sin una frase de contraseña puede suponer un riesgo de seguridad si se le concede acceso completo a un host. Limita la autorización de esa clave a un comando único de solo lectura.
 
-  {% enddanger %}
-  {% note %}
+  {% enddanger %} {% note %}
 
-  **Nota:** Si estás utilizando una distribución de Linux que no sea compatible con el algoritmo Ed25519, utiliza el comando:
+  **Nota:** Si usa una distribución de Linux que no admita con el algoritmo Ed25519, utilice el comando:
   ```shell
   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
   {% endnote %}
-2. Copia la llave privada (`id_ed25519`) a la carpeta principal `nagios` y configura la propiedad adecuada.
+2. Copie la clave privada (`id_ed25519`) en la carpeta principal `nagios` y establezca la propiedad adecuada.
   ```shell
   nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. Para autorizar una clave pública a fin de que ejecute el comando *only* the `ghe-cluster-status -n`, usa un prefijo `command=` en el archivo `/data/user/common/authorized_keys`. Desde el shell administrativo en cualquier nodo, modifica este archivo para agregar la clave pública generada en el paso 1. Por ejemplo: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. A fin de autorizar a la clave pública para ejecutar *solo* el comando `ghe-cluster-status -n`, use un prefijo `command=` en el archivo `/data/user/common/authorized_keys`. Desde el shell administrativo en cualquier nodo, modifica este archivo para agregar la clave pública generada en el paso 1. Por ejemplo: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
-4. Valida y copia la configuración e cualquier nodo en la agrupación al ejecutar `ghe-cluster-config-apply` en el nodo donde modificase el archivo `/data/user/common/authorized_keys`.
+4. Valide y copie la configuración en cada nodo del clúster mediante la ejecución de `ghe-cluster-config-apply` en el nodo donde haya modificado el archivo `/data/user/common/authorized_keys`.
 
   ```shell
   admin@ghe-data-node-0:~$ <em>ghe-cluster-config-apply</em>
   > Validating configuration
   > ...
-  > Configuración de agrupación finalizada
+  > Finished cluster configuration
   ```
 
 5. Para probar que el plugin de Nagios puede ejecutar el comando exitosamente, ejecútalo interactivamente desde el host de Nagios.
@@ -88,17 +92,15 @@ Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {% data vari
   ```
 
 6. Crea una definición de comando en tu configuración Nagios.
-
   ###### Definición de ejemplo
 
   ```
-  definir comando {
+  define command {
         command_name    check_ssh_ghe_cluster
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
 7. Agrega este comando a una definición de servicio para un nodo en la agrupación de {% data variables.product.prodname_ghe_server %}.
-
 
   ###### Definición de ejemplo
 

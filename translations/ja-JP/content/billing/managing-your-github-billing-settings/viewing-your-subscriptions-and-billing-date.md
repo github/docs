@@ -17,22 +17,24 @@ topics:
   - Accounts
   - Organizations
   - User account
-shortTitle: サブスクリプションと請求日
+shortTitle: Subscriptions & billing date
+ms.openlocfilehash: c623155dcf2e839202237e5e67c93665f7e354df
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145087821'
 ---
-
 ## 個人アカウントの次の請求日を確認する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.next_billing_date %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Organization の次の請求日を確認する
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.next_billing_date %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.next_billing_date %}
 
-## 参考リンク
+## 参考資料
 
 - 「[{% data variables.product.prodname_dotcom %} アカウントの支払いについて](/articles/about-billing-for-github-accounts)」

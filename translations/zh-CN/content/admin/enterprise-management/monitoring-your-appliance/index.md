@@ -18,5 +18,11 @@ children:
   - /monitoring-using-snmp
   - /about-system-logs
   - /generating-a-health-check-for-your-enterprise
+ms.openlocfilehash: 3232d21371c2ad18ff8a4ebc8dcf7ea603d152ac
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145099083'
 ---
 

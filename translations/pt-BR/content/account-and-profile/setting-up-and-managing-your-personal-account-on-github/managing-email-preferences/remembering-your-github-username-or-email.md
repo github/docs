@@ -1,6 +1,6 @@
 ---
 title: Lembrar o nome de usuário ou e-mail do GitHub
-intro: 'Faz tempo que você não faz login no {% data variables.product.product_location %}? Se sim, bem-vindo de volta! Se você não consegue lembrar o nome de usuário da sua conta pessoal em {% data variables.product.product_name %}, você pode tentar esses métodos para lembrá-lo.'
+intro: 'Faz tempo que você não faz login no {% data variables.product.product_location %}? Se sim, bem-vindo de volta! Se você não lembrar do nome de usuário para sua conta pessoal em {% data variables.product.product_name %}, siga estas etapas para recuperá-lo.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email
@@ -15,17 +15,22 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: Encontre seu nome de usuário ou e-mail
+shortTitle: Find your username or email
+ms.openlocfilehash: e65ba973a5ca7865aa642ce5d64f8efa0a996742
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145164643'
 ---
-
 {% mac %}
 
 ## Usuários do {% data variables.product.prodname_desktop %}
 
-1. No menu **GitHub Desktop**, clique em **Preferences** (Preferências).
+1. No menu **GitHub Desktop**, clique em **Preferências**.
 2. Na janela Preferences (Preferências), faça o seguinte:
-    - Para visualizar o nome de usuário do {% data variables.product.product_name %}, clique em **Accounts** (Contas).
-    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
+    - Para ver o nome de usuário do {% data variables.product.product_name %}, clique em **Contas**.
+    - Para ver seu email do Git, clique em **Git**. Observe que esse email não tem a garantia de ser [seu email principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
 
 {% endmac %}
 
@@ -33,20 +38,20 @@ shortTitle: Encontre seu nome de usuário ou e-mail
 
 ## Usuários do {% data variables.product.prodname_desktop %}
 
-1. No menu **Arquivo** clique em **Opções**.
+1. No menu **Arquivo**, clique em **Opções**.
 2. Na janela Options (Opções), faça o seguinte:
-    - Para visualizar o nome de usuário do {% data variables.product.product_name %}, clique em **Accounts** (Contas).
-    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
-
+    - Para ver o nome de usuário do {% data variables.product.product_name %}, clique em **Contas**.
+    - Para ver seu email do Git, clique em **Git**. Observe que esse email não tem a garantia de ser [seu email principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
+  
 {% endwindows %}
 
-## Encontrar o nome de usuário na configuração `user.name`
+## Como localizar seu nome de usuário na configuração de `user.name`
 
-Durante a configuração, você provavelmente [configurou seu nome de usuário no Git](/github/getting-started-with-github/setting-your-username-in-git). Em caso afirmativo, você poderá revisar o valor dessa configuração:
+Durante a configuração, você pode ter [definido seu nome de usuário no Git](/github/getting-started-with-github/setting-your-username-in-git). Em caso afirmativo, você poderá revisar o valor dessa configuração:
 
 ```shell
 $ git config user.name
-# Visualizar a configuração
+# View the setting
 <em>YOUR_USERNAME</em>
 ```
 
@@ -56,22 +61,21 @@ Se você tiver cópias locais de repositórios pessoais criados ou bifurcados, p
 
 {% tip %}
 
-**Dica**: esse método funciona apenas se você tiver um repositório original ou sua própria bifurcação do repositório de outra pessoa. Se você clonar o repositório de outra pessoa, o nome de usuário da pessoa será exibido, não o seu. De forma similar, os repositórios da organização exibirão o nome da organização, não um usuário específico na URL remoto.
+**Dica**: esse método só funcionará se você tiver um repositório original ou um fork próprio do repositório de outra pessoa. Se você clonar o repositório de outra pessoa, o nome de usuário da pessoa será exibido, não o seu. De forma similar, os repositórios da organização exibirão o nome da organização, não um usuário específico na URL remoto.
 
 {% endtip %}
 
 ```shell
 $ cd <em>YOUR_REPOSITORY</em>
-# Altera os diretórios no repositório Git inicializado
+# Change directories to the initialized Git repository
 $ git remote -v
 origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
 origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-Seu nome de usuário aparece logo após `https://{% data variables.command_line.backticks %}/`.
+Seu nome de usuário é o que vem imediatamente após o `https://{% data variables.command_line.backticks %}/`.
 
 {% ifversion fpt or ghec %}
-## Leia mais
+## Leitura adicional
 
-- "[Verificar endereço de e-mail](/articles/verifying-your-email-address)"
-{% endif %}
+- "[Como verificar seu endereço de email](/articles/verifying-your-email-address)" {% endif %}

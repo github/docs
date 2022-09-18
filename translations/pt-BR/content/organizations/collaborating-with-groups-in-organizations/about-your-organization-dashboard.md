@@ -12,9 +12,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Painel da organização
+shortTitle: Organization dashboard
+ms.openlocfilehash: c5f25d589e7b640fa411cd26f004961081c9d8e8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880771'
 ---
-
 ## Acessar o painel da sua organização
 
 {% data reusables.dashboard.access-org-dashboard %}
@@ -35,7 +40,7 @@ Na barra lateral esquerda do painel, é possível acessar os principais reposit�
 
 Na seção "All activity" (Todas as atividades) do seu feed de notícias, você pode ver atualizações de outras equipes e repositórios em sua organização.
 
-A seção "All activity" (Todas as atividades) mostra todas as últimas atividades na organização, inclusive atividades em repositórios que você não assina e de pessoas que você não está seguindo. Para obter mais informações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" e "[Seguindo as pessoas](/articles/following-people)".
+A seção "All activity" (Todas as atividades) mostra todas as últimas atividades na organização, inclusive atividades em repositórios que você não assina e de pessoas que você não está seguindo. Para obter mais informações, confira "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" e "[Como seguir pessoas](/articles/following-people)".
 
 Por exemplo, o feed de notícias da organização mostra atualizações quando alguém na organização:
  - Cria um branch.
@@ -43,9 +48,9 @@ Por exemplo, o feed de notícias da organização mostra atualizações quando a
  - Envia um comentário de revisão de pull request.
  - Bifurca um repositório.
  - Cria uma página wiki.
- - Commits de pushes.{% ifversion fpt or ghes or ghec %}
+ - Confirmações por push.{% ifversion fpt or ghes or ghec %}
  - Cria um repositório público.{% endif %}
 
-## Outras informações
+## Informações adicionais
 
 - "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)"

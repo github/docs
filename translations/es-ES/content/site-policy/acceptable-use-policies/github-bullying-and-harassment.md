@@ -1,6 +1,6 @@
 ---
-title: Bullying y acoso en GitHub
-shortTitle: Bullying y acoso
+title: Intimidación y Acoso en GitHub
+shortTitle: Bullying and Harassment
 versions:
   fpt: '*'
 topics:
@@ -9,15 +9,20 @@ topics:
 redirect_from:
   - /github/site-policy/github-bullying-and-harassment
   - /github/site-policy/github-community-guidelines#bullying-and-harassment
+ms.openlocfilehash: 3728314661ad4cb9d5b0765b937e618f8ee31f7b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556681'
 ---
+No toleramos el acoso, la intimidación ni el abuso de ningún tipo, ya se practique directamente o animando a otros a participar en la conducta prohibida. Esto incluye:
 
-No toleramos el acoso, bullying ni cualquier otro tipo de abuso, ya sea directo o convenciendo a otros para que tomen parte en la conducta prohibida. Esto incluye:
+- los ataques personales dirigidos;
+- la acumulación o la organización de actividades [perturbadoras](/github/site-policy/github-disrupting-the-experience-of-other-users) de cualquier modo que pueda ser constitutivo de abuso;
+- el seguimiento a otro usuario por la plataforma de cualquier modo que provoque intimidación;
+- la realización de insinuaciones o comentarios sexuales dirigidos a otra persona;
+- la participación deshonesta en una conversación de tal forma instigue el conflicto o socave un debate sincero;
+- la creación de cuentas alternativas con la finalidad expresa de eludir la acción de moderación adoptada por el personal o los usuarios de GitHub.
 
-- Ataques personales dirigidos
-- Sumarse u organizar cualquier actividad [perjudicial](/github/site-policy/github-disrupting-the-experience-of-other-users) de forma que cuente como abuso
-- Seguir a otro usuario en toda la plataforma de manera que ocasione intimidación
-- Hacer insinuaciones o comentarios sexuales que se dirijan a otro individuo
-- Participar deshonestamente en una conversación de forma que esto instigue al conflicto o socave un debate honesto
-- Crear cuentas alternas específicamente para evadir las acciones de moderación que lleva a cabo el personal de GitHub o los usuarios
-
-Toma en cuenta que no toda la conducta indeseable constituye necesariamente acoso. Por ejemplo, el no concordar con otro usuario o marcar sus comentarios con rechazo no llega a ser acoso en nuestra plataforma. Adicionalmente, el compartir el criticismo de las figuras o proyectos públicos o los temas de interés público no necesariamente cae bajo esta política. Sin embargo, te exhortamos a ser consciente de cómo participas con otros usuarios de la plataforma, ya que es posible que esta actividad viole nuestra restricción de perturbar la experiencia de otros usuarios.
+Tenga en cuenta que no todas las conductas no deseadas se consideran necesariamente acoso. Por ejemplo, no estar de acuerdo con otro usuario o rechazar sus comentarios puede no alcanzar el nivel de acoso en nuestra plataforma. Además, compartir críticas sobre figuras públicas o proyectos, o sobre temas de interés público, no necesariamente es objeto de directiva. Sin embargo, lo alentamos a que tenga en cuenta cómo interactúa con otros usuarios y con la plataforma, ya que, de todos modos, esta actividad podría infringir nuestra restricción sobre la perturbación de la experiencia de otros usuarios.

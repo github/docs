@@ -1,7 +1,7 @@
 ---
-title: Migrating from the CodeQL runner to CodeQL CLI
+title: CodeQL ランナーから CodeQL CLI への移行
 shortTitle: Migrating from the CodeQL runner
-intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to complete the same tasks as with the {% data variables.product.prodname_codeql_runner %}.'
+intro: '{% data variables.product.prodname_codeql_cli %} を使用して、{% data variables.product.prodname_codeql_runner %} と同じタスクを完了できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,52 +12,57 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145116062'
 ---
+# {% data variables.product.prodname_codeql_runner %} から {% data variables.product.prodname_codeql_cli %} への移行
 
-# Migrating from the {% data variables.product.prodname_codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
+{% data variables.product.prodname_codeql_runner %} は非推奨になりました。 代わりに {% data variables.product.prodname_codeql_cli %} バージョン 2.6.2 以降をお使いいただけます。
+このドキュメントでは、一般的なワークフローを {% data variables.product.prodname_codeql_runner %} から {% data variables.product.prodname_codeql_cli %} に移行する方法について説明します。
 
-The {% data variables.product.prodname_codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
-This document describes how to migrate common workflows from the {% data variables.product.prodname_codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
+## インストール
 
-## Installation
+**{% data variables.product.prodname_codeql %} バンドルを** [`github/codeql-action` リポジトリ](https://github.com/github/codeql-action/releases)からダウンロードします。 このバンドルには、{% data variables.product.prodname_codeql_cli %} および、標準の {% data variables.product.prodname_codeql %} クエリとライブラリが含まれています。
 
-Download the **{% data variables.product.prodname_codeql %} bundle** from the [`github/codeql-action` repository](https://github.com/github/codeql-action/releases). This bundle contains the {% data variables.product.prodname_codeql_cli %} and the standard {% data variables.product.prodname_codeql %} queries and libraries.
+{% data variables.product.prodname_codeql_cli %} の設定の詳細については、「[CI システムでの {% data variables.product.prodname_codeql_cli %} のインストール](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」を参照してください。
 
-For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+## ワークフローの変更の概要
 
-## Overview of workflow changes
+{% data variables.product.prodname_codeql_runner %} を使用してコードベースを分析する一般的なワークフローには、次の手順があります。
+- `codeql-runner-<platform> init` により、{% data variables.product.prodname_codeql %} データベースの作成を開始して、構成を読み取ります。
+- コンパイル済み言語の場合: `init` ステップによって生成される環境変数を設定します。
+- コンパイル済み言語の場合: 自動ビルドまたは手動ビルド手順を実行します。
+- `codeql-runner-<platform> analyze` により {% data variables.product.prodname_codeql %} データベースの作成を完了し、クエリを実行して各 {% data variables.product.prodname_codeql %} データベースを分析して、SARIF ファイルで結果を要約し、結果を {% data variables.product.prodname_dotcom %} にアップロードします。
 
-A typical workflow that uses the {% data variables.product.prodname_codeql_runner %} to analyze a codebase has the following steps.
-- `codeql-runner-<platform> init` to start creating {% data variables.product.prodname_codeql %} databases and read the configuration.
-- For compiled languages: set environment variables produced by the `init` step.
-- For compiled languages: run autobuild or manual build steps.
-- `codeql-runner-<platform> analyze` to finish creating {% data variables.product.prodname_codeql %} databases, run queries to analyze each {% data variables.product.prodname_codeql %} database, summarize the results in a SARIF file, and upload the results to {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_codeql_cli %} を使用してコードベースを分析する一般的なワークフローには、次の手順があります。
+- `codeql database create` によって、{% data variables.product.prodname_codeql %} データベースを作成します。
+  - コンパイル済み言語の場合: 必要に応じてビルド コマンドを指定します。
+- `codeql database analyze` では、クエリを実行して各 {% data variables.product.prodname_codeql %} データベースを分析し、結果を SARIF ファイルにまとめます。 このコマンドは、言語またはデータベースごとに 1 回実行する必要があります。
+- `codeql github upload-results` により、結果の SARIF ファイルを {% data variables.product.prodname_dotcom %} にアップロードし、コード スキャン アラートとして表示します。 このコマンドは、言語または SARIF ファイルごとに 1 回実行する必要があります。
 
-A typical workflow that uses the {% data variables.product.prodname_codeql_cli %} to analyze a codebase has the following steps.
-- `codeql database create` to create {% data variables.product.prodname_codeql %} databases.
-  - For compiled languages: Optionally provide a build command.
-- `codeql database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. This command must be run once for each language or database.
-- `codeql github upload-results` to upload the resulting SARIF files to {% data variables.product.prodname_dotcom %}, to be displayed as code scanning alerts. This command must be run once for each language or SARIF file.
+{% data variables.product.prodname_codeql_runner %} は、既定ではマルチスレッドです。 既定では、{% data variables.product.prodname_codeql_cli %} により単一のスレッドのみが使用されますが、使用するスレッドの数を指定できます。 {% data variables.product.prodname_codeql_runner %} の動作をレプリケートして、{% data variables.product.prodname_codeql_cli %} を使用するときにマシンで使用可能なすべてのスレッドを使用する場合は、`--threads 0` を `codeql database analyze` に渡します。
 
-The {% data variables.product.prodname_codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.product.prodname_codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
+詳細については、「[CI システムでの {% data variables.product.prodname_codeql_cli %} の構成](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)」を参照してください。
 
-For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+## {% data variables.product.prodname_codeql_cli %} の一般的な使用例
 
-## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
+### 例について
 
-### About the examples
+これらの例では、ソース コードが現在の作業ディレクトリにチェックアウトされていることを前提としています。 別のディレクトリを使用する場合は、それに応じて `--source-root` 引数とビルド手順を変更します。
 
-These examples assume that the source code has been checked out to the current working directory. If you use a different directory, change the `--source-root` argument and the build steps accordingly.
+また、これらの例では、{% data variables.product.prodname_codeql_cli %} が現在の PATH に配置されていることも前提としています。
 
-These examples also assume that the {% data variables.product.prodname_codeql_cli %} is placed on the current PATH.
+これらの例では、適切なスコープを持つ {% data variables.product.prodname_dotcom %} トークンが `$TOKEN` 環境変数に格納され、`stdin` を介して、サンプル コマンドに渡されるか、`$GITHUB_TOKEN` 環境変数に格納されます。
 
-In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
+これらの例でチェックアウトおよび分析されている ref 名とコミット SHA は、ワークフロー中に認識されます。 ブランチの場合は、ref として使用 `refs/heads/BRANCH-NAME` します。pull request のヘッド コミットには `refs/pull/NUMBER/head` を使用します。 pull request の {% data variables.product.prodname_dotcom %} で生成されたマージ コミットの場合は、`refs/pull/NUMBER/merge` を使用します。 下記の例では、`refs/heads/main` を使用しています。 別のブランチ名を使用する場合は、サンプル コードを変更する必要があります。
 
-The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
+### 単一のコンパイルされていない言語 (JavaScript)
 
-### Single non-compiled language (JavaScript)
-
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -82,11 +87,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Single non-compiled language (JavaScript) using a different query suite (security-and-quality)
+### 別のクエリ スイート (セキュリティと品質) を使用する単一のコンパイルされていない言語 (JavaScript)
 
-A similar approach can be taken for compiled languages, or multiple languages.
+コンパイル済みの言語や複数の言語に対しても、同様の方法を使用できます。
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -112,11 +117,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Single non-compiled language (JavaScript) using a custom configuration file
+### カスタム構成ファイルを使用する単一のコンパイルされていない言語 (JavaScript)
 
-A similar approach can be taken for compiled languages, or multiple languages.
+コンパイル済みの言語や複数の言語に対しても、同様の方法を使用できます。
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -143,9 +148,9 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Single compiled language using autobuild (Java)
+### 自動ビルドを使用する単一のコンパイル済みの言語 (Java)
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -177,9 +182,9 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-java.sarif --github-auth-stdin
 ```
 
-### Single compiled language using a custom build command (Java)
+### カスタム ビルド コマンドを使用する単一のコンパイル済みの言語 (Java)
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -210,11 +215,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-java.sarif --github-auth-stdin
 ```
 
-### Single compiled language using indirect build tracing (C# on Windows within Azure DevOps)
+### 間接ビルド トレースを使用する単一のコンパイル済み言語 (Azure DevOps 内のWindows 上の C#)
 
-Indirect build tracing for a compiled language enables {% data variables.product.prodname_codeql %} to detect all build steps between the `init` and `analyze` steps, when the code cannot be built using the autobuilder or an explicit build command line. This is useful when using preconfigured build steps from your CI system, such as the `VSBuild` and `MSBuild` tasks in Azure DevOps.
+コンパイル済み言語の間接ビルド トレースを使用すると、{% data variables.product.prodname_codeql %} で、オートビルダーまたは明示的なビルド コマンド ラインを使用してコードをビルドできない場合に、`init` と `analyze` ステップの間のすべてのビルド ステップを検出できるようになります。 これは、CI システムから、Azure DevOps 内の `VSBuild` と `MSBuild` タスクなどの、構成済みのビルド ステップを使用する場合に便利です。
 
-Runner:
+ランナー:
 ```yaml
 - task: CmdLine@1
   displayName: CodeQL Initialization
@@ -332,12 +337,12 @@ CLI:
 
 ```
 
-### Multiple languages using autobuild (C++, Python)
+### 自動ビルドを使用する複数の言語 (C++、Python)
 
-This example is not strictly possible with the {% data variables.product.prodname_codeql_runner %}.
-Only one language (the compiled language with the most files) will be analyzed.
+この例は、{% data variables.product.prodname_codeql_runner %} では厳密には可能ではありません。
+分析されるのは、1 つの言語 (ほとんどのファイルを含むコンパイル済みの言語) だけです。
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -375,9 +380,9 @@ for language in cpp python; do
 done
 ```
 
-### Multiple languages using a custom build command (C++, Python)
+### カスタム ビルド コマンドを使用する複数の言語 (C++、Python)
 
-Runner:
+ランナー:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \

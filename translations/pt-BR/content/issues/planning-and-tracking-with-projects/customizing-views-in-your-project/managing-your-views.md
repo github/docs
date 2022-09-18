@@ -1,18 +1,22 @@
 ---
-title: Managing your views
-intro: 'Learn how to create, save, and manage your project views.'
+title: Gerenciar o fluxo
+intro: 'Saiba como criar, salvar e gerenciar as exibições do seu projeto.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: d434b4b086c1ec8526c3214161ac00d58dced4fd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423829'
 ---
-
-
 ## Criando uma visualização do projeto
 
-As visualizações do projeto permitem que você visualize rapidamente os aspectos específicos do seu projeto. Cada visualização é exibida em uma guia separada no seu projeto.
+As visualizações do projeto permitem que você visualize rapidamente os aspectos específicos do seu projeto. Cada visualização é exibida em uma guia separada no seu projeto. 
 
 Por exemplo, você pode ter:
 - Uma visualização que mostra todos os itens ainda não iniciados (filtro de "Status").
@@ -23,21 +27,22 @@ Para adicionar uma nova visualização:
 
 {% data reusables.projects.new-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "New view."
+Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Nova exibição".
 
 A nova visualização é salva automaticamente.
 
-## Duplicating a view
+## Duplicar uma exibição
 
-You can duplicate an existing view and use it as a base to make further changes.
+Você pode duplicar uma exibição existente e usá-la como base para fazer alterações adicionais.
 
-1. Switch to the view you want to duplicate.
+1. Alterne para a exibição que você deseja duplicar.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "versions" aria-label="the versions icon" %} **Duplicate view**. ![Screenshot showing the duplicate menu item](/assets/images/help/projects-v2/duplicate-view.png)
+1. Clique em {% octicon "versions" aria-label="the versions icon" %} **Duplicar exibição**.
+   ![Captura de tela mostrando o item de menu Duplicar](/assets/images/help/projects-v2/duplicate-view.png)
 
 ## Salvando alterações em uma visualização
 
-Ao fazer alterações a uma visualização como, por exemplo, ordenação, reordenação, filtragem ou agrupamento de dados em uma visualização, será exibido um ponto ao lado do nome da visualização para indicar que existem alterações não salvas.
+Ao fazer alterações a uma visualização como, por exemplo, ordenação, reordenação, filtragem ou agrupamento de dados em uma visualização, será exibido um ponto ao lado do nome da visualização para indicar que existem alterações não salvas. 
 
 ![Indicador de alterações não salvas](/assets/images/help/projects/unsaved-changes.png)
 
@@ -45,7 +50,7 @@ Se você não desejar salvar as alterações, você poderá ignorar este indicad
 
 {% data reusables.projects.save-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Save view."
+Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Salvar exibição".
 
 ## Reordenando as visualizações salvas
 
@@ -53,18 +58,20 @@ Para alterar a ordem das abas que contêm as exibições salvas, clique e arrast
 
 ## Renomeando uma visualização salva
 
-You can rename your saved views. A alteração de nome será salva automaticamente.
+Você pode renomear as exibições salvas. A alteração de nome será salva automaticamente.
 
-1. Switch to the view you want to rename.
+1. Alterne para a exibição que você deseja renomear.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
-1. To save your changes, press <kbd>Return</kbd>.
+1. Clique em {% octicon "pencil" aria-label="the pencil icon" %} **Renomear exibição**.
+   ![Captura de tela mostrando o item de menu Renomear](/assets/images/help/projects-v2/rename-view.png)
+1. Digite o novo nome da sua exibição.
+1. Para salvar as alterações, pressione <kbd>Return/Enter</kbd>.
 
 ## Excluindo uma visualização salva
 
-1. Switch to the view you want to delete.
+1. Mude para a exibição que você deseja excluir.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "trash" aria-label="the trasj icon" %} **Delete view**. ![Screenshot showing the rename delete item](/assets/images/help/projects-v2/delete-view.png)
+1. Clique em {% octicon "trash" aria-label="the trasj icon" %} **Excluir exibição**.
+   ![Captura de tela mostrando o item de exclusão de renomeação](/assets/images/help/projects-v2/delete-view.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Delete view."
+Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Excluir exibição".

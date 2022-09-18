@@ -1,6 +1,6 @@
 ---
-title: Deploying GitHub AE
-intro: 'You can deploy {% data variables.product.product_name %} to an available Azure region.'
+title: GitHub AE のデプロイ
+intro: '{% data variables.product.product_name %} を利用できる Azure リージョンにデプロイできます。'
 versions:
   ghae: '*'
 topics:
@@ -10,57 +10,61 @@ type: how_to
 shortTitle: Deploy GitHub AE
 redirect_from:
   - /get-started/signing-up-for-github/setting-up-a-trial-of-github-ae
+ms.openlocfilehash: af6def26a15a1ccad2625677d9db57b2a1907850
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147614368'
 ---
+## {% data variables.product.product_name %} のデプロイについて
 
-## About deployment of {% data variables.product.product_name %}
+{% data reusables.github-ae.github-ae-enables-you %} 詳細については、「[{% data variables.product.prodname_ghe_managed %} について](/admin/overview/about-github-ae)」を参照してください。
 
-{% data reusables.github-ae.github-ae-enables-you %} 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} について](/admin/overview/about-github-ae)」を参照してください。
+{% data variables.product.product_name %} の試用版を購入または開始した後、利用可能な Azure リージョンに {% data variables.product.product_name %} をデプロイできます。 このガイドでは、{% data variables.product.product_name %} アカウントとして {% data variables.product.product_name %} のデプロイを含む Azure リソースについて説明します。 [https://portal.azure.com](https://portal.azure.com) の Azure portal を使用して、{% data variables.product.product_name %} アカウントをデプロイします。
 
-After you purchase or start a trial of {% data variables.product.product_name %}, you can deploy {% data variables.product.product_name %} to an available Azure region. This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
+## 前提条件
 
-## 必要な環境
+Azure でリソース プロバイダーの `/register/action` 操作を実行するためのアクセス許可が必要です。 アクセス許可は、`Contributor` および `Owner` ロールに含まれています。 詳細については、Microsoft のドキュメントの「[Azure リソース プロバイダーと種類](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)」を参照してください。
 
-- Before you can deploy {% data variables.product.product_name %}, you must request access from your {% data variables.product.company_short %} account team. {% data variables.product.company_short %} will enable deployment of {% data variables.product.product_name %} for your Azure subscription. If you haven't already purchased {% data variables.product.product_name %}, you can contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a trial.
+## {% data variables.actions.azure_portal %} を使用した {% data variables.product.product_name %} のデプロイ
 
-- You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+{% data variables.actions.azure_portal %} を使用すると、Azure リソース グループに {% data variables.product.product_name %} アカウントをデプロイできます。
 
-## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
+1. 次の 2 つのリンクのいずれかをクリックして、{% data variables.product.product_name %} のデプロイを開始します。 クリックする必要があるリンクは、{% data variables.product.product_name %} をデプロイする予定の Azure クラウドによって異なります。 Azure Government の詳細については、Microsoft ドキュメントの「[Azure Government とは](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome)」を参照してください。
+   
+   - [{% data variables.product.product_name %} を Azure Commercial にデプロイする](https://aka.ms/create-github-ae-instance)
+   - [{% data variables.product.product_name %} を Azure Government にデプロイする](https://aka.ms/create-github-ae-instance-gov)
+1. 新しい {% data variables.product.product_name %} アカウントを追加するプロセスを開始するには、 **[GitHub AE アカウントの作成]** をクリックします。
+1. [プロジェクトの詳細] フィールドと [インスタンスの詳細] フィールドに入力します。
+    ![{% data variables.actions.azure_portal %} 検索結果](/assets/images/azure/github-ae-azure-portal-form.png)
+    - **アカウント名:** エンタープライズのホスト名
+    - **管理者のユーザー名:** {% data variables.product.product_name %} に作成される初期エンタープライズ所有者のユーザー名
+    - **管理者のメール:** ログイン情報を受け取るメール アドレス
+1. 提案された変更の概要を確認するには、 **[確認と作成]** をクリックします。
+1. 検証プロセスが完了したら、 **[作成]** をクリックします。
 
-The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.product_name %} account in your Azure resource group.
-
-1. Click one of the following two links to begin deployment of {% data variables.product.product_name %}. The link you should click depends on the Azure cloud where you plan to deploy {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
-
-   - [Deploy {% data variables.product.product_name %} to Azure Commercial](https://aka.ms/create-github-ae-instance)
-   - [Deploy {% data variables.product.product_name %} to Azure Government](https://aka.ms/create-github-ae-instance-gov)
-1. To begin the process of adding a new {% data variables.product.product_name %} account, click **Create GitHub AE account**.
-1. Complete the "Project details" and "Instance details" fields. ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-form.png)
-    - **Account name:** The hostname for your enterprise
-    - **Administrator username:** A username for the initial enterprise owner that will be created in {% data variables.product.product_name %}
-    - **Administrator email:** The email address that will receive the login information
-1. To review a summary of the proposed changes, click **Review + create**.
-1. After the validation process has completed, click **Create**.
-
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. 詳しい情報については、「[{% data variables.product.product_name %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
+上記で入力したメール アドレスには、エンタープライズへのアクセス方法に関する手順が記載されています。 アクセス権を取得したら、初期セットアップ手順に従って作業を開始できます。 詳細については、「[{% data variables.product.product_name %} の初期化](/admin/configuration/initializing-github-ae)」を参照してください。
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.product_name %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**注意:** {% data variables.product.product_name %} デプロイ用のソフトウェア更新プログラムは、{% data variables.product.prodname_dotcom %} によって実行されます。 詳細については、「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」を参照してください。
 
 {% endnote %}
 
-## Navigating to your enterprise
+## エンタープライズへ移動
 
-You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.product_name %} deployment. The resulting list includes all the {% data variables.product.product_name %} deployments in your Azure region.
+{% data variables.actions.azure_portal %} を使用して、{% data variables.product.product_name %} デプロイに移動できます。 結果の一覧には、Azure リージョン内のすべての {% data variables.product.product_name %} デプロイが含まれます。
 
-1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
-1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**: ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
+1. {% data variables.actions.azure_portal %} の左側のパネルで、 **[すべてのリソース]** をクリックします。
+1. 使用可能なフィルターから **[すべての種類]** をクリックし、 **[すべて選択]** の選択を解除し、 **[GitHub AE]** を選択します。![{% data variables.actions.azure_portal %} の検索結果](/assets/images/azure/github-ae-azure-portal-type-filter.png)
 
 ## 次のステップ
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. 詳しい情報については、「[{% data variables.product.product_name %} を初期化する](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)」を参照してください。
-- If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. {% data variables.product.product_name %} を評価するための時間がさらに必要な場合は、{% data variables.contact.contact_enterprise_sales %} に連絡して延長をリクエストしてください。
+- デプロイがプロビジョニングされたら、次の手順として {% data variables.product.product_name %} を初期化します。 詳細については、「[{% data variables.product.product_name %} の初期化](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)」を参照してください。
+- {% data variables.product.product_name %} を試している場合、{% data variables.contact.contact_enterprise_sales %} に問い合わせて、使用期間中はいつでもフル ライセンスにアップグレードできます。 試用期間の最終日までにアップグレードしていない場合、デプロイは自動的に削除されます。 {% data variables.product.product_name %} を評価するための時間がさらに必要な場合は、{% data variables.contact.contact_enterprise_sales %} に連絡して延長をリクエストしてください。
 
-## 参考リンク
+## 参考資料 
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 
+- "[{% data variables.product.product_name %} で {% data variables.product.prodname_advanced_security %} 機能を有効にする](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
+- "[{% data variables.product.product_name %} リリース ノート](/github-ae@latest/admin/overview/github-ae-release-notes)" 

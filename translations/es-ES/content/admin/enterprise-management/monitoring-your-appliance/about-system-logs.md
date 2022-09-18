@@ -1,6 +1,6 @@
 ---
-title: Acerca de las bitácoras de sistema
-intro: '{% data variables.product.product_name %} mantiene bitácoras de mensaje y de error para los eventos de sistema. Las bitácoras son útiles para identificar acciones y excepciones a nivel de usuario, aplicación y sistema.'
+title: Acerca de los registros del sistema
+intro: '{% data variables.product.product_name %} mantiene registros de errores y mensajes de los eventos del sistema. Los registros son útiles para identificar las acciones y excepciones del usuario, la aplicación y el nivel del sistema.'
 versions:
   ghes: '*'
 type: overview
@@ -9,37 +9,42 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: e41702e25c7cc222cefb4eedb4e0322adf3acdba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063334'
 ---
+## Registros del sistema
 
-## Bitácoras de sistema
+De forma predeterminada, los registros del sistema para {% data variables.product.product_name %} se giran automáticamente cada 24 horas y se conservan durante 7 días. Los registros del sistema incluyen eventos de nivel de sistema, registros de aplicaciones y datos de eventos de Git. Como en los archivos de registro se escribe con frecuencia y pueden tener un tamaño grande, puede ser beneficioso extraer y analizar las entradas de registro pertinentes en un host independiente de la instancia de {% data variables.product.prodname_ghe_server %}.
 
-Predeterminadamente, las bitácoras de sistema para {% data variables.product.product_name %} se rotan automáticamente cada 24 horas y se retienen durante siete días. Las bitácoras de sistema incluyen eventos a nivel de sistema, bitácoras de aplicación y datos de eventos de Git. Ya que los archivos de bitácora se escriben a menudo y pueden ser grandes en tamaño, podría ser beneficioso extraer y analizar las entradas de bitácora relevantes en un host separado a tu instancia de {% data variables.product.prodname_ghe_server %}.
+Puede reenviar los registros del sistema a un servidor o sistema de terceros para una retención más larga. Para más información, vea "[Reenvío de registros](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
 
-Puedes reenviar bitácoras de sistema a un sistema o servidor de terceros para tener una retención mayor. Para obtener más información, consulta la sección "[Reenvío de bitácoras](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
+Además de revisar los registros del sistema, puede supervisar la actividad de la empresa de otras maneras, como ver registros de auditoría, insertar registros y administrar webhooks globales. Para más información, vea "[Supervisión de la actividad de usuario en la empresa](/admin/monitoring-activity-in-your-enterprise)".
 
-Adicionalmente a revisar tus bitácoras de sistema, puedes monitorear la actividad en tu empresa de otras formas, tal como ver las bitácoras de auditoría, bitácoras de subida y administrar webhooks globales. Para obtener más información, consulta la sección "[Monitorear la actividad en tu empresa](/admin/monitoring-activity-in-your-enterprise)".
+## Tipos de registros
 
-## Tipos de bitácoras
+A continuación se enumeran los registros principales que usa el dispositivo {% data variables.product.product_name %} y sus funciones:
 
-A continuación se listan las bitácoras principales que utiliza el aplicativo de {% data variables.product.product_name %}, así como sus funciones:
+| Ruta de acceso | Descripción |
+|------|-------------|
+| `/var/log/github/audit.log` | Eventos de usuario, repositorio y sistema auditados.
+| `/var/log/github/unicorn.log` | Tráfico de API e interfaz web.
+| `/var/log/github/exceptions.log` | Errores de nivel de aplicación.
+| `/var/log/haproxy.log` | Todo el tráfico IP que llega al dispositivo.
+| `/var/log/hookshot/resqued.log` | Entrega y errores de webhook.
+| `/var/log/github/auth.log` | Solicitudes de autenticación, ya sea mediante métodos integrados, LDAP, CAS o SAML.
+| `/var/log/github/gitauth.log` | Todas las solicitudes de autenticación de Git.
 
-| Ruta                             | Descripción​                                                                           |
-| -------------------------------- | -------------------------------------------------------------------------------------- |
-| `/var/log/github/audit.log`      | Eventos de usuario, repositorio y sistema auditados.                                   |
-| `/var/log/github/unicorn.log`    | Tráfico de interfaz web y de API.                                                      |
-| `/var/log/github/exceptions.log` | Errores a nivel de aplicación.                                                         |
-| `/var/log/haproxy.log`           | Todo el tráfico IP que llega al aplicativo.                                            |
-| `/var/log/hookshot/resqued.log`  | Fallas y entrega de webhook.                                                           |
-| `/var/log/github/auth.log`       | Solicitudes de autenticación, ya sea a través de métodos integrados, LDAP, CAS o SAML. |
-| `/var/log/github/gitauth.log`    | Todas las solicitudes de autenticación de Git.                                         |
+El servicio `babeld` procesa las solicitudes de autenticación y actividad de Git.
 
-La actividad y solicitudes de autenticación de Git se procesan mediante el servicio de `babeld`.
+Varios servicios de {% data variables.product.product_name %}, como el servicio `babeld`, se incluyen en contenedores. Los registros en contenedores se escriben en `systemd journal` y se pueden consultar en cualquier momento mediante el comando `journalctl`.
 
-Varios servicios de {% data variables.product.product_name %}, tal como el servicio de `babeld`, están en contenedores. Las bitácoras en contenedores se escriben al `systemd journal` y pueden consultarse en cualquier momento utilizando el comando `journalctl`.
+## Eventos del sistema auditados
 
-## Eventos de sistema auditado
-
-Todas las entradas del archivo `audit.log` utilizan y pueden filtrarse con la palabra clave `github_audit`.
+Todas las entradas del archivo `audit.log` usan la palabra clave `github_audit` y se pueden filtrar con ella.
 
 Por ejemplo, esta entrada muestra que se creó un repositorio nuevo.
 
@@ -55,8 +60,8 @@ Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":
 
 ## Paquete de soporte
 
-El paquete de soporte incluye bitácoras de sistema y toda la información de auditoría se registra en el archivo `audit.log` que está en el directorio `github-logs`. Para obtener más información, consulta la sección "[Proporcionar datos al soporte de {% data variables.product.prodname_dotcom %}](/support/contacting-github-support/providing-data-to-github-support)".
+El paquete de soporte técnico incluye registros del sistema y toda la información de auditoría se registra en el archivo `audit.log` del directorio `github-logs`. Para más información, vea "[Suministro de datos al soporte técnico de {% data variables.product.prodname_dotcom %}](/support/contacting-github-support/providing-data-to-github-support)".
 
-## Leer más
+## Información adicional
 
-- [Página de manual para el comando `journalctl`](http://man7.org/linux/man-pages/man1/journalctl.1.html)
+- [Página man de Linux para el comando `journalctl`](http://man7.org/linux/man-pages/man1/journalctl.1.html)

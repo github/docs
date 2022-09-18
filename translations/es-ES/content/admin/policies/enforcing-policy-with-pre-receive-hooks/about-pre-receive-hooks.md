@@ -1,6 +1,6 @@
 ---
 title: Acerca de ganchos de pre-recepción
-intro: 'Los *ganchos de pre-recepción* son scripts que se ejecutan en el aparato {% data variables.product.prodname_ghe_server %} que puedes usar para implementar controles de calidad.'
+intro: 'Los *ganchos de pre-recepción* son scripts que se ejecutan en el dispositivo {% data variables.product.prodname_ghe_server %} que puedes usar para implementar controles de calidad.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,8 +12,13 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+ms.openlocfilehash: a62d5391f9733c4a79ea8ba5d5f8f0d821d47d5c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112521'
 ---
-
 Cuando se produce una subida, cada script se ejecuta en un entorno aislado y puede realizar verificaciones en el contenido que se subió. Los scripts provocarán la aceptación de la subida si el estado de salida es 0, o rechazado si el estado de salida no es cero.
 
 ## Escenarios de uso
@@ -29,4 +34,4 @@ Ejemplos de cómo usar los ganchos de pre-recepción:
 ## Impactar en el rendimiento y los flujos de trabajo flujo de trabajo
 El impacto que causa en los programadores y sus flujos de trabajo puede ser significativo y debe considerarse cuidadosamente. Los ganchos de pre-recepción que se basan en necesidades comerciales y se implementan cuidadosamente brindarán la mayor cantidad de beneficios a la organización en conjunto.
 
-Los ganchos de pre-recepción pueden tener efectos no deseados sobre el rendimiento de {% data variables.product.product_location %} y deberían implementarse y revisarse cuidadosamente.
+Los enlaces de recepción previa pueden tener efectos imprevistos en el rendimiento de {% data variables.product.product_location %} y se deben implementar y revisar con atención.

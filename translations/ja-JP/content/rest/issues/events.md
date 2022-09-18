@@ -1,8 +1,8 @@
 ---
-title: Issueイベント
+title: issue イベント
 allowTitleToDifferFromFilename: true
-shortTitle: イベント
-intro: Issue events APIは、Issue及びPull Request中のアクティビティによってトリガーされた様々なタイプのイベントを返します。
+shortTitle: Events
+intro: issue イベント API は、issue と pull request でのアクティビティによってトリガーされるさまざまな種類のイベントを返します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,10 +11,15 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ac884bef9931058f126ac875db65e99b8831657f
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878694'
 ---
+## issue イベント API について
 
-## Issue events APIについて
-
-Issue events APIは、Issue及びPull Request中のアクティビティによってトリガーされた様々なタイプのイベントを返します。 Issue events APIから受信できる特定のイベントに関する詳しい情報については「[Issueイベントタイプ](/developers/webhooks-and-events/issue-event-types)」を参照してください。 Issue及びPull Request以外のGitHubアクティビリティに対するイベントAPIも利用できます。 詳しい情報については「[Events API](/developers/webhooks-and-events/github-event-types)」を参照してください。
+issue イベント API は、issue と pull request でのアクティビティによってトリガーされるさまざまな種類のイベントを返します。 issue イベント API から受け取れる特定のイベントについて詳しくは、「[issue イベントの種類](/developers/webhooks-and-events/issue-event-types)」を参照してください。 For more information about the specific events that you can receive from the Issue Events API, see "<a href="/developers/webhooks-and-events/issue-event-types">Issue event types</a>." 詳しくは、「[イベント API](/developers/webhooks-and-events/github-event-types)」を参照してください。
 
 {% data reusables.pull_requests.issues-pr-shared-api %}

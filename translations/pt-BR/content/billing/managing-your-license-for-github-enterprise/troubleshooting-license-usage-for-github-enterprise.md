@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas no uso da licença para o GitHub Enterprise
-intro: Você pode solucionar o uso da licença para sua empresa através de relatórios de licença auditados.
+title: Solução de problemas de uso de licenças para GitHub Enterprise
+intro: Você pode solucionar problemas de uso de licença para sua empresa auditando os relatórios de licença.
 permissions: 'Enterprise owners can review license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
@@ -9,82 +9,96 @@ type: how_to
 topics:
   - Enterprise
   - Licensing
-shortTitle: Solução de problemas do uso da licença
+shortTitle: Troubleshoot license usage
+ms.openlocfilehash: f23ca2380e71f5b037278c71da57dc8fab94c750
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147572654'
 ---
+## Sobre o uso inesperado de licenças
 
-## Sobre uso inesperado da licença
+Se o número de licenças consumidas da sua empresa for inesperado, você poderá revisar seu relatório de licenças consumidas para auditar seu uso de licenças em todas as suas implantações e assinaturas corporativas. Para obter mais informações, confira "[Como exibir o uso da licença para o GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" e "[Como exibir a assinatura e o uso da sua conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
-Se o número de licenças consumidas da sua empresa for inesperado, você pode revisar o seu relatório de licença consumido para auditar o uso da sua licença em todas as suas implantações corporativas e assinaturas. Se você encontrar erros, você poderá tentar as etapas de solução de problemas. Para obter mais informações sobre a visualização do uso de sua licença, consulte "[Visualizando o uso da licença para o GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" e "[Visualizando a assinatura e o uso da conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
+Se você encontrar erros, tente as etapas de solução de problemas.
 
-Por razões de privacidade, os proprietários da empresa não podem acessar diretamente os detalhes das contas de usuários.
+Por motivos de privacidade, os proprietários corporativos não podem acessar diretamente os detalhes das contas de usuário, a menos que você use {% data variables.product.prodname_emus %}.
 
-## Sobre o cálculo das licenças consumidas
+## Sobre o cálculo de licenças consumidas
 
-{% data variables.product.company_short %} cobra para cada pessoa que usa implantações de {% data variables.product.prodname_ghe_server %}, é um integrante de uma organização em {% data variables.product.prodname_ghe_cloud %} ou é um {% data variables.product.prodname_vs_subscriber %}. Para obter mais informações sobre as pessoas da sua empresa que são contabilizadas como consumindoras uma licença, consulte "[Sobre os preços por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
+{% data variables.product.company_short %} fatura para cada pessoa que usa implementações do {% data variables.product.prodname_ghe_server %}, é membro de uma das suas organizações do {% data variables.product.prodname_ghe_cloud %} ou é um {% data variables.product.prodname_vs_subscriber %}. Para obter mais informações sobre as pessoas em sua empresa que consomem uma licença, confira "[Sobre preços por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
-{% data reusables.enterprise-licensing.about-license-sync %}
+Para que cada usuário consuma apenas uma estação, independentemente de quantas implantações eles usam, você precisa sincronizar o uso de licenças entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, confira "[Sincronizando o uso de licenças entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".
+
+Depois de sincronizar o uso das licenças, {% data variables.product.prodname_dotcom %} corresponde as contas de usuário em {% data variables.product.prodname_ghe_server %} às contas de usuário em {% data variables.product.prodname_ghe_cloud %} por endereço de email.
+
+Primeiro, verificamos o endereço de email primário de cada usuário em {% data variables.product.prodname_ghe_server %}. Em seguida, tentamos corresponder esse endereço com o endereço de email de uma conta de usuário em {% data variables.product.prodname_ghe_cloud %}. Se sua empresa usa o SSO do SAML, primeiro verificamos os atributos de SAML a seguir em busca de endereços de email.
+
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+- `username`
+- `NameID`
+- `emails`
+
+Se nenhum endereço de email encontrado nesses atributos corresponder ao endereço de email primário em {% data variables.product.prodname_ghe_server %} ou se sua empresa não usar o SSO do SAML, verificaremos cada um dos endereços de email verificados do usuário em {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações sobre a verificação de endereços de email do {% data variables.product.prodname_dotcom_the_website %}, confira "[Como verificar seu endereço de email](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" na documentação do {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 ## Campos nos arquivos de licença consumidos
 
-O relatório de uso da licença de {% data variables.product.prodname_dotcom_the_website %} e o arquivo de uso da licença exportado de {% data variables.product.prodname_ghe_server %} incluem uma série de campos para ajudar você a resolver o uso de licença para a sua empresa.
-### Relatório do uso da licença de {% data variables.product.prodname_dotcom_the_website %} (arquivo CSV)
+O relatório de uso da licença do {% data variables.product.prodname_dotcom_the_website %} e o arquivo de uso de licença exportado do {% data variables.product.prodname_ghe_server %} incluem uma variedade de campos para ajudar você a solucionar problemas de uso de licença para sua empresa. 
 
-O relatório de uso da licença para a sua empresa é um arquivo CSV que contém as seguintes informações sobre os integrantes da sua empresa. Alguns campos são específicos para a implantação do seu {% data variables.product.prodname_ghe_cloud %} (GHEC), {% data variables.product.prodname_ghe_server %} (GHES) ambientes conectados ou as suas assinaturas de {% data variables.product.prodname_vs %} (VSS) com o GitHub Enterprise.
+### Relatório de uso de licença do {% data variables.product.prodname_dotcom_the_website %} (arquivo CSV)
 
-| Campo                   | Descrição                                                                                                                                                                                                                                                                                                   |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nome                    | Primeiro e último nome da conta do usuário no GHEC.                                                                                                                                                                                                                                                         |
-| Identificador ou e-mail | Nome de usuário do GHEC ou o endereço de e-mail associado à conta do usuário no GHES.                                                                                                                                                                                                                       |
-| Link do perfil          | Link para a página de perfil de {% data variables.product.prodname_dotcom_the_website %} para a conta do usuário no GHEC.                                                                                                                                                                                 |
-| Tipo de licença         | Pode ser: `Assinatura do Visual Studio` ou `Enterprise`.                                                                                                                                                                                                                                                    |
-| Status da licença       | Identifica se uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %} correspondeu com sucesso a um {% data variables.product.prodname_vs_subscriber %} ou usuário do GHES.<br><br> Pode ser: `Correspondido`, `Convite pendente`, `Apenas servidor` ou em branco. |
-| Funções dos integrantes | Para cada organização à qual o usuário pertence no GHEC, o nome da organização e a função da pessoa nessa organização (`proprietário` ou `integrante`) separados por dois pontos<br><br>cada organização é delimitada por uma vírgula.                                                          |
-| Função corporativa      | Pode ser: `Proprietário` ou `Integrante`.                                                                                                                                                                                                                                                                   |
+O relatório de uso de licença para sua empresa é um arquivo CSV que contém as seguintes informações sobre os membros de sua empresa. Alguns campos são específicos para sua implantação do {% data variables.product.prodname_ghe_cloud %} (GHEC), ambientes conectados do {% data variables.product.prodname_ghe_server %} (GHES), ou suas assinaturas do {% data variables.product.prodname_vs %} (VSS) com o GitHub Enterprise.
 
-{% data variables.product.prodname_vs_subscriber %}s que ainda não são integrantes de pelo menos uma organização na sua empresa serão incluídos no relatório com um status de convite pendente, e faltarão os valores para o campo "Nome" ou "Link do perfil".
+| Campo | DESCRIÇÃO
+| ----- | -----------
+| github_com_login | O nome de usuário da conta do GHEC do usuário
+| github_com_name | O nome de exibição da conta do GHEC do usuário
+| github_com_profile | A URL da página de perfil do usuário no GHEC
+| github_com_user   | Se o usuário tem ou não uma conta no GHEC |
+| github_com_member_roles | Para cada uma das organizações às quais o usuário pertence no GHEC, o nome da organização e a função da pessoa nessa organização (`Owner` ou `Member`) separados por dois pontos<br><br>Organizações delimitadas por vírgulas |
+| github_com_enterprise_role | Pode ser uma entre: `Owner`, `Member` ou `Outside collaborator`
+| github_com_verified_domain_emails | Todos os endereços de email associados à conta GHEC do usuário que correspondem aos domínios verificados da sua empresa |
+| github_com_saml_name_id | O nome de usuário do SAML |
+| github_com_orgs_with_pending_invites | Todos os convites pendentes para a conta do GHEC do usuário ingressar em organizações em sua empresa |
+| license_type | Pode ser `Visual Studio subscription` ou `Enterprise`
+| enterprise_server_user| Se o usuário tem ou não pelo menos uma conta no GHES |
+| enterprise_server_primary_emails | Os endereços de email primários associados a cada uma das contas do GHES do usuário |
+| enterprise_server_user_ids | Para cada uma das contas do GHES do usuário, a ID de usuário da conta
+| total_user_accounts | O número total de contas que a pessoa tem em GHEC e GHES
+| visual_studio_subscription_user | Se o usuário é ou não um {% data variables.product.prodname_vs_subscriber %} |
+| visual_studio_subscription_email | O endereço de email associado ao VSS do usuário |
+| visual_studio_license_status | Se a licença do Visual Studio foi correspondida a um usuário do {% data variables.product.company_short %} |
 
-### {% data variables.product.prodname_ghe_server %} exportou o uso da licença (arquivo JSON)
+{% data variables.product.prodname_vs_subscriber %}s que ainda não são membros de pelo menos uma organização em sua empresa serão incluídos no relatório com um status de convite pendente e não terão valores para o campo "Nome" ou "Link do perfil".
 
-O uso da sua licença de {% data variables.product.prodname_ghe_server %} é um arquivo JSON normalmente usado ao executar uma sincronização manual de licenças de usuário entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}. O arquivo contém as seguintes informações específicas ao seu ambiente {% data variables.product.prodname_ghe_server %}.
+### Uso de licença exportada do {% data variables.product.prodname_ghe_server %} (arquivo JSON)
 
-| Campo           | Descrição                                                                                                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Funcionalidades | As funcionalidades de {% data variables.product.prodname_github_connect %} que estão habilitadas na instância do seu {% data variables.product.prodname_ghe_server %}, e a data e hora da habilitação. |
-| Nome de host    | O nome do host da sua instância de {% data variables.product.prodname_ghe_server %}.                                                                                                                     |
-| Apenas HTTP     | Se a Segurança de camada de transporte (TLS) está habilitada e configurada na sua instância de {% data variables.product.prodname_ghe_server %}. Pode ser: `Verdadeiro` ou `Falso`.                      |
-| Licença         | Um hash da sua licença do {% data variables.product.prodname_ghe_server %}.                                                                                                                              |
-| Chave pública   | A parte de chave pública da sua licença de {% data variables.product.prodname_ghe_server %}.                                                                                                             |
-| ID do Servidor  | UUID gerado para sua instância de {% data variables.product.prodname_ghe_server %}.                                                                                                                      |
-| Versão          | A versão da sua instância do {% data variables.product.prodname_ghe_server %}.                                                                                                                           |
+Seu uso de licença do {% data variables.product.prodname_ghe_server %} é um arquivo JSON que normalmente é usado ao realizar uma sincronização manual de licenças de usuário entre as implantações do {% data variables.product.prodname_ghe_server %} e do {% data variables.product.prodname_ghe_cloud %}. O arquivo contém as seguintes informações específicas para seu ambiente do {% data variables.product.prodname_ghe_server %}.
 
-## Solução de problemas das licenças consumidas
+| Campo | Descrição
+| ----- | -----------
+| Recursos | Os recursos do {% data variables.product.prodname_github_connect %} habilitados em sua instância do {% data variables.product.prodname_ghe_server %} e a data e hora da habilitação.
+| Nome do host | O nome do host de sua instância do {% data variables.product.prodname_ghe_server %}.
+| Somente HTTP | Se o Transport Layer Security (TLS) está ativado e configurado em sua instância do {% data variables.product.prodname_ghe_server %}. Pode ser: `True` ou `False`. 
+| Licença | Um hash de sua licença do {% data variables.product.prodname_ghe_server %}.
+| Chave pública | A parte da chave pública da sua licença do {% data variables.product.prodname_ghe_server %}.
+| ID de servidor | UUID gerado para sua instância do {% data variables.product.prodname_ghe_server %}.
+| Versão | A versão da sua instância do {% data variables.product.prodname_ghe_server %}.
 
-Se o número de estações consumidas for inesperado, ou se você removeu recentemente os integrantes da sua empresa, recomendamos que você revise o uso da sua licença.
+## Solução de problemas de licenças consumidas
 
-Para determinar quais usuários estão atualmente consumindo licenças da estação, primeiro tente revisar o relatório de licenças consumidas para a sua empresa{% ifversion ghes %} e/ou uma exportação do {% data variables.product.prodname_ghe_server %} uso da sua licença {% endif %} para entradas inesperadas.
+Para garantir que cada usuário esteja consumindo apenas uma estação para diferentes implantações e assinaturas, tente as etapas de solução de problemas a seguir.
 
-Existem dois motivos especialmente comuns para a contagem da estação da licença inexacta ou incorreta.
-- Os endereços de e-mail associados a um usuário não coincidem com as implantações e assinaturas corporativas.
-- Um endereço de email para um usuário foi recentemente atualizado ou verificado para corrigir uma incompatibilidade, mas um trabalho de sincronização de licença não foi executado desde que a atualização foi feita.
+1. Para ajudar a identificar usuários que estão consumindo várias estações, se sua empresa usar domínios verificados para {% data variables.product.prodname_ghe_cloud %}, examine a lista de membros corporativos que não têm um endereço de email de um domínio verificado associado à conta deles em {% data variables.product.prodname_dotcom_the_website %}. Muitas vezes, esses são os usuários que consomem erroneamente mais de uma estação licenciada. Para obter mais informações, confira "[Como exibir os membros que não têm um endereço de email de um domínio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
 
-Ao tentar combinar usuários em todas as empresas, {% data variables.product.company_short %} identifica indivíduos pelos endereços de e-mail verificados associados à sua conta {% data variables.product.prodname_dotcom_the_website %} e o endereço de e-mail principal associado à sua conta de {% data variables.product.prodname_ghe_server %} e/ou o endereço de e-mail atribuído ao {% data variables.product.prodname_vs_subscriber %}.
+   {% note %}
 
-O uso da sua licença é recalculado logo após a realização de cada sincronização. Você pode ver o registro de hora do último trabalho de sincronização da licença e, se um trabalho não foi executado desde que um endereço de e-mail foi atualizado ou verificado, para resolver um problema com o seu relatório de licença consumida, você pode acionar um manualmente Para obter mais informações, consulte "[Uso da licença de sincronização entre o GitHub Enterprise Server e o GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".
+  **Observação:** para facilitar a solução de problemas, recomendamos o uso de domínios verificados com sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira "[Como verificar ou aprovar um domínio para sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
 
-{% ifversion ghec or ghes %}
-Se a empresa usa domínios verificados, revise a lista de integrantes da empresa que não possuem um endereço de e-mail de um domínio verificado associado à sua conta de {% data variables.product.prodname_dotcom_the_website %}. Frequentemente, estes são os usuários que consomem erroneamente mais de uma estação licenciada. Para obter mais informações, consulte "[Visualizando integrantes sem um endereço de e-mail de um domínio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
-{% endif %}
+  {% endnote %}
+1. Depois de identificar usuários que estão consumindo várias estações, verifique se o mesmo endereço de email está associado a todas as contas do usuário. Para obter mais informações sobre quais endereços de email precisam corresponder, confira "[Sobre o cálculo de licenças consumidas](#about-the-calculation-of-consumed-licenses)".
+1. Se um endereço de email foi atualizado ou verificado recentemente para corrigir uma incompatibilidade, exiba o carimbo de data/hora do último trabalho de sincronização de licenças. Se um trabalho não tiver sido executado desde que a correção foi feita, dispare manualmente um novo trabalho. Para obter mais informações, confira "[Como sincronizar o uso da licença entre o GitHub Enterprise Server e o GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
-{% note %}
-
-**Observação:** Por motivos de privacidade, o seu relatório de licença consumido só inclui o endereço de e-mail associado a uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %} se o endereço for hospedado por um domínio verificado. Por esta razão, recomendamos o uso de domínios verificados com a sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Portanto, se uma pessoa estiver consumindo várias licenças incorretamente, você poderá resolver problemas mais facilmente, como você terá acesso ao endereço de e-mail que está sendo usado para a desduplicação da licença.
-
-{% endnote %}
-
-{% ifversion ghec %}
-
-Se sua licença inclui {% data variables.product.prodname_vss_ghe %} e sua empresa também inclui pelo menos um ambiente de {% data variables.product.prodname_ghe_server %} conectado, é altamente recomendável usar {% data variables.product.prodname_github_connect %} para sincronizar automaticamente seu uso de licença. Para obter mais informações, consulte "[Sobre as assinaturas no Visual Studio com o GitHub Enterprise](/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)".
-
-{% endif %}
-
-Se você ainda tiver dúvidas sobre as suas licenças consumidas após revisar as informações de solução de problemas acima, você pode entrar em contato com {% data variables.contact.github_support %} por meio do {% data variables.contact.contact_enterprise_portal %}.
+Se você ainda tiver dúvidas sobre suas licenças consumidas após analisar as informações de solução de problemas acima, entre em contato com {% data variables.contact.github_support %} por meio do {% data variables.contact.contact_enterprise_portal %}.
