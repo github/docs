@@ -1,9 +1,17 @@
-{% data variables.product.prodname_codespaces %} are billed in US dollars (USD) according to their compute and storage usage.
+---
+ms.openlocfilehash: 845c770a8a03c57a4c10a84d28fd4d3d78282042
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147111119"
+---
+Os {% data variables.product.prodname_codespaces %} são cobrados em USD (dólares americanos) de acordo com o uso de computação e armazenamento.
 
-### Calculating compute usage
-Compute usage is defined as the total number of uptime minutes for which a {% data variables.product.prodname_github_codespaces %} instance is active. Compute usage is calculated by summing the actual number of minutes used by all codespaces. These totals are reported to the billing service daily, and are billed monthly.
+### Como calcular o uso de computação
+O uso de computação é definido como o número total de minutos de tempo de atividade durante os quais uma instância do {% data variables.product.prodname_github_codespaces %} está ativa. Ele é calculado somando o número real de minutos usados por todos os codespaces. Esses totais são relatados ao serviço de cobrança diariamente e são cobrados mensalmente.
 
-Uptime is controlled by stopping your codespace, which can be done manually or automatically after a developer specified period of inactivity. For more information, see "[Closing or stopping your codespace](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
+O tempo de atividade é controlado pela interrupção do seu codespace, o que pode ser feito manual ou automaticamente após um período de inatividade especificado pelo desenvolvedor. Para obter mais informações, confira "[Como fechar ou interromper seu codespace](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
 
-### Calculating storage usage
-For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes any files used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and are billed monthly. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. 
+### Como calcular o uso do armazenamento
+Para fins de cobrança do {% data variables.product.prodname_github_codespaces %}, isso inclui todo o armazenamento usado por todos os codespaces na sua conta. Isso inclui todos os arquivos usados pelos codespaces, como repositórios clonados, arquivos de configuração e extensões, entre outros. Esses totais são relatados ao serviço de cobrança diariamente e são cobrados mensalmente. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. 

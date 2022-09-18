@@ -1,6 +1,0 @@
-#Issue 6980
-#ProjectV2 GA
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghae: 'issue-6980'

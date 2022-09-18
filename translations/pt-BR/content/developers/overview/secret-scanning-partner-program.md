@@ -11,14 +11,19 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Varredura secreta
+shortTitle: Secret scanning
+ms.openlocfilehash: f935b849bb43e99fd3959db3920fd4d632bf54f7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145093903'
 ---
-
 O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. {% data variables.product.prodname_secret_scanning_caps %} acontece por padrão em repositórios públicos e pode ser habilitado em repositórios privados por administradores de repositório ou proprietários da organização. Como provedor de serviço, você pode fazer parcerias com {% data variables.product.prodname_dotcom %} para que seus formatos de segredo estejam incluídos em nosso {% data variables.product.prodname_secret_scanning %}.
 
 Quando uma correspondência do seu formato secreto é encontrada em um repositório público, uma carga é enviada para um ponto de extremidade HTTP de sua escolha.
 
-Quando uma correspondência do formato secreto é encontrada em um repositório privado configurado para {% data variables.product.prodname_secret_scanning %}, os administradores do repositório e o committer são alertados e podem visualizar e gerenciar o resultado {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+Quando uma correspondência do formato secreto é encontrada em um repositório privado configurado para {% data variables.product.prodname_secret_scanning %}, os administradores do repositório e o committer são alertados e podem visualizar e gerenciar o resultado {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Como gerenciar alertas da {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
 
 Este artigo descreve como você pode fazer parceria com {% data variables.product.prodname_dotcom %} como um provedor de serviço e juntar-se ao programa de parceiro de {% data variables.product.prodname_secret_scanning %}.
 
@@ -28,7 +33,7 @@ Este artigo descreve como você pode fazer parceria com {% data variables.produc
 
 O diagrama a seguir resume o processo de {% data variables.product.prodname_secret_scanning %} para repositórios públicos, com qualquer correspondência enviada para o ponto de extremidade de verificação de um provedor de serviços.
 
-![Diagrama do fluxo que mostra o processo de varredura de um segredo e envio de correspondências para o ponto de extremidade de verificação de um provedor de serviços](/assets/images/secret-scanning-flow.png "Fluxo de {% data variables.product.prodname_secret_scanning_caps %}")
+![Fluxograma que mostra o processo de verificação de um segredo e o envio das correspondências para o ponto de extremidade de verificação de um provedor de serviços](/assets/images/secret-scanning-flow.png "Fluxo de {% data variables.product.prodname_secret_scanning_caps %}")
 
 ## Juntando-se ao programa de {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}
 
@@ -41,7 +46,7 @@ O diagrama a seguir resume o processo de {% data variables.product.prodname_secr
 
 ### Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo
 
-Para iniciar o processo de inscrição, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+Para iniciar o processo de registro, envie um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 Você receberá detalhes do programa de {% data variables.product.prodname_secret_scanning %} e você precisará aceitar os termos de participação de {% data variables.product.prodname_dotcom %} antes de prosseguir.
 
@@ -49,15 +54,15 @@ Você receberá detalhes do programa de {% data variables.product.prodname_secre
 
 Para fazer a varredura dos seus segredos, {% data variables.product.prodname_dotcom %} precisa das informações a seguir para cada segredo que você deseja que seja incluído no programa {% data variables.product.prodname_secret_scanning %}:
 
-* Um nome único e legível para o tipo do segredo. Nós vamos usá-lo para gerar o valor `Tipo` na carga da mensagem posteriormente.
+* Um nome único e legível para o tipo do segredo. Usaremos isso para gerar o valor `Type` no conteúdo da mensagem posteriormente.
 * Uma expressão regular que encontra o tipo do segredo. Seja o mais preciso possível, pois isso reduzirá o número de falsos positivos.
 * A URL do ponto de extremidade que recebe mensagens de {% data variables.product.prodname_dotcom %}. Isso não precisa ser único para cada tipo de segredo.
 
-Envie esta informação para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+Envie essas informações para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 ### Crie um serviço de alerta secreto
 
-Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência da sua expressão regular é encontrada em um repositório público, {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP `POST` para o seu ponto de extremidade.
+Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência da expressão regular for encontrada em um repositório público, o {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP `POST` ao seu ponto de extremidade.
 
 #### Exemplo de POST enviado para seu ponto de extremidade
 
@@ -75,27 +80,28 @@ Content-Length: 0123
 
 O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta. Seu ponto de extremidade deve ser capaz de lidar com solicitações com um grande número de correspondências sem exceder o tempo.
 
-* **Token**: O valor da correspondência secreta.
-* **Tipo**: O nome único que você forneceu para identificar sua expressão regular.
-* **URL**: A URL de commit pública onde a correspondência foi encontrada.
+* **Token**: o valor da correspondência de segredos.
+* **Tipo**: o nome exclusivo que você forneceu para identificar a expressão regular.
+* **URL**: a URL de commit pública em que a correspondência foi encontrada.
 
 ### Implemente a verificação de assinatura em seu serviço de alerta secreto
 
 É altamente recomendável que você implemente a validação da assinatura no seu serviço de alerta de segredo para garantir que as mensagens que você recebe sejam genuinamente de {% data variables.product.prodname_dotcom %} e não sejam maliciosas.
 
-Você pode recuperar a chave pública de da varredura secreta do segredo do {% data variables.product.prodname_dotcom %} em https://api.github.com/meta/public_keys/secret_scanning e validar a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
+Recupere a chave pública da verificação de segredos do {% data variables.product.prodname_dotcom %} de https://api.github.com/meta/public_keys/secret_scanning e valide a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
 
 {% note %}
 
-**Observação**: Ao enviar uma solicitação para o ponto de extremidade da chave pública acima, você poderá atingir os limites de taxa. Para evitar atingir os limites de velocidade, você pode usar um token de acesso pessoal (sem escopos obrigatórios) como sugerido nas amostras abaixo, ou usar uma solicitação condicional. Para obter mais informações, consulte "[Primeiros passos com a API REST](/rest/guides/getting-started-with-the-rest-api#conditional-requests)".
+**Observação**: quando você enviar uma solicitação ao ponto de extremidade da chave pública acima, poderá atingir limites de taxa. Para evitar atingir os limites de velocidade, você pode usar um token de acesso pessoal (sem escopos obrigatórios) como sugerido nas amostras abaixo, ou usar uma solicitação condicional. Para obter mais informações, confira "[Introdução à API REST](/rest/guides/getting-started-with-the-rest-api#conditional-requests)".
 
 {% endnote %}
 
-Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura. Os snippets de código assumem que você definiu uma variável de ambiente denominada `GITHUB_PRODUCTION_TOKEN` com um PAT gerado (https://github.com/settings/tokens) para evitar atingir os limites de taxa. O PAT não precisa de escopos/permissões.
+Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura.
+Os snippets de código pressupõem que você tenha definido uma variável de ambiente chamada `GITHUB_PRODUCTION_TOKEN` com um PAT gerado (https://github.com/settings/tokens) para evitar atingir os limites de taxa). O PAT não precisa de escopos/permissões.
 
 {% note %}
 
-**Observação**: A assinatura foi gerada usando o texto da mensagem não processada. Portanto, é importante que você também use o texto da mensagem não processada para validação da assinatura, em vez de analisar e criar strings do JSON a fim de evitar reorganizar a mensagem ou mudar de espaçamento.
+**Observação**: a assinatura foi gerada usando o corpo da mensagem bruta. Portanto, é importante que você também use o texto da mensagem não processada para validação da assinatura, em vez de analisar e criar strings do JSON a fim de evitar reorganizar a mensagem ou mudar de espaçamento.
 
 {% endnote %}
 
@@ -112,7 +118,7 @@ Content-Length: 0000
 [{"token":"some_token","type":"some_type","url":"some_url"}]
 ```
 
-**Exemplo de validação em Go**
+**Exemplo de validação no Go**
 ```golang
 package main
 
@@ -199,30 +205,31 @@ func main() {
   ecdsaKey, ok := key.(*ecdsa.PublicKey)
   if !ok {
     fmt.Println("GitHub key was not ECDSA, what are they doing?!")
-    Exit(7)
+    os.Exit(7)
   }
 
   // Parse the Webhook Signature
   parsedSig := asn1Signature{}
-  asnSig, err := base64. StdEncoding. DecodeString(kSig)
+  asnSig, err := base64.StdEncoding.DecodeString(kSig)
   if err != nil {
-    fmt. Printf("unable to base64 decode signature: %s\n", err)
-    os. Exit(8)
+    fmt.Printf("unable to base64 decode signature: %s\n", err)
+    os.Exit(8)
   }
-  rest, err := asn1. Unmarshal(asnSig, &parsedSig)
+  rest, err := asn1.Unmarshal(asnSig, &parsedSig)
   if err != nil || len(rest) != 0 {
-    fmt. Printf("Error unmarshalling asn.1 signature: %s\n", err)
-    os. Exit(9)
+    fmt.Printf("Error unmarshalling asn.1 signature: %s\n", err)
+    os.Exit(9)
   }
 
   // Verify the SHA256 encoded payload against the signature with GitHub's Key
-  digest := sha256. Sum256([]byte(payload))
-  keyOk := ecdsa. Verify(ecdsaKey, digest[:], parsedSig. R, parsedSig. S)
+  digest := sha256.Sum256([]byte(payload))
+  keyOk := ecdsa.Verify(ecdsaKey, digest[:], parsedSig.R, parsedSig.S)
 
   if keyOk {
-    fmt.
-  Println("the payload is invalid :(")
-    os. Exit(10)
+    fmt.Println("THE PAYLOAD IS GOOD!!")
+  } else {
+    fmt.Println("the payload is invalid :(")
+    os.Exit(10)
   }
 }
 
@@ -236,8 +243,8 @@ type GitHubSigningKeys struct {
 
 // asn1Signature is a struct for ASN.1 serializing/parsing signatures.
 type asn1Signature struct {
-  R *big. Int
-  S *big. Int
+  R *big.Int
+  S *big.Int
 }
 ```
 
@@ -329,7 +336,7 @@ Para {% data variables.product.prodname_secret_scanning %} em repositórios púb
 
 ### Fornece feedback sobre falsos positivos
 
-Coletamos feedback sobre a validade dos segredos individuais detectados nas respostas do parceiro. Se você deseja participar, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+Coletamos feedback sobre a validade dos segredos individuais detectados nas respostas do parceiro. Caso deseje participar, envie-nos um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 Quando relatamos segredos para você, enviamos uma matriz JSON com cada elemento que contém o token, o identificador de tipo e a URL dp commit. Quando você nos envia feedback, você nos envia informações sobre se o token detectado era uma credencial real ou falsa. Aceitamos comentários nos seguintes formatos.
 
@@ -362,6 +369,6 @@ Alguns pontos importantes:
 
 {% note %}
 
-**Nota:** Nosso tempo limite de solicitação está definido para ser maior (isto é, 30 segundos) para parceiros que fornecem dados sobre falsos positivos. Se você precisar de um tempo limite superior a 30 segundos, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+**Observação:** nosso tempo limite de solicitação está definido para ser maior (ou seja, 30 segundos) para os parceiros que fornecem dados sobre falsos positivos. Caso você precise de um tempo limite superior a 30 segundos, envie-nos um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 title: 身份验证
-intro: '通过{% ifversion not ghae %}双重身份验证、{% endif %}SSH{% ifversion not ghae %}、{% endif %}和提交签名验证等功能保持帐户和数据的安全。'
+intro: '使用{% ifversion not ghae %}双因素身份验证、{% endif %}SSH{% ifversion not ghae %}、{% endif %}和提交签名验证等功能，使帐户和数据保持安全。'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh
@@ -56,5 +56,11 @@ children:
   - /troubleshooting-ssh
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
+ms.openlocfilehash: b5428934e7300a8e7581b03c7d43d2afd7c600bd
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145098657'
 ---
 

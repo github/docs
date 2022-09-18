@@ -8,9 +8,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Instalar organização de aplicativos
+shortTitle: Install app organization
+ms.openlocfilehash: bf64ee38839197262852d07c024c72a0742d0e6e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145095669'
 ---
-
 {% data reusables.marketplace.marketplace-apps-only %}
 
 {% data reusables.marketplace.marketplace-org-perms %}
@@ -21,31 +26,18 @@ Se você escolheu um plano pago, a assinatura do app será paga na data de cobra
 
 ## Instalar um {% data variables.product.prodname_github_app %} em sua organização
 
-{% data reusables.marketplace.visit-marketplace %}
-{% data reusables.marketplace.browse-to-app %}
-{% data reusables.marketplace.choose-plan %}
-{% data reusables.marketplace.install-buy %}
-{% data reusables.marketplace.confirm-install-account-org %}
-{% data reusables.marketplace.add-payment-method-org %}
-{% data reusables.marketplace.complete-order-begin-installation %}
-8. Se o app solicitar acesso a repositórios, decida se quer dar acesso a todos ou apenas determinados repositórios e selecione **All repositories** (Todos os repositórios) ou **Only select repositories** (Somente repositórios selecionados). ![Botões com opções para instalar um app em todos ou apenas determinados repositórios](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png)
-{% data reusables.marketplace.select-installation-repos %}
-{% data reusables.marketplace.review-app-perms-install %}
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. Se o aplicativo exigir acesso nos repositórios, decida se deseja permitir acesso ao aplicativo em todos os seus repositórios ou em repositórios específicos e selecione **Todos os repositórios** ou **Somente repositórios selecionados**.
+  ![Botões de opção usados para instalar um aplicativo em todos os repositórios ou em repositórios específicos](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png) {% data reusables.marketplace.select-installation-repos %} {% data reusables.marketplace.review-app-perms-install %}
 
 ## Instalar um {% data variables.product.prodname_oauth_app %} em sua organização
 
 {% data reusables.saml.saml-session-oauth %}
 
-{% data reusables.marketplace.visit-marketplace %}
-{% data reusables.marketplace.browse-to-app %}
-{% data reusables.marketplace.choose-plan %}
-{% data reusables.marketplace.install-buy %}
-{% data reusables.marketplace.confirm-install-account-org %}
-{% data reusables.marketplace.add-payment-method-org %}
-{% data reusables.marketplace.complete-order-begin-installation %}
-8. Revise as informações sobre o acesso do app à sua conta pessoal, organização e dados, e depois clique em **Authorize application** (Autorizar aplicativo).
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. Revise as informações sobre o acesso do aplicativo à sua conta pessoal, às organizações e aos dados e clique em **Autorizar aplicativo**.
 
-## Leia mais
+## Leitura adicional
 
-- "[Atualizar a forma de pagamento da sua organização](/articles/updating-your-organization-s-payment-method)"
-- "[Instalar um app em sua conta pessoal](/articles/installing-an-app-in-your-personal-account)"
+- "[Como atualizar a forma de pagamento da sua organização](/articles/updating-your-organization-s-payment-method)"
+- "[Como instalar um aplicativo na sua conta pessoal](/articles/installing-an-app-in-your-personal-account)"

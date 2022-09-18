@@ -1,50 +1,57 @@
 ---
-title: Squashing commits
-intro: 'You can use {% data variables.product.prodname_desktop %} to squash commits in your branch''s history.'
+title: コミットのスカッシュ
+intro: '{% data variables.product.prodname_desktop %} を使用して、ブランチの履歴内のコミットをスカッシュできます。'
 versions:
   fpt: '*'
+ms.openlocfilehash: fb8141710a99b52f1b9a93e1abc0429b5e29f116
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145117493'
 ---
+## コミットのスカッシュについて
 
-## About squashing a commit
+スカッシュすると、ブランチの履歴内の複数のコミットを 1 つのコミットに結合できます。 これにより、リポジトリの履歴が、読みやすく、わかりやすくなります。
 
-Squashing allows you to combine multiple commits in your branch's history into a single commit. This can help keep your repository's history more readable and understandable.
-
-## Squashing a commit
+## コミットのスカッシュ
 
 {% mac %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, select the branch that has the commits that you want to squash.
+2. ブランチのリストで、スカッシュしたいコミットがあるブランチを選びます。
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>. ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
-6. Click **Squash Commits**.
+4. スカッシュするコミットを選び、結合先のコミットにドロップします。 <kbd>Command</kbd> キーまたは <kbd>Shift</kbd> キーを使って、1 つのコミットを選んだり、複数のコミットを選んだりすることができます。
+  ![スカッシュのドラッグ アンド ドロップ](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. 新しいコミットのコミット メッセージを変更します。 スカッシュするために選んだコミットのコミット メッセージは、 **"概要"** フィールドと **"説明"** フィールドに自動入力されます。
+6. **[スカッシュのコミット]** をクリックします。
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, select the branch that has the commits that you want to squash.
+2. ブランチのリストで、スカッシュしたいコミットがあるブランチを選びます。
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>. ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
-6. Click **Squash Commits**.
+4. スカッシュするコミットを選び、結合先のコミットにドロップします。 <kbd>Ctrl</kbd> キーまたは <kbd>Shift</kbd> キーを使って、1 つのコミットを選んだり、複数のコミットを選んだりすることができます。
+  ![スカッシュのドラッグ アンド ドロップ](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. 新しいコミットのコミット メッセージを変更します。 スカッシュするために選んだコミットのコミット メッセージは、 **"概要"** フィールドと **"説明"** フィールドに自動入力されます。
+6. **[スカッシュのコミット]** をクリックします。
 
 {% endwindows %}
 
-## Error messages when squashing commits
+## コミットをスカッシュするときのエラー メッセージ
 
-When you squash commits, you may see one of the following notifications or error messages.
+コミットをスカッシュするときに、次のような通知やエラー メッセージが表示されることがあります。
 
-* A notification states that the requested change to the branch will require a force push to update the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin Squash** to start the squash, and then click **Force push origin** to push your changes.
+* 通知は、ブランチに対してリクエストされている変更で、リモート ブランチを更新するために強制プッシュが必要となることを示しています。 強制的にプッシュすると、ブランチのコミット履歴が変更され、そのブランチで作業している他のコラボレーターが影響を受けます。  **[スカッシュの開始]** を選んでスカッシュを開始したら、 **[Origin に強制プッシュ]** をクリックして、変更をプッシュします。
 
-  ![squash force push dialog](/assets/images/help/desktop/squash-force-push.png)
+  ![スカッシュの強制プッシュのダイアログ](/assets/images/help/desktop/squash-force-push.png)
 
-* An error states that the squash failed because there is a merge commit among the squashed commits.
+* エラーは、スカッシュされたコミット間にマージ コミットがあるため、スカッシュが失敗したことを示しています。
 
-  ![reorder merge commit dialog](/assets/images/help/desktop/squash-merge-commit-dialog.png)
+  ![マージ コミットの並べ替えのダイアログ](/assets/images/help/desktop/squash-merge-commit-dialog.png)
 
-* A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes you can squash your commits.
+* 現在のブランチにコミットされていない変更が存在していることを示す通知が表示されます。 **[変更を一時退避して続ける]** を選び、変更を保存して続けるか、 **[閉じる]** を選び、メッセージを閉じて変更をコミットします。 コミットされていない変更がなくなったら、コミットをスカッシュできます。
 
-  ![squash stash dialog](/assets/images/help/desktop/squash-stash-dialog.png)
+  ![スカッシュの一時退避のダイアログ](/assets/images/help/desktop/squash-stash-dialog.png)

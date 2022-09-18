@@ -1,6 +1,6 @@
 ---
-title: 'Phase 3: Pilot programs'
-intro: "You may benefit from beginning with a few high-impact projects and teams with which to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS, learn how to enable and configure GHAS, and build a solid foundation on GHAS before rolling out to the remainder of your company."
+title: 第 3 阶段：试点计划
+intro: 开始针对一些非常重要的项目和团队试点初步推出，你可能会从中获益。 这将使公司内的初始组能够熟悉 GHAS，了解如何启用和配置 GHAS，并基于 GHAS 打好坚实的基础，然后再推出到公司的其他团队。
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,78 +9,83 @@ topics:
   - Advanced Security
 shortTitle: 3. Pilot programs
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 3df893158c402b9180260ddd1c82c96f62b84717
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147145334'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 2: Preparing to enable at scale](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
+本文是大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列的一部分。 有关本系列的上一篇文章，请参阅“[第 2 阶段：准备大规模启用](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)”。
 
 {% endnote %}
 
-## About pilot programs
+## 关于试点计划
 
-We recommend you identify a few high-impact projects or teams to use in a pilot rollout of GHAS. This allows an initial group within your company to get familiar with GHAS and builds a solid foundation for GHAS before you roll it out to the remainder of your company.
+建议确定一些非常重要的项目或团队，以用于 GHAS 的试点推广。 这将使公司内的初始组能够熟悉 GHAS，并为 GHAS 打好坚实的基础，然后再推出到公司的其他团队。
 
-The steps in this phase will help you enable GHAS on your enterprise, begin using its features, and review your results. If you’re working with {% data variables.product.prodname_professional_services %}, they can provide additional assistance through this process through onboarding sessions, GHAS workshops, and troubleshooting as needed.
+本阶段的这些步骤将帮助你在你的企业中启用 GHAS、开始使用其功能并查看结果。 如果你使用的是 {% data variables.product.prodname_professional_services %}，他们可以根据需要通过入职会议、GHAS 研讨会和故障排除在此过程中提供额外帮助。
 
-Before you start your pilot projects, we recommend that you schedule some meetings for your teams, such as an initial meeting, midpoint review, and a wrap-up session when the pilot is complete. These meetings will help you all make adjustments as needed and ensure your teams are prepared and supported to complete the pilot successfully.
+在开始试点项目之前，建议为团队安排一些会议，例如初始会议、中期审查和试点完成后的总结会议。 这些会议将帮助你根据需要进行调整，并确保团队做好准备并获得支持，以成功完成试点。
 
 {% ifversion ghes %}
 
-If you haven't already enabled GHAS for your {% data variables.product.prodname_ghe_server %} instance, see "[Enabling GitHub Advanced Security for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+如果尚未为 {% data variables.product.prodname_ghe_server %} 实例启用 GHAS，请参阅“[为企业启用 GitHub 高级安全功能](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”。
 
 {% endif %}
 
-You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+你需要通过为每个存储库或参与该试点的任何组织中的所有存储库启用 GHAS 功能，来为每个试点项目启用 GHAS。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”或“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”
 
-## Piloting {% data variables.product.prodname_code_scanning %}
+## 试点 {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}
 
-To enable {% data variables.product.prodname_code_scanning %} on your {% data variables.product.prodname_ghe_server %} instance, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
+若要在 {% data variables.product.prodname_ghe_server %} 实例上启用 {% data variables.product.prodname_code_scanning %}，请参阅“[为设备配置代码扫描](/admin/advanced-security/configuring-code-scanning-for-your-appliance)”。
 
 {% elsif ghae %}
 
-To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
+要使用 {% data variables.product.prodname_actions %} 启用 {% data variables.product.prodname_code_scanning %}，必须使运行器可用于在 {% data variables.product.prodname_ghe_managed %} 中运行工作流，请参阅“[开始使用 {% data variables.product.prodname_ghe_managed %} 的 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)”。
 
 {% endif %}
 
-You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners)."{% endif %}
+可以创建 {% data variables.product.prodname_actions %} 工作流来运行 [CodeQL 操作](https://github.com/github/codeql-action/)，以对存储库运行代码扫描。 {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} 默认使用 [GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)，但如果你打算使用自己的硬件规格托管自己的运行器，则可以自定义此设置。 有关详细信息，请参阅“[关于子托管运行器](/actions/hosting-your-own-runners)”。{% endif %}
 
-For more information about {% data variables.product.prodname_actions %}, see:
-  - "[Learn GitHub Actions](/actions/learn-github-actions)"
-  - "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)"
-  - "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)"
-  - "[Filter Pattern Cheat Sheet](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+有关 {% data variables.product.prodname_actions %} 的详细信息，请参阅：
+  - [了解 GitHub Actions](/actions/learn-github-actions)
+  - [了解 GitHub Actions](/actions/learn-github-actions/understanding-github-actions)
+  - [触发工作流的事件](/actions/learn-github-actions/events-that-trigger-workflows)
+  - [筛选器模式速查表](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)
 
-We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[Setting up code scanning for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository)."
+建议在试点计划中逐个存储库启用 {% data variables.product.prodname_code_scanning %}。 有关详细信息，请参阅“[为存储库设置代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository)”。
 
-If you want to enable code scanning for many repositories, you may want to script the process.
+如果希望对许多存储库启用代码扫描，可能需要为该过程编写脚本。
 
-For an example of a script that opens pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
+有关打开拉取请求以将 {% data variables.product.prodname_actions %} 工作流添加到多个存储库的脚本示例，请参阅 [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) 存储库。有关使用 PowerShell 的示例，或者对于没有 PowerShell 但希望改用 NodeJS 的团队，请参阅 [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement)。
 
-When running initial code scans, you may find that no results are found or that an unusual number of results are returned. You may want to adjust what is flagged in future scans. For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
+运行初始代码扫描时，你可能会发现未找到任何结果或返回的结果数量异常。 建议调整在将来扫描中标记的内容。 有关详细信息，请参阅“[配置代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)”。
 
-If your company wants to use other third-party code analysis tools with GitHub code scanning, you can use actions to run those tools within GitHub. Alternatively, you can upload results, which are generated by third-party tools as SARIF files, to code scanning. For more information, see "[Integrating with code scanning](/code-security/code-scanning/integrating-with-code-scanning)."
+如果你的公司想要将其他第三方代码分析工具用于 GitHub 代码扫描，可使用操作在 GitHub 中运行这些工具。 你也可以将由第三方工具生成的结果作为 SARIF 文件上传到代码扫描。 有关详细信息，请参阅“[与代码扫描集成](/code-security/code-scanning/integrating-with-code-scanning)”。
 
-## Piloting {% data variables.product.prodname_secret_scanning %}
+## 试点 {% data variables.product.prodname_secret_scanning %}
 
-GitHub scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.
+GitHub 扫描存储库以查找已知类型的机密，以防止欺诈性地使用意外提交的机密。
 
 {% ifversion ghes %}
 
-To enable secret scanning for your {% data variables.product.prodname_ghe_server %} instance, see "[Configuring secret scanning for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance)."
+若要为 {% data variables.product.prodname_ghe_server %} 实例启用机密扫描，请参阅“[为设备配置机密扫描](/admin/advanced-security/configuring-secret-scanning-for-your-appliance)”。
 
 {% endif %}
 
-You need to enable secret scanning for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+你需要通过为每个存储库或参与该项目的任何组织中的所有存储库启用机密扫描，来为每个试点项目启用该功能。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”或“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
-If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+如果整理了所有特定于贵公司的自定义模式，尤其是与试点 {% data variables.product.prodname_secret_scanning %} 的项目相关的任意自定义模式，你可以配置这些模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
 
-To learn how to view and close alerts for secrets checked into your repository, see "[Managing alerts from secret scanning](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+若要了解如何查看和关闭已签入存储库的机密警报，请参阅“[管理来自机密扫描的警报](/code-security/secret-scanning/managing-alerts-from-secret-scanning)”。
 
 {% note %}
 
-For the next article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+有关本系列的下一篇文章，请参阅“[第 4 阶段：创建内部文档](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)”。
 
 {% endnote %}

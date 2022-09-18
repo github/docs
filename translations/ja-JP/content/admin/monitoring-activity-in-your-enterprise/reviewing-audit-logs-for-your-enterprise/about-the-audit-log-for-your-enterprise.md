@@ -44,16 +44,16 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 - You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 {%- endif %}
 {%- ifversion ghes %}
-- You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. 詳しい情報については、「[ログの転送](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)」を参照してください。
+- You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 {%- endif %}
-{%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 - You can use the Audit log API to view actions performed in your enterprise. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 {%- endif %}
 
 For a full list of audit log actions that may appear in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-## 参考リンク
-- 「[Organization の Audit log をレビューする](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)」
+## Further reading
+- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
 {%- ifversion ghes %}
 - "[About system logs](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"
 {%- endif %}

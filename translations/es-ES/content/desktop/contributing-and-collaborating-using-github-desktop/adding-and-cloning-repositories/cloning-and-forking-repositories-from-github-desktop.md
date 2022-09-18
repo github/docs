@@ -1,6 +1,6 @@
 ---
-title: Cloning and forking repositories from GitHub Desktop
-intro: 'You can use {% data variables.product.prodname_desktop %} to clone and fork repositories that exist on {% data variables.product.prodname_dotcom %}.'
+title: Cómo clonar y bifurcar repositorios desde GitHub Desktop
+intro: 'Puedes utilizar {% data variables.product.prodname_desktop %} para clonar y ramificar los repositorios que están en {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-desktop
   - /desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop
@@ -8,49 +8,45 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Clone & fork from Desktop
+ms.openlocfilehash: e4182e56d0418e3aea07c94e0a3657ef8e104ea0
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092320'
 ---
-## About local repositories
-Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+## Acerca de los repositorios locales
+Los repositorios de {% data variables.product.prodname_dotcom %} son remotos. Puedes clonar o bifurcar un repositorio con {% data variables.product.prodname_desktop %} para crear un repositorio local en tu computadora.
 
-You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. For more information, see "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)."
+Puedes crear una copia local de cualquier repositorio de {% data variables.product.product_name %} al que tengas acceso si lo clonas. Si un repositorio te pertenece o si tienes permisos de escritura en él, puedes sincronizar la ubicación local y remota del mismo. Para más información, vea "[Sincronización de la rama](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
 
-When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. For more information, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+Cuando clonas un repositorio, cualquier cambio que subas a {% data variables.product.product_name %} afectará al original. Para hacer cambios sin afectar al proyecto original, puedes crear una copia separada si bifurcas el repositorio. Puedes crear una solicitud de cambios para proponer que los mantenedores incorporen los cambios de tu bifurcación en el repositorio ascendente original. Para obtener más información, vea "[Acerca de las bifurcaciones](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
-When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
+Cuando intentas utilizar {% data variables.product.prodname_desktop %} para clonar un repositorio en el que no tienes acceso de escritura, {% data variables.product.prodname_desktop %} te pedirá crear una bifurcación automáticamente. Puedes elegir utilizar tu bifurcación para contribuir con el repositorio ascendente original o trabajar independientemente en tu propio proyecto. Cualquier bifurcación existente estará predeterminada para contribuir con cambios hacia su repositorio ascendente. Puedes modificar esta elección en cualquier momento. Para obtener más información, consulta "[Administrar el comportamiento de una bifurcación](#managing-fork-behavior)".
 
-You can also clone a repository directly from {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}. For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
+También puedes clonar un repositorio directamente desde {% data variables.product.prodname_dotcom %} o {% data variables.product.prodname_enterprise %}. Para obtener más información, consulta "[Clonación de un repositorio de {% data variables.product.prodname_dotcom %} en {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
-## Cloning a repository
+## Clonar un repositorio
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
 
-## Forking a repository
-If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
+## Bifurcar un repositorio
+Si clonas un repositorio en el cual no tengas acceso de escritura, {% data variables.product.prodname_desktop %} creará una bifurcación. Después de crear o clonar una bifurcación, {% data variables.product.prodname_desktop %} te preguntará cómo piensas utilizarla.
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
-{% data reusables.desktop.fork-type-prompt %}
+{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %} {% data reusables.desktop.fork-type-prompt %}
 
-## Managing fork behavior
-You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
+## Administrar el comportamiento de una bifurcación
+Puedes cambiar la forma en la que se comporta una bifurcación con respecto su repositorio ascendente de {% data variables.product.prodname_desktop %}.
 
-{% data reusables.desktop.open-repository-settings %}
-{% data reusables.desktop.select-fork-behavior %}
+{% data reusables.desktop.open-repository-settings %} {% data reusables.desktop.select-fork-behavior %}
 
-## Creating an alias for a local repository
-You can create an alias for a local repository to help differentiate between repositories of the same name in {% data variables.product.prodname_desktop %}. Creating an alias does not affect the repository's name on {% data variables.product.prodname_dotcom %}. In the repositories list, aliases appear in italics.
+## Crear un alias para un repositorio local
+Puedes crear un alias para de un repositorio local para ayudarte a diferenciar entre reposiotorios con el mismo nombre en {% data variables.product.prodname_desktop %}. Crear un alias no afecta el nombre del repositorio en {% data variables.product.prodname_dotcom %}. En la lista de repositorios, los alias aparecen en letra itálica.
 
-1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
-2. Right-click the repository you want to create an alias for, then click **Create Alias**.
-3. Type an alias for the repository.
-4. Click **Create Alias**.
+1. En la esquina superior izquierda de {% data variables.product.prodname_desktop %}, a la derecha del nombre del repositorio actual, haz clic en {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+2. Haz clic con el botón derecho en el repositorio para el que quieres crear un alias y, a continuación, haz clic en **Crear alias**.
+3. Teclea un alias para el repositorio.
+4. Haz clic en **Crear alias**.
 
-## Further reading
-- [About remote repositories](/github/getting-started-with-github/about-remote-repositories)
+## Información adicional
+- [Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)

@@ -14,9 +14,14 @@ versions:
 topics:
   - Pull requests
 shortTitle: Permanent links to code
+ms.openlocfilehash: d1c363eba2a45558f3fdc9b55025309544ef677b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068627'
 ---
-
-## Linking to code
+## コードへのリンク
 
 このタイプのパーマリンクは、元々作成された場所であるリポジトリでのみ、コードスニペットとして表示されます。 それ以外のリポジトリでは、パーマリンクのコードスニペットは URL として表示されます。
 
@@ -24,27 +29,29 @@ shortTitle: Permanent links to code
 
 {% tip %}
 
-**ヒント:** ファイル全体に対してパーマリンクを作成する方法は、「[ファイルにパーマリンクを張る](/articles/getting-permanent-links-to-files)」を参照してください。
+**ヒント:** ファイル全体のパーマリンクを作成するには、「[Getting permanent links to files (ファイルへの永続的リンクを取得する)](/articles/getting-permanent-links-to-files)」を参照してください。
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リンクしたいコードを特定します:
     - ファイルからコードにリンクするには、対象のファイルに移動します。
-    - プルリクエストからコードにリンクするには、対象のプルリクエストに移動して {% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
+    - pull request からコードにリンクするには、対象の pull request に移動して {% octicon "diff" aria-label="The file diff icon" %} **[Files changed]\(変更されたファイル\)** をクリックします。 次に、コメントに取り込むコードが含まれているファイルを参照し、 **[View]\(表示\)** をクリックします。
 {% data reusables.repositories.choose-line-or-range %}
-4. 行または行範囲の左にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}をクリックします。 ドロップダウンメニューで [**Copy permalink**] をクリックします。 ![選択された行のパーマリンクをコピーするオプションのあるケバブメニュー](/assets/images/help/repository/copy-permalink-specific-line.png)
+4. 行または行範囲の左にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックします。 ドロップダウン メニューの **[Copy permalink]/(パーマリンクのコピー/)** をクリックします。
+  ![選択された行のパーマリンクをコピーするオプションのあるケバブメニュー](/assets/images/help/repository/copy-permalink-specific-line.png)
 5. コードスニペットにリンクさせたい会話に移動します。
-6. コメントにパーマリンクを貼り付け、[**Comment**] をクリックします。 ![同じリポジトリ内のコメントに貼り付けられたパーマリンク](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
+6. パーマリンクをコメントに貼り付け、 **[Comment]\(コメント\)** をクリックします。
+  ![同じリポジトリ内のコメントに貼り付けられたパーマリンク](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-## Linking to Markdown
+## Markdown へのリンク
 
-You can link to specific lines in Markdown files by loading the Markdown file without Markdown rendering. To load a Markdown file without rendering, you can use the `?plain=1` parameter at the end of the url for the file. For example, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1`.
+Markdown のレンダリングなしで Markdown ファイルを読み込むことにより、Markdown ファイルの特定の行にリンクすることができます。 レンダリングなしで Markdown ファイルを読み込むには、ファイルの URL の最後で `?plain=1` パラメーターを使います。 たとえば、「 `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1` 」のように入力します。
 
-You can link to a specific line in the Markdown file the same way you can in code. Append `#L` with the line number or numbers at the end of the url. For example, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` will highlight line 14 in the plain README.md file.
+コード内で行うのと同じ方法で、Markdown ファイルの特定の行にリンクすることができます。 URL の最後に、行番号 (複数可) と一緒に `#L` を追加します。 たとえば、`github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` はプレーンな README.md ファイルの 14 行目を強調表示します。
 
-## 参考リンク
+## 参考資料
 
-- "[Issue の作成](/articles/creating-an-issue/)"
-- "[コードから Issue を開く](/articles/opening-an-issue-from-code/)"
-- 「[プルリクエスト内の変更をレビューする](/articles/reviewing-changes-in-pull-requests/)」
+- [Creating an issue (issue の作成)](/articles/creating-an-issue/)
+- [コードから issue を開く](/articles/opening-an-issue-from-code/)
+- [Reviewing changes in pull requests (pull request での変更をレビューする)](/articles/reviewing-changes-in-pull-requests/)

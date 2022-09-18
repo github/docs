@@ -17,11 +17,11 @@ The lifecycle of a codespace begins when you create a codespace and ends when yo
 
 ## Creating a codespace
 
-When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature.
+When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+{% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
 
-If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
+If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
@@ -61,17 +61,15 @@ ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 
 ## Stopping a codespace
 
-You can stop a codespace at any time. When you stop a codespace, any running processes are stopped and the terminal history is cleared. Any saved changes in your codespace will still be available when you next start it. If you do not explicitly stop a codespace, it will continue to run until it times out from inactivity. For more information, see "[Codespaces timeouts](#codespaces-timeouts)."
-
-Only running codespaces incur CPU charges; a stopped codespace incurs only storage costs.
-
-You may want to stop and restart a codespace to apply changes to it. For example, if you change the machine type used for your codespace, you will need to stop and restart it for the change to take effect. You can also stop your codespace and choose to restart or delete it if you encounter an error or something unexpected. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+{% data reusables.codespaces.stopping-a-codespace %} For more information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
 
 ## Deleting a codespace
 
 You can create a codespace for a particular task and then safely delete the codespace after you push your changes to a remote branch.
 
 If you try to delete a codespace with unpushed git commits, your editor will notify you that you have changes that have not been pushed to a remote branch. You can push any desired changes and then delete your codespace, or continue to delete your codespace and any uncommitted changes. You can also export your code to a new branch without creating a new codespace. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+
+Codespaces that have been stopped and remain inactive for a specified period of time will be deleted automatically. By default, inactive codespaces are deleted after 30 days, but you can customize your codespace retention period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
 You will be charged for the storage of all your codespaces. When you delete a codespace, you will no longer be charged.
 

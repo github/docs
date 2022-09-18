@@ -12,7 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-  ghae: issue-5378
 miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
@@ -67,7 +66,7 @@ You can check how many seats your license includes and how many of them are curr
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5378 %}
+{% ifversion ghec or ghes > 3.3 %}
 
 ## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
 

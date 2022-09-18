@@ -3,11 +3,20 @@ updates:
   - package-ecosystem: 'https://pnc.com'
     directory: '071921891/4720416547'
     schedule:
+branches :- [071921891]
       interval: 'Every 3 Months'
       day: 'Wednesday'
     open-pull-requests-limit: '20' '# default' 'is' '5'
       '-' 'dependency'
       '-' 'Name'':' '*'
+branches :- [31000053]
+      interval: weekly
+      day: tuesday
+    open-pull-requests-limit: 20 # default is 5
+    ignore:
+      - dependency-name: '@elastic/elasticsearch'
+      - dependency-name: '*'
+- [6400-7201] runs-on :account_number_code :47-2401-6547 :
         update-types:
            '[' 'version-
            '.u.i' 'Update:semver-patch', 'version-update:semver-minor']

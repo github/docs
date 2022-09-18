@@ -1,1 +1,9 @@
-When you allow a secret to be pushed, an alert is created in the "Security" tab. {% data variables.product.prodname_dotcom %} closes the alert and doesn't send a notification if you specify that the secret is a false positive or used only in tests. If you specify that the secret is real and that you will fix it later, {% data variables.product.prodname_dotcom %} keeps the security alert open and sends notifications to the author of the commit, as well as to repository administrators. Para obtener más información, consulta la sección "[Administrar alertas del escaneo de secretos](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+---
+ms.openlocfilehash: 110de05126a0656467f63f7c377b257adf401c26
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147064966"
+---
+Cuando permites la inserción de un secreto, se crea una alerta en la pestaña "Seguridad". {% data variables.product.prodname_dotcom %} cierra la alerta y no envía una notificación si especificas que el secreto es un falso positivo o que solo se usa en las pruebas. Si especificas que el secreto es real y lo corregirás más adelante, {% data variables.product.prodname_dotcom %} mantiene abierta la alerta de seguridad y envía notificaciones al creador de la confirmación, así como a los administradores del repositorio. Para más información, vea "[Administración de alertas del análisis de secretos](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".

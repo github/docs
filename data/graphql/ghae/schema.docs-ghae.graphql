@@ -2645,9 +2645,19 @@ input CheckRunFilter {
   checkType: CheckRunType
 
   """
-  Filters the check runs by this status.
+  Filters the check runs by these conclusions.
+  """
+  conclusions: [CheckConclusionState!]
+
+  """
+  Filters the check runs by this status. Superceded by statuses.
   """
   status: CheckStatusState
+
+  """
+  Filters the check runs by this status. Overrides status.
+  """
+  statuses: [CheckStatusState!]
 }
 
 """
@@ -2698,6 +2708,96 @@ input CheckRunOutputImage {
   The full URL of the image.
   """
   imageUrl: URI!
+}
+
+"""
+The possible states of a check run in a status rollup.
+"""
+enum CheckRunState {
+  """
+  The check run requires action.
+  """
+  ACTION_REQUIRED
+
+  """
+  The check run has been cancelled.
+  """
+  CANCELLED
+
+  """
+  The check run has been completed.
+  """
+  COMPLETED
+
+  """
+  The check run has failed.
+  """
+  FAILURE
+
+  """
+  The check run is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The check run was neutral.
+  """
+  NEUTRAL
+
+  """
+  The check run is in pending state.
+  """
+  PENDING
+
+  """
+  The check run has been queued.
+  """
+  QUEUED
+
+  """
+  The check run was skipped.
+  """
+  SKIPPED
+
+  """
+  The check run was marked stale by GitHub. Only GitHub can use this conclusion.
+  """
+  STALE
+
+  """
+  The check run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
+  The check run has succeeded.
+  """
+  SUCCESS
+
+  """
+  The check run has timed out.
+  """
+  TIMED_OUT
+
+  """
+  The check run is in waiting state.
+  """
+  WAITING
+}
+
+"""
+Represents a count of the state of a check run.
+"""
+type CheckRunStateCount {
+  """
+  The number of check runs with this state.
+  """
+  count: Int!
+
+  """
+  The state of a check run.
+  """
+  state: CheckRunState!
 }
 
 """
@@ -3689,9 +3789,21 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): Blame!
 
   """
-  The number of changed files in this commit.
+  We recommend using the `changedFielsIfAvailable` field instead of
+  `changedFiles`, as `changedFiles` will cause your request to return an error
+  if GitHub is unable to calculate the number of changed files.
   """
   changedFiles: Int!
+    @deprecated(
+      reason: "`changedFiles` will be removed. Use `changedFilesIfAvailable` instead. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The number of changed files in this commit. If GitHub is unable to calculate
+  the number of changed files (for example due to a timeout), this will return
+  `null`. We recommend using this field instead of `changedFiles`.
+  """
+  changedFilesIfAvailable: Int
 
   """
   The check suites associated with a commit.
@@ -7310,6 +7422,11 @@ type DeletePullRequestReviewCommentPayload {
   The pull request review the deleted comment belonged to.
   """
   pullRequestReview: PullRequestReview
+
+  """
+  The deleted pull request review comment.
+  """
+  pullRequestReviewComment: PullRequestReviewComment
 }
 
 """
@@ -9435,6 +9552,12 @@ type Enterprise implements Node {
     first: Int
 
     """
+    Only return members with this two-factor authentication status. Does not
+    include members who only have an account on a GitHub Enterprise Server instance.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -9695,6 +9818,41 @@ enum EnterpriseAdministratorRole {
   Represents an owner of the enterprise account.
   """
   OWNER
+}
+
+"""
+The possible values for the enterprise allow private repository forking policy value.
+"""
+enum EnterpriseAllowPrivateRepositoryForkingPolicyValue {
+  """
+  Members can fork a repository to an organization within this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS
+
+  """
+  Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.
+  """
+  ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.
+  """
+  EVERYWHERE
+
+  """
+  Members can fork a repository only within the same organization (intra-org).
+  """
+  SAME_ORGANIZATION
+
+  """
+  Members can fork a repository to their user account or within the same organization.
+  """
+  SAME_ORGANIZATION_USER_ACCOUNTS
+
+  """
+  Members can fork a repository to their user account.
+  """
+  USER_ACCOUNTS
 }
 
 """
@@ -10177,6 +10335,11 @@ type EnterpriseOwnerInfo {
     first: Int
 
     """
+    Only return administrators with this two-factor authentication status.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -10271,6 +10434,11 @@ type EnterpriseOwnerInfo {
     """
     value: Boolean!
   ): OrganizationConnection!
+
+  """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  allowPrivateRepositoryForkingSettingPolicyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
 
   """
   The setting value for base repository permissions for organizations in this enterprise.
@@ -26888,6 +27056,11 @@ type PullRequestThread implements Node {
     """
     skip: Int
   ): PullRequestReviewCommentConnection!
+
+  """
+  The side of the diff on which this thread was placed.
+  """
+  diffSide: DiffSide!
   id: ID!
 
   """
@@ -26906,6 +27079,11 @@ type PullRequestThread implements Node {
   isResolved: Boolean!
 
   """
+  The line in the file to which this thread refers
+  """
+  line: Int
+
+  """
   Identifies the pull request associated with this thread.
   """
   pullRequest: PullRequest!
@@ -26919,6 +27097,16 @@ type PullRequestThread implements Node {
   The user who resolved this thread
   """
   resolvedBy: User
+
+  """
+  The side of the diff that the first line of the thread starts on (multi-line only)
+  """
+  startDiffSide: DiffSide
+
+  """
+  The line of the first file diff in the thread.
+  """
+  startLine: Int
 
   """
   Indicates whether the current viewer can reply to this thread.
@@ -27698,7 +27886,7 @@ type Query {
   ): UniformResourceLocatable
 
   """
-  Perform a search across resources.
+  Perform a search across resources, returning a maximum of 1,000 results.
   """
   search(
     """
@@ -35331,16 +35519,22 @@ The results of a search.
 union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
 
 """
-A list of results that matched against a search query.
+A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 results will be available across all types,
+potentially split across many pages.
 """
 type SearchResultItemConnection {
   """
-  The number of pieces of code that matched the search query.
+  The total number of pieces of code that matched the search query. Regardless
+  of the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   codeCount: Int!
 
   """
-  The number of discussions that matched the search query.
+  The total number of discussions that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   discussionCount: Int!
 
@@ -35350,7 +35544,8 @@ type SearchResultItemConnection {
   edges: [SearchResultItemEdge]
 
   """
-  The number of issues that matched the search query.
+  The total number of issues that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   issueCount: Int!
 
@@ -35365,17 +35560,22 @@ type SearchResultItemConnection {
   pageInfo: PageInfo!
 
   """
-  The number of repositories that matched the search query.
+  The total number of repositories that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   repositoryCount: Int!
 
   """
-  The number of users that matched the search query.
+  The total number of users that matched the search query. Regardless of the
+  total number of matches, a maximum of 1,000 results will be available across all types.
   """
   userCount: Int!
 
   """
-  The number of wiki pages that matched the search query.
+  The total number of wiki pages that matched the search query. Regardless of
+  the total number of matches, a maximum of 1,000 results will be available
+  across all types.
   """
   wikiCount: Int!
 }
@@ -35919,6 +36119,52 @@ enum SquashMergeCommitTitle {
 }
 
 """
+Represents an SSH signature on a Commit or Tag.
+"""
+type SshSignature implements GitSignature {
+  """
+  Email used to sign this object.
+  """
+  email: String!
+
+  """
+  True if the signature is valid and verified by GitHub.
+  """
+  isValid: Boolean!
+
+  """
+  Hex-encoded fingerprint of the key that signed this object.
+  """
+  keyFingerprint: String
+
+  """
+  Payload for GPG signing object. Raw ODB object without the signature header.
+  """
+  payload: String!
+
+  """
+  ASCII-armored signature header from object.
+  """
+  signature: String!
+
+  """
+  GitHub user corresponding to the email signing this commit.
+  """
+  signer: User
+
+  """
+  The state of this signature. `VALID` if signature is valid and verified by
+  GitHub, otherwise represents reason why signature is considered invalid.
+  """
+  state: GitSignatureState!
+
+  """
+  True if the signature was made with GitHub's signing key.
+  """
+  wasSignedByGitHub: Boolean!
+}
+
+"""
 Ways in which star connections can be ordered.
 """
 input StarOrder {
@@ -36269,6 +36515,16 @@ The connection type for StatusCheckRollupContext.
 """
 type StatusCheckRollupContextConnection {
   """
+  The number of check runs in this rollup.
+  """
+  checkRunCount: Int!
+
+  """
+  Counts of check runs by state.
+  """
+  checkRunCountsByState: [CheckRunStateCount!]
+
+  """
   A list of edges.
   """
   edges: [StatusCheckRollupContextEdge]
@@ -36282,6 +36538,16 @@ type StatusCheckRollupContextConnection {
   Information to aid in pagination.
   """
   pageInfo: PageInfo!
+
+  """
+  The number of status contexts in this rollup.
+  """
+  statusContextCount: Int!
+
+  """
+  Counts of status contexts by state.
+  """
+  statusContextCountsByState: [StatusContextStateCount!]
 
   """
   Identifies the total count of items in the connection.
@@ -36368,6 +36634,21 @@ type StatusContext implements Node & RequirableByPullRequest {
   The URL for this status context.
   """
   targetUrl: URI
+}
+
+"""
+Represents a count of the state of a status context.
+"""
+type StatusContextStateCount {
+  """
+  The number of statuses with this state.
+  """
+  count: Int!
+
+  """
+  The state of a status context.
+  """
+  state: StatusState!
 }
 
 """
@@ -39920,6 +40201,11 @@ input UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput {
   enterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
 
   """
+  The value for the allow private repository forking policy on the enterprise.
+  """
+  policyValue: EnterpriseAllowPrivateRepositoryForkingPolicyValue
+
+  """
   The value for the allow private repository forking setting on the enterprise.
   """
   settingValue: EnterpriseEnabledDisabledSettingValue!
@@ -43136,6 +43422,36 @@ type Workflow implements Node {
   name: String!
 
   """
+  The runs of the workflow.
+  """
+  runs(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the connection
+    """
+    orderBy: WorkflowRunOrder = {field: CREATED_AT, direction: DESC}
+  ): WorkflowRunConnection!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -43235,6 +43551,71 @@ type WorkflowRun implements Node {
   The workflow executed in this workflow run.
   """
   workflow: Workflow!
+}
+
+"""
+The connection type for WorkflowRun.
+"""
+type WorkflowRunConnection {
+  """
+  A list of edges.
+  """
+  edges: [WorkflowRunEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [WorkflowRun]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type WorkflowRunEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: WorkflowRun
+}
+
+"""
+Ways in which lists of workflow runs can be ordered upon return.
+"""
+input WorkflowRunOrder {
+  """
+  The direction in which to order workflow runs by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field by which to order workflows.
+  """
+  field: WorkflowRunOrderField!
+}
+
+"""
+Properties by which workflow run connections can be ordered.
+"""
+enum WorkflowRunOrderField {
+  """
+  Order workflow runs by most recently created
+  """
+  CREATED_AT
 }
 
 """

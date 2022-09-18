@@ -15,26 +15,31 @@ versions:
 topics:
   - Pull requests
 shortTitle: Create a PR from a fork
+ms.openlocfilehash: 5a4aceef12c214d157dbdac7bf838bbe80e81731
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883288'
 ---
-
-プルリクエストが上流リポジトリのブランチを base ブランチとして自分のトピックブランチと比較する場合、トピックブランチは「プルリクエストの比較ブランチ」とも呼ばれます。 例も含めたプルリクエストブランチに関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。
+プルリクエストが上流リポジトリのブランチを base ブランチとして自分のトピックブランチと比較する場合、トピックブランチは「プルリクエストの比較ブランチ」とも呼ばれます。 pull request ブランチの詳細と例については、「[pull request の作成](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。
 
 {% data reusables.pull_requests.perms-to-open-pull-request %}
 
 1. 作成したフォークの元であるリポジトリに移動します。
 {% data reusables.repositories.new-pull-request %}
-3. [Compare] ページで [**compare across forks**] をクリックします。 ![[Compare across forks] リンク](/assets/images/help/pull_requests/compare-across-forks-link.png)
-4. [base branch] ドロップダウンメニューで、変更をマージする上流リポジトリのブランチを選択します。 ![base フォークとブランチを選択するドロップダウンメニュー](/assets/images/help/pull_requests/choose-base-fork-and-branch.png)
-5. [head fork] ドロップダウンメニューでフォークを選択し、次に [compare branch] ドロップダウンメニューを使用して、変更を加えたブランチを選択します。 ![head フォークと比較ブランチを選択するドロップダウンメニュー](/assets/images/help/pull_requests/choose-head-fork-compare-branch.png)
-{% data reusables.repositories.pr-title-description %}
-{% data reusables.repositories.allow-maintainers-user-forks %}
+3. [比較] ページで **[compare across forks]\(フォーク間の比較\)** をクリックします。
+  ![[Compare across forks]\(フォーク間の比較\) リンク](/assets/images/help/pull_requests/compare-across-forks-link.png)
+4. [base branch] ドロップダウンメニューで、変更をマージする上流リポジトリのブランチを選択します。
+  ![base フォークとブランチを選択するドロップダウン メニュー](/assets/images/help/pull_requests/choose-base-fork-and-branch.png)
+5. [head fork] ドロップダウンメニューでフォークを選択し、次に [compare branch] ドロップダウンメニューを使用して、変更を加えたブランチを選択します。
+  ![ヘッドフォークと比較ブランチを選択するためのドロップダウン メニュー](/assets/images/help/pull_requests/choose-head-fork-compare-branch.png) {% data reusables.repositories.pr-title-description %} {% data reusables.repositories.allow-maintainers-user-forks %}
 
-  ![メンテナに変更を許可するサイドバーのチェックボックス](/assets/images/help/pull_requests/allow-maintainers-to-make-edits.png)
-{% data reusables.repositories.create-pull-request %}
+  ![allow-maintainers-to-make-edits-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits.png) {% data reusables.repositories.create-pull-request %}
 
 {% data reusables.repositories.asking-for-review %}
 
-## 参考リンク
+## 参考資料
 
-- "[フォークでの作業](/articles/working-with-forks)"
-- [フォークから作成されたプルリクエストブランチへの変更を許可する](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)
+- "[フォークを使って作業する](/articles/working-with-forks)"
+- "[フォークから作成された pull request のブランチへの変更の許可](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

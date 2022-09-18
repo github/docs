@@ -9,7 +9,7 @@
     ".next/cache"
   ],
   "dependencies": {
-    "@elastic/elasticsearch": "8.2.1",
+    "@elastic/elasticsearch": "7.11.0",
     "@github/failbot": "0.8.0",
     "@primer/css": "^20.2.4",
     "@primer/octicons": "17.3.0",
@@ -149,7 +149,7 @@
     "mkdirp": "^1.0.4",
     "mockdate": "^3.0.5",
     "nock": "^13.2.7",
-    "nodemon": "2.0.19",
+    "nodemon": "2.0.20",
     "npm-merge-driver-install": "^3.0.0",
     "nth-check": "2.1.1",
     "postcss": "^8.4.14",

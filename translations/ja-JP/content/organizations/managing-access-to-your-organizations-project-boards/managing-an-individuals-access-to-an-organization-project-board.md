@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_project_v1 %}への個人のアクセス管理'
-intro: 'Organization のオーナーまたは{% data variables.projects.projects_v1_board %}の管理者は、Organization が所有する{% data variables.projects.projects_v1_board %}への個々のメンバーのアクセスを管理できます。'
+title: 'Organization の {% data variables.product.prodname_project_v1 %} への個人のアクセスを管理する'
+intro: 'Organization オーナーまたは {% data variables.projects.projects_v1_board %} 管理者は、Organization が所有する {% data variables.projects.projects_v1_board %} への個々のメンバーのアクセス権を管理できます。'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -13,58 +13,42 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 個人のアクセスの管理
+shortTitle: Manage individual access
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 3fd77225e83df2124e8e026453b539f6961ff473
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422893'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**ノート:** {% data reusables.project-management.cascading-permissions %} 詳しい情報については「[Organizatonの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**注:** {% data reusables.project-management.cascading-permissions %} 詳しい情報については、「[Organization の {% data variables.product.prodname_project_v1_caps %} へのアクセス許可](/articles/project-board-permissions-for-an-organization)」を参照してください。 
 
 {% endnote %}
 
-## Organizationのメンバーへの{% data variables.projects.projects_v1_board %}に対するアクセスの付与
+## {% data variables.projects.projects_v1_board %} へのアクセス権を Organization メンバーに付与する
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-9. [Search by username, full name or email address] で、コラボレーターの名前、ユーザ名、または {% data variables.product.prodname_dotcom %} メールを入力します。 ![Octocat のユーザ名が検索フィールドに入力されているコラボレーターセクション](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{% data reusables.project-management.add-collaborator %}
-{% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. **[Project (classic)]** をクリックします{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
+9. [Search by username, full name or email address] で、コラボレーターの名前、ユーザ名、または {% data variables.product.prodname_dotcom %} メールを入力します。
+   ![Octocat のユーザー名が検索フィールドに入力されている [コラボレーター] セクション](/assets/images/help/projects/org-project-collaborators-find-name.png) {% data reusables.project-management.add-collaborator %} {% data reusables.project-management.collaborator-permissions %}
 
-## {% data variables.projects.projects_v1_board %}へのOrganizationメンバーのアクセスの変更
+## {% data variables.projects.projects_v1_board %} への Organization メンバーのアクセス権を変更する
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-{% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. **[Project (classic)]** をクリックします{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.collaborator-permissions %}
 
-## {% data variables.projects.projects_v1_board %}へのOrganizationのメンバーのアクセスの削除
+## {% data variables.projects.projects_v1_board %} への Organization メンバーのアクセス権を削除する
 
-{% data variables.projects.projects_v1_board %}からコラボレータを削除しても、コラボレータは引き続き他のロールの権限に基づきボードにアクセスできることがあります。 {% data variables.projects.projects_v1_board %}へのアクセスを完全に削除するには、その人が持っている各ロールのアクセスを削除しなければなりません。 たとえば、ある人は{% data variables.projects.projects_v1_board %}へのアクセスをOrganizationのメンバーあるいはTeamのメンバーとして持っているかもしれません。 詳しい情報については[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+コラボレーターを {% data variables.projects.projects_v1_board %} から削除しても、コラボレーターは引き続き他のロールに対するアクセス許可に基づいてボードにアクセスできる場合があります。 {% data variables.projects.projects_v1_board %} へのアクセス権を完全に削除するには、そのユーザーが持つ各ロールのアクセス権を削除する必要があります。 たとえば、ユーザーは、Organization メンバーまたは Team メンバーとして {% data variables.projects.projects_v1_board %} にアクセスできます。 詳しい情報については、「[Organization の {% data variables.product.prodname_project_v1_caps %} へのアクセス許可](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-{% data reusables.project-management.remove-collaborator %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. **[Project (classic)]** をクリックします{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.remove-collaborator %}
 
-## 参考リンク
+## 参考資料
 
-- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」
+- 「[Organization の {% data variables.product.prodname_project_v1_caps %} へのアクセス許可](/articles/project-board-permissions-for-an-organization)」

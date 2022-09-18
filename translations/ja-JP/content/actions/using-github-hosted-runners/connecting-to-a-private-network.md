@@ -1,6 +1,6 @@
 ---
-title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_dotcom %}-hosted runners to resources on a private network, including package registries, secret managers, and other on-premises services.'
+title: プライベート ネットワークへの接続
+intro: '{% data variables.product.prodname_dotcom %} ホステッド ランナーをプライベート ネットワーク上のリソース (パッケージ レジストリ、シークレット マネージャー、その他のオンプレミス サービスなど) に接続できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,62 +9,66 @@ type: how_to
 topics:
   - Actions
   - Developer
+ms.openlocfilehash: 2a74b149596e0158cdc6b5e40508b1d4a54eb8e6
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884270'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## {% data variables.product.prodname_dotcom %} ホステッド ランナーについて
 
-## About {% data variables.product.prodname_dotcom %}-hosted runners networking
+{% data variables.product.prodname_dotcom %} ホステッド ランナーは、既定でパブリック インターネットにアクセスできます。 ただし、これらのランナーは、パッケージ レジストリ、シークレット マネージャー、その他のオンプレミス サービスなど、プライベート ネットワーク上のリソースにアクセスすることもできます。 
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services.
-
-{% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+{% data variables.product.prodname_dotcom %} ホステッド ランナーは、すべての {% data variables.product.prodname_dotcom %} のお客様間で共有されるため、ワークフローの実行中にご自身のランナーだけにプライベート ネットワークを接続する方法が必要になります。 このアクセスを構成するには、異なるいくつかの方法があり、それぞれ異なる利点と欠点があります。
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Using an API Gateway with OIDC
+### API ゲートウェイと OIDC を使用する
 
-With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+{% data variables.product.prodname_actions %} では、OpenID Connect (OIDC) トークンを使用して、{% data variables.product.prodname_actions %} の外部でワークフローを認証できます。 たとえば、OIDC トークンを使用して受信要求を認証し、プライベート ネットワーク内のワークフローに代わって API 要求を行う API ゲートウェイをプライベート ネットワークのエッジで実行できます。
 
-The following diagram gives an overview of this solution's architecture:
+次の図は、このソリューションのアーキテクチャの概要を示しています。
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![OIDC ゲートウェイの図](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+OIDC トークンが {% data variables.product.prodname_actions %} から取得されただけでなく、想定されている特定のワークフローから取得されたことの認証を行い、他の {% data variables.product.prodname_actions %} ユーザーがプライベート ネットワーク内のサービスにアクセスできないようにすることが重要です。 OIDC 要求を使用して、これらの条件を作成できます。 詳細については、「[OIDC 要求を使ったクラウド ロールに対する信頼条件の定義](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)」を参照してください。
 
-The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
+このアプローチの主な欠点は、ユーザーに代わって要求を行う API ゲートウェイを実装し、それをネットワークのエッジで実行する必要があることです。
 
-But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network.
-- The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
+しかし、さまざまな利点もあります。
+- ファイアウォールを構成したり、プライベート ネットワークのルーティングを変更したりする必要はありません。 
+- API ゲートウェイはステートレスであるため、高可用性と高スループットを処理するために水平方向にスケーリングされます。
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+詳細については、[API ゲートウェイの参照実装](https://github.com/github/actions-oidc-gateway-example) (これは、ユース ケースに合わせたカスタマイズが必要であり、そのまま実行できる状態ではないことに注意してください) と、「[OpenID Connect を使用したセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」を参照してください。
 {% endif %}
 
-### Using WireGuard to create a network overlay
+### WireGuard を使用してネットワーク オーバーレイを作成する
 
-If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
+API ゲートウェイのための別個のインフラストラクチャを維持することを望まない場合は、両方の場所で WireGuard を実行することで、ランナーとプライベート ネットワーク内のサービスの間にオーバーレイ ネットワークを作成できます。
 
-There are various disadvantages to this approach:
+このアプローチにはさまざまな欠点があります。 
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard.
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+- プライベート サービスで実行されている WireGuard に到達するには、ワークフローで参照できる既知の IP アドレスとポートが必要です。これは、パブリック IP アドレスとポート、ネットワーク ゲートウェイ上のポート マッピング、または DNS を動的に更新するサービスのいずれかです。 
+- WireGuard は既定では NAT トラバーサルを処理しないため、このサービスを提供する方法を特定する必要があります。
+- この接続は 1 対 1 であるため、高可用性または高スループットが必要な場合は、WireGuard 上にそれを構築する必要があります。 
+- ランナーとプライベート サービスの両方のキーを生成して安全に保存する必要があります。 WireGuard は UDP を使用するため、ネットワークで UDP トラフィックをサポートする必要があります。
 
-There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
+利点もいくつかあります。WireGuard は既存のサーバーで実行できるので別個のインフラストラクチャを維持する必要がなく、また、{% data variables.product.prodname_dotcom %} ホステッド ランナーで十分にサポートされています。
 
-### Example: Configuring WireGuard
+### 例: WireGuard を構成する
 
-This example workflow configures WireGuard to connect to a private service.
+このワークフロー例では、プライベート サービスに接続するように WireGuard を構成します。
 
-For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+この例では、プライベート ネットワークで実行されている WireGuard インスタンスの構成は次のとおりです。
+- `192.168.1.1` というオーバーレイ ネットワーク IP アドレス
+- `1.2.3.4:56789` というパブリック IP アドレスとポート
+- 公開キー `examplepubkey1234...`
 
-The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+{% data variables.product.prodname_actions %} ランナーの WireGuard インスタンスの構成はこのとおりです。
+- `192.168.1.2` というオーバーレイ ネットワーク IP アドレス
+- 秘密キーは、{% data variables.product.prodname_actions %} シークレットとして `WIREGUARD_PRIVATE_KEY` に保存されます。
 
 ```yaml
 name: WireGuard example
@@ -91,14 +95,14 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+キーを安全に保存する方法については、「[WireGuard クイック スタート](https://www.wireguard.com/quickstart/)」と「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-### Using Tailscale to create a network overlay
+### Tailscale を使用してネットワーク オーバーレイを作成する
 
-Tailscale is a commercial product built on top of WireGuard. This option is very similar to WireGuard, except Tailscale is more of a complete product experience instead of an open source component.
+Tailscale は WireGuard 上に構築された商用製品です。 このオプションは WireGuard によく似ていますが、Tailscale はオープンソース コンポーネントではなく完全な製品エクスペリエンスである点が異なります。
 
-It's disadvantages are similar to WireGuard: The connection is one-to-one, so you might need to do additional work for high availability or high throughput. You still need to generate and securely store keys. The protocol is still UDP, so your network must support UDP traffic.
+欠点は WireGuard に似ています。接続は 1 対 1 であるため、高可用性または高スループットのために追加の作業を行うことが必要な場合があります。 キーを生成して安全に保存する必要があります。 プロトコルはまだ UDP であるため、ネットワークで UDP トラフィックをサポートする必要があります。
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
+ただし、WireGuard に勝るいくつかの利点があります。NAT トラバーサルが組み込まれているため、パブリック インターネットにポートを公開する必要はありません。 Tailscale では、オーバーレイ ネットワークに接続する 1 つのステップで {% data variables.product.prodname_actions %} ワークフローが提供されるため、これらのオプションの中では最もすばやく起動して実行できます。
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+詳細については、「[Tailscale GitHub アクション](https://github.com/tailscale/github-action)」を参照してください。また、キーを安全に保存する方法については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。

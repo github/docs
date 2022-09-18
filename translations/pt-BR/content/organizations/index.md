@@ -1,6 +1,6 @@
 ---
 title: Organizações e equipes
-shortTitle: Organizações
+shortTitle: Organizations
 intro: Você pode usar organizações para colaborar com um número ilimitado de pessoas em muitos projetos de uma só vez ao mesmo tempo em que gerencia o acesso a seus dados e a personalização de configurações.
 redirect_from:
   - /articles/about-improved-organization-permissions
@@ -49,5 +49,11 @@ children:
   - /granting-access-to-your-organization-with-saml-single-sign-on
   - /managing-git-access-to-your-organizations-repositories
   - /migrating-to-improved-organization-permissions
+ms.openlocfilehash: 3c5ee471d073bc94773607938b70ba4826eb8efb
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875595'
 ---
 

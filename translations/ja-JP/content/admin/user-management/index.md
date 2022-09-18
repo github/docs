@@ -19,5 +19,11 @@ children:
   - /managing-organizations-in-your-enterprise
   - /managing-repositories-in-your-enterprise
   - /migrating-data-to-and-from-your-enterprise
+ms.openlocfilehash: 2ef2c71037a4aef92aa3b3946813993b06b44786
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145115197'
 ---
 

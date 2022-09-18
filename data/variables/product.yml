@@ -137,6 +137,7 @@ prodname_github_issues: 'GitHub Issues'
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_container_registry: 'Container registry'
+prodname_container_registries: 'Container registries'
 prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes or ghae %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
 prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes or ghae %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
 prodname_npm_registry: 'npm registry'

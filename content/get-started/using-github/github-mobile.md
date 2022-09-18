@@ -23,6 +23,7 @@ With {% data variables.product.prodname_mobile %} you can:
 
 - Manage, triage, and clear notifications
 - Read, review, and collaborate on issues and pull requests
+- Edit files in pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication

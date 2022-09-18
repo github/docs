@@ -34,6 +34,12 @@ children:
   - /auditing-ssh-keys
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
-shortTitle: 管理用户
+shortTitle: Manage users
+ms.openlocfilehash: 9ec6d7dc6822e71ff72542dd6b67ded031a1c44d
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876023'
 ---
 

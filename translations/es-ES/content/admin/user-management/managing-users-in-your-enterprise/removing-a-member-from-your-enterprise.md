@@ -1,33 +1,37 @@
 ---
 title: Eliminar a un miembro de tu empresa
-intro: Puedes eliminar a un miembro de todas las organizaciones que le pertenecen a tu empresa.
+intro: Puedes quitar un miembro de todas las organizaciones que son propiedad de tu empresa.
 permissions: Enterprise owners can remove an enterprise member from the enterprise.
 versions:
   feature: remove-enterprise-members
 type: how_to
 topics:
   - Enterprise
-shortTitle: Eliminar miembro
+shortTitle: Remove member
+ms.openlocfilehash: c3090cd49c2c2e8089093dc01ddeb7b69ae39416
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717994'
 ---
+## Acerca de la eliminación de miembros de la empresa
 
-## Acerca de la eliminación de miembros de las empresas
+Al quitar a un miembro de empresa de la empresa, el miembro se quita de todas las organizaciones que pertenecen a la empresa.
 
-Cuando eliminas a un miembro de tu empresa, este se eliminará de todas las organizaciones que le pertenezcan a ella.
+Si el miembro de empresa que va a quitar es el último propietario de una organización propiedad de la empresa, se convertirá en propietario de esa organización.
 
-Si el miembro empresarial que estás eliminando es el último propietario de una organización que le pertenece a esta, te convertirás en el dueño de dicha organización.
-
-Si tu empresa o cualquiera de las organizaciones que le pertenecen a esta utilizan un proveedor de identidad (IdP) para administrar la membrecía de la organización, el miembro podría volverse a agregar a dicha organización mediante el IdP. Asegúrate de también hacer cualquier cambio necesario a tu IdP.
+Si la empresa o cualquiera de las organizaciones que le pertenecen usa un proveedor de identidades (IdP) para administrar la pertenencia a la organización, es posible que el idP vuelva a agregar el miembro a la organización. Asegúrese de realizar también los cambios necesarios en el IdP.
 
 ## Eliminar a un miembro de tu empresa
 
 {% note %}
 
-**Nota:** Si un miembro de la empresa solo utiliza {% data variables.product.prodname_ghe_server %} y no {% data variables.product.prodname_ghe_cloud %}, no podrás eliminarlo de la empresa de esta forma.
+**Nota:** Si un miembro de la empresa solo usa {% data variables.product.prodname_ghe_server %} y no {% data variables.product.prodname_ghe_cloud %}, no puede quitarlo de esta manera.
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. A la derecha de la persona que quieras eliminar, selecciona el menú desplegable de {% octicon "gear" aria-label="The gear icon" %} y haz clic en **Eliminar de la empresa**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+1. A la derecha de la persona que quiera quitar, seleccione el menú desplegable {% octicon "gear" aria-label="The gear icon" %} y haga clic en **Quitar de la empresa**.
 
-   ![Captura de pantalla de la opción "Eliminar de la empresa" para un miembro empresarial](/assets/images/help/business-accounts/remove-member.png)
+   ![Captura de pantalla de la opción "Quitar de la empresa" para un miembro de la empresa](/assets/images/help/business-accounts/remove-member.png)

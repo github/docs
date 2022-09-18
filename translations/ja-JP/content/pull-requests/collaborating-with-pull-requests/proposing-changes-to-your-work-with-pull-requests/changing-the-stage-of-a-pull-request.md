@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのステージの変更
-intro: You can mark a draft pull request as ready for review or convert a pull request to a draft.
+intro: 下書きの pull request をレビューの準備完了としてマークしたり、pull request を下書きに変換したりすることができます。
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -16,21 +16,27 @@ versions:
 topics:
   - Pull requests
 shortTitle: Change the state
+ms.openlocfilehash: 5ef2845e57518c4b66f13a804919f7bdea327040
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883296'
 ---
-
 ## プルリクエストをレビュー準備完了としてマークする
 
 {% data reusables.pull_requests.mark-ready-review %}
 
 {% tip %}
 
-**Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用して、pull request をレビューの準備完了としてマークすることもできます。 詳細については、{% data variables.product.prodname_cli %} ドキュメントの "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" を参照してください。
 
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、レビューの準備ができたことを示すマークを付けたいプルリクエストクリックします。
-3. マージボックスで、[**Ready for review**] をクリックします。 ![[Ready for review] ボタン](/assets/images/help/pull_requests/ready-for-review-button.png)
+3. マージ ボックスで **[Ready for review]** をクリックします。
+  ![[Ready for review] ボタン](/assets/images/help/pull_requests/ready-for-review-button.png)
 
 ## プルリクエストをドラフトに変換する
 
@@ -38,9 +44,11 @@ shortTitle: Change the state
 
 {% data reusables.repositories.sidebar-pr %}
 2. [プルリクエスト] リストで、ドラフトに変換するプルリクエストをクリックします。
-3. 右側のサイドバーの [Reviewers] で、[**Convert to draft**] をクリックします。 ![[ドラフトに変換] リンク](/assets/images/help/pull_requests/convert-to-draft-link.png)
-4. [**Convert to draft**] をクリックします。 ![ドラフト確認に変換](/assets/images/help/pull_requests/convert-to-draft-dialog.png)
+3. 右側のサイドバーの "レビュー担当者" の下で **[ドラフトに変換]** をクリックします。
+  ![[ドラフトに変換] リンク](/assets/images/help/pull_requests/convert-to-draft-link.png)
+4. **[ドラフトに変換]** をクリックします。
+  ![ドラフト確認に変換](/assets/images/help/pull_requests/convert-to-draft-dialog.png)
 
-## 参考リンク
+## 参考資料
 
-- [プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+- "[pull request について](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)"

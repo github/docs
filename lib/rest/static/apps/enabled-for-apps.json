@@ -650,7 +650,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -1170,6 +1170,18 @@
         "subcategory": "code-scanning",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
+      },
+      {
+        "slug": "list-codeql-databases-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases"
+      },
+      {
+        "slug": "get-a-codeql-database-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
       },
       {
         "slug": "upload-an-analysis-as-sarif-data",
@@ -2269,10 +2281,34 @@
         "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
       },
       {
+        "slug": "create-a-custom-role",
+        "subcategory": "custom-roles",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/custom_roles"
+      },
+      {
+        "slug": "update-a-custom-role",
+        "subcategory": "custom-roles",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
+      },
+      {
+        "slug": "delete-a-custom-role",
+        "subcategory": "custom-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
+      },
+      {
         "slug": "list-failed-organization-invitations",
         "subcategory": "members",
         "verb": "get",
         "requestPath": "/orgs/{org}/failed_invitations"
+      },
+      {
+        "slug": "list-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/fine_grained_permissions"
       },
       {
         "slug": "list-organization-webhooks",
@@ -4322,7 +4358,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -7416,7 +7452,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -10630,7 +10666,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -14047,7 +14083,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -17512,7 +17548,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
@@ -19896,6 +19932,18 @@
     ],
     "teams": [
       {
+        "slug": "get-an-external-group",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-group/{group_id}"
+      },
+      {
+        "slug": "list-external-groups-in-an-organization",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-groups"
+      },
+      {
         "slug": "list-teams",
         "subcategory": "teams",
         "verb": "get",
@@ -19984,6 +20032,12 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-team-members",
@@ -20756,7 +20810,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable"
       },
       {
-        "slug": "list-workflow-runs",
+        "slug": "list-workflow-runs-for-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"

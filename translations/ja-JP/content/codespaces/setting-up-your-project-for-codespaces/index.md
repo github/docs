@@ -1,8 +1,8 @@
 ---
-title: 'Setting up your repository for {% data variables.product.prodname_github_codespaces %}'
+title: '{% data variables.product.prodname_github_codespaces %} のリポジトリの設定'
 shortTitle: Setting up your repository
 allowTitleToDifferFromFilename: true
-intro: '特定の言語のセットアップや構成など、{% data variables.product.prodname_github_codespaces %} の使用方法を学びます。'
+intro: '特定の言語に対する設定や構成など、{% data variables.product.prodname_github_codespaces %} の使用方法を学びます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -17,5 +17,12 @@ children:
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
   - /setting-a-minimum-specification-for-codespace-machines
+  - /adding-a-codespaces-badge
+ms.openlocfilehash: 1e172243dc351f0a173c8624b66914e1c3795495
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147783040'
 ---
 

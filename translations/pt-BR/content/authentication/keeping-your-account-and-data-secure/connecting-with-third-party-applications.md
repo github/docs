@@ -13,9 +13,14 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Aplicativos de terceiros
+shortTitle: Third-party applications
+ms.openlocfilehash: b8cd20d36926c373116061e211be62701b1bd2f6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094561'
 ---
-
 Quando um aplicativo de terceiro quiser identificar você pelo seu login do {% data variables.product.product_name %}, será exibida uma página com as informações de contato do desenvolvedor e uma lista dos dados específicos que estão sendo solicitados.
 
 ## Contatar o desenvolvedor do aplicativo
@@ -30,20 +35,20 @@ Se o desenvolvedor tiver optador por fornecê-lo, o lado direito da página forn
 
 ## Tipos de acesos e dados do aplicativo
 
-Os aplicativos podem ter acesso de *leitura* ou *gravação* aos seus dados no {% data variables.product.product_name %}.
+Os aplicativos podem ter acesso de *leitura* ou de *gravação* no {% data variables.product.product_name %}.
 
-- O **acesso de leitura** permite que um aplicativo apenas *observe* os dados.
-- O **acesso de gravação** permite que um aplicativo *altere* os dados.
+- O **acesso de leitura** só permite que um aplicativo *visualize* seus dados.
+- O **acesso de gravação** permite que um aplicativo *altere* seus dados.
 
 ### Sobre os escopos do OAuth
 
 Os *escopos* são grupos nomeados de permissões que um aplicativo pode solicitar para acessar dados públicos e não públicos.
 
-Quando você quiser usar um aplicativo de terceiro que se integre ao {% data variables.product.product_name %}, esse aplicativo permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao aplicativo, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você desejar usar um app que solicite o escopo `user:email`, o app terá acesso somente leitura aos seus endereços de e-mail privados. Para obter mais informações, consulte "[Sobre escopos para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
+Quando você quiser usar um aplicativo de terceiro que se integre ao {% data variables.product.product_name %}, esse aplicativo permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao aplicativo, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você quiser usar um aplicativo que solicite o escopo de `user:email`, o aplicativo terá acesso somente leitura aos seus endereços de email privados. Para obter mais informações, confira "[Sobre os escopos dos {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 
-**Observação:** no momento, não é possível usar o escopo de acesso de código-fonte para somente leitura.
+**Observação:** atualmente, não é possível definir o escopo do acesso ao código-fonte como somente leitura.
 
 {% endtip %}
 
@@ -59,17 +64,17 @@ Há vários tipos de dados que os aplicativos podem solicitar.
 
 {% endtip %}
 
-| Tipos de dados            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Status do commit          | Você pode conceder acesso para que um aplicativo de terceiro relate seu status de commit. O acesso ao status do commit permite que os aplicativos determinem se uma compilação foi bem-sucedida em relação a um commit específico. Os apps não terão acesso ao seu código, mas <em>poderão</em> ler e gravar informações de status em relação a um commit específico.                                |
-| Implantações              | O acesso ao status de implantação permite que os aplicativos determinem se uma implantação é bem-sucedida com um commit específico para um repositório. Os aplicativos não terão acesso ao seu código.                                                                                                                                                                                                      |
-| Gists                     | [O acesso Gist](https://gist.github.com) permite que aplicativos leiam ou gravem em {% ifversion not ghae %} nos seus Gists tanto o seu público quanto{% else %}tanto interno quanto{% endif %} e secretos.                                                                                                                                                                                                 |
-| Hooks                     | O acesso aos [webhooks](/webhooks) permite que os aplicativos leiam ou gravem configurações de hook em repositórios que você gerencia.                                                                                                                                                                                                                                                                      |
-| Notificações              | O acesso às notificações permite que os aplicativos leiam suas notificações de {% data variables.product.product_name %}, como, por exemplo, comentários em problemas e pull requests. No entanto, os aplicativos continuam sem poder acessar nada nos repositórios.                                                                                                                                        |
-| Organizações e equipes    | O acesso às organizações e equipes permite que os apps acessem e gerenciem a associação à organização e à equipe.                                                                                                                                                                                                                                                                                           |
-| Dados pessoais do usuário | Os dados do usuário incluem informações encontradas no seu perfil de usuário, como nome, endereço de e-mail e localização.                                                                                                                                                                                                                                                                                  |
-| Repositórios              | As informações de repositório incluem os nomes dos contribuidores, os branches que você criou e os arquivos reais dentro do repositório. Uma aplicação pode solicitar acesso a todos os seus repositórios de qualquer nível de visibilidade. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". |
-| Exclusão de repositório   | Os aplicativos podem solicitar a exclusão de repositórios que você administra, mas não terão acesso ao seu código.                                                                                                                                                                                                                                                                                          |
+| Tipo de dados | Descrição |
+| --- | --- |
+| Status do commit | Você pode conceder acesso para que um aplicativo de terceiro relate seu status de commit. O acesso ao status do commit permite que os aplicativos determinem se uma compilação foi bem-sucedida em relação a um commit específico. Os aplicativos não terão acesso ao seu código, mas <em>podem</em> ler e gravar informações de status em um commit específico. |
+| Implantações | O acesso ao status de implantação permite que os aplicativos determinem se uma implantação é bem-sucedida com um commit específico para um repositório. Os aplicativos não terão acesso ao seu código. |
+| Gists | O acesso de [gist](https://gist.github.com) permite que os aplicativos façam leituras ou gravações {% ifversion not ghae %}tanto nos gists públicos{% else %}quanto nos gists secretos internos{% endif %}. |
+| Ganchos | O acesso de [webhooks](/webhooks) permite que os aplicativos façam leiam ou gravem configurações de gancho nos repositórios que você gerencia. |
+| Notificações | O acesso às notificações permite que os aplicativos leiam suas notificações de {% data variables.product.product_name %}, como, por exemplo, comentários em problemas e pull requests. No entanto, os aplicativos continuam sem poder acessar nada nos repositórios. |
+| Organizações e equipes | O acesso às organizações e equipes permite que os apps acessem e gerenciem a associação à organização e à equipe. |
+| Dados pessoais do usuário | Os dados do usuário incluem informações encontradas no seu perfil de usuário, como nome, endereço de e-mail e localização. |
+| Repositórios | As informações de repositório incluem os nomes dos contribuidores, os branches que você criou e os arquivos reais dentro do repositório. Uma aplicação pode solicitar acesso a todos os seus repositórios de qualquer nível de visibilidade. Para obter mais informações, confira "[Sobre os repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". |
+| Exclusão de repositório | Os aplicativos podem solicitar a exclusão de repositórios que você administra, mas não terão acesso ao seu código. |
 
 ## Solicitar permissões atualizadas
 

@@ -12,7 +12,11 @@ jobs:
 
     strategy:
       matrix:
+branches : - [trunk] :
         node-version: [12.x, 14.x, 16.x]
+=======
+        node-version: [14.x, 16.x, 18.x]
+        branches :- [mainbranch] :
     
     steps:
     - uses: actions/checkout@v3
@@ -25,6 +29,7 @@ jobs:
     - name: Build
       run: |
         npm install
+branches :- [47-2041-6547@071921891]
         grunt.xml :-with : Gulp'@rake.i :
         BEGIN : GLOW7 :.txt :
         const: Home > Chapter 7: Reports > Custom Reports > Exporting Custom Reports > Export Custom Report as Excel File
@@ -299,3 +304,5 @@ Available Options:
 Minimum 1 day. Maximum 90 days unless changed from the repository settings page.
 
     retention-days: # optional
+        grunt
+Branch :- [main,yml]

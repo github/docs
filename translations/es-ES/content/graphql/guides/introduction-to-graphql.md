@@ -11,21 +11,26 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: abc74dfd4aa65035405fd956c6438a487381284b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145069743'
 ---
-
 ## Terminología de GraphQL
 
-La API de GraphQL de GitHub representa un cambio conceptual y arquitectónico de la API de REST de GitHub. Seguramente encontrarás nueva terminología en los [documentos de referencia](/graphql) de la API de GraphQL.
+La API de GraphQL de GitHub representa un cambio conceptual y arquitectónico de la API de REST de GitHub. Seguramente encontrará nueva terminología la [documentación de referencia](/graphql) de GraphQL API.
 
-## Modelo
+## Schema
 
-Un modelo define un tipo de sistema de la API de GraphQL. Describe el conjunto de datos posibles (objetos, campos, relaciones, todo) a los que puede acceder un cliente. Los llamados desde el cliente se [validan](https://graphql.github.io/learn/validation/) y [ejecutan](https://graphql.github.io/learn/execution/) contra un modelo. Un cliente puede encontrar información acerca del modelo a través de [introspección](#discovering-the-graphql-api). UN modelo reside en el servidor de la API de GraphQL. Para obtener más información, consulta la sección "[Descubriendo la API de GraphQL](#discovering-the-graphql-api)".
+Un modelo define un tipo de sistema de la API de GraphQL. Describe el conjunto de datos posibles (objetos, campos, relaciones, todo) a los que puede acceder un cliente. Todas las llamadas desde el cliente se [validan](https://graphql.github.io/learn/validation/) y [ejecutan](https://graphql.github.io/learn/execution/) en función del esquema. Un cliente puede encontrar información sobre el esquema mediante la [introspección](#discovering-the-graphql-api). UN modelo reside en el servidor de la API de GraphQL. Para más información, vea "[Descubriendo GraphQL API](#discovering-the-graphql-api)".
 
 ## Campo
 
-Un campo es una unidad de datos que puedes recuperar de un objeto. Como dicen los [documentos oficiales de GraphQL](https://graphql.github.io/learn/schema/): "El lenguaje de consulta GraphQL se trata básicamente de seleccionar campos en los objetos".
+Un campo es una unidad de datos que puedes recuperar de un objeto. Como se afirma en la [documentación oficial de GraphQL](https://graphql.github.io/learn/schema/): "El lenguaje de consulta GraphQL consiste básicamente en seleccionar campos en objetos".
 
-Las [especificaciones oficiales](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) dicen también acerca de los campos:
+Sobre los campos, en la [especificación oficial](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) también se afirma que:
 
 > Todas las operaciones de GraphQL deben especificar sus selecciones en campos que regresarán valores escalares para garantizar una respuesta conformada sin ambigüedad.
 
@@ -33,13 +38,13 @@ Esto significa que si intentas recuperar un campo que no es un valor escalar, la
 
 ## Argumento
 
-Un argumento es un conjuto de pares clave-valor adjuntos a un campo específico. Algunos campos requieren un argumento. Las [mutaciones](/graphql/guides/forming-calls-with-graphql#about-mutations) requieren un objeto de entrada como argumento.
+Un argumento es un conjuto de pares clave-valor adjuntos a un campo específico. Algunos campos requieren un argumento. Las [mutaciones](/graphql/guides/forming-calls-with-graphql#about-mutations) necesitan un objeto de entrada como argumento.
 
 ## Implementación
 
-El modelo de GraphQL podría utilizar el término _implementa_ para definir cómo un objeto hereda de una [interface](/graphql/reference/interfaces).
+Un esquema de GraphQL puede usar el término _implementa_ para definir cómo se hereda un objeto de una [interfaz](/graphql/reference/interfaces).
 
-Aquí se muestra un ejemplo artificial de un modelo que define la interface `X` y el objeto `Y`:
+Aquí se muestra un ejemplo complejo de un modelo que define la interfaz `X` y el objeto `Y`:
 
 ```
 interface X {
@@ -54,33 +59,33 @@ type Y implements X {
 }
 ```
 
-Esto significa que el objeto `Y` requiere los mismos tipos de campos/argumentos/recuperaciones que requiere la interface `X`, mientras que agregan nuevos campos específicos para el objeto `Y`. (El signo `!` significa que el campo es requerido).
+Esto significa que el objeto `Y` necesita los mismos tipos de campos/argumentos/valores devueltos que la interfaz `X`, además de agregar nuevos campos específicos para el objeto `Y`. (`!` significa que el campo es obligatorio).
 
 En los documentos de referencia, podrás notar que:
 
-* Cada [objeto](/graphql/reference/objects) lista la(s) interface(s) _de la(s) cual(es) hereda_ debajo de **Implementa**.
+* Cada [objeto](/graphql/reference/objects) enumera las interfaces _de las que se hereda_ en **Implementaciones**.
 
-* Cada [interface](/graphql/reference/interfaces) lista los objetos _que heredan desde ella_ bajo **Implementaciones**.
+* Cada [interfaz](/graphql/reference/interfaces) enumera los objetos _que se heredan de ella_ en **Implementaciones**.
 
 ## Conexión
 
-Las conexiones permiten consultar objetos relacionados como parte del mismo llamado. Con las conexiones, puedes utilizar un solo llamado de GraphQL y, en contraste, tendrías que utilizar múltiples llamados en una API de REST. Para obtener más información, consulta "[Migrar de REST a GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
+Las conexiones permiten consultar objetos relacionados como parte del mismo llamado. Con las conexiones, puedes utilizar un solo llamado de GraphQL y, en contraste, tendrías que utilizar múltiples llamados en una API de REST. Para más información, vea "[Migración de REST a GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
 
 Es útil imaginar una gráfica: puntos conectados con líneas. Los puntos son nodos, las líneas son bordes. Una conexión define una relación entre nodos.
 
-## Borde
+## Edge
 
-Los bordes representan las conexiones entre nodos. Cuando consultas una conexión, cruzas sus bordes para obtener sus nodos. Cada campo de `edges` tiene un campo de `node` y uno de `cursor`. Los cursores se utilizan para la [paginación](https://graphql.github.io/learn/pagination/).
+Los bordes representan las conexiones entre nodos. Cuando consultas una conexión, cruzas sus bordes para obtener sus nodos. Cada campo `edges` tiene un campo `node` y un campo `cursor`. Los cursores se usan para la [paginación](https://graphql.github.io/learn/pagination/).
 
 ## Nodo
 
-_Nodo_ es un término genérico para un objeto. Puedes buscar un nodo directamente, o puedes acceder a nodos relacionados a través de una conexión. Si especificas un `node` que no regrese un valor [escalar](/graphql/reference/scalars), deberás incluir los subcampos hasta que todos los campos recuperen valores escalares. Para obtener información sobre el acceso a las ID de los nodos a través de la API de REST y utilizarlos en las consultas de GraphQL, consulta la sección "[Utilizar ID de Nodos Globales](/graphql/guides/using-global-node-ids)".
+_Nodo_ es término genérico para un objeto. Puedes buscar un nodo directamente, o puedes acceder a nodos relacionados a través de una conexión. Si especifica un valor `node` que no devuelve un valor [escalar](/graphql/reference/scalars), tendrá que incluir subcampos hasta que todos los campos devuelvan valores escalares. Para obtener información sobre el acceso a id. de nodo mediante la API REST y cómo usarlos en las consultas de GraphQL, vea "[Uso de id. de nodo globales](/graphql/guides/using-global-node-ids)".
 
 ## Descubrir la API de GraphQL
 
 GraphQL es [introspectivo](https://graphql.github.io/learn/introspection/). Esto significa que puedes consultar un modelo de GraphQL para encontrar detalles de éste mismo.
 
-* Consulta `__schema` para listar todos los tipos definidos en el modelo y obtener detalles de cada uno:
+* Consulte `__schema` para enumerar todos los tipos definidos en el modelo y obtener detalles de cada uno:
 
   ```graphql
   query {
@@ -97,7 +102,7 @@ GraphQL es [introspectivo](https://graphql.github.io/learn/introspection/). Esto
   }
   ```
 
-* Consulta `__type` para obtener detalles de cualquier tipo:
+* Consulte `__type` para obtener detalles sobre cualquier tipo:
 
   ```graphql
   query {
@@ -112,21 +117,21 @@ GraphQL es [introspectivo](https://graphql.github.io/learn/introspection/). Esto
   }
   ```
 
-* También puedes ejecutar una _consulta de introspección_ del modelo a través de la solicitud `GET`:
+* También puede ejecutar una _consulta de introspección_ del esquema mediante una solicitud `GET`:
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
-
+  
   {% note %}
 
-  **Nota**: Si obtienes la respuesta `"message": "Bad credentials"` o `401 Unauthorized`, verifica que estés utilizando un token válido. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+  **Nota**: Si obtiene la respuesta `"message": "Bad credentials"` o `401 Unauthorized`, compruebe que usa un token válido. Para más información, vea "[Creación de un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)". 
 
   {% endnote %}
-
-  Estos resultados están en JSON, así que recomendamos imprimirlos notablemente para su lectura y búsqueda más fácil. Puedes utilizar una herramienta de línea de comandos como [jq](https://stedolan.github.io/jq/) o enlazar los resultados en `python -m json.tool` para lograrlo.
-
-  Como alternativa, puedes pasar el tipo de medios `idl` para recuperar los resultados en formato IDL, el cual es una versión condensada del mismo modelo:
+  
+  Estos resultados están en JSON, así que recomendamos imprimirlos notablemente para su lectura y búsqueda más fácil. Puede usar una herramienta de línea de comandos como [jq](https://stedolan.github.io/jq/), o bien canalizar los resultados en `python -m json.tool` para este fin.
+  
+  Como alternativa, puede pasar el tipo de soporte físico `idl` para devolver los resultados en formato IDL, que es una versión condensada del esquema:
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
@@ -135,8 +140,8 @@ GraphQL es [introspectivo](https://graphql.github.io/learn/introspection/). Esto
 
   {% note %}
 
-  **Nota**: La consulta de introspección probablemente es la única solicitud de tipo `GET` que ejecutarás en GraphQL. Si estás pasando un cuerpo, el método de solicitud de GraphQL es de tipo `POST`, ya sea para consultas o mutaciones.
+  **Nota**: La consulta de introspección probablemente es la única solicitud `GET` que ejecutará en GraphQL. Si va a pasar un cuerpo, el método de solicitud de GraphQL es `POST`, con independencia de que se trate de una consulta o una mutación.
 
   {% endnote %}
 
-  Para obtener más información acerca de realizar consultas, consulta la sección "[Formar llamados con GraphQL](/graphql/guides/forming-calls-with-graphql)".
+  Para más información sobre la ejecución de consultas, vea "[Creación de llamadas con GraphQL](/graphql/guides/forming-calls-with-graphql)".

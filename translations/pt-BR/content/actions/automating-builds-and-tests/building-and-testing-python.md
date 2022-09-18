@@ -14,37 +14,39 @@ type: tutorial
 topics:
   - CI
   - Python
-shortTitle: Criar & testar o Python
+shortTitle: Build & test Python
+ms.openlocfilehash: a55aa73ce26f4482411366b0edb66d9b1a305966
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409464'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no Python.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui Python e PyPy. Você não precisa instalar nada! Para obter uma lista completa do software atualizado e das versões pré-instaladas do Python e PyPy, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% else %} Os executores hospedados no {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com programas de software pré-instalados, que inclui o Python e o PyPy. Você não precisa instalar nada! Para ver uma lista completa dos programas de software atualizados e das versões pré-instaladas do Python e do PyPy, confira "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
 ## Pré-requisitos
 
-Você deve estar familiarizado com o YAML e a sintaxe do {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+Você deve estar familiarizado com o YAML e a sintaxe do {% data variables.product.prodname_actions %}. Para obter mais informações, confira "[Aprenda a usar o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
 Recomendamos que você tenha um entendimento básico do Python, PyPy e pip. Para obter mais informações, consulte:
-- [Primeiros passos com o Python](https://www.python.org/about/gettingstarted/)
+- [Introdução ao Python](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
-- [Gerenciador de pacotes do Pip](https://pypi.org/project/pip/)
+- [Gerenciador de pacotes Pip](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
 ## Usando o fluxo de trabalho inicial do Python
 
-{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Python que deve funcionar na maioria dos projetos do Python. Este guia inclui exemplos que você pode usar para personalizar o fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do Python](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Python que deve funcionar na maioria dos projetos do Python. Este guia inclui exemplos que você pode usar para personalizar o fluxo de trabalho inicial. Para obter mais informações, confira o [fluxo de trabalho inicial do Python](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
+Para experimentar uma introdução rápida, adicione o fluxo de trabalho inicial ao diretório `.github/workflows` do repositório.
 
 ```yaml{:copy}
 name: Python package
@@ -83,35 +85,35 @@ jobs:
 
 ## Especificar uma versão do Python
 
-Para usar uma versão pré-instalada do Python ou do PyPy em um executor hospedado em {% data variables.product.prodname_dotcom %}, use a ação `setup-python`. Esta ação encontra uma versão específica do Python ou do PyPy na cache das ferramenatas em cada executor e adiciona os binários necessários ao `PATH`, que persiste para o restante do trabalho. Se uma versão específica do Python não for pré-instalada na cache de ferramentas, a `setup-python` ação fará o download e irá configurar a versão apropriada do repositório [`python-versions`](https://github.com/actions/python-versions).
+Para usar uma versão pré-instalada do Python ou do PyPy em um executor hospedado no {% data variables.product.prodname_dotcom %}, use a ação `setup-python`. Essa ação encontra uma versão específica do Python ou do PyPy no cache de ferramentas em cada executor e adiciona os binários necessários a `PATH`, que é persistente no restante do trabalho. Se uma versão específica do Python não estiver pré-instalada no cache de ferramentas, a ação `setup-python` vai baixar e configurar a versão apropriada do repositório [`python-versions`](https://github.com/actions/python-versions).
 
-Using the `setup-action` is the recommended way of using Python with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Python. Se você estiver usando um executor auto-hospedado, você deverá instalar Python e adicioná-lo ao `PATH`. Para obter mais informações, consulte a ação [`setup-python`](https://github.com/marketplace/actions/setup-python).
+O uso da ação `setup-python` é a maneira recomendada de usar o Python com o {% data variables.product.prodname_actions %}, porque garante um comportamento consistente entre diferentes executores e diferentes versões do Python. Se você estiver usando um executor auto-hospedado, precisará instalar o Python e adicioná-lo a `PATH`. Para obter mais informações, confira a [Ação `setup-python`](https://github.com/marketplace/actions/setup-python).
 
 A tabela abaixo descreve os locais para o armazenamento de ferramentas em cada executor hospedado em {% data variables.product.prodname_dotcom %}.
 
-|                                      | Ubuntu                          | Mac                                      | Windows                                    |
-| ------------------------------------ | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
-| **Diretório da cache da ferramenta** | `/opt/hostedtoolcache/*`        | `/Users/runner/hostedtoolcache/*`        | `C:\hostedtoolcache\windows\*`         |
-| **Cache da ferramenta do Python**    | `/opt/hostedtoolcache/Python/*` | `/Users/runner/hostedtoolcache/Python/*` | `C:\hostedtoolcache\windows\Python\*` |
-| **Cache da ferramenta do PyPy**      | `/opt/hostedtoolcache/PyPy/*`   | `/Users/runner/hostedtoolcache/PyPy/*`   | `C:\hostedtoolcache\windows\PyPy\*`   |
+|| Ubuntu | Mac | Windows |
+|------|-------|------|----------|
+|**Diretório de cache da ferramenta** |`/opt/hostedtoolcache/*`|`/Users/runner/hostedtoolcache/*`|`C:\hostedtoolcache\windows\*`|
+|**Cache da ferramenta do Python**|`/opt/hostedtoolcache/Python/*`|`/Users/runner/hostedtoolcache/Python/*`|`C:\hostedtoolcache\windows\Python\*`|
+|**Cache da ferramenta do PyPy**|`/opt/hostedtoolcache/PyPy/*`|`/Users/runner/hostedtoolcache/PyPy/*`|`C:\hostedtoolcache\windows\PyPy\*`|
 
-Se você estiver usando um executor auto-hospedado, você poderá configurá-lo para usar a ação `setup-python` para gerenciar suas dependências. Para obter mais informações, consulte [usando o setup-python com um executor auto-hospedado](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) na README do `setup-python`.
+Se você estiver usando um executor auto-hospedado, poderá configurar o executor para usar a ação `setup-python` a fim de gerenciar suas dependências. Para obter mais informações, confira [Como usar o setup-python com um executor auto-hospedado](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) no README de `setup-python`.
 
-O {% data variables.product.prodname_dotcom %} é compatível com a sintaxe semântica de versionamento. Para obter mais informações, consulte "[Usar o versionamento semântico](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" e "[Especificação do versionamento semântico](https://semver.org/)".
+O {% data variables.product.prodname_dotcom %} é compatível com a sintaxe semântica de versionamento. Para obter mais informações, confira "[Como usar o controle de versão semântico](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" e "[Especificação de controle de versão semântico](https://semver.org/)".
 
 ### Usar várias versões do Python
 
 ```yaml{:copy}
-nome: Pacote Python
+name: Python package
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
-    estratégia:
-      # Você pode usar as versões do PyPy em python-version.
+    strategy:
+      # You can use PyPy versions in python-version.
       # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
         python-version: ["2.7", "3.7", "3.8", "3.9", "3.10"]
@@ -129,7 +131,7 @@ trabalhos:
 
 ### Usar uma versão específica do Python
 
-Você pode configurar uma versão específica do python. Por exemplo, 3,9. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a última versão secundária do Python 3.
+Você pode configurar uma versão específica do python. Por exemplo: 3.9. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a última versão secundária do Python 3.
 
 ```yaml{:copy}
 name: Python package
@@ -157,9 +159,9 @@ jobs:
 
 ### Excluir uma versão
 
-Se especificar uma versão do Python que estiver indisponível, `setup-python` ocorrerá uma falha com um erro como: `##[error]Version 3.4 with arch x64 not found`. A mensagem de erro inclui as versões disponíveis.
+Se você especificar uma versão do Python que não está disponível, `setup-python` falhará com um erro como: `##[error]Version 3.4 with arch x64 not found`. A mensagem de erro inclui as versões disponíveis.
 
-Também é possível usar a palavra-chave `excluir` no seu fluxo de trabalho se houver uma configuração do Python que você não deseja executar. Para obter mais informações, consulte a sintaxe "[ para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
+Use também a palavra-chave `exclude` no fluxo de trabalho se houver uma configuração do Python que não deseja executar. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)".
 
 ```yaml{:copy}
 name: Python package
@@ -183,19 +185,19 @@ jobs:
 
 ### Usar a versão padrão do Python
 
-Recomendamos usar `setup-python` para configurar a versão do Python usada nos seus fluxos de trabalho, porque isso ajuda a deixar as suas dependências explícitas. Se você não usar `setup-python`, a versão padrão do Python definida em `PATH` será usada em qualquer shell quando você chamar `python`. A versão-padrão do Python varia entre executores hospedados no {% data variables.product.prodname_dotcom %}, o que pode causar mudanças inesperadas ou usar uma versão mais antiga do que o esperado.
+Recomendamos usar `setup-python` para configurar a versão do Python usada nos fluxos de trabalho porque ele ajuda a tornar as dependências explícitas. Se você não usar `setup-python`, a versão padrão do Python definida em `PATH` será usada em qualquer shell quando você chamar `python`. A versão-padrão do Python varia entre executores hospedados no {% data variables.product.prodname_dotcom %}, o que pode causar mudanças inesperadas ou usar uma versão mais antiga do que o esperado.
 
-| Executor hospedado em{% data variables.product.prodname_dotcom %} | Descrição                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                                            | Os executores do Ubuntu têm várias versões do sistema do Python instaladas em `/usr/bin/python` e `/usr/bin/python3`. As versões do Python que vêm empacotadas com o Ubuntu são adicionais às versões que o {% data variables.product.prodname_dotcom %} instala na cache das ferramentas.                                                                                                               |
-| Windows                                                           | Excluindo as versões do Python que estão na cache de ferramentas, o Windows não é compatível com uma versão equivalente do sistema do Python. Para manter um comportamento consistente com outros executores e permitir que o Python seja usado de forma inovadora sem a ação `setup-python` , {% data variables.product.prodname_dotcom %} adiciona algumas versões da cache das ferramentas ao `PATH`. |
-| macOS                                                             | Os executores do macOS têm mais de uma versão do sistema do Python instalada, além das versões que fazem parte da cache de ferramentas. As versões do sistema do Python estão localizadas no diretório `/usr/local/Cellar/python/*`.                                                                                                                                                                     |
+| Executor hospedado em {% data variables.product.prodname_dotcom %} | Descrição |
+|----|----|
+| Ubuntu | Os executores do Ubuntu têm várias versões do Python no sistema instaladas em `/usr/bin/python` e `/usr/bin/python3`. As versões do Python que vêm empacotadas com o Ubuntu são adicionais às versões que o {% data variables.product.prodname_dotcom %} instala na cache das ferramentas. |
+| Windows | Excluindo as versões do Python que estão na cache de ferramentas, o Windows não é compatível com uma versão equivalente do sistema do Python. Para manter um comportamento consistente com outros executores e permitir que o Python seja usado sem a ação `setup-python`, o {% data variables.product.prodname_dotcom %} adiciona algumas versões do cache de ferramentas a `PATH`.|
+| macOS | Os executores do macOS têm mais de uma versão do sistema do Python instalada, além das versões que fazem parte da cache de ferramentas. As versões do Python no sistema estão localizadas no diretório `/usr/local/Cellar/python/*`. |
 
 ## Instalar dependências
 
-Os executores hospedados em {% data variables.product.prodname_dotcom %} têm instalado o gerenciador do pacote pip. Você pode usar o pip para instalar dependências do registro de pacotes do PyPI antes de criar e testar o seu código. Por exemplo, o YAML abaixo instala ou atualiza o instalador de pacotes `pip` e as os pacotes `setuptools` e `wheel`.
+Os executores hospedados em {% data variables.product.prodname_dotcom %} têm instalado o gerenciador do pacote pip. Você pode usar o pip para instalar dependências do registro de pacotes do PyPI antes de criar e testar o seu código. Por exemplo, o YAML abaixo instala ou atualiza o instalador de pacote `pip` e os pacotes `setuptools` e `wheel`.
 
-{% ifversion actions-caching %}Você também pode armazenar dependências em cache para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
+{% ifversion actions-caching %}Você também pode armazenar as dependências em cache para acelerar o fluxo de trabalho. Para obter mais informações, confira "[Como armazenar dependências em cache para acelerar os fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -210,7 +212,7 @@ steps:
 
 ### Arquivo de requisitos
 
-Depois de atualizar o `pip`, um o próximo passo típico é instalar as dependências de *requirements.txt*. Para obter mais informações, consulte [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+Depois que você atualizar `pip`, uma próxima etapa típica será instalar dependências do *requirements.txt*. Para obter mais informações, confira [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 ```yaml{:copy}
 steps:
@@ -229,7 +231,7 @@ steps:
 
 ### Memorizar dependências
 
-Você pode armazenar em cache e restaurar as dependências usando a ação [`setup-python`](https://github.com/actions/setup-python).
+Você pode armazenar em cache e restaurar as dependências usando a [`setup-python` ação](https://github.com/actions/setup-python).
 
 O exemplo a seguir armazena dependências para pip.
 
@@ -244,9 +246,9 @@ steps:
 - run: pip test
 ```
 
-Por padrão, a ação `setup-python` busca o arquivo de dependência (`requirements.txt` para pip `Pipfile.lock` para pipenv ou `poetry.lock` para poetry) em todo o repositório. Para obter mais informações, consulte "[Armazenando em cache as dependências de pacotes](https://github.com/actions/setup-python#caching-packages-dependencies)" no README do `setup-python`.
+Por padrão, a ação `setup-python` pesquisa so arquivo de dependência (`requirements.txt` para o pip, `Pipfile.lock` para o pipenv, ou `poetry.lock` para poetry) em todo o repositório. Para obter mais informações, confira "[Como armazenar dependências de pacotes em cache](https://github.com/actions/setup-python#caching-packages-dependencies)" no README `setup-python`.
 
-Se você tiver um requisito personalizado ou precisar de melhores controles para cache, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu acima, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip) no repositório de ação `cache`.
+Se você tiver um requisito personalizado ou precisar ter controles mais refinados para o cache, use a [ação `cache`](https://github.com/marketplace/actions/cache). O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu acima, dependendo do sistema operacional que você usa. Para obter mais informações, confira [Exemplos de cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip) no repositório de ações `cache`.
 
 {% endif %}
 
@@ -256,7 +258,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 
 ### Testar com pytest e pytest-cov
 
-Este exemplo instala ou atualiza `pytest` e `pytest-cov`. Em seguida, os testes são executados e retornados no formato JUnit enquanto os resultados da cobertura do código são emitidos em Cobertura. Para obter mais informações, consulte [JUnit](https://junit.org/junit5/) e [Cobertura](https://cobertura.github.io/cobertura/).
+Este exemplo instala ou atualiza `pytest` e `pytest-cov`. Em seguida, os testes são executados e retornados no formato JUnit enquanto os resultados da cobertura do código são emitidos em Cobertura. Para obter mais informações, confira [JUnit](https://junit.org/junit5/) e [Cobertura](https://cobertura.github.io/cobertura/).
 
 ```yaml{:copy}
 steps:
@@ -278,7 +280,7 @@ steps:
 
 ### UsarFlake8 para código lint
 
-O exemplo a seguir instala ou atualiza o `flake8` e o usa para limpar todos os arquivos. Para obter mais informações, consulte [Flake8](http://flake8.pycqa.org/en/latest/).
+O exemplo a seguir instala ou atualiza o `flake8` e o usa para fazer lint de todos os arquivos. Para obter mais informações, confira [Flake8](http://flake8.pycqa.org/en/latest/).
 
 ```yaml{:copy}
 steps:
@@ -298,11 +300,11 @@ steps:
   continue-on-error: true
 ```
 
-O passo de limpeza de código foi configurado com `continue-on-error: true`. Isto impedirá que o fluxo de trabalho falhe se a etapa de limpeza de código não for bem-sucedida. Após corrigir todos os erros de limpeza de código, você poderá remover essa opção para que o fluxo de trabalho capture novos problemas.
+A etapa de lint tem `continue-on-error: true` definido. Isto impedirá que o fluxo de trabalho falhe se a etapa de limpeza de código não for bem-sucedida. Após corrigir todos os erros de limpeza de código, você poderá remover essa opção para que o fluxo de trabalho capture novos problemas.
 
 ### Executar testes com tox
 
-Com {% data variables.product.prodname_actions %}, você pode executar testes com tox e distribuir o trabalho para vários trabalhos. Você precisará invocar tox usando a opção `-e py` para escolher a versão do Python no seu `PATH`, em vez de especificar uma versão específica. Para obter mais informações, consulte [tox](https://tox.readthedocs.io/en/latest/).
+Com {% data variables.product.prodname_actions %}, você pode executar testes com tox e distribuir o trabalho para vários trabalhos. Você precisará invocar o Tox usando a opção `-e py` para escolher a versão do Python no `PATH`, em vez de especificar uma versão. Para obter mais informações, confira [Tox](https://tox.readthedocs.io/en/latest/).
 
 ```yaml{:copy}
 name: Python package
@@ -332,9 +334,9 @@ jobs:
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 
-Você pode fazer o upload de artefatos para visualização após a conclusão de um fluxo de trabalho. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+Você pode fazer o upload de artefatos para visualização após a conclusão de um fluxo de trabalho. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. Para obter mais informações, confira "[Como persistir dados de fluxo de trabalho usando artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
-O exemplo a seguir demonstra como você pode usar a ação `upload-artefact` para arquivar os resultados de teste da execução do `pytest`. Para obter mais informações, consulte a ação <[`upload-artifact`](https://github.com/actions/upload-artifact).
+O exemplo a seguir demonstra como usar a ação `upload-artifact` para arquivar os resultados do teste da execução de `pytest`. Para obter mais informações, confira a [Ação `upload-artifact`](https://github.com/actions/upload-artifact).
 
 ```yaml{:copy}
 name: Python package
@@ -373,9 +375,9 @@ jobs:
 
 ## Publicar nos registros do pacote
 
-Você pode configurar seu fluxo de trabalho para publicar seu pacote do Python em um pacote de registro assim que seu CI teste passar. Esta seção demonstra como você pode usar {% data variables.product.prodname_actions %} para fazer o upload do seu pacote para o PyPI toda vez que [publicar uma versão](/github/administering-a-repository/managing-releases-in-a-repository).
+Você pode configurar seu fluxo de trabalho para publicar seu pacote do Python em um pacote de registro assim que seu CI teste passar. Esta seção demonstra como usar o {% data variables.product.prodname_actions %} para carregar seu pacote no PyPI sempre que você [publicar uma versão](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-Para este exemplo, você deverá criar dois [tokens da API do PyPI](https://pypi.org/help/#apitoken). Você pode usar segredos para armazenar os tokens de acesso ou credenciais necessárias para publicar o seu pacote. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Para este exemplo, você precisará criar dois [tokens de API do PyPI](https://pypi.org/help/#apitoken). Você pode usar segredos para armazenar os tokens de acesso ou credenciais necessárias para publicar o seu pacote. Para obter mais informações, confira "[Como criar e usar segredos criptografados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -410,4 +412,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-Para obter mais informações sobre o fluxo de trabalho inicial, consulte [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+Para obter mais informações sobre o fluxo de trabalho inicial, confira [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

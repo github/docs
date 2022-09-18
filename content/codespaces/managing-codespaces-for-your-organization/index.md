@@ -10,6 +10,7 @@ topics:
   - Codespaces
 children:
   - /enabling-github-codespaces-for-your-organization
+  - /listing-the-codespaces-in-your-organization
   - /managing-billing-for-github-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
   - /managing-repository-access-for-your-organizations-codespaces

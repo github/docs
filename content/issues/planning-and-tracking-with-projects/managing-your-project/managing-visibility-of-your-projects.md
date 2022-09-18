@@ -22,7 +22,7 @@ Only the project visibility is affected; to view an item on the project, someone
 
 ![Project with hidden item](/assets/images/help/projects/hidden-items.png)
 
-Project admins and organization owners can control project visibility. Organization owners can restrict the ability to change project visibility to just organization owners.
+Project admins and organization owners can control project visibility. Organization owners{% ifversion project-visibility-policy %} and enterprise owners{% endif %} can restrict the ability to change project visibility to just organization owners.
 
 In public and private projects, insights are only visible to users with write permissions for the project.
 
