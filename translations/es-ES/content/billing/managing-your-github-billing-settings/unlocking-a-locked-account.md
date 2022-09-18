@@ -20,15 +20,20 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: Cuenta bloqueada
+shortTitle: Locked account
+ms.openlocfilehash: e9b51d82dcd2f184003add575338625ea01fa1df
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091620'
 ---
-
 Puedes desbloquear y acceder a tu cuenta si actualizas el método de pago de tu organización y el estado final del pago. No te pediremos que pagues el tiempo transcurrido en modo bloqueado.
 
-Puedes bajar a tu organización de nivel a {% data variables.product.prodname_free_team %} para continuar con las mismas características avanzadas en los repositorios públicos. Para obtener más información, consulta la sección "[Bajar de nivel tu suscripción de {% data variables.product.product_name %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)".
+Puedes bajar a tu organización de nivel a {% data variables.product.prodname_free_team %} para continuar con las mismas características avanzadas en los repositorios públicos. Para más información, vea "[Cambio de la suscripción a {% data variables.product.product_name %} a una versión anterior](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)".
 
 ## Desbloquear las características de una organización debido a un pago rechazado
 
-Si las características avanzadas de tu organización se bloquearon debido a un pago rechazado, necesitarás actualizar tu información de facturación para activar un cargo recién autorizado. Para obtener más información, consulta "[Agregar o editar un método de pago](/articles/adding-or-editing-a-payment-method)".
+Si las características avanzadas de tu organización se bloquearon debido a un pago rechazado, necesitarás actualizar tu información de facturación para activar un cargo recién autorizado. Para más información, vea "[Adición o edición de un método de pago](/articles/adding-or-editing-a-payment-method)".
 
 Si se aprueba la información de facturación nueva, te cobraremos de inmediato el producto pago que elegiste. La organización se desbloqueará automáticamente cuando se haya realizado un pago exitoso.

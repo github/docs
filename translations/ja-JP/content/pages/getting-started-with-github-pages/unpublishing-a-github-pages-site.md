@@ -17,21 +17,39 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Pagesサイトの公開取り下げ
+shortTitle: Unpublish Pages site
+ms.openlocfilehash: fbfec49ec44c250e5f6cb2da85fda59261c1d0d9
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147428349'
 ---
+{% ifversion pages-custom-workflow %}
+
+自分のサイトを非公開にすると、そのサイトは利用不可になります。 既存のリポジトリ設定またはコンテンツが、影響を受けることはありません。
+
+{% data reusables.repositories.navigate-to-repo %}
+1. **{% data variables.product.prodname_pages %}** の下で、**サイトがライブになっている場所** に関するメッセージの横にある、[{% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}] をクリックします。
+1. 表示されるメニューで、 **[サイトを取り下げる]** を選びます。
+
+   ![サイトを取り下げるためのドロップ ダウン メニュー](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
 
 ## プロジェクトサイトを取り下げる
 
 {% data reusables.repositories.navigate-to-repo %}
-2. リポジトリに `gh-pages` ブランチが存在する場合は、`gh-pages` ブランチを削除します。 詳しい情報については[リポジトリ内でのブランチの作成と削除](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)を参照してください。
-3. 公開ソースが`gh-pages`ブランチなら、{% ifversion fpt or ghec %}ステップ 6 までスキップします{% else %}サイトの公開は取り消され、残りのステップをスキップできます{% endif %}。
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. {% data variables.product.prodname_pages %} で、[**Source**] ドロップダウンメニューを使用して [**None**] を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+2. リポジトリに `gh-pages` ブランチが存在する場合は、`gh-pages` ブランチを削除します。 詳細については、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」を参照してください。
+3. `gh-pages` ブランチが公開ソースの場合、{% ifversion fpt or ghec %}手順 6 に進みます{% else %}サイトは公開されていません。残りの手順はスキップできます{% endif %}。
+{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+5. "{% data variables.product.prodname_pages %}" で、 **[Source]\(ソース\)** ドロップダウン メニューを使用し、 **[None]\(なし\)** を選択します。
+  ![公開ソースを選択するためのドロップダウン メニュー](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %}
 
 ## ユーザまたは Organization サイトを取り下げる
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細は「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」および「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。
+2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細については、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」と「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

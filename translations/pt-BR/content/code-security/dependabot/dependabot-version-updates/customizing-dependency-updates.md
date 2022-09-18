@@ -19,48 +19,52 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
-shortTitle: Personalizar atualizações
+shortTitle: Customize updates
+ms.openlocfilehash: 6cb6db974fe880bccc76c89447dc077e0617df9a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145097010'
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Sobre a personalização de atualizações de dependências
 
-Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
+Depois de habilitar as atualizações de versão, você poderá personalizar como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
 
-- Especificar qual dia da semana abrirá pull requests para atualizações de versão: `schedule.day`
-- Definir revisores, responsáveis e etiquetas para cada gerente de pacote: `revisores`, `responsáveis`e `etiquetas`
-- Definir uma estratégia de versão para mudanças em cada arquivo de manifesto: `versioning-strategy`
-- Alterar o número máximo de pull requests abertos para atualizações de versão a partir do padrão de 5: `open-pull-requests-limit`
-- Abrir pull requests para atualizações de versão para atingir um branch específico, em vez do branch padrão: `target-branch`
+- Especifique o dia da semana que as solicitações de pull serão abertas para as atualizações de versão: `schedule.day`
+- Defina revisores, destinatários e rótulos para cada gerenciador de pacotes: `reviewers`, `assignees` e `labels`
+- Defina uma estratégia de controle de versão para as alterações em cada arquivo de manifesto: `versioning-strategy`
+- Altere o número máximo de solicitações de pull em aberto para as atualizações de versão do padrão de cinco: `open-pull-requests-limit`
+- Abra as solicitações de pull para as atualizações de versão a fim de direcioná-las para um branch específico, em vez do branch padrão: `target-branch`
 
-Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para o arquivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
+Para obter mais informações sobre as opções de configuração, confira "[Opções de configuração para o arquivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
 
-Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
+Quando você atualiza o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Em minutos, você verá uma lista atualizada das dependências na guia **{% data variables.product.prodname_dependabot %}** . Isso poderá demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, confira "[Como listar as dependências configuradas para atualizações de versão](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
 
 ## Impacto das alterações de configuração nas atualizações de segurança
 
-Se você personalizar o arquivo *dependabot.yml*, você poderá notar algumas alterações nas pull requests criadas por atualizações de segurança. Essas pull requests são sempre acionadas por uma consultoria de segurança para uma dependência, ao invés da agenda {% data variables.product.prodname_dependabot %}. No entanto, eles herdam configurações relevantes do arquivo *dependabot.yml* a menos que você especifique um branch de destino diferente para atualizações de versão.
+Se você personalizar o arquivo *dependabot.yml*, poderá observar algumas alterações nas solicitações de pull geradas para as atualizações de segurança. Essas pull requests são sempre acionadas por uma consultoria de segurança para uma dependência, ao invés da agenda {% data variables.product.prodname_dependabot %}. No entanto, elas herdam as configurações relevantes do arquivo *dependabot.yml*, a menos que você especifique um branch de destino diferente para as atualizações de versão.
 
-Por exemplo, consulte "[Definindo etiquetas personalizadas](#setting-custom-labels)" abaixo.
+Para ver um exemplo, confira "[Como definir rótulos personalizados](#setting-custom-labels)" abaixo.
 
 ## Modificando o agendamento
 
-Ao definir um agendamento de atualização `diário`, por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões às 05:00 UTC. Você pode usar `schedule.time` para especificar um horário alternativo do dia para verificar atualizações (formato: `hh:mm`).
+Quando você define um agendamento de atualização `daily`, por padrão, o {% data variables.product.prodname_dependabot %} verifica se há novas versões às 5h UTC. Use `schedule.time` para especificar uma hora alternativa do dia para verificar se há atualizações (formato: `hh:mm`).
 
-O exemplo de arquivo *dependabot.yml* abaixo expande a configuração npm para especificar quando o {% data variables.product.prodname_dependabot %} deve procurar por atualizações de versão em dependências.
+O exemplo de arquivo *dependabot.yml* abaixo expande a configuração do npm para especificar o período em que o {% data variables.product.prodname_dependabot %} deve verificar se há atualizações de versão para as dependências.
 
 ```yaml
-# arquivo dependabot.yml com
-# agenda personalizada para atualizações de versão
+# dependabot.yml file with
+# customized schedule for version updates
 
 version: 2
 updates:
-  # Manter dependências npm atualizadas
+  # Keep npm dependencies up to date
   - package-ecosystem: "npm"
     directory: "/"
-    # Verificar o registro npm para atualizações às 2am UTC
+    # Check the npm registry for updates at 2am UTC
     schedule:
       interval: "daily"
       time: "02:00"
@@ -70,26 +74,26 @@ updates:
 
 Por padrão, {% data variables.product.prodname_dependabot %} levanta todas as pull requests sem revisores ou responsáveis.
 
-Você pode usar `revisores` e `responsáveis`  para especificar revisores e responsáveis para todas as pull requests criadas para um gerenciador de pacotes. Quando especificar uma equipe, você deve usar o nome completo da equipe, como se estivesse @mencionando a equipe (incluindo a organização).
+Use `reviewers` e `assignees` para especificar revisores e destinatários para todas as solicitações de pull geradas para um gerenciador de pacotes. Ao especificar uma equipe, você precisa usar o nome completo dela, como se você estivesse @mentioning a equipe (incluindo a organização).
 
-O exemplo de arquivo *depabot.yml* abaixo altera a configuração npm para que todas as pull requests abertas com versão e atualizações de segurança para npm tenham dois revisores e um responsável.
+O exemplo de arquivo *dependabot.yml* abaixo altera a configuração do npm para que todas as solicitações de pull em aberto com as atualizações de versão e segurança para o npm tenham dois revisores e um destinatário.
 
 ```yaml
-# arquivo dependabot.yml com
-# revisores e um responsável por todas as pull requests npm
+# dependabot.yml file with
+# reviews and an assignee for all npm pull requests
 
 version: 2
 updates:
-  # Manter dependências npm atualizadas
+  # Keep npm dependencies up to date
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    # Levantar todas as pull requests npm com revisores
+    # Raise all npm pull requests with reviewers
     reviewers:
       - "my-org/team-name"
       - "octocat"
-    # Levantar todas as pull requests npm com um responsável
+    # Raise all npm pull requests with an assignee
     assignees:
       - "user-name"
 ```
@@ -98,42 +102,42 @@ updates:
 
 {% data reusables.dependabot.default-labels %}
 
-Você pode usar `etiquetas` para substituir as etiquetas padrão e especificar etiquetas alternativas para todas as pull requests criadas para um gerenciador de pacotes. Você não pode criar novas etiquetas no arquivo *dependabot.yml* , então as etiquetas alternativas já existem no repositório.
+Use `labels` para substituir os rótulos padrão e especificar rótulos alternativos para todas as solicitações de pull geradas para um gerenciador de pacotes. Não é possível criar rótulos no arquivo *dependabot.yml*, ou seja, os rótulos alternativos já precisam existir no repositório.
 
-O exemplo de arquivo *dependabot.yml* abaixo altera a configuração npm para que todas as pull requests abertas com atualizações de segurança e versão para npm tenham etiquetas personalizadas. Ele também altera a configuração do Docker para verificar as atualizações de versão em relação a um branch personalizado e levantar as pull request com etiquetas personalizadas em relação ao branch personalizado. As alterações no Docker não afetarão as pull request de atualização de segurança porque as atualizações de segurança sempre são feitas em relação ao branch padrão.
+O exemplo de arquivo *dependabot.yml* abaixo altera a configuração do npm para que todas as solicitações de pull em aberto com as atualizações de versão e segurança para o npm tenham rótulos personalizados. Ele também altera a configuração do Docker para verificar as atualizações de versão em relação a um branch personalizado e levantar as pull request com etiquetas personalizadas em relação ao branch personalizado. As alterações no Docker não afetarão as pull request de atualização de segurança porque as atualizações de segurança sempre são feitas em relação ao branch padrão.
 
 {% note %}
 
-**Nota:** O novo `target-branch` deve conter um arquivo Docker para atualizar, caso contrário, esta alteração terá o efeito de desabilitar as atualizações da versão do Docker.
+**Observação:** o novo `target-branch` precisa conter um Dockerfile para atualização, caso contrário, essa alteração terá o efeito de desabilitar as atualizações de versão para o Docker.
 
 {% endnote %}
 
 ```yaml
-# arquivo dependabot.yml com
-# configuração npm personalizada
+# dependabot.yml file with
+# customized npm configuration
 
 version: 2
 updates:
-  # Manter dependências npm dependencies atualizadas
+  # Keep npm dependencies up to date
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    # Levantar todas as pull requests npm com etiquetas personalizadas
+    # Raise all npm pull requests with custom labels
     labels:
       - "npm dependencies"
       - "triage-board"
 
-    # Manter dependências Docker atualizadas
+    # Keep Docker dependencies up to date
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
-    # Levantar pull requests para atualizações da versão Docker 
-    # em relação ao branch "develop". Configuração Docker 
-    # não afeta mais as pull requests de atualizações de segurança.
+    # Raise pull requests for Docker version updates
+    # against the "develop" branch. The Docker configuration
+    # no longer affects security update pull requests.
     target-branch: "develop"
-    # Usar etiquetas padronizadas em pull requests para atualizações de versão Docker 
+    # Use custom labels on pull requests for Docker version updates
     labels:
       - "Docker dependencies"
       - "triage-board"
@@ -141,4 +145,4 @@ updates:
 
 ## Mais exemplos
 
-Para obter mais exemplos, consulte "[Opções de configuração para o arquivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates). ".
+Para ver mais exemplos, confira "[Opções de configuração para o arquivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".

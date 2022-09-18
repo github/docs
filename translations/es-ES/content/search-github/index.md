@@ -1,5 +1,5 @@
 ---
-title: Buscar información en GitHub
+title: Búsqueda de información en GitHub
 intro: 'Aprende cómo utilizar las funciones de búsqueda disponibles en GitHub para encontrar tipos de información diferente, como proyectos, personas y código.'
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
@@ -36,6 +36,12 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
-shortTitle: Busca en GitHub
+shortTitle: Search on GitHub
+ms.openlocfilehash: ca3fe13d3d3ae3c5016948bcd458d636a106a9da
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118922'
 ---
 

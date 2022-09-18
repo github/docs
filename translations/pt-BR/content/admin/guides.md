@@ -1,6 +1,6 @@
 ---
 title: Guias do GitHub Enterprise
-shortTitle: Guias
+shortTitle: Guides
 intro: 'Aprenda a aumentar a produtividade do desenvolvedor e a qualidade do código com {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -45,6 +45,7 @@ includeGuides:
   - /admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
+  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
   - /admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
@@ -52,6 +53,8 @@ includeGuides:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
+  - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
+  - /admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/enabling-private-mode
@@ -96,7 +99,7 @@ includeGuides:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
@@ -117,6 +120,7 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise
@@ -143,5 +147,11 @@ includeGuides:
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+ms.openlocfilehash: 832e990d9b1c30895fce286f1357ef540a96af6f
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854121'
 ---
 

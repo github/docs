@@ -1,54 +1,59 @@
 ---
-title: Introduction to adopting GitHub Advanced Security at scale
-intro: 'You can adopt {% data variables.product.prodname_GH_advanced_security %} at scale in your company following industry and GitHub best practices.'
+title: Introdução à adoção do GitHub Advanced Security em escala
+intro: 'É possível adotar o {% data variables.product.prodname_GH_advanced_security %} em escala em sua empresa seguindo as práticas recomendadas do setor e do GitHub.'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: Introdução
+shortTitle: Introduction
 redirect_from:
   - /admin/advanced-security/overview-of-github-advanced-security-deployment
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment
   - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
 miniTocMaxHeadingLevel: 2
+ms.openlocfilehash: 0993205a2f51262c0766062995caa1c2e2714742
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145328'
 ---
+## Sobre os artigos
 
-## About these articles
+O GHAS ({% data variables.product.prodname_GH_advanced_security %}) ajuda as equipes a criar mais rapidamente um código mais seguro por meio de ferramentas integradas, como o exame de segredos e o exame de códigos, usando o CodeQL. Para entender os recursos de segurança disponíveis por meio do {% data variables.product.prodname_GH_advanced_security %}, confira "[Sobre o GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)".
 
-{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as secret scanning and code scanning using CodeQL. To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."
-
-O GHAS é um conjunto de ferramentas que requer a participação ativa de desenvolvedores na sua empresa. To realize the best return on your investment, you must learn how to use, apply, and maintain GHAS.
+O GHAS é um conjunto de ferramentas que requer a participação ativa de desenvolvedores na sua empresa. Para obter o melhor retorno do seu investimento, aprenda a usar, aplicar e manter o GHAS.
 
 
-Criamos uma abordagem faseada para implementações do GHAS desenvolvidas com base nas práticas recomendadas do setor e do GitHub. We expect most customers will want to follow these phases, based on our experience helping customers with a successful deployment of {% data variables.product.prodname_GH_advanced_security %}, but you may need to modify this approach to meet the needs of your company.
+Criamos uma abordagem faseada para implementações do GHAS desenvolvidas com base nas práticas recomendadas do setor e do GitHub. A maioria dos clientes provavelmente seguirá essas fases, com base em nossa experiência ajudando empresas em implantações bem-sucedidas do {% data variables.product.prodname_GH_advanced_security %}, mas talvez seja necessário modificar essa abordagem para atender às necessidades específicas da sua empresa. 
 
-Enabling GHAS across a large organization can be broken down into six core phases.
+A habilitação do GHAS em uma grande organização pode ser dividida em seis fases principais.
 
-1. [**Align on your rollout strategy and goals**](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals): Think about what success will look like, and align on how GHAS will be implemented in your company. This phase may only take a few days or a week, but it lays a solid foundation for the rest of the rollout.
-
-2. [**Preparing to enable at scale**](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale): Prepare developers, collect data about your repositories, and ensure you're ready for the next phase.
-
-3. [**Pilot programs**](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs): Optionally, pilot an initial rollout to a few high-impact projects and teams. This will allow an initial group within your company to get familiar with GHAS before you roll out to the remainder of your company.
-
-4. [**Create internal documentation**](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation): Create and communicate internal documentation for the consumers of GHAS. Without proper documentation provided to developers, security engineers, and others who will be using GHAS, the value will get lost in the rollout.
-
-5. [**Rollout and scale {% data variables.product.prodname_code_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning): Leveraging the available APIs, automatically rollout {% data variables.product.prodname_code_scanning %} by team and by language across your enterprise, using the repository data you collected earlier.
-
-6. [**Rollout and scale {% data variables.product.prodname_secret_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning): Roll out {% data variables.product.prodname_secret_scanning %}, which involves less configuration and is therefore simpler to adopt than {% data variables.product.prodname_code_scanning %}. Still, it's critical to have a strategy for handling new and old results.
+1. [**Alinhar a estratégia de distribuição e as metas**](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals): pense no cenário de sucesso ideal e alinhe a implementação do GHAS de acordo em sua empresa. Essa fase pode levar apenas alguns dias ou uma semana, mas ela estabelece uma base sólida para o restante da distribuição.
+  
+2. [**Preparo para a habilitação em escala**](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale): prepare os desenvolvedores, colete dados sobre os repositórios e esteja pronto para a próxima fase.
+  
+3. [**Programas piloto**](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs): opcionalmente, realize uma distribuição piloto inicial para algumas equipes e alguns projetos de alto impacto. Com isso, um grupo inicial se familiariza com o GHAS antes da distribuição para o restante da empresa. 
+  
+4. [**Criar a documentação interna**](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation): crie e comunique a documentação interna para os consumidores do GHAS. Sem a documentação adequada para os desenvolvedores, os engenheiros de segurança e outros envolvidos no uso do GHAS, o valor é perdido na distribuição.
+  
+5. [**Distribuição e escala do {% data variables.product.prodname_code_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning): utilize as APIs disponíveis e realize a distribuição automática do {% data variables.product.prodname_code_scanning %} por equipe e por linguagem em toda a empresa, usando os dados do repositório coletados anteriormente.
+  
+6. [**Distribuição e escala do {% data variables.product.prodname_secret_scanning %}**](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning): faça a distribuição do {% data variables.product.prodname_secret_scanning %}, que envolve menos configuração e é, portanto, mais simples de adotar do que o {% data variables.product.prodname_code_scanning %}. Ainda assim, é fundamental ter uma estratégia para lidar com resultados novos e antigos.
 
 ## {% data variables.contact.github_support %} e {% data variables.product.prodname_professional_services_team %}
 
-If you encounter any issues or have any questions during your implementation, you can search our documentation for solutions or engage with {% data variables.contact.github_support %}. Para obter mais informações, consulte "[Sobre GitHub Support](/support/learning-about-github-support/about-github-support)".
+Se você encontrar problemas ou tiver dúvidas durante a implementação, pesquise soluções em nossa documentação ou entre em contato com o {% data variables.contact.github_support %}. Para saber mais, confira "[Sobre o Suporte do GitHub](/support/learning-about-github-support/about-github-support)".
 
-If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
+É possível fazer parcerias com a equipe do {% data variables.product.prodname_professional_services %} para obter diretrizes durante o processo de distribuição e realizar uma implementação e uma distribuição bem-sucedidas do {% data variables.product.prodname_GH_advanced_security %}. Oferecemos uma variedade de opções de diretrizes e suporte. Também temos treinamentos e bootcamps disponíveis para ajudar a sua empresa a otimizar o valor do {% data variables.product.prodname_GH_advanced_security %}.
 
-Speak with your sales representative for more information about all the Professional Services options available. Para mais informações, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
+Fale com o seu representante de vendas para saber mais sobre todas as opções de Serviços Profissionais disponíveis. Para mais informações, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
 {% note %}
 
-For the first article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
+Para ver o primeiro artigo desta série, confira "[Fase 1: Alinhar a estratégia de distribuição e as metas](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)".
 
 {% endnote %}

@@ -21,5 +21,6 @@ children:
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns
   - /protecting-pushes-with-secret-scanning
+  - /pushing-a-branch-blocked-by-push-protection
 ---
 

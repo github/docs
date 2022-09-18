@@ -13,24 +13,29 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
+ms.openlocfilehash: a12955707c3ebcfbb65e5be8053ea0b62bc82072
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147723237'
 ---
+Si configura un nombre del host en lugar de una dirección IP codificada de forma rígida, podrá cambiar el hardware físico que ejecuta {% data variables.product.product_location %} sin que los usuarios ni el software cliente se vean afectados.
 
-Si configuras un nombre del host en lugar de una dirección IP codificada de forma rígida, podrás cambiar el hardware físico que ejecuta {% data variables.product.product_location %} sin afectar a los usuarios o al software del cliente.
+La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, el valor de nombre de host podría ser `github.companyname.com.`. Las solicitudes web y de API se redirigirán automáticamente al nombre de host configurado en la {% data variables.enterprise.management_console %}. Ten en cuenta que `localhost` no es una configuración válida de nombre de host. 
 
-La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, tu ajuste de nombre de host podría ser `github.companyname.com.` Las solicitudes web y de la API se redireccionarán automáticamente al nombre de host que se configuró en la {% data variables.enterprise.management_console %}. Toma en cuenta que `localhost` no es un ajuste válido de nombre de host.
+Los nombres de host deben tener menos de 63 caracteres según la [Sección 2.3.4 de la RFC de especificación de nombres](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4) de dominio.
 
-Después de que configuras un nombre de host, puedes habilitar el aislamiento de subdominios para incrementar la seguridad de {% data variables.product.product_location %} aún más. Para obtener más información, consulta "[Habilitar el aislamiento de subdominio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+Después de que configuras un nombre de host, puedes habilitar el aislamiento de subdominios para incrementar la seguridad de {% data variables.product.product_location %} aún más. Para más información, vea "[Habilitación del aislamiento de subdominios](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".
 
-Para obtener más información sobre los tipos de nombres de host compatibles, consulta la [Sección 2.1 del RFC de HTTP](https://tools.ietf.org/html/rfc1123#section-2).
+Para más información sobre los tipos de nombre de host admitidos, vea la [Sección 2.1 de HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Escribe el nombre del host que quieres establecer para {% data variables.product.product_location %}. ![Campo para establecer un nombre del host](/assets/images/enterprise/management-console/hostname-field.png)
-5. Para probar las configuraciones de DNS y SSL para el nombre del host nuevo, haz clic en **Configuraciones del dominio de prueba**. ![Botón Test domain settings (Probar configuraciones del dominio)](/assets/images/enterprise/management-console/test-domain-settings.png)
-{% data reusables.enterprise_management_console.test-domain-settings-failure %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.hostname-menu-item %}
+4. Escriba el nombre del host que quiera establecer para {% data variables.product.product_location %}.
+  ![Campo para establecer un nombre del host](/assets/images/enterprise/management-console/hostname-field.png)
+5. A fin de probar las configuraciones de DNS y SSL para el nuevo nombre de host, haga clic en **Probar configuraciones del dominio**.
+  ![Botón para probar la configuración del dominio](/assets/images/enterprise/management-console/test-domain-settings.png) {% data reusables.enterprise_management_console.test-domain-settings-failure %} {% data reusables.enterprise_management_console.save-settings %}
 
-Para ayudarte a mitigar diversas vulnerabilidades de scripting entre sitios, te recomendamos que habilites el aislamiento de subdominios para {% data variables.product.product_location %} después de que configures un nombre de host. Para obtener más información, consulta "[Habilitar el aislamiento de subdominio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+Para ayudarte a mitigar diversas vulnerabilidades de scripting entre sitios, te recomendamos que habilites el aislamiento de subdominios para {% data variables.product.product_location %} después de que configures un nombre de host. Para más información, vea "[Habilitación del aislamiento de subdominios](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".

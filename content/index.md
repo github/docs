@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
@@ -63,6 +64,7 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -84,7 +86,7 @@ childGroups:
       - issues
       - search-github
   - name: Developers
-    octicon: MarkGithubIcon
+    octicon: CodeSquareIcon
     children:
       - developers
       - rest
@@ -123,4 +125,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

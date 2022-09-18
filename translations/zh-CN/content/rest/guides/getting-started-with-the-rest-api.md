@@ -1,6 +1,6 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn the foundations for using the REST API, starting with authentication and some endpoint examples.'
+title: REST API 入门
+intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
 redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
@@ -12,27 +12,26 @@ versions:
 topics:
   - API
 shortTitle: Get started - REST API
+ms.openlocfilehash: a466a3ccad214c8fe797dd73e4e96af3ab6eead8
+ms.sourcegitcommit: 8544f120269257d01adfe4a27b62f08fc8691727
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/02/2022
+ms.locfileid: '147445078'
 ---
-
-
-Let's walk through core API concepts as we tackle some everyday use cases.
+让我们逐步了解在处理一些日常用例时涉及的核心 API 概念。
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
-## Overview
+## <a name="overview"></a>概述
 
-Most applications will use an existing [wrapper library][wrappers] in the language
-of your choice, but it's important to familiarize yourself with the underlying API
-HTTP methods first.
+大多数应用程序将使用所选语言的现有[包装器库][wrappers]，但你需要先熟悉基础 API HTTP 方法。
 
-There's no easier way to kick the tires than through [cURL][curl].{% ifversion fpt or ghec %} If you are using
-an alternative client, note that you are required to send a valid
-[User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
+没有比使用 [cURL][curl] 更容易的入手方式了。{% ifversion fpt or ghec %} 如果你使用其他客户端，请注意，你需要在请求中发送有效的[用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
 
-### Hello World
+### <a name="hello-world"></a>Hello World
 
-Let's start by testing our setup. Open up a command prompt and enter the
-following command:
+让我们先测试设置。 打开命令提示符并输入以下命令：
 
 ```shell
 $ curl https://api.github.com/zen
@@ -40,9 +39,9 @@ $ curl https://api.github.com/zen
 > Keep it logically awesome.
 ```
 
-The response will be a random selection from our design philosophies.
+响应将是我们设计理念中的随机选择。
 
-Next, let's `GET` [Chris Wanstrath's][defunkt github] [GitHub profile][users api]:
+接下来，让我们 `GET`[Chris Wanstrath 的][defunkt github] [GitHub 配置文件][users api]：
 
 ```shell
 # GET /users/defunkt
@@ -60,7 +59,7 @@ $ curl https://api.github.com/users/defunkt
 > }
 ```
 
-Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
+嗯，类似于 [JSON][json]。 让我们添加 `-i` 标志以包含标头：
 
 ```shell
 $ curl -i https://api.github.com/users/defunkt
@@ -104,66 +103,53 @@ $ curl -i https://api.github.com/users/defunkt
 > }
 ```
 
-There are a few interesting bits in the response headers. As expected, the
-`Content-Type` is `application/json`.
+响应标头中有一些有趣的地方。 正如预期的那样，`Content-Type` 为 `application/json`。
 
-Any headers beginning with `X-` are custom headers, and are not included in the
-HTTP spec. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
-pair of headers indicate [how many requests a client can make][rate-limiting] in
-a rolling time period (typically an hour) and how many of those requests the
-client has already spent.
+任何以 `X-` 开头的标头都是自定义标头，不包含在 HTTP 规范中。例如，记下 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 这对标头指示在滚动时间段（通常为一小时）内[一个客户端可以发出多少个请求][rate-limiting]，以及该客户端已发送其中多少个请求。
 
-## Authentication
+## <a name="authentication"></a>身份验证
 
-Unauthenticated clients can make 60 requests per hour. To get more requests per hour, we'll need to
-_authenticate_. In fact, doing anything interesting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API requires
-[authentication][authentication].
+未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行身份验证。 事实上，使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行任何交互都需要[身份验证][authentication]。
 
-### Using personal access tokens
+### <a name="using-personal-access-tokens"></a>使用个人访问令牌
 
-The easiest and best way to authenticate with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). OAuth tokens include [personal access tokens][personal token].
+使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
 
-Use a `-u` flag to set your username:
+使用 `-u` 标志设置你的用户名：
 
 ```shell
 $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
-When prompted, you can enter your OAuth token, but we recommend you set up a variable for it:
+出现提示时，您可以输入 OAuth 令牌，但我们建议您为它设置一个变量：
 
-You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
+你可以使用 `-u "your_username:$token"` 并为 `token` 设置一个变量，以避免你的令牌留在 shell 历史记录中，这种情况应尽量避免。
 
 ```shell
 $ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
-When authenticating, you should see your rate limit bumped to 5,000 requests an hour, as indicated in the `X-RateLimit-Limit` header. In addition to providing more calls per hour, authentication enables you to read and write private information using the API.
+进行身份验证时，你应该会看到你的速率限制达到每小时 5,000 个请求，如 `X-RateLimit-Limit` 标头中所示。 除了每小时提供更多调用次数之外，身份验证还使您能够使用 API 读取和写入私有信息。
 
-You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
+可以使用[个人访问令牌设置页][tokens settings]轻松[创建个人访问令牌][personal token]：
 
 {% warning %}
 
-To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
+为了帮助保护您的信息安全，我们强烈建议为您的个人访问令牌设置一个到期日。
 
 {% endwarning %}
 
-{% ifversion fpt or ghes or ghec %}
-![Personal Token selection](/assets/images/personal_token.png)
-{% endif %}
+{% ifversion fpt or ghes or ghec %} ![个人访问令牌](/assets/images/personal_token.png) {% endif %}
 
-{% ifversion ghae %}
-![Personal Token selection](/assets/images/help/personal_token_ghae.png)
-{% endif %}
+{% ifversion ghae %} ![个人令牌选择](/assets/images/help/personal_token_ghae.png) {% endif %}
 
-API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
+使用到期的个人访问令牌的 API 请求将通过 `GitHub-Authentication-Token-Expiration` 标头返回该令牌的到期日期。 当令牌接近其过期日期时，您可以使用脚本中的标头来提供警告信息。
 
-### Get your own user profile
+### <a name="get-your-own-user-profile"></a>获取自己的用户个人资料
 
-When properly authenticated, you can take advantage of the permissions
-associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For example, try getting
-[your own user profile][auth user api]:
+在正确验证身份后，你可以利用与 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户相关的权限。 例如，尝试获取[自己的用户配置文件][auth user api]：
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -180,89 +166,70 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-This time, in addition to the same set of public information we
-retrieved for [@defunkt][defunkt github] earlier, you should also see the non-public information for your user profile. For example, you'll see a `plan` object in the response which gives details about the {% data variables.product.product_name %} plan for the account.
+此时，除了先前为 [@defunkt][defunkt github] 检索到的公共信息集之外，你还可以查看你的用户个人资料的非公共信息。 例如，你将在响应中看到 `plan` 对象，它提供有关帐户的 {% data variables.product.product_name %} 计划的详细信息。
 
-### Using OAuth tokens for apps
+### <a name="using-oauth-tokens-for-apps"></a>对应用程序使用 OAuth 令牌
 
-Apps that need to read or write private information using the API on behalf of another user should use [OAuth][oauth].
+需要代表其他用户使用 API 读取或写入专用信息的应用程序应使用 [OAuth][oauth]。
 
-OAuth uses _tokens_. Tokens provide two big features:
+OAuth 使用令牌。 令牌具有两大特点：
 
-* **Revokable access**: users can revoke authorization to third party apps at any time
-* **Limited access**: users can review the specific access that a token
-  will provide before authorizing a third party app
+* 可撤销访问权限：用户可以随时撤销对第三方应用程序的授权
+* 有限访问权限：用户可以在对第三方应用授权前审查令牌将提供的具体访问权限
 
-Tokens should be created via a [web flow][webflow]. An application
-sends users to {% data variables.product.product_name %} to log in. {% data variables.product.product_name %} then presents a dialog
-indicating the name of the app, as well as the level of access the app
-has once it's authorized by the user. After a user authorizes access, {% data variables.product.product_name %}
-redirects the user back to the application:
+应通过 [Web 流][webflow]创建令牌。 应用程序将用户发送到 {% data variables.product.product_name %} 进行登录。 {% data variables.product.product_name %} 随后显示一个对话框，指示应用的名称以及应用经用户授权后具有的权限级别。 经用户授权访问后，{% data variables.product.product_name %} 将用户重定向到应用程序：
 
-![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
+![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
 
-**Treat OAuth tokens like passwords!** Don't share them with other users or store
-them in insecure places. The tokens in these examples are fake and the names have
-been changed to protect the innocent.
+**将 OAuth 令牌视为密码！** 不要与其他用户共享它们，也不要将其存储在不安全的地方。 这些示例中的令牌是虚构的，并且更改了名称以免波及无辜。
 
-Now that we've got the hang of making authenticated calls, let's move along to
-the [Repositories API][repos-api].
+现在我们已经掌握了进行经身份验证的调用，接下来介绍[存储库 API][repos-api]。
 
-## Repositories
+## <a name="repositories"></a>存储库
 
-Almost any meaningful use of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API will involve some level of Repository
-information. We can [`GET` repository details][get repo] in the same way we fetched user
-details earlier:
+几乎任何有意义的 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 使用都会涉及某种级别的存储库信息。 我们可以像之前提取用户详细信息一样 [`GET` 存储库详细信息][get repo]：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
-In the same way, we can [view repositories for the authenticated user][user repos api]:
+以同样的方式，我们可以[查看经过身份验证的用户的存储库][user repos api]：
 
 ```shell
 $ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-Or, we can [list repositories for another user][other user repos api]:
+或者，我们可以[列出其他用户的存储库][other user repos api]：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
-Or, we can [list repositories for an organization][org repos api]:
+或者，我们可以[列出组织的存储库][org repos api]：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
-The information returned from these calls will depend on which scopes our token has when we authenticate:
+从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
 
 {%- ifversion fpt or ghec or ghes %}
-* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 {% data variables.product.product_location %} 上有权查看的所有公共存储库。
 {%- endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
+* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在 {% data variables.product.product_location %} 上有权查看的所有{% ifversion fpt %}public or private{% elsif ghec or ghes %}公共、专用或内部{% elsif ghae %}private or internal{% endif %}存储库。
 
-As the [docs][repos-api] indicate, these methods take a `type` parameter that
-can filter the repositories returned based on what type of access the user has
-for the repository. In this way, we can fetch only directly-owned repositories,
-organization repositories, or repositories the user collaborates on via a team.
+如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对存储库的访问权限类型来筛选返回的存储库。 这样，我们可以只提取直接拥有的存储库、组织存储库或用户通过团队进行协作的存储库。
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
-In this example, we grab only those repositories that octocat owns, not the
-ones on which she collaborates. Note the quoted URL above. Depending on your
-shell setup, cURL sometimes requires a quoted URL or else it ignores the
-query string.
+在此示例中，我们只获取 octocat 拥有的存储库，而没有获取她协作的存储库。 请注意上面的引用 URL。 根据你的 shell 设置，cURL 有时需要一个引用 URL，否则它会忽略查询字符串。
 
-### Create a repository
+### <a name="create-a-repository"></a>创建存储库
 
-Fetching information for existing repositories is a common use case, but the
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API supports creating new repositories as well. To [create a repository][create repo],
-we need to `POST` some JSON containing the details and configuration options.
+提取现有存储库的信息是一种常见的用例，但 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 也支持创建新的存储库。 要[创建存储库][create repo]，我们需要 `POST` 一些包含详细信息和配置选项的 JSON。
 
 ```shell
 $ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
@@ -275,14 +242,12 @@ $ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-In this minimal example, we create a new private repository for our blog (to be served
-on [GitHub Pages][pages], perhaps). Though the blog {% ifversion not ghae %}will be public{% else %}is accessible to all enterprise members{% endif %}, we've made the repository private. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
+在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的专用存储库。 虽然博客 {% ifversion not ghae %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
 
-The resulting repository will be found at `https://github.com/<your_username>/blog`.
-To create a repository under an organization for which you're
-an owner, just change the API method from `/user/repos` to `/orgs/<org_name>/repos`.
+生成的存储库可在 `https://github.com/<your_username>/blog` 上找到。
+要在你拥有的组织下创建存储库，只需将 API 方法从 `/user/repos` 更改为 `/orgs/<org_name>/repos`。
 
-Next, let's fetch our newly created repository:
+接下来，我们将获取新创建的仓库：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
@@ -294,46 +259,36 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-Oh noes! Where did it go? Since we created the repository as _private_, we need
-to authenticate in order to see it. If you're a grizzled HTTP user, you might
-expect a `403` instead. Since we don't want to leak information about private
-repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can
-neither confirm nor deny the existence of this repository."
+哦，不！ 它去哪儿了？ 因为我们将存储库创建为专用存储库，所以需要经过身份验证才能看到它。 如果你是一位资深的 HTTP 用户，你可能会预期返回 `403`。 由于我们不想泄露有关专用存储库的信息，因此在本例中，{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 返回 `404`，就好像说“我们既不能确认也不能否认这个存储库的存在”。
 
-## Issues
+## <a name="issues"></a>问题
 
-The UI for Issues on {% data variables.product.product_name %} aims to provide 'just enough' workflow while
-staying out of your way. With the {% data variables.product.product_name %} [Issues API][issues-api], you can pull
-data out or create issues from other tools to create a workflow that works for
-your team.
+{% data variables.product.product_name %} 上的问题 UI 旨在提供“恰到好处”的工作流，不会妨碍你的其他工作。 通过 {% data variables.product.product_name %} [问题 API][issues-api]，你可以利用其他工具来提取数据或创建问题，以打造适合你的团队的工作流。
 
-Just like github.com, the API provides a few methods to view issues for the
-authenticated user. To [see all your issues][get issues api], call `GET /issues`:
+与 github.com 一样，API 为经过身份验证的用户提供了一些查看问题的方法。 要[查看所有问题][get issues api]，请调用 `GET /issues`：
 
 ```shell
 $ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
-To get only the [issues under one of your {% data variables.product.product_name %} organizations][get issues api], call `GET
-/orgs/<org>/issues`:
+要仅获取[某个 {% data variables.product.product_name %} 组织下的问题][get issues api]，请调用 `GET
+/orgs/<org>/issues`：
 
 ```shell
 $ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
-We can also get [all the issues under a single repository][repo issues api]:
+我们还可以获取[单个存储库下的所有问题][repo issues api]：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
-### Pagination
+### <a name="pagination"></a>分页
 
-A project the size of Rails has thousands of issues. We'll need to [paginate][pagination],
-making multiple API calls to get the data. Let's repeat that last call, this
-time taking note of the response headers:
+一个 Rails 规模的项目有数千个议题。 我们需要[分页][pagination]，进行多次 API 调用来获取数据。 让我们重复上一次调用，这次请注意响应头：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
@@ -345,20 +300,13 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 > ...
 ```
 
-The [`Link` header][link-header] provides a way for a response to link to
-external resources, in this case additional pages of data. Since our call found
-more than thirty issues (the default page size), the API tells us where we can
-find the next page and the last page of results.
+[`Link` 标头][link-header]为响应提供了一种链接到外部资源（在本例中为附加数据页）的方法。 由于我们的调用发现了超过 30 个问题（默认页面大小），因此 API 将告诉我们在哪里可以找到下一页和最后一页结果。
 
-### Creating an issue
+### <a name="creating-an-issue"></a>创建议题
 
-Now that we've seen how to paginate lists of issues, let's [create an issue][create issue] from
-the API.
+现在我们已经了解如何对问题列表分页，现在来使用 API [创建问题][create issue]。
 
-To create an issue, we need to be authenticated, so we'll pass an
-OAuth token in the header. Also, we'll pass the title, body, and labels in the JSON
-body to the `/issues` path underneath the repository in which we want to create
-the issue:
+要创建问题，我们需要进行身份验证，因此我们将在标头中传递 OAuth 令牌。 此外，我们还将 JSON 正文中的标题、正文和标签传递到要在其中创建问题的存储库下的 `/issues` 路径：
 
 ```shell
 $ curl -i -H 'Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a' \
@@ -410,14 +358,11 @@ $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 > }
 ```
 
-The response gives us a couple of pointers to the newly created issue, both in
-the `Location` response header and the `url` field of the JSON response.
+该响应在 `Location` 响应头和 JSON 响应的 `url` 字段中为我们提供了几个指向新创建问题的指针。
 
-## Conditional requests
+## <a name="conditional-requests"></a>条件请求
 
-A big part of being a good API citizen is respecting rate limits by caching information that hasn't changed. The API supports [conditional
-requests][conditional-requests] and helps you do the right thing. Consider the
-first call we made to get defunkt's profile:
+通过缓存未更改的信息来遵守速率限制，是成为一个良好 API 公民的重要特质。 API 支持[条件请求][conditional-requests]并帮助你正确行事。 请注意我们为获取 defunkt 的个人资料而进行的第一个调用：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
@@ -426,10 +371,8 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
 ```
 
-In addition to the JSON body, take note of the HTTP status code of `200` and
-the `ETag` header.
-The [ETag][etag] is a fingerprint of the response. If we pass that on subsequent calls,
-we can tell the API to give us the resource again, only if it has changed:
+除了 JSON 正文之外，还要注意 HTTP 状态代码 `200` 和 `ETag` 标头。
+[ETag][etag] 是响应的指纹。 如果我们在后续调用中传递它，则可以告诉 API 仅在资源发生改变的情况才将其再次提供给我们：
 
 ```shell
 $ curl -i -H 'If-None-Match: "61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"' \
@@ -438,23 +381,21 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-The `304` status indicates that the resource hasn't changed since the last time
-we asked for it and the response will contain no body. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
+`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入你的[速率限制][rate-limiting]。
 
-Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
 
-* Basic & OAuth authentication
-* Fetching and creating repositories and issues
-* Conditional requests
+* 基本和 OAuth 身份验证
+* 获取和创建仓库及议题
+* 条件请求
 
-Keep learning with the next API guide [Basics of Authentication][auth guide]!
+继续学习下一个 API 指南[身份验证基础知识][auth guide]！
 
 [wrappers]: /libraries/
 [curl]: http://curl.haxx.se/
 [media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
-[create a new authorization API]: /rest/reference/oauth-authorizations#create-a-new-authorization
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com

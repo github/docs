@@ -12,16 +12,20 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+ms.openlocfilehash: 7d0cab4c1ef7ac5fda67a0487b50817adfb5dfd8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147063611'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-このチュートリアルでは、[`actions/stale` アクション](https://github.com/marketplace/actions/close-stale-issues)を使用して、一定期間非アクティブになっている Issue にコメントしてクローズする方法を説明します。 たとえば、Issueが 30 日間非アクティブであった場合にコメントして、参加者にアクションを実行するように促すことができます。 その後、14 日以上経っても追加のアクティビティが発生しない場合は、Issue をクローズできます。
+このチュートリアルでは、[`actions/stale` アクション](https://github.com/marketplace/actions/close-stale-issues)を使用して、一定期間非アクティブだった issue にコメントを付けてクローズする方法について説明します。 たとえば、Issueが 30 日間非アクティブであった場合にコメントして、参加者にアクションを実行するように促すことができます。 その後、14 日以上経っても追加のアクティビティが発生しない場合は、Issue をクローズできます。
 
-チュートリアルでは、[`actions/stale` アクション](https://github.com/marketplace/actions/close-stale-issues)を使用するワークフローファイルを作成します。 次に、ニーズに合わせてワークフローをカスタマイズします。
+チュートリアルでは、[`actions/stale` アクション](https://github.com/marketplace/actions/close-stale-issues)を使用するワークフロー ファイルをまず作成します。 次に、ニーズに合わせてワークフローをカスタマイズします。
 
 ## ワークフローの作成
 
@@ -55,25 +59,25 @@ topics:
     ```
 
 4. ワークフローファイルのパラメータをカスタマイズします。
-   - `on.schedule` の値を変更して、このワークフローの実行日時を指定します。 上記の例では、ワークフローは毎日 1:30 UTC に実行されます。 スケジュールされたワークフローの詳細については、「[スケジュールされたイベント](/actions/reference/events-that-trigger-workflows#scheduled-events)」を参照してください。
-   - `days-before-issue-stale` の値を、`actions/stale` アクションが Issue にラベルを付ける前にアクティビティがない日数に変更します。 このアクションで Issue にラベルを付けない場合は、この値を `-1` に設定します。
-   - `days-before-issue-close` の値を、`actions/stale` アクションが Issue がクローズされる前にアクティビティがない日数に変更します。 このアクションで Issue をクローズしない場合は、この値を `-1` に設定します。
-   - `stale-issue-label` の値を、`days-before-issue-stale` で指定された期間非アクティブであった Issue に適用するラベルに変更します。
-   - `stale-issue-message` の値を、`actions/stale` アクションでラベル付けされた Issue に追加するコメントに変更します。
-   - `close-issue-message` の値を、`actions/stale` アクションでクローズされた Issue に追加するコメントに変更します。
+   - `on.schedule` の値を変更して、このワークフローを実行する日時を指定します。 上記の例では、ワークフローは毎日 1:30 UTC に実行されます。 スケジュールされたワークフローの詳細については、[スケジュールされたイベント](/actions/reference/events-that-trigger-workflows#scheduled-events)に関するページを参照してください。
+   - `days-before-issue-stale` の値を、`actions/stale` アクションが issue のラベルを付ける前のアクティビティのない日数に変更します。 このアクションで issue にラベルを付けない場合は、この値を `-1` に設定します。
+   - `days-before-issue-close` の値を、`actions/stale` アクションが issue をクローズする前のアクティビティのない日数に変更します。 このアクションで issue をクローズしない場合は、この値を `-1` に設定します。
+   - `stale-issue-label` の値を、`days-before-issue-stale` で指定した期間非アクティブだった issue に適用するラベルに変更します。
+   - `stale-issue-message` の値を、`actions/stale` アクションによってラベル付けされた issue に追加するコメントに変更します。
+   - `close-issue-message` の値を、`actions/stale` アクションによってクローズされた issue に追加するコメントに変更します。
 5. {% data reusables.actions.commit-workflow %}
 
-## 期待される結果
+## 予想される結果
 
-`schedule` パラメータ（たとえば、毎日 1:30 UTC）に基づいて、ワークフローは指定された期間非アクティブであった Issue を検出し、指定されたコメントとラベルを追加します。 さらに、指定された期間に追加のアクティビティが発生しなかった場合、ワークフローは以前にラベル付けされた Issue をすべてクローズします。
+`schedule` パラメーター (たとえば、毎日 1:30 UTC) に基づいて、ワークフローは指定された期間非アクティブであった issue を検出し、指定されたコメントとラベルを追加します。 さらに、指定された期間に追加のアクティビティが発生しなかった場合、ワークフローは以前にラベル付けされた Issue をすべてクローズします。
 
 {% data reusables.actions.schedule-delay %}
 
-ワークフローの実行履歴を表示して、このワークフローが定期的に実行されているかどうかを確認できます。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
+ワークフローの実行履歴を表示して、このワークフローが定期的に実行されているかどうかを確認できます。 詳細については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. これは、`operations-per-run` の設定で構成できます。 詳しい情報については、[`actions/stale` アクションのドキュメント](https://github.com/marketplace/actions/close-stale-issues)を参照してください。
+このワークフローでは、レート制限を超えないように、一度に 30 件の issue にのみラベルを付けたりクローズしたりします。 `operations-per-run` 設定を使用してこれを構成できます。 詳細については、[`actions/stale` アクションのドキュメント](https://github.com/marketplace/actions/close-stale-issues)を参照してください。
 
-## 次のステップ
+## 次の手順
 
-- 非アクティブなプルリクエストをクローズする、特定のラベルやマイルストーンの Issue を無視する、特定のラベルの Issue のみを確認するなど、`actions/stale` アクションで実行できるその他の操作について詳しくは、[`actions/stale` アクションのドキュメント](https://github.com/marketplace/actions/close-stale-issues)をご覧ください。
-- このアクションを使用したワークフローの例については、[GitHub を検索](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code) してください。
+- 非アクティブな pull request のクローズ、特定のラベルやマイルストーンに関する issue の無視、特定のラベルに関する issue のみの確認など、`actions/stale` アクションで実行できるその他の操作の詳細については、[`actions/stale` アクションのドキュメント](https://github.com/marketplace/actions/close-stale-issues)を参照してください。
+- このアクションを使用するワークフローの例については [GitHub を検索](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code)してください。

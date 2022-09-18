@@ -1,63 +1,66 @@
 ---
-title: Configuring OpenID Connect in Azure
+title: Configura OpenID Connect en Azure
 shortTitle: Configuring OpenID Connect in Azure
-intro: Use OpenID Connect within your workflows to authenticate with Azure.
+intro: Utiliza OpenID Connect dentro de tus flujos de trabajo para autenticarte con Azure.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 64c7371eec248c7ebeb45a50091b9ef5dbed645e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117233'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Información general
 
-## Overview
+OpenID Connect (OIDC) permite que tus flujos de trabajo de {% data variables.product.prodname_actions %} accedan a los recursos en Azure, sin la necesidad de almacenar las credenciales de Azure como secretos de {% data variables.product.prodname_dotcom %} con vida larga. 
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+En esta guía se proporciona un resumen de cómo configurar Azure para que confíe en el OIDC de {% data variables.product.prodname_dotcom %} como una entidad federada y se incluye un ejemplo de flujo de trabajo para la acción [`azure/login`](https://github.com/Azure/login) en el que se usan tokens para autenticarse en Azure y acceder a los recursos.
 
-This guide gives an overview of how to configure Azure to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`azure/login`](https://github.com/Azure/login) action that uses tokens to authenticate to Azure and access resources.
-
-## Prerequisites
+## Prerrequisitos
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Adding the Federated Credentials to Azure
+## Agregar las credenciales federadas a Azure
 
-{% data variables.product.prodname_dotcom %}'s OIDC provider works with Azure's workload identity federation. For an overview, see Microsoft's documentation at "[Workload identity federation](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)."
+El proveedor de OIDC de {% data variables.product.prodname_dotcom %} funciona con la federación de identidades de carga de trabajo de Azure. Para obtener información general, vea la documentación de Microsoft en "[Federación de identidades de carga de trabajo](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)".
 
-To configure the OIDC identity provider in Azure, you will need to perform the following configuration. For instructions on making these changes, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
+Para configurar el proveedor de identidad de OIDC en Azure, necesitarás realizar la siguiente configuración. Para obtener instrucciones sobre cómo realizar estos cambios, consulte [la documentación de Azure](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
 
-1. Create an Azure Active Directory application and a service principal.
-2. Add federated credentials for the Azure Active Directory application.
-3. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
+1. Crea una aplicación de Azure Active Directory y un director de servicio.
+2. Agrega las credenciales federadas para la aplicación de Azure Active Directory.
+3. Crea secretos de {% data variables.product.prodname_dotcom %} para almacenar la configuración de Azure.
 
-Additional guidance for configuring the identity provider:
+Orientación adicional para configurar el proveedor de identidad:
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
-- For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
+- Para fortalecer la seguridad, asegúrese de que ha revisado ["Configuración de la confianza de OIDC con la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). Para obtener un ejemplo, vea ["Configuración del asunto en el proveedor de nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
+- Para la configuración de `audience`, `api://AzureADTokenExchange` es el valor recomendado, pero también puede especificar otros valores aquí.
 
-## Updating your {% data variables.product.prodname_actions %} workflow
+## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
-2. Use the [`azure/login`](https://github.com/Azure/login) action to exchange the OIDC token (JWT) for a cloud access token.
+Para actualizar tus flujos de trabajo para ODIC, necesitarás hacer dos cambios a tu YAML:
+1. Agregar ajustes de permisos para el token.
+2. Use la acción [`azure/login`](https://github.com/Azure/login) para intercambiar el token de OIDC (JWT) por un token de acceso a la nube.
 
-### Adding permissions settings
+### Agregar ajustes de permisos
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
-### Requesting the access token
+### Solicitar el token de acceso
 
-The [`azure/login`](https://github.com/Azure/login) action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from Azure. For more information, see the [`azure/login`](https://github.com/Azure/login) documentation.
+La acción [`azure/login`](https://github.com/Azure/login) recibe un JWT del proveedor de OIDC de {% data variables.product.prodname_dotcom %} y luego solicita un token de acceso a Azure. Para obtener más información, consulte la documentación de [`azure/login`](https://github.com/Azure/login).
 
-The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
+El siguiente ejemplo intercambia un token de ID de ODIC con Azure para recibir un token de acceso, el cual puede utilizarse entonces apra cceder a los recursos en la nube.
 
 {% raw %}
 ```yaml{:copy}

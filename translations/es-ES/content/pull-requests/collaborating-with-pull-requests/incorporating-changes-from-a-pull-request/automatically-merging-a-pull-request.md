@@ -1,6 +1,6 @@
 ---
-title: Automatically merging a pull request
-intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
+title: Fusionar una solicitud de cambios automáticamente
+intro: Puedes incrementar la velocidad de desarrollo si habilitas la fusión automática para una solicitud de cambios para que ésta se fusione automáticamente cuando todos los requisitos de fusión se cumplan.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
@@ -14,51 +14,50 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
 shortTitle: Merge PR automatically
+ms.openlocfilehash: 07069657c870751849d3b7e80c7817f908c2bda5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770917'
 ---
-## About auto-merge
+## Acerca de la fusión automática
 
-If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
+Si habilitas la fusión automática para una solicitud de cambios, ésta se fusionará automáticamente cuando se cumplan todas las revisiones requeridas y cuando todas las verificaciones de estado hayan pasado. La fusión automática te evita el esperar a que los requisitos se cumplan para que puedas continuar con otras tareas.
 
-Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."
+Antes de que utilices la fusión automática con una solicitud de cambios, esta característica se debe habilitar en el repositorio. Para más información, consulta "[Administración de la fusión mediante combinación automática para las solicitudes de incorporación de cambios en el repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)".
 
-After you enable auto-merge for a pull request, if someone who does not have write permissions to the repository pushes new changes to the head branch or switches the base branch of the pull request, auto-merge will be disabled. For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.
+Después de que habilitas la fusión automática para una solicitud de cambios, si alguien que no tiene permisos de escritura en el repositorio sube cambios nuevos a la rama principal o cambia la rama base de la solicitud de cambios, esta se inhabilitará. Por ejemplo, si un mantenedor habilita la fusión mediante combinación automática para una solicitud de incorporación de cambios desde una bifurcación, esta se inhabilitará después de que el contribuyente inserte cambios nuevos en la solicitud de incorporación de cambios.
 
-You can provide feedback about auto-merge through a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
+Puedes proporcionar comentarios sobre la combinación automática mediante un [debate de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/pull-requests).
 
-## Enabling auto-merge
+## Habilitar la fusión automática
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
-People with write permissions to a repository can enable auto-merge for a pull request.
+Las personas con permisos de escritura en un repositorio pueden habilitar la fusión automática para una solicitud de cambios.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to auto-merge.
-1. Optionally, to choose a merge method, select the **Enable auto-merge** drop-down menu, then click a merge method. For more information, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
-  !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
-1. Click **Enable auto-merge**.
-  ![Button to enable auto-merge](/assets/images/help/pull_requests/enable-auto-merge-button.png)
-  {% ifversion fpt %}
-1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit.
-  ![Fields to enter commit message and description and choose commit author email](/assets/images/help/pull_requests/pull-request-information-fields.png)
-  {% note %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+1. En la lista de "Solicitudes de cambios", da clic en aquella que quieras fusionar automáticamente.
+1. Opcionalmente, para elegir un método de combinación, seleccione el menú desplegable **Enable auto-merge** (Habilitar combinación automática) y luego haga clic en el método de combinación. Para más información, vea "[Acerca de las combinaciones de solicitudes de incorporación de cambios](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)".
+  ![Menú desplegable "Enable auto-merge" (Habilitar la combinación automática)](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
+1. Haga clic en **Enable auto-merge** (Habilitar combinación automática).
+  ![Botón para habilitar la combinación automática](/assets/images/help/pull_requests/enable-auto-merge-button.png) {% ifversion fpt %}
+1. Si eliges los métodos de fusión o de fusión y combinación, teclea un mensaje de confirmación y descripción, y elige la dirección de correo electrónico con la que quieres hacer la confirmación de fusión.
+  ![Campos para introducir el mensaje de confirmación y descripción, y elegir el correo electrónico para hacer la confirmación](/assets/images/help/pull_requests/pull-request-information-fields.png) {% note %}
 
-  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+  **Nota**: El menú desplegable de correo electrónico no está disponible si tiene habilitada la privacidad de correo electrónico o si solo tiene una dirección de correo electrónico verificada y visible asociada con su cuenta de {% data variables.product.company_short %}.
 
-  {% endnote %}
-  {% endif %}
-  {% ifversion ghes or ghae or ghec %}
-1. If you chose the merge or squash and merge methods, type a commit message and description.
-   ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
-  {% endif %}
-1. Click **Confirm auto-merge**.
+  {% endnote %} {% endif %} {% ifversion ghes or ghae or ghec %}
+1. Si eliges los métodos de fusión o de combinación y fusión, escribe un mensaje y descripción de la confirmación.
+   ![Campos para introducir el mensaje y descripción de la confirmación](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png) {% endif %}
+1. Haga clic en **Confirm auto-merge** (Confirmar combinación automática).
 
-## Disabling auto-merge
+## Inhabilitar la fusión automática
 
-People with write permissions to a repository and pull request authors can disable auto-merge for a pull request.
+Las personas con permisos de escritura en un repositorio y los autores de la solicitud de cambios pueden inhabilitar la fusión automática en estas solicitudes.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to disable auto-merge for.
-1. In the merge box, click **Disable auto-merge**.
-  ![Button to disable auto-merge](/assets/images/help/pull_requests/disable-auto-merge-button.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+1. En la lista de "Solicitudes de cambios", da clic en aquella en la que quieras inhabilitar la fusión automática.
+1. En el cuadro de combinación, haga clic en **Disable auto-merge** (Deshabilitar combinación automática).
+  ![Botón para deshabilitar la combinación automática](/assets/images/help/pull_requests/disable-auto-merge-button.png)

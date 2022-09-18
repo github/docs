@@ -1,5 +1,9 @@
-{% ifversion fpt or ghec %}
-Para obtener más información, consulta la sección "[Buscar asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)".
-{% else %}
-Para obtener más información sobre los datos de la asesoría, consulta la sección "[Buscar asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/free-pro-team@latest/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)" en la documentación de {% data variables.product.prodname_dotcom_the_website %}.
-{% endif %}
+---
+ms.openlocfilehash: 9bd9a97aac8ee24742aacd8f37472811372d06ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147410567"
+---
+Para obtener más información, consulta "[Exploración de avisos de seguridad en {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)".

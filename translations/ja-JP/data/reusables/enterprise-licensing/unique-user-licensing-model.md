@@ -1,3 +1,11 @@
-{% data variables.product.company_short %} uses a unique-user licensing model. For enterprise products that include multiple deployment options, {% data variables.product.company_short %} determines how many licensed seats you're consuming based on the number of unique users across all your deployments.
+---
+ms.openlocfilehash: ceae9868f56dc890a23767f070d415ebcfc43274
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147572660"
+---
+{% data variables.product.company_short %} では、一意ユーザーのライセンス モデルが使用されます。 複数のデプロイ オプションを含むエンタープライズ製品の場合、{% data variables.product.company_short %} では、すべてのデプロイ全体の一意のユーザー数に基づいて、使用するライセンス シートの数が決まります。
 
-Each user account only consumes one license, no matter how many {% data variables.product.prodname_ghe_server %} instances the user account uses, or how many organizations the user account is a member of on {% data variables.product.prodname_ghe_cloud %}. This model allows each person to use multiple {% data variables.product.prodname_enterprise %} deployments without incurring extra costs.
+各ユーザーは、そのユーザーが使う {% data variables.product.prodname_ghe_server %} インスタンスの数や、{% data variables.product.prodname_ghe_cloud %} でそのユーザーがメンバーになっている Organization の数に関係なく、1 つのライセンスのみを使います。 このモデルを使用すると、各ユーザーが、追加のコストなしで複数の {% data variables.product.prodname_enterprise %} デプロイを使用できます。

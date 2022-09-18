@@ -1,1 +1,10 @@
-1. "Introduction（イントロダクション）"の下で、あなたがスポンサーシップと共に行う作業の説明を入力してください。 ![プロフィールの詳細テキストフィールド](/assets/images/help/sponsors/introduction-box.png)
+---
+ms.openlocfilehash: 7d74bb2f55c8d4c373c4a54da2cf711c0293099e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145139955"
+---
+1. "Introduction（イントロダクション）"の下で、あなたがスポンサーシップと共に行う作業の説明を入力してください。
+  ![プロフィールの詳細テキスト フィールド](/assets/images/help/sponsors/introduction-box.png)

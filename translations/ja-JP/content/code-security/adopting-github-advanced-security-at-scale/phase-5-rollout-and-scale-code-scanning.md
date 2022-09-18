@@ -1,6 +1,6 @@
 ---
-title: 'Phase 5: Rollout and scale code scanning'
-intro: 'You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier.'
+title: 'フェーズ 5: Code Scanning のロールアウトとスケーリング'
+intro: '使用可能な API を利用し、先ほど収集したリポジトリ データを使用して、企業全体で Team 別および言語別に {% data variables.product.prodname_code_scanning %} をプログラムでロールアウトできます。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,48 +9,53 @@ topics:
   - Advanced Security
 shortTitle: 5. Rollout code scanning
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 69c5a4e88c5490cbd7dcddca902426862047dff5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147145386'
 ---
-
 {% note %}
 
-この記事は、{% data variables.product.prodname_GH_advanced_security %}の大規模な採用に関するシリーズの一部です。 For the previous article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+この記事は、大規模な {% data variables.product.prodname_GH_advanced_security %} の導入に関するシリーズの一部です。 このシリーズの前の記事については、「[フェーズ 4: 内部ドキュメントの作成](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)」を参照してください。
 
 {% endnote %}
 
-### コードスキャンを有効化する
+### Code Scanning の有効化
 
-Using the data you collated in [Phase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), you can begin to enable GHAS and then {% data variables.product.prodname_code_scanning %} on your repositories, one language at a time. The step-by-step process for enabling GHAS should look like this:
+[フェーズ 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale) で照合したデータを使用して、GHAS を有効にしてから、リポジトリで {% data variables.product.prodname_code_scanning %} (一度に 1 つの言語) を有効にすることができます。 GHAS を有効にする手順は次のようになります。
 
-1. Enable GHAS on the repository. 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。
-1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. 詳しい情報については[プルリクエストの作成](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。
-1. Create an issue in the repository to explain why a pull request has been raised. The issue you create can contain a link to the previous communication sent to all users, but can also explain what changes the pull request introduces, what next steps the team have to take, what the team's responsibilities are, and how the team should be using {% data variables.product.prodname_code_scanning %}. 詳しい情報については、「[Issue を作成する](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
+1. リポジトリで GHAS を有効にします。 詳細については、「[リポジトリのセキュリティと分析の設定を管理する](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。
+1. その言語の CodeQL を実行する方法の例を含む `codeql-analysis.yml` ファイルを使用して、リポジトリの既定のブランチに対して Pull Request を作成します。 詳細については、「[プルリクエストの作成方法](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)」を参照してください。
+1. リポジトリに Issue を作成して、Pull Request が発生した理由を説明します。 作成する Issue には、すべてのユーザーに送信された以前の通信へのリンクを含めることができますが、Pull Request が導入する変更、Team が実行する必要がある次の手順、Team の責任、Team が {% data variables.product.prodname_code_scanning %} を使用する方法を説明することもできます。 詳細については、「[Issue の作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
 
-There is a publicly available tool that completes the first two steps called the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement). You can re-run the ghas-enablement tool in batches of languages where it makes sense. For example, JavaScript, TypeScript, Python, and Go likely have a similar build process and could therefore use a similar CodeQL analysis file. The ghas-enablement tool can also be used for languages such as Java, C, and C++, but due to the varied nature of how these languages build and compile you may need to create more targeted CodeQL analysis files.
+[ghas 対応ツール](https://github.com/NickLiffen/ghas-enablement)と呼ばれる、最初の 2 つの手順を完了する一般公開されているツールがあります。 ghas 対応ツールは、意味のある言語のバッチで再実行できます。 たとえば、JavaScript、TypeScript、Python、Go はビルド プロセスが似ている可能性があるため、同様の CodeQL 分析ファイルを使用できます。 ghas 対応ツールは、Java、C、C++ などの言語にも使用できますが、これらの言語のビルドとコンパイルの方法は多様であるため、よりターゲットを絞った CodeQL 分析ファイルを作成する必要がある場合があります。
 
 {% note %}
 
-**Note:** If you are intending to use {% data variables.product.prodname_actions %} to control {% data variables.product.prodname_code_scanning %} and you do not use the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement), keep in mind that there is no API access to the `.github/workflow` directory. This means that you cannot create a script without a git client underlying the automation. The workaround is to leverage bash scripting on a machine or container which has a git client. The git client can push and pull files into the `.github/workflows` directory where the `codeql-analysis.yml` file is located.
+**メモ:** {% data variables.product.prodname_actions %} を使用して {% data variables.product.prodname_code_scanning %} を制御する予定であるが、[ghas 対応ツール](https://github.com/NickLiffen/ghas-enablement)を使用しない場合は、`.github/workflow` ディレクトリへの API アクセス権がないことに注意してください。 つまり、自動化の基になる Git クライアントなしでスクリプトを作成することはできません。 回避策は、Git クライアントを持つマシンまたはコンテナーで bash スクリプトを利用することです。 Git クライアントは、`codeql-analysis.yml` ファイルが配置されている `.github/workflows` ディレクトリにファイルをプッシュおよびプルできます。
 
 {% endnote %}
 
-It is important to not just push the `codeql-analysis.yml` file the repository's default branch. Using a pull request puts ownership on the development team to review and merge, allowing the development team to learn about {% data variables.product.prodname_code_scanning %} and involving the team in the process.
+単にリポジトリの既定のブランチに `codeql-analysis.yml` ファイルをプッシュしないようにしてください。 Pull Request を使用すると、レビューおよびマージするために開発 Team に所有権が与えられ、開発 Team は {% data variables.product.prodname_code_scanning %} について学習でき、Team がプロセスに関与するようになります。 
 
-You should capture the pull request URLs created by automation, and check each week for any activity and see which ones are closed. After a few weeks, it may be worth creating another issue or sending internal emails if the pull request remains unmerged.
+自動化によって作成された Pull Request URL をキャプチャし、アクティビティを毎週確認して、どのアクティビティがクローズしているかを確認する必要があります。 数週間後に、Pull Request がマージされていない場合は、別の Issue を作成したり、内部メールを送信したりすると良いでしょう。
 
-### Creating subject matter experts
+### 領域の専門家の作成
 
-You can then proceed to the next stage of enablement, which is creating internal subject matter experts (or SMEs) and arranging company meetings. Opening pull requests and issues in repositories will likely tackle a large percentage of your adoption, but this doesn’t tackle one-off use cases where a specific build process, framework, or library needs specific feature flags to be enabled. A more personalized and hands-on approach is required to push high adoption, especially for Java, C, and C++.
+その後、次の有効化の段階に進むことができます。この段階では、内部の領域の専門家 (SME) を作成し、会社の会議を手配します。 リポジトリで Pull Request や Issue を開くと、導入の大部分に対応できる可能性があります。ただし、特定のビルド プロセス、フレームワーク、またはライブラリで特定の機能フラグを有効にする必要がある 1 回限りのユース ケースには対応できません。 特に Java、C、C++ に対する適合性を高めるには、よりパーソナライズされた実践的なアプローチが必要です。
 
-It’s a good idea to run regular company meetings on specific topics to educate and discuss the rollout with a larger group. This is much more time-efficient for an enterprise with thousands of repositories compared to working with one team at a time. Teams can come to sessions that are relevant to them. Some example sessions that have been run before include:
+特定のトピックに関して会社の会議を定期的に開き、より大きなグループとの間でロールアウトについて教育し議論することをお勧めします。 これは、一度に 1 Team ずつと作業する場合と比較して、何千ものリポジトリを持つ会社にとって、はるかに時間効率が高くなります。 Team は、関連するセッションに参加できます。 前に実行されたセッションの例を次に示します。
 
-- コンテナで {% data variables.product.prodname_code_scanning_capc %}
-- {% data variables.product.prodname_code_scanning_capc %} & Java Struts
-- {% data variables.product.prodname_code_scanning_capc %} & JSP
+- コンテナーでの {% data variables.product.prodname_code_scanning_capc %}
+- {% data variables.product.prodname_code_scanning_capc %} と Java Struts
+- {% data variables.product.prodname_code_scanning_capc %} と JSP
 
-You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
+リポジトリ間での異なる言語の配布に関して収集したデータを使用して、対象となる会議を作成できます。
 
 {% note %}
 
-For the next article in this series, see "[Phase 6: Rollout and scale secret scanning](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
+このシリーズの次の記事については、「[フェーズ 6: Secret Scanning のロールアウトとスケーリング](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)」を参照してください。
 
 {% endnote %}

@@ -1,1 +1,10 @@
-1. Clique em **Patrocinar _CONTA_**. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-developer-button.png)
+---
+ms.openlocfilehash: 6df58f1e06fee56eb18526a713fa2ecb9bd69515
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145065248"
+---
+1. Clique em **_ACCOUNT_ do Patrocinador**.
+  ![Botão Patrocinador](/assets/images/help/sponsors/sponsor-developer-button.png)

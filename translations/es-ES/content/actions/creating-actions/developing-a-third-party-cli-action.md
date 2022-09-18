@@ -1,6 +1,6 @@
 ---
 title: Desarrollar una acción del CLI de terceros
-shortTitle: Acción de configuración del CLI
+shortTitle: CLI setup action
 intro: 'Aprende cómo desarrollar una acción para configurar un CLI en los ejecutores de {% data variables.product.prodname_actions %}.'
 redirect_from: []
 versions:
@@ -9,8 +9,13 @@ versions:
 type: tutorial
 topics:
   - Actions
+ms.openlocfilehash: c839faa63efd0f8b7f5ab78a81107d27ab93e1c4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092539'
 ---
-
 ## Introducción
 
 Puedes escribir una acción para proporcionarles a los usuarios una forma de acceder a tus servidores a través de un ambiente configurado de CLI en los ejecutores de {% data variables.product.prodname_actions %}.
@@ -23,17 +28,17 @@ Tu cuenta debería:
 - Funcionar a lo largo de los ejecutores auto-hospedados y hospedados en {% data variables.product.product_name %}
 - Apoyar las herramientas de la comunidad en medida de lo posible
 
-Este artículo te demostrará cómo escribir una acción que recupere una versión específica de tu CLI, la instale, la agregue a la ruta y la guarde en caché (opcionalmente). Este tipo de acción (una acción que configura una herramienta) se llama a menudo `setup-$TOOL`.
+Este artículo te demostrará cómo escribir una acción que recupere una versión específica de tu CLI, la instale, la agregue a la ruta y la guarde en caché (opcionalmente). Este tipo de acción (una acción que configura una herramienta) a menudo se denomina `setup-$TOOL`. 
 
 ## Prerrequisitos
 
-Deberás de entender cómo escribir una acción personalizada. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions)". Para consulta una guía más detallada sobre cómo escribir una acción personalizada, consulta la sección "[Crear una acción de JavaScript](/actions/creating-actions/creating-a-javascript-action)".
+Deberás de entender cómo escribir una acción personalizada. Para más información, vea "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions)". Para obtener una guía más detallada sobre cómo escribir una acción personalizada, vea "[Creación de una acción de JavaScript](/actions/creating-actions/creating-a-javascript-action)".
 
 ## Ejemplo
 
 El siguiente script demuestra cómo puedes obtener una versión especificada por un usuario como entrada, descargar y extraer esta versión específica de tu CLI y luego agregar el CLI a la ruta.
 
-{% data variables.product.prodname_dotcom %} proporciona el [`actions/toolkit`](https://github.com/actions/toolkit), el cual es un conjunto de paquetes que te ayuda a crear acciones. Este ejemplo utiliza los paquetes [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) y [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) packages.
+{% data variables.product.prodname_dotcom %} proporciona [`actions/toolkit`](https://github.com/actions/toolkit), que es un conjunto de paquetes que le ayuda a crear acciones. En este ejemplo se usan los paquetes [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) y [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache).
 
 {% raw %}
 ```javascript{:copy}
@@ -58,11 +63,11 @@ module.exports = setup
 ```
 {% endraw %}
 
-Para utilizar este script, reemplaza a `getDownloadURL` con una función que descargue tu CLI. También necesitarás crear un archivo de metadatos de acciones (`action.yml`) que acepte una entrada de `version` y que ejecute este script. Para encontrar todos los detalles sobre cómo crear una acción, consulta la sección "[Crear una acción de JavaScript](/actions/creating-actions/creating-a-javascript-action)".
+Para usar este script, reemplace `getDownloadURL` por una función que descargue la CLI. También tendrá que crear un archivo de metadatos de acciones (`action.yml`) que acepte una entrada `version` y que ejecute este script. Para obtener información completa sobre cómo crear una acción, vea "[Creación de una acción de JavaScript](/actions/creating-actions/creating-a-javascript-action)".
 
-Para encontrar un ejemplo completo de cómo configurar esta acción, consulta [example-setup-gh](https://github.com/github-developer/example-setup-gh).
+Para obtener un ejemplo completo de cómo configurar esta acción, vea [example-setup-gh](https://github.com/github-developer/example-setup-gh).
 
-## Leer más
+## Información adicional
 
 Este patrón se emplea en varias acciones. Para ver más ejemplos, consulta:
 

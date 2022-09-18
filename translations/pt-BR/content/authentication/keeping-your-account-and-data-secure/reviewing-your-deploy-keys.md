@@ -13,19 +13,23 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Chaves de implantação
+shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083619'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. Na seção "Segurança" na barra lateral, clique em **{% octicon "key" aria-label="The key icon" %} Implantar chaves**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. Na seção "Segurança" da barra lateral, clique em **{% octicon "key" aria-label="The key icon" %} Implantar chaves**.
 {% else %}
-3. Na barra lateral esquerda, clique em **Deploy keys** (Chaves de implantação). ![Configuração das chaves de implantação](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. Na página das chaves de implantação, anote as chaves de implantação associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves de implantação válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves de implantação](/assets/images/help/settings/settings-deploy-key-review.png)
+3. Na barra lateral esquerda, clique em **Implantar chaves**.
+![Configuração de Implantar chaves](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
+4. Na página das chaves de implantação, anote as chaves de implantação associadas à sua conta. Para aquelas que você não reconhece ou que estão desatualizadas, clique em **Excluir**. Se houver chaves de implantação válidas que você deseja manter, clique em **Aprovar**.
+    ![Lista de chaves de implantação](/assets/images/help/settings/settings-deploy-key-review.png)
 
-Para obter mais informações, consulte "[Gerenciar chaves de implantação](/guides/managing-deploy-keys)".
+Para obter mais informações, confira "[Como gerenciar chaves de implantação](/guides/managing-deploy-keys)".
 
-## Leia mais
-- [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Leitura adicional
+- [Como configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

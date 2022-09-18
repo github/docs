@@ -1,6 +1,6 @@
 ---
-title: 'Phase 4: Create internal documentation'
-intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}.'
+title: 'Fase 4: Criar a documentação interna'
+intro: 'Você criará uma documentação interna e a comunicará aos consumidores do {% data variables.product.prodname_GH_advanced_security %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,24 +9,29 @@ topics:
   - Advanced Security
 shortTitle: 4. Create internal documentation
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: e9852eacc95b98eca5358aafb9a9b13811888f15
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145317'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+Este artigo faz parte de uma série sobre a adoção do {% data variables.product.prodname_GH_advanced_security %} em escala. Para ver o artigo anterior desta série, confira "[Fase 3: Programas piloto](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)".
 
 {% endnote %}
 
-Before enabling {% data variables.product.prodname_GH_advanced_security %}, you should create internal documentation that defines processes for teams to follow. Everyone needs to know what to do when they receive a security alert, even if the process simply asks the team to apply their best judgment. Documentation will also prevent developers from getting blocked when they have questions. You should put the documentation about GHAS with existing developer-focused documentation, such as your developer portal or custom knowledge base.
+Antes de habilitar o {% data variables.product.prodname_GH_advanced_security %}, você precisa criar uma documentação interna que defina os processos a serem seguidos pelas equipes. Todos precisam saber o que fazer quando recebem um alerta de segurança, mesmo que o processo simplesmente peça à equipe para aplicar seu melhor julgamento. A documentação também impedirá que os desenvolvedores sejam bloqueados quando tiverem dúvidas. Coloque a documentação sobre o GHAS no mesmo local da documentação existente focada no desenvolvedor, como o portal do desenvolvedor ou uma base de dados de conhecimento personalizada.
 
-If you ran pilot programs, use the experiences and feedback from the teams involved in those pilots to influence your documentation. This is especially useful if you encountered issues that are specific to your company, that other teams will also likely encounter.
+Se você tiver executado programas piloto, use as experiências e os comentários das equipes envolvidas ao elaborar sua documentação. Isso é especialmente útil quando você encontra problemas específicos para sua empresa, que outras equipes também podem vir a ter.
 
-If you skip creating internal documentation, your rollout won’t go at your intended pace. Creating internal documentation may slow the initial rollout by a week or two, but that time will be made up when developers can answer their own questions instead of coming to your team.
+Se você ignorar a criação da documentação interna, sua distribuição não ocorrerá no ritmo pretendido. A criação da documentação interna pode atrasar a distribuição inicial em uma ou duas semanas, mas esse tempo será compensado quando os desenvolvedores puderem responder às próprias perguntas em vez de procurar sua equipe.
 
-Education is probably the most crucial part of the rollout as it teaches developers what to do in different situations. You should ensure developers are empowered to maintain the security of their repository and that the security team are authorized to verify both what developers are doing and that it's in the best interest of security. In additional to internal documentation, education can take the form of online sessions, Q&As, etc.
+A educação é provavelmente a parte mais importante da distribuição, pois ensina aos desenvolvedores o que fazer em diferentes situações. É preciso garantir que os desenvolvedores possam manter a segurança do repositório e que a equipe de segurança esteja autorizada a verificar o que eles estão fazendo e se a ação é realmente o melhor para a segurança. Além da documentação interna, a educação pode assumir a forma de sessões online, sessões de perguntas e respostas etc.
 
 {% note %}
 
-For the next article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+Para ver o próximo artigo desta série, confira "[Fase 5: Distribuição e exame de códigos em escala](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)".
 
 {% endnote %}

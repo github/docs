@@ -80,14 +80,6 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: Enterprise.userAccounts
-    description:
-      '`userAccounts` will be removed. Use the `Enterprise.members` field
-      instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: Query.sponsorables.dependencyEcosystem
     description:
       '`dependencyEcosystem` will be removed. Use the ecosystem argument
@@ -1393,6 +1385,16 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: ProjectView.groupedItems
+    description:
+      '`groupedItems` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
   - location: ProjectView.items
     description:
       '`items` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1728,3 +1730,19 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: Commit.changedFiles
+    description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
+    reason: '`changedFiles` will be removed.'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: adamshwert
+  - location: ProjectV2View.visibleFields
+    description:
+      '`visibleFields` will be removed. Check out the `ProjectV2View#fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#visibleFields` API is deprecated in favour of the more
+      capable `ProjectV2View#fields` API.
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mattruggio

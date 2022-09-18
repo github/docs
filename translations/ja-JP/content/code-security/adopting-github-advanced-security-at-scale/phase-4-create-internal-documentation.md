@@ -1,6 +1,6 @@
 ---
-title: 'Phase 4: Create internal documentation'
-intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}.'
+title: 'フェーズ 4: 内部ドキュメントを作成する'
+intro: '内部ドキュメントを作成し、これを {% data variables.product.prodname_GH_advanced_security %} のコンシューマーに伝えます。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,24 +9,29 @@ topics:
   - Advanced Security
 shortTitle: 4. Create internal documentation
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: e9852eacc95b98eca5358aafb9a9b13811888f15
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145385'
 ---
-
 {% note %}
 
-この記事は、{% data variables.product.prodname_GH_advanced_security %}の大規模な採用に関するシリーズの一部です。 For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+この記事は、{% data variables.product.prodname_GH_advanced_security %} の大規模な導入に関するシリーズの一部です。 このシリーズの前の記事については、「[フェーズ 3: パイロット プログラム](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)」を参照してください。
 
 {% endnote %}
 
-Before enabling {% data variables.product.prodname_GH_advanced_security %}, you should create internal documentation that defines processes for teams to follow. Everyone needs to know what to do when they receive a security alert, even if the process simply asks the team to apply their best judgment. Documentation will also prevent developers from getting blocked when they have questions. You should put the documentation about GHAS with existing developer-focused documentation, such as your developer portal or custom knowledge base.
+{% data variables.product.prodname_GH_advanced_security %} を有効にする前に、チームが従うプロセスを定義する内部ドキュメントを作成する必要があります。 プロセスが、単にチームに最善の判断を適用するように求める場合でも、セキュリティ アラートを受け取ったときに何をすべきかを全員が知る必要があります。 また、ドキュメントを使用すると、開発者が質問がある場合にブロックされるのを防ぐことができます。 GHAS に関するドキュメントは、開発者ポータルやカスタム ナレッジ ベースなど、開発者向けの既存のドキュメントと共に配置する必要があります。
 
-If you ran pilot programs, use the experiences and feedback from the teams involved in those pilots to influence your documentation. This is especially useful if you encountered issues that are specific to your company, that other teams will also likely encounter.
+パイロット プログラムを実行した場合は、それらのパイロットに関係するチームのエクスペリエンスとフィードバックを使用して、ドキュメントに反映させます。 これは、企業に固有の問題が発生し、他のチームにも発生する可能性が高い場合に特に便利です。
 
-If you skip creating internal documentation, your rollout won’t go at your intended pace. Creating internal documentation may slow the initial rollout by a week or two, but that time will be made up when developers can answer their own questions instead of coming to your team.
+内部ドキュメントの作成をスキップしても、ロールアウトは意図したペースでは進みません。 内部ドキュメントを作成すると、最初のロールアウトが 1、2 週間遅くなることがありますが、開発者があなたのチームに来ずに、自身で質問に答えることができるときにその時間が埋め合わせられます。
 
-Education is probably the most crucial part of the rollout as it teaches developers what to do in different situations. You should ensure developers are empowered to maintain the security of their repository and that the security team are authorized to verify both what developers are doing and that it's in the best interest of security. In additional to internal documentation, education can take the form of online sessions, Q&As, etc.
+教育は、さまざまな状況で何をすべきかを開発者に教えるので、おそらくロールアウトの最も重要な部分です。 開発者がリポジトリのセキュリティを維持する権限を与えられていることと、セキュリティ チームが開発者の行っていることと、セキュリティの最善の利益の両方を検証する権限を持っていることを確認する必要があります。 内部ドキュメントに加えて、教育はオンライン セッションや Q&A などの形式を取ることができます。
 
 {% note %}
 
-For the next article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+このシリーズの次の記事については、「[フェーズ 5: コード スキャンのロールアウトとスケーリング](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)」をご覧ください。
 
 {% endnote %}

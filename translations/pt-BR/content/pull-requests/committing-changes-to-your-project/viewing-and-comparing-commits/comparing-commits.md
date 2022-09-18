@@ -11,31 +11,36 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 2ebf1a3cc83463e97d9a4d60401277bb844135b1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127156'
 ---
+Para comparar diferentes versões do repositório, acrescente `/compare` ao caminho do repositório.
 
-Para comparar diferentes versões do repositório, adicione `/compare` ao caminho do seu repositório.
+Demonstraremos o poder da exibição Comparar dando uma olhada na página de comparação de [um fork do repositório Linguist](https://github.com/octocat/linguist), localizado em [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master).
 
-Demonstraremos o poder da comparação observando a página de comparação de [uma bifurcação do repo Linguist](https://github.com/octocat/linguist), que está em [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master).
+A exibição Comparar de cada repositório contém dois menus suspensos: `base` e `compare`.
 
-Cada exibição de comparação do repositório contém dois menus suspenso: `base` e `compare`.
-
-`base` deve ser considerado o ponto de partida da sua comparação e `compare` é o ponto final. Durante uma comparação, você sempre pode alterar seus pontos `base` e `compare` clicando em **Editar**.
+`base` deve ser considerado o ponto de partida da comparação, e `compare` é o ponto de extremidade. Durante uma comparação, você sempre pode alterar os pontos `base` e `compare` clicando em **Editar**.
 
 ## Comparar branches
 
-O uso mais comum de Compare é comparar os branches, como quando você está iniciando um novo pull request. Você sempre será direcionado à visualização de comparação do branch ao iniciar [um novo pull request](/articles/creating-a-pull-request).
+O uso mais comum de Compare é comparar os branches, como quando você está iniciando um novo pull request. Você sempre será levado para a exibição de comparação de branch ao iniciar [uma nova solicitação de pull](/articles/creating-a-pull-request).
 
-Para comparar branches, é possível selecionar o nome de um branch no menu suspenso `compare` na parte superior da página.
+Para comparar os branches, selecione o nome de um branch no menu suspenso `compare` na parte superior da página.
 
-Veja a seguir um exemplo de uma [comparação entre dois branches](https://github.com/octocat/linguist/compare/master...octocat:an-example-comparison-for-docs).
+Veja um exemplo de uma [comparação entre dois branches](https://github.com/octocat/linguist/compare/master...octocat:an-example-comparison-for-docs).
 
 ## Comparar tags
 
-A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. Para obter mais informações, consulte "[Comparando versões](/github/administering-a-repository/comparing-releases).
+A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. Para obter mais informações, confira "[Como comparar versões](/github/administering-a-repository/comparing-releases)".
 
-Para comparar tags, você pode selecionar um nome de tag no menu suspenso `Comparar` na parte superior da página.
+Para comparar marcações, selecione o nome de uma ramificação no menu suspenso `compare` na parte superior da página.
 
-Veja a seguir o exemplo de uma [comparação entre duas tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
+Veja um exemplo de uma [comparação entre duas tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 
 ## Comparar commits
 
@@ -45,24 +50,24 @@ Para comparar rapidamente dois commits ou IDs de objeto do Git (OIDs, Object IDs
 
 {% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-Para saber mais sobre outras opções de comparação, consulte "[Comparações de diff de três pontos e dois pontos](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)".
+Para saber mais sobre outras opções de comparação, confira "[Comparações de três pontos e de dois pontos](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)".
 
 ## Comparação entre bifurcações
 
 Você pode comparar seu repositório base e qualquer repositório bifurcado. Essa é a exibição que é apresentada quando um usuário executa uma pull request em um projeto.
 
-Para comparar branches em repositórios diferentes, anteceda os nomes do branch com nomes de usuários. Por exemplo, ao especificar o `octocat:main` para `base` e `octo-org:main` para `compare`você pode comparar o branch `principal` dos repositórios respectivamente que pertencem a `octocat` e `octo-org`.
+Para comparar branches em repositórios diferentes, anteceda os nomes do branch com nomes de usuários. Por exemplo, especificando `octocat:main` para `base` e `octo-org:main` para `compare`, você pode comparar o branch `main` dos repositórios pertencentes a `octocat` e a `octo-org`, respectivamente.
 
-Veja a seguir o exemplo de uma [comparação entre dois repositórios](https://github.com/github/linguist/compare/master...octocat:master).
+Veja um exemplo de uma [comparação entre dois repositórios](https://github.com/github/linguist/compare/master...octocat:master).
 
 ## Comparações entre commits
 
 Como atalho, o Git usa a notação `^` para indicar "um commit antes".
 
-Você pode usar essa notação para comparar um único commit ou branch com seus antecessores imediatos. Por exemplo, `96d29b7^^^^^` indica cinco commits anteriores a `96d29b7`, pois há cinco marcas `^`. Digitar `96d29b7^^^^^` no branch `base` e `96d29b7` no branch `compare` compara os cinco commits feitos antes de `96d29b7` com o commit `96d29b7`.
+Você pode usar essa notação para comparar um único commit ou branch com seus antecessores imediatos. Por exemplo, `96d29b7^^^^^` indica cinco commits antes de `96d29b7`, porque há cinco tags `^`. Se você digitar `96d29b7^^^^^` no branch `base` e `96d29b7` no branch `compare`, será realizada a comparação dos cinco commits feitos antes de `96d29b7` com o commit `96d29b7`.
 
-Veja a seguir o exemplo de uma [comparação usando a notação `^`](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7).
+Veja um exemplo de uma [comparação usando a notação `^`](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7).
 
-## Leia mais
+## Leitura adicional
 
-- "[Alterar o branch base de uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
+- "[Como alterar o branch base de uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"

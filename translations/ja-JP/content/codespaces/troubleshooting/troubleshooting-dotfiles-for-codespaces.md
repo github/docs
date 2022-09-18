@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting dotfiles for Codespaces
-intro: Troubleshooting steps for common dotfiles issues.
+title: Codespaces のドットファイルのトラブルシューティング
+intro: 一般的なドットファイル issue のトラブルシューティング手順。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,18 +9,22 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Dotfiles
+ms.openlocfilehash: 64b4873a36cbdc88b5df3129c2e73e016159032e
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147382237'
 ---
+Codespace によるドットファイルからの構成設定の取得が失敗した場合は、次のデバッグ手順を実行する必要があります。
 
-If your codespace fails to pick up configuration settings from dotfiles, you should work through the following debugging steps.
+1. ドットファイルを有効にするには、個人の [[Codespaces settings]\(Codespaces 設定\)](https://github.com/settings/codespaces) で **[Automatically install dotfiles]\(ドットファイルを自動的にインストールする\)** をオンにします。
 
-1. ドットファイルリポジトリがパブリックであることを確認します。 codespace で使用するシークレットまたは機密データがある場合は、プライベートドットファイルの代わりに[Codespace シークレット](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)を使用します。
-2. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal Codespaces settings](https://github.com/settings/codespaces).
+   ![[Automatically install dotfiles]\(ドットファイルを自動的にインストールする\) オプション](/assets/images/help/codespaces/automatically-install-dotfiles.png)
 
-   ![The 'Automatically install dotfiles' option](/assets/images/help/codespaces/automatically-install-dotfiles.png)
+1. ドットファイルが複製されているかどうかを確認するには、`/workspaces/.codespaces/.persistedshare/dotfiles` をチェックしてください。
+   - ドットファイルが複製されている場合は、インストール スクリプトを手動で再実行して、それが実行可能であることを確認してください。
+   - ドットファイルが複製されていない場合は、複製で問題が発生していたかどうかを確認するために、`/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` をチェックしてください。
+1. 考えられる問題について、`/workspaces/.codespaces/.persistedshare/creation.log` をチェックしてください。 詳細については、「[作成ログ](/codespaces/troubleshooting/codespaces-logs#creation-logs)」を参照してください。
 
-3. `/workspaces/.codespaces/.persistedshare/dotfiles` をチェックして、ドットファイルがクローンされたかどうかを確認します。
-   - If your dotfiles were cloned, try manually re-running your install script to verify that it is executable.
-   - If your dotfiles were not cloned, check `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` to see if there was a problem cloning them.
-4. 考えられる Issue については、`/workspaces/.codespaces/.persistedshare/creation.log` を確認します。 For more information, see [Creation logs](/codespaces/troubleshooting/codespaces-logs#creation-logs).
-
-If the configuration from your dotfiles is correctly picked up, but part of the configuration is incompatible with codespaces, use the `$CODESPACES` environment variable to add conditional logic for codespace-specific configuration settings.
+ドットファイルの構成が正常に取得されたものの、構成の一部に codespace との互換性がない場合は、`$CODESPACES` 環境変数を使用して、codespace 固有の構成設定の条件付きロジックを追加します。
