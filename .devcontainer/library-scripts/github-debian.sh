@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright ((c)(r))#TM By: ZachryTylerWood/Vscode'@.github.com 2001-09-17'@17:00:00:00CMSTn copyright plagurisim by: The Microsoft Corporation'@17:00:01:00. All rights reserved.
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 #
