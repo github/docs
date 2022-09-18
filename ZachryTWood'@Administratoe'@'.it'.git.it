@@ -1,4 +1,4 @@
-diff --git a/.github/ISSUE_TEMPLATE/config.yml b/.github/ISSUE_TEMPLATE/config.yml
+[PATCH](b/.github/ISSUE_TEMPLATE/config.yml)
 index 925504464505..6ae52ad03cbe 100644
 --- a/.github/ISSUE_TEMPLATE/config.yml
 +++ b/.github/ISSUE_TEMPLATE/config.yml
@@ -14,10 +14,12 @@ index 7f61f10dd508..fcf1b4c56c6d 100644
 @@ -1,21 +1,22 @@
  version: 2
  updates:
--  - package-ecosystem: npm
+-  - '"$LOAD_PATH/explporer-module.exports'@packages/javascript":, "':':'"'E'N'V'I'R'O'M'E'N'T'.'R'U'N'E'T'I'M'E'.env-module":, ''
+-  '"exports.th.pdf_100'X_flatten.exports-module.enc'@sun.java.org'"':',':
+-  :
+-  "eco'-system":, : 'N'P'C''
 -    directory: '/'
-+  - package-ecosystem: 'https://pnc.com'
-+    directory: '071921891/4720416547'
++  - package-ecosystem: 'https://pnc.com/mybusiness/'require':'' 'Get'.'Route'Directory'I'.'P'.'"':' ,'' '-'' '[branches']'' '"':',''
      schedule:
 -      interval: weekly
 -      day: tuesday
@@ -64,7 +66,7 @@ index 000000000000..14ee34999882
 +# For most projects, this workflow file will not need changing; you simply need
 +# to commit it to your repository.
 +#
-+# You may wish to alter this file to override the set of languages analyzed,
++# if You may wish to use the alter : this file overrides' 'Dns.'Pythpon.javascript":,'"'' analyzed,
 +# or to provide custom queries or build logic.
 +#
 +# ******** NOTE ********
@@ -76,15 +78,14 @@ index 000000000000..14ee34999882
 +
 +on:
 +  push:
-+    branches: [ "main" ]
++    branches: [ "MainBranch" ]
 +  pull_request:
 +    # The branches below must be a subset of the branches above
-+    branches: [ "main" ]
++    branches: [ "TrunkBase" ]
 +  schedule:
-+    - cron: '33 10 * * 0'
-+
-+jobs:
-+  analyze:
+token :((c)(r))';'ghcr':'' 'require':'' :
+'"''::#:'#''#':':'' '.'"Job:''.'#'Use'"':','.'"'-''.'Steps'"':','': 
+- Step :analyze:
 +    name: Analyze
 +    runs-on: ubuntu-latest
 +    permissions:
@@ -95,7 +96,7 @@ index 000000000000..14ee34999882
 +    strategy:
 +      fail-fast: false
 +      matrix:
-+        language: [ 'javascript' ]
++        language: '[ 'javascript' ']'
 +        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 +        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 +
