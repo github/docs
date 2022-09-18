@@ -7,6 +7,892 @@ MIME-Version: 1.0
 Content-Type: multipart/related;
 	type="text/html";
 	boundary="----MultipartBoundary--nvyCrBZ35rOovtzu06pcMzyoPcgzCDvHeDo0xRcVaN----"
+  BEGIN:VCALENDAR
+PRODID:Calendar
+VERSION:2.0
+BEGIN:VEVENT
+UID:0@default
+CLASS:PUBLIC
+DTSTAMP;VALUE=DATE-TIME:2022-09-17T02:13:38.353Z
+DTSTART:20220919T153000Z
+DTEND:20220919T160000Z
+LOCATION:
+SUMMARY;LANGUAGE=en-us:Chair Gensler: Clinton Global Initiative September 2022 Meeting
+X-ALT-DESC;FMTTYPE=text/html:<base href=https://www.sec.gov/><p>SEC Chair Gary Gensler will speak virtually about enhancement and standardization of climate-related disclosures at the Clinton Global Initiative's September 2022 Meeting.</p>\n\n<p>See <a href="https://www.clintonfoundation.org/events/clinton-global-initiative/september-2022-annual-meeting/" class="docs-creator">agenda and registration details</a>.</p>\n\n\n<p>Contact: Note: Press interested in attending the event may email press@clintonfoundation.org.\n</p>
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+https://www.sec.gov./litigation/fairfundlist.htm#morganstanleysb\civil ship husband second cliff setup embark object inherit metal pen copy
+
+ZACHRY WOOD <zachryiixixiiwood@gmail.com>	Mon, Sep 12, 2022 at 3:40 PM
+To: chasebank2040@gmail.com
+Zachry Tyler Wood
+
+Parent : US Treasury
+
+Issuer : J.P.Morgan
+
+Accounts Recieviable : JPMorgan Trust I Series: S000002965 Accession :0001718745-20-107 - Accession Number 0001718745-20-0386											63-3441725 WOOD State ID: 633441725
+Employee Number: 3
+Description
+
+Amount
+
+Payment Amount
+(Total)
+
+$9,246,754,678,763.00
+
+1. Social Security
+(Employee +
+Employer)
+
+$26,661.80
+
+2. Medicare
+(Employee +
+Employer)
+
+$861,193,422,444.20
+
+3. Federal Income Tax $8,385,561,229,657.00
+
+FEIN:
+88-1656496
+
+state ID: 633441725 State:
+
+Amount
+
+$22,662,983,361,013.70 Report Range:
+Name: ZACHRY T. WOOD
+
+SSN: 13
+
+$0.00 Payment Summary
+$22,662,983,361,013.70 Salary
+$0.00 $3,361,013.70
+$8,385,561,229,657.00 Bonus
+$13,330.90 $0.00
+$532,580,113,435.53 Total
+$0.00 $22,662,983,361,013.70
+$0.00 Deduction Summary
+Amount Health Insurance
+$13,330.90 $0.00
+$328,613,309,008.67 Tax Summary
+$441.70 Federal Tax
+$840.00 $8,385,561,229,657@3,33
+
+0.90
+
+$0.00 Advanced EIC Payment
+$0.00
+
+As of July 28, 2022													
+													
+
+	As filed with the Securities and Exchange Commission on November 22, 2013												
+
+													
+
+Thursday, Jul 28, 2022 08:50:08 AM GMT-7													
+
+													
+
+	Investment Company Act File No. 811-22915												
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	UNITED STATES												
+
+													
+
+	SECURITIES AND EXCHANGE COMMISSION												
+
+													
+
+	Washington, D.C. 20549												
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	FORM N-1A												
+
+													
+
+	REGISTRATION STATEMENT												
+
+													
+
+	UNDER												
+
+													
+
+	THE SECURITIES ACT OF 1933 	   	x										
+
+	Pre-Effective Amendment No.          	   	¨										
+
+	Post-Effective Amendment No.          	   	¨										
+
+													
+
+	and/or												
+
+													
+
+	REGISTRATION STATEMENT												
+
+													
+
+	UNDER												
+
+													
+
+	THE INVESTMENT COMPANY ACT OF 1940 	   	x										
+
+	Amendment No.          	   											
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	JPMorgan Trust III												
+
+													
+
+	(Exact Name of Registrant as Specified in Charter)												
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	270 Park Avenue												
+
+													
+
+	New York, New York 10017												
+
+													
+
+	(Address of Principal Executive Offices) (Zip Code)												
+
+													
+
+	Registrant’s Telephone Number, including Area Code: (800) 480-4111												
+
+													
+
+	Frank J. Nasta, Esq.												
+
+													
+
+	J.P. Morgan Investment Management Inc.												
+
+													
+
+	270 Park Avenue												
+
+													
+
+	New York, New York 10017												
+
+													
+
+	WOOD  ZACHRY												
+
+	5323 BRADFORD DR												
+
+	DALLAS TX 75235-8313												
+
+													
+
+	 												
+
+													
+
+	With copies to:												
+
+													
+
+	 												
+
+													
+
+													
+
+	John T. Fitzgerald, Esq.												
+
+													
+
+	JPMorgan Chase & Co.												
+
+													
+
+	270 Park Avenue												
+
+													
+
+	New York, New York 10017												
+
+		  											
+
+													
+
+	Jon S. Rand, Esq.												
+
+													
+
+	Dechert LLP												
+
+													
+
+	1095 Avenue of the Americas												
+
+													
+
+	New York, NY 10036												
+
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+	Approximate Date of Proposed Public Offering: As soon as practicable after the effective date of this registration statement.												
+
+													
+
+	Pursuant to the provisions of Rule 24f-2 under the Investment Company Act of 1940, Registrant declares that an indefinite number of its shares of common stock are being registered under the Securities Act of 1933 by this registration statement.												
+
+													
+
+	The Registrant hereby amends this registration statement on such date or dates as may be necessary to delay its effective date until the Registrant shall file a further amendment which specifically states that this registration statement shall thereafter become effective in accordance with Section 8(a) of the Securities Act of 1933, or until the registration statement shall become effective on such date as the Securities and Exchange Commission, acting pursuant to Section 8(a), may determine.												
+
+																					
+
+Reciepient:
+
+Benificiary's Social Security Number (SSN): :xxx-xx-1725
+
+ZACH T WOO
+
+5323 B
+
+
+
+Intermidiate
+
+Payer :
+
+ Payer''s Federal Identification Number (FIN) : :xxxxx6496
+
+ THE
+
+101 EA 
+
+
+
+Origin
+
+Employee :
+
+ Employee's Employer dentification Number (EIN) : 61767919
+
+ LAWR E PAGE		
+
+ 1600 A	
+
+
+
+									
+
+Gross	
+
+Member FDIC								
+
+1		Earnings Statement
+ALPHABET								Period Beginning:
+1600 AMPITHEATRE PARKWAY			DR					Period Ending:
+MOUNTAIN VIEW, C.A., 94043								Pay Date:
+Taxable Marital Status:
+Exemptions/Allowances			Married					ZACHRY T.
+5323
+Federal:								
+DALLAS
+TX:		NO State Incorne Tax						
+rate	units					year to date	Other Benefits and
+112.2	674678000					75698871600	Information
+Pto Balance
+Total Work Hrs
+Gross Pay	75698871600							Important Notes
+COMPANY PH Y: 650-253-0000
+Statutory								BASIS OF PAY: BASIC/DILUTED EPS
+Federal Income Tax								
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="gif" ContentType="image/gif" /><Default Extension="jpg" ContentType="image/jpeg" /><Default Extension="png" ContentType="image/png" /><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml" /><Default Extension="xml" ContentType="application/xml" /><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml" /><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" /><Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" /><Override PartName="/xl/worksheets/sheet3.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" /><Override PartName="/xl/worksheets/sheet4.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" /><Override PartName="/xl/theme/theme1.xml" ContentType="application/vnd.openxmlformats-officedocument.theme+xml" /><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml" /><Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml" /><Override PartName="/xl/tables/table1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml" /><Override PartName="/xl/drawings/drawing1.xml" ContentType="application/vnd.openxmlformats-officedocument.drawing+xml" /><Override PartName="/xl/calcChain.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.calcChain+xml" /><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml" /><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml" />%PDF-1.7
+%����
+1 0 obj
+<</Pages 2 0 R /Type/Catalog>>
+endobj
+2 0 obj
+<</Count 1/Kids[ 4 0 R ]/Type/Pages>>
+endobj
+3 0 obj
+<</CreationDate(D:20220818102540)/Creator(PDFium)/Producer(PDFium)>>
+endobj
+4 0 obj
+<</Contents 5 0 R /MediaBox[ 0 0 612 792]/Parent 2 0 R /Resources<</ColorSpace<</DefaultRGB 6 0 R >>/Font<</F-0 8 0 R /Helv 13 0 R >>/ProcSet[/PDF/Text]/XObject<</DL1993 14 0 R >>>>/Type/Page>>
+endobj
+5 0 obj
+<</Filter/FlateDecode/Length 1366>>stream
+x��Yˎ#'��W���P��h�v�Ne�LKYDY��Xt'�,ҿ�܂2�����ZL
+��>9԰0����j� ���}~e�g�p�	f�dϿ�y��,����/�!�Ħ�
+�46��~d;i-��:&:l�#�=�'llGZt�񰙩�ҋ  I��G�0T
+7D
+
+(�im\?����8���Ep����4���;�Z��"Hv�JI0j#�`e�K#�z�&�8���-�b�2�Ki�i����q�Փ�0�q�Gj���5��M�~�>r�<L\����;���b�?�񥞸�)��_���;>`?~�$G������������R�����rGĿ/�$�C�CRa��1���N)��3�v�T��4&a�)4��l���H\x ��p#�TA�MM�:%K��dM���x�
+kj/���	>TN�xP/�	�b
+���X�X��R��t�)P�:����cq��Q�GJU1+B�Z�b�Gxj|a�7z�ӷS���,6;��A��f���%�"bKPp�u�a�Aʶ
+�#7��[��D�tX�Zx>��=�`��%�;n:4��$>��D����rX��� *q���)QB���D�Y+N-��&�]��H��վ�����}(��Ԣ���+���w��,�p,�Y�c?�G
+�rȚ��U�4�� s�SE�:��1-i\��S��d��Z٩��Y�c��so���ԚN�4){��wQ�u�F�'� ��Z���K1�4���R��w�
+6 3�VUǗ�ȣ����V!ץ�$fgK5N�J��4PX�MU�]�4�a���WO%"b��|,����Ρoy�r���$�
+�d��
+QC/y@qm�q���O������*
+b��NMwJ/h���}
+��C%��6��h��ځ�q	Y鴱��
+�t?YFW|޴�CwzSLF�w[l����@�����̕�[���k��%���Ȁ��x��b��&������F1>MF�
+��{���x;���7UIi����
+��Z�!��� 4�A�L�}���F������=��f���g�O��y\�d*x	��B0�}'���h��h���|�5�|�.s�wh������.i�B4�
+DU��uic��O�Y��w���� �т������R�e����+�-�:S��[п#(({�T�{,�D��s�aJ�����I���ؙ�z&���n������T�S���le�5�
+�ڜ�
+M��̆6�����A�\/z�\�?�����E,���X�LPq����c
+��3����GW��^!H�]�R�I����6�Ua���;�Cg��0uf���e�Z�Χ�CV����oՆy
+endstream
+endobj
+6 0 obj
+[/ICCBased 7 0 R ]
+endobj
+7 0 obj
+<</Filter/FlateDecode/Length 2591/N 3>>stream
+x���gTT��Ͻwz��0tz�m�I��2�0��ņ�
+Di� AFC�X�BPT�� ��`QQy3�V���{/��ý�����]�Z�O��K���C����1�t� �`�9LVVf`�W8��ӝ�%r���#�o�����I����ؒ��b��@�i9�L�}V�ԄT1�(1�E����>��'���"fv:�-b�3��l1��x[��#b$@ą�\N��o�X+M���ql:���$�8�d����u�p��/8�pV�I�gd��I��K�nngǠ�pr�8�q0�������L^.�s�$qm�"ۘ���[��Q����%��gz�gm�w۟�e4���f�ﶄ*�� �w��$E}��E>4�$����999&\�D\���������x���C��$2�i��n���!����dq������0
+�$r��("R4e\^���<6W���ѹ�����}�k�(�u�	��F��E!$n�h��o�H �yQj��������.?��I���C��,!?���Z4 I@
+@h=`,�-p.��� b�
+�� �A��@!(;�P
+�@#hm��'�9p\��0�F�xf�k�A"CHR��!C�b@N�'�B1P<�� !�m���2�����o��9�24݅Ơi�W���$�
+��:�)̀]a8^'���5p����#p'|�
+ã�3x�!�1�@ܑ $ID��z��@�6��Gn"����AQPt�1�僊@�P�P�Q%�j�aT'�u5��E}D���hC�=��NB���&t�z=�~��`h]�-��I��Ŕ`�a�1g1C�q��U�b�AX&V�-�Va�`�`o`'�opD��煋��p��
+\�4�n����k���Ax6>_�o����'�i�.��NH!l"T�/�D�юB�7+�G���cķ$�ɝG�v��Β�^��d�9�, � 7�ϓ��HP$L$|%�$j$:%nH<��KjK�J��\#Y!y\��^JG�]�)�^�F��m�9i���t�t�t�t��e�)�����[�@��y�q
+BѤ�SX�͔F��Cե�RS���o���YYY+�H�ղ5��dGiM��KK��Ҏ�Fh��T�\�8r����n���+ɻ�s������)�<Rv)t)<TD)(�(�(�W��8�DUrPb))S��+(�*�U>�<�<���⭒�R�r^eF��ꢚ�Z�zZuZ����U+W;���.Kw���+�}�Yueuu�z�������F�F�F��CM�&C3Q�\�WsVKM+P+O�U�6^�����W�_{^GW'Jg�N�Δ������V�zd=g�Uz
+z��1��T�}��
+`k�d��k����!�p����Έg�`tۘd�j�m�j<fB3	0�7�2yn�ek�˴�����Y�Y��}ss?�|��_-,X5�,ɖ^�,�-_XZq��[ݱ�XZo���`ck÷i���ղ�����͠2�%�Kvh;7�
+v'���������`����0�Dw	gI�qG
+G�c���)��Ө��3ӹ�����ۥ�e�U�5����s737�[�ۼ���:�����G�Ǡ��g�g��#/
+�$�V�Yok��g}�>�>�|n����|�}g�l������������z�@��݁�j/�-�
+A�A����
+�>R�$�<4/�?��2�%�u�[xi���aDo�dd\ds�|�GTY�h�i���1�1ܘ�XlldlS��2�e{�M�Y�ƍ,�]�z���+�V�Z)����x<:>*�%�=3����K�M�M�e������]���i�#��3��X�8�䘴;i:�9�"y��έ�H�I�K�O
+J=����֞�K�O?�����2T3Vgeff���_�g�,ߟߔe-��PE?SB=��X�SvM���Ȝ㫥W�V��nϝ\��뵨����y�y���ֹ��_�OX߻AsC�����o"lJ��C�Y~Y���Q�{
+T
+6�o���Z(Q�/���ak�6�6���۫�,b])6+�(~_�*���W�_-�H�1XjS�'f'o��.�]�ˤ�֔����YN//*�g��Vu{	{�{G+*����vV��N��q�i�U��^;�����~��mu*u�u�pܩ���l�i�8�9�}�Icdc�׌������>�=z��ٶ��E���n�N�;r��o�ی���i��G�Q�ѧ��;r��X�q��﴿���tuB����]�]��1�C'�N��8�t|o�����'kNɞ*=M8]pz�̚3sg3�ΜK:7޻�������B�/�_�t����~��3�/��l��ƕ��6W;�:~���c�f������v�{�����|��M��o�޺:�txh$b����ۣw�w���}q/�������J=�x����G��GmFO�y�
+<{|�5�짬��O<!?��T�l���:9�5}�鲧�2�-��,�s�s��������l������_K^*�<���U�\�ܣ����(�9����]ԻɅ������?�|���`1}q�_����
+endstream
+endobj
+8 0 obj
+<</BaseFont/SUBSET+ArialUnicodeMS/DescendantFonts[ 9 0 R ]/Encoding/Identity-H/Name/F-0/Subtype/Type0/ToUnicode 12 0 R /Type/Font>>
+endobj
+9 0 obj
+<</BaseFont/SUBSET+ArialUnicodeMS/CIDSystemInfo<</Ordering(UCS)/Registry(Adobe)/Supplement 0>>/CIDToGIDMap/Identity/DW 500/FontDescriptor 10 0 R /Name/F-0/Subtype/CIDFontType2/Type/Font/W[ 0[ 0 722 556 833 556 556 556 500 722 556 556 222 500 277 333 722 277 277 277 666 556 556 556 556 556 556 556 277 556 777 277 500 666 610 556 610 222 943 277 666 722 610 556 666 666 333 722 666 666 1015 722 500 500 666 833 556 556 500 777 556 556]]>>
+endobj
+10 0 obj
+<</Ascent 1068/CapHeight 715/Descent -270/Flags 32/FontBBox[ -1011 -329 2260 1078]/FontFile2 11 0 R /FontName/SUBSET+ArialUnicodeMS/ItalicAngle 0/MissingWidth 1000/StemV 0/Type/FontDescriptor>>
+endobj
+11 0 obj
+<</Filter/FlateDecode/Length 20804/Length1 30292>>stream
+x���	xTE�?Z�9}z��t��4!�	$i��DA�Le@P@@�aq!죈l�bӍ@�A�Aqg�e\�eFfG�OH���t�9~���{���[o�:ujy��NG	%��HW�I�]��΂k2�6��9���%$DH�C�(��5c�}��O�Gh3j4?.��:@��L
+4<��H�N�gL�ØI�|K&��{���{�,��J���hi��O����k�{ꌮ3�X�/��`����ZK�OįU;o�*��G��������Үǥ}�������;�~�k��J�_�\-:�GH�4���<K��W1!A�ۈ�`@_z�,D[��{��ǽ
+���e�f��n��%�+��B���h"�u+�,�ܖ��"yh_�Y̡<B|���[������5��
+��ܽ�ܨxB�C��Z��~�{Y��_��b�q���U*\M'�|r�	#VRHn"�VtD&4��i_Jt�e)A�t�Dic��D[hc�&�.��ݞ��?@1s��_;s��93y��f���|＋�{���{��&�?���aB턉�� ��s��/�=���0�7T�Y�.�V@�9�@�U�D�t�ݱ��d0���G����M�hq����PԏCq�Xc��9
+�5������3��ih���⾯�/x/��n�\��0Y"][4���)����Rn��$�1�ڤ	
+Ippg@XSBk:�U�W�GO"��x����l��m��	��M�FS���Y8ڢ�Ǎ��>�_�+�{��-w��E{�ƃy�����C+u��d!��ꝀƓ��5�<��@
+۝�0:� W:;�810�\���q������Ƭ�h��45al+�i��#&�Gñ`.&����"�v
+��D�Rt�w����4�5��ɧ0C�E>�p�#��Oa��-��E��g�j�哩^'㝻F*�����C-���,:�c:�|�~���	�;�?O��S��*�忓�� JjL����|��O�O�� م�'��g�_��!&�����_�w����J����`�������#���'I`@C���+#���kH���)o#?$�U^�p� 6��xi��cr�X��1�W��4n����x`Y��@��e	�S��2auF��W�v���b���+@���y�0��Z�����<a�AP
+r<$Jy��D%�&u�iI�4Qq W̱4�9ĤK��*3����R^+����=,?"?
+��h�"o�����7�OS�A��D~8"W���Oj����1&����g��y,���,Ȥ�\O���&cPoȠo]�����+�Ä���))�(*k�t���,H�6n���V�1��
+����}��
+ �w|"�'F����R�-�����ŃBJGƳڣu�<�z[��fF*��	�Db�'ɓ�����<��$p^�-�bdʩ�Z�&�G�@N�@N&�;�',������,7`���/�5V���7�����r?�?����a����	����M����C���c�a�܊z�L�m*#:y�|�|�y�|�\u�˷B�o%@�u�b�>��P���r�z�!��r9�-;&�P+�#��`]��ʊ|9/թ(��C�p��c^"r�`D^<�@���AR���"����@�n�\u����`rg��\�d�9r8"����~���r�G/w��u�r��#Y�Z֑�e��z�
+��z������P��S"#3"�~��U�O�d�]�Et�=e��G�������i0�B[�x���C9D���������,�R�ƚ4�����~ҿR����� �=�.٪.�<`�U��aY�1`����O@�����j��&�[�A�1J_J_I'!R�J_�&�JI������/���Io#:�3am�K�����̬t�h�Tv�>�>�Z�XzM���Q�Gҋ*~W�!V'���G����}ҫ*�%	����X}\z1�
+�+3��J'����w?��PGy�!\�k�^�l�W��A�+��t���K��w�q���UVi�5��Nb&D69��.�^��[%]"�>"U:����&�c�?�"�
+`m��vo�Z�6 @�@��$r�q��.���$>��$?7�̩̐� ���8x�A�uh]R���H��mǥU	�9r+]��UX�*r ����0z�
+�&�d�YR���ʐ���pl�1��tM��0��谙ed����rn���c�̑ǜ������k��+Z�$�,D�B�q��c,����J=�Ix�"&��Q�|=ų��ـ�
+�� ��GH�EZ ���D���Nd�ik�]ΤJ��}��ew��z�L,�����x�#���R.�೥;�rFWZ�Y�:�|�r��\�j�Si�`ܛ�����c�9��|�<v���|�![Ӱ�i�3
+��,MW��)�ggߗ����iz<;��o:V>]]�t���D��~@����:Sd|e��2���t�rp A��`�)����V�.2� � �i<da<j��z�k=j�<��n���w��N<_+���@�H�q� =D&��D�gAYX8�@��3kQn�r{���@����ZP�0
+S�b+��D-��J�m��mІېՀ�5X�mX�m��mH�&I��r4"�3F��F`����A� ^�!Ә
+f��9�9��B� �H��;��;�6���0��G��OʅF�Aə�B�1�XLa�
+lJc�`+pO`���,�r���,W�a/.)��"�zX8s�f7��D�R9���X�Y�/$�B~��Bm� %	�_	�?������.b�}J��ST��P�X��)�-���;�T#�|S����0�W�ya�����*�"}�Y�����O��x?���ׯ��*ޝ�n��o���}|;Ҩ
+'�="������'�d��U�_]z	�f"372�R�Oa����W�*��+q����x�3*��b��Y���+=,V�^�ßW�P ,d?��T��@(��>X�c׳�±���z�O��F+
+����P,@
+qSg������b�����q���im�Y���'�*�:l�U���/EC4���މ��Y�����V�
+������;�5�0���5q�W}�8�b��J�*aa��][Xi�(�\��Idg�0v�b�!�u�@��M驸�i��/�p�RG��C���%;�n���I���^&r�(�ǎw�����Ha��v&s��	���8JmO�m�.�>y<�y�LR��Z׺��`�D�w=_w~�y�|����N������
+I��W��a�P�g"	����z(��Llp6Ht%,���J$�6e;��^��0v#���n�TvT	F�c%��J��;�i_�cA�1sw��3u'2���#.;����JŬ(�.��0�A��r `*`. ���t�$�Fe00Im9Ǻ���(�v8���i^�N�rt�l�&�3,2Ȳ��,�ʘ���<��x�$`=����<Oү�_�/���'��/p�<ݎ���t�*(��U	��	�UH�nUZ�=!
+�r�G~hfa�%���#�6J�Oӧ7���
+t�Sr�)Q]O���֍u'm�*KX���r�����;�ƿ�3*N���[�KD~���	��<��e��*/M�iܝ�`K�2�g�,���g�#8�M5v`�nMcK���m0�2����Z^`�U��ΞW��g�T��h6��I�l[s�Jk$V@�hXSb�&�Q��0b�7���:��d��8�r��
+x ���iar��|�����b7���i|]�ԝ^����E��Z��R)�B[����π����#�ϖÕz��I
+Ӈ�\/�M��k��&�Q��k�SXT�r4.��B�H�
+B�h�M���@ˑ��BY��
+�_o,�f�xVn$U�;�JY�W�Z)�P)I�=�^h��-��XM���'����f~<;�.?ꅰ�z�������w�y|��L,=6��5)<h����V^Y�L/�D�,�QY�LÏ6��u��ptmVN$��Z������G|�]
+#��.]QrQ`/7,�7���l��T&�LY�שk��|��������i��/���~H�ȿ����L<�<��J#nlfO��&`q�1�����
+i�>��L��=%#>/�D*�y浪_7`����b-�i�%�;Q�qG�I�fw�Tl��{�O��ᾔ7�%2�#���u\Q)�=4i,��%��b��'�`.#����l4yp^�i�)4$�OR�O��8�	�+�����p�˃EoW���TyP�<U�ک�#�>W�:��86F�� �ӏYP=���$�ƈ��J�މ#��|L�GAh�����w�ܗ����%��2���}U�����V�q`A�^���iM�4����S���Σ�!�,��tV<�NU�Yq�;��.��(� �.�R'���Og�y��D���B�Ļ���B�z�NB�l��NN8���N&V�:)n#O�w`P��Uſ]U�;P|�`]� ��4�:�����aĬ5i[p[�Q�.7�!"����r2Z��g����z�+{�+݊�Jy|�M�J�kS�D�nb�^q�Gm��Gz�+��/#]A(%*�t%rU�㑪t.LW�銠��$t�Ht?�c7�4$xHC�FM��^�Yd0��ɤ�O�T����o �sK�1�A�q�>`��?�������F�i�O�qq�i�O��h9*�يz��'�J#K ��g�������;?h~�`�?��.���E6^���:Ps �s�Y�j�L�M/����܀�00��
+��(�D�B�*o��\]�>>xp�R�&[�h҇���S�!�UP��9T��Xgʢy��<����9�s^��P�����+<��+�+�|�HïG�E�G������}�*�,և7*�G�[�G�sAU��9Tq�G'=P�%��<)<��0�sӰ����7Al����j�P�m��R������wwY�]�"���K���]���}�� ��1l�����B��s �b�4�ϱi���tхti��Ȣ���VvBC`.`	 ��-�Vb�C�0qB��r�t�܏A�Ԇ�Bj����ԵB���"�Sqϼ��_]|?����F�?�^4GR4�v�ҤP��9b�ڌF�٨��Ek�l�4NlG��sY4wp����s���������y~X��P�g~�e�*&��c�KN��b�$���9(�M�b��-<0$V���z���@k�-h��IZ���-�V�P����GKIl`]�##v0�+F�B7U��:X�b%C�w0���1bD�t��j�sD8+6z ���+�%Y#H�)SD1U��>S�jk����b�F�:U����3���K�������L��j�th�:m.���������ޞzqxLE��wC��WopŽ��"�K��h��y�x 	�G\��)bbES��NI�ȕD�R�h�!�]������}�S}���j���������y��i���T�>�����4n���4�q��A/���;��N��nk0v�blS�V��{H��y�^�q�ꗑ�=%⣂�����ūyT�6u�ib��_�T��t?G$|�%�=,�w)��*�`$M�eq�+rqḹN}�%*�@;A�uq�W�说��!7v�1�(�W��	�Ƌ��ԩ����?i9R�ZΥ��\ͯ��A�젺�A�p�T%�l����B�#��J� ��,�$X�zR
+OD��K��y��ջ�h�M=�٦r`["W�����&(/*;�n$%�~�:���~[�c�N�b[���!H|i��BE%�QE�}䄗D!խ$�aQ���=*^���LI��VI�0Ų��*6�I�О�B��^�yA�)*.Pb*����MMi�h�):�\�C���FiJ8e<Ȕ0��Qm�r)t���|'�Q���;���Zx�jl,�xT,Z���>���� L[$3:K�P�+��cb-J�/:5Q�(��likJ�K�HU3���-N��VH+Ą]�ƍsc�b8t��&�T�=%|��O�|54ݠv�����*a��SwK�3b��UB�"}s�ү�>D��ԋd')&���ii6��yjz�4=.R\l{���4���uӗsQ$��
+�A.��6:
+D�^hW�>U5���7�^�Ӧ\��:��+��	�:xH/��!���e�pq%�0���CbrHu�h�ޡ��v(��=��������;��I;H�kZ�=U�E�[3�cz<f�"ް���SX��c�*�^#H4:���W_�3RVZң{qQ���]:w
+w�P��>�](7�����g�����۬��h�봊F�8���Ƽ�����|��b}C}B�@���gƈ��Ņ#:�{��p�8Ɯp�$Z6"�	����1�g�!���U1)�BF������/��gb���A���ߵ��FFǬ����Z�����Zھ,C#)�@9�:�}�rĈ�[�nB�^\f1�\O�о�}b�	b#.��L���Xb�<+j�X�0F�? ��Q� ,��	�c����F�U�z���D�3)z���TۊQU����z�A�;�{�
+Dm ;��D��������ַ�'�-�	ĳ��V	u�C%�T�ǥ;� ���cj�T-����wLI-"�#�;:\�0B�����ѡѣn���Q调𼪆��́�oA��5����`]��!�עo�P��+�G7��BB�B}pO׻�)xЏ����*f���[��N���*�؀�\��)[��^v7(J��K_T�l�j\/��lSe���*s`�����KIި�/Hp�5��� ���I��4)G׍K7Jl�j\`��1�VV�i
+T��#@<�'���-�U
+��Kb���>�|a��EUb��Fc��%�ƥ����)��;�"2T�f���3"ݔ�p�xLܩ�3bD0�wt�)yMr�P`�Qɋ9���a�;ع��!�U}���c�w�է��Ө#ʿ�L�賨�?E��7�ޘ���E�Д����G�tu�c^�1�����-Z�7軨nѨ������Т.�TUP���}�b���#bֺ�L��w��L�@è�����Aۈ��o��*a��[d��2��}�]i�A�ǬeBC��a�P�;TqU���J�G�U��)MbZV���1݊A�A�>�[��v\���X�����q-�mu���w\�ĝ��\|�.6yEz�+Η��"[����W��������/e1mY�ӎ�����5�碦�r��<a�AA�E�P�x(f
+������#V,�(���Z��^��~�5F�c�-�	�jԹ�7/>�ZT��0�=�N%d��ɎS�ψ�ov�v��{�Fl}����g���D�����߮~�Ћ�!ճ�����鴼��Pn��)/���͕���"�_���
+1�?�������G���ϟ��?�h�����5�Hꈩ����m��G�o�/}�)�w�m���9DZ�N�,JL�3d�e��	a�qw=َ�ed�zo`;ٔ�����t"��V�f=s��m ����w+��ɽ�=L�Y����H-���l�ɵ��%�{x�3*����̀�m���1�g|	y��F�+fi"#I#fz��y��y�=��c�d$�K��}���9�+{�L`7���n�������I����#�y�k;C��y�d�(m�ݭ��f2@�=��ӏ�:�'n�AF��#Emo����r|㠠��|�9|=��sX��x�ss�V��#+���X2��,�M��fc���:~7
+�/��܌5�&S���d
+�DU��]���h]��Nr�d+��ھ�<�ry�^O�w!��[Z/�/kEf��P{��!AҙD�`r;�I�@ڮ��$}�-��ӿ����%p�%H��j�����|F�w���<�A���
+سt�1��!��f2���������{�ͱk��틶��Ď�[��	�U��uX�2򸺗��^v�{����O�S3�hP��o����(O#���?,���Zq{�P#�/�m�������$�A
+!7=�~�{��{��w�I��&N��34B����i�VrF�(�$��H2�z�vZ�^�Ś�B�It�T:��iJc�H9(4� ���i�L>@�J��;rx<��������k-גM�ז��Q{��6#���RE~�:Zz�<���<�����>º�Ln ��n[_hD�3����|g/�n[_P�P�������Ӏ�n��=�{mkyBZ,-�	HEGr�L�4��7N�()�n�n�L���H��́�I�{���+?5���߶��h<;��c ����£��<*}�"A���"�'�+�ߐ�M ���%��g���z|3 ���֭xr4r�h8�Vx?YI�����.��눕<��6C����X_��yI��85v�vb�����q��\ۿ�����+:
+���[!�@��a��c%;a�Mt)}����~3���w:�ڊ�Z~o5�/?%mo`練m&I�ZJ1�f2�VA�ַ~@��c��������_@3B�X�xx���D���[�����,"f"�
+n����&���R�f��sד\��+����}�IoɄ��t�<���N�|�%��|=q���?o�A|
+�qiِ���7cC�>���d�[1�FP0&?!z��QB�~+ZE�1����ì+����`��H�PV
+9xK��`[��(��Lk@��������$x���K�bՄ�`kgb���u:�/)��N��%��h1��P��'�?��7��$���#�Hϻ+�20���o��K�.��4
+�E�.JZzާ�&�!S�V�.$|xI4<��	ml��sV��x밚q�q�S|jHwr��j{A�G�T[��.�ê�ډ�Zf��a�^m�0��K7��;��3���ۓ2�>���&YIGu-ՠ�H����������׉{{������o��`ܩO�m-���dh����B[�s�I�D_�ݸ���9&��VD�=���k5#Z�K�ҫ�O��8虦}��h�k��?�CX&��W�n��-ЙA��r}�����;a�g��Ej}�(�,h@�PlT���e��(��˩���X�X���O�e(��D���.*�����J��\'���c�G
+����5h��PPt�u�L�	L�
+�"�@���{������Ab��DM&�R����Ǘ��������s/�����	��qw�&Zj�g�n�4��� �������~�c�&�7Nd��X8L3��A���?<];���F����Ņ�5���ֵ��j�P�ج$X$y�.4��pQ\TR*O�&�����.:�v��v�z�����B�w��(L�9��
+�
+��_���zM�����[���Eܿ�),]M�=�n����7�gع��X��G�碊�ֻ��κ��B,3,�X8���NN��2����>>�yuw^�-l�ۚ���V��l����rE�(*�ѽ}(W�r�Y�#�O�u���	��ޚ�/6.�%����&��#�V�� �R��kN�9�Ʊ7�8&�����.rɻQ���1�֫e>hi�6�sxK����]��qli�<���h��J�Y�Ҝ�i�f(9���nd9V��i �,�8�%J�'+?��(m$�����1�<e0�	��34��ZЮ;���J��v��ja��k@
+�ǌ����W$	oEyyE���L�Hd	�	Q�^(j�![w�n�ˆZ�t��U\R\���¥��鼩zܚ��FLm޹A��i+s�yg�&�Ā�7.�ܺ��ݹ��ֿHy˟���q�8� �jV�I�G�UN(���z����d"p`�M����(Y�[�����jq	�{u:�h�G����L�HU(5Q��*6����VO}��ifV�Eok�j&F4rM��I����,prsΗ3,����h�<�e��\�֓�U��"Yh��8�2RH�*^�!`�/MIa�.!a�!�\�2!��c�x�䏯l��wn���7=9k�'������'ٚ|{A�������;o�������gP�zhJ�
+��}�����G����U�q��E�V÷6]O�������Q���h�4�5��5�(/���Q�7�S2=���\۠��cZū0=�P��;r�=��0�%S.��W���[�G��o��l�����Ͱ'�an�ͼW.�Ors܍Z����|m�sN뤽��0'#kT+c=U^M�x�)T;m+JYC@�Z��#Uj���C��5���=��TВ��]ȩ�_C���iu�y���(I�}���zh�7[G^��v׭S�|��3�Ht���H�aB}�E7�ۺ��m�>�����;�<���������ӕtqea��kk�ڽ��{P�C�}�E�"N�	�V��=�UV.;]�<'�
+*E���_Xm��R��f��h!��	Z��;� ^$�
+eKI��B-����j�!y��&-^���iZ	��3���i
+�+��E�L��������Gh}Y�[1|x��S�^��!���G<�[t�-fz�L���&3�[)��(�Uv��9����R�#f��᰹=�&��(="Q��C,���К��
+f�]gX�������|��.�Gi�D�0��~x�@*��tB�G�"~8��S���S[�g	�l��&��ZuX:��B�B�)�N��-�)/*���@h�h}M��bX1�����t`LwSu�m�x���D����&��i����.a�l�a`o،�Z��˵���IZ� ����dRC'�F1�R!a�������:���8J{�}�k��{��A]�w���|��Iy�^g��/��Z',��[����:��A� "\9&�A� �ш�N�e�o#���lf�7�2�c2�r>�E�.qq��,S��B��"~q4��-�*�
+kP�U~Qx�BKJ�!����V�X�[��+����s
+w1�qQ���Ck�U�W&H�l�J-�5�Zj�g�lĚ����E���,-����@h�2�2�G��)�%¡�V5R������)M�.adN�U��GB�Yy
+Qvj��C�E�Pa0�r�Ǐ�M���!��q�k�}}ټ�/���/�~|k����٭��{r��|��7�R�tsx֠�␓��Aw���7G'�a�?1ʧ#H�Z��H���L˼��L�<��#I20�t�D�o�ͺRP�i����
+\e.����)T�����?|�Q��O�H�|s4��e�拦�U�׫��5?�N�V'k'���9��!4E?U�h0�
+��Y#=�a�ԀK�H�����������%�C��S?Z�ې7g������{�gs��%�Ѳ;��g�@�����
+����/i��� T=���[���Y��Dǘ��X�q%��ͣJ>=��tS���YH)UXcZ����e�А�";?�1�7�e��:��e
+�b�����P���X��mvE�(��'�FC������{����^��D�(��+<��~�3��������JVPS�"핅�
+��^p)Z�ʨK��q99�)Hܾ�G���zt�y�{_��?o�z��3/����Y��o������H���S��Ξ��3�}��Y�_����KӢ��N�V�9?a�G��<��;��\�^
+}YAA�%k8�P�4F5���Z���BDc�夰�B���=BX��;��^���-r�7<n��Pt��d�����GXL���)[%�U���i�X���B(�Q;�2R��H�6�j��zmSN�3''��^Nٸ��rߒCi~e�ޥU����^��z=���ɒT3��7����و�iOs������`YPRLs��Ug,1�����0��h���)H��3曜���1�`�
+����
+lJXu�5��n�T�{�Fؚ�47UM6��<�0y��c�4��OŮN�G�-�w~��`=��w��Q�X�㴆�9c��n����_e$�g�s�᫾\�~b�{.v~��+J�ý��{�жm����׵gV^ɚ��5/]Bm?�|y
+l��h��Ug+�*͊��Қ&�d4�-n�
+��GRʈ�dk�į�4�h4^�M5����~Z���ʏ�Դ���<�Ǌm�[)��&��R�?�������CF���;0�Ms���XL�w'/n]6��V����W!7rwԬ���p��%YOM"�p��%��c@ h���+�Q��ϟSb��,�]!�@�M�4j�V�v1dy�V�aEE��
+�a��'De#U�Lث��iعQ�y�m��9�ŧ[ߓ�֋������Ȑh�J��o��s*�U��e
+#B����ϕ�&2�����z�H]OyE�p<��هU�����b[�:�ʤ��XR�-�97O�sn�4,i��<UOQ�1�&&ۉ��'#�/��\��+���x^}���ǰ��1�U�s�0��̉R*O�������C���)�s^y���
+�~��=���e���犖��ҏP��:h(�2̸���1�A���y:�S��.�J����|:��wq	V��=|%�&%��8#r��q	A�H�u�����En��Jv�1��	�����)�q+��6�7�S���]�#z�
+k��\LG�� l�G�� �3i�9���B(�a�^��ғ� L5�H����OV���t� "�1\�4;�5ig#����!5���h��Z�4��/oC�.i#���p��մ�a��KJ������N߆��#����]�z��]g�U�1n��~����30���b�f��'��Z`-uC�bco��p�����n)���Rn��"e::9��9��
+���P� Y��R=�ڨ��VE�Zv�2�B%�c��W�y�A�*tj��vr�Z��(�6��
+ج,���(���wfs��,B?;�M2t���+�߱��^�j�'�����L:��=H�+>k���2y��6�:���A?(�&����z���_2�*�Z�x��6�����C���ac!O�_�{��g���O?�tg��&�i�� �5h��b�Z�x�M�F9k�M	��ʎ�:<@�!'0��N��=U�'Ӛ�f�0K��XY'a�tFKI{dW%q��J��R�����uFm�g��,�P�j�V����i�6ڕ}�
+��_$���P��Y8�.|R�)�" �DR�%�U���`�$�SRC����S���T�/0.?�␢�����ʹ�|��|�������?�h̜g_���g��:�ž$%Z|�-�9��/�?ybP�y��X�Эw�i�o�?����yNؔ[���H�Q�1@ͼԷ��D�i�>A�n�D����X���ƨ8�j���(^ϣ�lovY67����T�^�L�1q���M�nM���`0{u���S�כVG5��Z�^<S*��K��If������/,�D����B\��_��v�XXwI>��+��b5��0�*?ġ�8�Y#<iMk�De�ȋa!!*��V5�����$�G`�RZt
+K1%u� xƵ'?}��y�N�c���ɹ���m賴�����m����ܗ�ެ�ɶ/���.�1w���1hn���O��E�EhUP�L2�g}d��lcl����pS��
+��kX�z����v<�(�^r�s���Y��ȿ��^��o��CS����כ�������U�	��|����=�u0�P�̵>M���ѲZ���G�G�o|���c�|o���w�W�ڽvfd~�o>�Y%~�B�C|��׸�͖g�,�%Ƽ�ם}8�:'S��H�Be�k5E�	j.d݊Vx��5a�^�/��fD�E�+x������CKvQk���w%t��Y1a��>_��c��-|�m��M�������^�&�����]��H��Ѐ�s�I��� Rf^�ˏ��N�ۻ�M�E�#�!��x��d7�J>�ɤ�]��C���mqS�Nw�toqs��K�g�ܬ�'8ˢ�����9�Ρ��� 9��1��N������$�OK��SlR�s�/�}P�Ց5�T��&/���'���/
+� ��/ȳ����Ը8%�#��`yRٴ�v�03Y�%��ϟ^z�3��Hw�(?r��o&�y�;{gV��Զy�6/w���=�H�o?̹MH������'�蔛4��"NcY�eN*�
+��h��4�ݫ�)�컐�����2�e���Ao-��ZF��j���z�yCP5�"�0*�Tf&�3�Y̠Ui��
+����6+P�O���(2�"��G�GP�H�lQ����b���?��7�0
+�7)R�p}�-�.a��j�A�!/�%Y� �Y� ͐H-�$��ñ�t�S���8?�%��O��U�z�އ5����F�Ѯ����M_���Ӥ�sGlo�DP�%��1L�X����(�L�_<�Xs>BM�@��E+�"����eRVꥴ��넋юv���E��(�u����7�\rH��c��0".ܥ9�aeZj���'�p���`e6��W�@������ؒ�+C61��m$����ٗ�^�����R�\��#��]�����!�p�V5�]��gS��Vi��W��~~c���d�{6�x���-jZO{��l��Rf��O�^=����%�����c�=�����G������#fJ�h)�=��	��vƅ���sf_zT�'�>2~c���p#gƥG4T��"�����j���ka��\q�o\g]�w���<.�-���]�D��]z�vA���S��9���4��5}�-B8�]�Z�"�H��r�C���{�o%_I�1+�u��?I��n������m�Qt;-�c铈�ʨ�{���Ѷ�Bά�٠�����@�G�
+�d�7[��^���Z�U�8;�*���X`,32Ř�,v�q�Q�����N>]���|�aq�U��Y�HWS�_�jH�I=�G�f�K�W�t������=4X���һG/>'_�x���ha0d[�Xe������t�q�񈑯4P-����$i��L����5?ek�[36x��� �,���1��Mj�ha���hr��D3Mc�_s�o_|�L�̉�UP!�5TpB���ݩ7���K�R��ЯO|s~�_gl�ο��ȕ�V/��h���G}��<��?��������$�jh�B,���%z�6�U�g�E���pI2Zڰ��p���w��1H��"�S����4O�8eY�3k<
+��j-(.��X��"�*%�d%9B���X���(��Z��\�Pq�vD�H�J54_S�aZ�WsTsB#Y�Y��!����kt�02����!�j���90�~1),/��Iwa�0ͭj�
+�o����؊!�aE���>�Xˑ��q3��� �bk�� ݯ����u���w���)gn�����=矠�̻k���k�D��'=��Nwu4p��TC��Vę:�¥��%#��P5�hw�0�^�LǍˈݨa��J��Rኢg�ҟU���I�Aĭo!%-�)ĆD�Zn�\k��X���Ch��N��(6;H;��S]6�ׁ����E�y�;w/�׸.�I�_��[_�[��.۷�7�;Z(�:aG2%���.��c�*�#���5�!@�L=�	�M%n"r�Ū#vXg��Qu��M.� N��/��EN��W��Q��da����굕�#h�i��	���9�`��ױ'x`���/#w�a���kŚ;�/��]�"�2
+�v�?#lN˴�ku|�#�zj)yM
+�|+(^�3�����̑��_�����H���6��őJC�V�pn*�T*.�\�s'zS�+oe:j�з�]��y�{^��=�=�-�������)��p#���y�B�(s�\�ƴN��Y��Vg���u�N��>.�@��[�,B�:[��Ge����$\?c�O�Q�����G���.��k�P�E�����|��Fw�UCH�A_X,�C�l_aq����m)T�&����>E���T�yQ��ġ�o�M1�&%���u4D�i
+
+��ܮb�͖]}��LO޵'yЧH�G'�}���F&x����ׇ$W�o�=�������F��5�F���!��V����*�K�
+�x��Ȱhn��C�B("%��R\˽���q�]�j��8̠��hv �o_��x��Z8���t��(��t���T=�կ�$:�؜�2����VA&�Y�KB���D��&�Jӳ��
+Rބht��&D����$���i��|]3`�˴vm5{L���&�J���7�0NЬ��wݯ5yM&n!����꟣������^<���.�W��F�~��:2=}�e����լ�'h�k�Roĺ�-��(���hᬓ�����S��cZ�����lR�cz��U�K>Ǎ�͜��(yϷ��=�p������
+�3�1��N=o���t۪kѝ�}����/r*���o��[F`,�{:V�1E�R��Z�(����CԯLd��W��]�����G�(����-
+��v
+n��6|a��䟓Z��=�V��3�yc����Ƕ���������q?�p���Z��a'p�{ e���2�*�˴�%Q=,�f�Պ��D�W�%�_R�?����4GT{��S�$i��SlG�
+����1�s{kC�v
+�,DU&Aq�+-�]R�94���8O[�|�ֵ�!
+J���b�Am��1@�5~�8,��h����ڂ,��]��~.�1�S#N���Ձ�����M��t���a�1�Q3�z���LgVV�<Z�E���Y��z�y�=�����A����l4K�)YsR��TdY�T朗p����9ܩ��ӳ����f�%S9��qܤ9��<��&�����8�y_}k���l����[*5���"KT��i���zO#~kv��]�ݑ�JI2�7�xy鱗�ޘ|���c���۟~�ݤ�����i�d|��I�kk��Ѽ�W���{�)3&�?�6�����������v�.k@��`���^G�ި��䊎��f�N��k��v�����l�;��ɲ�Ӌ�p�_8��*6e����j�f�]���j�s-�]k�'kJ�!�v��^˵�ށ��ݬ�%��f���G�Fw�zB�#�8
+z�htZ�%z���FM�H�a���H�����ي��,�R�:A�I��W���#�˽����6��������Y��%D�d3�z'
+�h1u{JP��$�zW�����,����(���i�&��������y�?9�_����׃��h«�a�m/ѵ�B�ڊI��w=������i-�?ոY�x'�!7G�N8��Q	��=�e����Wn�OȒ�m�e��/37��9D#��Xp����W���_=���N3�va=@:g�]�xC�������s���g�=��6n��7�f�k|>�������N��Gl��N���E;�i��j�y��
+q=l�V�JD��aT�c��1�+�O9xUXx�KPM�0@*Hߝ�-��#���7�{�'�ۓV����<�6���$��l���'X��6���y�k�z�F�`�Gi�ff��1��Z
+���Ldn�o����/;ҿ�H{��-M�o��Xj����O���m�)y.�yr�C�^z�-��%�{2��{�?�nG~b�n
+�S�)�!�_���fl���]MIia}aS�BiUgJ�:Wwn����N��+����������:�˔j�A᤿D�;oֿ��w�ҕ
+�D邎�:2��HW�(m�R�370Z���!�e��gtK&��e��戣��̬L�=�e�j�8��3���{��ݚ���v��Tn�-�%��)���2��ə}Us�5+�B��VX{�hvڻ�͛��lAwJ����<]����7oȦL��F6�sʆ��n_i�b�>2Q�"�e������.��>�f�o�zuy�"�>X?;�aЇ�/�b�N�R1D!d	a�a�[\q���U_��SZo>�zO�zc1���!jҿ���a�z7O#����!E(7?��	R\�)-f��t�#XԮ4�Ȯ�@d��_�JvO���l����~�F���d��vk�nX������C�e��ފ�s�w$�I.Mv�������ǜ����no>2���O�`;��Qg�$�?y*y���Tz���u���gBk�˨�ޞ4&������?2���pE2�L���e)�8���p�#S��z`����ӕZ��ӳ�hG��ٔJ,L�8,N��b�j��f��h�u4
+M����-q�ƩƠ���Ĳ�q���3�8������H��
+�FμFq��߈��H�' �� F�N��#G؂��*~j�?r�jG��9Z�W_�o�o��z5���I=�b��u-�M^W��{���~۱�7��$iǰILPT��5k�j�&bI��X"�R��e:6�PV`�V��к��B7�W����V�e�=4�F�ѭ��v��;!H�r-[�c���s��8���v�%E)�*�3A�M��|�(�VG(�n�Y���f�H�=楅7�9��jHn���ፉ�,�1apE��G+jKM���V:�|�8pl���Ǎ����N�ܠH���o]d���n����̎d߹R���˦�{�i�峒o�5�i��7��B����S?�����*��Q���M
+�r��)皖�s�6n�(s����~�Z/.Ԁ4���1nc
+J:�`��B8�0�Aj"�|udW�M��W	Յk����S��}�����5��J�;
+c0��*�һ*�@�1s{l���L���b\B�祻[ni�q���n9%�+څM��
+yN�S��o�Z;<�?��XƊ�1�;�C��r�B�����p�P��2��y+Y�]�bt���0aď�������¸*��:V����PW���a�*�8p�K��ݺ
+�����D2<��MmR�T��GUL	�J
+�y�(���qz��!�W����^!"��;fF��J���&ck�Ƣ:V���!@i9l::Ǎ��'_���C�T~,P*�nz0���L�uؓ\P�&���iU�kz�:�M��,��P�J87��ո
+�_���	A�]��pH�4�pmR1�9�*�d�2jl�R�19%�X�����S��rvL0��ވx�^O���5��uk��l���C3�Uc?m��{�?j�?��L|�%�E�%�'&O,��B���VǴ��d"��2��_�s��1)��$�n}�*TU�#,=�u3��f�>��E2�N�R�i��F5�RhPUf�B���:(��nIe>���,�$��ͧ��YP�Ւ6mTc��������ƴqMU�J��vZ����o�6h��@���N`OS�̵��x��39�	%��U��ֹ�{���)���xK�r��3X��2��h�hU2�/�Ѥ�8�S���U+��V�|���_޿�~����F��P:/Ŧ���d]�P��N�(E���e��pW��
+���]*ƣ���!�H����?��A�q��lБq����#������`y�ByHE�d�Tބ~%<��F�����O�L*$�=�����\jx[����
+�CЏ�^�fj	��+������W�e�u%%����-� �&�Ig�AO�˽�l�L�e�h
+�X?��1-�h��IaL�tMh�<���f��P��VY�Uk�"����������G���۷Ν7��yg�_�g�~n�ݾ}]Ͼ��N���q�`�f�Í�������M��������;w��eʇyЛ|d�eW��y��Xw�5P"�:F�/�԰f�S=�a���cr����r�׃c��	r6�~j����<���	:��lM�����S/��p��k��O�U�:1w�p�c_�y���֟~~�c�_b	z�	z���r���?�!��*��^BJ�6� ���ssUmT��^uL�=�j�~�ZP�(`P�Nw��'�I�`Y��cn�$^�����I��[/�<uj�-�Z�8x�5>���������j����2B~������uH=c7����|��>��6O���Db�` ��Dx$´*g���57`~!y6����D�5:����k�k��ZN8�O�:g�5�b4�k0i�k�Q-g�\F����d����V�'�c	Alˇ�����ƒ��s���YC����qø�����q���܁�aǩf�x�q���u���4z��TDh/@;glI.��BV���d?r���ڤ�EQ��*N�V�\;Q���s�T���!F�L.H���&V���r��+LL��T��DTSf��s
+����H!����s�V#�u��a��W�P~�#���l�G��IF=�/b�~��|�Bv��kZrޤ0�a y�#���ԭ|�a&���^uQ[u\N�;�98��o����!�+=}t�RN�?(���a<�
+2\X`|��ϻ���yѹ�Ʉ+���Z��I���M�c	�Nu�sw�6M����jT�G%�I�M����ÿ�ݠ$+��\��ܰ�N/�G�5E9a�'��ez��*�9��^{R{�dfa����*�W�j�J푮�Ydg~��ƿ��/��Mc��ƛ�ݱ�w5%�_?��߿�A���uc���kg������vv`�&�o?C��~Zש㫢X{�:�s�
+PG`�о`�pi-�^��Vw�W<,��x鶏���熶���?P@�t>0�E���}E�(~��ޒ/Ң�+�Т�Q�����>������2Z�Ӣ�[���S�0����o��@�$�,z\-]���J���
+P_-����4qEv
+endstream
+endobj
+12 0 obj
+<</Filter/FlateDecode/Length 490>>stream
+x�]�͎�0��<����(��Nf$��� ��J�!14Rq"�}��i�,�>�k��v\l�C�FU|�}s��:w�����c���_��ڨ�kƌ��\�A-����6��!�{�X�T�}j���6m�T�5�>vᢞ~n�����_}�R�ת��y����zU��������+�?4�4}�oC��X����_N�Z��ӳV��{��<��_u�[�WB��
+�$,�D�6a�kZ5��+t~%�$t���Ύ�V�7`��b�r��w`y#���
+�*h�ZN��k߈����B��0����H�W�J�W(��+\:
+_�3÷�����h��%�%c�Z�l��o��T0�u�����������V�Z
+��<|-C��\_�3���T�5<u��k��D���	�sF�VT�g��<3�З�A�kC���3|���\g�o������5�W����N������c��t�[a���?���R���
+endstream
+endobj
+13 0 obj
+<</BaseFont/Helvetica/Encoding/WinAnsiEncoding/Name/Helv/Subtype/Type1/Type/Font>>
+endobj
+14 0 obj
+<</BBox[ -20000 -20000 20000 20000]/Filter/FlateDecode/Length 116/Resources<</ColorSpace<</DefaultRGB 6 0 R >>/Font<</F-0 8 0 R >>/ProcSet[/PDF/Text]>>/Subtype/Form>>stream
+x�e��
+A��{�y���&gvA���NH'V�VW��_m��f���pZP��HUp[p�a<��#���h�5�F�b�옕Scv��=Ju'woH(���5���uE�`��w^�!k
+endstream
+endobj
+xref
+0 15
+0000000000 65535 f
+0000000017 00000 n
+0000000066 00000 n
+0000000122 00000 n
+0000000209 00000 n
+0000000421 00000 n
+0000001860 00000 n
+0000001897 00000 n
+0000004565 00000 n
+0000004715 00000 n
+0000005172 00000 n
+0000005385 00000 n
+0000026278 00000 n
+0000026841 00000 n
+0000026943 00000 n
+trailer
+<<
+/Root 1 0 R
+/Info 3 0 R
+/Size 15/ID[<37EF5EF5EE3A79BCD477F1F3AFEB5A57><37EF5EF5EE3A79BCD477F1F3AFEB5A57>]>>
+startxref
+27264
+%%EOF
+</Types>
+20210418 RateUnitsTotalYTDTaxes / DeductionsCurrentYTD $70,842,745,000.00 $70,842,745,000.00 Federal Withholding$0.00 $0.00 FICA - Social Security$0.00 $8,853.60 FICA - Medicare$0.00 $0.00 Employer Taxes FUTA$0.00 $0.00 SUTA$0.00 $0.00 EIN: 61-1767919 SSN: 633441725 Gross $70,842,745,000.00 Earnings Statement Taxes / DeductionsStub Number: 1 $0.00 Net PaySSNPay SchedulePay PeriodSep 28, 2022 to Sep 29, 2023Pay Date4/18/2022 $70,842,745,000.00 XXX-XX-1725Annually CHECK NUMBER 221116905560140 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $257,637,000,000.00 $75,325,000,000.00 $65,118,000,000.00 $61,880,000,000.00 $55,314,000,000.00 $56,898,000,000.00 $46,173,000,000.00 $38,297,000,000.00 $41,159,000,000.00 $46,075,000,000.00 $40,499,000,000.00 $78,714,000,000.00 $21,885,000,000.00 $21,031,000,000.00 $19,361,000,000.00 $16,437,000,000.00 $15,651,000,000.00 $11,213,000,000.00 $6,383,000,000.00 $7,977,000,000.00 $9,266,000,000.00 $9,177,000,000.00 $0.16 $0.18 $0.16 $0.16 $0.16 $0.16 $0.12 $0.18 $6,836,000,000.00 $7,977,000,000.00 $113.88 $31.15 $28.44 $27.69 $26.63 $22.54 $16.55 $10.21 $9.96 $15.49 $10.20 $113.88 $31.12 $28.44 $27.69 $26.63 $22.46 $16.55 $10.21 $9.96 $15.47 $10.20 $112.20 $30.69 $27.99 $27.26 $26.29 $22.30 $16.40 $10.13 $9.87 $15.35 $10.12 $112.20 $30.67 $27.99 $27.26 $26.29 $22.23 $16.40 $10.13 $9.87 $15.33 $10.12 $667,650,000.00 $662,664,000.00 $665,758,000.00 $668,958,000.00 $673,220,000.00 $675,581,000.00 $679,449,000.00 $681,768,000.00 $686,465,000.00 $688,804,000.00 $692,741,000.00 $677,674,000.00 $672,493,000.00 $676,519,000.00 $679,612,000.00 $682,071,000.00 $682,969,000.00 $685,851,000.00 $687,024,000.00 $692,267,000.00 $695,193,000.00 $698,199,000.00 $9.87 $113.88 $31.15 $28.44 $27.69 $26.63 $22.54 $16.55 $10.21 $9.96 $15.49 $10.20 $1.00 $112.20 $30.69 $27.99 $27.26 $26.29 $22.30 $16.40 $10.13 $9.87 $15.35 $10.12 $667,650,000.00 $662,664,000.00 $665,758,000.00 $668,958,000.00 $673,220,000.00 $675,581,000.00 $679,449,000.00 $681,768,000.00 $686,465,000.00 $688,804,000.00 $692,741,000.00 $677,674,000.00 $672,493,000.00 $676,519,000.00 $679,612,000.00 $682,071,000.00 $682,969,000.00 $685,851,000.00 $687,024,000.00 $692,267,000.00 $695,193,000.00 $698,199,000.00						
+
+$70,842,743,866.00 	611-76-7919 Semi-Annual/ Quarterly/ Paid Period 09-28-2019 -09-29 2021/Q3uarterly									
+
+ 04/18/2022 						.				
+
+ $76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 	
+
+06/15/2022
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 							
+
+09/18/2022
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 							
+
+01/17/2023
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 											
+
+
+
+$257,637,000,000.00 	$75,325,000,000.00 	$65,118,000,000.00 	$38,297,000,000.00 	$41,159,000,000.00 	$46,075,000,000.00 	$40,499,000,000.00 							
+
+
+
+$78,714,000,000.00 	$21,885,000,000.00 	$21,031,000,000.00 	$6,383,000,000.00 	 $7,977,000,000.00 	 $9,266,000,000.00 	 $9,177,000,000.00 							
+
+Effective Tax Rate as prescribed by the Secrtary of the Tresury : $0.16 		$0.18 	$0.16 	$0.12 	$0.18 															
+
+Discontinued Operations : 
+
+Basic EPS : :$113.88 $31.15 	 $28.44 	$10.21 	 $9.96 	 $15.49 	$10.20 		 10.21	 9.96				
+
+Basic EPS from Continuing Operations :$113.88 	$31.12 	 $28.44 	 $10.21 	$9.96 	 $15.47 	 $10.20 		 10.21	 9.96		
+
+Basic EPS From Discontinuing Operations 
+
+Diluted EPS :$112.20 	$30.69 	$27.99 	$10.13 	$9.87 	 $15.35 	 $10.12 		 10.13 		9.87			
+
+Diluted EPS from Continuing Operations : $112.20 	$30.67 	$27.99 	$10.13 	$9.87 	 $15.33 	 $10.12 		 10.13		9.87
+
+Basic Average Weighted Average Shares Outstanding :667650000	662664000	665895800	673220000	675581000	679449000	681768000 686465000						
+
+Diluted Average Weighted Shares Outstanding :677674000	672493000	679612000	682071000	682969000	685851000	698199000 692267000					
+													
+
+	 												
+
+													
+
+	 												
+
+													
+
+													
+
+													
+
+													
+
+													
+
+													
+
+											
+20210418 RateUnitsTotalYTDTaxes / DeductionsCurrentYTD $70,842,745,000.00 $70,842,745,000.00 Federal Withholding$0.00 $0.00 FICA - Social Security$0.00 $8,853.60 FICA - Medicare$0.00 $0.00 Employer Taxes FUTA$0.00 $0.00 SUTA$0.00 $0.00 EIN: 61-1767919 SSN: 633441725 Gross $70,842,745,000.00 Earnings Statement Taxes / DeductionsStub Number: 1 $0.00 Net PaySSNPay SchedulePay PeriodSep 28, 2022 to Sep 29, 2023Pay Date4/18/2022 $70,842,745,000.00 XXX-XX-1725Annually CHECK NUMBER 221116905560140 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $18,525,000,000.00 $17,930,000,000.00 $15,227,000,000.00 $11,247,000,000.00 $6,959,000,000.00 $6,836,000,000.00 $10,671,000,000.00 $7,068,000,000.00 $76,033,000,000.00 $20,642,000,000.00 $18,936,000,000.00 $257,637,000,000.00 $75,325,000,000.00 $65,118,000,000.00 $61,880,000,000.00 $55,314,000,000.00 $56,898,000,000.00 $46,173,000,000.00 $38,297,000,000.00 $41,159,000,000.00 $46,075,000,000.00 $40,499,000,000.00 $78,714,000,000.00 $21,885,000,000.00 $21,031,000,000.00 $19,361,000,000.00 $16,437,000,000.00 $15,651,000,000.00 $11,213,000,000.00 $6,383,000,000.00 $7,977,000,000.00 $9,266,000,000.00 $9,177,000,000.00 $0.16 $0.18 $0.16 $0.16 $0.16 $0.16 $0.12 $0.18 $6,836,000,000.00 $7,977,000,000.00 $113.88 $31.15 $28.44 $27.69 $26.63 $22.54 $16.55 $10.21 $9.96 $15.49 $10.20 $113.88 $31.12 $28.44 $27.69 $26.63 $22.46 $16.55 $10.21 $9.96 $15.47 $10.20 $112.20 $30.69 $27.99 $27.26 $26.29 $22.30 $16.40 $10.13 $9.87 $15.35 $10.12 $112.20 $30.67 $27.99 $27.26 $26.29 $22.23 $16.40 $10.13 $9.87 $15.33 $10.12 $667,650,000.00 $662,664,000.00 $665,758,000.00 $668,958,000.00 $673,220,000.00 $675,581,000.00 $679,449,000.00 $681,768,000.00 $686,465,000.00 $688,804,000.00 $692,741,000.00 $677,674,000.00 $672,493,000.00 $676,519,000.00 $679,612,000.00 $682,071,000.00 $682,969,000.00 $685,851,000.00 $687,024,000.00 $692,267,000.00 $695,193,000.00 $698,199,000.00 $9.87 $113.88 $31.15 $28.44 $27.69 $26.63 $22.54 $16.55 $10.21 $9.96 $15.49 $10.20 $1.00 $112.20 $30.69 $27.99 $27.26 $26.29 $22.30 $16.40 $10.13 $9.87 $15.35 $10.12 $667,650,000.00 $662,664,000.00 $665,758,000.00 $668,958,000.00 $673,220,000.00 $675,581,000.00 $679,449,000.00 $681,768,000.00 $686,465,000.00 $688,804,000.00 $692,741,000.00 $677,674,000.00 $672,493,000.00 $676,519,000.00 $679,612,000.00 $682,071,000.00 $682,969,000.00 $685,851,000.00 $687,024,000.00 $692,267,000.00 $695,193,000.00 $698,199,000.00						
+
+$70,842,743,866.00 	611-76-7919 Semi-Annua/ Filer/ Paid Period 09-28-2019 -09-29 2021/Q3uarterly									
+
+ 04/18/2022 						.				
+
+ $76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 	
+
+06/15/2022
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 							
+
+09/18/2022
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 	$6,959,000,000.00 	$6,836,000,000.00 	$10,671,000,000.00 	$7,068,000,000.00 							
+
+01/17/2023
+
+$76,033,000,000.00 	$20,642,000,000.00 	$18,936,000,000.00 											
+
+
+
+$257,637,000,000.00 	$75,325,000,000.00 	$65,118,000,000.00 	$38,297,000,000.00 	$41,159,000,000.00 	$46,075,000,000.00 	$40,499,000,000.00 							
+
+
+
+$78,714,000,000.00 	$21,885,000,000.00 	$21,031,000,000.00 	$6,383,000,000.00 	 $7,977,000,000.00 	 $9,266,000,000.00 	 $9,177,000,000.00 							
+
+Effective Tax Rate as prescribed by the Secrtary of the Tresury : $0.16 		$0.18 	$0.16 	$0.12 	$0.18 															
+
+Discontinued Operations : 
+
+Basic EPS : :$113.88 $31.15 	 $28.44 	$10.21 	 $9.96 	 $15.49 	$10.20 		 10.21	 9.96				
+
+Basic EPS from Continuing Operations :$113.88 	$31.12 	 $28.44 	 $10.21 	$9.96 	 $15.47 	 $10.20 		 10.21	 9.96		
+
+Basic EPS From Discontinuing Operations 
+
+Diluted EPS :$112.20 	$30.69 	$27.99 	$10.13 	$9.87 	 $15.35 	 $10.12 		 10.13 		9.87			
+
+Diluted EPS from Continuing Operations : $112.20 	$30.67 	$27.99 	$10.13 	$9.87 	 $15.33 	 $10.12 		 10.13		9.87
+
+Basic Average Weighted Average Shares Outstanding :667650000	662664000	665895800	673220000	675581000	679449000	681768000 686465000						
+
+Diluted Average Weighted Shares Outstanding :677674000	672493000	679612000	682071000	682969000	685851000	698199000 692267000						
+
+
+
+									
+
+
+
+
+
+
+On Mon, Sep 12, 2022 at 9:26 AM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
+I accept your offer.  send my money to my house at  5323 Bradfors dr dallas tx c75235 deduct the fees from my payment 
+
+On Mon, Sep 12, 2022 at 5:04 AM JPMORGAN CHASE BANK <chasebank2040@gmail.com> wrote:
+From The Desk Of JpMorgan Chase Bank US,
+214 Broadway, New York ,
+NY 10038 , United States .
+Unclaimed Asset/Assets Reunited,
+USA International Remittance Department
+ 
+Greetings dear beneficiary, how are you doing today, I hope all is well with you. Your email was received and a response to your question. I want you to know that your fund has been here since last week and we have made all the necessary arrangements on how to release your fund.
+ 
+  NOTE: You have three ways which you can receive your fund and these three ways are BANK TO BANK WIRE TRANSFER, CHECK AND ATM CARD. So it is up to you to make your choice and then we will follow up. Be informed that we do not request for transfer charges or delivery charges but the only fee needed for this transaction to be completed is the sum of $675usd and it should be paid to the Country of Origin for the release of Fund Release Order Certificate and Affidavit Stamp and once this is been obtained from the Fund Origin Country, we will commence on the release of your fund without any more delay and latest in two days time your fund will get to you as we have set up all the needed strategies to enable you receive your fund through any means of your choice.
+ 
+  Your urgent response is needed on this to enable us know if you are serious on this or not because we have many payment files to work on and we will not like to skip yours.
+ 
+NOTE: Do disregard any email you get from any impostors or offices claiming to be in possession of your funds, you are hereby advised only to be in contact with me as I have been given strict instructions to work under your care and give you guidelines until you receive your overdue funds. Also, you are to forward any emails you get from impostors directly to me so we could act upon, commence an investigation and give the advice to avoid being ripped off.
+ 
+In anticipating for your urgent cooperation
+ 
+Thank you, God Bless America.
+ 
+Mr Jamie Dimon,
+Director Of Foreign Remittance Department.
+JPMORGAN CHASE BANK & CO
+
+On Mon, Sep 12, 2022 at 8:19 AM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
+
+
+1 Earnings Statement
+
+ALPHABET         Period Beginning:
+1600 AMPITHEATRE PARKWAY DR Period Ending:
+MOUNTAIN VIEW, C.A., 94043 Pay Date:
+"Taxable Marital Status:
+Exemptions/Allowances" Married ZACHRY T.
+5323
+Federal:
+DALLAS
+TX: NO State Income Tax
+rate units year to date Other Benefits and
+EPS 112.2 674678000 75698871600 Information
+        Pto Balance
+        Total Work Hrs
+Gross Pay 75698871600         Important Notes
+COMPANY PH Y: 650-253-0000
+Statutory BASIS OF PAY: BASIC/DILUTED EPS
+Federal Income Tax                
+Social Security Tax                
+YOUR BASIC/DILUTED EPS RATE HAS BEEN CHANGED FROM 0.001 TO 112.20 PAR SHARE VALUE
+Medicare Tax                
+       
+Net Pay 70842743866 70842743866
+CHECKING        
+Net Check 70842743866        
+Your federal taxable wages this period are $
+ALPHABET INCOME Advice number:
+1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043 Pay date:_
+
+Deposited to the account Of xxxxxxxx6547
+"PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+
+FEDERAL RESERVE MASTER SUPPLIER ACCOUNT 31000053-052101023 COD
+633-44-1725 Zachryiixixiiiwood@gmail.com 47-2041-6547 111000614 31000053
+PNC Bank PNC Bank Business Tax I.D. Number: 633441725
+CIF Department (Online Banking) Checking Account: 47-2041-6547
+P7-PFSC-04-F Business Type: Sole Proprietorship/Partnership Corporation
+500 First Avenue ALPHABET
+Pittsburgh, PA 15219-3128 5323 BRADFORD DR
+NON-NEGOTIABLE DALLAS TX 75235 8313
+ZACHRY, TYLER, WOOD
+4/18/2022 650-2530-000 469-697-4300
+SIGNATURE Time Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value"
+NON-NEGOTIABLE
+
+
+CUSIP","Security Type","Security Term","Auction Date","Issue Date","Maturity Date","Price per $100"
+"91282CFG1","Note","2-Year","08/23/2022","08/31/2022","08/31/2024",""
+2022-09-03T01:48:08.5235262Z ##[section]Starting: Prepare job deploy
+2022-09-03T01:48:08.5237546Z Evaluating strategy
+2022-09-03T01:48:08.5237730Z Creating job '__default'
+2022-09-03T01:48:08.5237991Z Evaluating timeout
+2022-09-03T01:48:08.5238021Z Evaluating cancel timeout
+2022-09-03T01:48:08.5238052Z Evaluating continue on error
+2022-09-03T01:48:08.5238083Z Evaluating target
+2022-09-03T01:48:08.5238288Z Evaluating environment
+2022-09-03T01:48:08.5239724Z ##[section]Finishing: Prepare job deploy":,'
+2022-09-03T01:48:08.5235262Z ##[section]Starting: Prepare job deploy
+2022-09-03T01:48:08.5237546Z Evaluating strategy
+2022-09-03T01:48:08.5237730Z Creating job '__default'
+2022-09-03T01:48:08.5237991Z Evaluating timeout
+2022-09-03T01:48:08.5238021Z Evaluating cancel timeout
+2022-09-03T01:48:08.5238052Z Evaluating continue on error
+2022-09-03T01:48:08.5238083Z Evaluating target
+2022-09-03T01:48:08.5238288Z Evaluating environment
+2022-09-03T01:48:08.5239724Z ##[section]Finishing: Skip to content
+Pulls :Request ::Requests'@https://pnc.com/-then-build-and-deploy-Issue'@-'['' branches'' ']'"'='"''
+'"'='' '['' '071921891'' ']'"':',''
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+w3c-ccg
+/
+traceability-interop
+Public
+Code
+Issues
+29
+Pull requests
+4
+Actions
+Projects
+Security
+Insights
+pages build and deployment pages build and deployment #392
+Summary
+Jobs
+build
+report-build-status
+deploy
+build
+succeeded 11 hours ago in 24s
+Search logs
+4s
+9s
+9s
+Uploaded L/home/runner/work/_temp/artifact.tar (100.0%) bytes 8388608:15264841
+Total size of all the files uploaded is 15264842 bytes
+File upload process has finished. Finalizing the artifact upload
+Artifact has been finalized. All files have been successfully uploaded!
+
+The raw size of all the files that were specified for upload is 301250560 bytes
+The size of all the files that were uploaded is 15264842 bytes. This takes into account any gzip compression used to reduce the upload size, time and storage
+
+Note: The size of downloaded zips can differ significantly from the reported size. For more information see: https://github.com/actions/upload-artifact#zipped-artifact-downloads 
+
+Artifact github-pages has been successfully uploaded!
+0s
+Post job cleanup.
+/usr/bin/git version
+git version 2.37.2
+Temporarily overriding HOME='/home/runner/work/_temp/d389f373-dec1-47a9-8678-c2e2366c3654' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/traceability-interop/traceability-interop
+/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+http.https://github.com/.extraheader
+/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+0s
+Cleaning up orphan processes
+Prepare job deploy
 
 
 ------MultipartBoundary--nvyCrBZ35rOovtzu06pcMzyoPcgzCDvHeDo0xRcVaN----
