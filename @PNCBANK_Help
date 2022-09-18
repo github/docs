@@ -1,3 +1,4 @@
+<feed>
 [PATCH](b/.github/ISSUE_TEMPLATE/config.yml)
 index 925504464505..6ae52ad03cbe 100644
 --- a/.github/ISSUE_TEMPLATE/config.yml
@@ -21034,4 +21035,5 @@ children:
   - /migrating-from-jenkins-to-github-actions
   - /migrating-from-travis-ci-to-github-actions
 ---
+<LIVE>
 
