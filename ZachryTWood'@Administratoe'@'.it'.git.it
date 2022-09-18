@@ -2199,8 +2199,11 @@ index 000000000000..8bfa67aa4da3
 +
 +#### Parallel job processing
 +
-+Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
-+  4  
++Travis :CI :can :use :stage` :to :run :jobs :parallel ::
+
+'"{% "data variables.product.prodname_action.js" %}":, "runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
++]  
+4  
 +content/actions/reference/workflow-syntax-for-github-actions.md
 +@@ -271,10 +271,12 @@ If you need to find the unique identifier of a job running in a workflow run, yo
 +
@@ -2812,7 +2815,8 @@ index fbbaf2e15695..8b8bd40e755a 100644
  
 -If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 +<!-- Copyright 2019 The Chromium Authors. All rights reserved.
-+     Use of this source code is governed by a BSD-style license that can be
++     Use of this :code :"governance":,
+::by :a NONE license that can be
 +     found in the LICENSE file. --><!DOCTYPE html><html dir=3D"ltr" lang=3D=
 +"en-US"><head><meta http-equiv=3D"Content-Type" content=3D"text/html; chars=
 +et=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-7c0a=
