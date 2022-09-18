@@ -1,0 +1,28 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'カスタムの pre-receive フックが、仮想メモリの制限が厳しすぎる、または CPU 時間の制限のために失敗した可能性があります。{% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '`ghe-cleanup-settings` を使用した既存のすべての構成設定のワイプの試行により、管理コンソール サービスの再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown` を使用したレプリケーションの破棄時に Memcached の再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '負荷が高い時、アップストリーム サービスで内部の正常性チェックに失敗した場合、ユーザーは HTTP 503 を受け取ります。{% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Actions を構成し、GitHub Enterprise バックアップ ユーティリティ スナップショットから復元した後、MSSQL レプリケーションが失敗します。{% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'
+    - '`ghe-config-apply` の実行中に、誤った `jq` エラー メッセージが表示された可能性があります。{% comment %} https://github.com/github/enterprise2/pull/27194, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Pre-receive フック環境では、Alpine で BusyBox を介して cat コマンドを呼び出すことが禁止されていました。{% comment %} https://github.com/github/enterprise2/pull/27115, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '外部データベース パスワードがプレーンテキストでログされました。{% comment %} https://github.com/github/enterprise2/pull/27173, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'プライマリ クラスター データセンターからセカンダリ クラスター データセンターへのフェールオーバーに成功しましたが、元のプライマリ クラスター データセンターへのフェールバックで、Elasticsearch インデックスの昇格に失敗しました。{% comment %} https://github.com/github/github/pull/193181, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Organization の Team ページの [チームのインポート] ボタンで、HTTP 404 が返されました。{% comment %} https://github.com/github/github/pull/193302 {% endcomment %}'
+    - '場合によっては、[休眠ユーザー] ページを表示しようとした GitHub Enterprise 管理者が、`502 無効なゲートウェイ` または `504 ゲートウェイ タイムアウト` 応答を受け取りました。{% comment %} https://github.com/github/github/pull/194260, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - '`SynchronizePullRequestJob` ジョブの数が増加したことにより、特定の負荷の高い状況でパフォーマンスに悪影響がありました。{% comment %} https://github.com/github/github/pull/195253, https://github.com/github/github/pull/194591 {% endcomment %}'
+  changes:
+    - 'Webhook のログ保持期間を超えた Webhook ログをより効果的に削除します。{% comment %} https://github.com/github/enterprise2/pull/27158 {% endcomment %}'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} を設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
