@@ -1,0 +1,23 @@
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - 画像または pull request に非常に大きな画像もしくはアニメーション GIF を添付すると失敗します。
+    - 自動更新に関連する Journald メッセージ (`h/m/s ランダム時間の追加。`) が、syslog に記録されました。
+    - 名前付きパイプ (FIFO) を作成したカスタムの pre-receive フックがクラッシュまたはハングし、タイムアウト エラーが発生します。
+    - 監査ログの高度な検索ページにフィルターを追加しても、適切なファセット プレフィックスと値を持つクエリ テキスト ボックスがリアルタイムで設定されませんでした。
+    - "要求に失敗する内部 API への Git フックが、明示的な `nil` を返す代わりに `\"success\" に対して定義されていないメソッド本文:String (NoMethodError)` という例外を返しました。"
+    - 統合が削除されると、関連のない OAuth アプリケーションまたは統合も削除されてしまう可能性がありました。
+    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると 500 内部サーバー エラーが返されます。
+  changes:
+    - REST API が返すアクセス許可一覧に `triage` と `maintain` を追加しました。
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} を設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

@@ -1,0 +1,16 @@
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "高: 情報漏洩と RCE につながる可能性のある整数オーバーフローの脆弱性が GitHub の markdown パーサーで確認されました。この脆弱性は、Google の Project Zero の Felix Wilhelm 氏により、GitHub Bug Bounty プログラムから報告され、CVE-2022-24724 が割り当てられました。"
+  bugs:
+    - 高可用性レプリカのクロックがプライマリと同期されていなかった場合、アップグレードに失敗する場合があります。 
+    - "2020 年 9 月 1 日以降に作成された OAuth アプリケーションでは、[認可を確認](https://docs.github.com/en/enterprise-server@3.1/rest/reference/apps#check-an-authorization) API エンドポイントを使用することができません。" 
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
