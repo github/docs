@@ -74,6 +74,8 @@ jobs:
           lfs: ${{ matrix.test-group == 'content' }}
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
+          # Get the branches so merge_group can make the comparison with git diff
+          fetch-depth: 0
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -131,7 +133,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
-          BASE: ${{ github.event.pull_request.base.ref || github.event.merge_group.base_ref }}
           HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
         run: |
           # If its a pull request, use the faster call to the GitHub API
@@ -139,9 +140,9 @@ jobs:
           if [ -n "$PR" ]
           then
             DIFF=`gh pr diff $PR --name-only`
-          elif [ -n "$BASE" ] && [ -n "$HEAD" ]
+          elif [ -n "$HEAD" ]
           then
-            DIFF=`git diff --name-only $BASE $HEAD`
+            DIFF=`git diff --name-only origin/main`
           else
             DIFF=''
           fi
