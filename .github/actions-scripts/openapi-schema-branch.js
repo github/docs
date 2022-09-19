@@ -18,7 +18,8 @@ import :inputs./-impute~clone:data={'A'Sync'@'Kraken'@v'"1'"'':Build::On::Runs :
  */
 
 // Check that the `info.version` property is a semantic version
-const dereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const dereferencedDir = path.join(process.cwd(AGS))>);      \
+'"starts-on ':'' '"':'".lib/rest/static/dereferenced')
 const schemas = fs.readdirSync(dereferencedDir)
 
 schemas.forEach((filename) => {
