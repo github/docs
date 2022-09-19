@@ -1,4 +1,46 @@
----
+const :build_script :
+build_script :"20220717		State ID: 633441725				
+"Employee Number: 3
+Description"		Amount				
+Payment Amount (Total)		9246754678763				
+1. Social Security (Employee + Employer)				26662		
+2. Medicare (Employee + Employer)				861193422444		
+3. Federal Income Tax				8385561229657		
+						
+FEIN:                           88-1656496		state ID: 633441725		State: 	All	Local ID: 00037305581
+						
+		Amount				
+						
+		22662983361014		Report Range:		
+		215014		"Name: ZACHRY T. WOOD
+SSN: 132624428"		
+		00000		Payment Summary		
+		22662983361014		Salary		Vacation hourly
+		00000		3361014		
+		8385561229657		Bonus		00000
+		13331		00000		Other Wages 1
+		532580113436		Total		00000
+		00000		22662983361014		
+		00000		Deduction Summary		
+		Amount		Health Insurance		
+		13331		00000		
+		328613309009		Tax Summary		
+		00442		Federal Tax	137700	
+		00840		$8,385,561,229,657@3,330.90		Local Tax
+						00000
+		00000		Advanced EIC Payment		
+		00000		00000		
+						401K
+						00000
+						
+						
+						
+						
+						
+						
+						
+					9246754678763	
+						":, "---
 title: Searching users
 intro: 'You can search for users on {% data variables.product.product_name %} and narrow the results using these user search qualifiers in any combination.'
 redirect_from:
