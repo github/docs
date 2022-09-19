@@ -41,6 +41,7 @@ jobs:
       # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           # If its a pull request, use the faster call to the GitHub API
