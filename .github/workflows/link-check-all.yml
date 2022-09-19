@@ -42,21 +42,24 @@ jobs:
       - name: Gather files changed
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR: ${{ github.event.pull_request.number }}
+          BASE: ${{ github.event.pull_request.base.ref || github.event.merge_group.base_ref }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
         run: |
           # If its a pull request, use the faster call to the GitHub API
           # For push, workflow_dispatch, and merge_group, use git diff
-          if [ -z "$PR_NUMBER" ]
+          if [ -n "$PR" ]
           then
-            DIFF=`gh pr diff --name-only`
-          elif [ -z "$GITHUB_BASE_REF" ] && [ -z "$GITHUB_HEAD_REF" ]
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$BASE" ] && [ -n "$HEAD" ]
           then
-            DIFF=`git diff --name-only $GITHUB_BASE_REF $GITHUB_HEAD_REF`
+            DIFF=`git diff --name-only $BASE $HEAD`
           else
             DIFF=''
           fi
+
           # Formats into single line JSON array, removing any empty strings
-          echo $DIFF | jq --raw-input | jq --slurp --compact-output 'map(select(length > 0))' > $HOME/files.json
+          echo $DIFF | tr ' ' '\n' | jq --raw-input | jq --slurp --compact-output 'map(select(length > 0))' > $HOME/files.json
 
       # For verification
       - name: Show files changed
