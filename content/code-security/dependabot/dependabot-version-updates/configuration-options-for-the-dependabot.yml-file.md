@@ -782,7 +782,7 @@ registries:
 * Docker Hub
 * GitHub Container Registry
 * GCR (Google Cloud)
-* Private ECR (AWS)
+* Private ECR (AWS) - public ECR support is tracked [here](https://github.com/dependabot/dependabot-core/issues/4212).
 
 {% endnote %}
 
