@@ -10,12 +10,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: ee7ad9a57437858e33a51bedf6b03fcf48606079
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 991c060af22a9161e026aa396037a1d52e66fcea
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556833'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858620'
 ---
 あなたは、GitHub でホストされているユーザー コンテンツに関連する可能性がある調査を実施する法執行機関の担当者ですか。
 そうでなければ、当社が法執行機関と共有する情報と、それを共有する状況を知りたいと思っているプライバシー意識の高い方でしょう。
@@ -215,7 +215,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-参照コピーは、legal@support.github.com 宛てに電子メールで送付してください。
+参照コピーは、legal-support@github.com 宛てに電子メールで送付してください
 
 次の情報を含め、できるだけ明確かつ厳密に要求を作成してください。
 

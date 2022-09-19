@@ -5,7 +5,6 @@ intro: 在工作流程中使用 OpenID Connect 向 Azure 进行身份验证。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

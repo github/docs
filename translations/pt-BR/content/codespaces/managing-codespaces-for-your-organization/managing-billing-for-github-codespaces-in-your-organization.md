@@ -13,12 +13,12 @@ topics:
   - Billing
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
-ms.openlocfilehash: 752a32ca3af18873e88fab2389beef0262988b28
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6cd1396cd0933999a99c334f00416b43f31ae249
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147676653'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147865182'
 ---
 ## Visão geral
 
@@ -26,8 +26,8 @@ Para saber mais sobre os preços do {% data variables.product.prodname_github_co
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- Como proprietário ou gerente de cobrança de uma organização, você pode gerenciar a cobrança do {% data variables.product.prodname_codespaces %} para sua organização: ["Sobre a cobrança do Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
-
+- Como proprietário ou gerente de faturamento de uma organização, você pode gerenciar a cobrança do {% data variables.product.prodname_codespaces %} de sua organização: ["Sobre a cobrança do Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- Como proprietário de uma organização, você pode listar os codespaces atualmente ativos e interrompidos em sua organização. Além desses codespaces, os custos do mês atual podem incluir custos de codespaces anteriores ao mês atual, mas que já foram excluídos.
 - Para os usuários, há um guia que explica como funciona a cobrança: ["Noções básicas sobre a cobrança do Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 
 ## Limites de uso
@@ -36,7 +36,7 @@ Você pode definir um limite de uso para os codespaces na sua organização ou r
  
 - **Minutos de computação:** o uso de computação é calculado pelo número real de minutos usados por todas as instâncias do {% data variables.product.prodname_codespaces %} enquanto elas estão ativas. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. Você pode definir um limite de gastos para uso de {% data variables.product.prodname_codespaces %} na sua organização. Para obter mais informações, confira "[Como gerenciar limites de gastos do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)".
 
-- **Uso de armazenamento:** para fins de cobrança do {% data variables.product.prodname_codespaces %}, isso inclui todo o armazenamento usado por todos os codespaces na sua conta. Isto inclui todos os codespacess usados pelos repositórios clonados, arquivos de configuração e extensões, entre outros. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. Para verificar quantos minutos de computação e GB de armazenamento foram usados pelo {% data variables.product.prodname_codespaces %}, confira "[Como exibir o uso do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)".
+- **Uso de armazenamento:** para fins de cobrança do {% data variables.product.prodname_codespaces %}, isso inclui todo o armazenamento usado por todos os codespaces na sua conta. Isso inclui recursos como repositórios clonados, arquivos de configuração, extensões, entre outros. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. Para verificar quantos minutos de computação e GB de armazenamento foram usados pelo {% data variables.product.prodname_codespaces %}, confira "[Como exibir o uso do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)".
 
 ## Desabilitando ou limitando {% data variables.product.prodname_codespaces %}
 
@@ -52,10 +52,16 @@ Você também pode restringir quanto tempo um codespace pode permanecer não uti
 
 ## Excluindo codespaces não utilizados
 
-Seus usuários podem excluir seus codespaces no https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, os usuários podem excluir arquivos manualmente usando o termo ou de dentro de {% data variables.product.prodname_vscode_shortname %}. 
+Seus usuários podem excluir seus próprios codespaces no https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, os usuários podem excluir arquivos manualmente usando o termo ou de dentro de {% data variables.product.prodname_vscode_shortname %}. 
+
+Como proprietário da organização, você pode excluir qualquer codespace em sua organização. Para obter mais informações, confira "[Como excluir um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)".
 
 {% note %}
 
 **Observação:** os codespaces são excluídos automaticamente depois que são parados e ficam inativos por um número definido de dias. Para obter mais informações, confira "[Como restringir o período de retenção para codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)". Um codespace só pode ser excluído manualmente pela pessoa que o criou.
 
 {% endnote %}
+
+## Leitura adicional
+
+- "[Como listar os codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

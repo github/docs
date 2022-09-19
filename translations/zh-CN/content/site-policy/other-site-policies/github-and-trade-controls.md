@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: e483abe3bffda4cdca5ee767b8e06ce4093f074a
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556462'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858629'
 ---
 GitHub.com、GitHub Enterprise Server 以及您上传至其中任一产品的信息都需遵守贸易管制法规，包括美国出口管理条例（Export Administration Regulations，EAR）。
 

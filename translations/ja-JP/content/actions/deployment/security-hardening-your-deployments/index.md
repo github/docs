@@ -4,7 +4,6 @@ shortTitle: Security hardening your deployments
 intro: ワークフロー内で OpenID Connect を使用して、クラウド プロバイダーでの認証を行います。
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 children:

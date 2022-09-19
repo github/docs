@@ -14,14 +14,14 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage team access
-ms.openlocfilehash: d03c6dcb8f1f386d0545ad99154edaf0991a987e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 34f912f4d5c55df30629b7b56200bef25281bf2d
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130723'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878608'
 ---
-リポジトリに対して管理者権限がある人は、リポジトリへのチームアクセスを管理できます。 チームメンテナは、リポジトリへのチームアクセスを削除できます。
+リポジトリに対して管理者権限がある人は、リポジトリへのチームアクセスを管理できます。 チームのメンテナーは、チームがリポジトリに直接アクセスできる場合に、チームのリポジトリへのアクセス権を削除できます。 チームのリポジトリへのアクセス権が親チームから継承されている場合、メンテナーは、親チームのアクセス許可に一致するように現在のアクセス許可をリセットできます。
 
 {% warning %}
 

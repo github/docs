@@ -1,7 +1,7 @@
 ---
-title: CIシステムでのCodeQL CLIの設定
+title: Configuring CodeQL CLI in your CI system
 shortTitle: Configure CodeQL CLI
-intro: '継続的インテグレーションシステムを{% data variables.product.prodname_codeql_cli %}を実行するように設定し、{% data variables.product.prodname_codeql %}分析を行い、{% data variables.product.prodname_code_scanning %}アラートとして表示させるために結果を{% data variables.product.product_name %}にアップロードできます。'
+intro: 'You can configure your continuous integration system to run the {% data variables.product.prodname_codeql_cli %}, perform {% data variables.product.prodname_codeql %} analysis, and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -21,45 +21,41 @@ topics:
   - Integration
   - CI
   - SARIF
-ms.openlocfilehash: b78bf0134b9e1c7b786fe70b0ed7999fffd58e1c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147718038'
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% ifversion ghes or ghae %} {% note %}
+{% ifversion ghes or ghae %}
+{% note %}
 
-**注:** この記事では、{% data variables.product.product_name %} のリリース時に使用可能なバージョンの {% data variables.product.prodname_codeql_cli %}に存在する機能について説明します。 Enterprise でより新しいバージョンの {% data variables.product.prodname_codeql_cli %} を使用している場合は、代わりに [{% data variables.product.prodname_ghe_cloud %} のドキュメント](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)を参照してください。
+**Note:** This article describes features present in the version of {% data variables.product.prodname_codeql_cli %} available at the time of the release of {% data variables.product.product_name %}. If your enterprise uses a more recent version of {% data variables.product.prodname_codeql_cli %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system) instead.
 
-{% endnote %} {% endif %}
+{% endnote %}
+{% endif %}
 
-## {% data variables.product.prodname_codeql_cli %}でのCode scanningの結果の生成について
+## About generating code scanning results with {% data variables.product.prodname_codeql_cli %}
 
-CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli %}を利用できるようにして、確実に{% data variables.product.product_name %}で認証できるようにしたなら、データを生成する準備ができています。
+Once you've made the {% data variables.product.prodname_codeql_cli %} available to servers in your CI system, and ensured that they can authenticate with {% data variables.product.product_name %}, you're ready to generate data.
 
-結果を生成して{% data variables.product.product_name %}にアップロードするには、3つの異なるコマンドを使います。
+You use three different commands to generate results and upload them to {% data variables.product.product_name %}:
 
 <!--Option to analyze multiple languages with one call-->
-1. `database create` では、リポジトリのサポートされている各プログラミング言語の階層構造を表すために {% data variables.product.prodname_codeql %} データベースを作成します。
-2. ` database analyze` では、クエリを実行して各 {% data variables.product.prodname_codeql %} データベースを分析し、結果を SARIF ファイルにまとめます。
-3. `github upload-results` では、結果の SARIF ファイルを {% data variables.product.product_name %} にアップロードします。そこで結果はブランチまたは pull request と照合され、{% data variables.product.prodname_code_scanning %} アラートとして表示されます。
+1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository.
+2. ` database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
+3. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts.
 
-<nobr>`--help`</nobr> オプションを使用して、任意のコマンドのコマンドライン ヘルプを表示できます。
+You can display the command-line help for any command using the <nobr>`--help`</nobr> option.
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-## 分析する{% data variables.product.prodname_codeql %}データベースの作成
+## Creating {% data variables.product.prodname_codeql %} databases to analyze
 
-1. 分析するコードをチェックアウトします。
-    - ブランチの場合は、分析するブランチのヘッドをチェックアウトします。
-    - pull request の場合は、pull request のヘッド コミットをチェックアウトするか、{% data variables.product.prodname_dotcom %} で生成された pull request のマージ コミットをチェックアウトします。
-2. コードベースの環境を設定し、依存関係が使用可能であることを確認します。 詳細については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[コンパイルされていない言語のデータベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages)」および [「コンパイル済み言語のデータベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages)」を参照してください。
-3. コードベースのビルド コマンドを見つけます (ある場合)。 通常、これは CI システムの構成ファイルで使用できます。
-4. リポジトリのチェックアウト ルートから `codeql database create` を実行し、コードベースをビルドします。
-  
+1. Check out the code that you want to analyze:
+    - For a branch, check out the head of the branch that you want to analyze.
+    - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
+2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see [Creating databases for non-compiled languages](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages) and [Creating databases for compiled languages](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
+3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
+4. Run `codeql database create` from the checkout root of your repository and build the codebase.
+
   ```shell
   # Single supported language - create one CodeQL databsae
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
@@ -68,28 +64,28 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
   codeql database create &lt;database&gt; --command&lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
   ```
-  
+
   {% note %}
 
-  **注:** コンテナー化されたビルドを使用する場合は、ビルド タスクが行われるコンテナーで {% data variables.product.prodname_codeql_cli %} を実行する必要があります。
+  **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
 
   {% endnote %}
 
-| オプション | 必須 | 使用法 |
+| Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | {% data variables.product.prodname_codeql %}データベースを作成するディレクトリの名前と場所を指定します。 既存のディレクトリを上書きしようとすると、コマンドは失敗します。 また `--db-cluster` を指定した場合は、これが親ディレクトリであり、分析される言語ごとにサブディレクトリが作成されます。|
-| <nobr>`--language`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | データベースを作成する言語の識別子 (`{% data reusables.code-scanning.codeql-languages-keywords %}` のいずれか) を指定します (TypeScript コードを分析するには `javascript` を使用します)。 <nobr>`--db-cluster`</nobr> と一緒に使用する場合は、オプションでコンマ区切りリストが受け入れられるか、複数指定できます。
-| <nobr>`--command`</nobr> | | 推奨。 コードベースのビルド プロセスを呼び出すビルド コマンドまたはスクリプトを指定するために使用します。 コマンドは現在のフォルダーから、または定義されている場合は <nobr>`--source-root`</nobr> から実行されます。 Python および JavaScript または TypeScript の分析には不要です。 | 
-| <nobr>`--db-cluster`</nobr> | | 省略可能。 <nobr>`--language`</nobr> によって指定された言語ごとに 1 つのデータベースを生成するには、複数言語コードベースを使用します。
-| <nobr>`--no-run-unnecessary-builds`</nobr> | | 推奨。 {% data variables.product.prodname_codeql_cli %}がビルドをモニターする必要がない場合に、言語のビルドコマンドを抑制するために使います（たとえばPythonやJavaScript/TypeScript）。 
-| <nobr>`--source-root`</nobr> | | 省略可能。 リポジトリのチェックアウト ルートの外部で CLI を実行する場合に使用します。 既定では、`database create` コマンドで現在のディレクトリがソース ファイルのルート ディレクトリであると見なされます。別の場所を指定するためにこのオプションを使用します。 |{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
-| <nobr>`--codescanning-config`</nobr> | | 省略可能 (詳細) {% data variables.product.prodname_codeql %} データベースの作成方法と、後の手順で実行するクエリを指定する構成ファイルがある場合に使用します。 詳しくは、「[カスタム構成ファイルの使用](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-a-custom-configuration-file)」および「[database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config)」を参照してください。 |{% endif %}
+| `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed.|
+| <nobr>`--language`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once.
+| <nobr>`--command`</nobr> | | Recommended. Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
+| <nobr>`--db-cluster`</nobr> | | Optional. Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>.
+| <nobr>`--no-run-unnecessary-builds`</nobr> | | Recommended. Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript).
+| <nobr>`--source-root`</nobr> | | Optional. Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| <nobr>`--codescanning-config`</nobr> | | Optional (Advanced). Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[Using a custom configuration file](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-a-custom-configuration-file)" and "[database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config)." |{% endif %}
 
-詳細については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[{% data variables.product.prodname_codeql %} データベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)」を参照してください。
+For more information, see [Creating {% data variables.product.prodname_codeql %} databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-### 単一言語の例
+### Single language example
 
-この例では、`/checkouts/example-repo` でチェックアウトされたリポジトリの {% data variables.product.prodname_codeql %} データベースを作成します。 JavaScript 抽出機能を使用して、リポジトリに JavaScript および TypeScript コードの階層表現を作成します。 結果のデータベースは `/codeql-dbs/example-repo` に格納されます。
+This example creates a {% data variables.product.prodname_codeql %} database for the repository checked out at `/checkouts/example-repo`. It uses the JavaScript extractor to create a hierarchical representation of the JavaScript and TypeScript code in the repository. The resulting database is stored in `/codeql-dbs/example-repo`.
 
 ```
 $ codeql database create /codeql-dbs/example-repo --language=javascript \
@@ -105,16 +101,16 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
 > Successfully created database at /codeql-dbs/example-repo.
 ```
 
-### 複数言語の例
+### Multiple language example
 
-この例では、`/checkouts/example-repo-multi` でチェックアウトされたリポジトリの {% data variables.product.prodname_codeql %} データベースを 2 つ作成します。 イベント プロセッサで使用されるものは次のとおりです。
+This example creates two {% data variables.product.prodname_codeql %} databases for the repository checked out at `/checkouts/example-repo-multi`. It uses:
 
-- `--db-cluster`: 複数の言語の分析を要求します。
-- `--language`: データベースを作成する言語を指定します。
-- `--command`: コードベースのビルド コマンド (ここでは `make`) をツールに伝えます。
-- `--no-run-unnecessary-builds`: 必要のない言語 (Python など) のビルド コマンドをスキップするようにツールに伝えます。
+- `--db-cluster` to request analysis of more than one language.
+- `--language` to specify which languages to create databases for.
+- `--command` to tell the tool the build command for the codebase, here `make`.
+- `--no-run-unnecessary-builds` to tell the tool to skip the build command for languages where it is not needed (like Python).
 
-結果のデータベースは、`/codeql-dbs/example-repo-multi` の `python` および `cpp` サブディレクトリに格納されます。
+The resulting databases are stored in `python` and `cpp` subdirectories of `/codeql-dbs/example-repo-multi`.
 
 ```
 $ codeql database create /codeql-dbs/example-repo-multi \
@@ -136,10 +132,10 @@ Successfully created databases at /codeql-dbs/example-repo-multi.
 $
 ```
 
-## {% data variables.product.prodname_codeql %}データベースの分析
+## Analyzing a {% data variables.product.prodname_codeql %} database
 
-1. {% data variables.product.prodname_codeql %}データベースを作成してください（上記参照）。
-2. データベースに対して `codeql database analyze` を実行し、使用する{% ifversion codeql-packs %}パックまたは{% endif %}クエリを指定します。
+1. Create a {% data variables.product.prodname_codeql %} database (see above).
+2. Run `codeql database analyze` on the database and specify which {% ifversion codeql-packs %}packs and/or {% endif %}queries to use.
   ```shell
   codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
       --output=&lt;output&gt;  {% ifversion codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
@@ -147,7 +143,7 @@ $
 
 {% note %}
 
-**注:** 1 つのコミットに対して複数の {% data variables.product.prodname_codeql %} データベースを分析する場合、このコマンドによって生成されるそれぞれの結果セットに対して SARIF カテゴリを指定する必要があります。 結果を{% data variables.product.product_name %}にアップロードする際には、{% data variables.product.prodname_code_scanning %}はこのカテゴリを使ってそれぞれの言語に対する結果を別々に保存します。 この操作を忘れた場合は、各アップロードで前の結果が上書きされます。
+**Note:** If you analyze more than one {% data variables.product.prodname_codeql %} database for a single commit, you must specify a SARIF category for each set of results generated by this command. When you upload the results to {% data variables.product.product_name %}, {% data variables.product.prodname_code_scanning %} uses this category to store the results for each language separately. If you forget to do this, each upload overwrites the previous results.
 
 ```shell
 codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
@@ -156,24 +152,24 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 ```
 {% endnote %}
 
-| オプション | 必須 | 使用法 |
+| Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | 分析する{% data variables.product.prodname_codeql %}データベースを含むディレクトリのパスを指定します。 |
-| `<packs,queries>` | | 実行する {% data variables.product.prodname_codeql %} パックまたはクエリを指定します。 {% data variables.product.prodname_code_scanning %} に使用される標準クエリを実行するには、このパラメーターを省略します。 {% data variables.product.prodname_codeql_cli %} バンドルに含まれている他のクエリ スイートを確認する場合は、`/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites` を参照してください。 独自のクエリ スイートの作成については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[CodeQL クエリ スイートの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)」を参照してください。
-| <nobr>`--format`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | コマンドによって生成される結果ファイルの形式を指定します。 {% data variables.product.company_short %} へのアップロードの場合、これは {% ifversion fpt or ghae or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %} である必要があります。 詳細については、「[{% data variables.product.prodname_code_scanning %} の SARIF サポート](/code-security/secure-coding/sarif-support-for-code-scanning)」を参照してください。
-| <nobr>`--output`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | SARIF 結果ファイルを保存する場所を指定します。
-| <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | 単一データベースの分析の場合は省略可能です。 リポジトリ内の単一コミットに対して複数のデータベースを分析する場合に言語を定義するために必要です。 この分析の SARIF 結果ファイルに含めるカテゴリを指定します。 カテゴリは、同じツールとコミットに対する複数の分析を区別するために使用されますが、異なる言語またはコードの異なる部分で実行されます。|{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
-| <nobr>`--sarif-add-query-help`</nobr> | | 省略可能。 分析で使用されるカスタム クエリに対して使用可能なマークダウン レンダリング クエリ ヘルプを含める場合に使用します。 関連するクエリによってアラートが生成された場合は、SARIF 出力に含まれるカスタム クエリのクエリ ヘルプがすべてコード スキャン UI に表示されます。 詳細については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[{% data variables.product.prodname_codeql_cli %} でのデータベースの分析](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files)」を参照してください。{% endif %}{% ifversion codeql-packs %}
-| `<packs>` | | 省略可能。 CodeQL クエリ パックを分析に含めたい場合に使います。 詳細については、「[{% data variables.product.prodname_codeql %} パックのダウンロードと使用](#downloading-and-using-codeql-query-packs)」を参照してください。
-| <nobr>`--download`</nobr> | | 省略可能。 CodeQL クエリ パックの一部がまだディスク上になく、クエリを実行する前にダウンロードする必要がある場合に使います。{% endif %}
-| <nobr>`--threads`</nobr> | | 任意。 複数のスレッドを使用してクエリを実行する場合に使用します。 既定値は `1` です。 クエリの実行を高速化するために、より多くのスレッドを指定できます。 スレッドの数を論理プロセッサの数に設定するには、`0` を指定します。
-| <nobr>`--verbose`</nobr> | | 省略可能。 データベース作成プロセスから分析プロセスと診断データに関する詳細情報を取得するために使用します。
+| `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the path for the directory that contains the {% data variables.product.prodname_codeql %} database to analyze. |
+| `<packs,queries>` | | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in `/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites`. For information about creating your own query suite, see [Creating CodeQL query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
+| <nobr>`--format`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the format for the results file generated by the command. For upload to {% data variables.product.company_short %} this should be: {% ifversion fpt or ghae or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %}. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
+| <nobr>`--output`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify where to save the SARIF results file.
+| <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository. Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+| <nobr>`--sarif-add-query-help`</nobr> | | Optional. Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files) in the documentation for the {% data variables.product.prodname_codeql_cli %}.{% endif %}{% ifversion codeql-packs %}
+| `<packs>` | | Optional. Use if you want to include CodeQL query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](#downloading-and-using-codeql-query-packs)."
+| <nobr>`--download`</nobr> | | Optional. Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
+| <nobr>`--threads`</nobr> | | Optional. Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
+| <nobr>`--verbose`</nobr> | | Optional. Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
 
-詳細については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[{% data variables.product.prodname_codeql_cli %} でのデータベースの分析](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/)」を参照してください。
+For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-### 基本的な例
+### Basic example
 
-この例では、`/codeql-dbs/example-repo` で格納されている {% data variables.product.prodname_codeql %} データベースを分析し、結果を SARIF ファイル (`/temp/example-repo-js.sarif`) として保存します。 `--sarif-category` を使用して、結果を JavaScript として識別する追加の情報を SARIF ファイルに含めます。 これは、リポジトリ中の単一のコミットに対して分析する{% data variables.product.prodname_codeql %}データベースが複数ある場合に不可欠です。
+This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
@@ -187,16 +183,16 @@ $ codeql database analyze /codeql-dbs/example-repo  \
 > Interpreting results.
 ```
 
-## {% data variables.product.product_name %}への結果のアップロード
+## Uploading results to {% data variables.product.product_name %}
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-結果を {% data variables.product.product_name %} にアップロードする前に、{% data variables.product.prodname_github_app %}または個人用アクセス トークン (以前に作成したもの) を {% data variables.product.prodname_codeql_cli %} に渡す最善の方法を決める必要があります (「[CI システムでの {% data variables.product.prodname_codeql_cli %} のインストール](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)」を参照)。 シークレット ストアの安全な使用に関する CI システムのガイダンスを確認することをお勧めします。 {% data variables.product.prodname_codeql_cli %}は以下をサポートします。
+Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or personal access token you created earlier to the {% data variables.product.prodname_codeql_cli %} (see [Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)). We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
 
-- `--github-auth-stdin` オプションを使用し、標準入力を介して CLI にトークンを渡す (推奨)。
-- 環境変数 `GITHUB_TOKEN` にシークレットを保存し、`--github-auth-stdin` オプションを含めずに CLI を実行する。
+- Passing the token to the CLI via standard input using the `--github-auth-stdin` option (recommended).
+- Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
 
-CI サーバーの最も安全で信頼性の高い方法を決定した場合は、各 SARIF 結果ファイルで `codeql github upload-results` を実行し、トークンが環境変数 `GITHUB_TOKEN` で使用可能でない限り、`--github-auth-stdin` を含めます。
+When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
   ```shell
   echo "$UPLOAD_TOKEN" | codeql github upload-results --repository=&lt;repository-name&gt; \
@@ -204,20 +200,20 @@ CI サーバーの最も安全で信頼性の高い方法を決定した場合�
       {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
   ```
 
-| オプション | 必須 | 使用法 |
+| Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`--repository`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | データのアップロード先となるリポジトリの *OWNER/NAME* を指定します。 {% ifversion fpt or ghec %}リポジトリがパブリックでなければ、{% endif %}オーナーは {% data variables.product.prodname_GH_advanced_security %} のライセンスを持つ Enterprise 内の Organization でなければならず、{% data variables.product.prodname_GH_advanced_security %} はリポジトリで有効化されていなければなりません。 詳細については、「[リポジトリのセキュリティと分析の設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。
-| <nobr>`--ref`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | チェックアウトして分析した `ref` の名前を指定して、結果を正しいコードと照合できるようにします。 ブランチで `refs/heads/BRANCH-NAME` を使用するか、pull request のヘッド コミットで `refs/pull/NUMBER/head` を使用するか、pull request の {% data variables.product.prodname_dotcom %} で生成されたマージ コミットで `refs/pull/NUMBER/merge` を使用します。
-| <nobr>`--commit`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | 分析したコミットの完全な SHA を指定します。
-| <nobr>`--sarif`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | 読み込む SARIF ファイルを指定します。{% ifversion ghes or ghae %}
-| <nobr>`--github-url`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | {% data variables.product.product_name %}のURLを指定してください。{% endif %}
-| <nobr>`--github-auth-stdin`</nobr> | | 任意。 {% data variables.product.prodname_github_app %}もしくは{% data variables.product.company_short %}のREST APIの認証のために作成された個人アクセストークンを標準入力経由でCLIに渡すために使います。 このトークンを使用して設定された `GITHUB_TOKEN` 環境変数にコマンドがアクセスできる場合、これは必要ありません。
+| <nobr>`--repository`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the *OWNER/NAME* of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+| <nobr>`--ref`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
+| <nobr>`--commit`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
+| <nobr>`--sarif`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
+| <nobr>`--github-url`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
+| <nobr>`--github-auth-stdin`</nobr> | | Optional. Use to pass the CLI the {% data variables.product.prodname_github_app %} or personal access token created for authentication with {% data variables.product.company_short %}'s REST API via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
-詳細については、{% data variables.product.prodname_codeql_cli %} のドキュメントの「[github upload-results](https://codeql.github.com/docs/codeql-cli/manual/github-upload-results/)」を参照してください。
+For more information, see [github upload-results](https://codeql.github.com/docs/codeql-cli/manual/github-upload-results/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-### 基本的な例
+### Basic example
 
-この例では、SARIF ファイル `temp/example-repo-js.sarif` からリポジトリ `my-org/example-repo` に結果をアップロードします。 結果が `main` ブランチのコミット `deb275d2d5fe9a522a0b7bd8b6b6a1c939552718` に対するものであることを {% data variables.product.prodname_code_scanning %} API に伝えます。
+This example uploads results from the SARIF file `temp/example-repo-js.sarif` to the repository `my-org/example-repo`. It tells the {% data variables.product.prodname_code_scanning %} API that the results are for the commit `deb275d2d5fe9a522a0b7bd8b6b6a1c939552718` on the `main` branch.
 
 ```
 $ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
@@ -226,30 +222,30 @@ $ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-
     {% endif %}--github-auth-stdin
 ```
 
-アップロードが失敗しなければ、このコマンドからの出力はありません。 コマンドプロンプトは、アップロードが完了してデータ処理が開始された時点で戻ってきます。 小さなコードベースでは、すぐ後に{% data variables.product.product_name %}中の{% data variables.product.prodname_code_scanning %}アラートを調べることができるでしょう。 チェックアウトしたコードに応じて、アラートを直接 pull request に、またはブランチの **[セキュリティ]** タブで表示できます。詳細については、「[pull request での{% data variables.product.prodname_code_scanning %} アラートのトリアージ](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」および「[リポジトリの{% data variables.product.prodname_code_scanning %} アラートを管理する](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)」を参照してください。
+There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
 {% ifversion codeql-packs %}
-## {% data variables.product.prodname_codeql %} クエリ パックのダウンロードと使用
+## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-{% data variables.product.prodname_codeql_cli %} バンドルには、{% data variables.product.company_short %} の専門家、セキュリティ研究者、コミュニティの共同作成者によって管理されるクエリが含まれます。 他の Organization によって開発されたクエリを実行する場合、{% data variables.product.prodname_codeql %} クエリ パックを使用すると、クエリを効率的かつ信頼性の高い方法でダウンロードして実行できます。 詳細については、「[CodeQL によるコード スキャンについて](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)」を参照してください。
+The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 
-{% data variables.product.prodname_codeql %} パックを使ってデータベースを分析する前に、{% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} から必要なパッケージをすべてダウンロードする必要があります。 これは、`codeql database analyze` コマンドの一部として `--download` フラグを使うことによって行うことができます。 パッケージが一般公開されていない場合は、認証に {% data variables.product.prodname_github_app %} または個人用アクセス トークンを使用する必要があります。 詳細と例については、上記の「[{% data variables.product.product_name %} への結果のアップロード](#uploading-results-to-github)」を参照してください。
+Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or personal access token to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)" above.
 
-| オプション | 必須 | 使用法 |
+| Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | コンマ区切りリストを使用して、ダウンロードする 1 つまたは複数の CodeQL クエリ パックのスコープと名前を指定します。 必要に応じて、ダウンロードして解凍するバージョンを含めます。 既定では、このパックの最新バージョンがダウンロードされます。 必要に応じて、実行するクエリ、ディレクトリ、またはクエリ スイートへのパスを含めます。 パスが含まれていない場合、このパックの既定のクエリを実行します。 |
-| <nobr>`--github-auth-stdin`</nobr> | | 任意。 {% data variables.product.prodname_github_app %} または個人用アクセス トークン ({% data variables.product.company_short %} の REST API での認証のために作成されたもの) を標準入力経由で CLI に渡します。 このトークンを使用して設定された `GITHUB_TOKEN` 環境変数にコマンドがアクセスできる場合、これは必要ありません。
+| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the scope and name of one or more CodeQL query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
+| <nobr>`--github-auth-stdin`</nobr> | | Optional. Pass the {% data variables.product.prodname_github_app %} or personal access token created for authentication with {% data variables.product.company_short %}'s REST API to the CLI via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
-### 基本的な例
+### Basic example
 
-この例では、`codeql database analyze` コマンドに `--download` オプションを付けて実行しています。
+This example runs the `codeql database analyze` command with the `--download` option to:
 
-1. 最新バージョンの `octo-org/security-queries` パックをダウンロードします。
-2. バージョン 1.0.1 と`octo-org/optional-security-queries`互換性のある *バージョンの* パックをダウンロードします (この場合はバージョン 1.0.2 です)。 semver の互換性については、[npm のセマンティック バージョンの範囲に関するドキュメント](https://github.com/npm/node-semver#ranges)を参照してください。
-3. `octo-org/security-queries` の既定のクエリをすべて実行します。
-4. `octo-org/optional-security-queries` のクエリ `queries/csrf.ql` だけを実行します
+1. Download the latest version of the `octo-org/security-queries` pack.
+2. Download a version of the `octo-org/optional-security-queries` pack that is *compatible* with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
+3. Run all the default queries in `octo-org/security-queries`.
+4. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
 
 ```
 $ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/example-repo \
@@ -272,18 +268,22 @@ $ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/e
 > Interpreting results.
 ```
 
-### {% data variables.product.prodname_codeql %} パックの直接ダウンロード
+### Direct download of {% data variables.product.prodname_codeql %} packs
 
-{% data variables.product.prodname_codeql %} パックをダウンロードしてすぐに実行しない場合、`codeql pack download` コマンドを使用できます。 これは、{% data variables.product.prodname_codeql %} クエリを実行するとき、インターネットへのアクセスをしないようにする場合、便利です。 {% data variables.product.prodname_codeql %} 分析を実行するとき、前の例と同じ方法でパック、バージョン、パスを指定できます。
+If you want to download a {% data variables.product.prodname_codeql %} pack without running it immediately, then you can use the `codeql pack download` command. This is useful if you want to avoid accessing the internet when running {% data variables.product.prodname_codeql %} queries. When you run the {% data variables.product.prodname_codeql %} analysis, you can specify packs, versions, and paths in the same way as in the previous example:
 
 ```shell
 echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
 ```
+
+### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
+
+If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors#downloading-codeql-packs-from-github-enterprise-server)."
 {% endif %}
 
-## {% data variables.product.prodname_codeql %}分析のためのCIの設定例
+## Example CI configuration for {% data variables.product.prodname_codeql %} analysis
 
-これは、2つのサポートされている言語を持つコードベースを分析し、結果を{% data variables.product.product_name %}にアップロードするために使うことができる一連のコマンドの例です。
+This is an example of the series of commands that you might use to analyze a codebase with two supported languages and then upload the results to {% data variables.product.product_name %}.
 
 ```shell
 # Create CodeQL databases for Java and Python in the 'codeql-dbs' directory
@@ -317,21 +317,22 @@ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-re
     --sarif=python-results.sarif --github-auth-stdin
 ```
 
-## CIシステムでの{% data variables.product.prodname_codeql_cli %}のトラブルシューティング
+## Troubleshooting the {% data variables.product.prodname_codeql_cli %} in your CI system
 
-### ログと診断情報を見る
+### Viewing log and diagnostic information
 
-{% data variables.product.prodname_code_scanning %}クエリスイートを使って{% data variables.product.prodname_codeql %}データベースを分析する際には、アラートに関する詳細情報を生成するのに加えて、CLIはデータベース生成ステップからの診断情報とサマリメトリクスを報告します。 アラートが少ないリポジトリでは、実際にコード中の問題が少ないのか、あるいは{% data variables.product.prodname_codeql %}データベースの生成時にエラーがあったのかを判断するのにこの情報が役立つかもしれません。 `codeql database analyze` からさらに詳しい出力を得るには、`--verbose` オプションを使用します。
+When you analyze a {% data variables.product.prodname_codeql %} database using a {% data variables.product.prodname_code_scanning %} query suite, in addition to generating detailed information about alerts, the CLI reports diagnostic data from the database generation step and summary metrics. For repositories with few alerts, you may find this information useful for determining if there are genuinely few problems in the code, or if there were errors generating the {% data variables.product.prodname_codeql %} database. For more detailed output from `codeql database analyze`, use the `--verbose` option.
 
-使用可能な診断情報の種類について詳しくは、「[{% data variables.product.prodname_code_scanning %} ログの表示](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)」を参照してください。
+For more information about the type of diagnostic information available, see "[Viewing {% data variables.product.prodname_code_scanning %} logs](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)".
 
-### {% data variables.product.prodname_code_scanning_capc %}は、分析された言語の1つからの分析結果だけを表示します。
+### {% data variables.product.prodname_code_scanning_capc %} only shows analysis results from one of the analyzed languages
 
-デフォルトでは、{% data variables.product.prodname_code_scanning %}はリポジトリの分析ごとに1つのSARIF結果ファイルを期待します。 したがって、コミットから2つめのSARIF結果ファイルをアップロードすると、それはデータのオリジナルのセットの置き換えとして扱われます。
+By default, {% data variables.product.prodname_code_scanning %} expects one SARIF results file per analysis for a repository. Consequently, when you upload a second SARIF results file for a commit, it is treated as a replacement for the original set of data.
 
-リポジトリ中の1つのコミットについての結果を{% data variables.product.prodname_code_scanning %} APIに複数アップロードしたい場合は、それぞれの結果をユニークなセットとして特定しなければなりません。 コミットごとに分析する {% data variables.product.prodname_codeql %} データセットを複数作成するリポジトリでは、`--sarif-category` オプションを使用して、そのリポジトリで生成するそれぞれの SARIF ファイルに言語または他の一意のカテゴリを指定します。
+If you want to upload more than one set of results to the {% data variables.product.prodname_code_scanning %} API for a commit in a repository, you must identify each set of results as a unique set. For repositories where you create more than one {% data variables.product.prodname_codeql %} database to analyze for each commit, use the `--sarif-category` option to specify a language or other unique category for each SARIF file that you generate for that repository.
 
-## 参考資料
+## Further reading
 
-- [CodeQL データベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)
-- [CodeQL CLI でのデータベースの分析](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/)
+- [Creating CodeQL databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)
+- [Analyzing databases with the CodeQL CLI](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/)
+- [Publishing and using CodeQL packs](https://codeql.github.com/docs/codeql-cli/publishing-and-using-codeql-packs/)

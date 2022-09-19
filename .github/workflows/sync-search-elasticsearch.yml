@@ -36,17 +36,6 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
-      # TEMPORARY UNTIL WE HAVE A PRODUCTION ELASTICSEARCH
-      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          elasticsearch version: '7.17.5'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-      # END TEMPORARY
-
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:

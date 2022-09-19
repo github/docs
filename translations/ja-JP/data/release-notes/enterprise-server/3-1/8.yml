@@ -1,0 +1,20 @@
+date: '2021-09-24'
+sections:
+  security_fixes:
+    - '**高:** {% data variables.product.prodname_ghe_server %} でパス走査の脆弱性が確認されました。これにより、{% data variables.product.prodname_pages %} サイトのビルド時に悪用される可能性があります。{% data variables.product.prodname_pages %} によって使用されるユーザー制御の構成オプションは十分に制限されておらず、{% data variables.product.prodname_ghe_server %} インスタンスでファイルを読み取ることが可能になっていました。この脆弱性を悪用するために、攻撃者は {% data variables.product.prodname_ghe_server %} インスタンス上に {% data variables.product.prodname_pages %} サイトを作成してビルドするアクセス許可が必要です。この脆弱性により、3.1.8 より前の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けます。3.1.8、3.0.16、および 2.22.22 で修正されました。これは、CVE-2021-22867 の不完全な修正が原因です。この脆弱性は、GitHub Bug Bounty プログラムから報告され、CVE-2021-22868 が割り当てられました。{% comment %} https://github.com/github/pages/pull/3361, https://github.com/github/pages/pull/3357 {% endcomment %}'
+    - '**中:** {% data variables.product.prodname_ghe_server %} の不適切なアクセス制御により、ワークフロー ジョブが、アクセス権のないセルフホステッド ランナー グループで実行できるようになります。これにより、アクセス制御にセルフホステッド ランナー グループを使用する顧客が影響を受けます。1 つのエンタープライズ ランナー グループへのアクセス権を持つリポジトリは、要求時の不適切な認証チェックのため、組織内のすべてのエンタープライズ ランナー グループにアクセスできるようになります。これにより、不適切なランナー グループによって意図せずにコードが実行される場合があります。この脆弱性により、3.0.0 から 3.0.15 および 3.1.0 から 3.1.7 の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けます。3.0.16 と 3.1.8 で修正されました。これには CVE-2021-22869 が割り当てられました。{% comment %} https://github.com/github/enterprise2/pull/27013 {% endcomment %}'
+  bugs:
+    - 'メンテナンス モード時に、レスキュー ワーカー数が不正確に表示されました。{% comment %} https://github.com/github/enterprise2/pull/26899, https://github.com/github/enterprise2/pull/26883 {% endcomment %}'
+    - 'クラスタリング モードで、割り当てられた memcached のメモリがゼロになることがありました。{% comment %} https://github.com/github/enterprise2/pull/26928, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
+    - 'pull request の [ファイル] タブで、空ではないバイナリ ファイルのファイルの種類やサイズが不正確に表示されました。{% comment %} https://github.com/github/github/pull/192810, https://github.com/github/github/pull/172284, https://github.com/github/coding/issues/694 {% endcomment %}'
+    - 'アプライアンスの NO_PROXY 設定を考慮に入れるように、{% data variables.product.prodname_pages %} ビルドが修正されました。これが関係するのは、HTTP プロキシが構成されたアプライアンスのみです。(更新 2021-09-30) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - 'ソース インスタンスの GitHub Connect 構成で、`ghe-restore` の `--config` オプションが使用されていなかった場合でも常に新しいインスタンスに復元されていました。これにより、ソースと復元先の両方のインスタンスが同時にオンラインだった場合、GitHub Connect 接続で競合が生じていました。修正では、backup-utils を 3.2.0 またはそれ以降に更新することも必要です。[更新: 2021-11-18]'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} を設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: e483abe3bffda4cdca5ee767b8e06ce4093f074a
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556399'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858614'
 ---
 GitHub.com, GitHub Enterprise Server e as informações que você carrega em qualquer um dos produtos podem estar sujeitas a regulamentos de controle comercial, inclusive segundo os Regulamentos de Administração de Exportação dos EUA (o EAR).
 

@@ -14,14 +14,14 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage team access
-ms.openlocfilehash: d03c6dcb8f1f386d0545ad99154edaf0991a987e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 34f912f4d5c55df30629b7b56200bef25281bf2d
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145134994'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878611'
 ---
-Las personas con acceso de administrador a un repositorio pueden administrar el acceso del equipo a un repositorio. Los mantenedores del equipo pueden eliminar el acceso de un equipo a un repositorio.
+Las personas con acceso de administrador a un repositorio pueden administrar el acceso del equipo a un repositorio. Los mantenedores del equipo pueden eliminar el acceso de un equipo a un repositorio si el equipo tiene acceso directo. Si el acceso del equipo al repositorio se hereda de un equipo primario, los mantenedores pueden optar por restablecer el permiso actual para que coincida con el permiso del equipo primario.
 
 {% warning %}
 
