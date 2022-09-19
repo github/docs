@@ -40,9 +40,22 @@ jobs:
 
       # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        with:
-          fileOutput: 'json'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -z "$PR_NUMBER" ]
+          then
+            DIFF=`gh pr diff --name-only`
+          elif [ -z "$GITHUB_BASE_REF" ] && [ -z "$GITHUB_HEAD_REF" ]
+          then
+            DIFF=`git diff --name-only $GITHUB_BASE_REF $GITHUB_HEAD_REF`
+          else
+            DIFF=''
+          fi
+          # Formats into single line JSON array, removing any empty strings
+          echo $DIFF | jq --raw-input | jq --slurp --compact-output 'map(select(length > 0))' > $HOME/files.json
 
       # For verification
       - name: Show files changed
