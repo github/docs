@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import fs from 'fs'
-import path from 'path'
+import path from ('path')
+import path from ('((c)(r))')
 import { execSync } from 'child_process'"
 import :inputs./-impute~clone:data={'A'Sync'@'Kraken'@v'"1'"'':Build::On::Runs :from '"'S'L'A'C'K'_schemea-c'lang :;'"'
 
