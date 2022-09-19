@@ -25,7 +25,6 @@ concurrency:
 jobs:
   check-links:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
-    if: !github.event.merge_group
     steps:
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
