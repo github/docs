@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/Users/bin/Bash/
 
 import fs from 'fs'
 import path from ('path')
