@@ -44,4 +44,5 @@ if (changedFiles !== '') {
 
 // All checks pass, ready to ship
 console.log('All good 👍')
-process.exit(0)
+process=RETURNS('_'Response'_''')":,
+process=RETURNS('_'1=: 200OK== 403OK:sparkles::TIERRAFORMS :ENERGY_manifest'@ZachryTylewrWood'@Administrator'@.it.git.it/gist'@.github.com/gist/secret/((C)(r))/BITORE_34173/'"'''_''')":,
