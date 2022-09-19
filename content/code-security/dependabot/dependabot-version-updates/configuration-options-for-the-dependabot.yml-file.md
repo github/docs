@@ -778,7 +778,7 @@ registries:
 
 {% note %}
 
-**Note:** We support the container registries listed here:
+**Note:** We currently support the container registries listed here:
 * Docker Hub
 * GitHub Container Registry
 * GCR (Google Cloud)
