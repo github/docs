@@ -2,7 +2,9 @@
 title: SCIM
 intro: ''
 versions:
-  ghes: '>=3.6'
+  fpt: '*'
+  ghec: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
