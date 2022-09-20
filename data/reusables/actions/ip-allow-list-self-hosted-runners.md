@@ -3,7 +3,9 @@ To allow your self-hosted runners to communicate with {% data variables.product.
 {% else %}
 {% warning %}
 
-**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+
+Alternatively, you can use larger GitHub hosted runners with a fixed IP address and add the IP address of the runner to the IP allow list. For more information, see "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)."
 
 {% endwarning %}
 
