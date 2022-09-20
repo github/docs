@@ -1,9 +1,1 @@
----
-ms.openlocfilehash: d202118a7fa2ab19c29e1a3f9d39bf730b2ea3b4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147111008"
----
-若要开始使用 {% data variables.product.prodname_codespaces %}，请参阅“[{% data variables.product.prodname_github_codespaces %} 的快速入门](/codespaces/getting-started/quickstart)”。 若要详细了解 {% data variables.product.prodname_codespaces %} 的工作原理，请参阅“[深入了解 {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)”。
+To get started with {% data variables.product.prodname_github_codespaces %}, see "[Quickstart for {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/quickstart)." For more information on creating or reopening a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)" and "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)." To learn more about how {% data variables.product.prodname_github_codespaces %} works, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."

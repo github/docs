@@ -1,0 +1,16 @@
+date: '2021-04-01'
+sections:
+  security_fixes:
+    - "**高:** GitHub App の [Web 認証フロー](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow)から生成されたアクセス トークンに対し、適切なアクセス許可が付与されていなくても REST API を通じてプライベートなリポジトリのメタデータの読み取りを許可する、不適切なアクセス制御の脆弱性が GitHub Enterprise Server で見つかりました。攻撃者がこの脆弱性を利用するには、そのインスタンス上で GitHub App を作成し、Web 認証フローを通じてユーザーにそのアプリケーションを承認させる必要があります。返されるプライベート リポジトリのメタデータは、そのトークンが示すユーザーが所有するリポジトリに限定されます。この脆弱性は、3.0.4 より前のすべてのバージョンの GitHub Enterprise Server に影響を与え、バージョン 3.0.4、2.22.10、2.21.18 で修正されました。この脆弱性は、CVE-2021-22865 が割り当てられ、[GitHub Bug Bounty プログラム](https://bounty.github.com)を通じて報告されました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - GitHub Enterprise 11.10.x 以前で設定されたタイムゾーンが一部のサービスで利用されず、デフォルトの UTC 時間になっていました。
+    - ログ ローテーションの一部としてサービスが新しいログ ファイルに移行せず、ディスクの使用量が増大しました。
+    - "内部リポジトリの検索結果で、ラベルが \"内部\" ではなく \"プライベート\" と表示されました。"
+  known_issues:
+    - 新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。
+    - カスタム ファイアウォール規則は、アップグレード中維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。"

@@ -7,42 +7,37 @@ redirect_from:
   - /github/site-policy/github-data-protection-agreement
 versions:
   fpt: '*'
-ms.openlocfilehash: 91cef1674fbe12ac10a22cc3f41fcea35e93d90e
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556437'
 ---
-## Introdução 
+
+## <a name="introduction"></a>Introdução 
 
 As partes concordam que este Contrato de Proteção de Dados do GitHub (“**DPA**”) estabelece suas obrigações com relação ao processamento e à segurança de Dados Pessoais e, quando expressamente declarado nos Termos do DPA, Dados do Cliente em conexão com os Serviços Online prestados pelo GitHub, Inc. (“**GitHub**”). O DPA (incluindo o Apêndice e Anexos) é celebrado entre o GitHub e qualquer cliente que receba os Serviços Online do GitHub com base no Contrato do Cliente do GitHub (“**Cliente**”) e é incorporado por referência ao Contrato do Cliente do GitHub.
 
 Em caso de conflitos ou inconsistência entre os Termos do DPA e quaisquer outros termos no Contrato do Cliente do GitHub, os Termos do DPA prevalecerão. As disposições dos Termos do DPA substituem quaisquer disposições conflitantes da Política de Privacidade do GitHub que, de outra forma, possam ser aplicadas ao processamento de Dados Pessoais. Para fins de esclarecimento, as Cláusulas Contratuais Padrão prevalecerão sobre qualquer outro termo dos Termos do DPA. 
 
-### Atualizações e Termos do DPA Aplicáveis 
+### <a name="applicable-dpa-terms-and-updates"></a>Atualizações e Termos do DPA Aplicáveis 
 
-#### Limites de Atualizações 
+#### <a name="limits-on-updates"></a>Limites de Atualizações 
 
 Quando o Cliente renova ou compra uma nova assinatura de um Serviço Online, os Termos do DPA ora vigentes são aplicados, mantendo-se inalterados durante a vigência da nova assinatura desse Serviço Online. 
 
-#### Novos Recursos, Suplementos ou Softwares Relacionados 
+#### <a name="new-features-supplements-or-related-software"></a>Novos Recursos, Suplementos ou Softwares Relacionados 
 
 Não obstante os limites de atualizações anteriores, quando o GitHub introduzir novos recursos, suplementos ou programas de software relacionados (isto é, que anteriormente não faziam parte da assinatura), o GitHub poderá fornecer termos ou fazer atualizações no DPA que serão aplicáveis ao uso que o Cliente fizer desses novos recursos, suplementos ou programas de software relacionados. Se esses termos incluírem alguma alteração substancialmente adversa nos Termos do DPA, o GitHub fornecerá ao Cliente a opção de usar os novos recursos, suplementos ou softwares relacionados, sem perda da funcionalidade existente de um Serviço Online geralmente disponível. Se o Cliente não usar os novos recursos, suplementos ou software relacionados, os novos termos correspondentes não se aplicarão. 
 
-#### Requisitos e Regulamento Governamental 
+#### <a name="government-regulation-and-requirements"></a>Requisitos e Regulamento Governamental 
 
 Não obstante os limites de atualizações anteriores, o GitHub poderá modificar ou rescindir o Serviço Online em qualquer país ou jurisdição em que haja requisitos ou obrigações governamentais atuais ou futuras que (1) sujeitem o GitHub a qualquer regulamento ou requisito geralmente não aplicável à operação do negócio, (2) represente incômodo para o GitHub continuar a operação do Serviço Online sem modificações e/ou (3) faça com que o GitHub julgue que os Termos do DPA ou o Serviço Online possam estar em conflito com qualquer um desses requisitos ou obrigações. 
 
-### Notificações Eletrônicas 
+### <a name="electronic-notices"></a>Notificações Eletrônicas 
 
 O GitHub pode fornecer ao Cliente informações e notificações sobre os Serviços Online eletronicamente, inclusive por email ou por meio de um site identificado pelo GitHub. A notificação será considerada fornecida na data em que ela for disponibilizada pelo GitHub. 
 
-### Versões Anteriores 
+### <a name="prior-versions"></a>Versões Anteriores 
 
 Os Termos do DPA fornecem termos para os Serviços Online disponíveis atualmente. Para versões anteriores dos Termos do DPA, o Cliente pode entrar em contato com o revendedor ou o Gerente de Conta do GitHub. 
 
-## Definições 
+## <a name="definitions"></a>Definições 
 
 Os termos em letras maiúsculas usados, mas não definidos, neste DPA terão os significados atribuídos a eles no Contrato do Cliente do GitHub. Os termos definidos abaixo são usados neste DPA: 
 
@@ -94,15 +89,15 @@ Para fins de esclarecimento e conforme detalhado anteriormente, os dados definid
  
 Acima, uma representação visual dos tipos de dados definidos no DPA. Todos os Dados Pessoais são processados como parte de um dos outros tipos de dados (todos os quais também incluem dados não pessoais). Dados de Suporte são um subconjunto de Dados de Serviços Profissionais. Exceto quando expressamente indicado de outra forma, os Termos do DPA se aplicam exclusivamente aos Dados Pessoais. 
  
-## Termos gerais 
+## <a name="general-terms"></a>Termos gerais 
 
-### Cumprimento das leis 
+### <a name="compliance-with-laws"></a>Cumprimento das leis 
 
 O GitHub cumprirá todas as leis e regulamentos aplicáveis ao respectivo fornecimento dos Serviços Online, inclusive a lei de notificação de violação de segurança e os Requisitos de Proteção de Dados. No entanto, o GitHub não é responsável pelo cumprimento de leis ou regulamentos aplicáveis ao Cliente nem ao setor de atividade do Cliente e que não sejam geralmente aplicáveis a provedores de serviços de tecnologia da informação. O GitHub não determina se os Dados do Cliente incluem informações sujeitas a qualquer lei ou regulamento específico. Todos os Incidentes de Segurança estão sujeitos aos termos de Notificação de Incidentes de Segurança abaixo. 
 
 O Cliente deverá cumprir todas as leis e regulamentos aplicáveis ao uso dos Serviços Online, inclusive leis relacionadas a dados biométricos, confidencialidade das comunicações e Requisitos de Proteção de Dados. O Cliente é responsável por determinar se os Serviços Online são apropriados para armazenamento e processamento de informações sujeitas a qualquer lei ou regulamento específico e por usar os Serviços Online de maneira consistente com as obrigações legais e normativas. O Cliente é responsável por responder a todas as solicitações de um terceiro relativas ao uso que ele faz de um Serviço Online, como uma solicitação para retirar conteúdo de acordo com a Digital Millennium Copyright Act (Lei dos Direitos Autorais Digitais do Milênio) dos Estados Unidos ou outras leis aplicáveis. 
 
-## Proteção de Dados 
+## <a name="data-protection"></a>Proteção de Dados 
 
 Termos Esta seção do DPA inclui as seguintes subseções:
 - Escopo 
@@ -121,17 +116,17 @@ Termos Esta seção do DPA inclui as seguintes subseções:
 - Como entrar em contato com o GitHub 
 - Apêndice A – Medidas de Segurança
  
-### Escopo 
+### <a name="scope"></a>Escopo 
 
 Os Termos do DPA se aplicam a todos os Serviços Online. 
 
 As visualizações podem empregar menos medidas de privacidade e segurança ou medidas diferentes das geralmente presentes nos Serviços Online. A menos que indicado de outra forma, o Cliente não deve usar as Visualizações para processar Dados Pessoais nem outros dados sujeitos a requisitos de conformidade legais ou normativos. Os seguintes termos deste DPA não se aplicam a Visualizações: Processamento de Dados Pessoais; GDPR, Segurança de Dados e Lei de Privacidade do Consumidor da Califórnia. 
 
-### Natureza do Processamento de Dados; Propriedade 
+### <a name="nature-of-data-processing-ownership"></a>Natureza do Processamento de Dados; Propriedade 
 
 Salvo se indicado ao contrário nos Termos do DPA, o GitHub usará e, de outra forma, processará Dados do Cliente e Dados Pessoais somente de acordo com as instruções documentadas do Cliente e conforme descrito e sujeito às limitações fornecidas abaixo (a) para fornecer ao Cliente o Serviço Online de acordo com as instruções documentadas do Cliente e/ou (b) para operações de negócios legítimas do GitHub incidentes na entrega dos Serviços Online para o Cliente. Assim como ocorre entre as partes, o Cliente detém todo o direito, a titularidade do direito e o interesse nos Dados do Cliente. O GitHub não adquire outros direitos quanto aos Dados do Cliente que não sejam os concedidos a ele pelo Cliente nesta seção. Este parágrafo não afeta os direitos do GitHub em relação ao software nem aos serviços licenciados por ele para o Cliente. 
 
-#### Processamento para Fornecer ao Cliente os Serviços Online 
+#### <a name="processing-to-provide-customer-the-online-services"></a>Processamento para Fornecer ao Cliente os Serviços Online 
 
 Para os fins deste DPA, “fornecer” um Serviço Online consiste em: 
 - Fornecer recursos funcionais conforme licenciados, configurados e usados pelo Cliente e seus usuários, inclusive proporcionar experiências personalizadas aos usuários; 
@@ -140,13 +135,13 @@ Para os fins deste DPA, “fornecer” um Serviço Online consiste em:
 
 Ao fornecer Serviços Online, o GitHub usará ou processará Dados Pessoais apenas em nome do Cliente e de acordo com as instruções documentadas do Cliente. 
 
-#### Processamento de Operações Comerciais Legítimas do GitHub 
+#### <a name="processing-for-githubs-legitimate-business-operations"></a>Processamento de Operações Comerciais Legítimas do GitHub 
 
 Para os fins deste DPA, “Operações comerciais legítimas do GitHub” consistem no seguinte, cada uma como incidente para a entrega dos Serviços Online para o Cliente: (1) faturamento e gerenciamento de contas; (2) remuneração (por exemplo, cálculo de comissões de funcionários e incentivos de parceiros); (3) relatórios internos e modelagem de negócios (por exemplo, previsão, receita, planejamento de capacidade, estratégia de produto); (4) combate a fraudes, abusos, crimes cibernéticos ou ataques cibernéticos que possam afetar o GitHub ou os Serviços Online; (5) melhoria da funcionalidade central de acessibilidade, privacidade ou eficiência energética; (6) relatórios financeiros e cumprimento de obrigações legais (sujeito às limitações de divulgação de Dados Processados descritas abaixo); (7) criação ou gerenciamento de contas e perfis de usuários finais pelo GitHub para usuários individuais do Cliente (exceto quando o próprio Cliente cria, gerencia ou controla essas contas ou perfis de usuários finais); e (8) outros propósitos relativos a Dados Pessoais não fornecidos pelo Cliente para armazenamento em repositórios do GitHub ou em conexão com Serviços Profissionais. 
 
 No processamento de operações comerciais legítimas do GitHub, este não usará nem processará de outra forma Dados Pessoais para: (a) criar perfis de usuários, (b) publicidade ou fins comerciais semelhantes, (c) negociação ou venda de dados ou (d) qualquer outra finalidade, que não seja aquela para as finalidades estabelecidas nesta seção. 
 
-### Divulgação de dados processados 
+### <a name="disclosure-of-processed-data"></a>Divulgação de dados processados 
 
 O GitHub não divulgará nem fornecerá acesso a nenhum Dado Processado, exceto: (1) de acordo com as instruções do Cliente, (2) conforme descrito neste DPA ou (3) conforme exigido por lei. Para os fins desta seção, “Dados Processados” abrangem: (a) Dados do Cliente, (b) Dados Pessoais e (c) quaisquer outros dados processados pelo GitHub em relação ao Serviço Online que sejam informações confidenciais do Cliente de acordo com o Contrato do Cliente do GitHub. Todo o processamento de Dados Processados está sujeito à obrigação de confidencialidade do GitHub de acordo com o Contrato do Cliente do GitHub. 
 
@@ -158,19 +153,19 @@ O GitHub não fornecerá a nenhum terceiro: (a) acesso direto, indireto, amplo o
 
 Com base no exposto acima, o GitHub poderá fornecer ao terceiro as informações de contato básicas do Cliente. 
 
-### Processamento de Dados Pessoais: GDPR 
+### <a name="processing-of-personal-data-gdpr"></a>Processamento de Dados Pessoais: GDPR 
 
 Todos os Dados Pessoais processados pelo GitHub em conexão com os Serviços Online serão obtidos como parte de Dados do Cliente, Dados de Serviços Profissionais (incluindo Dados de Suporte), Dados de Diagnóstico ou Dados Gerados pelo Serviço. Os Dados Pessoais fornecidos ao GitHub pelo Cliente ou em nome dele através do uso do Serviço Online também são Dados do Cliente. Identificadores sob pseudônimo podem ser incluídos em Dados de Diagnóstico ou Dados Gerados pelo Serviço e também são Dados Pessoais. Todos os Dados Pessoais sob pseudônimo ou não identificados, mas não anônimos, ou Dados Pessoais derivados de Dados Pessoais também são Dados Pessoais. 
 
 Visto que o GitHub é processador ou subprocessador de Dados Pessoais sujeitos ao GDPR, os Termos Relacionados ao GDPR no <a href="#attachment3">Anexo 3</a> regem esse processamento, e as partes também concordam com os seguintes termos nesta subseção (“Processamento de Dados Pessoais, GDPR”): 
 
-#### Funções e Responsabilidades do Processador e do Controlador 
+#### <a name="processor-and-controller-roles-and-responsibilities"></a>Funções e Responsabilidades do Processador e do Controlador 
 
 O Cliente e o GitHub concordam que o Cliente seja o controlador dos Dados Pessoais e o GitHub seja o processador desses dados, exceto (a) quando o Cliente atuar como processador de Dados Pessoais, caso em que o GitHub será um subprocessador; ou (b) salvo disposição em contrário no Contrato do Cliente do GitHub ou neste DPA. Quando o GitHub atua como processador ou subprocessador de Dados Pessoais, ele processará Dados Pessoais apenas em nome do Cliente e de acordo com as instruções documentadas do Cliente. O Cliente concorda que o Contrato do Cliente do GitHub (incluindo os Termos do DPA e quaisquer atualizações aplicáveis), junto com a documentação do produto, o uso e a configuração de recursos do Cliente nos Serviços Online, são as instruções documentadas finais e completas do Cliente para o GitHub para o processamento de Dados Pessoais. Informações sobre uso e configuração dos Serviços Online podem ser encontradas em https://docs.github.com ou em um local sucessor. Quaisquer instruções adicionais ou alternativas deverão ser estipuladas de acordo com o processo de alteração do Contrato do Cliente do GitHub do Cliente. Em qualquer caso em que o GDPR se aplique e o Cliente seja um processador, o Cliente garante ao GitHub que as instruções do Cliente, inclusive a nomeação do GitHub como processador ou subprocessador, foram autorizadas pelo controlador relevante. 
 
 Caso o GitHub use ou de outro modo processe Dados Pessoais sujeitos ao GDPR para operações de negócios legítimas do GitHub incidentes na entrega dos Serviços Online ao Cliente, o GitHub cumprirá as obrigações de uma controladora de dados independente segundo o GDPR para o referido uso. O GitHub aceita as responsabilidades agregadas de um “controlador” de dados, segundo o GDPR, para processamento com relação às suas operações de negócios legítimas para: (a) agir de forma consistente com as exigências regulamentares até o limite exigido segundo o GDPR e (b) fornecer maior transparência aos Clientes e confirmar a responsabilidade do GitHub para o referido processamento. O GitHub usa proteções para resguardar Dados Pessoais no processamento, incluindo as identificadas neste DPA e as contempladas no Artigo 6(4) do GDPR. Com relação ao processamento de Dados Pessoais nos termos deste parágrafo, o GitHub assume os compromissos estabelecidos nas Cláusulas Contratuais Padrão estabelecidas no <a href="#attachment1">Anexo 1</a> ou <a href="#attachment2">Anexo 2</a> (conforme aplicável); para esses fins, (i) qualquer divulgação de Dados Pessoais do GitHub, conforme descrito no Adendo III do <a href="#attachment1">Anexo 1</a> ou Apêndice 3 do <a href="#attachment2">Anexo 2</a> (conforme aplicável), que foi transferido em conexão com as operações comerciais legítimas do GitHub, é considerada uma “Divulgação Relevante” e (ii) os compromissos no Anexo III do <a href="#attachment1">Anexo 1</a> ou Apêndice 3 do <a href="#attachment2">Anexo 2</a> (conforme aplicável) se aplicam aos referidos Dados Pessoais. 
 
-#### Detalhes do processamento 
+#### <a name="processing-details"></a>Detalhes do processamento 
 
 As partes reconhecem e concordam que: 
 
@@ -180,15 +175,15 @@ As partes reconhecem e concordam que:
 - **Categorias de Dados**. Os tipos de Dados Pessoais processados pelo GitHub ao fornecer o Serviço Online incluem: (i) Dados Pessoais que o Cliente optar por incluir nos Dados do Cliente ou Dados de Serviços Profissionais (incluindo, sem limitação, Dados de Suporte) e (ii) aqueles expressamente identificados no Artigo 4 do GDPR que poderão estar contidos nos Dados de Diagnóstico ou nos Dados Gerados pelo Serviço. Os tipos de Dados Pessoais que o Cliente opta por incluir nos Dados do Cliente ou nos Dados de Serviços Profissionais (incluindo, sem limitação, Dados de Suporte) podem ser quaisquer categorias de Dados Pessoais identificadas em registros mantidos pelo Cliente atuando como controlador de acordo com o Artigo 30 do GDPR, incluindo as categorias de Dados Pessoais estabelecidas no Adendo I do <a href="#attachment1">Anexo 1</a> ou Apêndice 1 do <a href="#attachment2">Anexo 2</a> (conforme aplicável). 
 - Titulares dos Dados. As categorias de titulares de dados são representantes e usuários finais do Cliente, como funcionários, prestadores de serviços, colaboradores e clientes, e podem incluir quaisquer outras categorias de titulares de dados identificadas em registros mantidos pelo Cliente atuando como controlador de acordo com o Artigo 30 do GDPR, incluindo as categorias de titulares de dados estabelecidas no Adendo I do <a href="#attachment1">Anexo 1</a> ou Apêndice 1 do <a href="#attachment2">Anexo 2</a> (conforme aplicável). 
 
-#### Direitos dos Titulares de Dados; Assistência com Solicitações 
+#### <a name="data-subject-rights-assistance-with-requests"></a>Direitos dos Titulares de Dados; Assistência com Solicitações 
 
 O GitHub disponibilizará ao Cliente, de forma consistente com a funcionalidade do Serviço Online e a função do GitHub como processador de Dados Pessoais de titulares de dados, a capacidade de atender às solicitações de titulares de dados para exercer seus direitos segundo o GDPR. Se o GitHub receber um pedido do titular dos dados do Cliente para exercer um ou mais dos seus direitos segundo o GDPR em relação a um Serviço Online onde o GitHub é processador ou subprocessador de dados, ele redirecionará o titular dos dados para fazer sua solicitação diretamente ao cliente. O Cliente será responsável por responder a qualquer solicitação, incluindo, quando necessário, usando a funcionalidade do Serviço Online. O GitHub deverá cumprir as solicitações razoáveis feitas pelo Cliente para auxiliar na resposta do Cliente quanto à solicitação do titular dos dados. 
 
-#### Registros de Processamento de Atividades 
+#### <a name="records-of-processing-activities"></a>Registros de Processamento de Atividades 
 
 Caso o GDPR exija que o GitHub colete e mantenha registros de determinadas informações relacionadas ao Cliente, este, quando solicitado, fornecerá essas informações ao GitHub e as manterá precisas e atualizadas. O GitHub poderá disponibilizar essas informações para a autoridade de supervisão se exigido pelo GDPR. 
 
-### Segurança de Dados 
+### <a name="data-security"></a>Segurança de Dados 
 
 O GitHub implementará e manterá medidas técnicas e organizacionais apropriadas e proteções de segurança contra destruição acidental ou ilegal, ou perda, alteração, divulgação ou acesso não autorizado a Dados do Cliente e Dados Pessoais processados pelo GitHub em nome do Cliente, de acordo com as instruções documentadas por ele em relação aos Serviços Online. O GitHub monitorará regularmente a conformidade com essas medidas e proteções e continuará tomando as medidas apropriadas durante a vigência do Contrato do Cliente do GitHub. O <a href="#appendixA">Apêndice A - Proteções de Segurança</a> contém uma descrição das medidas técnicas e organizacionais e das proteções de segurança implementadas pelo GitHub. 
 
@@ -204,7 +199,7 @@ Se o Cliente estiver sujeito a uma auditoria ou investigação de autoridade reg
 - O Cliente é responsável por todos os custos e valores relacionados à cooperação do GitHub com a auditoria regulamentar do Cliente, incluindo todos os custos e valores razoáveis para todas as despesas do GitHub, além das tarifas de serviços executados pelo GitHub. 
 - Se o relatório gerado pela cooperação do GitHub com a auditoria regulamentar do Cliente incluir quaisquer descobertas relacionadas ao GitHub, o Cliente compartilhará tal relatório, descobertas e ações recomendadas com o GitHub, quando permitido pelos reguladores do Cliente. 
 
-### Notificação de Incidentes de Segurança 
+### <a name="security-incident-notification"></a>Notificação de Incidentes de Segurança 
 
 Se o GitHub tomar conhecimento de uma violação de segurança que leve à destruição, perda, alteração, divulgação não autorizada ou acesso acidental ou ilegal a Dados do Cliente ou Dados Pessoais processados pelo GitHub em nome do Cliente ou de acordo com as instruções documentadas do Cliente em relação aos Serviços Online (individualmente, “Incidente de Segurança”), o GitHub, prontamente e sem atraso indevido, (1) notificará o Cliente sobre o Incidente de Segurança; (2) investigará o Incidente de Segurança e fornecerá ao Cliente informações detalhadas sobre ele; e (3) tomará medidas razoáveis para minimizar os efeitos e reduzir quaisquer danos resultantes do Incidente de Segurança. 
 
@@ -216,7 +211,7 @@ A notificação ou resposta do GitHub a um Incidente de Segurança prevista nest
 
 O Cliente deverá notificar o GitHub imediatamente sobre qualquer possível uso indevido de suas contas ou credenciais de autenticação ou qualquer Incidente de Segurança relacionado a um Serviço Online. 
 
-### Transferências de Dados e Localização 
+### <a name="data-transfers-and-location"></a>Transferências de Dados e Localização 
 
 Os Dados Pessoais que o GitHub processa em nome do Cliente e de acordo com as instruções documentadas por ele em relação aos Serviços Online não podem ser transferidos nem armazenados e processados em uma localização geográfica, exceto de acordo com os Termos do DPA e as proteções previstas abaixo nesta seção. Levando em conta tais proteções, o Cliente indica o GitHub para transferir os Dados Pessoais aos Estados Unidos ou qualquer outro país no qual o GitHub ou seus Subprocessadores operam e para armazenar e processar os Dados Pessoais a fim de fornecer os Serviços Online, salvo o descrito em outra cláusula nestes Termos do DPA. 
 
@@ -226,15 +221,15 @@ O GitHub cumprirá os requisitos aplicáveis da União Europeia, da Área Econô
 
 Sujeito às proteções descritas acima, o GitHub poderá transferir, armazenar e de outra forma processar Dados Pessoais para ou em jurisdições e localizações geográficas no mundo todo que, a seu exclusivo critério, considere razoavelmente necessário em conexão com os Serviços Online. 
 
-### Retenção e Exclusão de Dados 
+### <a name="data-retention-and-deletion"></a>Retenção e Exclusão de Dados 
 
 Mediante solicitação razoável do Cliente, a menos que proibido por lei, o GitHub devolverá ou destruirá todos os Dados do Cliente e Dados Pessoais processados pelo GitHub em nome e de acordo com as instruções documentadas do Cliente em conexão com os Serviços Online em todos os locais onde estão armazenados dentro de 30 dias da solicitação, desde que eles não sejam mais necessários para fornecer os Serviços Online ou os fins para os quais um titular de dados autorizou o processamento de seus Dados Pessoais. O GitHub poderá reter Dados do Cliente ou Dados Pessoais na medida exigida pelos Requisitos de Proteção de Dados aplicáveis ou outra lei aplicável, e somente na medida e pelo período exigido pelos Requisitos de Proteção de Dados aplicáveis ou outra lei aplicável, desde que o GitHub garanta que os Dados do Cliente ou Dados Pessoais sejam processados apenas conforme necessário para a finalidade especificada nos Requisitos de Proteção de Dados aplicáveis ou outra lei aplicável e para nenhuma outra finalidade, e os Dados do Cliente ou Dados Pessoais permaneçam protegidos pelos Requisitos de Proteção de Dados Aplicáveis ou outra lei aplicável. 
 
-### Compromisso de Confidencialidade do Processador 
+### <a name="processor-confidentiality-commitment"></a>Compromisso de Confidencialidade do Processador 
 
 O GitHub garantirá que sua equipe envolvida no processamento de Dados do Cliente e Dados Pessoais em nome do Cliente com relação aos Serviços Online (i) processará esses dados somente segundo as instruções do Cliente ou conforme descrito neste DPA e (ii) será obrigada a manter a confidencialidade e a segurança desses dados, mesmo depois do término da contratação. O GitHub deverá fornecer treinamento periódico e obrigatório de privacidade e segurança de dados e conscientização aos seus funcionários com acesso a Dados do Cliente e Dados Pessoais, de acordo com os devidos Requisitos de Proteção de Dados ou outra lei aplicável e as normas do setor. 
 
-### Notificações e Controles sobre o Uso de Subprocessadores 
+### <a name="notice-and-controls-on-use-of-subprocessors"></a>Notificações e Controles sobre o Uso de Subprocessadores 
 
 O GitHub poderá empregar Subprocessadores para prestar determinados serviços limitados ou secundários em seu nome. O Cliente concorda com essa contratação e das Afiliadas do GitHub como Subprocessadoras. As autorizações acima constituirão o consentimento prévio por escrito do Cliente para a subcontratação pelo GitHub do processamento dos Dados Pessoais, se tal consentimento for exigido de acordo com a lei aplicável, as Cláusulas Contratuais Padrão ou Termos Relacionados do GDPR. 
 
@@ -244,12 +239,12 @@ O GitHub pode contratar novos Subprocessadores de tempos em tempos. O GitHub not
 
 Se o Cliente não aprovar um novo Subprocessador, ele poderá rescindir qualquer assinatura do Serviço Online afetado sem multa, fornecendo, antes do final do período de notificação pertinente, notificação por escrito do término. O Cliente também poderá incluir uma explicação das bases para a não aprovação junto com a notificação de término a fim de permitir que o GitHub reavalie esse novo Subprocessador com base nos interesses aplicáveis. Se o Serviço Online afetado for parte de um pacote (ou de uma única compra de serviços semelhante), então o término se aplicará ao pacote inteiro. Depois do término, o GitHub removerá as obrigações de pagamento para quaisquer assinaturas do Serviço Online rescindido das faturas subsequentes do Cliente ou de seu revendedor. 
 
-### Instituições Educacionais 
+### <a name="educational-institutions"></a>Instituições Educacionais 
 Se o Cliente for uma agência ou instituição educacional sujeita aos regulamentos previstos na Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g (FERPA) ou leis estaduais semelhantes de privacidade educacional ou estudantil (coletivamente, “Leis de Privacidade Educacional”), o Cliente não fornecerá Dados Pessoais cobertos por tais Leis de Privacidade Educacional ao GitHub sem obter prévia autorização, por escrito e específica do GitHub e entrar em um acordo separado com o GitHub que rege os direitos e as obrigações das partes com relação ao processamento de tais Dados Pessoais pelo GitHub em relação aos Serviços Online. 
 
 Observadas as disposições anteriores, se o Cliente pretender fornecer ao GitHub Dados Pessoais cobertos pela FERPA, as partes concordam e reconhecem que, para as finalidades deste DPA, o GitHub é um “funcionário da escola” com “interesses educacionais legítimos” nos Dados Pessoais, uma vez que esses termos foram definidos pela FERPA e seus regulamentos de implementação. O Cliente entende que o GitHub pode ter informações limitadas ou nenhuma informação de contato dos alunos e dos pais dos alunos do Cliente. Como resultado, o Cliente será responsável por obter a autorização do aluno ou dos pais, que pode ser exigida pela lei aplicável, para uso dos Serviços Online por parte de qualquer usuário final, e fornecer uma notificação em nome do GitHub aos alunos (ou, em relação a um aluno menor de 18 anos e que não esteja frequentando uma instituição de ensino superior, ao pai do aluno) de qualquer ordem judicial ou intimação emitida legalmente exigindo a divulgação dos Dados Pessoais em poder do GitHub, conforme exigido pela lei aplicável. 
 
-### Contrato do Cliente do CJIS, Associado Comercial HIPAA, Dados Biométricos 
+### <a name="cjis-customer-agreement-hipaa-business-associate-biometric-data"></a>Contrato do Cliente do CJIS, Associado Comercial HIPAA, Dados Biométricos 
 
 Exceto com a prévia autorização por escrito e específica do GitHub, o Cliente não fornecerá ao GitHub quaisquer Dados Pessoais 
 
@@ -258,7 +253,7 @@ Exceto com a prévia autorização por escrito e específica do GitHub, o Client
 - coletados como parte de um ensaio clínico ou outro estudo de pesquisa biomédica sujeito ou conduzido de acordo com a Política Federal para a Proteção de Seres Humanos (Regra Comum). 
 - cobertos por leis de privacidade biométricas estaduais, federais ou estrangeiras ou que constituam informações biométricas, incluindo informações sobre características físicas, fisiológicas, biológicas ou comportamentais de um indivíduo ou informações derivadas de tais informações usadas ou destinadas a serem usadas, isoladamente ou em combinação entre si ou com outras informações, para estabelecer a identidade individual. 
 
-### Lei de Privacidade do Consumidor da Califórnia (CCPA)/Lei de Direitos de Privacidade da Califórnia (CPRA) 
+### <a name="california-consumer-privacy-act-ccpa--california-privacy-rights-act-cpra"></a>Lei de Privacidade do Consumidor da Califórnia (CCPA)/Lei de Direitos de Privacidade da Califórnia (CPRA) 
 
 Se e na medida em que o GitHub estiver processando Dados Pessoais em nome do Cliente e de acordo com as instruções documentadas por ele dentro do escopo da CCPA, o GitHub assume os seguintes compromissos adicionais com o Cliente. O GitHub processará os Dados Pessoais em nome do Cliente e não 
 
@@ -267,7 +262,7 @@ Se e na medida em que o GitHub estiver processando Dados Pessoais em nome do Cli
 - reterá, usará nem divulgará os Dados Pessoais fora do relacionamento comercial direto com o Cliente. 
 - combinará os Dados Pessoais com informações pessoais recebidas de um terceiro ou em nome deste, ou coletadas de residentes da Califórnia, com a exceção de que o GitHub pode combinar Dados Pessoais para realizar qualquer finalidade comercial conforme permitido pela CCPA ou quaisquer regulamentos adotados ou emitidos segundo a CCPA. 
 
-### Como entrar em contato com o GitHub 
+### <a name="how-to-contact-github"></a>Como entrar em contato com o GitHub 
 
 Se o Cliente acreditar que o GitHub não está cumprindo seus compromissos de privacidade ou segurança, ele poderá entrar em contato com o atendimento ao cliente ou usar o formulário da Web Privacidade do GitHub, localizado no site https://support.github.com/contact/privacy. O endereço de correspondência do GitHub é: 
 
@@ -299,11 +294,11 @@ Gerenciamento da continuidade dos negócios | - O GitHub mantém planos de emerg
 
 <p id="attachment1"><h1>Anexo 1 - Cláusulas Contratuais Padrão (UE/EEA)</h1></p>
 
-### Controlador para Processador 
+### <a name="controller-to-processor"></a>Controlador para Processador 
 
-#### SEÇÃO I 
+#### <a name="section-i"></a>SEÇÃO I 
 
-##### Cláusula 1 
+##### <a name="clause-1"></a>Cláusula 1 
 
 **Finalidade e Escopo**
 
@@ -319,7 +314,7 @@ Gerenciamento da continuidade dos negócios | - O GitHub mantém planos de emerg
     <li>O Apêndice destas Cláusulas contendo os Adendos nelas referidos são parte integrante destas Cláusulas.</li>
 </ol>
 
-##### Cláusula 2 
+##### <a name="clause-2"></a>Cláusula 2 
 
 **Efeito e imutabilidade das Cláusulas**
 <ol style="list-style-type:lower-alpha" class="no-styling">
@@ -327,7 +322,7 @@ Gerenciamento da continuidade dos negócios | - O GitHub mantém planos de emerg
     <li>Estas Cláusulas não prejudicam as obrigações às quais o exportador de dados esteja sujeito por força do Regulamento (UE) 2016/679.</li>
 </ol>
 
-##### Cláusula 3
+##### <a name="clause-3"></a>Cláusula 3
 
 **Terceiros Beneficiários**
 
@@ -346,7 +341,7 @@ Gerenciamento da continuidade dos negócios | - O GitHub mantém planos de emerg
     <li>O parágrafo (a) não prejudica os direitos dos titulares dos dados ao abrigo do Regulamento (UE) 2016/679.</li>
 </ol>
 
-##### Cláusula 4 
+##### <a name="clause-4"></a>Cláusula 4 
 
 **Interpretação**
 
@@ -356,19 +351,19 @@ Gerenciamento da continuidade dos negócios | - O GitHub mantém planos de emerg
     <li>Estas Cláusulas não devem ser interpretadas de forma conflitante com os direitos e obrigações previstos no Regulamento (UE) 2016/679.</li>
 </ol>
 
-##### Cláusula 5 
+##### <a name="clause-5"></a>Cláusula 5 
 
 **Hierarquia**
 
 Em caso de contradição entre estas Cláusulas e as disposições de acordos relacionados entre as Partes, existentes no momento em que essas Cláusulas forem estipuladas ou celebradas posteriormente, estas Cláusulas prevalecerão.
 
-##### Cláusula 6 
+##### <a name="clause-6"></a>Cláusula 6 
 
 **Descrição das transferências** 
 
 Os detalhes das transferências e, especialmente, as categorias de dados pessoais que são transferidos e as finalidades para as quais são transferidos são especificados no Adendo I.B. 
 
-##### Cláusula 7 
+##### <a name="clause-7"></a>Cláusula 7 
 
 **Cláusula de integração** 
 
@@ -378,9 +373,9 @@ Os detalhes das transferências e, especialmente, as categorias de dados pessoai
     <li>A entidade aderente não terá quaisquer direitos ou obrigações decorrentes destas Cláusulas desde o período anterior à sua adesão.</li>
 </ol>
 
-#### SEÇÃO II - OBRIGAÇÕES DAS PARTES 
+#### <a name="section-ii--obligations-of-the-parties"></a>SEÇÃO II - OBRIGAÇÕES DAS PARTES 
 
-##### Cláusula 8 
+##### <a name="clause-8"></a>Cláusula 8 
 
 **Proteções de dados** 
 
@@ -445,7 +440,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
 </ol>
  
 
-##### Cláusula 9
+##### <a name="clause-9"></a>Cláusula 9
 
 **Uso de subprocessadores** 
 
@@ -457,7 +452,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>O importador de dados definirá uma cláusula de terceiro beneficiário com o subprocessador segundo a qual – caso o importador de dados tenha desaparecido de fato, deixado de existir legalmente ou se tornado insolvente – o exportador de dados terá o direito de rescindir o contrato com o subprocessador e instruir o subprocessador a apagar ou devolver os dados pessoais.</li>
 </ol>
 
-##### Cláusula 10
+##### <a name="clause-10"></a>Cláusula 10
 
 **Direitos dos titulares dos dados**
 
@@ -467,7 +462,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>Ao cumprir suas obrigações nos termos dos parágrafos (a) e (b), o importador de dados deve cumprir as instruções do exportador de dados.</li>
 </ol>
 
-##### Cláusula 11
+##### <a name="clause-11"></a>Cláusula 11
 
 **Reparação**
 
@@ -484,7 +479,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>O importador de dados concorda que a escolha feita pelo titular dos dados não prejudicará seus direitos materiais e processuais de buscar medidas cautelares de acordo com as leis aplicáveis.</li>
 </ol>
 
-##### Cláusula 12
+##### <a name="clause-12"></a>Cláusula 12
 
 **Responsabilidade**
 
@@ -498,7 +493,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>O importador de dados não pode invocar a conduta de um subprocessador para evitar sua própria responsabilidade.</li>
 </ol>
 
-##### Cláusula 13
+##### <a name="clause-13"></a>Cláusula 13
 
 **Supervisão**
 
@@ -509,9 +504,9 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li> O importador de dados concorda em se submeter à jurisdição e cooperar com a autoridade supervisora competente em quaisquer procedimentos que visem assegurar o cumprimento destas Cláusulas. Especialmente, o importador de dados concorda em responder a consultas, submeter-se a auditorias e cumprir as medidas adotadas pela autoridade supervisora, incluindo medidas corretivas e compensatórias. Ele fornecerá à autoridade supervisora uma confirmação por escrito de que foram tomadas as medidas necessárias.</li>
 </ol>
 
-#### SEÇÃO III – LEIS E OBRIGAÇÕES LOCAIS EM CASO DE ACESSO POR AUTORIDADES PÚBLICAS
+#### <a name="section-iii--local-laws-and-obligations-in-case-of-access-by-public-authorities"></a>SEÇÃO III – LEIS E OBRIGAÇÕES LOCAIS EM CASO DE ACESSO POR AUTORIDADES PÚBLICAS
 
-##### Cláusula 14
+##### <a name="clause-14"></a>Cláusula 14
 
 **Leis e práticas locais que afetam o cumprimento das Cláusulas**
  
@@ -529,7 +524,7 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>Após uma notificação nos termos do parágrafo (e) ou se o exportador de dados tiver motivos para acreditar que o importador de dados não pode mais cumprir suas obrigações nos termos destas Cláusulas, o exportador de dados deverá identificar imediatamente as medidas apropriadas (por exemplo, medidas técnicas ou organizacionais para garantir segurança e confidencialidade) a serem adotadas pelo exportador de dados e/ou importador de dados para resolver a situação. O exportador de dados suspenderá a transferência de dados se considerar que não podem ser asseguradas proteções adequadas para tal transferência ou se instruído pela autoridade supervisora competente para fazê-lo. Nesse caso, o exportador de dados terá o direito de rescindir o contrato, no que diz respeito ao processamento de dados pessoais nos termos destas Cláusulas. Se o contrato envolver mais de duas Partes, o exportador de dados poderá exercer esse direito de rescisão apenas em relação à Parte relevante, a menos que as Partes tenham estabelecido de outra forma. Quando o contrato for rescindido de acordo com esta Cláusula, as Cláusulas 16(d) e (e) serão aplicáveis.</li>
 </ol>
 
-##### Cláusula 15
+##### <a name="clause-15"></a>Cláusula 15
 
 **Obrigações do importador de dados em caso de acesso por autoridades públicas**
 
@@ -555,9 +550,9 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li>O importador de dados concorda em fornecer a quantidade mínima de informações permitidas ao responder a uma solicitação de divulgação, com base em uma interpretação razoável da solicitação.</li>
 </ol>
 
-#### SEÇÃO IV - DISPOSIÇÕES FINAIS
+#### <a name="section-iv--final-provisions"></a>SEÇÃO IV - DISPOSIÇÕES FINAIS
 
-##### Cláusula 16
+##### <a name="clause-16"></a>Cláusula 16
 
 **Não cumprimento das Cláusulas e rescisão**
 
@@ -575,13 +570,13 @@ O importador de dados só divulgará os dados pessoais a um terceiro mediante in
     <li> Qualquer uma das Partes pode revogar o seu acordo de vinculação a estas Cláusulas quando (i) a Comissão Europeia adotar uma decisão nos termos do Artigo 45(3) do Regulamento (UE) 2016/679 que abrange a transferência de dados pessoais a que estas Cláusulas se aplicam ou (ii) o Regulamento (UE) 2016/679 passa a fazer parte do quadro jurídico do país para o qual os dados pessoais são transferidos. Isso não prejudica outras obrigações aplicáveis ao processamento em questão ao abrigo do Regulamento (UE) 2016/679.</li>
 </ol>
 
-##### Cláusula 17
+##### <a name="clause-17"></a>Cláusula 17
 
 **Lei aplicável**
 
 Estas Cláusulas serão regidas pela lei de um dos Estados-Membros da UE, desde que tal lei permita direitos de terceiros beneficiários. As Partes concordam que esta será a lei dos Países Baixos.
 
-##### Cláusula 18
+##### <a name="clause-18"></a>Cláusula 18
 
 **Escolha do foro e jurisdição**
 
@@ -592,11 +587,11 @@ Estas Cláusulas serão regidas pela lei de um dos Estados-Membros da UE, desde 
     <li>As Partes concordam em se submeter à jurisdição de tais tribunais.</li>
 </ol>
 
-## ADENDO I
+## <a name="annex-i"></a>ADENDO I
 
 **das Cláusulas Contratuais Padrão (EU/EEA)**
 
-### R. LISTA DE PARTES
+### <a name="a-list-of-parties"></a>R. LISTA DE PARTES
 
 **Exportador de dados**: O Cliente é o exportador de dados</br>
 Nome: consulte o Contrato do Cliente do GitHub</br>
@@ -616,7 +611,7 @@ GitHub, Inc. é um produtor global de software e serviços </br>
 Assinatura e data: consulte o Contrato do Cliente do GitHub (o DPA e as Cláusulas Contratuais Padrão (UE/EEA) são incorporados ao Contrato do Cliente do GitHub)</br>
 Cargo (controlador/processador): processador ou, dependendo dos acordos estabelecidos no Contrato do Cliente, subprocessador. 
  
-### B. DESCRIÇÃO DA TRANSFERÊNCIA
+### <a name="b-description-of-transfer"></a>B. DESCRIÇÃO DA TRANSFERÊNCIA
 
 _Categorias de titulares de dados cujos dados pessoais são transferidos:_
 
@@ -669,13 +664,13 @@ _Para transferências para (sub)processadores, especifique também o objeto, a n
 
 De acordo com o DPA, o importador de dados poderá contratar outras empresas para prestar serviços limitados em nome do importador de dados, tais como dar suporte ao cliente. Os subcontratados poderão obter os dados pessoais apenas para prestar serviços pelos quais foram contratados pelo importador de dados, e eles serão proibidos de usar os dados pessoais para qualquer outra finalidade. A menos que um subcontratado específico seja substituído antecipadamente, o processamento será pelo prazo designado no Contrato do Cliente do GitHub aplicável entre o exportador de dados e o importador de dados.
 
-### C. AUTORIDADE SUPERVISORA COMPETENTE
+### <a name="c-competent-supervisory-authority"></a>C. AUTORIDADE SUPERVISORA COMPETENTE
 
 _Identifique as autoridades supervisoras competentes de acordo com a Cláusula 13:_
 
 A autoridade supervisora responsável por garantir a conformidade do exportador de dados com o Regulamento (UE) 2016/679. 
  
-## ADENDO II
+## <a name="annex-ii"></a>ADENDO II
 
 **das Cláusulas Contratuais Padrão (EU/EEA)**
 
@@ -707,7 +702,7 @@ O importador de dados possui um processo de avaliação de risco do fornecedor, 
 
 Fornecedores considerados de alto risco, como fornecedores de datacenter ou outros fornecedores que armazenam ou processam dados no escopo dos requisitos regulatórios ou contratuais do importador de dados, são reavaliados anualmente.
  
-## ADENDO III
+## <a name="annex-iii"></a>ADENDO III
 
 **das Cláusulas Contratuais Padrão (EU/EEA)**
 
@@ -750,7 +745,7 @@ A partir de 25 de maio de 2018 e, posteriormente, referências a diversos Artigo
 
 Para os fins do Artigo 26(2) da Diretiva 95/46/EC para a transferência de dados pessoais a processadores estabelecidos em países terceiros que não garantam um nível adequado de proteção dos dados, o Cliente (como o exportador dos dados) e o GitHub, Inc. (como o importador dos dados, cuja assinatura é exibida a seguir), individualmente uma “parte”, coletivamente “as partes”, concordaram com as seguintes Cláusulas Contratuais (“Cláusulas” ou “Cláusulas Contratuais Padrão”) a fim de fornecer garantias adequadas relativas à proteção de direitos fundamentais e à privacidade e liberdade de indivíduos para a transferência realizada pelo exportador ao importador dos dados pessoais especificados no Apêndice 1.
 
-### Cláusula 1: Definições
+### <a name="clause-1-definitions"></a>Cláusula 1: Definições
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
     <li>“dados pessoais”, “categorias especiais de dados”, “processar/processamento”, “controlador”, “processador”, “titular dos dados” e “autoridade de supervisão” deverão ter os mesmos significados da Diretiva 95/46/EC do Parlamento Europeu e do Conselho de 24 de outubro de 1995 sobre a proteção de indivíduos em relação ao processamento de dados pessoais e sobre a livre movimentação de tais dados;</li>
@@ -761,11 +756,11 @@ Para os fins do Artigo 26(2) da Diretiva 95/46/EC para a transferência de dados
     <li>“medidas de segurança técnicas e organizacionais” significa aquelas medidas que visam proteger os dados pessoais contra destruição acidental ou ilícita ou perda acidental, alteração, divulgação ou acesso não autorizados, especialmente onde o processamento envolva a transmissão de dados por uma rede e contra todas as formas ilícitas de processamento.</li>
 </ol>
 
-### Cláusula 2: Detalhes da transferência
+### <a name="clause-2-details-of-the-transfer"></a>Cláusula 2: Detalhes da transferência
 
 Os detalhes da transferência e em particular as categorias especiais de dados pessoais, onde aplicável, são especificadas no Apêndice 1 abaixo que constituem uma parte integral das Cláusulas.
 
-### Cláusula 3: Cláusula de terceiro beneficiário
+### <a name="clause-3-third-party-beneficiary-clause"></a>Cláusula 3: Cláusula de terceiro beneficiário
 
 <ol style="list-style-type:decimal" class="no-styling">
   <li>O titular dos dados pode impor esta Cláusula, a Cláusula 4(b) até (i), Cláusula 5(a) até (e) e (g) até (j), Cláusula 6(1) e (2), Cláusula 7, Cláusula 8(2) e as Cláusulas 9 a 12 ao exportador de dados como terceiro beneficiário.</li>
@@ -774,7 +769,7 @@ Os detalhes da transferência e em particular as categorias especiais de dados p
   <li>As partes não se opõem ao titular dos dados que está sendo representado por uma associação ou outro órgão se o titular dos dados assim o desejar expressamente e se for permitido pela lei nacional.</li>
 </ol>
 
-### Cláusula 4: Obrigações do exportador de dados
+### <a name="clause-4-obligations-of-the-data-exporter"></a>Cláusula 4: Obrigações do exportador de dados
 
 O exportador de dados concorda e garante: 
 
@@ -791,7 +786,7 @@ O exportador de dados concorda e garante:
     <li>que garantirá a conformidade com as Cláusulas 4(a) até (i).</li>
 </ol>
 
-### Cláusula 5: Obrigações do importador de dados
+### <a name="clause-5-obligations-of-the-data-importer"></a>Cláusula 5: Obrigações do importador de dados
 
 O importador de dados concorda e garante: 
 
@@ -813,7 +808,7 @@ O importador de dados concorda e garante:
     <li>enviar imediatamente ao exportador de dados uma cópia de qualquer contrato do subprocessador indicando as conclusões.</li>
 </ol>
 
-### Cláusula 6: Responsabilidade
+### <a name="clause-6-liability"></a>Cláusula 6: Responsabilidade
 
 <ol style="list-style-type:decimal" class="no-styling">
   <li>As partes concordam que qualquer titular dos dados que tenha sofrido danos em decorrência de qualquer violação das obrigações mencionadas na Cláusula 3 ou na Cláusula 11 por qualquer parte ou subprocessador está qualificada a ser indenizado pelo exportador de dados pelos danos sofridos.</li>
@@ -824,7 +819,7 @@ O importador de dados concorda e garante:
   <li>Se o titular dos dados não puder ingressar um requerimento judicial ou extrajudicial contra o exportador de dados ou importador de dados com relação aos parágrafos 1 e 2, decorrente de uma violação por parte do subprocessador por qualquer uma das obrigações mencionadas na Cláusula 3 ou na Cláusula 11 porque o exportador de dados e o importador dados desapareceram de fato ou cessaram sua existência nas leis ou se tornaram insolventes, o subprocessador concorda que o titular dos dados poderá ingressar um requerimento judicial ou extrajudicial contra o subprocessador de dados com relação às suas próprias operações de processamento de acordo com as Cláusulas como se ele fosse o exportador ou importador de dados, a menos que uma entidade sucessora tenha assumido todas as obrigações legais do exportador ou importador de dados por contrato ou pela operação da lei, caso em que o titular dos dados pode impor seus direitos contra a referida entidade. A responsabilidade do subprocessador deverá se limitar às suas próprias operações de processamento de acordo com as Cláusulas.</li>
 </ol>
 
-### Cláusula 7: Mediação e jurisdição
+### <a name="clause-7-mediation-and-jurisdiction"></a>Cláusula 7: Mediação e jurisdição
 
 <ol style="list-style-type:decimal" class="no-styling">
     <li>O importador de dados concorda que, se o titular dos dados ingressar contra seus direitos de terceiro beneficiário e/ou requerer judicial ou extrajudicialmente compensação por danos de acordo com as Cláusulas, o importador de dados aceitará a decisão do titular dos dados de:</il>
@@ -835,7 +830,7 @@ O importador de dados concorda e garante:
     <li>As partes concordam que a escolha feita pelo titular dos dados não prejudicará seus direitos reais ou processuais em procurar recursos de acordo com as outras provisões da lei nacional ou internacional.</il>
 </ol>
 
-### Cláusula 8: Cooperação com autoridades de supervisão
+### <a name="clause-8-cooperation-with-supervisory-authorities"></a>Cláusula 8: Cooperação com autoridades de supervisão
 
 <ol style="list-style-type:decimal" class="no-styling">
   <li>O exportador de dados concorda em depositar uma cópia deste contrato com a autoridade de supervisão de forma que ele solicite ou se tal depósito for exigido de acordo com a lei de proteção de dados aplicável.</li>
@@ -845,15 +840,15 @@ O importador de dados concorda e garante:
   <li>O importador de dados deverá informar imediatamente o exportador de dados sobre a existência da legislação aplicável a ele ou qualquer subprocessador que impeça a conduta de uma auditoria do importador de dados ou qualquer subprocessador, de acordo com o parágrafo 2. Nesse caso, o exportador de dados terá o direito de tomar as medidas previstas na Cláusula 5 (b).</li>
 </ol>
 
-### Cláusula 9: Lei Aplicável.
+### <a name="clause-9-governing-law"></a>Cláusula 9: Lei Aplicável.
 
 As Cláusulas deverão ser regidas pela lei do Estado-Membro no qual o exportador de dados está sediado. 
 
-### Cláusula 10: Variação do contrato
+### <a name="clause-10-variation-of-the-contract"></a>Cláusula 10: Variação do contrato
 
 As partes prometem não variar nem modificar as Cláusulas. Isso não impede que as partes adicionem as cláusulas nas questões comerciais, onde exigido, contanto que elas não contradigam a Cláusula. 
 
-### Cláusula 11: Subprocessamento
+### <a name="clause-11-subprocessing"></a>Cláusula 11: Subprocessamento
 
 <ol style="list-style-type:decimal" class="no-styling">
   <li>O importador de dados não deverá subcontratar nenhuma das suas operações de processamento executadas em nome do exportador de dados de acordo com as Cláusulas sem a prévia autorização por escrito do exportador de dados. Se o importador de dados subcontratar suas obrigações de acordo com as Cláusulas, com o consentimento do exportador de dados, ele deverá fazer isso na forma de um contrato impresso com o subprocessador que impõe as mesmas obrigações no subprocessador que aquelas impostas no importador de dados de acordo com as Cláusulas. Se o subprocessador não cumprir suas obrigações de proteção de dados de acordo com o contrato impresso, o importador de dados deverá permanecer totalmente responsável para o exportador de dados pelo desempenho das obrigações do subprocessador de acordo com tal contrato.</li>
@@ -865,7 +860,7 @@ As partes prometem não variar nem modificar as Cláusulas. Isso não impede que
   <li>O exportador de dados deverá manter uma lista de contratos de subprocessamento concluídos de acordo com as Cláusulas e notificado pelo importador de dados de acordo com a Cláusula 5 (j), que deverá ser atualizada pelo menos uma vez ao ano. A lista deverá estar disponível para a autoridade de supervisão de proteção de dados do exportador de dados.</li>
 </ol>
 
-### Cláusula 12: Obrigação depois do término dos serviços de processamento de dados pessoais
+### <a name="clause-12-obligation-after-the-termination-of-personal-data-processing-services"></a>Cláusula 12: Obrigação depois do término dos serviços de processamento de dados pessoais
 
 <ol style="list-style-type:decimal" class="no-styling">
   <li>As partes concordam que mediante a rescisão da prestação de serviços de processamento de dados, o importador de dados e o subprocessador deverão, a critério do exportador de dados, devolver todos os dados pessoais transferidos e as cópias deles para o exportador de dados e destruir todos os dados pessoais e garantir ao exportador de dados que ele fez isso, a menos que a legislação imposta sobre o importador de dados o impeça de devolver ou destruir todos ou parte dos dados pessoais transferidos. Nesse caso, o importador dados garante que ele garantirá a confidencialidade dos dados pessoais transferidos e não processará mais ativamente os dados pessoais transferidos.</li> 
@@ -873,7 +868,7 @@ As partes prometem não variar nem modificar as Cláusulas. Isso não impede que
   <li>O importador de dados e o subprocessador garantem que, mediante solicitação do importador de dados e/ou da autoridade de supervisão, eles enviarão suas instalações de processamento de dados para uma auditoria das medidas mencionadas no parágrafo 1.</li>
 </ol>
 
-### Apêndice 1 às Cláusulas Contratuais Padrão (Reino Unido)
+### <a name="appendix-1-to-the-standard-contractual-clauses-uk"></a>Apêndice 1 às Cláusulas Contratuais Padrão (Reino Unido)
 
 **Exportador de dados**: O Cliente é o exportador de dados. O exportador de dados é um usuário dos Serviços Online ou dos Serviços Profissionais, conforme definição no DPA e no Contrato do Cliente do GitHub. 
 
@@ -910,7 +905,7 @@ As partes prometem não variar nem modificar as Cláusulas. Isso não impede que
 
 **Subcontratados**: De acordo com o DPA, o importador de dados poderá contratar outras empresas para prestar serviços limitados em nome do importador de dados, tais como dar suporte ao cliente. Os subcontratados poderão obter os dados pessoais apenas para prestar serviços pelos quais foram contratados pelo importador de dados, e eles serão proibidos de usar os dados pessoais para qualquer outra finalidade.
 
-### Apêndice 2 às Cláusulas Contratuais Padrão (Reino Unido)
+### <a name="appendix-2-to-the-standard-contractual-clauses-uk"></a>Apêndice 2 às Cláusulas Contratuais Padrão (Reino Unido)
 
 Descrição das medidas de segurança técnicas e organizacionais implementadas pelo importador de dados de acordo com as Cláusulas 4(d) e 5(c):
 
@@ -926,7 +921,7 @@ São Francisco, Califórnia 94107 EUA</br></li>
   <li><b>Medidas Técnicas e Organizacionais.</b> O importador de dados implementou e manterá as medidas técnicas e organizacionais apropriadas, os controles internos e as rotinas de segurança de informações para proteger os dados pessoais, conforme definido na seção Políticas e Práticas de Segurança dos DPA, contra perda, destruição ou alteração acidentais, divulgação ou acesso não autorizados ou destruição indevida, da seguinte forma: As medidas técnicas e organizacionais, os controles internos e as rotinas de segurança de informações estabelecidas na seção Políticas e Práticas de Segurança dos DPA estão, por meio deste, incorporadas neste Apêndice 2 por esta referência e vinculam legalmente o importador de dados como se estivessem estabelecidas neste Apêndice 2 em sua totalidade.</li>
 </ol>
 
-### Apêndice 3 às Cláusulas Contratuais Padrão (Reino Unido)
+### <a name="appendix-3-to-the-standard-contractual-clauses-uk"></a>Apêndice 3 às Cláusulas Contratuais Padrão (Reino Unido)
 
 **Adendo de Proteções Adicionais**
 
