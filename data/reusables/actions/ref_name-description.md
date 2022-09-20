@@ -1,1 +1,1 @@
-The short name of the branch or tag that triggered the workflow run. Matches the name that would appear in the UI: `my-branch` instead of `refs/heads/my-branch` (see `GITHUB_REF` for the full ref name).
+The short ref name of the branch or tag that triggered the workflow run. This value matches the branch or tag name shown on {% data variables.product.prodname_dotcom %}. For example, `feature-branch-1`.
