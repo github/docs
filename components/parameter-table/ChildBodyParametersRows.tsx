@@ -1,6 +1,10 @@
+import cx from 'classnames'
+
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ParameterRow } from './ParameterRow'
 import type { ChildParameter } from './types'
+
+import styles from './ChildBodyParametersRows.module.scss'
 
 type Props = {
   slug: string
@@ -15,27 +19,23 @@ export function ChildBodyParametersRows({
   parentType,
   childParamsGroups,
 }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation(['parameter_table', 'products'])
 
   return (
-    <tr className="border-top-0">
+    <tr className={cx(styles.childBodyParametersRows, 'color-bg-subtle border-top-0')}>
       <td colSpan={4} className="has-nested-table">
-        <details className="ml-1">
-          <summary role="button" aria-expanded="false" className="keyboard-focus color-fg-muted">
-            <span className="d-inline-block mb-3" id={`${slug}-${parentName}-${parentType}`}>
-              Properties of the
-              <code>{parentName}</code>
-              {parentType}
-            </span>
+        <details className="box px-3 ml-1 mb-0">
+          <summary
+            role="button"
+            aria-expanded="false"
+            className="mb-2 keyboard-focus color-fg-muted"
+          >
+            <span id={`${slug}-${parentName}-${parentType}`}>Properties of {parentName}</span>
           </summary>
           <table id={`${parentName}-object`} className="mb-4 mt-2 color-bg-subtle">
             <thead className="visually-hidden">
               <tr>
-                <th>
-                  {`${t('rest.reference.name')}, ${t('rest.reference.type')}, ${t(
-                    'rest.reference.description'
-                  )}`}
-                </th>
+                <th>{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
               </tr>
             </thead>
             <tbody>
