@@ -1,6 +1,6 @@
 ## Deployments
 
-This app is hosted on Heroku. Staging and production deployments are automated by a deployer service created and maintained by @github/docs-engineering.
+Staging and production deployments are automated by a deployer service created and maintained by @github/docs-engineering.
 
 ### Staging deployments
 

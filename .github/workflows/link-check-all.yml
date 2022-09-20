@@ -28,6 +28,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        # Get the branches so merge_group can make the comparison with git diff
+        with:
+          fetch-depth: 0
 
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
@@ -40,9 +43,25 @@ jobs:
 
       # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        with:
-          fileOutput: 'json'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+        run: |
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            DIFF=`git diff --name-only origin/main`
+          else
+            DIFF=''
+          fi
+
+          # Formats into single line JSON array, removing any empty strings
+          echo $DIFF | tr ' ' '\n' | jq --raw-input | jq --slurp --compact-output 'map(select(length > 0))' > $HOME/files.json
 
       # For verification
       - name: Show files changed
