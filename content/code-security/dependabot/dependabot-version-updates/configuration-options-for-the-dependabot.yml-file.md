@@ -778,7 +778,7 @@ registries:
 
 {% note %}
 
-**Note:** We don't support the Azure Container Registry (ACR).
+**Note:** We don't yet support the Azure Container Registry (ACR). Subscribe to [this issue](https://github.com/dependabot/dependabot-core/issues/3689) for updates.
 
 {% endnote %}
 
