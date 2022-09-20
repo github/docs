@@ -2,6 +2,7 @@
 title: SCIM
 intro: 可使用 SCIM API 控制和管理 GitHub 组织成员访问权限。
 versions:
+  fpt: '*'
   ghec: '*'
 topics:
   - API

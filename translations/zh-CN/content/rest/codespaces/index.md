@@ -11,7 +11,6 @@ miniTocMaxHeadingLevel: 3
 children:
   - /codespaces
   - /organizations
-  - /organization-secrets
   - /machines
   - /repository-secrets
   - /secrets
