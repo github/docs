@@ -86,8 +86,8 @@ jobs:
         run: |
           mkdir /tmp/records
           npm run sync-search-indices -- \
-            -l ${{ matrix.language }} \
-            -o /tmp/records \
+            --language ${{ matrix.language }} \
+            --out-directory /tmp/records \
             --no-compression --no-lunr-index
 
           ls -lh /tmp/records
