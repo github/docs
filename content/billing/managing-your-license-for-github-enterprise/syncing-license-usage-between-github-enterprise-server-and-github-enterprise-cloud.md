@@ -22,6 +22,8 @@ To ensure that you see up-to-date license details on {% data variables.product.p
 
 If you don't want to enable {% data variables.product.prodname_github_connect %}, you can manually sync license usage by uploading a file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}.
 
+When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
+
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}

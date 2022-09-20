@@ -1,6 +1,6 @@
 ---
-title: 'Phase 1: Align on your rollout strategy and goals'
-intro: 'Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise.'
+title: 'Fase 1: Alinhar a estratégia de distribuição e as metas'
+intro: 'Antes de habilitar o {% data variables.product.prodname_code_scanning %} e o {% data variables.product.prodname_secret_scanning %}, planeje a distribuição do GHAS em toda a empresa.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,63 +9,68 @@ topics:
   - Advanced Security
 shortTitle: 1. Align on strategy
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 63154ac960e4b3a9d29f41e72cd925230838069c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145321'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see "[Introduction to adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
+Este artigo faz parte de uma série sobre a adoção do {% data variables.product.prodname_GH_advanced_security %} em escala. Para ver a introdução desta série, confira "[Introdução à adoção do {% data variables.product.prodname_GH_advanced_security %} em escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
 
 {% endnote %}
 
-### Set clear goals for your company’s rollout
+### Definir metas claras para a distribuição na empresa
 
-To build a foundation for the direction of your company's rollout, outline goals for GHAS within your company, and communicate those goals to your team. Your goals can be simple or complex, as long as your team is aligned. If you need assistance with your goals, {% data variables.product.prodname_professional_services %} can provide recommendations based on our experience with your company and other customers.
+Crie uma base que guie a distribuição elaborando metas para o GHAS em sua empresa e comunique essas metas à equipe. Seus objetivos podem ser simples ou complexos, desde que sua equipe esteja alinhada. Se você precisar de ajuda com suas metas, o {% data variables.product.prodname_professional_services %} pode fornecer recomendações com base em nossa experiência com sua empresa e outros clientes.
 
 Aqui estão alguns exemplos de alto nível de como seus objetivos para implementar GHAS podem parecer:
 
-  - **Reducing the number of vulnerabilities**: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
-  - **Identifying high-risk repositories**: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
-  -  **Increasing remediation rates**: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
-  - **Meeting compliance requirements**: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
-  - **Preventing secrets leakage**: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
+  - **Redução do número de vulnerabilidades**: isso pode ser em geral ou porque sua empresa foi impactada recentemente por uma vulnerabilidade significativa que você acredita que poderia ter sido evitada por uma ferramenta como o GHAS.
+  - **Identificação dos repositórios de alto risco**: algumas empresas desejam ter apenas os repositórios de maior risco como foco, a fim de reduzir o risco por meio da correção de vulnerabilidades.
+  -  **Aumento das taxas de correção:** isso pode ser feito incentivando a adoção das descobertas pelos desenvolvedores e garantindo que essas vulnerabilidades sejam corrigidas em tempo hábil, o que impede o acúmulo da dívida de segurança.  
+  - **Atendimento dos requisitos de conformidade**: por exemplo, muitas empresas de saúde usam o GHAS para evitar a exposição de PHI (Informações de Saúde Pessoais).
+  - **Prevenção do vazamento de segredos**: muitas empresas desejam evitar o vazamento de informações críticas, como chaves de software ou dados financeiros.
 
-### Lead your rollout with both your security and development groups
+### Incluir os grupos de segurança e desenvolvimento na liderança da distribuição
 
-Companies that involve both their security and development teams in their GHAS rollouts tend to be more successful than companies who only involve their security group, waiting to include development teams once the pilot has concluded.
+As empresas que envolvem suas equipes de segurança e de desenvolvimento nas distribuições do GHAS normalmente têm mais sucesso do que aquelas que envolvem apenas o grupo de segurança, e que esperam para incluir as equipes de desenvolvimento após a conclusão do piloto. 
 
-O GHAS adota uma abordagem centrada no desenvolvedor para a segurança do software, integrando-se perfeitamente ao fluxo de trabalho do desenvolvedor. Having key representation from your development group early in the process decreases the risk of your rollout and encourages organizational buy-in.
+O GHAS adota uma abordagem centrada no desenvolvedor para a segurança do software, integrando-se perfeitamente ao fluxo de trabalho do desenvolvedor. É importante ter uma representação central do grupo de desenvolvimento no início do processo para diminuir o risco da distribuição e encorajar a adesão da empresa.
 
-Involving development groups earlier, ideally from the time of purchase, helps companies utilize GHAS to address security concerns earlier in the development process. When both groups work together, they achieve alignment early in the process, remove silos, build and strengthen their working relationships, and take more responsibility for the rollout.
+Envolver os grupos de desenvolvimento mais cedo, de preferência desde o momento da compra, ajuda as empresas a utilizar o GHAS para abordar questões de segurança no início do processo de desenvolvimento. Quando os dois grupos trabalham juntos, eles alcançam o alinhamento no início do processo, resolvem os silos, criam e fortalecem suas relações de trabalho e assumem mais responsabilidade pela distribuição. 
 
 
-### Learn about GHAS
+### Saiba mais sobre o GHAS
 
-To set realistic expectations for the rollout, ensure that all stakeholders understand the following key facts about how GHAS works.
+Certifique-se de que todos os stakeholders entendam os principais fatos a seguir sobre o funcionamento do GHAS a fim de definir expectativas realistas para a distribuição.
 
-#### 1. GHAS is a suite of security tools that require action to protect your code
+#### 1. O GHAS é um conjunto de ferramentas de segurança que exigem ação para a proteção do código
 
-GHAS is a suite of tools that increases with value when configured, maintained, used in daily workflows, and in combination with other tools.
+O GHAS é um conjunto de ferramentas que agrega valor quando configurado, mantido e usado em fluxos de trabalho diários em combinação com outras ferramentas. 
 
-#### 2. GHAS will require adjustment out of the box
+#### 2. O GHAS exigirá ajustes imediatos
 
-After GHAS is set up on your repositories, you'll need to configure GHAS to meet your company’s needs. Code scanning in particular requires further customization, such as evaluating initial results and making adjustments for future scans. Many customers find that initial scans return limited or irrelevant results until code scanning is adjusted based on the application's threat model.
+Depois que o GHAS for configurado nos repositórios, será preciso configurá-lo para atender às necessidades de sua empresa. O exame de códigos, em particular, requer uma personalização adicional, como avaliação dos resultados iniciais e ajustes para exames futuros. Muitos clientes acham que os exames iniciais retornam resultados limitados ou irrelevantes até que o exame de códigos seja ajustado com base no modelo de ameaça do aplicativo.
 
-#### 3. GHAS tools are most effective when used together and integrated into your application security program
+#### 3. As ferramentas do GHAS são mais eficazes quando usadas em conjunto e integradas ao programa de segurança de aplicativos
 
-O GHAS é mais eficaz quando todas as ferramentas são utilizadas em conjunto. The effectiveness of your application security program is further improved by integrating GHAS with other tools and activities, such as penetration testing and dynamic scans. Recomendamos sempre a utilização de múltiplas camadas de proteção.
+O GHAS é mais eficaz quando todas as ferramentas são utilizadas em conjunto. A eficácia do programa de segurança de aplicativos é aprimorada integrando o GHAS a outras ferramentas e atividades, como testes de penetração e exames dinâmicos. Recomendamos sempre a utilização de múltiplas camadas de proteção.
 
-#### 4. Custom {% data variables.product.prodname_codeql %} queries are used by some companies to customize and target scan results
+#### 4. Consultas personalizadas do {% data variables.product.prodname_codeql %} são usadas por algumas empresas para personalizar e direcionar os resultados do exame 
 
-Code scanning is powered by {% data variables.product.prodname_codeql %}, the world’s most powerful code analysis engine. For many of our customers, the base query set and additional queries available in the community are more than sufficient. However, other companies may require custom {% data variables.product.prodname_codeql %} queries to target different results or reduce false positives.
+O exame de códigos é fornecido pelo {% data variables.product.prodname_codeql %}, o mecanismo de análise de código mais poderoso do mundo. Para muitos de nossos clientes, o conjunto de consultas básico e as consultas adicionais disponíveis na comunidade são mais do que suficientes. No entanto, outras empresas podem precisar de consultas personalizadas do {% data variables.product.prodname_codeql %} para focar em diferentes resultados ou reduzir falsos positivos.
 
-If your company is interested in custom {% data variables.product.prodname_codeql %} queries, we recommend completing your rollout and implementation of GHAS first. Then, when your company is ready, {% data variables.product.prodname_professional_services %} can help you navigate your requirements and ensure your company needs custom queries.
+Se a sua empresa estiver interessada nas consultas personalizadas do {% data variables.product.prodname_codeql %}, primeiro conclua a implementação e a distribuição do GHAS. Assim, quando sua empresa estiver pronta, o {% data variables.product.prodname_professional_services %} poderá ajudar com seus requisitos e garantir que haja real necessidade de consultas personalizadas.  
 
-#### 5. {% data variables.product.prodname_codeql %} scans the whole codebase, not just the changes made in a pull request
+#### 5. O {% data variables.product.prodname_codeql %} examina toda a base de código, não apenas as alterações feitas em uma solicitação de pull
 
-Quando a verificação de código é executada a partir de um pull request, a digitalização incluirá a base de código completa e não apenas as alterações feitas no pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed all against all interactions in the codebase.
+Quando a verificação de código é executada a partir de um pull request, a digitalização incluirá a base de código completa e não apenas as alterações feitas no pull request. O exame de toda a base de código é uma etapa importante para garantir que a alteração tenha sido revisada em relação a todas as interações na base de código.
 
 {% note %}
 
-For the next article in this series, see "[Phase 2: Preparing to enable at scale](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
+Para ver o próximo artigo desta série, confira "[Fase 2: Preparo para a habilitação em escala](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)".
 
 {% endnote %}

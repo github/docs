@@ -27,7 +27,7 @@ redirect_from:
 1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow.
+   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
    ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}

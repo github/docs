@@ -3,6 +3,7 @@ import slugger from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
+import { LinkIconHeading } from 'components/article/LinkIconHeading'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
@@ -28,8 +29,9 @@ export function RestOperation({ operation }: Props) {
 
   return (
     <div className="pb-8">
-      <h2 className="d-flex flex-md-row mb-6" id={slug}>
-        <a href={`#${slug}`}>{operation.title}</a>
+      <h2 id={slug}>
+        <LinkIconHeading slug={slug} />
+        {operation.title}
       </h2>
       {operation.enabledForGitHubApps && (
         <div className="d-flex">

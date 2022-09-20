@@ -1,19 +1,17 @@
 Provider | Supported secret | Secret type
 --- | --- | ---
 Adafruit IO | Adafruit IO Key | adafruit_io_key
-Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
-Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
-Amazon | Amazon OAuth Client ID | amazon_oauth_client_id
-Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret
-Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
-Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
-Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token
-Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id
+Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
+Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret
+Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
+Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
 Asana | Asana Personal Access Token | asana_personal_access_token
 Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
@@ -37,9 +35,9 @@ GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
 GitHub | GitHub SSH Private Key | github_ssh_private_key
-Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret
-Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id
-Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id
+Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
 Grafana | Grafana API Key | grafana_api_key
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
@@ -62,7 +60,12 @@ PlanetScale | PlanetScale Database Password | planetscale_database_password
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
 PlanetScale | PlanetScale Service Token | planetscale_service_token
 Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Prefect | Prefect Server API Key | prefect_server_api_key
+Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
 Proctorio | Proctorio Secret Key | proctorio_secret_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 Samsara | Samsara API Token | samsara_api_token
@@ -77,6 +80,8 @@ Slack | Slack API Token | slack_api_token
 Stripe | Stripe Live API Secret Key | stripe_api_key
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform Personal Access Token | typeform_personal_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 WorkOS | WorkOS Production API Key | workos_production_api_key
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
 Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}

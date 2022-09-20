@@ -18,11 +18,26 @@ By default, your codespaces have access to all resources on the public internet,
 
 ## Connecting to resources on a private network
 
-The currently supported method of accessing resources on a private network is to use a VPN. It is currently not recommended to allowlist codespaces IPs as this would allow all codespaces (both yours and those of other customers) access to the network protected resources.
+There are currently two methods of accessing resources on a private network within Codespaces.
+- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
+- Using a VPN. 
+
+### Using the GitHub CLI extension to access remote resources
+
+{% note %}
+
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+
+{% endnote %}
+
+The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+   
+   
 
 ### Using a VPN to access resources behind a private network
 
-The easiest way to access resources behind a private network is to VPN into that network from within your codespace.
+As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
 
 We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
 

@@ -2,15 +2,15 @@ import { GetServerSideProps } from 'next'
 import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 
+import { AutomatedPage } from 'components/article/AutomatedPage'
+import {
+  AutomatedPageContext,
+  AutomatedPageContextT,
+  getAutomatedPageContextFromRequest,
+} from 'components/context/AutomatedPageContext'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { getEnabledForApps, categoriesWithoutSubcategories } from 'lib/rest/index.js'
-import { ArticlePage } from 'components/article/ArticlePage'
-import {
-  ArticleContext,
-  ArticleContextT,
-  getArticleContextFromRequest,
-} from 'components/context/ArticleContext'
 
 type OperationT = {
   slug: string
@@ -33,7 +33,7 @@ type Props = {
   mainContext: MainContextT
   currentVersion: string
   enabledForApps: EnabledAppCategoryT
-  articleContext: ArticleContextT
+  automatedPageContext: AutomatedPageContextT
   categoriesWithoutSubcategories: string[]
 }
 
@@ -41,7 +41,7 @@ export default function Category({
   mainContext,
   currentVersion,
   enabledForApps,
-  articleContext,
+  automatedPageContext,
   categoriesWithoutSubcategories,
 }: Props) {
   const { locale } = useRouter()
@@ -81,9 +81,9 @@ export default function Category({
 
   return (
     <MainContext.Provider value={mainContext}>
-      <ArticleContext.Provider value={articleContext}>
-        <ArticlePage>{content}</ArticlePage>
-      </ArticleContext.Provider>
+      <AutomatedPageContext.Provider value={automatedPageContext}>
+        <AutomatedPage>{content}</AutomatedPage>
+      </AutomatedPageContext.Provider>
     </MainContext.Provider>
   )
 }
@@ -93,6 +93,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const res = context.res as object
   const currentVersion = context.query.versionId as string
   const mainContext = getMainContext(req, res)
+  const automatedPageContext = getAutomatedPageContextFromRequest(req)
 
   if (!enabledForApps) {
     enabledForApps = (await getEnabledForApps()) as AppDataT
@@ -109,7 +110,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext,
       currentVersion,
       enabledForApps: overrideEnabledForApps,
-      articleContext: getArticleContextFromRequest(req),
+      automatedPageContext,
       categoriesWithoutSubcategories,
     },
   }

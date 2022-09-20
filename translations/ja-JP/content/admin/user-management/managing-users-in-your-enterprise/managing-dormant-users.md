@@ -16,13 +16,16 @@ topics:
   - Accounts
   - Enterprise
   - Licensing
+ms.openlocfilehash: 7594a0fc22bef10e84334727ad9e79aa02cd1da6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146680926'
 ---
+{% ifversion ghec %} {% data reusables.enterprise-accounts.dormant-user-release-phase %} {% endif %}
 
-{% ifversion ghec %}
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-{% endif %}
-
-## About dormant users
+## 休眠ユーザーについて
 
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
@@ -32,39 +35,40 @@ topics:
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. 左のサイドバーで**Dormant users（休眠ユーザ）**をクリックしてください。 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
-4. このリスト中のすべての休眠ユーザをサスペンドするには、ページの上部で**Suspend all（全員をサスペンド）**をクリックしてください。 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
+3. 左サイドバーで、 **[Dormant users]\(休眠ユーザー\)** をクリックします。
+![[Dormant users]\(休眠ユーザー\) タブ](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
+4. この一覧にあるすべての休眠ユーザーを一時停止するには、ページの上部にある **[Suspend all]\(全員をサスペンド\)** をクリックします。
+![[Suspend all]\(全員をサスペンド\) ボタン](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
 ## ユーザアカウントが休眠状態かの判断
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-5. **User info（ユーザ情報）**セクションで"Dormant（休眠）"という語の付いた赤い点は、そのユーザアカウントが休眠状態であることを示し、"Active（アクティブ）"という語の付いた緑の点はそのユーザアカウントがアクティブであることを示します。 ![休眠ユーザアカウント](/assets/images/enterprise/stafftools/dormant-user.png) ![アクティブなユーザアカウント](/assets/images/enterprise/stafftools/active-user.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %}
+5. **[User info]\(ユーザー情報\)** セクションで "Dormant" (休眠) という語の付いた赤い点は、そのユーザー アカウントが休眠状態であることを示し、"Active" (アクティブ) という語の付いた緑の点はそのユーザー アカウントがアクティブであることを示します。
+![休眠中のユーザー アカウント](/assets/images/enterprise/stafftools/dormant-user.png)
+![アクティブなユーザー アカウント](/assets/images/enterprise/stafftools/active-user.png)
 
 ## 休眠の閾値の設定
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.options-tab %}
-4. [Dormancy threshold] の下で、ドロップダウンメニューを使って、希望する休眠閾値をクリックします。 ![休眠の閾値のドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.options-tab %}
+4. [Dormancy threshold] の下で、ドロップダウンメニューを使って、希望する休眠閾値をクリックします。
+![休眠のしきい値のドロップダウン メニュー](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
 
 {% endif %}
 
 {% ifversion ghec %}
-## Downloading the dormant users report from your enterprise account
+## エンタープライズ アカウントから休眠ユーザー レポートをダウンロードする
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**. ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. 休眠ユーザー (ベータ) レポートを CSV ファイルとしてダウンロードするには、[その他] の下にある {% octicon "download" aria-label="The Download icon" %} **[ダウンロード]** をクリックします。
+  ![[コンプライアンス] ページの [その他] の下にある [ダウンロード] ボタン](/assets/images/help/business-accounts/dormant-users-download-button.png)
 
 {% tip %}
 
-**Tip:** For the purposes of assessing user dormancy, user activity is scoped to include only user activity associated with organizations, repositories, or sign-on events that are associated with the enterprise. For example, if a user has recently commented on an issue in a public repository not associated with the enterprise, they may be considered dormant. However, if they have recently commented on an issue in a public repository associated with an organization in your enterprise, they will not be considered dormant and will not appear in the Dormant User report.
+**ヒント:** ユーザーの休眠状態を評価するために、ユーザー アクティビティのスコープは、エンタープライズに関連付けられている組織、リポジトリ、またはサインオン イベントに関するユーザー アクティビティのみを含むように設定されています。 たとえば、ユーザーが最近、エンタープライズに関連付けられていないパブリック リポジトリの問題についてコメントした場合は、休眠状態と見なされる可能性があります。 ただし、エンタープライズ内の組織に関連付けられているパブリック リポジトリの問題について最近コメントした場合は、休眠状態と見なされることはなく、休眠ユーザー レポートには表示されません。
 
-In the case of web sign-on events, only sign-on events through via an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+Web サインオン イベントの場合、エンタープライズに関連付けられている SSO ドメイン経由のサインオン イベントのみが、エンタープライズに関連付けられたユーザー アクティビティと見なされます。
 
 {% endtip %}
 

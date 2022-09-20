@@ -25,6 +25,10 @@ shortTitle: Filtering alerts
 
 You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
 
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
+
 ## Filter by repository
 
 Available in all organization-level and team-level views.

@@ -20,8 +20,13 @@ topics:
   - Fundamentals
   - SSH
 shortTitle: Access the admin shell (SSH)
+ms.openlocfilehash: 8d8b9cd71a436c0874355b1bdd53ba2e400660a0
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120741'
 ---
-
 ## 管理シェルでのアクセスについて
 
 管理シェルへの SSH アクセスがある場合は、{% data variables.product.prodname_ghe_server %} のコマンドラインユーティリティを実行できます。 SSHでのアクセスは、トラブルシューティングやバックアップの実行、レプリケーションの設定にも役立ちます。 管理のためのSSHアクセスはGitのSSHアクセスとは別に管理され、ポート122を通じてのみアクセスできます。
@@ -32,18 +37,17 @@ shortTitle: Access the admin shell (SSH)
 
 {% tip %}
 
-**Tip:**認証済みSSH鍵への変更は、すぐに有効になります。
+**ヒント:** 認証済み SSH キーへの変更は、すぐに有効になります。
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. "SSH access（SSHでのアクセス）"の下のテキストボックスに鍵を貼り付け、**Add key（鍵の追加）**をクリックしてください。 ![SSHキーを追加するためのテキストボックスおよびボタン](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. "SSH でのアクセス" の下のテキスト ボックスにキーを貼り付け、 **[キーの追加]** をクリックしてください。
+  ![SSH キーを追加するためのテキスト ボックスおよびボタン](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png) {% data reusables.enterprise_management_console.save-settings %}
 
 ## SSH経由での管理シェルへの接続
 
-SSH鍵をリストに追加したら、`admin`ユーザとしてインスタンスのポート122にSSHで接続してください。
+SSH キーをリストに追加したら、ポート 122 の `admin` ユーザーとしてインスタンスに SSH 経由で接続します。
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -53,15 +57,15 @@ admin@github-example-com:~$ █
 
 ### SSH 接続問題のトラブルシューティング
 
-SSH 経由で {% data variables.product.product_location %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
+SSH 経由で {% data variables.product.product_location %} に接続しようとしたときに、`Permission denied (publickey)` エラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
 
-コマンドラインでプライベートな SSH キーを指定するには、`-i` 引数を付けて `ssh` を実行します。
+コマンド ラインを使用して秘密 SSH キーを指定するには、`-i` 引数を指定して `ssh` を実行ます。
 
 ```shell
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-SSH 設定ファイル (`~/.ssh/config`) を使用して SSH 秘密キーを指定することもできます。
+SSH 構成ファイル (`~/.ssh/config`) を使用して SSH 秘密キーを指定することもできます。
 
 ```shell
 Host <em>hostname</em>

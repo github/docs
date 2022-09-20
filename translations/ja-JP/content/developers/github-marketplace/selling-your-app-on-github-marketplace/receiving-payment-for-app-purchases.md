@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: 支払いを受け取る
+shortTitle: Receive payment
+ms.openlocfilehash: 324ef8bceaa92c55f102603885799dde7e892795
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089631'
 ---
-
 有料プランのあるアプリケーションが作成され、{% data variables.product.prodname_marketplace %}に掲載が承認された後、財務的オンボーディングプロセスの一環として支払い情報の詳細を{% data variables.product.product_name %}に提供します。
 
 収益が500米ドルに達した月に、{% data variables.product.company_short %}からの電子決済を受け取ります。 この金額は、Marketplaceの取引から、運営費として{% data variables.product.company_short %}が課した金額を差し引いたものとなります。
@@ -24,6 +29,6 @@ shortTitle: 支払いを受け取る
 
 {% note %}
 
-**注釈:** 現在の価格プランと支払い条件の詳細については、「[{% data variables.product.prodname_marketplace %} 開発者同意書](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)」を参照してください。
+**注:** 現在の価格プランと支払い条件の詳細については、「[{% data variables.product.prodname_marketplace %} 開発者同意書](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)」を参照してください。
 
 {% endnote %}

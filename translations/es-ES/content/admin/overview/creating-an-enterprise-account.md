@@ -1,6 +1,6 @@
 ---
-title: Creating an enterprise account
-intro: 'If you''re currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations.'
+title: Crear una cuenta empresarial
+intro: 'Si actualmente utilizas {% data variables.product.prodname_ghe_cloud %} con una sola organización, puedes crear una cuenta empresarial para administrar varias organizaciones centralmente.'
 versions:
   ghec: '*'
 type: how_to
@@ -10,47 +10,53 @@ topics:
   - Fundamentals
 permissions: Organization owners can create an enterprise account.
 shortTitle: Create enterprise account
+ms.openlocfilehash: a264a5a1ca3e7461c8e05fc02e93064737d79940
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573405'
 ---
+## Acerca de la creación de cuentas empresariales
 
-## About enterprise account creation
+{% data variables.product.prodname_ghe_cloud %} incluye la opción de crear una cuenta empresarial, la cual habilita la colaboración entre organizaciones múltiples y otorga a los administradores un punto sencillo de visibilidad y administración. Para más información, vea "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 
-{% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+{% data reusables.enterprise.create-an-enterprise-account %} Si pagas por factura, tú mismo puedes crear una cuenta empresarial en {% data variables.product.prodname_dotcom %}. Si no es así, puedes [ponerte en contacto con nuestro equipo de ventas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para crear una cuenta empresarial.
 
-{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
+Se incluye una cuenta empresarial con {% data variables.product.prodname_ghe_cloud %}. La creación de una cuenta de empresa no genera cargos adicionales en la factura.
 
-An enterprise account is included in {% data variables.product.prodname_ghe_cloud %}, so creating one will not affect your bill.
+Cuando creas una cuenta de empresa propietaria de tu organización existente en {% data variables.product.product_name %}, los recursos de la organización permanecen accesibles para los miembros en las mismas direcciones URL. Después de agregar tu organización a la cuenta de empresa, se aplicarán los siguientes cambios a la organización.
 
-When you create an enterprise account, your existing organization will automatically be owned by the enterprise account. All current owners of your organization will become owners of the enterprise account. All current billing managers of the organization will become billing managers of the new enterprise account. The current billing details of the organization, including the organization's billing email address, will become billing details of the new enterprise account.
+- Tu organización existente pertenecerá automáticamente a la cuenta empresarial.
+- {% data variables.product.company_short %} factura a la cuenta de empresa su uso en todas las organizaciones que pertenecen a la empresa. Los detalles de facturación actuales de la organización, incluida la dirección de correo electrónico de facturación de la organización, serán también los detalles de facturación de la nueva cuenta empresarial. Para obtener más información, consulta "[Acerca de la facturación de la empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+- Todos los propietarios actuales de tu organización se convertirán en propietarios de la cuenta empresarial, y todos los administradores de facturación actuales de la organización se convertirán en administradores de facturación de la nueva cuenta empresarial. Para más información, vea "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
-If the organization is connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} via {% data variables.product.prodname_github_connect %}, upgrading the organization to an enterprise account **will not** update the connection. If you want to connect to the new enterprise account, you must disable and re-enable {% data variables.product.prodname_github_connect %}.
+Para obtener más información sobre los cambios que se aplican a una organización después de agregar la organización a una empresa, consulta «[Agregar organizaciones a tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)».
 
-- "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-- "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+## Crear una cuenta empresarial en {% data variables.product.prodname_dotcom %}
 
-## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
+Para crear una cuenta empresarial, tu organización debe usar {% data variables.product.prodname_ghe_cloud %}.
 
-To create an enterprise account, your organization must be using {% data variables.product.prodname_ghe_cloud %}.
-
-If you pay by invoice, you can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. If you do not currently pay by invoice, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
+Si pagas por factura, puedes crear una cuenta empresarial directamente mediante {% data variables.product.prodname_dotcom %}. Si actualmente no pagas por factura, puedes [ponerte en contacto con nuestro equipo de ventas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para crear una cuenta empresarial.
 
 
 {% data reusables.organizations.billing-settings %}
-1. Click **Upgrade to enterprise account**.
+1. Haga clic en **Actualizar a cuenta de empresa**.
 
-   ![Screenshot of the "Upgrade to an enterprise account" button](/assets/images/help/business-accounts/upgrade-to-enterprise-account.png)
-1. Under "Enterprise name", type a name for your enterprise account.
+   ![Captura de pantalla del botón "Actualizar a una cuenta de empresa"](/assets/images/help/business-accounts/upgrade-to-enterprise-account.png)
+1. Debajo de "Nombre de empresa", teclea un nombre para tu cuenta empresarial.
 
-   ![Screenshot of the "Enterprise name" field](/assets/images/help/business-accounts/enterprise-name-field.png)
-1. Under "Enterprise URL slug", type a slug for your enterprise account. This slug will be used in the URL for your enterprise. For example, if you choose `octo-enterprise`, the URL for your enterprise will be `https://github.com/enterprises/octo-enterprise`.
+   ![Captura de pantalla del campo "Nombre de empresa"](/assets/images/help/business-accounts/enterprise-name-field.png)
+1. Debajo de "slug de la URL empresarial", teclea el slug para tu cuenta empresarial. Este slug se utilizará en la URL de tu empresa. Por ejemplo, si elige `octo-enterprise`, la dirección URL de la empresa será `https://github.com/enterprises/octo-enterprise`.
 
-   ![Screenshot of the "Enterprise URL slug" field](/assets/images/help/business-accounts/enterprise-slug-field.png)
-1. Click **Confirm and upgrade**.
+   ![Captura de pantalla del campo "Enterprise URL slug"](/assets/images/help/business-accounts/enterprise-slug-field.png)
+1. Haga clic en **Confirmar y actualizar**.
 
-   ![Screenshot of the "Confirm and upgrade" button](/assets/images/help/business-accounts/confirm-and-upgrade-button.png)
-1. Read the warnings, then click **Create enterprise account**.
+   ![Captura de pantalla del botón "Confirmar y actualizar"](/assets/images/help/business-accounts/confirm-and-upgrade-button.png)
+1. Lea las advertencias y, después, haga clic en **Crear cuenta de empresa**.
 
-   ![Screenshot of the "Create enterprise account" button](/assets/images/help/business-accounts/create-enterprise-account-button.png)
+   ![Captura de pantalla del botón "Crear cuenta de empresa"](/assets/images/help/business-accounts/create-enterprise-account-button.png)
 
-## Next steps
+## Pasos siguientes
 
-After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. For more information, follow the "[Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account)" learning path.
+Después de que se cree tu cuenta empresarial, te recomendamos aprender más sobre cómo funcionan las cuentas empresariales y cómo configurar ajustes y políticas. Para más información, siga la ruta de aprendizaje "[Primeros pasos con la cuenta de empresa](/admin/guides#get-started-with-your-enterprise-account)".

@@ -33,7 +33,8 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-{%- ifversion ghes %}
+
+{%- ifversion ghes < 3.6 %}
 
 The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
 
@@ -41,6 +42,13 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {% endif %}
 
+{%- ifversion ghes > 3.5 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
+
+The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+
+{% endif %}
 
 {%- ifversion ghes = 3.2 %}
 
@@ -78,6 +86,23 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {% endnote %}
 
+{%- endif %}
+
+
+{%- ifversion ghes = 3.6 %}
+
+{% data reusables.actions.hardware-requirements-3.6 %}
+
+{% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+
+{% note %}
+
+**Notes:**
+
+- Beginning with {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documents connected runners as opposed to concurrent jobs. Connected runners represents the most runners you can connect and expect to utilize. It should also be noted that connecting more runners than you can expect to utilize can negatively impact performance.
+
+- Beginning with {% data variables.product.prodname_ghe_server %} 3.5, {% data variables.product.company_short %}'s internal testing uses 3rd generation CPUs to better reflect a typical customer configuration. This change in CPU represents a small portion of the changes to performance targets in this version of {% data variables.product.prodname_ghe_server %}.
+{% endnote %}
 {%- endif %}
 
 If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."

@@ -50,12 +50,6 @@ const cacheAggressively = (res) => {
   // doesn't do soft-purges on these responses on every
   // automated deployment.
   setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
-
-  // Because this middleware has (quite possibly) been executed before
-  // the CSRF middleware, that would have set a cookie. Remove that.
-  // The reason for removing the 'Set-Cookie' header is because
-  // otherwise Fastly won't cache it.
-  res.removeHeader('set-cookie')
 }
 
 // The way `got` does retries:
@@ -75,8 +69,11 @@ const cacheAggressively = (res) => {
 const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which much less than 500ms.
-const timeoutConfiguration = { response: 500 }
+// which much less than 1500ms.
+// We have observed errors of timeout, in production, when it was
+// set to 500ms. Let's try to be very conservative here to avoid
+// unnecessary error reporting.
+const timeoutConfiguration = { response: 1500 }
 
 async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
@@ -108,7 +105,6 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       } else {
         noCacheControl(res)
       }
-      res.removeHeader('set-cookie')
       return res.redirect(redirectCode, redirectTo)
     }
 
@@ -129,7 +125,6 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       } else {
         noCacheControl(res)
       }
-      res.removeHeader('set-cookie')
       return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }

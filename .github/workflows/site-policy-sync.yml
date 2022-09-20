@@ -13,7 +13,7 @@ on:
     types:
       - closed
     paths:
-      - 'content/github/site-policy/**'
+      - 'content/site-policy/**'
   workflow_dispatch:
 
 permissions:
@@ -44,7 +44,7 @@ jobs:
           git config --local user.name 'site-policy-bot'
           git config --local user.email 'site-policy-bot@github.com'
           rm -rf Policies
-          cp -r ../content/github/site-policy Policies
+          cp -r ../content/site-policy Policies
           git status
           git checkout -b automated-sync-$GITHUB_RUN_ID
           git add .

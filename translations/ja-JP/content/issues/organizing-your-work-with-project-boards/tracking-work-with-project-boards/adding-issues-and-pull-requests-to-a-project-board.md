@@ -1,27 +1,30 @@
 ---
-title: プロジェクトボードへの Issue およびプルリクエストの追加
-intro: Issue やプルリクエストはカードの形でプロジェクトボードに追加し、列にトリアージしていくことができます。
+title: '{% data variables.product.prodname_project_v1 %} に issue と pull request を追加する'
+intro: 'issue や pull request をカードの形式で {% data variables.projects.projects_v1_board %} に追加し、それらを列にトリアージすることができます。'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
   - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: ボードへのIssueとPRの追加
+shortTitle: 'Add issues & PRs to {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 36897518283fa085c37363157fb44cbd8e1a75c6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422773'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-以下のようにして、プロジェクトボードに Issue またはプルリクエストカードを追加できます:
-- サイドバーの [**Triage**] セクションからカードをドラッグする。
+次のようにして、issue や pull request のカードを {% data variables.projects.projects_v1_board %} に追加できます。
+- サイドバーの **[Triage]\(トリアージ\)** セクションからカードをドラッグする。
 - Issue またはプルリクエストの URL をカード内に入力する。
-- プロジェクトボードの検索サイドバーで Issue またはプルリクエストを検索する。
+- {% data variables.projects.projects_v1_board %} の検索サイドバーで issue または pull request を検索する。
 
 各プロジェクト列には最大 2,500 のカードを置くことができます。 列のカード数が最大に達すると、その列にカードを移動させることはできません。
 
@@ -29,28 +32,30 @@ shortTitle: ボードへのIssueとPRの追加
 
 {% note %}
 
-**注釈:** ノートをタスクのリマインダ、{% data variables.product.product_name %} 上の任意のリポジトリからの Issue やプルリクエストへの参照、プロジェクトボードへの関連情報の追加として働くようにプロジェクトボードに追加することもできます。 詳細は「[プロジェクトボードにノートを追加する](/articles/adding-notes-to-a-project-board)」を参照してください。
+**注:** タスクのリマインダーや、{% data variables.product.product_name %} 上の任意のリポジトリの issue や pull request への参照として機能するように、または {% data variables.projects.projects_v1_board %} に関連情報を追加するために、プロジェクト ボードにノートを追加することもできます。 詳細については、「[プロジェクト ボードへのメモの追加](/articles/adding-notes-to-a-project-board)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.project-management.edit-in-project %}
 
-{% data reusables.project-management.link-repos-to-project-board %}プロジェクトボードに追加するために Issue やプルリクエストを検索する場合、自動的にその検索の対象はリンクされたリポジトリになります。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
+{% data reusables.project-management.link-repos-to-project-board %}{% data variables.projects.projects_v1_board %} に追加するために issue や pull request を検索する場合、検索のスコープはリンクされたリポジトリに自動的に設定されます。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳細については、「[リポジトリをプロジェクト ボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 
-## プロジェクトボードへの Issue およびプルリクエストの追加
+## {% data variables.projects.projects_v1_board %} に issue と pull request を追加する
 
-1. Issue およびプルリクエストを追加するプロジェクトボードに移動します。
-2. プロジェクトボードで {% octicon "plus" aria-label="The plus icon" %} [**Add cards**] をクリックします。 ![カードの追加ボタン](/assets/images/help/projects/add-cards-button.png)
-3. 検索条件を使って、プロジェクトボードに追加したい Issue と Pull Request を検索してください。 利用できる検索条件に関する詳しい情報については「[Issue を検索する](/articles/searching-issues)」を参照してください。 ![Issue およびプルリクエストを検索](/assets/images/help/issues/issues_search_bar.png)
+1. issue や pull request を追加する {% data variables.projects.projects_v1_board %} に移動します。
+2. {% data variables.projects.projects_v1_board %} で、{% octicon "plus" aria-label="The plus icon" %} **[カードの追加]** をクリックします。
+![[Add cards]\(カードの追加\) ボタン](/assets/images/help/projects/add-cards-button.png)
+3. 検索修飾子を使って、{% data variables.projects.projects_v1_board %} に追加する issue や pull request を検索します。 使用できる検索修飾子の詳細については、「[issue の検索](/articles/searching-issues)」を参照してください。
+  ![issue および pull request を検索する](/assets/images/help/issues/issues_search_bar.png)
 
   {% tip %}
 
-  **参考:**
+  **ヒント:**
     - Issue あるいはプルリクエストの URL をカード内でタイプして、それらを追加することもできます。
-    - 特定の機能について作業をしているなら、その機能に関連する Issue あるいはプルリクエストにラベルを適用して、そのラベル名を検索することでプロジェクトボードに簡単にカードを追加することができます。 詳細は「[Issue およびプルリクエストへのラベルの適用](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。
+    - 特定の機能で作業している場合、その機能に関連する各 issue または pull request にラベルを適用し、そのラベル名を検索することで、{% data variables.projects.projects_v1_board %} にカードを簡単に追加できます。 詳細については、「[issue と pull request にラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。
 
   {% endtip %}
-4. フィルタリングされた Issue とプルリクエストのリストから、プロジェクトボードに追加したいカードをドラッグして、正しい列にドロップします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+4. issue と pull request のフィルター処理されたリストから、{% data variables.projects.projects_v1_board %} に追加するカードをドラッグして、正しい列にドロップします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
@@ -58,16 +63,21 @@ shortTitle: ボードへのIssueとPRの追加
 
     {% endtip %}
 
-## サイドバーからのプロジェクトボードへの Issue およびプルリクエストの追加
+## サイドバーから {% data variables.projects.projects_v1_board %} に issue と pull request を追加する
 
-1. Issue あるいはプルリクエストの右側で、[**Projects {% octicon "gear" aria-label="The Gear icon" %}**] をクリックします。 ![サイドバーのプロジェクトボードボタン](/assets/images/help/projects/sidebar-project.png)
-2. 追加したいプロジェクトボードの [**Recent**]、[**Repository**]、[**User**]、[**Organization**] タブをクリックします。 ![Recent、Repository、Organization タブ](/assets/images/help/projects/sidebar-project-tabs.png)
-3. [**Filter projects**] フィールドにプロジェクト名を入力します。 ![プロジェクトボードの検索ボックス](/assets/images/help/projects/sidebar-search-project.png)
-4. Issueまたはプルリクエストを追加する1つ以上のプロジェクトボードを選択します。 ![選択されたプロジェクトボード](/assets/images/help/projects/sidebar-select-project.png)
-5. {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、Issueまたはプルリクエストが必要な列をクリックします。 カードが、選択したプロジェクトボードの列の下部に移動します。 ![[Move card to column] メニュー](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
+1. issue または pull request の右側で、 **[Projects]\(プロジェクト\) {% octicon "gear" aria-label="The Gear icon" %}** をクリックします。
+  ![サイド バーのプロジェクト ボード ボタン](/assets/images/help/projects/sidebar-project.png)
+2. 追加先の {% data variables.projects.projects_v1_board %} の **[最近使用したファイル]** 、 **[リポジトリ]** 、 **[ユーザー]** 、または **[Organization]** タブをクリックします。
+  ![[Recent]\(最近使用したファイル\)、[Repository]\(リポジトリ\)、[Organization]\(組織\) タブ](/assets/images/help/projects/sidebar-project-tabs.png)
+3. **[Filter projects]\(プロジェクトのフィルター\)** フィールドにプロジェクトの名前を入力します。
+  ![プロジェクト ボードの検索ボックス](/assets/images/help/projects/sidebar-search-project.png)
+4. issue または pull request を追加する 1 つ以上の {% data variables.projects.projects_v1_boards %} を選びます。
+  ![選択されたプロジェクト ボード](/assets/images/help/projects/sidebar-select-project.png)
+5. {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、issue または pull request が必要な列をクリックします。 カードが、選んだ {% data variables.projects.projects_v1_board %} の列の末尾に移動します。
+  ![カードを列メニューに移動する](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-## 参考リンク
+## 参考資料
 
-- [プロジェクトボードについて](/articles/about-project-boards)
-- [プロジェクトボードの編集](/articles/editing-a-project-board)
-- 「[プロジェクトボードでカードをフィルタリングする](/articles/filtering-cards-on-a-project-board)」
+- [{% data variables.product.prodname_projects_v1 %} について](/articles/about-project-boards)
+- [{% data variables.product.prodname_project_v1 %} の編集](/articles/editing-a-project-board)
+- [{% data variables.product.prodname_project_v1 %} でのカードのフィルター処理](/articles/filtering-cards-on-a-project-board)

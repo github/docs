@@ -87,7 +87,6 @@ export type MainContextT = {
   isHomepageVersion: boolean
   isFPT: boolean
   data: DataT
-  airGap?: boolean
   error: string
   currentCategory?: string
   relativePath?: string
@@ -127,6 +126,14 @@ export type MainContextT = {
 }
 
 export const getMainContext = (req: any, res: any): MainContextT => {
+  // Our current translation process adds 'ms.*' frontmatter properties to files
+  // it translates including when data/ui.yml is translated. We don't use these
+  // properties and their syntax (e.g. 'ms.openlocfilehash',
+  // 'ms.sourcegitcommit', etc.) causes problems so just delete them.
+  if (req.context.site.data.ui.ms) {
+    delete req.context.site.data.ui.ms
+  }
+
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
@@ -147,7 +154,6 @@ export const getMainContext = (req: any, res: any): MainContextT => {
         release_candidate: req.context.site.data.variables.release_candidate,
       },
     },
-    airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
     currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,

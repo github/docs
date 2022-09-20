@@ -39,7 +39,7 @@ shortTitle: Manage wiki pages
 {% data reusables.repositories.sidebar-wiki %}
 4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
    ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content.
+5. Use the text editor to edit the page's content.
    ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Type a commit message describing your changes.
    ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)

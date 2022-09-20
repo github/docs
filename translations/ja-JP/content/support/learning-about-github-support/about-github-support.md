@@ -17,6 +17,8 @@ redirect_from:
   - /github/working-with-github-support/github-enterprise-cloud-support
   - /articles/business-plan-support
   - /articles/github-business-cloud-support
+  - /admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
 ---
@@ -175,7 +177,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{% ifversion ghes %}{% data reusables.enterprise_enterprise_support.installing-releases %}{% endif %}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 {% endif %}
 

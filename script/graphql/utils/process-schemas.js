@@ -5,13 +5,17 @@ import helpers from './schema-helpers.js'
 import fs from 'fs/promises'
 import path from 'path'
 
-const externalScalars = JSON.parse(
+const externalScalarsJSON = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json'))
-).map((scalar) => {
-  scalar.id = helpers.getId(scalar.name)
-  scalar.href = helpers.getFullLink('scalars', scalar.id)
-  return scalar
-})
+)
+const externalScalars = await Promise.all(
+  externalScalarsJSON.map(async (scalar) => {
+    scalar.description = await helpers.getDescription(scalar.description)
+    scalar.id = helpers.getId(scalar.name)
+    scalar.href = helpers.getFullLink('scalars', scalar.id)
+    return scalar
+  })
+)
 
 // select and format all the data from the schema that we need for the docs
 // used in the build step by script/graphql/build-static-files.js
@@ -24,10 +28,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
 
   const data = {}
 
-  data.queries = {
-    connections: [],
-    fields: [],
-  }
+  data.queries = []
   data.mutations = []
   data.objects = []
   data.interfaces = []
@@ -80,12 +81,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
             )
 
             query.args = sortBy(queryArgs, 'name')
-
-            // QUERY CONNECTIONS
-            // QUERY FIELDS
-            query.id.endsWith('connection')
-              ? data.queries.connections.push(query)
-              : data.queries.fields.push(query)
+            data.queries.push(query)
           })
         )
 
@@ -445,8 +441,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
   data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
 
   // sort all the types alphabetically
-  data.queries.connections = sortBy(data.queries.connections, 'name')
-  data.queries.fields = sortBy(data.queries.fields, 'name')
+  data.queries = sortBy(data.queries, 'name')
   data.mutations = sortBy(data.mutations, 'name')
   data.objects = sortBy(data.objects, 'name')
   data.interfaces = sortBy(data.interfaces, 'name')

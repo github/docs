@@ -21,7 +21,7 @@ shortTitle: Visual Studio Code
  
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
 
-You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. To use {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, you need to install the {% data variables.product.prodname_codespaces %} extension. For more information on setting up Codespaces in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
+You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. {% data reusables.codespaces.using-codespaces-in-vscode %} For more information on setting up {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
 
 By default, if you create a new codespace on {% data variables.product.prodname_dotcom_the_website %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode_shortname %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 

@@ -40,7 +40,7 @@ jobs:
         run: |
           set -e
 
-          ./script/find-orphaned-assets.mjs | xargs git rm
+          ./script/find-orphaned-assets.js | xargs git rm
 
           # If nothing to commit, exit now. It's fine. No orphans.
           git status | grep 'nothing to commit' && exit 0
@@ -58,6 +58,6 @@ jobs:
 
           gh pr create \
             --title "Delete orphaned assets ($date)" \
-            --body "Found with the find-orphaned-assets.mjs script" \
+            --body "Found with the find-orphaned-assets.js script" \
             --repo github/docs-internal \
             --label docs-content-fr

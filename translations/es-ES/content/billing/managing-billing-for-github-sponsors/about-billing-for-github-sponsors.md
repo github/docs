@@ -11,9 +11,14 @@ versions:
 type: overview
 topics:
   - Sponsors
-shortTitle: Acerca de la facturación
+shortTitle: About billing
+ms.openlocfilehash: 478b0bc1836cd234ffa32aba4a03b823b0c20663
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091670'
 ---
-
 {% data reusables.sponsors.sponsorship-details %}
 
 {% data reusables.sponsors.no-fees %}
@@ -22,7 +27,7 @@ shortTitle: Acerca de la facturación
 
 {% data reusables.user-settings.context_switcher %}
 
-## Leer más
+## Información adicional
 
 - "[Acerca de {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[Patrocinar a contribuyentes de código abierto](/sponsors/sponsoring-open-source-contributors)"
+- "[Patrocinar a colaboradores de código abierto](/sponsors/sponsoring-open-source-contributors)"

@@ -1,5 +1,5 @@
 ---
-title: Divulgação coordenada de vulnerabilidades de segurança
+title: Divulgação Coordenada de Vulnerabilidades de Segurança
 redirect_from:
   - /responsible-disclosure
   - /coordinated-disclosure
@@ -11,12 +11,17 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 683d537689865a557cf9b52315341bb10be82bfc
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556448'
 ---
-
-Queremos manter o GitHub seguro para todos. Se você descobriu uma vulnerabilidade de segurança no GitHub, agradecemos sua ajuda em divulgá-la de forma coordenada.
+Queremos manter o GitHub seguro para todos. Se você descobrir uma vulnerabilidade de segurança no GitHub, agradecemos sua ajuda em divulgá-la para nós de maneira coordenada.
 
 ## Programa de Recompensas
 
-Como várias outras grandes empresas de software, o GitHub fornece uma recompensa por erros para estimular os pesquisadores de segurança. A ideia é simples: os hackers e os pesquisadores de segurança (como você) encontram e informam vulnerabilidades por meio de nosso processo coordenado de divulgação. Então, para reconhecer o esforço significativo que esses pesquisadores muitas vezes fazem ao caçar erros, nós os recompensamos com dinheiro vivo.
+Como várias outras grandes empresas de software, o GitHub oferece uma recompensa por bugs para que haja um envolvimento melhor com os pesquisadores de segurança. A ideia é simples: hackers e pesquisadores de segurança (como você) descobrem e relatam vulnerabilidades por meio de nosso processo de divulgação coordenado. Em seguida, em reconhecimento do esforço significativo que esses pesquisadores costumam fazer procurando bugs, nós oferecemos recompensas em dinheiro vivo.
 
-Confira o site [Recompensa por Erros do GitHub](https://bounty.github.com) para detalhes de recompensa, revise nossa abrangente [Política de Porto Seguro Legal](/articles/github-bug-bounty-program-legal-safe-harbor) e boa caçada!
+Consulte o site [Recompensa por Bugs do GitHub](https://bounty.github.com) para obter detalhes de recompensas, além dos termos abrangentes da [Política Legal de Safe Harbor](/articles/github-bug-bounty-program-legal-safe-harbor) e ache os bugs!

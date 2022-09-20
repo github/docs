@@ -1,6 +1,6 @@
 ---
 title: Organization の人のロールを表示する
-intro: 'Organization 内の人のリストを表示し、それらのロールでフィルタリングすることができます。 For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
+intro: 'Organization 内の人のリストを表示し、それらのロールでフィルタリングすることができます。 Organization ロールの詳細については、「[ 内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。'
 permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
@@ -16,50 +16,53 @@ versions:
 topics:
   - Accounts
 shortTitle: View people in an organization
+ms.openlocfilehash: e0632ffeb394615b7b64ad55673b69fc738bca27
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '146179632'
 ---
+## 組織のロールを表示する
 
-## View organization roles
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. Organization 内の人のリストが表示されます。 ロールでリストをフィルタリングするには、[**Role**] をクリックします。 ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. Organization 内の人のリストが表示されます。 ロールでリストをフィルター処理するには、 **[ロール]** をクリックし、検索するロールを選択します。
+  ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
 
 {% ifversion fpt %}
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can also view the enterprise owners who manage billing settings and policies for all your enterprise's organizations. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)を参照してください。
+Organization で {% data variables.product.prodname_ghe_cloud %} を使用している場合は、すべての企業のOrganization の課金設定とポリシーを管理する Enterprise オーナーを表示することもできます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)を参照してください。
 
 {% endif %}
 
 {% ifversion enterprise-owners-visible-for-org-members %}
-## View enterprise owners and their roles in an organization
+## Organization 内の Enterprise オーナーとそのロールを表示する
 
-If your organization is managed by an enterprise account, then you can view the enterprise owners who manage billing settings and policies for all of your enterprise's organizations. For more information about enterprise accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+Organization が Enterprise アカウントで管理されている場合は、すべての企業のOrganization の課金設定とポリシーを管理するEnterprise オーナーを表示できます。 Enterprise アカウントの詳細については、「[{% data variables.product.prodname_dotcom %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」を参照してください。
 
-You can also view whether an enterprise owner has a specific role in the organization. Enterprise owners can also be an organization member, any other organization role, or be un-affiliated with the organization.
+また、Enterprise オーナーが Organization 内で特定のロールを持っているかどうかを確認することもできます。 Enterprise オーナーは、Organization のメンバーや、その他の Organization のロールになることもできるほか、Organization に所属しない場合もあります。
 
 {% note %}
 
-**Note:** If you're an organization owner, you can also invite an enterprise owner to have a role in the organization. If an enterprise owner accepts the invitation, a seat or license in the organization is used from the available licenses for your enterprise. For more information about how licensing works, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+**注:** Organization オーナーである場合は、Enterprise オーナーを Organization のロールに招待することもできます。 Enterprise オーナーが招待に同意した場合、Organization 内のシートまたはライセンスは、Enterprise で使用可能なライセンスから使用されます。 ライセンスのしくみの詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
 
 {% endnote %}
 
-| **Enterprise role** | **Organization role**                          | **Organization access or impact**                                                                                              |
-| ------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Enterprise owner    | Un-affiliated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
-| Enterprise owner    | Organization owner                             | Able to configure organization settings and manage access to the organization's resources through teams, etc.                  |
-| Enterprise owner    | Organization member                            | Able to access organization resources and content, such as repositories, without access to the organization's settings.        |
+| **Enterprise のロール** | **Organization のロール** | **Organization のアクセスまたは影響** |
+|----|----|----|----|
+| Enterprise owner | 所属していないか、正式な Organization ロールがない | Organization のコンテンツまたはリポジトリにアクセスすることはできませんが、Organization に影響を与える Enterprise 設定とポリシーを管理します。 |
+| Enterprise owner | Organization owner | Team などを通じて、Organization の設定を構成し、Organization のリソースへのアクセスを管理できます。 | 
+| Enterprise owner | Organization のメンバー | Organization の設定にアクセスすることなく、リポジトリなどの Organization のリソースとコンテンツにアクセスできます。 |
 
-To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion custom-repository-roles %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
+Organization 内のすべてのロールを確認するには、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。 {% ifversion custom-repository-roles %}Organization メンバーは、特定のリポジトリのカスタム ロールを持つこともできます。 詳細については、「[Organization のカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。{% endif %}
 
-For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+Enterprise オーナー ロールの詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。 
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**. ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
-5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. 左側のサイドバーの [Enterprise のアクセス許可] で、 **[Enterprise オーナー]** をクリックします。
+  ![サイドバー メニューの [Enterprise オーナー] オプションのスクリーンショット](/assets/images/help/organizations/enterprise-owners-sidebar.png)
+5. お使いの Enterprise の Enterprise オーナーの一覧を表示します。 Enterprise オーナーが Organization のメンバーでもある場合は、Organization 内のロールを確認できます。
 
-  ![Screenshot of list of Enterprise owners and their role in the organization](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
+  ![Enterprise オーナーとその Organization でのロールを示すリストのスクリーンショット](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
 
 {% endif %}

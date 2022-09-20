@@ -1,15 +1,23 @@
+---
+ms.openlocfilehash: 621271104f28983cd2cc1319a302fc1654e54acb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145065301"
+---
 
-Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de trabalho para ser executado com base em quais caminhos de arquivo são alterados. Os filtros de caminho não são avaliados em pushes de tags.
+Ao usar os eventos `push` e `pull_request`, você pode configurar um fluxo de trabalho para ser executado com base nos caminhos de arquivo alterados. Os filtros de caminho não são avaliados em pushes de tags.
 
-Use filtro `caminhos` quando você quiser incluir padrões de caminho dos arquivos ou quando quiser que ambos incluam e excluam padrões de caminhos dos arquivos. Use o filtro `paths-ignore` quando você deseja excluir apenas padrões de caminho do arquivo. Você não pode usar os dois filtros `caminhos` e `paths-ignore` para o mesmo evento em um fluxo de trabalho.
+Use o filtro `paths` quando quiser incluir padrões de caminho de arquivo ou quando quiser incluir e excluir padrões de caminho de arquivo. Use o filtro `paths-ignore` quando quiser apenas excluir padrões de caminho de arquivo. Não é possível usar os filtros `paths` e `paths-ignore` para o mesmo evento em um fluxo de trabalho.
 
-Se você definir as `branches`/`branches-ignore` e `caminhos`, o fluxo de trabalho só será executado quando ambos os filtros forem satisfeitos.
+Se você definir `branches`/`branches-ignore` e `paths`, o fluxo de trabalho só será executado quando ambos os filtros forem atendidos.
 
-As palavras-chave `paths` e `paths-ignore` aceitam padrões do glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de caminho. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+As palavras-chave `paths` e `paths-ignore` aceitam padrões glob que usam os caracteres curinga `*` e `**` para fazer a correspondência com mais de um nome de caminho. Para obter mais informações, confira a "[Folha de referências de padrões de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Exemplo: Incluindo caminhos
 
-Se pelo menos um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que você fizer push de um arquivo JavaScript (`.js`).
+Se, pelo menos, um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. Por exemplo, o fluxo de trabalho a seguir será executado sempre que você efetuar push de um arquivo JavaScript (`.js`).
 
 ```yaml
 on:
@@ -20,15 +28,15 @@ on:
 
 {% note %}
 
-**Observação:** Se um fluxo de trabalho for ignorado devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs) as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Um pull request que requer que essas verificações sejam bem sucedidas será bloqueado do merge. Para obter mais informações, consulte "[Manuseio ignorado, mas exigiu verificações](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)".
+**Observação:** se um fluxo de trabalho for ignorado devido à [filtragem de caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [à filtragem de branch](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou a uma [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs), as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Uma solicitação de pull que exige que essas verificações sejam bem-sucedidas não poderá ser mesclada. Para obter mais informações, confira "[Como lidar com verificações ignoradas mas obrigatórias](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)".
 
 {% endnote %}
 
 #### Exemplo: Excluindo caminhos
 
-Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. Se qualquer nome de caminho não corresponder a padrões em `paths-ignore`, mesmo que alguns nomes de caminhos correspondam aos padrões, o fluxo de trabalho será executado.
+Quando todos os nomes de caminho corresponderem aos padrões de `paths-ignore`, o fluxo de trabalho não será executado. Se qualquer nome de caminho não corresponder aos padrões de `paths-ignore`, mesmo que alguns nomes de caminho correspondam aos padrões, o fluxo de trabalho será executado.
 
-Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
+Um fluxo de trabalho com o filtro de caminho a seguir só será executado em eventos `push` que incluem, pelo menos, um arquivo fora do diretório `docs` na raiz do repositório.
 
 ```yaml
 on:
@@ -39,16 +47,16 @@ on:
 
 #### Exemplo: Incluindo e excluindo caminhos
 
-Você não pode usar `caminhos` e `paths-ignore` para filtrar o mesmo evento em um único fluxo de trabalho. Se você deseja incluir e excluir padrões de caminho para um único evento, use o filtro `caminhos` junto com o caractere `!` para indicar quais caminhos devem ser excluídos.
+Não é possível usar `paths` e `paths-ignore` para filtrar o mesmo evento em um fluxo de trabalho individual. Caso deseje incluir e excluir padrões de caminho para um evento individual, use o filtro `paths` com o caractere `!` para indicar os caminhos que devem ser excluídos.
 
-Se você definir um caminho com o caractere `!`, você deverá definir pelo menos um caminho sem o caractere `!`. Se você deseja apenas excluir caminhos, use `paths-ignore`.
+Se você definir um caminho com o caractere `!`, também precisará definir, pelo menos, um caminho sem o caractere `!`. Caso você deseje apenas excluir os caminhos, use `paths-ignore`.
 
 A ordem de definição dos padrões é importante:
 
-- Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o caminho.
+- Um padrão de correspondência negativa (precedido por `!`) após uma correspondência positiva excluirá o caminho do Git.
 - Um padrão positivo correspondente após uma correspondência negativa incluirá o caminho novamente.
 
-Este exemplo é executado sempre que o evento `push` inclui um arquivo no diretório `sub-project` ou seus subdiretórios, a menos que o arquivo esteja no diretório `sub-project/docs`. Por exemplo, um push que alterou `sub-project/index.js` ou `sub-project/src/index.js` acionará uma execução de fluxo de trabalho, mas um push que altere somente`sub-project/docs/readme.md` não acionará.
+Este exemplo é executado sempre que o evento `push` inclui um arquivo no diretório `sub-project` ou nos respectivos subdiretórios, a menos que o arquivo esteja no diretório `sub-project/docs`. Por exemplo, um push que alterar `sub-project/index.js` ou `sub-project/src/index.js` vai disparar uma execução de fluxo de trabalho, mas um push que só altera `sub-project/docs/readme.md` não.
 
 ```yaml
 on:
@@ -62,17 +70,17 @@ on:
 
 {% note %}
 
-**Observação:** Se você fizer push de mais de 1.000 commits, ou se {% data variables.product.prodname_dotcom %} não gerar o diff devido a um tempo limite, o fluxo de trabalho sempre será executado.
+**Observação:** se você efetuar push de mais de mil commits ou se o {% data variables.product.prodname_dotcom %} não gerar a comparação devido a um tempo limite, o fluxo de trabalho sempre será executado.
 
 {% endnote %}
 
-O filtro determina se um fluxo de trabalho deve ser executado avaliando os arquivos alterados e comparando-os à lista de `paths-ignore` ou `paths`. Se não houver arquivos alterados, o fluxo de trabalho não será executado.
+O filtro determina se um fluxo de trabalho deve ser executado avaliando os arquivos alterados e executando-os na lista `paths-ignore` ou `paths`. Se não houver arquivos alterados, o fluxo de trabalho não será executado.
 
 O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterados usando diffs de dois pontos para pushes e diffs de três pontos para pull requests:
-- **Pull requests:** diffs de três pontos são uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch de base.
-- **Pushes para branches existentes:** um diff de dois pontos compara os SHAs head e base, um com o outro.
-- **Pushes para novos branches:** um diff de dois pontos compara o principal do ancestral do commit mais extenso que foi feito push.
+- **Solicitações de pull:** as comparações de três pontos são uma comparação entre a versão mais recente do branch do tópico e o commit em que o branch do tópico foi sincronizado pela última vez com o branch base.
+- **Pushes para branches existentes:** uma comparação de dois pontos compara os SHAs principal e base diretamente um com o outro.
+- **Pushes para novos branches:** uma comparação de dois pontos com o pai do ancestral do commit mais profundo enviado por push.
 
 Os diffs limitam-se a 300 arquivos. Se houver arquivos alterados que não correspondam aos primeiros 300 arquivos retornados pelo filtro, o fluxo de trabalho não será executado. Talvez seja necessário criar filtros mais específicos para que o fluxo de trabalho seja executado automaticamente.
 
-Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".
+Para obter mais informações, confira "[Sobre a comparação de branches em solicitações de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".

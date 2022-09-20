@@ -1,4 +1,12 @@
-如果需要任何与工作流程配置相关的帮助，比如语法、{% data variables.product.prodname_dotcom %} 托管的运行器或构建操作，请在 [{% data variables.product.prodname_gcf %} 的 {% data variables.product.prodname_actions %} 类别](https://github.community/c/code-to-cloud/github-actions/41)中查找现有主题或发起一个新主题。
+---
+ms.openlocfilehash: 32cd1f25aa5b28e9f6529d19538a52caa347d36f
+ms.sourcegitcommit: da73949b8f8bd71d40247f1f9c49f8f4c362ecd0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2022
+ms.locfileid: "147432038"
+---
+如果需要任何与工作流配置相关的帮助，比如语法、{% data variables.product.prodname_dotcom %} 托管的运行器或生成操作，请在 [{% data variables.product.prodname_github_community %} 的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 类别](https://github.com/orgs/github-community/discussions/categories/actions-and-packages)中查找现有主题或发起一个新主题。
 
 如果您有对 {% data variables.product.prodname_actions %} 的反馈或功能请求，请在 {% data variables.contact.contact_feedback_actions %} 中分享。
 

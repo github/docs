@@ -132,6 +132,7 @@ function throughDirectory(directory) {
       !directory.includes('rest/guides') &&
       !directory.includes('rest/overview') &&
       !file.includes('index.md') &&
+      !file.includes('quickstart.md') &&
       !file.includes('README.md')
     ) {
       return contentFiles.push(absolute)

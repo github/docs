@@ -1,7 +1,7 @@
 ---
-title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
+title: '{% data variables.product.prodname_github_codespaces %} の詳細'
 shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
-intro: '{% data variables.product.prodname_github_codespaces %} のしくみを知る.'
+intro: '{% data variables.product.prodname_github_codespaces %} のしくみを理解します。'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -10,111 +10,118 @@ versions:
 type: quick_start
 topics:
   - Codespaces
+ms.openlocfilehash: d64aa32db633a14c1cc8d36b3204cab2c9982f93
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878655'
 ---
-
-{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
+{% data variables.product.prodname_github_codespaces %} は、クラウドベースのインスタント開発環境であり、コンテナーを使用して開発用の共通言語、ツール、ユーティリティを提供します。 また、{% data variables.product.prodname_codespaces %} は構成可能で、プロジェクトに合わせてカスタマイズされた開発環境を作成できます。 プロジェクト用のカスタム開発環境を構成することにより、プロジェクトのすべてのユーザーに対して繰り返し可能な codespace 構成を作成できます。
 
 ## codespace を作成する
 
-There are a number of entry points to create a codespace.
+codespace を作成するためのエントリ ポイントは数多くあります。
 
-- From your repository for new feature work.
-- From an open pull request to explore work-in-progress.
-- From a commit in the repository's history to investigate a bug at a specific point in time.
-- From {% data variables.product.prodname_vscode %}.
+- 新しい機能作業のリポジトリから。
+- 進行中の作業を探索するオープンの pull request から。
+- 特定の時点のバグを調査するリポジトリ内のコミットから。
+- {% data variables.product.prodname_vscode %} から。
+  
+何らかのテストを行う必要がある場合、または同じ codespace に戻って長期間の機能作業を行うことができる場合、codespace をエフェメラルにすることができます。 詳細については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。
 
-Your codespace can be ephemeral if you need to test something or you can return to the same codespace to work on long-running feature work. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。
-
-Once you've selected the option to create a new codespace, and optionally selected from the various configuration options for your codespace, some steps happen in the background before the codespace is available to you.
+新しい codespace を作成するオプションを選び、codespace 用のさまざまな構成オプションを選ぶと、codespace を使えるようになるまでにバックグラウンドでいくつかの手順が発生します。
 
 ![[Open with Codespaces] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
-### Step 1: VM and storage are assigned to your codespace
+### 手順 1: VM とストレージを codespace に割り当てる
 
-When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) of your repository is made on a Linux virtual machine that is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
+codespace を作成すると、専用と個人用の両方の Linux 仮想マシン上に、リポジトリの[シャロー クローン](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/)が作成されます。 専用の VM を使用すると、そのマシンから使用できるコンピューティング リソースのセット全体を確保できます。 必要に応じて、これにより、コンテナーへの完全なルート アクセス権を取得することもできます。
 
-### Step 2: Container is created
+### 手順 2: コンテナーを作成する
 
-{% data variables.product.prodname_codespaces %} uses a container as the development environment. This container is created based on the configurations that you can define in a `devcontainer.json` file and/or Dockerfile in your repository. If you don't [configure a container](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project), {% data variables.product.prodname_codespaces %} uses a [default image](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration), which has many languages and runtimes available. For information on what the default image contains, see the [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
-
-{% note %}
-
-**Note:** If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
-
-Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
-
-{% endnote %}
-
-### Step 3: Connecting to the codespace
-
-When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it through the web or via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
-
-### Step 4: Post-creation setup
-
-Once you are connected to your codespace, your automated setup may continue to build based on the configuration you specified in your `devcontainer.json` file. You may see `postCreateCommand` and `postAttachCommand` run.
-
-If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
-
-If you have a public dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. 詳しい情報については、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)」を参照してください。
-
-Finally, the entire history of the repository is copied down with a full clone.
-
-During post-creation setup you'll still be able to use the integrated terminal and make edits to your files, but take care to avoid any race conditions between your work and the commands that are running.
-## {% data variables.product.prodname_codespaces %} lifecycle
-
-### Saving files in your codespace
-
-As you develop in your codespace, it will save any changes to your files every few seconds. Your codespace will keep running for 30 minutes after the last activity. After that time it will stop running but you can restart it from either from the existing browser tab or the list of existing codespaces. File changes from the editor and terminal output are counted as activity and so your codespace will not stop if terminal output is continuing.
+{% data variables.product.prodname_codespaces %} では、開発環境としてコンテナーが使用されます。 このコンテナーは、リポジトリ内の `devcontainer.json` ファイルまたは Dockerfile で定義できる構成に基づいて作成されます。 [コンテナーを構成](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project)しない場合、{% data variables.product.prodname_codespaces %} では、[既定のイメージ](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration)が使用されます。このイメージには、使用可能な多数の言語とランタイムが含まれています。 既定のイメージの内容については、[`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) リポジトリを参照してください。
 
 {% note %}
 
-**Note:** Changes in a codespace in {% data variables.product.prodname_vscode_shortname %} are not saved automatically, unless you have enabled [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
+**注:** codespace で Git フックを使用し、[git テンプレート ディレクトリ](https://git-scm.com/docs/git-init#_template_directory)内の何らかのものを codespace に適用する場合、コンテナーの作成後に手順 4 でフックを設定する必要があります。
+
+コンテナーの作成前にリポジトリがホスト VM に複製されるため、手順 4 の `postCreateCommand`を使用して `devcontainer.json` 構成ファイルでフックを設定しない限り、[git テンプレート ディレクトリ](https://git-scm.com/docs/git-init#_template_directory)内のものは codespace に適用されません。 詳細については、「[手順 4: 作成後のセットアップ](#step-4-post-creation-setup)」を参照してください。
+
 {% endnote %}
 
-### Closing or stopping your codespace
+### 手順 3: codespace に接続する
 
-To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes.
+コンテナーが作成され、その他の初期化が実行されると、codespace に接続されます。 必要に応じて、Web または [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code) または両方を介して接続できます。
 
-When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
+### 手順 4: 作成後のセットアップ
 
+codespace に接続された後、`devcontainer.json` ファイルで指定した構成に基づいて、自動セットアップが引き続きビルドされる場合があります。 `postCreateCommand`が表示され、`postAttachCommand` が実行される場合があります。
 
-## Running your application
+codespace で Git フックを使用する場合は、`postCreateCommand` などの[`devcontainer.json`ライフサイクル スクリプト](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)を使用してフックを設定します。 詳しい情報については、{% data variables.product.prodname_vscode_shortname %} のドキュメントの「[`devcontainer.json` リファレンス](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)」を参照してください。
 
-ポート転送を使用すると、Codespaces 内で実行されている TCP ポートにアクセスできます。 For example, if you're running a web application on port 4000 within your codespace, you can automatically forward that port to make the application accessible from your browser.
+{% data variables.product.prodname_github_codespaces %} のパブリックのドットファイル リポジトリがある場合、それを新しい codespace で使用できるように有効にすることができます。 有効にすると、ドットファイルがコンテナーに複製され、インストール スクリプトが呼び出されます。 詳しくは、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)」をご覧ください。 
 
-Port forwarding determines which ports are made accessible to you from the remote machine. Even if you do not forward a port, that port is still accessible to other processes running inside the codespace itself.
+最後に、リポジトリの履歴全体が完全なクローンでコピーされます。
 
-![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
+作成後のセットアップ中も、統合ターミナルを使用してファイルを編集できますが、作業と実行中のコマンドの間の競合状態を回避するように注意してください。
+## {% data variables.product.prodname_codespaces %} のライフサイクル
 
-When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+### ファイルを codespace に保存する
 
-While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
-
-Running your application when you first land in your codespace can make for a fast inner dev loop. As you edit, your changes are automatically saved and available on your forwarded port. To view changes, go back to the running application tab in your browser and refresh it.
-
-## Committing and pushing your changes
-
-Git is available by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
-
-![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
-
-You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. リポジトリごと、さらにはブランチごとに1つ以上のcodespaceを作成できます。 However, each personal account has a limit of 10 codespaces. この制限に達した場合に新しいcodespaceを作成したいなら、まずcodespaceを削除しなければなりません。
+codespace で開発を行う場合、ファイルに加えた変更は数秒ごとに保存されます。 codespace は、最後のアクティビティ後 30 分間実行され続けます。 その後、実行は停止しますが、既存のブラウザー タブまたは既存の codespace の一覧のいずれかから再起動できます。 エディターとターミナル出力からのファイルの変更はアクティビティとしてカウントされるため、ターミナル出力が継続されている場合、codespace は停止しません。
 
 {% note %}
 
-**Note:** Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
+**注:** [[自動保存]](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) を有効にしていない限り、{% data variables.product.prodname_vscode_shortname %} の codespace の変更は自動的に保存されません。
+{% endnote %}
+
+### codespace の終了または停止
+
+Codespace を停止するには、[{% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) を使います。 stop コマンド (たとえば、ブラウザー タブを閉じる) を実行せずに codespace を終了した場合、または操作なしで codespace を実行したままにした場合、codespace とその実行中のプロセスは、非アクティブのウィンドウが発生するまで続行され、その後で codespace が停止します。  既定では、非アクティブのウィンドウは 30 分です。 
+
+codespace を終了または停止すると、codespace に再度接続するまで、コミットされていない変更はすべて保持されます。
+
+
+## アプリケーションの実行
+
+ポート転送を使用すると、Codespaces 内で実行されている TCP ポートにアクセスできます。 たとえば、codespace 内のポート 4000 で Web アプリケーションを実行している場合、そのポートを自動的に転送して、ブラウザーからアプリケーションをアクセスできるようにします。
+
+ポートの転送は、リモート マシンからアクセス可能にするポートを決定します。 ポートを転送しない場合でも、そのポートには、codespace 自体内で実行されている他のプロセスにアクセスできます。
+
+![codespace 内でのポートの転送のしくみを示す図](/assets/images/help/codespaces/port-forwarding.png)
+
+{% data variables.product.prodname_codespaces %} 内で実行されているアプリケーションでポートをコンソールに出力すると、{% data variables.product.prodname_codespaces %} では、localhost の URL パターンを検出し、ポートを自動的に転送します。 ターミナルまたはトースト メッセージで URL をクリックして、ブラウザーでポートを開くことができます。 既定では、{% data variables.product.prodname_codespaces %} は HTTP を使用してポートを転送します。 ポートの転送の詳細については、「[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」 (codespace でのポートの転送) を参照してください。
+
+ポートは自動的に転送できますが、インターネットからパブリックにアクセスすることはできません。 既定では、すべてのポートはプライベートですが、手動で、組織またはパブリックでポートを使用できるようにして、URL を使用してアクセスを共有できます。 詳細については、「[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)」 (ポートの共有) を参照してください。
+
+初めて codespace に入ったときにアプリケーションを実行すると、高速の内部開発ループを実現できます。 編集すると、変更は自動的に保存され、転送されたポートで使用できるようになります。 変更を表示するには、ブラウザーで実行中のアプリケーションのタブに戻って更新します。
+
+## 変更のコミットとプッシュ
+
+codespace では既定により Git を使用できるため、既存の Git ワークフローに依存できます。 Git を codespace で操作するには、ターミナルを使うか、[{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol) のソース管理 UI を使います。 詳細については、「[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)」 (codespace でのソース管理の使用) を参照してください
+
+![Codespaces Terminal での Git 状態の実行](/assets/images/help/codespaces/git-status.png)
+
+プロジェクト内のブランチ、コミット、または pull request からコードを作成することも、アクティブな codespace 内から新しいまたは既存のブランチに切り替えることもできます。 {% data variables.product.prodname_github_codespaces %} はエフェメラルになるように設計されているため、分離された環境として使用して、実験、チームメイトの pull request の確認、またはマージ競合の修正を行うことができます。 
+
+リポジトリごと、さらにはブランチごとに1つ以上のcodespaceを作成できます。 ただし、作成できる codespace の数と、同時に実行できる codespace の数には制限があります。 codespace の最大数に達してからさらに作成しようとすると、新しい codespace を作成する前に既存のものを削除する必要があることを示すメッセージが表示されます。
+
+{% note %}
+
+**注:** codespace からのコミットは、 https://github.com/settings/profile で構成された名前とパブリック メールに起因します。 スコープがリポジトリにされ、`GITHUB_TOKEN` として環境に含まれたトークンと、GitHub 資格情報が認証に使用されます。
 
 {% endnote %}
 
-## Personalizing your codespace with extensions
+## 拡張機能を使用して codespace をカスタマイズする
 
-Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs.
+codespace で {% data variables.product.prodname_vscode_shortname %} を使うと、{% data variables.product.prodname_vscode_marketplace %} にアクセスして必要な拡張機能を追加できるようになります。 拡張機能が {% data variables.product.prodname_codespaces %} でどのように実行されるかについては、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[リモート開発と GitHub Codespaces のサポート](https://code.visualstudio.com/api/advanced-topics/remote-extensions)」を参照してください。 
 
-If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
+既に {% data variables.product.prodname_vscode_shortname %} を使っている場合は、[[設定の同期]](https://code.visualstudio.com/docs/editor/settings-sync) を使って、ローカル インスタンスと作成した {% data variables.product.prodname_codespaces %} の間で拡張機能、設定、テーマ、キーボード ショートカットを自動的に同期させることができます。
 
-## 参考リンク
+## 参考資料
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
-- [Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- 「[Organization に対して {% data variables.product.prodname_codespaces %} を有効にする](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)」
+- 「[Organization で {% data variables.product.prodname_codespaces %} の課金を管理する](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)」
+- 「[Codespaces ようにプロジェクトをセットアップする](/codespaces/setting-up-your-project-for-codespaces)」
+- 「[Codespaces のライフサイクル](/codespaces/developing-in-codespaces/codespaces-lifecycle)」

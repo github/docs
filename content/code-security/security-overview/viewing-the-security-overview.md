@@ -21,6 +21,8 @@ shortTitle: View the security overview
 {% data reusables.security-overview.beta %}
 {% endif %}
 
+{% data reusables.security-overview.information-varies-GHAS %}
+
 ## Viewing the security overview for an organization
 
 {% data reusables.organizations.navigate-to-org %}

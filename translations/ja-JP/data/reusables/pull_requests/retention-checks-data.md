@@ -1,1 +1,9 @@
-Checks data older than 400 days is archived. As part of the archiving process {% data variables.product.prodname_dotcom %} creates a rollup commit status representing the state of all of the checks for that commit. As a consequence, the merge box in any pull request with archived checks that are required will be in a blocked state and you will need to rerun the checks before you can merge the pull request.
+---
+ms.openlocfilehash: f95dd69778640ad4be04e0bfdab340d351845c38
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147066011"
+---
+400 日より前のデータがアーカイブされていることを確認します。 アーカイブ プロセス {% data variables.product.prodname_dotcom %} の一環として、そのコミットのすべてのチェックの状態を表すロールアップ コミット状態が作成されます。 結果として、必要なアーカイブ チェックを含む pull request のマージ ボックスはブロックされた状態になり、pull request をマージするには事前にチェックを再実行する必要があります。

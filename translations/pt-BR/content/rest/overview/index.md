@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API REST
-shortTitle: Visão Geral
+shortTitle: Overview
 intro: 'Aprenda sobre recursos, bibliotecas, pré-visualizações e solução de problemas para a API REST de {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
@@ -19,5 +19,11 @@ children:
   - /openapi-description
   - /endpoints-available-for-github-apps
   - /permissions-required-for-github-apps
+ms.openlocfilehash: 96d6109d1dcd2571ada7e448459980fdf6a92e05
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145097088'
 ---
 

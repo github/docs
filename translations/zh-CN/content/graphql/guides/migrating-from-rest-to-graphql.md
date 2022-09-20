@@ -11,14 +11,19 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: 从 REST 迁移到 GraphQL
+shortTitle: Migrate from REST to GraphQL
+ms.openlocfilehash: dbafde83c8acac664b6a0f712927af82c646d397
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066655'
 ---
-
 ## API 逻辑差异
 
 从 REST 迁移到 GraphQL 代表了 API 逻辑的一次重大转变。 作为样式的 REST 与作为规范的 GraphQL 之间的差异使得很难&mdash;且通常不可取&mdash;以一对一方式将 REST API 调用替换为 GraphQL API 查询。 我们在下面提供了具体的迁移示例。
 
-要将代码从 [REST API](/rest) 迁移到 GraphQL API：
+将代码从 [REST API](/rest) 迁移到 GraphQL API：
 
 - 查看 [GraphQL 规范](https://graphql.github.io/graphql-spec/June2018/)
 - 查看 GitHub 的 [GraphQL 架构](/graphql/reference)
@@ -27,7 +32,7 @@ shortTitle: 从 REST 迁移到 GraphQL
 
 GraphQL 的重要优势包括：
 
-- [仅获取您所需的数据](#example-getting-the-data-you-need-and-nothing-more)
+- [仅获取你所需的数据](#example-getting-the-data-you-need-and-nothing-more)
 - [嵌套字段](#example-nesting)
 - [强类型化](#example-strong-typing)
 
@@ -67,7 +72,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
-使用 GraphQL，可以仅检索每个拉取请求的 `number` 和 `mergeable` 属性：
+使用 GraphQL，可以仅检索每个拉取请求的 `number` 和 `mergeable` 特性：
 
 ```graphql
 query {
@@ -86,7 +91,7 @@ query {
 
 ## 示例：嵌套
 
-通过嵌套字段查询，可将多个 REST 调用替换为更少的 GraphQL 查询。 例如，利用 **REST API** 检索拉取请求及其提交、非评论注释和评论需要四个单独的调用：
+通过嵌套字段查询，可将多个 REST 调用替换为更少的 GraphQL 查询。 例如，利用 REST AP 检索拉取请求及其提交、非评审注释和评审需要四个单独的调用：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
@@ -94,7 +99,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:numb
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
-使用 **GraphQL API**，可以利用嵌套字段通过单个查询检索数据：
+使用 GraphQL API，可以利用嵌套字段通过单个查询检索数据：
 
 ```graphql
 {
@@ -132,18 +137,17 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-您也可以通过[用变量替换](/graphql/guides/forming-calls-with-graphql#working-with-variables)拉取请求编号扩大此查询的能力。
+也可以通过[用变量替换](/graphql/guides/forming-calls-with-graphql#working-with-variables)拉取请求编号来扩大此查询的能力。
 
 ## 示例：强类型化
 
 GraphQL 架构属于强类型化架构，可使数据处理更加安全。
 
-考虑一个利用 GraphQL [突变](/graphql/reference/mutations)向议题或拉取请求添加注释，并错误地将 [`clientMutationId`](/graphql/reference/mutations#addcomment) 值指定为整数而非字符串的示例：
+考虑一个利用 GraphQL [突变](/graphql/reference/mutations)向问题或拉取请求添加注释，并错误地将 [`clientMutationId`](/graphql/reference/mutations#addcomment) 值指定为整数而非字符串的示例：
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) mutation {
-  addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {
       node {
@@ -194,23 +198,6 @@ mutation {
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
-    clientMutationId
-    commentEdge {
-      node {
-        body
-        repository {
-          id
-          name
-          nameWithOwner
-        }
-        issue {
-          number
-        }
-      }
-    }
-  }
-} mutation {
   addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {

@@ -12,9 +12,13 @@ type: overview
 topics:
   - Project management
 shortTitle: Actions for project management
+ms.openlocfilehash: 5f5d1cb222824bbb451ad603e35b4986384645e4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145116846'
 ---
-
-
 {% data variables.product.prodname_actions %} を使用してワークフローを作成することで、プロジェクト管理タスクを自動化できます。 各ワークフローには、ワークフローが実行されるたびに自動的に実行される一連のタスクが含まれています。 たとえば、Issue が作成されるたびに実行されるワークフローを作成して、ラベルを追加したり、コメントを残したり、Issue をプロジェクトボードに移動したりすることができます。
 
 ## ワークフローはいつ実行されますか？
@@ -28,7 +32,7 @@ shortTitle: Actions for project management
 - プロジェクトカードが作成または移動したとき。
 - スケジュールされた時刻がきたとき。
 
-ワークフローをトリガーできるイベントの完全なリストについては、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)」を参照してください。
+ワークフローをトリガーできるイベントの完全な一覧については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)」を参照してください。
 
 ## ワークフローでは何ができますか？
 
@@ -36,9 +40,9 @@ shortTitle: Actions for project management
 
 これらのチュートリアルには、ニーズに合わせて調整できるワークフローの例が含まれており、プロジェクト管理における {% data variables.product.prodname_actions %} の使用方を学ぶことができます。
 
-- 「[Issue にラベルを追加する](/actions/guides/adding-labels-to-issues)」
-- 「[プロジェクトボードの列にカードが追加されたときにラベルを削除する](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)」
-- 「[プロジェクトボードで割り当てられたIssue を移動する](/actions/guides/moving-assigned-issues-on-project-boards)」
-- 「[ラベルが追加されたときに Issue についてコメントする](/actions/guides/commenting-on-an-issue-when-a-label-is-added)」
-- 「[非アクティブな Issue を解決する](/actions/guides/closing-inactive-issues)」
-- 「[Issue 作成をスケジュールする](/actions/guides/scheduling-issue-creation)」
+- "[Issue にラベルを追加する](/actions/guides/adding-labels-to-issues)"
+- "[カードがプロジェクトボードの列に追加されたときにラベルを削除する](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
+- "[プロジェクトボードで割り当てられた Issue を移動する](/actions/guides/moving-assigned-issues-on-project-boards)"
+- "[ラベルが追加されたときに Issue にコメントする](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
+- "[非アクティブな Issue をクローズする](/actions/guides/closing-inactive-issues)"
+- "[Issue の作成をスケジュールする](/actions/guides/scheduling-issue-creation)"

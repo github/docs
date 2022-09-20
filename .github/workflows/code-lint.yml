@@ -15,7 +15,7 @@ on:
       - '**.yaml'
       - '**.yml'
       - '**.scss'
-      - .eslintrc.js
+      - .eslintrc.cjs
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
       # Ultimately, for debugging this workflow itself

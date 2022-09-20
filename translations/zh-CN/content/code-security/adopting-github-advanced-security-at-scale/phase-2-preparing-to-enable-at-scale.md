@@ -1,6 +1,6 @@
 ---
-title: 'Phase 2: Preparing to enable at scale'
-intro: "In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}."
+title: 第 2 阶段：准备大规模启用
+intro: '在此阶段，你将让开发人员做好准备并收集有关存储库的数据，以确保团队准备就绪，并且你拥有试点计划和推出 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %} 所需的一切。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,37 +9,42 @@ topics:
   - Advanced Security
 shortTitle: 2. Preparation
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: a34711765e8beb6d57215c0c8fd16519e975539d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145333'
 ---
-
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
+本文是大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列的一部分。 有关本系列的上一篇文章，请参阅“[第 1 阶段：与推出战略和目标保持一致](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)”。
 
 {% endnote %}
 
-## Preparing to enable {% data variables.product.prodname_code_scanning %}
+## 准备启用 {% data variables.product.prodname_code_scanning %}
  
-{% data reusables.code-scanning.about-code-scanning %} For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %} 有关详细信息，请参阅“[关于代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”。
 
-Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful. As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}. 
+在数百个存储库中推出 {% data variables.product.prodname_code_scanning %} 可能很困难，尤其是在效率低下时。 遵循这些步骤将确保推出既高效又成功。 准备期间，你将与你的团队合作，使用自动化来收集有关存储库的数据，并启用 {% data variables.product.prodname_code_scanning %}。 
 
-### Preparing teams for {% data variables.product.prodname_code_scanning %}
+### 让团队为 {% data variables.product.prodname_code_scanning %} 做好准备
 
-First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout. During this phase, focus on leveraging APIs and running internal enablement events.
+首先，让团队准备好使用 {% data variables.product.prodname_code_scanning %}。 使用 {% data variables.product.prodname_code_scanning %} 的团队越多，推动修正计划并监视推出进度所需的数据就越多。 在此阶段，重点关注利用 API 和运行内部启用事件。
 
-Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
+你的核心关注应该是让尽可能多的团队准备好使用 {% data variables.product.prodname_code_scanning %}。 你也可以鼓励团队进行适当的修正，但我们建议在此阶段优先启用和使用 {% data variables.product.prodname_code_scanning %} 而不是修复问题。
   
-### Collecting information about your repositories
+### 收集有关存储库的信息
 
-You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.product_name %}'s GraphQL API.
+可以以编程方式收集有关存储库中使用的各种编程语言的信息，然后使用这些数据在使用同一语言的所有存储库上启用 {% data variables.product.prodname_code_scanning %}，并使用 {% data variables.product.product_name %} 的 GraphQL API。
 
 {% note %}
 
-**Note:** To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the "[ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement)" repository.
+**注意**：要在不手动运行本文所述的 GraphQL 查询的情况下收集这些数据，可以使用我们的公开工具。 有关详细信息，请参阅“[ghas-enablement 工具](https://github.com/NickLiffen/ghas-enablement)”存储库。
 
 {% endnote %}
 
-If you want to gather information from repositories belonging to multiple organizations in your enterprise, you can use the query below to obtain the names of your organizations and then feed those into repository query. Replace OCTO-ENTERPRISE with your enterprise name.
+如果要从贵公司旗下多个组织的存储库中收集信息，可以使用以下查询来获取这些组织的名称，然后将这些信息提供给存储库查询。 将 OCTO-ENTERPRISE 替换为贵公司名称。
 
 ```graphql
 query {
@@ -58,7 +63,7 @@ query {
 }
 ```
 
-You can identify which repositories use which languages by collating repositories by language at the organization level. You can modify the sample GraphQL query below, replacing OCTO-ORG with the organization name.
+你可以通过在组织级别按语言整理存储库来标识哪些存储库使用哪些语言。 可以修改以下示例 GraphQL 查询，将 OCTO-ORG 替换为组织名称。
 
 ```graphql
 query {
@@ -83,71 +88,69 @@ query {
 }
 ```
 
-For more information about running GraphQL queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+有关运行 GraphQL 查询的详细信息，请参阅“[使用 GraphQL 形成调用](/graphql/guides/forming-calls-with-graphql)”。
 
-Then, convert the data from the GraphQL query into a readable format, such as a table.
+然后，将 GraphQL 查询中的数据转换为可读格式，例如表。
 
-| Language                | Number of Repos | Name of Repos                           |
+| 语言                | 存储库数 | 存储库名称                           |
 |-------------------------|-----------------|-----------------------------------------|
-| JavaScript (TypeScript) | 4212            | org/repo<br /> org/repo |
-| Python                  | 2012            | org/repo<br /> org/repo |
-| Go                      | 983             | org/repo<br /> org/repo |
-| Java                    | 412             | org/repo<br /> org/repo |
-| Swift                   | 111             | org/repo<br /> org/repo |
-| Kotlin                  | 82              | org/repo<br /> org/repo |
-| C                       | 12              | org/repo<br /> org/repo |
+| JavaScript (TypeScript) | 4212            | 组织/存储库<br /> 组织/存储库 |
+| Python                  | 2012            | 组织/存储库<br /> 组织/存储库 |
+| Go                      | 983             | 组织/存储库<br /> 组织/存储库 |
+| Java                    | 412             | 组织/存储库<br /> 组织/存储库 |
+| Swift                   | 111             | 组织/存储库<br /> 组织/存储库 |
+| Kotlin                  | 82              | 组织/存储库<br /> 组织/存储库 |
+| C                       | 12              | 组织/存储库<br /> 组织/存储库 |
 
-You can filter out the languages that are currently not supported by {% data variables.product.prodname_GH_advanced_security %} from this table.
+可以从此表中筛选掉 {% data variables.product.prodname_GH_advanced_security %} 当前不支持的语言。
 
-If you have repositories with multiple languages, you can format the GraphQL results as shown in the table below. Filter out languages that are not supported, but retain all repositories with at least one supported language. You can enable {% data variables.product.prodname_code_scanning %} on these repositories, and all supported languages will be scanned.
+如果存储库具有多种语言，可以针对 GraphQL 结果设置格式，如下表所示。 筛选掉不受支持的语言，但保留具有至少一种受支持语言的所有存储库。 可以在这些存储库上启用 {% data variables.product.prodname_code_scanning %}，所有受支持的语言都将被扫描。
 
-| Language(s)            | Number of Repos | Name of Repos                            |
+| 语言            | 存储库数 | 存储库名称                            |
 |------------------------|-----------------|------------------------------------------|
-| JavaScript/Python/Go   | 16              | org/repo <br /> org/repo |
-| Rust/TypeScript/Python | 12              | org/repo <br /> org/repo |
+| JavaScript/Python/Go   | 16              | 组织/存储库 <br /> 组织/存储库 |
+| Rust/TypeScript/Python | 12              | 组织/存储库 <br /> 组织/存储库 |
 
-An understanding of which repositories are using which languages will help you identify candidate repositories for pilot programs in phase 3, and prepares you to enable {% data variables.product.prodname_code_scanning %} across all repositories, one language at a time, in phase 5.
+了解哪些存储库正在使用哪些语言有助于你在第 3 阶段确定试点计划的候选存储库，且有助于你准备好在第 5 阶段中以一次一种语言的方式在所有存储库中启用 {% data variables.product.prodname_code_scanning %}。
 
 {% ifversion ghes %}
 
-### Enabling {% data variables.product.prodname_code_scanning %} for your appliance
+### 为设备启用 {% data variables.product.prodname_code_scanning %}
 
-Before you can proceed with pilot programs and rolling out {% data variables.product.prodname_code_scanning %} across your enterprise, you must first enable {% data variables.product.prodname_code_scanning %} for your appliance. For more information, see "[Configuring code scanning for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+继续试点计划并在整个企业中推出 {% data variables.product.prodname_code_scanning %} 之前，必须先为设备启用 {% data variables.product.prodname_code_scanning %}。 有关详细信息，请参阅“[为设备配置代码扫描](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)”。
 
 {% endif %}
 
-## Preparing to enable {% data variables.product.prodname_secret_scanning %}
+## 准备启用 {% data variables.product.prodname_secret_scanning %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
+如果项目与外部服务通信，它可能使用令牌或私钥进行身份验证。 如果将密码检入仓库，则对仓库具有读取权限的任何人都可以使用该密码以您的权限访问外部服务。 {% data variables.product.prodname_secret_scanning_caps %} 将扫描 {% data variables.product.prodname_dotcom %} 存储库中所有分支的整个 Git 历史记录以获取机密，然后提醒你 {% ifversion secret-scanning-push-protection %} 或阻止包含机密 {% endif %} 的推送。 有关详细信息，请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning)”。
 
-### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
+### 启用 {% data variables.product.prodname_secret_scanning %} 时的注意事项
 
-{% data variables.product.product_name %}’s {% data variables.product.prodname_secret_scanning %} capability is slightly different from {% data variables.product.prodname_code_scanning %} since it requires no specific configuration per programming language or per repository and less configuration overall to get started. This means enabling {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy but clicking **Enable All** at the organization level and ticking the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
+{% data variables.product.product_name %} 的 {% data variables.product.prodname_secret_scanning %} 功能与 {% data variables.product.prodname_code_scanning %} 略有不同，因为它不需要针对每种编程语言或每个存储库进行特定配置，并且总体来说只需较少配置即可开始使用。 这意味着可以轻松在组织级别启用 {% data variables.product.prodname_secret_scanning %}，但在组织级别单击“全部启用”并勾选“为每个新存储库自动启用 {% data variables.product.prodname_secret_scanning %}”选项会产生以下应留意的下游影响 ：
 
-- **License consumption**  
-  Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will consume all your licenses, even if no one is using code scanning. This is fine unless you plan to increase the number of active developers in your organization. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_GH_advanced_security %} on newly created repositories.
-- **Initial high volume of detected secrets**  
-  If you are enabling {% data variables.product.prodname_secret_scanning %} on a large organization, be prepared to see a high number of secrets found. Sometimes this comes as a shock to organizations and the alarm is raised. If you would like to turn on {% data variables.product.prodname_secret_scanning %} across all repositories at once, plan for how you will respond to multiple alerts across the organization.
+- **许可证使用情况**  
+  即使没有人正在使用代码扫描，为所有存储库启用 {% data variables.product.prodname_secret_scanning %} 仍将使用所有许可证。 除非计划增加组织中的活跃开发人员人数，否则该操作很好。 如果未来几个月活跃开发人员人数很可能增大，你可能会超出许可证上限，无法在新创建的存储库上使用 {% data variables.product.prodname_GH_advanced_security %}。
+- **最初检测到的大量机密**  
+  如果在大型组织上启用 {% data variables.product.prodname_secret_scanning %}，请做好准备，你将发现大量机密。 有时这会让组织感到震惊，并触发警报。 如果想在所有存储库中同时启用 {% data variables.product.prodname_secret_scanning %}，请计划如何响应整个组织的多个警报。
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+可以为各个存储库启用 {% data variables.product.prodname_secret_scanning_caps %}。 有关详细信息，请参阅“[为存储库配置 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)”。 如上所述，还可以为组织中的所有存储库启用 {% data variables.product.prodname_secret_scanning_caps %}。 有关为所有存储库启用的详细信息，请参阅“[为组织管理安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)”。
 
-### Custom patterns for {% data variables.product.prodname_secret_scanning %}
+### {% data variables.product.prodname_secret_scanning %} 的自定义模式
 
-{% ifversion ghae %}
-{% note %}
+{% ifversion ghae %} {% note %}
 
-**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
+**注意：** {% data variables.product.prodname_secret_scanning %} 的自定义模式目前为 beta 版本，可能会有变动。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)." 
+{% data variables.product.prodname_secret_scanning_caps %} 检测大量默认模式，但也可以配置为检测自定义模式，例如基础结构独有的机密格式或 {% data variables.product.product_name %} 的 {% data variables.product.prodname_secret_scanning %} 目前不检测的集成商所用的机密格式。 有关合作伙伴模式支持的机密的详细信息，请参阅“[机密扫描模式](/code-security/secret-scanning/secret-scanning-patterns)”。 
 
-As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+审核存储库并与安全和开发团队沟通时，生成机密类型列表，稍后你将使用这些类型为 {% data variables.product.prodname_secret_scanning %} 配置自定义模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
 
 
 {% note %}
 
-For the next article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+有关本系列的下一篇文章，请参阅“[第 3 阶段：试点计划](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)”。
 
 {% endnote %}

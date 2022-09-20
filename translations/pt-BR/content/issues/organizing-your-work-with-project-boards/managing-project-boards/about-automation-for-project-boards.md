@@ -1,48 +1,51 @@
 ---
-title: Sobre a automação para quadros de projeto
-intro: Você pode configurar fluxos de trabalho automáticos para manter o status dos cartões do quadro de projeto em sincronia com os problemas e pull requests associados.
+title: 'Sobre automação de {% data variables.product.prodname_projects_v1 %}'
+intro: 'Você pode configurar fluxos de trabalho automáticos para manter o status dos cartões do {% data variables.projects.projects_v1_board %} em sincronia com os problemas e as solicitações de pull associados.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Automação para quadros de projeto
+shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 76cea8f38d7470bd7b6212ae1f93601b5e8c923b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423337'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  Para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %} Para obter mais informações, confira "[Permissões de {% data variables.product.prodname_projects_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
-Você pode automatizar ações com base nos eventos de disparo para colunas do quadro de projeto. Isso elimina algumas das tarefas manuais no gerenciamento de um quadro de projeto. Por exemplo, é possível configurar uma coluna "Tarefas pendentes", onde qualquer problema ou pull request que você adiciona a um quadro de projeto é automaticamente movido para a coluna configurada. Para obter mais informações, consulte "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)."
+Você pode automatizar ações com base no acionamento de eventos para colunas do {% data variables.projects.projects_v1_board %}. Isso elimina algumas das tarefas manuais no gerenciamento de um {% data variables.projects.projects_v1_board %}. Por exemplo, é possível configurar uma coluna "Tarefas pendentes", em que qualquer problema ou solicitação de pull que você adiciona a um {% data variables.projects.projects_v1_board %} é automaticamente movida para a coluna configurada. Para obter mais informações, confira "[Configurar a automação de {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)".  
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-A automação do quadro de projeto também pode ajudar as equipes a desenvolver uma compreensão compartilhada da finalidade de um quadro de projeto e o processo de desenvolvimento da equipe criando um fluxo de trabalho padrão para determinadas ações.
+A automação de {% data variables.projects.projects_v1_board_caps %} também pode ajudar as equipes a desenvolver uma compreensão compartilhada do propósito e do processo de desenvolvimento da equipe do {% data variables.projects.projects_v1_board %} criando um fluxo de trabalho padrão para determinadas ações.
 
 {% data reusables.project-management.resync-automation %}
 
 ## Opções de automação
 
-| Coluna predefinida        | Opções de configuração    |
-| ------------------------- | ------------------------- |
-| To do (Tarefas pendentes) | <ul><li>Mover todos os problemas recentemente adicionados aqui</li><li>Mover todas as pull requests recentemente adicionadas aqui</li><li>Mover todos os problemas reabertos aqui</li><li>Mover todas as pull requests reabertas aqui</li></ul> |
-| Em andamento              | <ul><li>Mover todas as pull requests recentemente abertas aqui</li><li>Mover todos os problemas reabertos aqui</li><li>Mover todas as pull requests reabertas aqui</li><li>Mover todas as pull requests que atendem ao número mínimo de revisões necessárias do branch base aqui</li><li>Mover todas as pull requests que não atendem mais ao número mínimo de revisões necessárias do branch base aqui</li></ul> |
-| Concluído                 | <ul><li>Mover todos os problemas fechados aqui</li><li>Mover todas as pull requests mescladas aqui</li><li>Mover todas as pull requests fechadas e não mescladas aqui</li></ul> |
+| Coluna predefinida | Opções de configuração |
+| --- | --- |
+| Para fazer | <ul><li>Mover todos os problemas recentemente adicionados aqui</li><li>Mover todas as pull requests recentemente adicionadas aqui</li><li>Mover todos os problemas reabertos aqui</li><li>Mover todas as pull requests reabertas aqui</li></ul> |
+| Em andamento | <ul><li>Mover todas as pull requests recentemente abertas aqui</li><li>Mover todos os problemas reabertos aqui</li><li>Mover todas as pull requests reabertas aqui</li><li>Mover todas as pull requests que atendem ao número mínimo de revisões necessárias do branch base aqui</li><li>Mover todas as pull requests que não atendem mais ao número mínimo de revisões necessárias do branch base aqui</li></ul> |
+| Concluído | <ul><li>Mover todos os problemas fechados aqui</li><li>Mover todas as pull requests mescladas aqui</li><li>Mover todas as pull requests fechadas e não mescladas aqui</li></ul> |
 
 ## Acompanhamento do andamento do projeto
 
-Você pode acompanhar o progresso no seu quadro de projeto. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
+Você pode acompanhar o progresso em seu {% data variables.projects.projects_v1_board %}. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
-Para obter mais informações, consulte "[Acompanhamento do progresso no quadro de projeto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
+Para obter mais informações, confira "[Acompanhar o progresso em seu {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
-## Leia mais
-- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
+## Leitura adicional
+- "[Configurar a automação de {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Copiar um {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

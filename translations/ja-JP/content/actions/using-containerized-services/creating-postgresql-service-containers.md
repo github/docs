@@ -1,6 +1,6 @@
 ---
 title: PostgreSQLサービスコンテナの作成
-shortTitle: PostgreSQL サービス コンテナ
+shortTitle: PostgreSQL service containers
 intro: ワークフローで利用するPostgreSQLサービスコンテナを作成できます。 このガイドでは、コンテナで実行されるジョブか、ランナーマシン上で直接実行されるジョブのためのPostgreSQLサービスの作成例を紹介します。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
@@ -15,25 +15,29 @@ type: tutorial
 topics:
   - Containers
   - Docker
+ms.openlocfilehash: 9d5ad3e32e5df22101b61aa7ba134e7fe69333e5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121117'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-このガイドでは、Docker Hubの`postgres`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 ワークフローの実行スクリプトは、PostgreSQL サービスに接続し、テーブルを作成してから、データを入力します。 ワークフローが PostgreSQL テーブルを作成してデータを入力することをテストするために、スクリプトはテーブルからコンソールにデータを出力します。
+このガイドでは、Docker Hub の `postgres` イメージを使ってサービス コンテナーを構成するワークフローの例を示します。 ワークフローの実行スクリプトは、PostgreSQL サービスに接続し、テーブルを作成してから、データを入力します。 ワークフローが PostgreSQL テーブルを作成してデータを入力することをテストするために、スクリプトはテーブルからコンソールにデータを出力します。
 
 {% data reusables.actions.docker-container-os-support %}
 
-## 必要な環境
+## 前提条件
 
 {% data reusables.actions.service-container-prereqs %}
 
-YAML、{% data variables.product.prodname_actions %}の構文、PosgreSQLの基本な理解があれば役立つかも知れません。 詳しい情報については、以下を参照してください。
+YAML、{% data variables.product.prodname_actions %}の構文、PosgreSQLの基本な理解があれば役立つかも知れません。 詳細については、次を参照してください。
 
-- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
-- PostgreSQLのドキュメンテーション中の[PostgreSQLチュートリアル](https://www.postgresqltutorial.com/)
+- "[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions)"
+- PostgreSQL のドキュメントの [PostgreSQL チュートリアル](https://www.postgresqltutorial.com/)
 
 ## コンテナ内でのジョブの実行
 
@@ -83,11 +87,11 @@ jobs:
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: node client.js
-        # `client.js` スクリプトが新しいPostgreSQLクライアントの作成に使う環境変数。
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
-          # PostgreSQLサービスコンテナとの通信に使われるホスト名
+          # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: postgres
-          # デフォルトのPostgreSQLポート
+          # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
 
@@ -99,23 +103,23 @@ jobs:
 
 ```yaml{:copy}
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナはLinuxベースのオペレーティングシステム内で実行しなければならない
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job`が実行されるDocker Hubのイメージ
+    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
-    # `container-job`と実行されるサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: postgres
-        # postgresのパスワードを提供
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgresが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -142,22 +146,22 @@ steps:
     # Runs a script that creates a PostgreSQL table, populates
     # the table with data, and then retrieves the data.
     run: node client.js
-    # 新しい PostgreSQL クライアントを作成するために
-    # `client.js` スクリプトによって使用される環境変数。
+    # Environment variable used by the `client.js` script to create
+    # a new PostgreSQL client.
     env:
-      # PostgreSQLサービスコンテナとの通信に使われるホスト名
+      # The hostname used to communicate with the PostgreSQL service container
       POSTGRES_HOST: postgres
-      # デフォルトのPostgreSQLポート
+      # The default PostgreSQL port
       POSTGRES_PORT: 5432
 ```
 
 {% data reusables.actions.postgres-environment-variables %}
 
-PostgreSQLサービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは`postgres`です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのPostgreSQLのポートである5432でアクセスできます。
+PostgreSQL サービスのホスト名は、ワークフロー内で構成されたラベルです (ここでは `postgres`)。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのPostgreSQLのポートである5432でアクセスできます。
 
 ## ランナーマシン上で直接のジョブの実行
 
-ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Dockerホストからサービスコンテナへは、`localhost`とDockerホストのポート番号を使ってアクセスできます。
+ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Docker ホストからサービス コンテナーへは、`localhost` と Docker ホストのポート番号を使ってアクセスできます。
 
 {% data reusables.actions.copy-workflow-file %}
 
@@ -207,9 +211,9 @@ jobs:
         # Environment variables used by the `client.js` script to create
         # a new PostgreSQL table.
         env:
-          # PostgreSQLサービスコンテナとの通信に使われるホスト名
+          # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: localhost
-          # デフォルトのPostgreSQLポート
+          # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
 
@@ -219,32 +223,32 @@ jobs:
 
 {% data reusables.actions.postgres-label-description %}
 
-このワークフローはPostgreSQLサービスコンテナ上のポート5432をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
+このワークフローはPostgreSQLサービスコンテナ上のポート5432をDockerホストにマップします。 `ports` キーワードについて詳しくは、「[サービス コンテナーについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」をご覧ください。
 
 ```yaml{:copy}
 jobs:
-  # ランナージョブのラベル
+  # Label of the runner job
   runner-job:
-    # サービスコンテナもしくはコンテナジョブを使う場合にはLinux環境を使わなければならない
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # `runner-job`と実行されるサービスコンテナ
+    # Service containers to run with `runner-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: postgres
-        # postgresにパスワードを提供
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgresが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          # サービスコンテナ上のTCPポート5432をホストにマップ
+          # Maps tcp port 5432 on service container to the host
           - 5432:5432
 ```
 
@@ -270,9 +274,9 @@ steps:
     # Environment variables used by the `client.js` script to create
     # a new PostgreSQL table.
     env:
-      # PostgreSQLサービスコンテナとの通信に使われるホスト名
+      # The hostname used to communicate with the PostgreSQL service container
       POSTGRES_HOST: localhost
-      # デフォルトのPostgreSQLポート
+      # The default PostgreSQL port
       POSTGRES_PORT: 5432
 ```
 
@@ -282,9 +286,9 @@ steps:
 
 ## PostgreSQLサービスコンテナのテスト
 
-次のスクリプトを使用してワークフローをテストできます。このスクリプトは、PostgreSQL サービスに接続し、プレースホルダーデータを含む新しいテーブルを追加します。 そしてそのスクリプトは PostgreSQL テーブルに保存されている値をターミナルに出力します。 スクリプトには好きな言語を使えますが、この例ではNode.jsとnpmモジュールの`pg`を使っています。 詳しい情報については[npm pgモジュール](https://www.npmjs.com/package/pg)を参照してください。
+次のスクリプトを使用してワークフローをテストできます。このスクリプトは、PostgreSQL サービスに接続し、プレースホルダーデータを含む新しいテーブルを追加します。 そしてそのスクリプトは PostgreSQL テーブルに保存されている値をターミナルに出力します。 スクリプトでは任意の言語を使えますが、この例では Node.js と `pg` npm モジュールを使っています。 詳しくは、[npm redis モジュール](https://www.npmjs.com/package/pg)に関するページをご覧ください。
 
-*client.js*を修正して、ワークフローで必要なPostgreSQLの操作を含めることができます。 この例では、スクリプトは PostgreSQL サービスに接続し、`postgres` データベースにテーブルを追加し、プレースホルダーデータを挿入してから、データを取得します。
+*client.js* を変更して、ワークフローで必要な任意の PostgreSQL 操作を含めることができます。 この例のスクリプトは、PostgreSQL サービスに接続し、`postgres` データベースにテーブルを追加し、プレースホルダー データをいくつか挿入してから、データを取得します。
 
 {% data reusables.actions.service-container-add-script %}
 
@@ -320,9 +324,9 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-このスクリプトは、PostgreSQL サービスへの新しい接続を作成し、`POSTGRES_HOST` および `POSTGRES_PORT` 環境変数を使用して PostgreSQL サービスの IP アドレスとポートを指定します。 `host`と`port`が定義されていない場合、デフォルトのホストは`localhost`で、デフォルトのポートは5432になります。
+このスクリプトは、PostgreSQL サービスへの新しい接続を作成し、`POSTGRES_HOST` と `POSTGRES_PORT` 環境変数を使って PostgreSQL サービスの IP アドレスとポートを指定します。 `host` と `port` が定義されていない場合、既定のホストは `localhost` で、既定のポートは 5432 です。
 
-スクリプトはテーブルを作成し、そのテーブルにプレースホルダーデータを展開します。 `postgres` データベースにデータが含まれていることをテストするために、スクリプトはテーブルの内容をコンソールログに出力します。
+スクリプトはテーブルを作成し、そのテーブルにプレースホルダーデータを展開します。 `postgres` データベースにデータが含まれていることをテストするため、スクリプトでテーブルの内容をコンソール ログに出力します。
 
 このワークフローを実行すると、「PostgreSQL への接続」ステップに次の出力が表示されます。これにより、PostgreSQL テーブルが正常に作成されてデータが追加されたことを確認できます。
 

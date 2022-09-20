@@ -32,7 +32,7 @@ There are a few approaches for tackling newly committed credentials, but one exa
 
   {% note %}
   
-  **Note:** You can automate this step. For large enterprises and organizations with hundreds of repositories, manually following up is unsustainable. You could incorporate automation into the webhook process defined in the first step. The webhook payload contains repository and organization information about the leaked secret. Using this information, you can contact the current maintainers on the repository and create a email/message to the responsible people or open an issue.
+  **Note:** You can automate this step. For large enterprises and organizations with hundreds of repositories, manually following up is unsustainable. You could incorporate automation into the webhook process defined in the first step. The webhook payload contains repository and organization information about the leaked secret. Using this information, you can contact the current maintainers on the repository and create an email/message to the responsible people or open an issue.
   
   {% endnote %} 
 3. **Educate**: Create an internal training document assigned to the developer who committed the secret. Within this training document, you can explain the risks created by committing secrets and direct them to your best practice information about using secrets securely in development. If the a developer doesn't learn from the experience and continues to commit secrets, you could create an escalation process, but education usually works well.

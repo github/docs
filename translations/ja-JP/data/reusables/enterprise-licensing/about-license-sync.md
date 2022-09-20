@@ -1,3 +1,9 @@
-For a person using multiple {% data variables.product.prodname_enterprise %} environments to only consume a single license, you must synchronize license usage between environments. Then, {% data variables.product.company_short %} will deduplicate users based on the email addresses associated with their user accounts. Multiple user accounts will consume a single license when there is a match between an account's primary email address on {% data variables.product.prodname_ghe_server %} and/or an account's verified email address on {% data variables.product.prodname_dotcom_the_website %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[Verifying your email address](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-
-When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
+---
+ms.openlocfilehash: 12b28d4c3665573a1cfc0d56e2a61b616ee0a9ec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147572673"
+---
+複数の {% data variables.product.prodname_enterprise %} 環境を使用しているユーザーが 1 つのライセンスのみを使用するためには、環境間でライセンス利用状況を同期する必要があります。 その後、ユーザー アカウントに関連付けられているメール アドレスに基づいて、{% data variables.product.company_short %} によりユーザーの重複が除去されます。 詳しくは、[{% data variables.product.prodname_enterprise %} のライセンス利用状況のトラブルシューティング](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise#about-the-calculation-of-consumed-licenses)に関するページを参照してください。

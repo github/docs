@@ -74,6 +74,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
           {editorFiles.map((file, i) => {
             return (
               <button
+                key={file.fileName}
                 className={cx('btn-link Link--secondary no-underline mr-2 f6 py-2 px-3', {
                   'color-bg-subtle': i === selectedFileIndex,
                 })}
@@ -101,7 +102,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
                     className = 'color-bg-accent'
                   }
                 }
-                return { style: { display: 'block' }, class: className }
+                return { style: { display: 'block' }, className }
               }}
               lineNumberStyle={{ minWidth: '3.25em' }}
             >

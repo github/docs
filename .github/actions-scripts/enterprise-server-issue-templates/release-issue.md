@@ -18,7 +18,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/updated-files.js --decorate-only` and check in the resulting files.
+- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/update-files.js --decorate-only` and check in the resulting files.
 
 - [ ] Create GraphQL files based on previous version:
 

@@ -16,43 +16,39 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f0435993e244d470fc5f58afe8b8b2f264d9f95c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881506'
 ---
-
 ## リリースについて
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
-![リリースの概要](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghae-issue-4972 %}
-![リリースの概要](/assets/images/help/releases/releases-overview-with-contributors.png)
-{% else %}
-![リリースの概要](/assets/images/help/releases/releases-overview.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %} ![リリースの概要](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png) {% elsif ghae-issue-4972 %} ![リリースの概要](/assets/images/help/releases/releases-overview-with-contributors.png) {% else %} ![リリースの概要](/assets/images/help/releases/releases-overview.png) {% endif %}
 
 リリースは、パッケージ化して、より多くのユーザがダウンロードして使用できるようにすることができるデプロイ可能なソフトウェアのイテレーションです。
 
-リリースは [Git タグ](https://git-scm.com/book/en/Git-Basics-Tagging)に基づきます。タグは、リポジトリの履歴の特定の地点をマークするものです。 タグの日付は異なる時点で作成できるため、リリースの日付とは異なる場合があります。 既存のタグの表示に関する詳細は「[リポジトリのリリースとタグを表示する](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)」を参照してください。
+リリースは [Git タグ](https://git-scm.com/book/en/Git-Basics-Tagging)に基づきます。これらのタグは、リポジトリの履歴の特定の時点をマークするものです。 タグの日付は異なる時点で作成できるため、リリースの日付とは異なる場合があります。 既存のタグの表示について詳しくは、「[リポジトリのリリースとタグを表示する](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)」をご覧ください。
 
-リポジトリで新しいリリースが公開されたときに通知を受け取り、リポジトリで他の更新があったときには通知を受け取らないでいることができます。 For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+リポジトリで新しいリリースが公開されたときに通知を受け取り、リポジトリで他の更新があったときには通知を受け取らないでいることができます。 詳細については、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
 
-リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
+リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細については、「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
-You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %} リリース ノートは、リリースを管理する際に手動で作成できます。 また、既定のテンプレートからリリース ノートを自動的に生成したり、独自のリリース ノート テンプレートをカスタマイズしたりすることもできます。 詳細については、「[自動生成リリース ノート](/repositories/releasing-projects-on-github/automatically-generated-release-notes)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7054 %}
-When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7054 %} リリースの詳細を表示すると、リリース アセットの横に各リリース アセットの作成日が表示されます。
 {% endif %}
 
-{% ifversion fpt or ghec %}
-リポジトリへの管理者権限を持つユーザは、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+{% ifversion fpt or ghec %} リポジトリへの管理者権限を持つユーザーは、{% data variables.large_files.product_name_long %} （{% data variables.large_files.product_name_short %}） オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳細については、「[リポジトリのアーカイブでの {% data variables.large_files.product_name_short %} オブジェクトの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 
-リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。 {% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_alerts %} を送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
+リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。 {% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_alerts %} を送信できます。 詳細については、「[GitHub セキュリティ アドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
-リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの [**依存関係**] タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
+リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの **[依存関係]** タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳細については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}
 
-リリースAPIを使用して、リリースアセットがダウンロードされた回数などの情報を収集することもできます。 詳しい情報については、「[リリース](/rest/reference/releases)」を参照してください。
+リリースAPIを使用して、リリースアセットがダウンロードされた回数などの情報を収集することもできます。 詳細については、「[リリース](/rest/reference/releases)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ## ストレージと帯域幅の容量
