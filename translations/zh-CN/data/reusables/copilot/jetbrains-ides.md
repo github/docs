@@ -1,6 +1,14 @@
-To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs.
+---
+ms.openlocfilehash: 727b66c906d497f9bbe3655e8ff994d4dababb21
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147079893"
+---
+若要在 JetBrains 中使用 {% data variables.product.prodname_copilot %}，必须安装兼容的 JetBrains IDE。 {% data variables.product.prodname_copilot %} 与以下 IDE 兼容。
 
-- IntelliJ IDEA (Ultimate, Community, Educational)
+- IntelliJ IDEA（旗舰版、社区版、教育版） 
 - Android Studio
 - AppCode
 - CLion
@@ -11,9 +19,9 @@ To use {% data variables.product.prodname_copilot %} in JetBrains, you must have
 - JetBrains Client
 - MPS
 - PhpStorm
-- PyCharm (Professional, Community, Educational)
+- PyCharm（专业版、社区版、教育版）
 - Rider
 - RubyMine
-- WebStorm
+- WebStorm 
 
-For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
+有关详细信息，请参阅 [JetBrains IDE](https://www.jetbrains.com/products/) 工具查找器。

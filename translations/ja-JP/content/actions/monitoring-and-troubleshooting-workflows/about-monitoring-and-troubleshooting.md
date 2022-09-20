@@ -1,6 +1,6 @@
 ---
-title: About monitoring and troubleshooting
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
+title: 監視とトラブルシューティングについて
+intro: '{% data variables.product.prodname_actions %} のツールを使って、ワークフローを監視およびデバッグすることができます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,15 +8,19 @@ versions:
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: d9158cd9bba6d003a583e78459240aa6790a1154
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147062043'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Monitoring your workflows
+## ワークフローを監視する 
 
 {% ifversion github-runner-dashboard %}
-### Monitoring your current jobs in your organization or enterprise
+### 組織または企業の現在のジョブを監視する
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}
 
@@ -24,52 +28,52 @@ miniTocMaxHeadingLevel: 3
 
 ### 視覚化グラフの利用
 
-すべてのワークフローの実行は、実行の進行を示すリアルタイムのグラフを生成します。 このグラフを使って、ワークフローをモニタリング及びデバッグできます。 例:
+すべてのワークフローの実行は、実行の進行を示すリアルタイムのグラフを生成します。 このグラフを使って、ワークフローをモニタリング及びデバッグできます。 次に例を示します。
 
    ![ワークフローグラフ](/assets/images/help/images/workflow-graph.png)
 
-For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
+詳細については、「[視覚化グラフを使用する](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)」を参照してください。 
 
-### ワークフローステータスバッジを追加する
+### ワークフロー状態バッジの追加
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Adding a workflow status badge](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
+詳細については、「[ワークフロー状態バッジの追加](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ### ジョブの実行時間を表示する
 
-To identify how long a job took to run, you can view its execution time. 例:
+ジョブの実行にかかった時間を特定するために、ジョブの実行時間を表示できます。 次に例を示します。
 
    ![実行および支払請求可能な時間の詳細リンク](/assets/images/help/repository/view-run-billable-time.png)
 
-詳しい情報については、「[ジョブの実行時間を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)」を参照してください。
+詳細については、「[ジョブの実行時間を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)」を参照してください。
 {% endif %}
 
 ### ワークフロー実行の履歴を表示する
 
-You can view the status of each job and step in a workflow. 例:
+ワークフロー内の各ジョブとステップの状態を表示できます。 次に例を示します。
 
    ![ワークフローの実行の名前](/assets/images/help/repository/run-name.png)
 
-詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)」を参照してください。
+詳細については、「[ワークフロー実行の履歴を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)」を参照してください。
 
-## Troubleshooting your workflows
+## ワークフローをトラブルシューティングする
 
-### ワークフロー実行ログを使用する
+### ワークフロー実行ログの使用
 
-Each workflow run generates activity logs that you can view, search, and download. 例:
+各ワークフローの実行では、表示、検索、ダウンロードできるアクティビティ ログが生成されます。 次に例を示します。
 
    ![Super linterワークフローの結果](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
-詳しい情報については、「[ワークフロー実行ログを使用する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)」を参照してください。
+詳細については、「[ワークフロー実行ログを使用する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)」を参照してください。
 
-### デバッグロギングの有効化
+### デバッグ ログを有効にする
 
-ワークフロージョブあるいはステップが期待どおりに動作しない理由を診断する上で、十分な詳細がワークフローのログになかった場合、追加のデバッグロギングを有効化できます。 詳しい情報については、「[デバッグログの有効化](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)」を参照してください。
+ワークフロージョブあるいはステップが期待どおりに動作しない理由を診断する上で、十分な詳細がワークフローのログになかった場合、追加のデバッグロギングを有効化できます。 詳細については、「[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)」(デバッグ ログの有効化) を参照してください。
 
 ## セルフホストランナーのモニタリングとトラブルシューティング
 
-If you use self-hosted runners, you can view their activity and diagnose common issues.
+セルフホスト ランナーを使用する場合、そのアクティビティを見て、一般的な問題を診断できます。 
 
-詳しい情報については「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
+詳細については、「[セルフホスト ランナーの監視とトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。

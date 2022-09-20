@@ -1,6 +1,6 @@
 ---
-title: Secret scanning patterns
-intro: 'Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.'
+title: 机密扫描模式
+intro: '支持的机密列表和 {% data variables.product.company_short %} 与之合作的合作伙伴，以防止欺诈性使用意外提交的机密。'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'
 versions:
   fpt: '*'
@@ -13,69 +13,65 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
+ms.openlocfilehash: 68dd1338fc1812cd2fc40ba38949434a04986f86
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578640'
 ---
-
-{% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
+{% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-## About {% data variables.product.prodname_secret_scanning %} patterns
+## 关于 {% data variables.product.prodname_secret_scanning %} 模式
 
-{% data variables.product.product_name %} maintains these different sets of {% data variables.product.prodname_secret_scanning %} patterns:
+{% data variables.product.product_name %} 维护这些不同的 {% data variables.product.prodname_secret_scanning %} 模式：
 
-1. **Partner patterns.** Used to detect potential secrets in all public repositories. For details, see "[Supported secrets for partner patterns](#supported-secrets-for-partner-patterns)."
-2. **Advanced security patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} enabled. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}{% ifversion secret-scanning-push-protection %}
-3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled. For details, see "[Supported secrets for push protection](#supported-secrets-for-push-protection)."{% endif %}
+1. 合作伙伴模式。 用于检测所有公共存储库中的潜在机密。 有关详细信息，请参阅“[合作伙伴模式支持的机密](#supported-secrets-for-partner-patterns)”。
+2. 高级安全模式。 用于检测启用了 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。 {% ifversion ghec %} 有关详细信息，请参阅“[高级安全性支持的机密](#supported-secrets-for-advanced-security)”。{% endif %}{% ifversion secret-scanning-push-protection %}
+3. 推送保护模式。 用于检测启用了作为推送保护的 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。 有关详细信息，请参阅“[推送保护支持的机密](#supported-secrets-for-push-protection)”。{% endif %}
 
-{% ifversion fpt %}
-Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning_GHAS %} on their repositories. For details of these patterns, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security).
+{% ifversion fpt %} 同时使用 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_GH_advanced_security %} 的组织可以在其存储库上启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 有关这些模式的详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)。
 {% endif %}
 
-## Supported secrets for partner patterns
+## 合作伙伴模式支持的机密
 
-{% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers. For more information about {% data variables.product.prodname_secret_scanning_partner %}, see "[About {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
+{% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。 有关 {% data variables.product.prodname_secret_scanning_partner %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)”。
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-{% data reusables.secret-scanning.partner-secret-list-public-repo %}
-{% endif %}
+{% data reusables.secret-scanning.partner-secret-list-public-repo %} {% endif %}
 
 {% ifversion ghec or ghae or ghes %}
-## Supported secrets{% ifversion ghec %} for advanced security{% endif %}
+## 高级安全性支持的机密{% ifversion ghec %} {% endif %}
 
-When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% data variables.product.prodname_dotcom %} scans for secrets issued by the following service providers. {% ifversion ghec %}For more information about {% data variables.product.prodname_secret_scanning_GHAS %}, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
+启用 {% data variables.product.prodname_secret_scanning_GHAS %} 后，{% data variables.product.prodname_dotcom %} 会扫描以下服务提供商颁发的机密。 {% ifversion ghec %}有关 {% data variables.product.prodname_secret_scanning_GHAS %} 的详细信息，请参阅“[关于 About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)”。{% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[Secret scanning](/enterprise-cloud@latest/rest/secret-scanning)."
+如果使用 REST API 进行机密扫描，可以使用 `Secret type` 报告来自特定颁发者的机密。 有关详细信息，请参阅“[机密扫描](/enterprise-cloud@latest/rest/secret-scanning)”。
  
-{% ifversion ghes or ghae or ghec %}
-{% note %}
+{% ifversion ghes or ghae or ghec %} {% note %}
 
-**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
+**注意：** 还可以为存储库、组织或企业定义自定义 {% data variables.product.prodname_secret_scanning %} 模式。 有关详细信息，请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.secret-scanning.partner-secret-list-private-repo %}
-{% endif %}
+{% data reusables.secret-scanning.partner-secret-list-private-repo %} {% endif %}
 
 {% ifversion secret-scanning-push-protection %}
-## Supported secrets for push protection
+## 推送保护支持的机密
 
-{% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
+{% data variables.product.prodname_secret_scanning_caps %} 作为推送保护，当前扫描存储库，查找以下服务提供商发布的机密。
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
 {% endif %}
-## Further reading
+## 延伸阅读
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
-{%- ifversion fpt or ghec %}
-- "[{% data variables.product.prodname_secret_scanning_caps %} partner program](/developers/overview/secret-scanning-partner-program)"
-{%- else %}
-- "[{% data variables.product.prodname_secret_scanning_caps %} partner program](/free-pro-team@latest/developers/overview/secret-scanning-partner-program)" in the {% data variables.product.prodname_ghe_cloud %} documentation
-{% endif %}
+- [保护存储库](/code-security/getting-started/securing-your-repository)
+- “[保护帐户和数据安全](/github/authenticating-to-github/keeping-your-account-and-data-secure)”{%- ifversion fpt or ghec %}
+- “[{% data variables.product.prodname_secret_scanning_caps %} 合作伙伴计划](/developers/overview/secret-scanning-partner-program)”{%- else %}
+- {% data variables.product.prodname_ghe_cloud %} 文档中的“[{% data variables.product.prodname_secret_scanning_caps %} 合作伙伴计划](/free-pro-team@latest/developers/overview/secret-scanning-partner-program)”{% endif %}

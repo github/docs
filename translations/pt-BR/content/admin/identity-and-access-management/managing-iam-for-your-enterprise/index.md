@@ -1,12 +1,9 @@
 ---
 title: Gerenciando o IAM da sua empresa
 intro: |
-  {%- ifversion ghec %}
-  Você pode convidar contas pessoais existentes em {% data variables.product.product_location %} para ser integrante da sua empresa, e você pode opcionalmente habilitar o logon único SAML (SSO) para gerenciar o acesso centralmente. Como alternativa, você pode usar {% data variables.product.prodname_emus %} com o SAML SSO para criar e controlar as contas dos integrantes da sua empresa.
-  {%- elsif ghes %}
-  Você pode usar a autenticação integrada de {% data variables.product.product_name %} ou você pode gerenciar centralmente a autenticação e acesso à sua instância com CAS, LDAP ou SAML.
-  {%- elsif ghae %}
-  Você deve usar o logon único SAML (SSO) para gerenciar centralmente a autenticação e o acesso à sua empresa em {% data variables.product.product_name %}. Opcionalmente, você pode usar o Sistema de Gerenciamento de Identidades de Domínio entre Domínios (SCIM) para provisionar automaticamente contas e acesso em {% data variables.product.product_name %} ao fazer alterações no seu provedor de identidade (IdP).
+  {%- ifversion ghec %} Você pode convidar contas pessoais existentes em {% data variables.product.product_location %} para serem membros de sua empresa e, opcionalmente, habilitar o SSO (logon único) de SAML para gerenciar o acesso centralmente. Como alternativa, você pode usar {% data variables.product.prodname_emus %} com SSO de SAML para criar e controlar as contas de seus membros corporativos.
+  {%- elsif ghes %} Você pode usar a autenticação integrada do {% data variables.product.product_name %} ou pode gerenciar centralmente a autenticação e o acesso à sua instância com CAS, LDAP ou SAML.
+  {%- elsif ghae %} Você deve usar o SSO (logon único) de SAML para gerenciar centralmente a autenticação e o acesso à sua empresa em {% data variables.product.product_name %}. Opcionalmente, você pode usar o SCIM (Sistema de Gerenciamento de Usuários entre Domínios) para provisionar automaticamente contas e acesso em {% data variables.product.product_name %} ao fazer alterações em seu IdP (provedor de identidade).
   {%- endif %}
 redirect_from:
   - /enterprise/admin/categories/authentication
@@ -31,6 +28,12 @@ children:
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
-shortTitle: Gerenciando IAM para a sua empresa
+shortTitle: Manage IAM for your enterprise
+ms.openlocfilehash: 0af30fe07928336fd93ba3b17fd1efff0b64e354
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147718002'
 ---
 

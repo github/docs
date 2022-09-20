@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting the CodeQL workflow
+title: CodeQL 工作流程疑难解答
 shortTitle: Troubleshoot CodeQL workflow
-intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
+intro: '如果您在 {% data variables.product.prodname_code_scanning %} 方面遇到问题，可使用这些提示来解决问题。'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -26,51 +26,52 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: f4de6a52db9651ed1ad6db49959fffbf696aea9a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444619'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.not-available %}
 
+{% ifversion ghes or ghae %} {% note %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.not-available %}
+注意：本文介绍了此版 {% data variables.product.product_name %} 的初始发行版中包含的 CodeQL 操作版本和相关 CodeQL CLI 捆绑包中可用的功能。 如果企业使用较新版本的 CodeQL 操作，请参阅 [{% data variables.product.prodname_ghe_cloud %} 一文](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)，了解有关最新功能的信息。 {% ifversion not ghae %}有关使用最新版本的信息，请参阅“[为设备配置代码扫描](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)”。{% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% endnote %} {% endif %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+## 生成详细的调试日志
 
-{% endnote %}
-{% endif %}
-
-## Producing detailed logs for debugging
-
-To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
+要生成更详细的日志输出，您可以启用步骤调试日志记录。 有关详细信息，请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)”。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
 
-## Creating {% data variables.product.prodname_codeql %} debugging artifacts
+## 创建 {% data variables.product.prodname_codeql %} 调试工件
 
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
-The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow. 
+可以获取生成工件来帮助你调试 {% data variables.product.prodname_codeql %}。
+调试工件作为名为 `debug-artifacts` 的工件上传到工作流运行。 数据包含 {% data variables.product.prodname_codeql %} 日志、 {% data variables.product.prodname_codeql %} 数据库以及工作流程生成的任何 SARIF 文件。 
 
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
+这些生成工件将帮助你调试 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 的问题。 如果您联系 GitHub 支持人员，他们可能会要求您提供此数据。
 
 {% endif %}
 
 {% ifversion codeql-action-debug-logging %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+### 通过重新运行启用调试日志记录的作业来创建 {% data variables.product.prodname_codeql %} 调试生成工件
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)." 
+可以通过启用调试日志记录和重新运行作业来创建 {% data variables.product.prodname_codeql %} 调试生成工件。 有关重新运行 {% data variables.product.prodname_actions %} 工作流和作业的详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。 
 
-You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+需要确保选择“启用调试日志记录”。 此选项将为运行启用运行器诊断日志记录和步骤调试日志记录。 然后你便可以下载 `debug-artifacts` 进行进一步调查。 通过重新运行作业创建 {% data variables.product.prodname_codeql %} 调试生成工件时，无需修改工作流文件。
 
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+### 创建 {% data variables.product.prodname_codeql %} 调试生成工件
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
+可以通过在工作流中使用标志来创建 {% data variables.product.prodname_codeql %} 调试生成工件。 为此，需要修改 {% data variables.product.prodname_codeql_workflow %} 文件的 `init` 步骤并设置 `debug: true`。
 
 ```yaml
 - name: Initialize CodeQL
@@ -81,15 +82,15 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
 
 {% endif %}
 
-## Automatic build for a compiled language fails
+## 编译语言的自动构建失败
 
-If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.
+如果项目中编译语言的代码自动构建失败，请尝试以下疑难解答步骤。
 
-- Remove the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and add specific build steps. For information about editing the workflow, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)." For more information about replacing the `autobuild` step, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+- 从 {% data variables.product.prodname_code_scanning %} 工作流中删除 `autobuild` 步骤，并添加特定构建步骤。 有关编辑工作流的信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)”。 有关替换 `autobuild` 步骤的详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
 
-- If your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages C/C++, C#, and Java, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default CodeQL analysis workflow uses such a matrix.
+- 如果您的工作流程未明确指定要分析的语言，则 {% data variables.product.prodname_codeql %} 会隐式检测代码库中支持的语言。 在此配置中，对于编译语言 C/C++、C# 和 Java，{% data variables.product.prodname_codeql %} 只分析涵盖最多源文件的语言。 编辑工作流并添加一个矩阵，以指定要分析的语言。 默认的 CodeQL 分析工作流程使用这种矩阵。
 
-  The following extracts from a workflow show how you can use a matrix within the job strategy to specify languages, and then reference each language within the "Initialize {% data variables.product.prodname_codeql %}" step:
+  以下工作流程摘录显示了如何在作业策略中使用矩阵来指定语言，然后在“初始化 {% data variables.product.prodname_codeql %}”步骤中引用每种语言：
 
   ```yaml
   jobs:
@@ -111,15 +112,15 @@ If an automatic build of code for a compiled language within your project fails,
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
-  For more information about editing the workflow, see "[Configuring code scanning](/code-security/secure-coding/configuring-code-scanning)."
+  有关编辑工作流的详细信息，请参阅“[配置代码扫描](/code-security/secure-coding/configuring-code-scanning)”。
 
-## No code found during the build
+## 构建过程中找不到代码
 
-If your workflow fails with an error `No source code was seen during the build` or `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure:
+如果工作流失败并出现错误 `No source code was seen during the build` 或 `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`，则表示 {% data variables.product.prodname_codeql %} 无法监视代码。 有几个原因可以解释这种失败：
 
-1. The repository may not contain source code that is written in languages supported by {% data variables.product.prodname_codeql %}. Check the list of supported languages and, if this is the case, remove the {% data variables.product.prodname_codeql %} workflow. For more information, see "[About code scanning with CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)
+1. 存储库可能不包含以 {% data variables.product.prodname_codeql %} 支持的语言编写的源代码。 检查受支持的语言列表，如果是这种情况，请删除 {% data variables.product.prodname_codeql %} 工作流。 有关详细信息，请参阅“[关于使用 CodeQL 进行代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)”。
 
-1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by updating the list of languages in the `language` matrix. For example, the following configuration will analyze only Go, and JavaScript.
+1. 自动语言检测发现了受支持的语言，但仓库中没有该语言的可分析代码。 一个典型的例子是，我们的语言检测服务发现了一个与特定的编程语言相关的文件，例如 `.h` 或 `.gyp` 文件，但存储库中没有相应的可执行代码。 要解决此问题，可通过更新 `language` 矩阵中的语言列表来手动定义要分析的语言。 例如，以下配置将仅分析 Go 和 JavaScript。
 
   ```yaml
   strategy:
@@ -130,46 +131,46 @@ If your workflow fails with an error `No source code was seen during the build` 
       language: ['go', 'javascript']
   ```
 
-   For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
-1. Your {% data variables.product.prodname_code_scanning %} workflow is analyzing a compiled language (C, C++, C#, or Java), but the code was not compiled. By default, the {% data variables.product.prodname_codeql %} analysis workflow contains an `autobuild` step, however, this step represents a best effort process, and may not succeed in building your code, depending on your specific build environment. Compilation may also fail if you have removed the `autobuild` step and did not include build steps manually.  For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
-1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but portions of your build are cached to improve performance (most likely to occur with build systems like Gradle or Bazel). Since {% data variables.product.prodname_codeql %} observes the activity of the compiler to understand the data flows in a repository, {% data variables.product.prodname_codeql %} requires a complete build to take place in order to perform analysis. 
-1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but compilation does not occur between the `init` and `analyze` steps in the workflow. {% data variables.product.prodname_codeql %} requires that your build happens in between these two steps in order to observe the activity of the compiler and perform analysis. 
-1. Your compiled code (in C, C++, C#, or Java) was compiled successfully, but {% data variables.product.prodname_codeql %} was unable to detect the compiler invocations. The most common causes are:
+   有关详细信息，请参阅上述“[编译语言的自动生成失败](#automatic-build-for-a-compiled-language-fails)”中的工作流提取。
+1. {% data variables.product.prodname_code_scanning %} 工作流程在分析一种已编译的语言（C、C++、C# 或 Java），但代码尚未编译。 默认情况下，{% data variables.product.prodname_codeql %} 分析工作流包含 `autobuild` 步骤，但是，此步骤是一个尽力而为的过程，可能无法成功构建你的代码，具体取决于你的特定构建环境。 如果你删除了 `autobuild` 步骤但没有手动添加构建步骤，编译也可能会失败。  有关指定构建步骤的详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
+1. 工作流程在分析一种编译语言（C、C++、C# 或 Java），但构建的一部分被缓存以提高性能（最有可能发生在 Gradle 或 Bazel 等构建系统中）。 因为 {% data variables.product.prodname_codeql %} 观察编译器的活动以了解仓库中的数据流，因此 {% data variables.product.prodname_codeql %} 需要进行完整的构建才能执行分析。 
+1. 工作流可分析编译语言（C、C++、C# 或 Java），但工作流程中的 `init` 与 `analyze` 步骤之间不发生编译。 {% data variables.product.prodname_codeql %} 需要这两个步骤之间发生构建以观察编译器的活动并执行分析。 
+1. 您的编译代码（使用 C、C ++、C＃ 或 Java）已成功编译，但 {% data variables.product.prodname_codeql %} 无法检测到编译器调用。 最常见原因是：
 
-   * Running your build process in a separate container to {% data variables.product.prodname_codeql %}. For more information, see "[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)."
-   * Building using a distributed build system external to GitHub Actions, using a daemon process.
-   * {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
+   * 在独立于 {% data variables.product.prodname_codeql %} 的容器中运行构建过程。 有关详细信息，请参阅[在容器中运行 CodeQL 代码扫描](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)。
+   * 使用 GitHub Actions 外部的分布式构建系统，使用守护进程构建。
+   * {% data variables.product.prodname_codeql %} 不知道您使用的特定编译器。
 
-  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild`, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code.
+  对于 .NET Framework 项目以及使用 `dotnet build` 或 `msbuild` 的 C# 项目，应在构建代码时在工作流的 `run` 步骤中指定 `/p:UseSharedCompilation=false`。
   
-  For example, the following configuration for C# will pass the flag during the first build step.
+  例如，以下 C# 的配置将在第一个构建步骤中传递标志。
 
    ``` yaml
    - run: |
        dotnet build /p:UseSharedCompilation=false
    ```
 
-  If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_support %}.
+  如果您在特定编译器或配置方面遇到其他问题，请联系 {% data variables.contact.contact_support %}。
 
-For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
+有关指定构建步骤的详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。 
 
 {% ifversion fpt or ghes > 3.1  or ghae or ghec %}
-## Lines of code scanned are lower than expected
+## 扫描的代码行数低于预期
 
-For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
+对于 C/C++、C#、Go 和 Java 等编译语言，{% data variables.product.prodname_codeql %} 仅扫描在分析过程中生成的文件。 因此，如果某些源代码未正确编译，则扫描的代码行数将低于预期。 这可能是多种原因引起的：
 
-1. The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository. However, sometimes this approach results in an incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not be complete since the `autobuild` step will only execute one of the commands, and therefore some source files may not be compiled.
-1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, Project Lombok uses non-public compiler APIs to modify compiler behavior. The assumptions used in these compiler modifications are not valid for {% data variables.product.prodname_codeql %}'s Java extractor, so the code cannot be analyzed.
+1. {% data variables.product.prodname_codeql %} `autobuild` 功能使用启发式方法在存储库中生成代码。 但是，有时这种方法会导致对存储库的分析不完整。 例如，当单个存储库中存在多个 `build.sh` 命令时，分析可能不完整，因为 `autobuild` 步骤将仅执行其中一个命令，因此可能无法编译某些源文件。
+1. 某些编译器无法使用 {% data variables.product.prodname_codeql %} ，因此在分析代码时可能会导致问题。 例如，Lombok 项目使用非公共编译器 API 来修改编译器行为。 这些编译器修改中使用的假设不适用于 {% data variables.product.prodname_codeql %} 的 Java 提取器，因此无法分析代码。
 
-If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, there are several approaches you can try to make sure all the necessary source files are compiled.
+如果 {% data variables.product.prodname_codeql %} 分析扫描的代码行数少于预期，则可以尝试使用多种方法来确保编译了所有必需的源文件。
 
-### Replace the `autobuild` step 
+### 替换 `autobuild` 步骤 
 
-Replace the `autobuild` step with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan.
-For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
+将 `autobuild` 步骤替换为将在生产中使用的相同生成命令。 这可以确保 {% data variables.product.prodname_codeql %} 确切地知道如何编译要扫描的所有源文件。
+有关详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。 
 
-### Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
-You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+### 检查 {% data variables.product.prodname_codeql %} 数据库中源文件的副本
+您可以通过检查 {% data variables.product.prodname_codeql %} 数据库中包含的源代码副本来了解为什么没有分析某些源文件。 要从 Actions 工作流中获取数据库，请修改 {% data variables.product.prodname_codeql %} 工作流文件的 `init` 步骤，并设置 `debug: true`。
 
 ```yaml
 - name: Initialize CodeQL
@@ -178,89 +179,86 @@ You may be able to understand why some source files haven't been analyzed by ins
     debug: true
 ```
 
-This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
+这会将数据库作为操作构件上传，您可以将其下载到本地计算机。 有关详细信息，请参阅“[存储工作流工件](/actions/guides/storing-workflow-data-as-artifacts)”。
 
-The artifact will contain an archived copy of the source files scanned by {% data variables.product.prodname_codeql %} called _src.zip_. If you compare the source code files in the repository and the files in _src.zip_, you can see which types of file are missing. Once you know what types of file are not being analyzed, it is easier to understand how you may need to change the workflow for {% data variables.product.prodname_codeql %} analysis.
+该构件将包含由名为 src.zip 的 {% data variables.product.prodname_codeql %} 扫描的源文件存档副本。 如果比较存储库中的源代码文件和 src.zip 中的文件，则可以看到缺少哪些类型的文件。 一旦您知道了哪些类型的文件没有被分析，就更容易理解了如何更改 {% data variables.product.prodname_codeql %} 分析的工作流程。
 
-## Alerts found in generated code
+## 在生成的代码中找到的警报
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-## Extraction errors in the database
+## 数据库中的提取错误
 
-The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file. 
-The extraction diagnostics information gives an indication of overall database health. Most extractor errors do not significantly impact the analysis. A small number of extractor errors is healthy and typically indicates a good state of analysis.
+{% data variables.product.prodname_codeql %} 团队不断处理关键的提取错误，以确保可以扫描所有源文件。 但是，{% data variables.product.prodname_codeql %} 提取程序偶尔会在数据库创建过程中生成错误。 {% data variables.product.prodname_codeql %} 提供有关在日志文件中创建数据库期间生成的提取错误和警告的信息。 提取诊断信息指示数据库的整体运行状况。 大多数提取程序错误不会显著影响分析。 少量提取程序错误是正常的，通常表示分析状态良好。
 
-However, if you see extractor errors in the overwhelming majority of files that were compiled during database creation, you should look into the errors in more detail to try to understand why some source files weren't extracted properly.
+但是，如果在数据库创建期间编译的绝大多数文件中看到提取程序错误，则应更详细地查看这些错误，以尝试了解为什么某些源文件未正确提取。
 
 {% else %}
-## Portions of my repository were not analyzed using `autobuild`
+## 我的存储库中有部分内容未使用 `autobuild` 进行分析
 
-The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+{% data variables.product.prodname_codeql %} `autobuild` 功能使用启发式方法在存储库中构建代码，但有时这种方法会导致对存储库的分析不完整。 例如，当单个存储库中存在多个 `build.sh` 命令时，分析可能不完整，因为 `autobuild` 步骤将只执行其中一个命令。 解决方案是将 `autobuild` 步骤替换为可构建要分析的所有源代码的构建步骤。 有关详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
 {% endif %}
 
-## The build takes too long
+## 构建耗时过长
 
-If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time. 
+如果使用 {% data variables.product.prodname_codeql %} 分析进行的构建花费的时间太长，则可以尝试几种方法来减少构建时间。 
 
-### Increase the memory or cores
+### 增加内存或内核
 
-If you use self-hosted runners to run {% data variables.product.prodname_codeql %} analysis, you can increase the memory or the number of cores on those runners.
+如果使用自托管运行器运行 {% data variables.product.prodname_codeql %} 分析，您可以增加这些运行器上的内存或内核数。
 
-### Use matrix builds to parallelize the analysis
+### 使用矩阵构建来并行化分析
 
-The default {% data variables.product.prodname_codeql_workflow %} uses a matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
+默认 {% data variables.product.prodname_codeql_workflow %} 使用语言的矩阵，这会导致每种语言的分析并行运行。 如果在“初始化 CodeQL”步骤中指定了要直接分析的语言，则将依次进行每种语言的分析。 要加快对多种语言的分析，请修改工作流程以使用矩阵。 有关详细信息，请参阅上述“[编译语言的自动生成失败](#automatic-build-for-a-compiled-language-fails)”中的工作流提取。
 
-### Reduce the amount of code being analyzed in a single workflow
+### 减少单个工作流程中要分析的代码量
 
-Analysis time is typically proportional to the amount of code being analyzed. You can reduce the analysis time by reducing the amount of code being analyzed at once, for example, by excluding test code, or breaking analysis into multiple workflows that analyze only a subset of your code at a time.
+分析时间通常与所分析的代码量成正比。 您可以通过减少一次分析的代码量来缩短分析时间，例如，排除测试代码，或将分析分解为多个工作流程，这些工作流程一次只分析一部分代码。
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-If you split your analysis into multiple workflows as described above, we still recommend that you have at least one workflow which runs on a `schedule` which analyzes all of the code in your repository. Because {% data variables.product.prodname_codeql %} analyzes data flows between components, some complex security behaviors may only be detected on a complete build.
+如果你按上文所述将分析拆分为多个工作流，我们仍然建议你至少保留一个按 `schedule` 运行的工作流分析存储库中的所有代码。 因为 {% data variables.product.prodname_codeql %} 分析组件之间的数据流量，所以某些复杂的安全行为只能在完整的构建中检测到。
 
-### Run only during a `schedule` event
+### 仅在 `schedule` 事件期间运行
 
-If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
+如果分析速度太慢，而无法在 `push` 或 `pull_request` 事件期间运行，建议仅在 `schedule` 事件上触发分析。 有关详细信息，请参阅“[事件](/actions/learn-github-actions/introduction-to-github-actions#events)”。
 
-### Check which query suites the workflow runs
+### 检查工作流程运行的查询套件
 
-By default, there are three main query suites available for each language. If you have optimized the CodeQL database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results. 
+默认情况下，每种语言都有三个主要查询套件可用。 如果已优化 CodeQL 数据库生成，但过程仍然太长，则可以减少运行的查询数。 默认查询套件将自动运行；它包含最快的安全查询，误报结果率最低。 
 
-You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+除了默认查询之外，您可能还会运行额外的查询或查询套件。 检查工作流是否定义了其他查询套件或要使用 `queries` 元素运行的其他查询。 您可以尝试禁用其他一个或多个查询套件。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)”。
 
-{% ifversion codeql-ml-queries %}
-{% note %}
+{% ifversion codeql-ml-queries %} {% note %}
 
-**Note:** If you run the `security-extended` or `security-and-quality` query suite for JavaScript, then some queries use experimental technology. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."
-{% endnote %}
-{% endif %}
+**注意：** 如果运行 `security-extended` JavaScript 或 `security-and-quality` 查询套件，则某些查询使用实验技术。 有关详细信息，请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)”。
+{% endnote %} {% endif %}
 
 {% ifversion fpt or ghec %}
-## Results differ between analysis platforms
+## 分析平台之间的结果差异
 
-If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
+如果您分析的是使用 Python 编写的代码，根据您是在 Linux、macOS 还是 Windows 上运行 {% data variables.product.prodname_codeql_workflow %}，可能会看到不同的结果。
 
-On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)."
+在使用 Linux 的 GitHub 托管运行器上，{% data variables.product.prodname_codeql_workflow %} 会尝试安装和分析 Python 依赖项，这可能导致更多结果。 若要禁用自动安装，请将 `setup-python-dependencies: false` 添加到工作流的“初始化 CodeQL”步骤。 有关配置 Python 依赖项分析的详细信息，请参阅“[分析 Python 依赖项](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)”。
 
 {% endif %}
 
-## Error: "Server error"
+## 错误：“服务器错误”
 
-If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
+如果 {% data variables.product.prodname_code_scanning %} 的工作流程运行因服务器错误而失败，请尝试再次运行工作流程。 如果问题仍然存在，请联系 {% data variables.contact.contact_support %}。
 
-## Error: "Out of disk" or "Out of memory"
+## 错误：“磁盘不足”或“内存不足”
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% ifversion fpt or ghec %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
-{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
+在非常大的项目中， {% data variables.product.prodname_codeql %} 运行器上的磁盘或内存可能会耗尽。
+{% ifversion fpt or ghec %}如果你在托管的 {% data variables.product.prodname_actions %} 运行器上遇到此问题，请联系 {% data variables.contact.contact_support %}，以便我们对问题调查。
+{% else %}如果遇到此问题，请尝试增加运行器上的内存。{% endif %}
 
 {% ifversion fpt or ghec %}
-## Error: 403 "Resource not accessible by integration" when using {% data variables.product.prodname_dependabot %}
+## 使用 {% data variables.product.prodname_dependabot %} 时出现错误：403“集成无法访问资源”
 
-{% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, and the workflow will run with read-only scopes. Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+{% data variables.product.prodname_dependabot %} 在触发工作流运行时被视为不信任，工作流程将以只读范围运行。 为分支上传 {% data variables.product.prodname_code_scanning %} 结果通常需要 `security_events: write` 范围。 但是，当 `pull_request` 事件触发操作运行时，{% data variables.product.prodname_code_scanning %} 始终允许上传结果。 因此，对于 {% data variables.product.prodname_dependabot %} 分支，建议使用 `pull_request` 事件，而不是 `push` 事件。
 
-A simple approach is to run on pushes to the default branch and any other important long-running branches, as well as pull requests opened against this set of branches:
+一个简单的方法是推送到默认分支和任何其他重要的长期分支，以及在此组分支上打开的拉取请求：
 ```yaml
 on:
   push:
@@ -270,7 +268,7 @@ on:
     branches:
       - main
 ```
-An alternative approach is to run on all pushes except for {% data variables.product.prodname_dependabot %} branches:
+另一种方法是运行除 {% data variables.product.prodname_dependabot %} 分支以外的所有推送：
 ```yaml
 on:
   push:
@@ -279,27 +277,27 @@ on:
   pull_request:
 ```
 
-### Analysis still failing on the default branch
+### 默认分支上的分析仍然失败
 
-If the {% data variables.product.prodname_codeql_workflow %} still fails on a commit made on the default branch, you need to check:
-- whether {% data variables.product.prodname_dependabot %} authored the commit
-- whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
+如果 {% data variables.product.prodname_codeql_workflow %} 在默认分支上的提交仍然失败，您需要检查：
+- {% data variables.product.prodname_dependabot %} 是否撰写了提交
+- 包含该提交的请求是否已使用 `@dependabot squash and merge` 进行合并
 
-This type of merge commit is authored by {% data variables.product.prodname_dependabot %} and therefore, any workflows running on the commit will have read-only permissions. If you enabled {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} security updates or version updates on your repository, we recommend you avoid using the {% data variables.product.prodname_dependabot %} `@dependabot squash and merge` command. Instead, you can enable auto-merge for your repository. This means that pull requests will be automatically merged when all required reviews are met and status checks have passed. For more information about enabling auto-merge, see "[Automatically merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)."
+此类型的合并提交由 {% data variables.product.prodname_dependabot %} 编写，因此在提交上运行的任何工作流程都将具有只读权限。 如果在存储库上启用了 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_dependabot %} 安全更新或版本更新，建议避免使用 {% data variables.product.prodname_dependabot %} `@dependabot squash and merge` 命令。 不过，你可以为存储库启用自动合并。 这意味着，如果满足所有必需的评审并已通过状态检查，将自动合并拉取请求。 有关启用自动合并的详细信息，请参阅“[自动合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)”。
 {% endif %}
 
-## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+## 错误：“不是 .ql 文件、.qls 文件、目录或查询包规范”
 
-You will see this error if CodeQL is unable to find the named query, query suite, or query pack at the location requested in the workflow. There are two common reasons for this error.
+如果 CodeQL 在工作流中请求的位置找不到命名查询、查询套件或查询包，则会看到此错误。 此错误有两个常见的原因。
 
-- There is a typo in the workflow.
-- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+- 工作流中有拼写错误。
+- 工作流通过路径引用的资源被重命名、删除或移动到新位置。
 
-After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+验证资源的位置后，可以更新工作流以指定正确的位置。 如果在 Go 分析中运行其他查询，则可能受到源文件重定位的影响。 有关详细信息，请参阅[重定位公告：`github/codeql-go` 移动到 github/codeql-go 存储库中的 `github/codeql`](https://github.com/github/codeql-go/issues/741)。
 
-## Warning: "git checkout HEAD^2 is no longer necessary"
+## 警告：“不再需要 git checkout HEAD^2”
 
-If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+如果您使用的是旧 {% data variables.product.prodname_codeql %} 工作流程，您可能会在输出中收到来自“初始化 {% data variables.product.prodname_codeql %}”操作的以下警告：
 
 ```
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
@@ -307,7 +305,7 @@ necessary. Please remove this step as Code Scanning recommends analyzing the mer
 commit for best results.
 ```
 
-Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+通过从 {% data variables.product.prodname_codeql %} 工作流程中删除以下行来修复此问题。 这些行包含在 {% data variables.product.prodname_codeql %} 工作流初始版本中 `Analyze` 作业的 `steps` 部分。
 
 ```yaml
         with:
@@ -321,7 +319,7 @@ Fix this by removing the following lines from the {% data variables.product.prod
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-The revised `steps` section of the workflow will look like this:
+修改后的工作流的 `steps` 部分将如下所示：
 
 ```yaml
     steps:
@@ -335,4 +333,4 @@ The revised `steps` section of the workflow will look like this:
       ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+有关编辑 {% data variables.product.prodname_codeql %} 工作流文件的详细信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)”。

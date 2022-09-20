@@ -16,5 +16,11 @@ children:
   - /restoring-a-deleted-repository
   - /troubleshooting-service-hooks
 shortTitle: Manage repositories
+ms.openlocfilehash: f4d2fd29e52414b7f842fced651ff6bf46d4b53b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115125'
 ---
 

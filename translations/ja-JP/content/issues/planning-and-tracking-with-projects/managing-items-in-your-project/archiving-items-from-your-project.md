@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.projects.project_v2 %}からのアイテムのアーカイブ'
-shortTitle: アイテムのアーカイブ
-intro: アイテムをアーカイブし、復元できるようにしておくか、恒久的に削除できます。
+title: '{% data variables.projects.project_v2 %} からのアイテムのアーカイブ'
+shortTitle: Archiving items
+intro: アイテムをアーカイブし、復元に使用できるようにしておいたり、完全に削除したりすることができます。
 miniTocMaxHeadingLevel: 2
 versions:
   feature: projects-v2
@@ -9,31 +9,43 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fb9ea68e00cf968affad5f127c5d8723179e9782
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424032'
 ---
-
 ## アイテムのアーカイブ
 
-アイテムをアーカイブして、そのアイテムに関するコンテキストをプロジェクト中に保持しながら、アイテムをプロジェクトのビューから削除できます。
+アイテムをアーカイブして、そのアイテムに関するコンテキストをプロジェクト中に保持しながら、アイテムをプロジェクトのビューから削除できます。 
 
-{% data reusables.projects.select-an-item %}
-{% data reusables.projects.open-item-menu %}
-1. [**Archive**] をクリックします。 ![アーカイブのオプションが表示されているスクリーンショット](/assets/images/help/projects-v2/archive-menu-item.png)
-1. プロンプトが表示されたら、**Archive（アーカイブ）**をクリックして選択を確認してください。 ![アーカイブのプロンプトが表示されているスクリーンショット](/assets/images/help/projects-v2/archive-item-prompt.png)
+{% data reusables.projects.select-an-item %} {% data reusables.projects.open-item-menu %}
+1. **[アーカイブ]** をクリックします。
+   ![[アーカイブ] オプションを示すスクリーンショット](/assets/images/help/projects-v2/archive-menu-item.png)
+1. メッセージが表示されたら、 **[アーカイブ]** をクリックして選択を確定します。
+   ![[アーカイブ] プロンプトを示すスクリーンショット](/assets/images/help/projects-v2/archive-item-prompt.png)
 
-## アーカイブされたアイテムの復元
+## アーカイブされたアイテムのリストア
 
 1. プロジェクトにアクセスします。
-1. 右上で{% octicon "kebab-horizontal" aria-label="The menu icon" %}をクリックしてメニューを開いてください。 ![メニューアイコンを表示しているスクリーンショット](/assets/images/help/projects-v2/open-menu.png)
-1. メニューで{% octicon "archive" aria-label="The archive icon" %} **Archived items（アーカイブされたアイテム）**をクリックしてください。 ![Archived items'メニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/archived-items-menu-item.png)
-1. あるいは、表示されているアーカイブされたアイテムをフィルタリングするには、アイテムのリストの上にあるテキストボックスにフィルタを入力してください。 利用可能なフィルタに関する詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。 ![アーカイブされているアイテムをフィルタリングするためのフィールドが表示されているスクリーンショット](/assets/images/help/issues/filter-archived-items.png)
-1. 各アイテムのタイトルの左で、復元したいアイテムを選択してください。 ![アーカイブされたアイテムの隣のチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-archived-item.png)
-1. 選択されたアイテムを復元するには、アイテムのリストの上部で**Restore（復元）**をクリックしてください。 !["復元"ボタンが表示されているスクリーンショット](/assets/images/help/issues/restore-archived-item-button.png)
+1. 右上の {% octicon "kebab-horizontal" aria-label="The menu icon" %} をクリックして、メニューを開きます。
+  ![メニュー アイコンを示すスクリーンショット](/assets/images/help/projects-v2/open-menu.png)
+1. メニューで、[{% octicon "archive" aria-label="The archive icon" %} **アーカイブ済みアイテム]** をクリックします。
+  ![[アーカイブ済みアイテム] メニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/archived-items-menu-item.png)
+1. 表示されるアーカイブされたアイテムをフィルター処理する必要がある場合は、アイテムの一覧の上にあるテキスト ボックスにフィルターを入力します。 使用可能なフィルターについて詳しくは、「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」をご覧ください。
+   ![アーカイブされたアイテムをフィルター処理するためのフィールドを示すスクリーンショット](/assets/images/help/issues/filter-archived-items.png)   
+1. 各アイテムのタイトルの左側で、復元するアイテムを選びます。
+   ![アーカイブされたアイテムの横にあるチェック ボックスを示すスクリーンショット](/assets/images/help/issues/select-archived-item.png)   
+1. 選んだアイテムを復元するには、アイテムの一覧の上にある **[復元]** をクリックします。 
+   ![[復元] ボタンを示すスクリーンショット](/assets/images/help/issues/restore-archived-item-button.png)
 
-## アイテムの削除
+## アイテムを削除する
 
 アイテムを削除すれば、それをプロジェクトから完全に取り除くことができます。
 
-{% data reusables.projects.select-an-item %}
-{% data reusables.projects.open-item-menu %}
-1. **Delete from project（プロジェクトから削除）**をクリックしてください。 ![削除のオプションが表示されているスクリーンショット](/assets/images/help/projects-v2/delete-menu-item.png)
-1. プロンプトが表示されたら、**Delete（削除）**をクリックして選択を確認してください。 ![削除のプロンプトが表示されているスクリーンショット](/assets/images/help/projects-v2/delete-item-prompt.png)
+{% data reusables.projects.select-an-item %} {% data reusables.projects.open-item-menu %}
+1. **[プロジェクトから削除]** をクリックします。
+   ![削除オプションを示すスクリーンショット](/assets/images/help/projects-v2/delete-menu-item.png)
+1. メッセージが表示されたら、 **[削除]** をクリックして選択を確定します。
+   ![[削除] プロンプトを示すスクリーンショット](/assets/images/help/projects-v2/delete-item-prompt.png)

@@ -1,7 +1,7 @@
 ---
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
-intro: 'Unused codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

@@ -1,6 +1,6 @@
 ---
-title: 编辑仓库安全通告
-intro: 如果需要更新详细信息或更正错误，可以编辑仓库安全通告的元数据和说明。
+title: 编辑存储库安全通告
+intro: 如果需要更新详细信息或更正错误，可以编辑存储库安全公告的元数据和说明。
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -11,10 +11,15 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: 编辑仓库通告
+shortTitle: Edit repository advisories
+ms.openlocfilehash: 2ea2f588374d83be677589b4f3bf4e74a7fc6e91
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099739'
 ---
-
-对仓库安全通告具有管理员权限的人员可以编辑安全通告。
+对存储库安全通告具有管理员权限的人员可以编辑安全通告。
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 
@@ -28,19 +33,16 @@ shortTitle: 编辑仓库通告
 
 ## 编辑安全通告
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击您要编辑的安全通告。
-5. 在安全通告详细信息的右上角单击 {% octicon "pencil" aria-label="The edit icon" %}。 ![安全通告的编辑按钮](/assets/images/help/security/security-advisory-edit-button.png)
-{% data reusables.repositories.security-advisory-edit-details %}
-{% data reusables.repositories.security-advisory-edit-severity %}
-{% data reusables.repositories.security-advisory-edit-cwe-cve %}
-{% data reusables.repositories.security-advisory-edit-description %}
-11. （可选）编辑安全通告的“Credits（积分）”。 ![安全通告的积分](/assets/images/help/security/security-advisory-credits.png)
-12. 单击 **Update security advisory（更新安全通告）**。 !["更新安全通告" 按钮](/assets/images/help/security/update-advisory-button.png)
+5. 在安全通告详细信息的右上角，单击 {% octicon "pencil" aria-label="The edit icon" %}。
+  ![安全通告的“编辑”按钮](/assets/images/help/security/security-advisory-edit-button.png) {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
+11. （可选）编辑安全通告的“Credits（积分）”。
+  ![安全公告的额度](/assets/images/help/security/security-advisory-credits.png)
+12. 单击“更新安全公告”。
+  ![“更新安全公告”按钮](/assets/images/help/security/update-advisory-button.png)
 13. “Credits（积分）”部分列出的人员将会收到邀请他们接受积分的电子邮件或 web 通知。 如果某人接受，则其用户名将在安全通告发布后公开可见。
 
 ## 延伸阅读
 
-- "[撤销存储库安全通告](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- [撤消存储库安全公告](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)

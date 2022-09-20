@@ -425,11 +425,11 @@ This example `jobs` context contains the result and outputs of a job from a reus
 
 ```json
 {
-  example_job: {
-    result: success,
-    outputs: {
-      output1: hello,
-      output2: world
+  "example_job": {
+    "result": "success",
+    "outputs": {
+      "output1": "hello",
+      "output2": "world"
     }
   }
 }
@@ -488,7 +488,7 @@ The `steps` context contains information about the steps in the current job that
 
 This example `steps` context shows two previous steps that had an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified. The first step had the `id` named `checkout`, the second `generate_number`. The `generate_number` step had an output named `random_number`.
 
-```yaml
+```json
 {
   "checkout": {
     "outputs": {},
@@ -549,7 +549,7 @@ The `runner.workspace` property is purposefully not documented. It is an early A
 
 The following example context is from a Linux {% data variables.product.prodname_dotcom %}-hosted runner.
 
-```yaml
+```json
 {
   "os": "Linux",
   "arch": "X64",
@@ -606,7 +606,7 @@ The `secrets` context contains the names and values of secrets that are availabl
 
 The following example contents of the `secrets` context shows the automatic `GITHUB_TOKEN`, as well as two other secrets available to the workflow run.
 
-```yaml
+```json
 {
   "github_token": "***",
   "NPM_TOKEN": "***",
@@ -625,16 +625,16 @@ For workflows with a matrix, the `strategy` context contains information about t
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
-| `strategy.job-total` | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
-| `strategy.max-parallel` | `string` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
+| `strategy.fail-fast` | `boolean` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index` | `number` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
+| `strategy.job-total` | `number` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
+| `strategy.max-parallel` | `number` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
 
 ### Example contents of the `strategy` context
 
 The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
 
-```yaml
+```json
 {
   "fail-fast": true,
   "job-index": 3,
@@ -683,7 +683,7 @@ There are no standard properties in the `matrix` context, only those which are d
 
 The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
 
-```yaml
+```json
 {
   "os": "ubuntu-latest",
   "node": 16
@@ -732,7 +732,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 
 The following example contents of the `needs` context shows information for two jobs that the current job depends on.
 
-```yaml
+```json
 {
   "build": {
     "result": "success",
@@ -800,7 +800,7 @@ There are no standard properties in the `inputs` context, only those which are d
 
 The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
 
-```yaml
+```json
 {
   "build_id": 123456768,
   "deploy_target": "deployment_sys_1a",

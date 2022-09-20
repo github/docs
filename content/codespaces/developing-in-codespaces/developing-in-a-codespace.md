@@ -54,11 +54,3 @@ For more information on using {% data variables.product.prodname_vscode_shortnam
 ### Using the {% data variables.product.prodname_vscode_command_palette %}
 
 The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette_shortname %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
-
-## Navigating to an existing codespace
-
-1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
-2. Click the name of the codespace you want to develop in.
-  ![Name of codespace](/assets/images/help/codespaces/click-name-codespace.png)
-
-Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.

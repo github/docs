@@ -222,7 +222,7 @@ export default function (app) {
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(instrument(findPage, './find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding

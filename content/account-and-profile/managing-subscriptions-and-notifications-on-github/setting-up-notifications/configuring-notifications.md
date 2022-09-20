@@ -158,16 +158,11 @@ You can choose whether to watch or unwatch an individual repository. You can als
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.
-{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
    ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
    The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-{% else %}
-     ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
-{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
    ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
    If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
-{% endif %}
 
 ## Choosing where your organization’s email notifications are sent
 

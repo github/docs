@@ -10,12 +10,17 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Commit ausente no clone local
+shortTitle: Commit missing in local clone
+ms.openlocfilehash: 9374b17a111bc3f88bf81d60de97e354c0bcf8ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127159'
 ---
+Ao usar `git show` para ver um commit específico na linha de comando, talvez você receba um erro fatal.
 
-Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.
-
-Por exemplo, talvez você receba um erro de `bad object` no local:
+Por exemplo, você poderá receber um erro `bad object` localmente:
 
 ```shell
 $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
@@ -34,49 +39,49 @@ Há várias explicações possíveis:
 
 ## O repositório local está desatualizado
 
-O repositório local pode não ter o commit ainda. Para levar informações de seu repositório remote para o clone local, use `git fetch`:
+O repositório local pode não ter o commit ainda. Para obter informações do repositório remoto para o clone local, use `git fetch`:
 
 ```shell
 $ git fetch <em>remote</em>
 ```
 
-Isso copia informações com segurança do repositório remote para o clone local sem fazer alterações nos arquivos em que você fez checkout. É possível usar `git fetch upstream` para obter informações de um repositório bifurcado ou `git fetch origin` para obter informações de um repositório que você apenas clonou.
+Isso copia com segurança as informações do repositório remoto para o clone local sem fazer nenhuma alteração nos arquivos dos quais você fez check-out. Use `git fetch upstream` para obter informações de um repositório com fork ou `git fetch origin` para obter informações de um repositório que você apenas clonou.
 
 {% tip %}
 
-**Dica**: para obter mais informações, leia sobre [como gerenciar remotes e fazer fetch de dados](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) no livro [Pro Git](https://git-scm.com/book).
+**Dica**: para obter mais informações, leia [como gerenciar repositórios remotos e buscar dados](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) no livro [Pro Git](https://git-scm.com/book).
 
 {% endtip %}
 
 ## O branch que continha o commit foi excluído
 
-Se um colaborador no repositório tiver excluído o brach contendo o commit ou tiver forçado o push no branch, o commit ausente poderá ter ficado órfão (isto é, não poderá ser alcançado de qualquer referência) e, portanto, o fetch dele não poderá ser feito no clone local.
+Se um colaborador no repositório tiver excluído o branch contendo o commit ou tiver forçado o push no branch, o commit ausente poderá ter ficado órfão (ou seja, não poderá ser acessado de nenhuma referência) e, portanto, o fetch dele não poderá ser feito no clone local.
 
-Felizmente, se algum colaborador tiver um clone local do repositório com o commit ausente, ele poderá fazer push dele de volta no {% data variables.product.product_name %}.  Ele precisa ter certeza de que o commit é referenciado por um branch local e, em seguida, fazer push dele como um novo branch para o {% data variables.product.product_name %}.
+A boa notícia é que, se um colaborador tiver um clone local do repositório com o commit ausente, ele poderá efetuar push dele de volta no {% data variables.product.product_name %}.  Ele precisa garantir que o commit é referenciado por um branch local e efetuar push dele como um novo branch para o {% data variables.product.product_name %}.
 
-Vamos dizer que a pessoa ainda tem um branch local (chame-o de `B`) que contém o commit.  Isso pode estar rastreando o branch que teve push forçado ou excluído e ele simplesmente ainda não foi atualizado.  Para preservar o commit, ele pode fazer push desse branch local em um novo branch (chame-o de `recover-B`) no {% data variables.product.product_name %}.  Para este exemplo, vamos supor que ele tenha um remote chamado `upstream` pelo qual ele tem acesso push a `github.com/$account/$repository`.
+Suponha que a pessoa ainda tenha um branch local (vamos chamá-lo de `B`) que contém o commit.  Isso pode estar rastreando o branch que teve o push forçado ou que foi excluído, e ela simplesmente ainda não o atualizou.  Para preservar o commit, ela pode efetuar push desse branch local para um novo branch (vamos chamá-lo de `recover-B`) no {% data variables.product.product_name %}.  Para este exemplo, vamos supor que ela tenha um repositório remoto chamado `upstream` por meio do qual tem acesso de push em `github.com/$account/$repository`.
 
 A outra pessoa executa:
 
 ```shell
 $ git branch recover-B B
-# Criar um branch local fazendo referência ao commit
+# Create a new local branch referencing the commit
 $ git push upstream B:recover-B
-# Fazer push do local B para o novo branch upstream, criando referência ao commit
+# Push local B to new upstream branch, creating new reference to commit
 ```
 
 Agora, *você* pode executar:
 
 ```shell
 $ git fetch upstream recover-B
-# Fazer fetch de commit no repositório local.
+# Fetch commit into your local repository.
 ```
 
 ## Evitar pushes forçados
 
 Evite o push forçado em um repositório, a menos que seja absolutamente necessário. Isso se aplica especialmente quando mais de uma pessoa pode fazer push no repositório. Se alguém fizer push forçado em um repositório, ele poderá sobrescrever commits em que outras pessoas basearam seu trabalho. O push forçado faz alterações no histórico do repositório e pode corromper pull requests.
 
-## Leia mais
+## Leitura adicional
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- ["Recuperação de dados" no livro _Pro Git_](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+- ["Como trabalhar com repositórios remotos" do livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- ["Recuperação de dados" do livro _Pro Git_](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

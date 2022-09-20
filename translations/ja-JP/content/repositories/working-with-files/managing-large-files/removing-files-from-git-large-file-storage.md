@@ -11,16 +11,21 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Remove files
+ms.openlocfilehash: 4aa8b6789a916616b43b2b995174e64e25856ed4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145131917'
 ---
-
 ## 1 つのファイルを削除する
 
-1.  `filter-branch` コマンドか BFG Repo-Cleaner を使用して、リポジトリの Git 履歴からファイルを削除します。 これらを使用する詳しい情報については、「[機密データをリポジトリから削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
+1.  `filter-branch` コマンドか BFG Repo-Cleaner を使用し、リポジトリの Git 履歴からファイルを削除します。 これらの使用方法について詳しくは、「[リポジトリから機密データを削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
 2. *.gitattributes* ファイルに移動します。
 
   {% note %}
 
-  **メモ:** *.gitattributes* ファイルは通常、ローカルリポジトリ内に保存されます。 場合によっては、{% data variables.large_files.product_name_short %} 関連をすべて含むグローバル *.gitattributes* ファイルが作成されている可能性があります。
+  **注:** *.gitattributes* ファイルは通常、ローカル リポジトリ内に保存されています。 場合によっては、{% data variables.large_files.product_name_short %} 関連をすべて含むグローバル *.gitattributes* ファイルが作成されている可能性があります。
 
   {% endnote %}
 3. *.gitattributes* ファイル内で、関連付けられている {% data variables.large_files.product_name_short %} 追跡ルールを検索して削除します。
@@ -28,7 +33,7 @@ shortTitle: Remove files
 
 ## {% data variables.large_files.product_name_short %} リポジトリ内にあるすべてのファイルを削除する
 
-1. `filter-branch` コマンドか BFG Repo-Cleaner のいずれかを使用して、リポジトリの Git 履歴から ファイルを削除します。 これらを使用する詳しい情報については、「[機密データをリポジトリから削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
+1. `filter-branch` コマンドか BFG Repo-Cleaner を使用し、リポジトリの Git 履歴からファイルを削除します。 これらの使用方法について詳しくは、「[リポジトリから機密データを削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
 2. オプションで、リポジトリにある {% data variables.large_files.product_name_short %} をアンインストールするには、次を実行します:
   ```shell
   $ git lfs uninstall
@@ -40,18 +45,18 @@ shortTitle: Remove files
 
 ## リポジトリにある {% data variables.large_files.product_name_short %}オブジェクト
 
-{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% ifversion fpt or ghec %}、{% data variables.large_files.product_name_short %} ストレージ容量に対するカウントも継続し{% endif %}ます。
+{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% ifversion fpt or ghec %}、{% data variables.large_files.product_name_short %} ストレージ容量に対するカウントも継続します{% endif %}。
 
-{% data variables.large_files.product_name_short %} オブジェクトをリポジトリから削除するには、{% ifversion fpt or ghec %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
+{% data variables.large_files.product_name_short %} オブジェクトをリポジトリから削除するには、{% ifversion fpt or ghec %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 詳しくは、「[リポジトリの削除](/github/administering-a-repository/deleting-a-repository)」を参照してください。 削除されたオブジェクトを消去する必要があり、リポジトリを削除できない場合、[サポートにお問い合わせください](/github/working-with-github-support)。{% else %}{% data variables.product.prodname_enterprise %} 管理者に問い合わせてオブジェクトをアーカイブします。 アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
 
 {% note %}
 
-**注釈:** ファイルを 1 つ削除しても、それ以外の {% data variables.large_files.product_name_short %} オブジェクトはリポジトリに保持する場合は、リポジトリを削除して再作成してから、{% data variables.large_files.product_name_short %} に関連付けられたファイルを再設定してください。 詳しい情報については、「[1 つのファイルを削除する](#removing-a-single-file)」および「[{% data variables.large_files.product_name_long %}を設定する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。
+**注:** ファイルを 1 つ削除しても、それ以外の {% data variables.large_files.product_name_short %} オブジェクトはリポジトリに保持する場合、リポジトリを削除して再作成してから、{% data variables.large_files.product_name_short %} に関連付けられたファイルを再設定してください。 詳しくは、「[単一ファイルを削除する](#removing-a-single-file)」と「[{% data variables.large_files.product_name_long %} を構成する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。
 
 {% endnote %}
 
-## 参考リンク
+## 参考資料
 
-- [{% data variables.large_files.product_name_long %}について](/articles/about-git-large-file-storage)
-- [{% data variables.large_files.product_name_long %} でのコラボレーション](/articles/collaboration-with-git-large-file-storage/)
-- 「[{% data variables.large_files.product_name_long %}をインストールする](/articles/installing-git-large-file-storage)」
+- 「[{% data variables.large_files.product_name_long %} について](/articles/about-git-large-file-storage)」
+- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」
+- 「[{% data variables.large_files.product_name_long %} をインストールする](/articles/installing-git-large-file-storage)」

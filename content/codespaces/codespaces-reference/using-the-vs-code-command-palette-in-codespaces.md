@@ -17,7 +17,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_vscode_command_palette %}
 
-The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The {% data variables.product.prodname_vscode_command_palette %} allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The Command Palette allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Accessing the {% data variables.product.prodname_vscode_command_palette_shortname %}
 

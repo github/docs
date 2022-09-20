@@ -1,6 +1,6 @@
 ---
 title: Fazendo a migração do executor CodeQL para a CLI do CodeQL
-shortTitle: Fazendo a migração do executor do CodeQL
+shortTitle: Migrating from the CodeQL runner
 intro: 'Você pode usar o {% data variables.product.prodname_codeql_cli %} para realizar as mesmas tarefas que {% data variables.product.prodname_codeql_runner %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
@@ -12,47 +12,53 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145094814'
 ---
-
 # Fazendo a migração de {% data variables.product.prodname_codeql_runner %} para {% data variables.product.prodname_codeql_cli %}
 
-{% data variables.product.prodname_codeql_runner %} está tornando-se obsoleto. Em vez disso, você pode usar a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %} ou superior. Este documento descreve como fazer a migração de fluxos de trabalho comuns de {% data variables.product.prodname_codeql_runner %} para {% data variables.product.prodname_codeql_cli %}.
+{% data variables.product.prodname_codeql_runner %} está tornando-se obsoleto. Em vez disso, você pode usar a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %} ou superior.
+Este documento descreve como fazer a migração de fluxos de trabalho comuns de {% data variables.product.prodname_codeql_runner %} para {% data variables.product.prodname_codeql_cli %}.
 
 ## Instalação
 
-Faça o download do **{% data variables.product.prodname_codeql %} pacote** a partir do repositório [`github/codeql-action`](https://github.com/github/codeql-action/releases). Este pacote contém {% data variables.product.prodname_codeql_cli %} e as consultas e bibliotecas padrão de {% data variables.product.prodname_codeql %}.
+Baixe o **pacote do {% data variables.product.prodname_codeql %}** no [repositório `github/codeql-action`](https://github.com/github/codeql-action/releases). Este pacote contém {% data variables.product.prodname_codeql_cli %} e as consultas e bibliotecas padrão de {% data variables.product.prodname_codeql %}.
 
-Para obter mais informações sobre como configurar o {% data variables.product.prodname_codeql_cli %}, consulte "[Instalando {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
+Para obter mais informações sobre como configurar a {% data variables.product.prodname_codeql_cli %}, confira "[Como instalar a {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
 
 ## Visão geral das alterações do fluxo de trabalho
 
 Um fluxo de trabalho típico que usa o {% data variables.product.prodname_codeql_runner %} para analisar uma base de código tem as seguintes etapas.
-- `codeql-runner-<platform> inicia` para começar a criar bancos de dados de {% data variables.product.prodname_codeql %} e ler a configuração.
+- `codeql-runner-<platform> init` para começar a criar bancos de dados do {% data variables.product.prodname_codeql %} e ler a configuração.
 - Para linguagens compiladas: defina variáveis de ambiente produzidas pela etapa `init`.
 - Para linguagens compiladas: execute o autobuild ou etapas manuais de compilação.
-- `codeql-runner-<platform> analise` para terminar de criar bancos de dados de {% data variables.product.prodname_codeql %}, executar consultas para analisar cada banco de dados de {% data variables.product.prodname_codeql %}, resumir os resultados em um arquivo SARIF e fazer o upload dos resultados para {% data variables.product.prodname_dotcom %}.
+- `codeql-runner-<platform> analyze` para terminar de criar bancos de dados do {% data variables.product.prodname_codeql %}, executar consultas para analisar cada banco de dados do {% data variables.product.prodname_codeql %}, resumir os resultados em um arquivo SARIF e carregar os resultados no {% data variables.product.prodname_dotcom %}.
 
 Um fluxo de trabalho típico que usa o {% data variables.product.prodname_codeql_cli %} para analisar uma base de código tem as seguintes etapas.
-- `codeql database create` para criar bancos de dados de {% data variables.product.prodname_codeql %}.
+- `codeql database create` para criar bancos de dados do {% data variables.product.prodname_codeql %}.
   - Para linguagens compiladas: Opcionalmente, forneça um comando de criação.
-- `codeql base de dados analisa` para executar consultas para analisar cada banco de dados de {% data variables.product.prodname_codeql %} e resumir os resultados de um arquivo SARIF. Esse comando deve ser executado uma vez para cada linguagem ou banco de dados.
-- `github do codeql upload-results` para fazer o upload dos arquivos SARIF para {% data variables.product.prodname_dotcom %} resultantes e serem exibidos como alertas de verificação de código. Esse comando deve ser executado uma vez para cada linguagem ou arquivo SARIF.
+- `codeql database analyze` para executar consultas a fim de analisar cada banco de dados do {% data variables.product.prodname_codeql %} e resumir os resultados em um arquivo SARIF. Esse comando deve ser executado uma vez para cada linguagem ou banco de dados.
+- `codeql github upload-results` para carregar os arquivos SARIF resultantes no {% data variables.product.prodname_dotcom %}, a serem exibidos como alertas da verificação de código. Esse comando deve ser executado uma vez para cada linguagem ou arquivo SARIF.
 
-O {% data variables.product.prodname_codeql_runner %} tem váris segmentos por padrão. O {% data variables.product.prodname_codeql_cli %} só usa um único segmento por padrão, mas permite que você especifique a quantidade de segmentos que você deseja que ele use. Se você deseja replicar o comportamento do {% data variables.product.prodname_codeql_runner %} para usar todos os segmentos disponíveis na máquina ao usar o {% data variables.product.prodname_codeql_cli %}, você pode passar `--threads 0` para `codeql analyze`.
+O {% data variables.product.prodname_codeql_runner %} tem váris segmentos por padrão. O {% data variables.product.prodname_codeql_cli %} só usa um único segmento por padrão, mas permite que você especifique a quantidade de segmentos que você deseja que ele use. Caso deseje replicar o comportamento do {% data variables.product.prodname_codeql_runner %} para usar todas as conversas disponíveis no computador ao usar a {% data variables.product.prodname_codeql_cli %}, transmita `--threads 0` para `codeql database analyze`.
 
-Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
+Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
 
 ## Exemplos de usos comuns para o {% data variables.product.prodname_codeql_cli %}
 
 ### Sobre os exemplos
 
-Estes exemplos assumem que o código-fonte foi check-out para o diretório de trabalho atual. Se você usa um diretório diferente, mude o argumento `--source-root` e as etapas de criação.
+Estes exemplos assumem que o código-fonte foi check-out para o diretório de trabalho atual. Se você usar outro diretório, altere o argumento `--source-root` e as etapas de build de acordo.
 
 Esses exemplos também assumem que a {% data variables.product.prodname_codeql_cli %} é colocado no PATH atual.
 
-Nestes exemplos, um token de {% data variables.product.prodname_dotcom %} com escopos adequados é armazenado na variável de ambiente `$TOKEN` e passado para os comandos de exemplo via `stdin` ou é armazenado na variável de ambiente `$GITHUB_TOKEN`.
+Nestes exemplos, um token do {% data variables.product.prodname_dotcom %} com escopos adequados é armazenado na variável de ambiente `$TOKEN` e transmitido para os exemplos de comandos por meio de `stdin` ou é armazenado na variável de ambiente `$GITHUB_TOKEN`.
 
-O nome da ref e o commit SHA que está sendo verificado e analisado nesses exemplos são conhecidos durante o fluxo de trabalho. Para um branch, use `refs/heads/BRANCH-NAME` como ref. Para o commit principal de um pull request, use `refs/pull/NUMBER/head`. Para um commit de merge gerado por {% data variables.product.prodname_dotcom %} de um pull request, use `refs/pull/NUMBER/merge`. Todos ps exemplos abaixo usam `refs/heads/main`. Se você usar um nome de branch diferente, deverá modificar o código do exemplo.
+O nome da ref e o commit SHA que está sendo verificado e analisado nesses exemplos são conhecidos durante o fluxo de trabalho. Para um branch, use `refs/heads/BRANCH-NAME` como referência. Para o commit principal de uma solicitação de pull, use `refs/pull/NUMBER/head`. Para um commit de mesclagem de uma solicitação de pull gerado pelo {% data variables.product.prodname_dotcom %}, use `refs/pull/NUMBER/merge`. Todos os exemplos abaixo usam `refs/heads/main`. Se você usar um nome de branch diferente, deverá modificar o código do exemplo.
 
 ### Linguagem única não compilada (JavaScript)
 
@@ -211,7 +217,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### Linguagem compilada única que usa rastreamento de compilação indireta (C# no Windows dentro do Azure DevOps)
 
-O rastreamento indireto de compilação de uma linguagem permite que {% data variables.product.prodname_codeql %} detecte todos os passos de compilação entre as etapas `init` e `analyze`, quando o código não pode ser construído usando o autobuilder ou uma linha de comando de compilação explícita. Isso é útil ao usar as etapas de criação pré-configuradas do seu sistema de CI como, por exemplo, as tarefas `VSBuild` e `MSBuild` no Azure DevOps.
+O rastreamento indireto de build de uma linguagem compilada permite que o {% data variables.product.prodname_codeql %} detecte todas as etapas de build entre as etapas `init` e `analyze`, quando o código não pode ser compilado com o construtor automático ou com uma linha de comando de build explícita. Isso é útil quando são usadas etapas de build pré-configuradas do seu sistema de CI, como as tarefas `VSBuild` e `MSBuild` no Azure DevOps.
 
 Executor:
 ```yaml
@@ -267,7 +273,7 @@ CLI:
 # For CodeQL to trace future build steps without knowing the explicit build commands,
 # it requires certain environment variables to be set during the build.
 # Read these generated environment variables and values, and set them so they are available for subsequent commands
-# in the build pipeline. Neste exemplo, isto é feito em PowerShell.
+# in the build pipeline. This is done in PowerShell in this example.
 - task: PowerShell@1
   displayName: Set CodeQL environment variables
   inputs:
@@ -282,7 +288,7 @@ CLI:
              echo "$template"
          }
 
-# Execute the pre-defined build step. Observe a variável `msbuildArgs`.
+# Execute the pre-defined build step. Note the `msbuildArgs` variable.
 - task: VSBuild@1
     inputs:
       solution: '**/*.sln'
@@ -294,7 +300,7 @@ CLI:
       clean: True
    displayName: Visual Studio Build
 
-# Read and set the generated environment variables to end build tracing. Neste exemplo, isto é feito em PowerShell.
+# Read and set the generated environment variables to end build tracing. This is done in PowerShell in this example.
 - task: PowerShell@1
    displayName: Clear CodeQL environment variables
    inputs:
@@ -333,7 +339,8 @@ CLI:
 
 ### Várias linguagens que usam autobuild (C++, Python)
 
-Este exemplo não é estritamente possível com {% data variables.product.prodname_codeql_runner %}. Apenas uma linguagem (a linguagem compilada com mais arquivos) será analisada.
+Este exemplo não é estritamente possível com {% data variables.product.prodname_codeql_runner %}.
+Apenas uma linguagem (a linguagem compilada com mais arquivos) será analisada.
 
 Executor:
 ```bash

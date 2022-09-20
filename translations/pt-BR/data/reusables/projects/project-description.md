@@ -1,10 +1,21 @@
-You can set your project's description and README to share the purpose of your project, provide instructions on how to use the project, and include any relevant links.
+---
+ms.openlocfilehash: 18791d3acd8ee5e40621be07a2a5ea3b141ed749
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147423697"
+---
+Você pode definir a descrição e o LEIAME do projeto para compartilhar a finalidade do projeto, fornecer instruções sobre como usá-lo e incluir os links relevantes.
 
 {% data reusables.projects.project-settings %}
-1. To add a short description to your project, under "Add a description", type your description in the text box  and click **Save**. ![Screenshot showing the 'Add my description' settings](/assets/images/help/projects-v2/edit-description.png)
-1. To update your project's README, under "README", type your content in the text box.
-   - You can format your README using Markdown. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)".
-   - To toggle between the text box and a preview of your changes, click {% octicon "eye" aria-label="The preview icon" %} or {% octicon "pencil" aria-label="The edit icon" %}. ![Screenshot showing editing a project's README](/assets/images/help/projects-v2/edit-readme.png)
-1. To save changes to your README, click **Save**. ![Screenshot showing the 'Save' button for a project's README](/assets/images/help/projects-v2/save-readme-button.png)
+1. Para adicionar uma breve descrição ao projeto, em "Adicionar uma descrição", digite a descrição na caixa de texto e clique em **Salvar**.
+  ![Captura de tela mostrando as configurações 'Adicionar minha descrição'](/assets/images/help/projects-v2/edit-description.png)
+1. Para atualizar o LEIAME do projeto, em "LEIAME", digite o conteúdo na caixa de texto.
+   - Você pode formatar o LEIAME usando o Markdown. Para obter mais informações, confira "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)".
+   - Para alternar entre a caixa de texto e uma visualização das alterações, clique em {% octicon "eye" aria-label="The preview icon" %} ou {% octicon "pencil" aria-label="The edit icon" %}.
+  ![Captura de tela mostrando a edição do LEIAME de um projeto](/assets/images/help/projects-v2/edit-readme.png)
+1. Para salvar as alterações no LEIAME, clique em **Salvar**.
+  ![Captura de tela mostrando o botão 'Salvar' do LEIAME de um projeto](/assets/images/help/projects-v2/save-readme-button.png)
 
-You can view and make quick changes to your project description and README by navigating to your project and clicking {% octicon "sidebar-expand" aria-label="The sidebar icon" %} in the top right.
+Veja e faça alterações rápidas na descrição e no LEIAME do projeto navegando até o projeto e clicando em {% octicon "sidebar-expand" aria-label="The sidebar icon" %} no canto superior direito.

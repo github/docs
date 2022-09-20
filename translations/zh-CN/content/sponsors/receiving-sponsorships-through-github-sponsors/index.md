@@ -1,6 +1,6 @@
 ---
 title: 通过 GitHub Sponsors 接受赞助
-shortTitle: 接受赞助
+shortTitle: Receiving sponsorships
 intro: 您或您的组织可以成为被赞助的开源贡献者，从而接受对您工作的付款、更新您的赞助详细信息以及查看和联系您的赞助者。
 redirect_from:
   - /articles/receiving-sponsorships-as-a-sponsored-developer
@@ -22,5 +22,11 @@ children:
   - /tax-information-for-github-sponsors
   - /disabling-your-github-sponsors-account
   - /unpublishing-your-github-sponsors-profile
+ms.openlocfilehash: 7f7a6e7a1f46dadaac3cf75b8387bf18dd22e0d0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149674'
 ---
 

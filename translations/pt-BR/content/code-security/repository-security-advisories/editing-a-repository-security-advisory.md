@@ -11,9 +11,14 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Editar consultorias do repositório
+shortTitle: Edit repository advisories
+ms.openlocfilehash: 2ea2f588374d83be677589b4f3bf4e74a7fc6e91
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145095645'
 ---
-
 As pessoas com permissões de administrador para uma consultoria de segurança de repositório podem editar a consultoria de segurança.
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
@@ -28,19 +33,16 @@ Se você acredita que deveria ser creditado por uma consultoria de segurança, e
 
 ## Editar uma consultoria de segurança
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
 4. Na lista "consultorias de segurança", clique na consultoria de segurança que deseja editar.
-5. No canto superior direito das informações referentes à consultoria de segurança, clique em {% octicon "pencil" aria-label="The edit icon" %}. ![Botão para editar uma consultoria de segurança](/assets/images/help/security/security-advisory-edit-button.png)
-{% data reusables.repositories.security-advisory-edit-details %}
-{% data reusables.repositories.security-advisory-edit-severity %}
-{% data reusables.repositories.security-advisory-edit-cwe-cve %}
-{% data reusables.repositories.security-advisory-edit-description %}
-11. Opcionalmente, edite os "Créditos" para a consultoria de segurança. ![Créditos para uma consultoria de segurança](/assets/images/help/security/security-advisory-credits.png)
-12. Clique em **Atualizar consultoria de segurança**. ![Botão "Atualizar consultoria de segurança"](/assets/images/help/security/update-advisory-button.png)
+5. No canto superior direito dos detalhes da consultoria de segurança, clique em {% octicon "pencil" aria-label="The edit icon" %}.
+  ![Botão Editar em uma consultoria de segurança](/assets/images/help/security/security-advisory-edit-button.png) {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
+11. Opcionalmente, edite os "Créditos" para a consultoria de segurança.
+  ![Créditos para uma consultoria de segurança](/assets/images/help/security/security-advisory-credits.png)
+12. Clique em **Atualizar consultoria de segurança**.
+  ![Botão "Atualizar consultoria de segurança"](/assets/images/help/security/update-advisory-button.png)
 13. As pessoas listadas na seção "Créditos" receberão um e-mail ou uma notificação da web convidando-os a aceitar o crédito. Se uma pessoa aceitar, seu nome de usuário ficará visível publicamente assim que a consultoria de segurança for publicada.
 
-## Leia mais
+## Leitura adicional
 
-- "[Retirando uma consultoria de segurança de repositório](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[Como retirar uma consultoria de segurança do repositório](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
