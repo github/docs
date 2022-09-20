@@ -2,7 +2,6 @@
 title: SCIM
 intro: ''
 versions:
-  fpt: '*'
   ghec: '*'
   ghae: '*'
 topics:
