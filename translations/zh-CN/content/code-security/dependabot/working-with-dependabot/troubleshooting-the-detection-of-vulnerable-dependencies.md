@@ -23,11 +23,11 @@ topics:
   - CVEs
   - Repositories
 ms.openlocfilehash: 50e63a273d1bd787c2c324d3ceed9a8d31b64c9e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526716'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883415'
 ---
 {% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.result-discrepancy %}
 

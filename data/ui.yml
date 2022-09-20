@@ -56,6 +56,7 @@ pages:
   contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
+  permissions_statement: Who can use this feature
 errors:
   oops: Ooops!
   something_went_wrong: It looks like something went wrong.

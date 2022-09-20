@@ -21,7 +21,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145098690'
+ms.locfileid: '147884251'
 ---
 每个团队都有自己单独定义的[组织所拥有存储库的访问权限](/articles/permission-levels-for-an-organization)。
 

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: d17a60d7bf330c0c7fd3acfacd7652a054cf7c86
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145092732"
+ms.locfileid: "147885023"
 ---
 Puede programar un flujo de trabajo para que se ejecute a horas UTC específicas mediante la [sintaxis cron de POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Los flujos de trabajo programados se ejecutan en la confirmación más reciente en la rama base o en la rama por defecto. El intervalo más corto en el que puedes ejecutar flujos de trabajo programados es una vez cada 5 minutos.
 

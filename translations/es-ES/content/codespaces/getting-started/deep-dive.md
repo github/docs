@@ -10,12 +10,12 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 5513956ea915701656e476681dbdbd6a2064b629
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d64aa32db633a14c1cc8d36b3204cab2c9982f93
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147783035'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878652'
 ---
 {% data variables.product.prodname_github_codespaces %} es un entorno de desarrollo instantáneo basado en la nube que usa un contenedor para proporcionar lenguajes comunes, herramientas y utilidades para el desarrollo. {% data variables.product.prodname_codespaces %} también es configurable, lo cual te permite crear un ambiente de desarrollo personalizado para tu proyecto. Al configurar un ambiente de desarrollo personalizado para tu proyecto, puedes tener una configuración de codespace repetible para todos los usuarios de dicho proyecto.
 
@@ -103,7 +103,9 @@ Git se encuentra disponible predeterminadamente en tu codespace, entonces puedes
 
 ![Ejecutar un estado de git en la Terminal de Codespaces](/assets/images/help/codespaces/git-status.png)
 
-Puedes crear un codespace desde cualquier rama, confirmación o solicitud de cambios en tu proyecto o puedes cambiar a una rama existente o nueva desde dentro de tu codespace activo. Ya que {% data variables.product.prodname_github_codespaces %} está diseñado para ser efímero, puedes utilizarlo como un ambiente aislado para experimentar, verificar la solicitud de incorporación de cambios de un compañero o arreglar conflictos de fusión. Puedes crear más de un codespace por repositorio o incluso por rama. Pero cada cuenta personal tiene un límite de 10 codespaces. Si has alcanzado el límite y quieres crear un codespace nuevo, primero debes borrar un codespace.
+Puedes crear un codespace desde cualquier rama, confirmación o solicitud de cambios en tu proyecto o puedes cambiar a una rama existente o nueva desde dentro de tu codespace activo. Ya que {% data variables.product.prodname_github_codespaces %} está diseñado para ser efímero, puedes utilizarlo como un ambiente aislado para experimentar, verificar la solicitud de incorporación de cambios de un compañero o arreglar conflictos de fusión. 
+
+Puedes crear más de un codespace por repositorio o incluso por rama. Sin embargo, hay límites para el número de codespaces que puede crear y el número de codespaces que puede ejecutar al mismo tiempo. Si alcanza el número máximo de codespaces e intenta crear otro, se muestra un mensaje que indica que debe quitar un codespace existente para poder crear uno nuevo.
 
 {% note %}
 

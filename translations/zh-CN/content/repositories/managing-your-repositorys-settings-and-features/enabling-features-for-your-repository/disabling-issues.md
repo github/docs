@@ -14,11 +14,11 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: a706b1431f4f43c9866fb6ef0f01f6d25d6edc46
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129343'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881826'
 ---
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
 3. 在“功能”下，取消选中“问题”复选框。

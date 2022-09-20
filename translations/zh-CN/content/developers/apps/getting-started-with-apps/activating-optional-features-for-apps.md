@@ -13,10 +13,10 @@ topics:
   - GitHub Apps
 shortTitle: Activate optional features
 ms.openlocfilehash: 918fe1dd7ba466fccc4d54d02fca6b13fe6e4e86
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145085039'
 ---
 {% warning %}

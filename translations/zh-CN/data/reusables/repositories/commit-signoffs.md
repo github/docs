@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 50db50aff42d977575a89a2e22287b1672081ee4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147410732"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881387"
 ---
 强制提交签字仅适用于通过 Web 界面进行的提交。 对于通过 Git 命令行接口进行的提交，提交作者必须使用 `--signoff` 选项签字提交。 有关详细信息，请参阅 [Git 文档](https://git-scm.com/docs/git-commit)。
 

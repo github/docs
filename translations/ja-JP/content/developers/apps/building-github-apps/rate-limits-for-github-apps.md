@@ -15,12 +15,12 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Rate limits
-ms.openlocfilehash: fd2c9a92c6603a6e64ec17b614f46baf2370c98b
-ms.sourcegitcommit: d243bbae4ce3c849695b5bc9221e705ee5a4a64f
+ms.openlocfilehash: 46e1fddabff7d0e9c8d3d21c6a0d18668083ae63
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147081129'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710356'
 ---
 {% data reusables.enterprise.rate_limit %}
 
@@ -28,17 +28,17 @@ ms.locfileid: '147081129'
 
 {% ifversion ghec or fpt %}
 
-## <a name="about-rate-limits-for-apps"></a>アプリのレート制限について
+## アプリのレート制限について
 
 {% data variables.product.prodname_github_apps %} と {% data variables.product.prodname_oauth_apps %} のレート制限は、アプリケーションをインストールする組織のプランによって変わります。 詳細については、「[{% data variables.product.company_short %} の製品](/get-started/learning-about-github/githubs-products)」と「[{% data variables.product.company_short %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)」を参照してください。
 
 {% endif %}
 
-## <a name="server-to-server-requests"></a>サーバーからサーバーへのリクエスト
+## サーバーからサーバーへのリクエスト
 
 {% ifversion ghec or fpt %}
 
-### <a name="default-server-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>{% data variables.product.prodname_dotcom_the_website %} の既定のサーバー間レート制限
+### {% data variables.product.prodname_dotcom_the_website %} の既定のサーバー間レート制限
 
 {% endif %}
 
@@ -46,17 +46,17 @@ ms.locfileid: '147081129'
 
 {% ifversion fpt or ghec %}
 
-### <a name="server-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>{% data variables.product.prodname_ghe_cloud %}のサーバー間レート制限
+### {% data variables.product.prodname_ghe_cloud %}のサーバー間レート制限
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.product_location %} 上のエンタープライズ内の組織またはリポジトリにインストールされた {% data variables.product.prodname_github_apps %} には、1 時間あたり 15,000 件の要求という制限があります。
+{% data variables.product.product_location %} 上のエンタープライズ内の Organization にインストールされた {% data variables.product.prodname_github_apps %} には、アプリをインストールした Organization ごとに 1 時間あたり 15,000 件の要求という制限があります。
 
 {% endif %}
 
-## <a name="user-to-server-requests"></a>ユーザからサーバーへのリクエスト
+## ユーザからサーバーへのリクエスト
 
 {% data variables.product.prodname_github_apps %} と {% data variables.product.prodname_oauth_apps %} は、ユーザーがアプリを認可した後にユーザーの代理として動作し、ユーザーからサーバーに対して要求を発行することもできます。 詳細については、「[{% data variables.product.prodname_github_apps %} の認可](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」と「[{% data variables.product.prodname_oauth_apps %} の認可](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」を参照してください。
 
@@ -64,7 +64,7 @@ ms.locfileid: '147081129'
 
 {% ifversion fpt or ghec %}
 
-### <a name="default-user-to-server-rate-limits-for--data-variablesproductprodname_dotcom_the_website-"></a>{% data variables.product.prodname_dotcom_the_website %} の既定のユーザーからサーバー間のレート制限
+### {% data variables.product.prodname_dotcom_the_website %} の既定のユーザーからサーバー間のレート制限
 
 {% endif %}
 
@@ -78,13 +78,13 @@ ms.locfileid: '147081129'
 
 {% ifversion fpt or ghec %}
 
-### <a name="user-to-server-rate-limits-for--data-variablesproductprodname_ghe_cloud-"></a>{% data variables.product.prodname_ghe_cloud %} のユーザーからサーバー間のレート制限
+### {% data variables.product.prodname_ghe_cloud %} のユーザーからサーバー間のレート制限
 
 {% data reusables.apps.user-to-server-rate-limits-ghec %}
 
 {% endif %}
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - REST API ドキュメントの「[レート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)」
 - GraphQL API ドキュメントの「[リソースの制限事項](/graphql/overview/resource-limitations)」

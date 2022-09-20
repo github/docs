@@ -14,10 +14,10 @@ topics:
   - Pages
 shortTitle: Add content to Pages site
 ms.openlocfilehash: 90bd0d067837364eb2767739da286da7906399c0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145140213'
 ---
 Las personas con permisos de escritura para un repositorio pueden agregar contenido a un sitio de {% data variables.product.prodname_pages %} con Jekyll.

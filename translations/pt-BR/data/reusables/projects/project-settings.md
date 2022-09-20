@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 5d00733f618afa1863da868f60cf56b7c064af6b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147423633"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883785"
 ---
 1. Procure seu projeto.
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir o menu.

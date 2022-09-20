@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 04b96b72982a971f4754e36e6d318e0b57ce0332
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145097454"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882921"
 ---
 IdP | SAML | 用户预配 | 团队映射| 
 --- | --- | ---------------- | --------- |

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 6058de00ebbc05baaa2e29cfba275fa2249b44a3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145116978"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881199"
 ---
 1. Crear un plan de Azure App Service.
 

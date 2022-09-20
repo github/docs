@@ -4,7 +4,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "147423234"
+ms.locfileid: "147882825"
 ---
 {% data reusables.profile.access_profile %}
 1. 在配置文件上，单击 {% octicon "table" aria-label="The project icon" %}“项目”。

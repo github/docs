@@ -17,10 +17,10 @@ children:
   - /setting-up-a-trial-of-github-enterprise-cloud
   - /setting-up-a-trial-of-github-enterprise-server
 ms.openlocfilehash: d533092609c80665a8a4cdbc7a646a9a42365d57
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145109500'
 ---
 

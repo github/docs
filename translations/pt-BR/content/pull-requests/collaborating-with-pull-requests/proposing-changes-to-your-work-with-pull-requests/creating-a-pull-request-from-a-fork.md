@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Create a PR from a fork
 ms.openlocfilehash: 5a4aceef12c214d157dbdac7bf838bbe80e81731
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128047'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883284'
 ---
 Se sua pull request comparar o branch de tópico com um branch no repositório upstream como o branch base, o branch de tópico também será chamado de branch de comparação da pull request. Para obter mais informações sobre os branches de solicitação de pull, incluindo exemplos, confira "[Como criar uma solicitação de pull](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)".
 

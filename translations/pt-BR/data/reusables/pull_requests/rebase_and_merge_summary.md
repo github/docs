@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 371057b7fbe8e92b564e8729b11442bdbf2c1a56
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145085126"
+ms.locfileid: "147882792"
 ---
 Quando você seleciona a opção **Troca de base e mesclagem** em uma solicitação de pull no {% data variables.product.product_location %}, todos os commits do branch do tópico (ou do branch principal) são adicionados ao branch base individualmente sem um commit de mesclagem. Dessa forma, o comportamento de troca de base e mesclagem se assemelha a uma [mesclagem de avanço rápida](https://git-scm.com/docs/git-merge#_fast_forward_merge) mantendo um histórico de projeto linear. No entanto, a troca de base faz isso reescrevendo o histórico de commit no branch base com novos commits.
 

@@ -2711,6 +2711,96 @@ input CheckRunOutputImage {
 }
 
 """
+The possible states of a check run in a status rollup.
+"""
+enum CheckRunState {
+  """
+  The check run requires action.
+  """
+  ACTION_REQUIRED
+
+  """
+  The check run has been cancelled.
+  """
+  CANCELLED
+
+  """
+  The check run has been completed.
+  """
+  COMPLETED
+
+  """
+  The check run has failed.
+  """
+  FAILURE
+
+  """
+  The check run is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The check run was neutral.
+  """
+  NEUTRAL
+
+  """
+  The check run is in pending state.
+  """
+  PENDING
+
+  """
+  The check run has been queued.
+  """
+  QUEUED
+
+  """
+  The check run was skipped.
+  """
+  SKIPPED
+
+  """
+  The check run was marked stale by GitHub. Only GitHub can use this conclusion.
+  """
+  STALE
+
+  """
+  The check run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
+  The check run has succeeded.
+  """
+  SUCCESS
+
+  """
+  The check run has timed out.
+  """
+  TIMED_OUT
+
+  """
+  The check run is in waiting state.
+  """
+  WAITING
+}
+
+"""
+Represents a count of the state of a check run.
+"""
+type CheckRunStateCount {
+  """
+  The number of check runs with this state.
+  """
+  count: Int!
+
+  """
+  The state of a check run.
+  """
+  state: CheckRunState!
+}
+
+"""
 The possible types of check runs.
 """
 enum CheckRunType {
@@ -7332,6 +7422,11 @@ type DeletePullRequestReviewCommentPayload {
   The pull request review the deleted comment belonged to.
   """
   pullRequestReview: PullRequestReview
+
+  """
+  The deleted pull request review comment.
+  """
+  pullRequestReviewComment: PullRequestReviewComment
 }
 
 """
@@ -9457,6 +9552,12 @@ type Enterprise implements Node {
     first: Int
 
     """
+    Only return members with this two-factor authentication status. Does not
+    include members who only have an account on a GitHub Enterprise Server instance.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -10232,6 +10333,11 @@ type EnterpriseOwnerInfo {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Only return administrators with this two-factor authentication status.
+    """
+    hasTwoFactorEnabled: Boolean = null
 
     """
     Returns the last _n_ elements from the list.
@@ -26950,6 +27056,11 @@ type PullRequestThread implements Node {
     """
     skip: Int
   ): PullRequestReviewCommentConnection!
+
+  """
+  The side of the diff on which this thread was placed.
+  """
+  diffSide: DiffSide!
   id: ID!
 
   """
@@ -26968,6 +27079,11 @@ type PullRequestThread implements Node {
   isResolved: Boolean!
 
   """
+  The line in the file to which this thread refers
+  """
+  line: Int
+
+  """
   Identifies the pull request associated with this thread.
   """
   pullRequest: PullRequest!
@@ -26981,6 +27097,16 @@ type PullRequestThread implements Node {
   The user who resolved this thread
   """
   resolvedBy: User
+
+  """
+  The side of the diff that the first line of the thread starts on (multi-line only)
+  """
+  startDiffSide: DiffSide
+
+  """
+  The line of the first file diff in the thread.
+  """
+  startLine: Int
 
   """
   Indicates whether the current viewer can reply to this thread.
@@ -36389,6 +36515,16 @@ The connection type for StatusCheckRollupContext.
 """
 type StatusCheckRollupContextConnection {
   """
+  The number of check runs in this rollup.
+  """
+  checkRunCount: Int!
+
+  """
+  Counts of check runs by state.
+  """
+  checkRunCountsByState: [CheckRunStateCount!]
+
+  """
   A list of edges.
   """
   edges: [StatusCheckRollupContextEdge]
@@ -36402,6 +36538,16 @@ type StatusCheckRollupContextConnection {
   Information to aid in pagination.
   """
   pageInfo: PageInfo!
+
+  """
+  The number of status contexts in this rollup.
+  """
+  statusContextCount: Int!
+
+  """
+  Counts of status contexts by state.
+  """
+  statusContextCountsByState: [StatusContextStateCount!]
 
   """
   Identifies the total count of items in the connection.
@@ -36488,6 +36634,21 @@ type StatusContext implements Node & RequirableByPullRequest {
   The URL for this status context.
   """
   targetUrl: URI
+}
+
+"""
+Represents a count of the state of a status context.
+"""
+type StatusContextStateCount {
+  """
+  The number of statuses with this state.
+  """
+  count: Int!
+
+  """
+  The state of a status context.
+  """
+  state: StatusState!
 }
 
 """

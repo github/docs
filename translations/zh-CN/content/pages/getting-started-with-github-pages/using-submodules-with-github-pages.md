@@ -13,11 +13,11 @@ topics:
   - Pages
 shortTitle: Use submodules with Pages
 ms.openlocfilehash: cfe863c3a7d77d006ee4c78e9d58302fb01e4dd4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880692'
+ms.locfileid: '147880796'
 ---
 如果 {% data variables.product.prodname_pages %} 站点的仓库包含子模块，则在构建站点时会自动拉取其内容。
 

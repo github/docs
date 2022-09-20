@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 55e7ece665d5441bb4b8e8653dc6f009f70f39ee
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145065746"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881395"
 ---
 有关您需要填写的税表的更多信息，请参阅美国国内税务署网站上的下列说明。
 

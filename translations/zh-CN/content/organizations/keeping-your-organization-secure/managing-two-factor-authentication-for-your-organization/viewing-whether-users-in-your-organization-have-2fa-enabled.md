@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: View 2FA usage
 ms.openlocfilehash: 20659ea2e1979123b15d9ee5d333655ad188b2e9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145127504'
 ---
 {% note %}

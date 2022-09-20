@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Subversion & Git differences
 ms.openlocfilehash: cbe328bf3d2fbf3a603f6eef1559715ad48ca7fe
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145128928'
 ---
 ## 目录结构

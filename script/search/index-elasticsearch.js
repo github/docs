@@ -200,6 +200,21 @@ async function indexVersion(
   const settings = {
     analysis: {
       analyzer: {
+        // We defined to analyzers. Both based on a "common core" with the
+        // `standard` tokenizer. But the second one adds Snowball filter.
+        // That means the tokenization of "Dependency naming" becomes
+        // `[dependency, naming]` in the explicit one and `[depend, name]`
+        // in the Snowball one.
+        // We do this to give a chance to boost the more exact spelling a
+        // bit higher with the assumption that if the user knew exactly
+        // what it was called, we should show that higher.
+        // A great use-case of this when users search for keywords that are
+        // code words like `dependency-name`.
+        text_analyzer_explicit: {
+          filter: ['lowercase', 'stop', 'asciifolding'],
+          tokenizer: 'standard',
+          type: 'custom',
+        },
         text_analyzer: {
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
@@ -210,9 +225,6 @@ async function indexVersion(
         // Will later, conditionally, put the snowball configuration here.
       },
     },
-    // requestTimeout: 2 * 1000,
-    // timeout: 3 * 1000,
-    // master_timeout: 4 * 1000,
   }
   const snowballLanguage = getSnowballLanguage(language)
   if (snowballLanguage) {
@@ -234,8 +246,11 @@ async function indexVersion(
         properties: {
           url: { type: 'keyword' },
           title: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           content: { type: 'text', analyzer: 'text_analyzer' },
-          headings: { type: 'text' },
+          content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
+          headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           breadcrumbs: { type: 'text' },
           topics: { type: 'text' },
           popularity: { type: 'float' },
@@ -249,13 +264,16 @@ async function indexVersion(
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, topics } = doc
+    const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
       title,
-      title_autocomplete: title,
-      content: escapeHTML(content),
+      title_explicit: title,
+      content: contentEscaped,
+      content_explicit: contentEscaped,
       breadcrumbs,
       headings,
+      headings_explicit: headings,
       topics: topics.filter(Boolean),
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular

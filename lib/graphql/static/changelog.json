@@ -4,6 +4,67 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ClearProjectV2ItemFieldValueInput' was added</p>",
+          "<p>Type 'ClearProjectV2ItemFieldValuePayload' was added</p>",
+          "<p>Field <code>pullRequestReviewComment</code> was added to object type <code>DeletePullRequestReviewCommentPayload</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>Enterprise.members</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>EnterpriseOwnerInfo.admins</code></p>",
+          "<p>Field 'clearProjectV2ItemFieldValue<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CheckRunState</code> was added</p>",
+          "<p>Type <code>CheckRunStateCount</code> was added</p>",
+          "<p>Type <code>StatusContextStateCount</code> was added</p>",
+          "<p>Field <code>fields</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Field <code>checkRunCount</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>checkRunCountsByState</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>statusContextCount</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>statusContextCountsByState</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectV2View.visibleFields</code>:<code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>diffSide</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>line</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>startDiffSide</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>startLine</code> was added to object type <code>PullRequestThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>EnterpriseAllowPrivateRepositoryForkingPolicyValue</code> was added</p>",
           "<p>Field <code>changedFilesIfAvailable</code> was added to object type <code>Commit</code></p>",
           "<p>Field <code>allowPrivateRepositoryForkingSettingPolicyValue</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",

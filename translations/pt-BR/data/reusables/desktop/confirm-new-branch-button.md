@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ea69b4c8855481584b81aa3a7501579ee6a1a297
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145127757"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147885521"
 ---
 1. Clique em **Criar Branch**.

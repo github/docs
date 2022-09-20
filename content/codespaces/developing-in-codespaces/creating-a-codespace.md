@@ -150,4 +150,5 @@ For full details of the options for this command, see [the {% data variables.pro
 {% endcli %}
 
 ## Further reading
+- "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
 - "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

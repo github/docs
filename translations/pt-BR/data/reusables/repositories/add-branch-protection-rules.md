@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 004523ec6772ce099d370a3e76ec6b40ff3ea9e5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145095393"
+ms.locfileid: "147883422"
 ---
 4. Ao lado de "Regras de proteção de branch", clique em **Adicionar regra.** 
   ![Botão Adicionar regra de proteção de branch](/assets/images/help/branches/add-branch-protection-rule.png)

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: af055b3b51fb304529bc902576b6025b6018d4f2
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145096158"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881777"
 ---
 Este documento está traduzido do inglês. Em caso de qualquer conflito, incerteza ou aparente incoerência entre quaisquer versões traduzidas e o texto original em inglês, o documento em inglês prevalecerá.
 

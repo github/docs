@@ -16,8 +16,8 @@ ms.openlocfilehash: 3c9a6b5569563858987e338584b3b42bededf716
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129428'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883447'
 ---
 {% ifversion fpt or ghec %}
 

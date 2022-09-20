@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: dc6bad5b656bb5d755196146b017213b66d1730e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147653397"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884721"
 ---
 1. Git で SSH 署名キーを設定するには、以下のテキストを貼り付けて、使いたいキーにクリップボードの内容を置き換えます。 キーにはスペースが含まれるため、引用符で囲む必要があります。
   ```bash

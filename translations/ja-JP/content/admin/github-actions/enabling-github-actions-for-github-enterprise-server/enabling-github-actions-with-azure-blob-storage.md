@@ -14,10 +14,10 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
 ms.openlocfilehash: bcd92b12ec8ecd807906a3b2f7c09971d6641b93
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145120453'
 ---
 ## 前提条件

@@ -4,10 +4,10 @@ intro: 'Você pode usar {% data variables.product.prodname_desktop %} para reord
 versions:
   fpt: '*'
 ms.openlocfilehash: 5f68af5f2798e6780a91515886130f2b3ca7e6aa
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145095172'
 ---
 ## Sobre reordenar um commit

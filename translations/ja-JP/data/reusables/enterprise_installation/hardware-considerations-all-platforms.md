@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7de065c9dec15e3b92cabf5d3fa711c7d88249ba
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "147167396"
+ms.locfileid: "147882788"
 ---
 - [最小要件](#minimum-requirements)
 - [Storage](#storage)

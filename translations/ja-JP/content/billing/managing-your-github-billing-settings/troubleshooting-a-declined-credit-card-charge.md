@@ -14,11 +14,11 @@ topics:
   - Troubleshooting
 shortTitle: Declined credit card charge
 ms.openlocfilehash: 44ed836d24e23ceb7e805cccdad6e70203381bf5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145087845'
+ms.locfileid: '147884222'
 ---
 カードが拒否された場合、その支払いが拒否された理由についてメールが送られます。 再び請求される前、その問題を解決するための数日間の猶予があります。
 

@@ -14,10 +14,10 @@ versions:
 topics:
   - Repositories
 ms.openlocfilehash: fbe00d1568a2f746362d434e769aef2f3466bcf1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145127098'
 ---
 ## Sobre clonagem de um repositório
