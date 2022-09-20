@@ -1,7 +1,7 @@
 ---
 title: 更改默认分支
 intro: 如果仓库中有多个分支，您可以将任何分支配置为默认分支。
-permissions: People with admin permissions to a repository can change the default branch for the repository.
+permissions: People with admin access for a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'

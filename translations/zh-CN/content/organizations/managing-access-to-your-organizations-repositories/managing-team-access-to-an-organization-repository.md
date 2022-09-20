@@ -14,14 +14,14 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage team access
-ms.openlocfilehash: d03c6dcb8f1f386d0545ad99154edaf0991a987e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 34f912f4d5c55df30629b7b56200bef25281bf2d
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145127476'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876046'
 ---
-对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 团队维护员可以删除团队对仓库的访问权限。
+对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 如果团队能够直接访问存储库，团队维护员可以更改其对存储库的访问权限。 如果团队对存储库的访问权限继承自父团队，维护员可以选择重置当前权限以匹配父团队的权限。
 
 {% warning %}
 

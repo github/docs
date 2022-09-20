@@ -1172,6 +1172,18 @@
         "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
       },
       {
+        "slug": "list-codeql-databases-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases"
+      },
+      {
+        "slug": "get-a-codeql-database-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+      },
+      {
         "slug": "upload-an-analysis-as-sarif-data",
         "subcategory": "code-scanning",
         "verb": "post",
@@ -19920,6 +19932,18 @@
     ],
     "teams": [
       {
+        "slug": "get-an-external-group",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-group/{group_id}"
+      },
+      {
+        "slug": "list-external-groups-in-an-organization",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/external-groups"
+      },
+      {
         "slug": "list-teams",
         "subcategory": "teams",
         "verb": "get",
@@ -20008,6 +20032,12 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "subcategory": "external-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-team-members",

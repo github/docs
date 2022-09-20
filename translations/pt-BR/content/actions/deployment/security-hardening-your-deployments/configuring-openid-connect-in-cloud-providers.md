@@ -5,7 +5,6 @@ intro: Use o OpenID Connect dentro de seus fluxos de trabalho para efetuar a aut
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

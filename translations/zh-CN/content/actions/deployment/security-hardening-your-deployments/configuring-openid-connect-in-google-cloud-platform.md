@@ -5,7 +5,6 @@ intro: 在工作流程中使用 OpenID Connect 向 Google Cloud 平台进行身�
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

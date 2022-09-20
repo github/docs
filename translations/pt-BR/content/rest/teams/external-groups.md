@@ -3,6 +3,7 @@ title: Grupos externos
 intro: A API de grupos externos permite que você visualize os grupos de provedores de identidade externos que estão disponíveis para sua organização e gerencie a conexão entre grupos externos e equipes na sua organização.
 versions:
   fpt: '*'
+  ghes: '>=3.6'
   ghae: '*'
   ghec: '*'
 topics:

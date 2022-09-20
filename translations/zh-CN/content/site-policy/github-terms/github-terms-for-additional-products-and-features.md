@@ -12,12 +12,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 31b10a4119a78f8c98767f185a6ba65bbbbc012a
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 8797f3c85a5db4be9d00976619fd7adde470cb93
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099210'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858643'
 ---
 版本生效日期：2021 年 8 月 10 日
 
@@ -26,9 +26,9 @@ ms.locfileid: '147099210'
 使用附加产品和功能，即表示您也同意下面列出的适用的 GitHub 附加产品和功能条款。 违反这些 GitHub 附加产品和功能条款即为违反协议。 此处未定义的术语与协议中规定的含义相同。
 
 **对于企业用户**
-- **GitHub Enterprise Cloud** 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Codespaces、Dependabot Preview、GitHub Enterprise Importer、Learning Lab、Packages 和 Pages。 
+- GitHub Enterprise Cloud 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Codespaces、Dependabot Preview、GitHub Enterprise Importer、Packages 和 Pages。 
 
-- **GitHub Enterprise Server** 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、GitHub Enterprise Importer、Learning Lab、Packages、Pages 和 SQL Server Images。 
+- GitHub Enterprise Server 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、GitHub Enterprise Importer、Packages、Pages 和 SQL Server Images。 
 
 - **GitHub AE** 用户可以访问以下附加产品和功能：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、GitHub Enterprise Importer、Packages 和 Pages。
 
@@ -110,19 +110,6 @@ GitHub Copilot (i) 可以收集你的代码的片段，以及 (ii) 通过绑定�
 
 ## GitHub Enterprise Importer
 Importer 是将数据从其他源导出到 GitHub 平台的框架。 Importer“按原样”提供。
-
-## Learning Lab
-GitHub Learning Lab 提供已内置于 GitHub 的免费交互式课程，并提供即时自动反馈和帮助。
-
-课程材料。 GitHub 对其提供的课程材料具备所有权，并授予您在全球范围内有效的非独占、有限期、不可转让、免版税的许可，以便您出于与 Learning Lab 使用相关的内部业务目的而复制、维护、使用和运行这些课程材料。 
-
-开源许可证条款可能适用于课程材料中提供的源代码部分。 
-
-您对您所创建的课程材料具备所有权，并授予 GitHub 在全球范围内有效的非独占、有限期、不可转让、免版税的许可，以便其复制、维护、使用、托管和运行这些课程材料。 
-
-您对 GitHub 课程材料的使用以及对自己课程材料的创建和存储并不构成对任一方各自知识产权的共同所有权。
-
-对个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管理。
 
 ## npm
 npm 是一种软件包托管服务，允许您以私有方式或公开方式托管软件包，并将软件包用作项目中的依赖项。 npm 是 JavaScript 生态系统的记录注册表。 npm 公共注册表可以免费使用，但客户如果想要发布私有包或使用团队管理私有包，则需收取费用。 [npm 文档](https://docs.npmjs.com/)包含有关帐户类型限制以及如何管理[私有包](https://docs.npmjs.com/about-private-packages)和[组织](https://docs.npmjs.com/organizations)的详细信息。 [开源条款](https://www.npmjs.com/policies/open-source-terms)概述了可接受的 npm 注册表使用。 npm [solo](https://www.npmjs.com/policies/solo-plan) 和 [org](https://www.npmjs.com/policies/orgs-plan) 计划都有补充条款。 npm [使用条款](https://www.npmjs.com/policies/terms)适用于您对 npm 的使用。

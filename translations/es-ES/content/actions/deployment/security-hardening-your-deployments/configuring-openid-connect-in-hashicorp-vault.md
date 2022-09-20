@@ -5,7 +5,6 @@ intro: Utiliza OpenID Connect dentro de tus flujos de trabajo para autenticarte 
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

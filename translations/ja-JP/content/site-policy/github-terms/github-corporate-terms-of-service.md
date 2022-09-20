@@ -8,17 +8,14 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: eab72dc5769e26fd5de12865e29404e7271d4557
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 083bccdf0b4baf040d27bf4078c391001b60f206
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099205'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858649'
 ---
-_本条件は、1) 企業向けサービス条件に同意した GitHub.com (Enterprise でない) のお客様、および 2) 2021 年 1 月 4 日より前に本サービスのライセンスを取得した法人のお客様に適用されます。その日以降に製品またはサービスを購入した法人のお客様は、現在の条件の https://github.com/enterprise-legal に誘導されます。_
-
-貴社のビジネス ニーズに合わせて GitHub をお選びいただきありがとうございます。 本契約は、GitHub がその目的のためにお客様と別途書面による契約を締結していない限り、製品 (以下に定義) の使用を規定するため、注意深くお読みください。
-[同意する] ボタンまたは同様のボタンをクリックするか、製品にアクセスすることにより、お客様は本契約のすべての条件に同意したものとします。 お客様が企業またはその他の法人を代表して本契約を締結する場合、お客様は、当該の企業またはその他の法人を本契約に拘束する法的権限を有することを表明するものとします。
+本契約は、企業向けサービス条件を参照する契約を締結した GitHub.com ご利用のお客様に適用されます。その他すべての企業または機関のお客様は、[github.com/customer-terms](https://github.com/customer-terms) にアクセスして最新の契約条件をご確認ください。
 
 ## GitHub の企業向けサービス条件
 バージョン発効日:2020 年 11 月 16 日
