@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556533'
 ---
 GitHub は、多くの開発者に当社のプラットフォームをご愛用いただいていることを幸いに思います。 開発者の皆様に提供する体験をより良いものにすることが当社の願いです。  GitHub の開発者プログラム (以下「プログラム」といいます) は、お客様と当社とがつながり、情報を共有し、お客様のクリエイティブな取り組みを支援していくために役立つものです。 本プログラムが構築する GitHub と開発者コミュニティとの特別な関係には、特別な規約が必要となります。 登録開発者契約 (以下「契約」といいます) へようこそ。
 
