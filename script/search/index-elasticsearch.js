@@ -18,6 +18,7 @@ import dotenv from 'dotenv'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
+import statsd from '../../lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
@@ -285,7 +286,16 @@ async function indexVersion(
     return [{ index: { _index: thisAlias } }, record]
   })
 
-  const bulkResponse = await client.bulk({ refresh: true, body: operations })
+  // It's important to use `client.bulk.bind(client)` here because
+  // `client.bulk` is a meta-function that is attached to the Client
+  // class. Internally, it depends on `this.` even though it's a
+  // free-standing function. So if called indirectly by the `statsd.asyncTimer`
+  // the `this` becomes undefined.
+  const timed = statsd.asyncTimer(client.bulk.bind(client), 'search.bulk_index', [
+    `version:${version}`,
+    `language:${language}`,
+  ])
+  const bulkResponse = await timed({ refresh: true, body: operations })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
