@@ -4,6 +4,7 @@ import searchVersions from '../../lib/search/versions.js'
 import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
+import statsd from '../../lib/statsd.js'
 import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
 import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
@@ -107,8 +108,9 @@ router.get(
     )}-${language}`
 
     const hits = []
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:legacy'])
     try {
-      const searchResults = await getSearchResults({
+      const searchResults = await timed({
         indexName,
         query,
         page: 1,
@@ -235,8 +237,17 @@ router.get(
   notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
+
+    // The getSearchResults() function is a mix of preparing the search,
+    // sending & receiving it, and post-processing the response from the
+    // network (i.e. Elasticsearch).
+    // This measurement then combines both the Node-work and the total
+    // network-work but we know that roughly 99.5% of the total time is
+    // spent in the network-work time so this primarily measures that.
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:v1'])
+
     try {
-      const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
+      const { meta, hits } = await timed({ indexName, query, page, size, debug, sort })
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished
