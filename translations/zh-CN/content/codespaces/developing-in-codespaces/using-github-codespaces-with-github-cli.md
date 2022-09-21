@@ -1,7 +1,7 @@
 ---
-title: 将 GitHub Codespaces 与 GitHub CLI 配合使用
+title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
-intro: '可以使用 {% data variables.product.product_name %} 命令行界面 `gh` 直接从命令行使用 {% data variables.product.prodname_github_codespaces %}。'
+intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
 product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,202 +13,197 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
-ms.openlocfilehash: 7649692f45f0a899649baa2007d64e0a76bc32ec
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147877149'
 ---
-## 关于 {% data variables.product.prodname_cli %} 
 
-{% data reusables.cli.about-cli %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)。”
+## About {% data variables.product.prodname_cli %} 
 
-您可以在  {% data variables.product.prodname_cli %} 中使用 {% data variables.product.prodname_codespaces %}：
-  - [列出所有代码空间](#list-all-of-your-codespaces)
-  - [创建新的代码空间](#create-a-new-codespace)
-  - [停止 codespace](#stop-a-codespace)
-  - [删除 codespace](#delete-a-codespace)
-  - [通过 SSH 连接到 codespace](#ssh-into-a-codespace)
-  - [在 {% data variables.product.prodname_vscode %} 中打开 codespace](#open-a-codespace-in--data-variablesproductprodname_vscode-)
-  - [在 JupyterLab 中打开 codespace](#open-a-codespace-in-jupyterlab)
-  - [将文件复制到代码空间/从代码空间复制文件](#copy-a-file-tofrom-a-codespace)
-  - [修改 codespace 中的端口](#modify-ports-in-a-codespace)
-  - [访问 codespace 日志](#access-codespace-logs)
-  - [访问远程资源](#access-remote-resources)
+{% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-## 安装 {% data variables.product.prodname_cli %}
+You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
+  - [List all of your codespaces](#list-all-of-your-codespaces)
+  - [Create a new codespace](#create-a-new-codespace)
+  - [Stop a codespace](#stop-a-codespace)
+  - [Delete a codespace](#delete-a-codespace)
+  - [SSH into a codespace](#ssh-into-a-codespace)
+  - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+  - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
+  - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+  - [Modify ports in a codespace](#modify-ports-in-a-codespace)
+  - [Access codespace logs](#access-codespace-logs)
+  - [Access remote resources](#access-remote-resources)
+
+## Installing {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
  
-## 使用 {% data variables.product.prodname_cli %}
+## Using {% data variables.product.prodname_cli %}
 
-如果尚未执行此操作，请运行 `gh auth login` 对 {% data variables.product.prodname_dotcom %} 帐户进行身份验证。 
+If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
 
-若要使用 `gh` 处理 {% data variables.product.prodname_codespaces %}，请键入 `gh codespace <COMMAND>` 或其别名 `gh cs <COMMAND>`。
+To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
 
-作为可用于处理 {% data variables.product.prodname_github_codespaces %} 的一系列命令的示例，您可以： 
+As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
 
-* 列出当前 codespace，检查是否有特定存储库的 codespace：<br>
+* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
   `gh codespace list`
-* 为所需的存储库分支创建新的 codespace：<br>
+* Create a new codespace for the required repository branch:<br>
   `gh codespace create -r github/docs -b main`
-* 通过 SSH 连接到新的 codespace：<br>
+* SSH into the new codespace:<br>
   `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
-* 将端口转发到本地计算机：<br>
+* Forward a port to your local machine:<br>
   `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
 
-## {% data variables.product.prodname_github_codespaces %} 的 `gh` 命令
+## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
-以下各节给出了每个可用操作的示例命令。
+The sections below give example commands for each of the available operations.
 
-有关 {% data variables.product.prodname_github_codespaces %} 的 `gh` 命令的完整参考，包括每个命令的所有可用选项的详细信息，请参阅 {% data variables.product.prodname_cli %} 联机帮助以了解“[gh codespace](https://cli.github.com/manual/gh_codespace)”。 或者，在命令行上使用 `gh codespace [<SUBCOMMAND>...] --help`。
+For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, use `gh codespace [<SUBCOMMAND>...] --help` on the command line.
 
 {% note %}
 
-注意：与许多命令一起使用的 `-c <em>codespace-name</em>` 标志是可选的。 如果省略它，则会显示一个代码空间列表供您选择。
+**Note**: The `-c <em>codespace-name</em>` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
 
 {% endnote %}
 
-### 列出所有代码空间
+### List all of your codespaces
 
 ```shell
 gh codespace list
 ```
 
-该列表包含每个 codespace 的唯一名称，可在其他 `gh codespace` 命令中使用。
+The list includes the unique name of each codespace, which you can use in other `gh codespace` commands.
 
-### 创建新的代码空间
+### Create a new codespace
 
 ```shell
 gh codespace create -r <em>owner/repository</em> [-b <em>branch</em>]
 ```
 
-有关详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace)”。
+For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-### 停止代码空间
+### Stop a codespace
 
 ```shell
 gh codespace stop -c <em>codespace-name</em>
 ```
 
-有关详细信息，请参阅“深入了解 [{% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)”。
+For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
 
-### 删除代码空间
+### Delete a codespace
 
 ```shell
 gh codespace delete -c <em>codespace-name</em>
 ```
 
-有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)”。
+For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
-### SSH 到代码空间
+### SSH into a codespace
 
-要在远程代码空间计算机上运行命令，请从终端通过 SSH 进入代码空间。
+To run commands on the remote codespace machine, from your terminal, you can SSH into the codespace.
 
 ```shell
 gh codespace ssh -c <em>codespace-name</em>
 ```
 
-{% data variables.product.prodname_github_codespaces %} 在创建时将 GitHub SSH 密钥复制到代码空间中，以获得无缝的身份验证体验。 系统可能会要求您输入 SSH 密钥的密码，之后您将收到来自远程代码空间计算机的命令提示。
+{% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
 
-如果没有 SSH 密钥，请按照“[生成新的 SSH 密钥并将其添加到 ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”中的说明进行操作。
+If you don't have any SSH keys, follow the instructions in "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-### 在 {% data variables.product.prodname_vscode %} 中打开代码空间
+### Open a codespace in {% data variables.product.prodname_vscode %}
 
 ```shell
 gh codespace code -c <em>codespace-name</em>
 ```
 
-有关详细信息，请参阅“[在 {% data variables.product.prodname_vscode %} 中使用 {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)”。
+For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
 
-### 在 JupyterLab 中打开 codespace
+### Open a codespace in JupyterLab
 
 ```shell
 gh codespace jupyter -c <em>codespace-name</em>
 ```
 
-### 将文件复制到代码空间/从代码空间复制文件
+### Copy a file to/from a codespace
 
 ```shell
 gh codespace cp [-r] <em>source(s)</em> <em>destination</em> 
 ```
 
-使用文件或目录名称上的前缀 `remote:` 来指示它位于 codespace 上。 与 UNIX `cp` 命令一样，第一个参数指定源，最后一个参数指定目标。 如果目标是目录，则可以指定多个来源。 如果任何源是目录，请使用 `-r`（递归）标志。
+Use the prefix `remote:` on a file or directory name to indicate that it's on the codespace. As with the UNIX `cp` command, the first argument specifies the source and the last specifies the destination. If the destination is a directory, you can specify multiple sources. Use the `-r` (recursive) flag if any of the sources is a directory.
 
-代码空间上文件和目录的位置相对于远程用户的主目录。
+The location of files and directories on the codespace is relative to the home directory of the remote user.
 
-#### 示例
+#### Examples
 
-* 将文件从本地计算机复制到 codespace 的 `$HOME` 目录：
+* Copy a file from the local machine to the `$HOME` directory of a codespace:
 
    `gh codespace cp myfile.txt remote:`
 
-* 将文件复制到代码空间中检出存储库的目录：
+* Copy a file to the directory in which a repository is checked out in a codespace:
 
    `gh codespace cp myfile.txt remote:/workspaces/<REPOSITORY-NAME>`
 
-* 将文件从代码空间复制到本地计算机上的当前目录：
+* Copy a file from a codespace to the current directory on the local machine:
 
    `gh codespace cp remote:myfile.txt .`
 
-* 将三个本地文件复制到 codespace 的 `$HOME/temp` 目录：
+* Copy three local files to the `$HOME/temp` directory of a codespace:
 
    `gh codespace cp a1.txt a2.txt a3.txt remote:temp`
 
-* 将三个文件从代码空间复制到本地计算机上的当前工作目录：
+* Copy three files from a codespace to the current working directory on the local machine:
 
    `gh codespace cp remote:a1.txt remote:a2.txt remote:a3.txt .`
 
-* 将本地目录复制到 codespace 的 `$HOME` 目录：
+* Copy a local directory into the `$HOME` directory of a codespace:
 
    `gh codespace cp -r mydir remote:`
 
-* 将目录从代码空间复制到本地计算机，更改目录名称：
+* Copy a directory from a codespace to the local machine, changing the directory name:
 
    `gh codespace cp -r remote:mydir mydir-localcopy`
 
-有关 `gh codespace cp` 命令的详细信息，包括可以使用的其他标志，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_cp)。
+For more information about the `gh codespace cp` command, including additional flags you can use, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_cp).
 
-### 修改代码空间中的端口
+### Modify ports in a codespace
 
-您可以将代码空间上的端口转发到本地端口。 只要进程正在运行，端口就会保持转发状态。 若要停止转发端口，请按 <kbd>Control</kbd>+<kbd>C</kbd>。
+You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>
 ```
 
-若要查看转发端口的详细信息，请输入 `gh codespace ports` 并选择一个 codespace。
+To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
 
-您可以设置转发端口的可见性。 {% data reusables.codespaces.port-visibility-settings %}
+You can set the visibility of a forwarded port. {% data reusables.codespaces.port-visibility-settings %}
 
 ```shell
 gh codespace ports visibility <em>codespace-port</em>:<em>private|org|public</em> -c <em>codespace-name</em>
 ```
 
-您可以使用一个命令设置多个端口的可见性。 例如：
+You can set the visibility for multiple ports with one command. For example:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
 ```
 
-有关详细信息，请参阅“[在 codespace 中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)。”
+For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
-### 访问代码空间日志
+### Access codespace logs
 
-您可以查看代码空间的创建日志。 输入此命令后，系统将要求您输入 SSH 密钥的密码。
+You can see the creation log for a codespace. After entering this command you will be asked to enter the passphrase for your SSH key.
 
 ```shell
 gh codespace logs -c <em>codespace-name</em>
 ```
 
-有关创建日志的详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 日志](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)”。
+For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
 
-### 访问远程资源 
-可以使用 {% data variables.product.prodname_cli %} 扩展在 codespace 和本地计算机之间创建网桥，以便 codespace 可以访问可从计算机访问的任何远程资源。 有关使用扩展的详细信息，请参阅“[使用 {% data variables.product.prodname_cli %} 访问远程资源](https://github.com/github/gh-net#codespaces-network-bridge)”。
+### Access remote resources 
+You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
 {% note %}
 
-注意：{% data variables.product.prodname_cli %} 扩展目前为 beta 版本，可能会有变动。 
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
-title: 代码空间的创建和删除疑难解答
-intro: 本文提供了在创建或删除代码空间时可能遇到的常见问题（包括存储和配置问题）的疑难解答步骤。
+title: Troubleshooting creation and deletion of codespaces
+intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,51 +9,48 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
-ms.openlocfilehash: 0a93ef45affe3f19e3e679d909db432ddd6b3e97
-ms.sourcegitcommit: 3a16368cd8beb8b8487eb77d3e597cf49f4c4335
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2022
-ms.locfileid: '147110832'
 ---
-## <a name="creating-codespaces"></a>创建代码空间
 
-### <a name="no-access-to-create-a-codespace"></a>没有创建代码空间的权限
-{% data variables.product.prodname_codespaces %} 并非对所有存储库都可用。 如果缺少“使用 Codespaces 打开”按钮，{% data variables.product.prodname_github_codespaces %} 则可能不适用于该存储库。 有关详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)”。
+## Creating codespaces
 
-如果你认为你的组织[已启用 {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization)，请确保组织所有者或帐单管理员已设置 {% data variables.product.prodname_codespaces %} 的支出限制。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”。
+### No access to create a codespace
+{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)."
 
-### <a name="codespace-does-not-open-when-created"></a>代码空间在创建时未打开
+You can't create a codespace for a private repository that's owned by an organization, unless you have write access to the repository or the organization has enabled forking for it.
 
-如果创建了代码空间，但未打开：
+If you believe your organization has [enabled {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#about-enabling-github-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_github_codespaces %}. For more information, see "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
 
-1. 如果出现缓存或报告问题，请尝试重新加载页面。
-2. 转到 {% data variables.product.prodname_github_codespaces %} 页面： https://github.com/codespaces ，检查新的 codespace 是否在此处列出。 该过程可能已成功创建代码空间，但未向浏览器报告。 如果列出了新的代码空间，则可以直接从该页打开它。
-3. 重试为存储库创建代码空间，以排除暂时性通信故障。
+### Codespace does not open when created
 
-如果仍然无法为其中 {% data variables.product.prodname_codespaces %} 可用的存储库创建代码空间，请 {% data reusables.codespaces.contact-support %}
+If you create a codespace and it does not open:
 
-## <a name="deleting-codespaces"></a>删除代码空间
+1. Try reloading the page in case there was a caching or reporting problem.
+2. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
+3. Retry creating the codespace for the repository to rule out a transient communication failure.
 
-代码空间的所有者对其拥有完全控制权限，只有他们才能删除其代码空间。 您不能删除由其他用户创建的代码间。
+If you still cannot create a codespace for a repository where {% data variables.product.prodname_github_codespaces %} is available, {% data reusables.codespaces.contact-support %}
 
-可以在浏览器中、在 {% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 删除 codespace。 {% data variables.product.prodname_cli %} 还允许批量删除 codespace。 有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)”。
+## Deleting codespaces
 
-## <a name="container-storage"></a>容器存储
+The owner of a codespace has full control over it and only they can delete their codespaces. You cannot delete a codespace created by another user.
 
-创建代码空间时，存储量是有限的，随着时间的推移，可能需要释放空间。 尝试在 {% data variables.product.prodname_codespaces %} 终端中运行以下任一命令以释放存储空间。
+You can delete your codespaces in the browser, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} also allows you to bulk delete codespaces. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
-- 使用 `sudo apt autoremove` 删除不再使用的包。
-- 使用 `sudo apt clean` 清理 apt 缓存.
-- 使用 `sudo find / -printf '%s %p\n'| sort -nr | head -10` 查看 codespace 中前 10 个最大的文件。
-- 删除不需要的文件，如生成工件和日志。
+## Container storage
 
-一些更具破坏性的选项：
+When you create a codespace, it has a finite amount of storage and over time it may be necessary for you to free up space. Try running any of the following commands in the {% data variables.product.prodname_github_codespaces %} terminal to free up storage space.
 
-- 使用 `docker system prune`（如果要删除所有映像，请追加 `-a`；如果要删除所有卷，请追加 `--volumes`）删除不使用的 Docker 映像、网络和容器。
-- 从工作树中删除不跟踪的文件：`git clean -i`。
+- Remove packages that are no longer used by using `sudo apt autoremove`.
+- Clean the apt cache by using `sudo apt clean`.
+- See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
+- Delete unneeded files, such as build artifacts and logs.
 
-## <a name="configuration"></a>配置
+Some more destructive options:
+
+- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
+- Remove untracked files from working tree: `git clean -i`.
+
+## Configuration
 
 {% data reusables.codespaces.recovery-mode %}
 
@@ -61,4 +58,4 @@ ms.locfileid: '147110832'
 This codespace is currently running in recovery mode due to a container error.
 ```
 
-查看创建日志，根据需要更新开发容器配置，并在 {% data variables.product.prodname_vscode_command_palette %} 中运行 Codespaces: Rebuild Container 来重试。 有关详细信息，请参阅“[Codespace 日志](/codespaces/troubleshooting/codespaces-logs)”和“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)”。
+Review the creation logs, update the dev container configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."

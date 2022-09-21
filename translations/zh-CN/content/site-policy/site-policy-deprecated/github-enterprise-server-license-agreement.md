@@ -7,13 +7,8 @@ redirect_from:
   - /github/site-policy-deprecated/github-enterprise-server-license-agreement
 versions:
   fpt: '*'
-ms.openlocfilehash: 46e22d433532263ebef0599c92f7563b96257d1b
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099264'
 ---
+
 这些条款适用于已签署相关协议的客户。所有其他公司客户将定向到 https://www.github.com/customer-terms 以查看最新条款。
 
 本协议适用于以下 GitHub 产品，详细定义见下文（统称为 **“产品”**）：
