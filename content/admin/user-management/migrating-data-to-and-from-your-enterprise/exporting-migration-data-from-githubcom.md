@@ -44,7 +44,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * A [list of the repositories](/free-pro-team@latest/rest/repos#list-organization-repositories) you want to migrate:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
       -H "Accept: application/vnd.github+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
@@ -59,7 +59,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
@@ -74,7 +74,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
@@ -84,7 +84,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" \
       -X DELETE \
       -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive

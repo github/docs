@@ -1,6 +1,14 @@
-使用 `workflow_dispatch` 事件时，您可以选择性指定传递到工作流程的输入。
+---
+ms.openlocfilehash: 6a71d461562c3d6e390549739ac1f17cb274f3f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146199791"
+---
+使用 `workflow_dispatch` 事件时，你可以选择性指定传递到工作流的输入。
 
-触发的工作流程接收 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入。 更多信息请参阅“[上下文]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})”。
+触发的工作流在 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中接收输入。 有关详细信息，请参阅“[上下文]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})。”
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

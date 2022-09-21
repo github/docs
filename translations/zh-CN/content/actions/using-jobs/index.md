@@ -1,6 +1,6 @@
 ---
 title: 使用作业
-shortTitle: 使用作业
+shortTitle: Using jobs
 intro: '创建和管理 {% data variables.product.prodname_actions %} 作业。'
 redirect_from:
   - /actions/jobs
@@ -20,5 +20,11 @@ children:
   - /setting-default-values-for-jobs
   - /assigning-permissions-to-jobs
   - /defining-outputs-for-jobs
+ms.openlocfilehash: 6de2fd2719c09a2a6c569ca3e423b08cd526db88
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145100152'
 ---
 

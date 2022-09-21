@@ -12,7 +12,13 @@ redirect_from:
 children:
   - /managing-encrypted-secrets-for-your-codespaces
   - /managing-repository-access-for-your-codespaces
-  - /reviewing-your-security-logs-for-codespaces
-  - /managing-gpg-verification-for-codespaces
+  - /reviewing-your-security-logs-for-github-codespaces
+  - /managing-gpg-verification-for-github-codespaces
+ms.openlocfilehash: 6c72368956f8b9904e8451b3afd12e34344841a0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111291'
 ---
 

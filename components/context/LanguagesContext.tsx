@@ -5,12 +5,10 @@ type LanguageItem = {
   nativeName?: string
   code: string
   hreflang: string
-  wip?: boolean
 }
 
 export type LanguagesContextT = {
   languages: Record<string, LanguageItem>
-  userLanguage: string
 }
 
 export const LanguagesContext = createContext<LanguagesContextT | null>(null)

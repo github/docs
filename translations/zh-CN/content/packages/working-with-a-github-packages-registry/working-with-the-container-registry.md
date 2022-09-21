@@ -18,19 +18,19 @@ versions:
   ghes: '>= 3.5'
 shortTitle: Container registry
 ---
+
+{% data reusables.package_registry.container-registry-ghes-beta %}
+
+## About the {% data variables.product.prodname_container_registry %}
+
+{% data reusables.package_registry.container-registry-benefits %}
+
 {% ifversion ghes > 3.4 %}
-{% note %}
 
-**Note**: {% data variables.product.prodname_container_registry %} is currently in beta for {% data variables.product.product_name %} and subject to change.
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
-{% endnote %}
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
-## Prerequisites
-
-To configure and use the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %}, your site administrator must first enable {% data variables.product.prodname_registry %} **and** subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
-{% endif %}
 ## About {% data variables.product.prodname_container_registry %} support
 
 The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
@@ -42,7 +42,9 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 ## Authenticating to the {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
+To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+{% endif %}
 
 {% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.product.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
 

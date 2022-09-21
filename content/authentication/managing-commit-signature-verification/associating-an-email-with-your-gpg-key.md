@@ -50,13 +50,13 @@ If you're using a GPG key that matches your committer identity and your verified
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 - "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
 - "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Signing commits](/articles/signing-commits)"
 - "[Signing tags](/articles/signing-tags)"

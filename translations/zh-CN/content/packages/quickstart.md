@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
+title: GitHub Packages 快速入门
+intro: '通过 {% data variables.product.prodname_actions %} 发布到 {% data variables.product.prodname_registry %}。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -8,29 +8,34 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: 207b91e821037a6eb61ae7bc9b18c98d8b14fdd2
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876154'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
+在本指南中，您将创建 {% data variables.product.prodname_actions %} 工作流程来测试代码，然后将其发布到 {% data variables.product.prodname_registry %}。
 
-## Publishing your package
+## 发布包
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
+1. 在 {% data variables.product.prodname_dotcom %} 上创建新存储库，为节点添加 `.gitignore`。 有关详细信息，请参阅“[创建新存储库](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)”。
+2. 将存储库克隆到本地计算机。
     ```shell
     $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
+3. 创建 `index.js` 文件，并添加指示“Hello world!”的基本警报
     {% raw %}
     ```javascript{:copy}
     console.log("Hello, World!");
     ```
     {% endraw %}
-4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
+4. 使用 `npm init` 初始化 npm 包。 在包初始化向导中，输入名称为 _`@YOUR-USERNAME/YOUR-REPOSITORY`_ 的包，并将测试脚本设置为 `exit 0`。 这将生成一个 `package.json` 文件，其中包含有关包的信息。
     {% raw %}
     ```shell
     $ npm init
@@ -41,15 +46,15 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       ...    
     ```
     {% endraw %}
-5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
+5. 运行 `npm install` 以生成 `package-lock.json` 文件，然后提交更改并将其推送到 {% data variables.product.prodname_dotcom %}。
     ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+6. 创建 `.github/workflows` 目录。 在此目录中，创建名为 `release-package.yml` 的文件。
+7. 将以下 YAML 内容复制到 `release-package.yml` 文件{% ifversion ghes or ghae %} 中，将 `YOUR-HOSTNAME` 替换为企业名称{% endif %}。
     ```yaml{:copy}
     name: Node.js Package
 
@@ -85,22 +90,20 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
-      {% raw %}
+8. 告诉 NPM 使用以下方法之一发布包的范围和注册表：
+   - 在根目录中创建包含以下内容的 `.npmrc` 文件，为存储库添加 NPM 配置文件：{% raw %}
       ```shell
       <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
-   - Edit the `package.json` file and specify the `publishConfig` key:
-      {% raw %}
+   - 编辑 `package.json` 文件并指定 `publishConfig` 密钥：{% raw %}
       ```shell
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
       {% endraw %}
-9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+9. 提交并推送更改到 {% data variables.product.prodname_dotcom %}。
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
@@ -108,28 +111,26 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+10.  只要您的仓库中创建新版本，您创建的工作流程就会运行。 如果测试通过，则包将发布到 {% data variables.product.prodname_registry %}。
     
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+    要测试这一点，请导航到存储库中的“代码”选项卡，并创建新版本。 有关详细信息，请参阅“[管理存储库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)”。
 
-## Viewing your published package
+## 查看已发布的包
 
-You can view all of the packages you have published.
+您可以查看您发布的所有软件包。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
-{% data reusables.package_registry.navigate-to-packages %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.navigate-to-packages %}
 
-## Installing a published package
+## 安装已发布的包
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+现在，您已发布包，您需要使用它作为项目之间的依赖项。 有关详细信息，请参阅“[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)”。
 
-## Next steps
+## 后续步骤
 
-The basic workflow you just added runs any time a new release is created in your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
+您刚刚添加的基本工作流程在仓库中创建新版本时运行。 但是，这只是您可以对 {% data variables.product.prodname_registry %} 执行操作的开始。 您可以使用单个工作流和将包发布到多个注册表，触发工作流程以在发生不同事件（如合并拉取请求、管理容器等）时运行。
 
-Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
+合并 {% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_actions %} 可以帮助您实现应用程序开发过程几乎每个方面的自动化。 准备好开始了吗？ 以下是一些有用的资源，可用于执行 {% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_actions %} 的后续步骤：
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+- 有关 GitHub 包的深入教程，请“[了解 {% data variables.product.prodname_registry %}](/packages/learn-github-packages)”。
+- 有关 GitHub Actions 的深入教程，请“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”
+- 有关特定用例和示例，请“[使用 {% data variables.product.prodname_registry %} 注册表](/packages/working-with-a-github-packages-registry)”

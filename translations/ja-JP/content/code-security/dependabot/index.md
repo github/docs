@@ -1,7 +1,7 @@
 ---
-title: Keeping your supply chain secure with Dependabot
+title: Dependabot を使用してサプライ チェーンを安全に保つ
 shortTitle: Dependabot
-intro: 'Monitor vulnerabilities in dependencies used in your project{% ifversion fpt or ghec or ghes > 3.2 %} and keep your dependencies up-to-date{% endif %} with {% data variables.product.prodname_dependabot %}.'
+intro: '{% data variables.product.prodname_dependabot %} を使って、プロジェクトで使用される依存関係の脆弱性を監視し{% ifversion fpt or ghec or ghes > 3.2 %}、依存関係を最新の状態に保ちます{% endif %}。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -19,5 +19,11 @@ children:
   - /dependabot-security-updates
   - /dependabot-version-updates
   - /working-with-dependabot
+ms.openlocfilehash: 82b385ab7177adfe568344c0dc04357ffafeb0b3
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145124835'
 ---
 

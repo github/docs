@@ -1,74 +1,79 @@
 ---
-title: Acerca de los tableros de proyecto
-intro: 'Los tableros de proyecto en {% data variables.product.product_name %} te ayudan a organizar y priorizar tu trabajo. Puedes crear tableros de proyecto para un trabajo con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos. Con los tableros de proyecto, tienes la flexibilidad de crear flujos de trabajo personalizados que se adapten a tus necesidades.'
+title: 'Acerca de {% data variables.product.prodname_projects_v1 %}'
+intro: '{% data variables.product.prodname_projects_v1_caps %} en {% data variables.product.product_name %} te ayudan a organizar y priorizar el trabajo. Puedes crear instancias de {% data variables.projects.projects_v1_boards %} para un trabajo con características específicas, hojas de ruta completas y hasta listas de comprobación de versiones. Con {% data variables.product.prodname_projects_v1 %}, tienes la flexibilidad de crear flujos de trabajo personalizados adaptados a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 5ec81cf456ddca503e58ca6703ae3372875bd62c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614243'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
+Las instancias de {% data variables.projects.projects_v1_boards_caps %} están formadas por incidencias, solicitudes de incorporación de cambios y notas que se categorizan como tarjetas en las columnas que elijas. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
 
-Las tarjetas del tablero de proyecto contienen metadatos relevantes para las propuestas y las solicitudes de extracción, como etiquetas, asignatarios, el estado y quién la abrió. {% data reusables.project-management.edit-in-project %}
+Las tarjetas de {% data variables.projects.projects_v1_board_caps %} contienen metadatos relevantes para las incidencias y las solicitudes de incorporación de cambios, como etiquetas, usuarios asignados, el estado y quién las ha abierto. {% data reusables.project-management.edit-in-project %}
 
-También puedes crear notas dentro de las columnas para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde cualquier repositorio en {% data variables.product.product_location %}, o agregar información relacionada con tu tablero de proyecto. Puedes crear una tarjeta de referencia para otro tablero de proyecto agregando un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para obtener más información sobre cómo convertir las notas del tablero de proyecto en propuestas, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
+Puedes crear notas dentro de las columnas que sirvan como recordatorios de tareas, referencias a incidencias y solicitudes de incorporación de cambios desde cualquier repositorio en {% data variables.product.product_location %}, o bien para agregar información relacionada con la instancia de {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otra instancia de {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para más información sobre cómo convertir notas en incidencias, consulta "[Adición de notas a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
 
 Tipos de tableros de proyecto:
 
-- Los **tableros de proyecto propiedad del usuario** pueden contener propuestas y solicitudes de extracción de cualquier repositorio personal.
-- Los **tableros de proyecto para toda la organización** pueden contener propuestas y solicitudes de extracción de cualquier repositorio que pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta "[Enlazar un repositorio a un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
-- Los **tableros de proyecto para un repositorio** están limitados a las propuestas y las solicitudes de extracción dentro de un único repositorio. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
+- **Las instancias de {% data variables.projects.projects_v1_board %}** pueden contener incidencias y solicitudes de incorporación de cambios de cualquier repositorio personal.
+- **Las instancias de {% data variables.projects.projects_v1_board %} para toda la organización** pueden contener incidencias y solicitudes de incorporación de cambios de cualquier repositorio que pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para más información, consulta "[Vinculación de un repositorio a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
+- **Las instancias de {% data variables.projects.projects_v1_board %} de repositorio** tienen como ámbito incidencias y solicitudes de incorporación de cambios dentro de un único repositorio. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
 
-## Crear y ver tableros de proyecto
+## Creación y visualización de {% data variables.projects.projects_v1_boards %}
 
-Para crear un tablero de proyecto para tu organización, debes ser un miembro de la organización. Los propietarios de la organización y las personas con permisos de administrador para el tablero de proyecto pueden personalizar el acceso al tablero de proyecto.
+A fin de crear una instancia de {% data variables.projects.projects_v1_board %} para la organización, debes ser miembro de la organización. Los propietarios de la organización y los usuarios con permisos de administrador de {% data variables.projects.projects_v1_board %} pueden personalizar el acceso a la instancia de {% data variables.projects.projects_v1_board %}.
 
-Si un tablero de proyecto propiedad de la organización incluye propuestas o solicitudes de extracción de un repositorio del que no tienes permiso para ver, la tarjeta será censurada.  Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-La vista actividad muestra el historial reciente del tablero de proyecto, como las tarjetas que alguien creó o movió entre las columnas. Para acceder a la vista actividad, haz clic en **Menú** y desplázate hacia abajo.
+Si una instancia de {% data variables.projects.projects_v1_board %} propiedad de la organización incluye incidencias o solicitudes de incorporación de cambios de un repositorio del que no tienes permiso para ver, la tarjeta será censurada.  Para más información, consulta "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-Para encontrar tarjetas específicas en un tablero de proyecto o para ver un subconjunto de tarjetas, puedes filtrar las tarjetas del tablero de proyecto. Para obtener más información, consulta "[Filtrar tarjetas en un tablero de proyecto](/articles/filtering-cards-on-a-project-board)".
+En la vista de actividad se muestra el historial reciente de la instancia de {% data variables.projects.projects_v1_board %}, como las tarjetas que alguien ha creado o movido entre las columnas. Para acceder a la vista de actividad, haz clic en **Menú** y desplázate hacia abajo.
 
-Para simplificar tu flujo de trabajo y para mantener las tareas completadas al margen de tu tablero de proyecto, puedes archivar tarjetas. Para obtener más información, consulta "[Archivar tarjetas en un tablero de proyecto](/articles/archiving-cards-on-a-project-board)".
+Para buscar tarjetas específicas en una instancia de {% data variables.projects.projects_v1_board %} o ver un subconjunto de las tarjetas, puedes filtrar las tarjetas de {% data variables.projects.projects_v1_board %}. Para más información, consulta "[Filtrado de tarjetas en una instancia de {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)".
 
-Si has completado todas las tareas de tu tablero de proyecto o ya no necesitas usar tu tablero de proyecto, puedes cerrar el tablero de proyecto. Para obtener más información, consulta "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)".
+Para simplificar el flujo de trabajo y mantener las tareas completadas fuera de la instancia de {% data variables.projects.projects_v1_board %}, puedes archivar tarjetas. Para más información, consulta "[Archivado de tarjetas en una instancia de {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)".
 
-También puedes [desactivar tableros de proyecto en un repositorio](/articles/disabling-project-boards-in-a-repository) o [desactivar tableros de proyecto en tu organización](/articles/disabling-project-boards-in-your-organization), si prefieres hacer un seguimiento de tu trabajo de manera diferente.
+Si ha completado todas las tareas de {% data variables.projects.projects_v1_board %} o ya no necesita usar los datos {% data variables.projects.projects_v1_board %}, puede cerrar los datos {% data variables.projects.projects_v1_board %}. Para más información, consulta "[Cierre de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)".
+
+También puedes [deshabilitar {% data variables.projects.projects_v1_boards %} en un repositorio](/articles/disabling-project-boards-in-a-repository) o [deshabilitar {% data variables.projects.projects_v1_boards %} en la organización](/articles/disabling-project-boards-in-your-organization), si prefieres realizar el seguimiento del trabajo de otra manera.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Plantillas para tableros de proyecto
+## Plantillas para {% data variables.projects.projects_v1_boards %}
 
-Puedes usar plantillas para configurar de forma rápida un nuevo tablero de proyecto. Cuando usas una plantilla para crear un tablero de proyecto, tu nuevo tablero incluirá columnas, así como tarjetas con sugerencias para usar los tableros de proyecto. También puedes elegir una plantilla con la automatización ya configurada.
+Puedes usar plantillas para configurar rápidamente una nueva instancia de {% data variables.projects.projects_v1_board %}. Al usar una plantilla para crear una instancia de {% data variables.projects.projects_v1_board %}, el nuevo panel incluirá columnas, así como tarjetas con sugerencias para usar {% data variables.product.prodname_projects_v1 %}. También puedes elegir una plantilla con la automatización ya configurada.
 
-| Plantilla                       | Descripción                                                                                                                                                                         |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Kanban básico                   | Hace un seguimiento de tus tareas con las columnas Tareas pendientes, En progreso y Hecho                                                                                           |
-| Kanban automatizado             | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho                                                                                    |
+| Plantilla | Descripción |
+| --- | --- |
+| Kanban básico | Hace un seguimiento de tus tareas con las columnas Tareas pendientes, En progreso y Hecho |
+| Kanban automatizado | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho | 
 | Kanba automatizado con revisión | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho, con disparos adicionales para el estado de la revisión de solicitud de extracción |
-| Evaluación de error             | Evalúa y prioriza errores con las columnas Tareas pendientes, Prioridad alta, Prioridad baja y Cerrado                                                                              |
+| Evaluación de error | Evalúa y prioriza errores con las columnas Tareas pendientes, Prioridad alta, Prioridad baja y Cerrado |
 
-Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards)".
+Para más información sobre la automatización de {% data variables.product.prodname_projects_v1 %}, consulta "[Acerca de la automatización de {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
-![Tablero de proyecto con plantilla de kanban básico](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![{% data variables.product.prodname_project_v1 %} con plantilla Kanban básica](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
-## Leer más
+## Información adicional
 
-- "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
-- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
-- "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
-- "[Atajos del teclado](/articles/keyboard-shortcuts/#project-boards)"
+- "[Creación de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
+- "[Edición de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copia de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- "[Adición de incidencias y solicitudes de incorporación de cambios a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+- "[Métodos abreviados de teclado](/articles/keyboard-shortcuts/#project-boards)"

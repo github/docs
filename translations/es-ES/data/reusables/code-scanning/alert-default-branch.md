@@ -1,1 +1,9 @@
-The status and details on the alert page only reflect the state of the alert on the default branch of the repository, even if the alert exists in other branches. You can see the status of the alert on non-default branches in the **Affected branches** section on the right-hand side of the alert page. If an alert doesn't exist in the default branch, the status of the alert will display as "in pull request" or "in branch" and will be colored grey.
+---
+ms.openlocfilehash: 758c743dc4e469cf175eb14e9ead9f8c4216c578
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147063014"
+---
+El estado y los detalles de la página de alertas solo reflejan el estado de la alerta en la rama predeterminada del repositorio, incluso si la alerta existe en otras ramas. Puede ver el estado de la alerta en ramas no predeterminadas en la sección **Ramas afectadas** del lado derecho de la página de alertas. Si una alerta no existe en la rama predeterminada, el estado de la alerta se mostrará como "en la solicitud de incorporación de cambios" o "en la rama", y tendrá un color gris.

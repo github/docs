@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@7fb802b3079a276cf3c7e6ba9aa003c665b3f838
+      - uses: actions/stale@9c1b1c6e115ca2af09755448e0dbba24e5061cc8
         with:
           only-labels: needs SME
           remove-stale-when-updated: true
-          days-before-stale: 7 # adds stale label if no activity for 7 days
+          days-before-stale: 28 # adds stale label if no activity for 7 days - temporarily changed to 28 days as we work through the backlog
           stale-issue-message: 'This is a gentle bump for the docs team that this issue is waiting for technical review.'
           stale-issue-label: SME stale
           days-before-issue-close: -1 # never close

@@ -1,48 +1,51 @@
 ---
-title: Acerca de automatización de tableros de proyecto
-intro: Puedes configurar flujos de trabajo automáticos para mantener el estado de las tarjetas del tablero de proyecto en sincronización con las propuestas y las solicitudes de extracción asociadas.
+title: 'Acerca de la automatización de {% data variables.product.prodname_projects_v1 %}'
+intro: 'Puedes configurar flujos de trabajo automáticos para mantener el estado de las tarjetas del tablero de {% data variables.projects.projects_v1_board %} en sincronización con las incidencias y las solicitudes de incorporación de cambios asociadas.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Automatización para tableros de proyecto
+shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 76cea8f38d7470bd7b6212ae1f93601b5e8c923b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423344'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  Para obtener más información, consulta "[Permisos del tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+{% data reusables.project-management.automate-project-board-permissions %} Para más información, consulta "[Permisos de {% data variables.product.prodname_projects_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-Puedes automatizar acciones en función de los eventos desencadenantes para las columnas del tablero de proyecto. Esto elimina algunas tareas manuales en la administración de un tablero de proyecto. Por ejemplo, puedes configurar una columna "Tareas pendientes", donde cualquier propuesta o solicitud de extracción que agregues a un tablero de proyecto se mueva automáticamente a la columna configurada. Para obtener más información, consulta "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)".
+Puedes automatizar acciones basadas en eventos desencadenados para columnas de {% data variables.projects.projects_v1_board %}. Esto elimina algunas de las tareas manuales para administrar una instancia de {% data variables.projects.projects_v1_board %}. Por ejemplo, puedes configurar una columna "Tareas pendientes", donde cualquier incidencia o solicitud de incorporación de cambios que agregues a una instancia de {% data variables.projects.projects_v1_board %} se mueva automáticamente a la columna configurada. Para más información, consulta "[Configuración de automatización para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)".  
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-La automatización del tablero de proyecto también puede ayudar a los equipos a desarrollar un entendimiento común del propósito de un tablero de proyecto y del proceso de desarrollo del equipo creando un flujo de trabajo estándar para ciertas acciones.
+La automatización de {% data variables.projects.projects_v1_board_caps %} también puede ayudar a los equipos a desarrollar una comprensión compartida del propósito de una instancia de {% data variables.projects.projects_v1_board %} y el proceso de desarrollo del equipo mediante la creación de un flujo de trabajo estándar para determinadas acciones.
 
 {% data reusables.project-management.resync-automation %}
 
 ## Opciones de automatización
 
 | Columna preestablecida | Opciones de configuración |
-| ---------------------- | ------------------------- |
-| Tarea pendientes       | <ul><li>Mover todas las propuestas agregadas recientemente aquí.</li><li>Mover todas las solicitudes de extracción agregadas recientemente aquí.</li><li>Mover todas las propuestas que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que se volvieron a abrir aquí.</li></ul> |
-| En curso               | <ul><li>Mover todas las solicitudes de extracción que se volvieron a abrir recientemente aquí.</li><li>Mover todas las propuestas que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li><li>Mover todas las solicitudes de extracción que ya no cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li></ul> |
-| Done                   | <ul><li>Mover todas las propuestas cerradas aquí.</li><li>Mover todas las solicitudes de extracción fusionadas aquí.</li><li>Mover todas las solicitudes de extracción cerradas, sin fusionar aquí.</li></ul> |
+| --- | --- |
+| Tareas pendientes | <ul><li>Mover todas las propuestas agregadas recientemente aquí.</li><li>Mover todas las solicitudes de extracción agregadas recientemente aquí.</li><li>Mover todas las propuestas que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que se volvieron a abrir aquí.</li></ul> |
+| En curso | <ul><li>Mover todas las solicitudes de extracción que se volvieron a abrir recientemente aquí.</li><li>Mover todas las propuestas que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li><li>Mover todas las solicitudes de extracción que ya no cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li></ul> |
+| Listo | <ul><li>Mover todas las propuestas cerradas aquí.</li><li>Mover todas las solicitudes de extracción fusionadas aquí.</li><li>Mover todas las solicitudes de extracción cerradas, sin fusionar aquí.</li></ul> |
 
 ## Seguimiento de progreso del proyecto
 
-Puedes rastrear el progreso en tu tablero de proyecto. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
+Puedes realizar el seguimiento del progreso de la instancia de {% data variables.projects.projects_v1_board %}. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
 
-Para obtener más información, consulta la sección "[Rastrear el progreso en tu tablero de proyecto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
+Para más información, consulta "[Seguimiento del progreso de {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
-## Leer más
-- "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
+## Información adicional
+- "[Configuración de la automatización para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Copia de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

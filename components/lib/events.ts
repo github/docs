@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
-import getCsrf from './get-csrf'
-import parseUserAgent from './user-agent'
+import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
 
 const startVisitTime = Date.now()
 
+let initialized = false
 let cookieValue: string | undefined
 let pageEventId: string | undefined
 let maxScrollY = 0
@@ -84,8 +84,6 @@ function getMetaContent(name: string) {
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
   const body = {
-    _csrf: getCsrf(),
-
     type,
 
     context: {
@@ -130,7 +128,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
   }
 
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-  const endpoint = '/events'
+  const endpoint = '/api/events'
   try {
     // Only send the beacon if the feature is not disabled in the user's browser
     // Even if the function exists, it can still throw an error from the call being blocked
@@ -272,7 +270,9 @@ function initPrintEvent() {
   })
 }
 
-export default function initializeEvents() {
+export function initializeEvents() {
+  if (initialized) return
+  initialized = true
   initPageAndExitEvent() // must come first
   initLinkEvent()
   initClipboardEvent()

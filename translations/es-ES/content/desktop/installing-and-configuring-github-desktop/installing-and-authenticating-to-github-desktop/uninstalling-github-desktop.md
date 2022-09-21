@@ -6,23 +6,34 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
   fpt: '*'
-shortTitle: Desinstalar GitHub Desktop
+shortTitle: Uninstall GitHub Desktop
+ms.openlocfilehash: 1aa09eea7e44dee2949b958d00871151eb7c3d48
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117330'
 ---
-
 {% mac %}
 
-1. En una ventana de búsqueda, desplázate hasta la carpeta de Aplicaciones. ![Carpeta de aplicaciones en la ventana del Buscador](/assets/images/help/desktop/applications-folder.png)
-2. Mientras presionas el botón de **Control** en tu teclado, da clic en **{% data variables.product.prodname_desktop %}**.
-3. Elige **Move to Trash** (Mover a Papelera). ![La opción de mover a la papelera](/assets/images/help/desktop/mac-move-to-trash.png)
-4. En la barra de menú, utiliza el menú desplegable de **Buscador** y luego da clic en **Vaciar la papelera**. ![La opción de vaciar la papelera en la barra de menú](/assets/images/help/desktop/mac-empty-trash-menu.png)
-5. Lee la advertencia en el cuadro emergente y haz clic en **Empty Trash** (Vaciar Papelera). ![El botón de vaciar la papelera](/assets/images/help/desktop/mac-empty-trash-button.png)
+1. En una ventana de búsqueda, desplázate hasta la carpeta de Aplicaciones.
+  ![Carpeta de aplicaciones en la ventana del Finder](/assets/images/help/desktop/applications-folder.png)
+2. Mientras pulsa el botón **ctrl** del teclado, haga clic en **{% data variables.product.prodname_desktop %}** .
+3. Elija **Trasladar a la papelera**.
+  ![Opción Trasladar a la papelera](/assets/images/help/desktop/mac-move-to-trash.png)
+4. En la barra de menús, use el menú desplegable **Finder** y, a continuación, haga clic en **Vaciar papelera**.
+  ![La opción de Vaciar papelera en la barra de menús](/assets/images/help/desktop/mac-empty-trash-menu.png)
+5. Lea la advertencia en el cuadro emergente y haga clic en **Vaciar papelera**.
+  ![Botón Vaciar papelera](/assets/images/help/desktop/mac-empty-trash-button.png)
 
 {% endmac %}
 
 {% windows %}
 
-1. Aber el panel de control. Para obtener más información, consulta la sección [¿Dónde está el Panel de Control?](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel) en la ayuda de Windows.
-2. Debajo de "Programas", da clic en **Desinstalar un programa**. ![La opción de desinstalar programa en el panel de control](/assets/images/help/desktop/windows-uninstall-a-program.png)
-3. Da clic derecho en la entrada que se llama **{% data variables.product.prodname_desktop %}**, y luego da clic en **Desinstalar**. ![La opción de desinstalar](/assets/images/help/desktop/windows-click-uninstall.png)
+1. Abra el Panel de control. Para obtener más información, Consulte [¿Dónde está el Panel de control?](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel) en la ayuda de Windows.
+2. En "Programas", haga clic en **Desinstalar un programa**.
+  ![Opción Desinstalar un programa en el Panel de control](/assets/images/help/desktop/windows-uninstall-a-program.png)
+3. Haga clic con el botón derecho en la entrada denominada **{% data variables.product.prodname_desktop %}** y, a continuación, haga clic en **Desinstalar**.
+  ![Opción Desinstalar](/assets/images/help/desktop/windows-click-uninstall.png)
 
 {% endwindows %}

@@ -39,7 +39,7 @@ You may find it helpful to have a basic understanding of {% data variables.produ
 {% ifversion ghae %}
 - "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
 {% else %} 
-- "[Virtual environments for {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
 {% endif %}
 
 Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.

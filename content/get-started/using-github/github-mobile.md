@@ -23,6 +23,7 @@ With {% data variables.product.prodname_mobile %} you can:
 
 - Manage, triage, and clear notifications
 - Read, review, and collaborate on issues and pull requests
+- Edit files in pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
@@ -82,9 +83,7 @@ To re-enable Universal Links, long-press any {% data variables.product.product_n
 
 ## Sharing feedback
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
-
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
 ## Opting out of beta releases for iOS
 

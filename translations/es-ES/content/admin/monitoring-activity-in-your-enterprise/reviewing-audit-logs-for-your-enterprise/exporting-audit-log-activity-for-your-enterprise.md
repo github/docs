@@ -1,6 +1,6 @@
 ---
-title: Exporting audit log activity for your enterprise
-intro: You can export audit and Git events data to a file for offline analysis.
+title: Exportación de la actividad del registro de auditoría de su empresa
+intro: Puedes exportar los datos de eventos de auditoría y Git a un archivo para su análisis sin conexión.
 shortTitle: Export audit logs
 permissions: Enterprise owners can export the audit log.
 miniTocMaxHeadingLevel: 3
@@ -11,42 +11,43 @@ topics:
   - Auditing
   - Enterprise
   - Logging
+ms.openlocfilehash: 208e086fa93c89879357d340aa459b3d40824383
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060742'
 ---
+## Acerca de las exportaciones del registro de auditoría y los datos de eventos de Git
 
-## About exports of audit log and Git events data
+Para exportar el registro de auditoría, descargue un archivo JSON o CSV desde su cuenta de Enterprise en {% data variables.product.product_name %}. Al exportar eventos de registro de auditoría, puede consultar uno o varios de estos calificadores compatibles para filtrar los eventos de registro específicos que desee exportar. Para obtener más información sobre los calificadores de búsqueda, consulte "[Búsqueda basada en la acción realizada](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)".
 
-You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[Search based on the action performed](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
-
-You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface.
+Para exportar los datos de eventos de Git, descargue un archivo JSON desde el registro de auditoría de la empresa. A diferencia de los datos de registro de auditoría, no puede consultar eventos de Git específicos para filtrar y exportar en la interfaz de usuario del registro de auditoría. 
 
 {% data reusables.audit_log.git-events-export-limited %}
 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
-As an alternative to exporting log events, you can use the API to retrieve audit log events, or set up {% data variables.product.product_name %} to stream audit data as events are logged. Para obtener más información, consulta las secciones "[Utilizar la API de bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" y "[Transmitir la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
+Como alternativa a la exportación de eventos de registro, puede usar la API para recuperar eventos de registro de auditoría o configurar {% data variables.product.product_name %} para transmitir los datos de auditoría a medida que se registran los eventos. Para obtener más información, consulte "[Uso de la API de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" y "[Transmisión del registro de auditoría de la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
 
-## Exporting audit log data
+## Exportación de datos de registro de auditoría
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Optionally, to only export filtered results, search by one or more supported qualifiers or log filters.
-2. Select the {% octicon "download" aria-label="The Download icon" %} **Export** dropdown menu, and choose the file format (JSON or CSV) to export log events in.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. Para exportar solo los resultados filtrados, también puede buscar usando uno o varios calificadores o filtros de registro admitidos.
+2. Seleccione el menú desplegable {% octicon "download" aria-label="The Download icon" %} **Export** y elija el formato de archivo (JSON o CSV) para exportar eventos de registro.
 
-    ![Botón de exportar](/assets/images/help/organizations/org-audit-log-export.png)
+    ![Botón Exportar](/assets/images/help/organizations/org-audit-log-export.png)
 
-## Exporting Git events data
+## Exportación de datos de eventos de Git
 
-You can also export Git events data by date range.
+También puede exportar los datos de eventos de Git por intervalo de fechas.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Select the {% octicon "download" aria-label="The Download icon" %} **Export Git Events** dropdown menu and choose a date range to export log events for.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. Seleccione el menú desplegable {% octicon "download" aria-label="The Download icon" %} **Export Git Events** y elija un intervalo de fechas para exportar eventos de registro.
 
-    ![Export Git events button](/assets/images/help/organizations/org-audit-log-export-git-events.png)
-1. Click {% octicon "file-zip" aria-label="The File-zip icon" %} **Download Results** to download the file.
-1. The data is exported as a compressed JSON file. To extract the JSON data, uncompress the file using an archive utility client or command. Por ejemplo:
+    ![Botón Export Git events](/assets/images/help/organizations/org-audit-log-export-git-events.png)
+1. Haga clic en {% octicon "file-zip" aria-label="The File-zip icon" %} **Download Results** para descargar el archivo.
+1. Los datos se exportan como un archivo JSON comprimido. Para extraer los datos JSON, descomprima el archivo mediante un comando o cliente de la utilidad de archivo. Por ejemplo:
 
     ```
     gunzip export-avocado-corp-1642896556.json.gz

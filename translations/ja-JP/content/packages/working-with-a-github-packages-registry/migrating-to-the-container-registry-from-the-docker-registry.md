@@ -1,6 +1,6 @@
 ---
 title: Dockeerレジストリからコンテナレジストリへの移行
-intro: '以前はDockerレジストリに保存されていたDockerイメージは、自動的に{% data variables.product.prodname_container_registry %}に移行されます。'
+intro: '{% ifversion docker-ghcr-enterprise-migration %}エンタープライズ所有者は、{% else %}{% data variables.product.company_short %} は、{% endif %}以前に {% data variables.product.product_location %} 上の Docker レジストリに格納されていた Docker イメージを {% data variables.product.prodname_container_registry %} に移行します。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -9,35 +9,66 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: コンテナレジストリへの移行
+  feature: docker-ghcr-enterprise-migration
+shortTitle: Migration to Container registry
+topics:
+  - Containers
+  - Docker
+  - Migration
+ms.openlocfilehash: eb940881f59c9c935695c6fd7e3a62c9c3f387c9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147409492'
 ---
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
-{% data variables.product.prodname_dotcom %}のDockerレジストリは、{% data variables.product.prodname_container_registry %}で置き換えられました。 DockerイメージをDockerレジストリに保存していたなら、それらは自動的に{% data variables.product.prodname_container_registry %}に移されます。 あなたは何もする必要がありません。 Dockerレジストリ(`docker.pkg.github.com`) に名前空間を使っていたスクリプトや{% data variables.product.prodname_actions %}のワークフローは、{% data variables.product.prodname_container_registry %}(`ghcr.io`)への移行後も動作し続けます。
+## {% data variables.product.prodname_container_registry %} について
 
-移行は一度にではなく、徐々に行われます。 まだイメージが移動されていなければ、待ち続けてください。遠からずそれらは移行されます。
+{% data reusables.package_registry.container-registry-benefits %}詳しくは、「[{% data variables.product.prodname_container_registry %}の操作](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 
-## イメージが移行されたかはどうすれば分かりますか？
+## Docker レジストリからの移行について
 
-Dockerイメージが{% data variables.product.prodname_container_registry %}に移行されると、そのパッケージの詳細ページに以下の変更が示されます。
+{% data reusables.package_registry.container-registry-replaces-docker-registry %}Docker レジストリに Docker イメージが格納されている場合は、{% ifversion docker-ghcr-enterprise-migration %}Enterprise 所有者{% else %}{% data variables.product.company_short %}{% endif %}が、そのイメージを {% data variables.product.prodname_container_registry %} に段階的に移行します。 お客様側では何もする必要はありません。
 
-* 以前はDockerロゴだったアイコンは{% data variables.product.prodname_container_registry %}ロゴになります。
-* 以前は`docker.pkg.github.com`だったプルURL内のドメインは、`ghcr.io`になります。
+{% ifversion docker-ghcr-enterprise-migration %}
 
-![{% data variables.product.prodname_container_registry %}詳細ページ](/assets/images/help/package-registry/container-registry-details-page.png)
+{% note %}
 
-## {% data variables.product.prodname_container_registry %}とDockerレジストリの主な違い
+**注**: {% data reusables.package_registry.container-registry-ghes-migration-availability %}使用する {% data variables.product.product_name %} のバージョンの検索について詳しくは、「[{% data variables.product.prodname_docs %} のバージョンについて](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)」を参照してください。
 
-{% data variables.product.prodname_container_registry %}は、コンテナに固有の要求をサポートするために最適化されています。
+{% endnote %}
 
-{% data variables.product.prodname_container_registry %}を使うと、以下のことができます。
-- コンテナイメージをOrganizationや個人アカウント内に保存するか、リポジトリに接続する。
-- 権限をリポジトリから継承するか、リポジトリとは独立に詳細な権限を設定するかを選択する。
-- 匿名でパブリックなコンテナイメージにアクセスする。
+{% endif %}
 
-### Dockerイメージの詳細に関するAPIクエリ
+Docker イメージが {% data variables.product.prodname_container_registry %} に移行された後、そのパッケージの詳細に以下の変更が示されます。
 
-移行後は、GraphQL APIを使って`PackageType` "DOCKER"のパッケージに対するクエリを実行することはできなくなります。 その代わりに、REST APIを使って`package_type` "container"のパッケージに対するクエリを実行できるようになります。 詳しい情報については、REST APIの記事「[パッケージ](/rest/reference/packages)」を参照してください。
+- アイコンは、Docker ロゴではなく {% data variables.product.prodname_container_registry %} ロゴになります。
+- プル URL のドメインは、{% data variables.product.prodname_docker_registry_namespace %} ではなく {% data variables.product.prodname_container_registry_namespace %} になります。
 
-## 支払い
+{% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_container_registry %}に対する支払に関する詳しい情報については「[{% data variables.product.prodname_registry %}の支払について](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
+![{% data variables.product.prodname_container_registry %} に移行された Docker イメージのスクリーンショット](/assets/images/help/package-registry/container-registry-details-page.png)
+
+{% endif %}
+
+{% data reusables.package_registry.container-registry-migration-namespaces %}
+
+{% ifversion fpt or ghec %}
+
+移行後は、GraphQL API を使用して `PackageType` が "DOCKER" のパッケージに対するクエリを実行できなくなります。 代わりに、REST API を使用して `package_type` が "container" のパッケージに対するクエリを実行できます。 詳しくは、REST API のドキュメントの「[パッケージ](/rest/reference/packages)」を参照してください。
+
+## {% data variables.product.prodname_container_registry %} の課金について
+
+{% data variables.product.prodname_container_registry %} の課金について詳しくは、「[{% data variables.product.prodname_registry %} の課金について](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
+
+{% endif %}
+
+{% ifversion docker-ghcr-enterprise-migration %}
+
+## 参考資料
+
+- [Docker レジストリから {% data variables.product.prodname_container_registry %} への Enterprise の移行](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)
+
+{% endif %}

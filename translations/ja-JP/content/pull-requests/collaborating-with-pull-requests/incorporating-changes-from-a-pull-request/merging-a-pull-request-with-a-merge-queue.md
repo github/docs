@@ -1,6 +1,6 @@
 ---
-title: Merging a pull request with a merge queue
-intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
+title: pull request とマージ キューのマージ
+intro: 'ブランチのブランチ保護設定でマージ キューが必要な場合は、pull request をマージ キューに追加できます。また、必要なすべてのチェックに合格すると、{% data variables.product.product_name %} によって pull request がマージされます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,64 +10,68 @@ shortTitle: Merge PR with merge queue
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+ms.openlocfilehash: ce2bc87b82e3590c2a7f55f528fc9f71dc0ceb0d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614272'
 ---
-
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About merge queues
+## マージ キューについて
 
-{% data reusables.pull_requests.merge-queue-overview %}
-{% data reusables.pull_requests.merge-queue-references %}
+{% data reusables.pull_requests.merge-queue-overview %} {% data reusables.pull_requests.merge-queue-references %}
 
-## Adding a pull request to a merge queue
+## マージ キューへの pull request の追加
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
+1. [pull request] の一覧で、マージ キューに追加する pull request をクリックします。
 
-1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow. ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
+1. **[準備ができたらマージ]** をクリックして、pull request をマージ キューに追加します。 または、管理者の場合は、次のことができます。
+   -  ブランチ保護設定で許可されている場合は、 **[要件が満たされるのを待たずにマージする ({% ifversion bypass-branch-protections %}ブランチ保護をバイパス{% else %}管理者のみ{% endif %})]** をオンにして pull request を直接マージし、標準フローに従います。
+   ![マージ キューのオプション](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
-  **Tip:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+  **ヒント:** 提案された変更をマージする準備ができたらいつでも、 **[準備ができたらマージ]** をクリックできます。 必要な承認と状態チェックの条件が満たされると、{% data variables.product.product_name %} によって自動的に pull request がマージ キューに追加されます。
 
   {% endtip %}
 
-1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
+1. **[準備ができたらマージを確認する]** をクリックして、マージ キューへの pull request の追加を確認します。
 
-## Removing a pull request from a merge queue
+## マージ キューからの pull request の削除
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to remove from a merge queue.
+1. [pull request] の一覧で、マージ キューから削除する pull request をクリックします。
 
-1. To remove the pull request from the queue, click **Remove from queue**. ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
+1. キューから pull request を削除するには、 **[キューから削除]** をクリックします。
+  ![キューから pull request を削除する](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
-Alternatively, you can navigate to the merge queue page for the base branch, click **...** next to the pull request you want to remove, and select **Remove from queue**. For information on how to get to the merge queue page for the base branch, see the section below.
+または、ベース ブランチのマージ キュー ページに移動し、削除する pull request の横にある **[...]** をクリックして、 **[キューから削除]** を選択することもできます。 ベース ブランチのマージ キュー ページに移動する方法については、下のセクションを参照してください。
 
-## Viewing merge queues
+## マージ キューの表示
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} のさまざまな場所で、ベース ブランチのマージ キューを表示できます。
 
-- On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
+- リポジトリの **[ブランチ]** ページ。 キューにまだ pull request がない場合や、キュー内に既にある pull request がわからない場合で、そのキューの内容を確認したい場合は、このルートを使うことをお勧めします。 詳細については、「[リポジトリ内のブランチを表示する](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)」を参照してください。
 
-  ![View merge queue in Branches page](/assets/images/help/pull_requests/merge-queue-branches-page.png)
+  ![[ブランチ] ページでマージ キューを表示する](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %} next to any pull request in the merge queue.
+- リポジトリの **[pull request]** ページで、マージ キュー内の pull request の横にある {% octicon "clock" aria-label="The clock symbol" %} をクリックします。
 
-  ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
+  ![[pull request] ページでマージ キューを表示する](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
+- マージ キューがマージに必要なときは、pull request のページで、タイムラインの一番下までスクロールし、 **[マージ キュー]** のリンクをクリックします。
 
-  ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
+  ![pull request のマージ キュー リンク](/assets/images/help/pull_requests/merge-queue-link.png)
 
-- The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
+- マージ キューのビューに現在キュー内にある pull request が表示され、自分の pull request は明確にマークされます。
 
-  ![Merge queue view](/assets/images/help/pull_requests/merge-queue-view.png)
+  ![マージ キューのビュー](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
+## マージ キューから削除された pull request の処理
 
 {% data reusables.pull_requests.merge-queue-reject %}

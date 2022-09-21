@@ -12,11 +12,11 @@ topics:
   - Codespaces
 ---
 
-## 概要
+## Overview
 
 Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
-As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. You do this by defining one or more policies in the {% data variables.product.prodname_codespaces %} settings for your organization.
+As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
 
 ### Behavior when you set a port visibility constraint
 
@@ -24,7 +24,7 @@ If there are existing codespaces that no longer conform to a policy you have def
 
 {% note %}
 
-**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_codespaces %} to continue working as designed, for example to forward SSH on port 22.
+**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_github_codespaces %} to continue working as designed, for example to forward SSH on port 22.
 
 {% endnote %}
 
@@ -35,6 +35,8 @@ When you create a policy you choose whether it applies to all repositories in yo
 For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
 
 If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## Adding a policy to limit the port visibility options
 
@@ -64,7 +66,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Click the name of the policy you want to edit.
 1. Make the required changes then click **Save**.
 
-## Deleting a policy
+## Deleting a policy 
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the delete button to the right of the policy you want to delete.

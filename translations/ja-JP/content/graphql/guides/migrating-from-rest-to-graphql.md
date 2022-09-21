@@ -11,19 +11,24 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: RESTからGraphQLへの移行
+shortTitle: Migrate from REST to GraphQL
+ms.openlocfilehash: dbafde83c8acac664b6a0f712927af82c646d397
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068452'
 ---
-
 ## APIのロジックに関する差異
 
-RESTからGraphQLへの移行は、APIロジックの大きな変化を示します。 スタイルとしてのRESTと仕様としてのGraphQLとの違いのために、REST APIの呼び出しをGraphQL APIのクエリに1対1で置き換えることは難しく、しばしば望ましくないことになります。 移行の具体的な例を以下に示しました。
+RESTからGraphQLへの移行は、APIロジックの大きな変化を示します。 スタイルとしての REST と仕様としての GraphQL との違いのために、REST API の呼び出しを GraphQL API のクエリに 1 対 1 で置き換えることは難しく、&mdash;しばしば望まない&mdash;結果になります。 移行の具体的な例を以下に示しました。
 
 コードを [REST API](/rest) から GraphQL API に移行するには、以下を行います。
 
-- [GraphQL仕様](https://graphql.github.io/graphql-spec/June2018/)のレビュー
-- GitHubの[GraphQLスキーマ](/graphql/reference)のレビュー
+- [GraphQL 仕様](https://graphql.github.io/graphql-spec/June2018/)を確認する
+- GitHub の [GraphQL スキーマ](/graphql/reference)を確認する
 - 現在のコードによるGitHub REST APIとのやりとりの考慮
-- [グローバルノードID](/graphql/guides/using-global-node-ids)を使ったAPIバージョン間でのオブジェクトの参照
+- [グローバル ノード ID](/graphql/guides/using-global-node-ids) を使用して API バージョン間でオブジェクトを参照する
 
 GraphQLによる重要な利点には以下があります。
 
@@ -57,17 +62,17 @@ query {
 }
 ```
 
-別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST APIの呼び出しは、プルリクエストとその[サマリ表現](/rest#summary-representations)のリストを取得します。
+別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST API を呼び出すと、pull request とその [概要表現](/rest#summary-representations)の一覧が取得されます。
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/rest#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalse下をチェックしなければなりません。
+pull request がマージ可能かを判断するには、個別にそれぞれの pull request の[詳細な表現](/rest#detailed-representations) (大きなペイロード) を取得し、その `mergeable` 属性が true か false かをチェックする必要があります。
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
-GraphQLでは、それぞれのプルリクエストについて`number`と`mergeable`属性だけを取得できます。
+GraphQL では、各 pull request の `number` 属性と `mergeable` 属性のみを取得できます。
 
 ```graphql
 query {
@@ -86,7 +91,7 @@ query {
 
 ## 例：入れ子
 
-入れ子になったフィールドにクエリを行うことで、複数のRESTの呼び出しを少数のGraphQLクエリに置き換えられます。 たとえば、プルリクエストをコミット、非レビューコメント、レビューを**REST API**を使って取得するには、4つの別々の呼び出しが必要になります。
+入れ子になったフィールドにクエリを行うことで、複数のRESTの呼び出しを少数のGraphQLクエリに置き換えられます。 たとえば、**REST API** を使って、コミット、非レビュー コメント、レビューと一緒に pull request を取得するには、4 つの別々の呼び出しが必要になります。
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
@@ -94,7 +99,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:numb
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
-**GraphQL API**を使えば、入れ子のフィールドを利用して単一のクエリでこのデータを取得できます。
+**GraphQL API** を使えば、入れ子のフィールドを利用して単一のクエリでこのデータを取得できます。
 
 ```graphql
 {
@@ -132,13 +137,13 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-プルリクエストの番号で[変数を置き換える](/graphql/guides/forming-calls-with-graphql#working-with-variables)ことで、このクエリの力を拡張することもできます。
+pull request 番号の [変数を置き換えることで](/graphql/guides/forming-calls-with-graphql#working-with-variables)、このクエリの機能を拡張することもできます。
 
 ## 例：強力な型付け
 
 GraphQLスキーマは強く型付けされており、データの扱いが安全になっています。
 
-IssueもしくはプルリクエストにGraphQLの[ミューテーション](/graphql/reference/mutations)を使ってコメントを追加する例で、間違って[`clientMutationId`](/graphql/reference/mutations#addcomment)の値に文字列ではなく整数値を指定してしまったとしましょう。
+GraphQL [ミューテーション](/graphql/reference/mutations)を使用して問題または pull request にコメントを追加し、[`clientMutationId`](/graphql/reference/mutations#addcomment) の値に文字列ではなく整数を誤って指定する例を考えてみましょう。
 
 ```graphql
 mutation {
@@ -189,7 +194,7 @@ mutation {
 }
 ```
 
-`1234`をクオートでラップすれば、この値を整数値から期待されている型である文字列に変換できます。
+クオートで `1234` をラップすると、この値を整数値から期待されている型である文字列に変換できます。
 
 ```graphql
 mutation {

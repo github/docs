@@ -14,7 +14,7 @@ topics:
   - Infrastructure
 shortTitle: Initiate failover to appliance
 ---
-The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.
+The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 

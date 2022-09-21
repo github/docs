@@ -43,12 +43,12 @@ If Jekyll encounters an error building your {% data variables.product.prodname_p
 If you received a generic error message, check for common issues.
 - You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
 - Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your publishing source contains a colon (`:`) which is not supported.
+- You changed the `source` setting in your *_config.yml* file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
+- A filename in your published files contains a colon (`:`) which is not supported.
 
 If you received a specific error message, review the troubleshooting information for the error message below.
 
-After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.
+{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
 
 ## Config file error
 
@@ -74,7 +74,7 @@ This error means that your code references a file that doesn't exist in your *_i
 
 ## File is a symlink
 
-This error means that your code references a symlinked file that does not exist in the publishing source for your site.
+This error means that your code references a symlinked file that does not exist in the published files for your site.
 
 {% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
 
@@ -162,9 +162,9 @@ To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* f
 
 ## Symlink does not exist within your site's repository
 
-This error means that your site includes a symbolic link (symlink) that does not exist in the publishing source for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
+This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
 ## Syntax error in 'for' loop
 

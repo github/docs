@@ -1,6 +1,6 @@
 ---
-title: About system logs
-intro: '{% data variables.product.product_name %} keeps error and message logs for system events. Logs are useful for identifying user, application and system-level actions and exceptions.'
+title: Acerca de los registros del sistema
+intro: '{% data variables.product.product_name %} mantiene registros de errores y mensajes de los eventos del sistema. Los registros son útiles para identificar las acciones y excepciones del usuario, la aplicación y el nivel del sistema.'
 versions:
   ghes: '*'
 type: overview
@@ -9,37 +9,42 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: e41702e25c7cc222cefb4eedb4e0322adf3acdba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063334'
 ---
+## Registros del sistema
 
-## System logs
+De forma predeterminada, los registros del sistema para {% data variables.product.product_name %} se giran automáticamente cada 24 horas y se conservan durante 7 días. Los registros del sistema incluyen eventos de nivel de sistema, registros de aplicaciones y datos de eventos de Git. Como en los archivos de registro se escribe con frecuencia y pueden tener un tamaño grande, puede ser beneficioso extraer y analizar las entradas de registro pertinentes en un host independiente de la instancia de {% data variables.product.prodname_ghe_server %}.
 
-By default, system logs for {% data variables.product.product_name %} are automatically rotated every 24 hours and are retained for seven days. System logs include system-level events, application logs, and Git events data. As log files are often being written to and can be large in size, it may be beneficial to extract and parse relevant log entries on a host separate to your {% data variables.product.prodname_ghe_server %} instance.
+Puede reenviar los registros del sistema a un servidor o sistema de terceros para una retención más larga. Para más información, vea "[Reenvío de registros](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
 
-You can forward system logs to a third-party system or server for longer retention. Para obtener más información, consulta la sección "[Reenvío de bitácoras](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
+Además de revisar los registros del sistema, puede supervisar la actividad de la empresa de otras maneras, como ver registros de auditoría, insertar registros y administrar webhooks globales. Para más información, vea "[Supervisión de la actividad de usuario en la empresa](/admin/monitoring-activity-in-your-enterprise)".
 
-In addition to reviewing your system logs, you can monitor activity in your enterprise in other ways, such as viewing audit logs, push logs and managing global webhooks. Para obtener más información, consulta la sección "[Monitorear la actividad en tu empresa](/admin/monitoring-activity-in-your-enterprise)".
+## Tipos de registros
 
-## Types of logs
+A continuación se enumeran los registros principales que usa el dispositivo {% data variables.product.product_name %} y sus funciones:
 
-Listed below are the main logs used by the {% data variables.product.product_name %} appliance and their functions:
+| Ruta de acceso | Descripción |
+|------|-------------|
+| `/var/log/github/audit.log` | Eventos de usuario, repositorio y sistema auditados.
+| `/var/log/github/unicorn.log` | Tráfico de API e interfaz web.
+| `/var/log/github/exceptions.log` | Errores de nivel de aplicación.
+| `/var/log/haproxy.log` | Todo el tráfico IP que llega al dispositivo.
+| `/var/log/hookshot/resqued.log` | Entrega y errores de webhook.
+| `/var/log/github/auth.log` | Solicitudes de autenticación, ya sea mediante métodos integrados, LDAP, CAS o SAML.
+| `/var/log/github/gitauth.log` | Todas las solicitudes de autenticación de Git.
 
-| Ruta                             | Descripción​                                                                  |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| `/var/log/github/audit.log`      | Audited user, repository and system events.                                   |
-| `/var/log/github/unicorn.log`    | API and web interface traffic.                                                |
-| `/var/log/github/exceptions.log` | Application-level errors.                                                     |
-| `/var/log/haproxy.log`           | All IP traffic reaching the appliance.                                        |
-| `/var/log/hookshot/resqued.log`  | Webhook delivery and failures.                                                |
-| `/var/log/github/auth.log`       | Authentication requests, whether through built in, LDAP, CAS or SAML methods. |
-| `/var/log/github/gitauth.log`    | All Git authentication requests.                                              |
+El servicio `babeld` procesa las solicitudes de autenticación y actividad de Git.
 
-Git activity and authentication requests are processed by the `babeld` service.
+Varios servicios de {% data variables.product.product_name %}, como el servicio `babeld`, se incluyen en contenedores. Los registros en contenedores se escriben en `systemd journal` y se pueden consultar en cualquier momento mediante el comando `journalctl`.
 
-Several {% data variables.product.product_name %} services, such as the `babeld` service, are containerized. Containerized logs are written to the `systemd journal`, and can be queried at any time using the `journalctl` command.
+## Eventos del sistema auditados
 
-## Audited system events
-
-All entries from the `audit.log` file use and can be filtered with the `github_audit` keyword.
+Todas las entradas del archivo `audit.log` usan la palabra clave `github_audit` y se pueden filtrar con ella.
 
 Por ejemplo, esta entrada muestra que se creó un repositorio nuevo.
 
@@ -55,8 +60,8 @@ Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":
 
 ## Paquete de soporte
 
-The support bundle includes system logs and all audit information is logged to the `audit.log` file in the `github-logs` directory. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/support/contacting-github-support/providing-data-to-github-support)."
+El paquete de soporte técnico incluye registros del sistema y toda la información de auditoría se registra en el archivo `audit.log` del directorio `github-logs`. Para más información, vea "[Suministro de datos al soporte técnico de {% data variables.product.prodname_dotcom %}](/support/contacting-github-support/providing-data-to-github-support)".
 
-## Leer más
+## Información adicional
 
-- [Linux man page for the `journalctl` command](http://man7.org/linux/man-pages/man1/journalctl.1.html)
+- [Página man de Linux para el comando `journalctl`](http://man7.org/linux/man-pages/man1/journalctl.1.html)

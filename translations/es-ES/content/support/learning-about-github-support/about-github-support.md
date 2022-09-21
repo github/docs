@@ -17,6 +17,8 @@ redirect_from:
   - /github/working-with-github-support/github-enterprise-cloud-support
   - /articles/business-plan-support
   - /articles/github-business-cloud-support
+  - /admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
 ---
@@ -58,9 +60,14 @@ For more information, see "[About GitHub Premium Support](/support/about-github-
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check  if there are currently any incidents affecting services on {% data variables.product.prodname_dotcom %} on [{% data variables.product.prodname_dotcom %} Status](https://www.githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
+{%- ifversion fpt or ghec %}
+[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
+{%- elsif ghae %}
+[{% data variables.product.product_name %} Status](https://ghestatus.com/)
+{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -94,12 +101,12 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt %}
+{% ifversion ghec or fpt or ghae %}
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.prodname_dotcom %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page](https://www.githubstatus.com/).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
 
-You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.prodname_dotcom %}.
+You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
 {% endif %}
 
@@ -170,7 +177,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{% ifversion ghes %}{% data reusables.enterprise_enterprise_support.installing-releases %}{% endif %}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 {% endif %}
 

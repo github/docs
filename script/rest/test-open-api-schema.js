@@ -29,7 +29,6 @@ export async function getDiffOpenAPIContentRest() {
 
   // One off edge case for secret-scanning Docs-content issue 6637
   delete openAPISchemaCheck['free-pro-team@latest']['secret-scanning']
-
   // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages = {}
@@ -55,8 +54,6 @@ async function createOpenAPISchemasCheck() {
   const openAPICheck = Object.keys(allVersions).reduce((acc, val) => {
     return { ...acc, [val]: [] }
   }, {})
-  // ghec does not exist in the OpenAPI yet, so we'll copy over FPT to ghec
-  openAPICheck['enterprise-cloud@latest'] = []
 
   const schemas = fs.readdirSync(schemasPath)
 
@@ -69,10 +66,6 @@ async function createOpenAPISchemasCheck() {
     for (const category of categories) {
       const subcategories = Object.keys(fileSchema[category])
       openAPICheck[version][category] = subcategories.sort()
-
-      if (version === 'free-pro-team@latest') {
-        openAPICheck['enterprise-cloud@latest'][category] = [...subcategories.sort()]
-      }
     }
   })
 
@@ -132,6 +125,7 @@ function throughDirectory(directory) {
       !directory.includes('rest/guides') &&
       !directory.includes('rest/overview') &&
       !file.includes('index.md') &&
+      !file.includes('quickstart.md') &&
       !file.includes('README.md')
     ) {
       return contentFiles.push(absolute)

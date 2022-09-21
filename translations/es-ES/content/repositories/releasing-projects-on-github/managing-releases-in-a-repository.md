@@ -39,9 +39,9 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 3. Click **Draft a new release**.
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
+4. {% ifversion fpt or ghec or ghes > 3.2 or ghae %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
 5. If you are creating a new tag, click **Create new tag**.
 
    ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
@@ -50,7 +50,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% endif %}
 5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
 {%- data reusables.releases.previous-release-tag %}
 6. Type a title and description for your release.
@@ -64,7 +64,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
 2. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt or ghec %}
+{%- ifversion discussions %}
 1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
   ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}
