@@ -1,0 +1,33 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 一時的なアクセスのためにリポジトリのロックを解除した後、サイト管理者はリポジトリのセキュリティ製品の設定を管理できませんでした。 
+    - 管理コンソールと `/home/admin/.ssh/authorized_keys` ファイルの両方に、重複する管理 SSH キーが表示されることがありました。
+    - "<code>http(s)://<ホスト名>/stafftools/users/<ユーザー名>/admin</code> の個人ユーザー向けサイト管理者ページに、GitHub Enterprise Server には意図されていない機能が含まれました。"  
+    - 場合によっては、`ghe-cluster-config-apply` を実行して空の構成をクラスターの既存のノードにレプリケートできました。 
+    - "`ghe-config-apply` で開始された構成の実行が、完了しないこと、または`Container count mismatch` エラーを返すことがありました。" 
+    - GitHub Enterprise Server インスタンス上の自己署名 TLS 証明書を更新した後、Web インターフェイスの一部のページの UI 要素が表示されませんでした。 
+    - 場合によっては、スレッドセーフではないにも関わらず同時に使われたライブラリのため、バックグラウンド タスクが停止することがありました。
+    - Web インターフェイスの上部のサイト管理者バーに含まれる、現在実行中のアプリケーションのバージョンに対する SHA へのリンクが、壊れていました。
+    - Organization 所有者は、ディスカッションの作成に必要なアクセスのレベルを設定できませんでした。 
+    - ディスカッションのユーザーは、GitHub.com のコミュニティ ガイドラインに誤って誘導されました。
+    - ユーザーは、ディスカッションを作成する前にメールを検証するよう、誤って指示されることがありました。
+    - サイト管理者が GitHub Enterprise Server 3.4 に直接アップグレードしなかった場合、GitHub Advanced Security のお客様に対するシークレット スキャンからのアラートが、Web UI と REST API に表示されませんでした。現在は、アラートが表示されます。
+  changes:
+    - "並列化されたログ サニタイズの結果、サポート バンドルの生成が速くなっています。サポート バンドルについて詳しくは、「[GitHub Support へのデータの提供](/support/contacting-github-support/providing-data-to-github-support)」をご覧ください。"
+    - "`organization` または `org` ルートを含む API が、Organization のスラッグまたは ID を受け取るようになりました。以前の API はスラッグのみを受け取っており、そのために GitHub Advanced Security エンドポイントの `Link` ヘッダーにアクセスできませんでした。詳しくは、REST API のドキュメントの「[組織](https://docs.github.com/rest/orgs/orgs)」をご覧ください。" 
+    - "Enterprise の監査ログに含まれるユーザー生成イベントが増えました (`project.create` など)。REST API からも、追加のユーザー生成イベントが返されます (`repo.create` など)。詳しくは、「[企業の監査ログにアクセスする](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」と「[Enterprise 用の監査ログ API の使用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)」をご覧ください。"
+    - "キャッシュ レプリカが、最近更新されたリポジトリでの一部の Git 操作を拒否することがありました。リポジトリのキャッシュについて詳しくは、「[リポジトリのキャッシュについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」をご覧ください。" 
+    - "REST API を使って閉じることができるよう、グローバル通知バナーを構成できるようになりました。詳しくは、「[Enterprise のユーザメッセージをカスタマイズする](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)」をご覧ください。" 
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリのイシューが GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - 別のホストで作成されたバックアップからインスタンスを復元した後、Actions のサービスを再起動する必要があります。
+    - リポジトリの設定で、読み取りアクセス権を持つユーザーにディスカッションの作成を許可するオプションを有効にしても、この機能は有効になりません。
+    - ユーザーが既存の issue をディスカッションに変換できない場合があります。
+    - "シークレット スキャンのカスタム パターンの末尾の区切り記号は `.*` です (具体的には [After secret]\\(シークレットの後\\) フィールド)。この区切り記号のためにリポジトリ間でのシークレットのスキャンで不整合が発生し、リポジトリの履歴にスキャンが完了していないギャップができる場合があります。増分スキャンも影響を受ける場合があります。スキャンでの問題を避けるには、パターンの末尾を変更して、`.*` 区切り記号を削除します。"
