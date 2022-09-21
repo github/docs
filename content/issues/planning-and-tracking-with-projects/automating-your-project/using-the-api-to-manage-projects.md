@@ -715,7 +715,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Managing projects 
+## Managing projects 
 
 ### Creating projects
 
