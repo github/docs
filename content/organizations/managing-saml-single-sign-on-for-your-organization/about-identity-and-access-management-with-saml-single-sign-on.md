@@ -12,13 +12,11 @@ topics:
 shortTitle: IAM with SAML SSO
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
+{% data reusables.saml.ghec-only %}
 
 ## About SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
-
-{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.saml-accounts %}
 

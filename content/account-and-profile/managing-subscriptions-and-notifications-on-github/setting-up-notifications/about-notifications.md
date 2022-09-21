@@ -96,4 +96,4 @@ Notifications that are not marked as **Saved** are kept for 5 months. Notificati
 
 ## Feedback and support
 
-If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general).

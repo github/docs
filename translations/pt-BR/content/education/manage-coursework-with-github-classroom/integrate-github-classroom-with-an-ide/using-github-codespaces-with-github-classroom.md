@@ -1,93 +1,92 @@
 ---
-title: Usando GitHub Codespaces com GitHub Classroom
-shortTitle: Usando os codespaces com GitHub Classroom
+title: Using GitHub Codespaces with GitHub Classroom
+shortTitle: Using Codespaces with GitHub Classroom
 product: '{% data reusables.gated-features.codespaces-classroom-articles %}'
-intro: 'Você pode usar {% data variables.product.prodname_github_codespaces %} como editor preferido nas suas atividades para dar aos alunos acesso a um ambiente do Visual Studio Code baseado no navegador com configuração em um clique.'
+intro: 'You can use {% data variables.product.prodname_github_codespaces %} as the preferred editor in your assignments to give students access to a browser-based Visual Studio Code environment with one-click setup.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
 ---
+## About {% data variables.product.prodname_github_codespaces %}
 
-## Sobre {% data variables.product.prodname_github_codespaces %}
+{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment that is the same for all users of your project. For more information, see "[{% data variables.product.prodname_github_codespaces %} overview](/codespaces/overview)."
 
-{% data variables.product.prodname_github_codespaces %} é um ambiente de desenvolvimento instantâneo e baseado na nuvem que usa um recipiente para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. {% data variables.product.prodname_codespaces %} também pode ser configurado, o que permite que você crie um ambiente de desenvolvimento personalizado que é o mesmo para todos os usuários do seu projeto. Para obter mais informações, consulte "[Visão geral de {% data variables.product.prodname_github_codespaces %}](/codespaces/overview)".
+Once {% data variables.product.prodname_github_codespaces %} is enabled in an organization or enterprise, users can create a codespace from any branch or commit in an organization or enterprise repository and begin developing using cloud-based compute resources. You can connect to a codespace from the browser or locally using Visual Studio Code. {% data reusables.codespaces.links-to-get-started %}
 
-Uma vez que {% data variables.product.prodname_codespaces %} é habilitado em uma organização ou empresa, os usuários podem criar um codespace a partir de qualquer branch ou commit em uma organização ou repositório corporativo e começar a desenvolver recursos de computação baseados na nuvem. Você pode se conectar a um codespace do navegador ou localmente usando o Visual Studio Code. {% data reusables.codespaces.links-to-get-started %}
+Setting {% data variables.product.prodname_github_codespaces %} as the preferred editor for an assignment in GitHub Classroom assignments, is beneficial for both students and teachers. {% data variables.product.prodname_github_codespaces %} is a good option for students using loaned devices or without access to a local IDE setup, since each codespace is cloud-based and requires no local setup. Students can launch a codespace for an assignment repository in Visual Studio Code directly in their browser, and begin developing right away without needing any further configuration.  
 
-Definir {% data variables.product.prodname_codespaces %} como editor preferido para uma atividade nas atividades do GitHub Classroom é vantajoso para alunos e professores. {% data variables.product.prodname_codespaces %} é uma boa opção para alunos que usam dispositivos emprestados ou sem acesso a uma configuração local do IDE, já que cada codespace é baseado na nuvem e não exige nenhuma configuração local. Os alunos podem lançar um codespace para um repositório de atividade no Visual Studio Code diretamente em seu navegador e começar a desenvolver imediatamente, sem precisar de qualquer configuração adicional.
-
-Para atividades com ambientes de configuração complexos, os professores podem personalizar a configuração do contêiner de desenvolvimento para os codespaces de um repositório. Isto garante que, quando um aluno cria um codespace, ele será aberto automaticamente com o ambiente de desenvolvimento configurado pelo professor. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+For assignments with complex setup environments, teachers can customize the dev container configuration for a repository's codespaces. This ensures that when a student creates a codespace, it automatically opens with the development environment configured by the teacher. For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
 {% note %}
 
-**Observação**: Os codespaces individuais são excluídos automaticamente se forem interrompidos e deixados sem serem utilizados por um período prolongado. Para obter mais informações, consulte[Configurando a exclusão automática dos seus codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)".
+**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
 {% endnote %}
 
-## Sobre o benefício de educação de {% data variables.product.prodname_codespaces %} para professores verificados
+## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
 
-O benefício da educação de {% data variables.product.prodname_codespaces %} dá aos professores verificados um subsídio mensal gratuito de horas de {% data variables.product.prodname_codespaces %} para ser usado em {% data variables.product.prodname_classroom %}. Estima-se que o subsídio gratuito seja suficiente para uma classe de 50 com 5 atribuições por mês. em uma máquina central com 1 codespace armazenado por aluno.
+The {% data variables.product.prodname_codespaces %} Education benefit gives verified teachers a free monthly allowance of {% data variables.product.prodname_github_codespaces %} hours to use in {% data variables.product.prodname_classroom %}. The free allowance is estimated to be enough for a class of 50 with 5 assignments per month, on a 2 core machine with 1 codespace stored per student.
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-Para tornar-se um professor verificado, você precisa ser aprovado para obter um benefício de educador para o professor. Para obter mais informações, consulte "[Candidatando-se a um benefício de professor ou educador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)."
+To become a verified teacher, you need to be approved for an educator or teacher benefit. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)." 
 
-Depois de ter a confirmação de que é um professor verificado, acesse [{% data variables.product.prodname_global_campus %} para professores](https://education.github.com/globalcampus/teacher) para atualizar a organização para o GitHub Team. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
+After you have confirmation that you are a verified teacher, visit [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. For more information, see [GitHub's products](/get-started/learning-about-github/githubs-products#github-team). 
 
-Se você for elegível ao benefício de Educação de {% data variables.product.prodname_codespaces %}, ao habilitar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_classroom %} para sua organização, o GitHub adiciona automaticamente uma política de codespace para restringir os tipos de máquina para todos os codespaces da organização a duas máquinas principais. Isso ajuda você a aproveitar ao máximo o uso gratuito de {% data variables.product.prodname_codespaces %}. No entanto, você pode alterar ou remover essas políticas nas configurações da sua organização. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_github_codespaces %} usage. However, you can change or remove these policies in your organization settings. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
-Quando o benefício da educação de {% data variables.product.prodname_codespaces %} sai do beta, se sua organização exceder o limite de uso gratuito de {% data variables.product.prodname_codespaces %}, a sua organização será cobrada por uso adicional. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)".
+When the {% data variables.product.prodname_codespaces %} Education benefit moves out of beta, if your organization exceeds their free allowance for {% data variables.product.prodname_github_codespaces %} usage, your organization will be billed for additional usage. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)."
 
-## Habilitando {% data variables.product.prodname_codespaces %} para a sua organização
+## Enabling {% data variables.product.prodname_codespaces %} for your organization
 
-{% data variables.product.prodname_codespaces %} está disponível para uso com {% data variables.product.prodname_classroom %} para as organizações que usam {% data variables.product.prodname_team %}. Se você for elegível para o benefício de educação de {% data variables.product.prodname_codespaces %}, você deverá habilitar {% data variables.product.prodname_codespaces %} por meio de {% data variables.product.prodname_classroom %} ao invés de habilitá-lo diretamente nas configurações da sua organização. Caso contrário, sua organização será cobrada diretamente por todo o uso de {% data variables.product.prodname_codespaces %}.
+{% data variables.product.prodname_github_codespaces %} is available to use with {% data variables.product.prodname_classroom %} for organizations that use {% data variables.product.prodname_team %}. If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, you must enable {% data variables.product.prodname_github_codespaces %} through {% data variables.product.prodname_classroom %}, instead of enabling it directly in your organization settings. Otherwise, your organization will be billed directly for all usage of {% data variables.product.prodname_github_codespaces %}.
 
-### Habilitando codespaces para uma organização ao criar uma nova sala de aula
+### Enabling Codespaces for an organization when creating a new classroom
 {% data reusables.classroom.sign-into-github-classroom %}
-1. Clique em **Nova sala de aula**.
+1. Click **New classroom**.
+   
+  !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
 
-  ![Botão "Nova sala de aula"](/assets/images/help/classroom/click-new-classroom-button.png)
+1. In the list of organizations, click the organization you'd like to use for your classroom. Organizations that are eligible for {% data variables.product.prodname_github_codespaces %} will have a note showing that they are eligible. Optionally, you can create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-1. Na lista de organizações, clique na organização que você gostaria de usar para a sua sala de aula. As organizações elegíveis para {% data variables.product.prodname_codespaces %} terão uma observação que mostrará que são elegíveis. Opcionalmente, você pode criar uma nova organização. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+  ![Choose organization for classroom with codespaces eligibility](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
 
-  ![Escolha uma organização para a sala de aula com elegibilidade de codespaces](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
+1. In the "Name your classroom" page, under "{% data variables.product.prodname_codespaces %} in your Classroom", click **Enable**. Note that this will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization.
 
-1. Na página "Nomeie sua sala de aula", embaixo de "{% data variables.product.prodname_codespaces %} na sua sala de aula, clique em **Habilitar**. Observe que isto irá habilitar {% data variables.product.prodname_codespaces %} para todos os repositórios e usuários da organização.
+  ![Enable Codespaces for org in "Setup classroom basics" page](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
 
-  ![Habilite codespaces para organizações na página "Configuração básica de sala de aula"](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
+1. When you are ready to create the new classroom, click **Create classroom**.
 
-1. Quando você estiver pronto para criar a nova sala de aula, clique em **Criar sala de aula**.
-
-### Habilitando codespaces para uma organização por meio de uma sala de aula existente
+### Enabling Codespaces for an organization via an existing classroom
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-settings %}
-1. Em "{% data variables.product.prodname_github_codespaces %}", clique em **Habilitar**. Isto habilitará {% data variables.product.prodname_codespaces %} para todos os repositórios e usuários da organização. Uma nova política de codespace também é adicionada para restringir tipos de máquinas para todos os codespaces da organização a duas máquinas principais.
+1. Under "{% data variables.product.prodname_github_codespaces %}", click **Enable**. This will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization. A new Codespace policy is also added to restrict machine types for all codespaces in the organization to 2 core machines. 
+  
+  ![Enable Codespaces for org in existing classroom settings](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
 
-  ![Havilite codespaces para organizações nas configurações existentes da sala de aula](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
+You can use the same methods as above to disable {% data variables.product.prodname_github_codespaces %} for your organization as well. Note that this will disable {% data variables.product.prodname_github_codespaces %} for all users and repositories in the organization. 
 
-Você pode usar os mesmos métodos do método acima para desabilitar {% data variables.product.prodname_codespaces %} também para sua organização. Observe que isso irá desabilitar {% data variables.product.prodname_codespaces %} para todos os usuários e repositórios da organização.
+## Configuring an assignment to use {% data variables.product.prodname_codespaces %}
+To make {% data variables.product.prodname_github_codespaces %} available to students for an assignment, you can choose {% data variables.product.prodname_github_codespaces %} as the supported editor for the assignment. When creating a new assignment, in the "Add your starter code and choose your optional online IDE" page, under "Add a supported editor", select **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu. 
 
-## Configurando uma atividade para usar {% data variables.product.prodname_codespaces %}
-Para disponibilizar {% data variables.product.prodname_codespaces %} aos alunos para uma atividade, você pode escolher {% data variables.product.prodname_codespaces %} como o editor compatível para a atividade. Ao criar uma nova atividade, na página "Adicionar seu código inicial e escolher seu ID on-line opcional" em "Adicionar um editor compatível", selecione **{% data variables.product.prodname_github_codespaces %}** no menu suspenso.
+![Select Codespaces as supported editor for assignment](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
 
-![Selecione os codespaces como editor compatível para a atividade](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
+If you use a template repository for an assignment, you can define a dev container in the repository to customize the tools and runtimes available to students when they launch a codespace to work on the assignment. If you do not define a dev container, {% data variables.product.prodname_github_codespaces %} will use a default configuration, which contains many of the common tools that your students might need for development. For more information on defining a dev container, see "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 
-Se você usar o repositório de um modelo para uma atividade, você pode definir um contêiner de desenvolvimento no repositório para personalizar as ferramentas e tempos de execução disponíveis para os alunos quando executarem um codespace para trabalhar na atividade. Se você não definir um contêiner de desenvolvimento, {% data variables.product.prodname_github_codespaces %} usará uma configuração padrão, que contém muitas das ferramentas comuns que seus alunos podem precisar para o desenvolvimento. Para obter mais informações sobre a definição de um contêiner de desenvolvimento, consulte "[Adicionar uma configuração de contêiner de desenvolvimento ao seu repositório](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+## Launching an assignment using {% data variables.product.prodname_github_codespaces %}
 
-## Iniciando uma atividade usando {% data variables.product.prodname_codespaces %}
+When a student opens an assignment, the repository's README file includes their teacher's recommendation of the IDE they should use for the work.
 
-Quando um aluno abre uma atividade, o arquivo LEIAME do repositório inclui a recomendação de seu professor sobre o IDE, que ele deve usar para o trabalho.
+![Screenshot of the Codespaces note in the README for a student assignment repository](/assets/images/help/classroom/student-codespaces-readme-link.png)
 
-![Captura de tela da observação dos codespaces no README para um repositório de atividade do aluno](/assets/images/help/classroom/student-codespaces-readme-link.png)
+Students can launch a new or existing codespace by clicking the **{% octicon "code" aria-label="The code icon" %} Code** button on the main page of the assignment repository, then selecting the **Codespaces** tab. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
 
-Os alunos podem iniciar um codespace novo ou existente, clicando no botão **Código de {% octicon "code" aria-label="The code icon" %}** na página principal do repositório de atividades e, em seguida, selecionando a aba **Codespaces**. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+![Launch new codespace in assignment repository](/assets/images/help/classroom/student-launch-new-codespace.png)
 
-![Iniciar novo codespace no repositório das atividades](/assets/images/help/classroom/student-launch-new-codespace.png)
+Teachers can view each student's codespace for an assignment in the assignment overview page. You can click on the Codespaces icon on the right side of each student row to launch the codespace. 
 
-Os professores podem ver o codespace de cada aluno para uma atividade na página de visão geral da atividade. Você pode clicar no ícone de codespace no lado direito de cada linha do aluno para iniciar o codespace.
+![Teacher assignment overview with student's codespaces](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-![Visão geral da atividade do professor com os codespaces do aluno](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
-
-Ao conectar-se a um codespace por meio de um navegador, o salvamento automático é habilitado automaticamente. Se você quiser salvar as alterações no repositório, você deverá fazer um commit das alterações e enviá-las por push para um branch remoto. Se você deixar seu codespace em execução sem interação durante 30 minutos por padrão, o seu tempo de execução irá esgostar-se e parar de executar. Os dados da última vez que você fez uma alteração serão preservados. Para obter mais informações sobre o ciclo de vida de um codespace, consulte "[Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)".
+When you connect to a codespace through a browser, auto-save is enabled automatically. If you want to save changes to the repository, you will need to commit the changes and push them to a remote branch. If you leave your codespace running without interaction for 30 minutes by default, the codespace will timeout and stop running. Your data will be preserved from the last time you made a change. For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."

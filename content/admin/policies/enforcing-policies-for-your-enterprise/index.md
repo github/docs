@@ -16,7 +16,7 @@ children:
   - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-team-policies-in-your-enterprise
-  - /enforcing-project-board-policies-in-your-enterprise
+  - /enforcing-policies-for-projects-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-security-settings-in-your-enterprise
   - /enforcing-policies-for-dependency-insights-in-your-enterprise
@@ -24,4 +24,3 @@ children:
   - /enforcing-policies-for-advanced-security-in-your-enterprise
 shortTitle: Enforce policies
 ---
-

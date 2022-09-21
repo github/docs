@@ -1,5 +1,5 @@
 ---
-title: Política do site
+title: Política do Site
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy

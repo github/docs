@@ -1,6 +1,6 @@
 ---
-title: Working with files
-intro: Learn how to manage and use files in repositories.
+title: ファイルの処理
+intro: リポジトリ内のファイルを管理および使う方法について学習します。
 redirect_from:
   - /categories/81/articles
   - /categories/manipulating-files
@@ -18,5 +18,11 @@ children:
   - /using-files
   - /managing-large-files
 shortTitle: Work with files
+ms.openlocfilehash: 69ad8b7c9f95e2b4f4cdc9c27fc625af8cd28fd8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132001'
 ---
 

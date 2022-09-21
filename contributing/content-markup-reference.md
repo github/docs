@@ -72,7 +72,7 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name. **Note**: If you specify a language other than `sh` or `shell` or you use `{:copy}`, the `<em>` tag will not render correctly.
 
 **Copy-able code blocks**
 
@@ -81,6 +81,9 @@ You can also add a header that includes the name of the language and a button to
     ```js{:copy}
     const copyMe = true
     ```
+
+**Note**: The `<em>` tag will not render correctly with the `copy` button.
+
 
 ## Octicons
 
@@ -210,6 +213,14 @@ These instructions are pertinent to `pwsh` and `powershell` commands.
 These instructions are pertinent to Bash shell commands.
 
 {% endbash %}
+```
+
+```
+{% javascript %}
+
+These instructions are pertinent to javascript users.
+
+{% endjavascript %}
 ```
 
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).

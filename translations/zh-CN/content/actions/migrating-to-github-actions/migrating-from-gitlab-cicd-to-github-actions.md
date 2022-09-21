@@ -14,11 +14,15 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: 从 GitLab CI/CD 迁移
+shortTitle: Migrate from GitLab CI/CD
+ms.openlocfilehash: d0d5f2cae928f95b1a614826f270342f376db0de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146178981'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
@@ -31,7 +35,7 @@ GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都允许您创�
 
 存在一些区别，本指南将说明重要区别，以便您将工作流程迁移到 {% data variables.product.prodname_actions %}。
 
-## Jobs
+## 作业
 
 GitLab CI/CD 中的作业非常类似于 {% data variables.product.prodname_actions %} 中的作业。 在这两个系统中，作业具有以下特征：
 
@@ -78,7 +82,7 @@ jobs:
 </tr>
 </table>
 
-## 运行器
+## 运行程序
 
 运行器是运行作业的机器。 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 提供托管和自托管的运行器变体。 在 GitLab CI/CD 中，`tags` 用于在不同的平台上运行作业，而在 {% data variables.product.prodname_actions %} 中，它使用 `runs-on` 键运行。
 
@@ -103,10 +107,8 @@ windows_job:
   script:
     - echo Hello, %USERNAME%!
 
-linux_job:
-  tags:
-    - linux
-  script:
+linux_job: tags:
+    - linux script:
     - echo "Hello, $USER!"
 ```
 {% endraw %}
@@ -129,7 +131,7 @@ linux_job:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
+有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 
 ## Docker 映像
 
@@ -167,7 +169,7 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)”。
+有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)”。
 
 ## 条件和表达式语法
 
@@ -212,13 +214,13 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
+有关详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 ## 作业之间的依赖关系
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。 在这两个系统中，默认情况下作业并行运行，但 {% data variables.product.prodname_actions %} 中的作业依赖项可以用 `needs` 键明确指定。 GitLab CI/CD 还具有 `stages` 的概念，其中作业分阶段同时运行，但下一阶段将在前一阶段的所有作业完成时开始。 您可以使用 `needs` 键在 {% data variables.product.prodname_actions %} 中重新创建此情景。
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。 在这两个系统中，默认情况下作业并行运行，但 {% data variables.product.prodname_actions %} 中的作业依赖项可以用 `needs` 键进行显式指定。 GitLab CI/CD 还具有 `stages` 的概念，其中作业分阶段同时运行，但下一阶段将在前一阶段的所有作业完成时开始。 可以使用 `needs` 键在 {% data variables.product.prodname_actions %} 中重新创建此情景。
 
-下面是每个系统的语法示例： 工作流程首先同时运行两个名为 `build_a` 和 `build_b` 的作业， 当这些作业完成后，另一个名为 `test_ab` 的作业将运行。 最后，`test_ab` 完成后，`depl_ab` 作业运行。
+下面是每个系统的语法示例： 工作流首先同时运行两个名为 `build_a` 和 `build_b` 的作业，当这些作业完成后，另一个名为 `test_ab` 的作业将运行。 最后，`test_ab` 完成后，`deploy_ab` 作业将运行。
 
 <table class="d-block">
 <tr>
@@ -238,24 +240,16 @@ stages:
   - test
   - deploy
 
-build_a:
-  stage: build
-  script:
+build_a: stage: build script:
     - echo "This job will run first."
 
-build_b:
-  stage: build
-  script:
+build_b: stage: build script:
     - echo "This job will run first, in parallel with build_a."
 
-test_ab:
-  stage: test
-  script:
+test_ab: stage: test script:
     - echo "This job will run after build_a and build_b have finished."
 
-deploy_ab:
-  stage: deploy
-  script:
+deploy_ab: stage: deploy script:
     - echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
@@ -291,19 +285,19 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
+有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
 
 ## 预定工作流程
 
 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您以特定的间隔运行工作流程。 在 GitLab CI/CD 中，管道计划使用 UI 配置，而在 {% data variables.product.prodname_actions %} 中，您可以使用 "on" 键在预定的间隔时间触发工作流程。
 
-更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
+有关详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
 
 ## 变量和机密
 
 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 支持在管道或工作流程配置文件中设置环境变量，并使用 GitLab 或 {% data variables.product.product_name %} UI 创建密码。
 
-更多信息请参阅“[环境变量](/actions/reference/environment-variables)”和“[使用加密密码](/actions/reference/encrypted-secrets)”。
+有关详细信息，请参阅“[环境变量](/actions/reference/environment-variables)”和“[加密的机密](/actions/reference/encrypted-secrets)”。
 
 ## 缓存
 
@@ -328,16 +322,13 @@ GitLab CI/CD
 ```yaml
 image: node:latest
 
-cache:
-  key: $CI_COMMIT_REF_SLUG
-  paths:
+cache: key: $CI_COMMIT_REF_SLUG paths:
     - .npm/
 
 before_script:
   - npm ci --cache .npm --prefer-offline
 
-test_async:
-  script:
+test_async: script:
     - node ./specs/start.js ./specs/async.spec.js
 ```
 {% endraw %}
@@ -367,7 +358,7 @@ jobs:
 
 {% endif %}
 
-## 构件
+## Artifacts
 
 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都可以上传作业创建的文件和目录作为构件。 在 {% data variables.product.prodname_actions %} 中，构件可用于在多个作业中保留数据。
 
@@ -407,7 +398,7 @@ artifacts:
 </tr>
 </table>
 
-更多信息请参阅“[将工作流程存储为构件](/actions/guides/storing-workflow-data-as-artifacts)”。
+有关详细信息，请参阅“[将工作流数据存储为构件](/actions/guides/storing-workflow-data-as-artifacts)”。
 
 ## 数据库和服务容器
 
@@ -492,4 +483,4 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[关于服务容器](/actions/guides/about-service-containers)”。
+有关详细信息，请参阅“[关于服务容器](/actions/guides/about-service-containers)”。

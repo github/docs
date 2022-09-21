@@ -12,29 +12,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Adicionar gerentes do aplicativo GitHub
+shortTitle: Add GitHub App managers
+ms.openlocfilehash: d8389c85c847b750bdb83eb8b922ad16bfa33bf3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126481'
 ---
-
-Para obter mais informações sobre as permissões do gerenciador de {% data variables.product.prodname_github_app %}, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+Para obter mais informações sobre as permissões de gerente do {% data variables.product.prodname_github_app %}, confira "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)".
 
 ## Dar a alguém a capacidade de gerenciar todos os {% data variables.product.prodname_github_apps %} pertencentes à organização
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Em "Management" (Gerenciamento), digite o nome de usuário da pessoa que deseja designar como um gerente do {% data variables.product.prodname_github_app %} na organização e clique em **Grant** (Conceder). ![Adicionar um gerente do {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/add-github-app-manager.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.github-apps-settings-sidebar %}
+1. Em "Gerenciamento", digite o nome de usuário da pessoa que deseja designar como um gerente do {% data variables.product.prodname_github_app %} na organização e clique em **Conceder**.
+![Adicionar um gerente do {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/add-github-app-manager.png)
 
 ## Dar a um indivíduo a capacidade de gerenciar um {% data variables.product.prodname_github_app %} individual
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Em "{% data variables.product.prodname_github_apps %}", clique no avatar do aplicativo ao qual você deseja adicionar um gerente de {% data variables.product.prodname_github_app %}. ![Selecione {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
-{% data reusables.organizations.app-managers-settings-sidebar %}
-1. Em "App managers" (Gerentes de app), digite o nome de usuário da pessoa que deseja designar como gerente do aplicativo GitHub e clique em **Grant** (Conceder). ![Adicionar um gerente do {% data variables.product.prodname_github_app %} para um app específico](/assets/images/help/organizations/add-github-app-manager-for-app.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.github-apps-settings-sidebar %}
+1. Em "{% data variables.product.prodname_github_apps %}", clique no avatar do aplicativo ao qual você deseja adicionar um gerente de {% data variables.product.prodname_github_app %}.
+![Seleção do {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png) {% data reusables.organizations.app-managers-settings-sidebar %}
+1. Em "Gerentes de aplicativo", digite o nome de usuário da pessoa que deseja designar como gerente do Aplicativo do GitHub para o aplicativo e clique em **Conceder**.
+![Adicionar um gerente do {% data variables.product.prodname_github_app %} a um aplicativo específico](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
 {% ifversion fpt or ghec %}
-## Leia mais
+## Leitura adicional
 
-- "[Sobre o {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"
-{% endif %}
+- "[Sobre o {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)" {% endif %}

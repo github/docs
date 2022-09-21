@@ -12,6 +12,7 @@ redirect_from:
 children:
   - /about-github-codespaces-prebuilds
   - /configuring-prebuilds
+  - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
 ---

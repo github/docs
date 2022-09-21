@@ -1,5 +1,5 @@
 ---
-title: Compromiso de Cooperación de GPL de GitHub
+title: Compromiso de cooperación con GPL de GitHub
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
   - /github/site-policy/github-gpl-cooperation-commitment
@@ -8,30 +8,35 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556698'
 ---
+Este compromiso se refiere a las contribuciones de GitHub a Git, el kernel de Linux y otros programas bajo licencias cubiertas (vaya hasta el final para ver las definiciones).
 
-Este compromiso se refiere a las contribuciones de GitHub a Git, el kernel de Linux y otros programas bajo licencias cubiertas (desplácese hasta el final para las definiciones).
+Basamos nuestra declaración en la [plantilla](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md) para empresas. Consulte el [sitio de Compromiso de Cooperación con GPL](https://gplcc.github.io/gplcc/) para saber cómo otras empresas, personas y proyectos pueden adoptar este compromiso.
 
-Basamos nuestra proposición en la plantilla [](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md) para empresas. Consulta el [sitio del Comité de Cooperación GPL](https://gplcc.github.io/gplcc/) para conocer cómo otras empresas, individuos y proyectos pueden adoptar este compromiso.
+## Nuestro Compromiso
 
-## Nuestro compromiso
+Antes de presentar o continuar procesando cualquier procedimiento legal o reclamación (que no sea una Acción Defensiva) que surja de la rescisión de una Licencia Cubierta, GitHub se compromete a extender a la persona o entidad («usted») acusada de infringir la Licencia Cubierta las siguientes disposiciones con respecto a la subsanación y restablecimiento, tomado de GPL versión 3. Tal como se usa aquí, el término «esta Licencia» se refiere a la Licencia Cubierta específica que se está aplicando.
 
-Antes de presentar o continuar procesando cualquier procedimiento legal o reclamación (excepto una acción defensiva) que surja de la terminación de una licencia cubierta, GitHub se compromete a extenderse a la persona o entidad (“tú”) acusada de violar la Licencia Cubierta, las siguientes disposiciones relativas a la subsanación y la reincorporación, tomado de la versión 3 de GPL. Tal y como se utiliza aquí, el término "esta Licencia" se refiere a la Licencia cubierta específica que se está cumpliendo.
+Sin embargo, si deja de infringir esta Licencia, su licencia de un titular de derechos de autor en particular se restablece (a) provisionalmente, a menos y hasta que el titular de los derechos de autor rescinda su licencia de manera explícita y definitiva, y (b) permanentemente, si el titular de los derechos de autor no le notifica de la infracción por algún medio razonable antes de 60 días después del cese.
 
-Sin embargo, si cesas toda violación de esta Licencia, entonces tu licencia de un titular de derechos de autor particular se reestablece (a) de forma proporcional, a menos y hasta que el titular de los derechos de autor explícitamente y finalmente termina tu licencia, y (b) de forma permanente, si el titular de los derechos de autor no te notifica la violación por algún medio razonable antes de los 60 días posteriores a la cesación.
+Además, su licencia de un titular de derechos de autor en particular se restablece permanentemente si el titular de derechos de autor le notifica la infracción por algún medio razonable, esta es la primera vez que recibe un aviso de infracción de esta licencia (para cualquier trabajo) de ese titular de derechos de autor y subsana la infracción antes de los 30 días posteriores a la recepción de la notificación.
 
-Además, tu licencia de un determinado titular de derechos de autor se reestablece permanentemente si el titular de los derechos de autor te notifica la violación por algunos medios razonables, esta es la primera vez que recibes un aviso de violación de esta Licencia (por cualquier trabajo) de ese titular de los derechos de autor y subsanas la violación antes de 30 días después de la recepción de la notificación.
+GitHub pretende que este Compromiso sea irrevocable, vinculante y ejecutable contra GitHub y los cesionarios o sucesores de los derechos de autor de GitHub.
 
-GitHub pretende que este Comité sea irrevocable, vinculante y exigible contra GitHub y asignados o sucesores de los derechos de autor de GitHub.
-
-GitHub puede modificar este Comité publicando una nueva edición en esta página o una ubicación posterior.
+GitHub puede modificar este Compromiso mediante la publicación de una nueva edición en esta página o en una ubicación posterior.
 
 Definiciones
 
-‘Licencia cubierta’ hace referencia a la Licencia Pública General GNU, versión 2 (GPLv2), la Licencia Pública General Menor GNU, versión 2. (LGPLv2.1), o la Licencia Pública General de la Biblioteca GNU, versión 2 (LGPLv2), todo publicado por la Free Software Foundation.
+«Licencia Cubierta» se refiere a la licencia pública general de GNU, versión 2 (GPLv2), la Licencia Pública General Reducida de GNU, versión 2.1 (LGPLv2.1) o la Licencia Pública General de Biblioteca de GNU, versión 2 (LGPLv2), todas publicadas por la Fundación de Software Libre.
 
-‘Acción Defensiva’ significa un proceso legal o una reclamación de GitHub contra ti en respuesta a un proceso previo o reclamación iniciada por ti o tu afiliado.
+«Acción defensiva» se refiere a un procedimiento legal o reclamación que GitHub presenta contra usted en respuesta a un procedimiento o reclamación anterior iniciada por usted o su entidad afiliada.
 
-'GitHub' significa GitHub, Inc. y sus filiales.
+«GitHub» se refiere a GitHub, Inc. y sus filiales.
 
-Este trabajo está disponible bajo una licencia interlacional Creative Commons Attribution-ShareAlike 4.0.
+Esta obra está disponible bajo una licencia Creative Commons Attribution-ShareAlike 4.0 International.

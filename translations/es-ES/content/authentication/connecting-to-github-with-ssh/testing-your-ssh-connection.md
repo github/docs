@@ -12,18 +12,23 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Probar tu conexión SSH
+shortTitle: Test your SSH connection
+ms.openlocfilehash: 7724c5939b319748f270db2f190a6df825b0bb4f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146338977'
 ---
-
 Antes de probar tu conexión SSH, debes haber hecho lo siguiente:
-- [Comprobado tus claves SSH existentes](/articles/checking-for-existing-ssh-keys)
+- [Comprobado para las claves SSH existentes](/articles/checking-for-existing-ssh-keys)
 - [Generado una clave SSH nueva](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Agregado una clave SSH nueva a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
+- [Agregado una clave SSH nueva a la cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu contraseña, que es la contraseña de clave SSH que ya creaste. Para obtener más información acerca de trabajar con contraseñas de clave SSH, consulta ["Trabajar con contraseñas de clave SSH"](/articles/working-with-ssh-key-passphrases).
+Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu contraseña, que es la contraseña de clave SSH que ya creaste. Para más información sobre cómo trabajar con frases de contraseña de clave SSH, vea ["Trabajo con frases de contraseña de clave SSH"](/articles/working-with-ssh-key-passphrases).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Ingresa lo siguiente:
+2. Escriba lo siguiente:
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
   # Attempts to ssh to {% data variables.product.product_name %}
@@ -32,12 +37,12 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
   Puedes ver una advertencia como la siguiente:
 
   ```shell
-  > La autenticidad del host '{% data variables.command_line.codeblock %} (DIRECCIÓN IP)' no se puede establecer.
-  > La clave de huella digital RSA es SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-  > ¿Estás seguro de que quieres continuar conectado (sí/no)?
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
+  > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+  > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verifica que la huella dactilar en el mensaje que ves empate con {% ifversion fpt or ghec %}[la huella dactilar de la llave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} la huella dactilar de la llave pública de tu empresa{% endif %}. Si lo hace, entonces teclea `yes`:
+3. Compruebe que la huella digital del mensaje que ve coincide con {% ifversion fpt or ghec %}[la huella digital de clave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} a huella digital de clave pública de la empresa{% endif %}. En caso afirmativo, escriba `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -45,22 +50,22 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
 
   {% linux %}
 
-  Puede que veas el siguiente mensaje de error:
+  Puede aparecer este mensaje de error:
   ```shell
   ...
-  El agente admitió una falla para registrarse utilizando la clave.
-  debug1: No hay más métodos de autenticación para probar.
-  Permiso denegado (publickey).
+  Agent admitted failure to sign using the key.
+  debug1: No more authentication methods to try.
+  Permission denied (publickey).
   ```
 
-  Se trata de un problema conocido con determinadas distribuciones de Linux. Para obtener más información, consulta ["Error: El agente admitió una falla para registrarse"](/articles/error-agent-admitted-failure-to-sign).
+  Se trata de un problema conocido con determinadas distribuciones de Linux. Para más información, vea ["Error: el agente ha admitido un error al firmar"](/articles/error-agent-admitted-failure-to-sign).
 
   {% endlinux %}
 
    {% note %}
 
-   **Nota:** El comando remoto deberá salir con el código 1.
+   **Nota:** El comando remoto debe salir con el código 1.
 
    {% endnote %}
 
-4. Comprueba que el mensaje resultante contenga tu nombre de usuario. Si recibes un mensaje de "permiso denegado", consulta ["Error: Permiso denegado (publickey)"](/articles/error-permission-denied-publickey).
+4. Comprueba que el mensaje resultante contenga tu nombre de usuario. Si recibe un mensaje de "permiso denegado", vea ["Error: Permiso denegado (clave_pública)"](/articles/error-permission-denied-publickey).

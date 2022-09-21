@@ -1,6 +1,6 @@
 ---
 title: 记住您的 GitHub 用户名或电子邮件
-intro: '是否距离您第一次登录 {% data variables.product.product_location %} 已经有一段时间？ 如果是这样，欢迎回来！ 如果您忘记了 {% data variables.product.product_name %} 上个人帐户的用户名，则可以尝试使用这些方法来记住它。'
+intro: '是否距离您第一次登录 {% data variables.product.product_location %} 已经有一段时间？ 如果是这样，欢迎回来！ 如果无法记住 {% data variables.product.product_name %} 上个人帐户的用户名，可以尝试使用以下方法来记住它。'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email
@@ -15,17 +15,22 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: 查找您的用户名或电子邮件
+shortTitle: Find your username or email
+ms.openlocfilehash: e65ba973a5ca7865aa642ce5d64f8efa0a996742
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164771'
 ---
-
 {% mac %}
 
 ## {% data variables.product.prodname_desktop %} 用户
 
-1. 在 **GitHub Desktop** 菜单中，单击 **Preferences（首选项）**。
+1. 在“GitHub 桌面”菜单中，单击“首选项” 。
 2. 在 Preferences（首选项）窗口中，验证以下内容：
-    - 要查看 {% data variables.product.product_name %} 用户名，请单击 **Accounts（帐户）**。
-    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
+    - 若要查看 {% data variables.product.product_name %} 用户名，请单击“帐户”。
+    - 若要查看 Git 电子邮件，请单击“Git”。 请注意，此电子邮件不保证是 [主要 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
 
 {% endmac %}
 
@@ -33,20 +38,20 @@ shortTitle: 查找您的用户名或电子邮件
 
 ## {% data variables.product.prodname_desktop %} 用户
 
-1. 在 **File（文件）**菜单中，单击 **Options（选项）**。
+1. 在“文件”菜单中，单击“选项” 。
 2. 在 Options（选项）窗口中，验证以下内容：
-    - 要查看 {% data variables.product.product_name %} 用户名，请单击 **Accounts（帐户）**。
-    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
-
+    - 若要查看 {% data variables.product.product_name %} 用户名，请单击“帐户”。
+    - 若要查看 Git 电子邮件，请单击“Git”。 请注意，此电子邮件不保证是 [主要 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
+  
 {% endwindows %}
 
-## 在 `user.name` 配置中查找您的用户名
+## 在 `user.name` 配置中查找用户名
 
-设置期间，您可能已[在 Git 中设置用户名](/github/getting-started-with-github/setting-your-username-in-git)。 如果这样，您可以查看此配置设置的值：
+在设置期间，你可能已[在 Git 中设置用户名](/github/getting-started-with-github/setting-your-username-in-git)。 如果这样，您可以查看此配置设置的值：
 
 ```shell
 $ git config user.name
-# 查看设置
+# View the setting
 <em>YOUR_USERNAME</em>
 ```
 
@@ -56,22 +61,21 @@ $ git config user.name
 
 {% tip %}
 
-**提示**：此方法仅当您拥有原始仓库或其他人存储库中您自己的复刻时才有效。 如果您克隆其他人的仓库，将显示他们的用户名而不是您的用户名。 类似地，组织仓库将显示组织的名称，而不是远程 URL 中的特定用户。
+提示：此方法仅当你拥有原始存储库或其他人存储库中你自己的分叉时才有效。 如果您克隆其他人的仓库，将显示他们的用户名而不是您的用户名。 类似地，组织仓库将显示组织的名称，而不是远程 URL 中的特定用户。
 
 {% endtip %}
 
 ```shell
 $ cd <em>YOUR_REPOSITORY</em>
-# 将目录更改为初始化的 Git 仓库
+# Change directories to the initialized Git repository
 $ git remote -v
 origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
 origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-您的用户名是紧跟在 `https://{% data variables.command_line.backticks %}/` 之后的内容。
+用户名紧跟在 `https://{% data variables.command_line.backticks %}/` 后。
 
 {% ifversion fpt or ghec %}
 ## 延伸阅读
 
-- “[验证电子邮件地址](/articles/verifying-your-email-address)”
-{% endif %}
+- “[验证电子邮件地址](/articles/verifying-your-email-address)”{% endif %}

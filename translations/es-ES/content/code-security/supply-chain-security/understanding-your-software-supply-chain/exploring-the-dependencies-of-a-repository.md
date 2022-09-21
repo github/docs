@@ -1,6 +1,6 @@
 ---
-title: Exploring the dependencies of a repository
-intro: 'You can use the dependency graph to see the packages your project depends on{% ifversion fpt or ghec %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
+title: Explorar las dependencias de un repositorio
+intro: 'Puedes usar el gráfico de dependencias para ver los paquetes de los que depende tu proyecto{% ifversion fpt or ghec %} y los repositorios que dependen de él{% endif %}. Adicionalmente, puedes ver cualquier vulnerabilidad que se detecte en sus dependencias.'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -20,98 +20,94 @@ topics:
   - Dependencies
   - Repositories
 shortTitle: Explore dependencies
+ms.openlocfilehash: f3735844ad8bcb8fba799723f30a3d55e41ec158
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882735'
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
-## Viewing the dependency graph
+## Visualizar la gráfica de dependencias
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. For information about the detection of dependencies and which ecosystems are supported, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+El gráfico de dependencias muestra las dependencias{% ifversion fpt or ghec %} y los dependientes{% endif %} del repositorio. Para obtener información sobre la detección de dependencias y los ecosistemas compatibles, consulte "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
-4. Optionally, under "Dependency graph", click **Dependents**.
-![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
+4. También puede hacer clic en **Dependents** en "Dependency graph".
+![Pestaña Dependents de la página del gráfico de dependencias](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-{% ifversion ghes %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
+{% ifversion ghes %} Los propietarios de las empresas pueden configurar el gráfico de dependencias a nivel empresarial. Para obtener más información, consulte "[Habilitación del gráfico de dependencias para la empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".
 {% endif %}
 
-### Dependencies view
+### Vista de dependencias
 
-{% ifversion fpt or ghec %}
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies.  Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
+{% ifversion fpt or ghec %} Las dependencias se agrupan por ecosistema. Puedes expandir una dependencia para ver a su vez sus dependencias.  Las dependencias en los repositorios privados, paquetes privados, o archivos no reconocidos se muestran en texto simple. Si el administrador de paquetes de la dependencia se encuentra en un repositorio público, {% data variables.product.product_name %} mostrará un enlace a este.
 
-{% ifversion dependency-submission-api %}
-Dependencies submitted to a project using the Dependency submission API (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies. For more information on using the dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+{% ifversion dependency-submission-api %} Las dependencias enviadas a un proyecto mediante la API de envío de dependencias (beta), aunque también se agrupan por ecosistema, se muestran por separado de las dependencias identificadas mediante archivos de manifiesto o de bloqueo en el repositorio. Estas dependencias enviadas aparecen en el gráfico de dependencias como "Dependencias de instantáneas" porque se envían como una instantánea (o conjunto) de dependencias. Para obtener más información sobre el uso de la API de envío de dependencias, consulta "[Uso de la API de envío de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)".
 {% endif %}
 
-If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
+Si se han detectado vulnerabilidades en el repositorio, estas se muestran en la parte superior de la vista para los usuarios con acceso a {% data variables.product.prodname_dependabot_alerts %}.
 
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph.png)
+![Gráfico de dependencias](/assets/images/help/graphs/dependencies_graph.png)
 
 {% endif %}
 
-{% ifversion ghes or ghae %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
+{% ifversion ghes or ghae %} Aparecerá cualquier dependencia directa e indirecta que se especifique en los archivos de bloqueo o manifiesto del repositorio, agrupadas por ecosistema. Si se han detectado vulnerabilidades en el repositorio, estas se muestran en la parte superior de la vista para los usuarios con acceso a {% data variables.product.prodname_dependabot_alerts %}.
 
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
+![Gráfico de dependencias](/assets/images/help/graphs/dependencies_graph_server.png)
 
 {% note %}
 
-**Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.
+**Nota:** {% data variables.product.product_name %} no rellena la vista **Dependents**.
 
 {% endnote %}
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### Dependents view
+### Vista de dependientes
 
-For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
+Para los repositorios públicos, la vista de dependientes muestra cómo otros repositorios utilizan este repositorio. Para mostrar únicamente los repositorios que contienen una biblioteca en un administrador de paquetes, haga clic en la opción **NUMBER Packages** que aparece justo encima de la lista de repositorios dependientes. La cantidad de dependientes es aproximada y podría no siempre empatar con los dependientes listados.
 
-![Dependents graph](/assets/images/help/graphs/dependents_graph.png)
+![Gráfica de dependientes](/assets/images/help/graphs/dependents_graph.png)
 
-## Enabling and disabling the dependency graph for a private repository
+## Habilitar e inhabilitar la gráfica de dependencias para un repositorio privado
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 
-## Changing the "Used by" package
+## Cambiar el paquete "Utilizado por"
 
-You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-  * The dependency graph is enabled for the repository (see the above section for more details).
-  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
-  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+Es posible que observe que algunos repositorios tienen una sección "Used by" en la barra lateral de la pestaña **Code**. El repositorio tendrá una sección "Used by" si:
+  * La gráfica de dependencias está habilitada para el repositorio (consulta la sección anterior para obtener más detalles).
+  * El repositorio contiene un paquete que se publica en un [ecosistema de paquetes compatible](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Dentro del ecosistema, su paquete tiene un vínculo a un repositorio _público_ donde se almacena el origen.
 
-The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+La sección de "Utilizado por" muestra la cantidad de referencias públicas al paquete que se encontró, y muestra los avatares de algunos de los propietarios de los proyectos dependientes.
 
-!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+![Sección "Used by" de la barra lateral](/assets/images/help/repository/used-by-section.png)
 
-Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+Al hacer clic en cualquier elemento de esta sección, se le redirige a la pestaña **Dependents** del gráfico de dependencias.
 
-The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+La sección de "Utilizado por" representa un solo paquete del repositorio. Si tienes permisos de administrador en un repositorio que contenga paquetes múltiples, puedes elegir qué paquete reporesenta la sección de "Utilizado por".
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
-  ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Debajo de "Análisis y seguridad del código", haz clic en el menú desplegable de la sección "Contador de usado por" y elige un paquete.
+  ![Elegir un paquete de "Used by"](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
-## Troubleshooting the dependency graph
+## Solución de problemas del gráfico de dependencias
 
-If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
+Si tu gráfica de dependencias está vacía, puede que haya un problema con el archivo que contiene tus dependencias. Revisa el archivo para asegurarte de que tiene el formato correcto para el tipo de archivo.
 
-{% ifversion fpt or ghec %}
-If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 1.5 Mb, unless you are a {% data variables.product.prodname_enterprise %} user. It processes up to 20 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
+{% ifversion fpt or ghec %} Si el archivo tiene el formato correcto, compruebe su tamaño. El gráfico de dependencias ignora los archivos individuales de manifiesto y de bloqueo que pesen más de 1.5 Mb, a menos que sea usuario de {% data variables.product.prodname_enterprise %}. Este procesa hasta 20 archivos de manifiesto o de bloqueo por repositorio predeterminadamente, así que puedes dividir las dependencias en archivos más pequeños en los subdirectorios del repositorio.{% endif %}
 
-If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for insecure dependencies.
+Si un archivo de manifiesto o de bloqueo no se procesa, sus dependencias se omiten en el gráfico de dependencias y no podrán verificarse en busca de dependencias no seguras.
 
-## Further reading
+## Información adicional
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
-- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/get-started/privacy-on-github)"
-{% endif %}
+- "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[Visualización y actualización de {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
+- "[Ver información de su organización](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- "[Comprender cómo {% data variables.product.prodname_dotcom %} usa y protege los datos](/get-started/privacy-on-github)" {% endif %}

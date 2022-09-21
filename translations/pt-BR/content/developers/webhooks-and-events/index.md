@@ -12,5 +12,11 @@ topics:
 children:
   - /webhooks
   - /events
+ms.openlocfilehash: fad83525deaeaccda2a9949d9a634c19f857056b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145095732'
 ---
 

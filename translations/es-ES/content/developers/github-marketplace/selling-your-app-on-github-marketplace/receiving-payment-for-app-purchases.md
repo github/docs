@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Recibir pagos
+shortTitle: Receive payment
+ms.openlocfilehash: 324ef8bceaa92c55f102603885799dde7e892795
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092121'
 ---
-
 Después de que tu listado de {% data variables.product.prodname_marketplace %} para una app con un plan de pago se cree y apruebe, deberás proporcionar los detalles de pago a {% data variables.product.product_name %} como parte del proceso de integración financiera.
 
 Una vez que tus ganancias lleguen a un mínimo de 500 dólares estadounidenses por el mes, recibirás un pago electrónico de {% data variables.product.company_short %}. Este será el ingreso de las transacciones de marketplace menos la cantidad que cobra {% data variables.product.company_short %} para cubrir los costos de operación.
@@ -24,6 +29,6 @@ Para las transacciones que se realicen antes del 1 de enero de 2021, {% data var
 
 {% note %}
 
-**Nota:** Para obtener más detalles de los precios y condiciones de pago actuales, consulta la sección "[acuerdo de desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
+**Nota:** Para obtener más información sobre los precios actuales y las condiciones de pago, consulte "Acuerdo de desarrollador de [{% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 {% endnote %}

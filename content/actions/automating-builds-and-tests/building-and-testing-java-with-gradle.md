@@ -51,6 +51,8 @@ You can also add this workflow manually by creating a new file in the `.github/w
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Java CI
 
 on: [push]

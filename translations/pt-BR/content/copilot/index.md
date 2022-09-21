@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'Você pode usar {% data variables.product.prodname_copilot %} para obter sugestões de estilo de preenchimento automático de um programador de pares de IA à medida que você cria o código.'
+intro: 'Você pode usar o {% data variables.product.prodname_copilot %} para obter sugestões de preenchimento automático de um programador de par de IA à medida que cria o código.'
 redirect_from:
   - /github/copilot
 changelog:
@@ -19,7 +19,7 @@ featuredLinks:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
+    - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
 layout: product-landing
 versions:
   feature: copilot
@@ -30,5 +30,11 @@ children:
   - /configuring-github-copilot
 topics:
   - Copilot
+ms.openlocfilehash: 9a6100d2b5fe0bf8b710ce19e6a12f0afee42913
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147443693'
 ---
 

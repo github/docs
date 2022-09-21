@@ -32,6 +32,15 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 1. Click the theme you'd like to use.
     - If you chose a single theme, click a theme.
 
+      {%- ifversion ghes = 3.5 %}
+      {% note %}
+
+      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
+
+      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+      {% endnote %}
+      {%- endif %}
+
       {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - If you chose to follow your system settings, click a day theme and a night theme.
 

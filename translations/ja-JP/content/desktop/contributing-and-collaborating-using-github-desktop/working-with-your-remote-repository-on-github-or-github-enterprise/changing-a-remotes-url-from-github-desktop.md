@@ -8,20 +8,25 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Change a remote's URL
+ms.openlocfilehash: e06ea68ead9ab79c44d7aaf96f48d6645232b496
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146058477'
 ---
-
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Primary remote repositoryフィールド](/assets/images/help/desktop/repository-settings-remote.png)
-{% data reusables.desktop.repository-settings-save %}
+2. **[Remote]\(リモート\)** をクリックし、 **[Primary remote repository]\(プライマリ リモート リポジトリ\)** に目的の URL を入力します。
+![[Primary remote repository]\(プライマリ リモート リポジトリ\) フィールド](/assets/images/help/desktop/repository-settings-remote.png) {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Primary remote repositoryフィールド](/assets/images/help/desktop/repository-settings-remote.png)
-{% data reusables.desktop.repository-settings-save %}
+2. **[Remote]\(リモート\)** をクリックし、 **[Primary remote repository]\(プライマリ リモート リポジトリ\)** に目的の URL を入力します。
+![[Primary remote repository]\(プライマリ リモート リポジトリ\) フィールド](/assets/images/help/desktop/repository-settings-remote.png) {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

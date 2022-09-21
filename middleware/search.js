@@ -13,7 +13,7 @@ const noCacheControl = cacheControlFactory(0)
 
 router.get(
   '/',
-  catchMiddlewareError(async function getSearch(req, res, next) {
+  catchMiddlewareError(async function getSearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     const limit = Math.min(parseInt(limit_, 10) || 10, 100)
     if (!versions.has(version)) {
@@ -36,11 +36,6 @@ router.get(
       // Only reply if the headers have not been sent and the request was not aborted...
       if (!res.headersSent && !req.aborted) {
         cacheControl(res)
-
-        // Undo the cookie setting that CSRF sets.
-        // Otherwise it can't be cached in the CDN.
-        res.removeHeader('set-cookie')
-
         return res.status(200).json(results)
       }
     } catch (err) {

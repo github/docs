@@ -1,17 +1,25 @@
-{% data variables.product.prodname_copilot %}を使い始めるには、無料の試用もしくはプランのセットアップが必要です。
+---
+ms.openlocfilehash: 8fd599404931b2ec2334e0ad0200bbf8734f962e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147080296"
+---
+{% data variables.product.prodname_copilot %} の使用を開始する前に、無料試用版またはサブスクリプションを設定する必要があります。
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
-1. On the {% data variables.product.prodname_copilot %} settings page, click **Enable {% data variables.product.prodname_copilot %}**.
+1. サイドバーの [コード、計画、および自動化] セクションで、 **[{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot]** をクリックします。
+1. {% data variables.product.prodname_copilot %} 設定ページで、 **[{% data variables.product.prodname_copilot %} を有効にする]** をクリックします。
 
-   ![Screenshot of GitHub Copilot settings with Enable {% data variables.product.prodname_copilot %} button emphasized](/assets/images/help/copilot/copilot-settings-enable-button.png)
-1. 支払いを月次でするか年次でするかを選択し、 **Continue to get access to Copilot（Copilotへのアクセスを継続）**をクリックしてください。
-   - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial, you will automatically be taken to step 6.
+   ![[{% data variables.product.prodname_copilot %} を有効にする] ボタンが強調された GitHub Copilot 設定のスクリーンショット](/assets/images/help/copilot/copilot-settings-enable-button.png)
+1. 支払いを月次にするか年次にするかを選び、 **[引き続き Copilot にアクセスする]** をクリックします。
+   - 個人アカウントが試用版ではなく無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしている場合は、自動的に手順 6 に進みます。
 
-   ![Copilotへのアクセスを継続のボタンが強調された試用のセットアップのスクリーンショット](/assets/images/help/copilot/copilot-billing-cycle.png)
-1. Follow the steps to confirm your payment details, then click **Submit**.
-1. 設定を選択し、**Save and get started（保存して使用を開始）**をクリックしてください。
+   ![[引き続き Copilot にアクセスする] ボタンが強調された試用版のセットアップのスクリーンショット](/assets/images/help/copilot/copilot-billing-cycle.png)
+1. 手順に従って支払いの詳細を確認し、 **[送信]** をクリックします。
+1. ご自分の設定を選び、 **[保存して開始]** をクリックします。
 
-   ![Screenshot of GitHub Copilot settings with Save and get started button](/assets/images/help/copilot/copilot-signup-preferences.png)
+   ![[保存して開始] ボタンが示されている GitHub Copilot 設定のスクリーンショット](/assets/images/help/copilot/copilot-signup-preferences.png)
 
-   You can change these preferences at a later time by returning to your {% data variables.product.prodname_copilot %} settings. For more information, see "[Configuring GitHub Copilot in Visual Studio Code](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)."
+   これらの設定は、後で {% data variables.product.prodname_copilot %} 設定に戻すことで変更できます。 詳しくは、「[Visual Studio Code での GitHub Copilot の構成](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)」を参照してください。

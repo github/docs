@@ -1,5 +1,5 @@
 ---
-title: GitHub Codespaces Privacy Statement
+title: GitHub Codespaces プライバシーに関する声明
 redirect_from:
   - /github/site-policy/github-codespaces-privacy-policy
   - /github/site-policy/github-codespaces-privacy-statement
@@ -10,14 +10,14 @@ topics:
   - Legal
 ---
 
-Effective Date: August 10, 2021
+発効日:2021 年 8 月 10 日
 
-Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+GitHub Codespaces の使用には、[GitHub のプライバシーに関する声明](/github/site-policy/github-privacy-statement)が適用されます。
 
-Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
+github.dev でのアクティビティには、[GitHub のベータ プレビュー使用条件](/github/site-policy/github-terms-of-service#j-beta-previews)が適用されます。
 
-## {% data variables.product.prodname_vscode %}を使用する
+## <a name="using--data-variablesproductprodname_vscode-"></a>{% data variables.product.prodname_vscode %} の使用
 
-GitHub Codespaces and github.dev allow for use of {% data variables.product.prodname_vscode %} in the web browser. When using {% data variables.product.prodname_vscode_shortname %} in the web browser, some telemetry collection is enabled by default and is [explained in detail on the {% data variables.product.prodname_vscode_shortname %} website](https://code.visualstudio.com/docs/getstarted/telemetry). Users can opt out of telemetry by going to File > Preferences > Settings under the top left menu.
+GitHub Codespaces と github.dev では、Web ブラウザーで {% data variables.product.prodname_vscode %} を使用できます。 Web ブラウザーで {% data variables.product.prodname_vscode_shortname %} を使用する場合、一部のテレメトリ収集がデフォルト設定で有効になっていますが、この内容については、[{% data variables.product.prodname_vscode_shortname %} の Web サイトで詳しく説明しています](https://code.visualstudio.com/docs/getstarted/telemetry)。 ユーザーは、左上のメニューの下にある [ファイル] &gt; [基本設定] &gt; [設定] に移動して、テレメトリをオプトアウトすることができます。
 
-If a user chooses to opt out of telemetry capture in {% data variables.product.prodname_vscode_shortname %} while inside of a codespace as outlined, this will sync the disable telemetry preference across all future web sessions in GitHub Codespaces and github.dev.
+ユーザーが Codespaces 環境内にある {% data variables.product.prodname_vscode_shortname %} で上記のようにテレメトリ キャプチャのオプトアウトを選択した場合、GitHub Codespaces および github.dev における今後すべての Web セッションでテレメトリの無効化環境設定が同期されます。

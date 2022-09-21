@@ -1,6 +1,6 @@
 ---
 title: Trabajar con el registro de contenedores
-intro: 'Puedes almacenar y administrar imágenes de Docker y de OCI en el {% data variables.product.prodname_container_registry %}, el cual utiliza el designador de nombre de paquete `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+intro: 'Puedes almacenar y administrar imágenes de Docker y OCI en el {% data variables.product.prodname_container_registry %}, que utiliza el espacio de nombre para paquetes `https://{% data reusables.package_registry.container-registry-hostname %}`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -16,60 +16,64 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>= 3.5'
-shortTitle: Registro de contenedores
+shortTitle: Container registry
+ms.openlocfilehash: fc99e2e21a647c7a1a2517de8aa68822faac496e
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147705055'
 ---
+{% data reusables.package_registry.container-registry-ghes-beta %}
+
+## Acerca del {% data variables.product.prodname_container_registry %}
+
+{% data reusables.package_registry.container-registry-benefits %}
 
 {% ifversion ghes > 3.4 %}
-{% note %}
 
-**Nota:**: {% data variables.product.prodname_container_registry %} se encuentra actualmente en beta para {% data variables.product.product_name %} y está sujeto a cambios.
+Para usar el {% data variables.product.prodname_container_registry %} en {% data variables.product.product_name %}, el administrador del sitio debe configurar primero el {% data variables.product.prodname_registry %} para la instancia **y** habilitar el aislamiento de subdominio. Para obtener más información, consulta "[Introducción a los paquetes de GitHub para la empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitación del aislamiento de subdominio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
 
-{% endnote %}
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
-## Prerrequisitos
-
-Para configurar y utilizar el {% data variables.product.prodname_container_registry %} en {% data variables.product.prodname_ghe_server %}, tu administrador de sitio primero debe habilitar el {% data variables.product.prodname_registry %} **y** el aislamiento de subdominios. Para obtener más información, consulta las secciones "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitar el aislamiento de subdominios](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
-{% endif %}
 ## Acerca del soporte para el {% data variables.product.prodname_container_registry %}
 
 El {% data variables.product.prodname_container_registry %} es actualmente compatible con los siguientes formatos de contenedores de imagen:
 
-* [Docker Image Manifest V2, Modelo 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
-* [Especificaciones de Open Container Initiavie (OCI)](https://github.com/opencontainers/image-spec)
+* [Docker Image Manifest V2, modelo 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Especificaciones de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec)
 
 Cuando instalas o publicas una imagen de Docker, el {% data variables.product.prodname_container_registry %} es compatible con capas externas, tales como imágenes de Windows.
 
 ## Autenticarse en el {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% data variables.product.prodname_container_registry %} (`ghcr.io`) dentro de un flujo de trabajo de {% data variables.product.prodname_actions %}, usa `GITHUB_TOKEN` para obtener la mejor experiencia y seguridad. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %} {% endif %}
 
-{% ifversion ghes %}Asegúrate de reemplazar a `HOSTNAME` con el nombre de host o dirección IP de {% data variables.product.product_location_enterprise %} en los siguientes ejemplos.{% endif %}
+{% ifversion ghes %} Asegúrate de reemplazar `HOSTNAME` por el nombre de host o la dirección IP de {% data variables.product.product_location_enterprise %} en los ejemplos siguientes.{% endif %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ## Subir imágenes de contenedor
 
-Este ejemplo sube la última versión de `IMAGE_NAME`.
+En este ejemplo se inserta la versión más reciente de `IMAGE_NAME`.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
-Este ejemplo sube la versión `2.5` de la imagen.
+En este ejemplo se inserta la versión `2.5` de la imagen.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
-Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. Para cambiar la visibilidad o configurar permisos de acceso, consulta la sección "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
+Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. Para cambiar la visibilidad o establecer permisos de acceso, consulte "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
 ## Extraer imágenes de contenedor
 
 ### Extraer por resúmen
 
-Para garantizar que siempre utilices la misma imagen, puedes especificar la versión exacta de la imagen de contenedor que quieres extraer de acuerdo con su valor de SHA de `digest`.
+Para garantizar que siempre usa la misma imagen, puede especificar la versión exacta de la imagen de contenedor que quiere extraer de acuerdo con su valor de SHA de `digest`.
 
-1. Para encontrar el valor de SHA de resúmen, utiliza `docker inspect` o `docker pull` y copia el valor de SHA después de `Digest:`
+1. Para buscar el valor de SHA de hash, use `docker inspect` o `docker pull` y copie el valor de SHA después de `Digest:`.
   ```shell
   $ docker inspect {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME
   ```
@@ -78,7 +82,7 @@ Para garantizar que siempre utilices la misma imagen, puedes especificar la vers
   $ docker rmi  {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
-3. Extrae la imagen de contenedor con `@YOUR_SHA_VALUE` después del nombre de dicha imagen.
+3. Extraiga la imagen de contenedor con `@YOUR_SHA_VALUE` después del nombre de la imagen.
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
@@ -115,7 +119,7 @@ Ejemplo de CLI de Docker que muestra una imagen que se extrae por su nombre y po
 
 ## Crear imagenes de contenedor
 
-Este ejemplo crea la imagen `hello_docker`:
+En este ejemplo se compila la imagen `hello_docker`:
   ```shell
   $ docker build -t hello_docker .
   ```

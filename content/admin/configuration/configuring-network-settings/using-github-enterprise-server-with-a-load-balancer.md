@@ -91,7 +91,7 @@ If you enable support for the `X-Forwarded-For` header on your instance and load
 If {% data variables.product.product_location %} indicates that your session has expired when you connect to the {% data variables.enterprise.management_console %} through a load balancer, try one of the following configurations on your load balancer.
 
 - Disable `X-Forwarded-For` headers for connections to your instance on ports 8080 and 8443.
-- Configure your load balancer to operate on Layer 4, and use the PROXY protocol instead of `X-Forwarded-For` for passthrough of client IP addresses. For more information, see "[Enabling PROXY protocol support on {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
+- Configure your load balancer to operate on Layer 4, and use the PROXY protocol instead of `X-Forwarded-For` for passthrough of client IP addresses. For more information, see "[Enabling PROXY protocol support on {% data variables.product.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
 
 For more information, refer to the documentation for your load balancer.
 

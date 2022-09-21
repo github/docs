@@ -40,7 +40,11 @@ export const SidebarNav = () => {
         </Link>
       </div>
       <nav>
-        {error === '404' || currentProduct === null ? <SidebarHomepage /> : <SidebarProduct />}
+        {error === '404' || !currentProduct || currentProduct.id === 'search' ? (
+          <SidebarHomepage />
+        ) : (
+          <SidebarProduct />
+        )}
       </nav>
     </div>
   )

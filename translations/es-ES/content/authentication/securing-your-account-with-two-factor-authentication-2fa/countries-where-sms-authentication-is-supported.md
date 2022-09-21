@@ -10,31 +10,36 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Países compatibles con SMS
+shortTitle: Countries supporting SMS
+ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091765'
 ---
-
-Si no admitimos la autenticación de dos factores mediante mensaje de texto para tu país de residencia, puedes establecer la autenticación mediante una aplicación móvil TOTP. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
+Si no admitimos la autenticación de dos factores mediante mensaje de texto para tu país de residencia, puedes establecer la autenticación mediante una aplicación móvil TOTP. Para obtener más información, vea "[Configuración de autenticación en dos fases](/articles/configuring-two-factor-authentication)".
 
 ## Países admitidos para autenticación SMS
 
 Si tu país no está en la lista, significa que actualmente no podemos entregar mensajes de texto confiables a tu país. Actualizamos esta lista periódicamente.
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
-<li>Islas Aland</li>
-<li>Algeria</li>
+<li>Islas Åland</li>
+<li>Argelia</li>
 <li>Angola</li>
-<li>Anguilla</li>
+<li>Anguila</li>
 <li>Australia</li>
 <li>Austria</li>
 <li>Bahamas</li>
-<li>Bahrain</li>
-<li>Bangladesh</li>
-<li>Bielorusia</li>
+<li>Baréin</li>
+<li>Bangladés</li>
+<li>Belarús</li>
 <li>Bélgica</li>
-<li>Benin</li>
+<li>Benín</li>
 <li>Bolivia</li>
 <li>Bosnia y Herzegovina</li>
-<li>Brunei</li>
+<li>Brunéi</li>
 <li>Bulgaria</li>
 <li>Burundi</li>
 <li>Camboya</li>
@@ -55,7 +60,7 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Estonia</li>
 <li>Finlandia/Islas Aland</li>
 <li>Francia</li>
-<li>La Gambia</li>
+<li>Gambia</li>
 <li>Georgia</li>
 <li>Alemania</li>
 <li>Ghana</li>
@@ -70,11 +75,11 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Irlanda</li>
 <li>Israel</li>
 <li>Italia</li>
-<li>Costa de Marfil</li>
+<li>Côte d'Ivoire</li>
 <li>Jamaica</li>
 <li>Japón</li>
 <li>Jordania</li>
-<li>Kazakhstan</li>
+<li>Kazajistán</li>
 <li>Kuwait</li>
 <li>Letonia</li>
 <li>Libia</li>
@@ -87,7 +92,7 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Maldivas</li>
 <li>Mali</li>
 <li>Malta</li>
-<li>Isla Mauricio</li>
+<li>Mauricio</li>
 <li>México</li>
 <li>Mónaco</li>
 <li>Montenegro</li>
@@ -102,12 +107,12 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Filipinas</li>
 <li>Polonia</li>
 <li>Portugal</li>
-<li>Catar</li>
-<li>Rumania</li>
+<li>Qatar</li>
+<li>Rumanía</li>
 <li>Ruanda</li>
 <li>Senegal</li>
 <li>Serbia</li>
-<li>Islas Seychelles</li>
+<li>Seychelles</li>
 <li>Singapur</li>
 <li>Eslovaquia</li>
 <li>Eslovenia</li>
@@ -132,6 +137,6 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Venezuela</li>
 </ul>
 
-## Leer más
+## Información adicional
 
-- "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
+- "[Acerca de la autenticación en dos fases](/articles/about-two-factor-authentication)"
