@@ -1,0 +1,32 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
+  bugs:
+    - "マニフェスト ファイルがリポジトリから削除されるとき、マニフェストがリポジトリの [Dependency graph]\\(依存関係グラフ\\) ページから削除されていませんでした。" 
+    - "{% data variables.product.prodname_actions %} の成果物の取得とログ アーカイブのダウンロードが常に失敗するようになった回帰を解決しました。状況によっては、`localhost` を使用する内部通信用の URL の解決を停止し、代わりにインスタンスのホスト名を誤って使用していました。" 
+    - 高可用性のノードをアップグレード パッケージとペアでアップグレードすると、Elasticsearch が不整合な状態になる場合があります。 
+    - "`.backup` という拡張子のローテーションされるログ ファイルが、システム ログを格納するディレクトリにたまっていました。"
+    - 一部のクラスター トポロジでは、コマンド ライン ユーティリティ `ghe-spokesctl` と `ghe-btop` の実行に失敗する場合があります。 
+    - "`elasticsearch-upgrade` サービスが並行して複数回実行されるため、パッケージのアップグレード時に Elasticsearch インデックスが複製される可能性があります。" 
+    - pull request ビューとコミット ビューで、Git LFS によって追跡されている一部のファイルを、リッチ差分で読み込むことができませんでした。 
+    - "ユーザー アカウントを組織に変換したとき、ユーザー アカウントが {% data variables.product.prodname_ghe_server %} Enterprise アカウントの所有者だった場合、変換された組織が Enterprise 所有者一覧に誤って表示されます。" 
+    - Enterprise Administration REST API を使用して権限借用 OAuth トークンを作成すると、OAuth アプリケーション ID に一致する統合が既に存在する場合、エラーが発生していました。 
+    - Secret Scanning REST API で、検出されたシークレットに UTF8 文字が含まれていると、`500` 応答コードが返されました。 
+    - データがローカル キャッシュの場所にある場合でも、リポジトリ キャッシュ サーバーがキャッシュではない場所からデータを提供することがありました。 
+  changes:
+    - 構成適用の実行を停止する構成エラーが、構成ログに加えてターミナルに出力するようになりました。 
+    - Memcached で許可される最大値より大きい値をキャッシュしようとすると、エラーが発生しますが、キーは報告されませんでした。 
+    - "インスタンスで {% data variables.product.prodname_GH_advanced_security %} 機能が有効になっている場合、リポジトリ コントリビューションのバッチを処理すると、バックグラウンド ジョブのパフォーマンスが向上します。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後、{% data variables.product.prodname_actions %} が自動的に開始しないことがあります。この問題を解決するには、SSH を使ってアプライアンスに接続し、`ghe-actions-start` コマンドを実行します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '[Force Path Style]\(パス スタイルの強制\) がオンになっていると、{% data variables.product.prodname_actions %} のストレージ設定を検証して {% data variables.enterprise.management_console %} に保存することができず、代わりに `ghe-actions-precheck` コマンド ライン ユーティリティで構成する必要があります。'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 のインスタンスを Azure にインストールし、32 個以上の CPU コアでプロビジョニングすると、現在の Linux カーネルに存在するバグのため、起動しませんでした。 [更新日: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

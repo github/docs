@@ -277,6 +277,7 @@ translations/ja-JP/content/actions/hosting-your-own-runners/autoscaling-with-sel
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,broken liquid tags
+translations/ja-JP/content/actions/publishing-packages/publishing-docker-images.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/encrypted-secrets.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
@@ -376,6 +377,7 @@ translations/ja-JP/content/organizations/keeping-your-organization-secure/managi
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
+translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
@@ -391,26 +393,49 @@ translations/ja-JP/content/rest/repos/lfs.md,broken liquid tags
 translations/ja-JP/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
 translations/ja-JP/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,broken liquid tags
 translations/ja-JP/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
+translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/2-20/15.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/2-21/17.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-21/6.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/0.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/1.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/2.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/3.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/2-22/7.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/8.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-22/9.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-0/0.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-0/1.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-0/2.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-0/3.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-1/0.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-1/1.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0-rc1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-2/17.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-3/12.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/2.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/3.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/4.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/5.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/6.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/7.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-4/8.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-5/0-rc1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-5/4.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-6/0-rc1.yml,rendering error
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,rendering error
-translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
+translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,rendering error
+translations/ja-JP/data/release-notes/github-ae/2022-05/2022-05-17.yml,rendering error
 translations/ja-JP/data/reusables/actions/actions-audit-events-workflow.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/artifact-log-retention-statement.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/ref_name-description.md,broken liquid tags
