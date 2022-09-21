@@ -6,4 +6,4 @@
 {%- elsif ghae %}
 {% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
 
-{%- endif %} {% ifversion not ghae %}For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}
+{%- endif %} {% ifversion not ghae %}{% data reusables.advanced-security.more-info-ghas %}{% endif %}

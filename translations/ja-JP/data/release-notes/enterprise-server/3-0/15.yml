@@ -1,0 +1,17 @@
+date: '2021-09-07'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "\"ghe-repl-teardown\" で UUID を指定して、新しく追加されたレプリカ ノードを破棄しようとすると、レプリケーションが開始されていなかった場合にエラーを報告することなく失敗します。"
+    - 外部プロキシが設定されている場合、GitHub Pages のビルドがそれを通じて渡されていました。
+    - "サブプロセスを生成したカスタムの pre-receive フックの環境に \"PATH\" 変数がなく、\"ファイルまたはディレクトリが存在しません\" エラーが発生します。"
+    - "\"mysql-auto-failover\"` が有効にされていると、MySQL がアップグレード時にフェールオーバーされることがあります。"
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

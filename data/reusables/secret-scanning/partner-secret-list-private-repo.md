@@ -20,6 +20,8 @@ Azure | Azure Active Directory Application Secret | azure_active_directory_appli
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %}
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae-issue-8122 %}
+Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
 Azure | Azure SAS Token | azure_sas_token
 Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
