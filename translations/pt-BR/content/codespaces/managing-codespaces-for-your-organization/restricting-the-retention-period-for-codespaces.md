@@ -1,7 +1,7 @@
 ---
-title: Restringir o período de retenção para codespaces
-shortTitle: Restringir o período de retenção
-intro: Você pode definir um período máximo de retenção para quaisquer codespaces pertencentes à sua organização.
+title: Restricting the retention period for codespaces
+shortTitle: Restrict the retention period
+intro: You can set a maximum retention period for any codespaces owned by your organization.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage retention constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
@@ -12,67 +12,69 @@ topics:
   - Codespaces
 ---
 
-## Visão Geral
+## Overview
 
-{% data variables.product.prodname_codespaces %} são automaticamente excluídos depois que forem interrompidos e permanecerem inativos por um número definido de dias. O período de retenção para cada codespace é definido quando o código é criado e não muda.
+{% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
 
-Todos os que têm acesso a {% data variables.product.prodname_github_codespaces %} podem configurar um período de retenção para os codespaces que criam. A configuração inicial para este período de retenção padrão é de 30 dias. Usuários individuais podem definir este período dentro do intervalo de 0 a 30 dias. Para obter mais informações, consulte[Configurando a exclusão automática dos seus codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)".
+Everyone who has access to {% data variables.product.prodname_github_codespaces %} can configure a retention period for the codespaces they create. The initial setting for this default retention period is 30 days. Individual users can set this period within the range 0-30 days. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." 
 
-Como proprietário da organização, você pode querer configurar restrições no período máximo de retenção de codespaces criados para os repositórios pertencentes à sua organização. Isso pode ajudar você a limitar os custos de armazenamento associados aos codespaces que são interrompidos e deixados sem uso até que sejam automaticamente excluídos. Para obter mais informações sobre as cobranças de armazenamento, consulte "[Sobre a cobrança para o {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." É possível definir um período máximo de retenção para todos ou para repositórios específicos pertencentes à sua organização.
+As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization. 
 
-### Definindo políticas específicas da organização e do repositório
+### Setting organization-wide and repository-specific policies
 
-Ao criar uma política, você define se ela se aplica a todos os repositórios da organização ou apenas a repositórios específicos. Se você criar uma política de toda a organização com uma restrição de retenção de codespace, as restrições de retenção em todas as políticas direcionadas a repositórios específicos devem ser mais curtas do que a restrição configurada para toda a organização ou não terão efeito. Aplica-se o período de retenção mais curto - em uma política de toda a organização, uma política orientada a determinados repositórios, ou o período de retenção padrão em configurações pessoais de alguém.
+When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a codespace retention constraint, then the retention constraints in any policies that are targeted at specific repositories should be shorter than the restriction configured for the entire organization, or they will have no effect. The shortest retention period - in an organization-wide policy, a policy targeted at specified repositories, or the default retention period in someone's personal settings - is applied.
 
-Se você adicionar uma política para toda a organização com uma restrição de retenção, você deverá definir o período de retenção para o período mais longo aceitável. Em seguida, é possível adicionar políticas separadas que definam o período de retenção máximo para um período mais curto para repositórios específicos na sua organização.
+If you add an organization-wide policy with a retention constraint, you should set the retention period to the longest acceptable period. You can then add separate policies that set the maximum retention to a shorter period for specific repositories in your organization.
 
-## Adicionando uma política para definir um período máximo de retenção de codespace
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
+## Adding a policy to set a maximum codespace retention period
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
-1. Clique **Adicionar restrição** e escolha **Período de retenção**.
+1. Click **Add constraint** and choose **Retention period**.
 
-   ![Adicionar uma restrição por períodos de retenção](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
+   ![Add a constraint for retention periods](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
 
-1. Clique {% octicon "pencil" aria-label="The edit icon" %} para editar a restrição.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
-   ![Editar a restrição de tempo limite](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Insira o número máximo de dias que os codespaces podem permanecer parados antes de serem excluídos automaticamente e, em seguida, clique em **Salvar**.
+1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
 
-   ![Defina o período de retenção em dias](/assets/images/help/codespaces/maximum-days-retention.png)
+   ![Set the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
 
    {% note %}
 
-   **Atenção**:
-   * Um dia, neste contexto, é um período de 24 horas, que começa no momento do dia em que o codespace foi interrompido.
-   * O intervalo válido é de 0 a 30 dias.
-   * Definir o período para `0` resultará em codespaces excluídos imediatamente quando forem interrompidos ou quando vencerem devido a inatividade.
+   **Notes**: 
+   * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
+   * The valid range is 0-30 days.
+   * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
 
    {% endnote %}
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para obter informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types), "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" e "[Restringindo o período de tempo limite](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
-1. Após terminar de adicionar restrições à sua política, clique em **Salvar**.
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. After you've finished adding constraints to your policy, click **Save**.
 
-A política será aplicada a todos os novos codespaces que forem criados.
+The policy will be applied to all new codespaces that are created.
 
-## Editando uma política
+## Editing a policy
 
-Você pode editar uma política existente. Por exemplo, você deve adicionar ou remover restrições de uma política.
+You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-A restrição do período de retenção só é aplicada aos codespaces quando são criados. A edição de uma política não tem qualquer efeito sobre os codespaces existentes.
+The retention period constraint is only applied to codespaces when they are created. Editing a policy has no effect on existing codespaces.
 
-1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionando uma política para definir um período máximo de retenção de codespace](#adding-a-policy-to-set-a-maximum-codespace-retention-period)".
-1. Clique no nome da política que você deseja editar.
-1. Faça as alterações necessárias e, em seguida, clique em **Salvar**.
+1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
+1. Click the name of the policy you want to edit.
+1. Make the required changes then click **Save**.
 
-## Excluindo uma política
+## Deleting a policy 
 
-Você pode excluir uma política a qualquer momento. A exclusão de uma política não tem efeito sobre os codespaces existentes.
+You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
 
-1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionando uma política para definir um período máximo de retenção de codespace](#adding-a-policy-to-set-a-maximum-codespace-retention-period)".
-1. Clique no botão excluir à direita da política que você deseja excluir.
+1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
+1. Click the delete button to the right of the policy you want to delete.
 
-   ![O botão de excluir uma política](/assets/images/help/codespaces/policy-delete.png)
+   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)

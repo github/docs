@@ -8,24 +8,29 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: 86fa3129982afcdf99da7879792881c522d4a6fc
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126722'
 ---
-
 O Importador do GitHub é uma ferramenta que importa rapidamente repositórios do código-fonte, incluindo commits e histórico de revisão, para o GitHub.
 
 ![Importar um gif do repositório](/assets/images/help/importer/github-importer.gif)
 
 Durante uma importação, dependendo do sistema de controle de versão do qual você está fazendo a importação, é possível autenticar com seu repositório remoto, atualizar a atribuição do autor do commit e importar repositórios com arquivos grandes (ou remover arquivos grandes se não desejar usar o Armazenamento de arquivos grandes do Git).
 
-| Ação de importação                                                                                               | Subversion | Mercurial | TFVC  |  Git  |
-|:---------------------------------------------------------------------------------------------------------------- |:----------:|:---------:|:-----:|:-----:|
-| Autenticar com repositório remoto                                                                                |   **X**    |   **X**   | **X** | **X** |
-| [Atualizar atribuição do autor do commit](/articles/updating-commit-author-attribution-with-github-importer)     |   **X**    |   **X**   | **X** |       |
-| Mover arquivos grandes para o [Armazenamento de arquivos grandes do Git](/articles/about-git-large-file-storage) |   **X**    |   **X**   | **X** |       |
-| Remover arquivos grandes do repositório                                                                          |   **X**    |   **X**   | **X** |       |
+| Ação de importação | Subversion | Mercurial | TFVC | Git |
+|:--------------|:----------:|:---------:|:----------------------:|:---:|
+| Autenticar com repositório remoto | **X** | **X** | **X** | **X** |
+| [Atualizar a atribuição do autor do commit](/articles/updating-commit-author-attribution-with-github-importer) | **X** | **X** | **X** | |
+| Mover arquivos grandes para o [Git Large File Storage](/articles/about-git-large-file-storage) | **X** | **X** | **X** | |
+| Remover arquivos grandes do repositório | **X** | **X** | **X** | |
 
-## Leia mais
+## Leitura adicional
 
-- "[Importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"
-- "[Atualizar a atribuição do autor do commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"
-- "[Importar um repositório Git usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line)"
-- "[Ferramentas de migração do código-fonte](/articles/source-code-migration-tools)"
+- "[Como importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"
+- "[Como atualizar a atribuição de autor de commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"
+- "[Como importar um repositório Git usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line)"
+- "[Ferramentas de migração de código-fonte](/articles/source-code-migration-tools)"

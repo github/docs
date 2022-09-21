@@ -8,11 +8,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: ca08d05414764250a11dc94bac763f5aa56060be
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064367'
 ---
- 
+## Sobre a API dos Grupos de Executores Auto-hospedados
 
-## Sobre a API de grupos de executores auto-hospedados
+A API dos Grupos de Executores Auto-hospedados permite gerenciar grupos de executores auto-hospedados. Para obter mais informações, confira "[Como gerenciar o acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
-A API de grupos de executores auto-hospedados permite que você gerencie grupos de executores auto-hospedados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
-
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Os usuários autenticados devem ter acesso de administrador a repositórios ou organizações ou ao escopo `manage_runners:corporativo` para que as empresas usem esta API.
+{% data reusables.actions.actions-authentication %} Os {% data variables.product.prodname_github_apps %} precisam ter a permissão `administration` em repositórios ou a permissão `organization_self_hosted_runners` em organizações. Os usuários autenticados precisam ter acesso de administrador em repositórios ou em organizações ou o escopo `manage_runners:enterprise` para que as empresas usem essa API.

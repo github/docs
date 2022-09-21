@@ -9,8 +9,8 @@ redirect_from:
 versions:
   fpt: '*'
 children:
-  - /use-github-at-your-educational-institution
   - /github-global-campus-for-students
   - /github-global-campus-for-teachers
+  - /use-github-at-your-educational-institution
 ---
 

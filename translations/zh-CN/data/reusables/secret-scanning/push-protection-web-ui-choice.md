@@ -1,6 +1,13 @@
-当您使用 Web UI 尝试将受支持的密钥提交到启用了机密扫描作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止提交。
+When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. 
 
-您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。
+You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
 
-  ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+{% ifversion push-protection-custom-link-orgs %}
+
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+
+{% else %}
+
+  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
   
+{% endif %}

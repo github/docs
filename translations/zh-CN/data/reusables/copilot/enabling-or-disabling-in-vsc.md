@@ -1,9 +1,19 @@
+---
+ms.openlocfilehash: ff848691b0400698d7db5b173c4a00417a15e387
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147079574"
+---
 ## 启用或禁用 {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast with the color of the status bar.
+可以在 {% data variables.product.prodname_vscode %} 中启用或禁用 {% data variables.product.prodname_copilot %}。 {% data variables.product.prodname_vscode %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示 {% data variables.product.prodname_copilot %} 是启用还是禁用。 启用后，图标的背景色将与状态栏颜色相匹配。 禁用后，图标的背景色将与状态栏颜色形成对比。
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window. ![Screenshot of the status icon in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/status-icon-visual-studio-code.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
+1. 若要启用或禁用 {% data variables.product.prodname_copilot %}，请单击 {% data variables.product.prodname_vscode %} 窗口底部面板中的状态图标。
+   ![{% data variables.product.prodname_vscode %} 中状态图标的屏幕截图](/assets/images/help/copilot/status-icon-visual-studio-code.png)
+2. 如果要禁用 {% data variables.product.prodname_copilot %}，系统会询问是全局禁用建议，还是要禁用当前正在编辑的文件的语言。
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Globally**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable for _LANGUAGE_**. ![全局禁用 {% data variables.product.prodname_copilot %} 或当前语言禁用选项的屏幕截图](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+   - 若要全局禁用 {% data variables.product.prodname_copilot %} 的建议，请单击“全局禁用”。
+   - 若要禁用指定语言的 {% data variables.product.prodname_copilot %} 的建议，请单击“对 <LANGUAGE> 禁用”。
+   ![全局或为当前语言禁用 {% data variables.product.prodname_copilot %} 的选项的屏幕截图](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)

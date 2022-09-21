@@ -31,16 +31,6 @@ describe('search', () => {
       })
     })
   })
-
-  test('has Lunr index for every language for dotcom', async () => {
-    expect(languageCodes.length).toBeGreaterThan(0)
-    languageCodes.forEach((languageCode) => {
-      const indexName = `${namePrefix}-dotcom-${languageCode}`
-      const indexRecordName = `${indexName}-records`
-      expect(lunrIndexNames.includes(indexName)).toBe(true)
-      expect(lunrIndexNames.includes(indexRecordName)).toBe(true)
-    })
-  })
 })
 
 function getDate(date) {

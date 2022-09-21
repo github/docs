@@ -417,7 +417,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests, after which new pull requests can be opened on subsequent updates. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 
@@ -900,7 +900,8 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
@@ -926,7 +927,8 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}

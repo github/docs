@@ -43,8 +43,12 @@ children:
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
   - /allowing-project-visibility-changes-in-your-organization
-shortTitle: 管理组织设置
+shortTitle: Manage organization settings
+ms.openlocfilehash: 5e89284314ef4f1125ff4ca0843031326e378b0b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424742'
 ---
-
-{% ifversion fpt or ghec %}
-{% endif %}
+{% ifversion fpt or ghec %} {% endif %}

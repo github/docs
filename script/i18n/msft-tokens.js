@@ -5,7 +5,7 @@ import gitDiff from 'git-diff'
 import _ from 'lodash'
 
 function getGitDiff(a, b) {
-  return gitDiff(a, b, { flags: '--ignore-all-space' })
+  return gitDiff(a, b, { flags: '--text --ignore-all-space' })
 }
 
 function getMissingLines(diff) {
@@ -72,8 +72,8 @@ export class Tokens extends Array {
   }
 
   diff(otherTokens) {
-    const a = this.onlyText()
-    const b = otherTokens.onlyText()
+    const a = this.onlyText().sort()
+    const b = otherTokens.onlyText().sort()
 
     const diff = getGitDiff(a.join('\n'), b.join('\n'))
 

@@ -1,3 +1,11 @@
-To reduce consumption of Actions minutes, you can set a prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. También puedes administrar el uso de tu almacenamiento si ajustas la cantidad de versiones de plantillas que se retendrán para tus configuraciones precompiladas. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+---
+ms.openlocfilehash: efb9f234573525d8f24d4f0798379d38a8d8299e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881880"
+---
+Para reducir el consumo de minutos de Acciones, puede establecer una precompilación que se actualice sólo cuando realice un cambio en los archivos de configuración del contenedor de desarrollo o cuando haya una programación personalizada. También puedes administrar el uso del almacenamiento mediante el ajuste del número de versiones de plantilla que se conservarán para las configuraciones de precompilación. Para obtener más información, consulta "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
-Si eres un propietario de organización, puedes rastrear el uso de flujos de trabajo precompilados y de almacenamiento si descargas un reporte de uso de {% data variables.product.prodname_actions %} para tu organización. You can identify workflow runs for prebuilds by filtering the CSV output to only include the workflow called "Create {% data variables.product.prodname_codespaces %} Prebuilds." Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-organization)".
+Si eres el propietario de la organización, puedes realizar el seguimiento del uso y el almacenamiento de los flujos de trabajo de precompilación mediante la descarga de un informe de uso de {% data variables.product.prodname_actions %} para la organización. A fin de identificar las ejecuciones de flujo de trabajo para las precompilaciones, filtre la salida CSV para incluir solo el flujo de trabajo denominado "Crear precompilaciones de {% data variables.product.prodname_codespaces %}". Para obtener más información, consulte "[Visualización del uso de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-organization)".

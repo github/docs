@@ -17,12 +17,17 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 添加文件
+shortTitle: Add a file
+ms.openlocfilehash: da76e182a16b1f72b814882b816f487b8290f3be
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578906'
 ---
-
 ## 将文件添加到 {% data variables.product.product_name %} 上的存储库
 
-通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 更多信息请参阅“[使用命令行添加文件到仓库](#adding-a-file-to-a-repository-using-the-command-line)”。 To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 有关详细信息，请参阅“[使用命令行将文件添加到存储库](#adding-a-file-to-a-repository-using-the-command-line)”。 要添加大于 {% data variables.large_files.max_github_size %} 的文件，则必须使用 {% data variables.large_files.product_name_long %}。 有关详细信息，请参阅“[关于 {% data variables.product.product_name %} 的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github)”。
 
 {% tip %}
 
@@ -33,11 +38,12 @@ shortTitle: 添加文件
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在文件列表上方，使用 **Add file（添加文件）**下拉菜单，单击 **Upload files（上传文件）**。 !["Add file（添加文件）"下拉菜单中的"Upload files（上传文件）"](/assets/images/help/repository/upload-files-button.png)
-3. 将要上传的文件或文件夹拖放到文件树中。 ![拖放区域](/assets/images/help/repository/upload-files-drag-and-drop.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-6. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/repository/commit-changes-button.png)
+2. 在文件列表上方，使用“添加文件”下拉列表，在其中单击“上传文件” 。
+  ![“添加文件”下拉列表中的“上传文件”](/assets/images/help/repository/upload-files-button.png)
+3. 将要上传的文件或文件夹拖放到文件树中。
+![拖放区域](/assets/images/help/repository/upload-files-drag-and-drop.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %}
+6. 单击“提交更改”。
+![“提交更改”按钮](/assets/images/help/repository/commit-changes-button.png)
 
 ## 使用命令行提交文件到仓库
 
@@ -45,7 +51,7 @@ shortTitle: 添加文件
 
 {% tip %}
 
-**提示：**您也可以[从 {% data variables.product.product_name %} 网站添加现有文件到仓库](/articles/adding-a-file-to-a-repository)。
+提示：还可以[将现有文件从 {% data variables.product.product_name %} 网站添加到存储库](/articles/adding-a-file-to-a-repository)。
 
 {% endtip %}
 
@@ -54,9 +60,7 @@ shortTitle: 添加文件
 {% data reusables.repositories.sensitive-info-warning %}
 
 1. 在计算机上，将要上传到 {% data variables.product.product_name %} 的文件移入在克隆仓库时创建的本地目录。
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-{% data reusables.git.stage_for_commit %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %} {% data reusables.git.stage_for_commit %}
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
@@ -70,4 +74,4 @@ shortTitle: 添加文件
 
 ## 延伸阅读
 
-- "[将本地托管的代码添加到 {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- [将本地托管代码添加到 {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)

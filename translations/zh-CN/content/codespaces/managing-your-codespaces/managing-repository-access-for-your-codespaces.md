@@ -1,8 +1,8 @@
 ---
-title: 管理对代码空间中其他存储库的访问
+title: Managing access to other repositories within your codespace
 allowTitleToDifferFromFilename: true
-shortTitle: 存储库访问
-intro: '您可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的仓库。'
+shortTitle: Repository access
+intro: 'You can manage the repositories that {% data variables.product.prodname_github_codespaces %} can access.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -14,24 +14,24 @@ redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
 ---
 
-## 概览
+## Overview
 
-默认情况下，会为代码空间分配一个令牌，范围限定为从中创建代码空间的存储库。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)”。 如果您的项目需要其他存储库的其他权限，则可以在 `devcontainer.json` 文件中配置此权限，并确保其他协作者具有正确的权限集。
+By default, your codespace is assigned a token scoped to the repository from which it was created. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)." If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file and ensure other collaborators have the right set of permissions.
 
-当 `devcontainer.json` 文件中列出权限时，作为创建该存储库的代码空间的一部分，系统将提示您查看并授权其他权限。 授权列出的权限后，{% data variables.product.prodname_github_codespaces %} 将记住您的选择，并且不会提示您进行授权，除非 `devcontainer.json` 文件中的权限发生更改。
+When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
 
-## 基本要求
+## Prerequisites
 
-若要创建定义了自定义权限的代码空间，必须使用下列方法之一：
-* {% data variables.product.prodname_dotcom %} web UI
-* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 或更高版本
-* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 或更高版本
+To create codespaces with custom permissions defined, you must use one of the following:
+* The {% data variables.product.prodname_dotcom %} web UI
+* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
 
-## 设置其他存储库权限
+## Setting additional repository permissions
 
-1. 您可以为 `devcontainer.json` 文件中的 {% data variables.product.prodname_codespaces %} 配置存储库权限。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 有关详细信息，请参阅“[将开发容器添加到项目](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
+1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 
-1. 编辑 `devcontainer.json` 文件，将存储库名称和所需的权限添加到 `repositories` 对象：
+1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
   ```json{:copy}
   {
@@ -51,25 +51,25 @@ redirect_from:
 
   {% note %}
 
-  **注意：** 您只能引用与您当前所在的存储库属于同一个人帐户或组织的存储库。
+  **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
 
   {% endnote %}
 
-  您可以为列出的每个存储库授予以下任意权限：
-   * `actions` - 读/写
-   * `checks` - 读/写
-   * `contents` - 读/写
-   * `deployments` - 读/写
-   * `discussions` - 读/写
-   * `issues` - 读/写
+  You can grant as many or as few of the following permissions for each repository listed:
+   * `actions` - read / write
+   * `checks` - read / write
+   * `contents` - read / write
+   * `deployments` - read / write
+   * `discussions` - read / write
+   * `issues` - read / write
    * `packages` - read
-   * `pages` - 读/写
-   * `pull_requests` - 读/写
-   * `repository_projects` - 读/写
-   * `statuses` - 读/写
-   * `workflows` - 写入
+   * `pages` - read / write
+   * `pull_requests` - read / write
+   * `repository_projects` - read / write
+   * `statuses` - read / write
+   * `workflows` - write
 
-  要为组织中的所有存储库设置权限，请在 `repositories` 对象中的组织名称后面使用 `*` 通配符。
+  To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
 
   ```json
   {
@@ -87,7 +87,7 @@ redirect_from:
   }
   ```
 
-  要设置给定存储库的所有权限，请在存储库对象中使用 `"permissions": "read-all"` 或 `"permissions": "write-all"`。
+  To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
 
   ```json
   {
@@ -103,36 +103,32 @@ redirect_from:
   }
   ```
 
-## 授权请求的权限
+## Authorizing requested permissions
 
-If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_codespaces %} 不会重新提示您。
+If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_github_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
 
-![请求的权限页面](/assets/images/help/codespaces/codespaces-accept-permissions.png)
+![The requested permissions page](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
-您只应授予您知道和信任的存储库的权限。 如果不信任请求的权限集，请单击 **Continue without authorizing（继续而不授权）**以使用基本权限集创建代码空间。 拒绝其他权限可能会影响项目在代码空间中的功能，因为代码空间只能访问从中创建它的存储库。
+You should only authorize permissions for repositories you know and trust. If you don't trust the set of requested permissions, click **Continue without authorizing** to create the codespace with the base set of permissions. Rejecting additional permissions may impact the functionality of your project within the codespace as the codespace will only have access to the repository from which it was created.
 
-您只能授权您的个人帐户已拥有的权限。 如果代码空间请求您当前无权访问的存储库的权限，请与存储库的所有者或管理员联系以获取足够的访问权限，然后再次尝试创建代码空间。
+You can only authorize permissions that your personal account already possesses. If a codespace requests permissions for repositories that you don't currently have access to, contact an owner or admin of the repository to obtain sufficient access and then try to create a codespace again.
 
-## 访问和安全
+## Access and security
 
 {% warning %}
 
-**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. 要启用对其他存储库的扩展访问权限，请将请求的权限添加到代码空间的开发容器定义中，如上所述。
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your dev container definition for your codespace, as described above.
 
 {% endwarning %}
 
-为个人帐户拥有的仓库启用访问和安全后，为该仓库创建的任何代码空间都将对您拥有的所有其他仓库具有读取权限。 如果要限制代码空间可以访问的仓库，您可以将其限制为代码空间打开的仓库或特定仓库。 您应该只对您信任的仓库启用访问和安全。
+When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust. 
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. 在“Access and security（访问和安全）”下，为个人帐户选择所需的设置。
+1. Under "Access and security", select the setting you want for your personal account.
 
-  ![管理信任仓库的单选按钮](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 
-1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问您拥有的其他仓库。 对于您要允许其代码空间访问您拥有的其他仓库的所有仓库重复此操作。
+1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
 
-  !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
-
-## 延伸阅读
-
-- "[管理组织的代码空间的存储库访问](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"
+  !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)

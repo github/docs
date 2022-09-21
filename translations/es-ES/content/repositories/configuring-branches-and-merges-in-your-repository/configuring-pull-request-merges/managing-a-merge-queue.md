@@ -1,6 +1,6 @@
 ---
-title: Administrar una cola de fusión
-intro: Puedes aumentar la velocidad de desarrollo con una cola de fusión para las solicitudes de cambio de tu repositorio.
+title: Administración de una cola de fusión mediante combinación
+intro: Puedes aumentar la velocidad de desarrollo con una cola de fusión mediante combinación para las solicitudes de incorporación de cambios en el repositorio.
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,37 +8,42 @@ permissions: People with admin permissions can manage merge queues for pull requ
 topics:
   - Repositories
   - Pull requests
-shortTitle: Administrar la cola de fusión
+shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue
+ms.openlocfilehash: 2cdbbdc72dde5c9970d49f7060e5cb583b6dd1dd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147496496'
 ---
-
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## Acerca de las colas de fusión
+## Acerca de las colas de fusión mediante combinación
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
+La cola de fusión mediante combinación crea ramas temporales con un prefijo especial para validar los cambios de la solicitud de incorporación de cambios. Los cambios en la solicitud de incorporación de cambios se agrupan en un `merge_group` con la versión más reciente de `base_branch`, así como los cambios anteriores en la cola. {% data variables.product.product_name %} combinará todos estos cambios en `base_branch` una vez que se superen las comprobaciones necesarias para las protecciones de rama de `base_branch`.
 
 
-Para obtener más información acerca de los métodos de fusión, consulta "[Acerca de la fusión de solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+Para obtener información sobre los métodos de combinación, vea "[Acerca de las combinaciones de solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
 {% note %}
 
 **Nota:**
 
-* Una cola de fusión no puede habilitarse con reglas de protección de rama que utilicen caracteres de comodín (`*`) en el patrón de nombre de rama.
+* No se puede habilitar una cola de fusión mediante combinación con reglas de protección de rama en las que se usan caracteres comodín (`*`) en el patrón de nombre de rama.
 
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-### Triggering merge group checks with {% data variables.product.prodname_actions %}
+### Desencadenamiento de comprobaciones del grupo de fusión mediante combinación con {% data variables.product.prodname_actions %}
 
-You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+Puedes usar el evento `merge_group` para desencadenar tu flujo de trabajo de {% data variables.product.prodname_actions %} cuando se agrega una solicitud de incorporación de cambios a una cola de fusión. Ten en cuenta que se trata de un evento diferente a los eventos `pull_request` y `push`.
 
-A workflow that reports a check which is required by the target branch's protections would look like this:
+Un flujo de trabajo que informa de una comprobación requerida por las protecciones de la rama de destino tendría este aspecto:
 
 ```yaml
 on:
@@ -46,19 +51,19 @@ on:
   merge_group:
 ```
 
-For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+Para más información, consulta "[Eventos que desencadenan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows#merge-group)".
 
-### Triggering merge group checks with other CI providers
+### Desencadenamiento de comprobaciones del grupo de fusión mediante combinación con otros proveedores de CI
 
-Con otros proveedores de IC, podrías necesitar actualizar tu configuración de IC para que se ejecute cuando se cree una rama que comienza con el prefijo especial `gh-readonly-queue/{base_branch}`.
+Con otros proveedores de CI, es posible que tengas que actualizar tu configuración de CI para que se ejecute cuando se crea una rama que comience con el prefijo especial `gh-readonly-queue/{base_branch}`.
 
-## Administrar una cola de fusión
+## Administración de una cola de fusión mediante combinación
 
-Los administradores de repositorio pueden requerir una fusión habilitando el ajuste de protección de rama "Requerir cola de fusión" en las reglas de protección para la rama base.
+Los administradores del repositorio pueden exigir una combinación si habilitan el valor de protección de rama "Require merge queue" en las reglas de protección de la rama base.
 
-Para obtener más información de cómo habilitar el ajuste de protección de cola de fusión, consulta la sección "[Administrar una regla de protección de rama](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)".
+Para obtener información sobre cómo habilitar la configuración de protección de colas de fusión mediante combinación, vea "[Administración de una regla de protección de rama](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)".
 
-## Leer más
+## Información adicional
 
-* "[Fusionar una solicitud de cambios con una cola de fusión](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
+* "[Combinación de una solicitud de incorporación de cambios con una cola de fusión mediante combinación](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
 * "[Acerca de las ramas protegidas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)"

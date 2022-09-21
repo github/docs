@@ -32,6 +32,12 @@ If you're setting up {% data variables.product.prodname_code_scanning %} for a c
 
 You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}, the {% data variables.product.prodname_codeql_runner %},{% endif %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}or the {% data variables.product.prodname_codeql_runner %}{% endif %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% ifversion codeql-runner-supported %} or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} for more information. If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see "[Example workflow](#example-workflow)."
 
+{% note %}
+
+**Note:** {% data reusables.code-scanning.non-glibc-linux-support %}
+
+{% endnote %}
+
 ## Dependencies
 
 You may have difficulty running {% data variables.product.prodname_code_scanning %} if the container you're using is missing certain dependencies (for example, Git must be installed and added to the PATH variable). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. For more information, see the version-specific `readme` files in these locations:

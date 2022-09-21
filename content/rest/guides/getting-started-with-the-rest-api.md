@@ -32,7 +32,7 @@ To make a request, first find the HTTP method and the path for the operation tha
 
 {% endnote %}
 
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating).
+If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
 
 To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
 
@@ -166,7 +166,7 @@ curl --request GET \
 
 {% note %}
 
-**Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. JSON web tokens (JWTs) will only work with `Authorization: Bearer`.
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 

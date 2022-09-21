@@ -19,7 +19,7 @@ const BROWSER_REGEXPS = [
   /ms(ie)\/([^\s)]+)/i,
 ]
 
-export default function parseUserAgent(ua = navigator.userAgent) {
+export function parseUserAgent(ua = navigator.userAgent) {
   ua = ua.toLowerCase()
   const osRe = OS_REGEXPS.find((re) => re.test(ua))
   let [, os = 'other', os_version = '0'] = (osRe && ua.match(osRe)) || []

@@ -58,7 +58,7 @@ For more information see the [`upload-sarif` action](https://github.com/github/c
 
 The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/code-security/secure-coding/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
+If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/code-security/secure-coding/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs)."
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 

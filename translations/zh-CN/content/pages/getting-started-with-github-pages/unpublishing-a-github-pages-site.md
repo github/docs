@@ -17,35 +17,39 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: 取消发布 Pages 站点
+shortTitle: Unpublish Pages site
+ms.openlocfilehash: fbfec49ec44c250e5f6cb2da85fda59261c1d0d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147428346'
 ---
-
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+取消发布站点时，该站点将不再可用。 所有现有存储库设置或内容都不受影响。
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. 在 {% data variables.product.prodname_pages %} 下的“站点所在位置”消息旁，单击 {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %} 。
+1. 在显示的菜单中，选择“取消发布站点”。
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![用于取消发布站点的下拉菜单](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
 ## 取消发布项目站点
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 如果仓库中存在 `gh-pages` 分支，请删除 `gh-pages` 分支。 更多信息请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
-3. 如果 `gh-pages` 分支是您的发布源，{% ifversion fpt or ghec %}跳到步骤 6{% else %}您的站点现已取消发布，您可以跳过其余步骤{% endif %}。
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. 在“{% data variables.product.prodname_pages %}”下，使用 **Source（源）**下拉菜单并选择 **None（无）**。 ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+2. 如果存储库中存在 `gh-pages` 分支，请删除 `gh-pages` 分支。 有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
+3. 如果 `gh-pages` 分支是发布源，{% ifversion fpt or ghec %}请跳到步骤 6{% else %}你的网站现在已取消发布，你可以跳过其余步骤{% endif %}。
+{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+5. 在“{% data variables.product.prodname_pages %}”下，使用“源”下拉菜单，然后选择“无”。
+  ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %} 
 
 ## 取消发布用户或组织站点
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 删除用作发布源的分支，或删除整个仓库。 更多信息请参阅“[在仓库中创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”和“[删除仓库](/articles/deleting-a-repository)”。
+2. 删除用作发布源的分支，或删除整个仓库。 有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”和“[删除存储库](/articles/deleting-a-repository)”。
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

@@ -28,7 +28,7 @@ if (localizedFilenames.length) {
   )
   console.table(localizedFilenames.join('\n'))
   console.error(
-    'The content in this directory is managed by our Crowdin integration and should not be edited directly in the repo.'
+    'The content in this directory is managed by our translation pipeline and should not be edited directly in the repo.'
   )
   console.error(
     'For more information on how the localization process works, see translations/README.md'

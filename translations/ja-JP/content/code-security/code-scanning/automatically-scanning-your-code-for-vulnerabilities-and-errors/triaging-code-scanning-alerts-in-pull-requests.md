@@ -33,8 +33,6 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 - The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
 - The **Files changed** tab of the pull request
 
-{% ifversion code-scanning-pr-conversations-tab %} {% endif %} 
-
 If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}

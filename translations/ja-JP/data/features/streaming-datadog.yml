@@ -1,0 +1,4 @@
+# Reference #7495
+# Documentation for audit log streaming to a Datadog endpoint
+versions:
+  ghec: '*'

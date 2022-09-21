@@ -12,13 +12,13 @@ topics:
   - Codespaces
 ---
 
-## Resumen
+## Overview
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage.
+By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. Para obtener más información, consulta la sección "[Ajustar tu periodo de tiempo de inactividad para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)".
+The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories.
+As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
 
 {% note %}
 
@@ -26,7 +26,7 @@ As an organization owner, you may want to configure constraints on the maximum i
 
 {% endnote %}
 
-Para obtener más información sobre los costos de uso de cálculo de {% data variables.product.prodname_github_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 ### Behavior when you set a maximum idle timeout constraint
 
@@ -34,11 +34,13 @@ If someone sets the default idle timeout to 90 minutes in their personal setting
 
 > Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
 
-### Configurar políticas específicas para los repositorios y a lo largo de la organización
+### Setting organization-wide and repository-specific policies
 
 When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
 
 If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+
+{% data reusables.codespaces.codespaces-org-policies-note %}
 
 ## Adding a policy to set a maximum idle timeout period
 
@@ -49,7 +51,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
    ![Add a constraint for idle timeout](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
-1. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar la restricción.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
    ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
@@ -58,22 +60,22 @@ If you add an organization-wide policy with a timeout constraint, you should set
    ![Set the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. Si quieres agregar otra restricción a la política, haz clic en **Agregar restricción** y elige otra de ellas. Para obtener información sobre otras restricciones, consulta las secciones "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)", "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" y "[Restringir el periodo de retención para los codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
-1. Después de que termines de agregar restricciones a tu política, haz clic en **Guardar**.
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," and "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy will be applied to all new codespaces that are created, and to existing codespaces the next time they are started.
 
-## Editar una política
+## Editing a policy
 
-You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
+You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Haz clic en el nombre de la política que quieres editar.
-1. Haz los cambios requeridos y luego haz clic en **Guardar**.
+1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Click the name of the policy you want to edit.
+1. Make the required changes then click **Save**.
 
-## Borrar una política
+## Deleting a policy 
 
-1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para configurar un periodo de tiempo de inactividad máximo](#adding-a-policy-to-set-a-maximum-idle-timeout-period)".
-1. Haz clic en el botón de borrar a la derecha de la política que quieras borrar.
+1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Click the delete button to the right of the policy you want to delete.
 
-   ![El botón de borrar para una política](/assets/images/help/codespaces/policy-delete.png)
+   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)

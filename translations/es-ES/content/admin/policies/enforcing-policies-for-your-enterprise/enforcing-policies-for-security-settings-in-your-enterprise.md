@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for security settings in your enterprise
-intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
+title: Requerir las políticas para los ajustes de seguridad en tu empresa
+intro: Puedes requerir políticas para administrar los ajustes de seguridad en las organizaciones de tu empresa o permitir que se configuren políticas en cada organización.
 permissions: Enterprise owners can enforce policies for security settings in an enterprise.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -21,103 +21,106 @@ topics:
   - Policies
   - Security
 shortTitle: Policies for security settings
+ms.openlocfilehash: f04f345b37701353f539a970a8f891574b4ec447
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147707287'
 ---
+## Acerca de las políticas para los ajustes de seguridad en tu empresa
 
-## About policies for security settings in your enterprise
-
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. For more information, see "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+Puedes requerir políticas para controlar los ajustes de seguridad para las organizaciones que le pertenecen a tu empresa en {% data variables.product.product_name %}. Predeterminadamente, los propietarios de organización pueden administrar los ajustes de seguridad. Para obtener más información, consulte "[Protección de la organización](/organizations/keeping-your-organization-secure)".
 
 {% ifversion ghec or ghes %}
 
-## Requiring two-factor authentication for organizations in your enterprise
+## Requerir autenticación bifactorial para las organizaciones de tu empresa
 
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
+Los propietarios de empresa pueden requerir que los miembros de la organización, los gerentes de facturación y los colaboradores externos en todas las organizaciones que sean propiedad de una empresa usen autenticación de dos factores para proteger sus cuentas de usuario.
 
-Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[Securing your account with two-factor authentication (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa/)."
+Antes de que requieras 2FA en todas las organizaciones que pertenezcan a tu empresa, debes habilitar la autenticación bifactorial para tu propia cuenta. Para obtener más información, consulte [Asegurar la cuenta con autenticación en dos fases (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa/).
 
 {% warning %}
 
-**Warnings:**
+**Advertencias:**
 
-- When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
-- Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
-- If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
+- Cuando requieras que se use la autenticación de dos factores para tu empresa, los miembros, los colaboradores externos y los gerentes de facturación (incluidas las cuentas bot) en todas las organizaciones que sean propiedad de tu empresa que no utilicen 2FA se eliminarán de tu organización y perderán acceso a sus repositorios. También perderán acceso a las bifurcaciones de sus repositorios privados de la organización. Si habilitan la autenticación en dos fases en sus cuentas en un plazo de tres meses a partir de la fecha en que han sido eliminados de la organización, puedes restablecer sus privilegios de acceso y su configuración. Para más información, vea "[Readmisión de un antiguo miembro de la organización](/articles/reinstating-a-former-member-of-your-organization)".
+- Todo propietario de la organización, miembro, gerente de facturación o colaborador externo en cualquiera de las organizaciones que sean propiedad de tu empresa será automáticamente eliminado de tu organización si inhabilita la autenticación de dos factores de su cuenta después de que hayas habilitado el requisito de autenticación de dos factores.
+- Si eres el único propietario de una empresa que requiere autenticación de dos factores, no podrás deshabilitar la 2FA para tu cuenta de usuario sin deshabilitar el requisito de autenticación en dos fases para la empresa.
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up 2FA for their accounts. Organization owners can see if members and outside collaborators already use 2FA on each organization's People page. For more information, see "[Viewing whether users in your organization have 2FA enabled](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+Antes de solicitar el uso de la autenticación de dos factores, te recomendamos notificar a los miembros de la organización, a los colaboradores externos y a los gerentes de facturación y pedirles que configuren la 2FA para sus cuentas. Los propietarios de la organización pueden ver si los miembros y los colaboradores externos ya usan 2FA en la página Personas de cada organización. Para obtener más información, consulte "[Ver si los usuarios de la organización han habilitado la autenticación en dos fases](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-4. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
-  ![Checkbox to require two-factor authentication](/assets/images/help/business-accounts/require-2fa-checkbox.png)
-6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
-  ![Confirm two-factor enforcement box](/assets/images/help/business-accounts/confirm-require-2fa.png)
-7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+4. En "Autenticación de dos factores", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. En "Two-factor authentication", seleccione **Require two-factor authentication for all organizations in your business** y, a continuación, haga clic en **Save**.
+  ![Casilla de verificación para exigir la autenticación en dos fases](/assets/images/help/business-accounts/require-2fa-checkbox.png)
+6. En caso de que se solicite, lee la información sobre los miembros y colaboradores externos que se eliminarán de las organizaciones que pertenecen a tu empresa. Escriba el nombre de la empresa para confirmar el cambio y, a continuación, haga clic en **Remove members & require two-factor authentication**.
+  ![Cuadro para confirmar la aplicación de la autenticación en dos fases](/assets/images/help/business-accounts/confirm-require-2fa.png)
+7. Si algún miembro o colaborador externo es eliminado de las organizaciones que son propiedad de empresa, también te recomendamos enviarle una invitación para reinstalar sus privilegios anteriores y su acceso a tu organización. Cada persona debe habilitar la autenticación de dos factores para poder aceptar tu invitación.
 
 {% endif %}
 
 {% ifversion ghec or ghae %}
 
-## Managing allowed IP addresses for organizations in your enterprise
+## Administrar las direcciones IP permitidas para las organizaciones de tu empresa
 
 {% ifversion ghae %}
 
-You can restrict network traffic to your enterprise on {% data variables.product.product_name %}. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
+Puedes restringir el tráfico de red a tu empresa de {% data variables.product.product_name %}. Para obtener más información, consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)".
 
 {% elsif ghec %}
 
-Enterprise owners can restrict access to private assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Los propietarios de las empresas pueden restringir el acceso a los activos privados que pertenezcan a las organizaciones dentro de dichas empresas al configurar una lista de direcciones IP específicas permitidas. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+También puedes configurar las direcciones IP permitidas para una organización individual. Para obtener más información, consulte "[Administración de las direcciones IP permitidas para la organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-### Adding an allowed IP address
+### Agregar una dirección IP permitida
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
+
+### Permitir el acceso mediante {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-### Enabling allowed IP addresses
+### Habilitar direcciones IP permitidas
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-3. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
-### Editing an allowed IP address
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+3. En "IP allow list", seleccione **Enable IP allow list**.
+  ![Casilla para permitir direcciones IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. Haga clic en **Save**(Guardar).
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+### Editar una dirección IP permitida
 
-### Deleting an allowed IP address
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. Haga clic en **Update**(Actualizar).
+{% data reusables.identity-and-permissions.check-ip-address %}
 
-### Using {% data variables.product.prodname_actions %} with an IP allow list
+{% ifversion ip-allow-list-address-check %}
+### Comprobación de permiso para una dirección IP
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %} {% endif %}
+
+### Eliminar una dirección IP permitida
+
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+
+### Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
@@ -125,34 +128,26 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 {% endif %}
 
-## Managing SSH certificate authorities for your enterprise
+## Administrar las autoridades de certificados SSH en tu empresa
 
-You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+Puedes utilizar una autoridad de certificados SSH (CA) para permitir que los miembros de cualquier organización que pertenezca a tu empresa accedan a los repositorios de esta utilizando certificados SSH que tu proporciones. {% data reusables.organizations.can-require-ssh-cert %} Para obtener más información, consulte "[Acerca de las entidades de certificación de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 {% data reusables.organizations.add-extension-to-cert %}
 
-### Adding an SSH certificate authority
+### Agregar una autoridad de certificado de SSH
 
-If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
+Si requieres certificados SSH para tu empresa, los miembros empresariales deberán utilizar una URL especial para las operaciones de Git por SSH. Para más información, vea "[Acerca de las entidades de certificación de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.organizations.new-ssh-ca %}
-{% data reusables.organizations.require-ssh-cert %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.organizations.new-ssh-ca %} {% data reusables.organizations.require-ssh-cert %}
 
-### Deleting an SSH certificate authority
+### Eliminar una autoridad de certificado de SSH
 
-Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
+La eliminación de un CA no se puede deshacer. Si deseas usar la misma CA en el futuro, deberás cargarla nuevamente.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.organizations.delete-ssh-ca %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-## Further reading
+## Información adicional
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
-{% endif %}
+- "[Acerca de la administración de identidades y acceso para su empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Acceso a los informes de cumplimiento de la empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %} {% endif %}

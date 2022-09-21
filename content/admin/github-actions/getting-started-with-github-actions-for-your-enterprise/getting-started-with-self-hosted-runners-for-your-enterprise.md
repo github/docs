@@ -83,7 +83,7 @@ You can create a runner group to manage access to the runner that you added to y
 
 {% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
 1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
 1. Select the organizations you'd like to grant access to the runner group.
@@ -100,7 +100,7 @@ You can create a runner group to manage access to the runner that you added to y
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
+{% data reusables.actions.create-runner-group %}
 {%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.

@@ -1,4 +1,12 @@
-If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_github_community %}'s {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} category](https://github.com/orgs/github-community/discussions/categories/actions-and-packages).
+---
+ms.openlocfilehash: 32cd1f25aa5b28e9f6529d19538a52caa347d36f
+ms.sourcegitcommit: da73949b8f8bd71d40247f1f9c49f8f4c362ecd0
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/28/2022
+ms.locfileid: "147432037"
+---
+Se você precisar de ajuda com qualquer questão relacionada à configuração do fluxo de trabalho, como sintaxe, executores hospedados em {% data variables.product.prodname_dotcom %} ou ações de build, procure um tópico existente ou inicie um novo nas variáveis de dados na categoria [{% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %} de {% data variables.product.prodname_github_community %}](https://github.com/orgs/github-community/discussions/categories/actions-and-packages).
 
 Se você tiver comentários ou solicitações de recursos para {% data variables.product.prodname_actions %}, compartilhe-os na {% data variables.contact.contact_feedback_actions %}.
 

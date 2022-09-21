@@ -11,8 +11,8 @@ const article: PlaygroundArticleT = {
     '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces',
   codeLanguageId: 'dotnet',
   intro: dedent`
-  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
-  
+  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+
   If you want to add a dev container configuration for another programming language, click the language button to the right.
  `,
   prerequisites: dedent`
@@ -36,9 +36,9 @@ const article: PlaygroundArticleT = {
         When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
         You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed.
-        
+
         GitHub Codespaces uses a file called \`devcontainer.json\` to configure the development container that you use when you work in a codespace. Each repository can contain one or more  \`devcontainer.json\` files, to give you exactly the development environment you need to work on your code in a codespace.
-        
+
         On launch, GitHub Codespaces uses a \`devcontainer.json\` file, and any dependent files that make up the dev container configuration, to install tools and runtimes, and perform other setup tasks that the project requires. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
       `,
     },
@@ -53,18 +53,26 @@ const article: PlaygroundArticleT = {
 
         To set up your repository to use a custom dev container, you will need to create one or more \`devcontainer.json\` files. You can add these either from a template, in Visual Studio Code, or you can write your own. For more information on dev container configurations, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-        1. Access the Command Palette (\`Shift + Command + P\` / \`Ctrl + Shift + P\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
-          ![Codespaces: Add Development Container Configuration Files... in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+        1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
+
+           ![Codespaces: Add Development Container Configuration Files... in the Command Palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+
         2. For this example, click **C# (.NET)**. If you need additional features you can select any container that’s specific to C# (.NET) or a combination of tools such as C# (.NET) and MS SQL.
-          
-            ![Select C# (.NET) option from the list](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+
+           ![Select C# (.NET) option from the list](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+
         3. Click the recommended version of .NET.
-          ![.NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
+
+           ![.NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
+
         4. Accept the default option to add Node.js to your customization.
-          ![Add Node.js selection](/assets/images/help/codespaces/dotnet-options.png)
+
+           ![Add Node.js selection](/assets/images/help/codespaces/dotnet-options.png)
+
         5. Select any additional features to install and click **OK**.
-        6. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
-          ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+        6. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+
       `,
     },
     {
@@ -189,21 +197,24 @@ const article: PlaygroundArticleT = {
                "streetsidesoftware.code-spell-checker"
              ],
            \`\`\`
-         
+
          3. Uncomment the \`postCreateCommand\` to restore dependencies as part of the codespace setup process.
-         
+
             \`\`\`json{:copy}
             // Use 'postCreateCommand' to run commands after the container is created.
             "postCreateCommand": "dotnet restore",
             \`\`\`
 
-        4. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
-          ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
-          Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+        4. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+
+           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+
+           Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
         5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
 
-            ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png)
+           ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png)
+
       `,
     },
     {
@@ -217,9 +228,10 @@ const article: PlaygroundArticleT = {
 
       1. Run your application by pressing \`F5\` or entering \`dotnet watch run\` in your terminal.
 
-        2. When your project starts, you should see a message in the bottom right corner with a prompt to connect to the port your project uses.
+      2. When your project starts, you should see a message in the bottom right corner with a prompt to connect to the port your project uses.
 
-           ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+         ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+
       `,
     },
     {
@@ -253,26 +265,26 @@ const article: PlaygroundArticleT = {
             "INSTALL_AZURE_CLI": "false"
           }
         },
-      
+
         // Set *default* container specific settings.json values on container create.
         "settings": {
           "terminal.integrated.shell.linux": "/bin/bash"
         },
-      
+
         // Add the IDs of extensions you want installed when the container is created.
         "extensions": [
           "ms-dotnettools.csharp"
         ],
-      
+
         // Use 'forwardPorts' to make a list of ports inside the container available locally.
         // "forwardPorts": [5000, 5001],
-      
+
         // Use 'postCreateCommand' to run commands after the container is created.
         // "postCreateCommand": "dotnet restore",
-      
+
         // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
         "remoteUser": "vscode"
-      }  
+      }
       `,
     },
     '1': {
@@ -282,22 +294,22 @@ const article: PlaygroundArticleT = {
       # [Choice] .NET version: 5.0, 3.1, 2.1
       ARG VARIANT="5.0"
       FROM mcr.microsoft.com/vscode/devcontainers/dotnetcore:0-\${VARIANT}
-      
+
       # [Option] Install Node.js
       ARG INSTALL_NODE="true"
       ARG NODE_VERSION="lts/*"
       RUN if [ "\${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install \${NODE_VERSION} 2>&1"; fi
-      
+
       # [Option] Install Azure CLI
       ARG INSTALL_AZURE_CLI="false"
       COPY library-scripts/azcli-debian.sh /tmp/library-scripts/
       RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-debian.sh; fi \
           && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
-      
+
       # [Optional] Uncomment this section to install additional OS packages.
       # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
       #     && apt-get -y install --no-install-recommends <your-package-list-here>
-      
+
       # [Optional] Uncomment this line to install global node packages.
       # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
       `,
