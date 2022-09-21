@@ -262,6 +262,7 @@ translations/pt-BR/content/actions/hosting-your-own-runners/managing-access-to-s
 translations/pt-BR/content/actions/learn-github-actions/contexts.md,broken liquid tags
 translations/pt-BR/content/actions/learn-github-actions/understanding-github-actions.md,broken liquid tags
 translations/pt-BR/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,broken liquid tags
+translations/pt-BR/content/actions/publishing-packages/publishing-docker-images.md,broken liquid tags
 translations/pt-BR/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
 translations/pt-BR/content/actions/security-guides/automatic-token-authentication.md,broken liquid tags
 translations/pt-BR/content/actions/security-guides/encrypted-secrets.md,broken liquid tags
@@ -392,6 +393,7 @@ translations/pt-BR/content/packages/learn-github-packages/about-permissions-for-
 translations/pt-BR/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/viewing-packages.md,broken liquid tags
+translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,broken liquid tags
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,broken liquid tags
@@ -405,6 +407,8 @@ translations/pt-BR/content/rest/overview/resources-in-the-rest-api.md,broken liq
 translations/pt-BR/content/rest/repos/lfs.md,broken liquid tags
 translations/pt-BR/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,broken liquid tags
 translations/pt-BR/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
+translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
+translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/pt-BR/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/pt-BR/data/glossaries/external.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/code-security.yml,broken liquid tags
