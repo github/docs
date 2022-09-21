@@ -1,50 +1,55 @@
 ---
-title: Migrating GraphQL global node IDs
-intro: Learn about the two global node ID formats and how to migrate from the legacy format to the new format.
+title: Migrar las ID de nodo global de GraphQL
+intro: Aprende sobre los dos formatos de ID de nodo global y cómo migrarte del formato tradicional al nuevo.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 shortTitle: Migrating global node IDs
+ms.openlocfilehash: 7d62d81e52b848e4fb8b5f6b2bae9997e0ac1209
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717857'
 ---
+## Información previa
 
-## Background
+La API de GraphQL de {% data variables.product.product_name %} actualmente es compatible con dos tipos de formatos de ID de nodo global. El formato tradicional será obsoleto y se reemplazará con un formato nuevo.  Esta guía te muestra cómo migrarte al formato nuevo, en caso de que sea necesario. 
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be deprecated and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary.
+Cuando te migras al formato nuevo, garantizas que los tiempos de respuesta de tus solicitudes sigan siendo consistentes y pequeños. También garantizas que tu aplicación siga funcionando una vez que las ID tradicionales se obsoleticen.
 
-By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are fully deprecated.
+Para obtener más información sobre por qué el formato del identificador global de nodo heredado quedará en desuso, consulte "[Nuevo formato de identificador global próximamente en GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)".
 
-To learn more about why the legacy global node ID format will be deprecated, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+## Determinar si necesitas realizar alguna acción
 
-## Determining if you need to take action
+Solo necesitas seguir los pasos de migración si almacenas referencias a las ID de nodo global de GraphQL.  Estos identificadores corresponden al campo `id` de cualquier objeto del esquema.  Si no almacenas ID de nodo global, entonces puedes seguir interactuando con la API sin cambios.
 
-You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
-
-Adicionalmente, si actualmente descodificas las ID tradicionales para extraer información de tipo (por ejemplo, si utilizas los dos primeros caracteres de `PR_kwDOAHz1OX4uYAah` para determinar si el objeto es una solicitud de cambios), tu servicio se interrumpirá, ya que el formato de las ID cambió.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+Además, si actualmente descodifica los identificadores tradicionales para extraer información del tipo (por ejemplo, si utiliza los dos primeros caracteres de `PR_kwDOAHz1OX4uYAah` para determinar si el objeto es una solicitud de incorporación de cambios), el servicio se interrumpirá, porque el formato de los identificadores ha cambiado.  Deberías migrar tu servicio para tratar estas ID como secuencias opacas.  Estas ID serán únicas, por lo tanto, puedes confiar en ellas directamente como referencias.
 
 
-## Migrating to the new global IDs
+## Migrarse a las ID globales nuevas
 
-To facilitate migration to the new ID format, you can use the `X-Github-Next-Global-ID` header in your GraphQL API requests. The value of the `X-Github-Next-Global-ID` header can be `1` or `0`.  Setting the value to `1` will force the response payload to always use the new ID format for any object that you requested the `id` field for.  Setting the value to `0` will revert to default behavior, which is to show the legacy ID or new ID depending on the object creation date.
+Para facilitar la migración al nuevo formato de identificador, puede usar el encabezado `X-Github-Next-Global-ID` en las solicitudes de GraphQL API. El valor del encabezado `X-Github-Next-Global-ID` puede ser `1` o `0`.  Al establecer el valor en `1`, se obligará a la carga de respuesta a usar siempre el nuevo formato de identificador para cualquier objeto para el que haya solicitado el campo `id`.  Si configura el valor en `0`, se revertirán todos los ajustes al valor predeterminado, es decir, se mostrará el identificador tradicional o el nuevo dependiendo de la fecha de creación del objeto. 
 
-Here is an example request using cURL:
+Aquí tienes una solicitud de ejemplo que utiliza cURL:
 
 ```
 $ curl \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-Github-Next-Global-ID: 1" \
   https://api.github.com/graphql \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'
 ```
 
-Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
+Aunque el identificador heredado `MDQ6VXNlcjM0MDczMDM=` se usó en la consulta, la respuesta contendrá el nuevo formato de identificador:
 ```
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
-With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API. To perform bulk operations, you can use aliases to submit multiple node queries in one API call. Para obtener más información, consulta "[Los documentos de GraphQL](https://graphql.org/learn/queries/#aliases)".
+Con el encabezado `X-Github-Next-Global-ID`, puede encontrar el nuevo formato de identificador para los identificadores heredados a los que hace referencia en la aplicación. Entonces podrás actualizar esas referencias con la ID que recibiste en la respuesta. Deberías actualizar todas las referencias alas ID tradicionales y utilizar el formato de ID nuevo para cualquier solicitud subsecuente a la API. Para realizar operaciones por lote, puedes utilizar alias o emitir consultas de nodo múltiples en una llamada a la API. Para obtener más información, consulte "[los documentos de GraphQL](https://graphql.org/learn/queries/#aliases)".
 
-You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
+También puedes obtener la ID nueva para una colección de elementos. Por ejemplo, si quieres obtener la ID nueva para los últimos 10 repositorios de tu organización, podrías utilizar una consulta como esta:
 ```
 {
   organization(login: "github") {
@@ -61,8 +66,8 @@ You can also get the new ID for a collection of items. For example, if you wante
 }
 ```
 
-Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value of every `id` field in your query.  This means that even when you submit a non-`node` query, you will get back the new format ID if you requested the `id` field.
+Tenga en cuenta que establecer `X-Github-Next-Global-ID` en `1` afectará al valor devuelto de cada campo `id` de la consulta.  Esto significa que, incluso cuando envíe una consulta que no sea de `node`, obtendrá el nuevo identificador de formato si solicitó el campo `id`.
 
-## Compartir retroalimentación
+## Compartir la retroalimentación
 
-Si te preocupa que la implementación de este cambio impacte tu app, por favor, [contacta a {% data variables.product.product_name %}](https://support.github.com/contact) e incluye la información del nombre de tu app para que te podamos apoyarte mejor.
+Si le preocupa que la implementación de este cambio tenga un impacto en la aplicación, [póngase en contacto con {% data variables.product.product_name %}](https://support.github.com/contact) e incluya la información del nombre de su aplicación para que podamos ayudarle mejor.

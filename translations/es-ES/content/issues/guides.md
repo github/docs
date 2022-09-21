@@ -1,6 +1,6 @@
 ---
-title: Issues guides
-shortTitle: Guías
+title: Guías de propuestas
+shortTitle: Guides
 intro: 'Aprende cómo puedes utilizar las {% data variables.product.prodname_github_issues %} para planear y rastrear tu trabajo.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -10,11 +10,11 @@ versions:
   ghae: '*'
   ghec: '*'
 includeGuides:
-  - /issues/trying-out-the-new-projects-experience/automating-projects
-  - /issues/trying-out-the-new-projects-experience/creating-a-project
-  - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
-  - /issues/trying-out-the-new-projects-experience/quickstart
-  - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
+  - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
+  - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
+  - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view
+  - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+  - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects
   - /issues/tracking-your-work-with-issues/quickstart
   - /issues/tracking-your-work-with-issues/creating-an-issue
   - /issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests
@@ -24,5 +24,11 @@ includeGuides:
   - /issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
+ms.openlocfilehash: 526d3f43c110b76fb1a0c20b5937ce2056804c81
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423584'
 ---
 

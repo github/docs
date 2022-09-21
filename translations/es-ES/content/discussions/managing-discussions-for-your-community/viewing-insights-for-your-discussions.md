@@ -1,34 +1,40 @@
 ---
-title: Viewing insights for your discussions
-intro: 'Discussions insights provide data about your discussions'' activity, views, and contributors.'
-permissions: Repository administrators and people with maintain access to a repository can view the discussions insights dashboard.
+title: Ver las perspectivas de tus debates
+intro: 'Las perspectivas de los debates proporcionan datos de la actividad, vistas y contribuciones de los mismos.'
+permissions: Repository administrators and people with maintain access to a repository can view the insights dashboard for discussions in that repository. Repository administrators and people with maintain access to the source repository for organization discussions can view the insights dashboard for discussions in that organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Discussions
 shortTitle: View discussions insights
+ms.openlocfilehash: 09fafe454f53a1b2a39887bbb085f753f978b6eb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410150'
 ---
+## Acerca del tablero de perspectivas de los debates
 
-## About the discussions insights dashboard
+Puedes usar las perspectivas de los debates para entender la actividad de contribución, las vistas de página y el crecimiento de la comunidad de debates.
+- **Actividad de contribución** muestra la cuenta total de contribuciones para los debates, propuestas y solicitudes de incorporación de cambios.
+- **Vistas de la página de debates** muestra las vistas de página totales para los debates, segmentadas por los usuarios que iniciaron sesión contra los anónimos.
+- **Contribuyentes diarios de los debates** muestra el conteo diario de usuarios únicos que reaccionaron, votaron, marcaron una respuesta, comentaron o publicaron en el período de tiempo seleccionado.
+- **Contribuyentes nuevos de los debates** muestra el conteo diario de usuarios únicos nuevos que reaccionaron, votaron, marcaron una respuesta, comentaron o publicaron en el período de tiempo seleccionado.
 
-You can use discussions insights to help understand the contribution activity, page views, and growth of your repository's discussions community.
-- **Contribution activity** shows the count of total contributions to discussions, issues, and pull requests.
-- **Discussions page views** shows the total page views for discussions, segmented by logged in versus anonymous viewers.
-- **Discussions daily contributors** shows the daily count of unique users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
-- **Discussions new contributors** shows the daily count of unique new users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
-
-![Screenshot of the discussions dashboard](/assets/images/help/discussions/discussions-dashboard.png)
+![Captura de pantalla del tablero de debates](/assets/images/help/discussions/discussions-dashboard.png)
 
 {% tip %}
 
-**Tip:** To view the exact data for a time period, hover over that time period in the graph.
+**Sugerencia** Para ver los datos exactos de un período de tiempo, pase el puntero del mouse sobre ese período de tiempo en la gráfica.
 
 {% endtip %}
 
-## Viewing discussions insights
+## Ver las perspectivas de los debates
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-repo %} Para las discusiones de la organización, ve a la página principal del repositorio de origen.
 {% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Community** (Comunidad). ![Screenshot of the "Community" tab in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
-1. Optionally, in the upper-right corner of the page, select the **Period** dropdown menu and click the time period for which you want to view data: **30 days**, **3 months**, or **1 year**. ![Screenshot of the date range selector for discussions insights](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)
+3. En la barra lateral de la izquierda, haga clic en **Community**.
+![Captura de pantalla de la pestaña "Community" en la barra lateral izquierda](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+1. Opcionalmente, en la esquina superior derecha de la página, seleccione el menú desplegable **Período** y haga clic en el período de tiempo para el que desea ver los datos: **30 días**, **3 meses** o **1 año**.
+![Captura de pantalla del selector de fechas para las perspectivas de los debates](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)

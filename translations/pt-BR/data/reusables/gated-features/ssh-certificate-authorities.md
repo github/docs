@@ -1,1 +1,0 @@
-O suporte para autoridades certificadas de SSH está disponível com {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %}, {% data variables.product.prodname_ghe_managed %},{% endif %} e {% data variables.product.prodname_ghe_server %} 2.19+. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".

@@ -1,1 +1,9 @@
-You must install the required software on your self-hosted runners. For more information about self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+---
+ms.openlocfilehash: 1ba787394ea2c0ce1fc568690a40be8df61d1aba
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145069430"
+---
+Debes instalar el software requerido en tus ejecutores auto-hospedados. Para obtener más información sobre los ejecutores autohospedados, vea "[Hospedaje de sus propios ejecutores](/actions/hosting-your-own-runners)".

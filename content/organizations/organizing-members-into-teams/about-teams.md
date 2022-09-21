@@ -37,7 +37,7 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
 
 ## Team pages
 

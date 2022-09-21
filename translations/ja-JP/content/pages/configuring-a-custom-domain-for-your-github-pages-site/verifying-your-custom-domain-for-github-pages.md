@@ -1,6 +1,6 @@
 ---
-title: Verifying your custom domain for GitHub Pages
-intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
+title: GitHub Pagesのカスタムドメインの検証
+intro: ドメインを検証することで、カスタムドメインのセキュリティを高め、乗っ取り攻撃を回避できます。
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -8,38 +8,44 @@ versions:
 topics:
   - Pages
 shortTitle: Verify a custom domain
+ms.openlocfilehash: b3c44dacd98882afa7a43854b96d803352e879ca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529672'
 ---
+## GitHub Pagesのドメイン検証について
 
-## About domain verification for GitHub Pages
+個人アカウントあるいは Organization でカスタム ドメインが検証されると、個人アカウントあるいは Organization が所有するリポジトリのみから検証済みのカスタム ドメインもしくはそのドメインの直下のサブドメインに {% data variables.product.prodname_pages %} サイトを公開できるようになります。
 
-When you verify your custom domain for your user account or organization, only repositories owned by your user account or organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
+ドメインを検証すると、他のGitHubユーザがそのカスタムドメインを乗っ取り、そのユーザ自身の{% data variables.product.prodname_pages %}サイトの公開に使うことを止められます。 ドメインの乗っ取りは、{% data variables.product.prodname_pages %}用にドメインを残したままで検証せず、あなたが自分のリポジトリを削除したとき、支払いプランをダウングレードしたとき、あるいはカスタムドメインのリンクを解除するその他の変更や{% data variables.product.prodname_pages %}を無効化した後に生じます。
 
-Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
+ドメインを検証すると、直接のサブドメインもその検証に含まれます。 たとえば、`github.com` カスタム ドメインが検証されると、`docs.github.com`、`support.github.com` およびその他の直下のサブドメインも乗っ取りから保護されます。
 
-When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.
+{% data reusables.pages.wildcard-dns-warning %}
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+Organization{% ifversion ghec %}あるいはEnterprise{% endif %}のドメインを検証することもできます。そうすると、「検証済み」バッジがOrganization{% ifversion ghec %}もしくはEnterprise{% endif %}のプロフィールに表示され{% ifversion ghec %}、{% data variables.product.prodname_ghe_cloud %}では検証済みドメインを使ってメールアドレスへの通知を制限できるようになり{% endif %}ます。 詳しい情報については、「[Organization のためのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}」および「[エンタープライズのドメインを検証または承認する](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}」を参照してください。
 
-## Verifying a domain for your user site
+## ユーザサイトのドメインの検証
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The pages icon" %} Pages**.
+1. サイドバーの [コード、計画、自動化] セクションで、 **{% octicon "browser" aria-label="The pages icon" %} [ページ]** をクリックします。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. DNS設定が変更されるまで待ちます。これはすぐに行われることも、最大で24時間かかることもあります。 DNS 設定への変更は、コマンドラインで `dig` コマンドを実行して確認できます。 次のコマンドで、`USERNAME` をユーザー名、`example.com` を検証しているドメインに置き換えます。 DNS設定が更新されていれば、出力中に新しいTXTレコードが表示されます。
   ```
   dig _github-pages-challenge-USERNAME.example.com +nostats +nocomments +nocmd TXT
   ```
 {% data reusables.pages.settings-verify-domain-confirm %}
 
-## Verifying a domain for your organization site
+## Organizationのサイトのドメインの検証
 
-Organization owners can verify custom domains for their organization.
+Organizationのオーナーは、自分のOrganizatinのカスタムドメインを検証できます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. サイドバーの [コード、計画、自動化] セクションで、 **{% octicon "browser" aria-label="The browser icon" %} [ページ]** をクリックします。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. DNS設定が変更されるまで待ちます。これはすぐに行われることも、最大で24時間かかることもあります。 DNS 設定への変更は、コマンドラインで `dig` コマンドを実行して確認できます。 次のコマンドで、`ORGANIZATION` を Organization 名、`example.com` を検証しているドメインに置き換えます。 DNS設定が更新されていれば、出力中に新しいTXTレコードが表示されます。
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```

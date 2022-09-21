@@ -4,7 +4,7 @@ intro: 'You can give users easy access to enterprise-specific links by adding cu
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: 'issue-5487'
+  ghae: issue-5487
 type: how_to
 topics:
   - Enterprise

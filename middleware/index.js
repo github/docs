@@ -2,56 +2,47 @@ import fs from 'fs'
 import path from 'path'
 
 import express from 'express'
+
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
-import rateLimit from './rate-limit.js'
-import cors from './cors.js'
-import helmet from 'helmet'
-import csp from './csp.js'
+import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import csrf from './csrf.js'
-import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
-import connectSlashes from 'connect-slashes'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
 import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
-import redirectsExternal from './redirects/external.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
-import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
-import events from './events.js'
+import api from './api/index.js'
 import search from './search.js'
 import healthz from './healthz.js'
+import anchorRedirect from './anchor-redirect.js'
+import remoteIP from './remote-ip.js'
+import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import loaderio from './loaderio-verification.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import graphQL from './contextualizers/graphql.js'
-import rest from './contextualizers/rest.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
-import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import featuredLinks from './featured-links.js'
@@ -62,11 +53,22 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
+import fastHead from './fast-head.js'
+import fastlyCacheTest from './fastly-cache-test.js'
+import fastRootRedirect from './fast-root-redirect.js'
+import trailingSlashes from './trailing-slashes.js'
+import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
-const isDevelopment = NODE_ENV === 'development'
-const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+// By default, logging each request (with morgan), is on. And by default
+// it's off if you're in a production environment or running automated tests.
+// But if you set the env var, that takes precedence.
+const ENABLE_DEV_LOGGING = JSON.parse(
+  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
+)
+
+const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
@@ -74,23 +76,31 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
-// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
-morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
-const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
-
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
 
+  // Don't use the proxy's IP, use the requester's for rate limiting or
+  // logging.
+  // See https://expressjs.com/en/guide/behind-proxies.html
+  // Essentially, setting this means it believe that the IP is the
+  // first of the `X-Forwarded-For` header values.
+  // If it was 0 (or false), the value would be that
+  // of `req.socket.remoteAddress`.
+  // Now, the `req.ip` becomes the first entry from x-forwarded-for
+  // and falls back on `req.socket.remoteAddress` in all other cases.
+  // Their documentation says:
+  //
+  //   	If true, the client's IP address is understood as the
+  //    left-most entry in the X-Forwarded-For header.
+  //
+  app.set('trust proxy', true)
+
   // *** Request logging ***
-  // Enabled in development and azure deployed environments
-  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
-  app.use(
-    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
-      skip: (req, res) => !(isDevelopment || isAzureDeployment),
-    })
-  )
+  if (ENABLE_DEV_LOGGING) {
+    app.use(morgan('dev'))
+  }
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
@@ -102,8 +112,7 @@ export default function (app) {
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // Must come before `csrf` otherwise you get a Set-Cookie on successful
-  // asset requests. And it can come before `rateLimit` because if it's a
+  // It can come before `rateLimit` because if it's a
   // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
@@ -159,8 +168,7 @@ export default function (app) {
 
   // In development, let NextJS on-the-fly serve the static assets.
   // But in production, don't let NextJS handle any static assets
-  // because they are costly to generate (the 404 HTML page)
-  // and it also means that a CSRF cookie has to be generated.
+  // because they are costly to generate (the 404 HTML page).
   if (process.env.NODE_ENV !== 'development') {
     const assetDir = path.join('.next', 'static')
     if (!fs.existsSync(assetDir))
@@ -180,29 +188,18 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  // Don't use the proxy's IP, use the requester's for rate limiting
-  // See https://expressjs.com/en/guide/behind-proxies.html
-  app.set('trust proxy', 1)
-  app.use(rateLimit)
+  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
+  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
-  app.use(cors)
-  app.use(
-    helmet({
-      // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
-      // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
-      referrerPolicy: {
-        policy: 'strict-origin-when-cross-origin',
-      },
-    })
-  )
-  app.use(csp) // Must come after helmet
-  app.use(cookieParser) // Must come before csrf
-  app.use(express.json()) // Must come before csrf
-  app.use(csrf)
-  app.use(handleCsrfErrors) // Must come before regular handle-errors
+  app.use(helmet)
+  app.use(cookieParser)
+  app.use(express.json())
+
+  if (ENABLE_FASTLY_TESTING) {
+    app.use(fastlyBehavior) // FOR TESTING.
+  }
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
@@ -212,7 +209,7 @@ export default function (app) {
   app.use(recordRedirect)
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
-  app.use(asyncMiddleware(instrument(shortVersions, './contextualizers/short-versions'))) // Support version shorthands
+  app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
 
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
@@ -220,23 +217,24 @@ export default function (app) {
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
-  app.use(connectSlashes(false))
-  app.use(instrument(redirectsExternal, './redirects/external'))
+  app.use(instrument(trailingSlashes, './redirects/trailing-slashes'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  app.use('/events', asyncMiddleware(instrument(events, './events')))
-  app.use('/search', asyncMiddleware(instrument(search, './search')))
-  app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
+  app.use('/api', instrument(api, './api'))
+  app.use('/search', instrument(search, './search')) // The old search API
+  app.use('/healthz', instrument(healthz, './healthz'))
+  app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
+  app.get('/_ip', instrument(remoteIP, './remoteIP'))
+  app.get('/_build', instrument(buildInfo, './buildInfo'))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -250,35 +248,35 @@ export default function (app) {
     '/categories.json',
     asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
   )
-  app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
+  // Specifically deal with HEAD requests before doing the slower
+  // full page rendering.
+  app.head('/*', fastHead)
+
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
-  app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(
-    asyncMiddleware(
-      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
-    )
-  )
-  app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
+  app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
 
-  // *** Headers for pages only ***
-  app.use(setFastlyCacheHeaders)
+  if (ENABLE_FASTLY_TESTING) {
+    // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
+    // This middleware will intercept ALL requests routed to it, so be careful if you need to
+    // make any changes to the following line:
+    app.use('/fastly-cache-test', fastlyCacheTest)
+  }
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))

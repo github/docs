@@ -7,6 +7,7 @@ name: Check unallowed file changes
 on:
   pull_request_target:
     paths:
+      - '.devcontainer/**'
       - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
@@ -54,6 +55,7 @@ jobs:
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
+              - '.devcontainer/**'
               - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
@@ -78,6 +80,7 @@ jobs:
         with:
           script: |
             const badFilesArr = [
+              '.devcontainer/**',
               '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',

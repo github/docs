@@ -227,8 +227,8 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs (such as cURL or the GitHub CLI). For more information about the tool selector, see [Markup reference for GitHub Docs](../contributing/content-markup-reference.md#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
-- Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`.
+- Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs (such as cURL or the GitHub CLI). For more information about the tool selector, see [Markup reference for GitHub Docs](../contributing/content-markup-reference.md#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
+- Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
 - Optional.
 
 ```yaml
@@ -263,9 +263,9 @@ includeGuides:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics and the topics are listed under the guide intro. Topics are also added to all search records that get created for each page. The search records contain a `topics` property that is used to filter search results by topics. For more information, see the [Search](/contributing/search.md) contributing guide. Refer to the content models for more details around adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
+- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics, and the topics are listed under the guide intro. Topics are also added to all search records that get created for each page. The search records contain a `topics` property that is used to filter search results by topics. For more information, see the [Search](/contributing/search.md) contributing guide. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
 - Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics or a adding a topic to a new article may not add value.
+- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
 ### `contributor`
 - Purpose: Indicate an article is contributed and maintained by a third-party organization, typically a GitHub Technology Partner.
@@ -294,7 +294,7 @@ contributor:
 
 If you see two single quotes in a row (`''`) in YML frontmatter where you might expect to see one (`'`), this is the YML-preferred way to escape a single quote. From [the YAML spec](https://yaml.org/spec/history/2001-12-10.html):
 
-> In single quoted leaves, a single quote character needs to be escaped. This is done by repeating the character.
+> In single-quoted leaves, a single quote character needs to be escaped. This is done by repeating the character.
 
 As an alternative, you can change the single quotes surrounding the frontmatter field to double quotes and leave interior single quotes unescaped.
 
@@ -314,7 +314,7 @@ Make sure not to add hardcoded "In this article" sections in the Markdown source
 A content file can have **two** types of versioning:
 
 * [`versions`](#versions) frontmatter (**required**)
-    * Determines in which the versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
+    * Determines in which versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
 * Liquid statements in content (**optional**)
     * Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
@@ -334,9 +334,13 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 {%- ifversion fpt %}
 ```
 
-## Links and image paths
+## Links
 
-Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
+Links to docs in the `docs-internal` repository must start with a product ID (like `/actions` or `/admin`) and contain the entire filepath, but not the file extension. For example, `/actions/creating-actions/about-custom-actions`.
+
+Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
+
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -352,17 +356,21 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-There are transformations for image paths in GitHub Enterprise Server (versions 2.20-3.0) only. Once those versions are deprecation, there will no longer be any transformations for image paths. For more information, see [/assets/images/enterprise/legacy-format/README.md](/assets/images/enterprise/legacy-format/README.md).
-
 ### Preventing transformations
 
-Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
+Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, you should include the preferred version in the path.
 
-```html
-<a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
+```markdown
+"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
+
+### Legacy filepaths and redirects for links
+
+Our docs contain links that use legacy filepaths such as `/article/article-name` or `/github/article-name`. Our docs also contain links that refer to articles by past names. Both of these link types function properly because of redirects, but they are bugs.
+
+When you add a link to an article, use the current filepath and article name.
 
 ### Index pages
 
@@ -380,8 +388,8 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
 
-1. Use the product guides page template by referencing it `layout: product-guides`
-2. (optional) Include the learning tracks in [`learningTracks`](#learningTracks)
+1. Use the product guides page template by referencing `layout: product-guides`.
+2. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
 3. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).

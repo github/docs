@@ -1,5 +1,5 @@
 ---
-title: Solicitar uma revisão de pull request
+title: Solicitar revisão de pull request
 intro: 'Depois de criar uma pull request, você pode pedir para uma pessoa específica revisar as alterações propostas. Se você for um integrante da organização, poderá pedir para uma equipe específica revisar suas alterações.'
 product: '{% data reusables.gated-features.multiple-pr-reviewers %}'
 redirect_from:
@@ -14,29 +14,40 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Solicitar revisão de PR
+shortTitle: Request a PR review
+ms.openlocfilehash: b7b797d7e9ad2fdf9c1df29e7e5aad66f942b538
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128042'
 ---
+Os repositórios pertencem a uma conta pessoal (um só proprietário individual) ou a uma conta de organização (uma conta compartilhada com vários colaboradores ou mantenedores). Para obter mais informações, confira "[Tipos de contas do {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)". Os proprietários e os colaboradores em um repositório pertencente a uma conta pessoal podem atribuir revisões de solicitação de pull. Os membros da organização com permissões de triagem também podem atribuir um revisor para uma solicitação de pull. 
 
-Proprietários e colaboradores de um repositório pertencente a uma conta de usuário podem atribuir revisões de pull requests. Os integrantes da organização com permissões de triagem em um repositório podem atribuir uma revisão de pull request.
+Para atribuir um revisor a uma solicitação de pull, você precisará ter acesso de gravação no repositório. Para obter mais informações sobre o acesso ao repositório, confira "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)". Se você tiver acesso de gravação, poderá atribuir qualquer pessoa que tenha acesso de leitura no repositório como revisor.
 
-Os proprietários e colaboradores podem atribuir uma revisão de pull request a qualquer pessoa que recebeu explicitamente [acesso de leitura](/articles/access-permissions-on-github) em um repositório pertencente a um usuário. Os integrantes da organização podem atribuir uma revisão de pull request para qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. {% ifversion fpt or ghae or ghes or ghec %}Se você solicitar uma revisão de uma equipe e a atribuição de revisão de código estiver ativada, integrantes específicos serão solicitados e a equipe será removida como revisora. Para obter mais informações, consulte "[Gerenciando configurações de revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)".{% endif %}
+Os membros da organização com acesso de gravação também podem atribuir uma revisão de solicitação de pull a qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. Se você solicitar uma revisão de uma equipe e a atribuição de revisão de código estiver habilitada, os membros específicos serão solicitados e a equipe será removida como revisor. Para obter mais informações, confira "[Como gerenciar as configurações de revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)".
 
 {% note %}
 
-**Observação:** os autores da pull request não podem solicitar revisões, a menos que sejam colaboradores ou proprietários do repositório com acesso de gravação no repositório.
+**Observação:** os autores da solicitação de pull não podem solicitar revisões, a menos que sejam um proprietário ou um colaborador do repositório com acesso de gravação nele.
 
 {% endnote %}
 
-Você pode solicitar uma revisão para uma pessoa específica ou sugerida. Os revisores sugeridos são baseados nos [dados de blame do Git](/articles/tracking-changes-in-a-file/). Se você solicitar uma revisão, outras pessoas com acesso de leitura no repositório poderão revisar sua pull request. Depois que alguém revisar sua pull request e você fizer as alterações necessárias, você poderá solicitar novamente a revisão do mesmo revisor. Se o revisor solicitado não enviar uma revisão e a pull request atender aos requisitos de mesclagem do repositório [](/articles/defining-the-mergeability-of-pull-requests), você ainda poderá fazer o merge da pull request.
+Você pode solicitar uma revisão para uma pessoa específica ou sugerida. Os revisores sugeridos são baseados nos [dados de blame do Git](/articles/tracking-changes-in-a-file/). Se você solicitar uma revisão, outras pessoas com acesso de leitura no repositório poderão revisar sua pull request. Depois que alguém revisar sua pull request e você fizer as alterações necessárias, você poderá solicitar novamente a revisão do mesmo revisor. Se o revisor solicitado não enviar uma revisão e a solicitação de pull atender aos [requisitos de capacidade de mesclagem](/articles/defining-the-mergeability-of-pull-requests) do repositório, você ainda poderá mesclar a solicitação de pull.
 
 {% data reusables.repositories.sidebar-pr %}
 1. Na lista de pull requests, clique na pull request que deve ser revisada por uma pessoa ou equipe específica.
-2. Navegue até **Reviewers** (Revisores) na barra lateral direita.
-3. Para solicitar a revisão para uma pessoa sugerida, em **Reviewers** (Revisores), clique em **Request** (Solicitar) ao lado do nome de usuário. ![Ícone de solicitação de revisores da barra lateral direita](/assets/images/help/pull_requests/request-suggested-review.png)
-5. Opcionalmente, para solicitar a revisão para uma pessoa diferente da pessoa sugerida, clique em **Reviewers** (Revisores) e depois clique em um nome no menu suspenso. ![Ícone de engrenagem de revisores da barra lateral direita](/assets/images/help/pull_requests/request-a-review-not-suggested.png)
-6. Opcionalmente, se souber o nome da pessoa ou da equipe da qual deseja a revisão, clique em **Reviewers** (Revisores) e insira o nome de usuário da pessoa ou o nome da equipe para a qual deseja solicitar a revisão das alterações. Clique no nome da equipe ou no nome de usuário para solicitar a revisão. ![Campo para inserir um nome de usuário do revisor e menu com nome do revisor](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
-7. Depois que a pull request for revisada e você fizer as alterações necessárias, você poderá solicitar que ela seja revisada novamente por um revisor. Navegue até **Reviewers** na barra lateral direita e clique em {% octicon "sync" aria-label="The sync icon" %} ao lado do nome do revisor desejado. ![Ícone de sincronização de re-revisão na barra lateral direita](/assets/images/help/pull_requests/request-re-review.png)
+2. Procure **Revisores** na barra lateral direita.  
+3. Para solicitar uma revisão de uma pessoa sugerida em **Revisores**, ao lado do nome de usuário dela, clique em **Solicitar**.
+ ![Ícone de solicitação de revisores na barra lateral direita](/assets/images/help/pull_requests/request-suggested-review.png)
+5. Opcionalmente, para solicitar uma revisão de alguém que não seja uma pessoa sugerida, clique em **Revisores** e clique em um nome no menu suspenso.
+  ![Ícone de engrenagem Revisores na barra lateral direita](/assets/images/help/pull_requests/request-a-review-not-suggested.png)
+6. Opcionalmente, se você souber o nome da pessoa ou da equipe da qual deseja obter uma revisão, clique em **Revisores** e digite o nome de usuário da pessoa ou o nome da equipe da qual está solicitando a revisão das alterações. Clique no nome da equipe ou no nome de usuário para solicitar a revisão.
+  ![Campo usado para inserir o nome de usuário de um revisor e menu suspenso com o nome do revisor](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
+7. Depois que a pull request for revisada e você fizer as alterações necessárias, você poderá solicitar que ela seja revisada novamente por um revisor. Procure **Revisores** na barra lateral direita e clique em {% octicon "sync" aria-label="The sync icon" %} ao lado do nome do revisor cuja revisão deseja obter.
+  ![Ícone de sincronização de nova revisão na barra lateral direita](/assets/images/help/pull_requests/request-re-review.png)
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre revisões de solicitação pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+- "[Sobre as revisões de solicitações de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"

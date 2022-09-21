@@ -1,8 +1,16 @@
-Use `jobs.<job_id>` to give your job a unique identifier. `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
+---
+ms.openlocfilehash: dd25f74bf039724130494c7bd4d55e44760f620b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145114229"
+---
+ジョブへの一意の識別子の指定には、`jobs.<job_id>` を使います。 `job_id` キーは文字列で、その値はジョブの設定データのマップです。 `<job_id>` は、`jobs` オブジェクトに固有の文字列に置き換える必要があります。 `<job_id>` は文字または `_` で始まり、英数字、`-`、あるいは `_` のみを含める必要があります。
 
-#### Example: Creating jobs
+#### 例: ジョブを作成する
 
-In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
+この例では、`job_id` 値が `my_first_job` と `my_second_job` の 2 つのジョブが作成されました。
 
 ```yaml
 jobs:

@@ -23,25 +23,26 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-accounts %}
 3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
   ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser.
-  ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
+{% data reusables.desktop.sign-in-browser %}
 
-  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
 7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Authenticating an account on {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+4. To add an account on {% data variables.product.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
   ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+{% data reusables.desktop.sign-in-browser %}
+1. To authenticate to {% data variables.product.product_location_enterprise %} account, type your account credentials and click **Sign in**.
+  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+
+  Alternatively, if you were already signed in to {% data variables.product.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
 
 {% endmac %}
 
@@ -53,8 +54,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-select-accounts %}
 3. To the right of "GitHub.com," click **Sign in**.
   ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-4. In the Sign in pane, click **Sign in using your browser**.
-  ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
+{% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
@@ -68,7 +68,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
   ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 

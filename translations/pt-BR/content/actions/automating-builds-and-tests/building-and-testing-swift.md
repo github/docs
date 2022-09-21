@@ -12,32 +12,34 @@ type: tutorial
 topics:
   - CI
   - Swift
-shortTitle: Criar & testar Swift
+shortTitle: Build & test Swift
+ms.openlocfilehash: 5717f9c7a939d2347ea5a49458002185c3ec07eb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408992'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
 Este guia mostra como criar e testar um pacote do Swift.
 
-{% ifversion ghae %} Para criar e testar seu projeto Swift em {% data variables.product.prodname_ghe_managed %}, são necessárias as dependências do Swift. {% data reusables.actions.self-hosted-runners-software %}
-Executores hospedados em {% else %}{% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado e os executores Ubuntu e macOS incluem as dependências para construir pacotes Swift. Para obter uma lista completa do software atualizado e das versões pré-instaladas do Swift e do Xcode, consulte "[Sobre executores hospedados pelo GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
+{% ifversion ghae %} Para criar e testar seu projeto Swift em {% data variables.product.prodname_ghe_managed %}, são necessárias as dependências do Swift. {% data reusables.actions.self-hosted-runners-software %} Os executores hospedados no {% else %}{% data variables.product.prodname_dotcom %} têm um cache de ferramentas com programas de software pré-instalados e os executores do Ubuntu e do macOS incluem as dependências para criação de pacotes do Swift. Para ver a lista completa de programas de software atualizados e as versões pré-instaladas do Swift e do Xcode, confira "[Sobre os executores hospedados no GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".{% endif %}
 
 ## Pré-requisitos
 
-Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
-Recomendamos que você tenha uma compreensão básica dos pacotes Swift. Para obter mais informações, consulte "[Pacotes Swift](https://developer.apple.com/documentation/swift_packages)" na documentação de desenvolvedor da Apple.
+Recomendamos que você tenha uma compreensão básica dos pacotes Swift. Para obter mais informações, confira "[Pacotes do Swift](https://developer.apple.com/documentation/swift_packages)" na documentação do desenvolvedor da Apple.
 
 ## Usando o fluxo de trabalho inicial do Swift
 
-{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial Swift que deve funcionar na maioria dos projetos do Swift, e este guia inclui exemplos que mostram a você como personalizar este fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do Swift](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial Swift que deve funcionar na maioria dos projetos do Swift, e este guia inclui exemplos que mostram a você como personalizar este fluxo de trabalho inicial. Para obter mais informações, confira o [fluxo de trabalho inicial do Swift](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
 
-Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
+Para experimentar uma introdução rápida, adicione o fluxo de trabalho inicial ao diretório `.github/workflows` do repositório.
 
-{% raw %}
 ```yaml{:copy}
 name: Swift
 
@@ -49,28 +51,31 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ## Especificando uma versão do Swift
 
-Para usar uma versão específica do Swift em um executor hospedado em {% data variables.product.prodname_dotcom %}, use a ação `fwal/setup-fast`. Esta ação encontra uma versão específica do Swift do cache de ferramentas no executor e adiciona os binários necessários a `PATH`. Estas alterações persistirão para o restante de um trabalho. Para obter mais informações, consulte a ação [`fwal/setup-speed`](https://github.com/marketplace/actions/setup-swift).
+Para usar uma versão pré-instalada específica do Swift em um executor hospedado no {% data variables.product.prodname_dotcom %}, use a ação `fwal/setup-swift`. Essa ação localiza uma versão específica do Swift do cache de ferramentas no executor e adiciona os binários necessários a `PATH`. Estas alterações persistirão para o restante de um trabalho. Para obter mais informações, confira a ação [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift).
 
-Se você estiver usando um executor auto-hospedado, você deverá instalar as versões do Swift desejadas e adicioná-las a `PATH`.
+Se você estiver usando um executor auto-hospedado, precisará instalar as versões desejadas do Swift e adicioná-las a `PATH`.
 
-Os exemplos abaixo demonstram o uso da ação `fwal/setup-fast`.
+Os exemplos abaixo demonstram o uso da ação `fwal/setup-swift`.
 
 ### Usando várias versões do Swift
 
-Você pode configurar seu trabalho para usar várias versões do Swift em uma matriz de criação.
+Você pode configurar seu trabalho para usar várias versões do Swift em uma matriz.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 
 name: Swift
 
@@ -88,7 +93,7 @@ jobs:
       - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
@@ -97,7 +102,7 @@ jobs:
 
 ### Usando uma única versão específica do Swift
 
-Você pode configurar sua tarefa para usar uma única versão específica do Swift como, por exemplo, `5.3.3`.
+Você pode configurar seu trabalho para usar uma só versão específica do Swift, como `5.3.3`.
 
 {% raw %}
 ```yaml{:copy}
@@ -114,10 +119,9 @@ steps:
 
 Você pode usar os mesmos comandos usados localmente para criar e testar seu código usando o Swift. Este exemplo demonstra como usar `swift build` e `swift test` em um trabalho:
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
@@ -126,4 +130,3 @@ steps:
   - name: Run tests
     run: swift test
 ```
-{% endraw %}

@@ -11,18 +11,23 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Ferramentas de migração de código
+shortTitle: Code migration tools
+ms.openlocfilehash: 7877d435e7971f669d9d49a70d2d2450371b5159
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882164'
 ---
-
 {% ifversion fpt or ghec %}
 
-Recomendamos usar o [Importador do GitHub](/articles/about-github-importer) para importar projetos de Subversion, Mercurial, Controle de versão do Team Foundation (TFVC) ou outro repositório Git. Você também pode usar essas ferramentas externas para converter o projeto em Git.
+Recomendamos usar o [Importador do GitHub](/articles/about-github-importer) para importar projetos do Subversion, do Mercurial, do TFVC (Controle de Versão do Team Foundation) ou de outro repositório Git. Você também pode usar essas ferramentas externas para converter o projeto em Git.
 
 {% endif %}
 
 ## Importar do Subversion
 
-Em um ambiente típico do Subversion, vários projetos são armazenados em um único repositório raiz. No GitHub, cada um desses projetos é associado a um repositório do Git separado para uma conta de usuário ou organização. Sugerimos que você importe cada parte do repositório do Subversion para um repositório separado do GitHub se:
+Em um ambiente típico do Subversion, vários projetos são armazenados em um único repositório raiz. No GitHub, cada um desses projetos é associado a um repositório do Git separado para uma conta pessoal ou organização. Sugerimos que você importe cada parte do repositório do Subversion para um repositório separado do GitHub se:
 
 * Os colaboradores precisarem fazer checkout ou commit na parte do projeto separada de outras partes
 * Desejar que diferentes partes tenham suas próprias permissões de acesso
@@ -38,22 +43,22 @@ Recomendamos o [hg-fast-export](https://github.com/frej/fast-export) para conver
 
 ## Importando do TFVC
 
-Recomendamos [git-tfs](https://github.com/git-tfs/git-tfs) para transferir alterações entre TFVC e Git.
+Recomendamos o [git-tfs](https://github.com/git-tfs/git-tfs) para mover as alterações entre o TFVC e o Git.
 
-Para obter mais informações sobre como mudar do TFVC (um sistema centralizado de controle de versão) para o Git, consulte "[Planeje sua migração para o Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" no site da documentação da Microsoft.
+Para obter mais informações sobre como migrar do TFVC (um sistema de controle de versão centralizado) para o Git, confira "[Planejar sua migração para o Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" no site de documentação da Microsoft.
 
 {% tip %}
 
-**Dica:** depois de converter com sucesso o projeto em Git, você poderá [fazer push dele para o {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Dica:** depois de converter o projeto com sucesso no Git, você poderá [efetuar push dele para o {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Sobre o Importador do GitHub](/articles/about-github-importer)"
-- "[Importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"
+- "[Como importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

@@ -14,7 +14,7 @@ topics:
 
 ## Node limit
 
-To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
 * Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
 * Values of `first` and `last` must be within 1-100.
@@ -130,30 +130,30 @@ These two examples show how to calculate the total nodes in a call.
 
 ## Rate limit
 
-The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
+The GraphQL API limit is different from the REST API's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
 Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
 
-To accurately represent the server cost of a query, the GraphQL API v4 calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
+To accurately represent the server cost of a query, the GraphQL API calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
 
 * The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
 * Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
 
-The GraphQL API v4 rate limit is **5,000 points per hour**. 
+The GraphQL API rate limit is **5,000 points per hour**. 
 
-Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
+Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API and REST API use different rate limits.
 
 {% note %}
 
-**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API v4.
+**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API.
 
 {% endnote %}
 
 ### Returning a call's rate limit status
 
-With the REST API v3, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
+With the REST API, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
 
-With the GraphQL API v4, you can check the rate limit status by querying fields on the `rateLimit` object:
+With the GraphQL API, you can check the rate limit status by querying fields on the `rateLimit` object:
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ Querying the `rateLimit` object returns a call's score, but running the call cou
 
 {% note %}
 
-**Note**: The minimum cost of a call to the GraphQL API v4 is **1**, representing a single request.
+**Note**: The minimum cost of a call to the GraphQL API is **1**, representing a single request.
 
 {% endnote %}
 

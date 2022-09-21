@@ -24,7 +24,7 @@ You can view and revoke each member's linked identity, active sessions, and auth
 
 {% data reusables.saml.about-linked-identities %} 
 
-When available, the entry will include SCIM data. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+When available, the entry will include SCIM data. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% warning %}
 

@@ -1,7 +1,7 @@
 ---
 title: Tu cuenta y perfil en GitHub
-shortTitle: Cuenta y perfil
-intro: 'Haz que {% data variables.product.product_name %} funcione de la mejor forma para ti configurando los ajustes para tu cuenta de usuario, personalizando tu página de perfil y administrando las notificaciones que recibes de la actividad en {% data variables.product.prodname_dotcom %}.'
+shortTitle: Account and profile
+intro: 'Para que {% data variables.product.product_name %} funcione de la manera más adecuada para ti, configura los ajustes de tu cuenta personal, personaliza tu página de perfil y administra las notificaciones que recibes sobre la actividad en {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
@@ -17,7 +17,7 @@ featuredLinks:
     - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
   guideCards:
-    - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
+    - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
     - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
     - '{% ifversion ghes or ghae %}/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories{% endif %}'
@@ -37,8 +37,14 @@ topics:
   - Profiles
   - Notifications
 children:
-  - /setting-up-and-managing-your-github-user-account
+  - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
+ms.openlocfilehash: 922990e3a89a53f625e739650c3c3b329f1f497d
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888464'
 ---
 

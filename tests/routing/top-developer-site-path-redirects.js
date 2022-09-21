@@ -1,7 +1,8 @@
-import { head } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers('legacy')
+import { head } from '../helpers/e2etest.js'
+
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(60 * 1000)

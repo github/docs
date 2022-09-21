@@ -18,18 +18,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organization設定へのアクセス
+shortTitle: Access organization settings
+ms.openlocfilehash: 952b4c7d911c131fa7913b9f8ce9f6da67e34cd5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130891'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**ヒント:** Organization の支払い情報とアカウント設定を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 {% data reusables.organizations.new-org-permissions-more-info %}
+**ヒント:** Organization の課金情報とアカウント設定の完全なセットを表示および変更できるのは、Organization の所有者と課金マネージャーのみです。 Organization のモデレーターにはモデレーション設定のみが表示されます。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}

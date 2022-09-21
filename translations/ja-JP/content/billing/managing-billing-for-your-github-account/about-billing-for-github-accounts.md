@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの支払いについて
-intro: '{% data variables.product.company_short %} は、すべての開発者あるいは Team に対して無償版と有償版の製品が用意されています。'
+intro: '{% data variables.product.company_short %} には、すべての開発者あるいは Team に対して無償版と有償版の製品が用意されています。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account
@@ -21,14 +21,19 @@ topics:
   - Discounts
   - Fundamentals
   - Upgrades
-shortTitle: 支払いについて
+shortTitle: About billing
+ms.openlocfilehash: a17f487d707949885a3cb8f0585feac21708bac1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145087971'
 ---
+自分のアカウントに利用できる製品の詳細については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。  
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。
+支払いは月単位あるいは年単位を選択でき、プランのアップグレードやダウングレードはいつでもできます。 詳細については、[{% data variables.product.prodname_dotcom %} アカウントの請求管理](/articles/managing-billing-for-your-github-account)に関するページを参照してください。
 
-支払いは月単位あるいは年単位を選択でき、プランのアップグレードやダウングレードはいつでもできます。 詳細は「[ {% data variables.product.prodname_dotcom %} の支払いを管理する](/articles/managing-billing-for-your-github-account)」を参照してください。
-
-既存の {% data variables.product.product_name %} の支払い情報で追加の機能や製品をご購入いただくことができます。 詳細は「[ {% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)」を参照してください。
+既存の {% data variables.product.product_name %} の支払い情報で追加の機能や製品をご購入いただくことができます。 詳細については、[{% data variables.product.prodname_dotcom %} の請求](/articles/about-billing-on-github)に関するページを参照してください。
 
 {% data reusables.accounts.accounts-billed-separately %}
 
@@ -36,7 +41,7 @@ For more information about the products available for your account, see "[{% dat
 
 {% tip %}
 
-**ヒント:** {% data variables.product.prodname_dotcom %} では、アカデミック割引をご利用いただける確認済みの生徒およびアカデミック機関向けのプログラムをご用意しています。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
+**参考:** {% data variables.product.prodname_dotcom %} では、アカデミック割引をご利用いただける確認済みの生徒およびアカデミック機関向けのプログラムをご用意しています。 詳細については、「[{% data variables.product.prodname_education %}](https://education.github.com/)」を参照してください。
 
 {% endtip %}
 

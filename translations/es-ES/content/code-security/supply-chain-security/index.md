@@ -1,6 +1,6 @@
 ---
 title: Asegurar la cadena de suministro de tu software
-shortTitle: Seguridad de la cadena de suministro
+shortTitle: Supply chain security
 intro: 'Visualiza, mantiene y asegura las dependencias en la cadena de suministro de tu software.'
 redirect_from:
   - /categories/managing-security-vulnerabilities
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependabot
@@ -16,7 +16,12 @@ topics:
   - Repositories
 children:
   - /understanding-your-software-supply-chain
-  - /keeping-your-dependencies-updated-automatically
-  - /managing-vulnerabilities-in-your-projects-dependencies
+  - /end-to-end-supply-chain
+ms.openlocfilehash: bb0b22132fc705d457b017f901dd797df9ac1d61
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091565'
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: Sobre revisão de dependências
-intro: 'A revisão de dependências permite que você capture dependências vulneráveis antes de introduzi-las no seu ambiente e fornece informações sobre licença, dependências e idade das dependências.'
+title: Sobre a análise de dependência
+intro: 'A análise de dependências permite que você capture dependências não seguras antes que elas sejam introduzidas no ambiente e fornece informações sobre licença, dependências e idade das dependências.'
 product: '{% data reusables.gated-features.dependency-review %}'
-shortTitle: Revisão de dependência
+shortTitle: Dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -17,33 +17,57 @@ topics:
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
+ms.openlocfilehash: aeb85342f027125328ef5537e718bc671f02eb3e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424701'
 ---
-
 {% data reusables.dependency-review.beta %}
 
-## Sobre revisão de dependências
+## Sobre a análise de dependência
 
-{% data reusables.dependency-review.feature-overview %}
+{% data reusables.dependency-review.feature-overview %}  
 
 Se um pull request for direcionado ao branch padrão do seu repositório e contiver alterações em manifestos de pacote ou arquivos de bloqueio, você poderá exibir um comentário de dependência para ver o que foi alterado. A revisão de dependências inclui detalhes de alterações nas dependências indiretas nos arquivos de bloqueio, e informa a você se alguma das dependências adicionadas ou atualizadas contém vulnerabilidades conhecidas.
 
-{% ifversion fpt or ghec %}
-Revisão de dependência está disponível em:
-
-* Todos os repositórios públicos.
-* Repositórios privados pertencentes a organizações com uma licença de {% data variables.product.prodname_advanced_security %} com o gráfico de dependências habilitado. Para obter mais informações, consulte "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
-{% elsif ghes or ghae %}
-A revisão de dependências está disponível quando o gráfico de dependências está habilitado para {% data variables.product.product_location %} e {% data variables.product.prodname_advanced_security %} está habilitado para a organização ou repositório.
-{% endif %}
-
 Às vezes, você pode apenas querer atualizar a versão de uma dependência em um manifesto e gerar um pull request. No entanto, se a versão atualizada desta dependência direta também atualizou as dependências, seu pull request pode ter mais alterações do que o esperado. A revisão de dependência para cada manifesto e arquivo de bloqueio fornece uma maneira fácil de ver o que foi alterado e se alguma das novas versões de dependências contém vulnerabilidades conhecidas.
 
-Ao verificar as revisões de dependências em um pull request e alterar todas as dependências sinalizadas como vulneráveis, você pode evitar que vulnerabilidades sejam adicionadas ao seu projeto. Para obter mais informações sobre como funciona a revisão de dependências, consulte "[Revisar as alterações de dependência em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+Ao verificar as revisões de dependências em um pull request e alterar todas as dependências sinalizadas como vulneráveis, você pode evitar que vulnerabilidades sejam adicionadas ao seu projeto. Para obter mais informações sobre como funciona a revisão de dependência, confira "[Como revisar alterações de dependência em uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
-{% data variables.product.prodname_dependabot_alerts %} encontrará vulnerabilidades que já estão nas suas dependências, mas é muito melhor evitar a introdução de possíveis problemas do que corrigir problemas em uma data posterior. Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
+Para obter mais informações sobre como configurar a revisão de dependência, confira "[Configurando a revisão de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)".
 
-A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+{% data variables.product.prodname_dependabot_alerts %} encontrará vulnerabilidades que já estão nas suas dependências, mas é muito melhor evitar a introdução de possíveis problemas do que corrigir problemas em uma data posterior. Para obter mais informações sobre os {% data variables.product.prodname_dependabot_alerts %}, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
 
+A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+
+Para obter mais informações sobre os recursos da cadeia de fornecedores disponíveis no {% data variables.product.product_name %}, confira "[Sobre a segurança da cadeia de fornecedores](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)".
+
+{% ifversion ghec or ghes %}
 ## Habilitar revisão de dependências
 
-O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. Para obter mais informações, confira "{% ifversion ghec %}[Como habilitar o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Como habilitar o grafo de dependência para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}".
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## Imposição da revisão de dependência
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+A ação está disponível para todos os {% ifversion fpt or ghec %}repositórios públicos, bem como para repositórios privados{% endif %} que têm o {% data variables.product.prodname_GH_advanced_security %} habilitado.
+
+{% data reusables.dependency-review.action-enterprise %}
+
+Você pode usar o {% data variables.product.prodname_dependency_review_action %} para impor revisões de dependência em solicitações de pull no repositório. A ação examina versões vulneráveis de dependências introduzidas por alterações de versão do pacote em solicitações de pull e avisa você sobre as vulnerabilidades de segurança associadas. Isso oferece uma melhor visibilidade do que está mudando em uma solicitação de pull e ajuda a evitar que vulnerabilidades sejam adicionadas ao repositório. Para obter mais informações, confira [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+
+![Exemplo de ação de revisão de dependência](/assets/images/help/graphs/dependency-review-action.png)
+
+Por padrão, a verificação do {% data variables.product.prodname_dependency_review_action %} falhará se descobrir pacotes vulneráveis. Uma verificação com falha impede que uma solicitação de pull seja mesclada quando o proprietário do repositório exigir que a verificação de análise de dependência seja aprovada. Para obter mais informações, confira "[Sobre os branches protegidos](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)".
+
+A ação usa a API REST de Revisão de Dependência para obter a comparação das alterações de dependência entre o commit base e o commit principal. Use a API de Revisão de Dependência para obter a comparação das alterações de dependência, incluindo dados de vulnerabilidade, entre os dois commits em um repositório. Para obter mais informações, confira "[Revisão de dependência](/rest/reference/dependency-graph#dependency-review)".
+
+{% ifversion dependency-review-action-configuration %} Você pode configurar o {% data variables.product.prodname_dependency_review_action %} de acordo com suas necessidades. Por exemplo, você pode especificar o nível de severidade que fará a ação falhar{% ifversion dependency-review-action-licenses %} ou definir uma lista de permissões e negações para que as licenças sejam verificadas{% endif %}. Para obter mais informações, confira "[Como configurar a análise de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)". {% endif %}
+
+{% endif %}
+

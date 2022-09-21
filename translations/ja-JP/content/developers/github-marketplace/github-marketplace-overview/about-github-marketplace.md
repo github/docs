@@ -1,6 +1,6 @@
 ---
-title: About GitHub Marketplace
-intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps and actions publicly with all {% data variables.product.product_name %} users.'
+title: GitHub Marketplaceについて
+intro: 'アプリケーションやアクションを全{% data variables.product.product_name %}ユーザと共有できる{% data variables.product.prodname_marketplace %}について学びましょう。'
 redirect_from:
   - /apps/marketplace/getting-started
   - /marketplace/getting-started
@@ -10,56 +10,62 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
+ms.openlocfilehash: 5a722d35fb74607b9200a1fe30d804df44330cea
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145089728'
 ---
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) connects you to developers who want to extend and improve their {% data variables.product.prodname_dotcom %} workflows. You can list free and paid tools for developers to use in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_marketplace %} offers developers two types of tools: {% data variables.product.prodname_actions %} and Apps, and each tool requires different steps for adding it to {% data variables.product.prodname_marketplace %}.
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) は、{% data variables.product.prodname_dotcom %} ワークフローの拡張および改善を望んでいる開発者とあなたをつなぎます。 {% data variables.product.prodname_marketplace %}で利用する、開発者のための無料及び有料のツールをリストできます。 {% data variables.product.prodname_marketplace %}は、開発者に{% data variables.product.prodname_actions %}とアプリケーションという2種類のツールを提供します。それぞれのツールは、{% data variables.product.prodname_marketplace %}への追加に際して異なるステップを必要とします。
 
-## GitHub Actions
+## GitHub のアクション
 
 {% data reusables.actions.actions-not-verified %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+{% data variables.product.prodname_marketplace %} で {% data variables.product.prodname_actions %} の公開の詳細については、[GitHub Marketplace でのアクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace)に関するページを参照してください。
 
-## Apps
+## アプリケーション
 
-Anyone can share their apps with other users for free on {% data variables.product.prodname_marketplace %} but only apps owned by organizations can sell their app. 
+誰でも他のユーザと{% data variables.product.prodname_marketplace %}で無料でアプリケーションを共有できますが、販売できるのはOrganizationが所有するアプリケーションのみです。 
 
-To publish paid plans for your app and display a marketplace badge, you must complete the publisher verification process. For more information, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" or "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
+アプリケーションの有料プランを公開し、Marketplaceバッジを表示するには、パブリッシャー検証プロセスを完了する必要があります。 詳細については、「[Organization のパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」または「[アプリケーションのリストのための要件](/developers/github-marketplace/requirements-for-listing-an-app)」を参照してください。
 
-Once the organization meets the requirements, someone with owner permissions in the organization can publish paid plans for any of their apps. Each app with a paid plan also goes through a financial onboarding process to enable payments.
+Organizationが要件を満たすと、Organizationでオーナー権限を持つユーザは、権限が及ぶあらゆるアプリケーションで有料プランを公開できます。 有料プランのある各アプリケーションについては、支払いを可能にするため、財務オンボーディングプロセスも実施します。
 
-To publish apps with free plans, you only need to meet the general requirements for listing any app. For more information, see "[Requirements for all GitHub Marketplace listings](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)."
+Freeプランのアプリケーションを公開するために必要なことは、アプリケーション掲載の一般的な要件を満たすだけです。 詳細については、「[すべての GitHub Marketplace リストの要件](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)」を参照してください。
 
-### New to apps?
+### アプリケーションは初めてですか?
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
+{% data variables.product.prodname_marketplace %}のアプリケーション作成に関心があり、{% data variables.product.prodname_github_apps %}や{% data variables.product.prodname_oauth_apps %}に慣れていない場合は、「[{% data variables.product.prodname_github_apps %} を構築する](/developers/apps/building-github-apps)」や「[{% data variables.product.prodname_oauth_apps %} を構築する](/developers/apps/building-oauth-apps)」を参照してください。
 
 ### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}、{% data variables.product.prodname_marketplace %}ではOAuthと{% data variables.product.prodname_github_apps %}をどちらもリストできます。 詳細については、「[{% data variables.product.prodname_github_apps %} と {% data variables.product.prodname_oauth_apps %} の違い](/apps/differences-between-apps/)」および [{% data variables.product.prodname_oauth_apps %} の {% data variables.product.prodname_github_apps %} への移行](/apps/migrating-oauth-apps-to-github-apps/)に関するページを参照してください。
 
-## Publishing an app to {% data variables.product.prodname_marketplace %} overview
+## {% data variables.product.prodname_marketplace %} にアプリケーションを公開する手順の要約
 
-When you have finished creating your app, you can share it with other users by publishing it to {% data variables.product.prodname_marketplace %}. In summary, the process is:
+アプリケーションを作成したら、{% data variables.product.prodname_marketplace %}に公開して他のユーザと共有できます。 その手順を要約すると以下の通りです。
 
-1. Review your app carefully to ensure that it will behave as expected in other repositories and that it follows best practice guidelines. For more information, see "[Security best practices for apps](/developers/github-marketplace/security-best-practices-for-apps)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience)."
+1. 他のリポジトリで期待通りに動作するよう、またベストプラクティスのガイドラインに沿うよう、アプリケーションをよく確認します。 詳細については、「[アプリケーションのセキュリティ ベスト プラクティス](/developers/github-marketplace/security-best-practices-for-apps)」と「[アプリケーションのリストのための要件](/developers/github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience)」を参照してください。
 
-1. Add webhook events to the app to track user billing requests. For more information about the {% data variables.product.prodname_marketplace %} API, webhook events, and billing requests, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+1. ユーザの支払いリクエストを追跡するため、アプリケーションにwebhookイベントを追加します。 {% data variables.product.prodname_marketplace %} API、webhook イベント、課金要求の詳細については、「[アプリケーション内での {% data variables.product.prodname_marketplace %} API の使用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
-1. Create a draft {% data variables.product.prodname_marketplace %} listing. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)."
+1. ドラフトの{% data variables.product.prodname_marketplace %}リストを作成します。 詳細については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」を参照してください。
 
-1. Add a pricing plan. For more information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
+1. 価格プランを追加します。 詳細については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-1. Read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement."
+1. 「[{% data variables.product.prodname_marketplace %} 開発者同意書](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)」の条項を読んで同意します。
 
-1. Submit your listing for publication in {% data variables.product.prodname_marketplace %}. For more information, see "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication)."
+1. {% data variables.product.prodname_marketplace %} に公開するリストをサブミットします。 詳細については、「[公開のためのリストのサブミット](/developers/github-marketplace/submitting-your-listing-for-publication)」を参照してください。
 
-## Seeing how your app is performing
+## アプリケーションの実績を確認する
 
-You can access metrics and transactions for your listing. For more information, see:
+掲載されているアプリケーションのメトリクスや取引情報にアクセスできます。 詳細については、次を参照してください。
 
-- "[Viewing metrics for your listing](/developers/github-marketplace/viewing-metrics-for-your-listing)"
-- "[Viewing transactions for your listing](/developers/github-marketplace/viewing-transactions-for-your-listing)"
+- 「[リストのメトリクスの参照](/developers/github-marketplace/viewing-metrics-for-your-listing)」
+- 「[リストの取引の表示](/developers/github-marketplace/viewing-transactions-for-your-listing)」
 
-## Contacting Support 
+## サポートへの連絡 
 
-If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
+{% data variables.product.prodname_marketplace %}に関する質問がある場合は、{% data variables.contact.contact_support %}に直接お問い合わせください。

@@ -2,7 +2,7 @@
 title: Withdrawing a repository security advisory
 intro: You can withdraw a repository security advisory that you've published.
 redirect_from:
-  - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory  
+  - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
 versions:
   fpt: '*'

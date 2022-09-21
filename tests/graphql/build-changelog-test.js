@@ -7,7 +7,6 @@ import {
 } from '../../script/graphql/build-changelog.js'
 import fs from 'fs/promises'
 import MockDate from 'mockdate'
-import readFileAsync from '../../lib/readfile-async.js'
 import readJsonFile from '../../lib/read-json-file.js'
 const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
 const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
@@ -126,14 +125,14 @@ describe('updating the changelog file', () => {
 
   it('modifies the entry object and the file on disk', async () => {
     const testTargetPath = 'tests/graphql/example_changelog.json'
-    const previousContents = await readFileAsync(testTargetPath)
+    const previousContents = await fs.readFile(testTargetPath)
 
     const exampleEntry = { someStuff: true }
     const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
     prependDatedEntry(exampleEntry, testTargetPath)
-    const newContents = await readFileAsync(testTargetPath, 'utf8')
+    const newContents = await fs.readFile(testTargetPath, 'utf8')
     // reset the file:
     await fs.writeFile(testTargetPath, previousContents)
 

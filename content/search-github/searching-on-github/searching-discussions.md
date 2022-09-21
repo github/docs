@@ -2,8 +2,7 @@
 title: Searching discussions
 intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - GitHub search
 redirect_from:
@@ -81,24 +80,6 @@ You can use the `comments` qualifier along with greater than, less than, and ran
 | :- | :- |
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) matches discussions with more than 100 comments.
 | | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000.
-
-## Search by number of interactions
-
-You can filter discussions by the number of interactions with the `interactions` qualifier along with greater than, less than, and range qualifiers. The interactions count is the number of reactions and comments on a discussion. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
-
-| Qualifier | Example |
-| :- | :- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches discussions with more than 2,000 interactions.
-| | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches discussions with interactions ranging from 500 to 1,000.
-
-## Search by number of reactions
-
-You can filter discussions by the number of reactions using the `reactions` qualifier along with greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
-
-| Qualifier | Example |
-| :- | :- |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) matches discussions with more than 500 reactions.
-| | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches discussions with reactions ranging from 500 to 1,000.
 
 ## Search by when a discussion was created or last updated
 

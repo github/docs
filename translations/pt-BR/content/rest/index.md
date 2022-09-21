@@ -1,9 +1,10 @@
 ---
 title: API de REST do GitHub
-shortTitle: API REST
+shortTitle: REST API
 intro: 'Para criar integrações, recuperar dados e automatizar seus fluxos de trabalho, crie com a API REST de {% data variables.product.prodname_dotcom %}.'
 introLinks:
-  quickstart: /rest/guides/getting-started-with-the-rest-api
+  quickstart: /rest/quickstart
+  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   guides:
     - /rest/guides/getting-started-with-the-rest-api
@@ -24,14 +25,64 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
   - /overview
-  - /reference
   - /guides
+  - /actions
+  - /activity
+  - /apps
+  - /billing
+  - /branches
+  - /checks
+  - /codes-of-conduct
+  - /code-scanning
+  - /codespaces
+  - /collaborators
+  - /commits
+  - /dependabot
+  - /dependency-graph
+  - /deploy-keys
+  - /deployments
+  - /emojis
+  - /enterprise-admin
+  - /gists
+  - /git
+  - /gitignore
+  - /interactions
+  - /issues
+  - /licenses
+  - /markdown
+  - /meta
+  - /metrics
+  - /migrations
+  - /oauth-authorizations
+  - /orgs
+  - /packages
+  - /pages
+  - /projects
+  - /pulls
+  - /rate-limit
+  - /reactions
+  - /releases
+  - /repos
+  - /scim
+  - /search
+  - /secret-scanning
+  - /teams
+  - /users
+  - /webhooks
+ms.openlocfilehash: d4d7e93d5bc22833168a932e047525c85e3f8768
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147673635'
 ---
 

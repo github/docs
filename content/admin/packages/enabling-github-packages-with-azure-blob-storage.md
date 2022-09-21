@@ -33,6 +33,13 @@ Before you can enable and configure {% data variables.product.prodname_registry 
 1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
   ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
+  {% note %}
+
+  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
+  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  
+  {% endnote %}
+
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Next steps

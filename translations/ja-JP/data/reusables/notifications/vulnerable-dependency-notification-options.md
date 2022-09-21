@@ -1,34 +1,27 @@
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
-{% ifversion fpt or ghec %}By default, you will receive notifications:{% endif %}{% ifversion ghes > 3.1 or ghae-issue-4864 %}By default, if your enterprise owner has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
+---
+ms.openlocfilehash: 5120f840aab87ca243eed66c5bb6256e80aefeea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147064179"
+---
+{% ifversion fpt or ghec %}既定では、次のようにして通知を受け取ります。{% endif %}{% ifversion ghes or ghae %}既定では、エンタープライズ所有者がインスタンスで通知用にメールを構成している場合、{% data variables.product.prodname_dependabot_alerts %} を次のように受け取ります。{% endif %}
 
-- メールについては、{% data variables.product.prodname_dependabot %}がリポジトリで有効化された場合、新しいマニフェストファイルがリポジトリにコミットされた場合、重要度が重大もしくは高の新しい脆弱性が見つかった場合に送信されます（**Email each time a vulnerability is found（脆弱性が見つかるたびにメールする）**オプション）。
-- ユーザインターフェースについては、脆弱な依存関係があった場合に、リポジトリのファイルとコードビューに警告が表示されます（**UI alerts（UIアラート）**オプション）。
-- コマンドラインについては、脆弱な依存関係を伴うプッシュをリポジトリに対して行った場合、コールバックとして警告が表示されます（**Command Line（コマンドライン）**オプション）。
-- インボックスについては、Web通知として表示されます。 A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).{% ifversion not ghae %}
-- {% data variables.product.prodname_mobile %}では、Web通知として表示されます。 For more information, see "[Enabling push notifications with GitHub Mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
+- メール。{% data variables.product.prodname_dependabot %}がリポジトリで有効にされていて、新しいマニフェスト ファイルがリポジトリにコミットされたときに、重要度が重大または高の新しい脆弱性が見つかると、メールが送信されます ( **[脆弱性が見つかるたびにメールを送る]** オプション)。
+- ユーザー インターフェイス。セキュリティで保護されていない依存関係がある場合、リポジトリのファイル ビューとコード ビューに警告が表示されます ( **[UI alerts]\(UI アラート\)** オプション)。
+- コマンド ライン。セキュリティで保護されていない依存関係を使用してリポジトリにプッシュすると、警告がコールバックとして表示されます ( **[Command Line]\(コマンド ライン\)** オプション)。
+- インボックス (Web 通知として)。 Web 通知は、{% data variables.product.prodname_dependabot %} がリポジトリで有効にされていて、新しいマニフェスト ファイルがリポジトリにコミットされたときに、重要度が重大または高の新しい脆弱性が見つかった場合に送信されます ( **[Web]** オプション)。{% ifversion not ghae %}
+- {% data variables.product.prodname_mobile %}では、Web通知として表示されます。 詳細については、「[GitHub Mobile でプッシュ通知を有効にする](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)」を参照してください。{% endif %}
 
 {% note %}
 
-**Note:** The email and web{% ifversion not ghae %}/{% data variables.product.prodname_mobile %}{% endif %} notifications are:
+**注:** メールと Web{% ifversion not ghae %}/{% data variables.product.prodname_mobile %}{% endif %} の通知は次のとおりです。
 
-- _リポジトリごと_ {% data variables.product.prodname_dependabot %}がリポジトリで有効化された場合、あるいは新しいマニフェストファイルがリポジトリにコミットされた場合。
+- {% data variables.product.prodname_dependabot %} がリポジトリで有効にされているとき、または新しいマニフェスト ファイルがリポジトリにコミットされたときは、_リポジトリごと_。
 
-- _Organizationごと_ 新しい脆弱性が見つかった場合。
+- 新しい脆弱性が検出されたときは、_Organization ごと_。
 
 {% endnote %}
-通知を
 
-{% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。 たとえば、**Email a digest summary of vulnerabilities（脆弱性のダイジェストサマリーメール）**及び**Weekly security email digest（週間のセキュリティメールダイジェスト）**オプションを使って、最大10件のリポジトリに関するアラートをまとめた週間のダイジェストメールを受信できます。
-{% endif %}
-
-{% ifversion ghes = 3.0 or ghes = 3.1 %}
-デフォルトでは、サイト管理者がインスタンスに関する通知のメールを設定すると、
-{% data variables.product.prodname_dependabot_alerts %}を受信することになります:
-- メールの場合、メールは{% ifversion ghes > 3.0 %}重要度が重大あるいは高の{% endif %}脆弱性が見つかるたびに送信されます（**Email each time a vulnerability is found（脆弱性が見つかるたびにメール）**オプション）
-- ユーザインターフェースでは、脆弱な依存関係がある場合にリポジトリのファイル及びコードビューに警告が表示されます（**UI alerts（UIアラート）**オプション）
-- コマンドラインでは、脆弱性のある依存関係を伴うプッシュをリポジトリに対して行った場合に、コールバックとして警告が表示されます（**Command Line（コマンドライン）**オプション）
-- インボックスには、{% ifversion ghes > 3.0 %}重要度が重大もしくは高の新しい脆弱性に対して{% endif %}Web通知が表示されます（**Web**オプション）
-通知を
-
-{% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。 たとえば、**Email a digest summary of vulnerabilities（脆弱性のダイジェストサマリーメール）**及び**Weekly security email digest（週間のセキュリティメールダイジェスト）**オプションを使って、最大10件のリポジトリに関するアラートをまとめた週間のダイジェストメールを受信できます。
-{% endif %}
+{% data variables.product.prodname_dependabot_alerts %} に関する通知を受け取る方法をカスタマイズできます。 たとえば、 **[脆弱性の要約をメールで送る]** と **[週単位のセキュリティ メール ダイジェスト]** オプションを使用すると、最大 10 個のリポジトリについてアラートを要約した週単位のダイジェスト メールを受け取ることができます。

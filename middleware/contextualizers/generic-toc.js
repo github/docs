@@ -7,7 +7,11 @@ export default async function genericToc(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'default') return next()
   // This middleware can only run on product, category, and map topics.
-  if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article')
+  if (
+    req.context.page.documentType === 'homepage' ||
+    req.context.page.documentType === 'article' ||
+    req.context.page.relativePath === 'search/index.md'
+  )
     return next()
 
   // This one product TOC is weird.
@@ -20,8 +24,12 @@ export default async function genericToc(req, res, next) {
     mapTopic: 'flat',
   }
 
+  // Frontmatter can optionally be set on an Early Access product to show hidden child items.
+  // If so, this is a special case where we want to override the flat tocType and use a nested type.
+  const earlyAccessToc = req.context.page.earlyAccessToc
+
   // Find the current TOC type based on the current document type.
-  const currentTocType = tocTypes[req.context.page.documentType]
+  const currentTocType = earlyAccessToc ? 'nested' : tocTypes[req.context.page.documentType]
 
   // Find the part of the site tree that corresponds to the current path.
   const treePage = findPageInSiteTree(
@@ -30,16 +38,17 @@ export default async function genericToc(req, res, next) {
     req.pagePath
   )
 
-  // Do not include hidden child items on a TOC page unless it's an Early Access category page.
-  // We need to account for the extra 'articles' segment with Early Access as well, we don't
-  // want to show hidden child items in that case.
+  // By default, only include hidden child items on a TOC page if it's an Early Access category or
+  // map topic page, not a product or 'articles' fake cagegory page (e.g., /early-access/github/articles).
+  // This is because we don't want entire EA product TOCs to be publicly browseable, but anything at the category
+  // or below level is fair game because that content is scoped to specific features.
+  const isCategoryOrMapTopic =
+    req.context.page.documentType === 'category' || req.context.page.documentType === 'mapTopic'
+  const isEarlyAccess = req.context.currentPath.includes('/early-access/')
+  const isArticlesCategory = req.context.currentPath.endsWith('/articles')
+
   req.context.showHiddenTocItems =
-    (req.context.page.documentType === 'category' &&
-      req.context.currentPath.includes('/early-access/') &&
-      !req.context.currentPath.endsWith('/articles')) ||
-    (req.context.page.documentType === 'product' &&
-      req.context.currentPath.includes('/early-access/') &&
-      req.context.page.shortTitle === 'GitHub Insights')
+    earlyAccessToc || (isCategoryOrMapTopic && isEarlyAccess && !isArticlesCategory)
 
   // Conditionally run getTocItems() recursively.
   let isRecursive
@@ -77,6 +86,7 @@ async function getTocItems(pagesArray, context, isRecursive, renderIntros) {
   return (
     await Promise.all(
       pagesArray.map(async (child) => {
+        // only include a hidden page if showHiddenTocItems is true
         if (child.page.hidden && !context.showHiddenTocItems) return
 
         return {

@@ -1,6 +1,6 @@
 ---
 title: 在 GitHub 上搜索信息
-intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
+intro: 了解如何使用 GitHub 上提供的搜索功能来查找不同类型的信息，如项目、人员和代码。
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
@@ -36,6 +36,12 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
-shortTitle: 在 GitHub 上搜索
+shortTitle: Search on GitHub
+ms.openlocfilehash: ca3fe13d3d3ae3c5016948bcd458d636a106a9da
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099623'
 ---
 

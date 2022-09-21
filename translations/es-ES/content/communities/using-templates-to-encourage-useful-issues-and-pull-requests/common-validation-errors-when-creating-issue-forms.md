@@ -1,28 +1,33 @@
 ---
 title: Errores de validación comunes al crear formatos de propuesta
-intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
+intro: 'Podrías ver alguno de estos errores de validación comunes al crear, guardar o visualizar formatos de propuestas.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 54451186fe7fcbc40945dc6a0b2ee2d757924c1b
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145861073'
 ---
-
 <!--UI-LINK: We link to individual anchors within this file from the issue template editor when the given YAML error is thrown. Links to and anchors within this file should be preserved or should be updated in github/github if they are changed -->
 {% data reusables.community.issue-forms-beta %}
 
-## Required top level key `name` is missing
+## <a name="required-top-level-key-name-is-missing"></a>Falta la clave `name` de nivel superior necesaria
 
-The template does not contain a `name` field, which means it is not clear what to call your issue template when giving users a list of options.
+La plantilla no contiene un campo `name`, lo que significa que no está claro cómo llamar a la plantilla de incidencia cuando se le proporcione una lista de opciones a los usuarios.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 description: "Thank you for reporting a bug!"
 ...
 ```
 
-The error can be fixed by adding `name` as a key.
+El error se puede corregir si se agrega `name` como una clave.
 
 ```yaml
 name: "Bug report"
@@ -30,13 +35,13 @@ description: "Thank you for reporting a bug!"
 ...
 ```
 
-## `key` must be a string
+## <a name="key-must-be-a-string"></a>`key` debe ser una cadena
 
-This error message means that a permitted key has been provided, but its value cannot be parsed as the data type is not supported.
+Este mensaje de error significa que se proporcionó una clave permitida, pero su valor no se puede analizar, ya que el tipo de datos no es compatible.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
-The `description` below is being parsed as a Boolean, but it should be a string.
+El objeto `description` siguiente se analiza como un valor booleano, pero debería ser una cadena.
 
 ```yaml
 name: "Bug report"
@@ -44,7 +49,7 @@ description: true
 ...
 ```
 
-The error can be fixed by providing a string as the value. Strings may need to be wrapped in double quotes to be successfully parsed. For example, strings that contain `'` must be wrapped in double quotes.
+El error puede corregirse si proporcionas una secuencia como el valor. Las secuencias podrían necesitar ponerse entre comillas dobles para que se analicen con éxito. Por ejemplo, las cadenas que contienen `'` se deben encapsular entre comillas dobles.
 
 ```yaml
 name: "Bug report"
@@ -52,7 +57,7 @@ description: "true"
 ...
 ```
 
-Empty strings, or strings consisting of only whitespaces, are also not permissible when the field expects a string.
+Las secuencias vacías o aquellas que consisten de espacios en blanco únicamente tampoco son permisibles cuando el campo espera una secuencia.
 
 ```yaml
 name: ""
@@ -61,7 +66,7 @@ assignees: "      "
 ...
 ```
 
-The error can be fixed by correcting the value to be a non-empty string. If the field is not required, you should delete the key-value pair.
+Este error puede arreglarse corrigiendo el valor para que sea una secuencia no vacía. Si no se requiere el campo, deberías borrar el par de llave-valor.
 
 ```yaml
 name: "Bug Report"
@@ -69,11 +74,11 @@ description: "File a bug report"
 ...
 ```
 
-## `input` is not a permitted key
+## <a name="input-is-not-a-permitted-key"></a>`input` no es una clave permitida
 
-An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+Se proporcionó una llave inesperada en el nivel superior de la plantilla. Para más información sobre qué claves de nivel superior se admiten, vea "[Sintaxis para formularios de incidencias](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)".
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -81,26 +86,26 @@ hello: world
 ...
 ```
 
-The error can be fixed by removing the unexpected keys.
+Este error puede corregirse si se eliminan las claves inesperadas.
 
 ```yaml
 name: "Bug report"
 ...
 ```
 
-## Forbidden keys
+## <a name="forbidden-keys"></a>Claves prohibidas
 
-YAML parses certain strings as `Boolean` values. To avoid this, we have explicitly forbidden the usage of the following keys:
+YAML analiza determinadas cadenas como valores `Boolean`. Para evitar esto, prohibimos explícitamente el uso de las siguientes claves:
 
 `y`, `Y`, `yes`, `Yes`, `YES`, `n`, `N`, `no`, `No`, `NO`, `true`, `True`, `TRUE`, `false`, `False`, `FALSE`, `on`, `On`, `ON`, `off`, `Off`, `OFF`
 
-The error can be fixed by removing the forbidden keys.
+Este error puede corregirse si se eliminan las claves prohibidas.
 
-## Body must contain at least one non-markdown field
+## <a name="body-must-contain-at-least-one-non-markdown-field"></a>El cuerpo debe contener por lo menos un campo que no sea de lenguaje de marcado
 
-Issue forms must accept user input, which means that at least one of its fields must contain a user input field. A `markdown` element is static text, so a `body` array cannot contain only `markdown` elements.
+Los formatos de propuestas deben aceptar las entradas de usuario, lo cual significa que por lo menos uno de sus campos debe contener uno de entrada de usuario. Un elemento `markdown` es texto estático, por lo que una matriz `body` no puede contener solo elementos `markdown`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -110,7 +115,7 @@ body:
     value: "Bugs are the worst!"
 ```
 
-The error can be fixed by adding non-markdown elements that accept user input.
+El error puede corregirse si se agregan elementos diferentes a los de lenguaje de marcado, los cuales acepten la entrada del usuario.
 
 ```yaml
 name: "Bug report"
@@ -123,11 +128,11 @@ body:
     label: "What's wrong?"
 ```
 
-## Body must have unique ids
+## <a name="body-must-have-unique-ids"></a>El cuerpo debe tener ID únicas
 
-If using `id` attributes to distinguish multiple elements, each `id` attribute must be unique.
+Si usa atributos `id` para distinguir varios elementos, cada atributo `id` debe ser único.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -142,7 +147,7 @@ body:
     label: Last name
 ```
 
-The error can be fixed by changing the `id` for one of these inputs, so that every `input` field has a unique `id` attribute.
+El error se puede corregir si se cambia `id` para una de estas entradas, de modo que cada campo `input` tenga un atributo `id` único.
 
 ```yaml
 name: "Bug report"
@@ -157,11 +162,11 @@ body:
     label: Last name
 ```
 
-## Body must have unique labels
+## <a name="body-must-have-unique-labels"></a>El cuerpo debe tener etiquetas únicas
 
-When there are multiple `body` elements that accept user input, the `label` attribute for each user input field must be unique.
+Cuando hay varios elementos `body` que aceptan la entrada de usuario, el atributo `label` de cada campo de entrada de usuario debe ser único.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -174,7 +179,7 @@ body:
     label: Name
 ```
 
-The error can be fixed by changing the `label` attribute for one of the input fields to ensure that each `label` is unique.
+El error se puede corregir si se cambia el atributo `label` por uno de los campos de entrada para asegurarse de que cada valor `label` sea único.
 
 ```yaml
 name: "Bug report"
@@ -187,7 +192,7 @@ body:
     label: Operating System
 ```
 
-Input fields can also be differentiated by their `id` attribute. If duplicate `label` attributes are required, you can supply at least one `id` to differentiate two elements with identical labels.
+Los campos de entrada también se pueden diferenciar por su atributo `id`. Si se necesitan atributos `label` duplicados, puede suministrar al menos un valor `id` para diferenciar dos elementos con etiquetas idénticas.
 
 ```yaml
 name: "Bug report"
@@ -202,14 +207,14 @@ body:
     label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+Los atributos `id` no son visibles en el cuerpo de la incidencia. Si quiere distinguir los campos en la incidencia resultante, debe usar atributos `label` distintos.
 
 
-## Labels are too similar
+## <a name="labels-are-too-similar"></a>Las etiquetas son muy similares
 
-Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
+Se podrían procesar etiquetas similares en referencias idénticas. Si no se proporciona un atributo `id` para `input`, se usa el atributo `label` para generar una referencia al campo `input`. Para ello, se procesa `label` mediante el método [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) de Rails. En algunos casos, dos etiquetas distintas pueden procesarse en la misma secuencia parametrizada.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -223,7 +228,7 @@ body:
     label: Name???????
 ```
 
-The error can be fixed by adding at least one differentiating alphanumeric character, `-`, or `_` to one of the clashing labels.
+El error se puede corregir si se agrega al menos un carácter alfanumérico de diferenciación, `-`, o bien `_` a una de las etiquetas en conflicto.
 
 ```yaml
 name: "Bug report"
@@ -236,7 +241,7 @@ body:
     label: Your name
 ```
 
-The error can also be fixed by giving one of the clashing labels a unique `id`.
+El error también se puede corregir si se le otorga un valor `id` único a una de las etiquetas en conflicto.
 
 ```yaml
 name: "Bug report"
@@ -250,11 +255,11 @@ body:
     label: Name???????
 ```
 
-## Checkboxes must have unique labels
+## <a name="checkboxes-must-have-unique-labels"></a>Las casillas de verificación deben tener etiquetas únicas
 
-When a `checkboxes` element is present, each of its nested labels must be unique among its peers, as well as among other input types.
+Cuando hay un elemento `checkboxes`, cada una de sus etiquetas anidadas debe ser única entre sus elementos del mismo nivel, así como entre otros tipos de entrada.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -268,7 +273,7 @@ body:
     - label: Name
 ```
 
-The error can be fixed by changing the `label` attribute for one of these inputs.
+El error se puede corregir si se cambia el atributo `label` por una de estas entradas.
 
 ```yaml
 name: "Bug report"
@@ -282,7 +287,7 @@ body:
     - label: Your name
 ```
 
-Alternatively, you can supply an `id` to any clashing top-level elements. Nested checkbox elements do not support the `id` attribute.
+Como alternativa, puede proporcionar un elemento `id` a cualquier elemento de nivel superior en conflicto. Los elementos de casilla anidados no admiten el atributo `id`.
 
 ```yaml
 name: "Bug report"
@@ -297,105 +302,99 @@ body:
     - label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+Los atributos `id` no son visibles en el cuerpo de la incidencia. Si quiere distinguir los campos en la incidencia resultante, debe usar atributos `label` distintos.
 
-## Body[i]: required key type is missing
+## <a name="bodyi-required-key-type-is-missing"></a>Body[i]: falta el tipo de clave necesario
 
-Each body block must contain the key `type`.
+Cada bloque de cuerpo debe contener la clave `type`.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the zero-indexed index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice cero del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
-The error can be fixed by adding the key `type` with a valid input type as the value. Para los tipos de entrada de `body` disponibles y sus sintaxis, consulta la sección "[Sintaxis para el modelo de formato de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)".
+El error se puede corregir si se agrega la clave `type` con un tipo de entrada válido como valor. Para obtener los tipos de entrada de `body` disponibles y sus sintaxis, vea "[Sintaxis para el esquema de formulario de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)".
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## Body[i]: `x` is not a valid input type
+## <a name="bodyi-x-is-not-a-valid-input-type"></a>Body[i]: `x` no es un tipo de entrada válido
 
-One of the body blocks contains a type value that is not one of the [permitted types](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
+Uno de los bloques de cuerpo contiene un valor de tipo que no es uno de los [tipos permitidos](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
 - type: x
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-The error can be fixed by changing `x` to one of the valid types.
+El error se puede corregir si se cambia `x` por uno de los tipos válidos.
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## Body[i]: required attribute key `value` is missing
+## <a name="bodyi-required-attribute-key-value-is-missing"></a>Body[i]: falta la clave de atributo `value` necesaria
 
-One of the required `value` attributes has not been provided. The error occurs when a block does not have an `attributes` key or does not have a `value` key under the `attributes` key.
+No se ha proporcionado uno de los atributos `value` necesarios. El error se produce cuando un bloque no tiene una clave `attributes`, o bien no tiene una clave `value` bajo la clave `attributes`.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 - type: markdown
 ```
 
-The error in this example can be fixed by adding `value` as a key under `attributes` in the second list element of `body`.
+El error de este ejemplo se puede corregir si se agrega `value` como una clave en `attributes` en el segundo elemento de lista de `body`.
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 - type: markdown
   attributes:
     value: "This is working now!"
 ```
 
-## Body[i]: label must be a string
+## <a name="bodyi-label-must-be-a-string"></a>Body[i]: la etiqueta debe ser una secuencia
 
-Within its `attributes` block, a value has the wrong data type.
+Dentro de su bloque `attributes`, un valor tiene el tipo de datos incorrecto.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
-The `label` below is being parsed as a Boolean, but it should be a string.
+El objeto `label` siguiente se analiza como un valor booleano, pero debería ser una cadena.
 
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 - type: textarea
   attributes:
     label: Bug Description
@@ -404,12 +403,12 @@ body:
     label: true
 ```
 
-The error can be fixed by supplying a string value for `label`. If you want to use a `label` value that may be parsed as a Boolean, integer, or decimal, you should wrap the value in quotes. For example, `"true"` or `"1.3"` instead of `true` or `1.3`.
+El error se puede corregir si se proporciona un valor de cadena para `label`. Si quiere usar un valor `label` que se pueda analizar como booleano, número entero o decimal, debe encapsular el valor entre comillas. Por ejemplo, `"true"` o `"1.3"` en lugar de `true` o `1.3`.
 
 ```yaml
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 - type: textarea
   attributes:
     label: Bug Description
@@ -418,9 +417,9 @@ The error can be fixed by supplying a string value for `label`. If you want to u
     label: Environment Details
 ```
 
-Empty strings, or strings consisting of only whitespaces, are not permissible when an attribute expects a string. For example, `""` or `"     "` are not allowed.
+No se permiten las secuencias vacías o aquellas que consisten exclusivamente de espacios en blanco cuando un atributo espera una secuencia. Por ejemplo, no se permiten `""` ni `"     "`.
 
-If the attribute is required, the value must be a non-empty string. If the field is not required, you should delete the key-value pair.
+Si se requiere el atributo, el valor debe ser una secuencia que no esté vacía. Si no se requiere el campo, deberías borrar el par de llave-valor.
 
 ```yaml
 body:
@@ -429,13 +428,13 @@ body:
     label: "Name"
 ```
 
-## Body[i]: `id` can only contain numbers, letters, -, _
+## <a name="bodyi-id-can-only-contain-numbers-letters---_"></a>Body[i]: `id` solo puede contener números, letras, -, _
 
-`id` attributes can only contain alphanumeric characters, `-`, and `_`. Your template may include non-permitted characters, such as whitespace, in an `id`.
+Los atributos `id` solo puede contener caracteres alfanuméricos, `-` y `_`. La plantilla puede incluir caracteres no permitidos, como espacios en blanco, en un elemento `id`.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 name: "Bug report"
@@ -446,7 +445,7 @@ body:
     label: First name
 ```
 
-The error can be fixed by ensuring that whitespaces and other non-permitted characters are removed from `id` values.
+El error se puede corregir si se asegura de que los espacios en blanco y otros caracteres no permitidos se quitan de los valores `id`.
 
 ```yaml
 name: "Bug report"
@@ -457,38 +456,38 @@ body:
     label: First name
 ```
 
-## Body[i]: `x` is not a permitted key
+## <a name="bodyi-x-is-not-a-permitted-key"></a>Body[i]: `x` no es una clave permitida
 
-An unexpected key, `x`, was provided at the same indentation level as `type` and `attributes`.
+Se ha proporcionado una clave inesperada, `x`, en el mismo nivel de sangría que `type` y `attributes`.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
 - type: markdown
   x: woof
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-The error can be fixed by removing extra keys and only using `type`, `attributes`, and `id`.
+El error se puede corregir si se quitan las claves adicionales y solo se usan `type`, `attributes` y `id`.
 
 ```yaml
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
+    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## Body[i]: `label` contains forbidden word
+## <a name="bodyi-label-contains-forbidden-word"></a>Body[i]: `label` contiene palabras prohibidas
 
-To minimize the risk of private information and credentials being posted publicly in GitHub Issues, some words commonly used by attackers are not permitted in the `label` of input or textarea elements.
+Para minimizar el riesgo de que la información privada y las credenciales se publiquen de forma pública en Incidencias de GitHub, no se permiten algunas palabras usadas por los atacantes en los elementos `label` de entrada o área de texto.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
@@ -500,7 +499,7 @@ body:
     label: Password
 ```
 
-The error can be fixed by removing terms like "password" from any `label` fields.
+El error se puede corregir si se quitan términos como "contraseña" de los campos `label`.
 
 ```yaml
 body:
@@ -512,13 +511,13 @@ body:
     label: Username
 ```
 
-## Body[i]: `x` is not a permitted attribute
+## <a name="bodyi-x-is-not-a-permitted-attribute"></a>Body[i]: `x` no es un atributo permitido
 
-An invalid key has been supplied in an `attributes` block.
+Se ha proporcionado una clave no válida en un bloque `attributes`.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```yaml
 body:
@@ -528,7 +527,7 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-The error can be fixed by removing extra keys and only using permitted attributes.
+El error se puede corregir si se quitan las claves adicionales y solo se usan atributos permitidos.
 
 ```yaml
 body:
@@ -537,13 +536,13 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-## Body[i]: `options` must be unique
+## <a name="bodyi-options-must-be-unique"></a>Body[i]: `options` debe ser único
 
-For checkboxes and dropdown input types, the choices defined in the `options` array must be unique.
+Para los casillas y los tipos de entrada desplegables, las opciones definidas en la matriz `options` deben ser únicas.
 
-En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```
 body:
@@ -556,7 +555,7 @@ body:
       - pie
 ```
 
-The error can be fixed by ensuring that no duplicate choices exist in the `options` array.
+El error se puede corregir si se asegura de que no existen opciones duplicadas en la matriz `options`.
 
 ```
 body:
@@ -568,13 +567,13 @@ body:
       - pie
 ```
 
-## Body[i]: `options` must not include the reserved word, none
+## <a name="bodyi-options-must-not-include-the-reserved-word-none&quot;></a>Body[i]: `options` no debe incluir la palabra reservada &quot;none"
 
-"None" is a reserved word in an `options` set because it is used to indicate non-choice when a `dropdown` is not required.
+"None" es una palabra reservada de un conjunto de `options`, porque se usa para indicar que no hay opciones disponibles cuando `dropdown` no es obligatorio.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```
 body:
@@ -589,7 +588,7 @@ body:
     required: true
 ```
 
-The error can be fixed by removing "None" as an option. If you want a contributor to be able to indicate that they like none of those types of pies, you can additionally remove the `required` validation.
+El error se puede corregir si se quita "None" (Ninguno) como opción. Si quiere que un colaborador pueda indicar que no le gustan ninguno de esos tipos de gráficos, también puede quitar la validación de `required`.
 
 ```
 body:
@@ -601,15 +600,15 @@ body:
       - Chicken & Leek
 ```
 
-In this example, "None" will be auto-populated as a selectable option.
+En este ejemplo, "None" (Ninguno) se rellenará de forma automática como una opción que se pueda seleccionar.
 
-## Body[i]: `options` must not include booleans. Please wrap values such as 'yes', and 'true' in quotes
+## <a name="bodyi-options-must-not-include-booleans-please-wrap-values-such-as-yes-and-true-in-quotes"></a>Body[i]: `options` no debe incluir valores booleanos. Encapsule entre comillas los valores como "sí" y "true".
 
-There are a number of English words that become processed into Boolean values by the YAML parser unless they are wrapped in quotes. For dropdown `options`, all items must be strings rather than Booleans.
+Hay varias palabras en inglés que se procesan en valores booleanos mediante el analizador de YAML a menos que se encapsulan entre comillas. Para la lista desplegable `options`, todos los elementos deben ser cadenas en lugar de valores booleanos.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+A los errores con `body` se les asignará el prefijo `body[i]`, donde `i` representa el índice del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` indica que el error ha sido causado por el primer bloque de la lista `body`.
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 
 ```
 body:
@@ -622,7 +621,7 @@ body:
       - Maybe
 ```
 
-The error can be fixed by wrapping each offending option in quotes, to prevent them from being processed as Boolean values.
+El error se puede corregir si cada opción incorrecta se encapsula entre comillas, para evitar que se procesen como valores booleanos.
 
 ```
 body:
@@ -635,7 +634,7 @@ body:
       - Maybe
 ```
 
-## Leer más
+## <a name="further-reading"></a>Información adicional
 
 - [YAML](https://yaml.org/)
-- [Sintaxis para formatos de propuesta](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)
+- [Sintaxis para formularios de incidencias](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

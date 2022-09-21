@@ -1,6 +1,6 @@
 ---
-title: GitHub Actions 的工作流程语法
-shortTitle: 工作流程语法
+title: GitHub Actions 的工作流语法
+shortTitle: Workflow syntax
 intro: 工作流程是可配置的自动化过程，由一个或多个作业组成。 您必须创建 YAML 文件来定义工作流程配置。
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
@@ -14,20 +14,24 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: dff224ca488c6cd695546926ab5264377bdfcf0a
+ms.sourcegitcommit: b98a79b01967b159f740a942286edae2792fe826
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/10/2022
+ms.locfileid: '147541075'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## <a name="about-yaml-syntax-for-workflows"></a>关于工作流程的 YAML 语法
 
-## 关于工作流程的 YAML 语法
+工作流文件使用 YAML 语法，并且必须具有 `.yml` 或 `.yaml` 文件扩展名。 {% data reusables.actions.learn-more-about-yaml %}
 
-工作流程文件使用 YAML 语法，必须有 `.yml` 或 `.yaml` 文件扩展名。 {% data reusables.actions.learn-more-about-yaml %}
-
-必须将工作流程文件存储在仓库的 `.github/workflows` 目录中。
+必须将工作流文件存储在存储库的 `.github/workflows` 目录中。
 
 ## `name`
 
-工作流程的名称。 {% data variables.product.prodname_dotcom %} 在仓库的操作页面上显示工作流程的名称。 如果省略 `name`，{% data variables.product.prodname_dotcom %} 将其设置为相对于仓库根目录的工作流程文件路径。
+工作流的名称。 {% data variables.product.prodname_dotcom %} 在仓库的操作页面上显示工作流程的名称。 如果省略 `name`，{% data variables.product.prodname_dotcom %} 会将其设置为相对于存储库根目录的工作流文件路径。
 
 ## `on`
 
@@ -58,21 +62,21 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+使用 `on.workflow_call` 定义可重用工作流的输入和输出。 您还可以映射可用于被调用工作流程的机密。 有关可重用工作流的详细信息，请参阅“[重用工作流](/actions/using-workflows/reusing-workflows)”。
 
 ### `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+使用 `workflow_call` 关键字时，可以选择指定从调用方工作流传递到被调用工作流的输入。 有关 `workflow_call` 关键字的详细信息，请参阅“[触发工作流的事件](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)”。
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
+除了可用的标准输入参数外，`on.workflow_call.inputs` 还需要一个 `type` 参数。 有关详细信息，请参阅 [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype)。
 
-If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
+如果未设置 `default` 参数，则对布尔值、数字和字符串来说，输入的默认值依次为 `false`、`0` 和 `""`。
 
-Within the called workflow, you can use the `inputs` context to refer to an input.
+在被调用的工作流中，可以使用 `inputs` 上下文来引用输入。
 
-If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
+如果调用方工作流程传递的输入未在被调用工作流程中指定，则会导致错误。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -95,19 +99,19 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
-Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+如果为 `on.workflow_call` 关键字定义输入，则为必需项。 此参数的值是指定输入的数据类型的字符串。 其必须是 `boolean`、`number` 或 `string`。
 
 ### `on.workflow_call.outputs`
 
-A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+被调用工作流程的输出映射。 调用的工作流程输出可用于调用方工作流程中的所有下游作业。 每个输出都有一个标识符、一个可选 `description,` 和一个 `value.`。必须将 `value` 设置为被调用工作流内作业中的输出值。
 
-In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+在下面的示例中，为此可重用工作流定义了两个输出：`workflow_output1` 和 `workflow_output2`。 这些是映射到称为 `job_output1` 和 `job_output2` 的输出，两者都来自称为 `my_job` 的作业。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -124,17 +128,17 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+有关如何引用作业输出的信息，请参阅 [`jobs.<job_id>.outputs`](#jobsjob_idoutputs)。 有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
 
 ### `on.workflow_call.secrets`
 
-A map of the secrets that can be used in the called workflow.
+可在被调用工作流程中使用的机密的映射。
 
-Within the called workflow, you can use the `secrets` context to refer to a secret.
+在调用的工作流中，可以使用 `secrets` 上下文来引用机密。
 
-If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
+如果调用方工作流程传递的机密未在被调用的工作流程中指定，则会导致错误。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -159,13 +163,12 @@ jobs:
 
 #### `on.workflow_call.secrets.<secret_id>`
 
-A string identifier to associate with the secret.
+要与机密关联的字符串标识符。
 
 #### `on.workflow_call.secrets.<secret_id>.required`
 
-A boolean specifying whether the secret must be supplied.
+指定是否必须提供机密的布尔值。
 {% endif %}
-
 
 ## `on.workflow_run.<branches|branches-ignore>`
 
@@ -173,22 +176,21 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-## `权限`
+## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
-{% endif %}
-
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+环境变量的 `map` 可用于工作流中所有作业的步骤。 您还可以设置仅适用于单个作业的步骤或单个步骤的环境变量。 有关详细信息，请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) 和 [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
+
+`env` 映射中的变量不能根据映射中的其他变量进行定义。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### 示例
+### <a name="example"></a>示例
 
 ```yaml
 env:
@@ -203,12 +205,10 @@ env:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency %}
 
-{% endif %}
 ## `jobs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
@@ -221,12 +221,9 @@ env:
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-name %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### `jobs.<job_id>.permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
-
-{% endif %}
 
 ## `jobs.<job_id>.needs`
 
@@ -240,30 +237,25 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
 
-{% endif %}
-
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
-{% endif %}
 ## `jobs.<job_id>.outputs`
 
 {% data reusables.actions.jobs.section-defining-outputs-for-jobs %}
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+环境变量的 `map` 可用于作业中的所有步骤。 您也可以设置整个工作流程或单个步骤的环境变量。 有关详细信息，请参阅 [`env`](#env) 和 [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### 示例
+### <a name="example"></a>示例
 
 ```yaml
 jobs:
@@ -282,11 +274,11 @@ jobs:
 
 ## `jobs.<job_id>.steps`
 
-A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
+作业包含一系列任务，称为 `steps`。 步骤可以运行命令、运行设置任务，或者运行您的仓库、公共仓库中的操作或 Docker 注册表中发布的操作。 并非所有步骤都会运行操作，但所有操作都会作为步骤运行。 每个步骤在运行器环境中以其自己的进程运行，且可以访问工作区和文件系统。 因为步骤以自己的进程运行，所以步骤之间不会保留环境变量的更改。 {% data variables.product.prodname_dotcom %} 提供内置的步骤来设置和完成作业。
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+在工作流程的使用限制之内可运行无限数量的步骤。 有关详细信息，请参阅 {% ifversion fpt or ghec or ghes %}“[使用情况限制和计费](/actions/reference/usage-limits-billing-and-administration)，了解 {% data variables.product.prodname_dotcom %} 托管的运行程序，以及参阅 {% endif %}“[关于自托管运行程序](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}”了解自托管运行程序使用限制。{% elsif ghae %}."{% endif %}
 
-### 示例
+### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -312,17 +304,17 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+步骤的唯一标识符。 可以使用 `id` 在上下文中引用该步骤。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
 ### `jobs.<job_id>.steps[*].if`
 
-You can use the `if` conditional to prevent a step from running unless a condition is met. 您可以使用任何支持上下文和表达式来创建条件。
+可以使用 `if` 条件来阻止步骤运行，除非满足条件。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 有关详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
-#### 示例：使用上下文
+#### <a name="example-using-contexts"></a>示例：使用上下文
 
- 此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
+ 此步骤仅在事件类型为 `pull_request` 且事件操作为 `unassigned` 时运行。
 
  ```yaml
 steps:
@@ -331,9 +323,9 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### 示例：使用状态检查功能
+#### <a name="example-using-status-check-functions"></a>示例：使用状态检查功能
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step` 仅在作业的上一步失败时运行。 有关详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions#status-check-functions)”。
 
 ```yaml
 steps:
@@ -344,42 +336,67 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
+#### <a name="example-using-secrets"></a>示例：使用机密
+
+无法直接在 `if:` 条件中引用机密。 而应考虑将机密设置为作业级环境变量，然后引用环境变量以有条件地运行作业中的步骤。
+
+如果尚未设置机密，则引用该机密的表达式的返回值（例如示例中的 {% raw %}`${{ secrets.SuperSecret }}`{% endraw %}）将为空字符串。
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+```
+{% endraw %}
+
+有关详细信息，请参阅“[上下文可用性](/actions/learn-github-actions/contexts#context-availability)”和“[加密机密](/actions/security-guides/encrypted-secrets)”。
+
 ### `jobs.<job_id>.steps[*].name`
 
-A name for your step to display on {% data variables.product.prodname_dotcom %}.
+步骤显示在 {% data variables.product.prodname_dotcom %} 上的名称。
 
 ### `jobs.<job_id>.steps[*].uses`
 
-Selects an action to run as part of a step in your job. 操作是一种可重复使用的代码单位。 您可以使用工作流程所在仓库中、公共仓库中或[发布 Docker 容器映像](https://hub.docker.com/)中定义的操作。
+选择要作为作业中步骤的一部分运行的操作。 操作是一种可重复使用的代码单位。 可以使用在与工作流、公共存储库或[已发布的 Docker 容器映像](https://hub.docker.com/)相同的存储库中定义的操作。
 
 强烈建议指定 Git ref、SHA 或 Docker 标记编号来包含所用操作的版本。 如果不指定版本，在操作所有者发布更新时可能会中断您的工作流程或造成非预期的行为。
 - 使用已发行操作版本的 SHA 对于稳定性和安全性是最安全的。
 - 使用特定主要操作版本可在保持兼容性的同时接收关键修复和安全补丁。 还可确保您的工作流程继续工作。
 - 使用操作的默认分支可能很方便，但如果有人新发布具有突破性更改的主要版本，您的工作流程可能会中断。
 
-Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. 请查阅操作的自述文件，确定所需的输入。
+某些操作需要必须使用 [`with`](#jobsjob_idstepswith) 关键字设置的输入。 请查阅操作的自述文件，确定所需的输入。
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+操作为 JavaScript 文件或 Docker 容器。 如果您使用的操作是 Docker 容器，则必须在 Linux 环境中运行作业。 有关详细信息，请参阅 [`runs-on`](#jobsjob_idruns-on)。
 
-#### 示例：使用版本化操作
+#### <a name="example-using-versioned-actions"></a>示例：使用版本化操作
 
 ```yaml
 steps:
   # Reference a specific commit
   - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   # Reference a specific version
-  - uses: actions/checkout@v2.2.0
+  - uses: {% data reusables.actions.action-checkout %}.2.0
   # Reference a branch
   - uses: actions/checkout@main
 ```
 
-#### 示例：使用公共操作
+#### <a name="example-using-a-public-action"></a>示例：使用公共操作
 
 `{owner}/{repo}@{ref}`
 
-You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+您可以指定公共 {% data variables.product.prodname_dotcom %} 仓库中的分支、引用或 SHA。
 
 ```yaml
 jobs:
@@ -393,11 +410,11 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### 示例：在子目录中使用公共操作
+#### <a name="example-using-a-public-action-in-a-subdirectory"></a>示例：在子目录中使用公共操作
 
 `{owner}/{repo}/{path}@{ref}`
 
-A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
+公共 {% data variables.product.prodname_dotcom %} 仓库中特定分支、引用或 SHA 上的子目录。
 
 ```yaml
 jobs:
@@ -407,27 +424,27 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### 示例：使用工作流程所在仓库中操作
+#### <a name="example-using-an-action-in-the-same-repository-as-the-workflow"></a>示例：使用工作流程所在仓库中操作
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+包含工作流程的仓库中操作的目录路径。 在使用操作之前，必须检出仓库。
 
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Use local my-action
         uses: ./.github/actions/my-action
 ```
 
-#### 示例：使用 Docker 中枢操作
+#### <a name="example-using-a-docker-hub-action"></a>示例：使用 Docker 中枢操作
 
 `docker://{image}:{tag}`
 
-A Docker image published on [Docker Hub](https://hub.docker.com/).
+发布于 [Docker 中心](https://hub.docker.com/)的 Docker 映像。
 
 ```yaml
 jobs:
@@ -438,11 +455,11 @@ jobs:
 ```
 
 {% ifversion fpt or ghec %}
-#### 示例：使用 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+#### <a name="example-using-the--data-variablesproductprodname_registry---data-variablesproductprodname_container_registry-"></a>示例：使用 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} 中的 Docker 映像。
 
 ```yaml
 jobs:
@@ -452,11 +469,11 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-#### 示例：使用 Docker 公共注册表操作
+#### <a name="example-using-a-docker-public-registry-action"></a>示例：使用 Docker 公共注册表操作
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
+公共注册表中的 Docker 映像。 此示例在 `gcr.io` 使用 Google Container Registry。
 
 ```yaml
 jobs:
@@ -466,36 +483,34 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### 示例：在不同于工作流程的私有仓库中使用操作
+#### <a name="example-using-an-action-inside-a-different-private-repository-than-the-workflow"></a>示例：在不同于工作流程的私有仓库中使用操作
 
-Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
+您的工作流程必须检出私有仓库，并在本地引用操作。 生成个人访问令牌并将该令牌添加为加密密钥。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密的机密](/actions/reference/encrypted-secrets)。”
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+将示例中 `PERSONAL_ACCESS_TOKEN` 替换为机密名称。
 
-{% raw %}
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
 ```
-{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
-Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
+使用操作系统 shell 运行命令行程序。 如果不提供 `name`，步骤名称将默认为 `run` 命令中指定的文本。
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+命令默认使用非登录 shell 运行。 您可以选择不同的 shell，也可以自定义用于运行命令的 shell。 有关详细信息，请参阅 [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell)。
 
-Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. 例如：
+每个 `run` 关键字代表运行器环境中一个新的进程和 shell。 当您提供多行命令时，每行都在同一个 shell 中运行。 例如：
 
 * 单行命令：
 
@@ -513,7 +528,7 @@ Each `run` keyword represents a new process and shell in the runner environment.
       npm run build
   ```
 
-Using the `working-directory` keyword, you can specify the working directory of where to run the command.
+使用 `working-directory` 关键字，你可以指定运行命令的工作目录位置。
 
 ```yaml
 - name: Clean temp directory
@@ -523,19 +538,20 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### `jobs.<job_id>.steps[*].shell`
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+你可以使用 `shell` 关键字覆盖运行器操作系统中默认的 shell 设置。 你可以使用内置的 `shell` 关键字，也可以自定义 shell 选项集。 内部运行的 shell 命令执行一个临时文件，其中包含 `run` 关键字中指定的命令。
 
-| 支持的平台         | `shell` 参数   | 描述                                                                                                                                                                                  | 内部运行命令                                          |
-| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
-| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                | `pwsh -command ". '{0}'"`                       |
-| 所有            | `python`     | 执行 python 命令。                                                                                                                                                                       | `python {0}`                                    |
-| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                                                                                     | `sh -e {0}`                                     |
-| Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                                                                                        | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows       | `pwsh`       | 这是 Windows 上使用的默认 shell。 PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 如果自托管的 Windows 运行器没有安装 _PowerShell Core_，则使用 _PowerShell Desktop_ 代替。 | `pwsh -command ". '{0}'"`.                      |
-| Windows       | `powershell` | PowerShell 桌面。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                  | `powershell -command ". '{0}'"`.                |
+| 支持的平台 | `shell` 参数 | 说明 | 内部运行命令 |
+|--------------------|-------------------|-------------|------------------------|
+| Linux/macOS | unspecified | 非 Windows 平台上的默认 shell。 请注意，这与显式指定 `bash` 时运行的命令不同。 如果在路径中找不到 `bash`，则将其视为 `sh`。 | `bash -e {0}` |
+| All | `bash` | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。 | `bash --noprofile --norc -eo pipefail {0}` |
+| 全部 | `pwsh` | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 追加到你的脚本名称。 | `pwsh -command ". '{0}'"` |
+| All | `python` | 执行 python 命令。 | `python {0}` |
+| Linux/macOS | `sh` | 未提供 shell 且在路径中找不到 `bash` 时的非 Windows 平台的后退行为。 | `sh -e {0}` |
+| Windows | `cmd` | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 追加到你的脚本名称并替换 `{0}`。 | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows | `pwsh` | 这是 Windows 上使用的默认 shell。 PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 追加到你的脚本名称。 如果自承载 Windows 运行器未安装 PowerShell Core，则改用 PowerShell Desktop。| `pwsh -command ". '{0}'"`. |
+| Windows | `powershell` | PowerShell 桌面。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 追加到你的脚本名称。 | `powershell -command ". '{0}'"`. |
 
-#### 示例：使用 bash 运行脚本
+#### <a name="example-running-a-script-using-bash"></a>示例：使用 bash 运行脚本
 
 ```yaml
 steps:
@@ -544,7 +560,7 @@ steps:
     shell: bash
 ```
 
-#### 示例：使用 Windows `cmd` 运行脚本
+#### <a name="example-running-a-script-using-windows-cmd"></a>示例：使用 Windows `cmd` 运行脚本
 
 ```yaml
 steps:
@@ -553,7 +569,7 @@ steps:
     shell: cmd
 ```
 
-#### 示例：使用 PowerShell Core 运行脚本
+#### <a name="example-running-a-script-using-powershell-core"></a>示例：使用 PowerShell Core 运行脚本
 
 ```yaml
 steps:
@@ -562,7 +578,7 @@ steps:
     shell: pwsh
 ```
 
-#### 示例：使用 PowerShell 桌面运行脚本
+#### <a name="example-using-powershell-desktop-to-run-a-script"></a>示例：使用 PowerShell 桌面运行脚本
 
 ```yaml
 steps:
@@ -571,7 +587,7 @@ steps:
     shell: powershell
 ```
 
-#### 示例：运行 python 脚本
+#### <a name="example-running-a-python-script"></a>示例：运行 python 脚本
 
 ```yaml
 steps:
@@ -582,9 +598,9 @@ steps:
     shell: python
 ```
 
-#### 自定义 shell
+#### <a name="custom-shell"></a>自定义 shell
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+可以使用 `command […options] {0} [..more_options]` 将 `shell` 值设置为模板字符串。 {% data variables.product.prodname_dotcom %} 将字符串的第一个用空格分隔的词解释为命令，并在 `{0}` 处插入临时脚本的文件名。
 
 例如：
 
@@ -596,39 +612,36 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner.
+此示例中使用的命令 `perl` 必须安装在运行器上。
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% elsif fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% elsif fpt or ghec %} 有关 GitHub 托管的运行器所包含软件的信息，请参阅“[GitHub 托管运行器规范](/actions/reference/specifications-for-github-hosted-runners#supported-software)”。
 {% endif %}
 
-#### 退出代码和错误操作首选项
+#### <a name="exit-codes-and-error-action-preference"></a>退出代码和错误操作首选项
 
-For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
+至于内置的 shell 关键词，我们提供由 {% data variables.product.prodname_dotcom %} 托管运行程序执行的以下默认值。 在运行 shell 脚本时，您应该使用这些指南。
 
-- `bash`/`sh`：
-  - 使用 `set -eo pipefail` 的快速失败行为：`bash` 和内置 `shell` 的默认值。 它还是未在非 Windows 平台上提供选项时的默认值。
-  - 您可以向 shell 选项提供模板字符串，以退出快速失败并接管全面控制权。 例如 `bash {0}`。
+- `bash`/`sh`:
+  - 使用 `set -eo pipefail` 的快速失败行为：在显式指定 `shell: bash` 时设置此选项。 默认情况下不会应用它。
+  - 你可以通过向 shell 选项提供模板字符串来完全控制 shell 参数。 例如，`bash {0}`。
   - sh 类 shell 使用脚本中最后执行的命令的退出代码退出，也是操作的默认行为。 运行程序将根据此退出代码将步骤的状态报告为失败/成功。
 
 - `powershell`/`pwsh`
-  - 可能时的快速失败行为。 对于 `pwsh` 和 `powershell` 内置 shell，我们将 `$ErrorActionPreference = 'stop'` 附加到脚本内容。
-  - 我们将 `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` 附加到 powershell 脚本，以使操作状态反映脚本的最后一个退出代码。
-  - 用户可随时通过不使用内置 shell 并提供类似如下的自定义 shell 选项来退出：`pwsh -File {0}` 或 `powershell -Command "& '{0}'"`，具体取决于需求。
+  - 可能时的快速失败行为。 对于 `pwsh` 和 `powershell` 内置 shell，我们将在脚本内容前面追加 `$ErrorActionPreference = 'stop'`。
+  - 我们追加 `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` 到 Powershell 脚本，以便操作状态反映脚本的最后一个退出代码。
+  - 用户始终可以选择退出，方法是不使用内置 shell，并按需提供 `pwsh -File {0}` 或 `powershell -Command "& '{0}'"` 等自定义 shell 选项。
 
 - `cmd`
   - 除了编写脚本来检查每个错误代码并相应地响应之外，似乎没有办法完全选择快速失败行为。 由于我们默认不能实际提供该行为，因此您需要将此行为写入脚本。
-  - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行程序。 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
+  - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行器。 此行为在内部与之前的 `sh` 和 `pwsh` 默认行为一致，并且是 `cmd.exe` 默认行为，因而此行为将保持不变。
 
 ### `jobs.<job_id>.steps[*].with`
 
-A `map` of the input parameters defined by the action. 每个输入参数都是一个键/值对。 输入参数被设置为环境变量。 The variable is prefixed with `INPUT_` and converted to upper case.
+由操作定义的输入参数的 `map`。 每个输入参数都是一个键/值对。 输入参数被设置为环境变量。 该变量的前缀为 `INPUT_`，并转换为大写。
 
-#### 示例
+#### <a name="example"></a>示例
 
-Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
+定义由 `hello_world` 操作定义的三个输入参数（`first_name`、`middle_name` 和 `last_name`）。 这些输入变量将作为 `INPUT_FIRST_NAME`、`INPUT_MIDDLE_NAME` 和 `INPUT_LAST_NAME` 环境变量由 `hello-world` 操作访问。
 
 ```yaml
 jobs:
@@ -644,9 +657,9 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。 An `array of strings` is not supported by this parameter.
+`string` 定义 Docker 容器的输入。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。 此参数不支持 `array of strings`。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -659,7 +672,7 @@ steps:
 ```
 {% endraw %}
 
-`args` 用来代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请遵循按偏好顺序排序的指导方针：
+`args` 用于代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请使用按偏好排序的指南：
 
 1. 在操作的自述文件中记录必要的参数，并在 `CMD` 指令的中忽略它们。
 1. 使用默认值，允许不指定任何 `args` 即可使用操作。
@@ -667,9 +680,9 @@ steps:
 
 ### `jobs.<job_id>.steps[*].with.entrypoint`
 
-Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
+如果未指定该项，则替代 `Dockerfile` 中的 Docker `ENTRYPOINT`，否则对其进行设置。 与包含 shell 和 exec 表单的 Docker `ENTRYPOINT` 指令不同，`entrypoint` 关键字只接受定义要运行的可执行文件的单个字符串。
 
-#### 示例
+#### <a name="example"></a>示例
 
 ```yaml
 steps:
@@ -679,17 +692,17 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint` 关键字旨在用于 Docker 容器操作，但你也可以将其用于未定义任何输入的 JavaScript 操作。
 
 ### `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+设置供步骤用于运行器环境的环境变量。 您也可以设置整个工作流程或某个作业的环境变量。 有关详细信息，请参阅 [`env`](#env) 和 [`jobs.<job_id>.env`](#jobsjob_idenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+公共操作可在自述文件中指定预期的环境变量。 如果要在环境变量中设置密码，必须使用 `secrets` 上下文进行设置。 有关详细信息，请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”和“[上下文](/actions/learn-github-actions/contexts)”。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -704,25 +717,59 @@ steps:
 
 ### `jobs.<job_id>.steps[*].continue-on-error`
 
-Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
+防止步骤失败时作业也会失败。 设置为 `true` 以允许在此步骤失败时作业能够通过。
 
 ### `jobs.<job_id>.steps[*].timeout-minutes`
 
-The maximum number of minutes to run the step before killing the process.
+终止进程之前运行该步骤的最大分钟数。
 
 ## `jobs.<job_id>.timeout-minutes`
 
-The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+在 {% data variables.product.prodname_dotcom %} 自动取消运行之前可让作业运行的最大分钟数。 默认值：360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+如果超时超过运行器的作业执行时限，作业将在达到执行时限时取消。 有关作业执行时间限制的详细信息，请参阅 {% ifversion fpt or ghec or ghes %}“[使用情况限制和计费](/actions/reference/usage-limits-billing-and-administration#usage-limits)，了解 {% data variables.product.prodname_dotcom %} 托管的运行器，以及参阅 {% endif %}“[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}”了解自承载运行器使用限制。{% elsif ghae %}."{% endif %}
+
+{% note %}
+
+注意：{% data reusables.actions.github-token-expiration %} 对于自承载运行器，如果作业超时大于 24 小时，则令牌可能是限制因素。 有关 `GITHUB_TOKEN` 的详细信息，请参阅“[关于 `GITHUB_TOKEN` 机密](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)”。
+
+{% endnote %}
 
 ## `jobs.<job_id>.strategy`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
+使用 `jobs.<job_id>.strategy` 对作业使用矩阵策略。 {% data reusables.actions.jobs.about-matrix-strategy %} 有关详细信息，请参阅“[为作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ### `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
+{% data reusables.actions.jobs.using-matrix-strategy %}
+
+#### <a name="example-using-a-single-dimension-matrix"></a>示例：使用单维矩阵
+
+{% data reusables.actions.jobs.single-dimension-matrix %}
+
+#### <a name="example-using-a-multi-dimension-matrix"></a>示例：使用多维矩阵
+
+{% data reusables.actions.jobs.multi-dimension-matrix %}
+
+#### <a name="example-using-contexts-to-create-matrices"></a>示例：使用上下文创建矩阵
+
+{% data reusables.actions.jobs.matrix-from-context %}
+
+### `jobs.<job_id>.strategy.matrix.include`
+
+{% data reusables.actions.jobs.matrix-include %}
+
+#### <a name="example-expanding-configurations"></a>示例：扩展配置
+
+{% data reusables.actions.jobs.matrix-expand-with-include %}
+
+#### <a name="example-adding-configurations"></a>示例：添加配置
+
+{% data reusables.actions.jobs.matrix-add-with-include %}
+
+### `jobs.<job_id>.strategy.matrix.exclude`
+
+{% data reusables.actions.jobs.matrix-exclude %}
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
@@ -734,11 +781,11 @@ If the timeout exceeds the job execution time limit for the runner, the job will
 
 ## `jobs.<job_id>.continue-on-error`
 
-Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
+防止工作流程运行在作业失败时失败。 设置为 `true` 以允许工作流运行在此作业失败时通过。
 
-### 示例：防止特定失败的矩阵作业无法运行工作流程
+### <a name="example-preventing-a-specific-failing-matrix-job-from-failing-a-workflow-run"></a>示例：防止特定失败的矩阵作业无法运行工作流程
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
+您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如，工作流运行不失败的情况下只允许在 `node` 设置为 `15` 的实验性作业失败。
 
 {% raw %}
 ```yaml
@@ -748,18 +795,18 @@ strategy:
   fail-fast: false
   matrix:
     node: [13, 14]
-    os: [macos-latest, ubuntu-18.04]
+    os: [macos-latest, ubuntu-latest]
     experimental: [false]
     include:
       - node: 15
-        os: ubuntu-18.04
+        os: ubuntu-latest
         experimental: true
 ```
 {% endraw %}
 
 ## `jobs.<job_id>.container`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
@@ -789,19 +836,19 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
-Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
+用于为工作流程中的作业托管服务容器。 服务容器可用于创建数据库或缓存服务（如 Redis）。 运行器自动创建 Docker 网络并管理服务容器的生命周期。
 
-If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
+如果将作业配置为在容器中运行，或者步骤使用容器操作，则无需映射端口来访问服务或操作。 Docker 会自动在同一个 Docker 用户定义的桥接网络上的容器之间显示所有端口。 您可以直接引用服务容器的主机名。 主机名自动映射到为工作流程中的服务配置的标签名称。
 
-If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
+如果配置作业直接在运行器机器上运行，且您的步骤不使用容器操作，则必须将任何必需的 Docker 服务容器端口映射到 Docker 主机（运行器机器）。 您可以使用 localhost 和映射的端口访问服务容器。
 
-For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
+有关网络服务容器之间的差异的详细信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers)”。
 
-### 示例：使用 localhost
+### <a name="example-using-localhost"></a>示例：使用 localhost
 
-This example creates two services: nginx and redis. 指定 Docker 主机端口但不指定容器端口时，容器端口将随机分配给空闲端口。 {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+此示例创建分别用于 nginx 和 redis 的两项服务。 指定 Docker 主机端口但不指定容器端口时，容器端口将随机分配给空闲端口。 {% data variables.product.prodname_dotcom %} 在 {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} 上下文中设置分配的容器端口。 在此示例中，可以使用 {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 和 {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} 上下文访问服务容器端口。
 
 ```yaml
 services:
@@ -819,13 +866,13 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
+要用作运行操作的服务容器的 Docker 镜像。 值可以是 Docker Hub 映像名称或注册表名称。
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -845,15 +892,15 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.env`
 
-Sets a `map` of environment variables in the service container.
+在服务容器中设置环境变量 `map`。
 
 ### `jobs.<job_id>.services.<service_id>.ports`
 
-Sets an `array` of ports to expose on the service container.
+设置要在服务容器上显示的端口 `array`。
 
 ### `jobs.<job_id>.services.<service_id>.volumes`
 
-Sets an `array` of volumes for the service container to use. 您可以使用卷分享作业中服务或其他步骤之间的数据。 可以指定命名的 Docker 卷、匿名的 Docker 卷或主机上的绑定挂载。
+设置服务容器要使用的卷 `array`。 您可以使用卷分享作业中服务或其他步骤之间的数据。 可以指定命名的 Docker 卷、匿名的 Docker 卷或主机上的绑定挂载。
 
 要指定卷，需指定来源和目标路径：
 
@@ -861,7 +908,7 @@ Sets an `array` of volumes for the service container to use. 您可以使用卷�
 
 `<source>` 是主机上的卷名称或绝对路径，`<destinationPath>` 是容器中的绝对路径。
 
-#### 示例
+#### <a name="example"></a>示例
 
 ```yaml
 volumes:
@@ -872,11 +919,11 @@ volumes:
 
 ### `jobs.<job_id>.services.<service_id>.options`
 
-Additional Docker container resource options. 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
+附加 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` 选项](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 
 {% warning %}
 
-**警告**：不支持 `--network` 选项。
+**警告：** 不支持 `--network` 选项。
 
 {% endwarning %}
 
@@ -885,25 +932,25 @@ Additional Docker container resource options. 有关选项列表，请参阅“[
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
+要作为作业运行的可重用工作流程文件的位置和版本。 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}使用下列语法之一：{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-### 示例
+### <a name="example"></a>示例
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
 
 ### `jobs.<job_id>.with`
 
-When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
+当作业用于调用可重用工作流时，可以使用 `with` 来提供传递到被调用工作流的输入的映射。
 
-Any inputs that you pass must match the input specifications defined in the called workflow.
+传递的任何输入都必须与被调用工作流程中定义的输入规范匹配。
 
-Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+与 [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith) 不同，你使用 `jobs.<job_id>.with` 传递的输入不可作为环境变量用于被调用工作流中。 但你可以通过使用 `inputs` 上下文来引用输入。
 
-#### 示例
+#### <a name="example"></a>示例
 
 ```yaml
 jobs:
@@ -915,17 +962,17 @@ jobs:
 
 ### `jobs.<job_id>.with.<input_id>`
 
-A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
+由输入的字符串标识符和输入的值组成的对。 标识符必须与被调用工作流中由 [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) 定义的输入名称匹配。 值的数据类型必须与被调用工作流中定义的 [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) 类型匹配。
 
-Allowed expression contexts: `github`, and `needs`.
+允许的表达式上下文：`github` 和 `needs`。
 
 ### `jobs.<job_id>.secrets`
 
-When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+当作业用于调用可重用工作流时，可以使用 `secrets` 来提供传递到被调用工作流的机密的映射。
 
-Any secrets that you pass must match the names defined in the called workflow.
+传递的任何机密都必须与被调用工作流程中定义的名称匹配。
 
-#### 示例
+#### <a name="example"></a>示例
 
 {% raw %}
 ```yaml
@@ -937,25 +984,61 @@ jobs:
 ```
 {% endraw %}
 
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+使用关键字 `inherit` 将所有调用工作流的机密传递给调用的工作流。 这包括调用工作流有权访问的所有机密，即组织、存储库和环境机密。 关键字 `inherit` 可用于在同一组织中跨存储库或在同一企业中跨组织传递机密。
+
+#### <a name="example"></a>示例
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
+
 ### `jobs.<job_id>.secrets.<secret_id>`
 
-A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
+由机密的字符串标识符和机密的值组成的对。 标识符必须与被调用工作流中由 [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) 定义的机密名称匹配。
 
-Allowed expression contexts: `github`, `needs`, and `secrets`.
+允许的表达式上下文：`github`、`needs` 和 `secrets`。
 {% endif %}
 
-## 过滤器模式备忘清单
+## <a name="filter-pattern-cheat-sheet"></a>筛选器模式速查表
 
-You can use special characters in path, branch, and tag filters.
+您可以在路径、分支和标记过滤器中使用特殊字符。
 
-- `*`： 匹配零个或多个字符，但不匹配 `/` 字符。 例如，`Octo*` 匹配 `Octocat`。
-- `**`： 匹配零个或多个任何字符。
-- `?`：匹配零个或一个前缀字符。
-- `+`: 匹配一个或多个前置字符。
-- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包含 `a-z`、`A-Z` 和 `0-9`。 例如，范围 `[0-9a-z]` 匹配任何数字或小写字母。 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，`[1-2]00` 匹配 `100` 和 `200`。
+- `*`：匹配零个或多个字符，但不匹配 `/` 字符。 例如，`Octo*` 匹配 `Octocat`。
+- `**`：匹配零个或多个任意字符。
+- `?`：匹配零个或一个前面的字符。
+- `+`：匹配一个或多个前面的字符。
+- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包括 `a-z`、`A-Z` 和 `0-9`。 例如，范围 `[0-9a-z]` 匹配任何数字或小写字母。 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，而 `[1-2]00` 匹配 `100` 和 `200`。
 - `!`：在模式开始时，它将否定以前的正模式。 如果不是第一个字符，它就没有特殊的意义。
 
-The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes.
+字符 `*`、`[` 和 `!` 是 YAML 中的特殊字符。 如果模式以 `*`、`[` 或 `!` 开头，则必须将模式括在引号中。
 
 ```yaml
 # Valid
@@ -966,39 +1049,39 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
+有关分支、标记和路径筛选器语法的详细信息，请参阅“[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)”、“[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)”和“[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-### 匹配分支和标记的模式
+### <a name="patterns-to-match-branches-and-tags"></a>匹配分支和标记的模式
 
-| 模式                                                      | 描述                                                                   | 示例匹配                                                                                                                  |
-| ------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `feature/*`                                             | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
-| `feature/**`                                            | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
-| `main`<br/><br/>`releases/mona-the-octocat` | 匹配分支或标记名称的确切名称。                                                      | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
-| `'*'`                                                   | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `main`<br/><br/>`releases`                                                                                |
-| `'**'`                                                  | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | `all/the/branches`<br/><br/>`every/tag`                                                                   |
-| `'*feature'`                                            | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
-| `v2*`                                                   | 匹配以 `v2` 开头的分支和标记名称。                                                 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | 将所有语义版本控制分支和标记与主要版本 1 或 2 匹配.                                        | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| 模式 | 说明 | 匹配项示例 |
+|---------|------------------------|---------|
+| `feature/*` | `*` 通配符匹配任意字符，但不匹配斜杠 (`/`)。 |  `feature/my-branch`<br/><br/>`feature/your-branch` |
+| `feature/**` | `**` 通配符匹配任意字符，包括分支中的斜杠 (`/`) 和标记名称。 | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octocat` | 匹配分支或标记名称的确切名称。 | `main`<br/><br/>`releases/mona-the-octocat` |
+| `'*'` | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，必须使用引号。 | `main`<br/><br/>`releases` |
+| `'**'` | 匹配所有分支和标记名称。 这是不使用 `branches` 或 `tags` 筛选器时的默认行为。 | `all/the/branches`<br/><br/>`every/tag` |
+| `'*feature'` | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，必须使用引号。 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
+| `v2*` | 匹配以 `v2` 开头的分支和标记名称。 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
+| `v[12].[0-9]+.[0-9]+` | 将所有语义版本控制分支和标记与主要版本 1 或 2 匹配。 | `v1.10.1`<br/><br/>`v2.0.0` |
 
-### 匹配文件路径的模式
+### <a name="patterns-to-match-file-paths"></a>匹配文件路径的模式
 
-Path patterns must match the whole path, and start from the repository's root.
+路径模式必须匹配整个路径，并从仓库根开始。
 
-| 模式                                                                      | 匹配描述                                                                   | 示例匹配                                                                                                                     |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `'*'`                                                                   | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `README.md`<br/><br/>`server.rb`                                                                             |
-| `'*.jsx?'`                                                              | `?` 个字符匹配零个或一个前缀字符。                                                    | `page.js`<br/><br/>`page.jsx`                                                                                |
-| `'**'`                                                                  | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | `all/the/files.md`                                                                                                       |
-| `'*.js'`                                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | `app.js`<br/><br/>`index.js`                                                                                 |
-| `'**.js'`                                                               | 匹配仓库中的所有 `.js` 文件。                                                     | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
-| `docs/*`                                                                | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
-| `docs/**`                                                               | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
-| `docs/**/*.md`                                                          | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
-| `'**/README.md'`                                                        | 仓库中任意位置的 README.md 文件。                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
-| `'**/*src/**'`                                                          | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
-| `'**/*-post.md'`                                                        | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
-| `'**/migrate-*.sql'`                                                    | 仓库中任意位置具有前缀 `migrate-` 和后缀 `.sql` 的文件。                                 | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
-| `*.md`<br/><br/>`!README.md`                                | 模式前使用感叹号 (`!`) 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。              | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
-| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。                                          | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |
+| 模式 | 匹配描述 | 匹配项示例 |
+|---------|------------------------|-----------------|
+| `'*'` | `*` 通配符匹配任意字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，必须使用引号。 | `README.md`<br/><br/>`server.rb` |
+| `'*.jsx?'` | `?` 字符匹配零个或一个前面的字符。 | `page.js`<br/><br/>`page.jsx` |
+| `'**'` | `**`通配符匹配任意字符，包括斜杠 (`/`)。 这是不使用 `path` 筛选器时的默认行为。 | `all/the/files.md` |
+| `'*.js'` | `*` 通配符匹配任意字符，但不匹配斜杠 (`/`)。 匹配存储库根目录下的所有 `.js` 文件。 | `app.js`<br/><br/>`index.js`
+| `'**.js'` | 匹配存储库中的所有 `.js` 文件。 | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js` |
+| `docs/*`  | 存储库根目录下 `docs` 根目录中的所有文件。 | `docs/README.md`<br/><br/>`docs/file.txt` |
+| `docs/**` | 存储库根目录下 `/docs` 目录中的任何文件。 | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
+| `docs/**/*.md` | `docs` 目录下任意位置带有 `.md` 后缀的文件。 | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
+| `'**/docs/**'`   | 存储库中任意位置 `docs` 目录下的任何文件。 | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
+| `'**/README.md'` | 仓库中任意位置的 README.md 文件。 | `README.md`<br/><br/>`js/README.md`
+| `'**/*src/**'` | 存储库中任意位置带有 `src` 后缀的文件夹中的任何文件。 | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
+| `'**/*-post.md'` | 存储库中任意位置带有 `-post.md` 后缀的文件。 | `my-post.md`<br/><br/>`path/their-post.md` |
+| `'**/migrate-*.sql'` | 存储库中任意位置带有 `migrate-` 前缀和 `.sql` 后缀的文件。 | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql` |
+| `*.md`<br/><br/>`!README.md` | 模式前使用感叹号 `!` 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。 | `hello.md`<br/><br/>_不匹配_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。 | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|

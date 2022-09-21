@@ -11,9 +11,6 @@
         "description": "A unique name for the app"
       }
     },
-    "location": {
-      "type": "String"
-    },
     "containerImage": {
       "type": "string",
       "defaultValue": null,
@@ -31,12 +28,6 @@
       "type": "String"
     },
     "dockerRegistryPassword": {
-      "type": "SecureString"
-    },
-    "storageAccountName": {
-      "type": "String"
-    },
-    "storageAccountKey": {
       "type": "SecureString"
     }
   },
@@ -83,53 +74,6 @@
                 }
               }
             }
-          },
-          {
-            "name": "caddy-ssl-server",
-            "properties": {
-              "image": "caddy:2.4.6",
-              "command": [
-                "caddy",
-                "reverse-proxy",
-                "--from",
-                "[concat(parameters('appName'), '.', parameters('location'), '.azurecontainer.io')]",
-                "--to",
-                "localhost:4000"
-              ],
-              "ports": [
-                {
-                  "protocol": "TCP",
-                  "port": 443
-                },
-                {
-                  "protocol": "TCP",
-                  "port": 80
-                }
-              ],
-              "environmentVariables": [],
-              "resources": {
-                "requests": {
-                  "memoryInGB": 1,
-                  "cpu": 1
-                }
-              },
-              "volumeMounts": [
-                {
-                  "name": "caddy-data",
-                  "mountPath": "/data"
-                }
-              ]
-            }
-          }
-        ],
-        "volumes": [
-          {
-            "name": "caddy-data",
-            "azureFile": {
-                "shareName": "caddy",
-                "storageAccountName": "[parameters('storageAccountName')]",
-                "storageAccountKey": "[parameters('storageAccountKey')]"
-            }
           }
         ],
         "imageRegistryCredentials": [
@@ -144,15 +88,7 @@
           "ports": [
             {
               "protocol": "TCP",
-              "port": 443
-            },
-            {
-              "protocol": "TCP",
               "port": 4000
-            },
-            {
-              "protocol": "TCP",
-              "port": 80
             }
           ],
           "type": "Public",

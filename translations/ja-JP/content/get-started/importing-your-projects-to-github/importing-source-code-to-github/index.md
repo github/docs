@@ -1,6 +1,6 @@
 ---
 title: GitHub にソースコードをインポートする
-intro: 'リポジトリは、{% ifversion fpt %}GitHub Importer、コマンドライン、{% else %}コマンドライン{% endif %}、または外部移行ツールを使用して GitHub にインポートできます。'
+intro: 'リポジトリは、{% ifversion fpt %}GitHub Importer、コマンド ライン、{% else %}コマンド ライン{% endif %}、または外部移行ツールを使って、GitHub にインポートできます。'
 redirect_from:
   - /articles/importing-an-external-git-repository
   - /articles/importing-from-bitbucket
@@ -18,8 +18,14 @@ children:
   - /importing-a-repository-with-github-importer
   - /updating-commit-author-attribution-with-github-importer
   - /importing-a-git-repository-using-the-command-line
-  - /adding-an-existing-project-to-github-using-the-command-line
+  - /adding-locally-hosted-code-to-github
   - /source-code-migration-tools
 shortTitle: Import code to GitHub
+ms.openlocfilehash: c1dbafeb3e69a65dd654a4dc7223051a58a937da
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145131248'
 ---
 

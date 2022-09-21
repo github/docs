@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -44,13 +44,10 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 - A compatible version of the queries and libraries from https://github.com/github/codeql
 - Precompiled versions of all the queries included in the bundle
 
-{% ifversion ghes %}
+{% ifversion ghes or ghae %}
 
 {% note %}
-{% ifversion ghes = 3.0 %}For {% data variables.product.prodname_ghe_server %} 3.0, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
-{% ifversion ghes = 3.1 %}For {% data variables.product.prodname_ghe_server %} 3.1, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
-{% ifversion ghes = 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.2, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
-{% ifversion ghes > 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.3 and greater, we recommend {% data variables.product.prodname_codeql_cli %} version 2.7.6 or greater.{% endif %}
+For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
 {% endif %}
@@ -65,7 +62,7 @@ You need to make the full contents of the {% data variables.product.prodname_cod
 
 ```shell
 $ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
-$ tar -xvzf ../codeql-bundle-linux64.tar.gz
+$ tar -xvzf ./codeql-bundle-linux64.tar.gz
 ```
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the `codeql` executable on the server:

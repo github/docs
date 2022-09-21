@@ -191,16 +191,16 @@ async function run() {
 
     await graphql(updateProjectNextItemMutation, {
       project: projectID,
-      statusID: statusID,
+      statusID,
       statusValueID: readyForReviewID,
-      datePostedID: datePostedID,
-      reviewDueDateID: reviewDueDateID,
-      contributorTypeID: contributorTypeID,
-      contributorType: contributorType,
-      sizeTypeID: sizeTypeID,
+      datePostedID,
+      reviewDueDateID,
+      contributorTypeID,
+      contributorType,
+      sizeTypeID,
       sizeType: '', // Although we aren't populating size, we are passing the variable so that we can use the shared mutation function
-      featureID: featureID,
-      authorID: authorID,
+      featureID,
+      authorID,
       headers: {
         authorization: `token ${process.env.TOKEN}`,
         'GraphQL-Features': 'projects_next_graphql',

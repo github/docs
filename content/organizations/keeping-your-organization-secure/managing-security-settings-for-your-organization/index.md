@@ -1,7 +1,7 @@
 ---
 title: Managing security settings for your organization
 shortTitle: Manage security settings
-intro: "You can manage security settings and review the audit log{% ifversion ghec %}, compliance reports,{% endif %} and integrations for your organization."
+intro: 'You can manage security settings and review the audit log{% ifversion ghec %}, compliance reports,{% endif %} and integrations for your organization.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,3 +18,4 @@ children:
   - /accessing-compliance-reports-for-your-organization
   - /reviewing-your-organizations-installed-integrations
 ---
+

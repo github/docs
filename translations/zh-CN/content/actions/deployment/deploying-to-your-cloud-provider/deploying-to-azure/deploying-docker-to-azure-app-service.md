@@ -17,11 +17,11 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 简介
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
@@ -31,13 +31,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## 基本要求
+## Prerequisites
 
-在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. 创建 Web 应用。
+1. Create a web app.
 
    For example, you can use the Azure CLI to create an Azure App Service web app:
 
@@ -49,13 +49,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
        --deployment-container-image-name nginx:latest
    ```
 
-   在上面的命令中，将参数替换为您自己的值，其中 `MY_WEBAPP_NAME` 是 Web 应用的新名称。
+   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Set registry credentials for your web app.
 
-   Create a personal access token with the `repo` and `read:packages` scopes. 更多信息请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+   Create a personal access token with the `repo` and `read:packages` scopes. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your personal access token from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
@@ -66,22 +66,22 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
 ```
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
-## 创建工作流程
+## Creating the workflow
 
-完成先决条件后，可以继续创建工作流程。
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
 The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
 
-确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
 
 {% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and deploy a container to an Azure Web App
 
@@ -102,7 +102,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -140,16 +140,16 @@ jobs:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
-          with:
-            app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
-            publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
-            images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
+        with:
+          app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
+          publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
+          images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
-## 其他资源
+## Additional resources
 
-以下资源也可能有用：
+The following resources may also be useful:
 
-* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml)。
-* 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
+* For the original starter workflow, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

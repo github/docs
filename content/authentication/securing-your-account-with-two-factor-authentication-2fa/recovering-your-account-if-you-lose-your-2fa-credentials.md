@@ -22,7 +22,6 @@ shortTitle: Recover an account with 2FA
 **Warnings**: 
 
 - {% data reusables.two_fa.support-may-not-help %}
-- {% data reusables.accounts.you-must-know-your-password %}
 
 {% endwarning %}
 
@@ -32,7 +31,13 @@ shortTitle: Recover an account with 2FA
 
 Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}
+1. Type your username and password to prompt authentication.
+
+    {% warning %}
+
+    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    
+    {% endwarning %}
 
 {% ifversion fpt or ghec %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.

@@ -1,5 +1,13 @@
-Merge queues for pull requests can increase the rate at which pull requests are merged into a busy default branch, whilst ensuring that CI checks pass.
+---
+ms.openlocfilehash: 9960ade469b1d52c0f880067e4dd449082b190c6
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145090897"
+---
+マージ キューを使用すると、必要なすべてのブランチ保護チェックに合格することを保証しつつ、pull request がビジー状態のターゲット ブランチにマージされる速度を上げることができます。
 
-Merge queues use {% data variables.product.prodname_actions %}. For more information about actions, see "[{% data variables.product.prodname_actions %}](/actions/)."
+pull request が必要なすべてのブランチ保護チェックに合格すると、リポジトリへの書き込みアクセス権を持つユーザーは、その pull request をマージ キューに追加できます。
 
-Once a pull request has passed any required checks and approvals, a contributor with write access can add the pull request to the merge queue. The queue then creates a temporary branch with that pull request and any pull requests ahead of it in the queue, and triggers any required continuous integration (CI) checks.
+マージ キューでは、{% data variables.product.prodname_actions %} を使用できます。 詳細については、「[{% data variables.product.prodname_actions %}](/actions/)」を参照してください。

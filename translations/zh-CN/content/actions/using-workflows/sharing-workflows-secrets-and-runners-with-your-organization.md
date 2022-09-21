@@ -1,7 +1,7 @@
 ---
-title: 'Sharing workflows, secrets, and runners with your organization'
-shortTitle: 与组织共享工作流程
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+title: 与组织共享工作流程、机密和运行器
+shortTitle: Sharing workflows with your organization
+intro: 了解如何通过共享入门工作流程、机密和自托管运行器，使用组织功能与团队协作。
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -11,38 +11,38 @@ versions:
   ghae: '*'
   ghec: '*'
 type: how_to
+ms.openlocfilehash: bf80624fe1118d424a57f7c22efab6368c914819
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884259'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 概述
 
-## 概览
+如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 还可以在 `.github` 存储库中创建入门工作流，并与组织中的其他用户共享这些工作流。
 
-如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+## 共享 {% ifversion internal-actions %}操作和 {% endif %}工作流
 
-## Sharing {% if internal-actions %}actions and {% endif %}workflows
-
-{% if internal-actions %}
-You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
-{% else %}
-Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
+{% ifversion internal-actions %} 无论是否公开发布操作或工作流，都可以与组织共享各个操作和整个工作流。 您可以通过在工作流程文件中引用操作和工作流程来精确地重复使用它们，并且可以创建为新工作流程提供模板的起始工作流程。
+{% else %} 你的组织可以通过完全重用工作流或创建为新工作流提供模板的初始工作流来共享工作流。
 {% endif %}
 
-{% if internal-actions %}
-### Sharing actions with your enterprise
+{% ifversion internal-actions %}
+### 与企业共享操作
 
-{% data reusables.actions.internal-actions-summary %}
-{% endif %}
+{% data reusables.actions.internal-actions-summary %} {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-### Reusing workflows
+### 重新使用工作流
 
-{% data reusables.actions.reusable-workflows %}
-{% endif %}
+{% data reusables.actions.reusable-workflows %} {% endif %}
 
-### Using starter workflows
+### 使用入门工作流程
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-organization-templates %} 有关详细信息，请参阅“[为组织创建入门工作流](/actions/using-workflows/creating-starter-workflows-for-your-organization)”。
 
 ## 在组织内共享机密
 
@@ -50,24 +50,22 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. 单击 **New secret（新建密码）**。
-1. 在 **Name（名称）**输入框中键入密码的名称。
-1. 输入密码的 **Value（值）**。
-1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
-1. 单击 **Add secret（添加密码）**。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. 单击“新建机密”。
+1. 在“名称”输入框中键入机密名称。
+1. 输入“机密”的值。
+1. 从“存储库访问”下拉列表中，选择访问策略。
+1. 单击“添加机密”。
 
 ## 在组织内共享自托管运行器
 
 组织管理员可以将其自托管的运行器添加到组，然后创建控制哪些仓库可访问该组的策略。
 
-更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
+有关详细信息，请参阅“[使用组管理对自托管运行器的访问权限](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
 
 ## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+若要继续了解 {% data variables.product.prodname_actions %}，请参阅“[为组织创建入门工作流](/actions/using-workflows/creating-starter-workflows-for-your-organization)”。

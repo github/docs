@@ -1,1 +1,9 @@
-Optionally, to allow people to use built-in authentication if they don't have an account on your IdP, select **Allow built-in authentication**. 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。
+---
+ms.openlocfilehash: c279ab7f9d2965fbe2ddc9dcd0047d3a0be0717a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145067650"
+---
+必要に応じて、外部認証システムのアカウントを持たないユーザーがビルトイン認証でサインインできるようにするには、 **[Allow built-in authentication]\(ビルトイン認証を許可する\)** を選択します。 詳しくは、「[プロバイダー外のユーザーのためのビルトイン認証の許可](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)」を参照してください。

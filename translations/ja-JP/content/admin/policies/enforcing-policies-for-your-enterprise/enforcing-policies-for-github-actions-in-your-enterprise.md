@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for GitHub Actions in your enterprise
-intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
+title: エンタープライズで GitHub Actions のポリシーを適用する
+intro: 'Enterprise の Organization 内で {% data variables.product.prodname_actions %} に対してポリシーを適用したり、各 Organization でポリシーを設定したりできます。'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -13,6 +13,7 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -23,108 +24,128 @@ topics:
   - Enterprise
   - Policies
 shortTitle: GitHub Actions policies
+ms.openlocfilehash: 21b2cfa73ef84ba6635f05b9fc25bb48df2b87cb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147400339'
 ---
-
 {% data reusables.actions.enterprise-beta %}
 
-## About policies for {% data variables.product.prodname_actions %} in your enterprise
+## エンタープライズの {% data variables.product.prodname_actions %} のポリシーについて
 
-{% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data variables.product.prodname_actions %} は、エンタープライズのメンバーが {% data variables.product.product_name %} でソフトウェア開発のワークフローを自動化する際に役立ちます。 詳細については、「[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions/understanding-github-actions)」を参照してください。
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}{% data variables.product.prodname_actions %} を有効にした場合、{% data variables.product.product_location %} のいかなる{% else %}{% endif %}組織でも、{% data variables.product.prodname_actions %} を使用できます。 {% data variables.product.product_name %} のエンタープライズのメンバーが {% data variables.product.prodname_actions %} を使用する方法を制御するポリシーを適用できます。 既定では、組織の所有者は、メンバーが {% data variables.product.prodname_actions %} を使用する方法を管理できます。 詳細については、「[組織での {% data variables.product.prodname_actions %} の無効化または制限](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)」を参照してください。
 
-## Enforcing a policy to restrict the use of actions in your enterprise
+## エンタープライズで {% data variables.product.prodname_actions %} の使用を制限するポリシーを適用する
 
-Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 Enterprise にあるローカルのアクションだけ利用できるように、パブリックなアクションの利用を制限することもできます。
+Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 また、パブリック アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}の使用を制限して、Enterprise 内に存在するローカル アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}のみを使用できるようにすることもできます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.enterprise-actions-permissions %}
-1. [**Save**] をクリックします。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. "Policies（ポリシー）"の下で、オプションを選択してください。
 
-{% ifversion ghec or ghes or ghae %}
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-### Allowing select actions to run
+   {%- ifversion ghes or ghae %} {% note %}
+
+   **注:** パブリック アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}へのアクセスを有効にするには、まず {% data variables.product.product_location %} を構成して、{% data variables.product.prodname_dotcom_the_website %} に接続する必要があります。 詳細については、「[GitHub Connect を使用して GitHub.com アクションへの自動アクセスを有効にする](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
+
+   {% endnote %} {%- endif %} {% ifversion actions-workflow-policy %} ![この Enterprise アカウントのアクションを有効化、無効化、または制限する](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png) {%- else %} ![この Enterprise アカウントのアクションを有効化、無効化、または制限する](/assets/images/help/organizations/enterprise-actions-policy.png) {%- endif %}
+1. **[保存]** をクリックします。
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
-   ![許可リストにアクションを追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
-   {%- elsif ghae %}
-   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
-   {%- endif %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. [ポリシー] で [{% data reusables.actions.policy-label-for-select-actions-workflows %}] を選び、必要なアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を一覧に追加します。
+   {% ifversion actions-workflow-policy %} ![許可リストにアクションと再利用可能なワークフローを追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png) {%- elsif ghes or ghae %} ![アクションを許可リストに追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png) {%- elsif ghae %} ![アクションを許可リストに追加する](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png) {%- endif %}
 
-{% ifversion ghec or ghes or ghae %}
+## エンタープライズで成果物とログの保持に関するポリシーを適用する
 
-## Enforcing a policy for artifact and log retention in your enterprise
-
-{% data variables.product.prodname_actions %} can store artifact and log files. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% data variables.product.prodname_actions %} では、成果物とログのファイルを格納できます。 詳細については、「[ワークフロー成果物のダウンロード](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
-{% endif %}
+## エンタープライズでフォーク pull request のポリシーを適用する
 
-## Enforcing a policy for fork pull requests in your enterprise
-
-You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.product.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
+エンタープライズのメンバー{% ifversion ghec %}または外部のコラボレーター{% endif %}がフォークからワークフローを実行する場合に、{% data variables.product.product_location %} に対する {% data variables.product.prodname_actions %} の動作を制御するポリシーを適用できます。
 
 {% ifversion ghec %}
 
-### Enforcing a policy for approval of pull requests from outside collaborators
+### 外部コラボレーターからの pull request の承認のためのポリシーを適用する
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
 {% endif %}
 
+### 非公開リポジトリでのフォーク pull request のポリシーを適用する
+
+{% data reusables.actions.private-repository-forks-overview %}
+
+エンタープライズでポリシーが有効になっている場合は、個々の組織またはリポジトリでポリシーを選択的に無効にすることができます。 エンタープライズでポリシーが無効になっている場合は、個々の組織またはリポジトリでそれを有効にすることはできません。
+
+{% data reusables.actions.private-repository-forks-options %}
+
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.private-repository-forks-configure %}
+
 {% ifversion ghec or ghes or ghae %}
 
-### Enforcing a policy for fork pull requests in private repositories
+## エンタープライズでワークフロー アクセス許可のポリシーを適用する
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.workflow-permissions-intro %}
 
-If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+エンタープライズ、組織、またはリポジトリの設定で、`GITHUB_TOKEN` の既定のアクセス許可を設定できます。 エンタープライズの設定で制限付きオプションを既定値として選択した場合、組織またはリポジトリの設定では、より制限の緩い設定は選択されなくなります。
 
-{% data reusables.github-actions.private-repository-forks-options %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+### 既定の `GITHUB_TOKEN` のアクセス許可の構成
 
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}新しい Enterprise を作成すると、既定では、`GITHUB_TOKEN` には `contents` スコープの読み取りアクセス権のみが付与されます。
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. [ワークフローのアクセス許可] で、`GITHUB_TOKEN` に対して、すべてのスコープでの読み取りと書き込みアクセスを許可するか、`contents` スコープでの読み取りアクセスのみを許可するかを選択します。
 
-## Enforcing a policy for workflow permissions in your enterprise
+   ![このエンタープライズの GITHUB_TOKEN アクセス許可を設定する](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+1. **[保存]** をクリックして設定を適用します。
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+### {% data variables.product.prodname_actions %} による pull request の作成または承認を回避する
 
-You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose the restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+既定では、新しいエンタープライズを作成した場合、ワークフローでの pull request の作成または承認は許可されません。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
-1. **Save（保存）**をクリックして、設定を適用してください。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. [ワークフローのアクセス許可] にある、 **[GitHub Actions での pull request の作成と承認を許可する]** 設定を使用して、`GITHUB_TOKEN` で pull request の作成と承認ができるかどうかを構成します。
+
+   ![このエンタープライズの GITHUB_TOKEN アクセス許可を設定する](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+1. **[保存]** をクリックして設定を適用します。
+
+{% endif %} {% endif %}
+
+{% ifversion actions-cache-policy-apis %}
+
+## エンタープライズでキャッシュ ストレージのポリシーを適用する
+
+{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
+
+ただし、エンタープライズ ポリシーを設定して、各リポジトリの既定の合計キャッシュ サイズと、リポジトリで許可される最大の合計キャッシュ サイズの両方をカスタマイズできます。 たとえば、各リポジトリの既定の合計キャッシュ サイズを 5 GB にする一方で、必要に応じてリポジトリ管理者が合計キャッシュ サイズを最大 15 GB に構成できるようにしたい場合があります。
+
+リポジトリへの管理者アクセス権を持つユーザーは、エンタープライズ ポリシー設定で許可された最大キャッシュ サイズまで、リポジトリの合計キャッシュ サイズを設定できます。
+
+現在、{% data variables.product.prodname_actions %} キャッシュ ストレージのポリシー設定は、REST API を使用してのみ変更できます。
+
+* 現在のエンタープライズ ポリシー設定を表示するには、「[エンタープライズの GitHub Actions キャッシュ利用ポリシーを取得する](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)」を参照してください。
+* エンタープライズ ポリシー設定を変更するには、「[エンタープライズの GitHub Actions キャッシュ利用ポリシーを設定する](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)」を参照してください。
+
+{% data reusables.actions.cache-no-org-policy %}
 
 {% endif %}

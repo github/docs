@@ -6,35 +6,39 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
   fpt: '*'
-shortTitle: Confirmar & revisar los cambios
+shortTitle: Commit & review changes
+ms.openlocfilehash: ecc12722a7d0eebeedc13878972d138ca894db5a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145117554'
 ---
-
 ## Acerca de las confirmaciones
 
 {% data reusables.commits.about-commits %} También puedes agregar un coautor en cualquier confirmación en la que colabores.
 
-{% data reusables.desktop.update-email-address %} Para obtener más información, consulta la sección ["Configurar Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
+{% data reusables.desktop.update-email-address %} Para más información, vea ["Configuración de Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
 
 ## Elegir una rama y realizar cambios
 
-1. [Crear una rama nueva](/desktop/guides/contributing-to-projects/managing-branches) o seleccionar una rama existente haciendo clic en {% octicon "git-branch" aria-label="The branch icon" %}**Current Branch** (Rama actual) en la barra de herramientas y seleccionando la rama de la lista.
+1. [Cree una rama](/desktop/guides/contributing-to-projects/managing-branches) o seleccione una existente; para ello, haga clic en {% octicon "git-branch" aria-label="The branch icon" %} **Rama actual** en la barra de herramientas y seleccione la rama de la lista.
 
-  ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png)
-{% data reusables.desktop.make-changes %}
+  ![Menú desplegable para cambiar la rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png) {% data reusables.desktop.make-changes %}
 
 ## Elige cómo mostrar los diffs
 
 Puedes cambiar la forma en la que se muestran los diffs en {% data variables.product.prodname_desktop %} para que satisfagan tus necesidades de revisión.
 
 Para cambiar la forma en la que ves los diffs, en la esquina superior derecha de la vista del diff, haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
-- Para cambiar la forma en la que se muestra todo el diff, debajo de "visualización de diff", selecciona **Unificada** o **Dividida**. La vista unificada te muestra los cambios de forma linea, mientras que la vista dividida te muestra el contenido antiguo en la parte izquierda y el nuevo en la derecha.
-- Para ocultar los cambios de espacios en blanco para que puedas enfocarte en cambios más sustanciales, selecciona **Ocultar los cambios a los espacios en blanco**.
+- Para cambiar cómo se muestra toda la diferencia, en "Diff display" (Pantalla de diferencias), seleccione **Unified** (Unificada) o **Split** (Dividida). La vista unificada te muestra los cambios de forma linea, mientras que la vista dividida te muestra el contenido antiguo en la parte izquierda y el nuevo en la derecha.
+- A fin de ocultar los cambios de espacios en blanco para que se pueda centrar en cambios más sustanciales, seleccione **Hide Whitespace Changes** (Ocultar los cambios de espacios en blanco).
 
 ![Menú de opción de diff](/assets/images/help/desktop/diff-selection.png)
 
 Si necesitas ver más del archivo que lo que te muestra {% data variables.product.prodname_desktop %} predeterminadamente, puedes expandir el diff.
 - Para ver las siguientes líneas abajo o arriba de los cambios resaltados, haz clic en la flecha de arriba o de abajo de los números de línea.
-- Para seleccionar todo el archivo, haz clic derecho en la vista del diff y haz clic en **Expandir todo el archivo**.
+- Para ver todo el archivo, haga clic con el botón derecho en la vista de diferencias y haga clic en **Expand Whole File** (Expandir todo el archivo).
 
 ![Vista de expansión de diff](/assets/images/help/desktop/expand-diff-view.png)
 
@@ -42,10 +46,10 @@ Si necesitas ver más del archivo que lo que te muestra {% data variables.produc
 
 A medida que realizas cambios en los archivos en tu editor de texto y que los guardas localmente, también verás los cambios en {% data variables.product.prodname_desktop %}.
 
-* El icono rojo {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} hace referencia a los archivos eliminados.
-* El icono amarillo {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} hace referencia a los archivos modificados.
-* El icono verde {% octicon "diff-added" aria-label="The diff added icon color-green" %} hace referencia a los archivos agregados.
-* Para acceder a los cambios acumulados, haz clic en **Stashed Changes** (Cambios acumulados).
+* El icono rojo {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} indica archivos eliminados.
+* El icono amarillo {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} indica archivos modificados.
+* El icono verde {% octicon "diff-added" aria-label="The diff added icon color-green" %} indica archivos agregados.
+* Para acceder a los cambios acumulados, haga clic en **Stashed Changes** (Cambios acumulados).
 
   ![Opción de cambios acumulados](/assets/images/help/desktop/stashed-changes.png)
 * {% data reusables.desktop.commit-all-desc %}
@@ -70,11 +74,9 @@ Los cambios que descartas se guardan en un archivo con fecha en la sección de b
 
 ### Descartar cambios en uno o más archivos
 
-{% data reusables.desktop.select-discard-files %}
-{% data reusables.desktop.click-discard-files %}
+{% data reusables.desktop.select-discard-files %} {% data reusables.desktop.click-discard-files %}
 
-  ![Opción Discard Changes (Descartar cambios) en el menú contextual](/assets/images/help/desktop/discard-changes-mac.png)
-{% data reusables.desktop.confirm-discard-files %}
+  ![Opción Discard Changes (Descartar cambios) en el menú contextual](/assets/images/help/desktop/discard-changes-mac.png) {% data reusables.desktop.confirm-discard-files %}
 
   ![Botón Discard Changes (Descartar cambios) en el cuadro de diálogo de confirmación](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
@@ -83,15 +85,15 @@ Puedes descartar una o más líneas que hayan cambiado y que se hayan dejado de 
 
 {% note %}
 
-**Nota:** Se inhabilita la capacidad para descartar líneas sencillas en los grupos de cmabios que agreguen y eliminen líneas.
+**Nota:** El descarte de líneas sencillas está deshabilitado en los grupos de cambios que agregan y eliminan líneas.
 
 {% endnote %}
 
-Para descartar una línea que se haya agregado, en la lista de líneas que cambiaron, da clic derecho sobre aquella que quieras descartar y selecciona **Descargar línea agregada**.
+Para descartar una línea agregada, en la lista de líneas que han cambiado, haga clic con el botón derecho sobre la que quiera descartar y seleccione **Discard added line** (Descartar línea agregada).
 
   ![Descartar una línea sencilla en el diálogo de confirmación](/assets/images/help/desktop/discard-single-line.png)
 
-Para descartar un grupo de líneas que cambiaron, da clic derecho en la barra vertical a la derecha de los números de línea para aquellas líneas que quieras descartar y luego selecciona **Descartar líneas agregadas**.
+Para descartar un grupo de líneas que han cambiado, haga clic con el botón derecho en la barra vertical situada a la derecha de los números de las líneas que quiera descartar y luego seleccione **Discard added lines** (Descartar líneas agregadas).
 
   ![Descartar un grupo de líneas agregadas en el diálogo de confirmación](/assets/images/help/desktop/discard-multiple-lines.png)
 
@@ -102,7 +104,7 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
 
 {% note %}
 
-**Nota**: {% data reusables.desktop.tags-push-with-commits %} Para obtener más información, consulta la sección "[Administrar las etiquetas](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)".
+**Nota**: {% data reusables.desktop.tags-push-with-commits %} Para más información, vea "[Administración de etiquetas](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)".
 
 {% endnote %}
 
@@ -111,15 +113,21 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
   ![Campo para mensaje de confirmación](/assets/images/help/desktop/commit-message.png)
 1. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir.
 
-  ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png)
-{% data reusables.desktop.commit-button %}
+  ![Adición de un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png) {% data reusables.desktop.commit-button %}
 
-  ![Botón Commit (Confirmar)](/assets/images/help/desktop/commit-button.png)
+  ![Botón Confirmar](/assets/images/help/desktop/commit-button.png)
 4. Si la rama a la que intentas comprometerte está protegida, Desktop te avisará.
-    - Para mover tus cambios, haz clic en **switch btanches (cambiar ramas)**.
-    - Para confirmar tus cambios en la rama protegida, haz clic en **Commit to _BRANCH_****(Enviar a _RAMA)_**.
+    - Para mover los cambios, haga clic en **switch branches** (cambiar ramas).
+    - Para confirmar los cambios en la rama protegida, haga clic en **Confirmar en _RAMA_**.
 
-  Para más información sobre ramas protegidas, ve "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+  Para más información sobre las ramas protegidas, vea "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
 
-  ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
-{% data reusables.desktop.push-origin %}
+  ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png) {% data reusables.desktop.push-origin %}
+
+6. Si tienes una solicitud de incorporación de cambios basada en la rama en la que estás trabajando, {% data variables.product.prodname_desktop %} mostrará el estado de las comprobaciones que se han ejecutado para dicha solicitud. Para obtener más información sobre las comprobaciones, consulta "[Visualización y nueva ejecución de comprobaciones en GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
+
+ ![Visualización de las comprobaciones junto al nombre de la rama](/assets/images/help/desktop/checks-dialog.png)
+
+ Si no se ha creado una solicitud de incorporación de cambios para la rama actual, {% data variables.product.prodname_desktop %} te ofrecerá la opción de crear una. Para obtener más información, consulta "[Creación de una incidencia o una solicitud de incorporación de cambios](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)".
+
+ ![Crear una solicitud de incorporación de cambios](/assets/images/help/desktop/mac-create-pull-request.png)

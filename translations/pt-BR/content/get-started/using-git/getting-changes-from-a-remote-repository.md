@@ -12,47 +12,52 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Obter alterações de um controle remoto
+shortTitle: Get changes from a remote
+ms.openlocfilehash: 11996b33ccedea8169f472feb1804f2eed5a5d9d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145101340'
 ---
-
 ## Opções para obter alterações
 
-Esses comandos são muito úteis ao interagir com [um repositório remote](/github/getting-started-with-github/about-remote-repositories). `clone` e `fetch` baixam códigos remote de uma URL remota do repositório para seu computador, `merge` é usado para mesclar o trabalho de diferentes pessoas com o seu e `pull` é uma combinação de `fetch` e `merge`.
+Esses comandos são muito úteis quando você interage com [um repositório remoto](/github/getting-started-with-github/about-remote-repositories). `clone` e `fetch` baixam o código remoto de uma URL remota de um repositório para o computador local, `merge` é usado para mesclar o trabalho de diferentes pessoas com o seu e `pull` é uma combinação de `fetch` e `merge`.
 
 ## Clonar um repositório
 
-Para capturar uma cópia integral do repositório de outro usuário, use `git clone` desta forma:
+Para obter uma cópia completa do repositório de outro usuário, use `git clone` desta forma:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
-# Clona um repositório em seu computador
+# Clones a repository to your computer
 ```
 
 Você pode escolher entre [várias URLs diferentes](/github/getting-started-with-github/about-remote-repositories) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, esses URLs estarão disponíveis abaixo dos detalhes do repositório:
 
-![Lista de URLs remotas](/assets/images/help/repository/remotes-url.png)
+![Lista de URLs remote](/assets/images/help/repository/remotes-url.png)
 
-Ao executar `git clone`, as seguintes ações ocorrem:
-- Um novo folder denominado `repo` é criado
+Quando você executa `git clone`, as seguintes ações ocorrem:
+- Uma pasta `repo` é criada
 - Ele é inicializado como um repositório Git
-- Um remote nomeado `origin` (origem) é criado, apontando para o URL que você clonou
+- Um repositório remoto chamado `origin` é criado, apontando para a URL da qual você fez o clone
 - Todos os arquivos e commits do repositório são baixados ali
 - O branch-padrão foi desmarcado
 
-Para cada branch `foo` no repositório remote, um branch de acompanhamento remoto correspondente `refs/remotes/origin/foo` é criado em seu repositório local. Normalmente, você pode abreviar os nomes dos branches de acompanhamento remoto para `origin/foo`.
+Para cada branch `foo` no repositório remoto, um branch `refs/remotes/origin/foo` de acompanhamento remoto correspondente é criado no repositório local. Normalmente, você pode abreviar esses nomes de branches de acompanhamento remoto para `origin/foo`.
 
 ## Fazer fetch de um repositório remote
 
-Use `git fetch` para recuperar trabalhos novos feitos por outra pessoas. Fazer fetch de um repositório captura todos os branches de acompanhamento remoto e tags novos *sem* fazer merge dessas alterações em seus próprios branches.
+Use `git fetch` para recuperar o novo trabalho feito por outras pessoas. A busca em um repositório captura todos os novos branches e as tags de acompanhamento remoto *sem* mesclar essas alterações em seus branches.
 
-Se você já tem um repositório local com uma URL remota configurada para o projeto desejado, você pode pegar todas as novas informações usando `git buscar *remotename*` no terminal:
+Se você já tiver um repositório local com uma URL remota configurada para o projeto desejado, poderá capturar todas as novas informações usando `git fetch *remotename*` no terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
-# Faz fetch de atualizações feitas em um repositório remote
+# Fetches updates made to a remote repository
 ```
 
-Caso contrário, você sempre pode adicionar um novo remoto e, em seguida, procurar. Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
+Caso contrário, você sempre pode adicionar um novo remoto e, em seguida, procurar. Para obter mais informações, confira "[Como gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 ## Fazer merge de alterações em seu branch local
 
@@ -62,21 +67,21 @@ Geralmente, você faria um merge de um branch de acompanhamento remoto (por exem
 
 ```shell
 $ git merge <em>remotename</em>/<em>branchname</em>
-# Faz merge de atualizações feitas online com seu trabalho local
+# Merges updates made online with your local work
 ```
 
 ## Fazer pull de alterações de um repositório remote
 
-`git pull` é um atalho conveniente para executar `git fetch` e `git merge` no mesmo comando:
+`git pull` é um atalho conveniente para realizar `git fetch` e `git merge ` no mesmo comando:
 
 ```shell
 $ git pull <em>remotename</em> <em>branchname</em>
-# Captura atualizações online e faz merge delas em seu trabalho local
+# Grabs online updates and merges them with your local work
 ```
 
-Você deve garantir que fez commit de seu trabalho local antes de executar o comando `pull`, pois `pull` faz um merge nas alterações recuperadas. Caso se depare com [um conflito de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) que não consegue resolver, ou se decidir interromper o merge, é possível usar `git merge --abort` para o branch voltar onde estava antes de você fazer o pull.
+Como `pull` executa uma mesclagem nas alterações recuperadas, você deve garantir o commit do trabalho local antes de executar o comando `pull`. Se você encontrar [um conflito de mesclagem](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) que não pode resolver ou se decidir sair da mesclagem, use `git merge --abort` para levar o branch de volta para o local em que estava antes do pull.
 
-## Leia mais
+## Leitura adicional
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
-- "[Solucionar problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}
+- ["Como trabalhar com repositórios remotos" do _livro_ Pro Git](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
+- "[Solução de problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}

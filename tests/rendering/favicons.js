@@ -1,9 +1,11 @@
-import { expect } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
 
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 
 describe('favicon assets', () => {
+  jest.setTimeout(60 * 1000)
+
   it('should serve a valid and aggressively caching /favicon.ico', async () => {
     const res = await get('/favicon.ico')
     expect(res.statusCode).toBe(200)

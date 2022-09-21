@@ -13,18 +13,26 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 140bd1fdb272dd3203b993cf5f5f7038963fafe2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146774573'
 ---
+イシューを削除する機能は、リポジトリが個人用アカウントに所有されているか、組織に所有されているかによって異なります。
+- 個人用アカウントに所有されているリポジトリのイシューを削除できるアカウントは、そのアカウントのみです。
+- 管理者または所有者のアクセス許可を持つアカウントのみが、組織に所有されているリポジトリのイシューを削除できます。
 
-削除できる Issue は自分のユーザアカウントが所有するリポジトリのものだけです。 別のユーザアカウントが所有するリポジトリの Issue は、仮にあなたがコラボレーターであったとしても、削除することはできません。
+  組織に所有されているリポジトリのイシューを削除するには、組織の所有者がその組織のリポジトリに対するイシューの削除を有効にする必要があります。 詳細については、「[Organization 内の Issue の削除を許可する](/articles/allowing-people-to-delete-issues-in-your-organization)」と「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
-Organization が所有するリポジトリの Issue を削除するには、Organization のオーナーが Organization のリポジトリの削除を有効にし、さらに削除する人がそのリポジトリの管理者権限かオーナー権限を持っている必要があります。 詳しい情報については「[OrganizationのIssueの削除を許可する](/articles/allowing-people-to-delete-issues-in-your-organization)」と「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
-
-Issue を削除してもコラボレータには通知されません。 削除された Issue の URL にコラボレータがアクセスすると、その Issue が削除された旨のメッセージが表示されます。 リポジトリの管理者権限かオーナー権限を持っている人にはさらに、Issue を削除した人のユーザ名と、いつ削除されたのかが表示されます。
+イシューが削除されても、コラボレーターには通知されません。 コラボレーターが削除されたイシューの URL にアクセスすると、Web ページが見つからないことを示すメッセージが表示されます (ただし、API を使ってそれが削除されたことを判断できます)。 リポジトリの管理者権限かオーナー権限を持っている人にはさらに、Issue を削除した人のユーザ名と、いつ削除されたのかが表示されます。
 
 1. 削除対象の Issue に移動します。
-2. 右側のバーの [Notifications] の下で、[**Delete issue**] をクリックします。 !["Delete issue" のテキストが Issue ページ右側のバーの下で強調表示されている](/assets/images/help/issues/delete-issue.png)
-4. 削除を確定するには、[**Delete this issue**] をクリックします。
+2. 右側のバーの [通知] の下で、 **[Issue の削除]** をクリックします。
+![[Issue] ページ右側のバーの下で強調表示されている "Issue の削除" テキスト](/assets/images/help/issues/delete-issue.png)
+4. 削除を確認するには、 **[この Issue を削除]** をクリックします。
 
-## 参考リンク
+## 参考資料
 
-- [プルリクエストを Issue にリンクする](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)
+- 「[Pull Request を Issue にリンクする](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)」

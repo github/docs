@@ -1,5 +1,5 @@
 ---
-title: Incluir alterações de uma pull request
+title: Como incorporar alterações de uma solicitação de pull
 intro: 'É possível propor alterações em seu trabalho no {% data variables.product.product_name %} por meio de pull requests. Aprenda como criar, gerenciar e fazer merge de pull requests.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request
@@ -16,9 +16,15 @@ children:
   - /about-pull-request-merges
   - /merging-a-pull-request
   - /automatically-merging-a-pull-request
-  - /adding-a-pull-request-to-the-merge-queue
+  - /merging-a-pull-request-with-a-merge-queue
   - /closing-a-pull-request
   - /reverting-a-pull-request
-shortTitle: Incorporar alterações
+shortTitle: Incorporate changes
+ms.openlocfilehash: d1acfbbe1fa68bdc80363e6e3abb804a1f268316
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127585'
 ---
 

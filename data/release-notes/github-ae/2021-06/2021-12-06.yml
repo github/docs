@@ -1,7 +1,7 @@
 date: '2021-12-06'
 friendlyDate: 'December 6, 2021'
 title: 'December 6, 2021'
-currentWeek: true
+currentWeek: false
 sections:
   features:
     - heading: 'Administration'

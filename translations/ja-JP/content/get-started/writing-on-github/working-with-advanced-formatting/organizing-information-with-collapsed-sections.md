@@ -1,43 +1,50 @@
 ---
-title: Organizing information with collapsed sections
-intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+title: セクションを折りたたんで情報を整理する
+intro: '`<details>` タグで折りたたまれたセクションを作成することで、Markdown を合理化できます。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Collapsed sections
+ms.openlocfilehash: 1a1f0669ce401946f4a7a08dd1fd41893078e3d0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146273099'
 ---
+## 折りたたみセクションの作成
 
-## Creating a collapsed section
+閲覧者が希望により展開できる、折りたたみセクションを作成して、Markdown のセクションを一時的に隠すことができます。 たとえば、すべての閲覧者には関連しない、または興味がある可能性のない技術的な詳細を issue のコメントに含める場合、それらの詳細を折りたたみセクションに配置できます。
 
-You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
+`<details>` ブロック内のすべての Markdown は、閲覧者が {% octicon "triangle-right" aria-label="The right triange icon" %} をクリックして詳細を展開するまで折りたたまれたままです。 {% octicon "triangle-right" aria-label="The right triange icon" %} の右側にラベルを作成するには、`<details>` ブロック内で `<summary>` タグを使用します。
 
-Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %} to expand the details. Within the `<details>` block, use the `<summary>` tag to create a label to the right of {% octicon "triangle-right" aria-label="The right triange icon" %}.
-
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
+</details>
+````
 
-The Markdown will be collapsed by default.
+Markdown はデフォルトで折りたたまれています。
 
-![Rendered collapsed](/assets/images/help/writing/collapsed-section-view.png)
+![折りたたまれてレンダリング](/assets/images/help/writing/collapsed-section-view.png)
 
-After a reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %}, the details are expanded.
+閲覧者が {% octicon "triangle-right" aria-label="The right triange icon" %} をクリックすると、詳細が展開されます。
 
-![Rendered open](/assets/images/help/writing/open-collapsed-section.png)
+![開いてレンダリング](/assets/images/help/writing/open-collapsed-section.png)
 
-## 参考リンク
+## 参考資料
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
-- [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)
+- [Basic writing and formatting syntax (基本的な書き方とフォーマットの構文)](/articles/basic-writing-and-formatting-syntax)

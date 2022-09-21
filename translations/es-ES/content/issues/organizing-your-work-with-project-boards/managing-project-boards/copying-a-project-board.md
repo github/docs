@@ -1,6 +1,6 @@
 ---
-title: Copiar un tablero de proyecto
-intro: Puedes copiar un tablero de proyecto para crear rápidamente un proyecto nuevo. Si copias los tableros de proyecto altamente personalizados o que se usan con frecuencia te ayudará a estandarizar tu flujo de trabajo.
+title: 'Copia de una instancia de {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes copiar una instancia de {% data variables.projects.projects_v1_board %} para crear rápidamente un proyecto. La copia de instancias de {% data variables.projects.projects_v1_boards %} personalizadas o que se usan con frecuencia ayuda a estandarizar el flujo de trabajo.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/copying-a-project-board
   - /articles/copying-a-project-board
@@ -10,24 +10,35 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 055e697d2bb5c7aa1ad4667d24bbe919ede87a99
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423608'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-Copiar un tablero de proyecto te permite volver a usar el título, la descripción y la configuración automática de un tablero de proyecto. Puedes copiar los tableros de proyecto para eliminar el proceso manual de creación de nuevos tableros de proyecto para flujos de trabajo similares.
+La copia de una instancia de {% data variables.projects.projects_v1_board %} te permite reutilizar el título, la descripción y la configuración de automatización de {% data variables.projects.projects_v1_board %}. Puedes copiar instancias de {% data variables.projects.projects_v1_boards %} para eliminar el proceso manual de crear instancias de {% data variables.projects.projects_v1_boards %} para flujos de trabajo similares.
 
-Debes tener acceso de lectura de un tablero de proyecto para copiarlo en un repositorio u organización donde tengas acceso de lectura.
+Debes tener acceso de lectura a una instancia de {% data variables.projects.projects_v1_board %} para copiarla en un repositorio u organización donde tengas acceso de lectura.
 
-Cuando copias un tablero de proyecto a una organización, la visibilidad del tablero de proyecto se predeterminará en privada, con la opción de cambiar la visibilidad. Para obtener más información, consulta "[Cambiar la visibilidad del tablero de proyecto](/articles/changing-project-board-visibility/)".
+Al copiar una instancia de {% data variables.projects.projects_v1_board %} en una organización, la visibilidad de {% data variables.projects.projects_v1_board %} será privada de forma predeterminada, con una opción para cambiarla. Para más información, consulta "[Cambio de la visibilidad de {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility/)".
 
-La automatización del tablero de proyecto también está habilitada por defecto. Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards/)".
+La automatización de una instancia de {% data variables.projects.projects_v1_board %} también está habilitada de forma predeterminada. Para más información, consulta "[Acerca de la automatización para {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards/)".
 
-1. Navega hasta el tablero de proyecto que quieres copiar.
+1. Navega a la instancia de {% data variables.projects.projects_v1_board %} que quieras copiar.
 {% data reusables.project-management.click-menu %}
-3. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, luego haz clic en **Copy** (Copiar). ![Opción para copiar en el menú desplegable desde la barra lateral del tablero de proyecto](/assets/images/help/projects/project-board-copy-setting.png)
-4. Debajo de "Owner" (Propietario), usa el menú desplegable y haz clic en el repositorio o la organización donde deseas copiar el tablero de proyecto. ![Selecciona el propietario del tablero de proyecto copiado desde el menú desplegable](/assets/images/help/projects/copied-project-board-owner.png)
-5. Opcionalmente, debajo de "Project board name" (Nombre del tablero de proyecto), haz clic en el nombre del tablero de proyecto copiado. ![Campo para escribir un nombre para el tablero de proyecto copiado](/assets/images/help/projects/copied-project-board-name.png)
-6. Opcionalmente, debajo de "Description" (Descripción), escribe una descripción del tablero de proyecto copiado que verán otras personas. ![Campo para escribir una descripción para el tablero de proyecto copiado](/assets/images/help/projects/copied-project-board-description.png)
-7. Opcionalmente, debajo de "Automation settings " (Parámetros de automatización), selecciona si deseas copiar los flujos de trabajo automáticos configurados. Esta opción está habilitada por defecto. Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards/)". ![Selecciona los parámetros de automatización para el tablero de proyecto copiado](/assets/images/help/projects/copied-project-board-automation-settings.png)
-{% data reusables.project-management.choose-visibility %}
-9. Haz clic en **Copy project** (Copiar proyecto). ![Botón para confirmar copia](/assets/images/help/projects/confirm-copy-project-board.png)
+3. Haga clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y después en **Copiar**.
+![Opción Copiar en el menú desplegable desde la barra lateral del panel de proyecto](/assets/images/help/projects/project-board-copy-setting.png)
+4. Debajo de "Owner" (Propietario), usa el menú desplegable y haz clic en el repositorio o la organización donde deseas copiar el tablero de proyecto.
+![Selección del propietario del panel de proyecto copiado desde el menú desplegable](/assets/images/help/projects/copied-project-board-owner.png)
+5. Opcionalmente, en "Nombre del panel del proyecto", escribe el nombre de la instancia de {% data variables.projects.projects_v1_board %} copiada.
+![Campo para escribir un nombre para el panel de proyecto copiado](/assets/images/help/projects/copied-project-board-name.png)
+6. Opcionalmente, debajo de "Description" (Descripción), escribe una descripción del tablero de proyecto copiado que verán otras personas.
+![Campo para escribir una descripción para el panel de proyecto copiado](/assets/images/help/projects/copied-project-board-description.png)
+7. Opcionalmente, debajo de "Automation settings " (Parámetros de automatización), selecciona si deseas copiar los flujos de trabajo automáticos configurados. Esta opción está habilitada de forma predeterminada. Para más información, vea "[Acerca de la automatización de paneles de proyecto](/articles/about-automation-for-project-boards/)".
+![Selección de la configuración de automatización para el panel de proyecto copiado](/assets/images/help/projects/copied-project-board-automation-settings.png) {% data reusables.project-management.choose-visibility %}
+9. Haga clic en **Copiar proyecto**.
+![Botón Confirmar copia](/assets/images/help/projects/confirm-copy-project-board.png)

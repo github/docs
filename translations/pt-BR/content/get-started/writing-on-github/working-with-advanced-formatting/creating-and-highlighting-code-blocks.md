@@ -1,6 +1,6 @@
 ---
 title: Criar e realçar blocos de código
-intro: Compartilhe amostras de código com blocos de código isolados e habilitando o realce da sintaxe.
+intro: Compartilhe amostras de código com blocos de código protegidos e habilite o realce de sintaxe.
 redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
@@ -10,12 +10,17 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Crie blocos de código
+shortTitle: Create code blocks
+ms.openlocfilehash: ba0b49795df16fbafc77ef43c6fef58684162709
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882414'
 ---
-
 ## Blocos de código isolados
 
-Você pode criar blocos de código isolados colocando aspas triplas <code>\`\`\`</code> antes e depois do bloco de código. É recomendável colocar uma linha em branco antes e depois dos blocos de código para facilitar a leitura da formação bruta.
+Você pode criar blocos de código isolados colocando acentos graves triplos <code>\`\`\`</code> antes e depois do bloco de código. É recomendável colocar uma linha em branco antes e depois dos blocos de código para facilitar a leitura da formação bruta.
 
 <pre>
 ```
@@ -29,7 +34,7 @@ function test() {
 
 {% tip %}
 
-**Dica:** para preservar sua formatação em uma lista, certifique-se de recuar blocos de código não isolados em oito espaços.
+**Dica:** para preservar sua formatação em uma lista, recue os blocos de código não isolados em oito espaços.
 
 {% endtip %}
 
@@ -39,7 +44,7 @@ Para mostrar aspas tripas em um bloco de código isolado, envolva-os dentro de a
 <pre>
 ````
 ```
-Look! Você pode ver minhas aspas.
+Look! You can see my backticks.
 ```
 ````
 </pre>
@@ -50,7 +55,7 @@ Look! Você pode ver minhas aspas.
 
 ## Realce de sintaxe
 
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 Você pode adicionar um identificador de linguagem opcional para habilitar o realce de sintaxe no bloco de código isolado.
 
@@ -60,21 +65,19 @@ Por exemplo, para código Ruby do realce de sintaxe:
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
-    coloca markdown.to_html
     ```
 
 ![Bloco de código renderizado com realce de sintaxe Ruby](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+Usamos o [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce da sintaxe. Descubra as palavras-chave válidas no [arquivo YAML de linguagens](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Criando diagramas
 
-Você pode usar a sintaxe do Mermaid para adicionar diagramas. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+Você também pode usar blocos de código para criar diagramas em Markdown. O GitHub dá suporte às sintaxes Mermaid, GeoJSON, TopoJSON e ASCII STL. Para obter mais informações, confira "[Como criar diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
+## Leitura adicional
 
-## Leia mais
-
-- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
-- "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"
+- [Especificações do {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
+- "[Sintaxe básica de escrita e formatação](/articles/basic-writing-and-formatting-syntax)"

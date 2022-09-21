@@ -1,6 +1,6 @@
 ---
 title: 缓存依赖项以加快工作流程
-shortTitle: 缓存依赖项
+shortTitle: Caching dependencies
 intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -9,135 +9,129 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
   - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: actions-caching
 type: tutorial
 topics:
   - Workflows
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 558d5f186ce75d9ace6f6c6be63e2e3eaeff3230
+ms.sourcegitcommit: b0323777cfe4324a09552d0ea268d1afacc3da37
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/17/2022
+ms.locfileid: '147580669'
 ---
-
-## 关于缓存工作流程依赖项
+## <a name="about-caching-workflow-dependencies"></a>关于缓存工作流程依赖项
 
 工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
 
-{% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的依赖项。
+{% data variables.product.prodname_dotcom %} 托管的运行器上的 {% ifversion fpt or ghec %} 作业在干净的运行器映像中启动，每次都必须下载依赖项，导致网络利用率提高、运行时间延长和成本增加。 {% endif %}为帮助加快重新创建依赖项等文件，{% data variables.product.prodname_dotcom %} 可以缓存你在工作流中经常使用的文件。
 
-要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
+要缓存作业的依赖项，可以使用 {% data variables.product.prodname_dotcom %} 的 [`cache` 操作](https://github.com/actions/cache)。 该操作创建和还原由唯一键标识的缓存。 或者，如果要缓存下列包管理器，则使用其各自的 setup-* 操作需要最小配置并将为你创建和还原依赖项缓存。
 
-If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
-
-<table>
-<thead>
-  <tr>
-    <th>Package managers</th>
-    <th>setup-* action for caching</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv</td>
-    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| 包管理器 | 用于缓存的 setup-* 操作 |
+|---|---|
+| npm、Yarn、pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
+| pip、pipenv、Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
+| Gradle、Maven | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies) |
+| RubyGems | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) |
+| Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
-**警告**：建议不要在公共仓库缓存中存储任何敏感信息。 例如，敏感信息可以包括存储在缓存路径的文件中的访问令牌或登录凭据。 此外，命令行接口 (CLI) 程序，例如 `docker login`，可以在配置文件中保存访问凭据。 具有读取访问权限的任何人都可以在仓库上创建拉取请求并访问缓存的内容。 仓库的复刻也可在基本分支上创建拉取请求，并在基本分支上访问缓存。
+警告：{% ifversion fpt or ghec %}将缓存与 {% data variables.product.prodname_actions %} 结合使用时，请注意以下几点：
+
+* {% endif %}建议不要在缓存中存储任何敏感信息。 例如，敏感信息可以包括存储在缓存路径的文件中的访问令牌或登录凭据。 此外，命令行接口 (CLI) 程序（例如 `docker login`）可以将访问凭据保存在配置文件中。 具有读取访问权限的任何人都可以在存储库上创建拉取请求并访问缓存的内容。 仓库的复刻也可在基本分支上创建拉取请求，并在基本分支上访问缓存。
+{%- ifversion fpt or ghec %}
+* 使用自托管运行器时，工作流运行中的缓存存储在 {% data variables.product.company_short %} 拥有的云存储上。 客户拥有的存储解决方案仅适用于 {% data variables.product.prodname_ghe_server %}。
+{%- endif %}
 
 {% endwarning %}
 
-## 比较构件和依赖项缓存
+{% data reusables.actions.comparing-artifacts-caching %}
 
-构件与缓存类似，因为它们能够在 {% data variables.product.prodname_dotcom %} 上存储文件，但每项功能都提供不同的用例，不能互换使用。
+有关工作流运行工件的详细信息，请参阅“[使用工件持久保存工作流数据](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
-- 如果要在作业或工作流程运行之间重复使用不经常更改的文件，请使用缓存。
-- 如果要保存作业生成的文件，以便在工作流程结束后查看，则使用构件。 更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
+## <a name="restrictions-for-accessing-a-cache"></a>访问缓存的限制
 
-## 访问缓存的限制
+工作流可以访问和还原当前分支、基础分支（包括复刻的存储库的基本分支）或默认分支（通常是 `main`）中创建的缓存。 例如，在默认分支上创建的缓存可从任何拉取请求访问。 此外，如果分支 `feature-b` 具有基础分支 `feature-a`，则在 `feature-b` 上触发的工作流将有权访问在默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-使用 `cache` 操作的 `v2`，可以访问具有 `GITHUB_REF` 的任何事件所触发的工作流程中的缓存。 如果使用 `cache` 操作的 `v1`，您只能访问由 `push` 和 `pull_request` 事件触发的工作流程中的缓存，`pull_request` `closed` 事件除外。 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
-
-工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
-
-访问限制通过在不同分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
+访问限制通过在不同分支之间创建逻辑边界来提供缓存隔离和安全。 例如，针对分支 `feature-c`（具有基础 `main`）的拉取请求无法访问为分支 `feature-a`（具有基础 `main`）创建的缓存。
 
 仓库中的多个工作流程共享缓存条目。 可以从同一仓库和分支的另一个工作流程访问和恢复为工作流程中的分支创建的缓存。
 
-## 使用 `cache` 操作
+## <a name="using-the-cache-action"></a>使用 `cache` 操作
 
-`cache` 操作将尝试恢复基于您提供的 `key` 的缓存。 当操作找到缓存时，该操作会将缓存的文件还原到您配置的 `path`。
+此 [`cache` 操作](https://github.com/actions/cache)将尝试根据你提供 `key` 的还原缓存。 当操作找到缓存时，该操作会将缓存的文件还原到你配置的 `path`。
 
-如果没有精确匹配，操作在作业成功完成时将创建一个新的缓存条目。 新缓存将使用您提供的 `key` 并包含 `path` 目录中的文件。
+如果没有精确匹配，该操作在作业成功完成时会自动创建一个新缓存。 新缓存将使用你提供的 `key`，并包含你在 `path` 中指定的文件。
 
-当 `key` 与现有缓存不匹配时，您可以选择性提供要使用的 `restore-keys` 列表。 `restore-keys` 列表很有用，因为 `restore-keys` 可以部分匹配缓存密钥。 有关匹配 `restore-keys` 的更多信息，请参阅“[匹配缓存密钥](#matching-a-cache-key)”。
+可以选择提供在 `key` 与现有缓存不匹配时要使用的 `restore-keys` 列表。 从另一个分支还原缓存时，`restore-keys` 列表非常有用，因为 `restore-keys` 可以部分匹配缓存密钥。 有关匹配 `restore-keys` 的详细信息，请参阅“[匹配缓存密钥](#matching-a-cache-key)”。
 
-更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
+### <a name="input-parameters-for-the-cache-action"></a>`cache` 操作的输入参数
 
-### `cache` 操作的输入参数
+- `key`：必要。保存缓存时创建的密钥和用于搜索缓存的密钥。 它可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
+- `path`：必要。运行器上用于缓存或还原的路径。
+  - 可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
 
-- `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
-- `path`：**必要** 运行器上缓存或还原的文件路径。 The path can be an absolute path or relative to the workspace directory.
-  - 路径可以是目录或单个文件，并且支持 glob 模式。
-  - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
     ```
     - name: Cache Gradle packages
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: |
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - 对于 `cache` 操作的 `v1`，仅支持单个路径，它必须是一个目录。 您不能缓存单个文件。
-- `restore-keys`：**可选** `key` 没有发生缓存命中时用于查找缓存的其他密钥顺序列表。
+  - 可以指定目录或单个文件，并且支持 glob 模式。
+  - 可以指定绝对路径或相对于工作区目录的路径。
+- `restore-keys`：可选。包含备用还原键的字符串，每个还原键均放置在一个新行上。 如果 `key` 没有发生缓存命中，则按照提供的顺序依次使用这些还原键来查找和还原缓存。 例如：
 
-### `cache` 操作的输出参数
+  {% raw %}
+  ```yaml
+  restore-keys: |
+    npm-feature-${{ hashFiles('package-lock.json') }}
+    npm-feature-
+    npm-
+  ```
+  {% endraw %}
 
-- `cache-hit`：表示找到了密钥的精确匹配项的布尔值。
+### <a name="output-parameters-for-the-cache-action"></a>`cache` 操作的输出参数
 
-### `cache` 操作使用示例
+- `cache-hit`：表示找到了键的精确匹配项的布尔值。
+
+### <a name="example-using-the-cache-action"></a>使用 `cache` 操作的示例
 
 此示例在 `package-lock.json` 文件中的包更改时，或运行器的操作系统更改时，创建一个新的缓存。 缓存键使用上下文和表达式生成一个键值，其中包括运行器的操作系统和 `package-lock.json` 文件的 SHA-256 哈希。
 
-{% raw %}
 ```yaml{:copy}
 name: Caching with npm
-
 on: push
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        id: cache-npm
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
+            {% raw %}${{ runner.os }}-build-{% endraw %}
+            {% raw %}${{ runner.os }}-{% endraw %}
 
-      - name: Install Dependencies
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
         run: npm install
 
       - name: Build
@@ -146,25 +140,28 @@ jobs:
       - name: Test
         run: npm test
 ```
-{% endraw %}
 
 当 `key` 匹配现有缓存时，被称为缓存命中，并且操作会将缓存的文件还原到 `path` 目录。
 
-当 `key` 不匹配现有缓存时，则被称为缓存错过，在作业成功完成时将创建一个新缓存。 发生缓存错过时，操作将搜索称为 `restore-keys` 的替代键值。
+当 `key` 不匹配现有缓存时，则被称为缓存失误，在作业成功完成时会自动创建一个新缓存。
 
-1. 如果您提供 `restore-keys`，`cache` 操作将按顺序搜索与 `restore-keys` 列表匹配的任何缓存。
-   - 当精确匹配时，操作会将缓存中的文件恢复至 `path` 目录。
-   - 如果没有精确匹配，操作将会搜索恢复键值的部分匹配。 当操作找到部分匹配时，最近的缓存将恢复到 `path` 目录。
-1. `cache` 操作完成，作业中的下一个工作流程步骤运行。
-1. 如果作业成功完成，则操作将创建一个包含 `path` 目录内容的新缓存。
+发生缓存失误时，该操作还会搜索指定的 `restore-keys` 以查找任何匹配项：
 
-要在多个目录中缓存文件，您需要一个对每个目录使用 [`cache`](https://github.com/actions/cache) 操作的步骤。 创建缓存后，无法更改现有缓存的内容，但可以使用新键创建新缓存。
+1. 如果提供 `restore-keys`，`cache` 操作将按顺序搜索与 `restore-keys` 列表匹配的任何缓存。
+   - 当存在精确匹配时，该操作会将缓存中的文件还原到 `path` 目录。
+   - 如果没有精确匹配，操作将会搜索恢复键值的部分匹配。 当操作找到部分匹配时，最近的缓存将还原到 `path` 目录。
+1. `cache` 操作完成，作业中的下一个步骤运行。
+1. 如果作业成功完成，则操作将自动创建一个包含 `path` 目录内容的新缓存。
 
-### 使用上下文创建缓存键
+有关缓存匹配过程的更详细说明，请参阅“[匹配缓存键](#matching-a-cache-key)”。 创建缓存后，无法更改现有缓存的内容，但可以使用新键创建新缓存。
 
-缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+### <a name="using-contexts-to-create-cache-keys"></a>使用上下文创建缓存键
 
-使用表达式创建 `key` 允许您在依赖项更改时自动创建新缓存。 例如，您可以使用计算 npm `package-lock.json` 文件哈希的表达式创建 `key`。
+缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”和“[表达式](/actions/learn-github-actions/expressions)”。
+
+使用表达式创建 `key` 使你能够在依赖项更改时自动创建新缓存。
+
+例如，可以使用可计算 npm `package-lock.json` 文件的哈希的表达式创建 `key`。 因此，当构成 `package-lock.json` 文件的依赖项更改时，缓存键会更改，并自动创建新缓存。
 
 {% raw %}
 ```yaml
@@ -172,47 +169,60 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} 评估表达式 `hash "package-lock.json"` 以派生最终 `key`。
+{% data variables.product.prodname_dotcom %} 计算表达式 `hash "package-lock.json"` 以派生最终的 `key`。
 
 ```yaml
 npm-d5ea0750
 ```
 
-## 匹配缓存键
+### <a name="using-the-output-of-the-cache-action"></a>使用 `cache` 操作的输出
 
-`cache` 操作会先在包含工作流程运行的分支中搜索 `key` 和 `restore-key` 的缓存命中。 如果当前分支中没有命中，`cache` 操作将在父分支和上游分支中搜索 `key` 和 `restore-keys`。
+可以使用 `cache` 操作的输出，以根据发生的是缓存命中还是缓存失误来执行某些操作。 找到指定 `key` 的缓存的精确匹配时，`cache-hit` 输出设置为 `true`。
 
-您可以提供一个出现 `key` 缓存错过时使用的恢复键列表。 您可以创建从最具体到最不具体的多个恢复键。 `cache` 操作按顺序搜索 `restore-keys`。 当键不直接匹配时，操作将搜索以恢复键为前缀的键。 如果恢复键值有多个部分匹配项，操作将返回最近创建的缓存。
+在上面的示例工作流中，有一个步骤会列出发生缓存失误时节点模块的状态：
 
-### 使用多个恢复键值的示例
+```yaml
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
+  name: List the state of node modules
+  continue-on-error: true
+  run: npm list
+```
+
+## <a name="matching-a-cache-key"></a>匹配缓存键
+
+`cache` 操作首先在包含工作流运行的分支中搜索 `key` 和 `restore-keys` 的缓存命中。 如果当前分支中没有命中，`cache` 操作将在父分支和上游分支中搜索 `key` 和 `restore-keys`。
+
+通过 `restore-keys`，你可以指定当 `key` 中发生缓存失误时要使用的备用还原键列表。 您可以创建从最具体到最不具体的多个恢复键。 `cache` 操作按顺序搜索 `restore-keys`。 当键不直接匹配时，操作将搜索以恢复键为前缀的键。 如果恢复键值有多个部分匹配项，操作将返回最近创建的缓存。
+
+### <a name="example-using-multiple-restore-keys"></a>使用多个恢复键值的示例
 
 {% raw %}
 ```yaml
 restore-keys: |
-  npm-foobar-${{ hashFiles('package-lock.json') }}
-  npm-foobar-
+  npm-feature-${{ hashFiles('package-lock.json') }}
+  npm-feature-
   npm-
 ```
 {% endraw %}
 
-运行器将评估表达式，解析为以下 `restore-keys`：
+运行器将计算表达式，这些表达式解析为以下 `restore-keys`：
 
 {% raw %}
 ```yaml
 restore-keys: |
-  npm-foobar-d5ea0750
-  npm-foobar-
+  npm-feature-d5ea0750
+  npm-feature-
   npm-
 ```
 {% endraw %}
 
-恢复键值 `npm-foobar-` 与任何以字符串 `npm-foobar-` 开头的键值匹配。 例如，键值 `npm-foobar-fd3052de` 和 `npm-foobar-a9b253ff` 都与恢复键值匹配。 将使用创建日期最新的缓存。 此示例中的键值按以下顺序搜索：
+还原键 `npm-feature-` 与以字符串 `npm-feature-` 开头的任何键匹配。 例如，`npm-feature-fd3052de` 和 `npm-feature-a9b253ff` 这两个键都与还原键匹配。 将使用创建日期最新的缓存。 此示例中的键值按以下顺序搜索：
 
-1. **`npm-foobar-d5ea0750`** 匹配特定的哈希。
-1. **`npm-foobar-`** 匹配前缀为 `npm-foobar-` 的缓存键值。
-1. **`npm-`** 匹配前缀为 `npm-` 的任何键值。
+1. `npm-feature-d5ea0750` 匹配特定哈希。
+1. `npm-feature-` 匹配前缀为 `npm-feature-` 的缓存键。
+1. `npm-` 匹配前缀为 `npm-` 的任何键。
 
-#### 搜索优先级示例
+#### <a name="example-of-search-priority"></a>搜索优先级示例
 
 ```yaml
 key:
@@ -222,15 +232,30 @@ restore-keys: |
   npm-
 ```
 
-例如，如果拉取请求包含 `feature` 分支（当前范围）并针对默认分支 (`main`)，操作将按以下顺序搜索 `key` 和 `restore-keys`：
+例如，如果拉取请求包含 `feature` 分支，并以默认分支 (`main`) 为目标，则该操作将按以下顺序搜索 `key` 和 `restore-keys`：
 
-1. `feature` 分支范围中的键值 `npm-feature-d5ea0750`
-1. `feature` 分支范围中的键值 `npm-feature-`
-2. `feature` 分支范围中的键值 `npm-`
-1. `main` 分支范围中的键值 `npm-feature-d5ea0750`
-3. `main` 分支范围中的键值 `npm-feature-`
-4. `main` 分支范围中的键值 `npm`
+1. `feature` 分支中的键 `npm-feature-d5ea0750`
+1. `feature` 分支中的键 `npm-feature-`
+1. `feature` 分支中的键 `npm-`
+1. `main` 分支中的键 `npm-feature-d5ea0750`
+1. `main` 分支中的键 `npm-feature-`
+1. `main` 分支中的键 `npm-`
 
-## 使用限制和收回政策
+## <a name="usage-limits-and-eviction-policy"></a>使用限制和收回政策
 
-{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制{% ifversion actions-cache-policy-apis %}。 默认情况下，每个存储库的限制为 10 GB，但根据企业所有者或存储库管理员设置的策略，此限制可能有所不同。{% else %}为 10 GB。{% endif %} 
+
+{% data reusables.actions.cache-eviction-process %}
+
+{% ifversion actions-cache-policy-apis %} 有关更改存储库缓存大小限制的策略的信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)”和“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)”。
+{% endif %}
+
+{% ifversion actions-cache-management %}
+
+## <a name="managing-caches"></a>管理缓存
+
+可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 {% ifversion actions-cache-list-delete-apis %}可以使用 API 列出和删除缓存条目，并查看缓存使用情况。{% elsif actions-cache-management %}目前，可以使用 API 查看缓存使用情况，将来的更新中预期会有更多功能。{% endif %}有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 缓存](/rest/actions/cache)”REST API 文档。
+
+你还可以安装 {% data variables.product.prodname_cli %} 扩展来从命令行管理缓存。 有关扩展的详细信息，请参阅[扩展文档](https://github.com/actions/gh-actions-cache#readme)。 有关 {% data variables.product.prodname_cli %} 扩展的详细信息，请参阅“[使用 GitHub CLI 扩展](/github-cli/github-cli/using-github-cli-extensions)”。
+
+{% endif %}

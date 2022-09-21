@@ -1,34 +1,39 @@
 ---
-title: プロジェクトボードをクローズする
-intro: プロジェクトボードのタスクをすべて完了したか、プロジェクトボードを使う必要がなくなった場合、そのプロジェクトボードをクローズできます。
+title: '{% data variables.product.prodname_project_v1 %} を閉じる'
+intro: '{% data variables.projects.projects_v1_board %} のタスクをすべて完了した場合、または {% data variables.projects.projects_v1_board %} を使う必要がなくなった場合は、{% data variables.projects.projects_v1_board %} を閉じることができます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
   - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fb62345b404e94ddd5a6a22995b9481c9855914d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422709'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-プロジェクトボードをクローズすると、設定されたワークフローの自動化はデフォルトですべて停止します。
+{% data variables.projects.projects_v1_board %} を閉じると、構成されているワークフローの自動化は既定で一時停止します。
 
-プロジェクトボードを再びオープンする場合、自動化を*同期*するよう設定することができます。それにより、ボードに設定されている自動化設定に従ってボード上のカードのポジションが更新されます。 詳しい情報については、「[クローズされたプロジェクトボードを再びオープンする](/articles/reopening-a-closed-project-board)」や「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)」を参照してください。
+{% data variables.projects.projects_v1_board %} をもう一度開く場合は、自動化を "同期" することができます。これにより、ボードに対して構成されている自動化設定に従って、ボード上のカードの位置が更新されます。 詳しくは、「[閉じた {% data variables.product.prodname_project_v1 %} を再度開く](/articles/reopening-a-closed-project-board)」または「[{% data variables.product.prodname_projects_v1 %} の自動化について](/articles/about-automation-for-project-boards)」をご覧ください。
 
-1. リポジトリまたは Organization中にある、あるいはあなたのユーザアカウントが所有するプロジェクトボードの一覧に移動します。
-2. プロジェクトリストで、クローズしたいプロジェクトボードの隣にある {% octicon "chevron-down" aria-label="The chevron icon" %}をクリックします。 ![プロジェクトボードの名前の右にある、V 字型のアイコン](/assets/images/help/projects/project-list-action-chevron.png)
-3. [**Close**] をクリックします。 ![プロジェクトボードのドロップダウンメニューにある [Close] アイテム](/assets/images/help/projects/close-project.png)
+1. リポジトリまたは Organization 内の、または自分の個人アカウントによって所有されている、{% data variables.projects.projects_v1_boards %} の一覧に移動します。
+2. プロジェクトの一覧で、閉じる {% data variables.projects.projects_v1_board %} の横にある {% octicon "chevron-down" aria-label="The chevron icon" %} をクリックします。
+![プロジェクト ボードの名前の右にあるシェブロン アイコン](/assets/images/help/projects/project-list-action-chevron.png)
+3. **[閉じる]** をクリックします。
+![プロジェクト ボードのドロップダウン メニューにある [閉じる] 項目](/assets/images/help/projects/close-project.png)
 
-## 参考リンク
+## 参考資料
 
-- [プロジェクトボードについて](/articles/about-project-boards)
-- [プロジェクトボードの削除](/articles/deleting-a-project-board)
-- [リポジトリ内のプロジェクトボードを無効化](/articles/disabling-project-boards-in-a-repository)
-- "[Organization 内のプロジェクトボードの無効化](/articles/disabling-project-boards-in-your-organization)"
-- [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
+- [{% data variables.product.prodname_projects_v1 %} について](/articles/about-project-boards)
+- [{% data variables.product.prodname_project_v1 %} の削除](/articles/deleting-a-project-board)
+- [リポジトリで {% data variables.product.prodname_projects_v1 %} を無効にする](/articles/disabling-project-boards-in-a-repository)
+- [Organization で {% data variables.product.prodname_projects_v1 %} を無効にする](/articles/disabling-project-boards-in-your-organization)
+- [Organization の {% data variables.product.prodname_project_v1_caps %} へのアクセス許可](/articles/project-board-permissions-for-an-organization)

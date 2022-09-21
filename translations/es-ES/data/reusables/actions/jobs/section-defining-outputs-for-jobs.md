@@ -1,10 +1,20 @@
-You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. Las salidas de un job se encuentran disponibles para todos los jobs descendentes que dependan de este job. Para obtener más información sobre la definición de dependencias, consulta [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
+---
+ms.openlocfilehash: 446bc8429d81d54d38eeaf2852a61d25db17da68
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145186080"
+---
+Puede usar `jobs.<job_id>.outputs` para crear un objeto `map` de salidas para un trabajo. Las salidas de un job se encuentran disponibles para todos los jobs descendentes que dependan de este job. Para más información sobre cómo definir dependencias de trabajo, vea [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
-Las salidas de un job son secuencias, y las salidas de un job que contienen expresiones se evalúan en el ejecutor al final de cada job. Las salidas que contienen secretos se redactan en el ejecutor y no se envían a {% data variables.product.prodname_actions %}.
+{% data reusables.actions.output-limitations %}
 
-Para utilizar salidas de jobs en un job dependiente, puedes utilizar el contexto `needs`. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts#needs-context)".
+Las salidas de un trabajo que incluyen expresiones se evalúan en el ejecutor al final de cada trabajo. Las salidas que contienen secretos se redactan en el ejecutor y no se envían a {% data variables.product.prodname_actions %}.
 
-### Example: Defining outputs for a job
+Para usar salidas de trabajo en un trabajo dependiente, puede utilizar el contexto `needs`. Para más información, vea "[Contextos](/actions/learn-github-actions/contexts#needs-context)".
+
+### Ejemplo: definir salidas para un job
 
 {% raw %}
 ```yaml

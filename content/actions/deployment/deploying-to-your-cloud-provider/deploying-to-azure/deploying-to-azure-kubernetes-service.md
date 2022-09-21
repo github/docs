@@ -20,7 +20,7 @@ topics:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
@@ -55,6 +55,8 @@ This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](ht
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy to Azure Kubernetes Service
 
 env:
@@ -73,7 +75,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
       uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73

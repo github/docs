@@ -15,28 +15,26 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: サブスクリプションの変更の保留
+shortTitle: Pending subscription changes
+ms.openlocfilehash: 75cf19d56b61735ba39ddc943cf5b0c197416035
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145087906'
 ---
-
 アカウントのプランに対する保留中の変更、および他の有料機能や製品へのプランの保留中の変更をキャンセルすることができます。
 
 保留中の変更をキャンセルしても、次回の請求日にプランが変更されることはありません (次回の請求日より前にプランに変更を加えない限り)。
 
 ## 個人アカウントのプランに対する保留中の変更の表示と管理
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ## Organization のプランに対する保留中の変更の表示と管理
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
-{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.review-pending-changes %} {% data reusables.dotcom_billing.cancel-pending-changes %} {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## 参考リンク
+## 参考資料
 
-- "[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)"
+- 「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)

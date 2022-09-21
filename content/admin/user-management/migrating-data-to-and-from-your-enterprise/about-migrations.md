@@ -24,7 +24,7 @@ There are three types of migrations you can perform:
 
 In a migration, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated.
+The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -32,7 +32,7 @@ The items in the table below can be migrated with a repository. Any items not sh
 |---------------------------------------------|--------|
 | Users | **@mentions** of users are rewritten to match the target.
 | Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects.
+| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.

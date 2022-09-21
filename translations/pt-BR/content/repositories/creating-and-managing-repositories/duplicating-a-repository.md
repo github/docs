@@ -13,19 +13,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: c9cc58acd7f3b69ff277830bef8dc50fed02c2b6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127082'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Observação:** se você tem um projeto hospedado em outro sistema de controle de versão, importe automaticamente seu projeto para o {% data variables.product.prodname_dotcom %} usando a ferramenta Importador do {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Sobre o Importador do {% data variables.product.prodname_dotcom %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)".
 
 {% endnote %}
 
 {% endif %}
 
-Antes de fazer push do repositório original para sua nova cópia ou _espelho_ do repositório, você deverá [criar o novo repositório](/articles/creating-a-new-repository) em {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
+Antes de efetuar push do repositório original para a nova cópia ou _espelho_ do repositório, você precisa [criar o repositório](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
 
 ## Espelhar um repositório
 
@@ -36,13 +41,13 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Faça espelhamento/push no novo repositório.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
@@ -54,7 +59,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Navegue até o repositório que você acabou de clonar.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   ```
 4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
@@ -71,7 +76,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
 7. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório em outro local
@@ -96,10 +101,10 @@ Assim como um clone bare, um clone espelhado inclui todos os branches remotes e 
   $ git push --mirror
   ```
 {% ifversion fpt or ghec %}
-## Leia mais
+## Leitura adicional
 
-* "[Enviando por push as alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[Sobre o armazenamento de arquivos grandes do Git e do GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[Como efetuar push das alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[Sobre o Git Large File Storage e o GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
 * "[Sobre o Importador do GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

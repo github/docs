@@ -1,14 +1,14 @@
 ---
-title: Gerenciando a cobrança para o GitHub Codespaces
+title: Managing billing for GitHub Codespaces
 shortTitle: Codespaces
-intro: 'Você pode visualizar seu uso e definir um limite de gastos para {% data variables.product.prodname_codespaces %}.'
+intro: 'You can view your usage and set a spending limit for {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 children:
-  - /about-billing-for-codespaces
-  - /viewing-your-codespaces-usage
-  - /managing-spending-limits-for-codespaces
+  - /about-billing-for-github-codespaces
+  - /viewing-your-github-codespaces-usage
+  - /managing-spending-limits-for-github-codespaces
 ---
 

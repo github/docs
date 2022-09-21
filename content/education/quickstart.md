@@ -15,18 +15,18 @@ In this guide, you'll get started with {% data variables.product.product_name %}
 
 {% tip %}
 
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Applying for a student developer pack](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)."
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
 ## Creating accounts on {% data variables.product.product_name %}
 
-First, you'll need to create a free user account on {% data variables.product.product_name %}.
+First, you'll need to create a free personal account on {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. Follow the prompts to create your free user account.
+1. Follow the prompts to create your free personal account.
 
-After you create your user account, create a free organization account. You'll use this organization account to create and manage classrooms {% data variables.product.prodname_classroom %}.
+After you create your personal account, create a free organization account. You'll use this organization account to create and manage classrooms {% data variables.product.prodname_classroom %}.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -35,9 +35,9 @@ After you create your user account, create a free organization account. You'll u
 
 For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/github/getting-started-with-github/types-of-github-accounts)."
 
-## Applying for an educator discount
+## Applying for teacher benefits
 
-Next, you'll sign up for discounts on services from {% data variables.product.company_short %}. {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -53,13 +53,15 @@ Next, you'll sign up for discounts on services from {% data variables.product.co
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+
 ## Set up {% data variables.product.prodname_classroom %}
 
-With your user account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} is free to use. You can track and manage assignments, grade work automatically, and provide feedback to your students.
+With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} is free to use. You can track and manage assignments, grade work automatically, and provide feedback to your students.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. To authorize {% data variables.product.prodname_classroom %} to access your user account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
-  !["Authorize {% data variables.product.prodname_classroom %}" button for user account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
+  !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
   !["Grant" button for organization](/assets/images/help/classroom/setup-click-grant.png)
   

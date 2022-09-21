@@ -1,5 +1,5 @@
 ---
-title: Guides for GitHub Actions
+title: GitHub Actions 指南
 intro: '{% data variables.product.prodname_actions %} 的这些指南包含具体的使用案例和示例来帮助您配置工作流程。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -13,7 +13,8 @@ learningTracks:
   - continuous_integration
   - continuous_deployment
   - deploy_to_the_cloud
-  - '{% ifversion ghec or ghes or ghae %}adopting_github_actions_for_your_enterprise{% endif %}'
+  - adopting_github_actions_for_your_enterprise_ghec
+  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - hosting_your_own_runners
   - create_actions
 includeGuides:
@@ -71,5 +72,11 @@ includeGuides:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service
+ms.openlocfilehash: 79b3b57f30be1b9cbccd9453d29c6c86f108c944
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145087303'
 ---
 

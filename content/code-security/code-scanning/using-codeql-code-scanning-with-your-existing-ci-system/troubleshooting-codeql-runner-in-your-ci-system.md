@@ -10,7 +10,7 @@ redirect_from:
   - /code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
 versions:
-  feature: 'codeql-runner-supported'
+  feature: codeql-runner-supported
 type: how_to
 topics:
   - Advanced Security

@@ -6,6 +6,7 @@ name: 'Link Checker: All English'
 
 on:
   workflow_dispatch:
+  merge_group:
   push:
     branches:
       - main
@@ -23,33 +24,68 @@ concurrency:
 
 jobs:
   check-links:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.14.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install
         run: npm ci
 
-      # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        with:
-          fileOutput: 'json'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+        run: |
+          # Find the file diff in the pull request or merge group
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            echo __ running gh pr diff __
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            echo __ running git fetch main __
+            git fetch origin main --depth 1
+            echo __ running git diff __
+            DIFF=`git diff --name-only origin/main`
+          else
+            echo __ no head, empty diff __
+            DIFF=''
+          fi
+          # So we can inspect the output
+          echo __ DIFF found __
+          echo $DIFF
 
-      # For verification
-      - name: Show files changed
-        run: cat $HOME/files.json
+          # Formats into single line JSON array, removing any empty strings
+          echo __ format, write to files.json __
+          echo $DIFF | \
+            tr ' ' '\n' | \
+            jq --raw-input | \
+            jq --slurp --compact-output 'map(select(length > 0))' \
+            > $HOME/files.json
 
       - name: Link check (warnings, changed files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          ./script/rendered-content-link-checker.mjs \
+          # Note as of Aug 2022, we *don't* check external links
+          # on the pages you touched in the PR. We could enable that
+          # but it has the added risk of false positives blocking CI.
+          # We are using this script for the daily/nightly checker that
+          # checks external links too. Once we're confident it really works
+          # well, we can consider enabling it here on every content PR too.
+
+          ./script/rendered-content-link-checker.js \
             --language en \
             --max 100 \
             --check-anchors \
@@ -58,8 +94,11 @@ jobs:
             --list $HOME/files.json
 
       - name: Link check (critical, all files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          ./script/rendered-content-link-checker.mjs \
+          ./script/rendered-content-link-checker.js \
             --language en \
             --exit \
             --verbose \

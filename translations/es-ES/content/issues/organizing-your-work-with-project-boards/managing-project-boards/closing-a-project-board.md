@@ -1,34 +1,39 @@
 ---
-title: Cerrar un tablero de proyecto
-intro: 'Si has completado todas las tareas de tu tablero de proyecto o ya no necesitas usar un tablero de proyecto, puedes cerrarlo.'
+title: 'Cierre de una instancia de {% data variables.product.prodname_project_v1 %}'
+intro: 'Si ha completado todas las tareas de un {% data variables.projects.projects_v1_board %} o ya no necesita usar un {% data variables.projects.projects_v1_board %}, puede cerrar los datos {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
   - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fb62345b404e94ddd5a6a22995b9481c9855914d
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147422712'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-Cuando cierras un tablero de proyecto, todas las automatizaciones del flujo de trabajo configuradas se pausarán por defecto.
+Al cerrar una instancia de {% data variables.projects.projects_v1_board %}, cualquier automatización de flujo de trabajo configurada se pausará de forma predeterminada.
 
-Si vuelves a abrir un tablero de proyecto, tienes la opción de *sincronizar* la automatización, lo que actualiza la posición de las tarjetas en el tablero de acuerdo con los parámetros de automatización configurados para el tablero. Para obtener más información, consulta "[Volver a abrir un tablero de proyecto cerrado](/articles/reopening-a-closed-project-board)" o "[Acerca de la automatización de los tableros de proyectos](/articles/about-automation-for-project-boards)".
+Si vuelves a abrir una instancia de {% data variables.projects.projects_v1_board %}, tienes la opción de *sincronizar* la automatización, lo que actualiza la posición de las tarjetas en el panel de acuerdo con la configuración de automatización que hayas configurado para el panel. Para más información, consulta "[Reapertura de una instancia de {% data variables.product.prodname_project_v1 %} cerrada](/articles/reopening-a-closed-project-board)" o "[Acerca de la automatización de {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
-1. Navega hasta la lista de tableros de proyectos en tu repositorio u organización o los que le pertenezcan a tu cuenta de usuario.
-2. En la lista de proyectos, junto al tablero de proyectos que deseas cerrar, haz clic en {% octicon "chevron-down" aria-label="The chevron icon" %}. ![Icono de comillas angulares a la derecha del nombre del tablero de proyecto](/assets/images/help/projects/project-list-action-chevron.png)
-3. Da clic en **Cerrar**. ![Menú desplegable para cerrar elementos en el tablero de proyecto](/assets/images/help/projects/close-project.png)
+1. Navega hasta la lista de instancias de {% data variables.projects.projects_v1_boards %} en tu repositorio u organización, o las que pertenezcan a tu cuenta personal.
+2. En la lista de proyectos, junto a la instancia de {% data variables.projects.projects_v1_board %} que quieras cerrar, haz clic en {% octicon "chevron-down" aria-label="The chevron icon" %}.
+![Icono de botón de contenido adicional a la derecha del nombre del panel de proyecto](/assets/images/help/projects/project-list-action-chevron.png)
+3. Haga clic en **Cerrar**.
+![Menú desplegable para cerrar elementos en el panel de proyecto](/assets/images/help/projects/close-project.png)
 
-## Leer más
+## Información adicional
 
-- "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
-- "[Eliminar un tablero de proyecto](/articles/deleting-a-project-board)"
-- "[Inhabilitar tableros de proyectos en un repositorio](/articles/disabling-project-boards-in-a-repository)"
-- "[Inhabilitar tableros de proyectos en tu organización](/articles/disabling-project-boards-in-a-repository)"
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[Acerca de {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[Eliminación de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
+- "[Deshabilitación de {% data variables.product.prodname_projects_v1 %} en un repositorio](/articles/disabling-project-boards-in-a-repository)"
+- "[Deshabilitación de {% data variables.product.prodname_projects_v1 %} en la organización](/articles/disabling-project-boards-in-your-organization)"
+- "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".

@@ -1,7 +1,7 @@
 ---
-title: Deploying to Azure
+title: 部署到 Azure
 shortTitle: Deploy to Azure
-intro: 'Learn how to deploy to Azure App Service, Azure Kubernetes, and Azure Static Web App as part of your continuous deployment (CD) workflows.'
+intro: 了解作为持续部署 (CD) 工作流程的一部分，如何部署到 Azure App Service、Azure Kubernetes 和 Azure Static Web App。
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,5 +16,11 @@ children:
   - /deploying-docker-to-azure-app-service
   - /deploying-to-azure-static-web-app
   - /deploying-to-azure-kubernetes-service
+ms.openlocfilehash: 3f46da1c3e78358f16221a305fa38d6e0b8ca80f
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145084697'
 ---
 

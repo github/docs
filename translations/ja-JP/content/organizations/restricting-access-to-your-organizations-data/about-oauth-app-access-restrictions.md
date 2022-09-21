@@ -1,6 +1,6 @@
 ---
 title: OAuthアプリケーションのアクセス制限について
-intro: 'Organizations can choose which {% data variables.product.prodname_oauth_apps %} have access to their repositories and other resources by enabling {% data variables.product.prodname_oauth_app %} access restrictions.'
+intro: 'Organizationは、{% data variables.product.prodname_oauth_app %}アクセス制限を有効化することによって、Organizationのリポジトリやその他のリソースにどの{% data variables.product.prodname_oauth_apps %}がアクセスできるかを選択できます。'
 redirect_from:
   - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
@@ -11,43 +11,46 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: OAuth Appのアクセス
+shortTitle: OAuth App access
+ms.openlocfilehash: 43e12066ec9381a94fe45187d066300479aa495e
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145140619'
 ---
-
 ## OAuthアプリケーションのアクセス制限について
 
-{% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されると、Organizationのメンバーは{% data variables.product.prodname_oauth_app %}のOrganizationのリソースへのアクセスを認可できなくなります。 Organization members can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests.
+{% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されると、Organizationのメンバーは{% data variables.product.prodname_oauth_app %}のOrganizationのリソースへのアクセスを認可できなくなります。 Organizationのメンバーは、使用したい{% data variables.product.prodname_oauth_apps %}の承認をオーナーにリクエストでき、Organizationオーナーは保留になっているリクエストの通知を受信します。
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
 {% tip %}
 
-**Tip：**Organizationが{% data variables.product.prodname_oauth_app %}のアクセス制限をセットアップしていない場合、Organizationのメンバーが認可したすべての{% data variables.product.prodname_oauth_app %}は、Organizationのプライベートリソースにアクセスできます。
+**Tip**: 組織が {% data variables.product.prodname_oauth_app %} のアクセス制限を設定していない場合、組織のメンバーが認可したすべての {% data variables.product.prodname_oauth_app %} は、組織のプライベート リソースにもアクセスできます。
 
 {% endtip %}
 
-{% ifversion fpt %}
-To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
+{% ifversion fpt %} 組織のリソースをさらに保護するために、SAML シングル サインオンのようなセキュリティ機能を備えた {% data variables.product.prodname_ghe_cloud %} にアップグレードすることができます。 {% data reusables.enterprise.link-to-ghec-trial %} {% endif %}
 
 ## {% data variables.product.prodname_oauth_app %}のアクセス制限のセットアップ
 
 Organizationのオーナーが{% data variables.product.prodname_oauth_app %}のアクセス制限を初めてセットアップする場合、以下のようになります。
 
-- **Organizationが所有するアプリケーション**には、自動的にOrganizationのリソースへのアクセスが与えられます。
-- **{% data variables.product.prodname_oauth_apps %}** immediately lose access to the organization's resources.
-- **2014年の2月以前に作成されたSSHキー**は、Organizationのリソースへのアクセスを即座に失います（これにはユーザ及びデプロイキーが含まれます）。
-- **SSH keys created by {% data variables.product.prodname_oauth_apps %} during or after February 2014** immediately lose access to the organization's resources.
-- **Hook deliveries from private organization repositories** will no longer be sent to unapproved {% data variables.product.prodname_oauth_apps %}.
-- **API access** to private organization resources is not available for unapproved {% data variables.product.prodname_oauth_apps %}. 加えて、パブリックなOrganizationリソースの作成、更新、削除のアクションの権限はありません。
-- **ユーザが作成したフック及び2014年の5月以前に作成されたフック**には影響ありません。
-- **Organizationが所有するリポジトリのプライベートフォーク**は、Organizationのアクセス制限に従います。
+- **組織が所有するアプリケーション** には、組織のリソースへのアクセスが自動的に付与されます。
+- **{% data variables.product.prodname_oauth_apps %}** は、組織のリソースへのアクセスを即座に失います。
+- **2014 年 2 月以前に作成された SSH キー** は、組織のリソースへのアクセスを即座に失います (これにはユーザーおよびデプロイ キーが含まれます)。
+- **2014 年 2 月中、あるいはそれ以降に {% data variables.product.prodname_oauth_apps %} によって作成された SSH キー** は、組織のリソースへのアクセスを即座に失います。
+- **プライベートの組織リポジトリからのフックの配信** は、承認されていない {% data variables.product.prodname_oauth_apps %} には送信されなくなります。
+- 承認されていない {% data variables.product.prodname_oauth_apps %} でのプライベートな組織のリソースへの **API アクセス** はできなくなります。 加えて、パブリックなOrganizationリソースの作成、更新、削除のアクションの権限はありません。
+- **ユーザーが作成したフックおよび 2014 年 5 月より前に作成されたフック** には影響ありません。
+- **組織が所有するリポジトリのプライベート フォーク** は、組織のアクセス制限に従います。
 
 ## SSHアクセスの失敗の解決
 
 {% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されたOrganizationへのアクセスを2014年2月以前に作成されたSSHキーが失った場合、それ以降のSSHアクセスの試行は失敗します。 ユーザには、キーを認可できる、あるいは信頼されたキーをそこにアップロードできるURLを示すエラーメッセージが返されます。
 
-## webhook
+## Webhooks
 
 {% data variables.product.prodname_oauth_app %}が制限が有効化された後のOrganizationへのアクセスを許可された場合、その{% data variables.product.prodname_oauth_app %}が作成した既存のwebhookは、ディスパッチを再開します。
 
@@ -57,12 +60,12 @@ Organizationが以前に認可された{% data variables.product.prodname_oauth_
 
 Organizationが{% data variables.product.prodname_oauth_app %}のアクセスアプリケーション制限を無効化し、後に再び有効化した場合、以前に認可されていた{% data variables.product.prodname_oauth_app %}は自動的にOrganizationのリソースへのアクセスを許可されます。
 
-## 参考リンク
+## 参考資料
 
-- [Organizationの{% data variables.product.prodname_oauth_app %}アクセス制限の有効化](/articles/enabling-oauth-app-access-restrictions-for-your-organization)
-- "[Approving {% data variables.product.prodname_oauth_apps %} for your organization](/articles/approving-oauth-apps-for-your-organization)"
-- [Organizationにインストールされたインテグレーションのレビュー](/articles/reviewing-your-organization-s-installed-integrations)
-- [Organizationに以前に承認された{% data variables.product.prodname_oauth_app %}へのアクセスの拒否](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)
-- [Organizationの{% data variables.product.prodname_oauth_app %}アクセス制限の無効化](/articles/disabling-oauth-app-access-restrictions-for-your-organization)
-- "[Requesting organization approval for {% data variables.product.prodname_oauth_apps %}](/articles/requesting-organization-approval-for-oauth-apps)"
-- 「[{% data variables.product.prodname_oauth_apps %} を認可する](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)」
+- 「[組織に対する {% data variables.product.prodname_oauth_app %} のアクセス制限を有効にする](/articles/enabling-oauth-app-access-restrictions-for-your-organization)」
+- 「[組織の {% data variables.product.prodname_oauth_apps %} を承認する](/articles/approving-oauth-apps-for-your-organization)」
+- 「[組織のインストール済み統合を確認する](/articles/reviewing-your-organization-s-installed-integrations)」
+- 「[組織に対して以前に承認した {% data variables.product.prodname_oauth_app %} へのアクセスを拒否する](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)」
+- 「[組織に対する {% data variables.product.prodname_oauth_app %} のアクセス制限を無効にする](/articles/disabling-oauth-app-access-restrictions-for-your-organization)」
+- 「[{% data variables.product.prodname_oauth_apps %} に対する組織の承認を要求する](/articles/requesting-organization-approval-for-oauth-apps)」
+- 「[{% data variables.product.prodname_oauth_apps %} の承認](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)」

@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Documentación de la Ayuda'
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
@@ -9,23 +9,30 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
+redirect_from:
+  - /github
+  - /articles
+  - /common-issues-and-questions
+  - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
   - repositories
-  - github
   - admin
   - billing
+  - site-policy
   - organizations
   - code-security
   - pull-requests
   - issues
   - actions
+  - copilot
   - codespaces
   - packages
   - search-github
@@ -43,57 +50,59 @@ children:
   - support
 childGroups:
   - name: Get started
-    octicon: 'RocketIcon'
+    octicon: RocketIcon
     children:
-    - get-started
-    - account-and-profile
-    - authentication
-    - billing
+      - get-started
+      - account-and-profile
+      - authentication
+      - billing
+      - site-policy
   - name: Collaborative coding
-    octicon: 'CommentDiscussionIcon'
+    octicon: CommentDiscussionIcon
     children:
-    - codespaces
-    - repositories
-    - pull-requests
-    - discussions
+      - codespaces
+      - repositories
+      - pull-requests
+      - discussions
+      - copilot
   - name: CI/CD and DevOps
-    octicon: 'GearIcon'
+    octicon: GearIcon
     children:
-    - actions
-    - packages
-    - pages
+      - actions
+      - packages
+      - pages
   - name: Security
-    octicon: 'ShieldLockIcon'
+    octicon: ShieldLockIcon
     children:
-    - code-security
+      - code-security
   - name: Client apps
-    octicon: 'DeviceMobileIcon'
+    octicon: DeviceMobileIcon
     children:
-    - github-cli
-    - desktop
+      - github-cli
+      - desktop
   - name: Project management
-    octicon: 'ProjectIcon'
+    octicon: ProjectIcon
     children:
-    - issues
-    - search-github
+      - issues
+      - search-github
   - name: Developers
-    octicon: 'MarkGithubIcon'
+    octicon: CodeSquareIcon
     children:
-    - developers
-    - rest
-    - graphql
+      - developers
+      - rest
+      - graphql
   - name: Enterprise and Teams
-    octicon: 'OrganizationIcon'
+    octicon: OrganizationIcon
     children:
-    - organizations
-    - admin
+      - organizations
+      - admin
   - name: Community
-    octicon: 'GlobeIcon'
+    octicon: GlobeIcon
     children:
-    - communities
-    - sponsors
-    - education
-    - support
+      - communities
+      - sponsors
+      - education
+      - support
 externalProducts:
   atom:
     id: atom
@@ -115,4 +124,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
+ms.openlocfilehash: dfd88a0c13da67bf929a5f5334e73319c04ad394
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147643849'
 ---
+

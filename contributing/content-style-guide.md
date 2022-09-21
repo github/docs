@@ -56,11 +56,10 @@ Within code blocks:
     ```
 
   - **Avoid**:
- 
+
     ```
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
-
 
 ### Commands
 
@@ -94,6 +93,15 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### File and directory names
+
+Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+
+- **Use:** In your `README.md` file, add info about your repository.
+- **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
+- **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
+- **Avoid:** Delete the **example.js** file.
+
 ### Indentation
 
 In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
@@ -102,11 +110,11 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
 
 ```yaml
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
-          python-version: ${{ matrix.python }}
+          python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
 ### Scheduled workflows
@@ -121,6 +129,8 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
+
+Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
@@ -230,13 +240,18 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
+Introduce links consistently using a standard format that clearly indicates where we’re linking.
+For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+For links to another section in the same article: `For more information, see "[Header text]()."`
+For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
+- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -257,6 +272,16 @@ To link to the same article in a different version, use this format:
 > For more information, see [the VERSION documentation]().
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to specific sections of articles
+
+When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
+
+To link to a specific header in the same article, use this format:
+> For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+
+To link to a specific header in a different article, use this format:
+> For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
 
 ### Links to learning paths
 
@@ -322,14 +347,36 @@ Take care to distinguish between product names and product elements. For more in
 | Product | Element |
 | --- | --- |
 | GitHub Actions | an action |
+| GitHub Codespaces | a codespace |
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
 ## Product-specific conventions
 
-This section describes additional conventions that are specific to GitHub products. 
+This section describes additional conventions that are specific to GitHub products.
 
 ### GitHub Actions
+
+#### Reusables for first-party actions
+
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+
+Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
+
+For example, to use the `actions/checkout` action in an example, use its reusable:
+
+```yaml
+steps:
+  - name: Checkout
+    uses: {% data reusables.actions.action-checkout %}
+```
+
+For GitHub Docs purposes, a first-party action is any action that has the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/checkout@main
+```
 
 #### Disclaimers for third-party actions
 
@@ -341,7 +388,7 @@ Code examples that use third-party actions must include the following disclaimer
 # separate terms of service, privacy policy, and support
 # documentation.
 ```
-To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example:
 
 ```
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -351,7 +398,7 @@ For GitHub Docs purposes, a third-party action is any action that doesn't have t
 
 ```
 steps:
-  - uses: actions/javascript-action@main
+  - uses: actions/checkout@main
 ```
 
 This is an example of a third-party action:
@@ -364,7 +411,7 @@ steps:
 Examples:
 - See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
 
-### Pinning version numbers to SHA
+#### Pinning version numbers to SHA
 
 Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
 
@@ -381,6 +428,20 @@ steps:
 ```
 
 For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
+### GitHub Codespaces
+
+When referring to the product GitHub Codespaces, always include "GitHub", except in these circumstances:
+* In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
+* In subheadings within an article, if "GitHub Codespaces" has already been used anywhere in the article prior to the subheading.
+
+Variables: `{% data variables.product.prodname_github_codespaces %}` ("GitHub Codespaces") and `{% data variables.product.prodname_codespaces %}` ("Codespaces").
+
+When referring to instances of remote working environments created with this technology, refer to these as "codespaces" (lowercase c). For example, "to delete your codespace" or "to list your codespaces."
+
+Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
+
+Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
 ## Punctuation
 
@@ -410,7 +471,7 @@ We use short titles to populate the sidebar navigation. They should give users c
   - Remove repeated words possible
 - Don’t introduce new words in short titles that aren’t in the full title
 - Short titles should be parallel to short titles for similar content
-  - **Use:** 
+  - **Use:**
     - Organizations and teams
     - Enterprise accounts
 - Short titles should still mimic format of the full title
@@ -490,7 +551,7 @@ Microsoft Style Guide:
 
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. For more information, see “[Voice](https://brand.github.com/content/voice)” in GitHub’s Brand Guide. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
@@ -510,12 +571,60 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 ### Accounts
 
-To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products.
-- **Use:** Your organization account
-- **Use:** Your user account on GitHub Enterprise Cloud
+#### Product names and accounts
+
+To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of accounts available in GitHub's products, see "[Types of GitHub accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts)."
+- **Use:** Your organization on GitHub Enterprise Cloud
+- **Avoid:** Your GitHub Enterprise Cloud account
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
+#### Individual people's accounts on GitHub
+
+We refer to an account that an individual person signs into in various ways depending on the context.
+
+Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account." This creates consistency with the UI and prevents readers from being confused by seeing two terms that mean the same thing.
+
+- **Use:** Managing scheduled reminders for your personal account
+- **Avoid:** Managing scheduled reminders for your user account
+
+#### Accounts for enterprise products
+
+With GitHub's enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
+
+- [GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+- [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+- [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+
+If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
+
+- GitHub Enterprise Cloud with Enterprise Managed Users
+  - **Use:** With Enterprise Managed Users, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With Enterprise Managed Users, you can create and manage the personal accounts for your enterprise members.
+- GitHub Enterprise Server
+  - **Use:** If you need to temporarily take over a user account...
+  - **Avoid:** If you need to temporarily take over a personal account...
+- GitHub AE
+  - **Use:** Authorized users can access your enterprise from any IP address.
+  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
+
+The following documentation should reference "user accounts."
+
+- The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
+- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
+- Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+
+For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Users, use "personal account" when describing members of organizations owned by the enterprise.
+
+- **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on GitHub.com.
+- **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on GitHub.com.
+
+Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
+
+#### People's accounts for other services
+
+When you describe a person's account for a service other than GitHub, such as an integration or authentication provider, use "user account."
 ### Acronyms
 
 Spell out acronyms the first time they’re used in an article, except in titles or headers.
@@ -532,7 +641,7 @@ GitHub Apps is always capitalized, because it’s a feature name.
 
 ### Currency
 
-When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible.
 
 Use lowercase for currency names, but capitalize the reference to the country or region.
 - **Use:** US dollar.
@@ -561,7 +670,7 @@ See the “Inclusive language” section of this guide.
 
 ### Permissions
 
-A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission. 
+A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission.
 
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
@@ -586,7 +695,7 @@ When specifying the access required to take an action, refer only to the role at
 - **Use:** `People with write access to a repository can do X to the repository.`
 - **Avoid:** `Organization owners and people with write access can do X to the repository.`
 
-For more information about word choice for permissions statments, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
+For more information about word choice for permissions statements, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
 
 ### Prepositions
 
@@ -594,7 +703,7 @@ Avoid ending a sentence with a preposition unless the rewritten sentence would s
 
 ### Product names
 
-See the “Product names” section of this guide.
+See the “[Product names](#product-names)” section of this guide.
 
 ### Terms to use or avoid
 

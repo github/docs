@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { getDOM } from '../helpers/supertest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 describe('webhooks events and payloads', () => {

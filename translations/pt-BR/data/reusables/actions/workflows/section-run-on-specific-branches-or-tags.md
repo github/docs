@@ -1,23 +1,31 @@
+---
+ms.openlocfilehash: 4e50754bfa8075681d503e689df630855eedbbab
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145083800"
+---
 
-When using the `push` event, you can configure a workflow to run on specific branches or tags.
+Ao usar o evento `push`, você pode configurar um fluxo de trabalho para ser executado em marcas ou em branches específicos.
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+Use o filtro `branches` quando quiser incluir padrões de nomes de branches ou quando quiser incluir e excluir padrões de nomes de branches. Use o filtro `branches-ignore` quando quiser excluir apenas padrões de nomes de branches. Não é possível usar os filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho.
 
-Use the `tags` filter when you want to include tag name patterns or when you want to both include and exclude tag names patterns. Use the `tags-ignore` filter when you only want to exclude tag name patterns. You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow.
+Use o filtro `tags` quando quiser incluir padrões de nomes de marcas ou quando quiser incluir e excluir padrões de nomes de marcas. Use o filtro `tags-ignore` quando quiser excluir apenas padrões de nomes de marcas. Não é possível usar os filtros `tags` e `tags-ignore` para o mesmo evento em um fluxo de trabalho.
 
-If you define only `tags`/`tag-ignore` or only `branches`/`branches-ignore`, the workflow won't run for events affecting the undefined Git ref. If you define neither  `tags`/`tag-ignore` or `branches`/`branches-ignore`, the workflow will run for events affecting either branches or tags. If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+Se você definir apenas `tags`/`tags-ignore` ou apenas `branches`/`branches-ignore`, o fluxo de trabalho não será executado para eventos que afetam a referência indefinida do Git. Se você não definir `tags`/`tags-ignore` nem `branches`/`branches-ignore`, o fluxo de trabalho será executado para eventos que afetam branches ou marcas. Se você definir `branches`/`branches-ignore` e [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), o fluxo de trabalho só será executado quando ambos os filtros forem atendidos.
 
-As palavras-chave `branches`, `branches-ignore`, `tags`, and `tags-ignore` aceitam padrões do glob que usam caracteres como `*`, `**`, `+`, `?`, `!` e outros para corresponder a mais de um nome do branch ou tag. Se um nome contiver qualquer um desses caracteres e você quiser uma correspondência literal, você deverá *escapar* de cada um desses caracteres especiais com `\`. Para obter mais informações sobre padrões de glob, consulte a "[Folha de informações para filtrar padrões](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+As palavras-chave `branches`, `branches-ignore`, `tags` e `tags-ignore` aceitam padrões glob que usam caracteres como `*`, `**`, `+`, `?`, `!` e outros para corresponder a mais de um nome de marca ou de branch. Se um nome contiver um desses caracteres e você quiser ter uma correspondência literal, *faça escape* de cada um desses caracteres especiais com `\`. Para obter mais informações sobre padrões glob, confira a "[Folha de referências de padrões de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Exemplo: Incluindo branches e tags
 
-Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao nome do Git ref. For example, the following workflow would run whenever there is a `push` event to:
+Os padrões definidos em `branches` e `tags` são avaliados em relação ao nome de referência do Git. Por exemplo, o seguinte fluxo de trabalho será executado sempre que houver um evento `push` para:
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
+- Um branch chamado `main` (`refs/heads/main`)
+- Um branch chamado `mona/octocat` (`refs/heads/mona/octocat`)
+- Um branch cujo nome começa com `releases/`, como `releases/10` (`refs/heads/releases/10`)
+- Uma marca chamada `v2` (`refs/tags/v2`)
+- Uma marca cujo nome começa com `v1.`, como `v1.9.1` (`refs/tags/v1.9.1`)
 
 ```yaml
 on:
@@ -33,14 +41,14 @@ on:
       - v1.*
 ```
 
-#### Example: Excluding branches and tags
+#### Exemplo: Excluindo branches e tags
 
-When a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao nome do Git ref. For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
+Quando um padrão corresponder ao padrão `branches-ignore` ou `tags-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches` e `tags` são avaliados em relação ao nome de referência do Git. Por exemplo, o seguinte fluxo de trabalho será executado sempre que houver um evento `push`, a menos que o evento `push` seja para:
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
+- Um branch chamado `mona/octocat` (`refs/heads/mona/octocat`)
+- Um branch cujo nome corresponde a `releases/**-alpha`, como `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- Uma marca chamada `v2` (`refs/tags/v2`)
+- Uma marca cujo nome começa com `v1.`, como `v1.9` (`refs/tags/v1.9`)
 
 ```yaml
 on:
@@ -55,18 +63,18 @@ on:
       - v1.*
 ```
 
-#### Example: Including and excluding branches and tags
+#### Exemplo: Incluindo e excluindo branches e tags
 
-You can't use `branches` and `branches-ignore` to filter the same event in a single workflow. Similarly, you can't use `tags` and `tags-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch or tag patterns for a single event, use the `branches` or `tags` filter along with the `!` character to indicate which branches or tags should be excluded.
+Não é possível usar `branches` e `branches-ignore` para filtrar o mesmo evento em um fluxo de trabalho individual. Da mesma forma, não é possível usar `tags` e `tags-ignore` para filtrar o mesmo evento em um fluxo de trabalho individual. Caso deseje incluir e excluir padrões de branch para um evento individual, use o filtro `branches` ou `tags` com o caractere `!` para indicar as marcas ou os branches que devem ser excluídos.
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead. Similarly, if you define a tag with the `!` character, you must also define at least one tag without the `!` character. If you only want to exclude tags, use `tags-ignore` instead.
+Se você definir um branch com o caractere `!`, também precisará definir, pelo menos, um branch sem o caractere `!`. Caso deseje apenas excluir os branches, use `branches-ignore`. Da mesma forma, se você definir uma marca com o caractere `!`, também precisará definir, pelo menos, uma marca sem o caractere `!`. Caso deseje apenas excluir as marcas, use `tags-ignore`.
 
-A ordem de definição dos padrões é importante.
+A ordem na qual você define os padrões é importante.
 
-- Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
+- Um padrão de correspondência negativa (precedido por `!`) após uma correspondência positiva excluirá a referência do Git.
 - Um padrão positivo correspondente após uma correspondência negativa incluirá a Git ref novamente.
 
-O fluxo de trabalho a seguir será executado em pushes para `releases/10` ou `releases/beta/mona`, mas não em `releases/10-alpha` ou `releases/beta/3-alpha`, pois o padrão negativo `!releases/**-alpha` está na sequência do padrão positivo.
+O fluxo de trabalho a seguir será executado em pushes para `releases/10` ou `releases/beta/mona`, mas não em `releases/10-alpha` ou `releases/beta/3-alpha` porque o padrão `!releases/**-alpha` negativo vem após o padrão positivo.
 
 ```yaml
 on:

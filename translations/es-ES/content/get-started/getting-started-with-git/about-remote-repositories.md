@@ -16,83 +16,85 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 3b328831e09b62dce320ce2c230151e15d1b430b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145112073'
 ---
-
 ## Acerca de los repositorios remotos
 
 Una URL remota es la manera de Git de decir "el lugar donde se almacena tu código". Esa URL podría ser tu repositorio en GitHub o la bifurcación de otro usuario o incluso en un servidor completamente diferente.
 
 Solo puedes subir a dos tipos de direcciones URL:
 
-* Una URL HTTPS como `https://{% data variables.command_line.backticks %}/user/repo.git`
-* Una URL SSH como `git@{% data variables.command_line.backticks %}:user/repo.git`
+* Una dirección URL HTTPS, como `https://{% data variables.command_line.backticks %}/user/repo.git`
+* Una dirección URL SSH, como `git@{% data variables.command_line.backticks %}:user/repo.git`
 
-Git asocia una URL remota con un nombre y tu remoto predeterminado generalmente se llama `origen`.
+Git asocia una URL remota con un nombre y el repositorio remoto predeterminado normalmente tiene el nombre `origin`.
 
 ## Crear repositorios remotos
 
-Puedes usar el comando `git remote add` para hacer coincidir una URL remota con un nombre. Por ejemplo, escribirás lo siguiente en la línea de comandos:
+Puede usar el comando `git remote add` para comparar una dirección URL remota con un nombre.
+Por ejemplo, escribirás lo siguiente en la línea de comandos:
 
 ```shell
 git remote add origin <em> &lt;REMOTE_URL> </em>
 ```
 
-Esto asocia el nombre `origin` con `REMOTE_URL`.
+Esto asocia el nombre `origin` a `REMOTE_URL`.
 
-Puedes usar el comando `git remote set-url` para [cambiar la URL de un remoto](/github/getting-started-with-github/managing-remote-repositories).
+Puede usar el comando `git remote set-url` para [cambiar la dirección URL de un repositorio remoto](/github/getting-started-with-github/managing-remote-repositories).
 
 ## Elegir una URL para tu repositorio remoto
 
 Existen varias formas de clonar los repositorios disponibles en {% data variables.product.product_location %}.
 
-Cuando ves un repositorio mientras estás registrado en tu cuenta, las URL que puedes utilizar para clonar el proyecto en tu computadora están disponibles debajo de los detalles del repositorio.
+Cuando examina un repositorio mientras ha iniciado sesión en la cuenta, las URL que puede utilizar para clonar el proyecto en el equipo están disponibles debajo de los detalles del repositorio.
 
-Para obtener más información sobre cómo configurar o cambiar tu URL remota, consulta la sección "[Administrar los repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)".
+Para obtener información sobre cómo establecer o cambiar la dirección URL remota, vea "[Administración de repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 ## Clonar con las URL con HTTPS
 
-Las URL clon `https://` se encuentran disponibles en todos los repositorios, sin importar su visibilidad. Las URL clon `https://` funcionan aún si estás detrás de un cortafuegos o de un proxy.
+Las direcciones URL de clonación `https://` están disponibles en todos los repositorios, independientemente de la visibilidad. Las URL de clonación `https://` funcionan incluso si está detrás de un cortafuegos o proxy.
 
-Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un repositorio mendiante URL con HTTPS en la línea de comando, Git te pedirá tu nombre de usuario y contraseña de {% data variables.product.product_name %}. {% data reusables.user-settings.password-authentication-deprecation %}
+Al usar `git clone`, `git fetch`, `git pull` o `git push` para acceder a un repositorio remoto mediante direcciones URL HTTPS en la línea de comandos, Git le solicitará el nombre de usuario y la contraseña de {% data variables.product.product_name %}. {% data reusables.user-settings.password-authentication-deprecation %}
 
 {% data reusables.command_line.provide-an-access-token %}
 
 {% tip %}
 
-**Tips**:
-- Puedes utilizar un asistente de credenciales para que Git recuerde tus credenciales de {% data variables.product.prodname_dotcom %} cada que habla con {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[ Almacenar tus credencialesde {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
-- Para clonar un repositorio sin autenticarse en {% data variables.product.product_name %} desde la línea de comando, puedes utilizar {% data variables.product.prodname_desktop %} como alternativa. Para obtener más información, consulta la sección "[Clonar un repositorio desde {% data variables.product.prodname_dotcom %} hacia {% data variables.product.prodname_dotcom %} Desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)".
+**Sugerencias**:
+- Puedes utilizar un asistente de credenciales para que Git recuerde tus credenciales de {% data variables.product.prodname_dotcom %} cada que habla con {% data variables.product.prodname_dotcom %}. Para más información, vea "[Almacenamiento en caché de las credenciales de {% data variables.product.prodname_dotcom %} en Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
+- Para clonar un repositorio sin autenticarse en {% data variables.product.product_name %} desde la línea de comando, puedes utilizar {% data variables.product.prodname_desktop %} como alternativa. Para más información, vea "[Clonación de un repositorio de {% data variables.product.prodname_dotcom %} en {% data variables.product.prodname_dotcom %} Desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)".
 
 {% endtip %}
 
- {% ifversion fpt or ghec %}Si prefieres utilizar SSH pero no puedes conectarte por el puerto 22, podrías utilizar SSH a través del puerto HTTPS. Para obtener más información, consulta la sección "[Utilizar SSH a través del puerto HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
+ {% ifversion fpt or ghec %}Si prefiere usar SSH pero no se puede conectar por el puerto 22, es posible que pueda utilizar SSH sobre el puerto HTTPS. Para más información, vea "[Uso de SSH sobre el puerto HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
 
 ## Clonar con URL de SSH
 
-Las URL de SSH brindan acceso a un repositorio de Git por medio de SSH, un protocolo seguro. Para utilizar estas URL, debes generar un par de llaves SSH en tu computadora y agregar la llave **pública** a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta la sección "[Conectarse a {% data variables.product.prodname_dotcom %} con SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
+Las URL de SSH brindan acceso a un repositorio de Git por medio de SSH, un protocolo seguro. Para utilizar estas URL, tendrá que generar un par de claves SSH en el equipo y agregar la clave **pública** a la cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para más información, vea "[Conexión a {% data variables.product.prodname_dotcom %} con SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
 
-Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un repositorio remoto utilizando URL de SSH, se te solicitará una contraseña y deberás ingresar tu frase de acceso con llave de SSH. Para obtener más información, consulta la sección "[Trabajar con frases de acceso con llave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
+Al usar `git clone`, `git fetch`, `git pull` o `git push` para acceder a un repositorio remoto mediante direcciones URL SSH, se le pedirá una contraseña y tendrá que proporcionar la frase de contraseña de la clave SSH. Para más información, vea "[Trabajo con frases de contraseña de clave de SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-{% ifversion fpt or ghec %}Si estás intentando acceder a una organización que utiliza el inicio de sesión único (SSO) de SAML, debes autorizar tu llave de SSH para acceder a la organización antes de que te autentiques. Para obtener más información, consulta las secciones "[Acerca de la autenticación con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" y "[Autorizar una llave SSH para utilizarla con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}{% endif %}
+{% ifversion fpt or ghec %}Si va a acceder a una organización que usa el inicio de sesión único (SSO) de SAML, tendrá que autorizar la SSH para acceder a la organización antes de autenticarse. Para más información, vea "[Acerca de la autenticación con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" y "[Autorización de una clave SSH para su uso con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}{% endif %}
 
 {% tip %}
 
-**Tip**: Puedes utilizar una URL con SSH para clonar un repositorio a tu computador, o como una forma segura de desplegar tu código en servidores productivos. También puedes utilizar el envío a un agente de SSH con tu script de despliegue para evitar administrar llaves en el servidor. Para obtener más información, consulta la sección "[Utilizar el Reenvío de Agente de SSH](/developers/overview/using-ssh-agent-forwarding)".
+**Sugerencia**: Puede utilizar una URL SSH para clonar un repositorio en el equipo, o como una forma segura de implementar el código en servidores de producción. También puedes utilizar el envío a un agente de SSH con tu script de despliegue para evitar administrar llaves en el servidor. Para más información, vea "[Uso del reenvío del agente SSH](/developers/overview/using-ssh-agent-forwarding)".
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-
 ## Clonar con {% data variables.product.prodname_cli %}
 
-También puedes instalar {% data variables.product.prodname_cli %} para utilizar flujos de trabajo de {% data variables.product.product_name %} en tu terminal. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
-
-{% endif %}
+También puedes instalar {% data variables.product.prodname_cli %} para utilizar flujos de trabajo de {% data variables.product.product_name %} en tu terminal. Para más información, vea "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
 {% ifversion not ghae %}
 ## Clonar con Subversion
 
-También puedes utilizar un cliente de [Subversion](https://subversion.apache.org/) para acceder a cualquier repositorio en {% data variables.product.prodname_dotcom %}. Subversion ofrece características diferentes a Git. Para obtener más información, consulta la sección "[¿Cuáles son las diferencias entre Subversion y Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
+También puede usar un cliente [de Subversion](https://subversion.apache.org/) para acceder a cualquier repositorio en {% data variables.product.prodname_dotcom %}. Subversion ofrece características diferentes a Git. Para más información, vea "[¿Cuáles son las diferencias entre Subversion y Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)".
 
-También puedes acceder a los repositorios de {% data variables.product.prodname_dotcom %} desde clientes de Subversion. Para obtener más información, consulta la sección "[Soporte para clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
+También puedes acceder a los repositorios de {% data variables.product.prodname_dotcom %} desde clientes de Subversion. Para más información, vea "[Compatibilidad con clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
 {% endif %}

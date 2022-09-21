@@ -9,6 +9,7 @@ import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
 import { LearningTrackNav } from 'components/article/LearningTrackNav'
+import { ClientSideRedirects } from 'components/ClientSideRedirects'
 
 export const TocLanding = () => {
   const {
@@ -25,6 +26,10 @@ export const TocLanding = () => {
 
   return (
     <DefaultLayout>
+      {/* Doesn't matter *where* this is included because it will
+      never render anything. It always just return null. */}
+      <ClientSideRedirects />
+
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout>
           <ArticleTitle>{title}</ArticleTitle>
@@ -37,7 +42,7 @@ export const TocLanding = () => {
 
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
 
-          <div className={variant === 'expanded' ? 'mt-7' : 'mt-2'}>
+          <div className={variant === 'expanded' ? 'mt-5' : 'mt-2'}>
             {featuredLinks.gettingStarted && featuredLinks.popular && (
               <div className="pb-8 container-xl">
                 <div className="gutter gutter-xl-spacious clearfix">

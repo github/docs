@@ -12,23 +12,29 @@ versions:
 topics:
   - 2FA
 shortTitle: Change 2FA delivery method
+ms.openlocfilehash: 90f06f6e3a8b3c5614b78d7aee4055d903df2e80
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145088307'
 ---
-
 {% note %}
 
-**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
+**注:** 2 要素認証の主要な方法を変更すると、回復用コードを含め、現在の 2 要素認証設定が無効になります。 新しい回復用コードのセットを安全に保管します。 2 要素認証の主要な方法を変更しても、フォールバック SMS 構成 (構成されている場合) に影響することはありません。 詳細については、「[2 要素認証復旧方法の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)」を参照してください。
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-3. [SMS delivery] の隣にある [**Edit**] をクリックします。 ![SMS 配信オプションの編集](/assets/images/help/2fa/edit-sms-delivery-option.png)
-4. [Delivery options] の下にある [**Reconfigure two-factor authentication**] をクリックします。 ![2FA 配信オプションの切り替え](/assets/images/help/2fa/2fa-switching-methods.png)
-5. 2 要素認証を TOTP モバイルアプリケーションで設定するかテキストメッセージで設定するかを決めます。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
-    - TOTP モバイルアプリケーションで 2 要素認証を設定するには、[**Set up using an app**] をクリックします。
-    - テキストメッセージ (SMS) で 2 要素認証を設定するには、[**Set up using SMS**] をクリックします。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+3. [プライマリ 2 要素メソッド] の横にある **[変更]** をクリックします。
+  ![プライマリ配信オプションを編集する](/assets/images/help/2fa/edit-primary-delivery-option.png)
+4. [Delivery options]\(配信オプション\) で、 **[Reconfigure two-factor authentication]\(2 要素認証の再構成\)** をクリックします。
+    ![2FA 配信オプションの切り替え](/assets/images/help/2fa/2fa-switching-methods.png)
+5. 2 要素認証を TOTP モバイルアプリケーションで設定するかテキストメッセージで設定するかを決めます。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication)」を参照してください。
+    - TOTP モバイル アプリケーションを使用した 2 要素認証を設定するには、 **[Set up using an app]\(アプリを使用した設定\)** をクリックします。
+    - テキスト メッセージ (SMS)を使用した 2 要素認証を設定するには、 **[Set up using SMS]\(SMS を使用した設定\)** をクリックします。
 
-## 参考リンク
+## 参考資料
 
-- [2 要素認証について](/articles/about-two-factor-authentication)
-- [2 要素認証のリカバリ方法の設定](/articles/configuring-two-factor-authentication-recovery-methods)
+- "[2 要素認証について](/articles/about-two-factor-authentication)"
+- "[2 要素認証復旧方法を設定する](/articles/configuring-two-factor-authentication-recovery-methods)"

@@ -18,18 +18,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Acessar configurações da organização
+shortTitle: Access organization settings
+ms.openlocfilehash: 952b4c7d911c131fa7913b9f8ce9f6da67e34cd5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126538'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Dica:** somente proprietários da organização e gerentes de cobrança podem ver e alterar as informações de cobrança e configurações da conta para uma organização. {% data reusables.organizations.new-org-permissions-more-info %}
+**Dica:** somente os proprietários da organização e os gerentes de cobrança podem ver e alterar as informações de cobrança e o conjunto completo de configurações da conta de uma organização. Os moderadores da organização só veem as configurações de moderação. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}

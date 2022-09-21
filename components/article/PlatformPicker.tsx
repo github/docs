@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
-import { SubNav, TabNav, UnderlineNav } from '@primer/components'
+import { SubNav, TabNav, UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useRouter } from 'next/router'
 
 import { useArticleContext } from 'components/context/ArticleContext'
-import parseUserAgent from 'components/lib/user-agent'
+import { parseUserAgent } from 'components/lib/user-agent'
 
 const platforms = [
   { id: 'mac', label: 'Mac' },
@@ -135,7 +135,6 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
             <UnderlineNav.Link
               key={option.id}
               data-platform={option.id}
-              as="button"
               selected={option.id === currentPlatform}
               onClick={() => {
                 onClickPlatform(option.id)

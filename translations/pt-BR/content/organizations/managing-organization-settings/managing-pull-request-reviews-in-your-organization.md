@@ -1,6 +1,6 @@
 ---
-title: Managing pull request reviews in your organization
-intro: You can limit which users can approve or request changes to a pull requests in your organization.
+title: Gerenciando revisões de pull request na sua organização
+intro: Você pode limitar os usuários que podem aprovar ou solicitar alterações em um pull request na sua organização.
 versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
@@ -8,20 +8,26 @@ topics:
   - Organizations
   - Pull requests
 shortTitle: Manage pull request reviews
+ms.openlocfilehash: 2d097e95572932f05795bd28627cb73b1fad43ca
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145097268'
 ---
+## Sobre limites de revisão de código
 
-## About code review limits
+Por padrão, em repositórios públicos, qualquer usuário pode enviar análises que aprovem ou solicitem alterações em um pull request.
 
-By default, in public repositories, any user can submit reviews that approve or request changes to a pull request.
+É possível limitar quem pode aprovar ou solicitar alterações em pull requests em repositórios públicos pertencentes à sua organização. Depois que você habilitar os limites de revisão de código, qualquer pessoa poderá comentar em pull requests nos seus repositórios públicos, mas somente pessoas com acesso explícito a um repositório poderão aprovar um pull request ou solicitar alterações.
 
-You can limit who is able to approve or request changes to pull requests in public repositories owned by your organization. After you enable code review limits, anyone can comment on pull requests in your public repositories, but only people with explicit access to a repository can approve a pull request or request changes.
+Você também pode habilitar os limites de revisão de código para repositórios individuais. Se você habilitar os limites para a organização, você substituirá todos os limites para repositórios individuais pertencentes à organização. Para obter mais informações, confira "[Como gerenciar revisões de solicitação de pull no seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)".
 
-You can also enable code review limits for individual repositories. If you enable or limits for your organization, you will override any limits for individual repositories owned by the organization. For more information, see "[Managing pull request reviews in your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)."
+## Habilitando limites de revisão de código
 
-## Enabling code review limits
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
-1. Under "{% octicon "report" aria-label="The report icon" %} Moderation", click **Code review limits**. ![Screenshot of sidebar item for code review limits for organizations](/assets/images/help/organizations/code-review-limits-organizations.png)
-1. Review the information on screen. Click **Limit review on all repositories** to limit reviews to those with explicit access, or click **Remove review limits from all repositories** to remove the limits from every public repository in your organization. ![Screenshot of code review limits settings for organizations](/assets/images/help/organizations/code-review-limits-organizations-settings.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Na seção "Acesso" da barra lateral, clique em **{% octicon "report" aria-label="The report icon" %} Moderação**.
+1. Em "{% octicon "report" aria-label="The report icon" %} Moderação", clique em **Limites da revisão de código**.
+![Captura de tela do item na barra lateral de limites da revisão de código para organizações](/assets/images/help/organizations/code-review-limits-organizations.png)
+1. Revise as informações na tela. Clique em **Limitar a revisão em todos os repositórios** para limitar as revisões àqueles com acesso explícito ou clique em **Remover limites de revisão de todos os repositórios** para remover os limites de cada repositório público na sua organização.
+![Captura de tela das configurações de limites da revisão de código para organizações](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

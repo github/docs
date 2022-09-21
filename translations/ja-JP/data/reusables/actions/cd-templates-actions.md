@@ -1,3 +1,11 @@
-{% data variables.product.product_name %} offers CD starter workflow for several popular services, such as Azure Web App. To learn how to get started using a starter workflow, see "[Using starter workflows](/actions/learn-github-actions/using-starter-workflows)" or [browse the full list of deployment starter workflows](https://github.com/actions/starter-workflows/tree/main/deployments). You can also check out our more detailed guides for specific deployment workflows, such as "[Deploying to Azure App Service](/actions/deployment/deploying-to-azure-app-service)."
+---
+ms.openlocfilehash: d6caf6cffe5c0bb902cdc27c5c74296d02ea249c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145114614"
+---
+{% data variables.product.product_name %} では、Azure Web App など、いくつかの一般的なサービスのデプロイ スターター ワークフローが提供されます。 スターター ワークフローの使用を開始する方法については、「[Using starter workflows (スターター ワークフローの使用)](/actions/learn-github-actions/using-starter-workflows)」または[デプロイ スターター ワークフローの完全な一覧を参照](https://github.com/actions/starter-workflows/tree/main/deployments)してください。 また、「[Deploying to Azure App Service (Azure App Service へのデプロイ)](/actions/deployment/deploying-to-azure-app-service)」など、特定のデプロイ ワークフローに関するより詳細なガイドを確認することもできます。
 
-Many service providers also offer actions on {% data variables.product.prodname_marketplace %} for deploying to their service. For the full list, see [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=deployment&type=actions).
+また、多くのサービス プロバイダーでは、サービスにデプロイするための {% data variables.product.prodname_marketplace %} に対するアクションも提供しています。 完全な一覧については、「[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=deployment&type=actions)」を参照してください。

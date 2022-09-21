@@ -1,6 +1,6 @@
 ---
-title: Getting changes from a remote repository
-intro: You can use common Git commands to access remote repositories.
+title: Obtener cambios de un repositorio remoto
+intro: Puedes usar los comandos Git más frecuentes para acceder a repositorios remotos.
 redirect_from:
   - /articles/fetching-a-remote
   - /articles/getting-changes-from-a-remote-repository
@@ -13,75 +13,75 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Get changes from a remote
+ms.openlocfilehash: 11996b33ccedea8169f472feb1804f2eed5a5d9d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126238'
 ---
-## Options for getting changes
+## Opciones para obtener cambios
 
-These commands are very useful when interacting with [a remote repository](/github/getting-started-with-github/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
+Estos comandos son muy útiles al interactuar con [un repositorio remoto](/github/getting-started-with-github/about-remote-repositories). `clone` y `fetch` descargan código remoto desde la dirección URL remota de un repositorio al equipo local, `merge` se usa para combinar el trabajo de diferentes personas con el suyo, y `pull` es una combinación de `fetch` y `merge`.
 
-## Cloning a repository
+## Clonar un repositorio
 
-To grab a complete copy of another user's repository, use `git clone` like this:
+Para obtener una copia completa del repositorio de otro usuario, use `git clone` de esta forma:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/github/getting-started-with-github/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
+Puede elegir [entre varias direcciones URL diferentes](/github/getting-started-with-github/about-remote-repositories) al clonar un repositorio. Cuando inicias sesión en {% data variables.product.prodname_dotcom %}, estas URL están disponibles debajo de los detalles del repositorio:
 
-![Remote URL list](/assets/images/help/repository/remotes-url.png)
+![Lista de URL remota](/assets/images/help/repository/remotes-url.png)
 
-When you run `git clone`, the following actions occur:
-- A new folder called `repo` is made
-- It is initialized as a Git repository
-- A remote named `origin` is created, pointing to the URL you cloned from
-- All of the repository's files and commits are downloaded there
-- The default branch is checked out
+Al ejecutar `git clone`, tienen lugar las siguientes acciones:
+- Se crea una carpeta con el nombre `repo`
+- Esta carpeta se inicializa como un repositorio de Git.
+- Se crea un repositorio remoto denominado `origin`, que apunta a la dirección URL desde la que ha realizado la clonación
+- Todos los archivos y confirmaciones del repositorio se descargan aquí.
+- La rama predeterminada está desmarcada
 
-For every branch `foo` in the remote repository, a corresponding remote-tracking branch
-`refs/remotes/origin/foo` is created in your local repository. You can usually abbreviate
-such remote-tracking branch names to `origin/foo`.
+Para cada rama `foo` del repositorio remoto, se crea una rama `refs/remotes/origin/foo` de seguimiento remoto correspondiente en el repositorio local. Normalmente, puede abreviar estos nombres de rama de seguimiento remoto a `origin/foo`.
 
-## Fetching changes from a remote repository
+## Extraer cambios de un repositorio remoto
 
-Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
+Use `git fetch` para recuperar el nuevo trabajo realizado por otras personas. Al capturar desde un repositorio se obtienen todas las ramas de seguimiento remoto nuevas y etiquetas *sin* combinar estos cambios en las ramas propias.
 
-If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
+Si ya tiene un repositorio local con una URL remota configurada para el proyecto deseado, puede capturar toda la información nueva si usa `git fetch *remotename*` en el terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+De otra forma, siempre puedes agregar un remoto nuevo y luego recuperarlo. Para más información, vea "[Administración de repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
-## Merging changes into your local branch
+## Fusionar cambios en tu rama local
 
-Merging combines your local changes with changes made by others.
+La fusión combina tus cambios locales con los cambios realizados por otros.
 
-Typically, you'd merge a remote-tracking branch (i.e., a branch fetched from a remote repository) with your local branch:
+Por lo general, fusionas una rama de seguimiento remoto (es decir, una rama extraída desde un repositorio remoto) con tu rama local:
 
 ```shell
 $ git merge <em>remotename</em>/<em>branchname</em>
 # Merges updates made online with your local work
 ```
 
-## Pulling changes from a remote repository
+## Extraer cambios de un repositorio remoto
 
-`git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
+`git pull` es un método abreviado útil para completar `git fetch` y `git merge `en el mismo comando:
 
 ```shell
 $ git pull <em>remotename</em> <em>branchname</em>
 # Grabs online updates and merges them with your local work
 ```
 
-Because `pull` performs a merge on the retrieved changes, you should ensure that
-your local work is committed before running the `pull` command. If you run into
-[a merge conflict](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)
-you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort`
-to take the branch back to where it was in before you pulled.
+Como `pull` realiza una combinación en los cambios recuperados, debe asegurarse de que el trabajo local se confirma antes de ejecutar el comando `pull`. Si se produce [un conflicto de combinación](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) que no puede resolver, o si decide salir de la combinación, puede usar `git merge --abort` para restaurar la rama al estado que tenía antes de extraerla.
 
-## Further reading
+## Información adicional
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"{% endif %}
+- ["Trabajo con repositorios remotos" en el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
+- "[Solución de problemas de conectividad](/articles/troubleshooting-connectivity-problems)"{% endif %}

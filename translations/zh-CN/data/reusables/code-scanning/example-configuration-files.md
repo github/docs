@@ -1,4 +1,4 @@
-当您扫描代码时，此配置文件将 `security-and-quality` 查询套件添加到 {% data variables.product.prodname_codeql %} 运行的查询列表。 有关可供使用的查询套件的更多信息，请参阅“[运行其他查询](#running-additional-queries)”。
+This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 它还配置 {% data variables.product.prodname_codeql %} 扫描 _src_ 目录中的文件（相对于根目录），并且排除 _src/node_modules_ 目录以及名称以 _.test.js_ 结尾的任何文件。 因此，_src/node_modules_ 中的文件以及名称以 _.test.js_ 结尾的文件被排除在分析之外。
+The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -30,3 +30,22 @@ paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

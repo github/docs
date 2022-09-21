@@ -81,13 +81,9 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-
 ## Cloning with {% data variables.product.prodname_cli %}
 
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
-
-{% endif %}
 
 {% ifversion not ghae %}
 ## Cloning with Subversion

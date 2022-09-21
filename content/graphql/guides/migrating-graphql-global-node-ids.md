@@ -1,6 +1,6 @@
 ---
 title: Migrating GraphQL global node IDs
-intro: 'Learn about the two global node ID formats and how to migrate from the legacy format to the new format.'
+intro: Learn about the two global node ID formats and how to migrate from the legacy format to the new format.
 versions:
   fpt: '*'
   ghec: '*'
@@ -32,7 +32,7 @@ Here is an example request using cURL:
 
 ```
 $ curl \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-Github-Next-Global-ID: 1" \
   https://api.github.com/graphql \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'

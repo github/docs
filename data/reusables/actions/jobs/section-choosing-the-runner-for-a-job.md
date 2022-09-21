@@ -6,11 +6,11 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% 
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 #### Example: Specifying an operating system
 
@@ -18,16 +18,14 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 ### Choosing self-hosted runners
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Example: Using labels for runner selection
 

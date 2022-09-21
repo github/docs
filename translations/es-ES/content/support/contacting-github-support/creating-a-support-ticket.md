@@ -1,6 +1,6 @@
 ---
-title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
+title: Crear un ticket de soporte
+intro: 'Puedes utilizar el {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} para crear un ticket de soporte y hablar con {% data variables.contact.github_support %}.'
 shortTitle: Creating a ticket
 versions:
   fpt: '*'
@@ -22,39 +22,39 @@ redirect_from:
   - /github/working-with-github-support/submitting-a-ticket
 topics:
   - Support
+ms.openlocfilehash: 4be0e3be4154354bbc8ea592c9c13af4c0e217b4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145140138'
 ---
-
 {% ifversion fpt or ghec or ghes %}
 
-## About support tickets
+## Acerca de los tickets de soporte
 
 {% data reusables.support.zendesk-old-tickets %}
 
-{% ifversion fpt %}
-{% data reusables.support.free-and-paid-support %}
+{% ifversion fpt %} {% data reusables.support.free-and-paid-support %} {% endif %}
+
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
+
+{% ifversion ghes %} Puede crear la incidencia mediante {% data variables.contact.support_portal %} o, si quiere incluir diagnóstico en la incidencia de soporte técnico, puede usar la consola de administración de GitHub Enterprise Server.
 {% endif %}
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+Después de crear tu ticket, puedes verlo, así como las respuestas de {% data variables.contact.github_support %} en el {% data variables.contact.contact_landing_page_portal %}. Para más información, vea "[Visualización y actualización de incidencias de soporte técnico](/support/contacting-github-support/viewing-and-updating-support-tickets)". 
 
-{% ifversion ghes %}
-You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
-{% endif %}
+## Qué incluir en tu ticket de soporte
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)."
-
-## What to include in your support ticket
-
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
+El proporcionar a {% data variables.contact.github_support %} todo lo que necesita para entender, ubicar y reproducir un problema permitirá que exista una resolución más rápida y menos juego entre tú y el equipo de soporte. Para garantizar que {% data variables.contact.github_support %} puede darte asistencia, considera los siguientes puntos cuando escribes tu ticket:
 
 - Obtener información que pueda ayudar a que {% data variables.contact.github_support %} rastree, priorice, reproduzca o investigue el problema.
-- Include full URLs, repository names, and usernames wherever possible.
+- Incluye las URL, nombres de repositorio y de usuario completos cada que sea posible.
 - Reproducir el problema, en caso de que sea posible, y prepararte para compartir los pasos.
 - Estar preparado para brindar una descripción completa de la propuesta y los resultados esperados.
 - Copiar de manera exacta, palabra por palabra, todos los mensajes del error relacionados con tu problema.
 - Determinar si existe un número de ticket en cualquier comunicación con {% data variables.contact.github_support %} que se encuentre en curso.
-- Include relevant logs and attach any screenshots that demonstrate the issue.
+- Incluye las bitácoras relevantes y adjunta cualquier captura de pantalla que demuestre el problema.
 
 {% ifversion ghes %}
 ## Elegir una persona de contacto
@@ -68,21 +68,20 @@ Especialmente para los tickets con prioridad {% data variables.product.support_t
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## Crea un ticket de soporte{% ifversion ghes %} utilizando el portal de soporte{% endif %}
 
 1. Navega por el {% data variables.contact.contact_support_portal %}.
 {% data reusables.support.submit-a-ticket %}
 
 {% ifversion ghes %}
 
-## Creating a ticket using the GitHub Enterprise Server Management Console
+## Crear un ticket utilizando la Consola de Administración de GitHub Enterprise Server
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
-{% data reusables.enterprise_management_console.support-link %}
-1. Si deseas incluir los diagnósticos con tu ticket de soporte, en "Diagnostics" (Diagnóstico), haz clic en **Download diagnostic info** (Descargar información de diagnóstico) y guarda el archivo localmente. Adjuntarás este archivo a tu ticket de soporte posteriormente. ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-1. Para completar tu ticket y mostrar el {% data variables.contact.enterprise_portal %}, debajo de "Abrir Solicitud de Soporte", haz clic en **Solicitud de soporte nueva**. ![Screenshot of button labelled "New support request" on Management Console Support page.](/assets/images/enterprise/management-console/open-support-request.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
+1. Si quiere incluir diagnósticos con la incidencia de soporte técnico, en "Diagnostics" (Diagnóstico), haga clic en **Download diagnostic info** (Descargar información de diagnóstico) y guarde el archivo localmente. Adjuntarás este archivo a tu ticket de soporte posteriormente.
+  ![Captura de pantalla del botón etiquetado como "Download diagnostics info" (Descargar información de diagnóstico) en la página Soporte de la Consola de administración.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
+1. Para completar la incidencia y mostrar {% data variables.contact.enterprise_portal %}, debajo de "Open Support Request" (Abrir solicitud de soporte técnico), haga clic en **New support request** (Nueva solicitud de soporte técnico).
+  ![Captura de pantalla del botón "New support request" (Nueva solicitud de soporte técnico) en la página Soporte de la Consola de administración.](/assets/images/enterprise/management-console/open-support-request.png)
 {% data reusables.support.submit-a-ticket %}
 
 {% endif %}
@@ -95,20 +94,20 @@ Puedes emitir un ticket de soporte con {% data variables.product.prodname_ghe_ma
 
 Para emitir un ticket para {% data variables.product.prodname_ghe_managed %} en el {% data variables.contact.ae_azure_portal %}, debes proporcionar la ID para tu suscripción de {% data variables.product.prodname_ghe_managed %} en Azure a tu Administrador de Cuentas y Satisfacción del Cliente (CSAM, por sus siglas en inglés) en Microsoft.
 
-## Enviar un ticket mediante el {% data variables.contact.ae_azure_portal %}
+## Envío de una incidencia mediante el {% data variables.contact.ae_azure_portal %}
 
-Los clientes comerciales pueden emitir una solicitud de soporte en el {% data variables.contact.contact_ae_portal %}. Los clientes de gobierno deben utilizar el [portal de Azure para clientes de gobierno](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para obtener más información, consulta la sección [Crear una solicitud de soporte de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) en los documentos de Microsoft.
+Los clientes comerciales pueden emitir una solicitud de soporte en el {% data variables.contact.contact_ae_portal %}. Los clientes gubernamentales deben usar [Azure Portal para clientes gubernamentales](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para más información, vea [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) en Microsoft Docs.
 
 ## Solución de problemas en el {% data variables.contact.ae_azure_portal %}
 
 {% data variables.product.company_short %} no puede solucionar los problemas de acceso y de suscripción en el portal de Azure. Para obtener ayuda con el protal de Azure, contacta a tu CSAM en Microsoft para revisar la siguiente información.
 
-- Si no puedes iniciar sesión en el portal de Azure, consulta la sección [Solución de problemas para el inicio de sesión en las suscripciones de Azure](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) en los Documentos de Microsoft o [envía una solicitud directamente](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
+- Si no puede iniciar sesión en Azure Portal, vea [Solución de problemas de inicio de sesión de suscripción de Azure](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) en Microsoft Docs, o bien [envíe una solicitud directamente](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
 
-- Si puedes iniciar sesión en el portal de Azure, pero no puedes emitir un ticket para {% data variables.product.prodname_ghe_managed %}, revisa los prerequisitos para emitir un ticket. Para obtener más información, consulta la sección "[Prerrequisitos](#prerequisites)".
+- Si puedes iniciar sesión en el portal de Azure, pero no puedes emitir un ticket para {% data variables.product.prodname_ghe_managed %}, revisa los prerequisitos para emitir un ticket. Para más información, vea "[Requisitos previos](#prerequisites)".
 
 {% endif %}
 
-## Leer más
+## Información adicional
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Acerca del soporte técnico de GitHub](/support/learning-about-github-support/about-github-support)"

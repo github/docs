@@ -1,3 +1,14 @@
-1. On the right, click **Add a domain**. ![Add domain button on Pages settings](/assets/images/help/pages/verify-add-domain.png)
-1. Under "What domain would you like to add?", enter the domain you wish to verify and click **Add domain**. ![Domain text field and Add domain button on Pages settings](/assets/images/help/pages/verify-enter-domain.png)
-1. Follow the instructions under "Add a DNS TXT record" to create the TXT record with your domain hosting service. ![DNS TXT record information on Pages settings](/assets/images/help/pages/verify-dns.png)
+---
+ms.openlocfilehash: c7b1fff2c96137b3deec711f88676546c2cb1305
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876159"
+---
+1. 在右侧，单击“添加域”。
+  ![“页面设置”上的“添加域”按钮](/assets/images/help/pages/verify-add-domain.png)
+1. 在“要添加什么域？”下，输入要验证的域，然后单击“添加域”。
+  ![“页面设置”上的“域”文本字段和“添加域”按钮](/assets/images/help/pages/verify-enter-domain.png)
+1. 按照“添加 DNS TXT 记录”下的说明，使用域托管服务创建 TXT 记录。
+  ![“页面设置”上的 DNS TXT 记录信息](/assets/images/help/pages/verify-dns.png)

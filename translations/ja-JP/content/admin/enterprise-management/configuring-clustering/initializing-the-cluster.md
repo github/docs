@@ -11,44 +11,48 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: ea771194e8bf5104707a645c4ee18473ff235153
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331817'
 ---
-
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## {% data variables.product.prodname_ghe_server %}のインストール
 
-1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
-2. 管理シェルもしくは DHCP を使い、各ノードの IP アドレス**のみ**を設定してください。 その他の設定は行わないでください。
+1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+2. 管理シェルまたは DHCP を使用し、各ノードの IP アドレス **のみ** を構成します。 その他の設定は行わないでください。
 
 ## 最初のノードの設定
 
-1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 詳しい情報については、「[クラスタ設定ファイルについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
-2. Webブラウザで`https://<ip address>:8443/setup/`にアクセスしてください。
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 詳しくは、「[クラスター構成ファイルについて](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
+2. Web ブラウザーで `https://<ip address>:8443/setup/` に移動します。
+{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
 ## クラスタの初期化
 
-クラスタを初期化するためには、クラスタ設定ファイル（`cluster.conf`）が必要です。 For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+クラスターを初期化するためには、クラスター設定ファイル (`cluster.conf`) が必要です。 詳しくは、「[クラスター構成ファイルについて](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
 
-1. 設定された最初のノードで、`ghe-cluster-config-init` を実行します。  実行すると、クラスタ設定ファイルに設定されていないノードがある場合にクラスタを初期化します。
-2. `ghe-cluster-config-apply` を実行します。 これにより、 `cluster.conf` ファイルを検証して各ノードファイルに設定を適用し、各ノードで設定されたサービスを起動します。
+1. 構成された最初のノードから `ghe-cluster-config-init` を実行します。  実行すると、クラスタ設定ファイルに設定されていないノードがある場合にクラスタを初期化します。
+2. `ghe-cluster-config-apply` を実行する。 これにより、`cluster.conf` ファイルを検証して各ノードファイルに設定を適用し、各ノードで設定されたサービスを起動します。
 
-動作中のクラスタのステータスをチェックするには`ghe-cluster-status`コマンドを使ってください。
+実行中のクラスターの状態を確認するには、`ghe-cluster-status` コマンドを使います。
 
 ## クラスタ設定ファイルについて
 
-クラスタ設定ファイル（`cluster.conf`）は、クラスタ中のノードと、その上で動作するサービスを定義します。 詳しい情報については「[クラスタノードについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)」を参照してください。
+クラスタ設定ファイル (`cluster.conf`) は、クラスター中のノードと、その上で動作するサービスを定義します。
+詳しくは、「[クラスター ノードについて](/enterprise/admin/guides/clustering/about-cluster-nodes)」を参照してください。
 
-この例の`cluster.conf`では、5ノードを持つクラスタを定義しています。
+この例 `cluster.conf` では、5 つのノードでクラスターを定義します。
 
-  - 2つのノード（`ghe-app-node-\*`と呼ばれます）では、クライアントからのリクエストに対するレスポンスを受け持つ`web-server`と`job-server`サービスが動作します。
+  - 2 つのノード (`ghe-app-node-\*` と呼ばれる) によって、クライアント要求に応答する `web-server` サービスと `job-server` サービスが実行されます。
   - 3 つのノード (`ghe-data-node-\*` と呼ばれる) は、{% data variables.product.prodname_ghe_server %} データの保存と取得のサービスを実行します。
 
-ノードの名前には、ホスト名として有効な任意の名前を選択できます。 この名前は各ノードのホスト名として設定され、各ノードの`/etc/hosts`に追加され、各ノードがローカルでお互いを解決できるようにします。
+ノードの名前には、ホスト名として有効な任意の名前を選択できます。 この名前は各ノードのホスト名として設定され、各ノードの `/etc/hosts` に追加され、各ノードがローカルでお互いを解決できるようにします。
 
-設定した最初のクラスタノードを、`mysql-server` および `mysql-master`で MySQL のプライマリとして指定してください。
+`mysql-server` と `mysql-master` 経由で MySQL プライマリとして構成した最初のクラスター ノードを指定します。
 
 ```ini
 [cluster]
@@ -111,7 +115,7 @@ topics:
   storage-server = true
 ```
 
-設定された最初のノード上で、`/data/user/common/cluster.conf` ファイルを作成します。 たとえば、次のように `vim` を使用します。
+構成された最初のノードでファイル `/data/user/common/cluster.conf` を作成します。 たとえば、`vim` を使用する場合は次のようになります。
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

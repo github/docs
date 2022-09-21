@@ -24,7 +24,7 @@ If there's a particular topic that interests you, visit `github.com/topics/<topi
 
 If you've been active on {% data variables.product.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
 
-Keep up with recent activity from repositories you watch and people you follow in the "All activity" section of your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 {% data reusables.support.ask-and-answer-forum %}
 

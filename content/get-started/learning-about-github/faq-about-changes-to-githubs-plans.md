@@ -27,11 +27,11 @@ GitHub announced the following plans and pricing changes:
 
 ## How can I upgrade my plan?
 
-To upgrade your user account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+To upgrade your personal account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ## How can I downgrade my plan?
 
-To downgrade your user account's plan, see "[Downgrading your user account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+To downgrade your personal account's plan, see "[Downgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
 - Required reviewers in private repositories
@@ -79,7 +79,7 @@ If your organization account currently uses the GitHub Team for Open Source plan
 
 ## What is GitHub Community Support?
 
-GitHub Community Support includes support through our [Community Forum](https://github.community/), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate the Community Forum along with our most active community members. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
 
 ## How does this change affect education benefits?
 

@@ -16,28 +16,27 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
-## Introducción
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Nota**: {% data reusables.actions.about-oidc-short-overview %} y "[Configurar OpenID Connect en Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
 {% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
-Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions %}, primero necesitarás completar los siguientes pasos de configuración:
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Crea una app web.
+1. Create a web app.
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
 
@@ -49,28 +48,28 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
        --runtime "python|3.8"
    ```
 
-   En este comando, reemplaza los parámetros con tus propios valores, en donde `MY_WEBAPP_NAME` es un nombre nuevo para la app web.
+   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
-## Crear un flujo de trabajo
+## Creating the workflow
 
-Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
 The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
 
 {% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and deploy Python app to Azure Web App
 
@@ -88,10 +87,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Python version
-        uses: actions/setup-python@v2.2.2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: {% raw %}${{ env.PYTHON_VERSION }}{% endraw %}
 
@@ -99,9 +98,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Set up dependency caching for faster installs
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: ~/.cache/pip
           key: {% raw %}${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}{% endraw %}
@@ -114,11 +113,11 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: python-app
           path: |
-            . 
+            .
             !venv/
   deploy:
     runs-on: ubuntu-latest
@@ -129,7 +128,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: python-app
           path: .
@@ -142,10 +141,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## Recursos adicionales
+## Additional resources
 
-Los siguientes recursos también pueden ser útiles:
+The following resources may also be useful:
 
-* Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
-* La acción que se utilizó para desplegar la app web es la acción oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) de Azure.
-* Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

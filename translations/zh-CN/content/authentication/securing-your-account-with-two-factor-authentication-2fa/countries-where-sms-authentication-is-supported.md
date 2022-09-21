@@ -10,10 +10,15 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: 支持短信的国家/地区
+shortTitle: Countries supporting SMS
+ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145084597'
 ---
-
-如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 支持 SMS 身份验证的国家/地区
 
@@ -42,14 +47,14 @@ shortTitle: 支持短信的国家/地区
 <li>佛得角</li>
 <li>开曼群岛</li>
 <li>圣诞岛</li>
-<li>科科斯</li>
+<li>Cocos</li>
 <li>刚果民主共和国</li>
 <li>克罗地亚</li>
 <li>塞浦路斯</li>
 <li>捷克共和国</li>
 <li>丹麦</li>
-<li>多米尼加</li>
-<li>多明尼加共和国</li>
+<li>多米尼克</li>
+<li>多米尼加共和国</li>
 <li>厄瓜多尔</li>
 <li>赤道几内亚</li>
 <li>爱沙尼亚</li>
@@ -67,71 +72,71 @@ shortTitle: 支持短信的国家/地区
 <li>冰岛</li>
 <li>印度</li>
 <li>印度尼西亚</li>
-<li>Ireland</li>
-<li>Israel</li>
-<li>Italy</li>
-<li>Ivory Coast</li>
-<li>Jamaica</li>
-<li>Japan</li>
-<li>Jordan</li>
-<li>Kazakhstan</li>
-<li>Kuwait</li>
-<li>Latvia</li>
-<li>Libya</li>
-<li>Liechtenstein</li>
-<li>Lithuania</li>
-<li>Luxembourg</li>
-<li>Madagascar</li>
-<li>Malawi</li>
-<li>Malaysia</li>
-<li>Maldives</li>
-<li>Mali</li>
-<li>Malta</li>
-<li>Mauritius</li>
-<li>Mexico</li>
-<li>Monaco</li>
-<li>Montenegro</li>
-<li>Montserrat</li>
-<li>Mozambique</li>
-<li>Namibia</li>
-<li>Netherlands</li>
-<li>Netherlands Antilles</li>
-<li>New Zealand</li>
-<li>Nigeria</li>
-<li>Norway</li>
-<li>Philippines</li>
-<li>Poland</li>
-<li>Portugal</li>
-<li>Qatar</li>
-<li>Romania</li>
-<li>Rwanda</li>
-<li>Senegal</li>
-<li>Serbia</li>
-<li>Seychelles</li>
-<li>Singapore</li>
-<li>Slovakia</li>
-<li>Slovenia</li>
-<li>South Africa</li>
-<li>South Korea</li>
-<li>Spain</li>
-<li>Sri Lanka</li>
-<li>St Lucia</li>
-<li>Sudan</li>
-<li>Sweden</li>
-<li>Switzerland</li>
-<li>Taiwan</li>
-<li>Tanzania</li>
-<li>Togo</li>
-<li>Trinidad and Tobago</li>
-<li>Turks and Caicos Islands</li>
-<li>Uganda</li>
-<li>United Arab Emirates</li>
-<li>United Kingdom</li>
+<li>爱尔兰</li>
+<li>以色列</li>
+<li>意大利</li>
+<li>象牙海岸</li>
+<li>牙买加</li>
+<li>日本</li>
+<li>约旦</li>
+<li>哈萨克斯坦</li>
+<li>科威特</li>
+<li>拉脱维亚</li>
+<li>利比亚</li>
+<li>列支敦士登</li>
+<li>立陶宛</li>
+<li>卢森堡</li>
+<li>马达加斯加</li>
+<li>马拉维</li>
+<li>马来西亚</li>
+<li>马尔代夫</li>
+<li>马里</li>
+<li>马耳他</li>
+<li>毛里求斯</li>
+<li>墨西哥</li>
+<li>摩纳哥</li>
+<li>黑山</li>
+<li>蒙特塞拉特</li>
+<li>莫桑比克</li>
+<li>纳米比亚</li>
+<li>荷兰</li>
+<li>荷属安列</li>
+<li>新西兰</li>
+<li>尼日利亚</li>
+<li>挪威</li>
+<li>菲律宾</li>
+<li>波兰</li>
+<li>葡萄牙</li>
+<li>卡塔尔</li>
+<li>罗马尼亚</li>
+<li>卢旺达</li>
+<li>塞内加尔</li>
+<li>塞尔维亚</li>
+<li>塞舌尔</li>
+<li>新加坡</li>
+<li>斯洛伐克</li>
+<li>斯洛文尼亚</li>
+<li>南非</li>
+<li>韩国</li>
+<li>西班牙</li>
+<li>斯里兰卡</li>
+<li>圣卢西亚</li>
+<li>苏丹</li>
+<li>瑞典</li>
+<li>瑞士</li>
+<li>台湾</li>
+<li>坦桑尼亚</li>
+<li>多哥</li>
+<li>特立尼达和多巴哥</li>
+<li>特克斯和凯科斯群岛</li>
+<li>乌干达</li>
+<li>阿拉伯联合酋长国</li>
+<li>英国</li>
 <li>美国</li>
-<li>Uzbekistan</li>
-<li>Venezuela</li>
+<li>乌兹别克斯坦</li>
+<li>委内瑞拉</li>
 </ul>
 
 ## 延伸阅读
 
-- "[关于双重身份验证](/articles/about-two-factor-authentication)"
+- “[关于双因素身份验证](/articles/about-two-factor-authentication)”

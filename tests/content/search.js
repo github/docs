@@ -4,7 +4,7 @@ import { dates, supported } from '../../lib/enterprise-server-releases.js'
 import libLanguages from '../../lib/languages.js'
 import { namePrefix } from '../../lib/search/config.js'
 import lunrIndexNames from '../../script/search/lunr-get-index-names.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 
 const languageCodes = Object.keys(libLanguages)
 
@@ -29,16 +29,6 @@ describe('search', () => {
         expect(lunrIndexNames.includes(indexName)).toBe(true)
         expect(lunrIndexNames.includes(indexRecordName)).toBe(true)
       })
-    })
-  })
-
-  test('has Lunr index for every language for dotcom', async () => {
-    expect(languageCodes.length).toBeGreaterThan(0)
-    languageCodes.forEach((languageCode) => {
-      const indexName = `${namePrefix}-dotcom-${languageCode}`
-      const indexRecordName = `${indexName}-records`
-      expect(lunrIndexNames.includes(indexName)).toBe(true)
-      expect(lunrIndexNames.includes(indexRecordName)).toBe(true)
     })
   })
 })

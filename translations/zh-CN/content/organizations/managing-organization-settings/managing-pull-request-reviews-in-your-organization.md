@@ -1,6 +1,6 @@
 ---
-title: Managing pull request reviews in your organization
-intro: You can limit which users can approve or request changes to a pull requests in your organization.
+title: 管理组织中的拉取请求评审
+intro: 可以限制哪些用户批准或请求更改组织中的拉取请求。
 versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
@@ -8,20 +8,26 @@ topics:
   - Organizations
   - Pull requests
 shortTitle: Manage pull request reviews
+ms.openlocfilehash: 2d097e95572932f05795bd28627cb73b1fad43ca
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145109455'
 ---
+## 关于代码评审限制
 
-## About code review limits
+默认情况下，在公共存储库中，任何用户都可以提交批准或请求更改拉取请求的评论。
 
-By default, in public repositories, any user can submit reviews that approve or request changes to a pull request.
+可以限制谁能够批准或请求更改组织拥有的公共存储库中的拉取请求。 启用代码评审限制后，任何人都可以对公共存储库中的拉取请求添加注释，但只有对存储库具有显式访问权限的人员才能批准拉取请求或请求更改。
 
-You can limit who is able to approve or request changes to pull requests in public repositories owned by your organization. After you enable code review limits, anyone can comment on pull requests in your public repositories, but only people with explicit access to a repository can approve a pull request or request changes.
+还可以为单个存储库启用代码评审限制。 如果为组织启用或限制，将替代组织拥有的各存储库的任何限制。 有关详细信息，请参阅“[管理存储库中的拉取请求评审](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)”。
 
-You can also enable code review limits for individual repositories. If you enable or limits for your organization, you will override any limits for individual repositories owned by the organization. For more information, see "[Managing pull request reviews in your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)."
+## 启用代码评审限制
 
-## Enabling code review limits
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
-1. Under "{% octicon "report" aria-label="The report icon" %} Moderation", click **Code review limits**. ![Screenshot of sidebar item for code review limits for organizations](/assets/images/help/organizations/code-review-limits-organizations.png)
-1. Review the information on screen. Click **Limit review on all repositories** to limit reviews to those with explicit access, or click **Remove review limits from all repositories** to remove the limits from every public repository in your organization. ![Screenshot of code review limits settings for organizations](/assets/images/help/organizations/code-review-limits-organizations-settings.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 在边栏的“访问”部分中，单击“{% octicon "report" aria-label="The report icon" %} 审核”。
+1. 在“{% octicon "report" aria-label="The report icon" %} 审核”下，单击“代码评审限制”。
+![组织的代码评审限制的边栏项的屏幕截图](/assets/images/help/organizations/code-review-limits-organizations.png)
+1. 查看屏幕上的信息。 单击“限制对所有存储库的评审”，以限制对具有显式访问权限的存储库的评审，或单击“删除所有存储库的评审限制”，以删除组织中每个公共存储库中的限制 。
+![组织的代码评审限制设置的屏幕截图](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

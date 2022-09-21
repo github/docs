@@ -1,5 +1,6 @@
-import { getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
 
 jest.setTimeout(3 * 60 * 1000)
 
@@ -26,8 +27,6 @@ describe('learning tracks', () => {
       const found = href.match(/.*\?learn=(.*)/i)
       expect(found).not.toBeNull()
       const trackName = found[1]
-
-      // check all the links contain track name
       $(trackElem)
         .find('a.Box-row')
         .each((i, elem) => {

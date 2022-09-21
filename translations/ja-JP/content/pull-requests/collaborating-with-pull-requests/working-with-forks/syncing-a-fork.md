@@ -6,6 +6,11 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
   - /github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+  - /pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /articles/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,26 +18,50 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+ms.openlocfilehash: 7c4c97c271e6e151c509a33e53c126190e8e5feb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147540835'
 ---
+## Web UI からフォークのブランチを同期する
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+{% ifversion syncing-fork-web-ui %}
+1. {% data variables.product.product_name %} で、アップストリーム リポジトリと同期するフォークされたリポジトリのメイン ページに移動します。
+2. **[フォークの同期]** ドロップダウンを選択します。
+    ![[フォークの同期] ドロップダウンが強調されている](/assets/images/help/repository/sync-fork-dropdown.png)
+3. アップストリーム リポジトリからのコミットの詳細を確認し、 **[ブランチを更新]** をクリックします。
+    ![[ブランチを更新] ボタンが強調された [フォークの同期] モーダル](/assets/images/help/repository/update-branch-button.png) {% else %}
+1. {% data variables.product.product_name %} で、アップストリーム リポジトリと同期するフォークされたリポジトリのメイン ページに移動します。
+2. **[アップストリームのフェッチ]** ドロップダウンを選択します。
+    ![[アップストリームのフェッチ] ドロップダウン](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. アップストリーム リポジトリからのコミットの詳細を確認し、 **[フェッチしてマージ]** をクリックします。
+    ![[フェッチしてマージ] ボタン](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-## Syncing a fork from the web UI
+アップストリーム リポジトリからの変更によって競合が発生した場合、{% data variables.product.company_short %} は競合を解決するためのプルリクエストを作成するように求められます。
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-1. Select the **Fetch upstream** drop-down. !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-1. Review the details about the commits from the upstream repository, then click **Fetch and merge**. !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
+## {% data variables.product.prodname_cli %} を使ってフォークのブランチを同期する
 
-If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+{% data reusables.cli.about-cli %}{% data variables.product.prodname_cli %} の詳細については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
-## Syncing a fork from the command line
+親からリモート フォークを更新するには、`gh repo sync -b BRANCHNAME` サブコマンドを使って、フォークとブランチの名前を引数として指定します。
 
-{% endif %}
-上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)をする必要があります。
+```shell
+$ gh repo sync owner/cli-fork -b BRANCHNAME
+```
+
+アップストリーム リポジトリからの変更によって競合が発生した場合、{% data variables.product.prodname_cli %} では同期できません。宛先ブランチを上書きするように `-force` フラグを設定できます。
+
+## コマンド ラインからフォークのブランチを同期する
+
+フォークをアップストリーム リポジトリと同期する前に、Git で[アップストリーム リポジトリを指すリモートを構成する](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)必要があります。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `BRANCHNAME` へのコミットは、ローカルブランチ `upstream/BRANCHNAME` に保存されます。
+3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `BRANCHNAME` へのコミットは、ローカル ブランチ `upstream/BRANCHNAME` に格納されます。
+
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -42,12 +71,16 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. フォークのローカルのデフォルトブランチを確認してください。この場合は、`main` を使用します。
+
+4. フォークのローカルのデフォルト ブランチを確認します。この場合は `main` を使用します。
+
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
-5. 上流のデフォルトブランチ (この場合は `upstream/main`) からの変更をローカルのデフォルトブランチにマージします。 これにより、ローカルの変更を失うことなく、フォークのデフォルトブランチが上流リポジトリと同期されます。
+
+5. 上流のデフォルト ブランチ (この場合は `upstream/main`) からの変更をローカルのデフォルト ブランチにマージします。 これにより、ローカルの変更を失うことなく、フォークのデフォルトブランチが上流リポジトリと同期されます。
+
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f
@@ -57,17 +90,20 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
   >  2 files changed, 7 insertions(+), 9 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
-  ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
+  ```
+  
+  ローカル ブランチに一意のコミットがなかった場合、Git は早送りを実行します。 詳細については、Git ドキュメントの「[基本的な分岐とマージ](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)」をご覧ください。
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
   > Fast-forward
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
-  ```
+  ``` 
+  ローカル ブランチに一意のコミットがある場合は、競合の解決が必要になる場合があります。 詳細については、「[マージ コンフリクトに対処する](/github/collaborating-with-pull-requests/addressing-merge-conflicts)」を参照してください。
 
 {% tip %}
 
-**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
+**ヒント**: フォークの同期では、リポジトリのローカル コピーだけが更新されます。 {% data variables.product.product_location %} のフォークを更新するには、[変更をプッシュ](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)する必要があります。
 
 {% endtip %}

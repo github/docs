@@ -4,28 +4,30 @@ intro: Puedes utilizar las vistas previas de la API para probar características
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - API
+ms.openlocfilehash: fe00e2ab78881edab8d0f7704f80f2f20163fdeb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878436'
 ---
-
-
 Las vistas previas de la API te permiten probar API nuevas y cambios a los métodos existentes de las API antes de que se hagan oficiales en la API de GitHub.
 
-Durante el periodo de vista previa, podríamos cambiar algunas características con base en la retroalimentación de los desarrolladores. Si realizamos cambios, lo anunciaremos en el [blog de desarrolladores](https://developer.github.com/changes/) sin aviso previo.
+Durante el periodo de vista previa, podríamos cambiar algunas características con base en la retroalimentación de los desarrolladores. Si realizamos cambios, los anunciaremos en el [blog de desarrolladores](https://developer.github.com/changes/) sin aviso previo.
 
-Para acceder a la vista previa de las API, necesitarás proporcionar un [tipo de medios](/rest/overview/media-types) personalizado en el encabezado `Accept` para tus solicitudes. La documentación de características para cada vista previa especifica qué tipo de medios personalizados proporcionar.
+Para acceder a una versión preliminar de la API, deberás proporcionar un [tipo de medio](/rest/overview/media-types) personalizado en el encabezado `Accept` de las solicitudes. La documentación de características para cada vista previa especifica qué tipo de medios personalizados proporcionar.
 
 {% ifversion ghes < 3.3 %}
 
 ## Despliegues ampliados
 
-Ejerce mayo control sobre los [despliegues](/rest/reference/repos#deployments) con más información y granularidad más fina.
+Ejerce un mayor control sobre las [implementaciones](/rest/reference/repos#deployments) con más información y una granularidad más fina.
 
-**Tipo de medios personalizados:** `ant-man-preview` **Anunciado en:**[2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
+**Tipo de medio personalizado:** `ant-man-preview`
+**Anunciado:** [06-04-2016](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
 {% endif %}
 
@@ -33,28 +35,23 @@ Ejerce mayo control sobre los [despliegues](/rest/reference/repos#deployments) c
 
 ## Reacciones
 
-Administra las [reacciones](/rest/reference/reactions) para las confirmaciones, informes de problemas y comentarios.
+Administra las [reacciones](/rest/reference/reactions) a las confirmaciones, problemas y comentarios.
 
-**Tipo de medios personalizado:** `squirrel-girl-preview` **Anunciado en:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Actualizado en:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
+**Tipo de medio personalizado:** `squirrel-girl-preview`
+**Anunciado:** [12-05-2016](https://developer.github.com/changes/2016-05-12-reactions-api-preview/)
+**Actualización:** [07-06-2016](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
 {% endif %}
 
 {% ifversion ghes < 3.3 %}
 
-## Línea de tiempo
+## Escala de tiempo
 
-Obtén una [lista de eventos](/rest/reference/issues#timeline) para un informe de problemas o solictud de extracción.
+Obtén una [lista de eventos](/rest/reference/issues#timeline) para un problema o una solicitud de incorporación de cambios.
 
-**Tipo de medios personalizados:** `mockingbird-preview` **Anunciado en:**[2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
+**Tipo de medio personalizado:** `mockingbird-preview`
+**Anunciado:** [23-05-2016](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% endif %}
-
-{% ifversion ghes %}
-## Ambientes de pre-recepción
-
-Crea, lista, actualiza y borra ambientes para los ganchos de pre-recepción.
-
-**Tipo de medios personalizados:** `eye-scream-preview` **Anunciado en:**[2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
 {% ifversion ghes < 3.3 %}
@@ -62,41 +59,40 @@ Crea, lista, actualiza y borra ambientes para los ganchos de pre-recepción.
 
 Administra [proyectos](/rest/reference/projects).
 
-**Tipo de medios personalizado:** `inertia-preview` **Anunciado en:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Actualizado en:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
-{% endif %}
-{% ifversion ghes < 3.3 %}
+**Tipo de medio personalizado:** `inertia-preview`
+**Anunciado:** [14-09-2016](https://developer.github.com/changes/2016-09-14-projects-api/)
+**Actualización:** [27-10-2016](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
 ## Búsqueda de confirmación
 
 [Busca confirmaciones](/rest/reference/search).
 
-**Tipo de medios personalizados:** `cloak-preview` **Anunciado en:**[2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
-{% endif %}
-{% ifversion ghes < 3.3 %}
+**Tipo de medio personalizado:** `cloak-preview`
+**Anunciado:** [05-01-2017](https://developer.github.com/changes/2017-01-05-commit-search-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
 ## Temas del repositorio
 
-Ver una lista de los [temas del repositorio](/articles/about-topics/) en [llamadas](/rest/reference/repos) que devuelven los resultados del mismo.
+Consulta una lista de [temas del repositorio](/articles/about-topics/) en las [llamadas](/rest/reference/repos) que devuelven los resultados del repositorio.
 
-**Tipo de medios personalizados:** `mercy-preview` **Anunciado en:**[2017-01-31](https://github.com/blog/2309-introducing-topics)
-{% endif %}
-{% ifversion ghes < 3.3 %}
+**Tipo de medio personalizado:** `mercy-preview`
+**Anunciado:** [31-01-2017](https://github.com/blog/2309-introducing-topics) {% endif %} {% ifversion ghes < 3.3 %}
 
 ## Códigos de conducta
 
-Ver todos los [códigos de conducta](/rest/reference/codes-of-conduct) u obtener qué código de conducta tiene actualmente un repositorio.
+Consulta todos los [códigos de conducta](/rest/reference/codes-of-conduct) u obtén el código de conducta que tiene actualmente un repositorio.
 
-**Tipo de medios personalizado:** `scarlet-witch-preview`
+**Tipo de medio personalizado:** `scarlet-witch-preview`
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globales
 
-Habilita los [webhooks globales](/rest/reference/enterprise-admin#global-webhooks/) para una [organización](/webhooks/event-payloads/#organization) y para los tipos de evento del [usuario](/webhooks/event-payloads/#user). Esta vista previa de la API solo está disponible para {% data variables.product.prodname_ghe_server %}.
+Habilita [webhooks globales](/rest/reference/enterprise-admin#global-webhooks/) para los tipos de eventos de [organización](/webhooks/event-payloads/#organization) y [usuario](/webhooks/event-payloads/#user). Esta vista previa de la API solo está disponible para {% data variables.product.prodname_ghe_server %}.
 
-**Tipo de medios personalizados:** `superpro-preview` **Anunciado en:**[2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
+**Tipo de medio personalizado:** `superpro-preview`
+**Anunciado:** [12-12-2017](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
@@ -104,46 +100,28 @@ Habilita los [webhooks globales](/rest/reference/enterprise-admin#global-webhook
 
 ## Requerir confirmaciones firmadas
 
-Ahora puedes utilizar la API para administrar la configuración para [requerir confirmaciones firmadas en ramas protegidas](/rest/reference/repos#branches).
+Ahora puedes usar la API para administrar la configuración para [requerir confirmaciones firmadas en las ramas protegidas](/rest/reference/repos#branches).
 
-**Tipo de medios personalizados:** `zzzax-preview` **Anunciado en:**[2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-{% endif %}
-{% ifversion ghes < 3.3 %}
+**Tipo de medio personalizado:** `zzzax-preview`
+**Anunciado:** [22-02-2018](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures) {% endif %} {% ifversion ghes < 3.3 %}
 
 ## Requerir múltiples revisiones de aprobación
 
-Ahora puedes [requerir múltiples revisiones de aprobación](/rest/reference/repos#branches) para una solicitud de extracción que utilice la API.
+Ahora puedes [requerir varias revisiones de aprobación](/rest/reference/repos#branches) para una solicitud de incorporación de cambios mediante la API.
 
-**Tipo de medios personalizados:** `luke-cage-preview` **Anunciado en:**[2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
-
-{% endif %}
-
-
-{% ifversion ghes %}
-
-## Acceso anónimo de Git a los repositorios
-
-Cuando una instancia de {% data variables.product.prodname_ghe_server %} está en modo privado, los administradores de sitio y de repositorio pueden habilitar el acceso anónimo de Git para los repositorios públicos.
-
-**Tipo de medios personalizados:** `x-ray-preview` **Anunciado en:**[2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
+**Tipo de medio personalizado:** `luke-cage-preview`
+**Anunciado:** [16-03-2018](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
 {% endif %}
+
 {% ifversion ghes < 3.3 %}
 
 ## Detalles de la tarjeta de proyecto
 
-Las respuestas de la API de REST para los [eventos de los informes de problemas](/rest/reference/issues#events) y para [los eventos de la línea de tiempo de los informes de problemas](/rest/reference/issues#timeline) ahora devuelven el campo `project_card` para los eventos relacionados con los proyectos.
+Las respuestas de la API de REST para los [eventos de problema](/rest/reference/issues#events) y los [eventos de escala de tiempo de los problemas](/rest/reference/issues#timeline) ahora devuelven el campo `project_card` para los eventos relacionados con el proyecto.
 
-**Tipo de medios personalizados:** `starfox-preview` **Anunciado en:**[2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## Manifiestos de las GitHub Apps
-
-Los Manifiestos de las GitHub Apps permiten a las personas crear GitHub Apps preconfiguradas. Consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para obtener más detalles.
-
-**Tipo de medios personalizado:** `fury-preview`
+**Tipo de medio personalizado:** `starfox-preview`
+**Anunciado:** [05-09-2018](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
 
@@ -151,9 +129,10 @@ Los Manifiestos de las GitHub Apps permiten a las personas crear GitHub Apps pre
 
 ## Estados de despliegue
 
-Ahora puedes actualizar el `environment` de un [estado de despliegue](/rest/reference/deployments#create-a-deployment-status) y utilizar los estados de `in_progress` y `queued`. Cuando creas estados de despliegue, ahora puedes utilizar el parámetro `auto_inactive` para marcar los despliegues de `production` antiguos como `inactive`.
+Ahora puedes actualizar el valor `environment` de un [estado de implementación](/rest/reference/deployments#create-a-deployment-status) y usar los estados `in_progress` y `queued`. Al crear estados de implementación, ahora puedes usar el parámetro `auto_inactive` para marcar las implementaciones `production` antiguas como `inactive`.
 
-**Tipo de medios personalizados:** `flash-preview` **Anunciado en:**[2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
+**Tipo de medio personalizado:** `flash-preview`
+**Anunciado:** [16-10-2018](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
 {% endif %}
 
@@ -161,27 +140,29 @@ Ahora puedes actualizar el `environment` de un [estado de despliegue](/rest/refe
 
 ## Permisos de creación de repositorios
 
-Ahora puedes configurar si los miembros de la organización pueden crear repositorios y decidir qué tipos de éstos pueden crear. Consulta la sección "[Actualizar una organización](/rest/reference/orgs#update-an-organization)" para obtener más detalles.
+Ahora puedes configurar si los miembros de la organización pueden crear repositorios y decidir qué tipos de éstos pueden crear. Consulta "[Actualización de una organización](/rest/reference/orgs#update-an-organization)" para obtener más detalles.
 
-**Tipo de medios personalizados:** `surtur-preview` **Anunciado en:**[2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
+**Tipos de medios personalizados:** `surtur-preview`
+**Anunciado:** [03-12-2019](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 
 {% endif %}
 
 {% ifversion ghes < 3.4 %}
 ## Adjuntos de contenido
 
-Ahora puedes proporcionar más información en GitHub para las URL que enlazan a los dominios registrados si utilizas la API {% data variables.product.prodname_unfurls %}. Consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments/)" para obtener más detalles.
+Ahora puedes proporcionar más información en GitHub para las URL que enlazan a los dominios registrados si utilizas la API {% data variables.product.prodname_unfurls %}. Consulta "[Uso de datos adjuntos de contenido](/apps/using-content-attachments/)" para obtener más detalles.
 
-**Tipo de medios personalizados:** `corsair-preview` **Anunciado en:**[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
+**Tipos de medios personalizados:** `corsair-preview`
+**Anunciado:** [10-12-2018](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% endif %} {% ifversion ghes < 3.3 %}
 
 ## Habilitar e inhabilitar las páginas
 
-Puedes utilizar las terminales nuevas en la [API de páginas](/rest/reference/repos#pages) para habilitar o inhabilitar las Páginas. Para aprender más sobre las páginas, consulta la sección "[Fundamentos de GitHub Pages](/categories/github-pages-basics)".
+Puedes usar los nuevos puntos de conexión de la [API de Pages](/rest/reference/repos#pages) para habilitar o deshabilitar Pages. Para obtener más información sobre Pages, consulta "[Conceptos básicos de Pages de GitHub](/categories/github-pages-basics)".
 
-**Tipo de medios personalizados:** `switcheroo-preview` **Anunciado en:**[2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+**Tipos de medios personalizados:** `switcheroo-preview`
+**Anunciado:** [14-03-2019](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
 {% endif %}
 
@@ -189,9 +170,10 @@ Puedes utilizar las terminales nuevas en la [API de páginas](/rest/reference/re
 
 ## Listar ramas o solicitudes de extracción para una confirmación
 
-Puedes utilizar dos terminales nuevas en la [API de Confirmaciones](/rest/reference/repos#commits) para listar las ramas o las solicitudes de extracción para una confirmación.
+Puedes usar dos puntos de conexión nuevos en la [API de confirmaciones](/rest/reference/repos#commits) para enumerar las ramas o solicitudes de incorporación de cambios para una confirmación.
 
-**Tipo de medios personalizados:** `groot-preview` **Anunciado en:**[2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
+**Tipos de medios personalizados:** `groot-preview`
+**Anunciado:** [11-04-2019](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
 {% endif %}
 
@@ -199,24 +181,23 @@ Puedes utilizar dos terminales nuevas en la [API de Confirmaciones](/rest/refere
 
 ## Actualizar la rama de una solicitud de extracción
 
-Puedes utilizar una terminal nueva para [actualizar una rama de una solicitud de extracción](/rest/reference/pulls#update-a-pull-request-branch) con cambios desde el HEAD de la rama ascendente.
+Puedes usar un punto de conexión nuevo para [actualizar una rama de solicitud de incorporación de cambios](/rest/reference/pulls#update-a-pull-request-branch) con los cambios de HEAD de la rama ascendente.
 
-**Tipo de medios personalizados:** `lydian-preview` **Anunciado en:**[2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
+**Tipos de medios personalizados:** `lydian-preview`
+**Anunciado:** [29-05-2019](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-{% endif %}
-{% ifversion ghes < 3.3 %}
+{% endif %} {% ifversion ghes < 3.3 %}
 
 ## Crear y utilizar plantillas de repositorio
 
-Puedes Puedes utilizar una terminal nueva para [crear un repositorio utilizando una plantilla](/rest/reference/repos#create-a-repository-using-a-template) y para [crear un repositorio para el usuario autenticado](/rest/reference/repos#create-a-repository-for-the-authenticated-user) que constituye un repositorio de plantilla si configuras el parámetro `is_template` como `true`. [Obten un repositorio](/rest/reference/repos#get-a-repository) para verificar si se configuró como un repositorio de plantilla utilizando la clave `is_template`.
+Puedes usar un punto de conexión nuevo para [Crear un repositorio mediante una plantilla](/rest/reference/repos#create-a-repository-using-a-template) y [Crear un repositorio para el usuario autenticado](/rest/reference/repos#create-a-repository-for-the-authenticated-user) que sea un repositorio de plantillas estableciendo el parámetro `is_template` en `true`. [Obtén un repositorio](/rest/reference/repos#get-a-repository) para comprobar si se ha establecido como un repositorio de plantillas mediante la clave `is_template`.
 
-**Tipos de medios personalizados:** `baptiste-preview` **Anunciado en:**[2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-{% endif %}
-{% ifversion ghes < 3.3 %}
+**Tipos de medios personalizados:** `baptiste-preview`
+**Anunciado:** [05-07-2019](https://developer.github.com/changes/2019-07-16-repository-templates-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
 ## Parámetro de visibilidad nuevo para la API de Repositorios
 
-Puedes configurar y recuperar la visibilidad de un repositorio en la [API de Repositorios](/rest/reference/repos).
+Puedes establecer y recuperar la visibilidad de un repositorio en la [API de repositorios](/rest/reference/repos).
 
-**Tipo de medios personalizados:** `nebula-preview` **Anunciado en:**[2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
-{% endif %}
+**Tipos de medios personalizados:** `nebula-preview`
+**Anunciado:** [25-11-2019](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/) {% endif %}

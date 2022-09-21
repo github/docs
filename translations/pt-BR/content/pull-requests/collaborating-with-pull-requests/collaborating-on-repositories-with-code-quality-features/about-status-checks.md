@@ -14,9 +14,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 759889bd4f014e4bc2afff5f182a0b7258c8bb07
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065863'
 ---
-
-As verificações de status se baseiam em processos externos, como compilações de integração contínua, que são executados para cada push que você faz em um repositório. Você pode ver o estado de *pendência*, *aprovação* ou *falha* das verificações de status ao lado de commits individuais em sua pull request.
+As verificações de status se baseiam em processos externos, como compilações de integração contínua, que são executados para cada push que você faz em um repositório. Você pode ver o estado *pendente*, *aprovado* ou *com falha* das verificações de status ao lado de commits individuais na sua solicitação de pull.
 
 ![Lista de commits e status](/assets/images/help/pull_requests/commit-list-statuses.png)
 
@@ -33,47 +38,52 @@ Há dois tipos de verificação de status no {% data variables.product.product_n
 - Verificações
 - Status
 
-As _Verificações_ são diferentes dos _status_ na medida que fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso com {% data variables.product.prodname_github_apps %}.
+As _verificações_ são diferentes dos _status_, pois fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso nos {% data variables.product.prodname_github_apps %}.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/commits#commit-statuses)".
+Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, confira "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/commits#commit-statuses)".
 
 ## Verificações
 
-Quando _verificações_ são configuradas em um repositório, as pull requests apresentam uma guia **Checks** (Verificações), onde é possível exibir o resultado detalhado da compilação de verificações de status e executar novamente as verificações com falha.
+Quando as _verificações_ são configuradas em um repositório, as solicitações de pull têm uma guia **Verificações** em que você pode ver a saída de build detalhada das verificações de status e executar novamente as verificações com falha.
 
 ![Verificações de status em uma pull request](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
-**Observação:** A aba **Verificações** só é preenchida para pull requests se você configurar _verificações_, não _status_, para o repositório.
+**Observação:** a guia **Verificações** só será preenchida para solicitações de pull se você configurar _verificações_, não _status_, para o repositório.
 
 {% endnote %}
 
-Quando uma linha específica em um commit causar a falha de uma verificação, você verá detalhes sobre a falha, o aviso ou a advertência ao lado do código relevante na guia **Files** (Arquivos) da pull request.
+Quando uma linha específica em um commit causar uma falha em uma verificação, você verá os detalhes sobre a falha ou o aviso ao lado do código relevante na guia **Arquivos** da solicitação de pull.
 
 ![Detalhes de uma verificação de status](/assets/images/help/pull_requests/checks-detailed.png)
 
-Você pode navegar entre os resumos das verificações de vários commits em uma pull request usando o menu suspenso do commit na guia **Conversation** (Conversa).
+Navegue entre os resumos das verificações de vários commits em uma solicitação de pull usando o menu suspenso do commit na guia **Conversa**.
 
 ![Resumos de verificação para diferentes commits em um menu suspenso](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
 ### Ignorar e solicitar verificações para commits individuais
 
-Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites)".
+Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações para pushes automaticamente, você pode solicitar verificações para um commit individual enviado por push. Para obter mais informações sobre essas configurações, confira "[Pacotes de verificação](/rest/reference/checks#update-repository-preferences-for-check-suites)".
 
 Para ignorar ou solicitar verificações para seu commit, adicione uma das seguintes linhas de trailer ao fim da mensagem do commit:
 
-- Para _ignorar verificações_ para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, antes da cotação de fechamento, adicione duas linhas vazias seguidas de `skip-checks: true`:
+- Para _ignorar as verificações_ de um commit, digite sua mensagem de commit e uma descrição curta e significativa das alterações. Após a descrição do commit, antes das aspas de fechamento, adicione duas linhas vazias seguidas de `skip-checks: true`:
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- Para _solicitar_ verificações para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, antes da cotação de fechamento, adicione duas linhas vazias seguidas de `request-checks: true`:
+- Para _solicitar_ verificações para um commit, digite sua mensagem de commit e uma descrição curta e significativa das alterações. Após a descrição do commit, antes das aspas de fechamento, adicione duas linhas vazias seguidas de `request-checks: true`:
   ```shell
   $ git commit -m "Refactor usability tests
   >
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### Retenção de verificações de status
+
+{% data reusables.pull_requests.retention-checks-data %} {% endif %}

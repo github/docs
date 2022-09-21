@@ -10,36 +10,42 @@ versions:
 type: quick_start
 topics:
   - Pages
-shortTitle: Inicio Rápido
+shortTitle: Quickstart
 product: '{% data reusables.gated-features.pages %}'
+ms.openlocfilehash: a6cf4a2f00237206a3c15083797aa12c832cf32c
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145140266'
 ---
-
-## Introducción
+## <a name="introduction"></a>Introducción
 
 Las {% data variables.product.prodname_pages %} son páginas web públicas que se publican a través de {% data variables.product.product_name %}. La forma más rápida de iniciar es utilizando el Selector de Temas de Jekyll para que cargue un tema preconfigurado. Posteriormente, podrás modificar el estilo y contenido de tus {% data variables.product.prodname_pages %}.
 
-Esta guía te mostrará cómo crear un sitio de usuario en `username.github.io`.
+Esta guía le llevará por la creación de un sitio de usuario en `username.github.io`.
 
-## Crear tu sitio web
+## <a name="creating-your-website"></a>Crear tu sitio web
 
 {% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Campo de nombre de repositorio](/assets/images/help/pages/create-repository-name-pages.png)
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Click **Choose a theme**. ![Elija un botón del tema](/assets/images/help/pages/choose-theme.png)
-2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![Opciones de temas y botón Select theme (Seleccionar tema)](/assets/images/help/pages/select-theme.png)
-3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-4. When you are done editing the file, click **Commit changes**.
-5. Visit `username.github.io` to view your new website. **Nota:** Es posible que tome hasta 20 minutos la publicación de los cambios en tu sitio luego de que subes los cambios a {% data variables.product.product_name %}.
+1. Escriba `username.github.io` como nombre del repositorio. Reemplace `username` por su nombre de usuario de {% data variables.product.prodname_dotcom %}. Por ejemplo, si el nombre de usuario es `octocat`, el nombre del repositorio debe ser `octocat.github.io`.
+   ![Campo del nombre del repositorio](/assets/images/help/pages/create-repository-name-pages.png) {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. Haga clic en **Choose a theme** (Elegir un tema).
+   ![Botón para elegir un tema](/assets/images/help/pages/choose-theme.png)
+2. Se abrirá el selector de temas. Examine los temas disponibles y, después, haga clic en **Select theme** (Seleccionar tema) para seleccionar un tema. Puedes cambiar tu tema más adelante sin problema, así que, si no estás seguro, solo elige uno para comenzar.
+   ![Opciones de temas y botón para seleccionar tema](/assets/images/help/pages/select-theme.png)
+3. Después de seleccionar un tema, el archivo del repositorio `README.md` se abrirá en el editor de archivos. El archivo `README.md` es donde escribirá el contenido de su sitio. Puedes editar el archivo o mantener el contenido predeterminado por el momento.
+4. Cuando haya terminado de editar el archivo, haga clic en **Commit changes** (Confirmar cambios).
+5. Visite `username.github.io` para ver su nuevo sitio web. **Nota**: Es posible que la publicación de los cambios en el sitio tarde hasta 20 minutos después de enviar los cambios a {% data variables.product.product_name %}.
 
-## Changing the title and description
+## <a name="changing-the-title-and-description"></a>Cambiar el título y la descripción
 
-By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
+De manera predeterminada, el título del sitio es `username.github.io`. Puede cambiar el título. Para ello, edite el archivo `_config.yml` en el repositorio. También puedes agregar una descripción de tu sitio.
 
-1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
+1. Haga clic en la pestaña **Code** (Código) del repositorio.
+1. En la lista de archivos, haga clic en `_config.yml` para abrir el archivo.
 1. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar el archivo.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. Por ejemplo:
+1. El archivo `_config.yml` ya contiene una línea que especifica el tema del sitio. Agregue una nueva línea con `title:` seguido del título que quiera. Agregue una nueva línea con `description:` seguido de la descripción que quiera. Por ejemplo:
 
    ```yaml
    theme: jekyll-theme-minimal
@@ -47,10 +53,10 @@ By default, the title of your site is `username.github.io`. You can change the t
    description: Bookmark this to keep an eye on my project updates!
    ```
 
-1. When you are done editing the file, click **Commit changes**.
+1. Cuando haya terminado de editar el archivo, haga clic en **Commit changes** (Confirmar cambios).
 
-## Siguientes pasos
+## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo agregar páginas adicionales a tu sitio, consulta la sección "[Agregar contenido a tu sitio de GitHub Pages utilizando Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)".
+Para obtener más información sobre cómo agregar páginas adicionales a su sitio, vea "[Incorporación de contenido a su sitio de GitHub Pages mediante Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)".
 
-For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see "[About GitHub Pages and Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."
+Para obtener más información sobre cómo configurar un sitio de {% data variables.product.prodname_pages %} con Jekyll, vea "[Acerca de GitHub Pages y Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)".

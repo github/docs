@@ -7,6 +7,7 @@ updates:
       day: tuesday
     open-pull-requests-limit: 20 # default is 5
     ignore:
+      - dependency-name: '@elastic/elasticsearch'
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
@@ -26,7 +27,3 @@ updates:
     schedule:
       interval: weekly
       day: thursday
-    ignore:
-      - dependency-name: '*'
-        update-types:
-          ['version-update:semver-patch', 'version-update:semver-minor']

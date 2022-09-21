@@ -1,2 +1,2 @@
 1. Under "Visibility", choose to make your project board {% ifversion ghae %}internal{% else %}public{% endif %} or private. For more information, see "[Changing project board visibility](/github/managing-your-work-on-github/changing-project-board-visibility)."
-  ![Radio buttons to choose project board visibility]{% ifversion ghae %}(/assets/images/help/projects/visibility-radio-buttons-ae.png){% else %}(/assets/images/help/projects/visibility-radio-buttons.png){% endif %}
+  ![Radio buttons to choose project board visibility]{% ifversion ghae %}(/assets/images/help/projects/visibility-radio-buttons-ae.png){% elsif ghes > 3.4 %}(/assets/images/help/projects/visibility-radio-buttons-es.png){% else %}(/assets/images/help/projects/visibility-radio-buttons.png){% endif %}

@@ -16,13 +16,13 @@ shortTitle: Enable & test SAML SSO
 
 You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
 
+{% data reusables.saml.ghec-only %}
+
 If you enable but don't enforce SAML SSO, organization members who choose not to use SAML SSO can still be members of the organization. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
-
-{% data reusables.saml.cannot-update-existing-saml-settings %}
 
 ## Enabling and testing SAML single sign-on for your organization
 
@@ -65,3 +65,4 @@ For more information about the identity providers (IdPs) that {% data variables.
 ## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

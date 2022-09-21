@@ -14,15 +14,22 @@ versions:
 topics:
   - Pull requests
   - Issues
-shortTitle: Ver todas tus propuestas & solicitudes de cambio
+shortTitle: View all your issues & PRs
 type: how_to
+ms.openlocfilehash: da42e2fe59a4ec80af2727eef66ae475f4b38ded
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145135384'
 ---
-
 Tus tableros de propuestas y solicitudes de extracción están disponibles en la parte superior de cualquier página. En cada tablero, puedes filtrar la lista para encontrar propuestas y solicitudes de extracción que creaste, que están asignadas a ti o en las cuales estás mencionado. También puedes encontrar solicitudes de extracción que te han pedido que revises.
 
-1. En la partes superior de cualquier página, haz clic en **Pull requests (Solicitudes de extracción)** o **Issues (Propuestas)**. ![Tableros de solicitudes de extracción o propuestas globales](/assets/images/help/overview/issues_and_pr_dashboard.png)
-2. Como alternativa, elige un filtro o [utiliza la barra de búsqueda para filtrar resultados más específicos](/articles/using-search-to-filter-issues-and-pull-requests). ![Lista de solicitudes de extracción con el filtro "Created" (Creado) seleccionado](/assets/images/help/overview/pr_dashboard_created.png)
+1. En la parte superior de cualquier página, haga clic en **Pull requests** o **Issues**.
+  ![Paneles globales de solicitudes de incorporación de cambios o incidencias](/assets/images/help/overview/issues_and_pr_dashboard.png)
+2. Opcionalmente, elija un filtro o [use la barra de búsqueda para filtrar por resultados más específicos](/articles/using-search-to-filter-issues-and-pull-requests).
+  ![Lista de solicitudes de incorporación de cambios con el filtro "Created" seleccionado](/assets/images/help/overview/pr_dashboard_created.png)
 
-## Leer más
+## Información adicional
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listar los repositorios que estás observando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- "[Visualización de las suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"

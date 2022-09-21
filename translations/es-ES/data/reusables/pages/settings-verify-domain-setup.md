@@ -1,3 +1,14 @@
-1. On the right, click **Add a domain**. ![Add domain button on Pages settings](/assets/images/help/pages/verify-add-domain.png)
-1. Under "What domain would you like to add?", enter the domain you wish to verify and click **Add domain**. ![Domain text field and Add domain button on Pages settings](/assets/images/help/pages/verify-enter-domain.png)
-1. Follow the instructions under "Add a DNS TXT record" to create the TXT record with your domain hosting service. ![DNS TXT record information on Pages settings](/assets/images/help/pages/verify-dns.png)
+---
+ms.openlocfilehash: c7b1fff2c96137b3deec711f88676546c2cb1305
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879387"
+---
+1. A la derecha, haga clic en **Add a domain** (Agregar un dominio).
+  ![Botón de agregar dominio en la configuración de Pages](/assets/images/help/pages/verify-add-domain.png)
+1. En "What domain would you like to add" (Qué dominio quiere agregar), introduzca el dominio que desee verificar y haga clic en **Add domain** (Agregar dominio).
+  ![Campo de texto de dominio y botón de agregar dominio en la configuración de Pages](/assets/images/help/pages/verify-enter-domain.png)
+1. Sigue las instrucciones debajo de "Agregar un registro de TXT de DNS" para crear el registro de TXT con tu servicio de hospedaje de dominio.
+  ![Información de registro de TXT de DNS en la configuración de Pages](/assets/images/help/pages/verify-dns.png)

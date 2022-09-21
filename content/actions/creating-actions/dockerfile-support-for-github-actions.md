@@ -105,7 +105,7 @@ If you define `args` in the action's metadata file, `args` will override the `CM
 
 If you use `CMD` in your `Dockerfile`, follow these guidelines:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## Supported Linux capabilities
 

@@ -1,6 +1,7 @@
 ---
-title: Solucionando pontos para codespaces
-intro: Etapas de solução de problemas para problemas comuns de dotfiles.
+title: Troubleshooting dotfiles for GitHub Codespaces 
+allowTitleToDifferFromFilename: true
+intro: Troubleshooting steps for common dotfiles issues.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,12 +12,15 @@ topics:
 shortTitle: Dotfiles
 ---
 
-Se o seu codespace não consegue pegar as configurações de dotfiles, você deverá seguir as etapas de depuração a seguir.
+If your codespace fails to pick up configuration settings from dotfiles, you should work through the following debugging steps.
 
-1. Certifique-se de que seu repositório dotfiles seja público. Se você tem segredos ou dados confidenciais que você deseja usar em seu código, use [segredos de codespaces ](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) em vez dos dotfiles privados.
-2. Verifique `/workspaces/.codespaces/.persistedshare/dotfiles` para ver se seus dotfiles foram clonados.
-    - Se seus dotfiles foram clonados, tente reexecutar manualmente seu script de instalação para verificar se é executável.
-    - Se seus dotfiles não foram clonados, consulte `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` para ver se houve um problema com a clonagem.
-3. Verifique `/workspaces/.codespaces/.persistedshare/creation.log` com relação a possíveis problemas. Para obter mais informações, consulte [Registros de criação](/codespaces/troubleshooting/codespaces-logs#creation-logs).
+1. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal {% data variables.product.prodname_github_codespaces %} settings](https://github.com/settings/codespaces).
 
-Se a configuração de seus dotfiles for selecionada corretamente, mas parte da configuração for incompatível com os codespaces, use a variável de ambiente `$CODESPACES` para adicionar lógica condicional para configurações específicas do codespace.
+   ![The 'Automatically install dotfiles' option](/assets/images/help/codespaces/automatically-install-dotfiles.png)
+
+1. Check `/workspaces/.codespaces/.persistedshare/dotfiles` to see if your dotfiles were cloned.
+   - If your dotfiles were cloned, try manually re-running your install script to verify that it is executable.
+   - If your dotfiles were not cloned, check `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` to see if there was a problem cloning them.
+1. Check `/workspaces/.codespaces/.persistedshare/creation.log` for possible issues. For more information, see [Creation logs](/codespaces/troubleshooting/codespaces-logs#creation-logs).
+
+If the configuration from your dotfiles is correctly picked up, but part of the configuration is incompatible with codespaces, use the `$CODESPACES` environment variable to add conditional logic for codespace-specific configuration settings.

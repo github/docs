@@ -1,12 +1,11 @@
 ---
-title: Viewing the security overview
-intro: Navigate to the different views available in the security overview
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
-product: '{% data reusables.gated-features.security-center %}'
+title: セキュリティの概要の表示
+intro: セキュリティの概要で使用できるさまざまなビューに移動します
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
-  fpt: '*'
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -16,39 +15,50 @@ topics:
   - Organizations
   - Teams
 shortTitle: View the security overview
+ms.openlocfilehash: a0b6371155e7b7780ea216373b42481aa403e6db
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147525690'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.information-varies-GHAS %}
 
 ## Organizationのセキュリティの概要の表示
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. アラートの種類に対する集約された情報を見るには、**Show more（さらに表示）**をクリックしてください。 ![さらに表示ボタン](/assets/images/help/organizations/security-overview-show-more-button.png)
-{% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
-1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. アラートの種類について集計情報を表示するには、 **[Show more]\(さらに表示\)** をクリックします。
+  ![[さらに表示] ボタン](/assets/images/help/organizations/security-overview-show-more-button.png) {% data reusables.organizations.filter-security-overview %} {% ifversion security-overview-views %} {% data reusables.organizations.security-overview-feature-specific-page %} ![コードスキャン固有ページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
-## Viewing alerts across your organization
+## 組織全体のアラートの表示
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. In the security sidebar, select the subset of alerts you want to view. ![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
-2. あるいは、アラートのリストをフィルタしてください。 Each view has its own selection of available filters. 検索を絞り込むために、ドロップダウンのフィルタメニュー内で複数のフィルタをクリックできます。 You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. セキュリティのサイドバーで、表示するアラートのサブセットを選択します。
+![アラートのサブセットの表示](/assets/images/help/organizations/view-alert-subset.png)
+2. あるいは、アラートのリストをフィルタしてください。 表示ごとに、フィルターの独自の選択肢が提供されています。 検索を絞り込むために、ドロップダウンのフィルタメニュー内で複数のフィルタをクリックできます。 検索フィールドに検索修飾子を入力することもできます。 使用可能な修飾子の詳細については、「[セキュリティの概要でのアラートのフィルター処理](/code-security/security-overview/filtering-alerts-in-the-security-overview)」を参照してください。
+  ![シークレット スキャン表示のドロップダウン フィルター メニューと [検索リポジトリ] フィールド](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
-## Viewing alerts for a repository
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+## エンタープライズのセキュリティの概要の表示
+
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+1. 左側のサイドバーで、{% octicon "shield" aria-label="The shield icon" %} **[Code Security]\(コード セキュリティ\)** をクリックします。
+{% ifversion security-overview-feature-specific-alert-page %} {% data reusables.organizations.security-overview-feature-specific-page %} {% endif %} {% endif %}
+
+## リポジトリのアラートの表示
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Security**. ![Repository security tab](/assets/images/help/repository/security-tab.png)
-2. In the security sidebar, select the view you want to open. ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
-3. あるいは、アラートのリストをフィルタしてください。 Each view has its own selection of available filters. 検索を絞り込むために、ドロップダウンのフィルタメニュー内で複数のフィルタをクリックできます。 You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+1. リポジトリ名の下にある、**[セキュリティ]** をクリックします。
+  ![リポジトリの [セキュリティ] タブ](/assets/images/help/repository/security-tab.png)
+2. セキュリティのサイドバーで、開く表示を選択します。
+  ![リポジトリ表示のアラート サブセット](/assets/images/help/repository/repo-security-side-panel.png)
+3. あるいは、アラートのリストをフィルタしてください。 表示ごとに、フィルターの独自の選択肢が提供されています。 検索を絞り込むために、ドロップダウンのフィルタメニュー内で複数のフィルタをクリックできます。 検索フィールドに検索修飾子を入力することもできます。 使用可能な修飾子の詳細については、「[セキュリティの概要でのアラートのフィルター処理](/code-security/security-overview/filtering-alerts-in-the-security-overview)」を参照してください。
+  ![リポジトリのシークレット スキャン アラート表示のドロップダウン フィルター メニュー](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 
 ## Teamのセキュリティの概要の表示
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-security-overview %} {% data reusables.organizations.filter-security-overview %}

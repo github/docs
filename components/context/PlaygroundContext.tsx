@@ -2,16 +2,12 @@ import React, { createContext, useContext, useState } from 'react'
 import { CodeLanguage, PlaygroundArticleT } from 'components/playground/types'
 import { useRouter } from 'next/router'
 
-import actionsJsArticle from 'components/playground/content/actions/guides/building-and-testing-nodejs-or-python/nodejs'
-import actionsPyArticle from 'components/playground/content/actions/guides/building-and-testing-nodejs-or-python/python'
 import codespacesJsArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/nodejs'
 import codespacesPyArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/python'
 import codespacesNetArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/dotnet'
 import codespacesJavaArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/java'
 
 const articles = [
-  actionsJsArticle,
-  actionsPyArticle,
   codespacesJsArticle,
   codespacesPyArticle,
   codespacesJavaArticle,
@@ -63,7 +59,9 @@ export const PlaygroundContextProvider = (props: { children: React.ReactNode }) 
   const router = useRouter()
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const [scrollToSection, setScrollToSection] = useState<number>()
-  const path = router.asPath.split('?')[0]
+  const path = router.asPath.includes('@latest')
+    ? router.asPath.split('?')[0].split('#')[0].split('@latest')[1]
+    : router.asPath.split('?')[0].split('#')[0]
   const relevantArticles = articles.filter(({ slug }) => slug === path)
 
   const { langId } = router.query

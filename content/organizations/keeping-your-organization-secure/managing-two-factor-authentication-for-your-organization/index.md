@@ -1,7 +1,7 @@
 ---
 title: Managing two-factor authentication for your organization
 shortTitle: Manage 2FA
-intro: "You can view whether users with access to your organization have two-factor authentication (2FA) enabled and require 2FA."
+intro: You can view whether users with access to your organization have two-factor authentication (2FA) enabled and require 2FA.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,3 +14,4 @@ children:
   - /preparing-to-require-two-factor-authentication-in-your-organization
   - /requiring-two-factor-authentication-in-your-organization
 ---
+

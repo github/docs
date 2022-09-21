@@ -1,6 +1,6 @@
 ---
-title: Configuring issue templates for your repository
-intro: You can customize the templates that are available for contributors to use when they open new issues in your repository.
+title: Configurar las plantillas de reporte de problemas para tu repositorio
+intro: Puedes personalizar las plantillas disponibles para los colaboradores para que las utilicen cuando abren un nuevo reporte de problema en tu repositorio.
 redirect_from:
   - /github/building-a-strong-community/creating-issue-templates-for-your-repository
   - /articles/configuring-issue-templates-for-your-repository
@@ -13,106 +13,100 @@ versions:
 topics:
   - Community
 shortTitle: Configure
+ms.openlocfilehash: d415d95f8aeab1b053663437b6dbf6dd637e3039
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147431996'
 ---
-
 {% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+## Crear plantillas de reporte de problemas
 
-## Creating issue templates
-
-{% endif %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. In the "Features" section, under "Issues," click **Set up templates**.
-![Start template setup button](/assets/images/help/repository/set-up-templates.png)
-4. Use the Add template drop-down menu, and click on the type of template you'd like to create.
-![Add template drop-down menu](/assets/images/help/repository/add-template-drop-down-menu.png)
-5. To preview or edit the template before committing it to the repository, click **Preview and edit**.
-![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
-6. To edit the template, click {% octicon "pencil" aria-label="The edit icon" %}, and type in the fields to edit their contents.
-![Issue template edit button](/assets/images/help/repository/issue-template-edit-button.png)
-7. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to your issue template, enter these details under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
-![Additional info for issue template](/assets/images/help/repository/additional-issue-template-info.png)
-8. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
-![Propose changes button](/assets/images/help/repository/propose-changes-button.png)
-9. Enter a commit message describing your changes.
-![Issue template commit message field](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Below the commit message fields, decide whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
-11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En la sección "Características", en "Incidencias", haga clic en **Configurar plantillas**.
+![Botón para iniciar la configuración de plantillas](/assets/images/help/repository/set-up-templates.png)
+4. Usa el menú desplegable Agregar plantilla y haz clic en el tipo de plantilla que deseas crear.
+![Menú desplegable Agregar plantilla](/assets/images/help/repository/add-template-drop-down-menu.png)
+5. Para obtener una vista previa de la plantilla o editarla antes de confirmarla en el repositorio, haga clic en **Vista previa y edición**.
+![Botón para mostrar la vista previa y editar](/assets/images/help/repository/preview-and-edit-button.png)
+6. Para editar la plantilla, haga clic en {% octicon "pencil" aria-label="The edit icon" %} y escriba en los campos para editar el contenido.
+![Botón Editar plantilla de incidencia](/assets/images/help/repository/issue-template-edit-button.png)
+7. Para establecer automáticamente un título predeterminado para la propuesta, asigna la propuesta a personas que tengan acceso de lectura al repositorio o aplica etiquetas a tu plantilla de propuesta e ingresa estos detalles en "Información adicional opcional". También puede agregar estos detalles en la plantilla de incidencia con `title`, `labels` o `assignees` en un texto preliminar de YAML.
+![Información adicional de la plantilla de incidencia](/assets/images/help/repository/additional-issue-template-info.png)
+8. Cuando haya terminado de editar y ver la vista previa de la plantilla, haga clic en **Proponer cambios** en la esquina superior derecha de la página.
+![Botón para proponer cambios](/assets/images/help/repository/propose-changes-button.png)
+9. Escribe un mensaje de confirmación que describa los cambios que realizaste.
+![Campo de mensaje de confirmación de la plantilla de incidencia](/assets/images/help/repository/issue-template-commit-message-field.png)
+10. Debajo de los campos del mensaje de confirmación, decide si deseas confirmar tu plantilla directamente en la rama predeterminada o si deseas crear una nueva rama y abrir una solicitud de extracción. Para más información sobre las solicitudes de incorporación de cambios, vea "[Acerca de las solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
+![Opción para confirmar la plantilla de incidencia en la rama principal o abrir una solicitud de incorporación de cambios](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+11. Haga clic en **Confirmar cambios**. Una vez que estos cambios se fusionen en la rama predeterminada, la plantilla estará disponible para que la usen los colaboradores cuando abran nuevas propuestas en el repositorio.
 
 {% ifversion fpt or ghec %}
 
-## Creating issue forms
+## Crear formatos de propuestas
 
 {% data reusables.community.issue-forms-beta %}
 
-With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)." {% data reusables.actions.learn-more-about-yaml %}
+Con los formatos de propuestas, puedes crear plantillas de propuestas que tengan campos de formato web personalizables. Puedes fomentar que los contribuyentes incluyan información específica y estructurada si utilizas formatos de propuestas en tu repositorio. Los formatos de propuesta se escriben en YAML utilizando el modelado de formatos de {% data variables.product.prodname_dotcom %}. Para más información, vea "[Sintaxis del esquema de formulario para {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)". {% data reusables.actions.learn-more-about-yaml %}
 
-To use an issue form in your repository, you must create a new file and add it to the `.github/ISSUE_TEMPLATE` folder in your repository.
+Para usar un formulario de incidencia en el repositorio, debe crear un archivo y agregarlo a la carpeta `.github/ISSUE_TEMPLATE` del repositorio.
 
-Here is an example of an issue form configuration file.
+Aquí tienes un ejemplo de un archivo de confguración de un formato de propuesta.
 
 {% data reusables.community.issue-forms-sample %}
 
-Here is the rendered version of the issue form.
-  ![A rendered issue form](/assets/images/help/repository/sample-issue-form.png)
+Aquí está la versión interpretada de un formato de propuesta.
+  ![Un formulario de incidencia representado](/assets/images/help/repository/sample-issue-form.png)
 
-1. Choose a repository where you want to create an issue form. You can use an existing repository that you have write access to, or you can create a new repository. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
-2. In your repository, create a file called `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your issue form. For more information about creating new files on GitHub, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-3. In the body of the new file, type the contents of your issue form. For more information, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
-4. Commit your file to the default branch of your repository. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. Elige un repositorio en donde quieras crear un formato de propuesta. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. Para más información sobre cómo crear un repositorio, vea "[Creación de un repositorio](/articles/creating-a-new-repository)".
+2. En el repositorio, cree un archivo denominado `.github/ISSUE_TEMPLATE/FORM-NAME.yml` y reemplace `FORM-NAME` por el nombre del formulario de incidencia. Para más información sobre cómo crear archivos en GitHub, vea "[Creación de archivos](/github/managing-files-in-a-repository/creating-new-files)".
+3. En el campo del archivo nuevo, teclea el contenido de tu formato de propuesta. Para más información, vea "[Sintaxis de los formularios de incidencia](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
+4. Confirma tu archivo en la rama predeterminada de tu repositorio. Para más información, vea "[Creación de archivos](/github/managing-files-in-a-repository/creating-new-files)".
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-## Configuring the template chooser
+## Configurar el selector de plantillas
 
 {% data reusables.repositories.issue-template-config %}
 
-You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, people will have the option to open a blank issue.
+Puede animar a los colaboradores a usar plantillas de incidencia si establece `blank_issues_enabled` en `false`. Si establece `blank_issues_enabled` en `true`, los usuarios tendrán la opción de abrir una incidencia en blanco.
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
+**Nota:** Si ha usado el flujo de trabajo heredado para crear manualmente un archivo `issue_template.md` en la carpeta `.github` y habilita las incidencias en blanco en el archivo *config.yml*, se utilizará la plantilla de `issue_template.md` cuando los usuarios decidan abrir una incidencia en blanco. Si inhabilitas los reportes de problemas en blanco, la plantilla nunca se utilizará.
 
 {% endnote %}
 
-If you prefer to receive certain reports outside of {% data variables.product.product_name %}, you can direct people to external sites with `contact_links`.
+Si prefiere recibir determinados informes fuera de {% data variables.product.product_name %}, puede dirigir a los usuarios a sitios externos con `contact_links`.
 
-Here is an example *config.yml* file.
+Este es un archivo *config.yml* de ejemplo.
 
-```shell
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
-    url: https://github.community/
+    url: https://github.com/orgs/community/discussions
     about: Please ask and answer questions here.
   - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
-Your configuration file will customize the template chooser when the file is merged into the repository's default branch.
+Tu archivo de configuración personalizará el selector de plantilla cuando el archivo se combina en la rama predeterminada del repositorio.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type `.github/ISSUE_TEMPLATE/config.yml`.
-  ![Configuration filename](/assets/images/help/repository/template-config-file-name.png)
-4. In the body of the new file, type the contents of your configuration file.
-  ![Configuration file content](/assets/images/help/repository/template-config-file-content.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. En el campo del nombre de archivo, escriba `.github/ISSUE_TEMPLATE/config.yml`.
+  ![Nombre de archivo de configuración](/assets/images/help/repository/template-config-file-name.png)
+4. Teclea el contenido de tu archivo de configuración en el cuerpo del nuevo archivo.
+  ![Contenido del archivo de configuración](/assets/images/help/repository/template-config-file-content.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
 
-## Further reading
+## Información adicional
 
-- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
-- "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)"
+- "[Acerca de las plantillas de incidencias y las solicitudes de incorporación de cambios](/articles/about-issue-and-pull-request-templates)"
+- "[Creación manual de una sola plantilla de incidencia para el repositorio](/articles/manually-creating-a-single-issue-template-for-your-repository)"

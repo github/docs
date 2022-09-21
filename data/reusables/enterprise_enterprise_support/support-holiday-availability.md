@@ -4,7 +4,7 @@
 | Martin Luther King, Jr. Day | Third Monday in January     |
 | Presidents' Day             | Third Monday in February    |
 | Memorial Day                | Last Monday in May          |
-| Independence Day            | July 5                      |
+| Independence Day            | July 4                      |
 | Labor Day                   | First Monday in September   |
 | Veterans Day                | November 11                 |
 | Thanksgiving Day            | Fourth Thursday in November |

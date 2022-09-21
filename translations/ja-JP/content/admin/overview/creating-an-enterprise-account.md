@@ -1,6 +1,6 @@
 ---
-title: Creating an enterprise account
-intro: 'If you''re currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations.'
+title: Enterprise アカウントの作成
+intro: '現在、1 つの組織で {% data variables.product.prodname_ghe_cloud %} を使っている場合、エンタープライズ アカウントを作成して複数の組織を一元管理することができます。'
 versions:
   ghec: '*'
 type: how_to
@@ -10,39 +10,53 @@ topics:
   - Fundamentals
 permissions: Organization owners can create an enterprise account.
 shortTitle: Create enterprise account
+ms.openlocfilehash: a264a5a1ca3e7461c8e05fc02e93064737d79940
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573402'
 ---
+## Enterprise アカウントの作成について
 
-## About enterprise account creation
+{% data variables.product.prodname_ghe_cloud %} には、Enterprise アカウントを作成するオプションが含まれています。これにより、複数の Organizations 間でのコラボレーションが可能になり、管理者は単一の可視性と管理のポイントが得られます。 詳細については、「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
-{% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+{% data reusables.enterprise.create-an-enterprise-account %} 請求書でお支払いになる場合は、{% data variables.product.prodname_dotcom %} に Enterprise アカウントをご自分で作成できます。 そうでない場合は、[営業チームに連絡](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards)して、エンタープライズ アカウントを作成してください。
 
-{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to move to invoicing.
+Enterprise アカウントは、{% data variables.product.prodname_ghe_cloud %} に含まれます。 Enterprise アカウントを作成しても、追加料金が請求されることはありません。
 
-An enterprise account is included in {% data variables.product.prodname_ghe_cloud %}, so creating one will not affect your bill.
+{% data variables.product.product_name %} で既存の Organization を所有する Enterprise アカウントを作成しても、同じ URL のメンバーは、その Organization のリソースを引き続き利用できます。 Organization を Enterprise アカウントに追加すると、次の変更がその Organization に適用されます。
 
-When you create an enterprise account, your existing organization will automatically be owned by the enterprise account. All current owners of your organization will become owners of the enterprise account. All current billing managers of the organization will become billing managers of the new enterprise account. The current billing details of the organization, including the organization's billing email address, will become billing details of the new enterprise account.
+- 既存の Organization は自動的に Enterprise アカウントの所有になります。
+- {% data variables.product.company_short %} によって、Enterprise が所有するすべての Organization 内の利用に対して、Enterprise への請求が行われます。 Organization の支払いのメール アドレスを含む Organization の現在の支払いの詳細は、新しい Enterprise アカウントの支払いの詳細になります。 詳しくは、「[Enterprise の支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」をご覧ください。
+- Organization の現在のすべての所有者は、Enterprise アカウントの所有者になります。また、Organization の現在のすべての支払いマネージャーは、新しい Enterprise アカウントの支払いマネージャーになります。 詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
-## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
+Organization を Enterprise に追加した後で変更をその Organization に適用することについて詳しくは、「[Enterprise への Organization の追加](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)」を参照してください。
 
-To create an enterprise account on {% data variables.product.prodname_dotcom %}, your organization must be using {% data variables.product.prodname_ghe_cloud %} and paying by invoice.
+## {% data variables.product.prodname_dotcom %} に Enterprise アカウントを作成する
+
+エンタープライズ アカウントを作成するには、組織で {% data variables.product.prodname_ghe_cloud %} を使っている必要があります。
+
+請求書による支払いの場合、{% data variables.product.prodname_dotcom %} で直接エンタープライズ アカウントを作成できます。 現在請求書による支払いがない場合は、[営業チームに連絡](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards)してエンタープライズ アカウントを作成してください。
+
 
 {% data reusables.organizations.billing-settings %}
-1. Click **Upgrade to enterprise account**.
+1. **[Upgrade to enterprise account]** をクリックします。
 
-   ![Screenshot of the "Upgrade to an enterprise account" button](/assets/images/help/business-accounts/upgrade-to-enterprise-account.png)
-1. Under "Enterprise name", type a name for your enterprise account.
+   ![[Upgrade to enterprise account] ボタンのスクリーンショット](/assets/images/help/business-accounts/upgrade-to-enterprise-account.png)
+1. [Enterprise name] に、エンタープライズ アカウントの名前を入力します。
 
-   ![Screenshot of the "Enterprise name" field](/assets/images/help/business-accounts/enterprise-name-field.png)
-1. Under "Enterprise URL slug", type a slug for your enterprise account. This slug will be used in the URL for your enterprise. For example, if you choose `octo-enterprise`, the URL for your enterprise will be `https://github.com/enterprises/octo-enterprise`.
+   ![[Enterprise name] フィールドのスクリーンショット](/assets/images/help/business-accounts/enterprise-name-field.png)
+1. [Enterprise URL slug] の下に、Enterprise アカウントのスラッグを入力します。 このスラッグは、Enterprise の URL で使用されます。 たとえば、`octo-enterprise` を選択した場合、Enterprise の URL は `https://github.com/enterprises/octo-enterprise` になります。
 
-   ![Screenshot of the "Enterprise URL slug" field](/assets/images/help/business-accounts/enterprise-slug-field.png)
-1. Click **Confirm and upgrade**.
+   ![[Enterprise URL slug] フィールドのスクリーンショット](/assets/images/help/business-accounts/enterprise-slug-field.png)
+1. **[Confirm and upgrade]** をクリックします。
 
-   ![Screenshot of the "Confirm and upgrade" button](/assets/images/help/business-accounts/confirm-and-upgrade-button.png)
-1. Read the warnings, then click **Create enterprise account**.
+   ![[Confirm and upgrade] ボタンのスクリーンショット](/assets/images/help/business-accounts/confirm-and-upgrade-button.png)
+1. 警告を読み、 **[Create enterprise account]** をクリックします。
 
-   ![Screenshot of the "Create enterprise account" button](/assets/images/help/business-accounts/create-enterprise-account-button.png)
+   ![[Create enterprise account] ボタンのスクリーンショット](/assets/images/help/business-accounts/create-enterprise-account-button.png)
 
 ## 次のステップ
 
-After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. For more information, follow the "[Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account)" learning path.
+Enterprise アカウントを作成したら、Enterprise アカウントの動作と設定とポリシーの構成の詳細について学習することをお勧めします。 詳細については、「[Enterprise アカウントの使用を開始する](/admin/guides#get-started-with-your-enterprise-account)」ラーニング パスに従ってください。

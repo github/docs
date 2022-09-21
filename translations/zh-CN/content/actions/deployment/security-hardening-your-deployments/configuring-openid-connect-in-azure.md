@@ -1,62 +1,66 @@
 ---
-title: Configuring OpenID Connect in Azure
+title: 在 Azure 中配置 OpenID Connect
 shortTitle: Configuring OpenID Connect in Azure
-intro: Use OpenID Connect within your workflows to authenticate with Azure.
+intro: 在工作流程中使用 OpenID Connect 向 Azure 进行身份验证。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 64c7371eec248c7ebeb45a50091b9ef5dbed645e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099200'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 概述
 
-## 概览
+OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %} 工作流程访问 Azure 中的资源，而无需将任何 Azure 凭据存储为长期 {% data variables.product.prodname_dotcom %} 机密。 
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+本指南概述了如何配置 Azure 信任 {% data variables.product.prodname_dotcom %} 的 OIDC 作为联合标识，并包含 [`azure/login`](https://github.com/Azure/login) 操作的工作流示例，该操作使用令牌向 Azure 进行身份验证并访问资源。
 
-This guide gives an overview of how to configure Azure to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`azure/login`](https://github.com/Azure/login) action that uses tokens to authenticate to Azure and access resources.
-
-## 基本要求
+## 先决条件
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Adding the Federated Credentials to Azure
+## 将联合凭据添加到 Azure
 
-{% data variables.product.prodname_dotcom %}'s OIDC provider works with Azure's workload identity federation. For an overview, see Microsoft's documentation at "[Workload identity federation](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)."
+{% data variables.product.prodname_dotcom %} 的 OIDC 提供商与 Azure 的工作负载联合身份验证配合使用。 有关概述，请参阅“[工作负载联合身份验证](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)”中的 Microsoft 文档。
 
-To configure the OIDC identity provider in Azure, you will need to perform the following configuration. For instructions on making these changes, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
+要在 Azure 中配置 OIDC 身份提供商，您需要执行以下配置。 有关进行这些更改的说明，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure)。
 
-1. Create an Azure Active Directory application and a service principal.
-2. Add federated credentials for the Azure Active Directory application.
-3. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
+1. 创建 Azure Active Directory 应用程序和服务主体。
+2. 为 Azure Active Directory 应用程序添加联合凭据。
+3. 创建用于存储 Azure 配置的 {% data variables.product.prodname_dotcom %} 机密。
 
-Additional guidance for configuring the identity provider:
+配置身份提供商的附加指导：
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
-- For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
+- 有关安全强化，请确保已查看[“使用云配置 OIDC 信任”](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)。 有关示例，请参阅“[在云提供商中配置主题](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)”。
+- 对于 `audience` 设置，建议使用 `api://AzureADTokenExchange` 值，但也可以在此处指定其他值。
 
 ## 更新 {% data variables.product.prodname_actions %} 工作流程
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
-2. Use the [`azure/login`](https://github.com/Azure/login) action to exchange the OIDC token (JWT) for a cloud access token.
+要更新 OIDC 的工作流程，您需要对 YAML 进行两项更改：
+1. 为令牌添加权限设置。
+2. 使用 [`azure/login`](https://github.com/Azure/login) 操作将 OIDC 令牌 (JWT) 交换为云访问令牌。
 
-### Adding permissions settings
+### 添加权限设置
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
-### Requesting the access token
+### 请求访问令牌
 
-The [`azure/login`](https://github.com/Azure/login) action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from Azure. For more information, see the [`azure/login`](https://github.com/Azure/login) documentation.
+[`azure/login`](https://github.com/Azure/login) 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 Azure 请求访问令牌。 有关详细信息，请参阅 [`azure/login`](https://github.com/Azure/login) 文档。
 
-The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
+以下示例将 OIDC ID 令牌与 Azure 交换以接收访问令牌，然后可以使用该令牌访问云资源。
 
 {% raw %}
 ```yaml{:copy}
@@ -76,7 +80,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
+  
       - name: 'Run az commands'
         run: |
           az account show

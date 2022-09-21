@@ -1,6 +1,7 @@
 ---
 title: GitHub App で利用可能なエンドポイント
 intro: アプリケーションでは、次の REST エンドポイントにリクエストを送信できます。
+permissions: 'You must use an installation access token to access endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."'
 redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
@@ -11,22 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: GitHub APIが有効なエンドポイント
+shortTitle: GitHub App-enabled endpoints
+ms.openlocfilehash: ab79abe1df9a14f7fdcc73f863e7bce5aa4abd4c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410364'
 ---
-
-{% data variables.product.prodname_github_app %} を使用してエンドポイントにアクセスするには、インストールアクセストークンを使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_github_apps %} で認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
-
-{% for thing in rest.operationsEnabledForGitHubApps[currentVersion] %}
-{% assign category = thing[0] %}
-{% assign operations = thing[1] %}
-{% if operations.size > 0 %}
-  <h3 id="{{category}}">
-    <a href="#{{category}}">{{ category }}</a>
-  </h3>  
-  <ul>
-  {% for operation in operations %}
-  <li><a href="/{{currentLanguage}}/rest/reference/{{operation.category}}#{{operation.slug}}"><code><span style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></a></li>
-  {% endfor %}
-  </ul>
-{% endif %}
-{% endfor %}
+<!-- The content of this page is rendered as a NextJS page component. -->

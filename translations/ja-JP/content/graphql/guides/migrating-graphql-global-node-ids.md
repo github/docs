@@ -1,50 +1,55 @@
 ---
-title: Migrating GraphQL global node IDs
-intro: Learn about the two global node ID formats and how to migrate from the legacy format to the new format.
+title: GraphQLグローバルノードIDの移行
+intro: 2つのグローバルノードIDフォーマットについて、そして旧来のフォーマットから新フォーマットへの移行方法について学びます。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 shortTitle: Migrating global node IDs
+ms.openlocfilehash: 7d62d81e52b848e4fb8b5f6b2bae9997e0ac1209
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717854'
 ---
+## バックグラウンド
 
-## 背景
+{% data variables.product.product_name %} GraphQL APIは、現在2種類のグローバルノードIDフォーマットをサポートしています。 旧来のフォーマットは非推奨と成り、新しいフォーマットで置き換えられます。  このガイドは、必要な場合の新フォーマットへの移行方法を紹介します。 
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be deprecated and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary.
+新しいフォーマットに移行することで、リクエストに対するレスポンスタイムが一貫して小さくなることが保証できます。 また、旧来のIDが完全に非推奨になっても、アプリケーションが動作し続けられることも保証できます。
 
-By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are fully deprecated.
+レガシ グローバル ノード ID 形式が非推奨になる理由の詳細については、「[New global ID format coming to GraphQL (GraphQL に新しいグローバル ID 形式が登場)](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)」を参照してください。
 
-To learn more about why the legacy global node ID format will be deprecated, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+## 対応の必要性の判断
 
-## Determining if you need to take action
+GraphQLグローバルノードIDへの参照を保存している場合にのみ、移行のステップを踏んでいかなければなりません。  これらの ID は、スキーマ内の任意のオブジェクトの `id` フィールドに対応します。  グローバルノードIDをまったく保存していないなら、変更なしにAPIを扱い続けられます。
 
-You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
-
-Additionally, if you currently decode the legacy IDs to extract type information (for example, if you use the first two characters of `PR_kwDOAHz1OX4uYAah` to determine if the object is a pull request), your service will break since the format of the IDs has changed.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+さらに、現在、レガシ ID をデコードして型情報を抽出する場合 (たとえば、オブジェクトが pull request であるかどうかを判断するために `PR_kwDOAHz1OX4uYAah` の最初の 2 文字を使用する場合)、ID の形式が変更されたため、サービスは中断されます。  これらのIDを不透明な文字列として扱うよう、サービスを移行しなければなりません。  これらのIDは一意になるので、直接参照として依存できます。
 
 
-## Migrating to the new global IDs
+## 新しいグローバルIDへの移行
 
-To facilitate migration to the new ID format, you can use the `X-Github-Next-Global-ID` header in your GraphQL API requests. The value of the `X-Github-Next-Global-ID` header can be `1` or `0`.  Setting the value to `1` will force the response payload to always use the new ID format for any object that you requested the `id` field for.  Setting the value to `0` will revert to default behavior, which is to show the legacy ID or new ID depending on the object creation date.
+新しい ID 形式への移行を支援するために、GraphQL API 要求で `X-Github-Next-Global-ID` ヘッダーを使用できます。 `X-Github-Next-Global-ID` ヘッダーの値は、`1` または `0` にできます。  値を `1` に設定すると、`id` フィールドを要求したオブジェクトに対して、常に新しい ID 形式が使用されるように応答ペイロードが強制されます。  値を `0` 設定すると、既定の動作に戻ります。この場合、オブジェクトの作成日に応じてレガシ ID または新しい ID が表示されます。 
 
-Here is an example request using cURL:
+以下は、cURLを使ったリクエストの例です:
 
 ```
 $ curl \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-Github-Next-Global-ID: 1" \
   https://api.github.com/graphql \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'
 ```
 
-Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
+クエリでレガシ ID `MDQ6VXNlcjM0MDczMDM=` が使用された場合でも、応答には新しい ID 形式が含まれます。
 ```
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
-With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API. To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see "[the GraphQL docs](https://graphql.org/learn/queries/#aliases)."
+`X-Github-Next-Global-ID` ヘッダーを使用すると、アプリケーションで参照するレガシ ID の新しい ID 形式を確認できます。 レスポンスで受信されたIDで、それらの参照を更新できます。 旧来のidへの参照をすべて更新し、移行のAPIへのリクエストでは新しいIDフォーマットを使わなければなりません。 バルク操作を行う際には、1つのAPIコールで複数ノードのクエリをサブミットするために、エイリアスを利用できます。 詳細については、[GraphQL のドキュメント](https://graphql.org/learn/queries/#aliases)を参照してください。
 
-You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
+アイテムのコレクションに対して新しいIDを取得することもできます。 たとえば、Organization中の最後の10個のリポジトリの新しいIDを取得したい場合は、以下のようなクエリを使うことができます。
 ```
 {
   organization(login: "github") {
@@ -61,8 +66,8 @@ You can also get the new ID for a collection of items. For example, if you wante
 }
 ```
 
-Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value of every `id` field in your query.  This means that even when you submit a non-`node` query, you will get back the new format ID if you requested the `id` field.
+`X-Github-Next-Global-ID` を `1` に設定すると、クエリ内のすべての `id` フィールドの戻り値に影響することに注意してください。  つまり、`node` 以外のクエリを送信した場合でも、`id` フィールドを要求した場合は新しい形式の ID が返されます。
 
 ## フィードバックを送る
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+アプリに影響を与えるこの変更のロールアウトに関する懸念がある場合は、[{% data variables.product.product_name %} にお問い合わせ](https://support.github.com/contact)いただき、アプリ名などの情報を提供していただければ、より良いサポートを提供できます。

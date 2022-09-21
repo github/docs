@@ -24,7 +24,7 @@ jobs:
       - name: move PR
         uses: alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488
         with:
-          project: Docs team reviews
+          project: Docs open source board
           column: Triage
           repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
 

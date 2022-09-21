@@ -5,6 +5,7 @@
     "script",
     "translations",
     "stylesheets",
-    "tests"
+    "tests",
+    "content"
   ]
 }

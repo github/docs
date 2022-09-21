@@ -21,9 +21,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Conexiones entre repositorios
+shortTitle: Connections between repositories
+ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060070'
 ---
-
 ## Ver la red de un repositorio
 
 El gráfico de red muestra el historial de la rama de la red del repositorio completa, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas de la red.
@@ -32,15 +37,15 @@ El gráfico de red muestra el historial de la rama de la red del repositorio com
 
 {% tip %}
 
-**Sugerencia:** para ver ramas antiguas, haz clic y arrastra dentro del gráfico.
+**Sugerencia:** para ver ramas antiguas, haga clic y arrastre dentro del gráfico.
 
 {% endtip %}
 
 ## Acceder al gráfico de la red
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Network (Red)**. ![Pestaña de red](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. En la barra lateral de la izquierda, haga clic en **Red**.
+![Pestaña Red](/assets/images/help/graphs/network_tab.png)
 
 ## Detallar las bifurcaciones de un repositorio
 
@@ -60,18 +65,16 @@ Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la pe
 
 ### Acceder al Gráfico de miembros
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Forks** (Bifurcaciones). ![Pestaña Forks (Bifurcaciones)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. En la barra lateral de la izquierda, haga clic en **Bifurcaciones**.
+![Pestaña Bifurcaciones](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Visualizar las dependencias de un repositorio
 
 Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.
 
 Casi todo el software depende de el código que otros desarrolladores mantienen y desarrollan, a menudo conocido como una cadena de suministro. Por ejemplo, las utilidades, bibliotecas y marcos de trabajo. Estas dependencias son una parte integral de tu código y cualquier error o vulnerabilidad en ellos podría afectar tu código. Es importante revisar y mantener estas dependencias.
 
-La gráfica de dependencias proporciona una forma genial de visualizar y explorar las depdendencias para un repositorio. Para obtener más información, consulta las secciones "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/about-the-dependency-graph)" y "[Explorar las dependencias de un repositorio](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
+La gráfica de dependencias proporciona una forma genial de visualizar y explorar las depdendencias para un repositorio. Para más información, vea "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/about-the-dependency-graph)" y "[Exploración de las dependencias de un repositorio](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
 
-También puedes configurar tu repositorio para que {% data variables.product.company_short %} te alerte automáticamente en cualquier momento en el que se encuentre una vulnerabilidad de seguridad en alguna de tus dependencias. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
-{% endif %}
+También puedes configurar tu repositorio para que {% data variables.product.company_short %} te alerte automáticamente en cualquier momento en el que se encuentre una vulnerabilidad de seguridad en alguna de tus dependencias. Para más información, vea "[Acerca de {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".

@@ -16,9 +16,15 @@ children:
   - /about-pull-request-merges
   - /merging-a-pull-request
   - /automatically-merging-a-pull-request
-  - /adding-a-pull-request-to-the-merge-queue
+  - /merging-a-pull-request-with-a-merge-queue
   - /closing-a-pull-request
   - /reverting-a-pull-request
-shortTitle: 合并更改
+shortTitle: Incorporate changes
+ms.openlocfilehash: d1acfbbe1fa68bdc80363e6e3abb804a1f268316
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129633'
 ---
 

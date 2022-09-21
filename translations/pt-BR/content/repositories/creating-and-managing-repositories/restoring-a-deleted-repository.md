@@ -1,6 +1,7 @@
 ---
 title: Restaurar um repositório excluído
-intro: Você pode restaurar alguns repositórios excluídos para recuperar o respectivo conteúdo.
+intro: '{% ifversion ghes or ghae %}Um proprietário da empresa{% elsif fpt or ghec %}Você{% endif %} pode restaurar alguns repositórios excluídos para recuperar o conteúdo.'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -12,15 +13,23 @@ versions:
   ghae: '*'
 topics:
   - Repositories
-shortTitle: Restaurar repositório excluído
+shortTitle: Restore deleted repository
+ms.openlocfilehash: 233785cc42ac6dd97a35d042186ae198dd69502a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146200095'
 ---
+{% ifversion ghes or ghae %}
 
-{% ifversion fpt or ghec %}
-Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
+Normalmente, os repositórios excluídos podem ser restaurados em até 90 dias por um proprietário da empresa{% ifversion ghes %} no {% data variables.product.product_location %}{% endif %}. Para obter mais informações, confira "[Como restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". 
+
+{% else %}
 
 ## Sobre a restauração do repositório
 
-Um repositório excluído pode ser restaurado em até 90 dias, a menos que ele fizesse parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
+Um repositório excluído pode ser restaurado em até 90 dias, a menos que ele fizesse parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre forks, confira "[Sobre os forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
 Se desejar restaurar um repositório que fazia parte de uma rede de bifurcação que atualmente não está vazia, contate o {% data variables.contact.contact_support %}.
 
@@ -28,27 +37,17 @@ Depois que um repositório é excluído, pode levar até uma hora para que ele s
 
 Restaurar um repositório não vai restaurar anexos de versão nem permissões de equipe. Os problemas que são restaurados não serão etiquetados.
 
-## Restaurar um repositório excluído que pertencia a uma conta de usuário
+## Restaurar um repositório excluído que pertencia a uma conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.repo-tab %}
-{% data reusables.user-settings.deleted-repos %}
-{% data reusables.user-settings.restore-repo %}
-{% data reusables.user-settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.repo-tab %} {% data reusables.user-settings.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
 
 ## Restaurar um repositório excluído que pertencia a uma organização
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.deleted-repos %}
-{% data reusables.user-settings.restore-repo %}
-{% data reusables.user-settings.restore-confirmation %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Excluir um repositório](/articles/deleting-a-repository)"
+- "[Como excluir um repositório](/articles/deleting-a-repository)"
 
-{% else %}
-Normalmente, repositórios excluídos podem ser restaurados dentro de 90 dias por um administrador do site {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 {% endif %}

@@ -1,3 +1,5 @@
+import { describe, expect } from '@jest/globals'
+
 import getRedirect from '../../lib/get-redirect.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 
@@ -123,20 +125,6 @@ describe('getRedirect basics', () => {
     expect(getRedirect(`/en/enterprise-cloud@latest/user/foo`, ctx)).toBeUndefined()
   })
 
-  it('should only inject language sometimes', () => {
-    const ctx = {
-      pages: {},
-      redirects: {
-        '/foo': '/bar',
-      },
-    }
-    // Nothing's needed here because it's not /admin/guides and
-    // it already has the enterprise-server prefix.
-    expect(getRedirect('/foo', ctx)).toBe('/en/bar')
-    expect(getRedirect('/en/foo', ctx)).toBe('/en/bar')
-    expect(getRedirect('/ja/foo', ctx)).toBe('/ja/bar')
-  })
-
   it('should redirect both the prefix and the path needs to change', () => {
     const ctx = {
       pages: {},
@@ -147,5 +135,16 @@ describe('getRedirect basics', () => {
     // Nothing's needed here because it's not /admin/guides and
     // it already has the enterprise-server prefix.
     expect(getRedirect('/enterprise-server/foo', ctx)).toBe(`/en/enterprise-server@${latest}/bar`)
+  })
+
+  it('should work for some deprecated enterprise-server URLs too', () => {
+    // Starting with enterprise-server 3.0, we have made redirects become
+    // a *function* rather than a lookup on a massive object.
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/enterprise/3.0', ctx)).toBe('/en/enterprise-server@3.0')
+    expect(getRedirect('/enterprise/3.0/foo', ctx)).toBe('/en/enterprise-server@3.0/foo')
   })
 })

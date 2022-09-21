@@ -14,16 +14,21 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Configurar el sitio localmente con Jekyll
+shortTitle: Test site locally with Jekyll
+ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878579'
 ---
-
 Cualquier persona con permisos de lectura para un repositorio puede probar un sitio de {% data variables.product.prodname_pages %} localmente.
 
 ## Prerrequisitos
 
 Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
-  - Instalar [Jekyll](https://jekyllrb.com/docs/installation/).
-  - Crear un sitio de Jekyll. Para obtener más información, consulta "[Crear un sitio de {% data variables.product.prodname_pages %} con Jekyll](/articles/creating-a-github-pages-site-with-jekyll)".
+  - Instalar [Jekyll](https://jekyllrb.com/docs/installation/)
+  - Crear un sitio de Jekyll. Para obtener más información, vea "[Crear un sitio de {% data variables.product.prodname_pages %} con Jekyll](/articles/creating-a-github-pages-site-with-jekyll)".
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -31,10 +36,9 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
 
 ## Construyendo tu sitio localmente
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.pages.navigate-publishing-source %}
-3. Ejecuta `bundle install`.
-3. Ejecuta tu sitio Jekyll de forma local.
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.pages.navigate-publishing-source %}
+3. Ejecute `bundle install`.
+3. Ejecute el sitio de Jekyll localmente.
   ```shell
   $ bundle exec jekyll serve
   > Configuration file: /Users/octocat/my-site/_config.yml
@@ -48,17 +52,23 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
-3. Para previsualizar tu sitio, en tu navegador web, navega hasta `http://localhost:4000`.
+3. Para obtener una vista previa del sitio, en el explorador web, vaya a `http://localhost:4000`.
+
+{% note %}
+
+**Nota**: Si usa Ruby 3.0 y Jekyll 4.2.x, o versiones anteriores, deberá agregar la gema `webrick` al archivo Gemfile del proyecto antes de ejecutar `bundle install`.
+
+{% endnote %}
 
 ## Actualizar la gema de {% data variables.product.prodname_pages %}
 
-Jekyll es un proyecto de código abierto activo que se actualiza de manera frecuente. Si la gema de `github-pages` de tu computadora está desactualizada con respecto a la gema de `github-pages` del servidor de {% data variables.product.prodname_pages %}, tu sitio puede verse diferente cuando se compile localmente en comparación a cómo se vea cuando se publique en {% data variables.product.product_name %}. Para evitar esto, actualiza de manera regular la gema de `github-pages` en tu computadora.
+Jekyll es un proyecto de código abierto activo que se actualiza de manera frecuente. Si la gema de `github-pages` de su equipo está desactualizada con respecto a la gema de `github-pages` del servidor de {% data variables.product.prodname_pages %}, su sitio puede tener un aspecto distinto cuando se compile localmente en comparación a cuando se publique en {% data variables.product.product_name %}. Para evitar esto, actualice periódicamente la gema `github-pages` en el equipo.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Actualiza la gema de `github-pages`.
-    - Si instalaste Bundler, ejecuta `bundle update github-pages`.
-    - Si no tienes instalado Bundler, ejecuta `gem update github-pages`.
+2. Actualice la gema `github-pages`.
+    - Si ha instalado Bundler, ejecute `bundle update github-pages`.
+    - Si no tiene instalado Bundler, ejecute `gem update github-pages`.
 
-## Leer más
+## Información adicional
 
 - [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) en la documentación de Jekyll

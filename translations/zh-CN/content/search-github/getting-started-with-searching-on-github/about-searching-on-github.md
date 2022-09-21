@@ -17,12 +17,17 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 875bb9876a36ce7f202d31749771dc147f348524
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179373'
 ---
-
 {% data reusables.search.you-can-search-globally %}
 
 - 要全局搜索所有 {% data variables.product.product_name %}，请在页面顶部的搜索字段中输入您要查找的内容，然后在搜索下拉菜单中选择“所有{% data variables.product.prodname_dotcom %}”。
-- 要在特定仓库或组织中搜索，请导航到该仓库或组织页面，在页面顶部的搜索字段中输入要查找的内容，然后按 **Enter**。
+- 要在特定存储库或组织中搜索，请导航到该存储库或组织页面，在页面顶部的搜索字段中输入要查找的内容，然后按 Enter。
 
 {% note %}
 
@@ -30,13 +35,13 @@ topics:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} 网站在 {% data variables.product.product_name %} 上不可搜索。 但如果源代码内容存在于仓库的默认分支中，您可以使用代码搜索来搜索。 更多信息请参阅“[搜索代码](/search-github/searching-on-github/searching-code)”。 有关 {% data variables.product.prodname_pages %} 的更多信息，请参阅“[什么是 GitHub Pages？ ](/articles/what-is-github-pages/)”
+- {% data variables.product.prodname_pages %} 网站在 {% data variables.product.product_name %} 上不可搜索。 但如果源代码内容存在于仓库的默认分支中，您可以使用代码搜索来搜索。 有关详细信息，请参阅“[搜索代码](/search-github/searching-on-github/searching-code)”。 有关 {% data variables.product.prodname_pages %} 的详细信息，请参阅“[什么是 GitHub 页面？](/articles/what-is-github-pages/)”
 - 目前我们的搜索不支持精确匹配。
 - 每当您在代码文件中搜索时，将仅返回每个文件中的前两个结果。
 
 {% endnote %}
 
-在 {% data variables.product.product_name %} 上搜索后，您可以对结果排序，或者单击侧栏中的任一语言进一步改进搜索。 更多信息请参阅“[对搜索结果排序](/search-github/getting-started-with-searching-on-github/sorting-search-results)”。
+在 {% data variables.product.product_name %} 上搜索后，您可以对结果排序，或者单击侧栏中的任一语言进一步改进搜索。 有关详细信息，请参阅“[对搜索结果进行排序](/search-github/getting-started-with-searching-on-github/sorting-search-results)”。
 
 每次推送更改到 {% data variables.product.product_name %} 时，{% data variables.product.product_name %} 搜索都会使用 ElasticSearch 群集对项目编制索引。 议题和拉取请求在创建或修改时都会编制索引。
 
@@ -44,48 +49,44 @@ topics:
 
 您可以在 {% data variables.product.product_location %} 上可以访问的所有仓库中搜索以下信息。
 
-- [仓库](/search-github/searching-on-github/searching-for-repositories)
+- [存储库](/search-github/searching-on-github/searching-for-repositories)
 - [主题](/search-github/searching-on-github/searching-topics)
-- [议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
+- [问题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
 - [讨论](/search-github/searching-on-github/searching-discussions){% endif %}
 - [代码](/search-github/searching-on-github/searching-code)
 - [提交](/search-github/searching-on-github/searching-commits)
 - [用户](/search-github/searching-on-github/searching-users)
-- [Packages](/search-github/searching-on-github/searching-for-packages)
-- [Wikis](/search-github/searching-on-github/searching-wikis)
+- [包](/search-github/searching-on-github/searching-for-packages)
+- [Wiki](/search-github/searching-on-github/searching-wikis)
 
 ## 使用可视界面搜索
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% if command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+您可以使用 {% data variables.search.search_page_url %} 或 {% data variables.search.advanced_url %} 搜索 {% data variables.product.product_name %}。 {% ifversion command-palette %}或者，可使用 {% data variables.product.prodname_command_palette %} 中的交互式搜索在 UI、特定用户、存储库或组织中搜索当前位置，并在所有 {% data variables.product.product_name %} 中全局搜索，而无需离开键盘。 有关详细信息，请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
 
 {% data variables.search.advanced_url %} 提供用于构建搜索查询的可视界面。 您可以按各种因素过滤搜索，例如仓库具有的星标数或复刻数。 在填写高级搜索字段时，您的查询将在顶部搜索栏中自动构建。
 
 ![高级搜索](/assets/images/help/search/advanced_search_demo.gif)
 
-{% ifversion fpt or ghes or ghae or ghec %}
+## 从您的私有企业环境中搜索 {% data variables.product.prodname_dotcom_the_website %} 上的存储库
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+{% ifversion fpt or ghec %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. 更多信息请参阅以下文章。
+如果你使用 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_ghe_managed %}，并且企业所有者已启用 {% data variables.product.prodname_unified_search %}，则可以从 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_ghe_managed %} 同时搜索这两个环境。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_server %} 文档](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)或 [{% data variables.product.prodname_ghe_managed %} 文档](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)。
 
-{% ifversion fpt or ghes or ghec %}
+{% else %}
 
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_managed %} documentation
+如果你使用 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.product_name %}，并且企业所有者已启用 {% data variables.product.prodname_unified_search %}，则可以同时从 {% data variables.product.product_name %} 搜索这两个环境。 有关企业所有者如何启用 {% data variables.product.prodname_unified_search %} 的详细信息，请参阅“[为企业启用 {% data variables.product.prodname_unified_search %}](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)”。
 
-{% ifversion ghes or ghae %}
+{% data variables.product.product_name %} 上的企业所有者可以单独为 {% data variables.product.prodname_dotcom_the_website %} 上的所有公共存储库以及通过 {% data variables.product.prodname_github_connect %} 连接到 {% data variables.product.product_name %} 的 {% data variables.product.prodname_dotcom_the_website %} 上的组织或企业拥有的专用存储库启用 {% data variables.product.prodname_unified_search %}。
 
-要按环境限制搜索范围，可以使用 {% data variables.search.advanced_url %} 上的过滤选项，或者使用 `environment:` 搜索前缀。 若只搜索 {% data variables.product.product_name %} 上的内容，请使用搜索语法 `environment:local`。 若只搜索 {% data variables.product.prodname_dotcom_the_website %} 上的内容，则使用 `environment:github`。
+在将 {% data variables.product.prodname_unified_search %} 用于专用存储库之前，必须在 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.product_name %} 上连接个人帐户。 有关详细信息，请参阅“[在专用企业环境中启用 {% data variables.product.prodname_dotcom_the_website %} 存储库搜索](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)”。
 
-Your enterprise owner on {% data variables.product.product_name %} can enable {% data variables.product.prodname_unified_search %} for all public repositories, all private repositories, or only certain private repositories in the connected {% data variables.product.prodname_ghe_cloud %} organization.
+从 {% data variables.product.product_name %} 进行搜索时，只有你有权访问且由已连接的组织或企业帐户拥有的专用存储库才会包含在搜索结果中。 你和其他人都无法从 {% data variables.product.product_name %} 搜索 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户拥有的专用存储库。
 
-When you search from {% data variables.product.product_name %}, you can only search in the private repositories that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Enterprise owners for {% data variables.product.product_name %} and organization owners on {% data variables.product.prodname_dotcom_the_website %} cannot search private repositories owned by your account on {% data variables.product.prodname_dotcom_the_website %}. To search the applicable private repositories, you must enable private repository search for your personal accounts on {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
-
-{% endif %}
-
+若要将你的搜索限制到一个环境，可以使用 {% data variables.search.advanced_url %} 上的筛选器选项，或者使用 `environment:` 搜索前缀。 若要仅搜索 {% data variables.product.product_name %} 上的内容，请使用搜索语法 `environment:local`。 若要仅搜索 {% data variables.product.prodname_dotcom_the_website %} 上的内容，请使用 `environment:github`。
 {% endif %}
 
 ## 延伸阅读
 
-- "[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
-- "[在 GitHub 上搜索](/articles/searching-on-github)"
+- [了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
+- [在 GitHub 上搜索](/articles/searching-on-github)
