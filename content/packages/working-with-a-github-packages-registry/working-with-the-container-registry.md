@@ -136,3 +136,31 @@ This example builds the `hello_docker` image:
   ```shell
   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/OWNER/NEW_IMAGE_NAME:latest
   ```
+
+## Labelling container images
+
+{% data reusables.package_registry.about-docker-labels %} For more information on Docker labels, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+
+The following labels are supported in the {% data variables.product.prodname_container_registry %}. Supported labels will appear on the package page for the image.
+
+Label | Description
+------|------------
+| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
+| `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
+| `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
+
+To add labels to an image, we recommend using the `LABEL` instruction in your `Dockerfile`. For example, if you're the user `monalisa` and you own `my-repo`, and your image is distributed under the terms of the MIT license, you would add the following lines to your `Dockerfile`:
+
+```dockerfile
+LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/monalisa/my-repo
+LABEL org.opencontainers.image.description="My container image"
+LABEL org.opencontainers.image.licenses=MIT
+```
+
+Alternatively, you can add labels to an image at buildtime with the `docker build` command.
+
+```shell
+$ docker build \
+ --label "org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/monalisa/my-repo" \
+ --label "org.opencontainers.image.description=My container image" \
+ --label "org.opencontainers.image.licenses=MIT"

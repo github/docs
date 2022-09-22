@@ -1,0 +1,28 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/27118、https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - 'カスタムの pre-receive フックが、仮想メモリの制限が厳しすぎる、または CPU 時間の制限のために失敗した可能性があります。{% comment %} https://github.com/github/enterprise2/pull/26973、https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'GitHub Enterprise Server クラスタリング構成で、依存関係グラフの設定が正しく適用されないことがありました。{% comment %} https://github.com/github/enterprise2/pull/26981、https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - '`ghe-cleanup-settings` を使用した既存のすべての構成設定のワイプの試行により、管理コンソール サービスの再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26988、https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown` を使用したレプリケーションの破棄時に Memcached の再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26994、https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '負荷が高いとき、アップストリーム サービスで内部の正常性チェックに失敗した場合、ユーザーは HTTP 503 状態コードを受け取ります。{% comment %} https://github.com/github/enterprise2/pull/27083、https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'pre-receive フック環境では、Alpine で BusyBox を介して cat コマンドを呼び出すことが禁止されていました。{% comment %} https://github.com/github/enterprise2/pull/27116、https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'プライマリ クラスター データセンターからセカンダリ クラスター データセンターへのフェールオーバーに成功しましたが、元のプライマリ クラスター データセンターへのフェールバックで、Elasticsearch インデックスの昇格に失敗しました。{% comment %} https://github.com/github/github/pull/193182、https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Organization の Team ページの [チームのインポート] ボタンで、HTTP 404 が返されました。{% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'API を使って Secret Scanning を無効にすると、プロパティは正しく無効になりますが、HTTP 422 とエラー メッセージは正しく返されませんでした。{% comment %} https://github.com/github/github/pull/193455、https://github.com/github/github/pull/192907 {% endcomment %}'
+    - 'GitHub Enterprise 管理者が [Dormant users]\(休眠ユーザー\) ページを表示しようとしたときに、`502 Bad Gateway` (502 無効なゲートウェイ) または `504 Gateway Timeout` (504 ゲートウェイ タイムアウト) の応答を受け取ることがありました。{% comment %} https://github.com/github/github/pull/194262、https://github.com/github/github/pull/193609 {% endcomment %}'
+    - '`SynchronizePullRequestJob` ジョブの数が増加したことにより、特定の負荷の高い状況でパフォーマンスに悪影響がありました。{% comment %} https://github.com/github/github/pull/195256、https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Secret Scanning 用に作成されたユーザー定義パターンが、削除後も引き続きスキャンされていました。{% comment %} https://github.com/github/token-scanning-service/pull/1039、https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'GitHub アプリは、API と同様にリポジトリ上で Secret Scanning 機能を設定するようになりました。{% comment %} https://github.com/github/github/pull/193456、https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
