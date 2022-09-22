@@ -53,7 +53,7 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
@@ -926,12 +926,12 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
+The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 

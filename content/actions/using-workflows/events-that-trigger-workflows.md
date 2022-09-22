@@ -1242,7 +1242,7 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
 ### `workflow_call`
 
@@ -1278,7 +1278,7 @@ You can configure custom-defined input properties, default input values, and req
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
 ```yaml
