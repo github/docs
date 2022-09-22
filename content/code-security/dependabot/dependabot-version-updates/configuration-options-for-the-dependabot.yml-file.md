@@ -778,11 +778,12 @@ registries:
 
 Dependabot works with container registries that implement [the OCI container registry spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  Dependabot supports authentication to private registries via [a central service](https://docs.docker.com/registry/spec/auth/token/).
 
-We support the container registries listed here:
+We currently support the container registries listed here:
+
 * Docker Hub
 * GitHub Container Registry
 * GCR (Google Cloud)
-* Private ECR (AWS)
+* Private ECR (AWS) - public ECR support is tracked [here](https://github.com/dependabot/dependabot-core/issues/4212).
 
 
 The `docker-registry` type supports username and password.
