@@ -1410,6 +1410,24 @@
         "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
       },
       {
+        "slug": "list-dependabot-alerts-for-a-repository",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts"
+      },
+      {
+        "slug": "get-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+      },
+      {
+        "slug": "update-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+      },
+      {
         "slug": "list-repository-secrets",
         "subcategory": "secrets",
         "verb": "get",
@@ -5179,6 +5197,24 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-dependabot-alerts-for-a-repository",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts"
+      },
+      {
+        "slug": "get-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+      },
+      {
+        "slug": "update-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
       },
       {
         "slug": "list-repository-secrets",
