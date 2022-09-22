@@ -13,11 +13,11 @@ topics:
   - API
 shortTitle: Integrator best practices
 ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145135961'
+ms.locfileid: '147882275'
 ---
 ¡Estás interesado en integrarte con la plataforma de GitHub? [Está en buena compañía](https://github.com/integrations). Esta guía le ayudará a compilar una aplicación que proporcione la mejor de las experiencias a sus usuarios *y* garantice su fiabilidad al interactuar con la API. 
 

@@ -9,8 +9,9 @@ topics:
   - Codespaces
 children:
   - /codespaces-lifecycle
-  - /creating-a-codespace
   - /developing-in-a-codespace
+  - /creating-a-codespace
+  - /opening-an-existing-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace

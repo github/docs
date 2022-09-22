@@ -35,11 +35,11 @@ topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
 ms.openlocfilehash: 224f626df144ad249a799767984118778202e7b4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147428330'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883463'
 ---
 ## 排查构建错误
 

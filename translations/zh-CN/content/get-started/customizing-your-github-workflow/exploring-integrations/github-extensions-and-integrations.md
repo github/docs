@@ -11,11 +11,11 @@ versions:
   ghec: '*'
 shortTitle: Extensions & integrations
 ms.openlocfilehash: f33ce9b9ae55e523bedff1309f3f2f15202dcf82
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145164540'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884211'
 ---
 ## 编辑器工具
 

@@ -9,10 +9,10 @@ topics:
   - Enterprise
   - Licensing
 ms.openlocfilehash: 030d91667630445f0811db6e51d5fe33ed863182
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145084477'
 ---
 ## 关于企业的发票

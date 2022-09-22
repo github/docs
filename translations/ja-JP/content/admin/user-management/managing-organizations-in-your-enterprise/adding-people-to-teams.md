@@ -21,7 +21,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145115190'
+ms.locfileid: '147884254'
 ---
 各 Team には、[Organization が所有するリポジトリに対する個別に定義されたアクセス許可があります](/articles/permission-levels-for-an-organization)。
 

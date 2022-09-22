@@ -103,7 +103,7 @@ To further customize access to your container image, see "[Configuring access to
 To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
 
 {% ifversion fpt or ghec %}
-## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
 
 By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
 

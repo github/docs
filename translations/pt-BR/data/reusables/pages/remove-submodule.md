@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9b9749a9b1d8405deadafdb29203b9537900813e
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145096185"
+ms.locfileid: "147884968"
 ---
 Para solucionar problemas, primeiro decida se você realmente deseja usar um submódulo, que é um projeto do Git dentro de um projeto Git; às vezes, submódulos são criados acidentalmente.
 

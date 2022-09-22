@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 248cd2147dd19ac05f537608844f08dd713c5d7f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145085263"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147886467"
 ---
 Adicione um novo arquivo chamado *client.js* ao seu repositório com o seguinte código.

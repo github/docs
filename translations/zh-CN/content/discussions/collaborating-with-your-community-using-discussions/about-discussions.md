@@ -4,11 +4,11 @@ intro: '使用讨论来提问和回答问题、共享信息、发布公告以及
 versions:
   feature: discussions
 ms.openlocfilehash: 4ac74c35b34310b62595bd5ac9a5588a7ef3476a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147433410'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886948'
 ---
 ## 关于 {% data variables.product.prodname_discussions %}
 

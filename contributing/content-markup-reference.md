@@ -67,12 +67,12 @@ To render syntax highlighting in command line instructions, we use triple backti
 ### Usage
 
     ```shell
-    git init <em>YOUR_REPO</em>
+    git init YOUR_REPO
     ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+Within the command-line syntax, use all uppercase text to indicate content that varies for each user, such as a user or repository name.
 
 **Copy-able code blocks**
 

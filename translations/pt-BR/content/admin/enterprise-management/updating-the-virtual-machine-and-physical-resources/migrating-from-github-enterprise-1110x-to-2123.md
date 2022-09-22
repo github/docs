@@ -20,10 +20,10 @@ topics:
   - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
 ms.openlocfilehash: 4dcd93b41d8edc75388d34785c4c149d6627cc5e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146332597'
 ---
 Há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e mais recentes. Não há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e versões anteriores. Você deve atualizar o 11.10.348 em várias etapas de atualização. Para obter mais informações, confira o procedimento de upgrade para a 11.10.348, "[Como fazer upgrade para a última versão](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)".

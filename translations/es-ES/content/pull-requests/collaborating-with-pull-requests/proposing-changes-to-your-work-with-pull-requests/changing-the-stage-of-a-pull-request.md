@@ -17,11 +17,11 @@ topics:
   - Pull requests
 shortTitle: Change the state
 ms.openlocfilehash: 5ef2845e57518c4b66f13a804919f7bdea327040
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145139626'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883299'
 ---
 ## Marcar una solicitud como lista para revisión
 

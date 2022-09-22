@@ -28,6 +28,7 @@ featuredLinks:
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
     - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project

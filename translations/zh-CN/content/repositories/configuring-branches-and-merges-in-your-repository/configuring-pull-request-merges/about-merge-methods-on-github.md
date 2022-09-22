@@ -14,11 +14,11 @@ topics:
   - Repositories
 shortTitle: About merge methods
 ms.openlocfilehash: 97e8b7159ebadf1fe02ae56f707728c2bc8c439d
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145863780'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882439'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} 您可以只对仓库启用所需的方法，以实施一种合并方法，如提交压缩或变基。
 

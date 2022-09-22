@@ -14,26 +14,33 @@ type: how_to
 topics:
   - Workflows
   - Security
-ms.openlocfilehash: c9b5daf88f6e2dc91aad8890a3a8833cfbd2b0f0
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: ecf00be738c711394bc4debf0088ca0cbe5a2d9c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146273051'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710276'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## <a name="about-reusable-workflows"></a>再利用可能なワークフローについて
+## 再利用可能なワークフローについて
 
 あるワークフローから別のワークフローにデプロイ ジョブをコピーして貼り付けるのではなく、デプロイ手順を実行する再利用可能なワークフローを作成できます。 「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)」で説明されているアクセス要件のいずれかを満たしていれば、別のワークフローから再利用可能なワークフローを使用できます。
 
-再利用可能なワークフローを OpenID Connect (OIDC) と組み合わせると、リポジトリ、組織、またはエンタープライズ全体で一貫したデプロイを実施することができます。 これを行うには、再利用可能なワークフローに基づいてクラウド ロールの信頼条件を定義します。
+「ワークフローの再利用 (/actions/learn-github-actions/reusing-workflows)」および「[OpenID Connect によるセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」で説明されている概念をよく理解している必要があります。
 
-再利用可能なワークフローに基づいて信頼条件を作成するには、クラウド プロバイダーが `job_workflow_ref` のカスタム要求をサポートしている必要があります。 これにより、クラウド プロバイダーは、ジョブの元のリポジトリを特定できます。 クラウド プロバイダーが標準の要求 (_audience_ と _subject_) のみをサポートしている場合、再利用可能なワークフロー リポジトリのジョブであることを判断できなくなります。 `job_workflow_ref` をサポートするクラウド プロバイダーには、Google Cloud Platform と HashiCorp Vault があります。
+## 信頼条件の定義
 
-先に進む前に、[再利用可能なワークフロー](/actions/learn-github-actions/reusing-workflows)と [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) の概念を理解しておく必要があります。
+再利用可能なワークフローを OpenID Connect (OIDC) と組み合わせると、リポジトリ、組織、またはエンタープライズ全体で一貫したデプロイを実施することができます。 これを行うには、再利用可能なワークフローに基づいてクラウド ロールの信頼条件を定義します。 使用可能なオプションは、ご利用のクラウド プロバイダーによって異なります。
 
-## <a name="how-the-token-works-with-reusable-workflows"></a>再利用可能なワークフローでのトークンのしくみ
+- **`job_workflow_ref` の使用**: 
+  - 再利用可能なワークフローに基づいて信頼条件を作成するには、クラウド プロバイダーが `job_workflow_ref` のカスタム要求をサポートしている必要があります。 これにより、クラウド プロバイダーは、ジョブの元のリポジトリを特定できます。 
+  - 標準のクレーム (対象ユーザー (`aud`) とサブジェクト (`sub`)) のみをサポートするクラウドの場合は、API を使用して `sub` クレームをカスタマイズして `job_workflow_ref` を含めることができます。 詳しくは、「[トークン クレームのカスタマイズ](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)」を参照してください。 カスタム クレームは、現在、Google Cloud Platform と HashiCorp Vault でサポートされています。
+
+- **トークン クレームのカスタマイズ**: 
+  - JWT に含まれる発行者 (`iss`) とサブジェクト (`sub`) のクレームをカスタマイズすることで、信頼条件をより細かく構成できます。 詳しくは、「[トークン クレームのカスタマイズ](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)」を参照してください。
+
+## 再利用可能なワークフローでのトークンのしくみ
 
 ワークフロー実行中、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーは、ジョブに関する情報を含む OIDC トークンをクラウド プロバイダーに提示します。 そのジョブが再利用可能なワークフローの一部である場合、トークンには、呼び出し元ワークフローに関する情報を含む標準の要求が含まれます。また、呼び出されたワークフローに関する情報を含む `job_workflow_ref` というカスタム要求も含まれます。
 
@@ -76,7 +83,7 @@ ms.locfileid: '146273051'
 
 再利用可能なワークフローでデプロイ手順を実行する場合、通常、特定のクラウド ロールへのアクセスが必要になります。また、組織内のどのリポジトリからもその再利用可能なワークフローを呼び出せるようにすることもできます。 これを許可するには、任意のリポジトリと任意の呼び出し元ワークフローを許可する信頼条件を作成し、組織と呼び出されたワークフローでフィルター処理します。 例については、次のセクションを参照してください。
 
-## <a name="examples"></a>例
+## 例
 
 **特定のリポジトリ内の再利用可能なワークフローにフィルター処理する**
 

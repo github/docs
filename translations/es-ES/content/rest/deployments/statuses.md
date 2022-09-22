@@ -11,10 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: e5ce10e87d08afe28d6151ce6270d48bfa3ae79d
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147549040'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884490'
 ---
 

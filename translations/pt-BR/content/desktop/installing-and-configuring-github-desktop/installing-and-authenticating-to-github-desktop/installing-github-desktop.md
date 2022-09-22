@@ -8,11 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: 4947bff541682887817198c714e7e78bff2cfc9f
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145095133'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882776'
 ---
 ## Sobre a instalação do {% data variables.product.prodname_desktop %}
 

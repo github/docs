@@ -11,11 +11,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: a4097cd792931fe33363229b24f0043b9b99a1cd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147496600'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887218'
 ---
 ## Acerca de las vistas previas del modelo
 

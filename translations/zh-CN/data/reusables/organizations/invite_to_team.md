@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 603c044bcd701d91b2f867ac15d29d0117ae80d5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145100555"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883738"
 ---
 {% ifversion fpt or ghec %}
 1. 将组织成员添加到团队或邀请非成员加入团队：

@@ -21,10 +21,10 @@ topics:
   - Infrastructure
   - Networking
 ms.openlocfilehash: 0dea06870a1bc7bc951580acf3d83a9d2f0984c2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146332454'
 ---
 {% data reusables.github-connect.beta %}

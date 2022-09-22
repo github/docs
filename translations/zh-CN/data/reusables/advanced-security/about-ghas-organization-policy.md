@@ -3,7 +3,7 @@ ms.openlocfilehash: a9edfbc5b5f3c0f50ae1e476d393e658751a5079
 ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: "145098396"
 ---
 {% data variables.product.company_short %} 按提交者对 {% data variables.product.prodname_advanced_security %} 计费。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[管理 {% data variables.product.prodname_GH_advanced_security %} 的许可](/billing/managing-licensing-for-github-advanced-security)”。{% elsif ghes %}有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security)”。{% endif %}

@@ -19,11 +19,11 @@ topics:
   - Identity
   - SSO
 ms.openlocfilehash: 4bd9c8baf32ab09c593a251ca4f1cb698e075501
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145112673'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884281'
 ---
 ## Acerca de la autenticación CAS para {% data variables.product.product_name %}
 

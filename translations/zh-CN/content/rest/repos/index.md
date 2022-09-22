@@ -21,10 +21,10 @@ children:
   - /lfs
   - /tags
 ms.openlocfilehash: ef76154a5e8810543381769f1df1f1d61239dd13
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060864'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884476'
 ---
 

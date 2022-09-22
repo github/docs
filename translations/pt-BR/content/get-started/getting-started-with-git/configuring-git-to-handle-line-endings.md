@@ -19,8 +19,8 @@ ms.openlocfilehash: 4aa89f244e45da6905d6d5348c84faf8d5e6418c
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145095660'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884202'
 ---
 ## Sobre os delimitadores de linha
 Toda vez que você pressiona <kbd>return</kbd> no seu teclado, você insere um caractere invisível denominado delimitadores de linha. Os diferentes sistemas operacionais gerenciam os delimitadores de formas diferentes.

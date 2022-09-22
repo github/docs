@@ -13,11 +13,11 @@ topics:
   - Pages
 shortTitle: Use submodules with Pages
 ms.openlocfilehash: cfe863c3a7d77d006ee4c78e9d58302fb01e4dd4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880691'
+ms.locfileid: '147880795'
 ---
 Se o repositório do seu site do {% data variables.product.prodname_pages %} contiver submódulos, o conteúdo dele será inserido automaticamente quando o site for criado.
 

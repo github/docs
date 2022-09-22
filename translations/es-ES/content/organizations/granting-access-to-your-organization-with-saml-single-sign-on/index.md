@@ -15,10 +15,10 @@ children:
   - /about-two-factor-authentication-and-saml-single-sign-on
 shortTitle: Grant access with SAML
 ms.openlocfilehash: bacc08fa00e639b8031939e9493b5b9c9487d14f
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145135181'
 ---
 

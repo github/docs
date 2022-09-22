@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: e089f0f8ca2a1058b5c168a1fc06a63c78d1333c
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145121466"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147887138"
 ---
 1. Para ver tu sitio publicado, debajo de "{% data variables.product.prodname_pages %}", da clic en la URL del mismo.
 ![URL del sitio publicado](/assets/images/help/pages/click-pages-url-to-preview.png)

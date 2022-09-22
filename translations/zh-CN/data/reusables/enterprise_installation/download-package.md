@@ -4,7 +4,7 @@ ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "145097800"
+ms.locfileid: "147883802"
 ---
 1. 使用 `curl ` 将升级包下载到 {% data variables.product.product_location %}：
 ```shell

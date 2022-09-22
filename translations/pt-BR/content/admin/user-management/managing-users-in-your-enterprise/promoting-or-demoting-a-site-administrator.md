@@ -16,10 +16,10 @@ topics:
   - Enterprise
 shortTitle: Manage administrators
 ms.openlocfilehash: 19daa56cf7d750d69495a6ff52655784411f56ff
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146331693'
 ---
 {% tip %}

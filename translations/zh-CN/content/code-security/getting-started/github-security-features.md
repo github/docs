@@ -13,11 +13,11 @@ topics:
   - Vulnerabilities
   - Advanced Security
 ms.openlocfilehash: fc2e4452e83245535c3d5f7ead70b1b23a5d874a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147525615'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881483'
 ---
 ## 关于 {% data variables.product.prodname_dotcom %} 安全功能
 

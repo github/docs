@@ -20,10 +20,10 @@ children:
   - /dependabot-version-updates
   - /working-with-dependabot
 ms.openlocfilehash: 82b385ab7177adfe568344c0dc04357ffafeb0b3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145101101'
 ---
 

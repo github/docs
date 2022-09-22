@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Commit views
 ms.openlocfilehash: 2b5d59d385f815bd09c853e398d372bb4c861650
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145127154'
 ---
 No {% data variables.product.product_name %}, é possível ver o histórico de commits de um repositório:

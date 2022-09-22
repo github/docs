@@ -13,14 +13,14 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Add locally hosted code
-ms.openlocfilehash: 5dc22ef9d8b5f11618bc90414c9d94fcdfe50462
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 646ea2b0267ffebe546cf014ba7af74ab3c36284
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145131256'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147855041'
 ---
-## <a name="about-adding-existing-source-code-to--data-variablesproductproduct_name-"></a>{% data variables.product.product_name %} への既存のソース コードの追加について
+## {% data variables.product.product_name %} への既存のソース コードの追加について
 
 既存のソース コードまたはリポジトリがコンピューターまたはプライベート ネットワークにローカルに格納されている場合は、ターミナルにコマンドを入力して {% data variables.product.product_name %} に追加できます。 これを行うには、Git コマンドを直接入力するか、{% data variables.product.prodname_cli %} を使用します。
 
@@ -34,7 +34,7 @@ ms.locfileid: '145131256'
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-## <a name="adding-a-local-repository-to--data-variablesproductproduct_name--with--data-variablesproductprodname_cli-"></a>{% data variables.product.prodname_cli %} を使用して {% data variables.product.product_name %} にローカル リポジトリを追加する
+## {% data variables.product.prodname_cli %} を使用して {% data variables.product.product_name %} にローカル リポジトリを追加する
 
 1. コマンド ラインで、ご自分のプロジェクトのルート ディレクトリに移動します。
 1. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -55,18 +55,28 @@ ms.locfileid: '145131256'
 
 1. または、すべてのプロンプトをスキップするには、`--source` フラグを使用してリポジトリへのパスを指定し、可視性フラグ (`--public`、`--private`、または `--internal`) を渡します。 たとえば、`gh repo create --source=. --public` のようにします。 `--remote` フラグを使ってリモートを指定します。 コミットをプッシュするには、`--push` フラグを渡します。 使用できる引数の詳細については、[GitHub CLI のマニュアル](https://cli.github.com/manual/gh_repo_create)を参照してください。
 
-## <a name="adding-a-local-repository-to--data-variablesproductproduct_name--using-git"></a>Git を使用して {% data variables.product.product_name %} にローカル リポジトリを追加する
+## Git を使用して {% data variables.product.product_name %} にローカル リポジトリを追加する
 
 {% mac %}
 
 1. {% data variables.product.product_location %} に[新しいリポジトリを作成します](/repositories/creating-and-managing-repositories/creating-a-new-repository)。 エラーを回避するには、*README*、ライセンス、または `gitignore` ファイルを使用して新しいリポジトリを初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[新しいリポジトリの作成] ドロップダウン](/assets/images/help/repository/repo-create.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. `init` コマンドを使用し、ローカル ディレクトリを Git リポジトリとして初期化します。 既定で、最初のブランチは `master` と言います。
+   
+   Git 2.28.0 以降のバージョンを使用している場合は、`-b` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   Git 2.27.1 以前のバージョンを使用している場合は、`&& git symbolic-ref HEAD refs/heads/main` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init && git symbolic-ref HEAD refs/heads/main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
+  
   ```shell
   $ git add .
   # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
@@ -98,10 +108,19 @@ ms.locfileid: '145131256'
 1. {% data variables.product.product_location %} に[新しいリポジトリを作成します](/articles/creating-a-new-repository)。 エラーを回避するには、*README*、ライセンス、または `gitignore` ファイルを使用して新しいリポジトリを初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[新しいリポジトリの作成] ドロップダウン](/assets/images/help/repository/repo-create.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. `init` コマンドを使用し、ローカル ディレクトリを Git リポジトリとして初期化します。 既定で、最初のブランチは `master` と言います。
+   
+   Git 2.28.0 以降のバージョンを使用している場合は、`-b` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   Git 2.27.1 以前のバージョンを使用している場合は、`&& git symbolic-ref HEAD refs/heads/main` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init && git symbolic-ref HEAD refs/heads/main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
   $ git add .
@@ -134,10 +153,19 @@ ms.locfileid: '145131256'
 1. {% data variables.product.product_location %} に[新しいリポジトリを作成します](/articles/creating-a-new-repository)。 エラーを回避するには、*README*、ライセンス、または `gitignore` ファイルを使用して新しいリポジトリを初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[新しいリポジトリの作成] ドロップダウン](/assets/images/help/repository/repo-create.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
-4. ローカルディレクトリを Git リポジトリとして初期化します。
-  ```shell
-  $ git init -b main
-  ```
+4. `init` コマンドを使用し、ローカル ディレクトリを Git リポジトリとして初期化します。 既定で、最初のブランチは `master` と言います。
+   
+   Git 2.28.0 以降のバージョンを使用している場合は、`-b` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init -b main
+   ```
+
+   Git 2.27.1 以前のバージョンを使用している場合は、`&& git symbolic-ref HEAD refs/heads/main` を使用して、既定のブランチ名を設定できます。
+
+   ``` shell
+   $ git init && git symbolic-ref HEAD refs/heads/main
+   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
   $ git add .
@@ -165,6 +193,6 @@ ms.locfileid: '145131256'
 
 {% endlinux %}
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - "[ファイルをリポジトリに追加する](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

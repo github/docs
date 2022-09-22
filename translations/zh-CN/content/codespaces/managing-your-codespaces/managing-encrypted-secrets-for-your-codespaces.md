@@ -16,10 +16,10 @@ topics:
   - Secret store
 shortTitle: Encrypted secrets
 ms.openlocfilehash: 6951acb82614d35e3394a2af8e58fc8f8442ab3a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147419791'
 ---
 ## 关于 {% data variables.product.prodname_github_codespaces %} 的加密机密

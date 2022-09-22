@@ -11,11 +11,11 @@ topics:
   - Teams
 shortTitle: Configure SAML & SCIM with Okta
 ms.openlocfilehash: 3b1083e0ec9d792de9e9c1e83cd5b000e8261905
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145065958'
+ms.locfileid: '147883277'
 ---
 ## 关于 SAML 和 SCIM 与 Octa
 

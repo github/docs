@@ -22,6 +22,7 @@ includeGuides:
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-codespaces/opening-an-existing-codespace
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli

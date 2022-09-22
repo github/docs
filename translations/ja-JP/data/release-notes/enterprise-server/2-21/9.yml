@@ -1,0 +1,29 @@
+date: '2020-10-09'
+sections:
+  security_fixes:
+    - '**LDAP** ディレクトリのユーザー名が既存の GHES アカウントのログインに標準化されたユーザーが、既存のアカウントとして認証されることがありました。 {% comment %} https://github.com/github/github/pull/156517, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/22911, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+  bugs:
+    - '管理コンソールの [NameID 形式] ドロップダウンが "persistent" に設定された後に、"unspecified" にリセットされます。{% comment %} https://github.com/github/enterprise2/pull/22402, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}'
+    - '[管理コンソール](/admin/configuration/accessing-the-management-console) で設定を保存すると、[TLS/SSL 証明書およびキー](/admin/configuration/configuring-tls) ファイルに改行が追加され、一部のサービスの不要な再ロードがトリガーされます。{% comment %} https://github.com/github/enterprise2/pull/22608, https://github.com/github/enterprise2/pull/22540 {% endcomment %}'
+    - '依存関係グラフのシステム ログがローテーションされないため、ストレージが無制限に増大していました。{% comment %} https://github.com/github/enterprise2/pull/22766, https://github.com/github/enterprise2/pull/22733 {% endcomment %}'
+    - 'Resque のワーカーのオーバーライド設定が使用されている場合、アップグレードに失敗することがありました。{% comment %} https://github.com/github/enterprise2/pull/22838, https://github.com/github/enterprise2/pull/22814 {% endcomment %}'
+    - '"ghe-migrator" でリポジトリをインポートする場合、整合しないデータが存在していると予期しない例外が発生することがありました。{% comment %} https://github.com/github/github/pull/153849, https://github.com/github/github/pull/151552 {% endcomment %}'
+    - 'GitHub セキュリティ アドバイザリへのリンクで、GitHub.com ではなく GitHub Enterprise Server インスタンスのホスト名を含む URL が使用され、ユーザーが存在しない URL にダイレクトされます。{% comment %} https://github.com/github/github/pull/153853, https://github.com/github/github/pull/151301 {% endcomment %}'
+    - '使用中の認証モードで組み込みの 2 要素認証がサポートされていない場合、Enterprise アカウントのセキュリティ設定ページに、[2 要素認証] 設定の [Organization の現在の構成を表示する] リンクが表示されていました。{% comment %} https://github.com/github/github/pull/153861 {% endcomment %}'
+    - '"ghe-migrator" を使用して PR レビュー リクエストをインポートする場合、削除されたユーザーに関連付けられたレコードによって、関係性を持たないデータベース レコードが生成されます。{% comment %} https://github.com/github/github/pull/154959, https://github.com/github/github/pull/153169 {% endcomment %}'
+    - '"ghe-migrator" を使用してユーザーをインポートする際、システムによって生成されたメール アドレスが 100 文字を超える場合、"メールが無効" エラーが発生します。{% comment %} https://github.com/github/github/pull/155110, https://github.com/github/github/pull/152418 {% endcomment %}'
+    - 'Webhook アクティビティのログで大量のディスク領域が使用されると、ルート ディスクがいっぱいになってしまいます。{% comment %} https://github.com/github/github/pull/155656, https://github.com/github/github/pull/154100 {% endcomment %}'
+  changes:
+    - 'AWS EC2 のインスタンスの種類 "m5.16xlarge" のサポートが追加されました。{% comment %} https://github.com/github/enterprise2/pull/22501, https://github.com/github/enterprise2/pull/22473 {% endcomment %}'
+    - '"ghe-migrator" アーカイブの SSH フィンガープリントはいつでも計算できるため、要件が削除されます。{% comment %} https://github.com/github/github/pull/156945, https://github.com/github/github/pull/155387 {% endcomment %}'
+    - 'GitHub App マニフェストに "request_oauth_on_install" フィールドが含まれるようになりました。{% comment %} https://github.com/github/github/pull/156994, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}'
+  known_issues:
+    - '新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 追跡ファイル ("Web インターフェイスからアップロードされたファイル" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベート リポジトリと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンド ラインでリポジトリにプッシュするとき、セキュリティ アラートが報告されません。 {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に起因する場合があります。(2020-11-02 更新) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - '高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。'

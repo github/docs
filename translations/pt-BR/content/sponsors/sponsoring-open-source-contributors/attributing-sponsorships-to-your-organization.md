@@ -14,11 +14,11 @@ topics:
   - Sponsors profile
 shortTitle: Attribute sponsorships
 ms.openlocfilehash: a0b07535ef655f647a5c6bb65de39dcf11c1e6a3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145128191'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884491'
 ---
 1. Acesse a organização cujos patrocínios você deseja atribuir a outra organização.
 2. Abaixo do nome da sua organização, clique em {% octicon "heart" aria-label="The heart icon" %} **Patrocinando**.

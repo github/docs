@@ -13,11 +13,11 @@ topics:
   - Sponsors profile
 shortTitle: Manage sponsor goals
 ms.openlocfilehash: 53d814dfe96baa603fc1514da93252450d93df17
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145139397'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887314'
 ---
 ## Acerca de las metas de patrocinio
 

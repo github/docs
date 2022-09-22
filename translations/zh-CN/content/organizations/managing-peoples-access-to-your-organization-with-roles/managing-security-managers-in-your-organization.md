@@ -9,10 +9,10 @@ topics:
 shortTitle: Security manager role
 permissions: Organization owners can assign the security manager role.
 ms.openlocfilehash: c29dd20a123ccb20a32d40896064e11d59643bd9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145065962'
 ---
 {% data reusables.organizations.security-manager-beta-note %}

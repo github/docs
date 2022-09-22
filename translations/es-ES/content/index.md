@@ -86,7 +86,7 @@ childGroups:
       - issues
       - search-github
   - name: Developers
-    octicon: MarkGithubIcon
+    octicon: CodeSquareIcon
     children:
       - developers
       - rest

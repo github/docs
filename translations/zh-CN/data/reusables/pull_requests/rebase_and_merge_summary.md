@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 371057b7fbe8e92b564e8729b11442bdbf2c1a56
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145086983"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882793"
 ---
 在 {% data variables.product.product_location %} 上的拉取请求中选择“变基并合并”选项时，来自主题分支（或头部分支）的所有提交都会单独添加到基分支，而无需合并提交。 这样，通过维护线性项目历史记录，变基和合并行为类似于[快进合并](https://git-scm.com/docs/git-merge#_fast_forward_merge)。 但是，变基是通过在基分支上用新的提交重写提交历史记录来实现的。
 

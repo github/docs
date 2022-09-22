@@ -15,10 +15,10 @@ topics:
   - Enterprise
 shortTitle: GitHub Enterprise API
 ms.openlocfilehash: d7228182a2dbccc856cb4030a3b08d1883eb266b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '146331633'
 ---
 API を使用すると、さまざまなタスクを自動化できます。 次に例をいくつか示します。

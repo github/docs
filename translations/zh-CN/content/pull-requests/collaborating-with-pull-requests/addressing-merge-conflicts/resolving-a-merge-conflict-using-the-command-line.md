@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145129649'
+ms.locfileid: '147883455'
 ---
 当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 有关详细信息，请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。
 
