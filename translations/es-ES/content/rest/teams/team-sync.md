@@ -2,7 +2,6 @@
 title: Sincronización de equipos
 intro: 'La API de sincronización de equipos te permite administrar las conexiones entre los equipos de {% data variables.product.product_name %} y los grupos del proveedor de identidad (IdP) externo.'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API

@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>databaseId</code> was added to interface <code>Migration</code></p>",
+          "<p>Field <code>databaseId</code> was added to object type <code>RepositoryMigration</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ClearProjectV2ItemFieldValueInput' was added</p>",
           "<p>Type 'ClearProjectV2ItemFieldValuePayload' was added</p>",
           "<p>Field <code>pullRequestReviewComment</code> was added to object type <code>DeletePullRequestReviewCommentPayload</code></p>",

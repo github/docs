@@ -172,6 +172,7 @@ translations/zh-CN/content/rest/reference/users.md,file deleted because it no lo
 translations/zh-CN/content/rest/reference/webhooks.md,file deleted because it no longer exists in main
 translations/zh-CN/content/site-policy/github-terms/github-community-forum-code-of-conduct.md,file deleted because it no longer exists in main
 translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,file deleted because it no longer exists in main
+translations/zh-CN/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-configure-runner-group-access.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
@@ -259,6 +260,7 @@ translations/zh-CN/content/actions/hosting-your-own-runners/managing-access-to-s
 translations/zh-CN/content/actions/learn-github-actions/contexts.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/understanding-github-actions.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,broken liquid tags
+translations/zh-CN/content/actions/publishing-packages/publishing-docker-images.md,broken liquid tags
 translations/zh-CN/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
 translations/zh-CN/content/actions/quickstart.md,rendering error
 translations/zh-CN/content/actions/security-guides/automatic-token-authentication.md,broken liquid tags
@@ -415,14 +417,37 @@ translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-f
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources.md,broken liquid tags
 translations/zh-CN/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/working-with-files/using-files/working-with-non-code-files.md,broken liquid tags
+translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,broken liquid tags
 translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/rest/repos/lfs.md,broken liquid tags
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
 translations/zh-CN/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,broken liquid tags
 translations/zh-CN/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
+translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
+translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/zh-CN/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
-translations/zh-CN/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/2-21/6.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/0.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/2.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/22.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/2-22/3.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/7.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/8.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/2-22/9.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-0/0.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-0/1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-0/2.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-0/3.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-1/1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-1/2.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-1/4.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-2/0-rc1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-4/0-rc1.yml,rendering error
+translations/zh-CN/data/release-notes/github-ae/2021-03/2021-03-03.yml,rendering error
+translations/zh-CN/data/release-notes/github-ae/2021-06/2021-12-06.yml,rendering error
 translations/zh-CN/data/reusables/actions/about-actions-for-enterprises.md,rendering error
 translations/zh-CN/data/reusables/actions/actions-audit-events-workflow.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/actions-billing.md,broken liquid tags
