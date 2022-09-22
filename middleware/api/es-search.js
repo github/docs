@@ -68,9 +68,10 @@ export async function getSearchResults({
     // ],
   }
 
-  if (includeTopics) {
-    searchQuery._source_includes.push('topics')
-  }
+  // See note above why this is excluded in ES 7.11
+  // if (includeTopics) {
+  //   searchQuery._source_includes.push('topics')
+  // }
 
   if (sort === 'best') {
     // To sort by a function score, you need to wrap the primary
