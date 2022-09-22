@@ -3,7 +3,7 @@
    $ git config --global user.signingkey <em>3AA5C34371567BD2</em>
    ```
    
-   Alternatively, when setting a subkey include the `!` suffix. In this example, the GPG subkey ID is `42B317FD4BA89E7A`:
+   Alternatively, when setting a subkey include the `!` suffix. In this example, the GPG subkey ID is `4BB6D45482678BE3`:
    ```shell
-   $ git config --global user.signingkey <em>42B317FD4BA89E7A</em>!
+   $ git config --global user.signingkey <em>4BB6D45482678BE3</em>!
    ```
