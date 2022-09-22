@@ -1,0 +1,19 @@
+date: '2021-04-14'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - 'レプリカの昇格中に、`jq: error (at <stdin>:0): Cannot index number with string "settings"` (jq: エラー (位置 <stdin>:0): 文字列 "settings" にインデックス番号を付けることはできません) という警告メッセージが発生することがあります。'
+    - MySQL のレプリカがプライマリへの接続に失敗することによって、クラスターへの継続的なバックアップの復元に失敗することがありました。
+    - Treelights コンテナーのメモリ不足によって、構文の強調表示が失敗することがありました。
+    - "`/settings/emails` ページにアクセスすると、ログアウトと再ログイン時に不適切なリダイレクトを引き起こす可能性のある状態が格納されることがありました。"
+    - アドバイザリの `vulnerable_version_ranges` に大文字のパッケージ名が含まれる一部のコンポーネントで、依存関係グラフのアラートが表示されませんでした。
+    - GitHub 統合アプリで、issue コメント中の @ メンションで直接メンションされた場合に、チームに通知できませんでした。
+    - ghe-migrator でインポート エラーが発生すると、プロセス全体が中止され、ログに十分なコンテキストが含まれないことがありました。
+  known_issues:
+    - GitHub Enterprise Server をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。
+    - アップグレード時に、カスタムのファイアウォール規則は維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB へのパーマリンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低下する可能性があります。"
