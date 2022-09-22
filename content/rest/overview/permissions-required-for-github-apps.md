@@ -914,7 +914,7 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 {% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 -%}
 - [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
 {% endif -%}
 

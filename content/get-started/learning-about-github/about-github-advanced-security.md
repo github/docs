@@ -31,7 +31,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
 {% ifversion ghes < 3.7 or ghae %}
-<!-- Ref: ghae-issue-7114 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
+<!-- Ref: ghae > 3.6 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 

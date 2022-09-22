@@ -1,7 +1,7 @@
 ---
 title: About workflows
 shortTitle: About workflows
-intro: 'Get a high level overview {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: 'Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
 versions:
   fpt: '*'
   ghes: '*'
