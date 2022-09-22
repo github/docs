@@ -1,7 +1,4 @@
 date: '2022-05-17'
-friendlyDate: 'May 17, 2022'
-title: 'May 17, 2022'
-currentWeek: true
 sections:
   features:
     - heading: 'GitHub Advanced Security features are generally available'

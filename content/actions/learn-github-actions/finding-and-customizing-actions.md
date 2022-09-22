@@ -51,7 +51,7 @@ You can add an action to your workflow by referencing the action in your workflo
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 
 {% note %}
 

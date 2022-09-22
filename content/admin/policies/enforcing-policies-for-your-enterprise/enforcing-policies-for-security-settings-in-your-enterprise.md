@@ -171,7 +171,7 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-{% ifversion ghec or ghae-issue-7803 %}
+{% ifversion ghec %}
 
 ## Managing SSO for unauthenticated users
 

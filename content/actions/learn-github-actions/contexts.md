@@ -38,7 +38,7 @@ You can access contexts using the expression syntax. For more information, see "
 | `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
 | `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
 | `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 | `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
 | `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
@@ -46,7 +46,7 @@ You can access contexts using the expression syntax. For more information, see "
 | `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). |
 | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
 | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
 As part of an expression, you can access context information using one of two syntaxes.
@@ -70,7 +70,7 @@ In addition, some functions may only be used in certain places. For example, the
 
 The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
@@ -196,7 +196,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
@@ -208,7 +208,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
@@ -406,7 +406,7 @@ jobs:
       - run: ./run-tests
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
 ## `jobs` context
 
@@ -782,7 +782,7 @@ jobs:
       - run: ./debug
 ```
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ## `inputs` context
 
 The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
