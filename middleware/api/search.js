@@ -108,7 +108,10 @@ router.get(
     )}-${language}`
 
     const hits = []
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:legacy'])
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:legacy',
+      `indexName:${indexName}`,
+    ])
     try {
       const searchResults = await timed({
         indexName,
@@ -244,7 +247,10 @@ router.get(
     // This measurement then combines both the Node-work and the total
     // network-work but we know that roughly 99.5% of the total time is
     // spent in the network-work time so this primarily measures that.
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:v1'])
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:v1',
+      `indexName:${indexName}`,
+    ])
 
     try {
       const { meta, hits } = await timed({ indexName, query, page, size, debug, sort })
